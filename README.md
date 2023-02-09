@@ -2,6 +2,32 @@
 
 GreptimeDB protobuf files.
 
+## A Tour of GreptimeDB's Protobuf Files
+
+You can find all protobuf files in the directory "proto" under the project's root.
+
+Here's a brief introduction to some protobuf files:
+
+```text
+~ tree
+.
+├── greptime
+│   └── v1
+│       ├── column.proto        // Definition of the "column" schema and value of a table data, returned by GreptimeDB's gRPC service.
+│       ├── database.proto      // Definition of the "request" to be carried in Arrow Flight's "ticket" (yes, we are using the "[Arrow Flight RPC](https://arrow.apache.org/docs/format/Flight.html)").
+│       ├── ddl.proto           // Companion to the "request" above, defines the "Data Definition Language" requests. 
+│       └── meta                
+│           ├── cluster.proto   // Meta cluster gRPC service.
+│           ├── common.proto    // Common data structures Meta used in its gRPC services.
+│           ├── heartbeat.proto // Heartbeat gRPC service. Heartbeats are submitted by Datanodes.
+│           ├── route.proto     // Table route gRPC service, where distributed tables manage their partition rules.
+│           └── store.proto     // Remote KV storage gRPC service.
+└── prometheus
+    └── remote                  // Definition for Prometheus remote read/write protocol.
+        ├── remote.proto
+        └── types.proto
+```
+
 ## Usage
 
 ### Rust
