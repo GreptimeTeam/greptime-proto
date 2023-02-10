@@ -151,6 +151,8 @@ gen_set_header!(BatchPutRequest);
 gen_set_header!(CompareAndPutRequest);
 gen_set_header!(DeleteRangeRequest);
 gen_set_header!(MoveValueRequest);
+gen_set_header!(LockRequest);
+gen_set_header!(UnlockRequest);
 
 #[cfg(test)]
 mod tests {

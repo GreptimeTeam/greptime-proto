@@ -21,6 +21,7 @@ fn main() {
                 "proto/greptime/v1/meta/heartbeat.proto",
                 "proto/greptime/v1/meta/route.proto",
                 "proto/greptime/v1/meta/store.proto",
+                "proto/greptime/v1/meta/lock.proto",
                 "proto/greptime/v1/meta/cluster.proto",
                 "proto/prometheus/remote/remote.proto",
             ],
