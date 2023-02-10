@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package greptime.v1;
 
+option java_package = "io.greptime.v1";
+option java_outer_classname = "Ddl";
+
 import "greptime/v1/column.proto";
 
 // "Data Definition Language" requests, that create, modify or delete the database structures but not the data.
