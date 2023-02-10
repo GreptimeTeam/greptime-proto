@@ -34,7 +34,7 @@ use greptime_proto::v1::meta::*;
 use greptime_proto::prometheus::remote::*;
 ```
 
-## For SDK develops
+## For SDK developers
 
 GreptimeDB's gRPC service is built on top of [Arrow Flight RPC](https://arrow.apache.org/docs/format/Flight.html). You can find the Arrow's official implementation status of each programming language [here](https://arrow.apache.org/docs/status.html#flight-rpc).
 
