@@ -20,8 +20,8 @@ message LockRequest {
   bytes name = 2;
 
   // If the expiration time is exceeded and currently holds the lock, the lock is
-  // aytomatically released. The unit is second.
-  int64 expire = 3;
+  // automatically released.
+  int64 expire_secs = 3;
 }
 
 message LockResponse {
