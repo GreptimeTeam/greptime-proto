@@ -10,9 +10,27 @@ GreptimeDB protobuf files.
 
 ### Command
 
-```text
-make
-```
+- **Compile for Rust**
+
+  ```console
+  make rust
+  ```
+  
+- **Compile for Go**
+
+  ```console
+  make go
+  ```
+  
+  The compilation will install `protoc`/ `protoc-gen-go` / `protoc-gen-go-grpc` locally.
+  
+- **Install protoc locally**
+
+  ```console
+  make install-protoc
+  ```
+
+  Then the `protoc` will install in `./bin/`.
 
 ## Usage
 
@@ -34,6 +52,23 @@ use greptime_proto::v1::meta::*;
 use greptime_proto::prometheus::remote::*;
 ```
 
+### Go
+
+Download the go module:
+
+```console
+go get github.com/GreptimeTeam/greptime-proto@main
+```
+
+Then use greptime-proto as the normal Go module:
+
+```go
+import (
+        greptimev1 "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
+)
+...
+```
+
 ## For SDK developers
 
 GreptimeDB's gRPC service is built on top of [Arrow Flight RPC](https://arrow.apache.org/docs/format/Flight.html). You can find the Arrow's official implementation status of each programming language [here](https://arrow.apache.org/docs/status.html#flight-rpc).
@@ -42,7 +77,7 @@ GreptimeDB's gRPC service is built on top of [Arrow Flight RPC](https://arrow.ap
 
 Once the Arrow Flight client is ready, you only need to care about the following 3 protobuf files to accomplish our SDK writing:
 
-```text
+```console
 .
 ├── greptime
 │   └── v1

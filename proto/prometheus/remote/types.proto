@@ -14,7 +14,7 @@
 syntax = "proto3";
 package prometheus;
 
-option go_package = "prompb";
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/prometheus/remote";
 
 message MetricMetadata {
   enum MetricType {

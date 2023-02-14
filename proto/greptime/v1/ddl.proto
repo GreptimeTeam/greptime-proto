@@ -4,6 +4,7 @@ package greptime.v1;
 
 option java_package = "io.greptime.v1";
 option java_outer_classname = "Ddl";
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
 import "greptime/v1/column.proto";
 
