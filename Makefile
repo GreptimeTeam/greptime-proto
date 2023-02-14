@@ -1,21 +1,16 @@
-.PHONY: all rust go go-deps install-protoc clean
+.PHONY: all rust go go-deps
+
+BUILDER_CONTAINER=namely/protoc-all:1.51_1
 
 all: rust go
 
 rust:
 	cargo build
 
-go: install-protoc install-protobuf-go-plugins go-deps
-	./scripts/generate-go.sh
+go: go-deps
+	docker run -t -w /greptime-proto \
+    --entrypoint ./scripts/generate-go.sh \
+    -v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
 
 go-deps:
 	go mod download
-
-install-protoc:
-	./scripts/install-protoc.sh
-
-install-protobuf-go-plugins:
-	./scripts/install-protobuf-go-plugins.sh
-
-clean:
-	rm -rf bin

@@ -22,15 +22,7 @@ GreptimeDB protobuf files.
   make go
   ```
   
-  The compilation will install `protoc`/ `protoc-gen-go` / `protoc-gen-go-grpc` locally.
-  
-- **Install protoc locally**
-
-  ```console
-  make install-protoc
-  ```
-
-  Then the `protoc` will install in `./bin/`.
+  The compilation will use builder container `namely/protoc-all`.
 
 ## Usage
 
