@@ -14,7 +14,9 @@
 syntax = "proto3";
 package prometheus;
 
-option go_package = "prompb";
+// GreptimeTeam modify the original go_package definition to make it constistent with the go package name.
+// And we also remove the gogoproto dependency which is now deprecated.
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/prometheus/remote";
 
 import "prometheus/remote/types.proto";
 
