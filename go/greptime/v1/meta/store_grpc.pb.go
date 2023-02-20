@@ -26,6 +26,8 @@ type StoreClient interface {
 	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
 	// Put puts the given key into the key-value store.
 	Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error)
+	// BatchGet atomically get values by the given keys from the key-value store.
+	BatchGet(ctx context.Context, in *BatchGetRequest, opts ...grpc.CallOption) (*BatchGetResponse, error)
 	// BatchPut atomically puts the given keys into the key-value store.
 	BatchPut(ctx context.Context, in *BatchPutRequest, opts ...grpc.CallOption) (*BatchPutResponse, error)
 	// CompareAndPut atomically puts the value to the given updated
@@ -57,6 +59,15 @@ func (c *storeClient) Range(ctx context.Context, in *RangeRequest, opts ...grpc.
 func (c *storeClient) Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error) {
 	out := new(PutResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Store/Put", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeClient) BatchGet(ctx context.Context, in *BatchGetRequest, opts ...grpc.CallOption) (*BatchGetResponse, error) {
+	out := new(BatchGetResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Store/BatchGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,6 +118,8 @@ type StoreServer interface {
 	Range(context.Context, *RangeRequest) (*RangeResponse, error)
 	// Put puts the given key into the key-value store.
 	Put(context.Context, *PutRequest) (*PutResponse, error)
+	// BatchGet atomically get values by the given keys from the key-value store.
+	BatchGet(context.Context, *BatchGetRequest) (*BatchGetResponse, error)
 	// BatchPut atomically puts the given keys into the key-value store.
 	BatchPut(context.Context, *BatchPutRequest) (*BatchPutResponse, error)
 	// CompareAndPut atomically puts the value to the given updated
@@ -128,6 +141,9 @@ func (UnimplementedStoreServer) Range(context.Context, *RangeRequest) (*RangeRes
 }
 func (UnimplementedStoreServer) Put(context.Context, *PutRequest) (*PutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Put not implemented")
+}
+func (UnimplementedStoreServer) BatchGet(context.Context, *BatchGetRequest) (*BatchGetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchGet not implemented")
 }
 func (UnimplementedStoreServer) BatchPut(context.Context, *BatchPutRequest) (*BatchPutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BatchPut not implemented")
@@ -186,6 +202,24 @@ func _Store_Put_Handler(srv interface{}, ctx context.Context, dec func(interface
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(StoreServer).Put(ctx, req.(*PutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Store_BatchGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchGetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServer).BatchGet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.meta.Store/BatchGet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServer).BatchGet(ctx, req.(*BatchGetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -276,6 +310,10 @@ var Store_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Put",
 			Handler:    _Store_Put_Handler,
+		},
+		{
+			MethodName: "BatchGet",
+			Handler:    _Store_BatchGet_Handler,
 		},
 		{
 			MethodName: "BatchPut",
