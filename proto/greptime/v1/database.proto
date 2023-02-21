@@ -14,6 +14,8 @@ message RequestHeader {
   string catalog = 1;
   // The `schema` that is selected to be used in this request.
   string schema = 2;
+  // The `authorization` header string, much like http's authorization header.
+  string authorization = 3;
 }
 
 message GreptimeRequest {
