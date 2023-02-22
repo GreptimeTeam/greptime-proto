@@ -14,8 +14,24 @@ message RequestHeader {
   string catalog = 1;
   // The `schema` that is selected to be used in this request.
   string schema = 2;
-  // The `authorization` header string, much like http's authorization header.
-  string authorization = 3;
+  // The `authorization` header, much like http's authorization header.
+  AuthHeader authorization = 3;
+}
+
+message AuthHeader {
+  oneof auth_scheme {
+    Basic basic = 1;
+    Token token = 2;
+  }
+}
+
+message Basic {
+  string username = 1;
+  string password = 2;
+}
+
+message Token {
+  string token = 1;
 }
 
 message GreptimeRequest {
