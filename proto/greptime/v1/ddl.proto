@@ -51,6 +51,13 @@ message DropTableExpr {
   string table_name = 3;
 }
 
+message FlushTableExpr {
+  string catalog_name = 1;
+  string schema_name = 2;
+  string table_name = 3;
+  optional uint32 region_id = 4;
+} 
+
 message CreateDatabaseExpr {
   //TODO(hl): maybe rename to schema_name?
   string database_name = 1;
