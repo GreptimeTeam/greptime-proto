@@ -17,6 +17,7 @@ message DdlRequest {
     CreateTableExpr create_table = 2;
     AlterExpr alter = 3;
     DropTableExpr drop_table = 4;
+    FlushTableExpr flush_table = 5;
   }
 }
 
