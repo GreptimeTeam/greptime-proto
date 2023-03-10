@@ -47,11 +47,11 @@ message QueryRequest {
   oneof query {
     string sql = 1;
     bytes logical_plan = 2;
-    PromQLQuery promql = 3;
+    PromRangeQuery prom_range_query = 3;
   }
 }
 
-message PromQLQuery {
+message PromRangeQuery {
   string query = 1;
   string start = 2;
   string end = 3;
