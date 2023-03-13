@@ -47,7 +47,15 @@ message QueryRequest {
   oneof query {
     string sql = 1;
     bytes logical_plan = 2;
+    PromRangeQuery prom_range_query = 3;
   }
+}
+
+message PromRangeQuery {
+  string query = 1;
+  string start = 2;
+  string end = 3;
+  string step = 4;
 }
 
 message InsertRequest {
