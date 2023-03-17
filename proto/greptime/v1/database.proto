@@ -9,6 +9,10 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 import "greptime/v1/ddl.proto";
 import "greptime/v1/column.proto";
 
+service GreptimeDatabase {
+  rpc Handle(GreptimeRequest) returns (GreptimeResponse);
+}
+
 message RequestHeader {
   // The `catalog` that is selected to be used in this request.
   string catalog = 1;
@@ -40,6 +44,15 @@ message GreptimeRequest {
     InsertRequest insert = 2;
     QueryRequest query = 3;
     DdlRequest ddl = 4;
+  }
+}
+
+message ResponseHeader {}
+
+message GreptimeResponse {
+  ResponseHeader header = 1;
+  oneof response {
+    AffectedRows affected_rows = 2;
   }
 }
 
