@@ -10292,11 +10292,13 @@ public final class Database {
       "(\r\022\025\n\rregion_number\030\005 \001(\r\"\035\n\014AffectedRow" +
       "s\022\r\n\005value\030\001 \001(\r\"B\n\016FlightMetadata\0220\n\raf" +
       "fected_rows\030\001 \001(\0132\031.greptime.v1.Affected" +
-      "Rows2Y\n\020GreptimeDatabase\022E\n\006Handle\022\034.gre" +
+      "Rows2\252\001\n\020GreptimeDatabase\022E\n\006Handle\022\034.gr" +
+      "eptime.v1.GreptimeRequest\032\035.greptime.v1." +
+      "GreptimeResponse\022O\n\016HandleRequests\022\034.gre" +
       "ptime.v1.GreptimeRequest\032\035.greptime.v1.G" +
-      "reptimeResponseBQ\n\016io.greptime.v1B\010Datab" +
-      "aseZ5github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1b\006proto3"
+      "reptimeResponse(\001BQ\n\016io.greptime.v1B\010Dat" +
+      "abaseZ5github.com/GreptimeTeam/greptime-" +
+      "proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

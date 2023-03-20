@@ -11,6 +11,8 @@ import "greptime/v1/column.proto";
 
 service GreptimeDatabase {
   rpc Handle(GreptimeRequest) returns (GreptimeResponse);
+
+  rpc HandleRequests(stream GreptimeRequest) returns (GreptimeResponse);
 }
 
 message RequestHeader {
