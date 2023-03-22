@@ -12,6 +12,8 @@ import "greptime/v1/column.proto";
 service GreptimeDatabase {
   rpc Handle(GreptimeRequest) returns (GreptimeResponse);
 
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+
   rpc HandleRequests(stream GreptimeRequest) returns (GreptimeResponse);
 }
 
@@ -96,4 +98,16 @@ message AffectedRows {
 
 message FlightMetadata {
   AffectedRows affected_rows = 1;
+}
+
+message HealthCheckRequest {}
+
+message HealthCheckResponse {
+  enum ServingStatus {
+    UNKNOWN = 1;
+    SERVING = 2;
+    NOT_SERVING = 3;
+  }
+
+  ServingStatus status = 1;
 }
