@@ -104,9 +104,9 @@ message HealthCheckRequest {}
 
 message HealthCheckResponse {
   enum ServingStatus {
-    UNKNOWN = 1;
-    SERVING = 2;
-    NOT_SERVING = 3;
+    UNKNOWN = 0;
+    SERVING = 1;
+    NOT_SERVING = 2;
   }
 
   ServingStatus status = 1;
