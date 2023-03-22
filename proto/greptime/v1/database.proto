@@ -22,6 +22,8 @@ message RequestHeader {
   string schema = 2;
   // The `authorization` header, much like http's authorization header.
   AuthHeader authorization = 3;
+  // The `dbname` for the request
+  string dbname = 4;
 }
 
 message AuthHeader {
