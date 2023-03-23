@@ -12,8 +12,6 @@ import "greptime/v1/column.proto";
 service GreptimeDatabase {
   rpc Handle(GreptimeRequest) returns (GreptimeResponse);
 
-  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
-
   rpc HandleRequests(stream GreptimeRequest) returns (GreptimeResponse);
 }
 
@@ -99,7 +97,3 @@ message AffectedRows {
 message FlightMetadata {
   AffectedRows affected_rows = 1;
 }
-
-message HealthCheckRequest {}
-
-message HealthCheckResponse {}

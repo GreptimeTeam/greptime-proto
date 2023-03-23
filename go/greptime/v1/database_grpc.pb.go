@@ -23,7 +23,6 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type GreptimeDatabaseClient interface {
 	Handle(ctx context.Context, in *GreptimeRequest, opts ...grpc.CallOption) (*GreptimeResponse, error)
-	HealthCheck(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error)
 	HandleRequests(ctx context.Context, opts ...grpc.CallOption) (GreptimeDatabase_HandleRequestsClient, error)
 }
 
@@ -38,15 +37,6 @@ func NewGreptimeDatabaseClient(cc grpc.ClientConnInterface) GreptimeDatabaseClie
 func (c *greptimeDatabaseClient) Handle(ctx context.Context, in *GreptimeRequest, opts ...grpc.CallOption) (*GreptimeResponse, error) {
 	out := new(GreptimeResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.GreptimeDatabase/Handle", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *greptimeDatabaseClient) HealthCheck(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error) {
-	out := new(HealthCheckResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.GreptimeDatabase/HealthCheck", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +82,6 @@ func (x *greptimeDatabaseHandleRequestsClient) CloseAndRecv() (*GreptimeResponse
 // for forward compatibility
 type GreptimeDatabaseServer interface {
 	Handle(context.Context, *GreptimeRequest) (*GreptimeResponse, error)
-	HealthCheck(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error)
 	HandleRequests(GreptimeDatabase_HandleRequestsServer) error
 	mustEmbedUnimplementedGreptimeDatabaseServer()
 }
@@ -103,9 +92,6 @@ type UnimplementedGreptimeDatabaseServer struct {
 
 func (UnimplementedGreptimeDatabaseServer) Handle(context.Context, *GreptimeRequest) (*GreptimeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Handle not implemented")
-}
-func (UnimplementedGreptimeDatabaseServer) HealthCheck(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method HealthCheck not implemented")
 }
 func (UnimplementedGreptimeDatabaseServer) HandleRequests(GreptimeDatabase_HandleRequestsServer) error {
 	return status.Errorf(codes.Unimplemented, "method HandleRequests not implemented")
@@ -137,24 +123,6 @@ func _GreptimeDatabase_Handle_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GreptimeDatabaseServer).Handle(ctx, req.(*GreptimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GreptimeDatabase_HealthCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HealthCheckRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GreptimeDatabaseServer).HealthCheck(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/greptime.v1.GreptimeDatabase/HealthCheck",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GreptimeDatabaseServer).HealthCheck(ctx, req.(*HealthCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -195,10 +163,6 @@ var GreptimeDatabase_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Handle",
 			Handler:    _GreptimeDatabase_Handle_Handler,
-		},
-		{
-			MethodName: "HealthCheck",
-			Handler:    _GreptimeDatabase_HealthCheck_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
