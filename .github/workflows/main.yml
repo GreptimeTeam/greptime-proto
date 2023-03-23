@@ -43,11 +43,12 @@ jobs:
       - name: Go protbuf generation
         run: |
           make go
-          if git status --porcelain=v1; then
+          if git status --porcelain=v1 | wc -l; then
             echo "go_proto_conflicts=true" >> $GITHUB_ENV
           else
             echo "go_proto_conflicts=false" >> $GITHUB_ENV
           fi
+          git status --porcelain=v1
       - name: Check protobuf generation
         if: ${{ env.go_proto_conflicts == 'true' }}
         run: |
