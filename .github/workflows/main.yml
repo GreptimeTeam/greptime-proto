@@ -40,10 +40,21 @@ jobs:
         uses: Swatinem/rust-cache@v2
       - name: Run cargo check
         run: cargo check --workspace --all-targets
-      - name: Check Go protbuf generation
+      - name: Go protbuf generation
         run: |
           make go
-          git diff --exit-code
+          if git status --porcelain=v1; then
+            echo "go_proto_conflicts=true" >> $GITHUB_ENV
+          else
+            echo "go_proto_conflicts=false" >> $GITHUB_ENV
+          fi
+      - name: Check protobuf generation
+        if: ${{ env.go_proto_conflicts == 'true' }}
+        run: |
+            echo "Fail: generated go protobuf in github action is different from pushed ones"
+            exit 1
+
+          
 
   fmt:
     name: Rustfmt
