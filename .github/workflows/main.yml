@@ -43,7 +43,9 @@ jobs:
       - name: Check Go protbuf generation
         run: |
           make go
-          git diff --exit-code
+          test $(git status --porcelain=v1 | wc -l) -eq 0 || (echo "Fail: generated go protobuf in github action is different from pushed ones" ; exit 1)
+
+          
 
   fmt:
     name: Rustfmt
