@@ -8,7 +8,7 @@ rust:
 	cargo build
 
 go: go-deps
-	docker run -t -w /greptime-proto \
+	docker run -t --rm -w /greptime-proto \
     	--entrypoint ./scripts/generate-go.sh \
     	-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
 

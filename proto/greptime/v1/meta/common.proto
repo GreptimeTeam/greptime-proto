@@ -48,3 +48,15 @@ message KeyValue {
   // value is the value held by the key, in bytes.
   bytes value = 2;
 }
+
+message KeyRange {
+  // key is the first key for the range
+  bytes key = 1;
+  // range_end is the upper bound on the requested range [key, range_end).
+  // If range_end is '\0', the range is all keys >= key.
+  // If range_end is key plus one (e.g., "aa"+1 == "ab", "a\xff"+1 == "b"),
+  // then the range request gets all keys prefixed with key.
+  // If both key and range_end are '\0', then the range request returns all
+  // keys.
+  bytes range_end = 2;
+}

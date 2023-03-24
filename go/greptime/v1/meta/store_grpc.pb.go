@@ -37,6 +37,8 @@ type StoreClient interface {
 	DeleteRange(ctx context.Context, in *DeleteRangeRequest, opts ...grpc.CallOption) (*DeleteRangeResponse, error)
 	// MoveValue atomically renames the key to the given updated key.
 	MoveValue(ctx context.Context, in *MoveValueRequest, opts ...grpc.CallOption) (*MoveValueResponse, error)
+	// BatchDeleteRange atomically deletes the given keys from the key-value store.
+	BatchDeleteRange(ctx context.Context, in *BatchDeleteRangeRequest, opts ...grpc.CallOption) (*BatchDeleteRangeResponse, error)
 }
 
 type storeClient struct {
@@ -110,6 +112,15 @@ func (c *storeClient) MoveValue(ctx context.Context, in *MoveValueRequest, opts 
 	return out, nil
 }
 
+func (c *storeClient) BatchDeleteRange(ctx context.Context, in *BatchDeleteRangeRequest, opts ...grpc.CallOption) (*BatchDeleteRangeResponse, error) {
+	out := new(BatchDeleteRangeResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Store/BatchDeleteRange", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // StoreServer is the server API for Store service.
 // All implementations must embed UnimplementedStoreServer
 // for forward compatibility
@@ -129,6 +140,8 @@ type StoreServer interface {
 	DeleteRange(context.Context, *DeleteRangeRequest) (*DeleteRangeResponse, error)
 	// MoveValue atomically renames the key to the given updated key.
 	MoveValue(context.Context, *MoveValueRequest) (*MoveValueResponse, error)
+	// BatchDeleteRange atomically deletes the given keys from the key-value store.
+	BatchDeleteRange(context.Context, *BatchDeleteRangeRequest) (*BatchDeleteRangeResponse, error)
 	mustEmbedUnimplementedStoreServer()
 }
 
@@ -156,6 +169,9 @@ func (UnimplementedStoreServer) DeleteRange(context.Context, *DeleteRangeRequest
 }
 func (UnimplementedStoreServer) MoveValue(context.Context, *MoveValueRequest) (*MoveValueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method MoveValue not implemented")
+}
+func (UnimplementedStoreServer) BatchDeleteRange(context.Context, *BatchDeleteRangeRequest) (*BatchDeleteRangeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchDeleteRange not implemented")
 }
 func (UnimplementedStoreServer) mustEmbedUnimplementedStoreServer() {}
 
@@ -296,6 +312,24 @@ func _Store_MoveValue_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Store_BatchDeleteRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchDeleteRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServer).BatchDeleteRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.meta.Store/BatchDeleteRange",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServer).BatchDeleteRange(ctx, req.(*BatchDeleteRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Store_ServiceDesc is the grpc.ServiceDesc for Store service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -330,6 +364,10 @@ var Store_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "MoveValue",
 			Handler:    _Store_MoveValue_Handler,
+		},
+		{
+			MethodName: "BatchDeleteRange",
+			Handler:    _Store_BatchDeleteRange_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

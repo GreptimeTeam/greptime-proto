@@ -28,6 +28,9 @@ service Store {
 
   // MoveValue atomically renames the key to the given updated key.
   rpc MoveValue(MoveValueRequest) returns (MoveValueResponse);
+
+  // BatchDeleteRange atomically deletes the given keys from the key-value store.
+  rpc BatchDeleteRange(BatchDeleteRangeRequest) returns (BatchDeleteRangeResponse);
 }
 
 message RangeRequest {
@@ -52,7 +55,7 @@ message RangeRequest {
 
 message RangeResponse {
   ResponseHeader header = 1;
-  
+
   // kvs is the list of key-value pairs matched by the range request.
   repeated KeyValue kvs = 2;
   // more indicates if there are more keys to return in the requested range.
@@ -118,7 +121,7 @@ message CompareAndPutRequest {
   bytes expect = 3;
   // value is the value, in bytes, to associate with the key in the
   // key-value store.
-  bytes value = 4; 
+  bytes value = 4;
 }
 
 message CompareAndPutResponse {
@@ -173,4 +176,18 @@ message MoveValueResponse {
   // If from_key dose not exist, return the value of to_key (if it exists).
   // If from_key exists, return the value of from_key.
   KeyValue kv = 2;
+}
+
+message BatchDeleteRangeRequest {
+  RequestHeader header = 1;
+
+  repeated KeyRange ranges = 2;
+  bool prev_kv = 3;
+}
+
+message BatchDeleteRangeResponse {
+  ResponseHeader header = 1;
+
+  int64 deleted = 2;
+  repeated KeyValue prev_kvs = 3;
 }
