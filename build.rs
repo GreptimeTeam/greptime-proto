@@ -25,6 +25,7 @@ fn main() {
         .compile(
             &[
                 "proto/greptime/v1/database.proto",
+                "proto/greptime/v1/health.proto",
                 "proto/greptime/v1/meta/common.proto",
                 "proto/greptime/v1/meta/heartbeat.proto",
                 "proto/greptime/v1/meta/route.proto",
