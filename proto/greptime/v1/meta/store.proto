@@ -19,6 +19,10 @@ service Store {
   // BatchPut atomically puts the given keys into the key-value store.
   rpc BatchPut(BatchPutRequest) returns (BatchPutResponse);
 
+  // BatchDelete atomically deletes the given keys and its associating values
+  // from the key-value store.
+  rpc BatchDelete(BatchDeleteRequest) returns (BatchDeleteResponse);
+
   // CompareAndPut atomically puts the value to the given updated
   // value if the current value == the expected value.
   rpc CompareAndPut(CompareAndPutRequest) returns (CompareAndPutResponse);
@@ -108,6 +112,24 @@ message BatchPutResponse {
   // returned.
   repeated KeyValue prev_kvs = 2;
 }
+
+message BatchDeleteRequest {
+  RequestHeader header = 1;
+
+  repeated bytes keys = 2;
+  // If prev_kv is set, gets the previous key-value pairs before deleting it.
+  // The previous key-value pairs will be returned in the batch delete response.
+  bool prev_kv = 3;
+}
+
+message BatchDeleteResponse {
+  ResponseHeader header = 1;
+
+  // If prev_kv is set in the request, the previous key-value pairs will be
+  // returned.
+  repeated KeyValue prev_kvs = 2;
+}
+
 
 message CompareAndPutRequest {
   RequestHeader header = 1;
