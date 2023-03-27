@@ -149,6 +149,7 @@ gen_set_header!(DeleteRequest);
 gen_set_header!(PutRequest);
 gen_set_header!(BatchGetRequest);
 gen_set_header!(BatchPutRequest);
+gen_set_header!(BatchDeleteRequest);
 gen_set_header!(CompareAndPutRequest);
 gen_set_header!(DeleteRangeRequest);
 gen_set_header!(MoveValueRequest);
