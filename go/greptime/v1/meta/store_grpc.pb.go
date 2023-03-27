@@ -30,6 +30,9 @@ type StoreClient interface {
 	BatchGet(ctx context.Context, in *BatchGetRequest, opts ...grpc.CallOption) (*BatchGetResponse, error)
 	// BatchPut atomically puts the given keys into the key-value store.
 	BatchPut(ctx context.Context, in *BatchPutRequest, opts ...grpc.CallOption) (*BatchPutResponse, error)
+	// BatchDelete atomically deletes the given keys and its associating values
+	// from the key-value store.
+	BatchDelete(ctx context.Context, in *BatchDeleteRequest, opts ...grpc.CallOption) (*BatchDeleteResponse, error)
 	// CompareAndPut atomically puts the value to the given updated
 	// value if the current value == the expected value.
 	CompareAndPut(ctx context.Context, in *CompareAndPutRequest, opts ...grpc.CallOption) (*CompareAndPutResponse, error)
@@ -83,6 +86,15 @@ func (c *storeClient) BatchPut(ctx context.Context, in *BatchPutRequest, opts ..
 	return out, nil
 }
 
+func (c *storeClient) BatchDelete(ctx context.Context, in *BatchDeleteRequest, opts ...grpc.CallOption) (*BatchDeleteResponse, error) {
+	out := new(BatchDeleteResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Store/BatchDelete", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *storeClient) CompareAndPut(ctx context.Context, in *CompareAndPutRequest, opts ...grpc.CallOption) (*CompareAndPutResponse, error) {
 	out := new(CompareAndPutResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Store/CompareAndPut", in, out, opts...)
@@ -122,6 +134,9 @@ type StoreServer interface {
 	BatchGet(context.Context, *BatchGetRequest) (*BatchGetResponse, error)
 	// BatchPut atomically puts the given keys into the key-value store.
 	BatchPut(context.Context, *BatchPutRequest) (*BatchPutResponse, error)
+	// BatchDelete atomically deletes the given keys and its associating values
+	// from the key-value store.
+	BatchDelete(context.Context, *BatchDeleteRequest) (*BatchDeleteResponse, error)
 	// CompareAndPut atomically puts the value to the given updated
 	// value if the current value == the expected value.
 	CompareAndPut(context.Context, *CompareAndPutRequest) (*CompareAndPutResponse, error)
@@ -147,6 +162,9 @@ func (UnimplementedStoreServer) BatchGet(context.Context, *BatchGetRequest) (*Ba
 }
 func (UnimplementedStoreServer) BatchPut(context.Context, *BatchPutRequest) (*BatchPutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BatchPut not implemented")
+}
+func (UnimplementedStoreServer) BatchDelete(context.Context, *BatchDeleteRequest) (*BatchDeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchDelete not implemented")
 }
 func (UnimplementedStoreServer) CompareAndPut(context.Context, *CompareAndPutRequest) (*CompareAndPutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CompareAndPut not implemented")
@@ -242,6 +260,24 @@ func _Store_BatchPut_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Store_BatchDelete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchDeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServer).BatchDelete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.meta.Store/BatchDelete",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServer).BatchDelete(ctx, req.(*BatchDeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Store_CompareAndPut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CompareAndPutRequest)
 	if err := dec(in); err != nil {
@@ -318,6 +354,10 @@ var Store_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "BatchPut",
 			Handler:    _Store_BatchPut_Handler,
+		},
+		{
+			MethodName: "BatchDelete",
+			Handler:    _Store_BatchDelete_Handler,
 		},
 		{
 			MethodName: "CompareAndPut",
