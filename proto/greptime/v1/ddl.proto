@@ -33,6 +33,7 @@ message CreateTableExpr {
   map<string, string> table_options = 9;
   TableId table_id = 10;
   repeated uint32 region_ids = 11;
+  string engine = 12;
 }
 
 message AlterExpr {
