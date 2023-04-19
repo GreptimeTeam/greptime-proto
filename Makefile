@@ -9,8 +9,8 @@ rust:
 
 go: go-deps
 	docker run -t -w /greptime-proto \
-    	--entrypoint ./scripts/generate-go.sh \
-    	-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
+		--entrypoint ./scripts/generate-go.sh \
+		-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
 
 go-deps:
 	go mod download
