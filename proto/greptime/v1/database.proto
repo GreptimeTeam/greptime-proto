@@ -13,6 +13,10 @@ service GreptimeDatabase {
   rpc Handle(GreptimeRequest) returns (GreptimeResponse);
 
   rpc HandleRequests(stream GreptimeRequest) returns (GreptimeResponse);
+
+  // HandlePromql service helps to retrieve data via promql or range_promql,
+  // and behaves absolutely the same as Prometheus
+  rpc HandlePromql(PromqlRequest) returns (PromqlResponse);
 }
 
 message RequestHeader {
@@ -66,6 +70,18 @@ message QueryRequest {
     bytes logical_plan = 2;
     PromRangeQuery prom_range_query = 3;
   }
+}
+
+message PromqlRequest {
+  oneof query {
+    string query = 1;
+    PromRangeQuery range_query = 2;
+  }
+}
+
+message PromqlResponse {
+  ResponseHeader header = 1;
+  bytes body = 2; // absolutely same format as Prometheus
 }
 
 message PromRangeQuery {
