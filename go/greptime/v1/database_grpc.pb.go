@@ -24,9 +24,6 @@ const _ = grpc.SupportPackageIsVersion7
 type GreptimeDatabaseClient interface {
 	Handle(ctx context.Context, in *GreptimeRequest, opts ...grpc.CallOption) (*GreptimeResponse, error)
 	HandleRequests(ctx context.Context, opts ...grpc.CallOption) (GreptimeDatabase_HandleRequestsClient, error)
-	// HandlePromql service helps to retrieve data via promql or range_promql,
-	// and behaves absolutely the same as Prometheus.
-	HandlePromql(ctx context.Context, in *PromqlRequest, opts ...grpc.CallOption) (*PromqlResponse, error)
 }
 
 type greptimeDatabaseClient struct {
@@ -80,24 +77,12 @@ func (x *greptimeDatabaseHandleRequestsClient) CloseAndRecv() (*GreptimeResponse
 	return m, nil
 }
 
-func (c *greptimeDatabaseClient) HandlePromql(ctx context.Context, in *PromqlRequest, opts ...grpc.CallOption) (*PromqlResponse, error) {
-	out := new(PromqlResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.GreptimeDatabase/HandlePromql", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // GreptimeDatabaseServer is the server API for GreptimeDatabase service.
 // All implementations must embed UnimplementedGreptimeDatabaseServer
 // for forward compatibility
 type GreptimeDatabaseServer interface {
 	Handle(context.Context, *GreptimeRequest) (*GreptimeResponse, error)
 	HandleRequests(GreptimeDatabase_HandleRequestsServer) error
-	// HandlePromql service helps to retrieve data via promql or range_promql,
-	// and behaves absolutely the same as Prometheus.
-	HandlePromql(context.Context, *PromqlRequest) (*PromqlResponse, error)
 	mustEmbedUnimplementedGreptimeDatabaseServer()
 }
 
@@ -110,9 +95,6 @@ func (UnimplementedGreptimeDatabaseServer) Handle(context.Context, *GreptimeRequ
 }
 func (UnimplementedGreptimeDatabaseServer) HandleRequests(GreptimeDatabase_HandleRequestsServer) error {
 	return status.Errorf(codes.Unimplemented, "method HandleRequests not implemented")
-}
-func (UnimplementedGreptimeDatabaseServer) HandlePromql(context.Context, *PromqlRequest) (*PromqlResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method HandlePromql not implemented")
 }
 func (UnimplementedGreptimeDatabaseServer) mustEmbedUnimplementedGreptimeDatabaseServer() {}
 
@@ -171,24 +153,6 @@ func (x *greptimeDatabaseHandleRequestsServer) Recv() (*GreptimeRequest, error) 
 	return m, nil
 }
 
-func _GreptimeDatabase_HandlePromql_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PromqlRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GreptimeDatabaseServer).HandlePromql(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/greptime.v1.GreptimeDatabase/HandlePromql",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GreptimeDatabaseServer).HandlePromql(ctx, req.(*PromqlRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // GreptimeDatabase_ServiceDesc is the grpc.ServiceDesc for GreptimeDatabase service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -199,10 +163,6 @@ var GreptimeDatabase_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Handle",
 			Handler:    _GreptimeDatabase_Handle_Handler,
-		},
-		{
-			MethodName: "HandlePromql",
-			Handler:    _GreptimeDatabase_HandlePromql_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
