@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package greptime.v1.meta;
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
+
+import "greptime/v1/meta/common.proto";
+
+// Heartbeat service 
+// 
+// Heartbeat data is reported to meta by frontend at a certain frequency.
+// In addition, Hearbeatreponse will contain some commands issued by meta.
+service FrontendHeartbeat {
+  rpc FrontendHeartbeat(stream FrontendHeartbeatRequest) returns (stream FrontendHeartbeatResponse) {}
+}
+
+message FrontendHeartbeatRequest {
+  RequestHeader header = 1;
+
+  // Self peer
+  Peer peer = 2;
+  // Actually reported time interval
+  TimeInterval report_interval = 3;
+  // Node stat
+  FrontendStat stat = 4;
+}
+
+message FrontendStat {
+  int64 rcus = 1;
+  int64 wcus = 2;
+  double cpu_usage = 3;
+  double load = 4;
+}
+
+message FrontendHeartbeatResponse {
+  ResponseHeader header = 1;
+
+  repeated Instruction instruction_list = 2;
+}
+
+// The instruction sent to frontend from meta.
+message Instruction {
+  oneof payload {
+    InvalidateCache invalid_cache = 1;
+  }
+}
+
+
+// An instruction to invalidate the catalog cache in frontend.
+// 
+// When level = CATALOG, frontend needs to invalidate all caches under the catalog_name.
+// When level = SCHEMA, frontend needs to invalidate all caches under the schema_name.
+// When level = TABLE, frontend needs to invalidate all caches under the table_name.
+message InvalidateCache {
+  enum Level {
+    CATALOG = 0;
+    SCHEMA = 1;
+    TABLE = 2;
+  }
+  Level level = 1;
+  string catalog_name = 2;
+  string schema_name = 3;
+  string table_name = 4;
+}

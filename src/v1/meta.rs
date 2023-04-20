@@ -120,6 +120,16 @@ impl Error {
     }
 }
 
+impl FrontendHeartbeatResponse {
+    #[inline]
+    pub fn is_not_leader(&self) -> bool {
+        if let Some(header) = &self.header {
+            return header.is_not_leader();
+        }
+        false
+    }
+}
+
 impl HeartbeatResponse {
     #[inline]
     pub fn is_not_leader(&self) -> bool {
@@ -142,6 +152,7 @@ macro_rules! gen_set_header {
 }
 
 gen_set_header!(HeartbeatRequest);
+gen_set_header!(FrontendHeartbeatRequest);
 gen_set_header!(RouteRequest);
 gen_set_header!(CreateRequest);
 gen_set_header!(RangeRequest);

@@ -28,6 +28,7 @@ fn main() {
                 "proto/greptime/v1/health.proto",
                 "proto/greptime/v1/meta/common.proto",
                 "proto/greptime/v1/meta/heartbeat.proto",
+                "proto/greptime/v1/meta/frontend_heartbeat.proto",
                 "proto/greptime/v1/meta/route.proto",
                 "proto/greptime/v1/meta/store.proto",
                 "proto/greptime/v1/meta/lock.proto",
