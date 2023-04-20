@@ -9,7 +9,7 @@ import "greptime/v1/meta/common.proto";
 // Heartbeat service 
 // 
 // Heartbeat data is reported to meta by frontend at a certain frequency.
-// In addition, Hearbeatreponse will contain some commands issued by meta.
+// In addition, Hearbeatreponse will contain some instructions issued by meta.
 service FrontendHeartbeat {
   rpc FrontendHeartbeat(stream FrontendHeartbeatRequest) returns (stream FrontendHeartbeatResponse) {}
 }
