@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package greptime.v1;
+
+option java_package = "io.greptime.v1";
+option java_outer_classname = "Prometheus";
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
+
+import "greptime/v1/common.proto";
+
+// PrometheusGateway behaves absolutely the same as Prometheus HTTP API
+service PrometheusGateway {
+  rpc Handle(PromqlRequest) returns (PromqlResponse);
+}
+
+message PromqlRequest {
+  RequestHeader header = 1;
+  oneof promql {
+    string query = 2;
+    PromRangeQuery range_query = 3;
+  }
+}
+
+message PromqlResponse {
+  ResponseHeader header = 1;
+  bytes body = 2; // absolutely same format as Prometheus in JSON
+}
+
+message PromRangeQuery {
+  string query = 1;
+  string start = 2;
+  string end = 3;
+  string step = 4;
+}
