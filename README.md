@@ -70,7 +70,7 @@ official implementation status of each programming language [flight rpc][flight-
 > service from the raw protobuf definition [flight protobuf definitions][flight-protobuf]. Or call
 > into other language binding like C++.
 
-Once the Arrow Flight client is ready, you only need to care about the following 3 protobuf files to
+Once the Arrow Flight client is ready, you only need to care about the following protobuf files to
 accomplish our SDK writing:
 
 ```console
@@ -78,8 +78,11 @@ accomplish our SDK writing:
 ├── greptime
 │   └── v1
 │       ├── column.proto
+│       ├── common.proto
 │       ├── database.proto
 │       ├── ddl.proto
+│       ├── health.proto
+│       └── prom.proto
 ```
 
 > You can find all protobuf files in the directory "proto" under the project's root.
