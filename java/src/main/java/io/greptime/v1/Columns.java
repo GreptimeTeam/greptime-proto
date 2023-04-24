@@ -408,79 +408,6 @@ public final class Columns {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Column(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              columnName_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              semanticType_ = rawValue;
-              break;
-            }
-            case 26: {
-              io.greptime.v1.Columns.Column.Values.Builder subBuilder = null;
-              if (values_ != null) {
-                subBuilder = values_.toBuilder();
-              }
-              values_ = input.readMessage(io.greptime.v1.Columns.Column.Values.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(values_);
-                values_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-
-              nullMask_ = input.readBytes();
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-
-              datatype_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.greptime.v1.Columns.internal_static_greptime_v1_Column_descriptor;
@@ -992,475 +919,6 @@ public final class Columns {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Values(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  i8Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                i8Values_.addInt(input.readInt32());
-                break;
-              }
-              case 10: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                  i8Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  i8Values_.addInt(input.readInt32());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 16: {
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  i16Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                i16Values_.addInt(input.readInt32());
-                break;
-              }
-              case 18: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-                  i16Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  i16Values_.addInt(input.readInt32());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 24: {
-                if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                  i32Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000004;
-                }
-                i32Values_.addInt(input.readInt32());
-                break;
-              }
-              case 26: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000004) != 0) && input.getBytesUntilLimit() > 0) {
-                  i32Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000004;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  i32Values_.addInt(input.readInt32());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 32: {
-                if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                  i64Values_ = newLongList();
-                  mutable_bitField0_ |= 0x00000008;
-                }
-                i64Values_.addLong(input.readInt64());
-                break;
-              }
-              case 34: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000008) != 0) && input.getBytesUntilLimit() > 0) {
-                  i64Values_ = newLongList();
-                  mutable_bitField0_ |= 0x00000008;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  i64Values_.addLong(input.readInt64());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 40: {
-                if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                  u8Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000010;
-                }
-                u8Values_.addInt(input.readUInt32());
-                break;
-              }
-              case 42: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000010) != 0) && input.getBytesUntilLimit() > 0) {
-                  u8Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000010;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  u8Values_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 48: {
-                if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                  u16Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000020;
-                }
-                u16Values_.addInt(input.readUInt32());
-                break;
-              }
-              case 50: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000020) != 0) && input.getBytesUntilLimit() > 0) {
-                  u16Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000020;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  u16Values_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 56: {
-                if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-                  u32Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000040;
-                }
-                u32Values_.addInt(input.readUInt32());
-                break;
-              }
-              case 58: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000040) != 0) && input.getBytesUntilLimit() > 0) {
-                  u32Values_ = newIntList();
-                  mutable_bitField0_ |= 0x00000040;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  u32Values_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 64: {
-                if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-                  u64Values_ = newLongList();
-                  mutable_bitField0_ |= 0x00000080;
-                }
-                u64Values_.addLong(input.readUInt64());
-                break;
-              }
-              case 66: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000080) != 0) && input.getBytesUntilLimit() > 0) {
-                  u64Values_ = newLongList();
-                  mutable_bitField0_ |= 0x00000080;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  u64Values_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 77: {
-                if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-                  f32Values_ = newFloatList();
-                  mutable_bitField0_ |= 0x00000100;
-                }
-                f32Values_.addFloat(input.readFloat());
-                break;
-              }
-              case 74: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000100) != 0) && input.getBytesUntilLimit() > 0) {
-                  f32Values_ = newFloatList();
-                  mutable_bitField0_ |= 0x00000100;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  f32Values_.addFloat(input.readFloat());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 81: {
-                if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-                  f64Values_ = newDoubleList();
-                  mutable_bitField0_ |= 0x00000200;
-                }
-                f64Values_.addDouble(input.readDouble());
-                break;
-              }
-              case 82: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000200) != 0) && input.getBytesUntilLimit() > 0) {
-                  f64Values_ = newDoubleList();
-                  mutable_bitField0_ |= 0x00000200;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  f64Values_.addDouble(input.readDouble());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 88: {
-                if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-                  boolValues_ = newBooleanList();
-                  mutable_bitField0_ |= 0x00000400;
-                }
-                boolValues_.addBoolean(input.readBool());
-                break;
-              }
-              case 90: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000400) != 0) && input.getBytesUntilLimit() > 0) {
-                  boolValues_ = newBooleanList();
-                  mutable_bitField0_ |= 0x00000400;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  boolValues_.addBoolean(input.readBool());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 98: {
-                if (!((mutable_bitField0_ & 0x00000800) != 0)) {
-                  binaryValues_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                  mutable_bitField0_ |= 0x00000800;
-                }
-                binaryValues_.add(input.readBytes());
-                break;
-              }
-              case 106: {
-                java.lang.String s = input.readStringRequireUtf8();
-                if (!((mutable_bitField0_ & 0x00001000) != 0)) {
-                  stringValues_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00001000;
-                }
-                stringValues_.add(s);
-                break;
-              }
-              case 112: {
-                if (!((mutable_bitField0_ & 0x00002000) != 0)) {
-                  dateValues_ = newIntList();
-                  mutable_bitField0_ |= 0x00002000;
-                }
-                dateValues_.addInt(input.readInt32());
-                break;
-              }
-              case 114: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00002000) != 0) && input.getBytesUntilLimit() > 0) {
-                  dateValues_ = newIntList();
-                  mutable_bitField0_ |= 0x00002000;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  dateValues_.addInt(input.readInt32());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 120: {
-                if (!((mutable_bitField0_ & 0x00004000) != 0)) {
-                  datetimeValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00004000;
-                }
-                datetimeValues_.addLong(input.readInt64());
-                break;
-              }
-              case 122: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00004000) != 0) && input.getBytesUntilLimit() > 0) {
-                  datetimeValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00004000;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  datetimeValues_.addLong(input.readInt64());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 128: {
-                if (!((mutable_bitField0_ & 0x00008000) != 0)) {
-                  tsSecondValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00008000;
-                }
-                tsSecondValues_.addLong(input.readInt64());
-                break;
-              }
-              case 130: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00008000) != 0) && input.getBytesUntilLimit() > 0) {
-                  tsSecondValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00008000;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  tsSecondValues_.addLong(input.readInt64());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 136: {
-                if (!((mutable_bitField0_ & 0x00010000) != 0)) {
-                  tsMillisecondValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00010000;
-                }
-                tsMillisecondValues_.addLong(input.readInt64());
-                break;
-              }
-              case 138: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00010000) != 0) && input.getBytesUntilLimit() > 0) {
-                  tsMillisecondValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00010000;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  tsMillisecondValues_.addLong(input.readInt64());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 144: {
-                if (!((mutable_bitField0_ & 0x00020000) != 0)) {
-                  tsMicrosecondValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00020000;
-                }
-                tsMicrosecondValues_.addLong(input.readInt64());
-                break;
-              }
-              case 146: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00020000) != 0) && input.getBytesUntilLimit() > 0) {
-                  tsMicrosecondValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00020000;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  tsMicrosecondValues_.addLong(input.readInt64());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 152: {
-                if (!((mutable_bitField0_ & 0x00040000) != 0)) {
-                  tsNanosecondValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00040000;
-                }
-                tsNanosecondValues_.addLong(input.readInt64());
-                break;
-              }
-              case 154: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00040000) != 0) && input.getBytesUntilLimit() > 0) {
-                  tsNanosecondValues_ = newLongList();
-                  mutable_bitField0_ |= 0x00040000;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  tsNanosecondValues_.addLong(input.readInt64());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            i8Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000002) != 0)) {
-            i16Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000004) != 0)) {
-            i32Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000008) != 0)) {
-            i64Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000010) != 0)) {
-            u8Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000020) != 0)) {
-            u16Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000040) != 0)) {
-            u32Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000080) != 0)) {
-            u64Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000100) != 0)) {
-            f32Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000200) != 0)) {
-            f64Values_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000400) != 0)) {
-            boolValues_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00000800) != 0)) {
-            binaryValues_ = java.util.Collections.unmodifiableList(binaryValues_); // C
-          }
-          if (((mutable_bitField0_ & 0x00001000) != 0)) {
-            stringValues_ = stringValues_.getUnmodifiableView();
-          }
-          if (((mutable_bitField0_ & 0x00002000) != 0)) {
-            dateValues_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00004000) != 0)) {
-            datetimeValues_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00008000) != 0)) {
-            tsSecondValues_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00010000) != 0)) {
-            tsMillisecondValues_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00020000) != 0)) {
-            tsMicrosecondValues_.makeImmutable(); // C
-          }
-          if (((mutable_bitField0_ & 0x00040000) != 0)) {
-            tsNanosecondValues_.makeImmutable(); // C
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return io.greptime.v1.Columns.internal_static_greptime_v1_Column_Values_descriptor;
@@ -1475,6 +933,7 @@ public final class Columns {
       }
 
       public static final int I8_VALUES_FIELD_NUMBER = 1;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.IntList i8Values_;
       /**
        * <code>repeated int32 i8_values = 1;</code>
@@ -1503,6 +962,7 @@ public final class Columns {
       private int i8ValuesMemoizedSerializedSize = -1;
 
       public static final int I16_VALUES_FIELD_NUMBER = 2;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.IntList i16Values_;
       /**
        * <code>repeated int32 i16_values = 2;</code>
@@ -1531,6 +991,7 @@ public final class Columns {
       private int i16ValuesMemoizedSerializedSize = -1;
 
       public static final int I32_VALUES_FIELD_NUMBER = 3;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.IntList i32Values_;
       /**
        * <code>repeated int32 i32_values = 3;</code>
@@ -1559,6 +1020,7 @@ public final class Columns {
       private int i32ValuesMemoizedSerializedSize = -1;
 
       public static final int I64_VALUES_FIELD_NUMBER = 4;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.LongList i64Values_;
       /**
        * <code>repeated int64 i64_values = 4;</code>
@@ -1587,6 +1049,7 @@ public final class Columns {
       private int i64ValuesMemoizedSerializedSize = -1;
 
       public static final int U8_VALUES_FIELD_NUMBER = 5;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.IntList u8Values_;
       /**
        * <code>repeated uint32 u8_values = 5;</code>
@@ -1615,6 +1078,7 @@ public final class Columns {
       private int u8ValuesMemoizedSerializedSize = -1;
 
       public static final int U16_VALUES_FIELD_NUMBER = 6;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.IntList u16Values_;
       /**
        * <code>repeated uint32 u16_values = 6;</code>
@@ -1643,6 +1107,7 @@ public final class Columns {
       private int u16ValuesMemoizedSerializedSize = -1;
 
       public static final int U32_VALUES_FIELD_NUMBER = 7;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.IntList u32Values_;
       /**
        * <code>repeated uint32 u32_values = 7;</code>
@@ -1671,6 +1136,7 @@ public final class Columns {
       private int u32ValuesMemoizedSerializedSize = -1;
 
       public static final int U64_VALUES_FIELD_NUMBER = 8;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.LongList u64Values_;
       /**
        * <code>repeated uint64 u64_values = 8;</code>
@@ -1699,6 +1165,7 @@ public final class Columns {
       private int u64ValuesMemoizedSerializedSize = -1;
 
       public static final int F32_VALUES_FIELD_NUMBER = 9;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.FloatList f32Values_;
       /**
        * <code>repeated float f32_values = 9;</code>
@@ -1727,6 +1194,7 @@ public final class Columns {
       private int f32ValuesMemoizedSerializedSize = -1;
 
       public static final int F64_VALUES_FIELD_NUMBER = 10;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.DoubleList f64Values_;
       /**
        * <code>repeated double f64_values = 10;</code>
@@ -1755,6 +1223,7 @@ public final class Columns {
       private int f64ValuesMemoizedSerializedSize = -1;
 
       public static final int BOOL_VALUES_FIELD_NUMBER = 11;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.BooleanList boolValues_;
       /**
        * <code>repeated bool bool_values = 11;</code>
@@ -1783,6 +1252,7 @@ public final class Columns {
       private int boolValuesMemoizedSerializedSize = -1;
 
       public static final int BINARY_VALUES_FIELD_NUMBER = 12;
+      @SuppressWarnings("serial")
       private java.util.List<com.google.protobuf.ByteString> binaryValues_;
       /**
        * <code>repeated bytes binary_values = 12;</code>
@@ -1810,6 +1280,7 @@ public final class Columns {
       }
 
       public static final int STRING_VALUES_FIELD_NUMBER = 13;
+      @SuppressWarnings("serial")
       private com.google.protobuf.LazyStringList stringValues_;
       /**
        * <code>repeated string string_values = 13;</code>
@@ -1845,6 +1316,7 @@ public final class Columns {
       }
 
       public static final int DATE_VALUES_FIELD_NUMBER = 14;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.IntList dateValues_;
       /**
        * <code>repeated int32 date_values = 14;</code>
@@ -1873,6 +1345,7 @@ public final class Columns {
       private int dateValuesMemoizedSerializedSize = -1;
 
       public static final int DATETIME_VALUES_FIELD_NUMBER = 15;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.LongList datetimeValues_;
       /**
        * <code>repeated int64 datetime_values = 15;</code>
@@ -1901,6 +1374,7 @@ public final class Columns {
       private int datetimeValuesMemoizedSerializedSize = -1;
 
       public static final int TS_SECOND_VALUES_FIELD_NUMBER = 16;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.LongList tsSecondValues_;
       /**
        * <code>repeated int64 ts_second_values = 16;</code>
@@ -1929,6 +1403,7 @@ public final class Columns {
       private int tsSecondValuesMemoizedSerializedSize = -1;
 
       public static final int TS_MILLISECOND_VALUES_FIELD_NUMBER = 17;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.LongList tsMillisecondValues_;
       /**
        * <code>repeated int64 ts_millisecond_values = 17;</code>
@@ -1957,6 +1432,7 @@ public final class Columns {
       private int tsMillisecondValuesMemoizedSerializedSize = -1;
 
       public static final int TS_MICROSECOND_VALUES_FIELD_NUMBER = 18;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.LongList tsMicrosecondValues_;
       /**
        * <code>repeated int64 ts_microsecond_values = 18;</code>
@@ -1985,6 +1461,7 @@ public final class Columns {
       private int tsMicrosecondValuesMemoizedSerializedSize = -1;
 
       public static final int TS_NANOSECOND_VALUES_FIELD_NUMBER = 19;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.LongList tsNanosecondValues_;
       /**
        * <code>repeated int64 ts_nanosecond_values = 19;</code>
@@ -2152,7 +1629,7 @@ public final class Columns {
         for (int i = 0; i < tsNanosecondValues_.size(); i++) {
           output.writeInt64NoTag(tsNanosecondValues_.getLong(i));
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2407,7 +1884,7 @@ public final class Columns {
           }
           tsNanosecondValuesMemoizedSerializedSize = dataSize;
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2460,7 +1937,7 @@ public final class Columns {
             .equals(other.getTsMicrosecondValuesList())) return false;
         if (!getTsNanosecondValuesList()
             .equals(other.getTsNanosecondValuesList())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2547,7 +2024,7 @@ public final class Columns {
           hash = (37 * hash) + TS_NANOSECOND_VALUES_FIELD_NUMBER;
           hash = (53 * hash) + getTsNanosecondValuesList().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2664,60 +2141,38 @@ public final class Columns {
 
         // Construct using io.greptime.v1.Columns.Column.Values.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           i8Values_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00000001);
           i16Values_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00000002);
           i32Values_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00000004);
           i64Values_ = emptyLongList();
-          bitField0_ = (bitField0_ & ~0x00000008);
           u8Values_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00000010);
           u16Values_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00000020);
           u32Values_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00000040);
           u64Values_ = emptyLongList();
-          bitField0_ = (bitField0_ & ~0x00000080);
           f32Values_ = emptyFloatList();
-          bitField0_ = (bitField0_ & ~0x00000100);
           f64Values_ = emptyDoubleList();
-          bitField0_ = (bitField0_ & ~0x00000200);
           boolValues_ = emptyBooleanList();
-          bitField0_ = (bitField0_ & ~0x00000400);
           binaryValues_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000800);
           stringValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
           bitField0_ = (bitField0_ & ~0x00001000);
           dateValues_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00002000);
           datetimeValues_ = emptyLongList();
-          bitField0_ = (bitField0_ & ~0x00004000);
           tsSecondValues_ = emptyLongList();
-          bitField0_ = (bitField0_ & ~0x00008000);
           tsMillisecondValues_ = emptyLongList();
-          bitField0_ = (bitField0_ & ~0x00010000);
           tsMicrosecondValues_ = emptyLongList();
-          bitField0_ = (bitField0_ & ~0x00020000);
           tsNanosecondValues_ = emptyLongList();
-          bitField0_ = (bitField0_ & ~0x00040000);
           return this;
         }
 
@@ -2744,7 +2199,13 @@ public final class Columns {
         @java.lang.Override
         public io.greptime.v1.Columns.Column.Values buildPartial() {
           io.greptime.v1.Columns.Column.Values result = new io.greptime.v1.Columns.Column.Values(this);
-          int from_bitField0_ = bitField0_;
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartialRepeatedFields(io.greptime.v1.Columns.Column.Values result) {
           if (((bitField0_ & 0x00000001) != 0)) {
             i8Values_.makeImmutable();
             bitField0_ = (bitField0_ & ~0x00000001);
@@ -2840,8 +2301,10 @@ public final class Columns {
             bitField0_ = (bitField0_ & ~0x00040000);
           }
           result.tsNanosecondValues_ = tsNanosecondValues_;
-          onBuilt();
-          return result;
+        }
+
+        private void buildPartial0(io.greptime.v1.Columns.Column.Values result) {
+          int from_bitField0_ = bitField0_;
         }
 
         @java.lang.Override
@@ -3078,7 +2541,7 @@ public final class Columns {
             }
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -3093,17 +2556,314 @@ public final class Columns {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          io.greptime.v1.Columns.Column.Values parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  int v = input.readInt32();
+                  ensureI8ValuesIsMutable();
+                  i8Values_.addInt(v);
+                  break;
+                } // case 8
+                case 10: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureI8ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    i8Values_.addInt(input.readInt32());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 10
+                case 16: {
+                  int v = input.readInt32();
+                  ensureI16ValuesIsMutable();
+                  i16Values_.addInt(v);
+                  break;
+                } // case 16
+                case 18: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureI16ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    i16Values_.addInt(input.readInt32());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 18
+                case 24: {
+                  int v = input.readInt32();
+                  ensureI32ValuesIsMutable();
+                  i32Values_.addInt(v);
+                  break;
+                } // case 24
+                case 26: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureI32ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    i32Values_.addInt(input.readInt32());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 26
+                case 32: {
+                  long v = input.readInt64();
+                  ensureI64ValuesIsMutable();
+                  i64Values_.addLong(v);
+                  break;
+                } // case 32
+                case 34: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureI64ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    i64Values_.addLong(input.readInt64());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 34
+                case 40: {
+                  int v = input.readUInt32();
+                  ensureU8ValuesIsMutable();
+                  u8Values_.addInt(v);
+                  break;
+                } // case 40
+                case 42: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureU8ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    u8Values_.addInt(input.readUInt32());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 42
+                case 48: {
+                  int v = input.readUInt32();
+                  ensureU16ValuesIsMutable();
+                  u16Values_.addInt(v);
+                  break;
+                } // case 48
+                case 50: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureU16ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    u16Values_.addInt(input.readUInt32());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 50
+                case 56: {
+                  int v = input.readUInt32();
+                  ensureU32ValuesIsMutable();
+                  u32Values_.addInt(v);
+                  break;
+                } // case 56
+                case 58: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureU32ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    u32Values_.addInt(input.readUInt32());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 58
+                case 64: {
+                  long v = input.readUInt64();
+                  ensureU64ValuesIsMutable();
+                  u64Values_.addLong(v);
+                  break;
+                } // case 64
+                case 66: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureU64ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    u64Values_.addLong(input.readUInt64());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 66
+                case 77: {
+                  float v = input.readFloat();
+                  ensureF32ValuesIsMutable();
+                  f32Values_.addFloat(v);
+                  break;
+                } // case 77
+                case 74: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureF32ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    f32Values_.addFloat(input.readFloat());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 74
+                case 81: {
+                  double v = input.readDouble();
+                  ensureF64ValuesIsMutable();
+                  f64Values_.addDouble(v);
+                  break;
+                } // case 81
+                case 82: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureF64ValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    f64Values_.addDouble(input.readDouble());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 82
+                case 88: {
+                  boolean v = input.readBool();
+                  ensureBoolValuesIsMutable();
+                  boolValues_.addBoolean(v);
+                  break;
+                } // case 88
+                case 90: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureBoolValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    boolValues_.addBoolean(input.readBool());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 90
+                case 98: {
+                  com.google.protobuf.ByteString v = input.readBytes();
+                  ensureBinaryValuesIsMutable();
+                  binaryValues_.add(v);
+                  break;
+                } // case 98
+                case 106: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  ensureStringValuesIsMutable();
+                  stringValues_.add(s);
+                  break;
+                } // case 106
+                case 112: {
+                  int v = input.readInt32();
+                  ensureDateValuesIsMutable();
+                  dateValues_.addInt(v);
+                  break;
+                } // case 112
+                case 114: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureDateValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    dateValues_.addInt(input.readInt32());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 114
+                case 120: {
+                  long v = input.readInt64();
+                  ensureDatetimeValuesIsMutable();
+                  datetimeValues_.addLong(v);
+                  break;
+                } // case 120
+                case 122: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureDatetimeValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    datetimeValues_.addLong(input.readInt64());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 122
+                case 128: {
+                  long v = input.readInt64();
+                  ensureTsSecondValuesIsMutable();
+                  tsSecondValues_.addLong(v);
+                  break;
+                } // case 128
+                case 130: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureTsSecondValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    tsSecondValues_.addLong(input.readInt64());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 130
+                case 136: {
+                  long v = input.readInt64();
+                  ensureTsMillisecondValuesIsMutable();
+                  tsMillisecondValues_.addLong(v);
+                  break;
+                } // case 136
+                case 138: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureTsMillisecondValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    tsMillisecondValues_.addLong(input.readInt64());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 138
+                case 144: {
+                  long v = input.readInt64();
+                  ensureTsMicrosecondValuesIsMutable();
+                  tsMicrosecondValues_.addLong(v);
+                  break;
+                } // case 144
+                case 146: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureTsMicrosecondValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    tsMicrosecondValues_.addLong(input.readInt64());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 146
+                case 152: {
+                  long v = input.readInt64();
+                  ensureTsNanosecondValuesIsMutable();
+                  tsNanosecondValues_.addLong(v);
+                  break;
+                } // case 152
+                case 154: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureTsNanosecondValuesIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    tsNanosecondValues_.addLong(input.readInt64());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 154
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.greptime.v1.Columns.Column.Values) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -3113,7 +2873,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000001) != 0)) {
             i8Values_ = mutableCopy(i8Values_);
             bitField0_ |= 0x00000001;
-           }
+          }
         }
         /**
          * <code>repeated int32 i8_values = 1;</code>
@@ -3147,6 +2907,7 @@ public final class Columns {
          */
         public Builder setI8Values(
             int index, int value) {
+          
           ensureI8ValuesIsMutable();
           i8Values_.setInt(index, value);
           onChanged();
@@ -3158,6 +2919,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addI8Values(int value) {
+          
           ensureI8ValuesIsMutable();
           i8Values_.addInt(value);
           onChanged();
@@ -3192,7 +2954,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000002) != 0)) {
             i16Values_ = mutableCopy(i16Values_);
             bitField0_ |= 0x00000002;
-           }
+          }
         }
         /**
          * <code>repeated int32 i16_values = 2;</code>
@@ -3226,6 +2988,7 @@ public final class Columns {
          */
         public Builder setI16Values(
             int index, int value) {
+          
           ensureI16ValuesIsMutable();
           i16Values_.setInt(index, value);
           onChanged();
@@ -3237,6 +3000,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addI16Values(int value) {
+          
           ensureI16ValuesIsMutable();
           i16Values_.addInt(value);
           onChanged();
@@ -3271,7 +3035,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000004) != 0)) {
             i32Values_ = mutableCopy(i32Values_);
             bitField0_ |= 0x00000004;
-           }
+          }
         }
         /**
          * <code>repeated int32 i32_values = 3;</code>
@@ -3305,6 +3069,7 @@ public final class Columns {
          */
         public Builder setI32Values(
             int index, int value) {
+          
           ensureI32ValuesIsMutable();
           i32Values_.setInt(index, value);
           onChanged();
@@ -3316,6 +3081,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addI32Values(int value) {
+          
           ensureI32ValuesIsMutable();
           i32Values_.addInt(value);
           onChanged();
@@ -3350,7 +3116,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000008) != 0)) {
             i64Values_ = mutableCopy(i64Values_);
             bitField0_ |= 0x00000008;
-           }
+          }
         }
         /**
          * <code>repeated int64 i64_values = 4;</code>
@@ -3384,6 +3150,7 @@ public final class Columns {
          */
         public Builder setI64Values(
             int index, long value) {
+          
           ensureI64ValuesIsMutable();
           i64Values_.setLong(index, value);
           onChanged();
@@ -3395,6 +3162,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addI64Values(long value) {
+          
           ensureI64ValuesIsMutable();
           i64Values_.addLong(value);
           onChanged();
@@ -3429,7 +3197,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000010) != 0)) {
             u8Values_ = mutableCopy(u8Values_);
             bitField0_ |= 0x00000010;
-           }
+          }
         }
         /**
          * <code>repeated uint32 u8_values = 5;</code>
@@ -3463,6 +3231,7 @@ public final class Columns {
          */
         public Builder setU8Values(
             int index, int value) {
+          
           ensureU8ValuesIsMutable();
           u8Values_.setInt(index, value);
           onChanged();
@@ -3474,6 +3243,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addU8Values(int value) {
+          
           ensureU8ValuesIsMutable();
           u8Values_.addInt(value);
           onChanged();
@@ -3508,7 +3278,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000020) != 0)) {
             u16Values_ = mutableCopy(u16Values_);
             bitField0_ |= 0x00000020;
-           }
+          }
         }
         /**
          * <code>repeated uint32 u16_values = 6;</code>
@@ -3542,6 +3312,7 @@ public final class Columns {
          */
         public Builder setU16Values(
             int index, int value) {
+          
           ensureU16ValuesIsMutable();
           u16Values_.setInt(index, value);
           onChanged();
@@ -3553,6 +3324,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addU16Values(int value) {
+          
           ensureU16ValuesIsMutable();
           u16Values_.addInt(value);
           onChanged();
@@ -3587,7 +3359,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000040) != 0)) {
             u32Values_ = mutableCopy(u32Values_);
             bitField0_ |= 0x00000040;
-           }
+          }
         }
         /**
          * <code>repeated uint32 u32_values = 7;</code>
@@ -3621,6 +3393,7 @@ public final class Columns {
          */
         public Builder setU32Values(
             int index, int value) {
+          
           ensureU32ValuesIsMutable();
           u32Values_.setInt(index, value);
           onChanged();
@@ -3632,6 +3405,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addU32Values(int value) {
+          
           ensureU32ValuesIsMutable();
           u32Values_.addInt(value);
           onChanged();
@@ -3666,7 +3440,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000080) != 0)) {
             u64Values_ = mutableCopy(u64Values_);
             bitField0_ |= 0x00000080;
-           }
+          }
         }
         /**
          * <code>repeated uint64 u64_values = 8;</code>
@@ -3700,6 +3474,7 @@ public final class Columns {
          */
         public Builder setU64Values(
             int index, long value) {
+          
           ensureU64ValuesIsMutable();
           u64Values_.setLong(index, value);
           onChanged();
@@ -3711,6 +3486,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addU64Values(long value) {
+          
           ensureU64ValuesIsMutable();
           u64Values_.addLong(value);
           onChanged();
@@ -3745,7 +3521,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000100) != 0)) {
             f32Values_ = mutableCopy(f32Values_);
             bitField0_ |= 0x00000100;
-           }
+          }
         }
         /**
          * <code>repeated float f32_values = 9;</code>
@@ -3779,6 +3555,7 @@ public final class Columns {
          */
         public Builder setF32Values(
             int index, float value) {
+          
           ensureF32ValuesIsMutable();
           f32Values_.setFloat(index, value);
           onChanged();
@@ -3790,6 +3567,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addF32Values(float value) {
+          
           ensureF32ValuesIsMutable();
           f32Values_.addFloat(value);
           onChanged();
@@ -3824,7 +3602,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000200) != 0)) {
             f64Values_ = mutableCopy(f64Values_);
             bitField0_ |= 0x00000200;
-           }
+          }
         }
         /**
          * <code>repeated double f64_values = 10;</code>
@@ -3858,6 +3636,7 @@ public final class Columns {
          */
         public Builder setF64Values(
             int index, double value) {
+          
           ensureF64ValuesIsMutable();
           f64Values_.setDouble(index, value);
           onChanged();
@@ -3869,6 +3648,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addF64Values(double value) {
+          
           ensureF64ValuesIsMutable();
           f64Values_.addDouble(value);
           onChanged();
@@ -3903,7 +3683,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000400) != 0)) {
             boolValues_ = mutableCopy(boolValues_);
             bitField0_ |= 0x00000400;
-           }
+          }
         }
         /**
          * <code>repeated bool bool_values = 11;</code>
@@ -3937,6 +3717,7 @@ public final class Columns {
          */
         public Builder setBoolValues(
             int index, boolean value) {
+          
           ensureBoolValuesIsMutable();
           boolValues_.setBoolean(index, value);
           onChanged();
@@ -3948,6 +3729,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addBoolValues(boolean value) {
+          
           ensureBoolValuesIsMutable();
           boolValues_.addBoolean(value);
           onChanged();
@@ -3982,7 +3764,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00000800) != 0)) {
             binaryValues_ = new java.util.ArrayList<com.google.protobuf.ByteString>(binaryValues_);
             bitField0_ |= 0x00000800;
-           }
+          }
         }
         /**
          * <code>repeated bytes binary_values = 12;</code>
@@ -4016,10 +3798,8 @@ public final class Columns {
          */
         public Builder setBinaryValues(
             int index, com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureBinaryValuesIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureBinaryValuesIsMutable();
           binaryValues_.set(index, value);
           onChanged();
           return this;
@@ -4030,10 +3810,8 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addBinaryValues(com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureBinaryValuesIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureBinaryValuesIsMutable();
           binaryValues_.add(value);
           onChanged();
           return this;
@@ -4109,10 +3887,8 @@ public final class Columns {
          */
         public Builder setStringValues(
             int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStringValuesIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureStringValuesIsMutable();
           stringValues_.set(index, value);
           onChanged();
           return this;
@@ -4124,10 +3900,8 @@ public final class Columns {
          */
         public Builder addStringValues(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStringValuesIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureStringValuesIsMutable();
           stringValues_.add(value);
           onChanged();
           return this;
@@ -4162,10 +3936,8 @@ public final class Columns {
          */
         public Builder addStringValuesBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           ensureStringValuesIsMutable();
           stringValues_.add(value);
           onChanged();
@@ -4177,7 +3949,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00002000) != 0)) {
             dateValues_ = mutableCopy(dateValues_);
             bitField0_ |= 0x00002000;
-           }
+          }
         }
         /**
          * <code>repeated int32 date_values = 14;</code>
@@ -4211,6 +3983,7 @@ public final class Columns {
          */
         public Builder setDateValues(
             int index, int value) {
+          
           ensureDateValuesIsMutable();
           dateValues_.setInt(index, value);
           onChanged();
@@ -4222,6 +3995,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addDateValues(int value) {
+          
           ensureDateValuesIsMutable();
           dateValues_.addInt(value);
           onChanged();
@@ -4256,7 +4030,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00004000) != 0)) {
             datetimeValues_ = mutableCopy(datetimeValues_);
             bitField0_ |= 0x00004000;
-           }
+          }
         }
         /**
          * <code>repeated int64 datetime_values = 15;</code>
@@ -4290,6 +4064,7 @@ public final class Columns {
          */
         public Builder setDatetimeValues(
             int index, long value) {
+          
           ensureDatetimeValuesIsMutable();
           datetimeValues_.setLong(index, value);
           onChanged();
@@ -4301,6 +4076,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addDatetimeValues(long value) {
+          
           ensureDatetimeValuesIsMutable();
           datetimeValues_.addLong(value);
           onChanged();
@@ -4335,7 +4111,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00008000) != 0)) {
             tsSecondValues_ = mutableCopy(tsSecondValues_);
             bitField0_ |= 0x00008000;
-           }
+          }
         }
         /**
          * <code>repeated int64 ts_second_values = 16;</code>
@@ -4369,6 +4145,7 @@ public final class Columns {
          */
         public Builder setTsSecondValues(
             int index, long value) {
+          
           ensureTsSecondValuesIsMutable();
           tsSecondValues_.setLong(index, value);
           onChanged();
@@ -4380,6 +4157,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addTsSecondValues(long value) {
+          
           ensureTsSecondValuesIsMutable();
           tsSecondValues_.addLong(value);
           onChanged();
@@ -4414,7 +4192,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00010000) != 0)) {
             tsMillisecondValues_ = mutableCopy(tsMillisecondValues_);
             bitField0_ |= 0x00010000;
-           }
+          }
         }
         /**
          * <code>repeated int64 ts_millisecond_values = 17;</code>
@@ -4448,6 +4226,7 @@ public final class Columns {
          */
         public Builder setTsMillisecondValues(
             int index, long value) {
+          
           ensureTsMillisecondValuesIsMutable();
           tsMillisecondValues_.setLong(index, value);
           onChanged();
@@ -4459,6 +4238,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addTsMillisecondValues(long value) {
+          
           ensureTsMillisecondValuesIsMutable();
           tsMillisecondValues_.addLong(value);
           onChanged();
@@ -4493,7 +4273,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00020000) != 0)) {
             tsMicrosecondValues_ = mutableCopy(tsMicrosecondValues_);
             bitField0_ |= 0x00020000;
-           }
+          }
         }
         /**
          * <code>repeated int64 ts_microsecond_values = 18;</code>
@@ -4527,6 +4307,7 @@ public final class Columns {
          */
         public Builder setTsMicrosecondValues(
             int index, long value) {
+          
           ensureTsMicrosecondValuesIsMutable();
           tsMicrosecondValues_.setLong(index, value);
           onChanged();
@@ -4538,6 +4319,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addTsMicrosecondValues(long value) {
+          
           ensureTsMicrosecondValuesIsMutable();
           tsMicrosecondValues_.addLong(value);
           onChanged();
@@ -4572,7 +4354,7 @@ public final class Columns {
           if (!((bitField0_ & 0x00040000) != 0)) {
             tsNanosecondValues_ = mutableCopy(tsNanosecondValues_);
             bitField0_ |= 0x00040000;
-           }
+          }
         }
         /**
          * <code>repeated int64 ts_nanosecond_values = 19;</code>
@@ -4606,6 +4388,7 @@ public final class Columns {
          */
         public Builder setTsNanosecondValues(
             int index, long value) {
+          
           ensureTsNanosecondValuesIsMutable();
           tsNanosecondValues_.setLong(index, value);
           onChanged();
@@ -4617,6 +4400,7 @@ public final class Columns {
          * @return This builder for chaining.
          */
         public Builder addTsNanosecondValues(long value) {
+          
           ensureTsNanosecondValuesIsMutable();
           tsNanosecondValues_.addLong(value);
           onChanged();
@@ -4678,7 +4462,18 @@ public final class Columns {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Values(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -4699,7 +4494,8 @@ public final class Columns {
     }
 
     public static final int COLUMN_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object columnName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object columnName_ = "";
     /**
      * <code>string column_name = 1;</code>
      * @return The columnName.
@@ -4737,7 +4533,7 @@ public final class Columns {
     }
 
     public static final int SEMANTIC_TYPE_FIELD_NUMBER = 2;
-    private int semanticType_;
+    private int semanticType_ = 0;
     /**
      * <code>.greptime.v1.Column.SemanticType semantic_type = 2;</code>
      * @return The enum numeric value on the wire for semanticType.
@@ -4750,8 +4546,7 @@ public final class Columns {
      * @return The semanticType.
      */
     @java.lang.Override public io.greptime.v1.Columns.Column.SemanticType getSemanticType() {
-      @SuppressWarnings("deprecation")
-      io.greptime.v1.Columns.Column.SemanticType result = io.greptime.v1.Columns.Column.SemanticType.valueOf(semanticType_);
+      io.greptime.v1.Columns.Column.SemanticType result = io.greptime.v1.Columns.Column.SemanticType.forNumber(semanticType_);
       return result == null ? io.greptime.v1.Columns.Column.SemanticType.UNRECOGNIZED : result;
     }
 
@@ -4808,11 +4603,11 @@ public final class Columns {
      */
     @java.lang.Override
     public io.greptime.v1.Columns.Column.ValuesOrBuilder getValuesOrBuilder() {
-      return getValues();
+      return values_ == null ? io.greptime.v1.Columns.Column.Values.getDefaultInstance() : values_;
     }
 
     public static final int NULL_MASK_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString nullMask_;
+    private com.google.protobuf.ByteString nullMask_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * Mask maps the positions of null values.
@@ -4828,7 +4623,7 @@ public final class Columns {
     }
 
     public static final int DATATYPE_FIELD_NUMBER = 5;
-    private int datatype_;
+    private int datatype_ = 0;
     /**
      * <pre>
      * Helpful in creating vector from column.
@@ -4849,8 +4644,7 @@ public final class Columns {
      * @return The datatype.
      */
     @java.lang.Override public io.greptime.v1.Columns.ColumnDataType getDatatype() {
-      @SuppressWarnings("deprecation")
-      io.greptime.v1.Columns.ColumnDataType result = io.greptime.v1.Columns.ColumnDataType.valueOf(datatype_);
+      io.greptime.v1.Columns.ColumnDataType result = io.greptime.v1.Columns.ColumnDataType.forNumber(datatype_);
       return result == null ? io.greptime.v1.Columns.ColumnDataType.UNRECOGNIZED : result;
     }
 
@@ -4883,7 +4677,7 @@ public final class Columns {
       if (datatype_ != io.greptime.v1.Columns.ColumnDataType.BOOLEAN.getNumber()) {
         output.writeEnum(5, datatype_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4911,7 +4705,7 @@ public final class Columns {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, datatype_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4937,7 +4731,7 @@ public final class Columns {
       if (!getNullMask()
           .equals(other.getNullMask())) return false;
       if (datatype_ != other.datatype_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4960,7 +4754,7 @@ public final class Columns {
       hash = (53 * hash) + getNullMask().hashCode();
       hash = (37 * hash) + DATATYPE_FIELD_NUMBER;
       hash = (53 * hash) + datatype_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5077,36 +4871,27 @@ public final class Columns {
 
       // Construct using io.greptime.v1.Columns.Column.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         columnName_ = "";
-
         semanticType_ = 0;
-
-        if (valuesBuilder_ == null) {
-          values_ = null;
-        } else {
-          values_ = null;
+        values_ = null;
+        if (valuesBuilder_ != null) {
+          valuesBuilder_.dispose();
           valuesBuilder_ = null;
         }
         nullMask_ = com.google.protobuf.ByteString.EMPTY;
-
         datatype_ = 0;
-
         return this;
       }
 
@@ -5133,17 +4918,30 @@ public final class Columns {
       @java.lang.Override
       public io.greptime.v1.Columns.Column buildPartial() {
         io.greptime.v1.Columns.Column result = new io.greptime.v1.Columns.Column(this);
-        result.columnName_ = columnName_;
-        result.semanticType_ = semanticType_;
-        if (valuesBuilder_ == null) {
-          result.values_ = values_;
-        } else {
-          result.values_ = valuesBuilder_.build();
-        }
-        result.nullMask_ = nullMask_;
-        result.datatype_ = datatype_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.greptime.v1.Columns.Column result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.columnName_ = columnName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.semanticType_ = semanticType_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.values_ = valuesBuilder_ == null
+              ? values_
+              : valuesBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.nullMask_ = nullMask_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.datatype_ = datatype_;
+        }
       }
 
       @java.lang.Override
@@ -5192,6 +4990,7 @@ public final class Columns {
         if (other == io.greptime.v1.Columns.Column.getDefaultInstance()) return this;
         if (!other.getColumnName().isEmpty()) {
           columnName_ = other.columnName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.semanticType_ != 0) {
@@ -5206,7 +5005,7 @@ public final class Columns {
         if (other.datatype_ != 0) {
           setDatatypeValue(other.getDatatypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5221,19 +5020,60 @@ public final class Columns {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Columns.Column parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                columnName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                semanticType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getValuesFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                nullMask_ = input.readBytes();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                datatype_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Columns.Column) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object columnName_ = "";
       /**
@@ -5276,11 +5116,9 @@ public final class Columns {
        */
       public Builder setColumnName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         columnName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5289,8 +5127,8 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder clearColumnName() {
-        
         columnName_ = getDefaultInstance().getColumnName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -5301,12 +5139,10 @@ public final class Columns {
        */
       public Builder setColumnNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         columnName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5325,8 +5161,8 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder setSemanticTypeValue(int value) {
-        
         semanticType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5336,8 +5172,7 @@ public final class Columns {
        */
       @java.lang.Override
       public io.greptime.v1.Columns.Column.SemanticType getSemanticType() {
-        @SuppressWarnings("deprecation")
-        io.greptime.v1.Columns.Column.SemanticType result = io.greptime.v1.Columns.Column.SemanticType.valueOf(semanticType_);
+        io.greptime.v1.Columns.Column.SemanticType result = io.greptime.v1.Columns.Column.SemanticType.forNumber(semanticType_);
         return result == null ? io.greptime.v1.Columns.Column.SemanticType.UNRECOGNIZED : result;
       }
       /**
@@ -5349,7 +5184,7 @@ public final class Columns {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         semanticType_ = value.getNumber();
         onChanged();
         return this;
@@ -5359,7 +5194,7 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder clearSemanticType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         semanticType_ = 0;
         onChanged();
         return this;
@@ -5383,7 +5218,7 @@ public final class Columns {
        * @return Whether the values field is set.
        */
       public boolean hasValues() {
-        return valuesBuilder_ != null || values_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -5425,11 +5260,11 @@ public final class Columns {
             throw new NullPointerException();
           }
           values_ = value;
-          onChanged();
         } else {
           valuesBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -5449,11 +5284,11 @@ public final class Columns {
           io.greptime.v1.Columns.Column.Values.Builder builderForValue) {
         if (valuesBuilder_ == null) {
           values_ = builderForValue.build();
-          onChanged();
         } else {
           valuesBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -5471,17 +5306,18 @@ public final class Columns {
        */
       public Builder mergeValues(io.greptime.v1.Columns.Column.Values value) {
         if (valuesBuilder_ == null) {
-          if (values_ != null) {
-            values_ =
-              io.greptime.v1.Columns.Column.Values.newBuilder(values_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            values_ != null &&
+            values_ != io.greptime.v1.Columns.Column.Values.getDefaultInstance()) {
+            getValuesBuilder().mergeFrom(value);
           } else {
             values_ = value;
           }
-          onChanged();
         } else {
           valuesBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -5498,14 +5334,13 @@ public final class Columns {
        * <code>.greptime.v1.Column.Values values = 3;</code>
        */
       public Builder clearValues() {
-        if (valuesBuilder_ == null) {
-          values_ = null;
-          onChanged();
-        } else {
-          values_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        values_ = null;
+        if (valuesBuilder_ != null) {
+          valuesBuilder_.dispose();
           valuesBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5522,7 +5357,7 @@ public final class Columns {
        * <code>.greptime.v1.Column.Values values = 3;</code>
        */
       public io.greptime.v1.Columns.Column.Values.Builder getValuesBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getValuesFieldBuilder().getBuilder();
       }
@@ -5599,11 +5434,9 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder setNullMask(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         nullMask_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5617,7 +5450,7 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder clearNullMask() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         nullMask_ = getDefaultInstance().getNullMask();
         onChanged();
         return this;
@@ -5645,8 +5478,8 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder setDatatypeValue(int value) {
-        
         datatype_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -5660,8 +5493,7 @@ public final class Columns {
        */
       @java.lang.Override
       public io.greptime.v1.Columns.ColumnDataType getDatatype() {
-        @SuppressWarnings("deprecation")
-        io.greptime.v1.Columns.ColumnDataType result = io.greptime.v1.Columns.ColumnDataType.valueOf(datatype_);
+        io.greptime.v1.Columns.ColumnDataType result = io.greptime.v1.Columns.ColumnDataType.forNumber(datatype_);
         return result == null ? io.greptime.v1.Columns.ColumnDataType.UNRECOGNIZED : result;
       }
       /**
@@ -5677,7 +5509,7 @@ public final class Columns {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000010;
         datatype_ = value.getNumber();
         onChanged();
         return this;
@@ -5691,7 +5523,7 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder clearDatatype() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         datatype_ = 0;
         onChanged();
         return this;
@@ -5729,7 +5561,18 @@ public final class Columns {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Column(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5818,65 +5661,6 @@ public final class Columns {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ColumnDef(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              datatype_ = rawValue;
-              break;
-            }
-            case 24: {
-
-              isNullable_ = input.readBool();
-              break;
-            }
-            case 34: {
-
-              defaultConstraint_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.greptime.v1.Columns.internal_static_greptime_v1_ColumnDef_descriptor;
@@ -5891,7 +5675,8 @@ public final class Columns {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <code>string name = 1;</code>
      * @return The name.
@@ -5929,7 +5714,7 @@ public final class Columns {
     }
 
     public static final int DATATYPE_FIELD_NUMBER = 2;
-    private int datatype_;
+    private int datatype_ = 0;
     /**
      * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
      * @return The enum numeric value on the wire for datatype.
@@ -5942,13 +5727,12 @@ public final class Columns {
      * @return The datatype.
      */
     @java.lang.Override public io.greptime.v1.Columns.ColumnDataType getDatatype() {
-      @SuppressWarnings("deprecation")
-      io.greptime.v1.Columns.ColumnDataType result = io.greptime.v1.Columns.ColumnDataType.valueOf(datatype_);
+      io.greptime.v1.Columns.ColumnDataType result = io.greptime.v1.Columns.ColumnDataType.forNumber(datatype_);
       return result == null ? io.greptime.v1.Columns.ColumnDataType.UNRECOGNIZED : result;
     }
 
     public static final int IS_NULLABLE_FIELD_NUMBER = 3;
-    private boolean isNullable_;
+    private boolean isNullable_ = false;
     /**
      * <code>bool is_nullable = 3;</code>
      * @return The isNullable.
@@ -5959,7 +5743,7 @@ public final class Columns {
     }
 
     public static final int DEFAULT_CONSTRAINT_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString defaultConstraint_;
+    private com.google.protobuf.ByteString defaultConstraint_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes default_constraint = 4;</code>
      * @return The defaultConstraint.
@@ -5995,7 +5779,7 @@ public final class Columns {
       if (!defaultConstraint_.isEmpty()) {
         output.writeBytes(4, defaultConstraint_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6019,7 +5803,7 @@ public final class Columns {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, defaultConstraint_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6041,7 +5825,7 @@ public final class Columns {
           != other.getIsNullable()) return false;
       if (!getDefaultConstraint()
           .equals(other.getDefaultConstraint())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6061,7 +5845,7 @@ public final class Columns {
           getIsNullable());
       hash = (37 * hash) + DEFAULT_CONSTRAINT_FIELD_NUMBER;
       hash = (53 * hash) + getDefaultConstraint().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6178,30 +5962,22 @@ public final class Columns {
 
       // Construct using io.greptime.v1.Columns.ColumnDef.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         datatype_ = 0;
-
         isNullable_ = false;
-
         defaultConstraint_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -6228,12 +6004,25 @@ public final class Columns {
       @java.lang.Override
       public io.greptime.v1.Columns.ColumnDef buildPartial() {
         io.greptime.v1.Columns.ColumnDef result = new io.greptime.v1.Columns.ColumnDef(this);
-        result.name_ = name_;
-        result.datatype_ = datatype_;
-        result.isNullable_ = isNullable_;
-        result.defaultConstraint_ = defaultConstraint_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.greptime.v1.Columns.ColumnDef result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.datatype_ = datatype_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.isNullable_ = isNullable_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.defaultConstraint_ = defaultConstraint_;
+        }
       }
 
       @java.lang.Override
@@ -6282,6 +6071,7 @@ public final class Columns {
         if (other == io.greptime.v1.Columns.ColumnDef.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.datatype_ != 0) {
@@ -6293,7 +6083,7 @@ public final class Columns {
         if (other.getDefaultConstraint() != com.google.protobuf.ByteString.EMPTY) {
           setDefaultConstraint(other.getDefaultConstraint());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6308,19 +6098,53 @@ public final class Columns {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Columns.ColumnDef parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                datatype_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                isNullable_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                defaultConstraint_ = input.readBytes();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Columns.ColumnDef) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -6363,11 +6187,9 @@ public final class Columns {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6376,8 +6198,8 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6388,12 +6210,10 @@ public final class Columns {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6412,8 +6232,8 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder setDatatypeValue(int value) {
-        
         datatype_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6423,8 +6243,7 @@ public final class Columns {
        */
       @java.lang.Override
       public io.greptime.v1.Columns.ColumnDataType getDatatype() {
-        @SuppressWarnings("deprecation")
-        io.greptime.v1.Columns.ColumnDataType result = io.greptime.v1.Columns.ColumnDataType.valueOf(datatype_);
+        io.greptime.v1.Columns.ColumnDataType result = io.greptime.v1.Columns.ColumnDataType.forNumber(datatype_);
         return result == null ? io.greptime.v1.Columns.ColumnDataType.UNRECOGNIZED : result;
       }
       /**
@@ -6436,7 +6255,7 @@ public final class Columns {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         datatype_ = value.getNumber();
         onChanged();
         return this;
@@ -6446,7 +6265,7 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder clearDatatype() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         datatype_ = 0;
         onChanged();
         return this;
@@ -6469,6 +6288,7 @@ public final class Columns {
       public Builder setIsNullable(boolean value) {
         
         isNullable_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6477,7 +6297,7 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder clearIsNullable() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         isNullable_ = false;
         onChanged();
         return this;
@@ -6498,11 +6318,9 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder setDefaultConstraint(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         defaultConstraint_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6511,7 +6329,7 @@ public final class Columns {
        * @return This builder for chaining.
        */
       public Builder clearDefaultConstraint() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         defaultConstraint_ = getDefaultInstance().getDefaultConstraint();
         onChanged();
         return this;
@@ -6549,7 +6367,18 @@ public final class Columns {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ColumnDef(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

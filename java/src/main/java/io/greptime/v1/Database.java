@@ -14,3478 +14,6 @@ public final class Database {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface RequestHeaderOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.RequestHeader)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * The `catalog` that is selected to be used in this request.
-     * </pre>
-     *
-     * <code>string catalog = 1;</code>
-     * @return The catalog.
-     */
-    java.lang.String getCatalog();
-    /**
-     * <pre>
-     * The `catalog` that is selected to be used in this request.
-     * </pre>
-     *
-     * <code>string catalog = 1;</code>
-     * @return The bytes for catalog.
-     */
-    com.google.protobuf.ByteString
-        getCatalogBytes();
-
-    /**
-     * <pre>
-     * The `schema` that is selected to be used in this request.
-     * </pre>
-     *
-     * <code>string schema = 2;</code>
-     * @return The schema.
-     */
-    java.lang.String getSchema();
-    /**
-     * <pre>
-     * The `schema` that is selected to be used in this request.
-     * </pre>
-     *
-     * <code>string schema = 2;</code>
-     * @return The bytes for schema.
-     */
-    com.google.protobuf.ByteString
-        getSchemaBytes();
-
-    /**
-     * <pre>
-     * The `authorization` header, much like http's authorization header.
-     * </pre>
-     *
-     * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-     * @return Whether the authorization field is set.
-     */
-    boolean hasAuthorization();
-    /**
-     * <pre>
-     * The `authorization` header, much like http's authorization header.
-     * </pre>
-     *
-     * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-     * @return The authorization.
-     */
-    io.greptime.v1.Database.AuthHeader getAuthorization();
-    /**
-     * <pre>
-     * The `authorization` header, much like http's authorization header.
-     * </pre>
-     *
-     * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-     */
-    io.greptime.v1.Database.AuthHeaderOrBuilder getAuthorizationOrBuilder();
-
-    /**
-     * <pre>
-     * The `dbname` for the request
-     * </pre>
-     *
-     * <code>string dbname = 4;</code>
-     * @return The dbname.
-     */
-    java.lang.String getDbname();
-    /**
-     * <pre>
-     * The `dbname` for the request
-     * </pre>
-     *
-     * <code>string dbname = 4;</code>
-     * @return The bytes for dbname.
-     */
-    com.google.protobuf.ByteString
-        getDbnameBytes();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.RequestHeader}
-   */
-  public static final class RequestHeader extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.RequestHeader)
-      RequestHeaderOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use RequestHeader.newBuilder() to construct.
-    private RequestHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private RequestHeader() {
-      catalog_ = "";
-      schema_ = "";
-      dbname_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new RequestHeader();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private RequestHeader(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              catalog_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              schema_ = s;
-              break;
-            }
-            case 26: {
-              io.greptime.v1.Database.AuthHeader.Builder subBuilder = null;
-              if (authorization_ != null) {
-                subBuilder = authorization_.toBuilder();
-              }
-              authorization_ = input.readMessage(io.greptime.v1.Database.AuthHeader.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(authorization_);
-                authorization_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              dbname_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_RequestHeader_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_RequestHeader_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Database.RequestHeader.class, io.greptime.v1.Database.RequestHeader.Builder.class);
-    }
-
-    public static final int CATALOG_FIELD_NUMBER = 1;
-    private volatile java.lang.Object catalog_;
-    /**
-     * <pre>
-     * The `catalog` that is selected to be used in this request.
-     * </pre>
-     *
-     * <code>string catalog = 1;</code>
-     * @return The catalog.
-     */
-    @java.lang.Override
-    public java.lang.String getCatalog() {
-      java.lang.Object ref = catalog_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        catalog_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * The `catalog` that is selected to be used in this request.
-     * </pre>
-     *
-     * <code>string catalog = 1;</code>
-     * @return The bytes for catalog.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCatalogBytes() {
-      java.lang.Object ref = catalog_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        catalog_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SCHEMA_FIELD_NUMBER = 2;
-    private volatile java.lang.Object schema_;
-    /**
-     * <pre>
-     * The `schema` that is selected to be used in this request.
-     * </pre>
-     *
-     * <code>string schema = 2;</code>
-     * @return The schema.
-     */
-    @java.lang.Override
-    public java.lang.String getSchema() {
-      java.lang.Object ref = schema_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        schema_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * The `schema` that is selected to be used in this request.
-     * </pre>
-     *
-     * <code>string schema = 2;</code>
-     * @return The bytes for schema.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSchemaBytes() {
-      java.lang.Object ref = schema_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        schema_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int AUTHORIZATION_FIELD_NUMBER = 3;
-    private io.greptime.v1.Database.AuthHeader authorization_;
-    /**
-     * <pre>
-     * The `authorization` header, much like http's authorization header.
-     * </pre>
-     *
-     * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-     * @return Whether the authorization field is set.
-     */
-    @java.lang.Override
-    public boolean hasAuthorization() {
-      return authorization_ != null;
-    }
-    /**
-     * <pre>
-     * The `authorization` header, much like http's authorization header.
-     * </pre>
-     *
-     * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-     * @return The authorization.
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.AuthHeader getAuthorization() {
-      return authorization_ == null ? io.greptime.v1.Database.AuthHeader.getDefaultInstance() : authorization_;
-    }
-    /**
-     * <pre>
-     * The `authorization` header, much like http's authorization header.
-     * </pre>
-     *
-     * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.AuthHeaderOrBuilder getAuthorizationOrBuilder() {
-      return getAuthorization();
-    }
-
-    public static final int DBNAME_FIELD_NUMBER = 4;
-    private volatile java.lang.Object dbname_;
-    /**
-     * <pre>
-     * The `dbname` for the request
-     * </pre>
-     *
-     * <code>string dbname = 4;</code>
-     * @return The dbname.
-     */
-    @java.lang.Override
-    public java.lang.String getDbname() {
-      java.lang.Object ref = dbname_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        dbname_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * The `dbname` for the request
-     * </pre>
-     *
-     * <code>string dbname = 4;</code>
-     * @return The bytes for dbname.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDbnameBytes() {
-      java.lang.Object ref = dbname_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        dbname_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalog_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schema_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schema_);
-      }
-      if (authorization_ != null) {
-        output.writeMessage(3, getAuthorization());
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, dbname_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalog_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schema_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schema_);
-      }
-      if (authorization_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getAuthorization());
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, dbname_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Database.RequestHeader)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Database.RequestHeader other = (io.greptime.v1.Database.RequestHeader) obj;
-
-      if (!getCatalog()
-          .equals(other.getCatalog())) return false;
-      if (!getSchema()
-          .equals(other.getSchema())) return false;
-      if (hasAuthorization() != other.hasAuthorization()) return false;
-      if (hasAuthorization()) {
-        if (!getAuthorization()
-            .equals(other.getAuthorization())) return false;
-      }
-      if (!getDbname()
-          .equals(other.getDbname())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CATALOG_FIELD_NUMBER;
-      hash = (53 * hash) + getCatalog().hashCode();
-      hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
-      hash = (53 * hash) + getSchema().hashCode();
-      if (hasAuthorization()) {
-        hash = (37 * hash) + AUTHORIZATION_FIELD_NUMBER;
-        hash = (53 * hash) + getAuthorization().hashCode();
-      }
-      hash = (37 * hash) + DBNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getDbname().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Database.RequestHeader parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.RequestHeader parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Database.RequestHeader prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.RequestHeader}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.RequestHeader)
-        io.greptime.v1.Database.RequestHeaderOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_RequestHeader_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_RequestHeader_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Database.RequestHeader.class, io.greptime.v1.Database.RequestHeader.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Database.RequestHeader.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        catalog_ = "";
-
-        schema_ = "";
-
-        if (authorizationBuilder_ == null) {
-          authorization_ = null;
-        } else {
-          authorization_ = null;
-          authorizationBuilder_ = null;
-        }
-        dbname_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_RequestHeader_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.RequestHeader getDefaultInstanceForType() {
-        return io.greptime.v1.Database.RequestHeader.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.RequestHeader build() {
-        io.greptime.v1.Database.RequestHeader result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.RequestHeader buildPartial() {
-        io.greptime.v1.Database.RequestHeader result = new io.greptime.v1.Database.RequestHeader(this);
-        result.catalog_ = catalog_;
-        result.schema_ = schema_;
-        if (authorizationBuilder_ == null) {
-          result.authorization_ = authorization_;
-        } else {
-          result.authorization_ = authorizationBuilder_.build();
-        }
-        result.dbname_ = dbname_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Database.RequestHeader) {
-          return mergeFrom((io.greptime.v1.Database.RequestHeader)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Database.RequestHeader other) {
-        if (other == io.greptime.v1.Database.RequestHeader.getDefaultInstance()) return this;
-        if (!other.getCatalog().isEmpty()) {
-          catalog_ = other.catalog_;
-          onChanged();
-        }
-        if (!other.getSchema().isEmpty()) {
-          schema_ = other.schema_;
-          onChanged();
-        }
-        if (other.hasAuthorization()) {
-          mergeAuthorization(other.getAuthorization());
-        }
-        if (!other.getDbname().isEmpty()) {
-          dbname_ = other.dbname_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Database.RequestHeader parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.RequestHeader) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object catalog_ = "";
-      /**
-       * <pre>
-       * The `catalog` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string catalog = 1;</code>
-       * @return The catalog.
-       */
-      public java.lang.String getCatalog() {
-        java.lang.Object ref = catalog_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          catalog_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * The `catalog` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string catalog = 1;</code>
-       * @return The bytes for catalog.
-       */
-      public com.google.protobuf.ByteString
-          getCatalogBytes() {
-        java.lang.Object ref = catalog_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          catalog_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * The `catalog` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string catalog = 1;</code>
-       * @param value The catalog to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCatalog(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        catalog_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The `catalog` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string catalog = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCatalog() {
-        
-        catalog_ = getDefaultInstance().getCatalog();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The `catalog` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string catalog = 1;</code>
-       * @param value The bytes for catalog to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCatalogBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        catalog_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object schema_ = "";
-      /**
-       * <pre>
-       * The `schema` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string schema = 2;</code>
-       * @return The schema.
-       */
-      public java.lang.String getSchema() {
-        java.lang.Object ref = schema_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          schema_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * The `schema` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string schema = 2;</code>
-       * @return The bytes for schema.
-       */
-      public com.google.protobuf.ByteString
-          getSchemaBytes() {
-        java.lang.Object ref = schema_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          schema_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * The `schema` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string schema = 2;</code>
-       * @param value The schema to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchema(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        schema_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The `schema` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string schema = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSchema() {
-        
-        schema_ = getDefaultInstance().getSchema();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The `schema` that is selected to be used in this request.
-       * </pre>
-       *
-       * <code>string schema = 2;</code>
-       * @param value The bytes for schema to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchemaBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        schema_ = value;
-        onChanged();
-        return this;
-      }
-
-      private io.greptime.v1.Database.AuthHeader authorization_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.AuthHeader, io.greptime.v1.Database.AuthHeader.Builder, io.greptime.v1.Database.AuthHeaderOrBuilder> authorizationBuilder_;
-      /**
-       * <pre>
-       * The `authorization` header, much like http's authorization header.
-       * </pre>
-       *
-       * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-       * @return Whether the authorization field is set.
-       */
-      public boolean hasAuthorization() {
-        return authorizationBuilder_ != null || authorization_ != null;
-      }
-      /**
-       * <pre>
-       * The `authorization` header, much like http's authorization header.
-       * </pre>
-       *
-       * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-       * @return The authorization.
-       */
-      public io.greptime.v1.Database.AuthHeader getAuthorization() {
-        if (authorizationBuilder_ == null) {
-          return authorization_ == null ? io.greptime.v1.Database.AuthHeader.getDefaultInstance() : authorization_;
-        } else {
-          return authorizationBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * The `authorization` header, much like http's authorization header.
-       * </pre>
-       *
-       * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-       */
-      public Builder setAuthorization(io.greptime.v1.Database.AuthHeader value) {
-        if (authorizationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          authorization_ = value;
-          onChanged();
-        } else {
-          authorizationBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The `authorization` header, much like http's authorization header.
-       * </pre>
-       *
-       * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-       */
-      public Builder setAuthorization(
-          io.greptime.v1.Database.AuthHeader.Builder builderForValue) {
-        if (authorizationBuilder_ == null) {
-          authorization_ = builderForValue.build();
-          onChanged();
-        } else {
-          authorizationBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The `authorization` header, much like http's authorization header.
-       * </pre>
-       *
-       * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-       */
-      public Builder mergeAuthorization(io.greptime.v1.Database.AuthHeader value) {
-        if (authorizationBuilder_ == null) {
-          if (authorization_ != null) {
-            authorization_ =
-              io.greptime.v1.Database.AuthHeader.newBuilder(authorization_).mergeFrom(value).buildPartial();
-          } else {
-            authorization_ = value;
-          }
-          onChanged();
-        } else {
-          authorizationBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The `authorization` header, much like http's authorization header.
-       * </pre>
-       *
-       * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-       */
-      public Builder clearAuthorization() {
-        if (authorizationBuilder_ == null) {
-          authorization_ = null;
-          onChanged();
-        } else {
-          authorization_ = null;
-          authorizationBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The `authorization` header, much like http's authorization header.
-       * </pre>
-       *
-       * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-       */
-      public io.greptime.v1.Database.AuthHeader.Builder getAuthorizationBuilder() {
-        
-        onChanged();
-        return getAuthorizationFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * The `authorization` header, much like http's authorization header.
-       * </pre>
-       *
-       * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-       */
-      public io.greptime.v1.Database.AuthHeaderOrBuilder getAuthorizationOrBuilder() {
-        if (authorizationBuilder_ != null) {
-          return authorizationBuilder_.getMessageOrBuilder();
-        } else {
-          return authorization_ == null ?
-              io.greptime.v1.Database.AuthHeader.getDefaultInstance() : authorization_;
-        }
-      }
-      /**
-       * <pre>
-       * The `authorization` header, much like http's authorization header.
-       * </pre>
-       *
-       * <code>.greptime.v1.AuthHeader authorization = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.AuthHeader, io.greptime.v1.Database.AuthHeader.Builder, io.greptime.v1.Database.AuthHeaderOrBuilder> 
-          getAuthorizationFieldBuilder() {
-        if (authorizationBuilder_ == null) {
-          authorizationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.AuthHeader, io.greptime.v1.Database.AuthHeader.Builder, io.greptime.v1.Database.AuthHeaderOrBuilder>(
-                  getAuthorization(),
-                  getParentForChildren(),
-                  isClean());
-          authorization_ = null;
-        }
-        return authorizationBuilder_;
-      }
-
-      private java.lang.Object dbname_ = "";
-      /**
-       * <pre>
-       * The `dbname` for the request
-       * </pre>
-       *
-       * <code>string dbname = 4;</code>
-       * @return The dbname.
-       */
-      public java.lang.String getDbname() {
-        java.lang.Object ref = dbname_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          dbname_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * The `dbname` for the request
-       * </pre>
-       *
-       * <code>string dbname = 4;</code>
-       * @return The bytes for dbname.
-       */
-      public com.google.protobuf.ByteString
-          getDbnameBytes() {
-        java.lang.Object ref = dbname_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          dbname_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * The `dbname` for the request
-       * </pre>
-       *
-       * <code>string dbname = 4;</code>
-       * @param value The dbname to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDbname(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        dbname_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The `dbname` for the request
-       * </pre>
-       *
-       * <code>string dbname = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDbname() {
-        
-        dbname_ = getDefaultInstance().getDbname();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The `dbname` for the request
-       * </pre>
-       *
-       * <code>string dbname = 4;</code>
-       * @param value The bytes for dbname to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDbnameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        dbname_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.RequestHeader)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.RequestHeader)
-    private static final io.greptime.v1.Database.RequestHeader DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Database.RequestHeader();
-    }
-
-    public static io.greptime.v1.Database.RequestHeader getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<RequestHeader>
-        PARSER = new com.google.protobuf.AbstractParser<RequestHeader>() {
-      @java.lang.Override
-      public RequestHeader parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RequestHeader(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<RequestHeader> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<RequestHeader> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Database.RequestHeader getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface AuthHeaderOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.AuthHeader)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.greptime.v1.Basic basic = 1;</code>
-     * @return Whether the basic field is set.
-     */
-    boolean hasBasic();
-    /**
-     * <code>.greptime.v1.Basic basic = 1;</code>
-     * @return The basic.
-     */
-    io.greptime.v1.Database.Basic getBasic();
-    /**
-     * <code>.greptime.v1.Basic basic = 1;</code>
-     */
-    io.greptime.v1.Database.BasicOrBuilder getBasicOrBuilder();
-
-    /**
-     * <code>.greptime.v1.Token token = 2;</code>
-     * @return Whether the token field is set.
-     */
-    boolean hasToken();
-    /**
-     * <code>.greptime.v1.Token token = 2;</code>
-     * @return The token.
-     */
-    io.greptime.v1.Database.Token getToken();
-    /**
-     * <code>.greptime.v1.Token token = 2;</code>
-     */
-    io.greptime.v1.Database.TokenOrBuilder getTokenOrBuilder();
-
-    public io.greptime.v1.Database.AuthHeader.AuthSchemeCase getAuthSchemeCase();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.AuthHeader}
-   */
-  public static final class AuthHeader extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.AuthHeader)
-      AuthHeaderOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use AuthHeader.newBuilder() to construct.
-    private AuthHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private AuthHeader() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new AuthHeader();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private AuthHeader(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.greptime.v1.Database.Basic.Builder subBuilder = null;
-              if (authSchemeCase_ == 1) {
-                subBuilder = ((io.greptime.v1.Database.Basic) authScheme_).toBuilder();
-              }
-              authScheme_ =
-                  input.readMessage(io.greptime.v1.Database.Basic.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Database.Basic) authScheme_);
-                authScheme_ = subBuilder.buildPartial();
-              }
-              authSchemeCase_ = 1;
-              break;
-            }
-            case 18: {
-              io.greptime.v1.Database.Token.Builder subBuilder = null;
-              if (authSchemeCase_ == 2) {
-                subBuilder = ((io.greptime.v1.Database.Token) authScheme_).toBuilder();
-              }
-              authScheme_ =
-                  input.readMessage(io.greptime.v1.Database.Token.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Database.Token) authScheme_);
-                authScheme_ = subBuilder.buildPartial();
-              }
-              authSchemeCase_ = 2;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_AuthHeader_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_AuthHeader_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Database.AuthHeader.class, io.greptime.v1.Database.AuthHeader.Builder.class);
-    }
-
-    private int authSchemeCase_ = 0;
-    private java.lang.Object authScheme_;
-    public enum AuthSchemeCase
-        implements com.google.protobuf.Internal.EnumLite,
-            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      BASIC(1),
-      TOKEN(2),
-      AUTHSCHEME_NOT_SET(0);
-      private final int value;
-      private AuthSchemeCase(int value) {
-        this.value = value;
-      }
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static AuthSchemeCase valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static AuthSchemeCase forNumber(int value) {
-        switch (value) {
-          case 1: return BASIC;
-          case 2: return TOKEN;
-          case 0: return AUTHSCHEME_NOT_SET;
-          default: return null;
-        }
-      }
-      public int getNumber() {
-        return this.value;
-      }
-    };
-
-    public AuthSchemeCase
-    getAuthSchemeCase() {
-      return AuthSchemeCase.forNumber(
-          authSchemeCase_);
-    }
-
-    public static final int BASIC_FIELD_NUMBER = 1;
-    /**
-     * <code>.greptime.v1.Basic basic = 1;</code>
-     * @return Whether the basic field is set.
-     */
-    @java.lang.Override
-    public boolean hasBasic() {
-      return authSchemeCase_ == 1;
-    }
-    /**
-     * <code>.greptime.v1.Basic basic = 1;</code>
-     * @return The basic.
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.Basic getBasic() {
-      if (authSchemeCase_ == 1) {
-         return (io.greptime.v1.Database.Basic) authScheme_;
-      }
-      return io.greptime.v1.Database.Basic.getDefaultInstance();
-    }
-    /**
-     * <code>.greptime.v1.Basic basic = 1;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.BasicOrBuilder getBasicOrBuilder() {
-      if (authSchemeCase_ == 1) {
-         return (io.greptime.v1.Database.Basic) authScheme_;
-      }
-      return io.greptime.v1.Database.Basic.getDefaultInstance();
-    }
-
-    public static final int TOKEN_FIELD_NUMBER = 2;
-    /**
-     * <code>.greptime.v1.Token token = 2;</code>
-     * @return Whether the token field is set.
-     */
-    @java.lang.Override
-    public boolean hasToken() {
-      return authSchemeCase_ == 2;
-    }
-    /**
-     * <code>.greptime.v1.Token token = 2;</code>
-     * @return The token.
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.Token getToken() {
-      if (authSchemeCase_ == 2) {
-         return (io.greptime.v1.Database.Token) authScheme_;
-      }
-      return io.greptime.v1.Database.Token.getDefaultInstance();
-    }
-    /**
-     * <code>.greptime.v1.Token token = 2;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.TokenOrBuilder getTokenOrBuilder() {
-      if (authSchemeCase_ == 2) {
-         return (io.greptime.v1.Database.Token) authScheme_;
-      }
-      return io.greptime.v1.Database.Token.getDefaultInstance();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (authSchemeCase_ == 1) {
-        output.writeMessage(1, (io.greptime.v1.Database.Basic) authScheme_);
-      }
-      if (authSchemeCase_ == 2) {
-        output.writeMessage(2, (io.greptime.v1.Database.Token) authScheme_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (authSchemeCase_ == 1) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, (io.greptime.v1.Database.Basic) authScheme_);
-      }
-      if (authSchemeCase_ == 2) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (io.greptime.v1.Database.Token) authScheme_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Database.AuthHeader)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Database.AuthHeader other = (io.greptime.v1.Database.AuthHeader) obj;
-
-      if (!getAuthSchemeCase().equals(other.getAuthSchemeCase())) return false;
-      switch (authSchemeCase_) {
-        case 1:
-          if (!getBasic()
-              .equals(other.getBasic())) return false;
-          break;
-        case 2:
-          if (!getToken()
-              .equals(other.getToken())) return false;
-          break;
-        case 0:
-        default:
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      switch (authSchemeCase_) {
-        case 1:
-          hash = (37 * hash) + BASIC_FIELD_NUMBER;
-          hash = (53 * hash) + getBasic().hashCode();
-          break;
-        case 2:
-          hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-          hash = (53 * hash) + getToken().hashCode();
-          break;
-        case 0:
-        default:
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Database.AuthHeader parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.AuthHeader parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Database.AuthHeader prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.AuthHeader}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.AuthHeader)
-        io.greptime.v1.Database.AuthHeaderOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_AuthHeader_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_AuthHeader_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Database.AuthHeader.class, io.greptime.v1.Database.AuthHeader.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Database.AuthHeader.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        authSchemeCase_ = 0;
-        authScheme_ = null;
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_AuthHeader_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.AuthHeader getDefaultInstanceForType() {
-        return io.greptime.v1.Database.AuthHeader.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.AuthHeader build() {
-        io.greptime.v1.Database.AuthHeader result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.AuthHeader buildPartial() {
-        io.greptime.v1.Database.AuthHeader result = new io.greptime.v1.Database.AuthHeader(this);
-        if (authSchemeCase_ == 1) {
-          if (basicBuilder_ == null) {
-            result.authScheme_ = authScheme_;
-          } else {
-            result.authScheme_ = basicBuilder_.build();
-          }
-        }
-        if (authSchemeCase_ == 2) {
-          if (tokenBuilder_ == null) {
-            result.authScheme_ = authScheme_;
-          } else {
-            result.authScheme_ = tokenBuilder_.build();
-          }
-        }
-        result.authSchemeCase_ = authSchemeCase_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Database.AuthHeader) {
-          return mergeFrom((io.greptime.v1.Database.AuthHeader)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Database.AuthHeader other) {
-        if (other == io.greptime.v1.Database.AuthHeader.getDefaultInstance()) return this;
-        switch (other.getAuthSchemeCase()) {
-          case BASIC: {
-            mergeBasic(other.getBasic());
-            break;
-          }
-          case TOKEN: {
-            mergeToken(other.getToken());
-            break;
-          }
-          case AUTHSCHEME_NOT_SET: {
-            break;
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Database.AuthHeader parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.AuthHeader) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int authSchemeCase_ = 0;
-      private java.lang.Object authScheme_;
-      public AuthSchemeCase
-          getAuthSchemeCase() {
-        return AuthSchemeCase.forNumber(
-            authSchemeCase_);
-      }
-
-      public Builder clearAuthScheme() {
-        authSchemeCase_ = 0;
-        authScheme_ = null;
-        onChanged();
-        return this;
-      }
-
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.Basic, io.greptime.v1.Database.Basic.Builder, io.greptime.v1.Database.BasicOrBuilder> basicBuilder_;
-      /**
-       * <code>.greptime.v1.Basic basic = 1;</code>
-       * @return Whether the basic field is set.
-       */
-      @java.lang.Override
-      public boolean hasBasic() {
-        return authSchemeCase_ == 1;
-      }
-      /**
-       * <code>.greptime.v1.Basic basic = 1;</code>
-       * @return The basic.
-       */
-      @java.lang.Override
-      public io.greptime.v1.Database.Basic getBasic() {
-        if (basicBuilder_ == null) {
-          if (authSchemeCase_ == 1) {
-            return (io.greptime.v1.Database.Basic) authScheme_;
-          }
-          return io.greptime.v1.Database.Basic.getDefaultInstance();
-        } else {
-          if (authSchemeCase_ == 1) {
-            return basicBuilder_.getMessage();
-          }
-          return io.greptime.v1.Database.Basic.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.Basic basic = 1;</code>
-       */
-      public Builder setBasic(io.greptime.v1.Database.Basic value) {
-        if (basicBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          authScheme_ = value;
-          onChanged();
-        } else {
-          basicBuilder_.setMessage(value);
-        }
-        authSchemeCase_ = 1;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.Basic basic = 1;</code>
-       */
-      public Builder setBasic(
-          io.greptime.v1.Database.Basic.Builder builderForValue) {
-        if (basicBuilder_ == null) {
-          authScheme_ = builderForValue.build();
-          onChanged();
-        } else {
-          basicBuilder_.setMessage(builderForValue.build());
-        }
-        authSchemeCase_ = 1;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.Basic basic = 1;</code>
-       */
-      public Builder mergeBasic(io.greptime.v1.Database.Basic value) {
-        if (basicBuilder_ == null) {
-          if (authSchemeCase_ == 1 &&
-              authScheme_ != io.greptime.v1.Database.Basic.getDefaultInstance()) {
-            authScheme_ = io.greptime.v1.Database.Basic.newBuilder((io.greptime.v1.Database.Basic) authScheme_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            authScheme_ = value;
-          }
-          onChanged();
-        } else {
-          if (authSchemeCase_ == 1) {
-            basicBuilder_.mergeFrom(value);
-          }
-          basicBuilder_.setMessage(value);
-        }
-        authSchemeCase_ = 1;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.Basic basic = 1;</code>
-       */
-      public Builder clearBasic() {
-        if (basicBuilder_ == null) {
-          if (authSchemeCase_ == 1) {
-            authSchemeCase_ = 0;
-            authScheme_ = null;
-            onChanged();
-          }
-        } else {
-          if (authSchemeCase_ == 1) {
-            authSchemeCase_ = 0;
-            authScheme_ = null;
-          }
-          basicBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.Basic basic = 1;</code>
-       */
-      public io.greptime.v1.Database.Basic.Builder getBasicBuilder() {
-        return getBasicFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.Basic basic = 1;</code>
-       */
-      @java.lang.Override
-      public io.greptime.v1.Database.BasicOrBuilder getBasicOrBuilder() {
-        if ((authSchemeCase_ == 1) && (basicBuilder_ != null)) {
-          return basicBuilder_.getMessageOrBuilder();
-        } else {
-          if (authSchemeCase_ == 1) {
-            return (io.greptime.v1.Database.Basic) authScheme_;
-          }
-          return io.greptime.v1.Database.Basic.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.Basic basic = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.Basic, io.greptime.v1.Database.Basic.Builder, io.greptime.v1.Database.BasicOrBuilder> 
-          getBasicFieldBuilder() {
-        if (basicBuilder_ == null) {
-          if (!(authSchemeCase_ == 1)) {
-            authScheme_ = io.greptime.v1.Database.Basic.getDefaultInstance();
-          }
-          basicBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.Basic, io.greptime.v1.Database.Basic.Builder, io.greptime.v1.Database.BasicOrBuilder>(
-                  (io.greptime.v1.Database.Basic) authScheme_,
-                  getParentForChildren(),
-                  isClean());
-          authScheme_ = null;
-        }
-        authSchemeCase_ = 1;
-        onChanged();;
-        return basicBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.Token, io.greptime.v1.Database.Token.Builder, io.greptime.v1.Database.TokenOrBuilder> tokenBuilder_;
-      /**
-       * <code>.greptime.v1.Token token = 2;</code>
-       * @return Whether the token field is set.
-       */
-      @java.lang.Override
-      public boolean hasToken() {
-        return authSchemeCase_ == 2;
-      }
-      /**
-       * <code>.greptime.v1.Token token = 2;</code>
-       * @return The token.
-       */
-      @java.lang.Override
-      public io.greptime.v1.Database.Token getToken() {
-        if (tokenBuilder_ == null) {
-          if (authSchemeCase_ == 2) {
-            return (io.greptime.v1.Database.Token) authScheme_;
-          }
-          return io.greptime.v1.Database.Token.getDefaultInstance();
-        } else {
-          if (authSchemeCase_ == 2) {
-            return tokenBuilder_.getMessage();
-          }
-          return io.greptime.v1.Database.Token.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.Token token = 2;</code>
-       */
-      public Builder setToken(io.greptime.v1.Database.Token value) {
-        if (tokenBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          authScheme_ = value;
-          onChanged();
-        } else {
-          tokenBuilder_.setMessage(value);
-        }
-        authSchemeCase_ = 2;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.Token token = 2;</code>
-       */
-      public Builder setToken(
-          io.greptime.v1.Database.Token.Builder builderForValue) {
-        if (tokenBuilder_ == null) {
-          authScheme_ = builderForValue.build();
-          onChanged();
-        } else {
-          tokenBuilder_.setMessage(builderForValue.build());
-        }
-        authSchemeCase_ = 2;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.Token token = 2;</code>
-       */
-      public Builder mergeToken(io.greptime.v1.Database.Token value) {
-        if (tokenBuilder_ == null) {
-          if (authSchemeCase_ == 2 &&
-              authScheme_ != io.greptime.v1.Database.Token.getDefaultInstance()) {
-            authScheme_ = io.greptime.v1.Database.Token.newBuilder((io.greptime.v1.Database.Token) authScheme_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            authScheme_ = value;
-          }
-          onChanged();
-        } else {
-          if (authSchemeCase_ == 2) {
-            tokenBuilder_.mergeFrom(value);
-          }
-          tokenBuilder_.setMessage(value);
-        }
-        authSchemeCase_ = 2;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.Token token = 2;</code>
-       */
-      public Builder clearToken() {
-        if (tokenBuilder_ == null) {
-          if (authSchemeCase_ == 2) {
-            authSchemeCase_ = 0;
-            authScheme_ = null;
-            onChanged();
-          }
-        } else {
-          if (authSchemeCase_ == 2) {
-            authSchemeCase_ = 0;
-            authScheme_ = null;
-          }
-          tokenBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.Token token = 2;</code>
-       */
-      public io.greptime.v1.Database.Token.Builder getTokenBuilder() {
-        return getTokenFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.Token token = 2;</code>
-       */
-      @java.lang.Override
-      public io.greptime.v1.Database.TokenOrBuilder getTokenOrBuilder() {
-        if ((authSchemeCase_ == 2) && (tokenBuilder_ != null)) {
-          return tokenBuilder_.getMessageOrBuilder();
-        } else {
-          if (authSchemeCase_ == 2) {
-            return (io.greptime.v1.Database.Token) authScheme_;
-          }
-          return io.greptime.v1.Database.Token.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.Token token = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.Token, io.greptime.v1.Database.Token.Builder, io.greptime.v1.Database.TokenOrBuilder> 
-          getTokenFieldBuilder() {
-        if (tokenBuilder_ == null) {
-          if (!(authSchemeCase_ == 2)) {
-            authScheme_ = io.greptime.v1.Database.Token.getDefaultInstance();
-          }
-          tokenBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.Token, io.greptime.v1.Database.Token.Builder, io.greptime.v1.Database.TokenOrBuilder>(
-                  (io.greptime.v1.Database.Token) authScheme_,
-                  getParentForChildren(),
-                  isClean());
-          authScheme_ = null;
-        }
-        authSchemeCase_ = 2;
-        onChanged();;
-        return tokenBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.AuthHeader)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.AuthHeader)
-    private static final io.greptime.v1.Database.AuthHeader DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Database.AuthHeader();
-    }
-
-    public static io.greptime.v1.Database.AuthHeader getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<AuthHeader>
-        PARSER = new com.google.protobuf.AbstractParser<AuthHeader>() {
-      @java.lang.Override
-      public AuthHeader parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AuthHeader(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<AuthHeader> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<AuthHeader> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Database.AuthHeader getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface BasicOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.Basic)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string username = 1;</code>
-     * @return The username.
-     */
-    java.lang.String getUsername();
-    /**
-     * <code>string username = 1;</code>
-     * @return The bytes for username.
-     */
-    com.google.protobuf.ByteString
-        getUsernameBytes();
-
-    /**
-     * <code>string password = 2;</code>
-     * @return The password.
-     */
-    java.lang.String getPassword();
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    com.google.protobuf.ByteString
-        getPasswordBytes();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.Basic}
-   */
-  public static final class Basic extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.Basic)
-      BasicOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Basic.newBuilder() to construct.
-    private Basic(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Basic() {
-      username_ = "";
-      password_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Basic();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Basic(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              username_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              password_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_Basic_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_Basic_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Database.Basic.class, io.greptime.v1.Database.Basic.Builder.class);
-    }
-
-    public static final int USERNAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object username_;
-    /**
-     * <code>string username = 1;</code>
-     * @return The username.
-     */
-    @java.lang.Override
-    public java.lang.String getUsername() {
-      java.lang.Object ref = username_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        username_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string username = 1;</code>
-     * @return The bytes for username.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUsernameBytes() {
-      java.lang.Object ref = username_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        username_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PASSWORD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object password_;
-    /**
-     * <code>string password = 2;</code>
-     * @return The password.
-     */
-    @java.lang.Override
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        password_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, username_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, username_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Database.Basic)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Database.Basic other = (io.greptime.v1.Database.Basic) obj;
-
-      if (!getUsername()
-          .equals(other.getUsername())) return false;
-      if (!getPassword()
-          .equals(other.getPassword())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getUsername().hashCode();
-      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-      hash = (53 * hash) + getPassword().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Database.Basic parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.Basic parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Basic parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.Basic parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Basic parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.Basic parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Basic parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.Basic parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Basic parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.Basic parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Basic parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.Basic parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Database.Basic prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.Basic}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.Basic)
-        io.greptime.v1.Database.BasicOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_Basic_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_Basic_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Database.Basic.class, io.greptime.v1.Database.Basic.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Database.Basic.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        username_ = "";
-
-        password_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_Basic_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.Basic getDefaultInstanceForType() {
-        return io.greptime.v1.Database.Basic.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.Basic build() {
-        io.greptime.v1.Database.Basic result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.Basic buildPartial() {
-        io.greptime.v1.Database.Basic result = new io.greptime.v1.Database.Basic(this);
-        result.username_ = username_;
-        result.password_ = password_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Database.Basic) {
-          return mergeFrom((io.greptime.v1.Database.Basic)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Database.Basic other) {
-        if (other == io.greptime.v1.Database.Basic.getDefaultInstance()) return this;
-        if (!other.getUsername().isEmpty()) {
-          username_ = other.username_;
-          onChanged();
-        }
-        if (!other.getPassword().isEmpty()) {
-          password_ = other.password_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Database.Basic parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.Basic) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object username_ = "";
-      /**
-       * <code>string username = 1;</code>
-       * @return The username.
-       */
-      public java.lang.String getUsername() {
-        java.lang.Object ref = username_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          username_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string username = 1;</code>
-       * @return The bytes for username.
-       */
-      public com.google.protobuf.ByteString
-          getUsernameBytes() {
-        java.lang.Object ref = username_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          username_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string username = 1;</code>
-       * @param value The username to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUsername(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        username_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string username = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUsername() {
-        
-        username_ = getDefaultInstance().getUsername();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string username = 1;</code>
-       * @param value The bytes for username to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUsernameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        username_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object password_ = "";
-      /**
-       * <code>string password = 2;</code>
-       * @return The password.
-       */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          password_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @return The bytes for password.
-       */
-      public com.google.protobuf.ByteString
-          getPasswordBytes() {
-        java.lang.Object ref = password_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          password_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @param value The password to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPassword(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        password_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPassword() {
-        
-        password_ = getDefaultInstance().getPassword();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @param value The bytes for password to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPasswordBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        password_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.Basic)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.Basic)
-    private static final io.greptime.v1.Database.Basic DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Database.Basic();
-    }
-
-    public static io.greptime.v1.Database.Basic getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Basic>
-        PARSER = new com.google.protobuf.AbstractParser<Basic>() {
-      @java.lang.Override
-      public Basic parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Basic(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Basic> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Basic> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Database.Basic getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface TokenOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.Token)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string token = 1;</code>
-     * @return The token.
-     */
-    java.lang.String getToken();
-    /**
-     * <code>string token = 1;</code>
-     * @return The bytes for token.
-     */
-    com.google.protobuf.ByteString
-        getTokenBytes();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.Token}
-   */
-  public static final class Token extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.Token)
-      TokenOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Token.newBuilder() to construct.
-    private Token(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Token() {
-      token_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Token();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Token(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              token_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_Token_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_Token_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Database.Token.class, io.greptime.v1.Database.Token.Builder.class);
-    }
-
-    public static final int TOKEN_FIELD_NUMBER = 1;
-    private volatile java.lang.Object token_;
-    /**
-     * <code>string token = 1;</code>
-     * @return The token.
-     */
-    @java.lang.Override
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        token_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string token = 1;</code>
-     * @return The bytes for token.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, token_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, token_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Database.Token)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Database.Token other = (io.greptime.v1.Database.Token) obj;
-
-      if (!getToken()
-          .equals(other.getToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-      hash = (53 * hash) + getToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Database.Token parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.Token parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Token parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.Token parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Token parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.Token parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Token parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.Token parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Token parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.Token parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.Token parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.Token parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Database.Token prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.Token}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.Token)
-        io.greptime.v1.Database.TokenOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_Token_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_Token_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Database.Token.class, io.greptime.v1.Database.Token.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Database.Token.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        token_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_Token_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.Token getDefaultInstanceForType() {
-        return io.greptime.v1.Database.Token.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.Token build() {
-        io.greptime.v1.Database.Token result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.Token buildPartial() {
-        io.greptime.v1.Database.Token result = new io.greptime.v1.Database.Token(this);
-        result.token_ = token_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Database.Token) {
-          return mergeFrom((io.greptime.v1.Database.Token)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Database.Token other) {
-        if (other == io.greptime.v1.Database.Token.getDefaultInstance()) return this;
-        if (!other.getToken().isEmpty()) {
-          token_ = other.token_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Database.Token parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.Token) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object token_ = "";
-      /**
-       * <code>string token = 1;</code>
-       * @return The token.
-       */
-      public java.lang.String getToken() {
-        java.lang.Object ref = token_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          token_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string token = 1;</code>
-       * @return The bytes for token.
-       */
-      public com.google.protobuf.ByteString
-          getTokenBytes() {
-        java.lang.Object ref = token_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          token_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string token = 1;</code>
-       * @param value The token to set.
-       * @return This builder for chaining.
-       */
-      public Builder setToken(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        token_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string token = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearToken() {
-        
-        token_ = getDefaultInstance().getToken();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string token = 1;</code>
-       * @param value The bytes for token to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTokenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        token_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.Token)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.Token)
-    private static final io.greptime.v1.Database.Token DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Database.Token();
-    }
-
-    public static io.greptime.v1.Database.Token getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Token>
-        PARSER = new com.google.protobuf.AbstractParser<Token>() {
-      @java.lang.Override
-      public Token parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Token(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Token> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Token> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Database.Token getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface GreptimeRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.GreptimeRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -3499,11 +27,11 @@ public final class Database {
      * <code>.greptime.v1.RequestHeader header = 1;</code>
      * @return The header.
      */
-    io.greptime.v1.Database.RequestHeader getHeader();
+    io.greptime.v1.Common.RequestHeader getHeader();
     /**
      * <code>.greptime.v1.RequestHeader header = 1;</code>
      */
-    io.greptime.v1.Database.RequestHeaderOrBuilder getHeaderOrBuilder();
+    io.greptime.v1.Common.RequestHeaderOrBuilder getHeaderOrBuilder();
 
     /**
      * <code>.greptime.v1.InsertRequest insert = 2;</code>
@@ -3550,6 +78,21 @@ public final class Database {
      */
     io.greptime.v1.Ddl.DdlRequestOrBuilder getDdlOrBuilder();
 
+    /**
+     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+     * @return Whether the delete field is set.
+     */
+    boolean hasDelete();
+    /**
+     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+     * @return The delete.
+     */
+    io.greptime.v1.Database.DeleteRequest getDelete();
+    /**
+     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+     */
+    io.greptime.v1.Database.DeleteRequestOrBuilder getDeleteOrBuilder();
+
     public io.greptime.v1.Database.GreptimeRequest.RequestCase getRequestCase();
   }
   /**
@@ -3579,98 +122,6 @@ public final class Database {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GreptimeRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.greptime.v1.Database.RequestHeader.Builder subBuilder = null;
-              if (header_ != null) {
-                subBuilder = header_.toBuilder();
-              }
-              header_ = input.readMessage(io.greptime.v1.Database.RequestHeader.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(header_);
-                header_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              io.greptime.v1.Database.InsertRequest.Builder subBuilder = null;
-              if (requestCase_ == 2) {
-                subBuilder = ((io.greptime.v1.Database.InsertRequest) request_).toBuilder();
-              }
-              request_ =
-                  input.readMessage(io.greptime.v1.Database.InsertRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Database.InsertRequest) request_);
-                request_ = subBuilder.buildPartial();
-              }
-              requestCase_ = 2;
-              break;
-            }
-            case 26: {
-              io.greptime.v1.Database.QueryRequest.Builder subBuilder = null;
-              if (requestCase_ == 3) {
-                subBuilder = ((io.greptime.v1.Database.QueryRequest) request_).toBuilder();
-              }
-              request_ =
-                  input.readMessage(io.greptime.v1.Database.QueryRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Database.QueryRequest) request_);
-                request_ = subBuilder.buildPartial();
-              }
-              requestCase_ = 3;
-              break;
-            }
-            case 34: {
-              io.greptime.v1.Ddl.DdlRequest.Builder subBuilder = null;
-              if (requestCase_ == 4) {
-                subBuilder = ((io.greptime.v1.Ddl.DdlRequest) request_).toBuilder();
-              }
-              request_ =
-                  input.readMessage(io.greptime.v1.Ddl.DdlRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Ddl.DdlRequest) request_);
-                request_ = subBuilder.buildPartial();
-              }
-              requestCase_ = 4;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.greptime.v1.Database.internal_static_greptime_v1_GreptimeRequest_descriptor;
@@ -3692,6 +143,7 @@ public final class Database {
       INSERT(2),
       QUERY(3),
       DDL(4),
+      DELETE(5),
       REQUEST_NOT_SET(0);
       private final int value;
       private RequestCase(int value) {
@@ -3712,6 +164,7 @@ public final class Database {
           case 2: return INSERT;
           case 3: return QUERY;
           case 4: return DDL;
+          case 5: return DELETE;
           case 0: return REQUEST_NOT_SET;
           default: return null;
         }
@@ -3728,7 +181,7 @@ public final class Database {
     }
 
     public static final int HEADER_FIELD_NUMBER = 1;
-    private io.greptime.v1.Database.RequestHeader header_;
+    private io.greptime.v1.Common.RequestHeader header_;
     /**
      * <code>.greptime.v1.RequestHeader header = 1;</code>
      * @return Whether the header field is set.
@@ -3742,15 +195,15 @@ public final class Database {
      * @return The header.
      */
     @java.lang.Override
-    public io.greptime.v1.Database.RequestHeader getHeader() {
-      return header_ == null ? io.greptime.v1.Database.RequestHeader.getDefaultInstance() : header_;
+    public io.greptime.v1.Common.RequestHeader getHeader() {
+      return header_ == null ? io.greptime.v1.Common.RequestHeader.getDefaultInstance() : header_;
     }
     /**
      * <code>.greptime.v1.RequestHeader header = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Database.RequestHeaderOrBuilder getHeaderOrBuilder() {
-      return getHeader();
+    public io.greptime.v1.Common.RequestHeaderOrBuilder getHeaderOrBuilder() {
+      return header_ == null ? io.greptime.v1.Common.RequestHeader.getDefaultInstance() : header_;
     }
 
     public static final int INSERT_FIELD_NUMBER = 2;
@@ -3846,6 +299,37 @@ public final class Database {
       return io.greptime.v1.Ddl.DdlRequest.getDefaultInstance();
     }
 
+    public static final int DELETE_FIELD_NUMBER = 5;
+    /**
+     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+     * @return Whether the delete field is set.
+     */
+    @java.lang.Override
+    public boolean hasDelete() {
+      return requestCase_ == 5;
+    }
+    /**
+     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+     * @return The delete.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.DeleteRequest getDelete() {
+      if (requestCase_ == 5) {
+         return (io.greptime.v1.Database.DeleteRequest) request_;
+      }
+      return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.DeleteRequestOrBuilder getDeleteOrBuilder() {
+      if (requestCase_ == 5) {
+         return (io.greptime.v1.Database.DeleteRequest) request_;
+      }
+      return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3872,7 +356,10 @@ public final class Database {
       if (requestCase_ == 4) {
         output.writeMessage(4, (io.greptime.v1.Ddl.DdlRequest) request_);
       }
-      unknownFields.writeTo(output);
+      if (requestCase_ == 5) {
+        output.writeMessage(5, (io.greptime.v1.Database.DeleteRequest) request_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3897,7 +384,11 @@ public final class Database {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, (io.greptime.v1.Ddl.DdlRequest) request_);
       }
-      size += unknownFields.getSerializedSize();
+      if (requestCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (io.greptime.v1.Database.DeleteRequest) request_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3931,10 +422,14 @@ public final class Database {
           if (!getDdl()
               .equals(other.getDdl())) return false;
           break;
+        case 5:
+          if (!getDelete()
+              .equals(other.getDelete())) return false;
+          break;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3962,10 +457,14 @@ public final class Database {
           hash = (37 * hash) + DDL_FIELD_NUMBER;
           hash = (53 * hash) + getDdl().hashCode();
           break;
+        case 5:
+          hash = (37 * hash) + DELETE_FIELD_NUMBER;
+          hash = (53 * hash) + getDelete().hashCode();
+          break;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4082,27 +581,34 @@ public final class Database {
 
       // Construct using io.greptime.v1.Database.GreptimeRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (headerBuilder_ == null) {
-          header_ = null;
-        } else {
-          header_ = null;
+        bitField0_ = 0;
+        header_ = null;
+        if (headerBuilder_ != null) {
+          headerBuilder_.dispose();
           headerBuilder_ = null;
+        }
+        if (insertBuilder_ != null) {
+          insertBuilder_.clear();
+        }
+        if (queryBuilder_ != null) {
+          queryBuilder_.clear();
+        }
+        if (ddlBuilder_ != null) {
+          ddlBuilder_.clear();
+        }
+        if (deleteBuilder_ != null) {
+          deleteBuilder_.clear();
         }
         requestCase_ = 0;
         request_ = null;
@@ -4132,35 +638,40 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.GreptimeRequest buildPartial() {
         io.greptime.v1.Database.GreptimeRequest result = new io.greptime.v1.Database.GreptimeRequest(this);
-        if (headerBuilder_ == null) {
-          result.header_ = header_;
-        } else {
-          result.header_ = headerBuilder_.build();
-        }
-        if (requestCase_ == 2) {
-          if (insertBuilder_ == null) {
-            result.request_ = request_;
-          } else {
-            result.request_ = insertBuilder_.build();
-          }
-        }
-        if (requestCase_ == 3) {
-          if (queryBuilder_ == null) {
-            result.request_ = request_;
-          } else {
-            result.request_ = queryBuilder_.build();
-          }
-        }
-        if (requestCase_ == 4) {
-          if (ddlBuilder_ == null) {
-            result.request_ = request_;
-          } else {
-            result.request_ = ddlBuilder_.build();
-          }
-        }
-        result.requestCase_ = requestCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.greptime.v1.Database.GreptimeRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.header_ = headerBuilder_ == null
+              ? header_
+              : headerBuilder_.build();
+        }
+      }
+
+      private void buildPartialOneofs(io.greptime.v1.Database.GreptimeRequest result) {
+        result.requestCase_ = requestCase_;
+        result.request_ = this.request_;
+        if (requestCase_ == 2 &&
+            insertBuilder_ != null) {
+          result.request_ = insertBuilder_.build();
+        }
+        if (requestCase_ == 3 &&
+            queryBuilder_ != null) {
+          result.request_ = queryBuilder_.build();
+        }
+        if (requestCase_ == 4 &&
+            ddlBuilder_ != null) {
+          result.request_ = ddlBuilder_.build();
+        }
+        if (requestCase_ == 5 &&
+            deleteBuilder_ != null) {
+          result.request_ = deleteBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4223,11 +734,15 @@ public final class Database {
             mergeDdl(other.getDdl());
             break;
           }
+          case DELETE: {
+            mergeDelete(other.getDelete());
+            break;
+          }
           case REQUEST_NOT_SET: {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4242,17 +757,65 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Database.GreptimeRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getHeaderFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getInsertFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                requestCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getQueryFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                requestCase_ = 3;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getDdlFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                requestCase_ = 4;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getDeleteFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                requestCase_ = 5;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.GreptimeRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int requestCase_ = 0;
@@ -4270,24 +833,25 @@ public final class Database {
         return this;
       }
 
+      private int bitField0_;
 
-      private io.greptime.v1.Database.RequestHeader header_;
+      private io.greptime.v1.Common.RequestHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.RequestHeader, io.greptime.v1.Database.RequestHeader.Builder, io.greptime.v1.Database.RequestHeaderOrBuilder> headerBuilder_;
+          io.greptime.v1.Common.RequestHeader, io.greptime.v1.Common.RequestHeader.Builder, io.greptime.v1.Common.RequestHeaderOrBuilder> headerBuilder_;
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        * @return Whether the header field is set.
        */
       public boolean hasHeader() {
-        return headerBuilder_ != null || header_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        * @return The header.
        */
-      public io.greptime.v1.Database.RequestHeader getHeader() {
+      public io.greptime.v1.Common.RequestHeader getHeader() {
         if (headerBuilder_ == null) {
-          return header_ == null ? io.greptime.v1.Database.RequestHeader.getDefaultInstance() : header_;
+          return header_ == null ? io.greptime.v1.Common.RequestHeader.getDefaultInstance() : header_;
         } else {
           return headerBuilder_.getMessage();
         }
@@ -4295,93 +859,93 @@ public final class Database {
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        */
-      public Builder setHeader(io.greptime.v1.Database.RequestHeader value) {
+      public Builder setHeader(io.greptime.v1.Common.RequestHeader value) {
         if (headerBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           header_ = value;
-          onChanged();
         } else {
           headerBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        */
       public Builder setHeader(
-          io.greptime.v1.Database.RequestHeader.Builder builderForValue) {
+          io.greptime.v1.Common.RequestHeader.Builder builderForValue) {
         if (headerBuilder_ == null) {
           header_ = builderForValue.build();
-          onChanged();
         } else {
           headerBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        */
-      public Builder mergeHeader(io.greptime.v1.Database.RequestHeader value) {
+      public Builder mergeHeader(io.greptime.v1.Common.RequestHeader value) {
         if (headerBuilder_ == null) {
-          if (header_ != null) {
-            header_ =
-              io.greptime.v1.Database.RequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            header_ != null &&
+            header_ != io.greptime.v1.Common.RequestHeader.getDefaultInstance()) {
+            getHeaderBuilder().mergeFrom(value);
           } else {
             header_ = value;
           }
-          onChanged();
         } else {
           headerBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        */
       public Builder clearHeader() {
-        if (headerBuilder_ == null) {
-          header_ = null;
-          onChanged();
-        } else {
-          header_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        header_ = null;
+        if (headerBuilder_ != null) {
+          headerBuilder_.dispose();
           headerBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        */
-      public io.greptime.v1.Database.RequestHeader.Builder getHeaderBuilder() {
-        
+      public io.greptime.v1.Common.RequestHeader.Builder getHeaderBuilder() {
+        bitField0_ |= 0x00000001;
         onChanged();
         return getHeaderFieldBuilder().getBuilder();
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        */
-      public io.greptime.v1.Database.RequestHeaderOrBuilder getHeaderOrBuilder() {
+      public io.greptime.v1.Common.RequestHeaderOrBuilder getHeaderOrBuilder() {
         if (headerBuilder_ != null) {
           return headerBuilder_.getMessageOrBuilder();
         } else {
           return header_ == null ?
-              io.greptime.v1.Database.RequestHeader.getDefaultInstance() : header_;
+              io.greptime.v1.Common.RequestHeader.getDefaultInstance() : header_;
         }
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.RequestHeader, io.greptime.v1.Database.RequestHeader.Builder, io.greptime.v1.Database.RequestHeaderOrBuilder> 
+          io.greptime.v1.Common.RequestHeader, io.greptime.v1.Common.RequestHeader.Builder, io.greptime.v1.Common.RequestHeaderOrBuilder> 
           getHeaderFieldBuilder() {
         if (headerBuilder_ == null) {
           headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.RequestHeader, io.greptime.v1.Database.RequestHeader.Builder, io.greptime.v1.Database.RequestHeaderOrBuilder>(
+              io.greptime.v1.Common.RequestHeader, io.greptime.v1.Common.RequestHeader.Builder, io.greptime.v1.Common.RequestHeaderOrBuilder>(
                   getHeader(),
                   getParentForChildren(),
                   isClean());
@@ -4464,8 +1028,9 @@ public final class Database {
         } else {
           if (requestCase_ == 2) {
             insertBuilder_.mergeFrom(value);
+          } else {
+            insertBuilder_.setMessage(value);
           }
-          insertBuilder_.setMessage(value);
         }
         requestCase_ = 2;
         return this;
@@ -4527,7 +1092,7 @@ public final class Database {
           request_ = null;
         }
         requestCase_ = 2;
-        onChanged();;
+        onChanged();
         return insertBuilder_;
       }
 
@@ -4605,8 +1170,9 @@ public final class Database {
         } else {
           if (requestCase_ == 3) {
             queryBuilder_.mergeFrom(value);
+          } else {
+            queryBuilder_.setMessage(value);
           }
-          queryBuilder_.setMessage(value);
         }
         requestCase_ = 3;
         return this;
@@ -4668,7 +1234,7 @@ public final class Database {
           request_ = null;
         }
         requestCase_ = 3;
-        onChanged();;
+        onChanged();
         return queryBuilder_;
       }
 
@@ -4746,8 +1312,9 @@ public final class Database {
         } else {
           if (requestCase_ == 4) {
             ddlBuilder_.mergeFrom(value);
+          } else {
+            ddlBuilder_.setMessage(value);
           }
-          ddlBuilder_.setMessage(value);
         }
         requestCase_ = 4;
         return this;
@@ -4809,8 +1376,150 @@ public final class Database {
           request_ = null;
         }
         requestCase_ = 4;
-        onChanged();;
+        onChanged();
         return ddlBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Database.DeleteRequest, io.greptime.v1.Database.DeleteRequest.Builder, io.greptime.v1.Database.DeleteRequestOrBuilder> deleteBuilder_;
+      /**
+       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       * @return Whether the delete field is set.
+       */
+      @java.lang.Override
+      public boolean hasDelete() {
+        return requestCase_ == 5;
+      }
+      /**
+       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       * @return The delete.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Database.DeleteRequest getDelete() {
+        if (deleteBuilder_ == null) {
+          if (requestCase_ == 5) {
+            return (io.greptime.v1.Database.DeleteRequest) request_;
+          }
+          return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+        } else {
+          if (requestCase_ == 5) {
+            return deleteBuilder_.getMessage();
+          }
+          return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       */
+      public Builder setDelete(io.greptime.v1.Database.DeleteRequest value) {
+        if (deleteBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          request_ = value;
+          onChanged();
+        } else {
+          deleteBuilder_.setMessage(value);
+        }
+        requestCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       */
+      public Builder setDelete(
+          io.greptime.v1.Database.DeleteRequest.Builder builderForValue) {
+        if (deleteBuilder_ == null) {
+          request_ = builderForValue.build();
+          onChanged();
+        } else {
+          deleteBuilder_.setMessage(builderForValue.build());
+        }
+        requestCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       */
+      public Builder mergeDelete(io.greptime.v1.Database.DeleteRequest value) {
+        if (deleteBuilder_ == null) {
+          if (requestCase_ == 5 &&
+              request_ != io.greptime.v1.Database.DeleteRequest.getDefaultInstance()) {
+            request_ = io.greptime.v1.Database.DeleteRequest.newBuilder((io.greptime.v1.Database.DeleteRequest) request_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            request_ = value;
+          }
+          onChanged();
+        } else {
+          if (requestCase_ == 5) {
+            deleteBuilder_.mergeFrom(value);
+          } else {
+            deleteBuilder_.setMessage(value);
+          }
+        }
+        requestCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       */
+      public Builder clearDelete() {
+        if (deleteBuilder_ == null) {
+          if (requestCase_ == 5) {
+            requestCase_ = 0;
+            request_ = null;
+            onChanged();
+          }
+        } else {
+          if (requestCase_ == 5) {
+            requestCase_ = 0;
+            request_ = null;
+          }
+          deleteBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       */
+      public io.greptime.v1.Database.DeleteRequest.Builder getDeleteBuilder() {
+        return getDeleteFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Database.DeleteRequestOrBuilder getDeleteOrBuilder() {
+        if ((requestCase_ == 5) && (deleteBuilder_ != null)) {
+          return deleteBuilder_.getMessageOrBuilder();
+        } else {
+          if (requestCase_ == 5) {
+            return (io.greptime.v1.Database.DeleteRequest) request_;
+          }
+          return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Database.DeleteRequest, io.greptime.v1.Database.DeleteRequest.Builder, io.greptime.v1.Database.DeleteRequestOrBuilder> 
+          getDeleteFieldBuilder() {
+        if (deleteBuilder_ == null) {
+          if (!(requestCase_ == 5)) {
+            request_ = io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+          }
+          deleteBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Database.DeleteRequest, io.greptime.v1.Database.DeleteRequest.Builder, io.greptime.v1.Database.DeleteRequestOrBuilder>(
+                  (io.greptime.v1.Database.DeleteRequest) request_,
+                  getParentForChildren(),
+                  isClean());
+          request_ = null;
+        }
+        requestCase_ = 5;
+        onChanged();
+        return deleteBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4845,7 +1554,18 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GreptimeRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4865,424 +1585,6 @@ public final class Database {
 
   }
 
-  public interface ResponseHeaderOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.ResponseHeader)
-      com.google.protobuf.MessageOrBuilder {
-  }
-  /**
-   * Protobuf type {@code greptime.v1.ResponseHeader}
-   */
-  public static final class ResponseHeader extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.ResponseHeader)
-      ResponseHeaderOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use ResponseHeader.newBuilder() to construct.
-    private ResponseHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ResponseHeader() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ResponseHeader();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ResponseHeader(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_ResponseHeader_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_ResponseHeader_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Database.ResponseHeader.class, io.greptime.v1.Database.ResponseHeader.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Database.ResponseHeader)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Database.ResponseHeader other = (io.greptime.v1.Database.ResponseHeader) obj;
-
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.ResponseHeader parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Database.ResponseHeader prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.ResponseHeader}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.ResponseHeader)
-        io.greptime.v1.Database.ResponseHeaderOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_ResponseHeader_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_ResponseHeader_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Database.ResponseHeader.class, io.greptime.v1.Database.ResponseHeader.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Database.ResponseHeader.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_ResponseHeader_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.ResponseHeader getDefaultInstanceForType() {
-        return io.greptime.v1.Database.ResponseHeader.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.ResponseHeader build() {
-        io.greptime.v1.Database.ResponseHeader result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.ResponseHeader buildPartial() {
-        io.greptime.v1.Database.ResponseHeader result = new io.greptime.v1.Database.ResponseHeader(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Database.ResponseHeader) {
-          return mergeFrom((io.greptime.v1.Database.ResponseHeader)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Database.ResponseHeader other) {
-        if (other == io.greptime.v1.Database.ResponseHeader.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Database.ResponseHeader parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.ResponseHeader) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.ResponseHeader)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.ResponseHeader)
-    private static final io.greptime.v1.Database.ResponseHeader DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Database.ResponseHeader();
-    }
-
-    public static io.greptime.v1.Database.ResponseHeader getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ResponseHeader>
-        PARSER = new com.google.protobuf.AbstractParser<ResponseHeader>() {
-      @java.lang.Override
-      public ResponseHeader parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResponseHeader(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<ResponseHeader> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ResponseHeader> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Database.ResponseHeader getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface GreptimeResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.GreptimeResponse)
       com.google.protobuf.MessageOrBuilder {
@@ -5296,11 +1598,11 @@ public final class Database {
      * <code>.greptime.v1.ResponseHeader header = 1;</code>
      * @return The header.
      */
-    io.greptime.v1.Database.ResponseHeader getHeader();
+    io.greptime.v1.Common.ResponseHeader getHeader();
     /**
      * <code>.greptime.v1.ResponseHeader header = 1;</code>
      */
-    io.greptime.v1.Database.ResponseHeaderOrBuilder getHeaderOrBuilder();
+    io.greptime.v1.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
 
     /**
      * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
@@ -5311,11 +1613,11 @@ public final class Database {
      * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
      * @return The affectedRows.
      */
-    io.greptime.v1.Database.AffectedRows getAffectedRows();
+    io.greptime.v1.Common.AffectedRows getAffectedRows();
     /**
      * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
      */
-    io.greptime.v1.Database.AffectedRowsOrBuilder getAffectedRowsOrBuilder();
+    io.greptime.v1.Common.AffectedRowsOrBuilder getAffectedRowsOrBuilder();
 
     public io.greptime.v1.Database.GreptimeResponse.ResponseCase getResponseCase();
   }
@@ -5345,70 +1647,6 @@ public final class Database {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private GreptimeResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.greptime.v1.Database.ResponseHeader.Builder subBuilder = null;
-              if (header_ != null) {
-                subBuilder = header_.toBuilder();
-              }
-              header_ = input.readMessage(io.greptime.v1.Database.ResponseHeader.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(header_);
-                header_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              io.greptime.v1.Database.AffectedRows.Builder subBuilder = null;
-              if (responseCase_ == 2) {
-                subBuilder = ((io.greptime.v1.Database.AffectedRows) response_).toBuilder();
-              }
-              response_ =
-                  input.readMessage(io.greptime.v1.Database.AffectedRows.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Database.AffectedRows) response_);
-                response_ = subBuilder.buildPartial();
-              }
-              responseCase_ = 2;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -5463,7 +1701,7 @@ public final class Database {
     }
 
     public static final int HEADER_FIELD_NUMBER = 1;
-    private io.greptime.v1.Database.ResponseHeader header_;
+    private io.greptime.v1.Common.ResponseHeader header_;
     /**
      * <code>.greptime.v1.ResponseHeader header = 1;</code>
      * @return Whether the header field is set.
@@ -5477,15 +1715,15 @@ public final class Database {
      * @return The header.
      */
     @java.lang.Override
-    public io.greptime.v1.Database.ResponseHeader getHeader() {
-      return header_ == null ? io.greptime.v1.Database.ResponseHeader.getDefaultInstance() : header_;
+    public io.greptime.v1.Common.ResponseHeader getHeader() {
+      return header_ == null ? io.greptime.v1.Common.ResponseHeader.getDefaultInstance() : header_;
     }
     /**
      * <code>.greptime.v1.ResponseHeader header = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Database.ResponseHeaderOrBuilder getHeaderOrBuilder() {
-      return getHeader();
+    public io.greptime.v1.Common.ResponseHeaderOrBuilder getHeaderOrBuilder() {
+      return header_ == null ? io.greptime.v1.Common.ResponseHeader.getDefaultInstance() : header_;
     }
 
     public static final int AFFECTED_ROWS_FIELD_NUMBER = 2;
@@ -5502,21 +1740,21 @@ public final class Database {
      * @return The affectedRows.
      */
     @java.lang.Override
-    public io.greptime.v1.Database.AffectedRows getAffectedRows() {
+    public io.greptime.v1.Common.AffectedRows getAffectedRows() {
       if (responseCase_ == 2) {
-         return (io.greptime.v1.Database.AffectedRows) response_;
+         return (io.greptime.v1.Common.AffectedRows) response_;
       }
-      return io.greptime.v1.Database.AffectedRows.getDefaultInstance();
+      return io.greptime.v1.Common.AffectedRows.getDefaultInstance();
     }
     /**
      * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Database.AffectedRowsOrBuilder getAffectedRowsOrBuilder() {
+    public io.greptime.v1.Common.AffectedRowsOrBuilder getAffectedRowsOrBuilder() {
       if (responseCase_ == 2) {
-         return (io.greptime.v1.Database.AffectedRows) response_;
+         return (io.greptime.v1.Common.AffectedRows) response_;
       }
-      return io.greptime.v1.Database.AffectedRows.getDefaultInstance();
+      return io.greptime.v1.Common.AffectedRows.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5537,9 +1775,9 @@ public final class Database {
         output.writeMessage(1, getHeader());
       }
       if (responseCase_ == 2) {
-        output.writeMessage(2, (io.greptime.v1.Database.AffectedRows) response_);
+        output.writeMessage(2, (io.greptime.v1.Common.AffectedRows) response_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5554,9 +1792,9 @@ public final class Database {
       }
       if (responseCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (io.greptime.v1.Database.AffectedRows) response_);
+          .computeMessageSize(2, (io.greptime.v1.Common.AffectedRows) response_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5585,7 +1823,7 @@ public final class Database {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5608,7 +1846,7 @@ public final class Database {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5725,27 +1963,25 @@ public final class Database {
 
       // Construct using io.greptime.v1.Database.GreptimeResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (headerBuilder_ == null) {
-          header_ = null;
-        } else {
-          header_ = null;
+        bitField0_ = 0;
+        header_ = null;
+        if (headerBuilder_ != null) {
+          headerBuilder_.dispose();
           headerBuilder_ = null;
+        }
+        if (affectedRowsBuilder_ != null) {
+          affectedRowsBuilder_.clear();
         }
         responseCase_ = 0;
         response_ = null;
@@ -5775,21 +2011,28 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.GreptimeResponse buildPartial() {
         io.greptime.v1.Database.GreptimeResponse result = new io.greptime.v1.Database.GreptimeResponse(this);
-        if (headerBuilder_ == null) {
-          result.header_ = header_;
-        } else {
-          result.header_ = headerBuilder_.build();
-        }
-        if (responseCase_ == 2) {
-          if (affectedRowsBuilder_ == null) {
-            result.response_ = response_;
-          } else {
-            result.response_ = affectedRowsBuilder_.build();
-          }
-        }
-        result.responseCase_ = responseCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.greptime.v1.Database.GreptimeResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.header_ = headerBuilder_ == null
+              ? header_
+              : headerBuilder_.build();
+        }
+      }
+
+      private void buildPartialOneofs(io.greptime.v1.Database.GreptimeResponse result) {
+        result.responseCase_ = responseCase_;
+        result.response_ = this.response_;
+        if (responseCase_ == 2 &&
+            affectedRowsBuilder_ != null) {
+          result.response_ = affectedRowsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -5848,7 +2091,7 @@ public final class Database {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5863,17 +2106,44 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Database.GreptimeResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getHeaderFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getAffectedRowsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                responseCase_ = 2;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.GreptimeResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int responseCase_ = 0;
@@ -5891,24 +2161,25 @@ public final class Database {
         return this;
       }
 
+      private int bitField0_;
 
-      private io.greptime.v1.Database.ResponseHeader header_;
+      private io.greptime.v1.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.ResponseHeader, io.greptime.v1.Database.ResponseHeader.Builder, io.greptime.v1.Database.ResponseHeaderOrBuilder> headerBuilder_;
+          io.greptime.v1.Common.ResponseHeader, io.greptime.v1.Common.ResponseHeader.Builder, io.greptime.v1.Common.ResponseHeaderOrBuilder> headerBuilder_;
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        * @return Whether the header field is set.
        */
       public boolean hasHeader() {
-        return headerBuilder_ != null || header_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        * @return The header.
        */
-      public io.greptime.v1.Database.ResponseHeader getHeader() {
+      public io.greptime.v1.Common.ResponseHeader getHeader() {
         if (headerBuilder_ == null) {
-          return header_ == null ? io.greptime.v1.Database.ResponseHeader.getDefaultInstance() : header_;
+          return header_ == null ? io.greptime.v1.Common.ResponseHeader.getDefaultInstance() : header_;
         } else {
           return headerBuilder_.getMessage();
         }
@@ -5916,93 +2187,93 @@ public final class Database {
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        */
-      public Builder setHeader(io.greptime.v1.Database.ResponseHeader value) {
+      public Builder setHeader(io.greptime.v1.Common.ResponseHeader value) {
         if (headerBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           header_ = value;
-          onChanged();
         } else {
           headerBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        */
       public Builder setHeader(
-          io.greptime.v1.Database.ResponseHeader.Builder builderForValue) {
+          io.greptime.v1.Common.ResponseHeader.Builder builderForValue) {
         if (headerBuilder_ == null) {
           header_ = builderForValue.build();
-          onChanged();
         } else {
           headerBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        */
-      public Builder mergeHeader(io.greptime.v1.Database.ResponseHeader value) {
+      public Builder mergeHeader(io.greptime.v1.Common.ResponseHeader value) {
         if (headerBuilder_ == null) {
-          if (header_ != null) {
-            header_ =
-              io.greptime.v1.Database.ResponseHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            header_ != null &&
+            header_ != io.greptime.v1.Common.ResponseHeader.getDefaultInstance()) {
+            getHeaderBuilder().mergeFrom(value);
           } else {
             header_ = value;
           }
-          onChanged();
         } else {
           headerBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        */
       public Builder clearHeader() {
-        if (headerBuilder_ == null) {
-          header_ = null;
-          onChanged();
-        } else {
-          header_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        header_ = null;
+        if (headerBuilder_ != null) {
+          headerBuilder_.dispose();
           headerBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        */
-      public io.greptime.v1.Database.ResponseHeader.Builder getHeaderBuilder() {
-        
+      public io.greptime.v1.Common.ResponseHeader.Builder getHeaderBuilder() {
+        bitField0_ |= 0x00000001;
         onChanged();
         return getHeaderFieldBuilder().getBuilder();
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        */
-      public io.greptime.v1.Database.ResponseHeaderOrBuilder getHeaderOrBuilder() {
+      public io.greptime.v1.Common.ResponseHeaderOrBuilder getHeaderOrBuilder() {
         if (headerBuilder_ != null) {
           return headerBuilder_.getMessageOrBuilder();
         } else {
           return header_ == null ?
-              io.greptime.v1.Database.ResponseHeader.getDefaultInstance() : header_;
+              io.greptime.v1.Common.ResponseHeader.getDefaultInstance() : header_;
         }
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.ResponseHeader, io.greptime.v1.Database.ResponseHeader.Builder, io.greptime.v1.Database.ResponseHeaderOrBuilder> 
+          io.greptime.v1.Common.ResponseHeader, io.greptime.v1.Common.ResponseHeader.Builder, io.greptime.v1.Common.ResponseHeaderOrBuilder> 
           getHeaderFieldBuilder() {
         if (headerBuilder_ == null) {
           headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.ResponseHeader, io.greptime.v1.Database.ResponseHeader.Builder, io.greptime.v1.Database.ResponseHeaderOrBuilder>(
+              io.greptime.v1.Common.ResponseHeader, io.greptime.v1.Common.ResponseHeader.Builder, io.greptime.v1.Common.ResponseHeaderOrBuilder>(
                   getHeader(),
                   getParentForChildren(),
                   isClean());
@@ -6012,7 +2283,7 @@ public final class Database {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.AffectedRows, io.greptime.v1.Database.AffectedRows.Builder, io.greptime.v1.Database.AffectedRowsOrBuilder> affectedRowsBuilder_;
+          io.greptime.v1.Common.AffectedRows, io.greptime.v1.Common.AffectedRows.Builder, io.greptime.v1.Common.AffectedRowsOrBuilder> affectedRowsBuilder_;
       /**
        * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
        * @return Whether the affectedRows field is set.
@@ -6026,23 +2297,23 @@ public final class Database {
        * @return The affectedRows.
        */
       @java.lang.Override
-      public io.greptime.v1.Database.AffectedRows getAffectedRows() {
+      public io.greptime.v1.Common.AffectedRows getAffectedRows() {
         if (affectedRowsBuilder_ == null) {
           if (responseCase_ == 2) {
-            return (io.greptime.v1.Database.AffectedRows) response_;
+            return (io.greptime.v1.Common.AffectedRows) response_;
           }
-          return io.greptime.v1.Database.AffectedRows.getDefaultInstance();
+          return io.greptime.v1.Common.AffectedRows.getDefaultInstance();
         } else {
           if (responseCase_ == 2) {
             return affectedRowsBuilder_.getMessage();
           }
-          return io.greptime.v1.Database.AffectedRows.getDefaultInstance();
+          return io.greptime.v1.Common.AffectedRows.getDefaultInstance();
         }
       }
       /**
        * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
        */
-      public Builder setAffectedRows(io.greptime.v1.Database.AffectedRows value) {
+      public Builder setAffectedRows(io.greptime.v1.Common.AffectedRows value) {
         if (affectedRowsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -6059,7 +2330,7 @@ public final class Database {
        * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
        */
       public Builder setAffectedRows(
-          io.greptime.v1.Database.AffectedRows.Builder builderForValue) {
+          io.greptime.v1.Common.AffectedRows.Builder builderForValue) {
         if (affectedRowsBuilder_ == null) {
           response_ = builderForValue.build();
           onChanged();
@@ -6072,11 +2343,11 @@ public final class Database {
       /**
        * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
        */
-      public Builder mergeAffectedRows(io.greptime.v1.Database.AffectedRows value) {
+      public Builder mergeAffectedRows(io.greptime.v1.Common.AffectedRows value) {
         if (affectedRowsBuilder_ == null) {
           if (responseCase_ == 2 &&
-              response_ != io.greptime.v1.Database.AffectedRows.getDefaultInstance()) {
-            response_ = io.greptime.v1.Database.AffectedRows.newBuilder((io.greptime.v1.Database.AffectedRows) response_)
+              response_ != io.greptime.v1.Common.AffectedRows.getDefaultInstance()) {
+            response_ = io.greptime.v1.Common.AffectedRows.newBuilder((io.greptime.v1.Common.AffectedRows) response_)
                 .mergeFrom(value).buildPartial();
           } else {
             response_ = value;
@@ -6085,8 +2356,9 @@ public final class Database {
         } else {
           if (responseCase_ == 2) {
             affectedRowsBuilder_.mergeFrom(value);
+          } else {
+            affectedRowsBuilder_.setMessage(value);
           }
-          affectedRowsBuilder_.setMessage(value);
         }
         responseCase_ = 2;
         return this;
@@ -6113,42 +2385,42 @@ public final class Database {
       /**
        * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
        */
-      public io.greptime.v1.Database.AffectedRows.Builder getAffectedRowsBuilder() {
+      public io.greptime.v1.Common.AffectedRows.Builder getAffectedRowsBuilder() {
         return getAffectedRowsFieldBuilder().getBuilder();
       }
       /**
        * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.Database.AffectedRowsOrBuilder getAffectedRowsOrBuilder() {
+      public io.greptime.v1.Common.AffectedRowsOrBuilder getAffectedRowsOrBuilder() {
         if ((responseCase_ == 2) && (affectedRowsBuilder_ != null)) {
           return affectedRowsBuilder_.getMessageOrBuilder();
         } else {
           if (responseCase_ == 2) {
-            return (io.greptime.v1.Database.AffectedRows) response_;
+            return (io.greptime.v1.Common.AffectedRows) response_;
           }
-          return io.greptime.v1.Database.AffectedRows.getDefaultInstance();
+          return io.greptime.v1.Common.AffectedRows.getDefaultInstance();
         }
       }
       /**
        * <code>.greptime.v1.AffectedRows affected_rows = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.AffectedRows, io.greptime.v1.Database.AffectedRows.Builder, io.greptime.v1.Database.AffectedRowsOrBuilder> 
+          io.greptime.v1.Common.AffectedRows, io.greptime.v1.Common.AffectedRows.Builder, io.greptime.v1.Common.AffectedRowsOrBuilder> 
           getAffectedRowsFieldBuilder() {
         if (affectedRowsBuilder_ == null) {
           if (!(responseCase_ == 2)) {
-            response_ = io.greptime.v1.Database.AffectedRows.getDefaultInstance();
+            response_ = io.greptime.v1.Common.AffectedRows.getDefaultInstance();
           }
           affectedRowsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.AffectedRows, io.greptime.v1.Database.AffectedRows.Builder, io.greptime.v1.Database.AffectedRowsOrBuilder>(
-                  (io.greptime.v1.Database.AffectedRows) response_,
+              io.greptime.v1.Common.AffectedRows, io.greptime.v1.Common.AffectedRows.Builder, io.greptime.v1.Common.AffectedRowsOrBuilder>(
+                  (io.greptime.v1.Common.AffectedRows) response_,
                   getParentForChildren(),
                   isClean());
           response_ = null;
         }
         responseCase_ = 2;
-        onChanged();;
+        onChanged();
         return affectedRowsBuilder_;
       }
       @java.lang.Override
@@ -6184,7 +2456,18 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GreptimeResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6245,11 +2528,11 @@ public final class Database {
      * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
      * @return The promRangeQuery.
      */
-    io.greptime.v1.Database.PromRangeQuery getPromRangeQuery();
+    io.greptime.v1.Prometheus.PromRangeQuery getPromRangeQuery();
     /**
      * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
      */
-    io.greptime.v1.Database.PromRangeQueryOrBuilder getPromRangeQueryOrBuilder();
+    io.greptime.v1.Prometheus.PromRangeQueryOrBuilder getPromRangeQueryOrBuilder();
 
     public io.greptime.v1.Database.QueryRequest.QueryCase getQueryCase();
   }
@@ -6279,68 +2562,6 @@ public final class Database {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private QueryRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              queryCase_ = 1;
-              query_ = s;
-              break;
-            }
-            case 18: {
-              query_ = input.readBytes();
-              queryCase_ = 2;
-              break;
-            }
-            case 26: {
-              io.greptime.v1.Database.PromRangeQuery.Builder subBuilder = null;
-              if (queryCase_ == 3) {
-                subBuilder = ((io.greptime.v1.Database.PromRangeQuery) query_).toBuilder();
-              }
-              query_ =
-                  input.readMessage(io.greptime.v1.Database.PromRangeQuery.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Database.PromRangeQuery) query_);
-                query_ = subBuilder.buildPartial();
-              }
-              queryCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -6485,21 +2706,21 @@ public final class Database {
      * @return The promRangeQuery.
      */
     @java.lang.Override
-    public io.greptime.v1.Database.PromRangeQuery getPromRangeQuery() {
+    public io.greptime.v1.Prometheus.PromRangeQuery getPromRangeQuery() {
       if (queryCase_ == 3) {
-         return (io.greptime.v1.Database.PromRangeQuery) query_;
+         return (io.greptime.v1.Prometheus.PromRangeQuery) query_;
       }
-      return io.greptime.v1.Database.PromRangeQuery.getDefaultInstance();
+      return io.greptime.v1.Prometheus.PromRangeQuery.getDefaultInstance();
     }
     /**
      * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Database.PromRangeQueryOrBuilder getPromRangeQueryOrBuilder() {
+    public io.greptime.v1.Prometheus.PromRangeQueryOrBuilder getPromRangeQueryOrBuilder() {
       if (queryCase_ == 3) {
-         return (io.greptime.v1.Database.PromRangeQuery) query_;
+         return (io.greptime.v1.Prometheus.PromRangeQuery) query_;
       }
-      return io.greptime.v1.Database.PromRangeQuery.getDefaultInstance();
+      return io.greptime.v1.Prometheus.PromRangeQuery.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6524,9 +2745,9 @@ public final class Database {
             2, (com.google.protobuf.ByteString) query_);
       }
       if (queryCase_ == 3) {
-        output.writeMessage(3, (io.greptime.v1.Database.PromRangeQuery) query_);
+        output.writeMessage(3, (io.greptime.v1.Prometheus.PromRangeQuery) query_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6545,9 +2766,9 @@ public final class Database {
       }
       if (queryCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (io.greptime.v1.Database.PromRangeQuery) query_);
+          .computeMessageSize(3, (io.greptime.v1.Prometheus.PromRangeQuery) query_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6579,7 +2800,7 @@ public final class Database {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6606,7 +2827,7 @@ public final class Database {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6723,22 +2944,21 @@ public final class Database {
 
       // Construct using io.greptime.v1.Database.QueryRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (promRangeQueryBuilder_ != null) {
+          promRangeQueryBuilder_.clear();
+        }
         queryCase_ = 0;
         query_ = null;
         return this;
@@ -6767,22 +2987,23 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.QueryRequest buildPartial() {
         io.greptime.v1.Database.QueryRequest result = new io.greptime.v1.Database.QueryRequest(this);
-        if (queryCase_ == 1) {
-          result.query_ = query_;
-        }
-        if (queryCase_ == 2) {
-          result.query_ = query_;
-        }
-        if (queryCase_ == 3) {
-          if (promRangeQueryBuilder_ == null) {
-            result.query_ = query_;
-          } else {
-            result.query_ = promRangeQueryBuilder_.build();
-          }
-        }
-        result.queryCase_ = queryCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.greptime.v1.Database.QueryRequest result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(io.greptime.v1.Database.QueryRequest result) {
+        result.queryCase_ = queryCase_;
+        result.query_ = this.query_;
+        if (queryCase_ == 3 &&
+            promRangeQueryBuilder_ != null) {
+          result.query_ = promRangeQueryBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -6848,7 +3069,7 @@ public final class Database {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6863,17 +3084,48 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Database.QueryRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                queryCase_ = 1;
+                query_ = s;
+                break;
+              } // case 10
+              case 18: {
+                query_ = input.readBytes();
+                queryCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getPromRangeQueryFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                queryCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.QueryRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int queryCase_ = 0;
@@ -6891,6 +3143,7 @@ public final class Database {
         return this;
       }
 
+      private int bitField0_;
 
       /**
        * <code>string sql = 1;</code>
@@ -6952,10 +3205,8 @@ public final class Database {
        */
       public Builder setSql(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  queryCase_ = 1;
+        if (value == null) { throw new NullPointerException(); }
+        queryCase_ = 1;
         query_ = value;
         onChanged();
         return this;
@@ -6979,10 +3230,8 @@ public final class Database {
        */
       public Builder setSqlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         queryCase_ = 1;
         query_ = value;
         onChanged();
@@ -7012,10 +3261,8 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder setLogicalPlan(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  queryCase_ = 2;
+        if (value == null) { throw new NullPointerException(); }
+        queryCase_ = 2;
         query_ = value;
         onChanged();
         return this;
@@ -7034,7 +3281,7 @@ public final class Database {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.PromRangeQuery, io.greptime.v1.Database.PromRangeQuery.Builder, io.greptime.v1.Database.PromRangeQueryOrBuilder> promRangeQueryBuilder_;
+          io.greptime.v1.Prometheus.PromRangeQuery, io.greptime.v1.Prometheus.PromRangeQuery.Builder, io.greptime.v1.Prometheus.PromRangeQueryOrBuilder> promRangeQueryBuilder_;
       /**
        * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
        * @return Whether the promRangeQuery field is set.
@@ -7048,23 +3295,23 @@ public final class Database {
        * @return The promRangeQuery.
        */
       @java.lang.Override
-      public io.greptime.v1.Database.PromRangeQuery getPromRangeQuery() {
+      public io.greptime.v1.Prometheus.PromRangeQuery getPromRangeQuery() {
         if (promRangeQueryBuilder_ == null) {
           if (queryCase_ == 3) {
-            return (io.greptime.v1.Database.PromRangeQuery) query_;
+            return (io.greptime.v1.Prometheus.PromRangeQuery) query_;
           }
-          return io.greptime.v1.Database.PromRangeQuery.getDefaultInstance();
+          return io.greptime.v1.Prometheus.PromRangeQuery.getDefaultInstance();
         } else {
           if (queryCase_ == 3) {
             return promRangeQueryBuilder_.getMessage();
           }
-          return io.greptime.v1.Database.PromRangeQuery.getDefaultInstance();
+          return io.greptime.v1.Prometheus.PromRangeQuery.getDefaultInstance();
         }
       }
       /**
        * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
        */
-      public Builder setPromRangeQuery(io.greptime.v1.Database.PromRangeQuery value) {
+      public Builder setPromRangeQuery(io.greptime.v1.Prometheus.PromRangeQuery value) {
         if (promRangeQueryBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -7081,7 +3328,7 @@ public final class Database {
        * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
        */
       public Builder setPromRangeQuery(
-          io.greptime.v1.Database.PromRangeQuery.Builder builderForValue) {
+          io.greptime.v1.Prometheus.PromRangeQuery.Builder builderForValue) {
         if (promRangeQueryBuilder_ == null) {
           query_ = builderForValue.build();
           onChanged();
@@ -7094,11 +3341,11 @@ public final class Database {
       /**
        * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
        */
-      public Builder mergePromRangeQuery(io.greptime.v1.Database.PromRangeQuery value) {
+      public Builder mergePromRangeQuery(io.greptime.v1.Prometheus.PromRangeQuery value) {
         if (promRangeQueryBuilder_ == null) {
           if (queryCase_ == 3 &&
-              query_ != io.greptime.v1.Database.PromRangeQuery.getDefaultInstance()) {
-            query_ = io.greptime.v1.Database.PromRangeQuery.newBuilder((io.greptime.v1.Database.PromRangeQuery) query_)
+              query_ != io.greptime.v1.Prometheus.PromRangeQuery.getDefaultInstance()) {
+            query_ = io.greptime.v1.Prometheus.PromRangeQuery.newBuilder((io.greptime.v1.Prometheus.PromRangeQuery) query_)
                 .mergeFrom(value).buildPartial();
           } else {
             query_ = value;
@@ -7107,8 +3354,9 @@ public final class Database {
         } else {
           if (queryCase_ == 3) {
             promRangeQueryBuilder_.mergeFrom(value);
+          } else {
+            promRangeQueryBuilder_.setMessage(value);
           }
-          promRangeQueryBuilder_.setMessage(value);
         }
         queryCase_ = 3;
         return this;
@@ -7135,42 +3383,42 @@ public final class Database {
       /**
        * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
        */
-      public io.greptime.v1.Database.PromRangeQuery.Builder getPromRangeQueryBuilder() {
+      public io.greptime.v1.Prometheus.PromRangeQuery.Builder getPromRangeQueryBuilder() {
         return getPromRangeQueryFieldBuilder().getBuilder();
       }
       /**
        * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.Database.PromRangeQueryOrBuilder getPromRangeQueryOrBuilder() {
+      public io.greptime.v1.Prometheus.PromRangeQueryOrBuilder getPromRangeQueryOrBuilder() {
         if ((queryCase_ == 3) && (promRangeQueryBuilder_ != null)) {
           return promRangeQueryBuilder_.getMessageOrBuilder();
         } else {
           if (queryCase_ == 3) {
-            return (io.greptime.v1.Database.PromRangeQuery) query_;
+            return (io.greptime.v1.Prometheus.PromRangeQuery) query_;
           }
-          return io.greptime.v1.Database.PromRangeQuery.getDefaultInstance();
+          return io.greptime.v1.Prometheus.PromRangeQuery.getDefaultInstance();
         }
       }
       /**
        * <code>.greptime.v1.PromRangeQuery prom_range_query = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.PromRangeQuery, io.greptime.v1.Database.PromRangeQuery.Builder, io.greptime.v1.Database.PromRangeQueryOrBuilder> 
+          io.greptime.v1.Prometheus.PromRangeQuery, io.greptime.v1.Prometheus.PromRangeQuery.Builder, io.greptime.v1.Prometheus.PromRangeQueryOrBuilder> 
           getPromRangeQueryFieldBuilder() {
         if (promRangeQueryBuilder_ == null) {
           if (!(queryCase_ == 3)) {
-            query_ = io.greptime.v1.Database.PromRangeQuery.getDefaultInstance();
+            query_ = io.greptime.v1.Prometheus.PromRangeQuery.getDefaultInstance();
           }
           promRangeQueryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.PromRangeQuery, io.greptime.v1.Database.PromRangeQuery.Builder, io.greptime.v1.Database.PromRangeQueryOrBuilder>(
-                  (io.greptime.v1.Database.PromRangeQuery) query_,
+              io.greptime.v1.Prometheus.PromRangeQuery, io.greptime.v1.Prometheus.PromRangeQuery.Builder, io.greptime.v1.Prometheus.PromRangeQueryOrBuilder>(
+                  (io.greptime.v1.Prometheus.PromRangeQuery) query_,
                   getParentForChildren(),
                   isClean());
           query_ = null;
         }
         queryCase_ = 3;
-        onChanged();;
+        onChanged();
         return promRangeQueryBuilder_;
       }
       @java.lang.Override
@@ -7206,7 +3454,18 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7221,1024 +3480,6 @@ public final class Database {
 
     @java.lang.Override
     public io.greptime.v1.Database.QueryRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface PromRangeQueryOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.PromRangeQuery)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string query = 1;</code>
-     * @return The query.
-     */
-    java.lang.String getQuery();
-    /**
-     * <code>string query = 1;</code>
-     * @return The bytes for query.
-     */
-    com.google.protobuf.ByteString
-        getQueryBytes();
-
-    /**
-     * <code>string start = 2;</code>
-     * @return The start.
-     */
-    java.lang.String getStart();
-    /**
-     * <code>string start = 2;</code>
-     * @return The bytes for start.
-     */
-    com.google.protobuf.ByteString
-        getStartBytes();
-
-    /**
-     * <code>string end = 3;</code>
-     * @return The end.
-     */
-    java.lang.String getEnd();
-    /**
-     * <code>string end = 3;</code>
-     * @return The bytes for end.
-     */
-    com.google.protobuf.ByteString
-        getEndBytes();
-
-    /**
-     * <code>string step = 4;</code>
-     * @return The step.
-     */
-    java.lang.String getStep();
-    /**
-     * <code>string step = 4;</code>
-     * @return The bytes for step.
-     */
-    com.google.protobuf.ByteString
-        getStepBytes();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.PromRangeQuery}
-   */
-  public static final class PromRangeQuery extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.PromRangeQuery)
-      PromRangeQueryOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use PromRangeQuery.newBuilder() to construct.
-    private PromRangeQuery(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private PromRangeQuery() {
-      query_ = "";
-      start_ = "";
-      end_ = "";
-      step_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new PromRangeQuery();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private PromRangeQuery(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              query_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              start_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              end_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              step_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_PromRangeQuery_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_PromRangeQuery_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Database.PromRangeQuery.class, io.greptime.v1.Database.PromRangeQuery.Builder.class);
-    }
-
-    public static final int QUERY_FIELD_NUMBER = 1;
-    private volatile java.lang.Object query_;
-    /**
-     * <code>string query = 1;</code>
-     * @return The query.
-     */
-    @java.lang.Override
-    public java.lang.String getQuery() {
-      java.lang.Object ref = query_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        query_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string query = 1;</code>
-     * @return The bytes for query.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getQueryBytes() {
-      java.lang.Object ref = query_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        query_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int START_FIELD_NUMBER = 2;
-    private volatile java.lang.Object start_;
-    /**
-     * <code>string start = 2;</code>
-     * @return The start.
-     */
-    @java.lang.Override
-    public java.lang.String getStart() {
-      java.lang.Object ref = start_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        start_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string start = 2;</code>
-     * @return The bytes for start.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getStartBytes() {
-      java.lang.Object ref = start_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        start_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int END_FIELD_NUMBER = 3;
-    private volatile java.lang.Object end_;
-    /**
-     * <code>string end = 3;</code>
-     * @return The end.
-     */
-    @java.lang.Override
-    public java.lang.String getEnd() {
-      java.lang.Object ref = end_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        end_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string end = 3;</code>
-     * @return The bytes for end.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getEndBytes() {
-      java.lang.Object ref = end_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        end_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int STEP_FIELD_NUMBER = 4;
-    private volatile java.lang.Object step_;
-    /**
-     * <code>string step = 4;</code>
-     * @return The step.
-     */
-    @java.lang.Override
-    public java.lang.String getStep() {
-      java.lang.Object ref = step_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        step_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string step = 4;</code>
-     * @return The bytes for step.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getStepBytes() {
-      java.lang.Object ref = step_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        step_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(query_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, query_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(start_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, start_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(end_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, end_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(step_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, step_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(query_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, query_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(start_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, start_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(end_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, end_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(step_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, step_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Database.PromRangeQuery)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Database.PromRangeQuery other = (io.greptime.v1.Database.PromRangeQuery) obj;
-
-      if (!getQuery()
-          .equals(other.getQuery())) return false;
-      if (!getStart()
-          .equals(other.getStart())) return false;
-      if (!getEnd()
-          .equals(other.getEnd())) return false;
-      if (!getStep()
-          .equals(other.getStep())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + QUERY_FIELD_NUMBER;
-      hash = (53 * hash) + getQuery().hashCode();
-      hash = (37 * hash) + START_FIELD_NUMBER;
-      hash = (53 * hash) + getStart().hashCode();
-      hash = (37 * hash) + END_FIELD_NUMBER;
-      hash = (53 * hash) + getEnd().hashCode();
-      hash = (37 * hash) + STEP_FIELD_NUMBER;
-      hash = (53 * hash) + getStep().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.PromRangeQuery parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Database.PromRangeQuery prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.PromRangeQuery}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.PromRangeQuery)
-        io.greptime.v1.Database.PromRangeQueryOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_PromRangeQuery_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_PromRangeQuery_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Database.PromRangeQuery.class, io.greptime.v1.Database.PromRangeQuery.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Database.PromRangeQuery.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        query_ = "";
-
-        start_ = "";
-
-        end_ = "";
-
-        step_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_PromRangeQuery_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.PromRangeQuery getDefaultInstanceForType() {
-        return io.greptime.v1.Database.PromRangeQuery.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.PromRangeQuery build() {
-        io.greptime.v1.Database.PromRangeQuery result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.PromRangeQuery buildPartial() {
-        io.greptime.v1.Database.PromRangeQuery result = new io.greptime.v1.Database.PromRangeQuery(this);
-        result.query_ = query_;
-        result.start_ = start_;
-        result.end_ = end_;
-        result.step_ = step_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Database.PromRangeQuery) {
-          return mergeFrom((io.greptime.v1.Database.PromRangeQuery)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Database.PromRangeQuery other) {
-        if (other == io.greptime.v1.Database.PromRangeQuery.getDefaultInstance()) return this;
-        if (!other.getQuery().isEmpty()) {
-          query_ = other.query_;
-          onChanged();
-        }
-        if (!other.getStart().isEmpty()) {
-          start_ = other.start_;
-          onChanged();
-        }
-        if (!other.getEnd().isEmpty()) {
-          end_ = other.end_;
-          onChanged();
-        }
-        if (!other.getStep().isEmpty()) {
-          step_ = other.step_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Database.PromRangeQuery parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.PromRangeQuery) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object query_ = "";
-      /**
-       * <code>string query = 1;</code>
-       * @return The query.
-       */
-      public java.lang.String getQuery() {
-        java.lang.Object ref = query_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          query_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string query = 1;</code>
-       * @return The bytes for query.
-       */
-      public com.google.protobuf.ByteString
-          getQueryBytes() {
-        java.lang.Object ref = query_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          query_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string query = 1;</code>
-       * @param value The query to set.
-       * @return This builder for chaining.
-       */
-      public Builder setQuery(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        query_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string query = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearQuery() {
-        
-        query_ = getDefaultInstance().getQuery();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string query = 1;</code>
-       * @param value The bytes for query to set.
-       * @return This builder for chaining.
-       */
-      public Builder setQueryBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        query_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object start_ = "";
-      /**
-       * <code>string start = 2;</code>
-       * @return The start.
-       */
-      public java.lang.String getStart() {
-        java.lang.Object ref = start_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          start_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string start = 2;</code>
-       * @return The bytes for start.
-       */
-      public com.google.protobuf.ByteString
-          getStartBytes() {
-        java.lang.Object ref = start_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          start_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string start = 2;</code>
-       * @param value The start to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStart(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        start_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string start = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStart() {
-        
-        start_ = getDefaultInstance().getStart();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string start = 2;</code>
-       * @param value The bytes for start to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStartBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        start_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object end_ = "";
-      /**
-       * <code>string end = 3;</code>
-       * @return The end.
-       */
-      public java.lang.String getEnd() {
-        java.lang.Object ref = end_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          end_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string end = 3;</code>
-       * @return The bytes for end.
-       */
-      public com.google.protobuf.ByteString
-          getEndBytes() {
-        java.lang.Object ref = end_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          end_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string end = 3;</code>
-       * @param value The end to set.
-       * @return This builder for chaining.
-       */
-      public Builder setEnd(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        end_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string end = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearEnd() {
-        
-        end_ = getDefaultInstance().getEnd();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string end = 3;</code>
-       * @param value The bytes for end to set.
-       * @return This builder for chaining.
-       */
-      public Builder setEndBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        end_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object step_ = "";
-      /**
-       * <code>string step = 4;</code>
-       * @return The step.
-       */
-      public java.lang.String getStep() {
-        java.lang.Object ref = step_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          step_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string step = 4;</code>
-       * @return The bytes for step.
-       */
-      public com.google.protobuf.ByteString
-          getStepBytes() {
-        java.lang.Object ref = step_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          step_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string step = 4;</code>
-       * @param value The step to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStep(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        step_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string step = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStep() {
-        
-        step_ = getDefaultInstance().getStep();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string step = 4;</code>
-       * @param value The bytes for step to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStepBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        step_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.PromRangeQuery)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.PromRangeQuery)
-    private static final io.greptime.v1.Database.PromRangeQuery DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Database.PromRangeQuery();
-    }
-
-    public static io.greptime.v1.Database.PromRangeQuery getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<PromRangeQuery>
-        PARSER = new com.google.protobuf.AbstractParser<PromRangeQuery>() {
-      @java.lang.Override
-      public PromRangeQuery parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PromRangeQuery(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<PromRangeQuery> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PromRangeQuery> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Database.PromRangeQuery getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8354,72 +3595,6 @@ public final class Database {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private InsertRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tableName_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                columns_ = new java.util.ArrayList<io.greptime.v1.Columns.Column>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              columns_.add(
-                  input.readMessage(io.greptime.v1.Columns.Column.parser(), extensionRegistry));
-              break;
-            }
-            case 32: {
-
-              rowCount_ = input.readUInt32();
-              break;
-            }
-            case 40: {
-
-              regionNumber_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          columns_ = java.util.Collections.unmodifiableList(columns_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.greptime.v1.Database.internal_static_greptime_v1_InsertRequest_descriptor;
@@ -8434,7 +3609,8 @@ public final class Database {
     }
 
     public static final int TABLE_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object tableName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object tableName_ = "";
     /**
      * <code>string table_name = 1;</code>
      * @return The tableName.
@@ -8472,6 +3648,7 @@ public final class Database {
     }
 
     public static final int COLUMNS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<io.greptime.v1.Columns.Column> columns_;
     /**
      * <pre>
@@ -8532,7 +3709,7 @@ public final class Database {
     }
 
     public static final int ROW_COUNT_FIELD_NUMBER = 4;
-    private int rowCount_;
+    private int rowCount_ = 0;
     /**
      * <pre>
      * The row_count of all columns, which include null and non-null values.
@@ -8548,7 +3725,7 @@ public final class Database {
     }
 
     public static final int REGION_NUMBER_FIELD_NUMBER = 5;
-    private int regionNumber_;
+    private int regionNumber_ = 0;
     /**
      * <pre>
      * The region number of current insert request.
@@ -8588,7 +3765,7 @@ public final class Database {
       if (regionNumber_ != 0) {
         output.writeUInt32(5, regionNumber_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8612,7 +3789,7 @@ public final class Database {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(5, regionNumber_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8635,7 +3812,7 @@ public final class Database {
           != other.getRowCount()) return false;
       if (getRegionNumber()
           != other.getRegionNumber()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8656,7 +3833,7 @@ public final class Database {
       hash = (53 * hash) + getRowCount();
       hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getRegionNumber();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8773,35 +3950,28 @@ public final class Database {
 
       // Construct using io.greptime.v1.Database.InsertRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getColumnsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         tableName_ = "";
-
         if (columnsBuilder_ == null) {
           columns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          columns_ = null;
           columnsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         rowCount_ = 0;
-
         regionNumber_ = 0;
-
         return this;
       }
 
@@ -8828,21 +3998,35 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.InsertRequest buildPartial() {
         io.greptime.v1.Database.InsertRequest result = new io.greptime.v1.Database.InsertRequest(this);
-        int from_bitField0_ = bitField0_;
-        result.tableName_ = tableName_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.greptime.v1.Database.InsertRequest result) {
         if (columnsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             columns_ = java.util.Collections.unmodifiableList(columns_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.columns_ = columns_;
         } else {
           result.columns_ = columnsBuilder_.build();
         }
-        result.rowCount_ = rowCount_;
-        result.regionNumber_ = regionNumber_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(io.greptime.v1.Database.InsertRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.tableName_ = tableName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.rowCount_ = rowCount_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.regionNumber_ = regionNumber_;
+        }
       }
 
       @java.lang.Override
@@ -8891,13 +4075,14 @@ public final class Database {
         if (other == io.greptime.v1.Database.InsertRequest.getDefaultInstance()) return this;
         if (!other.getTableName().isEmpty()) {
           tableName_ = other.tableName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (columnsBuilder_ == null) {
           if (!other.columns_.isEmpty()) {
             if (columns_.isEmpty()) {
               columns_ = other.columns_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureColumnsIsMutable();
               columns_.addAll(other.columns_);
@@ -8910,7 +4095,7 @@ public final class Database {
               columnsBuilder_.dispose();
               columnsBuilder_ = null;
               columns_ = other.columns_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               columnsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getColumnsFieldBuilder() : null;
@@ -8925,7 +4110,7 @@ public final class Database {
         if (other.getRegionNumber() != 0) {
           setRegionNumber(other.getRegionNumber());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8940,17 +4125,58 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Database.InsertRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                tableName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 26: {
+                io.greptime.v1.Columns.Column m =
+                    input.readMessage(
+                        io.greptime.v1.Columns.Column.parser(),
+                        extensionRegistry);
+                if (columnsBuilder_ == null) {
+                  ensureColumnsIsMutable();
+                  columns_.add(m);
+                } else {
+                  columnsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 32: {
+                rowCount_ = input.readUInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 32
+              case 40: {
+                regionNumber_ = input.readUInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 40
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.InsertRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -8996,11 +4222,9 @@ public final class Database {
        */
       public Builder setTableName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         tableName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9009,8 +4233,8 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder clearTableName() {
-        
         tableName_ = getDefaultInstance().getTableName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9021,12 +4245,10 @@ public final class Database {
        */
       public Builder setTableNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         tableName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9034,9 +4256,9 @@ public final class Database {
       private java.util.List<io.greptime.v1.Columns.Column> columns_ =
         java.util.Collections.emptyList();
       private void ensureColumnsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           columns_ = new java.util.ArrayList<io.greptime.v1.Columns.Column>(columns_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -9230,7 +4452,7 @@ public final class Database {
       public Builder clearColumns() {
         if (columnsBuilder_ == null) {
           columns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           columnsBuilder_.clear();
@@ -9335,7 +4557,7 @@ public final class Database {
           columnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.greptime.v1.Columns.Column, io.greptime.v1.Columns.Column.Builder, io.greptime.v1.Columns.ColumnOrBuilder>(
                   columns_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           columns_ = null;
@@ -9370,6 +4592,7 @@ public final class Database {
       public Builder setRowCount(int value) {
         
         rowCount_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -9383,7 +4606,7 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder clearRowCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         rowCount_ = 0;
         onChanged();
         return this;
@@ -9414,6 +4637,7 @@ public final class Database {
       public Builder setRegionNumber(int value) {
         
         regionNumber_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -9426,7 +4650,7 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder clearRegionNumber() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         regionNumber_ = 0;
         onChanged();
         return this;
@@ -9464,7 +4688,18 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new InsertRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9484,36 +4719,116 @@ public final class Database {
 
   }
 
-  public interface AffectedRowsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.AffectedRows)
+  public interface DeleteRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.DeleteRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint32 value = 1;</code>
-     * @return The value.
+     * <pre>
+     * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+     * </pre>
+     *
+     * <code>string table_name = 1;</code>
+     * @return The tableName.
      */
-    int getValue();
+    java.lang.String getTableName();
+    /**
+     * <pre>
+     * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+     * </pre>
+     *
+     * <code>string table_name = 1;</code>
+     * @return The bytes for tableName.
+     */
+    com.google.protobuf.ByteString
+        getTableNameBytes();
+
+    /**
+     * <pre>
+     * The region number of current delete request.
+     * </pre>
+     *
+     * <code>uint32 region_number = 2;</code>
+     * @return The regionNumber.
+     */
+    int getRegionNumber();
+
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    java.util.List<io.greptime.v1.Columns.Column> 
+        getKeyColumnsList();
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    io.greptime.v1.Columns.Column getKeyColumns(int index);
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    int getKeyColumnsCount();
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    java.util.List<? extends io.greptime.v1.Columns.ColumnOrBuilder> 
+        getKeyColumnsOrBuilderList();
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    io.greptime.v1.Columns.ColumnOrBuilder getKeyColumnsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * The row count of all columns above.
+     * </pre>
+     *
+     * <code>uint32 row_count = 4;</code>
+     * @return The rowCount.
+     */
+    int getRowCount();
   }
   /**
-   * Protobuf type {@code greptime.v1.AffectedRows}
+   * Protobuf type {@code greptime.v1.DeleteRequest}
    */
-  public static final class AffectedRows extends
+  public static final class DeleteRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.AffectedRows)
-      AffectedRowsOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.DeleteRequest)
+      DeleteRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use AffectedRows.newBuilder() to construct.
-    private AffectedRows(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use DeleteRequest.newBuilder() to construct.
+    private DeleteRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private AffectedRows() {
+    private DeleteRequest() {
+      tableName_ = "";
+      keyColumns_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new AffectedRows();
+      return new DeleteRequest();
     }
 
     @java.lang.Override
@@ -9521,70 +4836,155 @@ public final class Database {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AffectedRows(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              value_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_AffectedRows_descriptor;
+      return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_AffectedRows_fieldAccessorTable
+      return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Database.AffectedRows.class, io.greptime.v1.Database.AffectedRows.Builder.class);
+              io.greptime.v1.Database.DeleteRequest.class, io.greptime.v1.Database.DeleteRequest.Builder.class);
     }
 
-    public static final int VALUE_FIELD_NUMBER = 1;
-    private int value_;
+    public static final int TABLE_NAME_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object tableName_ = "";
     /**
-     * <code>uint32 value = 1;</code>
-     * @return The value.
+     * <pre>
+     * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+     * </pre>
+     *
+     * <code>string table_name = 1;</code>
+     * @return The tableName.
      */
     @java.lang.Override
-    public int getValue() {
-      return value_;
+    public java.lang.String getTableName() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tableName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+     * </pre>
+     *
+     * <code>string table_name = 1;</code>
+     * @return The bytes for tableName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTableNameBytes() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tableName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_NUMBER_FIELD_NUMBER = 2;
+    private int regionNumber_ = 0;
+    /**
+     * <pre>
+     * The region number of current delete request.
+     * </pre>
+     *
+     * <code>uint32 region_number = 2;</code>
+     * @return The regionNumber.
+     */
+    @java.lang.Override
+    public int getRegionNumber() {
+      return regionNumber_;
+    }
+
+    public static final int KEY_COLUMNS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private java.util.List<io.greptime.v1.Columns.Column> keyColumns_;
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.Columns.Column> getKeyColumnsList() {
+      return keyColumns_;
+    }
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.Columns.ColumnOrBuilder> 
+        getKeyColumnsOrBuilderList() {
+      return keyColumns_;
+    }
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    @java.lang.Override
+    public int getKeyColumnsCount() {
+      return keyColumns_.size();
+    }
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Columns.Column getKeyColumns(int index) {
+      return keyColumns_.get(index);
+    }
+    /**
+     * <pre>
+     * The data to delete, indexed by key columns.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Columns.ColumnOrBuilder getKeyColumnsOrBuilder(
+        int index) {
+      return keyColumns_.get(index);
+    }
+
+    public static final int ROW_COUNT_FIELD_NUMBER = 4;
+    private int rowCount_ = 0;
+    /**
+     * <pre>
+     * The row count of all columns above.
+     * </pre>
+     *
+     * <code>uint32 row_count = 4;</code>
+     * @return The rowCount.
+     */
+    @java.lang.Override
+    public int getRowCount() {
+      return rowCount_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9601,10 +5001,19 @@ public final class Database {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (value_ != 0) {
-        output.writeUInt32(1, value_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tableName_);
       }
-      unknownFields.writeTo(output);
+      if (regionNumber_ != 0) {
+        output.writeUInt32(2, regionNumber_);
+      }
+      for (int i = 0; i < keyColumns_.size(); i++) {
+        output.writeMessage(3, keyColumns_.get(i));
+      }
+      if (rowCount_ != 0) {
+        output.writeUInt32(4, rowCount_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9613,11 +5022,22 @@ public final class Database {
       if (size != -1) return size;
 
       size = 0;
-      if (value_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, value_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tableName_);
       }
-      size += unknownFields.getSerializedSize();
+      if (regionNumber_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, regionNumber_);
+      }
+      for (int i = 0; i < keyColumns_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, keyColumns_.get(i));
+      }
+      if (rowCount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, rowCount_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9627,14 +5047,20 @@ public final class Database {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.Database.AffectedRows)) {
+      if (!(obj instanceof io.greptime.v1.Database.DeleteRequest)) {
         return super.equals(obj);
       }
-      io.greptime.v1.Database.AffectedRows other = (io.greptime.v1.Database.AffectedRows) obj;
+      io.greptime.v1.Database.DeleteRequest other = (io.greptime.v1.Database.DeleteRequest) obj;
 
-      if (getValue()
-          != other.getValue()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getTableName()
+          .equals(other.getTableName())) return false;
+      if (getRegionNumber()
+          != other.getRegionNumber()) return false;
+      if (!getKeyColumnsList()
+          .equals(other.getKeyColumnsList())) return false;
+      if (getRowCount()
+          != other.getRowCount()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9645,76 +5071,84 @@ public final class Database {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + getValue();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getTableName().hashCode();
+      hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionNumber();
+      if (getKeyColumnsCount() > 0) {
+        hash = (37 * hash) + KEY_COLUMNS_FIELD_NUMBER;
+        hash = (53 * hash) + getKeyColumnsList().hashCode();
+      }
+      hash = (37 * hash) + ROW_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getRowCount();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static io.greptime.v1.Database.AffectedRows parseFrom(
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Database.AffectedRows parseFrom(
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Database.AffectedRows parseFrom(
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Database.AffectedRows parseFrom(
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Database.AffectedRows parseFrom(byte[] data)
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Database.AffectedRows parseFrom(
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Database.AffectedRows parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Database.AffectedRows parseFrom(
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Database.AffectedRows parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.Database.DeleteRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Database.AffectedRows parseDelimitedFrom(
+    public static io.greptime.v1.Database.DeleteRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Database.AffectedRows parseFrom(
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Database.AffectedRows parseFrom(
+    public static io.greptime.v1.Database.DeleteRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9727,7 +5161,7 @@ public final class Database {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.Database.AffectedRows prototype) {
+    public static Builder newBuilder(io.greptime.v1.Database.DeleteRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -9743,62 +5177,66 @@ public final class Database {
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.AffectedRows}
+     * Protobuf type {@code greptime.v1.DeleteRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.AffectedRows)
-        io.greptime.v1.Database.AffectedRowsOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.DeleteRequest)
+        io.greptime.v1.Database.DeleteRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_AffectedRows_descriptor;
+        return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_AffectedRows_fieldAccessorTable
+        return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Database.AffectedRows.class, io.greptime.v1.Database.AffectedRows.Builder.class);
+                io.greptime.v1.Database.DeleteRequest.class, io.greptime.v1.Database.DeleteRequest.Builder.class);
       }
 
-      // Construct using io.greptime.v1.Database.AffectedRows.newBuilder()
+      // Construct using io.greptime.v1.Database.DeleteRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        value_ = 0;
-
+        bitField0_ = 0;
+        tableName_ = "";
+        regionNumber_ = 0;
+        if (keyColumnsBuilder_ == null) {
+          keyColumns_ = java.util.Collections.emptyList();
+        } else {
+          keyColumns_ = null;
+          keyColumnsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        rowCount_ = 0;
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_AffectedRows_descriptor;
+        return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequest_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.Database.AffectedRows getDefaultInstanceForType() {
-        return io.greptime.v1.Database.AffectedRows.getDefaultInstance();
+      public io.greptime.v1.Database.DeleteRequest getDefaultInstanceForType() {
+        return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.Database.AffectedRows build() {
-        io.greptime.v1.Database.AffectedRows result = buildPartial();
+      public io.greptime.v1.Database.DeleteRequest build() {
+        io.greptime.v1.Database.DeleteRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -9806,11 +5244,37 @@ public final class Database {
       }
 
       @java.lang.Override
-      public io.greptime.v1.Database.AffectedRows buildPartial() {
-        io.greptime.v1.Database.AffectedRows result = new io.greptime.v1.Database.AffectedRows(this);
-        result.value_ = value_;
+      public io.greptime.v1.Database.DeleteRequest buildPartial() {
+        io.greptime.v1.Database.DeleteRequest result = new io.greptime.v1.Database.DeleteRequest(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(io.greptime.v1.Database.DeleteRequest result) {
+        if (keyColumnsBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            keyColumns_ = java.util.Collections.unmodifiableList(keyColumns_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.keyColumns_ = keyColumns_;
+        } else {
+          result.keyColumns_ = keyColumnsBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(io.greptime.v1.Database.DeleteRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.tableName_ = tableName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.regionNumber_ = regionNumber_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.rowCount_ = rowCount_;
+        }
       }
 
       @java.lang.Override
@@ -9847,20 +5311,54 @@ public final class Database {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Database.AffectedRows) {
-          return mergeFrom((io.greptime.v1.Database.AffectedRows)other);
+        if (other instanceof io.greptime.v1.Database.DeleteRequest) {
+          return mergeFrom((io.greptime.v1.Database.DeleteRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.Database.AffectedRows other) {
-        if (other == io.greptime.v1.Database.AffectedRows.getDefaultInstance()) return this;
-        if (other.getValue() != 0) {
-          setValue(other.getValue());
+      public Builder mergeFrom(io.greptime.v1.Database.DeleteRequest other) {
+        if (other == io.greptime.v1.Database.DeleteRequest.getDefaultInstance()) return this;
+        if (!other.getTableName().isEmpty()) {
+          tableName_ = other.tableName_;
+          bitField0_ |= 0x00000001;
+          onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (other.getRegionNumber() != 0) {
+          setRegionNumber(other.getRegionNumber());
+        }
+        if (keyColumnsBuilder_ == null) {
+          if (!other.keyColumns_.isEmpty()) {
+            if (keyColumns_.isEmpty()) {
+              keyColumns_ = other.keyColumns_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureKeyColumnsIsMutable();
+              keyColumns_.addAll(other.keyColumns_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.keyColumns_.isEmpty()) {
+            if (keyColumnsBuilder_.isEmpty()) {
+              keyColumnsBuilder_.dispose();
+              keyColumnsBuilder_ = null;
+              keyColumns_ = other.keyColumns_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              keyColumnsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getKeyColumnsFieldBuilder() : null;
+            } else {
+              keyColumnsBuilder_.addAllMessages(other.keyColumns_);
+            }
+          }
+        }
+        if (other.getRowCount() != 0) {
+          setRowCount(other.getRowCount());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9875,670 +5373,552 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Database.AffectedRows parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.AffectedRows) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
         }
-        return this;
-      }
-
-      private int value_ ;
-      /**
-       * <code>uint32 value = 1;</code>
-       * @return The value.
-       */
-      @java.lang.Override
-      public int getValue() {
-        return value_;
-      }
-      /**
-       * <code>uint32 value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
-       */
-      public Builder setValue(int value) {
-        
-        value_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 value = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearValue() {
-        
-        value_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.AffectedRows)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.AffectedRows)
-    private static final io.greptime.v1.Database.AffectedRows DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Database.AffectedRows();
-    }
-
-    public static io.greptime.v1.Database.AffectedRows getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<AffectedRows>
-        PARSER = new com.google.protobuf.AbstractParser<AffectedRows>() {
-      @java.lang.Override
-      public AffectedRows parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AffectedRows(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<AffectedRows> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<AffectedRows> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Database.AffectedRows getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface FlightMetadataOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.FlightMetadata)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
-     * @return Whether the affectedRows field is set.
-     */
-    boolean hasAffectedRows();
-    /**
-     * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
-     * @return The affectedRows.
-     */
-    io.greptime.v1.Database.AffectedRows getAffectedRows();
-    /**
-     * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
-     */
-    io.greptime.v1.Database.AffectedRowsOrBuilder getAffectedRowsOrBuilder();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.FlightMetadata}
-   */
-  public static final class FlightMetadata extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.FlightMetadata)
-      FlightMetadataOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use FlightMetadata.newBuilder() to construct.
-    private FlightMetadata(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private FlightMetadata() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new FlightMetadata();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private FlightMetadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.greptime.v1.Database.AffectedRows.Builder subBuilder = null;
-              if (affectedRows_ != null) {
-                subBuilder = affectedRows_.toBuilder();
-              }
-              affectedRows_ = input.readMessage(io.greptime.v1.Database.AffectedRows.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(affectedRows_);
-                affectedRows_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
                 done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_FlightMetadata_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Database.internal_static_greptime_v1_FlightMetadata_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Database.FlightMetadata.class, io.greptime.v1.Database.FlightMetadata.Builder.class);
-    }
-
-    public static final int AFFECTED_ROWS_FIELD_NUMBER = 1;
-    private io.greptime.v1.Database.AffectedRows affectedRows_;
-    /**
-     * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
-     * @return Whether the affectedRows field is set.
-     */
-    @java.lang.Override
-    public boolean hasAffectedRows() {
-      return affectedRows_ != null;
-    }
-    /**
-     * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
-     * @return The affectedRows.
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.AffectedRows getAffectedRows() {
-      return affectedRows_ == null ? io.greptime.v1.Database.AffectedRows.getDefaultInstance() : affectedRows_;
-    }
-    /**
-     * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.AffectedRowsOrBuilder getAffectedRowsOrBuilder() {
-      return getAffectedRows();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (affectedRows_ != null) {
-        output.writeMessage(1, getAffectedRows());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (affectedRows_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getAffectedRows());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Database.FlightMetadata)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Database.FlightMetadata other = (io.greptime.v1.Database.FlightMetadata) obj;
-
-      if (hasAffectedRows() != other.hasAffectedRows()) return false;
-      if (hasAffectedRows()) {
-        if (!getAffectedRows()
-            .equals(other.getAffectedRows())) return false;
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasAffectedRows()) {
-        hash = (37 * hash) + AFFECTED_ROWS_FIELD_NUMBER;
-        hash = (53 * hash) + getAffectedRows().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Database.FlightMetadata parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Database.FlightMetadata prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.FlightMetadata}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.FlightMetadata)
-        io.greptime.v1.Database.FlightMetadataOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_FlightMetadata_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_FlightMetadata_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Database.FlightMetadata.class, io.greptime.v1.Database.FlightMetadata.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Database.FlightMetadata.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (affectedRowsBuilder_ == null) {
-          affectedRows_ = null;
-        } else {
-          affectedRows_ = null;
-          affectedRowsBuilder_ = null;
-        }
+                break;
+              case 10: {
+                tableName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                regionNumber_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                io.greptime.v1.Columns.Column m =
+                    input.readMessage(
+                        io.greptime.v1.Columns.Column.parser(),
+                        extensionRegistry);
+                if (keyColumnsBuilder_ == null) {
+                  ensureKeyColumnsIsMutable();
+                  keyColumns_.add(m);
+                } else {
+                  keyColumnsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 32: {
+                rowCount_ = input.readUInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Database.internal_static_greptime_v1_FlightMetadata_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.FlightMetadata getDefaultInstanceForType() {
-        return io.greptime.v1.Database.FlightMetadata.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.FlightMetadata build() {
-        io.greptime.v1.Database.FlightMetadata result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Database.FlightMetadata buildPartial() {
-        io.greptime.v1.Database.FlightMetadata result = new io.greptime.v1.Database.FlightMetadata(this);
-        if (affectedRowsBuilder_ == null) {
-          result.affectedRows_ = affectedRows_;
+      private java.lang.Object tableName_ = "";
+      /**
+       * <pre>
+       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * </pre>
+       *
+       * <code>string table_name = 1;</code>
+       * @return The tableName.
+       */
+      public java.lang.String getTableName() {
+        java.lang.Object ref = tableName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tableName_ = s;
+          return s;
         } else {
-          result.affectedRows_ = affectedRowsBuilder_.build();
+          return (java.lang.String) ref;
         }
-        onBuilt();
-        return result;
       }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Database.FlightMetadata) {
-          return mergeFrom((io.greptime.v1.Database.FlightMetadata)other);
+      /**
+       * <pre>
+       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * </pre>
+       *
+       * <code>string table_name = 1;</code>
+       * @return The bytes for tableName.
+       */
+      public com.google.protobuf.ByteString
+          getTableNameBytes() {
+        java.lang.Object ref = tableName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tableName_ = b;
+          return b;
         } else {
-          super.mergeFrom(other);
-          return this;
+          return (com.google.protobuf.ByteString) ref;
         }
       }
-
-      public Builder mergeFrom(io.greptime.v1.Database.FlightMetadata other) {
-        if (other == io.greptime.v1.Database.FlightMetadata.getDefaultInstance()) return this;
-        if (other.hasAffectedRows()) {
-          mergeAffectedRows(other.getAffectedRows());
-        }
-        this.mergeUnknownFields(other.unknownFields);
+      /**
+       * <pre>
+       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * </pre>
+       *
+       * <code>string table_name = 1;</code>
+       * @param value The tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        tableName_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * </pre>
+       *
+       * <code>string table_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTableName() {
+        tableName_ = getDefaultInstance().getTableName();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * </pre>
+       *
+       * <code>string table_name = 1;</code>
+       * @param value The bytes for tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        tableName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
 
+      private int regionNumber_ ;
+      /**
+       * <pre>
+       * The region number of current delete request.
+       * </pre>
+       *
+       * <code>uint32 region_number = 2;</code>
+       * @return The regionNumber.
+       */
       @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
+      public int getRegionNumber() {
+        return regionNumber_;
       }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Database.FlightMetadata parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Database.FlightMetadata) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+      /**
+       * <pre>
+       * The region number of current delete request.
+       * </pre>
+       *
+       * <code>uint32 region_number = 2;</code>
+       * @param value The regionNumber to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionNumber(int value) {
+        
+        regionNumber_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The region number of current delete request.
+       * </pre>
+       *
+       * <code>uint32 region_number = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionNumber() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        regionNumber_ = 0;
+        onChanged();
         return this;
       }
 
-      private io.greptime.v1.Database.AffectedRows affectedRows_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.AffectedRows, io.greptime.v1.Database.AffectedRows.Builder, io.greptime.v1.Database.AffectedRowsOrBuilder> affectedRowsBuilder_;
-      /**
-       * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
-       * @return Whether the affectedRows field is set.
-       */
-      public boolean hasAffectedRows() {
-        return affectedRowsBuilder_ != null || affectedRows_ != null;
+      private java.util.List<io.greptime.v1.Columns.Column> keyColumns_ =
+        java.util.Collections.emptyList();
+      private void ensureKeyColumnsIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          keyColumns_ = new java.util.ArrayList<io.greptime.v1.Columns.Column>(keyColumns_);
+          bitField0_ |= 0x00000004;
+         }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Columns.Column, io.greptime.v1.Columns.Column.Builder, io.greptime.v1.Columns.ColumnOrBuilder> keyColumnsBuilder_;
+
       /**
-       * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
-       * @return The affectedRows.
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
        */
-      public io.greptime.v1.Database.AffectedRows getAffectedRows() {
-        if (affectedRowsBuilder_ == null) {
-          return affectedRows_ == null ? io.greptime.v1.Database.AffectedRows.getDefaultInstance() : affectedRows_;
+      public java.util.List<io.greptime.v1.Columns.Column> getKeyColumnsList() {
+        if (keyColumnsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(keyColumns_);
         } else {
-          return affectedRowsBuilder_.getMessage();
+          return keyColumnsBuilder_.getMessageList();
         }
       }
       /**
-       * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
        */
-      public Builder setAffectedRows(io.greptime.v1.Database.AffectedRows value) {
-        if (affectedRowsBuilder_ == null) {
+      public int getKeyColumnsCount() {
+        if (keyColumnsBuilder_ == null) {
+          return keyColumns_.size();
+        } else {
+          return keyColumnsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public io.greptime.v1.Columns.Column getKeyColumns(int index) {
+        if (keyColumnsBuilder_ == null) {
+          return keyColumns_.get(index);
+        } else {
+          return keyColumnsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public Builder setKeyColumns(
+          int index, io.greptime.v1.Columns.Column value) {
+        if (keyColumnsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          affectedRows_ = value;
+          ensureKeyColumnsIsMutable();
+          keyColumns_.set(index, value);
           onChanged();
         } else {
-          affectedRowsBuilder_.setMessage(value);
+          keyColumnsBuilder_.setMessage(index, value);
         }
-
         return this;
       }
       /**
-       * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
        */
-      public Builder setAffectedRows(
-          io.greptime.v1.Database.AffectedRows.Builder builderForValue) {
-        if (affectedRowsBuilder_ == null) {
-          affectedRows_ = builderForValue.build();
+      public Builder setKeyColumns(
+          int index, io.greptime.v1.Columns.Column.Builder builderForValue) {
+        if (keyColumnsBuilder_ == null) {
+          ensureKeyColumnsIsMutable();
+          keyColumns_.set(index, builderForValue.build());
           onChanged();
         } else {
-          affectedRowsBuilder_.setMessage(builderForValue.build());
+          keyColumnsBuilder_.setMessage(index, builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
        */
-      public Builder mergeAffectedRows(io.greptime.v1.Database.AffectedRows value) {
-        if (affectedRowsBuilder_ == null) {
-          if (affectedRows_ != null) {
-            affectedRows_ =
-              io.greptime.v1.Database.AffectedRows.newBuilder(affectedRows_).mergeFrom(value).buildPartial();
-          } else {
-            affectedRows_ = value;
+      public Builder addKeyColumns(io.greptime.v1.Columns.Column value) {
+        if (keyColumnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
           }
+          ensureKeyColumnsIsMutable();
+          keyColumns_.add(value);
           onChanged();
         } else {
-          affectedRowsBuilder_.mergeFrom(value);
+          keyColumnsBuilder_.addMessage(value);
         }
-
         return this;
       }
       /**
-       * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
        */
-      public Builder clearAffectedRows() {
-        if (affectedRowsBuilder_ == null) {
-          affectedRows_ = null;
+      public Builder addKeyColumns(
+          int index, io.greptime.v1.Columns.Column value) {
+        if (keyColumnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureKeyColumnsIsMutable();
+          keyColumns_.add(index, value);
           onChanged();
         } else {
-          affectedRows_ = null;
-          affectedRowsBuilder_ = null;
+          keyColumnsBuilder_.addMessage(index, value);
         }
-
         return this;
       }
       /**
-       * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
        */
-      public io.greptime.v1.Database.AffectedRows.Builder getAffectedRowsBuilder() {
-        
-        onChanged();
-        return getAffectedRowsFieldBuilder().getBuilder();
+      public Builder addKeyColumns(
+          io.greptime.v1.Columns.Column.Builder builderForValue) {
+        if (keyColumnsBuilder_ == null) {
+          ensureKeyColumnsIsMutable();
+          keyColumns_.add(builderForValue.build());
+          onChanged();
+        } else {
+          keyColumnsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
       }
       /**
-       * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
        */
-      public io.greptime.v1.Database.AffectedRowsOrBuilder getAffectedRowsOrBuilder() {
-        if (affectedRowsBuilder_ != null) {
-          return affectedRowsBuilder_.getMessageOrBuilder();
+      public Builder addKeyColumns(
+          int index, io.greptime.v1.Columns.Column.Builder builderForValue) {
+        if (keyColumnsBuilder_ == null) {
+          ensureKeyColumnsIsMutable();
+          keyColumns_.add(index, builderForValue.build());
+          onChanged();
         } else {
-          return affectedRows_ == null ?
-              io.greptime.v1.Database.AffectedRows.getDefaultInstance() : affectedRows_;
+          keyColumnsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public Builder addAllKeyColumns(
+          java.lang.Iterable<? extends io.greptime.v1.Columns.Column> values) {
+        if (keyColumnsBuilder_ == null) {
+          ensureKeyColumnsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, keyColumns_);
+          onChanged();
+        } else {
+          keyColumnsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public Builder clearKeyColumns() {
+        if (keyColumnsBuilder_ == null) {
+          keyColumns_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          keyColumnsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public Builder removeKeyColumns(int index) {
+        if (keyColumnsBuilder_ == null) {
+          ensureKeyColumnsIsMutable();
+          keyColumns_.remove(index);
+          onChanged();
+        } else {
+          keyColumnsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public io.greptime.v1.Columns.Column.Builder getKeyColumnsBuilder(
+          int index) {
+        return getKeyColumnsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public io.greptime.v1.Columns.ColumnOrBuilder getKeyColumnsOrBuilder(
+          int index) {
+        if (keyColumnsBuilder_ == null) {
+          return keyColumns_.get(index);  } else {
+          return keyColumnsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.AffectedRows, io.greptime.v1.Database.AffectedRows.Builder, io.greptime.v1.Database.AffectedRowsOrBuilder> 
-          getAffectedRowsFieldBuilder() {
-        if (affectedRowsBuilder_ == null) {
-          affectedRowsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.AffectedRows, io.greptime.v1.Database.AffectedRows.Builder, io.greptime.v1.Database.AffectedRowsOrBuilder>(
-                  getAffectedRows(),
+      public java.util.List<? extends io.greptime.v1.Columns.ColumnOrBuilder> 
+           getKeyColumnsOrBuilderList() {
+        if (keyColumnsBuilder_ != null) {
+          return keyColumnsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(keyColumns_);
+        }
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public io.greptime.v1.Columns.Column.Builder addKeyColumnsBuilder() {
+        return getKeyColumnsFieldBuilder().addBuilder(
+            io.greptime.v1.Columns.Column.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public io.greptime.v1.Columns.Column.Builder addKeyColumnsBuilder(
+          int index) {
+        return getKeyColumnsFieldBuilder().addBuilder(
+            index, io.greptime.v1.Columns.Column.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The data to delete, indexed by key columns.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.Column key_columns = 3;</code>
+       */
+      public java.util.List<io.greptime.v1.Columns.Column.Builder> 
+           getKeyColumnsBuilderList() {
+        return getKeyColumnsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Columns.Column, io.greptime.v1.Columns.Column.Builder, io.greptime.v1.Columns.ColumnOrBuilder> 
+          getKeyColumnsFieldBuilder() {
+        if (keyColumnsBuilder_ == null) {
+          keyColumnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.Columns.Column, io.greptime.v1.Columns.Column.Builder, io.greptime.v1.Columns.ColumnOrBuilder>(
+                  keyColumns_,
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
-          affectedRows_ = null;
+          keyColumns_ = null;
         }
-        return affectedRowsBuilder_;
+        return keyColumnsBuilder_;
+      }
+
+      private int rowCount_ ;
+      /**
+       * <pre>
+       * The row count of all columns above.
+       * </pre>
+       *
+       * <code>uint32 row_count = 4;</code>
+       * @return The rowCount.
+       */
+      @java.lang.Override
+      public int getRowCount() {
+        return rowCount_;
+      }
+      /**
+       * <pre>
+       * The row count of all columns above.
+       * </pre>
+       *
+       * <code>uint32 row_count = 4;</code>
+       * @param value The rowCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRowCount(int value) {
+        
+        rowCount_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The row count of all columns above.
+       * </pre>
+       *
+       * <code>uint32 row_count = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRowCount() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        rowCount_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -10553,76 +5933,62 @@ public final class Database {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.FlightMetadata)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.DeleteRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.FlightMetadata)
-    private static final io.greptime.v1.Database.FlightMetadata DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.DeleteRequest)
+    private static final io.greptime.v1.Database.DeleteRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Database.FlightMetadata();
+      DEFAULT_INSTANCE = new io.greptime.v1.Database.DeleteRequest();
     }
 
-    public static io.greptime.v1.Database.FlightMetadata getDefaultInstance() {
+    public static io.greptime.v1.Database.DeleteRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<FlightMetadata>
-        PARSER = new com.google.protobuf.AbstractParser<FlightMetadata>() {
+    private static final com.google.protobuf.Parser<DeleteRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DeleteRequest>() {
       @java.lang.Override
-      public FlightMetadata parsePartialFrom(
+      public DeleteRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FlightMetadata(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
-    public static com.google.protobuf.Parser<FlightMetadata> parser() {
+    public static com.google.protobuf.Parser<DeleteRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<FlightMetadata> getParserForType() {
+    public com.google.protobuf.Parser<DeleteRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.Database.FlightMetadata getDefaultInstanceForType() {
+    public io.greptime.v1.Database.DeleteRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_RequestHeader_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_RequestHeader_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_AuthHeader_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_AuthHeader_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_Basic_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_Basic_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_Token_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_Token_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_GreptimeRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_GreptimeRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_ResponseHeader_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_ResponseHeader_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_GreptimeResponse_descriptor;
   private static final 
@@ -10634,25 +6000,15 @@ public final class Database {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_QueryRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_PromRangeQuery_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_PromRangeQuery_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_InsertRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_InsertRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_AffectedRows_descriptor;
+    internal_static_greptime_v1_DeleteRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_AffectedRows_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_FlightMetadata_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_FlightMetadata_fieldAccessorTable;
+      internal_static_greptime_v1_DeleteRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -10664,121 +6020,76 @@ public final class Database {
     java.lang.String[] descriptorData = {
       "\n\032greptime/v1/database.proto\022\013greptime.v" +
       "1\032\025greptime/v1/ddl.proto\032\030greptime/v1/co" +
-      "lumn.proto\"p\n\rRequestHeader\022\017\n\007catalog\030\001" +
-      " \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthorization\030\003 " +
-      "\001(\0132\027.greptime.v1.AuthHeader\022\016\n\006dbname\030\004" +
-      " \001(\t\"e\n\nAuthHeader\022#\n\005basic\030\001 \001(\0132\022.grep" +
-      "time.v1.BasicH\000\022#\n\005token\030\002 \001(\0132\022.greptim" +
-      "e.v1.TokenH\000B\r\n\013auth_scheme\"+\n\005Basic\022\020\n\010" +
-      "username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\026\n\005Toke" +
-      "n\022\r\n\005token\030\001 \001(\t\"\312\001\n\017GreptimeRequest\022*\n\006" +
-      "header\030\001 \001(\0132\032.greptime.v1.RequestHeader" +
-      "\022,\n\006insert\030\002 \001(\0132\032.greptime.v1.InsertReq" +
-      "uestH\000\022*\n\005query\030\003 \001(\0132\031.greptime.v1.Quer" +
-      "yRequestH\000\022&\n\003ddl\030\004 \001(\0132\027.greptime.v1.Dd" +
-      "lRequestH\000B\t\n\007request\"\020\n\016ResponseHeader\"" +
-      "\177\n\020GreptimeResponse\022+\n\006header\030\001 \001(\0132\033.gr" +
-      "eptime.v1.ResponseHeader\0222\n\raffected_row" +
-      "s\030\002 \001(\0132\031.greptime.v1.AffectedRowsH\000B\n\n\010" +
-      "response\"w\n\014QueryRequest\022\r\n\003sql\030\001 \001(\tH\000\022" +
-      "\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020prom_range_qu" +
-      "ery\030\003 \001(\0132\033.greptime.v1.PromRangeQueryH\000" +
-      "B\007\n\005query\"I\n\016PromRangeQuery\022\r\n\005query\030\001 \001" +
-      "(\t\022\r\n\005start\030\002 \001(\t\022\013\n\003end\030\003 \001(\t\022\014\n\004step\030\004" +
-      " \001(\t\"s\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(" +
-      "\t\022$\n\007columns\030\003 \003(\0132\023.greptime.v1.Column\022" +
-      "\021\n\trow_count\030\004 \001(\r\022\025\n\rregion_number\030\005 \001(" +
-      "\r\"\035\n\014AffectedRows\022\r\n\005value\030\001 \001(\r\"B\n\016Flig" +
-      "htMetadata\0220\n\raffected_rows\030\001 \001(\0132\031.grep" +
-      "time.v1.AffectedRows2\252\001\n\020GreptimeDatabas" +
-      "e\022E\n\006Handle\022\034.greptime.v1.GreptimeReques" +
-      "t\032\035.greptime.v1.GreptimeResponse\022O\n\016Hand" +
-      "leRequests\022\034.greptime.v1.GreptimeRequest" +
-      "\032\035.greptime.v1.GreptimeResponse(\001BQ\n\016io." +
-      "greptime.v1B\010DatabaseZ5github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
-      "oto3"
+      "lumn.proto\032\026greptime/v1/prom.proto\032\030grep" +
+      "time/v1/common.proto\"\370\001\n\017GreptimeRequest" +
+      "\022*\n\006header\030\001 \001(\0132\032.greptime.v1.RequestHe" +
+      "ader\022,\n\006insert\030\002 \001(\0132\032.greptime.v1.Inser" +
+      "tRequestH\000\022*\n\005query\030\003 \001(\0132\031.greptime.v1." +
+      "QueryRequestH\000\022&\n\003ddl\030\004 \001(\0132\027.greptime.v" +
+      "1.DdlRequestH\000\022,\n\006delete\030\005 \001(\0132\032.greptim" +
+      "e.v1.DeleteRequestH\000B\t\n\007request\"\177\n\020Grept" +
+      "imeResponse\022+\n\006header\030\001 \001(\0132\033.greptime.v" +
+      "1.ResponseHeader\0222\n\raffected_rows\030\002 \001(\0132" +
+      "\031.greptime.v1.AffectedRowsH\000B\n\n\010response" +
+      "\"w\n\014QueryRequest\022\r\n\003sql\030\001 \001(\tH\000\022\026\n\014logic" +
+      "al_plan\030\002 \001(\014H\000\0227\n\020prom_range_query\030\003 \001(" +
+      "\0132\033.greptime.v1.PromRangeQueryH\000B\007\n\005quer" +
+      "y\"s\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$" +
+      "\n\007columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\t" +
+      "row_count\030\004 \001(\r\022\025\n\rregion_number\030\005 \001(\r\"w" +
+      "\n\rDeleteRequest\022\022\n\ntable_name\030\001 \001(\t\022\025\n\rr" +
+      "egion_number\030\002 \001(\r\022(\n\013key_columns\030\003 \003(\0132" +
+      "\023.greptime.v1.Column\022\021\n\trow_count\030\004 \001(\r2" +
+      "\252\001\n\020GreptimeDatabase\022E\n\006Handle\022\034.greptim" +
+      "e.v1.GreptimeRequest\032\035.greptime.v1.Grept" +
+      "imeResponse\022O\n\016HandleRequests\022\034.greptime" +
+      ".v1.GreptimeRequest\032\035.greptime.v1.Grepti" +
+      "meResponse(\001BQ\n\016io.greptime.v1B\010Database" +
+      "Z5github.com/GreptimeTeam/greptime-proto" +
+      "/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.greptime.v1.Ddl.getDescriptor(),
           io.greptime.v1.Columns.getDescriptor(),
+          io.greptime.v1.Prometheus.getDescriptor(),
+          io.greptime.v1.Common.getDescriptor(),
         });
-    internal_static_greptime_v1_RequestHeader_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_greptime_v1_RequestHeader_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_RequestHeader_descriptor,
-        new java.lang.String[] { "Catalog", "Schema", "Authorization", "Dbname", });
-    internal_static_greptime_v1_AuthHeader_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_greptime_v1_AuthHeader_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_AuthHeader_descriptor,
-        new java.lang.String[] { "Basic", "Token", "AuthScheme", });
-    internal_static_greptime_v1_Basic_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_greptime_v1_Basic_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_Basic_descriptor,
-        new java.lang.String[] { "Username", "Password", });
-    internal_static_greptime_v1_Token_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_greptime_v1_Token_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_Token_descriptor,
-        new java.lang.String[] { "Token", });
     internal_static_greptime_v1_GreptimeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_greptime_v1_GreptimeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_GreptimeRequest_descriptor,
-        new java.lang.String[] { "Header", "Insert", "Query", "Ddl", "Request", });
-    internal_static_greptime_v1_ResponseHeader_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_greptime_v1_ResponseHeader_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_ResponseHeader_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Header", "Insert", "Query", "Ddl", "Delete", "Request", });
     internal_static_greptime_v1_GreptimeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_GreptimeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_GreptimeResponse_descriptor,
         new java.lang.String[] { "Header", "AffectedRows", "Response", });
     internal_static_greptime_v1_QueryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_QueryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_QueryRequest_descriptor,
         new java.lang.String[] { "Sql", "LogicalPlan", "PromRangeQuery", "Query", });
-    internal_static_greptime_v1_PromRangeQuery_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_greptime_v1_PromRangeQuery_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_PromRangeQuery_descriptor,
-        new java.lang.String[] { "Query", "Start", "End", "Step", });
     internal_static_greptime_v1_InsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_InsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_InsertRequest_descriptor,
         new java.lang.String[] { "TableName", "Columns", "RowCount", "RegionNumber", });
-    internal_static_greptime_v1_AffectedRows_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_greptime_v1_AffectedRows_fieldAccessorTable = new
+    internal_static_greptime_v1_DeleteRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_greptime_v1_DeleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_AffectedRows_descriptor,
-        new java.lang.String[] { "Value", });
-    internal_static_greptime_v1_FlightMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(11);
-    internal_static_greptime_v1_FlightMetadata_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_FlightMetadata_descriptor,
-        new java.lang.String[] { "AffectedRows", });
+        internal_static_greptime_v1_DeleteRequest_descriptor,
+        new java.lang.String[] { "TableName", "RegionNumber", "KeyColumns", "RowCount", });
     io.greptime.v1.Ddl.getDescriptor();
     io.greptime.v1.Columns.getDescriptor();
+    io.greptime.v1.Prometheus.getDescriptor();
+    io.greptime.v1.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
