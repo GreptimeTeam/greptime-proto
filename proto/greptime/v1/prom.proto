@@ -16,7 +16,7 @@ service PrometheusGateway {
 message PromqlRequest {
   RequestHeader header = 1;
   oneof promql {
-    string query = 2;
+    PromInstantQuery instant_query = 2;
     PromRangeQuery range_query = 3;
   }
 }
@@ -24,6 +24,11 @@ message PromqlRequest {
 message PromqlResponse {
   ResponseHeader header = 1;
   bytes body = 2; // absolutely same format as Prometheus in JSON
+}
+
+message PromInstantQuery {
+  string query = 1;
+  string time = 2;
 }
 
 message PromRangeQuery {
