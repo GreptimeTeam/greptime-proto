@@ -10,9 +10,12 @@ message RequestHeader {
   uint64 cluster_id = 2;
   // member_id is the ID of the sender server.
   uint64 member_id = 3;
-  // 0: datanode
-  // 1: frontend
-  uint32 role = 4;
+  Role role = 4;
+}
+
+enum Role {
+  DATANODE = 0;
+  FRONTEND = 1;
 }
 
 message ResponseHeader {
