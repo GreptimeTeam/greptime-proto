@@ -62,6 +62,7 @@ impl RequestHeader {
             protocol_version: PROTOCOL_VERSION,
             cluster_id,
             member_id,
+            role: 0,
         }
     }
 }

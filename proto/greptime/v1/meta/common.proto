@@ -10,6 +10,12 @@ message RequestHeader {
   uint64 cluster_id = 2;
   // member_id is the ID of the sender server.
   uint64 member_id = 3;
+  Role role = 4;
+}
+
+enum Role {
+  DATANODE = 0;
+  FRONTEND = 1;
 }
 
 message ResponseHeader {
@@ -37,9 +43,9 @@ message TableName {
 
 message TimeInterval {
   // The unix timestamp in millis of the start of this period.
-  uint64 start_timestamp_millis = 1;
+  int64 start_timestamp_millis = 1;
   // The unix timestamp in millis of the end of this period.
-  uint64 end_timestamp_millis = 2;
+  int64 end_timestamp_millis = 2;
 }
 
 message KeyValue {
