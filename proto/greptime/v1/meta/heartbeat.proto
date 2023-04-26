@@ -32,6 +32,7 @@ message HeartbeatRequest {
   repeated RegionStat region_stats = 6;
   // Follower nodes and stats, empty on follower nodes
   repeated ReplicaStat replica_stats = 7;
+  repeated MailboxMessage mailbox_messages = 8;
 }
 
 message NodeStat {
@@ -80,7 +81,7 @@ message ReplicaStat {
 message HeartbeatResponse {
   ResponseHeader header = 1;
 
-  repeated bytes payload = 2;
+  repeated MailboxMessage mailbox_messages = 2;
 }
 
 message AskLeaderRequest {
@@ -91,4 +92,20 @@ message AskLeaderResponse {
   ResponseHeader header = 1;
 
   Peer leader = 2;
+}
+
+message MailboxMessage {
+  // The id is used to associate request and response.
+  uint64 id = 1;
+  // Each message belongs to only one region, which is specified by the region_id.
+  uint64 region_id = 2;
+  // The following information plays a bigger role in making messages traceable and facilitating debugging.
+  string subject = 3;
+  string from = 4;
+  string to = 5;
+  // The unix timestamp in milliseconds.
+  int64 timestamp_millis = 6;
+
+  // The message body.
+  bytes payload = 7;
 }
