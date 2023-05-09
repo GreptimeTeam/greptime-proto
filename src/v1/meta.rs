@@ -130,13 +130,20 @@ impl HeartbeatResponse {
         false
     }
 }
-
 macro_rules! gen_set_header {
     ($req: ty) => {
         impl $req {
             #[inline]
             pub fn set_header(&mut self, (cluster_id, member_id): (u64, u64)) {
-                self.header = Some(RequestHeader::new((cluster_id, member_id)));
+                match self.header.as_mut() {
+                    Some(header) => {
+                        header.cluster_id = cluster_id;
+                        header.member_id = member_id;
+                    }
+                    None => {
+                        self.header = Some(RequestHeader::new((cluster_id, member_id)));
+                    }
+                }
             }
         }
     };
