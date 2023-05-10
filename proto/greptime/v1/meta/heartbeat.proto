@@ -32,7 +32,7 @@ message HeartbeatRequest {
   repeated RegionStat region_stats = 6;
   // Follower nodes and stats, empty on follower nodes
   repeated ReplicaStat replica_stats = 7;
-  repeated MailboxMessage mailbox_messages = 8;
+  MailboxMessage mailbox_message = 8;
 }
 
 message NodeStat {
@@ -81,7 +81,7 @@ message ReplicaStat {
 message HeartbeatResponse {
   ResponseHeader header = 1;
 
-  repeated MailboxMessage mailbox_messages = 2;
+  MailboxMessage mailbox_message = 2;
 }
 
 message AskLeaderRequest {
