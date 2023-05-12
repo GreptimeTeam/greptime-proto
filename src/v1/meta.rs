@@ -140,7 +140,6 @@ macro_rules! gen_set_header {
                         header.cluster_id = cluster_id;
                         header.member_id = member_id;
                         header.role = role.into();
-                        header.protocol_version = PROTOCOL_VERSION;
                     }
                     None => {
                         self.header = Some(RequestHeader::new((cluster_id, member_id), role));
