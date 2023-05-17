@@ -1,3 +1,17 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 syntax = "proto3";
 
 package greptime.v1.meta;
@@ -56,7 +70,7 @@ message RangeRequest {
 
 message RangeResponse {
   ResponseHeader header = 1;
-  
+
   // kvs is the list of key-value pairs matched by the range request.
   repeated KeyValue kvs = 2;
   // more indicates if there are more keys to return in the requested range.
@@ -130,7 +144,6 @@ message BatchDeleteResponse {
   repeated KeyValue prev_kvs = 2;
 }
 
-
 message CompareAndPutRequest {
   RequestHeader header = 1;
 
@@ -140,7 +153,7 @@ message CompareAndPutRequest {
   bytes expect = 3;
   // value is the value, in bytes, to associate with the key in the
   // key-value store.
-  bytes value = 4; 
+  bytes value = 4;
 }
 
 message CompareAndPutResponse {

@@ -1,3 +1,17 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 syntax = "proto3";
 
 package greptime.v1.meta;
@@ -8,7 +22,8 @@ import "greptime/v1/meta/common.proto";
 
 service Heartbeat {
   // Heartbeat, there may be many contents of the heartbeat, such as:
-  // 1. Metadata to be registered to meta server and discoverable by other nodes.
+  // 1. Metadata to be registered to meta server and discoverable by other
+  // nodes.
   // 2. Some performance metrics, such as Load, CPU usage, etc.
   // 3. The number of computing tasks being executed.
   rpc Heartbeat(stream HeartbeatRequest) returns (stream HeartbeatResponse) {}
@@ -84,9 +99,7 @@ message HeartbeatResponse {
   MailboxMessage mailbox_message = 2;
 }
 
-message AskLeaderRequest {
-  RequestHeader header = 1;
-}
+message AskLeaderRequest { RequestHeader header = 1; }
 
 message AskLeaderResponse {
   ResponseHeader header = 1;
@@ -97,7 +110,8 @@ message AskLeaderResponse {
 message MailboxMessage {
   // The id is used to associate request and response.
   uint64 id = 1;
-  // The following information plays a bigger role in making messages traceable and facilitating debugging.
+  // The following information plays a bigger role in making messages traceable
+  // and facilitating debugging.
   string subject = 2;
   string from = 3;
   string to = 4;
@@ -105,7 +119,5 @@ message MailboxMessage {
   int64 timestamp_millis = 5;
 
   // The message body.
-  oneof payload {
-    string json = 6;
-  }
+  oneof payload { string json = 6; }
 }
