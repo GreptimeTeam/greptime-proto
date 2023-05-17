@@ -1,0 +1,72 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/substrait_extension";
+
+package substrait_extension;
+
+message EmptyMetric {
+  // Start timestamp in millisecond
+  int64 start = 1;
+  // End timestamp in millisecond
+  int64 end = 2;
+  // Interval in millisecond
+  int64 interval = 3;
+}
+
+message InstantManipulate {
+  // Start timestamp in millisecond
+  int64 start = 1;
+  // End timestamp in millisecond
+  int64 end = 2;
+  // Interval in millisecond
+  int64 interval = 3;
+  // Look-back delta in milisecond
+  int64 lookback_delta = 4;
+  // Column name of time index column
+  string time_index = 5;
+  // Optional field column name for validating staleness
+  string field_index = 6;
+}
+
+message SeriesNormalize {
+  // Offset in millisecond
+  int64 offset = 1;
+  // Column name of time index column
+  string time_index = 2;
+  // Whether to filter out NaN value
+  bool filter_nan = 3;
+}
+
+message SeriesDivide {
+  // Names of tag columns
+  repeated string tag_columns = 1;
+}
+
+message RangeManipulate {
+  // Start timestamp in millisecond
+  int64 start = 1;
+  // End timestamp in millisecond
+  int64 end = 2;
+  // Interval in millisecond
+  int64 interval = 3;
+  // Range in millisecond
+  int64 range = 4;
+  // Column name of time index column
+  string time_index = 5;
+  // Names of tag columns
+  repeated string tag_columns = 6;
+}
