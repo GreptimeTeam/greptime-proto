@@ -14,6 +14,8 @@
 
 tonic::include_proto!("greptime.v1.meta");
 
+mod mailbox;
+
 use std::collections::HashMap;
 use std::hash::{Hash, Hasher};
 

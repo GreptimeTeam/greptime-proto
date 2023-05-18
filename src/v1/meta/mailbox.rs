@@ -12,9 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-tonic::include_proto!("greptime.v1.meta");
-
-use crate::v1::heartbeat::mailbox_message::Payload;
+use crate::v1::meta::mailbox_message::Payload;
+use crate::v1::meta::MailboxMessage;
 use serde::Serialize;
 use serde_json::Result;
 use std::fmt::{Display, Formatter};
