@@ -20,3 +20,7 @@ pub mod prometheus {
         tonic::include_proto!("prometheus");
     }
 }
+
+pub mod substrait_extension {
+    tonic::include_proto!("substrait_extension");
+}

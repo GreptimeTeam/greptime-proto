@@ -16,3 +16,7 @@ protoc --go_out=${GO_OUTPUT}  --go_opt=paths=source_relative \
 protoc --go_out=${GO_OUTPUT}  --go_opt=paths=source_relative \
        --go-grpc_out=${GO_OUTPUT}  --go-grpc_opt=paths=source_relative \
        -Iproto proto/prometheus/remote/*.proto
+
+protoc --go_out=${GO_OUTPUT}  --go_opt=paths=source_relative \
+       --go-grpc_out=${GO_OUTPUT}  --go-grpc_opt=paths=source_relative \
+       -Iproto proto/substrait_extension/*.proto
