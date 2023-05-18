@@ -1,3 +1,17 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 syntax = "proto3";
 
 package greptime.v1;
@@ -8,8 +22,9 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
 import "greptime/v1/column.proto";
 
-// "Data Definition Language" requests, that create, modify or delete the database structures but not the data.
-// `DdlRequest` could carry more information than plain SQL, for example, the "table_id" in `CreateTableExpr`.
+// "Data Definition Language" requests, that create, modify or delete the
+// database structures but not the data. `DdlRequest` could carry more
+// information than plain SQL, for example, the "table_id" in `CreateTableExpr`.
 // So create a new DDL expr if you need it.
 message DdlRequest {
   oneof expr {
@@ -58,35 +73,25 @@ message FlushTableExpr {
   string schema_name = 2;
   string table_name = 3;
   optional uint32 region_id = 4;
-} 
+}
 
 message CreateDatabaseExpr {
-  //TODO(hl): maybe rename to schema_name?
+  // TODO(hl): maybe rename to schema_name?
   string database_name = 1;
   bool create_if_not_exists = 2;
 }
 
-message AddColumns {
-  repeated AddColumn add_columns = 1;
-}
+message AddColumns { repeated AddColumn add_columns = 1; }
 
-message DropColumns {
-  repeated DropColumn drop_columns = 1;
-}
+message DropColumns { repeated DropColumn drop_columns = 1; }
 
-message RenameTable {
-  string new_table_name = 1;
-}
+message RenameTable { string new_table_name = 1; }
 
 message AddColumn {
   ColumnDef column_def = 1;
   bool is_key = 2;
 }
 
-message DropColumn {
-  string name = 1;
-}
+message DropColumn { string name = 1; }
 
-message TableId {
-  uint32 id = 1;
-}
+message TableId { uint32 id = 1; }

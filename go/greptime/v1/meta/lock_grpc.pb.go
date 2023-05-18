@@ -22,8 +22,9 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type LockClient interface {
-	// Lock acquires a distributed shared lock on a given named lock. On success, it
-	// will return a unique key that exists so long as the lock is held by the caller.
+	// Lock acquires a distributed shared lock on a given named lock. On success,
+	// it will return a unique key that exists so long as the lock is held by the
+	// caller.
 	Lock(ctx context.Context, in *LockRequest, opts ...grpc.CallOption) (*LockResponse, error)
 	// Unlock takes a key returned by Lock and releases the hold on lock.
 	Unlock(ctx context.Context, in *UnlockRequest, opts ...grpc.CallOption) (*UnlockResponse, error)
@@ -59,8 +60,9 @@ func (c *lockClient) Unlock(ctx context.Context, in *UnlockRequest, opts ...grpc
 // All implementations must embed UnimplementedLockServer
 // for forward compatibility
 type LockServer interface {
-	// Lock acquires a distributed shared lock on a given named lock. On success, it
-	// will return a unique key that exists so long as the lock is held by the caller.
+	// Lock acquires a distributed shared lock on a given named lock. On success,
+	// it will return a unique key that exists so long as the lock is held by the
+	// caller.
 	Lock(context.Context, *LockRequest) (*LockResponse, error)
 	// Unlock takes a key returned by Lock and releases the hold on lock.
 	Unlock(context.Context, *UnlockRequest) (*UnlockResponse, error)

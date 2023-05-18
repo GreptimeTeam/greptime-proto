@@ -23,7 +23,8 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HeartbeatClient interface {
 	// Heartbeat, there may be many contents of the heartbeat, such as:
-	// 1. Metadata to be registered to meta server and discoverable by other nodes.
+	// 1. Metadata to be registered to meta server and discoverable by other
+	// nodes.
 	// 2. Some performance metrics, such as Load, CPU usage, etc.
 	// 3. The number of computing tasks being executed.
 	Heartbeat(ctx context.Context, opts ...grpc.CallOption) (Heartbeat_HeartbeatClient, error)
@@ -84,7 +85,8 @@ func (c *heartbeatClient) AskLeader(ctx context.Context, in *AskLeaderRequest, o
 // for forward compatibility
 type HeartbeatServer interface {
 	// Heartbeat, there may be many contents of the heartbeat, such as:
-	// 1. Metadata to be registered to meta server and discoverable by other nodes.
+	// 1. Metadata to be registered to meta server and discoverable by other
+	// nodes.
 	// 2. Some performance metrics, such as Load, CPU usage, etc.
 	// 3. The number of computing tasks being executed.
 	Heartbeat(Heartbeat_HeartbeatServer) error

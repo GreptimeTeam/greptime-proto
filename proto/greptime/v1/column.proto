@@ -1,8 +1,22 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 syntax = "proto3";
 
 package greptime.v1;
 
-option java_package="io.greptime.v1";
+option java_package = "io.greptime.v1";
 option java_outer_classname = "Columns";
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
@@ -43,7 +57,8 @@ message Column {
   }
   // The array of non-null values in this column.
   //
-  // For example: suppose there is a column "foo" that contains some int32 values (1, 2, 3, 4, 5, null, 7, 8, 9, null);
+  // For example: suppose there is a column "foo" that contains some int32
+  // values (1, 2, 3, 4, 5, null, 7, 8, 9, null);
   //   column:
   //     column_name: foo
   //     semantic_type: Tag
@@ -52,7 +67,8 @@ message Column {
   Values values = 3;
 
   // Mask maps the positions of null values.
-  // If a bit in null_mask is 1, it indicates that the column value at that position is null.
+  // If a bit in null_mask is 1, it indicates that the column value at that
+  // position is null.
   bytes null_mask = 4;
 
   // Helpful in creating vector from column.
