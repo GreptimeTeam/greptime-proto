@@ -23,19 +23,19 @@ impl MailboxMessage {
         subject: &str,
         from: &str,
         to: &str,
+        timestamp_millis: i64,
         payload: &T,
     ) -> Result<MailboxMessage>
     where
         T: ?Sized + Serialize + Display,
     {
         let payload = serde_json::to_string(payload)?;
-        let now = chrono::Utc::now().timestamp_millis();
         Ok(MailboxMessage {
             id: 0, // "id" will be set by the mailbox.
             subject: subject.to_string(),
             from: from.to_string(),
             to: to.to_string(),
-            timestamp_millis: now,
+            timestamp_millis,
             payload: Some(Payload::Json(payload)),
         })
     }
