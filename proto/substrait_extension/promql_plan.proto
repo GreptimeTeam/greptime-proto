@@ -34,7 +34,7 @@ message InstantManipulate {
   int64 end = 2;
   // Interval in millisecond
   int64 interval = 3;
-  // Look-back delta in milisecond
+  // Look-back delta in millisecond
   int64 lookback_delta = 4;
   // Column name of time index column
   string time_index = 5;

@@ -111,7 +111,7 @@ type InstantManipulate struct {
 	End int64 `protobuf:"varint,2,opt,name=end,proto3" json:"end,omitempty"`
 	// Interval in millisecond
 	Interval int64 `protobuf:"varint,3,opt,name=interval,proto3" json:"interval,omitempty"`
-	// Look-back delta in milisecond
+	// Look-back delta in millisecond
 	LookbackDelta int64 `protobuf:"varint,4,opt,name=lookback_delta,json=lookbackDelta,proto3" json:"lookback_delta,omitempty"`
 	// Column name of time index column
 	TimeIndex string `protobuf:"bytes,5,opt,name=time_index,json=timeIndex,proto3" json:"time_index,omitempty"`
