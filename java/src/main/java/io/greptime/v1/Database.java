@@ -122,6 +122,112 @@ public final class Database {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GreptimeRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.greptime.v1.Common.RequestHeader.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(io.greptime.v1.Common.RequestHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              io.greptime.v1.Database.InsertRequest.Builder subBuilder = null;
+              if (requestCase_ == 2) {
+                subBuilder = ((io.greptime.v1.Database.InsertRequest) request_).toBuilder();
+              }
+              request_ =
+                  input.readMessage(io.greptime.v1.Database.InsertRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Database.InsertRequest) request_);
+                request_ = subBuilder.buildPartial();
+              }
+              requestCase_ = 2;
+              break;
+            }
+            case 26: {
+              io.greptime.v1.Database.QueryRequest.Builder subBuilder = null;
+              if (requestCase_ == 3) {
+                subBuilder = ((io.greptime.v1.Database.QueryRequest) request_).toBuilder();
+              }
+              request_ =
+                  input.readMessage(io.greptime.v1.Database.QueryRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Database.QueryRequest) request_);
+                request_ = subBuilder.buildPartial();
+              }
+              requestCase_ = 3;
+              break;
+            }
+            case 34: {
+              io.greptime.v1.Ddl.DdlRequest.Builder subBuilder = null;
+              if (requestCase_ == 4) {
+                subBuilder = ((io.greptime.v1.Ddl.DdlRequest) request_).toBuilder();
+              }
+              request_ =
+                  input.readMessage(io.greptime.v1.Ddl.DdlRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.DdlRequest) request_);
+                request_ = subBuilder.buildPartial();
+              }
+              requestCase_ = 4;
+              break;
+            }
+            case 42: {
+              io.greptime.v1.Database.DeleteRequest.Builder subBuilder = null;
+              if (requestCase_ == 5) {
+                subBuilder = ((io.greptime.v1.Database.DeleteRequest) request_).toBuilder();
+              }
+              request_ =
+                  input.readMessage(io.greptime.v1.Database.DeleteRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Database.DeleteRequest) request_);
+                request_ = subBuilder.buildPartial();
+              }
+              requestCase_ = 5;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.greptime.v1.Database.internal_static_greptime_v1_GreptimeRequest_descriptor;
@@ -203,7 +309,7 @@ public final class Database {
      */
     @java.lang.Override
     public io.greptime.v1.Common.RequestHeaderOrBuilder getHeaderOrBuilder() {
-      return header_ == null ? io.greptime.v1.Common.RequestHeader.getDefaultInstance() : header_;
+      return getHeader();
     }
 
     public static final int INSERT_FIELD_NUMBER = 2;
@@ -359,7 +465,7 @@ public final class Database {
       if (requestCase_ == 5) {
         output.writeMessage(5, (io.greptime.v1.Database.DeleteRequest) request_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -388,7 +494,7 @@ public final class Database {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, (io.greptime.v1.Database.DeleteRequest) request_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -429,7 +535,7 @@ public final class Database {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -464,7 +570,7 @@ public final class Database {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -581,34 +687,27 @@ public final class Database {
 
       // Construct using io.greptime.v1.Database.GreptimeRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        header_ = null;
-        if (headerBuilder_ != null) {
-          headerBuilder_.dispose();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
           headerBuilder_ = null;
-        }
-        if (insertBuilder_ != null) {
-          insertBuilder_.clear();
-        }
-        if (queryBuilder_ != null) {
-          queryBuilder_.clear();
-        }
-        if (ddlBuilder_ != null) {
-          ddlBuilder_.clear();
-        }
-        if (deleteBuilder_ != null) {
-          deleteBuilder_.clear();
         }
         requestCase_ = 0;
         request_ = null;
@@ -638,40 +737,42 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.GreptimeRequest buildPartial() {
         io.greptime.v1.Database.GreptimeRequest result = new io.greptime.v1.Database.GreptimeRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
+        if (requestCase_ == 2) {
+          if (insertBuilder_ == null) {
+            result.request_ = request_;
+          } else {
+            result.request_ = insertBuilder_.build();
+          }
+        }
+        if (requestCase_ == 3) {
+          if (queryBuilder_ == null) {
+            result.request_ = request_;
+          } else {
+            result.request_ = queryBuilder_.build();
+          }
+        }
+        if (requestCase_ == 4) {
+          if (ddlBuilder_ == null) {
+            result.request_ = request_;
+          } else {
+            result.request_ = ddlBuilder_.build();
+          }
+        }
+        if (requestCase_ == 5) {
+          if (deleteBuilder_ == null) {
+            result.request_ = request_;
+          } else {
+            result.request_ = deleteBuilder_.build();
+          }
+        }
+        result.requestCase_ = requestCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(io.greptime.v1.Database.GreptimeRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.header_ = headerBuilder_ == null
-              ? header_
-              : headerBuilder_.build();
-        }
-      }
-
-      private void buildPartialOneofs(io.greptime.v1.Database.GreptimeRequest result) {
-        result.requestCase_ = requestCase_;
-        result.request_ = this.request_;
-        if (requestCase_ == 2 &&
-            insertBuilder_ != null) {
-          result.request_ = insertBuilder_.build();
-        }
-        if (requestCase_ == 3 &&
-            queryBuilder_ != null) {
-          result.request_ = queryBuilder_.build();
-        }
-        if (requestCase_ == 4 &&
-            ddlBuilder_ != null) {
-          result.request_ = ddlBuilder_.build();
-        }
-        if (requestCase_ == 5 &&
-            deleteBuilder_ != null) {
-          result.request_ = deleteBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -742,7 +843,7 @@ public final class Database {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -757,65 +858,17 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        io.greptime.v1.Database.GreptimeRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getHeaderFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getInsertFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                requestCase_ = 2;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getQueryFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                requestCase_ = 3;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getDdlFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                requestCase_ = 4;
-                break;
-              } // case 34
-              case 42: {
-                input.readMessage(
-                    getDeleteFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                requestCase_ = 5;
-                break;
-              } // case 42
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Database.GreptimeRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int requestCase_ = 0;
@@ -833,7 +886,6 @@ public final class Database {
         return this;
       }
 
-      private int bitField0_;
 
       private io.greptime.v1.Common.RequestHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -843,7 +895,7 @@ public final class Database {
        * @return Whether the header field is set.
        */
       public boolean hasHeader() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return headerBuilder_ != null || header_ != null;
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
@@ -865,11 +917,11 @@ public final class Database {
             throw new NullPointerException();
           }
           header_ = value;
+          onChanged();
         } else {
           headerBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -879,11 +931,11 @@ public final class Database {
           io.greptime.v1.Common.RequestHeader.Builder builderForValue) {
         if (headerBuilder_ == null) {
           header_ = builderForValue.build();
+          onChanged();
         } else {
           headerBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -891,38 +943,38 @@ public final class Database {
        */
       public Builder mergeHeader(io.greptime.v1.Common.RequestHeader value) {
         if (headerBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            header_ != null &&
-            header_ != io.greptime.v1.Common.RequestHeader.getDefaultInstance()) {
-            getHeaderBuilder().mergeFrom(value);
+          if (header_ != null) {
+            header_ =
+              io.greptime.v1.Common.RequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
           } else {
             header_ = value;
           }
+          onChanged();
         } else {
           headerBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        */
       public Builder clearHeader() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        header_ = null;
-        if (headerBuilder_ != null) {
-          headerBuilder_.dispose();
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
           headerBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.greptime.v1.RequestHeader header = 1;</code>
        */
       public io.greptime.v1.Common.RequestHeader.Builder getHeaderBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getHeaderFieldBuilder().getBuilder();
       }
@@ -1028,9 +1080,8 @@ public final class Database {
         } else {
           if (requestCase_ == 2) {
             insertBuilder_.mergeFrom(value);
-          } else {
-            insertBuilder_.setMessage(value);
           }
+          insertBuilder_.setMessage(value);
         }
         requestCase_ = 2;
         return this;
@@ -1092,7 +1143,7 @@ public final class Database {
           request_ = null;
         }
         requestCase_ = 2;
-        onChanged();
+        onChanged();;
         return insertBuilder_;
       }
 
@@ -1170,9 +1221,8 @@ public final class Database {
         } else {
           if (requestCase_ == 3) {
             queryBuilder_.mergeFrom(value);
-          } else {
-            queryBuilder_.setMessage(value);
           }
+          queryBuilder_.setMessage(value);
         }
         requestCase_ = 3;
         return this;
@@ -1234,7 +1284,7 @@ public final class Database {
           request_ = null;
         }
         requestCase_ = 3;
-        onChanged();
+        onChanged();;
         return queryBuilder_;
       }
 
@@ -1312,9 +1362,8 @@ public final class Database {
         } else {
           if (requestCase_ == 4) {
             ddlBuilder_.mergeFrom(value);
-          } else {
-            ddlBuilder_.setMessage(value);
           }
+          ddlBuilder_.setMessage(value);
         }
         requestCase_ = 4;
         return this;
@@ -1376,7 +1425,7 @@ public final class Database {
           request_ = null;
         }
         requestCase_ = 4;
-        onChanged();
+        onChanged();;
         return ddlBuilder_;
       }
 
@@ -1454,9 +1503,8 @@ public final class Database {
         } else {
           if (requestCase_ == 5) {
             deleteBuilder_.mergeFrom(value);
-          } else {
-            deleteBuilder_.setMessage(value);
           }
+          deleteBuilder_.setMessage(value);
         }
         requestCase_ = 5;
         return this;
@@ -1518,7 +1566,7 @@ public final class Database {
           request_ = null;
         }
         requestCase_ = 5;
-        onChanged();
+        onChanged();;
         return deleteBuilder_;
       }
       @java.lang.Override
@@ -1554,18 +1602,7 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GreptimeRequest(input, extensionRegistry);
       }
     };
 
@@ -1648,6 +1685,70 @@ public final class Database {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GreptimeResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.greptime.v1.Common.ResponseHeader.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(io.greptime.v1.Common.ResponseHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              io.greptime.v1.Common.AffectedRows.Builder subBuilder = null;
+              if (responseCase_ == 2) {
+                subBuilder = ((io.greptime.v1.Common.AffectedRows) response_).toBuilder();
+              }
+              response_ =
+                  input.readMessage(io.greptime.v1.Common.AffectedRows.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Common.AffectedRows) response_);
+                response_ = subBuilder.buildPartial();
+              }
+              responseCase_ = 2;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.greptime.v1.Database.internal_static_greptime_v1_GreptimeResponse_descriptor;
@@ -1723,7 +1824,7 @@ public final class Database {
      */
     @java.lang.Override
     public io.greptime.v1.Common.ResponseHeaderOrBuilder getHeaderOrBuilder() {
-      return header_ == null ? io.greptime.v1.Common.ResponseHeader.getDefaultInstance() : header_;
+      return getHeader();
     }
 
     public static final int AFFECTED_ROWS_FIELD_NUMBER = 2;
@@ -1777,7 +1878,7 @@ public final class Database {
       if (responseCase_ == 2) {
         output.writeMessage(2, (io.greptime.v1.Common.AffectedRows) response_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1794,7 +1895,7 @@ public final class Database {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (io.greptime.v1.Common.AffectedRows) response_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1823,7 +1924,7 @@ public final class Database {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1846,7 +1947,7 @@ public final class Database {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1963,25 +2064,27 @@ public final class Database {
 
       // Construct using io.greptime.v1.Database.GreptimeResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        header_ = null;
-        if (headerBuilder_ != null) {
-          headerBuilder_.dispose();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
           headerBuilder_ = null;
-        }
-        if (affectedRowsBuilder_ != null) {
-          affectedRowsBuilder_.clear();
         }
         responseCase_ = 0;
         response_ = null;
@@ -2011,28 +2114,21 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.GreptimeResponse buildPartial() {
         io.greptime.v1.Database.GreptimeResponse result = new io.greptime.v1.Database.GreptimeResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
+        if (responseCase_ == 2) {
+          if (affectedRowsBuilder_ == null) {
+            result.response_ = response_;
+          } else {
+            result.response_ = affectedRowsBuilder_.build();
+          }
+        }
+        result.responseCase_ = responseCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(io.greptime.v1.Database.GreptimeResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.header_ = headerBuilder_ == null
-              ? header_
-              : headerBuilder_.build();
-        }
-      }
-
-      private void buildPartialOneofs(io.greptime.v1.Database.GreptimeResponse result) {
-        result.responseCase_ = responseCase_;
-        result.response_ = this.response_;
-        if (responseCase_ == 2 &&
-            affectedRowsBuilder_ != null) {
-          result.response_ = affectedRowsBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -2091,7 +2187,7 @@ public final class Database {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2106,44 +2202,17 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        io.greptime.v1.Database.GreptimeResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getHeaderFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getAffectedRowsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                responseCase_ = 2;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Database.GreptimeResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int responseCase_ = 0;
@@ -2161,7 +2230,6 @@ public final class Database {
         return this;
       }
 
-      private int bitField0_;
 
       private io.greptime.v1.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2171,7 +2239,7 @@ public final class Database {
        * @return Whether the header field is set.
        */
       public boolean hasHeader() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return headerBuilder_ != null || header_ != null;
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
@@ -2193,11 +2261,11 @@ public final class Database {
             throw new NullPointerException();
           }
           header_ = value;
+          onChanged();
         } else {
           headerBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -2207,11 +2275,11 @@ public final class Database {
           io.greptime.v1.Common.ResponseHeader.Builder builderForValue) {
         if (headerBuilder_ == null) {
           header_ = builderForValue.build();
+          onChanged();
         } else {
           headerBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -2219,38 +2287,38 @@ public final class Database {
        */
       public Builder mergeHeader(io.greptime.v1.Common.ResponseHeader value) {
         if (headerBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            header_ != null &&
-            header_ != io.greptime.v1.Common.ResponseHeader.getDefaultInstance()) {
-            getHeaderBuilder().mergeFrom(value);
+          if (header_ != null) {
+            header_ =
+              io.greptime.v1.Common.ResponseHeader.newBuilder(header_).mergeFrom(value).buildPartial();
           } else {
             header_ = value;
           }
+          onChanged();
         } else {
           headerBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        */
       public Builder clearHeader() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        header_ = null;
-        if (headerBuilder_ != null) {
-          headerBuilder_.dispose();
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
           headerBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.greptime.v1.ResponseHeader header = 1;</code>
        */
       public io.greptime.v1.Common.ResponseHeader.Builder getHeaderBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getHeaderFieldBuilder().getBuilder();
       }
@@ -2356,9 +2424,8 @@ public final class Database {
         } else {
           if (responseCase_ == 2) {
             affectedRowsBuilder_.mergeFrom(value);
-          } else {
-            affectedRowsBuilder_.setMessage(value);
           }
+          affectedRowsBuilder_.setMessage(value);
         }
         responseCase_ = 2;
         return this;
@@ -2420,7 +2487,7 @@ public final class Database {
           response_ = null;
         }
         responseCase_ = 2;
-        onChanged();
+        onChanged();;
         return affectedRowsBuilder_;
       }
       @java.lang.Override
@@ -2456,18 +2523,7 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GreptimeResponse(input, extensionRegistry);
       }
     };
 
@@ -2562,6 +2618,68 @@ public final class Database {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private QueryRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              queryCase_ = 1;
+              query_ = s;
+              break;
+            }
+            case 18: {
+              queryCase_ = 2;
+              query_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              io.greptime.v1.Prometheus.PromRangeQuery.Builder subBuilder = null;
+              if (queryCase_ == 3) {
+                subBuilder = ((io.greptime.v1.Prometheus.PromRangeQuery) query_).toBuilder();
+              }
+              query_ =
+                  input.readMessage(io.greptime.v1.Prometheus.PromRangeQuery.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Prometheus.PromRangeQuery) query_);
+                query_ = subBuilder.buildPartial();
+              }
+              queryCase_ = 3;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -2747,7 +2865,7 @@ public final class Database {
       if (queryCase_ == 3) {
         output.writeMessage(3, (io.greptime.v1.Prometheus.PromRangeQuery) query_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2768,7 +2886,7 @@ public final class Database {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (io.greptime.v1.Prometheus.PromRangeQuery) query_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2800,7 +2918,7 @@ public final class Database {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2827,7 +2945,7 @@ public final class Database {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2944,21 +3062,22 @@ public final class Database {
 
       // Construct using io.greptime.v1.Database.QueryRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        if (promRangeQueryBuilder_ != null) {
-          promRangeQueryBuilder_.clear();
-        }
         queryCase_ = 0;
         query_ = null;
         return this;
@@ -2987,23 +3106,22 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.QueryRequest buildPartial() {
         io.greptime.v1.Database.QueryRequest result = new io.greptime.v1.Database.QueryRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        if (queryCase_ == 1) {
+          result.query_ = query_;
+        }
+        if (queryCase_ == 2) {
+          result.query_ = query_;
+        }
+        if (queryCase_ == 3) {
+          if (promRangeQueryBuilder_ == null) {
+            result.query_ = query_;
+          } else {
+            result.query_ = promRangeQueryBuilder_.build();
+          }
+        }
+        result.queryCase_ = queryCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(io.greptime.v1.Database.QueryRequest result) {
-        int from_bitField0_ = bitField0_;
-      }
-
-      private void buildPartialOneofs(io.greptime.v1.Database.QueryRequest result) {
-        result.queryCase_ = queryCase_;
-        result.query_ = this.query_;
-        if (queryCase_ == 3 &&
-            promRangeQueryBuilder_ != null) {
-          result.query_ = promRangeQueryBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -3069,7 +3187,7 @@ public final class Database {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3084,48 +3202,17 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        io.greptime.v1.Database.QueryRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                queryCase_ = 1;
-                query_ = s;
-                break;
-              } // case 10
-              case 18: {
-                query_ = input.readBytes();
-                queryCase_ = 2;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getPromRangeQueryFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                queryCase_ = 3;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Database.QueryRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int queryCase_ = 0;
@@ -3143,7 +3230,6 @@ public final class Database {
         return this;
       }
 
-      private int bitField0_;
 
       /**
        * <code>string sql = 1;</code>
@@ -3205,8 +3291,10 @@ public final class Database {
        */
       public Builder setSql(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        queryCase_ = 1;
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  queryCase_ = 1;
         query_ = value;
         onChanged();
         return this;
@@ -3230,8 +3318,10 @@ public final class Database {
        */
       public Builder setSqlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         queryCase_ = 1;
         query_ = value;
         onChanged();
@@ -3261,8 +3351,10 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder setLogicalPlan(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        queryCase_ = 2;
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  queryCase_ = 2;
         query_ = value;
         onChanged();
         return this;
@@ -3354,9 +3446,8 @@ public final class Database {
         } else {
           if (queryCase_ == 3) {
             promRangeQueryBuilder_.mergeFrom(value);
-          } else {
-            promRangeQueryBuilder_.setMessage(value);
           }
+          promRangeQueryBuilder_.setMessage(value);
         }
         queryCase_ = 3;
         return this;
@@ -3418,7 +3509,7 @@ public final class Database {
           query_ = null;
         }
         queryCase_ = 3;
-        onChanged();
+        onChanged();;
         return promRangeQueryBuilder_;
       }
       @java.lang.Override
@@ -3454,18 +3545,7 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryRequest(input, extensionRegistry);
       }
     };
 
@@ -3595,6 +3675,72 @@ public final class Database {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private InsertRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tableName_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                columns_ = new java.util.ArrayList<io.greptime.v1.Columns.Column>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              columns_.add(
+                  input.readMessage(io.greptime.v1.Columns.Column.parser(), extensionRegistry));
+              break;
+            }
+            case 32: {
+
+              rowCount_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              regionNumber_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          columns_ = java.util.Collections.unmodifiableList(columns_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.greptime.v1.Database.internal_static_greptime_v1_InsertRequest_descriptor;
@@ -3609,8 +3755,7 @@ public final class Database {
     }
 
     public static final int TABLE_NAME_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object tableName_ = "";
+    private volatile java.lang.Object tableName_;
     /**
      * <code>string table_name = 1;</code>
      * @return The tableName.
@@ -3648,7 +3793,6 @@ public final class Database {
     }
 
     public static final int COLUMNS_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private java.util.List<io.greptime.v1.Columns.Column> columns_;
     /**
      * <pre>
@@ -3709,7 +3853,7 @@ public final class Database {
     }
 
     public static final int ROW_COUNT_FIELD_NUMBER = 4;
-    private int rowCount_ = 0;
+    private int rowCount_;
     /**
      * <pre>
      * The row_count of all columns, which include null and non-null values.
@@ -3725,7 +3869,7 @@ public final class Database {
     }
 
     public static final int REGION_NUMBER_FIELD_NUMBER = 5;
-    private int regionNumber_ = 0;
+    private int regionNumber_;
     /**
      * <pre>
      * The region number of current insert request.
@@ -3753,7 +3897,7 @@ public final class Database {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+      if (!getTableNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tableName_);
       }
       for (int i = 0; i < columns_.size(); i++) {
@@ -3765,7 +3909,7 @@ public final class Database {
       if (regionNumber_ != 0) {
         output.writeUInt32(5, regionNumber_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3774,7 +3918,7 @@ public final class Database {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+      if (!getTableNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tableName_);
       }
       for (int i = 0; i < columns_.size(); i++) {
@@ -3789,7 +3933,7 @@ public final class Database {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(5, regionNumber_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3812,7 +3956,7 @@ public final class Database {
           != other.getRowCount()) return false;
       if (getRegionNumber()
           != other.getRegionNumber()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3833,7 +3977,7 @@ public final class Database {
       hash = (53 * hash) + getRowCount();
       hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getRegionNumber();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3950,28 +4094,35 @@ public final class Database {
 
       // Construct using io.greptime.v1.Database.InsertRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getColumnsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         tableName_ = "";
+
         if (columnsBuilder_ == null) {
           columns_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          columns_ = null;
           columnsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         rowCount_ = 0;
+
         regionNumber_ = 0;
+
         return this;
       }
 
@@ -3998,35 +4149,21 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.InsertRequest buildPartial() {
         io.greptime.v1.Database.InsertRequest result = new io.greptime.v1.Database.InsertRequest(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(io.greptime.v1.Database.InsertRequest result) {
+        int from_bitField0_ = bitField0_;
+        result.tableName_ = tableName_;
         if (columnsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             columns_ = java.util.Collections.unmodifiableList(columns_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.columns_ = columns_;
         } else {
           result.columns_ = columnsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(io.greptime.v1.Database.InsertRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.tableName_ = tableName_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.rowCount_ = rowCount_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.regionNumber_ = regionNumber_;
-        }
+        result.rowCount_ = rowCount_;
+        result.regionNumber_ = regionNumber_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -4075,14 +4212,13 @@ public final class Database {
         if (other == io.greptime.v1.Database.InsertRequest.getDefaultInstance()) return this;
         if (!other.getTableName().isEmpty()) {
           tableName_ = other.tableName_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (columnsBuilder_ == null) {
           if (!other.columns_.isEmpty()) {
             if (columns_.isEmpty()) {
               columns_ = other.columns_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureColumnsIsMutable();
               columns_.addAll(other.columns_);
@@ -4095,7 +4231,7 @@ public final class Database {
               columnsBuilder_.dispose();
               columnsBuilder_ = null;
               columns_ = other.columns_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               columnsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getColumnsFieldBuilder() : null;
@@ -4110,7 +4246,7 @@ public final class Database {
         if (other.getRegionNumber() != 0) {
           setRegionNumber(other.getRegionNumber());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4125,58 +4261,17 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        io.greptime.v1.Database.InsertRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                tableName_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 26: {
-                io.greptime.v1.Columns.Column m =
-                    input.readMessage(
-                        io.greptime.v1.Columns.Column.parser(),
-                        extensionRegistry);
-                if (columnsBuilder_ == null) {
-                  ensureColumnsIsMutable();
-                  columns_.add(m);
-                } else {
-                  columnsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 26
-              case 32: {
-                rowCount_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 32
-              case 40: {
-                regionNumber_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 40
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Database.InsertRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -4222,9 +4317,11 @@ public final class Database {
        */
       public Builder setTableName(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         tableName_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4233,8 +4330,8 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder clearTableName() {
+        
         tableName_ = getDefaultInstance().getTableName();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4245,10 +4342,12 @@ public final class Database {
        */
       public Builder setTableNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         tableName_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4256,9 +4355,9 @@ public final class Database {
       private java.util.List<io.greptime.v1.Columns.Column> columns_ =
         java.util.Collections.emptyList();
       private void ensureColumnsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           columns_ = new java.util.ArrayList<io.greptime.v1.Columns.Column>(columns_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -4452,7 +4551,7 @@ public final class Database {
       public Builder clearColumns() {
         if (columnsBuilder_ == null) {
           columns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           columnsBuilder_.clear();
@@ -4557,7 +4656,7 @@ public final class Database {
           columnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.greptime.v1.Columns.Column, io.greptime.v1.Columns.Column.Builder, io.greptime.v1.Columns.ColumnOrBuilder>(
                   columns_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           columns_ = null;
@@ -4592,7 +4691,6 @@ public final class Database {
       public Builder setRowCount(int value) {
         
         rowCount_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4606,7 +4704,7 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder clearRowCount() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         rowCount_ = 0;
         onChanged();
         return this;
@@ -4637,7 +4735,6 @@ public final class Database {
       public Builder setRegionNumber(int value) {
         
         regionNumber_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -4650,7 +4747,7 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder clearRegionNumber() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         regionNumber_ = 0;
         onChanged();
         return this;
@@ -4688,18 +4785,7 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new InsertRequest(input, extensionRegistry);
       }
     };
 
@@ -4725,7 +4811,8 @@ public final class Database {
 
     /**
      * <pre>
-     * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+     * The table name to delete from. Catalog name and schema name are in the
+     * `RequestHeader`.
      * </pre>
      *
      * <code>string table_name = 1;</code>
@@ -4734,7 +4821,8 @@ public final class Database {
     java.lang.String getTableName();
     /**
      * <pre>
-     * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+     * The table name to delete from. Catalog name and schema name are in the
+     * `RequestHeader`.
      * </pre>
      *
      * <code>string table_name = 1;</code>
@@ -4836,6 +4924,72 @@ public final class Database {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private DeleteRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tableName_ = s;
+              break;
+            }
+            case 16: {
+
+              regionNumber_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                keyColumns_ = new java.util.ArrayList<io.greptime.v1.Columns.Column>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              keyColumns_.add(
+                  input.readMessage(io.greptime.v1.Columns.Column.parser(), extensionRegistry));
+              break;
+            }
+            case 32: {
+
+              rowCount_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          keyColumns_ = java.util.Collections.unmodifiableList(keyColumns_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequest_descriptor;
@@ -4850,11 +5004,11 @@ public final class Database {
     }
 
     public static final int TABLE_NAME_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object tableName_ = "";
+    private volatile java.lang.Object tableName_;
     /**
      * <pre>
-     * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+     * The table name to delete from. Catalog name and schema name are in the
+     * `RequestHeader`.
      * </pre>
      *
      * <code>string table_name = 1;</code>
@@ -4875,7 +5029,8 @@ public final class Database {
     }
     /**
      * <pre>
-     * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+     * The table name to delete from. Catalog name and schema name are in the
+     * `RequestHeader`.
      * </pre>
      *
      * <code>string table_name = 1;</code>
@@ -4897,7 +5052,7 @@ public final class Database {
     }
 
     public static final int REGION_NUMBER_FIELD_NUMBER = 2;
-    private int regionNumber_ = 0;
+    private int regionNumber_;
     /**
      * <pre>
      * The region number of current delete request.
@@ -4912,7 +5067,6 @@ public final class Database {
     }
 
     public static final int KEY_COLUMNS_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private java.util.List<io.greptime.v1.Columns.Column> keyColumns_;
     /**
      * <pre>
@@ -4973,7 +5127,7 @@ public final class Database {
     }
 
     public static final int ROW_COUNT_FIELD_NUMBER = 4;
-    private int rowCount_ = 0;
+    private int rowCount_;
     /**
      * <pre>
      * The row count of all columns above.
@@ -5001,7 +5155,7 @@ public final class Database {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+      if (!getTableNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tableName_);
       }
       if (regionNumber_ != 0) {
@@ -5013,7 +5167,7 @@ public final class Database {
       if (rowCount_ != 0) {
         output.writeUInt32(4, rowCount_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5022,7 +5176,7 @@ public final class Database {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+      if (!getTableNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tableName_);
       }
       if (regionNumber_ != 0) {
@@ -5037,7 +5191,7 @@ public final class Database {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, rowCount_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5060,7 +5214,7 @@ public final class Database {
           .equals(other.getKeyColumnsList())) return false;
       if (getRowCount()
           != other.getRowCount()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5081,7 +5235,7 @@ public final class Database {
       }
       hash = (37 * hash) + ROW_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + getRowCount();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5198,28 +5352,35 @@ public final class Database {
 
       // Construct using io.greptime.v1.Database.DeleteRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getKeyColumnsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         tableName_ = "";
+
         regionNumber_ = 0;
+
         if (keyColumnsBuilder_ == null) {
           keyColumns_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          keyColumns_ = null;
           keyColumnsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         rowCount_ = 0;
+
         return this;
       }
 
@@ -5246,35 +5407,21 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.DeleteRequest buildPartial() {
         io.greptime.v1.Database.DeleteRequest result = new io.greptime.v1.Database.DeleteRequest(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(io.greptime.v1.Database.DeleteRequest result) {
+        int from_bitField0_ = bitField0_;
+        result.tableName_ = tableName_;
+        result.regionNumber_ = regionNumber_;
         if (keyColumnsBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             keyColumns_ = java.util.Collections.unmodifiableList(keyColumns_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.keyColumns_ = keyColumns_;
         } else {
           result.keyColumns_ = keyColumnsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(io.greptime.v1.Database.DeleteRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.tableName_ = tableName_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.regionNumber_ = regionNumber_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.rowCount_ = rowCount_;
-        }
+        result.rowCount_ = rowCount_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -5323,7 +5470,6 @@ public final class Database {
         if (other == io.greptime.v1.Database.DeleteRequest.getDefaultInstance()) return this;
         if (!other.getTableName().isEmpty()) {
           tableName_ = other.tableName_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getRegionNumber() != 0) {
@@ -5333,7 +5479,7 @@ public final class Database {
           if (!other.keyColumns_.isEmpty()) {
             if (keyColumns_.isEmpty()) {
               keyColumns_ = other.keyColumns_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureKeyColumnsIsMutable();
               keyColumns_.addAll(other.keyColumns_);
@@ -5346,7 +5492,7 @@ public final class Database {
               keyColumnsBuilder_.dispose();
               keyColumnsBuilder_ = null;
               keyColumns_ = other.keyColumns_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
               keyColumnsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getKeyColumnsFieldBuilder() : null;
@@ -5358,7 +5504,7 @@ public final class Database {
         if (other.getRowCount() != 0) {
           setRowCount(other.getRowCount());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5373,58 +5519,17 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        io.greptime.v1.Database.DeleteRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                tableName_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                regionNumber_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                io.greptime.v1.Columns.Column m =
-                    input.readMessage(
-                        io.greptime.v1.Columns.Column.parser(),
-                        extensionRegistry);
-                if (keyColumnsBuilder_ == null) {
-                  ensureKeyColumnsIsMutable();
-                  keyColumns_.add(m);
-                } else {
-                  keyColumnsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 26
-              case 32: {
-                rowCount_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Database.DeleteRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -5432,7 +5537,8 @@ public final class Database {
       private java.lang.Object tableName_ = "";
       /**
        * <pre>
-       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * The table name to delete from. Catalog name and schema name are in the
+       * `RequestHeader`.
        * </pre>
        *
        * <code>string table_name = 1;</code>
@@ -5452,7 +5558,8 @@ public final class Database {
       }
       /**
        * <pre>
-       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * The table name to delete from. Catalog name and schema name are in the
+       * `RequestHeader`.
        * </pre>
        *
        * <code>string table_name = 1;</code>
@@ -5473,7 +5580,8 @@ public final class Database {
       }
       /**
        * <pre>
-       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * The table name to delete from. Catalog name and schema name are in the
+       * `RequestHeader`.
        * </pre>
        *
        * <code>string table_name = 1;</code>
@@ -5482,29 +5590,33 @@ public final class Database {
        */
       public Builder setTableName(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         tableName_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * The table name to delete from. Catalog name and schema name are in the
+       * `RequestHeader`.
        * </pre>
        *
        * <code>string table_name = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTableName() {
+        
         tableName_ = getDefaultInstance().getTableName();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The table name to delete from. Catalog name and schema name are in the `RequestHeader`.
+       * The table name to delete from. Catalog name and schema name are in the
+       * `RequestHeader`.
        * </pre>
        *
        * <code>string table_name = 1;</code>
@@ -5513,10 +5625,12 @@ public final class Database {
        */
       public Builder setTableNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         tableName_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5546,7 +5660,6 @@ public final class Database {
       public Builder setRegionNumber(int value) {
         
         regionNumber_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5559,7 +5672,7 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder clearRegionNumber() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         regionNumber_ = 0;
         onChanged();
         return this;
@@ -5568,9 +5681,9 @@ public final class Database {
       private java.util.List<io.greptime.v1.Columns.Column> keyColumns_ =
         java.util.Collections.emptyList();
       private void ensureKeyColumnsIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           keyColumns_ = new java.util.ArrayList<io.greptime.v1.Columns.Column>(keyColumns_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -5764,7 +5877,7 @@ public final class Database {
       public Builder clearKeyColumns() {
         if (keyColumnsBuilder_ == null) {
           keyColumns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           keyColumnsBuilder_.clear();
@@ -5869,7 +5982,7 @@ public final class Database {
           keyColumnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.greptime.v1.Columns.Column, io.greptime.v1.Columns.Column.Builder, io.greptime.v1.Columns.ColumnOrBuilder>(
                   keyColumns_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           keyColumns_ = null;
@@ -5902,7 +6015,6 @@ public final class Database {
       public Builder setRowCount(int value) {
         
         rowCount_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5915,7 +6027,7 @@ public final class Database {
        * @return This builder for chaining.
        */
       public Builder clearRowCount() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         rowCount_ = 0;
         onChanged();
         return this;
@@ -5953,18 +6065,7 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DeleteRequest(input, extensionRegistry);
       }
     };
 
