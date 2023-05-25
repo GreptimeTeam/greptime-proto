@@ -55,7 +55,7 @@ message QueryRequest {
 }
 
 message InsertRequests {
-  repeated InsertRequest insert = 1;
+  repeated InsertRequest inserts = 1;
 }
 
 message InsertRequest {
