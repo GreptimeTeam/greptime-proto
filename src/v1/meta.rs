@@ -101,16 +101,19 @@ impl ResponseHeader {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ErrorCode {
-    NoActiveDatanodes = 1,
+    NoEnoughActiveDatanodes = 1,
     NotLeader = 2,
 }
 
 impl Error {
     #[inline]
-    pub fn no_active_datanodes() -> Self {
+    pub fn no_enough_active_datanodes(datanode_num: u32) -> Self {
         Self {
-            code: ErrorCode::NoActiveDatanodes as i32,
-            err_msg: "No active datanodes".to_string(),
+            code: ErrorCode::NoEnoughActiveDatanodes as i32,
+            err_msg: format!(
+                "There are not enough active datanodes, the number is {}.",
+                datanode_num
+            ),
         }
     }
 
