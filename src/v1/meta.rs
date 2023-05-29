@@ -101,18 +101,17 @@ impl ResponseHeader {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ErrorCode {
-    NotEnoughActiveDatanodes = 1,
+    NotEnoughAvailableDatanodes = 1,
     NotLeader = 2,
 }
 
 impl Error {
     #[inline]
-    pub fn not_enough_active_datanodes(datanode_num: u32) -> Self {
+    pub fn not_enough_available_datanodes(expected: usize, actual: usize) -> Self {
         Self {
-            code: ErrorCode::NotEnoughActiveDatanodes as i32,
+            code: ErrorCode::NotEnoughAvailableDatanodes as i32,
             err_msg: format!(
-                "There are not enough active datanodes, the number is {}.",
-                datanode_num
+                "There are not enough active datanodes, expected: {expected}, actual: {actual}."
             ),
         }
     }
