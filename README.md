@@ -22,7 +22,13 @@ GreptimeDB protobuf files.
   make go
   ```
 
-  The compilation will use builder container `namely/protoc-all`.
+- **Compile for Java**
+
+  ```console
+  make java
+  ```
+
+  The compilation for Go and Java will use builder container `namely/protoc-all`.
 
 ## Usage
 
