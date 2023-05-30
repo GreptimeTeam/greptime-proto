@@ -83,8 +83,6 @@ message RegionStat {
   // Approximate number of rows in this region
   int64 approximate_rows = 6;
 
-  uint32 table_id = 7;
-
   // Others
   map<string, string> attrs = 100;
 }
