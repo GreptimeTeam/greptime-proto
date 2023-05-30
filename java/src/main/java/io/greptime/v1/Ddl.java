@@ -228,6 +228,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -979,8 +981,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 1) {
             createDatabaseBuilder_.mergeFrom(value);
+          } else {
+            createDatabaseBuilder_.setMessage(value);
           }
-          createDatabaseBuilder_.setMessage(value);
         }
         exprCase_ = 1;
         return this;
@@ -1120,8 +1123,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 2) {
             createTableBuilder_.mergeFrom(value);
+          } else {
+            createTableBuilder_.setMessage(value);
           }
-          createTableBuilder_.setMessage(value);
         }
         exprCase_ = 2;
         return this;
@@ -1261,8 +1265,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 3) {
             alterBuilder_.mergeFrom(value);
+          } else {
+            alterBuilder_.setMessage(value);
           }
-          alterBuilder_.setMessage(value);
         }
         exprCase_ = 3;
         return this;
@@ -1402,8 +1407,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 4) {
             dropTableBuilder_.mergeFrom(value);
+          } else {
+            dropTableBuilder_.setMessage(value);
           }
-          dropTableBuilder_.setMessage(value);
         }
         exprCase_ = 4;
         return this;
@@ -1543,8 +1549,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 5) {
             flushTableBuilder_.mergeFrom(value);
+          } else {
+            flushTableBuilder_.setMessage(value);
           }
-          flushTableBuilder_.setMessage(value);
         }
         exprCase_ = 5;
         return this;
@@ -1805,9 +1812,11 @@ public final class Ddl {
      * <code>map&lt;string, string&gt; table_options = 9;</code>
      */
 
-    java.lang.String getTableOptionsOrDefault(
+    /* nullable */
+java.lang.String getTableOptionsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <code>map&lt;string, string&gt; table_options = 9;</code>
      */
@@ -2031,6 +2040,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -2382,7 +2393,7 @@ public final class Ddl {
     @java.lang.Override
     public boolean containsTableOptions(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetTableOptions().getMap().containsKey(key);
     }
     /**
@@ -2409,7 +2420,7 @@ public final class Ddl {
     public java.lang.String getTableOptionsOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetTableOptions().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -2421,7 +2432,7 @@ public final class Ddl {
 
     public java.lang.String getTableOptionsOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetTableOptions().getMap();
       if (!map.containsKey(key)) {
@@ -2537,22 +2548,22 @@ public final class Ddl {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (!getCatalogNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
       }
-      if (!getSchemaNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
-      if (!getDescBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(desc_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, desc_);
       }
       for (int i = 0; i < columnDefs_.size(); i++) {
         output.writeMessage(5, columnDefs_.get(i));
       }
-      if (!getTimeIndexBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndex_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, timeIndex_);
       }
       for (int i = 0; i < primaryKeys_.size(); i++) {
@@ -2577,7 +2588,7 @@ public final class Ddl {
       for (int i = 0; i < regionIds_.size(); i++) {
         output.writeUInt32NoTag(regionIds_.getInt(i));
       }
-      if (!getEngineBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, engine_);
       }
       unknownFields.writeTo(output);
@@ -2589,23 +2600,23 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCatalogNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
       }
-      if (!getSchemaNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
       }
-      if (!getDescBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(desc_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, desc_);
       }
       for (int i = 0; i < columnDefs_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, columnDefs_.get(i));
       }
-      if (!getTimeIndexBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndex_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, timeIndex_);
       }
       {
@@ -2648,7 +2659,7 @@ public final class Ddl {
         }
         regionIdsMemoizedSerializedSize = dataSize;
       }
-      if (!getEngineBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, engine_);
       }
       size += unknownFields.getSerializedSize();
@@ -3936,7 +3947,7 @@ public final class Ddl {
       @java.lang.Override
       public boolean containsTableOptions(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetTableOptions().getMap().containsKey(key);
       }
       /**
@@ -3963,7 +3974,7 @@ public final class Ddl {
       public java.lang.String getTableOptionsOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetTableOptions().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -3975,7 +3986,7 @@ public final class Ddl {
 
       public java.lang.String getTableOptionsOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetTableOptions().getMap();
         if (!map.containsKey(key)) {
@@ -3995,7 +4006,7 @@ public final class Ddl {
 
       public Builder removeTableOptions(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableTableOptions().getMutableMap()
             .remove(key);
         return this;
@@ -4014,8 +4025,11 @@ public final class Ddl {
       public Builder putTableOptions(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableTableOptions().getMutableMap()
             .put(key, value);
         return this;
@@ -4563,6 +4577,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -4848,13 +4864,13 @@ public final class Ddl {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getCatalogNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
       }
-      if (!getSchemaNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
       if (kindCase_ == 4) {
@@ -4875,13 +4891,13 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCatalogNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
       }
-      if (!getSchemaNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
       }
       if (kindCase_ == 4) {
@@ -5582,8 +5598,9 @@ public final class Ddl {
         } else {
           if (kindCase_ == 4) {
             addColumnsBuilder_.mergeFrom(value);
+          } else {
+            addColumnsBuilder_.setMessage(value);
           }
-          addColumnsBuilder_.setMessage(value);
         }
         kindCase_ = 4;
         return this;
@@ -5723,8 +5740,9 @@ public final class Ddl {
         } else {
           if (kindCase_ == 5) {
             dropColumnsBuilder_.mergeFrom(value);
+          } else {
+            dropColumnsBuilder_.setMessage(value);
           }
-          dropColumnsBuilder_.setMessage(value);
         }
         kindCase_ = 5;
         return this;
@@ -5864,8 +5882,9 @@ public final class Ddl {
         } else {
           if (kindCase_ == 6) {
             renameTableBuilder_.mergeFrom(value);
+          } else {
+            renameTableBuilder_.setMessage(value);
           }
-          renameTableBuilder_.setMessage(value);
         }
         kindCase_ = 6;
         return this;
@@ -6100,6 +6119,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -6249,13 +6270,13 @@ public final class Ddl {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getCatalogNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
       }
-      if (!getSchemaNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
       unknownFields.writeTo(output);
@@ -6267,13 +6288,13 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCatalogNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
       }
-      if (!getSchemaNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
       }
       size += unknownFields.getSerializedSize();
@@ -6892,12 +6913,12 @@ public final class Ddl {
         getTableNameBytes();
 
     /**
-     * <code>uint32 region_id = 4;</code>
+     * <code>optional uint32 region_id = 4;</code>
      * @return Whether the regionId field is set.
      */
     boolean hasRegionId();
     /**
-     * <code>uint32 region_id = 4;</code>
+     * <code>optional uint32 region_id = 4;</code>
      * @return The regionId.
      */
     int getRegionId();
@@ -6985,6 +7006,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -7124,7 +7147,7 @@ public final class Ddl {
     public static final int REGION_ID_FIELD_NUMBER = 4;
     private int regionId_;
     /**
-     * <code>uint32 region_id = 4;</code>
+     * <code>optional uint32 region_id = 4;</code>
      * @return Whether the regionId field is set.
      */
     @java.lang.Override
@@ -7132,7 +7155,7 @@ public final class Ddl {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>uint32 region_id = 4;</code>
+     * <code>optional uint32 region_id = 4;</code>
      * @return The regionId.
      */
     @java.lang.Override
@@ -7154,13 +7177,13 @@ public final class Ddl {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getCatalogNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
       }
-      if (!getSchemaNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
       if (((bitField0_ & 0x00000001) != 0)) {
@@ -7175,13 +7198,13 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCatalogNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
       }
-      if (!getSchemaNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
       }
       if (((bitField0_ & 0x00000001) != 0)) {
@@ -7735,7 +7758,7 @@ public final class Ddl {
 
       private int regionId_ ;
       /**
-       * <code>uint32 region_id = 4;</code>
+       * <code>optional uint32 region_id = 4;</code>
        * @return Whether the regionId field is set.
        */
       @java.lang.Override
@@ -7743,7 +7766,7 @@ public final class Ddl {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>uint32 region_id = 4;</code>
+       * <code>optional uint32 region_id = 4;</code>
        * @return The regionId.
        */
       @java.lang.Override
@@ -7751,7 +7774,7 @@ public final class Ddl {
         return regionId_;
       }
       /**
-       * <code>uint32 region_id = 4;</code>
+       * <code>optional uint32 region_id = 4;</code>
        * @param value The regionId to set.
        * @return This builder for chaining.
        */
@@ -7762,7 +7785,7 @@ public final class Ddl {
         return this;
       }
       /**
-       * <code>uint32 region_id = 4;</code>
+       * <code>optional uint32 region_id = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearRegionId() {
@@ -7922,6 +7945,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -8014,7 +8039,7 @@ public final class Ddl {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getDatabaseNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, databaseName_);
       }
       if (createIfNotExists_ != false) {
@@ -8029,7 +8054,7 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      if (!getDatabaseNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, databaseName_);
       }
       if (createIfNotExists_ != false) {
@@ -8594,6 +8619,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -9387,6 +9414,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -10164,6 +10193,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -10237,7 +10268,7 @@ public final class Ddl {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNewTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newTableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, newTableName_);
       }
       unknownFields.writeTo(output);
@@ -10249,7 +10280,7 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNewTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newTableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, newTableName_);
       }
       size += unknownFields.getSerializedSize();
@@ -10780,6 +10811,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -10898,6 +10931,8 @@ public final class Ddl {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -11101,7 +11136,7 @@ public final class Ddl {
         if (locationType_ != io.greptime.v1.Ddl.AddColumn.Location.LocationType.FIRST.getNumber()) {
           output.writeEnum(1, locationType_);
         }
-        if (!getAfterCloumnNameBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(afterCloumnName_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, afterCloumnName_);
         }
         unknownFields.writeTo(output);
@@ -11117,7 +11152,7 @@ public final class Ddl {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(1, locationType_);
         }
-        if (!getAfterCloumnNameBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(afterCloumnName_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, afterCloumnName_);
         }
         size += unknownFields.getSerializedSize();
@@ -12410,6 +12445,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -12483,7 +12520,7 @@ public final class Ddl {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
       unknownFields.writeTo(output);
@@ -12495,7 +12532,7 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
       size += unknownFields.getSerializedSize();
@@ -12970,6 +13007,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);

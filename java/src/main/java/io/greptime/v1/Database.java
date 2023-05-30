@@ -220,6 +220,8 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -1080,8 +1082,9 @@ public final class Database {
         } else {
           if (requestCase_ == 2) {
             insertBuilder_.mergeFrom(value);
+          } else {
+            insertBuilder_.setMessage(value);
           }
-          insertBuilder_.setMessage(value);
         }
         requestCase_ = 2;
         return this;
@@ -1221,8 +1224,9 @@ public final class Database {
         } else {
           if (requestCase_ == 3) {
             queryBuilder_.mergeFrom(value);
+          } else {
+            queryBuilder_.setMessage(value);
           }
-          queryBuilder_.setMessage(value);
         }
         requestCase_ = 3;
         return this;
@@ -1362,8 +1366,9 @@ public final class Database {
         } else {
           if (requestCase_ == 4) {
             ddlBuilder_.mergeFrom(value);
+          } else {
+            ddlBuilder_.setMessage(value);
           }
-          ddlBuilder_.setMessage(value);
         }
         requestCase_ = 4;
         return this;
@@ -1503,8 +1508,9 @@ public final class Database {
         } else {
           if (requestCase_ == 5) {
             deleteBuilder_.mergeFrom(value);
+          } else {
+            deleteBuilder_.setMessage(value);
           }
-          deleteBuilder_.setMessage(value);
         }
         requestCase_ = 5;
         return this;
@@ -1741,6 +1747,8 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -2424,8 +2432,9 @@ public final class Database {
         } else {
           if (responseCase_ == 2) {
             affectedRowsBuilder_.mergeFrom(value);
+          } else {
+            affectedRowsBuilder_.setMessage(value);
           }
-          affectedRowsBuilder_.setMessage(value);
         }
         responseCase_ = 2;
         return this;
@@ -2644,8 +2653,8 @@ public final class Database {
               break;
             }
             case 18: {
-              queryCase_ = 2;
               query_ = input.readBytes();
+              queryCase_ = 2;
               break;
             }
             case 26: {
@@ -2673,6 +2682,8 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -3446,8 +3457,9 @@ public final class Database {
         } else {
           if (queryCase_ == 3) {
             promRangeQueryBuilder_.mergeFrom(value);
+          } else {
+            promRangeQueryBuilder_.setMessage(value);
           }
-          promRangeQueryBuilder_.setMessage(value);
         }
         queryCase_ = 3;
         return this;
@@ -3730,6 +3742,8 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -3897,7 +3911,7 @@ public final class Database {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tableName_);
       }
       for (int i = 0; i < columns_.size(); i++) {
@@ -3918,7 +3932,7 @@ public final class Database {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tableName_);
       }
       for (int i = 0; i < columns_.size(); i++) {
@@ -4979,6 +4993,8 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -5155,7 +5171,7 @@ public final class Database {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tableName_);
       }
       if (regionNumber_ != 0) {
@@ -5176,7 +5192,7 @@ public final class Database {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTableNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tableName_);
       }
       if (regionNumber_ != 0) {
