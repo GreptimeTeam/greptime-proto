@@ -220,8 +220,6 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -1082,9 +1080,8 @@ public final class Database {
         } else {
           if (requestCase_ == 2) {
             insertBuilder_.mergeFrom(value);
-          } else {
-            insertBuilder_.setMessage(value);
           }
+          insertBuilder_.setMessage(value);
         }
         requestCase_ = 2;
         return this;
@@ -1224,9 +1221,8 @@ public final class Database {
         } else {
           if (requestCase_ == 3) {
             queryBuilder_.mergeFrom(value);
-          } else {
-            queryBuilder_.setMessage(value);
           }
+          queryBuilder_.setMessage(value);
         }
         requestCase_ = 3;
         return this;
@@ -1366,9 +1362,8 @@ public final class Database {
         } else {
           if (requestCase_ == 4) {
             ddlBuilder_.mergeFrom(value);
-          } else {
-            ddlBuilder_.setMessage(value);
           }
+          ddlBuilder_.setMessage(value);
         }
         requestCase_ = 4;
         return this;
@@ -1508,9 +1503,8 @@ public final class Database {
         } else {
           if (requestCase_ == 5) {
             deleteBuilder_.mergeFrom(value);
-          } else {
-            deleteBuilder_.setMessage(value);
           }
+          deleteBuilder_.setMessage(value);
         }
         requestCase_ = 5;
         return this;
@@ -1747,8 +1741,6 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -2432,9 +2424,8 @@ public final class Database {
         } else {
           if (responseCase_ == 2) {
             affectedRowsBuilder_.mergeFrom(value);
-          } else {
-            affectedRowsBuilder_.setMessage(value);
           }
+          affectedRowsBuilder_.setMessage(value);
         }
         responseCase_ = 2;
         return this;
@@ -2682,8 +2673,6 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -3457,9 +3446,8 @@ public final class Database {
         } else {
           if (queryCase_ == 3) {
             promRangeQueryBuilder_.mergeFrom(value);
-          } else {
-            promRangeQueryBuilder_.setMessage(value);
           }
+          promRangeQueryBuilder_.setMessage(value);
         }
         queryCase_ = 3;
         return this;
@@ -3742,8 +3730,6 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -4993,8 +4979,6 @@ public final class Database {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
