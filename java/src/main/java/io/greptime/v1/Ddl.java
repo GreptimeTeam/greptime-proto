@@ -1840,21 +1840,21 @@ java.lang.String defaultValue);
     io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
 
     /**
-     * <code>repeated uint32 region_ids = 11;</code>
-     * @return A list containing the regionIds.
+     * <code>repeated uint32 region_numbers = 11;</code>
+     * @return A list containing the regionNumbers.
      */
-    java.util.List<java.lang.Integer> getRegionIdsList();
+    java.util.List<java.lang.Integer> getRegionNumbersList();
     /**
-     * <code>repeated uint32 region_ids = 11;</code>
-     * @return The count of regionIds.
+     * <code>repeated uint32 region_numbers = 11;</code>
+     * @return The count of regionNumbers.
      */
-    int getRegionIdsCount();
+    int getRegionNumbersCount();
     /**
-     * <code>repeated uint32 region_ids = 11;</code>
+     * <code>repeated uint32 region_numbers = 11;</code>
      * @param index The index of the element to return.
-     * @return The regionIds at the given index.
+     * @return The regionNumbers at the given index.
      */
-    int getRegionIds(int index);
+    int getRegionNumbers(int index);
 
     /**
      * <code>string engine = 12;</code>
@@ -1888,7 +1888,7 @@ java.lang.String defaultValue);
       columnDefs_ = java.util.Collections.emptyList();
       timeIndex_ = "";
       primaryKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      regionIds_ = emptyIntList();
+      regionNumbers_ = emptyIntList();
       engine_ = "";
     }
 
@@ -2004,21 +2004,21 @@ java.lang.String defaultValue);
             }
             case 88: {
               if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                regionIds_ = newIntList();
+                regionNumbers_ = newIntList();
                 mutable_bitField0_ |= 0x00000008;
               }
-              regionIds_.addInt(input.readUInt32());
+              regionNumbers_.addInt(input.readUInt32());
               break;
             }
             case 90: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000008) != 0) && input.getBytesUntilLimit() > 0) {
-                regionIds_ = newIntList();
+                regionNumbers_ = newIntList();
                 mutable_bitField0_ |= 0x00000008;
               }
               while (input.getBytesUntilLimit() > 0) {
-                regionIds_.addInt(input.readUInt32());
+                regionNumbers_.addInt(input.readUInt32());
               }
               input.popLimit(limit);
               break;
@@ -2053,7 +2053,7 @@ java.lang.String defaultValue);
           primaryKeys_ = primaryKeys_.getUnmodifiableView();
         }
         if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          regionIds_.makeImmutable(); // C
+          regionNumbers_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2467,33 +2467,33 @@ java.lang.String defaultValue);
       return getTableId();
     }
 
-    public static final int REGION_IDS_FIELD_NUMBER = 11;
-    private com.google.protobuf.Internal.IntList regionIds_;
+    public static final int REGION_NUMBERS_FIELD_NUMBER = 11;
+    private com.google.protobuf.Internal.IntList regionNumbers_;
     /**
-     * <code>repeated uint32 region_ids = 11;</code>
-     * @return A list containing the regionIds.
+     * <code>repeated uint32 region_numbers = 11;</code>
+     * @return A list containing the regionNumbers.
      */
     @java.lang.Override
     public java.util.List<java.lang.Integer>
-        getRegionIdsList() {
-      return regionIds_;
+        getRegionNumbersList() {
+      return regionNumbers_;
     }
     /**
-     * <code>repeated uint32 region_ids = 11;</code>
-     * @return The count of regionIds.
+     * <code>repeated uint32 region_numbers = 11;</code>
+     * @return The count of regionNumbers.
      */
-    public int getRegionIdsCount() {
-      return regionIds_.size();
+    public int getRegionNumbersCount() {
+      return regionNumbers_.size();
     }
     /**
-     * <code>repeated uint32 region_ids = 11;</code>
+     * <code>repeated uint32 region_numbers = 11;</code>
      * @param index The index of the element to return.
-     * @return The regionIds at the given index.
+     * @return The regionNumbers at the given index.
      */
-    public int getRegionIds(int index) {
-      return regionIds_.getInt(index);
+    public int getRegionNumbers(int index) {
+      return regionNumbers_.getInt(index);
     }
-    private int regionIdsMemoizedSerializedSize = -1;
+    private int regionNumbersMemoizedSerializedSize = -1;
 
     public static final int ENGINE_FIELD_NUMBER = 12;
     private volatile java.lang.Object engine_;
@@ -2581,12 +2581,12 @@ java.lang.String defaultValue);
       if (tableId_ != null) {
         output.writeMessage(10, getTableId());
       }
-      if (getRegionIdsList().size() > 0) {
+      if (getRegionNumbersList().size() > 0) {
         output.writeUInt32NoTag(90);
-        output.writeUInt32NoTag(regionIdsMemoizedSerializedSize);
+        output.writeUInt32NoTag(regionNumbersMemoizedSerializedSize);
       }
-      for (int i = 0; i < regionIds_.size(); i++) {
-        output.writeUInt32NoTag(regionIds_.getInt(i));
+      for (int i = 0; i < regionNumbers_.size(); i++) {
+        output.writeUInt32NoTag(regionNumbers_.getInt(i));
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, engine_);
@@ -2647,17 +2647,17 @@ java.lang.String defaultValue);
       }
       {
         int dataSize = 0;
-        for (int i = 0; i < regionIds_.size(); i++) {
+        for (int i = 0; i < regionNumbers_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(regionIds_.getInt(i));
+            .computeUInt32SizeNoTag(regionNumbers_.getInt(i));
         }
         size += dataSize;
-        if (!getRegionIdsList().isEmpty()) {
+        if (!getRegionNumbersList().isEmpty()) {
           size += 1;
           size += com.google.protobuf.CodedOutputStream
               .computeInt32SizeNoTag(dataSize);
         }
-        regionIdsMemoizedSerializedSize = dataSize;
+        regionNumbersMemoizedSerializedSize = dataSize;
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, engine_);
@@ -2700,8 +2700,8 @@ java.lang.String defaultValue);
         if (!getTableId()
             .equals(other.getTableId())) return false;
       }
-      if (!getRegionIdsList()
-          .equals(other.getRegionIdsList())) return false;
+      if (!getRegionNumbersList()
+          .equals(other.getRegionNumbersList())) return false;
       if (!getEngine()
           .equals(other.getEngine())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -2744,9 +2744,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
         hash = (53 * hash) + getTableId().hashCode();
       }
-      if (getRegionIdsCount() > 0) {
-        hash = (37 * hash) + REGION_IDS_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionIdsList().hashCode();
+      if (getRegionNumbersCount() > 0) {
+        hash = (37 * hash) + REGION_NUMBERS_FIELD_NUMBER;
+        hash = (53 * hash) + getRegionNumbersList().hashCode();
       }
       hash = (37 * hash) + ENGINE_FIELD_NUMBER;
       hash = (53 * hash) + getEngine().hashCode();
@@ -2933,7 +2933,7 @@ java.lang.String defaultValue);
           tableId_ = null;
           tableIdBuilder_ = null;
         }
-        regionIds_ = emptyIntList();
+        regionNumbers_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000008);
         engine_ = "";
 
@@ -2992,10 +2992,10 @@ java.lang.String defaultValue);
           result.tableId_ = tableIdBuilder_.build();
         }
         if (((bitField0_ & 0x00000008) != 0)) {
-          regionIds_.makeImmutable();
+          regionNumbers_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000008);
         }
-        result.regionIds_ = regionIds_;
+        result.regionNumbers_ = regionNumbers_;
         result.engine_ = engine_;
         onBuilt();
         return result;
@@ -3109,13 +3109,13 @@ java.lang.String defaultValue);
         if (other.hasTableId()) {
           mergeTableId(other.getTableId());
         }
-        if (!other.regionIds_.isEmpty()) {
-          if (regionIds_.isEmpty()) {
-            regionIds_ = other.regionIds_;
+        if (!other.regionNumbers_.isEmpty()) {
+          if (regionNumbers_.isEmpty()) {
+            regionNumbers_ = other.regionNumbers_;
             bitField0_ = (bitField0_ & ~0x00000008);
           } else {
-            ensureRegionIdsIsMutable();
-            regionIds_.addAll(other.regionIds_);
+            ensureRegionNumbersIsMutable();
+            regionNumbers_.addAll(other.regionNumbers_);
           }
           onChanged();
         }
@@ -4164,80 +4164,80 @@ java.lang.String defaultValue);
         return tableIdBuilder_;
       }
 
-      private com.google.protobuf.Internal.IntList regionIds_ = emptyIntList();
-      private void ensureRegionIdsIsMutable() {
+      private com.google.protobuf.Internal.IntList regionNumbers_ = emptyIntList();
+      private void ensureRegionNumbersIsMutable() {
         if (!((bitField0_ & 0x00000008) != 0)) {
-          regionIds_ = mutableCopy(regionIds_);
+          regionNumbers_ = mutableCopy(regionNumbers_);
           bitField0_ |= 0x00000008;
          }
       }
       /**
-       * <code>repeated uint32 region_ids = 11;</code>
-       * @return A list containing the regionIds.
+       * <code>repeated uint32 region_numbers = 11;</code>
+       * @return A list containing the regionNumbers.
        */
       public java.util.List<java.lang.Integer>
-          getRegionIdsList() {
+          getRegionNumbersList() {
         return ((bitField0_ & 0x00000008) != 0) ?
-                 java.util.Collections.unmodifiableList(regionIds_) : regionIds_;
+                 java.util.Collections.unmodifiableList(regionNumbers_) : regionNumbers_;
       }
       /**
-       * <code>repeated uint32 region_ids = 11;</code>
-       * @return The count of regionIds.
+       * <code>repeated uint32 region_numbers = 11;</code>
+       * @return The count of regionNumbers.
        */
-      public int getRegionIdsCount() {
-        return regionIds_.size();
+      public int getRegionNumbersCount() {
+        return regionNumbers_.size();
       }
       /**
-       * <code>repeated uint32 region_ids = 11;</code>
+       * <code>repeated uint32 region_numbers = 11;</code>
        * @param index The index of the element to return.
-       * @return The regionIds at the given index.
+       * @return The regionNumbers at the given index.
        */
-      public int getRegionIds(int index) {
-        return regionIds_.getInt(index);
+      public int getRegionNumbers(int index) {
+        return regionNumbers_.getInt(index);
       }
       /**
-       * <code>repeated uint32 region_ids = 11;</code>
+       * <code>repeated uint32 region_numbers = 11;</code>
        * @param index The index to set the value at.
-       * @param value The regionIds to set.
+       * @param value The regionNumbers to set.
        * @return This builder for chaining.
        */
-      public Builder setRegionIds(
+      public Builder setRegionNumbers(
           int index, int value) {
-        ensureRegionIdsIsMutable();
-        regionIds_.setInt(index, value);
+        ensureRegionNumbersIsMutable();
+        regionNumbers_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 region_ids = 11;</code>
-       * @param value The regionIds to add.
+       * <code>repeated uint32 region_numbers = 11;</code>
+       * @param value The regionNumbers to add.
        * @return This builder for chaining.
        */
-      public Builder addRegionIds(int value) {
-        ensureRegionIdsIsMutable();
-        regionIds_.addInt(value);
+      public Builder addRegionNumbers(int value) {
+        ensureRegionNumbersIsMutable();
+        regionNumbers_.addInt(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 region_ids = 11;</code>
-       * @param values The regionIds to add.
+       * <code>repeated uint32 region_numbers = 11;</code>
+       * @param values The regionNumbers to add.
        * @return This builder for chaining.
        */
-      public Builder addAllRegionIds(
+      public Builder addAllRegionNumbers(
           java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureRegionIdsIsMutable();
+        ensureRegionNumbersIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, regionIds_);
+            values, regionNumbers_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 region_ids = 11;</code>
+       * <code>repeated uint32 region_numbers = 11;</code>
        * @return This builder for chaining.
        */
-      public Builder clearRegionIds() {
-        regionIds_ = emptyIntList();
+      public Builder clearRegionNumbers() {
+        regionNumbers_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
@@ -6913,15 +6913,15 @@ java.lang.String defaultValue);
         getTableNameBytes();
 
     /**
-     * <code>optional uint32 region_id = 4;</code>
-     * @return Whether the regionId field is set.
+     * <code>optional uint32 region_number = 4;</code>
+     * @return Whether the regionNumber field is set.
      */
-    boolean hasRegionId();
+    boolean hasRegionNumber();
     /**
-     * <code>optional uint32 region_id = 4;</code>
-     * @return The regionId.
+     * <code>optional uint32 region_number = 4;</code>
+     * @return The regionNumber.
      */
-    int getRegionId();
+    int getRegionNumber();
   }
   /**
    * Protobuf type {@code greptime.v1.FlushTableExpr}
@@ -6992,7 +6992,7 @@ java.lang.String defaultValue);
             }
             case 32: {
               bitField0_ |= 0x00000001;
-              regionId_ = input.readUInt32();
+              regionNumber_ = input.readUInt32();
               break;
             }
             default: {
@@ -7144,23 +7144,23 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int REGION_ID_FIELD_NUMBER = 4;
-    private int regionId_;
+    public static final int REGION_NUMBER_FIELD_NUMBER = 4;
+    private int regionNumber_;
     /**
-     * <code>optional uint32 region_id = 4;</code>
-     * @return Whether the regionId field is set.
+     * <code>optional uint32 region_number = 4;</code>
+     * @return Whether the regionNumber field is set.
      */
     @java.lang.Override
-    public boolean hasRegionId() {
+    public boolean hasRegionNumber() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional uint32 region_id = 4;</code>
-     * @return The regionId.
+     * <code>optional uint32 region_number = 4;</code>
+     * @return The regionNumber.
      */
     @java.lang.Override
-    public int getRegionId() {
-      return regionId_;
+    public int getRegionNumber() {
+      return regionNumber_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7187,7 +7187,7 @@ java.lang.String defaultValue);
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(4, regionId_);
+        output.writeUInt32(4, regionNumber_);
       }
       unknownFields.writeTo(output);
     }
@@ -7209,7 +7209,7 @@ java.lang.String defaultValue);
       }
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, regionId_);
+          .computeUInt32Size(4, regionNumber_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7232,10 +7232,10 @@ java.lang.String defaultValue);
           .equals(other.getSchemaName())) return false;
       if (!getTableName()
           .equals(other.getTableName())) return false;
-      if (hasRegionId() != other.hasRegionId()) return false;
-      if (hasRegionId()) {
-        if (getRegionId()
-            != other.getRegionId()) return false;
+      if (hasRegionNumber() != other.hasRegionNumber()) return false;
+      if (hasRegionNumber()) {
+        if (getRegionNumber()
+            != other.getRegionNumber()) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -7254,9 +7254,9 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getSchemaName().hashCode();
       hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getTableName().hashCode();
-      if (hasRegionId()) {
-        hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionId();
+      if (hasRegionNumber()) {
+        hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + getRegionNumber();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7397,7 +7397,7 @@ java.lang.String defaultValue);
 
         tableName_ = "";
 
-        regionId_ = 0;
+        regionNumber_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -7431,7 +7431,7 @@ java.lang.String defaultValue);
         result.schemaName_ = schemaName_;
         result.tableName_ = tableName_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.regionId_ = regionId_;
+          result.regionNumber_ = regionNumber_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ = to_bitField0_;
@@ -7495,8 +7495,8 @@ java.lang.String defaultValue);
           tableName_ = other.tableName_;
           onChanged();
         }
-        if (other.hasRegionId()) {
-          setRegionId(other.getRegionId());
+        if (other.hasRegionNumber()) {
+          setRegionNumber(other.getRegionNumber());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7756,41 +7756,41 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private int regionId_ ;
+      private int regionNumber_ ;
       /**
-       * <code>optional uint32 region_id = 4;</code>
-       * @return Whether the regionId field is set.
+       * <code>optional uint32 region_number = 4;</code>
+       * @return Whether the regionNumber field is set.
        */
       @java.lang.Override
-      public boolean hasRegionId() {
+      public boolean hasRegionNumber() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional uint32 region_id = 4;</code>
-       * @return The regionId.
+       * <code>optional uint32 region_number = 4;</code>
+       * @return The regionNumber.
        */
       @java.lang.Override
-      public int getRegionId() {
-        return regionId_;
+      public int getRegionNumber() {
+        return regionNumber_;
       }
       /**
-       * <code>optional uint32 region_id = 4;</code>
-       * @param value The regionId to set.
+       * <code>optional uint32 region_number = 4;</code>
+       * @param value The regionNumber to set.
        * @return This builder for chaining.
        */
-      public Builder setRegionId(int value) {
+      public Builder setRegionNumber(int value) {
         bitField0_ |= 0x00000001;
-        regionId_ = value;
+        regionNumber_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint32 region_id = 4;</code>
+       * <code>optional uint32 region_number = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearRegionId() {
+      public Builder clearRegionNumber() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        regionId_ = 0;
+        regionNumber_ = 0;
         onChanged();
         return this;
       }
@@ -13513,7 +13513,7 @@ java.lang.String defaultValue);
       "\030\003 \001(\0132\026.greptime.v1.AlterExprH\000\0220\n\ndrop" +
       "_table\030\004 \001(\0132\032.greptime.v1.DropTableExpr" +
       "H\000\0222\n\013flush_table\030\005 \001(\0132\033.greptime.v1.Fl" +
-      "ushTableExprH\000B\006\n\004expr\"\233\003\n\017CreateTableEx" +
+      "ushTableExprH\000B\006\n\004expr\"\237\003\n\017CreateTableEx" +
       "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
       "\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022" +
       "+\n\013column_defs\030\005 \003(\0132\026.greptime.v1.Colum" +
@@ -13521,36 +13521,37 @@ java.lang.String defaultValue);
       "\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001(\010\022E\n\r" +
       "table_options\030\t \003(\0132..greptime.v1.Create" +
       "TableExpr.TableOptionsEntry\022&\n\010table_id\030" +
-      "\n \001(\0132\024.greptime.v1.TableId\022\022\n\nregion_id" +
-      "s\030\013 \003(\r\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\346\001\n" +
-      "\tAlterExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sche" +
-      "ma_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add" +
-      "_columns\030\004 \001(\0132\027.greptime.v1.AddColumnsH" +
-      "\000\0220\n\014drop_columns\030\005 \001(\0132\030.greptime.v1.Dr" +
-      "opColumnsH\000\0220\n\014rename_table\030\006 \001(\0132\030.grep" +
-      "time.v1.RenameTableH\000B\006\n\004kind\"N\n\rDropTab" +
-      "leExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_n" +
-      "ame\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"u\n\016FlushTa" +
-      "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
-      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\026\n\tregion" +
-      "_id\030\004 \001(\rH\000\210\001\001B\014\n\n_region_id\"I\n\022CreateDa" +
-      "tabaseExpr\022\025\n\rdatabase_name\030\001 \001(\t\022\034\n\024cre" +
-      "ate_if_not_exists\030\002 \001(\010\"9\n\nAddColumns\022+\n" +
-      "\013add_columns\030\001 \003(\0132\026.greptime.v1.AddColu" +
-      "mn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132" +
-      "\027.greptime.v1.DropColumn\"%\n\013RenameTable\022" +
-      "\026\n\016new_table_name\030\001 \001(\t\"\215\002\n\tAddColumn\022*\n" +
-      "\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDe" +
-      "f\022\016\n\006is_key\030\002 \001(\010\0221\n\010location\030\003 \001(\0132\037.gr" +
-      "eptime.v1.AddColumn.Location\032\220\001\n\010Locatio" +
-      "n\022C\n\rlocation_type\030\001 \001(\0162,.greptime.v1.A" +
-      "ddColumn.Location.LocationType\022\031\n\021after_" +
-      "cloumn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIR" +
-      "ST\020\000\022\t\n\005AFTER\020\001\"\032\n\nDropColumn\022\014\n\004name\030\001 " +
-      "\001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\rBL\n\016io.greptim" +
-      "e.v1B\003DdlZ5github.com/GreptimeTeam/grept" +
-      "ime-proto/go/greptime/v1b\006proto3"
+      "\n \001(\0132\024.greptime.v1.TableId\022\026\n\016region_nu" +
+      "mbers\030\013 \003(\r\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOpti" +
+      "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
+      "\"\346\001\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013" +
+      "schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n" +
+      "\013add_columns\030\004 \001(\0132\027.greptime.v1.AddColu" +
+      "mnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.greptime.v" +
+      "1.DropColumnsH\000\0220\n\014rename_table\030\006 \001(\0132\030." +
+      "greptime.v1.RenameTableH\000B\006\n\004kind\"N\n\rDro" +
+      "pTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sche" +
+      "ma_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"}\n\016Flu" +
+      "shTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
+      "ema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\032\n\rre" +
+      "gion_number\030\004 \001(\rH\000\210\001\001B\020\n\016_region_number" +
+      "\"I\n\022CreateDatabaseExpr\022\025\n\rdatabase_name\030" +
+      "\001 \001(\t\022\034\n\024create_if_not_exists\030\002 \001(\010\"9\n\nA" +
+      "ddColumns\022+\n\013add_columns\030\001 \003(\0132\026.greptim" +
+      "e.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop_co" +
+      "lumns\030\001 \003(\0132\027.greptime.v1.DropColumn\"%\n\013" +
+      "RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"\215\002\n\t" +
+      "AddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime" +
+      ".v1.ColumnDef\022\016\n\006is_key\030\002 \001(\010\0221\n\010locatio" +
+      "n\030\003 \001(\0132\037.greptime.v1.AddColumn.Location" +
+      "\032\220\001\n\010Location\022C\n\rlocation_type\030\001 \001(\0162,.g" +
+      "reptime.v1.AddColumn.Location.LocationTy" +
+      "pe\022\031\n\021after_cloumn_name\030\002 \001(\t\"$\n\014Locatio" +
+      "nType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\032\n\nDropColum" +
+      "n\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\rBL" +
+      "\n\016io.greptime.v1B\003DdlZ5github.com/Grepti" +
+      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13568,7 +13569,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "Desc", "ColumnDefs", "TimeIndex", "PrimaryKeys", "CreateIfNotExists", "TableOptions", "TableId", "RegionIds", "Engine", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "Desc", "ColumnDefs", "TimeIndex", "PrimaryKeys", "CreateIfNotExists", "TableOptions", "TableId", "RegionNumbers", "Engine", });
     internal_static_greptime_v1_CreateTableExpr_TableOptionsEntry_descriptor =
       internal_static_greptime_v1_CreateTableExpr_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_CreateTableExpr_TableOptionsEntry_fieldAccessorTable = new
@@ -13592,7 +13593,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_FlushTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlushTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "RegionId", "RegionId", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "RegionNumber", "RegionNumber", });
     internal_static_greptime_v1_CreateDatabaseExpr_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_CreateDatabaseExpr_fieldAccessorTable = new
