@@ -162,6 +162,8 @@ public final class Prometheus {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -904,8 +906,9 @@ public final class Prometheus {
         } else {
           if (promqlCase_ == 2) {
             instantQueryBuilder_.mergeFrom(value);
+          } else {
+            instantQueryBuilder_.setMessage(value);
           }
-          instantQueryBuilder_.setMessage(value);
         }
         promqlCase_ = 2;
         return this;
@@ -1045,8 +1048,9 @@ public final class Prometheus {
         } else {
           if (promqlCase_ == 3) {
             rangeQueryBuilder_.mergeFrom(value);
+          } else {
+            rangeQueryBuilder_.setMessage(value);
           }
-          rangeQueryBuilder_.setMessage(value);
         }
         promqlCase_ = 3;
         return this;
@@ -1268,6 +1272,8 @@ public final class Prometheus {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -1977,6 +1983,8 @@ public final class Prometheus {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -2733,6 +2741,8 @@ public final class Prometheus {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
