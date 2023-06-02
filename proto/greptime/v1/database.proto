@@ -34,7 +34,7 @@ service GreptimeDatabase {
 message GreptimeRequest {
   RequestHeader header = 1;
   oneof request {
-    InsertRequest insert = 2;
+    InsertRequests inserts = 2;
     QueryRequest query = 3;
     DdlRequest ddl = 4;
     DeleteRequest delete = 5;
@@ -52,6 +52,10 @@ message QueryRequest {
     bytes logical_plan = 2;
     PromRangeQuery prom_range_query = 3;
   }
+}
+
+message InsertRequests {
+  repeated InsertRequest inserts = 1;
 }
 
 message InsertRequest {

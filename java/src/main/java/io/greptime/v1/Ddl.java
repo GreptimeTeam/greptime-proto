@@ -228,6 +228,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -979,8 +981,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 1) {
             createDatabaseBuilder_.mergeFrom(value);
+          } else {
+            createDatabaseBuilder_.setMessage(value);
           }
-          createDatabaseBuilder_.setMessage(value);
         }
         exprCase_ = 1;
         return this;
@@ -1120,8 +1123,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 2) {
             createTableBuilder_.mergeFrom(value);
+          } else {
+            createTableBuilder_.setMessage(value);
           }
-          createTableBuilder_.setMessage(value);
         }
         exprCase_ = 2;
         return this;
@@ -1261,8 +1265,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 3) {
             alterBuilder_.mergeFrom(value);
+          } else {
+            alterBuilder_.setMessage(value);
           }
-          alterBuilder_.setMessage(value);
         }
         exprCase_ = 3;
         return this;
@@ -1402,8 +1407,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 4) {
             dropTableBuilder_.mergeFrom(value);
+          } else {
+            dropTableBuilder_.setMessage(value);
           }
-          dropTableBuilder_.setMessage(value);
         }
         exprCase_ = 4;
         return this;
@@ -1543,8 +1549,9 @@ public final class Ddl {
         } else {
           if (exprCase_ == 5) {
             flushTableBuilder_.mergeFrom(value);
+          } else {
+            flushTableBuilder_.setMessage(value);
           }
-          flushTableBuilder_.setMessage(value);
         }
         exprCase_ = 5;
         return this;
@@ -1805,9 +1812,11 @@ public final class Ddl {
      * <code>map&lt;string, string&gt; table_options = 9;</code>
      */
 
-    java.lang.String getTableOptionsOrDefault(
+    /* nullable */
+java.lang.String getTableOptionsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <code>map&lt;string, string&gt; table_options = 9;</code>
      */
@@ -2031,6 +2040,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -4566,6 +4577,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -5585,8 +5598,9 @@ public final class Ddl {
         } else {
           if (kindCase_ == 4) {
             addColumnsBuilder_.mergeFrom(value);
+          } else {
+            addColumnsBuilder_.setMessage(value);
           }
-          addColumnsBuilder_.setMessage(value);
         }
         kindCase_ = 4;
         return this;
@@ -5726,8 +5740,9 @@ public final class Ddl {
         } else {
           if (kindCase_ == 5) {
             dropColumnsBuilder_.mergeFrom(value);
+          } else {
+            dropColumnsBuilder_.setMessage(value);
           }
-          dropColumnsBuilder_.setMessage(value);
         }
         kindCase_ = 5;
         return this;
@@ -5867,8 +5882,9 @@ public final class Ddl {
         } else {
           if (kindCase_ == 6) {
             renameTableBuilder_.mergeFrom(value);
+          } else {
+            renameTableBuilder_.setMessage(value);
           }
-          renameTableBuilder_.setMessage(value);
         }
         kindCase_ = 6;
         return this;
@@ -6103,6 +6119,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -6988,6 +7006,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -7925,6 +7945,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -8597,6 +8619,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -9390,6 +9414,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -10167,6 +10193,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -10783,6 +10811,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -10901,6 +10931,8 @@ public final class Ddl {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -12413,6 +12445,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -12973,6 +13007,8 @@ public final class Ddl {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
