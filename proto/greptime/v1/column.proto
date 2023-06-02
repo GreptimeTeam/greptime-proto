@@ -31,13 +31,13 @@ message Column {
   SemanticType semantic_type = 2;
 
   message Values {
-    repeated int32 i8_values = 1;
-    repeated int32 i16_values = 2;
+    repeated int8 i8_values = 1;
+    repeated int16 i16_values = 2;
     repeated int32 i32_values = 3;
     repeated int64 i64_values = 4;
 
-    repeated uint32 u8_values = 5;
-    repeated uint32 u16_values = 6;
+    repeated uint8 u8_values = 5;
+    repeated uint16 u16_values = 6;
     repeated uint32 u32_values = 7;
     repeated uint64 u64_values = 8;
 
