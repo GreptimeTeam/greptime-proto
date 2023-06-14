@@ -97,7 +97,7 @@ message HeartbeatResponse {
   ResponseHeader header = 1;
 
   MailboxMessage mailbox_message = 2;
-  repeated RegionLease region_lease = 3;
+  repeated RegionLease region_leases = 3;
 }
 
 message RegionLease {
