@@ -97,6 +97,14 @@ message HeartbeatResponse {
   ResponseHeader header = 1;
 
   MailboxMessage mailbox_message = 2;
+  RegionLease region_lease = 3;
+}
+
+message RegionLease {
+  TableIdent table_ident = 1;
+  repeated uint32 regions = 2;
+  int64 last_heartbeat_time_millis = 3;
+  uint64 lease_seconds = 4;
 }
 
 message AskLeaderRequest { RequestHeader header = 1; }
