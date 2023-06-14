@@ -55,6 +55,11 @@ message TableName {
   string table_name = 3;
 }
 
+message TableIdent {
+  uint32 table_id = 1;
+  TableName table_name = 2;
+}
+
 message TimeInterval {
   // The unix timestamp in millis of the start of this period.
   int64 start_timestamp_millis = 1;
