@@ -58,6 +58,7 @@ message TableName {
 message TableIdent {
   uint32 table_id = 1;
   TableName table_name = 2;
+  string engine = 3;
 }
 
 message TimeInterval {
