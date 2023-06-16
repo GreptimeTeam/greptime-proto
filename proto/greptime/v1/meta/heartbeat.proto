@@ -48,6 +48,8 @@ message HeartbeatRequest {
   // Follower nodes and stats, empty on follower nodes
   repeated ReplicaStat replica_stats = 7;
   MailboxMessage mailbox_message = 8;
+  // The duration since the heartbeat task's epoch in milliseconds.
+  uint64 duration_since_epoch = 9;
 }
 
 message NodeStat {
