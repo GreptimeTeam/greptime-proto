@@ -50,6 +50,8 @@ message HeartbeatRequest {
   MailboxMessage mailbox_message = 8;
   // The duration since the heartbeat task's epoch in milliseconds.
   uint64 duration_since_epoch = 9;
+  // The node's epoch
+  uint64 node_epoch = 10;
 }
 
 message NodeStat {
