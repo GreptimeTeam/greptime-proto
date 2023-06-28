@@ -35,6 +35,7 @@ enum DdlTaskType {
 message CreateTableTask {
     CreateTableExpr create_table = 1;
     repeated Partition partitions = 2;
+    bytes table_info = 3;
 }
 
 message SubmitDdlTaskRequest {
