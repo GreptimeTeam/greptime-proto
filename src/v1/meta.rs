@@ -156,7 +156,6 @@ macro_rules! gen_set_header {
 
 gen_set_header!(HeartbeatRequest);
 gen_set_header!(RouteRequest);
-gen_set_header!(CreateRequest);
 gen_set_header!(RangeRequest);
 gen_set_header!(DeleteRequest);
 gen_set_header!(PutRequest);
@@ -168,6 +167,7 @@ gen_set_header!(DeleteRangeRequest);
 gen_set_header!(MoveValueRequest);
 gen_set_header!(LockRequest);
 gen_set_header!(UnlockRequest);
+gen_set_header!(SubmitDdlTaskRequest);
 
 #[cfg(test)]
 mod tests {
