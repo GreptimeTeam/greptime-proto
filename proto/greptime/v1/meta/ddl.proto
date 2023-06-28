@@ -41,14 +41,6 @@ message CreateTableTask {
 message SubmitDdlTaskRequest {
     RequestHeader header = 1;
 
-    // The following information plays a bigger role in making messages traceable
-    // and facilitating debugging.
-    string subject = 2;
-    string from = 3;
-    string to = 4;
-    // The unix timestamp in milliseconds.
-    int64 timestamp_millis = 5;
-    
     oneof task { CreateTableTask create_table_task = 6; }
 }
 
