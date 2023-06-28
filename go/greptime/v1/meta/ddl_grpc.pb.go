@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type DdlTaskClient interface {
 	// Submits a DDL task to meta.
-	SubmitDdlTask(ctx context.Context, in *SubmitDdlTaskRequest, opts ...grpc.CallOption) (*SumbitDdlTaskResponse, error)
+	SubmitDdlTask(ctx context.Context, in *SubmitDdlTaskRequest, opts ...grpc.CallOption) (*SubmitDdlTaskResponse, error)
 }
 
 type ddlTaskClient struct {
@@ -34,8 +34,8 @@ func NewDdlTaskClient(cc grpc.ClientConnInterface) DdlTaskClient {
 	return &ddlTaskClient{cc}
 }
 
-func (c *ddlTaskClient) SubmitDdlTask(ctx context.Context, in *SubmitDdlTaskRequest, opts ...grpc.CallOption) (*SumbitDdlTaskResponse, error) {
-	out := new(SumbitDdlTaskResponse)
+func (c *ddlTaskClient) SubmitDdlTask(ctx context.Context, in *SubmitDdlTaskRequest, opts ...grpc.CallOption) (*SubmitDdlTaskResponse, error) {
+	out := new(SubmitDdlTaskResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.meta.DdlTask/SubmitDdlTask", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -48,7 +48,7 @@ func (c *ddlTaskClient) SubmitDdlTask(ctx context.Context, in *SubmitDdlTaskRequ
 // for forward compatibility
 type DdlTaskServer interface {
 	// Submits a DDL task to meta.
-	SubmitDdlTask(context.Context, *SubmitDdlTaskRequest) (*SumbitDdlTaskResponse, error)
+	SubmitDdlTask(context.Context, *SubmitDdlTaskRequest) (*SubmitDdlTaskResponse, error)
 	mustEmbedUnimplementedDdlTaskServer()
 }
 
@@ -56,7 +56,7 @@ type DdlTaskServer interface {
 type UnimplementedDdlTaskServer struct {
 }
 
-func (UnimplementedDdlTaskServer) SubmitDdlTask(context.Context, *SubmitDdlTaskRequest) (*SumbitDdlTaskResponse, error) {
+func (UnimplementedDdlTaskServer) SubmitDdlTask(context.Context, *SubmitDdlTaskRequest) (*SubmitDdlTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SubmitDdlTask not implemented")
 }
 func (UnimplementedDdlTaskServer) mustEmbedUnimplementedDdlTaskServer() {}

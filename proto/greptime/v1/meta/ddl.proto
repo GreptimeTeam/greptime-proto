@@ -22,7 +22,7 @@ import "greptime/v1/meta/common.proto";
 
 service DdlTask {
     // Submits a DDL task to meta.
-    rpc SubmitDdlTask(SubmitDdlTaskRequest) returns (SumbitDdlTaskResponse);
+    rpc SubmitDdlTask(SubmitDdlTaskRequest) returns (SubmitDdlTaskResponse);
 }
 
 enum DdlTaskType {
@@ -36,7 +36,7 @@ message Task {
 }
 
 message SubmitDdlTaskRequest {
-    ResponseHeader header = 1;
+    RequestHeader header = 1;
 
     // The following information plays a bigger role in making messages traceable
     // and facilitating debugging.
@@ -55,7 +55,7 @@ enum Status {
     Cancelled = 2;
 }
 
-message SumbitDdlTaskResponse {
+message SubmitDdlTaskResponse {
     ResponseHeader header = 1;
     // Key is the identifier for the ddl task.
     bytes key = 2;

@@ -167,6 +167,7 @@ gen_set_header!(DeleteRangeRequest);
 gen_set_header!(MoveValueRequest);
 gen_set_header!(LockRequest);
 gen_set_header!(UnlockRequest);
+gen_set_header!(SubmitDdlTaskRequest);
 
 #[cfg(test)]
 mod tests {
