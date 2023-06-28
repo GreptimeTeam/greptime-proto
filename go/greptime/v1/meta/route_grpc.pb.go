@@ -22,7 +22,6 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RouterClient interface {
-	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*RouteResponse, error)
 	// Fetch routing information for tables. The smallest unit is the complete
 	// routing information(all regions) of a table.
 	//
@@ -57,15 +56,6 @@ func NewRouterClient(cc grpc.ClientConnInterface) RouterClient {
 	return &routerClient{cc}
 }
 
-func (c *routerClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*RouteResponse, error) {
-	out := new(RouteResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Router/Create", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *routerClient) Route(ctx context.Context, in *RouteRequest, opts ...grpc.CallOption) (*RouteResponse, error) {
 	out := new(RouteResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Router/Route", in, out, opts...)
@@ -88,7 +78,6 @@ func (c *routerClient) Delete(ctx context.Context, in *DeleteRequest, opts ...gr
 // All implementations must embed UnimplementedRouterServer
 // for forward compatibility
 type RouterServer interface {
-	Create(context.Context, *CreateRequest) (*RouteResponse, error)
 	// Fetch routing information for tables. The smallest unit is the complete
 	// routing information(all regions) of a table.
 	//
@@ -120,9 +109,6 @@ type RouterServer interface {
 type UnimplementedRouterServer struct {
 }
 
-func (UnimplementedRouterServer) Create(context.Context, *CreateRequest) (*RouteResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
-}
 func (UnimplementedRouterServer) Route(context.Context, *RouteRequest) (*RouteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Route not implemented")
 }
@@ -140,24 +126,6 @@ type UnsafeRouterServer interface {
 
 func RegisterRouterServer(s grpc.ServiceRegistrar, srv RouterServer) {
 	s.RegisterService(&Router_ServiceDesc, srv)
-}
-
-func _Router_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouterServer).Create(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/greptime.v1.meta.Router/Create",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouterServer).Create(ctx, req.(*CreateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _Router_Route_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -203,10 +171,6 @@ var Router_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "greptime.v1.meta.Router",
 	HandlerType: (*RouterServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Create",
-			Handler:    _Router_Create_Handler,
-		},
 		{
 			MethodName: "Route",
 			Handler:    _Router_Route_Handler,

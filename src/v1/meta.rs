@@ -156,7 +156,6 @@ macro_rules! gen_set_header {
 
 gen_set_header!(HeartbeatRequest);
 gen_set_header!(RouteRequest);
-gen_set_header!(CreateRequest);
 gen_set_header!(RangeRequest);
 gen_set_header!(DeleteRequest);
 gen_set_header!(PutRequest);

@@ -22,19 +22,20 @@ import "greptime/v1/meta/common.proto";
 
 service DdlTask {
     // Submits a DDL task to meta.
-    rpc SubmitDdlTask(AddDdlTaskRequest) returns (AddDdlTaskResponse);
-
-    // Cancel a DDL task in queue.
-    rpc CancelDdlTask(CancelDdlTaskRequest) returns (CancelDdlTaskResponse);
+    rpc SubmitDdlTask(SubmitDdlTaskRequest) returns (SumbitDdlTaskResponse);
 }
 
 enum DdlTaskType {
     Create = 0;
-    Drop = 1;
-    Alter = 2;
 }
 
-message AddDdlTaskRequest {
+message Task {
+    DdlTaskType type = 1;
+    
+    oneof payload { bytes pd = 2; }
+}
+
+message SubmitDdlTaskRequest {
     ResponseHeader header = 1;
 
     // The following information plays a bigger role in making messages traceable
@@ -45,41 +46,19 @@ message AddDdlTaskRequest {
     // The unix timestamp in milliseconds.
     int64 timestamp_millis = 5;
     
-    DdlTaskType type = 6;
-    
-    oneof payload { bytes pd = 7; }
+    Task task = 6;
 }
 
-enum DdlTaskStatus {
+enum Status {
     Done = 0;
     Failed = 1;
     Cancelled = 2;
 }
 
-message AddDdlTaskResponse {
+message SumbitDdlTaskResponse {
     ResponseHeader header = 1;
     // Key is the identifier for the ddl task.
     bytes key = 2;
 
-    DdlTaskStatus status = 3;
-}
-
-message CancelDdlTaskRequest {
-    ResponseHeader header = 1;
-    // Key is the identifier for the ddl task.
-    bytes key = 2;
-}
-
-message CancelDdlTaskResponse {
-    ResponseHeader header = 1;
-
-    // The following information plays a bigger role in making messages traceable
-    // and facilitating debugging.
-    string subject = 2;
-    string from = 3;
-    string to = 4;
-    // The unix timestamp in milliseconds.
-    int64 timestamp_millis = 5;
-
-    bool cancelled = 6;
+    Status status = 3;
 }

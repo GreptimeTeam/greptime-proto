@@ -23,9 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type DdlTaskClient interface {
 	// Submits a DDL task to meta.
-	SubmitDdlTask(ctx context.Context, in *AddDdlTaskRequest, opts ...grpc.CallOption) (*AddDdlTaskResponse, error)
-	// Cancel a DDL task in queue.
-	CancelDdlTask(ctx context.Context, in *CancelDdlTaskRequest, opts ...grpc.CallOption) (*CancelDdlTaskResponse, error)
+	SubmitDdlTask(ctx context.Context, in *SubmitDdlTaskRequest, opts ...grpc.CallOption) (*SumbitDdlTaskResponse, error)
 }
 
 type ddlTaskClient struct {
@@ -36,18 +34,9 @@ func NewDdlTaskClient(cc grpc.ClientConnInterface) DdlTaskClient {
 	return &ddlTaskClient{cc}
 }
 
-func (c *ddlTaskClient) SubmitDdlTask(ctx context.Context, in *AddDdlTaskRequest, opts ...grpc.CallOption) (*AddDdlTaskResponse, error) {
-	out := new(AddDdlTaskResponse)
+func (c *ddlTaskClient) SubmitDdlTask(ctx context.Context, in *SubmitDdlTaskRequest, opts ...grpc.CallOption) (*SumbitDdlTaskResponse, error) {
+	out := new(SumbitDdlTaskResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.meta.DdlTask/SubmitDdlTask", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ddlTaskClient) CancelDdlTask(ctx context.Context, in *CancelDdlTaskRequest, opts ...grpc.CallOption) (*CancelDdlTaskResponse, error) {
-	out := new(CancelDdlTaskResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.meta.DdlTask/CancelDdlTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,9 +48,7 @@ func (c *ddlTaskClient) CancelDdlTask(ctx context.Context, in *CancelDdlTaskRequ
 // for forward compatibility
 type DdlTaskServer interface {
 	// Submits a DDL task to meta.
-	SubmitDdlTask(context.Context, *AddDdlTaskRequest) (*AddDdlTaskResponse, error)
-	// Cancel a DDL task in queue.
-	CancelDdlTask(context.Context, *CancelDdlTaskRequest) (*CancelDdlTaskResponse, error)
+	SubmitDdlTask(context.Context, *SubmitDdlTaskRequest) (*SumbitDdlTaskResponse, error)
 	mustEmbedUnimplementedDdlTaskServer()
 }
 
@@ -69,11 +56,8 @@ type DdlTaskServer interface {
 type UnimplementedDdlTaskServer struct {
 }
 
-func (UnimplementedDdlTaskServer) SubmitDdlTask(context.Context, *AddDdlTaskRequest) (*AddDdlTaskResponse, error) {
+func (UnimplementedDdlTaskServer) SubmitDdlTask(context.Context, *SubmitDdlTaskRequest) (*SumbitDdlTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SubmitDdlTask not implemented")
-}
-func (UnimplementedDdlTaskServer) CancelDdlTask(context.Context, *CancelDdlTaskRequest) (*CancelDdlTaskResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CancelDdlTask not implemented")
 }
 func (UnimplementedDdlTaskServer) mustEmbedUnimplementedDdlTaskServer() {}
 
@@ -89,7 +73,7 @@ func RegisterDdlTaskServer(s grpc.ServiceRegistrar, srv DdlTaskServer) {
 }
 
 func _DdlTask_SubmitDdlTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddDdlTaskRequest)
+	in := new(SubmitDdlTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -101,25 +85,7 @@ func _DdlTask_SubmitDdlTask_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: "/greptime.v1.meta.DdlTask/SubmitDdlTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DdlTaskServer).SubmitDdlTask(ctx, req.(*AddDdlTaskRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DdlTask_CancelDdlTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CancelDdlTaskRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DdlTaskServer).CancelDdlTask(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/greptime.v1.meta.DdlTask/CancelDdlTask",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DdlTaskServer).CancelDdlTask(ctx, req.(*CancelDdlTaskRequest))
+		return srv.(DdlTaskServer).SubmitDdlTask(ctx, req.(*SubmitDdlTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -134,10 +100,6 @@ var DdlTask_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SubmitDdlTask",
 			Handler:    _DdlTask_SubmitDdlTask_Handler,
-		},
-		{
-			MethodName: "CancelDdlTask",
-			Handler:    _DdlTask_CancelDdlTask_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
