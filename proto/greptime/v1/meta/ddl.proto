@@ -19,6 +19,9 @@ package greptime.v1.meta;
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
 import "greptime/v1/meta/common.proto";
+import "greptime/v1/meta/route.proto";
+import "greptime/v1/ddl.proto";
+
 
 service DdlTask {
     // Submits a DDL task to meta.
@@ -29,10 +32,9 @@ enum DdlTaskType {
     Create = 0;
 }
 
-message Task {
-    DdlTaskType type = 1;
-    
-    oneof payload { bytes pd = 2; }
+message CreateTableTask {
+    CreateTableExpr create_table = 1;
+    repeated Partition partitions = 2;
 }
 
 message SubmitDdlTaskRequest {
@@ -46,7 +48,7 @@ message SubmitDdlTaskRequest {
     // The unix timestamp in milliseconds.
     int64 timestamp_millis = 5;
     
-    Task task = 6;
+    oneof task { CreateTableTask create_table_task = 6; }
 }
 
 enum Status {
