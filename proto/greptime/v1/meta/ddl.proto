@@ -56,4 +56,6 @@ message SubmitDdlTaskResponse {
     bytes key = 2;
 
     Status status = 3;
+
+    TableId table_id = 4;
 }
