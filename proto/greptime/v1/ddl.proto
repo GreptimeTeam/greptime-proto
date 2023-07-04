@@ -60,12 +60,14 @@ message AlterExpr {
     DropColumns drop_columns = 5;
     RenameTable rename_table = 6;
   }
+  TableId table_id = 7;
 }
 
 message DropTableExpr {
   string catalog_name = 1;
   string schema_name = 2;
   string table_name = 3;
+  TableId table_id = 4;
 }
 
 message FlushTableExpr {
@@ -73,6 +75,7 @@ message FlushTableExpr {
   string schema_name = 2;
   string table_name = 3;
   optional uint32 region_number = 4;
+  TableId table_id = 5;
 }
 
 message CreateDatabaseExpr {

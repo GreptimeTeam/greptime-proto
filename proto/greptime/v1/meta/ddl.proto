@@ -30,6 +30,7 @@ service DdlTask {
 
 enum DdlTaskType {
     Create = 0;
+    Drop = 1;
 }
 
 message CreateTableTask {
@@ -38,10 +39,17 @@ message CreateTableTask {
     bytes table_info = 3;
 }
 
+message DropTableTask{
+    DropTableExpr drop_table = 1;
+}
+
 message SubmitDdlTaskRequest {
     RequestHeader header = 1;
 
-    oneof task { CreateTableTask create_table_task = 6; }
+    oneof task {
+        CreateTableTask create_table_task = 2;
+        DropTableTask drop_table_task = 3;
+     }
 }
 
 enum Status {
@@ -57,5 +65,6 @@ message SubmitDdlTaskResponse {
 
     Status status = 3;
 
+    // Returns if table created.
     TableId table_id = 4;
 }

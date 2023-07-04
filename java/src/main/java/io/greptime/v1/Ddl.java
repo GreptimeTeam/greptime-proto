@@ -4456,6 +4456,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Ddl.RenameTableOrBuilder getRenameTableOrBuilder();
 
+    /**
+     * <code>.greptime.v1.TableId table_id = 7;</code>
+     * @return Whether the tableId field is set.
+     */
+    boolean hasTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 7;</code>
+     * @return The tableId.
+     */
+    io.greptime.v1.Ddl.TableId getTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 7;</code>
+     */
+    io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
+
     public io.greptime.v1.Ddl.AlterExpr.KindCase getKindCase();
   }
   /**
@@ -4564,6 +4579,19 @@ java.lang.String defaultValue);
                 kind_ = subBuilder.buildPartial();
               }
               kindCase_ = 6;
+              break;
+            }
+            case 58: {
+              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
+              if (tableId_ != null) {
+                subBuilder = tableId_.toBuilder();
+              }
+              tableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tableId_);
+                tableId_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -4850,6 +4878,32 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.RenameTable.getDefaultInstance();
     }
 
+    public static final int TABLE_ID_FIELD_NUMBER = 7;
+    private io.greptime.v1.Ddl.TableId tableId_;
+    /**
+     * <code>.greptime.v1.TableId table_id = 7;</code>
+     * @return Whether the tableId field is set.
+     */
+    @java.lang.Override
+    public boolean hasTableId() {
+      return tableId_ != null;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 7;</code>
+     * @return The tableId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableId getTableId() {
+      return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 7;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+      return getTableId();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4882,6 +4936,9 @@ java.lang.String defaultValue);
       if (kindCase_ == 6) {
         output.writeMessage(6, (io.greptime.v1.Ddl.RenameTable) kind_);
       }
+      if (tableId_ != null) {
+        output.writeMessage(7, getTableId());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4912,6 +4969,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, (io.greptime.v1.Ddl.RenameTable) kind_);
       }
+      if (tableId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getTableId());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4933,6 +4994,11 @@ java.lang.String defaultValue);
           .equals(other.getSchemaName())) return false;
       if (!getTableName()
           .equals(other.getTableName())) return false;
+      if (hasTableId() != other.hasTableId()) return false;
+      if (hasTableId()) {
+        if (!getTableId()
+            .equals(other.getTableId())) return false;
+      }
       if (!getKindCase().equals(other.getKindCase())) return false;
       switch (kindCase_) {
         case 4:
@@ -4967,6 +5033,10 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getSchemaName().hashCode();
       hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getTableName().hashCode();
+      if (hasTableId()) {
+        hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTableId().hashCode();
+      }
       switch (kindCase_) {
         case 4:
           hash = (37 * hash) + ADD_COLUMNS_FIELD_NUMBER;
@@ -5122,6 +5192,12 @@ java.lang.String defaultValue);
 
         tableName_ = "";
 
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
         kindCase_ = 0;
         kind_ = null;
         return this;
@@ -5173,6 +5249,11 @@ java.lang.String defaultValue);
           } else {
             result.kind_ = renameTableBuilder_.build();
           }
+        }
+        if (tableIdBuilder_ == null) {
+          result.tableId_ = tableId_;
+        } else {
+          result.tableId_ = tableIdBuilder_.build();
         }
         result.kindCase_ = kindCase_;
         onBuilt();
@@ -5234,6 +5315,9 @@ java.lang.String defaultValue);
         if (!other.getTableName().isEmpty()) {
           tableName_ = other.tableName_;
           onChanged();
+        }
+        if (other.hasTableId()) {
+          mergeTableId(other.getTableId());
         }
         switch (other.getKindCase()) {
           case ADD_COLUMNS: {
@@ -5949,6 +6033,125 @@ java.lang.String defaultValue);
         onChanged();;
         return renameTableBuilder_;
       }
+
+      private io.greptime.v1.Ddl.TableId tableId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> tableIdBuilder_;
+      /**
+       * <code>.greptime.v1.TableId table_id = 7;</code>
+       * @return Whether the tableId field is set.
+       */
+      public boolean hasTableId() {
+        return tableIdBuilder_ != null || tableId_ != null;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 7;</code>
+       * @return The tableId.
+       */
+      public io.greptime.v1.Ddl.TableId getTableId() {
+        if (tableIdBuilder_ == null) {
+          return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        } else {
+          return tableIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 7;</code>
+       */
+      public Builder setTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tableId_ = value;
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 7;</code>
+       */
+      public Builder setTableId(
+          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+        if (tableIdBuilder_ == null) {
+          tableId_ = builderForValue.build();
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 7;</code>
+       */
+      public Builder mergeTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (tableId_ != null) {
+            tableId_ =
+              io.greptime.v1.Ddl.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
+          } else {
+            tableId_ = value;
+          }
+          onChanged();
+        } else {
+          tableIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 7;</code>
+       */
+      public Builder clearTableId() {
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+          onChanged();
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 7;</code>
+       */
+      public io.greptime.v1.Ddl.TableId.Builder getTableIdBuilder() {
+        
+        onChanged();
+        return getTableIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 7;</code>
+       */
+      public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+        if (tableIdBuilder_ != null) {
+          return tableIdBuilder_.getMessageOrBuilder();
+        } else {
+          return tableId_ == null ?
+              io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
+          getTableIdFieldBuilder() {
+        if (tableIdBuilder_ == null) {
+          tableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
+                  getTableId(),
+                  getParentForChildren(),
+                  isClean());
+          tableId_ = null;
+        }
+        return tableIdBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6041,6 +6244,21 @@ java.lang.String defaultValue);
      */
     com.google.protobuf.ByteString
         getTableNameBytes();
+
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return Whether the tableId field is set.
+     */
+    boolean hasTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return The tableId.
+     */
+    io.greptime.v1.Ddl.TableId getTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     */
+    io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.DropTableExpr}
@@ -6106,6 +6324,19 @@ java.lang.String defaultValue);
               java.lang.String s = input.readStringRequireUtf8();
 
               tableName_ = s;
+              break;
+            }
+            case 34: {
+              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
+              if (tableId_ != null) {
+                subBuilder = tableId_.toBuilder();
+              }
+              tableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tableId_);
+                tableId_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -6256,6 +6487,32 @@ java.lang.String defaultValue);
       }
     }
 
+    public static final int TABLE_ID_FIELD_NUMBER = 4;
+    private io.greptime.v1.Ddl.TableId tableId_;
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return Whether the tableId field is set.
+     */
+    @java.lang.Override
+    public boolean hasTableId() {
+      return tableId_ != null;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return The tableId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableId getTableId() {
+      return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+      return getTableId();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6279,6 +6536,9 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
+      if (tableId_ != null) {
+        output.writeMessage(4, getTableId());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6296,6 +6556,10 @@ java.lang.String defaultValue);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
+      }
+      if (tableId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getTableId());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6318,6 +6582,11 @@ java.lang.String defaultValue);
           .equals(other.getSchemaName())) return false;
       if (!getTableName()
           .equals(other.getTableName())) return false;
+      if (hasTableId() != other.hasTableId()) return false;
+      if (hasTableId()) {
+        if (!getTableId()
+            .equals(other.getTableId())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6335,6 +6604,10 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getSchemaName().hashCode();
       hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getTableName().hashCode();
+      if (hasTableId()) {
+        hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTableId().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6474,6 +6747,12 @@ java.lang.String defaultValue);
 
         tableName_ = "";
 
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
         return this;
       }
 
@@ -6503,6 +6782,11 @@ java.lang.String defaultValue);
         result.catalogName_ = catalogName_;
         result.schemaName_ = schemaName_;
         result.tableName_ = tableName_;
+        if (tableIdBuilder_ == null) {
+          result.tableId_ = tableId_;
+        } else {
+          result.tableId_ = tableIdBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -6562,6 +6846,9 @@ java.lang.String defaultValue);
         if (!other.getTableName().isEmpty()) {
           tableName_ = other.tableName_;
           onChanged();
+        }
+        if (other.hasTableId()) {
+          mergeTableId(other.getTableId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6819,6 +7106,125 @@ java.lang.String defaultValue);
         onChanged();
         return this;
       }
+
+      private io.greptime.v1.Ddl.TableId tableId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> tableIdBuilder_;
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * @return Whether the tableId field is set.
+       */
+      public boolean hasTableId() {
+        return tableIdBuilder_ != null || tableId_ != null;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * @return The tableId.
+       */
+      public io.greptime.v1.Ddl.TableId getTableId() {
+        if (tableIdBuilder_ == null) {
+          return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        } else {
+          return tableIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder setTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tableId_ = value;
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder setTableId(
+          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+        if (tableIdBuilder_ == null) {
+          tableId_ = builderForValue.build();
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder mergeTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (tableId_ != null) {
+            tableId_ =
+              io.greptime.v1.Ddl.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
+          } else {
+            tableId_ = value;
+          }
+          onChanged();
+        } else {
+          tableIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder clearTableId() {
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+          onChanged();
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public io.greptime.v1.Ddl.TableId.Builder getTableIdBuilder() {
+        
+        onChanged();
+        return getTableIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+        if (tableIdBuilder_ != null) {
+          return tableIdBuilder_.getMessageOrBuilder();
+        } else {
+          return tableId_ == null ?
+              io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
+          getTableIdFieldBuilder() {
+        if (tableIdBuilder_ == null) {
+          tableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
+                  getTableId(),
+                  getParentForChildren(),
+                  isClean());
+          tableId_ = null;
+        }
+        return tableIdBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6922,6 +7328,21 @@ java.lang.String defaultValue);
      * @return The regionNumber.
      */
     int getRegionNumber();
+
+    /**
+     * <code>.greptime.v1.TableId table_id = 5;</code>
+     * @return Whether the tableId field is set.
+     */
+    boolean hasTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 5;</code>
+     * @return The tableId.
+     */
+    io.greptime.v1.Ddl.TableId getTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 5;</code>
+     */
+    io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.FlushTableExpr}
@@ -6993,6 +7414,19 @@ java.lang.String defaultValue);
             case 32: {
               bitField0_ |= 0x00000001;
               regionNumber_ = input.readUInt32();
+              break;
+            }
+            case 42: {
+              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
+              if (tableId_ != null) {
+                subBuilder = tableId_.toBuilder();
+              }
+              tableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tableId_);
+                tableId_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -7163,6 +7597,32 @@ java.lang.String defaultValue);
       return regionNumber_;
     }
 
+    public static final int TABLE_ID_FIELD_NUMBER = 5;
+    private io.greptime.v1.Ddl.TableId tableId_;
+    /**
+     * <code>.greptime.v1.TableId table_id = 5;</code>
+     * @return Whether the tableId field is set.
+     */
+    @java.lang.Override
+    public boolean hasTableId() {
+      return tableId_ != null;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 5;</code>
+     * @return The tableId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableId getTableId() {
+      return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+      return getTableId();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7189,6 +7649,9 @@ java.lang.String defaultValue);
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeUInt32(4, regionNumber_);
       }
+      if (tableId_ != null) {
+        output.writeMessage(5, getTableId());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7210,6 +7673,10 @@ java.lang.String defaultValue);
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, regionNumber_);
+      }
+      if (tableId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getTableId());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7237,6 +7704,11 @@ java.lang.String defaultValue);
         if (getRegionNumber()
             != other.getRegionNumber()) return false;
       }
+      if (hasTableId() != other.hasTableId()) return false;
+      if (hasTableId()) {
+        if (!getTableId()
+            .equals(other.getTableId())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7257,6 +7729,10 @@ java.lang.String defaultValue);
       if (hasRegionNumber()) {
         hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
         hash = (53 * hash) + getRegionNumber();
+      }
+      if (hasTableId()) {
+        hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTableId().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7399,6 +7875,12 @@ java.lang.String defaultValue);
 
         regionNumber_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
         return this;
       }
 
@@ -7433,6 +7915,11 @@ java.lang.String defaultValue);
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.regionNumber_ = regionNumber_;
           to_bitField0_ |= 0x00000001;
+        }
+        if (tableIdBuilder_ == null) {
+          result.tableId_ = tableId_;
+        } else {
+          result.tableId_ = tableIdBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -7497,6 +7984,9 @@ java.lang.String defaultValue);
         }
         if (other.hasRegionNumber()) {
           setRegionNumber(other.getRegionNumber());
+        }
+        if (other.hasTableId()) {
+          mergeTableId(other.getTableId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7793,6 +8283,125 @@ java.lang.String defaultValue);
         regionNumber_ = 0;
         onChanged();
         return this;
+      }
+
+      private io.greptime.v1.Ddl.TableId tableId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> tableIdBuilder_;
+      /**
+       * <code>.greptime.v1.TableId table_id = 5;</code>
+       * @return Whether the tableId field is set.
+       */
+      public boolean hasTableId() {
+        return tableIdBuilder_ != null || tableId_ != null;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 5;</code>
+       * @return The tableId.
+       */
+      public io.greptime.v1.Ddl.TableId getTableId() {
+        if (tableIdBuilder_ == null) {
+          return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        } else {
+          return tableIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 5;</code>
+       */
+      public Builder setTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tableId_ = value;
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 5;</code>
+       */
+      public Builder setTableId(
+          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+        if (tableIdBuilder_ == null) {
+          tableId_ = builderForValue.build();
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 5;</code>
+       */
+      public Builder mergeTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (tableId_ != null) {
+            tableId_ =
+              io.greptime.v1.Ddl.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
+          } else {
+            tableId_ = value;
+          }
+          onChanged();
+        } else {
+          tableIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 5;</code>
+       */
+      public Builder clearTableId() {
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+          onChanged();
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 5;</code>
+       */
+      public io.greptime.v1.Ddl.TableId.Builder getTableIdBuilder() {
+        
+        onChanged();
+        return getTableIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 5;</code>
+       */
+      public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+        if (tableIdBuilder_ != null) {
+          return tableIdBuilder_.getMessageOrBuilder();
+        } else {
+          return tableId_ == null ?
+              io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
+          getTableIdFieldBuilder() {
+        if (tableIdBuilder_ == null) {
+          tableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
+                  getTableId(),
+                  getParentForChildren(),
+                  isClean());
+          tableId_ = null;
+        }
+        return tableIdBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -13524,34 +14133,37 @@ java.lang.String defaultValue);
       "\n \001(\0132\024.greptime.v1.TableId\022\026\n\016region_nu" +
       "mbers\030\013 \003(\r\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOpti" +
       "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"\346\001\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013" +
+      "\"\216\002\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013" +
       "schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n" +
       "\013add_columns\030\004 \001(\0132\027.greptime.v1.AddColu" +
       "mnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.greptime.v" +
       "1.DropColumnsH\000\0220\n\014rename_table\030\006 \001(\0132\030." +
-      "greptime.v1.RenameTableH\000B\006\n\004kind\"N\n\rDro" +
+      "greptime.v1.RenameTableH\000\022&\n\010table_id\030\007 " +
+      "\001(\0132\024.greptime.v1.TableIdB\006\n\004kind\"v\n\rDro" +
       "pTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sche" +
-      "ma_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"}\n\016Flu" +
-      "shTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
-      "ema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\032\n\rre" +
-      "gion_number\030\004 \001(\rH\000\210\001\001B\020\n\016_region_number" +
-      "\"I\n\022CreateDatabaseExpr\022\025\n\rdatabase_name\030" +
-      "\001 \001(\t\022\034\n\024create_if_not_exists\030\002 \001(\010\"9\n\nA" +
-      "ddColumns\022+\n\013add_columns\030\001 \003(\0132\026.greptim" +
-      "e.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop_co" +
-      "lumns\030\001 \003(\0132\027.greptime.v1.DropColumn\"%\n\013" +
-      "RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"\215\002\n\t" +
-      "AddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime" +
-      ".v1.ColumnDef\022\016\n\006is_key\030\002 \001(\010\0221\n\010locatio" +
-      "n\030\003 \001(\0132\037.greptime.v1.AddColumn.Location" +
-      "\032\220\001\n\010Location\022C\n\rlocation_type\030\001 \001(\0162,.g" +
-      "reptime.v1.AddColumn.Location.LocationTy" +
-      "pe\022\031\n\021after_cloumn_name\030\002 \001(\t\"$\n\014Locatio" +
-      "nType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\032\n\nDropColum" +
-      "n\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\rBL" +
-      "\n\016io.greptime.v1B\003DdlZ5github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
-      "oto3"
+      "ma_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010tab" +
+      "le_id\030\004 \001(\0132\024.greptime.v1.TableId\"\245\001\n\016Fl" +
+      "ushTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
+      "hema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\032\n\rr" +
+      "egion_number\030\004 \001(\rH\000\210\001\001\022&\n\010table_id\030\005 \001(" +
+      "\0132\024.greptime.v1.TableIdB\020\n\016_region_numbe" +
+      "r\"I\n\022CreateDatabaseExpr\022\025\n\rdatabase_name" +
+      "\030\001 \001(\t\022\034\n\024create_if_not_exists\030\002 \001(\010\"9\n\n" +
+      "AddColumns\022+\n\013add_columns\030\001 \003(\0132\026.grepti" +
+      "me.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop_c" +
+      "olumns\030\001 \003(\0132\027.greptime.v1.DropColumn\"%\n" +
+      "\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"\215\002\n" +
+      "\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptim" +
+      "e.v1.ColumnDef\022\016\n\006is_key\030\002 \001(\010\0221\n\010locati" +
+      "on\030\003 \001(\0132\037.greptime.v1.AddColumn.Locatio" +
+      "n\032\220\001\n\010Location\022C\n\rlocation_type\030\001 \001(\0162,." +
+      "greptime.v1.AddColumn.Location.LocationT" +
+      "ype\022\031\n\021after_cloumn_name\030\002 \001(\t\"$\n\014Locati" +
+      "onType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\032\n\nDropColu" +
+      "mn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\rB" +
+      "L\n\016io.greptime.v1B\003DdlZ5github.com/Grept" +
+      "imeTeam/greptime-proto/go/greptime/v1b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13581,19 +14193,19 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_AlterExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "Kind", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "TableId", "Kind", });
     internal_static_greptime_v1_DropTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_DropTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", });
     internal_static_greptime_v1_FlushTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_FlushTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlushTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "RegionNumber", "RegionNumber", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "RegionNumber", "TableId", "RegionNumber", });
     internal_static_greptime_v1_CreateDatabaseExpr_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_CreateDatabaseExpr_fieldAccessorTable = new
