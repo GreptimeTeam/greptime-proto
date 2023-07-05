@@ -13,6 +13,7 @@
 // limitations under the License.
 
 mod serde;
+#[allow(clippy::large_enum_variant)]
 pub mod v1;
 
 pub mod prometheus {
