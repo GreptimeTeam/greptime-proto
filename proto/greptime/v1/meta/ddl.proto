@@ -57,18 +57,10 @@ message SubmitDdlTaskRequest {
      }
 }
 
-enum Status {
-    Done = 0;
-    Failed = 1;
-    Cancelled = 2;
-}
-
 message SubmitDdlTaskResponse {
     ResponseHeader header = 1;
     // Key is the identifier for the ddl task.
     bytes key = 2;
-
-    Status status = 3;
 
     // Returns if table created.
     TableId table_id = 4;

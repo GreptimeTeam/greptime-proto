@@ -22,6 +22,7 @@ import "greptime/v1/meta/common.proto";
 
 service Router {
   rpc Create(CreateRequest) returns (RouteResponse) {}
+  
   // Fetch routing information for tables. The smallest unit is the complete
   // routing information(all regions) of a table.
   //
@@ -45,6 +46,7 @@ service Router {
 
   rpc Delete(DeleteRequest) returns (RouteResponse) {}
 }
+
 message CreateRequest {
   RequestHeader header = 1;
 
