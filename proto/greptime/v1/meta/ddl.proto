@@ -19,6 +19,9 @@ package greptime.v1.meta;
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
 import "greptime/v1/meta/common.proto";
+import "greptime/v1/meta/route.proto";
+import "greptime/v1/ddl.proto";
+
 
 service DdlTask {
     // Submits a DDL task to meta.
@@ -27,32 +30,31 @@ service DdlTask {
 
 enum DdlTaskType {
     Create = 0;
+    Drop = 1;
 }
 
-message Task {
-    DdlTaskType type = 1;
-    
-    oneof payload { bytes pd = 2; }
+message CreateTableTask {
+    CreateTableExpr create_table = 1;
+    repeated Partition partitions = 2;
+    bytes table_info = 3;
+}
+
+message DropTableTask{
+    DropTableExpr drop_table = 1;
+}
+
+message AlterTableTask{
+    AlterExpr alter_table = 1;
 }
 
 message SubmitDdlTaskRequest {
     RequestHeader header = 1;
 
-    // The following information plays a bigger role in making messages traceable
-    // and facilitating debugging.
-    string subject = 2;
-    string from = 3;
-    string to = 4;
-    // The unix timestamp in milliseconds.
-    int64 timestamp_millis = 5;
-    
-    Task task = 6;
-}
-
-enum Status {
-    Done = 0;
-    Failed = 1;
-    Cancelled = 2;
+    oneof task {
+        CreateTableTask create_table_task = 2;
+        DropTableTask drop_table_task = 3;
+        AlterTableTask alter_table_task = 4;
+     }
 }
 
 message SubmitDdlTaskResponse {
@@ -60,5 +62,6 @@ message SubmitDdlTaskResponse {
     // Key is the identifier for the ddl task.
     bytes key = 2;
 
-    Status status = 3;
+    // Returns if table created.
+    TableId table_id = 4;
 }
