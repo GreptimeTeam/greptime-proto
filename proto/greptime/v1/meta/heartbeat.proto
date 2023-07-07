@@ -37,21 +37,18 @@ message HeartbeatRequest {
 
   // Self peer
   Peer peer = 2;
-  // Leader node
-  bool is_leader = 3;
   // Actually reported time interval
-  TimeInterval report_interval = 4;
+  TimeInterval report_interval = 3;
   // Node stat
-  NodeStat node_stat = 5;
+  NodeStat node_stat = 4;
   // Region stats on this node
-  repeated RegionStat region_stats = 6;
-  // Follower nodes and stats, empty on follower nodes
-  repeated ReplicaStat replica_stats = 7;
-  MailboxMessage mailbox_message = 8;
+  repeated RegionStat region_stats = 5;
+  // Mailbox send message to Metasrv
+  MailboxMessage mailbox_message = 6;
   // The duration since the heartbeat task's epoch in milliseconds.
-  uint64 duration_since_epoch = 9;
+  uint64 duration_since_epoch = 7;
   // The node's epoch
-  uint64 node_epoch = 10;
+  uint64 node_epoch = 8;
 }
 
 message NodeStat {
@@ -64,20 +61,13 @@ message NodeStat {
   // How many regions on this node
   int64 region_num = 4;
 
-  double cpu_usage = 5;
-  double load = 6;
-  // Read disk IO on this node
-  double read_io_rate = 7;
-  // Write disk IO on this node
-  double write_io_rate = 8;
-
   // Others
   map<string, string> attrs = 100;
 }
 
 message RegionStat {
   uint64 region_id = 1;
-  TableName table_name = 2;
+  TableIdent table_ident = 2;
   // The read capacity units during this period
   int64 rcus = 3;
   // The write capacity units during this period
@@ -89,12 +79,6 @@ message RegionStat {
 
   // Others
   map<string, string> attrs = 100;
-}
-
-message ReplicaStat {
-  Peer peer = 1;
-  bool in_sync = 2;
-  bool is_learner = 3;
 }
 
 message HeartbeatResponse {
