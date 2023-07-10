@@ -33,6 +33,7 @@ message DdlRequest {
     AlterExpr alter = 3;
     DropTableExpr drop_table = 4;
     FlushTableExpr flush_table = 5;
+    CompactTableExpr compact_table = 6;
   }
 }
 
@@ -78,8 +79,14 @@ message FlushTableExpr {
   TableId table_id = 5;
 }
 
+message CompactTableExpr {
+  string catalog_name = 1;
+  string schema_name = 2;
+  string table_name = 3;
+  optional uint32 region_number = 4;
+}
+
 message CreateDatabaseExpr {
-  // TODO(hl): maybe rename to schema_name?
   string database_name = 1;
   bool create_if_not_exists = 2;
 }
