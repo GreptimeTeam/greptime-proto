@@ -4701,6 +4701,16 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
 
+    /**
+     * <pre>
+     * table version before altering.
+     * </pre>
+     *
+     * <code>uint64 table_version = 8;</code>
+     * @return The tableVersion.
+     */
+    long getTableVersion();
+
     public io.greptime.v1.Ddl.AlterExpr.KindCase getKindCase();
   }
   /**
@@ -4822,6 +4832,11 @@ java.lang.String defaultValue);
                 tableId_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 64: {
+
+              tableVersion_ = input.readUInt64();
               break;
             }
             default: {
@@ -5134,6 +5149,21 @@ java.lang.String defaultValue);
       return getTableId();
     }
 
+    public static final int TABLE_VERSION_FIELD_NUMBER = 8;
+    private long tableVersion_;
+    /**
+     * <pre>
+     * table version before altering.
+     * </pre>
+     *
+     * <code>uint64 table_version = 8;</code>
+     * @return The tableVersion.
+     */
+    @java.lang.Override
+    public long getTableVersion() {
+      return tableVersion_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5169,6 +5199,9 @@ java.lang.String defaultValue);
       if (tableId_ != null) {
         output.writeMessage(7, getTableId());
       }
+      if (tableVersion_ != 0L) {
+        output.writeUInt64(8, tableVersion_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5203,6 +5236,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getTableId());
       }
+      if (tableVersion_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(8, tableVersion_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5229,6 +5266,8 @@ java.lang.String defaultValue);
         if (!getTableId()
             .equals(other.getTableId())) return false;
       }
+      if (getTableVersion()
+          != other.getTableVersion()) return false;
       if (!getKindCase().equals(other.getKindCase())) return false;
       switch (kindCase_) {
         case 4:
@@ -5267,6 +5306,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
         hash = (53 * hash) + getTableId().hashCode();
       }
+      hash = (37 * hash) + TABLE_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTableVersion());
       switch (kindCase_) {
         case 4:
           hash = (37 * hash) + ADD_COLUMNS_FIELD_NUMBER;
@@ -5428,6 +5470,8 @@ java.lang.String defaultValue);
           tableId_ = null;
           tableIdBuilder_ = null;
         }
+        tableVersion_ = 0L;
+
         kindCase_ = 0;
         kind_ = null;
         return this;
@@ -5485,6 +5529,7 @@ java.lang.String defaultValue);
         } else {
           result.tableId_ = tableIdBuilder_.build();
         }
+        result.tableVersion_ = tableVersion_;
         result.kindCase_ = kindCase_;
         onBuilt();
         return result;
@@ -5548,6 +5593,9 @@ java.lang.String defaultValue);
         }
         if (other.hasTableId()) {
           mergeTableId(other.getTableId());
+        }
+        if (other.getTableVersion() != 0L) {
+          setTableVersion(other.getTableVersion());
         }
         switch (other.getKindCase()) {
           case ADD_COLUMNS: {
@@ -6381,6 +6429,49 @@ java.lang.String defaultValue);
           tableId_ = null;
         }
         return tableIdBuilder_;
+      }
+
+      private long tableVersion_ ;
+      /**
+       * <pre>
+       * table version before altering.
+       * </pre>
+       *
+       * <code>uint64 table_version = 8;</code>
+       * @return The tableVersion.
+       */
+      @java.lang.Override
+      public long getTableVersion() {
+        return tableVersion_;
+      }
+      /**
+       * <pre>
+       * table version before altering.
+       * </pre>
+       *
+       * <code>uint64 table_version = 8;</code>
+       * @param value The tableVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableVersion(long value) {
+        
+        tableVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * table version before altering.
+       * </pre>
+       *
+       * <code>uint64 table_version = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTableVersion() {
+        
+        tableVersion_ = 0L;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -15308,40 +15399,41 @@ java.lang.String defaultValue);
       "try\022&\n\010table_id\030\n \001(\0132\024.greptime.v1.Tabl" +
       "eId\022\026\n\016region_numbers\030\013 \003(\r\022\016\n\006engine\030\014 " +
       "\001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t:\0028\001\"\216\002\n\tAlterExpr\022\024\n\014catalo" +
+      "\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n\014catalo" +
       "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntab" +
       "le_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\0132\027.gre" +
       "ptime.v1.AddColumnsH\000\0220\n\014drop_columns\030\005 " +
       "\001(\0132\030.greptime.v1.DropColumnsH\000\0220\n\014renam" +
       "e_table\030\006 \001(\0132\030.greptime.v1.RenameTableH" +
       "\000\022&\n\010table_id\030\007 \001(\0132\024.greptime.v1.TableI" +
-      "dB\006\n\004kind\"v\n\rDropTableExpr\022\024\n\014catalog_na" +
-      "me\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_n" +
-      "ame\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v" +
-      "1.TableId\"\245\001\n\016FlushTableExpr\022\024\n\014catalog_" +
-      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable" +
-      "_name\030\003 \001(\t\022\032\n\rregion_number\030\004 \001(\rH\000\210\001\001\022" +
-      "&\n\010table_id\030\005 \001(\0132\024.greptime.v1.TableIdB" +
-      "\020\n\016_region_number\"\177\n\020CompactTableExpr\022\024\n" +
-      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
-      "\022\022\n\ntable_name\030\003 \001(\t\022\032\n\rregion_number\030\004 " +
-      "\001(\rH\000\210\001\001B\020\n\016_region_number\"I\n\022CreateData" +
-      "baseExpr\022\025\n\rdatabase_name\030\001 \001(\t\022\034\n\024creat" +
-      "e_if_not_exists\030\002 \001(\010\"9\n\nAddColumns\022+\n\013a" +
-      "dd_columns\030\001 \003(\0132\026.greptime.v1.AddColumn" +
-      "\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027." +
-      "greptime.v1.DropColumn\"%\n\013RenameTable\022\026\n" +
-      "\016new_table_name\030\001 \001(\t\"\215\002\n\tAddColumn\022*\n\nc" +
-      "olumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022" +
-      "\016\n\006is_key\030\002 \001(\010\0221\n\010location\030\003 \001(\0132\037.grep" +
-      "time.v1.AddColumn.Location\032\220\001\n\010Location\022" +
-      "C\n\rlocation_type\030\001 \001(\0162,.greptime.v1.Add" +
-      "Column.Location.LocationType\022\031\n\021after_cl" +
-      "oumn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST" +
-      "\020\000\022\t\n\005AFTER\020\001\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(" +
-      "\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\rBL\n\016io.greptime." +
-      "v1B\003DdlZ5github.com/GreptimeTeam/greptim" +
-      "e-proto/go/greptime/v1b\006proto3"
+      "d\022\025\n\rtable_version\030\010 \001(\004B\006\n\004kind\"v\n\rDrop" +
+      "TableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schem" +
+      "a_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010tabl" +
+      "e_id\030\004 \001(\0132\024.greptime.v1.TableId\"\245\001\n\016Flu" +
+      "shTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
+      "ema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\032\n\rre" +
+      "gion_number\030\004 \001(\rH\000\210\001\001\022&\n\010table_id\030\005 \001(\013" +
+      "2\024.greptime.v1.TableIdB\020\n\016_region_number" +
+      "\"\177\n\020CompactTableExpr\022\024\n\014catalog_name\030\001 \001" +
+      "(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 " +
+      "\001(\t\022\032\n\rregion_number\030\004 \001(\rH\000\210\001\001B\020\n\016_regi" +
+      "on_number\"I\n\022CreateDatabaseExpr\022\025\n\rdatab" +
+      "ase_name\030\001 \001(\t\022\034\n\024create_if_not_exists\030\002" +
+      " \001(\010\"9\n\nAddColumns\022+\n\013add_columns\030\001 \003(\0132" +
+      "\026.greptime.v1.AddColumn\"<\n\013DropColumns\022-" +
+      "\n\014drop_columns\030\001 \003(\0132\027.greptime.v1.DropC" +
+      "olumn\"%\n\013RenameTable\022\026\n\016new_table_name\030\001" +
+      " \001(\t\"\215\002\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026" +
+      ".greptime.v1.ColumnDef\022\016\n\006is_key\030\002 \001(\010\0221" +
+      "\n\010location\030\003 \001(\0132\037.greptime.v1.AddColumn" +
+      ".Location\032\220\001\n\010Location\022C\n\rlocation_type\030" +
+      "\001 \001(\0162,.greptime.v1.AddColumn.Location.L" +
+      "ocationType\022\031\n\021after_cloumn_name\030\002 \001(\t\"$" +
+      "\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\032\n\n" +
+      "DropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002i" +
+      "d\030\001 \001(\rBL\n\016io.greptime.v1B\003DdlZ5github.c" +
+      "om/GreptimeTeam/greptime-proto/go/grepti" +
+      "me/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15371,7 +15463,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_AlterExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "TableId", "Kind", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "TableId", "TableVersion", "Kind", });
     internal_static_greptime_v1_DropTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_DropTableExpr_fieldAccessorTable = new
