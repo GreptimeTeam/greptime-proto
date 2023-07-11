@@ -31,6 +31,10 @@ message RequestHeader {
   AuthHeader authorization = 3;
   // The `dbname` for the request
   string dbname = 4;
+  // TraceID of request
+  optional uint64 trace_id = 5;
+  // SpanID of request
+  optional uint64 span_id = 6;
 }
 
 message AuthHeader {
