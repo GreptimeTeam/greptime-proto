@@ -62,6 +62,8 @@ message AlterExpr {
     RenameTable rename_table = 6;
   }
   TableId table_id = 7;
+  // table version before altering.
+  uint64 table_version = 8;
 }
 
 message DropTableExpr {
