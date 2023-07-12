@@ -3858,7 +3858,7 @@ public final class Ddl {
      * Returns if table created.
      * </pre>
      *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * <code>.greptime.v1.meta.TableId table_id = 4;</code>
      * @return Whether the tableId field is set.
      */
     boolean hasTableId();
@@ -3867,18 +3867,18 @@ public final class Ddl {
      * Returns if table created.
      * </pre>
      *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * <code>.greptime.v1.meta.TableId table_id = 4;</code>
      * @return The tableId.
      */
-    io.greptime.v1.Ddl.TableId getTableId();
+    greptime.v1.meta.Common.TableId getTableId();
     /**
      * <pre>
      * Returns if table created.
      * </pre>
      *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * <code>.greptime.v1.meta.TableId table_id = 4;</code>
      */
-    io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
+    greptime.v1.meta.Common.TableIdOrBuilder getTableIdOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.SubmitDdlTaskResponse}
@@ -3945,11 +3945,11 @@ public final class Ddl {
               break;
             }
             case 34: {
-              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
+              greptime.v1.meta.Common.TableId.Builder subBuilder = null;
               if (tableId_ != null) {
                 subBuilder = tableId_.toBuilder();
               }
-              tableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              tableId_ = input.readMessage(greptime.v1.meta.Common.TableId.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(tableId_);
                 tableId_ = subBuilder.buildPartial();
@@ -4033,13 +4033,13 @@ public final class Ddl {
     }
 
     public static final int TABLE_ID_FIELD_NUMBER = 4;
-    private io.greptime.v1.Ddl.TableId tableId_;
+    private greptime.v1.meta.Common.TableId tableId_;
     /**
      * <pre>
      * Returns if table created.
      * </pre>
      *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * <code>.greptime.v1.meta.TableId table_id = 4;</code>
      * @return Whether the tableId field is set.
      */
     @java.lang.Override
@@ -4051,22 +4051,22 @@ public final class Ddl {
      * Returns if table created.
      * </pre>
      *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * <code>.greptime.v1.meta.TableId table_id = 4;</code>
      * @return The tableId.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.TableId getTableId() {
-      return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+    public greptime.v1.meta.Common.TableId getTableId() {
+      return tableId_ == null ? greptime.v1.meta.Common.TableId.getDefaultInstance() : tableId_;
     }
     /**
      * <pre>
      * Returns if table created.
      * </pre>
      *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * <code>.greptime.v1.meta.TableId table_id = 4;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+    public greptime.v1.meta.Common.TableIdOrBuilder getTableIdOrBuilder() {
       return getTableId();
     }
 
@@ -4597,15 +4597,15 @@ public final class Ddl {
         return this;
       }
 
-      private io.greptime.v1.Ddl.TableId tableId_;
+      private greptime.v1.meta.Common.TableId tableId_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> tableIdBuilder_;
+          greptime.v1.meta.Common.TableId, greptime.v1.meta.Common.TableId.Builder, greptime.v1.meta.Common.TableIdOrBuilder> tableIdBuilder_;
       /**
        * <pre>
        * Returns if table created.
        * </pre>
        *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.meta.TableId table_id = 4;</code>
        * @return Whether the tableId field is set.
        */
       public boolean hasTableId() {
@@ -4616,12 +4616,12 @@ public final class Ddl {
        * Returns if table created.
        * </pre>
        *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.meta.TableId table_id = 4;</code>
        * @return The tableId.
        */
-      public io.greptime.v1.Ddl.TableId getTableId() {
+      public greptime.v1.meta.Common.TableId getTableId() {
         if (tableIdBuilder_ == null) {
-          return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+          return tableId_ == null ? greptime.v1.meta.Common.TableId.getDefaultInstance() : tableId_;
         } else {
           return tableIdBuilder_.getMessage();
         }
@@ -4631,9 +4631,9 @@ public final class Ddl {
        * Returns if table created.
        * </pre>
        *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.meta.TableId table_id = 4;</code>
        */
-      public Builder setTableId(io.greptime.v1.Ddl.TableId value) {
+      public Builder setTableId(greptime.v1.meta.Common.TableId value) {
         if (tableIdBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4651,10 +4651,10 @@ public final class Ddl {
        * Returns if table created.
        * </pre>
        *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.meta.TableId table_id = 4;</code>
        */
       public Builder setTableId(
-          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+          greptime.v1.meta.Common.TableId.Builder builderForValue) {
         if (tableIdBuilder_ == null) {
           tableId_ = builderForValue.build();
           onChanged();
@@ -4669,13 +4669,13 @@ public final class Ddl {
        * Returns if table created.
        * </pre>
        *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.meta.TableId table_id = 4;</code>
        */
-      public Builder mergeTableId(io.greptime.v1.Ddl.TableId value) {
+      public Builder mergeTableId(greptime.v1.meta.Common.TableId value) {
         if (tableIdBuilder_ == null) {
           if (tableId_ != null) {
             tableId_ =
-              io.greptime.v1.Ddl.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
+              greptime.v1.meta.Common.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
           } else {
             tableId_ = value;
           }
@@ -4691,7 +4691,7 @@ public final class Ddl {
        * Returns if table created.
        * </pre>
        *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.meta.TableId table_id = 4;</code>
        */
       public Builder clearTableId() {
         if (tableIdBuilder_ == null) {
@@ -4709,9 +4709,9 @@ public final class Ddl {
        * Returns if table created.
        * </pre>
        *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.meta.TableId table_id = 4;</code>
        */
-      public io.greptime.v1.Ddl.TableId.Builder getTableIdBuilder() {
+      public greptime.v1.meta.Common.TableId.Builder getTableIdBuilder() {
         
         onChanged();
         return getTableIdFieldBuilder().getBuilder();
@@ -4721,14 +4721,14 @@ public final class Ddl {
        * Returns if table created.
        * </pre>
        *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.meta.TableId table_id = 4;</code>
        */
-      public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+      public greptime.v1.meta.Common.TableIdOrBuilder getTableIdOrBuilder() {
         if (tableIdBuilder_ != null) {
           return tableIdBuilder_.getMessageOrBuilder();
         } else {
           return tableId_ == null ?
-              io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+              greptime.v1.meta.Common.TableId.getDefaultInstance() : tableId_;
         }
       }
       /**
@@ -4736,14 +4736,14 @@ public final class Ddl {
        * Returns if table created.
        * </pre>
        *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.meta.TableId table_id = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
+          greptime.v1.meta.Common.TableId, greptime.v1.meta.Common.TableId.Builder, greptime.v1.meta.Common.TableIdOrBuilder> 
           getTableIdFieldBuilder() {
         if (tableIdBuilder_ == null) {
           tableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
+              greptime.v1.meta.Common.TableId, greptime.v1.meta.Common.TableId.Builder, greptime.v1.meta.Common.TableIdOrBuilder>(
                   getTableId(),
                   getParentForChildren(),
                   isClean());
@@ -4854,16 +4854,16 @@ public final class Ddl {
       "CreateTableTaskH\000\022:\n\017drop_table_task\030\003 \001" +
       "(\0132\037.greptime.v1.meta.DropTableTaskH\000\022<\n" +
       "\020alter_table_task\030\004 \001(\0132 .greptime.v1.me" +
-      "ta.AlterTableTaskH\000B\006\n\004task\"~\n\025SubmitDdl" +
-      "TaskResponse\0220\n\006header\030\001 \001(\0132 .greptime." +
-      "v1.meta.ResponseHeader\022\013\n\003key\030\002 \001(\014\022&\n\010t" +
-      "able_id\030\004 \001(\0132\024.greptime.v1.TableId*#\n\013D" +
-      "dlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\0012k\n\007DdlT" +
-      "ask\022`\n\rSubmitDdlTask\022&.greptime.v1.meta." +
-      "SubmitDdlTaskRequest\032\'.greptime.v1.meta." +
-      "SubmitDdlTaskResponseB<Z:github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1/m" +
-      "etab\006proto3"
+      "ta.AlterTableTaskH\000B\006\n\004task\"\203\001\n\025SubmitDd" +
+      "lTaskResponse\0220\n\006header\030\001 \001(\0132 .greptime" +
+      ".v1.meta.ResponseHeader\022\013\n\003key\030\002 \001(\014\022+\n\010" +
+      "table_id\030\004 \001(\0132\031.greptime.v1.meta.TableI" +
+      "d*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\0012k" +
+      "\n\007DdlTask\022`\n\rSubmitDdlTask\022&.greptime.v1" +
+      ".meta.SubmitDdlTaskRequest\032\'.greptime.v1" +
+      ".meta.SubmitDdlTaskResponseB<Z:github.co" +
+      "m/GreptimeTeam/greptime-proto/go/greptim" +
+      "e/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
