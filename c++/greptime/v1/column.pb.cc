@@ -57,6 +57,14 @@ PROTOBUF_CONSTEXPR Column_Values::Column_Values(
   , /*decltype(_impl_._ts_microsecond_values_cached_byte_size_)*/{0}
   , /*decltype(_impl_.ts_nanosecond_values_)*/{}
   , /*decltype(_impl_._ts_nanosecond_values_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.time_second_values_)*/{}
+  , /*decltype(_impl_._time_second_values_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.time_millisecond_values_)*/{}
+  , /*decltype(_impl_._time_millisecond_values_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.time_microsecond_values_)*/{}
+  , /*decltype(_impl_._time_microsecond_values_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.time_nanosecond_values_)*/{}
+  , /*decltype(_impl_._time_nanosecond_values_cached_byte_size_)*/{0}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Column_ValuesDefaultTypeInternal {
   PROTOBUF_CONSTEXPR Column_ValuesDefaultTypeInternal()
@@ -132,6 +140,10 @@ const uint32_t TableStruct_greptime_2fv1_2fcolumn_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.ts_millisecond_values_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.ts_microsecond_values_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.ts_nanosecond_values_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.time_second_values_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.time_millisecond_values_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.time_microsecond_values_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.time_nanosecond_values_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -156,8 +168,8 @@ const uint32_t TableStruct_greptime_2fv1_2fcolumn_2eproto::offsets[] PROTOBUF_SE
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::Column_Values)},
-  { 25, -1, -1, sizeof(::greptime::v1::Column)},
-  { 36, -1, -1, sizeof(::greptime::v1::ColumnDef)},
+  { 29, -1, -1, sizeof(::greptime::v1::Column)},
+  { 40, -1, -1, sizeof(::greptime::v1::ColumnDef)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -168,12 +180,12 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030greptime/v1/column.proto\022\013greptime.v1\""
-  "\257\005\n\006Column\022\023\n\013column_name\030\001 \001(\t\0227\n\rseman"
+  "\255\006\n\006Column\022\023\n\013column_name\030\001 \001(\t\0227\n\rseman"
   "tic_type\030\002 \001(\0162 .greptime.v1.Column.Sema"
   "nticType\022*\n\006values\030\003 \001(\0132\032.greptime.v1.C"
   "olumn.Values\022\021\n\tnull_mask\030\004 \001(\014\022-\n\010datat"
-  "ype\030\005 \001(\0162\033.greptime.v1.ColumnDataType\032\265"
-  "\003\n\006Values\022\021\n\ti8_values\030\001 \003(\005\022\022\n\ni16_valu"
+  "ype\030\005 \001(\0162\033.greptime.v1.ColumnDataType\032\263"
+  "\004\n\006Values\022\021\n\ti8_values\030\001 \003(\005\022\022\n\ni16_valu"
   "es\030\002 \003(\005\022\022\n\ni32_values\030\003 \003(\005\022\022\n\ni64_valu"
   "es\030\004 \003(\003\022\021\n\tu8_values\030\005 \003(\r\022\022\n\nu16_value"
   "s\030\006 \003(\r\022\022\n\nu32_values\030\007 \003(\r\022\022\n\nu64_value"
@@ -183,25 +195,31 @@ const char descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto[] PROTOBUF_S
   "te_values\030\016 \003(\005\022\027\n\017datetime_values\030\017 \003(\003"
   "\022\030\n\020ts_second_values\030\020 \003(\003\022\035\n\025ts_millise"
   "cond_values\030\021 \003(\003\022\035\n\025ts_microsecond_valu"
-  "es\030\022 \003(\003\022\034\n\024ts_nanosecond_values\030\023 \003(\003\"1"
-  "\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTI"
-  "MESTAMP\020\002\"y\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022-\n\010"
-  "datatype\030\002 \001(\0162\033.greptime.v1.ColumnDataT"
-  "ype\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_cons"
-  "traint\030\004 \001(\014*\247\002\n\016ColumnDataType\022\013\n\007BOOLE"
-  "AN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005"
-  "INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32"
-  "\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n"
-  "\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DA"
-  "TETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMEST"
-  "AMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECO"
-  "ND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022BP\n\016io.gre"
-  "ptime.v1B\007ColumnsZ5github.com/GreptimeTe"
-  "am/greptime-proto/go/greptime/v1b\006proto3"
+  "es\030\022 \003(\003\022\034\n\024ts_nanosecond_values\030\023 \003(\003\022\032"
+  "\n\022time_second_values\030\024 \003(\003\022\037\n\027time_milli"
+  "second_values\030\025 \003(\003\022\037\n\027time_microsecond_"
+  "values\030\026 \003(\003\022\036\n\026time_nanosecond_values\030\027"
+  " \003(\003\"1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001"
+  "\022\r\n\tTIMESTAMP\020\002\"y\n\tColumnDef\022\014\n\004name\030\001 \001"
+  "(\t\022-\n\010datatype\030\002 \001(\0162\033.greptime.v1.Colum"
+  "nDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022defaul"
+  "t_constraint\030\004 \001(\014*\371\002\n\016ColumnDataType\022\013\n"
+  "\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32"
+  "\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006"
+  "UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLO"
+  "AT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r"
+  "\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025"
+  "TIMESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MIC"
+  "ROSECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013"
+  "TIME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020T"
+  "IME_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026BP"
+  "\n\016io.greptime.v1B\007ColumnsZ5github.com/Gr"
+  "eptimeTeam/greptime-proto/go/greptime/v1"
+  "b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcolumn_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcolumn_2eproto = {
-    false, false, 1240, descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto,
+    false, false, 1448, descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto,
     "greptime/v1/column.proto",
     &descriptor_table_greptime_2fv1_2fcolumn_2eproto_once, nullptr, 0, 3,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcolumn_2eproto::offsets,
@@ -264,6 +282,10 @@ bool ColumnDataType_IsValid(int value) {
     case 16:
     case 17:
     case 18:
+    case 19:
+    case 20:
+    case 21:
+    case 22:
       return true;
     default:
       return false;
@@ -320,6 +342,14 @@ Column_Values::Column_Values(const Column_Values& from)
     , /*decltype(_impl_._ts_microsecond_values_cached_byte_size_)*/{0}
     , decltype(_impl_.ts_nanosecond_values_){from._impl_.ts_nanosecond_values_}
     , /*decltype(_impl_._ts_nanosecond_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_second_values_){from._impl_.time_second_values_}
+    , /*decltype(_impl_._time_second_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_millisecond_values_){from._impl_.time_millisecond_values_}
+    , /*decltype(_impl_._time_millisecond_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_microsecond_values_){from._impl_.time_microsecond_values_}
+    , /*decltype(_impl_._time_microsecond_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_nanosecond_values_){from._impl_.time_nanosecond_values_}
+    , /*decltype(_impl_._time_nanosecond_values_cached_byte_size_)*/{0}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -364,6 +394,14 @@ inline void Column_Values::SharedCtor(
     , /*decltype(_impl_._ts_microsecond_values_cached_byte_size_)*/{0}
     , decltype(_impl_.ts_nanosecond_values_){arena}
     , /*decltype(_impl_._ts_nanosecond_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_second_values_){arena}
+    , /*decltype(_impl_._time_second_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_millisecond_values_){arena}
+    , /*decltype(_impl_._time_millisecond_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_microsecond_values_){arena}
+    , /*decltype(_impl_._time_microsecond_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_nanosecond_values_){arena}
+    , /*decltype(_impl_._time_nanosecond_values_cached_byte_size_)*/{0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -398,6 +436,10 @@ inline void Column_Values::SharedDtor() {
   _impl_.ts_millisecond_values_.~RepeatedField();
   _impl_.ts_microsecond_values_.~RepeatedField();
   _impl_.ts_nanosecond_values_.~RepeatedField();
+  _impl_.time_second_values_.~RepeatedField();
+  _impl_.time_millisecond_values_.~RepeatedField();
+  _impl_.time_microsecond_values_.~RepeatedField();
+  _impl_.time_nanosecond_values_.~RepeatedField();
 }
 
 void Column_Values::SetCachedSize(int size) const {
@@ -429,6 +471,10 @@ void Column_Values::Clear() {
   _impl_.ts_millisecond_values_.Clear();
   _impl_.ts_microsecond_values_.Clear();
   _impl_.ts_nanosecond_values_.Clear();
+  _impl_.time_second_values_.Clear();
+  _impl_.time_millisecond_values_.Clear();
+  _impl_.time_microsecond_values_.Clear();
+  _impl_.time_nanosecond_values_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -654,6 +700,50 @@ const char* Column_Values::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
+      // repeated int64 time_second_values = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 162)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_time_second_values(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 160) {
+          _internal_add_time_second_values(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated int64 time_millisecond_values = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 170)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_time_millisecond_values(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 168) {
+          _internal_add_time_millisecond_values(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated int64 time_microsecond_values = 22;
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 178)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_time_microsecond_values(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 176) {
+          _internal_add_time_microsecond_values(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated int64 time_nanosecond_values = 23;
+      case 23:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 186)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_time_nanosecond_values(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 184) {
+          _internal_add_time_nanosecond_values(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -837,6 +927,42 @@ uint8_t* Column_Values::_InternalSerialize(
     if (byte_size > 0) {
       target = stream->WriteInt64Packed(
           19, _internal_ts_nanosecond_values(), byte_size, target);
+    }
+  }
+
+  // repeated int64 time_second_values = 20;
+  {
+    int byte_size = _impl_._time_second_values_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt64Packed(
+          20, _internal_time_second_values(), byte_size, target);
+    }
+  }
+
+  // repeated int64 time_millisecond_values = 21;
+  {
+    int byte_size = _impl_._time_millisecond_values_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt64Packed(
+          21, _internal_time_millisecond_values(), byte_size, target);
+    }
+  }
+
+  // repeated int64 time_microsecond_values = 22;
+  {
+    int byte_size = _impl_._time_microsecond_values_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt64Packed(
+          22, _internal_time_microsecond_values(), byte_size, target);
+    }
+  }
+
+  // repeated int64 time_nanosecond_values = 23;
+  {
+    int byte_size = _impl_._time_nanosecond_values_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt64Packed(
+          23, _internal_time_nanosecond_values(), byte_size, target);
     }
   }
 
@@ -1101,6 +1227,62 @@ size_t Column_Values::ByteSizeLong() const {
     total_size += data_size;
   }
 
+  // repeated int64 time_second_values = 20;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int64Size(this->_impl_.time_second_values_);
+    if (data_size > 0) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._time_second_values_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated int64 time_millisecond_values = 21;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int64Size(this->_impl_.time_millisecond_values_);
+    if (data_size > 0) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._time_millisecond_values_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated int64 time_microsecond_values = 22;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int64Size(this->_impl_.time_microsecond_values_);
+    if (data_size > 0) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._time_microsecond_values_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated int64 time_nanosecond_values = 23;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int64Size(this->_impl_.time_nanosecond_values_);
+    if (data_size > 0) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._time_nanosecond_values_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1138,6 +1320,10 @@ void Column_Values::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   _this->_impl_.ts_millisecond_values_.MergeFrom(from._impl_.ts_millisecond_values_);
   _this->_impl_.ts_microsecond_values_.MergeFrom(from._impl_.ts_microsecond_values_);
   _this->_impl_.ts_nanosecond_values_.MergeFrom(from._impl_.ts_nanosecond_values_);
+  _this->_impl_.time_second_values_.MergeFrom(from._impl_.time_second_values_);
+  _this->_impl_.time_millisecond_values_.MergeFrom(from._impl_.time_millisecond_values_);
+  _this->_impl_.time_microsecond_values_.MergeFrom(from._impl_.time_microsecond_values_);
+  _this->_impl_.time_nanosecond_values_.MergeFrom(from._impl_.time_nanosecond_values_);
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1174,6 +1360,10 @@ void Column_Values::InternalSwap(Column_Values* other) {
   _impl_.ts_millisecond_values_.InternalSwap(&other->_impl_.ts_millisecond_values_);
   _impl_.ts_microsecond_values_.InternalSwap(&other->_impl_.ts_microsecond_values_);
   _impl_.ts_nanosecond_values_.InternalSwap(&other->_impl_.ts_nanosecond_values_);
+  _impl_.time_second_values_.InternalSwap(&other->_impl_.time_second_values_);
+  _impl_.time_millisecond_values_.InternalSwap(&other->_impl_.time_millisecond_values_);
+  _impl_.time_microsecond_values_.InternalSwap(&other->_impl_.time_microsecond_values_);
+  _impl_.time_nanosecond_values_.InternalSwap(&other->_impl_.time_nanosecond_values_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Column_Values::GetMetadata() const {
