@@ -63,6 +63,9 @@ extern RequestHeaderDefaultTypeInternal _RequestHeader_default_instance_;
 class ResponseHeader;
 struct ResponseHeaderDefaultTypeInternal;
 extern ResponseHeaderDefaultTypeInternal _ResponseHeader_default_instance_;
+class TableId;
+struct TableIdDefaultTypeInternal;
+extern TableIdDefaultTypeInternal _TableId_default_instance_;
 class TableIdent;
 struct TableIdentDefaultTypeInternal;
 extern TableIdentDefaultTypeInternal _TableIdent_default_instance_;
@@ -81,6 +84,7 @@ template<> ::greptime::v1::meta::KeyValue* Arena::CreateMaybeMessage<::greptime:
 template<> ::greptime::v1::meta::Peer* Arena::CreateMaybeMessage<::greptime::v1::meta::Peer>(Arena*);
 template<> ::greptime::v1::meta::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::RequestHeader>(Arena*);
 template<> ::greptime::v1::meta::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::ResponseHeader>(Arena*);
+template<> ::greptime::v1::meta::TableId* Arena::CreateMaybeMessage<::greptime::v1::meta::TableId>(Arena*);
 template<> ::greptime::v1::meta::TableIdent* Arena::CreateMaybeMessage<::greptime::v1::meta::TableIdent>(Arena*);
 template<> ::greptime::v1::meta::TableName* Arena::CreateMaybeMessage<::greptime::v1::meta::TableName>(Arena*);
 template<> ::greptime::v1::meta::TimeInterval* Arena::CreateMaybeMessage<::greptime::v1::meta::TimeInterval>(Arena*);
@@ -804,6 +808,154 @@ class Peer final :
 };
 // -------------------------------------------------------------------
 
+class TableId final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.TableId) */ {
+ public:
+  inline TableId() : TableId(nullptr) {}
+  ~TableId() override;
+  explicit PROTOBUF_CONSTEXPR TableId(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TableId(const TableId& from);
+  TableId(TableId&& from) noexcept
+    : TableId() {
+    *this = ::std::move(from);
+  }
+
+  inline TableId& operator=(const TableId& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TableId& operator=(TableId&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TableId& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TableId* internal_default_instance() {
+    return reinterpret_cast<const TableId*>(
+               &_TableId_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(TableId& a, TableId& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TableId* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TableId* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TableId* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TableId>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TableId& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const TableId& from) {
+    TableId::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TableId* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.TableId";
+  }
+  protected:
+  explicit TableId(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // uint32 id = 1;
+  void clear_id();
+  uint32_t id() const;
+  void set_id(uint32_t value);
+  private:
+  uint32_t _internal_id() const;
+  void _internal_set_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.TableId)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint32_t id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class TableName final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.TableName) */ {
  public:
@@ -852,7 +1004,7 @@ class TableName final :
                &_TableName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(TableName& a, TableName& b) {
     a.Swap(&b);
@@ -1037,7 +1189,7 @@ class TableIdent final :
                &_TableIdent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(TableIdent& a, TableIdent& b) {
     a.Swap(&b);
@@ -1221,7 +1373,7 @@ class TimeInterval final :
                &_TimeInterval_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(TimeInterval& a, TimeInterval& b) {
     a.Swap(&b);
@@ -1380,7 +1532,7 @@ class KeyValue final :
                &_KeyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(KeyValue& a, KeyValue& b) {
     a.Swap(&b);
@@ -1874,6 +2026,30 @@ inline void Peer::set_allocated_addr(std::string* addr) {
 
 // -------------------------------------------------------------------
 
+// TableId
+
+// uint32 id = 1;
+inline void TableId::clear_id() {
+  _impl_.id_ = 0u;
+}
+inline uint32_t TableId::_internal_id() const {
+  return _impl_.id_;
+}
+inline uint32_t TableId::id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.TableId.id)
+  return _internal_id();
+}
+inline void TableId::_internal_set_id(uint32_t value) {
+  
+  _impl_.id_ = value;
+}
+inline void TableId::set_id(uint32_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.TableId.id)
+}
+
+// -------------------------------------------------------------------
+
 // TableName
 
 // string catalog_name = 1;
@@ -2341,6 +2517,8 @@ inline void KeyValue::set_allocated_value(std::string* value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

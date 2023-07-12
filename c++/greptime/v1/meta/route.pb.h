@@ -441,6 +441,7 @@ class RouteRequest final :
 
   enum : int {
     kTableNamesFieldNumber = 2,
+    kTableIdsFieldNumber = 3,
     kHeaderFieldNumber = 1,
   };
   // repeated .greptime.v1.meta.TableName table_names = 2;
@@ -460,6 +461,24 @@ class RouteRequest final :
   ::greptime::v1::meta::TableName* add_table_names();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableName >&
       table_names() const;
+
+  // repeated .greptime.v1.meta.TableId table_ids = 3;
+  int table_ids_size() const;
+  private:
+  int _internal_table_ids_size() const;
+  public:
+  void clear_table_ids();
+  ::greptime::v1::meta::TableId* mutable_table_ids(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >*
+      mutable_table_ids();
+  private:
+  const ::greptime::v1::meta::TableId& _internal_table_ids(int index) const;
+  ::greptime::v1::meta::TableId* _internal_add_table_ids();
+  public:
+  const ::greptime::v1::meta::TableId& table_ids(int index) const;
+  ::greptime::v1::meta::TableId* add_table_ids();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >&
+      table_ids() const;
 
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -488,6 +507,7 @@ class RouteRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableName > table_names_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId > table_ids_;
     ::greptime::v1::meta::RequestHeader* header_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -619,6 +639,7 @@ class DeleteRequest final :
   enum : int {
     kHeaderFieldNumber = 1,
     kTableNameFieldNumber = 2,
+    kTableIdFieldNumber = 3,
   };
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -656,6 +677,24 @@ class DeleteRequest final :
       ::greptime::v1::meta::TableName* table_name);
   ::greptime::v1::meta::TableName* unsafe_arena_release_table_name();
 
+  // .greptime.v1.meta.TableId table_id = 3;
+  bool has_table_id() const;
+  private:
+  bool _internal_has_table_id() const;
+  public:
+  void clear_table_id();
+  const ::greptime::v1::meta::TableId& table_id() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::TableId* release_table_id();
+  ::greptime::v1::meta::TableId* mutable_table_id();
+  void set_allocated_table_id(::greptime::v1::meta::TableId* table_id);
+  private:
+  const ::greptime::v1::meta::TableId& _internal_table_id() const;
+  ::greptime::v1::meta::TableId* _internal_mutable_table_id();
+  public:
+  void unsafe_arena_set_allocated_table_id(
+      ::greptime::v1::meta::TableId* table_id);
+  ::greptime::v1::meta::TableId* unsafe_arena_release_table_id();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.DeleteRequest)
  private:
   class _Internal;
@@ -666,6 +705,7 @@ class DeleteRequest final :
   struct Impl_ {
     ::greptime::v1::meta::RequestHeader* header_;
     ::greptime::v1::meta::TableName* table_name_;
+    ::greptime::v1::meta::TableId* table_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2423,6 +2463,43 @@ RouteRequest::table_names() const {
   return _impl_.table_names_;
 }
 
+// repeated .greptime.v1.meta.TableId table_ids = 3;
+inline int RouteRequest::_internal_table_ids_size() const {
+  return _impl_.table_ids_.size();
+}
+inline int RouteRequest::table_ids_size() const {
+  return _internal_table_ids_size();
+}
+inline ::greptime::v1::meta::TableId* RouteRequest::mutable_table_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RouteRequest.table_ids)
+  return _impl_.table_ids_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >*
+RouteRequest::mutable_table_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RouteRequest.table_ids)
+  return &_impl_.table_ids_;
+}
+inline const ::greptime::v1::meta::TableId& RouteRequest::_internal_table_ids(int index) const {
+  return _impl_.table_ids_.Get(index);
+}
+inline const ::greptime::v1::meta::TableId& RouteRequest::table_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.RouteRequest.table_ids)
+  return _internal_table_ids(index);
+}
+inline ::greptime::v1::meta::TableId* RouteRequest::_internal_add_table_ids() {
+  return _impl_.table_ids_.Add();
+}
+inline ::greptime::v1::meta::TableId* RouteRequest::add_table_ids() {
+  ::greptime::v1::meta::TableId* _add = _internal_add_table_ids();
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.RouteRequest.table_ids)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >&
+RouteRequest::table_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.RouteRequest.table_ids)
+  return _impl_.table_ids_;
+}
+
 // -------------------------------------------------------------------
 
 // DeleteRequest
@@ -2595,6 +2672,91 @@ inline void DeleteRequest::set_allocated_table_name(::greptime::v1::meta::TableN
   }
   _impl_.table_name_ = table_name;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DeleteRequest.table_name)
+}
+
+// .greptime.v1.meta.TableId table_id = 3;
+inline bool DeleteRequest::_internal_has_table_id() const {
+  return this != internal_default_instance() && _impl_.table_id_ != nullptr;
+}
+inline bool DeleteRequest::has_table_id() const {
+  return _internal_has_table_id();
+}
+inline const ::greptime::v1::meta::TableId& DeleteRequest::_internal_table_id() const {
+  const ::greptime::v1::meta::TableId* p = _impl_.table_id_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::TableId&>(
+      ::greptime::v1::meta::_TableId_default_instance_);
+}
+inline const ::greptime::v1::meta::TableId& DeleteRequest::table_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DeleteRequest.table_id)
+  return _internal_table_id();
+}
+inline void DeleteRequest::unsafe_arena_set_allocated_table_id(
+    ::greptime::v1::meta::TableId* table_id) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_id_);
+  }
+  _impl_.table_id_ = table_id;
+  if (table_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DeleteRequest.table_id)
+}
+inline ::greptime::v1::meta::TableId* DeleteRequest::release_table_id() {
+  
+  ::greptime::v1::meta::TableId* temp = _impl_.table_id_;
+  _impl_.table_id_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::TableId* DeleteRequest::unsafe_arena_release_table_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DeleteRequest.table_id)
+  
+  ::greptime::v1::meta::TableId* temp = _impl_.table_id_;
+  _impl_.table_id_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::TableId* DeleteRequest::_internal_mutable_table_id() {
+  
+  if (_impl_.table_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::TableId>(GetArenaForAllocation());
+    _impl_.table_id_ = p;
+  }
+  return _impl_.table_id_;
+}
+inline ::greptime::v1::meta::TableId* DeleteRequest::mutable_table_id() {
+  ::greptime::v1::meta::TableId* _msg = _internal_mutable_table_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DeleteRequest.table_id)
+  return _msg;
+}
+inline void DeleteRequest::set_allocated_table_id(::greptime::v1::meta::TableId* table_id) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_id_);
+  }
+  if (table_id) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(table_id));
+    if (message_arena != submessage_arena) {
+      table_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, table_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.table_id_ = table_id;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DeleteRequest.table_id)
 }
 
 // -------------------------------------------------------------------

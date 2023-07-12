@@ -950,6 +950,7 @@ class AlterExpr final :
     kSchemaNameFieldNumber = 2,
     kTableNameFieldNumber = 3,
     kTableIdFieldNumber = 7,
+    kTableVersionFieldNumber = 8,
     kAddColumnsFieldNumber = 4,
     kDropColumnsFieldNumber = 5,
     kRenameTableFieldNumber = 6,
@@ -1013,6 +1014,15 @@ class AlterExpr final :
   void unsafe_arena_set_allocated_table_id(
       ::greptime::v1::TableId* table_id);
   ::greptime::v1::TableId* unsafe_arena_release_table_id();
+
+  // uint64 table_version = 8;
+  void clear_table_version();
+  uint64_t table_version() const;
+  void set_table_version(uint64_t value);
+  private:
+  uint64_t _internal_table_version() const;
+  void _internal_set_table_version(uint64_t value);
+  public:
 
   // .greptime.v1.AddColumns add_columns = 4;
   bool has_add_columns() const;
@@ -1088,6 +1098,7 @@ class AlterExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     ::greptime::v1::TableId* table_id_;
+    uint64_t table_version_;
     union KindUnion {
       constexpr KindUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -4577,6 +4588,26 @@ inline void AlterExpr::set_allocated_table_id(::greptime::v1::TableId* table_id)
   }
   _impl_.table_id_ = table_id;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.AlterExpr.table_id)
+}
+
+// uint64 table_version = 8;
+inline void AlterExpr::clear_table_version() {
+  _impl_.table_version_ = uint64_t{0u};
+}
+inline uint64_t AlterExpr::_internal_table_version() const {
+  return _impl_.table_version_;
+}
+inline uint64_t AlterExpr::table_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AlterExpr.table_version)
+  return _internal_table_version();
+}
+inline void AlterExpr::_internal_set_table_version(uint64_t value) {
+  
+  _impl_.table_version_ = value;
+}
+inline void AlterExpr::set_table_version(uint64_t value) {
+  _internal_set_table_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.AlterExpr.table_version)
 }
 
 inline bool AlterExpr::has_kind() const {

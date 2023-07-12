@@ -57,14 +57,14 @@ message CreateRequest {
 
 message RouteRequest {
   RequestHeader header = 1;
-
   repeated TableName table_names = 2;
+  repeated TableId table_ids = 3;
 }
 
 message DeleteRequest {
   RequestHeader header = 1;
-
   TableName table_name = 2;
+  TableId table_id = 3;
 }
 
 message RouteResponse {

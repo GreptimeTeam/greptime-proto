@@ -42,6 +42,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR RouteRequest::RouteRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.table_names_)*/{}
+  , /*decltype(_impl_.table_ids_)*/{}
   , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RouteRequestDefaultTypeInternal {
@@ -57,6 +58,7 @@ PROTOBUF_CONSTEXPR DeleteRequest::DeleteRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.table_name_)*/nullptr
+  , /*decltype(_impl_.table_id_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct DeleteRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR DeleteRequestDefaultTypeInternal()
@@ -208,6 +210,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets[] PROTO
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RouteRequest, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RouteRequest, _impl_.table_names_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RouteRequest, _impl_.table_ids_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DeleteRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -216,6 +219,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets[] PROTO
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DeleteRequest, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DeleteRequest, _impl_.table_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DeleteRequest, _impl_.table_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RouteResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -291,15 +295,15 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets[] PROTO
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::CreateRequest)},
   { 10, -1, -1, sizeof(::greptime::v1::meta::RouteRequest)},
-  { 18, -1, -1, sizeof(::greptime::v1::meta::DeleteRequest)},
-  { 26, -1, -1, sizeof(::greptime::v1::meta::RouteResponse)},
-  { 35, -1, -1, sizeof(::greptime::v1::meta::TableRoute)},
-  { 43, -1, -1, sizeof(::greptime::v1::meta::RegionRoute)},
-  { 52, -1, -1, sizeof(::greptime::v1::meta::Table)},
-  { 61, 69, -1, sizeof(::greptime::v1::meta::Region_AttrsEntry_DoNotUse)},
-  { 71, -1, -1, sizeof(::greptime::v1::meta::Region)},
-  { 81, -1, -1, sizeof(::greptime::v1::meta::Partition)},
-  { 89, -1, -1, sizeof(::greptime::v1::meta::TableRouteValue)},
+  { 19, -1, -1, sizeof(::greptime::v1::meta::DeleteRequest)},
+  { 28, -1, -1, sizeof(::greptime::v1::meta::RouteResponse)},
+  { 37, -1, -1, sizeof(::greptime::v1::meta::TableRoute)},
+  { 45, -1, -1, sizeof(::greptime::v1::meta::RegionRoute)},
+  { 54, -1, -1, sizeof(::greptime::v1::meta::Table)},
+  { 63, 71, -1, sizeof(::greptime::v1::meta::Region_AttrsEntry_DoNotUse)},
+  { 73, -1, -1, sizeof(::greptime::v1::meta::Region)},
+  { 83, -1, -1, sizeof(::greptime::v1::meta::Partition)},
+  { 91, -1, -1, sizeof(::greptime::v1::meta::TableRouteValue)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -323,48 +327,50 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto[] PROT
   "time.v1.meta.RequestHeader\022/\n\ntable_name"
   "\030\002 \001(\0132\033.greptime.v1.meta.TableName\022/\n\np"
   "artitions\030\003 \003(\0132\033.greptime.v1.meta.Parti"
-  "tion\022\022\n\ntable_info\030\004 \001(\014\"q\n\014RouteRequest"
-  "\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Requ"
-  "estHeader\0220\n\013table_names\030\002 \003(\0132\033.greptim"
-  "e.v1.meta.TableName\"q\n\rDeleteRequest\022/\n\006"
-  "header\030\001 \001(\0132\037.greptime.v1.meta.RequestH"
-  "eader\022/\n\ntable_name\030\002 \001(\0132\033.greptime.v1."
-  "meta.TableName\"\234\001\n\rRouteResponse\0220\n\006head"
-  "er\030\001 \001(\0132 .greptime.v1.meta.ResponseHead"
-  "er\022%\n\005peers\030\002 \003(\0132\026.greptime.v1.meta.Pee"
-  "r\0222\n\014table_routes\030\003 \003(\0132\034.greptime.v1.me"
-  "ta.TableRoute\"j\n\nTableRoute\022&\n\005table\030\001 \001"
-  "(\0132\027.greptime.v1.meta.Table\0224\n\rregion_ro"
-  "utes\030\002 \003(\0132\035.greptime.v1.meta.RegionRout"
-  "e\"q\n\013RegionRoute\022(\n\006region\030\001 \001(\0132\030.grept"
-  "ime.v1.meta.Region\022\031\n\021leader_peer_index\030"
-  "\002 \001(\004\022\035\n\025follower_peer_indexes\030\003 \003(\004\"Z\n\005"
-  "Table\022\n\n\002id\030\001 \001(\004\022/\n\ntable_name\030\002 \001(\0132\033."
-  "greptime.v1.meta.TableName\022\024\n\014table_sche"
-  "ma\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030"
-  "\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033.greptime.v1.m"
-  "eta.Partition\0222\n\005attrs\030d \003(\0132#.greptime."
-  "v1.meta.Region.AttrsEntry\032,\n\nAttrsEntry\022"
-  "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"4\n\tParti"
-  "tion\022\023\n\013column_list\030\001 \003(\014\022\022\n\nvalue_list\030"
-  "\002 \003(\014\"k\n\017TableRouteValue\022%\n\005peers\030\001 \003(\0132"
-  "\026.greptime.v1.meta.Peer\0221\n\013table_route\030\002"
-  " \001(\0132\034.greptime.v1.meta.TableRoute2\360\001\n\006R"
-  "outer\022L\n\006Create\022\037.greptime.v1.meta.Creat"
-  "eRequest\032\037.greptime.v1.meta.RouteRespons"
-  "e\"\000\022J\n\005Route\022\036.greptime.v1.meta.RouteReq"
-  "uest\032\037.greptime.v1.meta.RouteResponse\"\000\022"
-  "L\n\006Delete\022\037.greptime.v1.meta.DeleteReque"
-  "st\032\037.greptime.v1.meta.RouteResponse\"\000B<Z"
-  ":github.com/GreptimeTeam/greptime-proto/"
-  "go/greptime/v1/metab\006proto3"
+  "tion\022\022\n\ntable_info\030\004 \001(\014\"\237\001\n\014RouteReques"
+  "t\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Req"
+  "uestHeader\0220\n\013table_names\030\002 \003(\0132\033.grepti"
+  "me.v1.meta.TableName\022,\n\ttable_ids\030\003 \003(\0132"
+  "\031.greptime.v1.meta.TableId\"\236\001\n\rDeleteReq"
+  "uest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta."
+  "RequestHeader\022/\n\ntable_name\030\002 \001(\0132\033.grep"
+  "time.v1.meta.TableName\022+\n\010table_id\030\003 \001(\013"
+  "2\031.greptime.v1.meta.TableId\"\234\001\n\rRouteRes"
+  "ponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta"
+  ".ResponseHeader\022%\n\005peers\030\002 \003(\0132\026.greptim"
+  "e.v1.meta.Peer\0222\n\014table_routes\030\003 \003(\0132\034.g"
+  "reptime.v1.meta.TableRoute\"j\n\nTableRoute"
+  "\022&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Table"
+  "\0224\n\rregion_routes\030\002 \003(\0132\035.greptime.v1.me"
+  "ta.RegionRoute\"q\n\013RegionRoute\022(\n\006region\030"
+  "\001 \001(\0132\030.greptime.v1.meta.Region\022\031\n\021leade"
+  "r_peer_index\030\002 \001(\004\022\035\n\025follower_peer_inde"
+  "xes\030\003 \003(\004\"Z\n\005Table\022\n\n\002id\030\001 \001(\004\022/\n\ntable_"
+  "name\030\002 \001(\0132\033.greptime.v1.meta.TableName\022"
+  "\024\n\014table_schema\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002id\030\001"
+  " \001(\004\022\014\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033."
+  "greptime.v1.meta.Partition\0222\n\005attrs\030d \003("
+  "\0132#.greptime.v1.meta.Region.AttrsEntry\032,"
+  "\n\nAttrsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t"
+  ":\0028\001\"4\n\tPartition\022\023\n\013column_list\030\001 \003(\014\022\022"
+  "\n\nvalue_list\030\002 \003(\014\"k\n\017TableRouteValue\022%\n"
+  "\005peers\030\001 \003(\0132\026.greptime.v1.meta.Peer\0221\n\013"
+  "table_route\030\002 \001(\0132\034.greptime.v1.meta.Tab"
+  "leRoute2\360\001\n\006Router\022L\n\006Create\022\037.greptime."
+  "v1.meta.CreateRequest\032\037.greptime.v1.meta"
+  ".RouteResponse\"\000\022J\n\005Route\022\036.greptime.v1."
+  "meta.RouteRequest\032\037.greptime.v1.meta.Rou"
+  "teResponse\"\000\022L\n\006Delete\022\037.greptime.v1.met"
+  "a.DeleteRequest\032\037.greptime.v1.meta.Route"
+  "Response\"\000B<Z:github.com/GreptimeTeam/gr"
+  "eptime-proto/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto = {
-    false, false, 1627, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
+    false, false, 1720, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
     "greptime/v1/meta/route.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps, 1, 11,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets,
@@ -733,6 +739,9 @@ void RouteRequest::clear_header() {
 void RouteRequest::clear_table_names() {
   _impl_.table_names_.Clear();
 }
+void RouteRequest::clear_table_ids() {
+  _impl_.table_ids_.Clear();
+}
 RouteRequest::RouteRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -744,6 +753,7 @@ RouteRequest::RouteRequest(const RouteRequest& from)
   RouteRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.table_names_){from._impl_.table_names_}
+    , decltype(_impl_.table_ids_){from._impl_.table_ids_}
     , decltype(_impl_.header_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -760,6 +770,7 @@ inline void RouteRequest::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.table_names_){arena}
+    , decltype(_impl_.table_ids_){arena}
     , decltype(_impl_.header_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -777,6 +788,7 @@ RouteRequest::~RouteRequest() {
 inline void RouteRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.table_names_.~RepeatedPtrField();
+  _impl_.table_ids_.~RepeatedPtrField();
   if (this != internal_default_instance()) delete _impl_.header_;
 }
 
@@ -791,6 +803,7 @@ void RouteRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.table_names_.Clear();
+  _impl_.table_ids_.Clear();
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
@@ -822,6 +835,19 @@ const char* RouteRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .greptime.v1.meta.TableId table_ids = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_table_ids(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -869,6 +895,14 @@ uint8_t* RouteRequest::_InternalSerialize(
         InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
+  // repeated .greptime.v1.meta.TableId table_ids = 3;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_table_ids_size()); i < n; i++) {
+    const auto& repfield = this->_internal_table_ids(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -888,6 +922,13 @@ size_t RouteRequest::ByteSizeLong() const {
   // repeated .greptime.v1.meta.TableName table_names = 2;
   total_size += 1UL * this->_internal_table_names_size();
   for (const auto& msg : this->_impl_.table_names_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .greptime.v1.meta.TableId table_ids = 3;
+  total_size += 1UL * this->_internal_table_ids_size();
+  for (const auto& msg : this->_impl_.table_ids_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -918,6 +959,7 @@ void RouteRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   (void) cached_has_bits;
 
   _this->_impl_.table_names_.MergeFrom(from._impl_.table_names_);
+  _this->_impl_.table_ids_.MergeFrom(from._impl_.table_ids_);
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::meta::RequestHeader::MergeFrom(
         from._internal_header());
@@ -940,6 +982,7 @@ void RouteRequest::InternalSwap(RouteRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.table_names_.InternalSwap(&other->_impl_.table_names_);
+  _impl_.table_ids_.InternalSwap(&other->_impl_.table_ids_);
   swap(_impl_.header_, other->_impl_.header_);
 }
 
@@ -955,6 +998,7 @@ class DeleteRequest::_Internal {
  public:
   static const ::greptime::v1::meta::RequestHeader& header(const DeleteRequest* msg);
   static const ::greptime::v1::meta::TableName& table_name(const DeleteRequest* msg);
+  static const ::greptime::v1::meta::TableId& table_id(const DeleteRequest* msg);
 };
 
 const ::greptime::v1::meta::RequestHeader&
@@ -964,6 +1008,10 @@ DeleteRequest::_Internal::header(const DeleteRequest* msg) {
 const ::greptime::v1::meta::TableName&
 DeleteRequest::_Internal::table_name(const DeleteRequest* msg) {
   return *msg->_impl_.table_name_;
+}
+const ::greptime::v1::meta::TableId&
+DeleteRequest::_Internal::table_id(const DeleteRequest* msg) {
+  return *msg->_impl_.table_id_;
 }
 void DeleteRequest::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
@@ -977,6 +1025,12 @@ void DeleteRequest::clear_table_name() {
   }
   _impl_.table_name_ = nullptr;
 }
+void DeleteRequest::clear_table_id() {
+  if (GetArenaForAllocation() == nullptr && _impl_.table_id_ != nullptr) {
+    delete _impl_.table_id_;
+  }
+  _impl_.table_id_ = nullptr;
+}
 DeleteRequest::DeleteRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -989,6 +1043,7 @@ DeleteRequest::DeleteRequest(const DeleteRequest& from)
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
     , decltype(_impl_.table_name_){nullptr}
+    , decltype(_impl_.table_id_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -997,6 +1052,9 @@ DeleteRequest::DeleteRequest(const DeleteRequest& from)
   }
   if (from._internal_has_table_name()) {
     _this->_impl_.table_name_ = new ::greptime::v1::meta::TableName(*from._impl_.table_name_);
+  }
+  if (from._internal_has_table_id()) {
+    _this->_impl_.table_id_ = new ::greptime::v1::meta::TableId(*from._impl_.table_id_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.DeleteRequest)
 }
@@ -1008,6 +1066,7 @@ inline void DeleteRequest::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
     , decltype(_impl_.table_name_){nullptr}
+    , decltype(_impl_.table_id_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -1025,6 +1084,7 @@ inline void DeleteRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete _impl_.header_;
   if (this != internal_default_instance()) delete _impl_.table_name_;
+  if (this != internal_default_instance()) delete _impl_.table_id_;
 }
 
 void DeleteRequest::SetCachedSize(int size) const {
@@ -1045,6 +1105,10 @@ void DeleteRequest::Clear() {
     delete _impl_.table_name_;
   }
   _impl_.table_name_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.table_id_ != nullptr) {
+    delete _impl_.table_id_;
+  }
+  _impl_.table_id_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1066,6 +1130,14 @@ const char* DeleteRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext*
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_table_name(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.TableId table_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_table_id(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1113,6 +1185,13 @@ uint8_t* DeleteRequest::_InternalSerialize(
         _Internal::table_name(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.meta.TableId table_id = 3;
+  if (this->_internal_has_table_id()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::table_id(this),
+        _Internal::table_id(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1143,6 +1222,13 @@ size_t DeleteRequest::ByteSizeLong() const {
         *_impl_.table_name_);
   }
 
+  // .greptime.v1.meta.TableId table_id = 3;
+  if (this->_internal_has_table_id()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.table_id_);
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1169,6 +1255,10 @@ void DeleteRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
     _this->_internal_mutable_table_name()->::greptime::v1::meta::TableName::MergeFrom(
         from._internal_table_name());
   }
+  if (from._internal_has_table_id()) {
+    _this->_internal_mutable_table_id()->::greptime::v1::meta::TableId::MergeFrom(
+        from._internal_table_id());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1187,8 +1277,8 @@ void DeleteRequest::InternalSwap(DeleteRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(DeleteRequest, _impl_.table_name_)
-      + sizeof(DeleteRequest::_impl_.table_name_)
+      PROTOBUF_FIELD_OFFSET(DeleteRequest, _impl_.table_id_)
+      + sizeof(DeleteRequest::_impl_.table_id_)
       - PROTOBUF_FIELD_OFFSET(DeleteRequest, _impl_.header_)>(
           reinterpret_cast<char*>(&_impl_.header_),
           reinterpret_cast<char*>(&other->_impl_.header_));

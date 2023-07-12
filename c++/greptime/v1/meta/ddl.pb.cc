@@ -179,16 +179,16 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto[] PROTOB
   "CreateTableTaskH\000\022:\n\017drop_table_task\030\003 \001"
   "(\0132\037.greptime.v1.meta.DropTableTaskH\000\022<\n"
   "\020alter_table_task\030\004 \001(\0132 .greptime.v1.me"
-  "ta.AlterTableTaskH\000B\006\n\004task\"~\n\025SubmitDdl"
-  "TaskResponse\0220\n\006header\030\001 \001(\0132 .greptime."
-  "v1.meta.ResponseHeader\022\013\n\003key\030\002 \001(\014\022&\n\010t"
-  "able_id\030\004 \001(\0132\024.greptime.v1.TableId*#\n\013D"
-  "dlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\0012k\n\007DdlT"
-  "ask\022`\n\rSubmitDdlTask\022&.greptime.v1.meta."
-  "SubmitDdlTaskRequest\032\'.greptime.v1.meta."
-  "SubmitDdlTaskResponseB<Z:github.com/Grep"
-  "timeTeam/greptime-proto/go/greptime/v1/m"
-  "etab\006proto3"
+  "ta.AlterTableTaskH\000B\006\n\004task\"\203\001\n\025SubmitDd"
+  "lTaskResponse\0220\n\006header\030\001 \001(\0132 .greptime"
+  ".v1.meta.ResponseHeader\022\013\n\003key\030\002 \001(\014\022+\n\010"
+  "table_id\030\004 \001(\0132\031.greptime.v1.meta.TableI"
+  "d*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\0012k"
+  "\n\007DdlTask\022`\n\rSubmitDdlTask\022&.greptime.v1"
+  ".meta.SubmitDdlTaskRequest\032\'.greptime.v1"
+  ".meta.SubmitDdlTaskResponseB<Z:github.co"
+  "m/GreptimeTeam/greptime-proto/go/greptim"
+  "e/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fddl_2eproto,
@@ -197,7 +197,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto = {
-    false, false, 1011, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
+    false, false, 1017, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
     "greptime/v1/meta/ddl.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps, 3, 5,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets,
@@ -1325,14 +1325,14 @@ void SubmitDdlTaskRequest::InternalSwap(SubmitDdlTaskRequest* other) {
 class SubmitDdlTaskResponse::_Internal {
  public:
   static const ::greptime::v1::meta::ResponseHeader& header(const SubmitDdlTaskResponse* msg);
-  static const ::greptime::v1::TableId& table_id(const SubmitDdlTaskResponse* msg);
+  static const ::greptime::v1::meta::TableId& table_id(const SubmitDdlTaskResponse* msg);
 };
 
 const ::greptime::v1::meta::ResponseHeader&
 SubmitDdlTaskResponse::_Internal::header(const SubmitDdlTaskResponse* msg) {
   return *msg->_impl_.header_;
 }
-const ::greptime::v1::TableId&
+const ::greptime::v1::meta::TableId&
 SubmitDdlTaskResponse::_Internal::table_id(const SubmitDdlTaskResponse* msg) {
   return *msg->_impl_.table_id_;
 }
@@ -1376,7 +1376,7 @@ SubmitDdlTaskResponse::SubmitDdlTaskResponse(const SubmitDdlTaskResponse& from)
     _this->_impl_.header_ = new ::greptime::v1::meta::ResponseHeader(*from._impl_.header_);
   }
   if (from._internal_has_table_id()) {
-    _this->_impl_.table_id_ = new ::greptime::v1::TableId(*from._impl_.table_id_);
+    _this->_impl_.table_id_ = new ::greptime::v1::meta::TableId(*from._impl_.table_id_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.SubmitDdlTaskResponse)
 }
@@ -1458,7 +1458,7 @@ const char* SubmitDdlTaskResponse::_InternalParse(const char* ptr, ::_pbi::Parse
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.TableId table_id = 4;
+      // .greptime.v1.meta.TableId table_id = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_table_id(), ptr);
@@ -1508,7 +1508,7 @@ uint8_t* SubmitDdlTaskResponse::_InternalSerialize(
         2, this->_internal_key(), target);
   }
 
-  // .greptime.v1.TableId table_id = 4;
+  // .greptime.v1.meta.TableId table_id = 4;
   if (this->_internal_has_table_id()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(4, _Internal::table_id(this),
@@ -1545,7 +1545,7 @@ size_t SubmitDdlTaskResponse::ByteSizeLong() const {
         *_impl_.header_);
   }
 
-  // .greptime.v1.TableId table_id = 4;
+  // .greptime.v1.meta.TableId table_id = 4;
   if (this->_internal_has_table_id()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1578,7 +1578,7 @@ void SubmitDdlTaskResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
         from._internal_header());
   }
   if (from._internal_has_table_id()) {
-    _this->_internal_mutable_table_id()->::greptime::v1::TableId::MergeFrom(
+    _this->_internal_mutable_table_id()->::greptime::v1::meta::TableId::MergeFrom(
         from._internal_table_id());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
