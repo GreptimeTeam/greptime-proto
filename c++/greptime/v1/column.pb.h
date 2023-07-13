@@ -112,12 +112,16 @@ enum ColumnDataType : int {
   TIMESTAMP_MILLISECOND = 16,
   TIMESTAMP_MICROSECOND = 17,
   TIMESTAMP_NANOSECOND = 18,
+  TIME_SECOND = 19,
+  TIME_MILLISECOND = 20,
+  TIME_MICROSECOND = 21,
+  TIME_NANOSECOND = 22,
   ColumnDataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ColumnDataType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool ColumnDataType_IsValid(int value);
 constexpr ColumnDataType ColumnDataType_MIN = BOOLEAN;
-constexpr ColumnDataType ColumnDataType_MAX = TIMESTAMP_NANOSECOND;
+constexpr ColumnDataType ColumnDataType_MAX = TIME_NANOSECOND;
 constexpr int ColumnDataType_ARRAYSIZE = ColumnDataType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ColumnDataType_descriptor();
@@ -276,6 +280,10 @@ class Column_Values final :
     kTsMillisecondValuesFieldNumber = 17,
     kTsMicrosecondValuesFieldNumber = 18,
     kTsNanosecondValuesFieldNumber = 19,
+    kTimeSecondValuesFieldNumber = 20,
+    kTimeMillisecondValuesFieldNumber = 21,
+    kTimeMicrosecondValuesFieldNumber = 22,
+    kTimeNanosecondValuesFieldNumber = 23,
   };
   // repeated int32 i8_values = 1;
   int i8_values_size() const;
@@ -699,6 +707,94 @@ class Column_Values final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
       mutable_ts_nanosecond_values();
 
+  // repeated int64 time_second_values = 20;
+  int time_second_values_size() const;
+  private:
+  int _internal_time_second_values_size() const;
+  public:
+  void clear_time_second_values();
+  private:
+  int64_t _internal_time_second_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_time_second_values() const;
+  void _internal_add_time_second_values(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_time_second_values();
+  public:
+  int64_t time_second_values(int index) const;
+  void set_time_second_values(int index, int64_t value);
+  void add_time_second_values(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      time_second_values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_time_second_values();
+
+  // repeated int64 time_millisecond_values = 21;
+  int time_millisecond_values_size() const;
+  private:
+  int _internal_time_millisecond_values_size() const;
+  public:
+  void clear_time_millisecond_values();
+  private:
+  int64_t _internal_time_millisecond_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_time_millisecond_values() const;
+  void _internal_add_time_millisecond_values(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_time_millisecond_values();
+  public:
+  int64_t time_millisecond_values(int index) const;
+  void set_time_millisecond_values(int index, int64_t value);
+  void add_time_millisecond_values(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      time_millisecond_values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_time_millisecond_values();
+
+  // repeated int64 time_microsecond_values = 22;
+  int time_microsecond_values_size() const;
+  private:
+  int _internal_time_microsecond_values_size() const;
+  public:
+  void clear_time_microsecond_values();
+  private:
+  int64_t _internal_time_microsecond_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_time_microsecond_values() const;
+  void _internal_add_time_microsecond_values(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_time_microsecond_values();
+  public:
+  int64_t time_microsecond_values(int index) const;
+  void set_time_microsecond_values(int index, int64_t value);
+  void add_time_microsecond_values(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      time_microsecond_values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_time_microsecond_values();
+
+  // repeated int64 time_nanosecond_values = 23;
+  int time_nanosecond_values_size() const;
+  private:
+  int _internal_time_nanosecond_values_size() const;
+  public:
+  void clear_time_nanosecond_values();
+  private:
+  int64_t _internal_time_nanosecond_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_time_nanosecond_values() const;
+  void _internal_add_time_nanosecond_values(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_time_nanosecond_values();
+  public:
+  int64_t time_nanosecond_values(int index) const;
+  void set_time_nanosecond_values(int index, int64_t value);
+  void add_time_nanosecond_values(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      time_nanosecond_values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_time_nanosecond_values();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.Column.Values)
  private:
   class _Internal;
@@ -740,6 +836,14 @@ class Column_Values final :
     mutable std::atomic<int> _ts_microsecond_values_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > ts_nanosecond_values_;
     mutable std::atomic<int> _ts_nanosecond_values_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > time_second_values_;
+    mutable std::atomic<int> _time_second_values_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > time_millisecond_values_;
+    mutable std::atomic<int> _time_millisecond_values_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > time_microsecond_values_;
+    mutable std::atomic<int> _time_microsecond_values_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > time_nanosecond_values_;
+    mutable std::atomic<int> _time_nanosecond_values_cached_byte_size_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2139,6 +2243,194 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
 Column_Values::mutable_ts_nanosecond_values() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.ts_nanosecond_values)
   return _internal_mutable_ts_nanosecond_values();
+}
+
+// repeated int64 time_second_values = 20;
+inline int Column_Values::_internal_time_second_values_size() const {
+  return _impl_.time_second_values_.size();
+}
+inline int Column_Values::time_second_values_size() const {
+  return _internal_time_second_values_size();
+}
+inline void Column_Values::clear_time_second_values() {
+  _impl_.time_second_values_.Clear();
+}
+inline int64_t Column_Values::_internal_time_second_values(int index) const {
+  return _impl_.time_second_values_.Get(index);
+}
+inline int64_t Column_Values::time_second_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.time_second_values)
+  return _internal_time_second_values(index);
+}
+inline void Column_Values::set_time_second_values(int index, int64_t value) {
+  _impl_.time_second_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.time_second_values)
+}
+inline void Column_Values::_internal_add_time_second_values(int64_t value) {
+  _impl_.time_second_values_.Add(value);
+}
+inline void Column_Values::add_time_second_values(int64_t value) {
+  _internal_add_time_second_values(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.time_second_values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::_internal_time_second_values() const {
+  return _impl_.time_second_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::time_second_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.time_second_values)
+  return _internal_time_second_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::_internal_mutable_time_second_values() {
+  return &_impl_.time_second_values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::mutable_time_second_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.time_second_values)
+  return _internal_mutable_time_second_values();
+}
+
+// repeated int64 time_millisecond_values = 21;
+inline int Column_Values::_internal_time_millisecond_values_size() const {
+  return _impl_.time_millisecond_values_.size();
+}
+inline int Column_Values::time_millisecond_values_size() const {
+  return _internal_time_millisecond_values_size();
+}
+inline void Column_Values::clear_time_millisecond_values() {
+  _impl_.time_millisecond_values_.Clear();
+}
+inline int64_t Column_Values::_internal_time_millisecond_values(int index) const {
+  return _impl_.time_millisecond_values_.Get(index);
+}
+inline int64_t Column_Values::time_millisecond_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.time_millisecond_values)
+  return _internal_time_millisecond_values(index);
+}
+inline void Column_Values::set_time_millisecond_values(int index, int64_t value) {
+  _impl_.time_millisecond_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.time_millisecond_values)
+}
+inline void Column_Values::_internal_add_time_millisecond_values(int64_t value) {
+  _impl_.time_millisecond_values_.Add(value);
+}
+inline void Column_Values::add_time_millisecond_values(int64_t value) {
+  _internal_add_time_millisecond_values(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.time_millisecond_values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::_internal_time_millisecond_values() const {
+  return _impl_.time_millisecond_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::time_millisecond_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.time_millisecond_values)
+  return _internal_time_millisecond_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::_internal_mutable_time_millisecond_values() {
+  return &_impl_.time_millisecond_values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::mutable_time_millisecond_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.time_millisecond_values)
+  return _internal_mutable_time_millisecond_values();
+}
+
+// repeated int64 time_microsecond_values = 22;
+inline int Column_Values::_internal_time_microsecond_values_size() const {
+  return _impl_.time_microsecond_values_.size();
+}
+inline int Column_Values::time_microsecond_values_size() const {
+  return _internal_time_microsecond_values_size();
+}
+inline void Column_Values::clear_time_microsecond_values() {
+  _impl_.time_microsecond_values_.Clear();
+}
+inline int64_t Column_Values::_internal_time_microsecond_values(int index) const {
+  return _impl_.time_microsecond_values_.Get(index);
+}
+inline int64_t Column_Values::time_microsecond_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.time_microsecond_values)
+  return _internal_time_microsecond_values(index);
+}
+inline void Column_Values::set_time_microsecond_values(int index, int64_t value) {
+  _impl_.time_microsecond_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.time_microsecond_values)
+}
+inline void Column_Values::_internal_add_time_microsecond_values(int64_t value) {
+  _impl_.time_microsecond_values_.Add(value);
+}
+inline void Column_Values::add_time_microsecond_values(int64_t value) {
+  _internal_add_time_microsecond_values(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.time_microsecond_values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::_internal_time_microsecond_values() const {
+  return _impl_.time_microsecond_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::time_microsecond_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.time_microsecond_values)
+  return _internal_time_microsecond_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::_internal_mutable_time_microsecond_values() {
+  return &_impl_.time_microsecond_values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::mutable_time_microsecond_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.time_microsecond_values)
+  return _internal_mutable_time_microsecond_values();
+}
+
+// repeated int64 time_nanosecond_values = 23;
+inline int Column_Values::_internal_time_nanosecond_values_size() const {
+  return _impl_.time_nanosecond_values_.size();
+}
+inline int Column_Values::time_nanosecond_values_size() const {
+  return _internal_time_nanosecond_values_size();
+}
+inline void Column_Values::clear_time_nanosecond_values() {
+  _impl_.time_nanosecond_values_.Clear();
+}
+inline int64_t Column_Values::_internal_time_nanosecond_values(int index) const {
+  return _impl_.time_nanosecond_values_.Get(index);
+}
+inline int64_t Column_Values::time_nanosecond_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.time_nanosecond_values)
+  return _internal_time_nanosecond_values(index);
+}
+inline void Column_Values::set_time_nanosecond_values(int index, int64_t value) {
+  _impl_.time_nanosecond_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.time_nanosecond_values)
+}
+inline void Column_Values::_internal_add_time_nanosecond_values(int64_t value) {
+  _impl_.time_nanosecond_values_.Add(value);
+}
+inline void Column_Values::add_time_nanosecond_values(int64_t value) {
+  _internal_add_time_nanosecond_values(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.time_nanosecond_values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::_internal_time_nanosecond_values() const {
+  return _impl_.time_nanosecond_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::time_nanosecond_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.time_nanosecond_values)
+  return _internal_time_nanosecond_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::_internal_mutable_time_nanosecond_values() {
+  return &_impl_.time_nanosecond_values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::mutable_time_nanosecond_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.time_nanosecond_values)
+  return _internal_mutable_time_nanosecond_values();
 }
 
 // -------------------------------------------------------------------

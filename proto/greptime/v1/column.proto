@@ -54,6 +54,10 @@ message Column {
     repeated int64 ts_millisecond_values = 17;
     repeated int64 ts_microsecond_values = 18;
     repeated int64 ts_nanosecond_values = 19;
+    repeated int64 time_second_values = 20;
+    repeated int64 time_millisecond_values = 21;
+    repeated int64 time_microsecond_values = 22;
+    repeated int64 time_nanosecond_values = 23;
   }
   // The array of non-null values in this column.
   //
@@ -102,4 +106,8 @@ enum ColumnDataType {
   TIMESTAMP_MILLISECOND = 16;
   TIMESTAMP_MICROSECOND = 17;
   TIMESTAMP_NANOSECOND = 18;
+  TIME_SECOND = 19;
+  TIME_MILLISECOND = 20;
+  TIME_MICROSECOND = 21;
+  TIME_NANOSECOND = 22;
 }
