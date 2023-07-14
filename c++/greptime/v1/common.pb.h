@@ -23,7 +23,6 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
-#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
@@ -65,6 +64,9 @@ extern RequestHeaderDefaultTypeInternal _RequestHeader_default_instance_;
 class ResponseHeader;
 struct ResponseHeaderDefaultTypeInternal;
 extern ResponseHeaderDefaultTypeInternal _ResponseHeader_default_instance_;
+class Status;
+struct StatusDefaultTypeInternal;
+extern StatusDefaultTypeInternal _Status_default_instance_;
 class Token;
 struct TokenDefaultTypeInternal;
 extern TokenDefaultTypeInternal _Token_default_instance_;
@@ -77,130 +79,13 @@ template<> ::greptime::v1::Basic* Arena::CreateMaybeMessage<::greptime::v1::Basi
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
 template<> ::greptime::v1::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::ResponseHeader>(Arena*);
+template<> ::greptime::v1::Status* Arena::CreateMaybeMessage<::greptime::v1::Status>(Arena*);
 template<> ::greptime::v1::Token* Arena::CreateMaybeMessage<::greptime::v1::Token>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
 
 // ===================================================================
-
-class ResponseHeader final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:greptime.v1.ResponseHeader) */ {
- public:
-  inline ResponseHeader() : ResponseHeader(nullptr) {}
-  explicit PROTOBUF_CONSTEXPR ResponseHeader(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  ResponseHeader(const ResponseHeader& from);
-  ResponseHeader(ResponseHeader&& from) noexcept
-    : ResponseHeader() {
-    *this = ::std::move(from);
-  }
-
-  inline ResponseHeader& operator=(const ResponseHeader& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline ResponseHeader& operator=(ResponseHeader&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const ResponseHeader& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const ResponseHeader* internal_default_instance() {
-    return reinterpret_cast<const ResponseHeader*>(
-               &_ResponseHeader_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  friend void swap(ResponseHeader& a, ResponseHeader& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(ResponseHeader* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(ResponseHeader* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  ResponseHeader* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<ResponseHeader>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const ResponseHeader& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const ResponseHeader& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
-  public:
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.ResponseHeader";
-  }
-  protected:
-  explicit ResponseHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.ResponseHeader)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-  };
-  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
-};
-// -------------------------------------------------------------------
 
 class RequestHeader final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.RequestHeader) */ {
@@ -250,7 +135,7 @@ class RequestHeader final :
                &_RequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
   friend void swap(RequestHeader& a, RequestHeader& b) {
     a.Swap(&b);
@@ -438,6 +323,327 @@ class RequestHeader final :
 };
 // -------------------------------------------------------------------
 
+class ResponseHeader final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ResponseHeader) */ {
+ public:
+  inline ResponseHeader() : ResponseHeader(nullptr) {}
+  ~ResponseHeader() override;
+  explicit PROTOBUF_CONSTEXPR ResponseHeader(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ResponseHeader(const ResponseHeader& from);
+  ResponseHeader(ResponseHeader&& from) noexcept
+    : ResponseHeader() {
+    *this = ::std::move(from);
+  }
+
+  inline ResponseHeader& operator=(const ResponseHeader& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ResponseHeader& operator=(ResponseHeader&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ResponseHeader& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ResponseHeader* internal_default_instance() {
+    return reinterpret_cast<const ResponseHeader*>(
+               &_ResponseHeader_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(ResponseHeader& a, ResponseHeader& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ResponseHeader* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ResponseHeader* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ResponseHeader* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ResponseHeader>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ResponseHeader& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ResponseHeader& from) {
+    ResponseHeader::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ResponseHeader* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.ResponseHeader";
+  }
+  protected:
+  explicit ResponseHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStatusFieldNumber = 1,
+  };
+  // .greptime.v1.Status status = 1;
+  bool has_status() const;
+  private:
+  bool _internal_has_status() const;
+  public:
+  void clear_status();
+  const ::greptime::v1::Status& status() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Status* release_status();
+  ::greptime::v1::Status* mutable_status();
+  void set_allocated_status(::greptime::v1::Status* status);
+  private:
+  const ::greptime::v1::Status& _internal_status() const;
+  ::greptime::v1::Status* _internal_mutable_status();
+  public:
+  void unsafe_arena_set_allocated_status(
+      ::greptime::v1::Status* status);
+  ::greptime::v1::Status* unsafe_arena_release_status();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.ResponseHeader)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::Status* status_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Status final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Status) */ {
+ public:
+  inline Status() : Status(nullptr) {}
+  ~Status() override;
+  explicit PROTOBUF_CONSTEXPR Status(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Status(const Status& from);
+  Status(Status&& from) noexcept
+    : Status() {
+    *this = ::std::move(from);
+  }
+
+  inline Status& operator=(const Status& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Status& operator=(Status&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Status& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Status* internal_default_instance() {
+    return reinterpret_cast<const Status*>(
+               &_Status_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(Status& a, Status& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Status* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Status* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Status* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Status>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Status& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Status& from) {
+    Status::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Status* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.Status";
+  }
+  protected:
+  explicit Status(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kErrMsgFieldNumber = 2,
+    kStatusCodeFieldNumber = 1,
+  };
+  // string err_msg = 2;
+  void clear_err_msg();
+  const std::string& err_msg() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_err_msg(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_err_msg();
+  PROTOBUF_NODISCARD std::string* release_err_msg();
+  void set_allocated_err_msg(std::string* err_msg);
+  private:
+  const std::string& _internal_err_msg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_err_msg(const std::string& value);
+  std::string* _internal_mutable_err_msg();
+  public:
+
+  // uint32 status_code = 1;
+  void clear_status_code();
+  uint32_t status_code() const;
+  void set_status_code(uint32_t value);
+  private:
+  uint32_t _internal_status_code() const;
+  void _internal_set_status_code(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.Status)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr err_msg_;
+    uint32_t status_code_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class AuthHeader final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.AuthHeader) */ {
  public:
@@ -492,7 +698,7 @@ class AuthHeader final :
                &_AuthHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(AuthHeader& a, AuthHeader& b) {
     a.Swap(&b);
@@ -682,7 +888,7 @@ class Basic final :
                &_Basic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Basic& a, Basic& b) {
     a.Swap(&b);
@@ -851,7 +1057,7 @@ class Token final :
                &_Token_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(Token& a, Token& b) {
     a.Swap(&b);
@@ -1004,7 +1210,7 @@ class AffectedRows final :
                &_AffectedRows_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(AffectedRows& a, AffectedRows& b) {
     a.Swap(&b);
@@ -1152,7 +1358,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -1268,10 +1474,6 @@ class FlightMetadata final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// ResponseHeader
-
-// -------------------------------------------------------------------
-
 // RequestHeader
 
 // string catalog = 1;
@@ -1568,6 +1770,174 @@ inline void RequestHeader::_internal_set_span_id(uint64_t value) {
 inline void RequestHeader::set_span_id(uint64_t value) {
   _internal_set_span_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.RequestHeader.span_id)
+}
+
+// -------------------------------------------------------------------
+
+// ResponseHeader
+
+// .greptime.v1.Status status = 1;
+inline bool ResponseHeader::_internal_has_status() const {
+  return this != internal_default_instance() && _impl_.status_ != nullptr;
+}
+inline bool ResponseHeader::has_status() const {
+  return _internal_has_status();
+}
+inline void ResponseHeader::clear_status() {
+  if (GetArenaForAllocation() == nullptr && _impl_.status_ != nullptr) {
+    delete _impl_.status_;
+  }
+  _impl_.status_ = nullptr;
+}
+inline const ::greptime::v1::Status& ResponseHeader::_internal_status() const {
+  const ::greptime::v1::Status* p = _impl_.status_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::Status&>(
+      ::greptime::v1::_Status_default_instance_);
+}
+inline const ::greptime::v1::Status& ResponseHeader::status() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ResponseHeader.status)
+  return _internal_status();
+}
+inline void ResponseHeader::unsafe_arena_set_allocated_status(
+    ::greptime::v1::Status* status) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.status_);
+  }
+  _impl_.status_ = status;
+  if (status) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ResponseHeader.status)
+}
+inline ::greptime::v1::Status* ResponseHeader::release_status() {
+  
+  ::greptime::v1::Status* temp = _impl_.status_;
+  _impl_.status_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::Status* ResponseHeader::unsafe_arena_release_status() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ResponseHeader.status)
+  
+  ::greptime::v1::Status* temp = _impl_.status_;
+  _impl_.status_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::Status* ResponseHeader::_internal_mutable_status() {
+  
+  if (_impl_.status_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::Status>(GetArenaForAllocation());
+    _impl_.status_ = p;
+  }
+  return _impl_.status_;
+}
+inline ::greptime::v1::Status* ResponseHeader::mutable_status() {
+  ::greptime::v1::Status* _msg = _internal_mutable_status();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ResponseHeader.status)
+  return _msg;
+}
+inline void ResponseHeader::set_allocated_status(::greptime::v1::Status* status) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.status_;
+  }
+  if (status) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(status);
+    if (message_arena != submessage_arena) {
+      status = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, status, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.status_ = status;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ResponseHeader.status)
+}
+
+// -------------------------------------------------------------------
+
+// Status
+
+// uint32 status_code = 1;
+inline void Status::clear_status_code() {
+  _impl_.status_code_ = 0u;
+}
+inline uint32_t Status::_internal_status_code() const {
+  return _impl_.status_code_;
+}
+inline uint32_t Status::status_code() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Status.status_code)
+  return _internal_status_code();
+}
+inline void Status::_internal_set_status_code(uint32_t value) {
+  
+  _impl_.status_code_ = value;
+}
+inline void Status::set_status_code(uint32_t value) {
+  _internal_set_status_code(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Status.status_code)
+}
+
+// string err_msg = 2;
+inline void Status::clear_err_msg() {
+  _impl_.err_msg_.ClearToEmpty();
+}
+inline const std::string& Status::err_msg() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Status.err_msg)
+  return _internal_err_msg();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Status::set_err_msg(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.err_msg_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.Status.err_msg)
+}
+inline std::string* Status::mutable_err_msg() {
+  std::string* _s = _internal_mutable_err_msg();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Status.err_msg)
+  return _s;
+}
+inline const std::string& Status::_internal_err_msg() const {
+  return _impl_.err_msg_.Get();
+}
+inline void Status::_internal_set_err_msg(const std::string& value) {
+  
+  _impl_.err_msg_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Status::_internal_mutable_err_msg() {
+  
+  return _impl_.err_msg_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Status::release_err_msg() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Status.err_msg)
+  return _impl_.err_msg_.Release();
+}
+inline void Status::set_allocated_err_msg(std::string* err_msg) {
+  if (err_msg != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.err_msg_.SetAllocated(err_msg, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.err_msg_.IsDefault()) {
+    _impl_.err_msg_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Status.err_msg)
 }
 
 // -------------------------------------------------------------------
@@ -2010,6 +2380,8 @@ inline void FlightMetadata::set_allocated_affected_rows(::greptime::v1::Affected
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
