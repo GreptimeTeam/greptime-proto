@@ -22,7 +22,6 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RouterClient interface {
-	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*RouteResponse, error)
 	// Fetch routing information for tables. The smallest unit is the complete
 	// routing information(all regions) of a table.
 	//
@@ -46,7 +45,6 @@ type RouterClient interface {
 	//
 	// ```
 	Route(ctx context.Context, in *RouteRequest, opts ...grpc.CallOption) (*RouteResponse, error)
-	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*RouteResponse, error)
 }
 
 type routerClient struct {
@@ -55,15 +53,6 @@ type routerClient struct {
 
 func NewRouterClient(cc grpc.ClientConnInterface) RouterClient {
 	return &routerClient{cc}
-}
-
-func (c *routerClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*RouteResponse, error) {
-	out := new(RouteResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Router/Create", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *routerClient) Route(ctx context.Context, in *RouteRequest, opts ...grpc.CallOption) (*RouteResponse, error) {
@@ -75,20 +64,10 @@ func (c *routerClient) Route(ctx context.Context, in *RouteRequest, opts ...grpc
 	return out, nil
 }
 
-func (c *routerClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*RouteResponse, error) {
-	out := new(RouteResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Router/Delete", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // RouterServer is the server API for Router service.
 // All implementations must embed UnimplementedRouterServer
 // for forward compatibility
 type RouterServer interface {
-	Create(context.Context, *CreateRequest) (*RouteResponse, error)
 	// Fetch routing information for tables. The smallest unit is the complete
 	// routing information(all regions) of a table.
 	//
@@ -112,7 +91,6 @@ type RouterServer interface {
 	//
 	// ```
 	Route(context.Context, *RouteRequest) (*RouteResponse, error)
-	Delete(context.Context, *DeleteRequest) (*RouteResponse, error)
 	mustEmbedUnimplementedRouterServer()
 }
 
@@ -120,14 +98,8 @@ type RouterServer interface {
 type UnimplementedRouterServer struct {
 }
 
-func (UnimplementedRouterServer) Create(context.Context, *CreateRequest) (*RouteResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
-}
 func (UnimplementedRouterServer) Route(context.Context, *RouteRequest) (*RouteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Route not implemented")
-}
-func (UnimplementedRouterServer) Delete(context.Context, *DeleteRequest) (*RouteResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 func (UnimplementedRouterServer) mustEmbedUnimplementedRouterServer() {}
 
@@ -140,24 +112,6 @@ type UnsafeRouterServer interface {
 
 func RegisterRouterServer(s grpc.ServiceRegistrar, srv RouterServer) {
 	s.RegisterService(&Router_ServiceDesc, srv)
-}
-
-func _Router_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouterServer).Create(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/greptime.v1.meta.Router/Create",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouterServer).Create(ctx, req.(*CreateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _Router_Route_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -178,24 +132,6 @@ func _Router_Route_Handler(srv interface{}, ctx context.Context, dec func(interf
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Router_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RouterServer).Delete(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/greptime.v1.meta.Router/Delete",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RouterServer).Delete(ctx, req.(*DeleteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Router_ServiceDesc is the grpc.ServiceDesc for Router service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -204,16 +140,8 @@ var Router_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*RouterServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Create",
-			Handler:    _Router_Create_Handler,
-		},
-		{
 			MethodName: "Route",
 			Handler:    _Router_Route_Handler,
-		},
-		{
-			MethodName: "Delete",
-			Handler:    _Router_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
