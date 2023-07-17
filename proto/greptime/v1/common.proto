@@ -20,8 +20,6 @@ option java_package = "io.greptime.v1";
 option java_outer_classname = "Common";
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
-message ResponseHeader {}
-
 message RequestHeader {
   // The `catalog` that is selected to be used in this request.
   string catalog = 1;
@@ -35,6 +33,16 @@ message RequestHeader {
   optional uint64 trace_id = 5;
   // SpanID of request
   optional uint64 span_id = 6;
+}
+
+message ResponseHeader {
+  Status status = 1;
+}
+
+message Status {
+  // Corresponding to the `StatusCode` definition of GreptimeDB
+  uint32 status_code = 1;
+  string err_msg = 2;
 }
 
 message AuthHeader {
