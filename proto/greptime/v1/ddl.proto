@@ -34,6 +34,7 @@ message DdlRequest {
     DropTableExpr drop_table = 4;
     FlushTableExpr flush_table = 5;
     CompactTableExpr compact_table = 6;
+    TruncateTableExpr truncate_table = 7;
   }
 }
 
@@ -91,6 +92,13 @@ message CompactTableExpr {
 message CreateDatabaseExpr {
   string database_name = 1;
   bool create_if_not_exists = 2;
+}
+
+message TruncateTableExpr {
+  string catalog_name = 1;
+  string schema_name = 2;
+  string table_name = 3;
+  TableId table_id = 4;
 }
 
 message AddColumns { repeated AddColumn add_columns = 1; }

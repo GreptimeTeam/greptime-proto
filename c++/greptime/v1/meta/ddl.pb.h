@@ -66,6 +66,9 @@ extern SubmitDdlTaskRequestDefaultTypeInternal _SubmitDdlTaskRequest_default_ins
 class SubmitDdlTaskResponse;
 struct SubmitDdlTaskResponseDefaultTypeInternal;
 extern SubmitDdlTaskResponseDefaultTypeInternal _SubmitDdlTaskResponse_default_instance_;
+class TruncateTableTask;
+struct TruncateTableTaskDefaultTypeInternal;
+extern TruncateTableTaskDefaultTypeInternal _TruncateTableTask_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
@@ -75,6 +78,7 @@ template<> ::greptime::v1::meta::CreateTableTask* Arena::CreateMaybeMessage<::gr
 template<> ::greptime::v1::meta::DropTableTask* Arena::CreateMaybeMessage<::greptime::v1::meta::DropTableTask>(Arena*);
 template<> ::greptime::v1::meta::SubmitDdlTaskRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::SubmitDdlTaskRequest>(Arena*);
 template<> ::greptime::v1::meta::SubmitDdlTaskResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::SubmitDdlTaskResponse>(Arena*);
+template<> ::greptime::v1::meta::TruncateTableTask* Arena::CreateMaybeMessage<::greptime::v1::meta::TruncateTableTask>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -614,6 +618,163 @@ class AlterTableTask final :
 };
 // -------------------------------------------------------------------
 
+class TruncateTableTask final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.TruncateTableTask) */ {
+ public:
+  inline TruncateTableTask() : TruncateTableTask(nullptr) {}
+  ~TruncateTableTask() override;
+  explicit PROTOBUF_CONSTEXPR TruncateTableTask(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TruncateTableTask(const TruncateTableTask& from);
+  TruncateTableTask(TruncateTableTask&& from) noexcept
+    : TruncateTableTask() {
+    *this = ::std::move(from);
+  }
+
+  inline TruncateTableTask& operator=(const TruncateTableTask& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TruncateTableTask& operator=(TruncateTableTask&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TruncateTableTask& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TruncateTableTask* internal_default_instance() {
+    return reinterpret_cast<const TruncateTableTask*>(
+               &_TruncateTableTask_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(TruncateTableTask& a, TruncateTableTask& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TruncateTableTask* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TruncateTableTask* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TruncateTableTask* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TruncateTableTask>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TruncateTableTask& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const TruncateTableTask& from) {
+    TruncateTableTask::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TruncateTableTask* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.TruncateTableTask";
+  }
+  protected:
+  explicit TruncateTableTask(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTruncateTableFieldNumber = 1,
+  };
+  // .greptime.v1.TruncateTableExpr truncate_table = 1;
+  bool has_truncate_table() const;
+  private:
+  bool _internal_has_truncate_table() const;
+  public:
+  void clear_truncate_table();
+  const ::greptime::v1::TruncateTableExpr& truncate_table() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TruncateTableExpr* release_truncate_table();
+  ::greptime::v1::TruncateTableExpr* mutable_truncate_table();
+  void set_allocated_truncate_table(::greptime::v1::TruncateTableExpr* truncate_table);
+  private:
+  const ::greptime::v1::TruncateTableExpr& _internal_truncate_table() const;
+  ::greptime::v1::TruncateTableExpr* _internal_mutable_truncate_table();
+  public:
+  void unsafe_arena_set_allocated_truncate_table(
+      ::greptime::v1::TruncateTableExpr* truncate_table);
+  ::greptime::v1::TruncateTableExpr* unsafe_arena_release_truncate_table();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.TruncateTableTask)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::TruncateTableExpr* truncate_table_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class SubmitDdlTaskRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.SubmitDdlTaskRequest) */ {
  public:
@@ -661,6 +822,7 @@ class SubmitDdlTaskRequest final :
     kCreateTableTask = 2,
     kDropTableTask = 3,
     kAlterTableTask = 4,
+    kTruncateTableTask = 5,
     TASK_NOT_SET = 0,
   };
 
@@ -669,7 +831,7 @@ class SubmitDdlTaskRequest final :
                &_SubmitDdlTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(SubmitDdlTaskRequest& a, SubmitDdlTaskRequest& b) {
     a.Swap(&b);
@@ -746,6 +908,7 @@ class SubmitDdlTaskRequest final :
     kCreateTableTaskFieldNumber = 2,
     kDropTableTaskFieldNumber = 3,
     kAlterTableTaskFieldNumber = 4,
+    kTruncateTableTaskFieldNumber = 5,
   };
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -819,6 +982,24 @@ class SubmitDdlTaskRequest final :
       ::greptime::v1::meta::AlterTableTask* alter_table_task);
   ::greptime::v1::meta::AlterTableTask* unsafe_arena_release_alter_table_task();
 
+  // .greptime.v1.meta.TruncateTableTask truncate_table_task = 5;
+  bool has_truncate_table_task() const;
+  private:
+  bool _internal_has_truncate_table_task() const;
+  public:
+  void clear_truncate_table_task();
+  const ::greptime::v1::meta::TruncateTableTask& truncate_table_task() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::TruncateTableTask* release_truncate_table_task();
+  ::greptime::v1::meta::TruncateTableTask* mutable_truncate_table_task();
+  void set_allocated_truncate_table_task(::greptime::v1::meta::TruncateTableTask* truncate_table_task);
+  private:
+  const ::greptime::v1::meta::TruncateTableTask& _internal_truncate_table_task() const;
+  ::greptime::v1::meta::TruncateTableTask* _internal_mutable_truncate_table_task();
+  public:
+  void unsafe_arena_set_allocated_truncate_table_task(
+      ::greptime::v1::meta::TruncateTableTask* truncate_table_task);
+  ::greptime::v1::meta::TruncateTableTask* unsafe_arena_release_truncate_table_task();
+
   void clear_task();
   TaskCase task_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.SubmitDdlTaskRequest)
@@ -827,6 +1008,7 @@ class SubmitDdlTaskRequest final :
   void set_has_create_table_task();
   void set_has_drop_table_task();
   void set_has_alter_table_task();
+  void set_has_truncate_table_task();
 
   inline bool has_task() const;
   inline void clear_has_task();
@@ -842,6 +1024,7 @@ class SubmitDdlTaskRequest final :
       ::greptime::v1::meta::CreateTableTask* create_table_task_;
       ::greptime::v1::meta::DropTableTask* drop_table_task_;
       ::greptime::v1::meta::AlterTableTask* alter_table_task_;
+      ::greptime::v1::meta::TruncateTableTask* truncate_table_task_;
     } task_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -900,7 +1083,7 @@ class SubmitDdlTaskResponse final :
                &_SubmitDdlTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(SubmitDdlTaskResponse& a, SubmitDdlTaskResponse& b) {
     a.Swap(&b);
@@ -1406,6 +1589,95 @@ inline void AlterTableTask::set_allocated_alter_table(::greptime::v1::AlterExpr*
 
 // -------------------------------------------------------------------
 
+// TruncateTableTask
+
+// .greptime.v1.TruncateTableExpr truncate_table = 1;
+inline bool TruncateTableTask::_internal_has_truncate_table() const {
+  return this != internal_default_instance() && _impl_.truncate_table_ != nullptr;
+}
+inline bool TruncateTableTask::has_truncate_table() const {
+  return _internal_has_truncate_table();
+}
+inline const ::greptime::v1::TruncateTableExpr& TruncateTableTask::_internal_truncate_table() const {
+  const ::greptime::v1::TruncateTableExpr* p = _impl_.truncate_table_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TruncateTableExpr&>(
+      ::greptime::v1::_TruncateTableExpr_default_instance_);
+}
+inline const ::greptime::v1::TruncateTableExpr& TruncateTableTask::truncate_table() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.TruncateTableTask.truncate_table)
+  return _internal_truncate_table();
+}
+inline void TruncateTableTask::unsafe_arena_set_allocated_truncate_table(
+    ::greptime::v1::TruncateTableExpr* truncate_table) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.truncate_table_);
+  }
+  _impl_.truncate_table_ = truncate_table;
+  if (truncate_table) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.TruncateTableTask.truncate_table)
+}
+inline ::greptime::v1::TruncateTableExpr* TruncateTableTask::release_truncate_table() {
+  
+  ::greptime::v1::TruncateTableExpr* temp = _impl_.truncate_table_;
+  _impl_.truncate_table_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::TruncateTableExpr* TruncateTableTask::unsafe_arena_release_truncate_table() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.TruncateTableTask.truncate_table)
+  
+  ::greptime::v1::TruncateTableExpr* temp = _impl_.truncate_table_;
+  _impl_.truncate_table_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::TruncateTableExpr* TruncateTableTask::_internal_mutable_truncate_table() {
+  
+  if (_impl_.truncate_table_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::TruncateTableExpr>(GetArenaForAllocation());
+    _impl_.truncate_table_ = p;
+  }
+  return _impl_.truncate_table_;
+}
+inline ::greptime::v1::TruncateTableExpr* TruncateTableTask::mutable_truncate_table() {
+  ::greptime::v1::TruncateTableExpr* _msg = _internal_mutable_truncate_table();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.TruncateTableTask.truncate_table)
+  return _msg;
+}
+inline void TruncateTableTask::set_allocated_truncate_table(::greptime::v1::TruncateTableExpr* truncate_table) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.truncate_table_);
+  }
+  if (truncate_table) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(truncate_table));
+    if (message_arena != submessage_arena) {
+      truncate_table = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, truncate_table, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.truncate_table_ = truncate_table;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.TruncateTableTask.truncate_table)
+}
+
+// -------------------------------------------------------------------
+
 // SubmitDdlTaskRequest
 
 // .greptime.v1.meta.RequestHeader header = 1;
@@ -1715,6 +1987,80 @@ inline ::greptime::v1::meta::AlterTableTask* SubmitDdlTaskRequest::mutable_alter
   return _msg;
 }
 
+// .greptime.v1.meta.TruncateTableTask truncate_table_task = 5;
+inline bool SubmitDdlTaskRequest::_internal_has_truncate_table_task() const {
+  return task_case() == kTruncateTableTask;
+}
+inline bool SubmitDdlTaskRequest::has_truncate_table_task() const {
+  return _internal_has_truncate_table_task();
+}
+inline void SubmitDdlTaskRequest::set_has_truncate_table_task() {
+  _impl_._oneof_case_[0] = kTruncateTableTask;
+}
+inline void SubmitDdlTaskRequest::clear_truncate_table_task() {
+  if (_internal_has_truncate_table_task()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.task_.truncate_table_task_;
+    }
+    clear_has_task();
+  }
+}
+inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::release_truncate_table_task() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+  if (_internal_has_truncate_table_task()) {
+    clear_has_task();
+    ::greptime::v1::meta::TruncateTableTask* temp = _impl_.task_.truncate_table_task_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.task_.truncate_table_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::meta::TruncateTableTask& SubmitDdlTaskRequest::_internal_truncate_table_task() const {
+  return _internal_has_truncate_table_task()
+      ? *_impl_.task_.truncate_table_task_
+      : reinterpret_cast< ::greptime::v1::meta::TruncateTableTask&>(::greptime::v1::meta::_TruncateTableTask_default_instance_);
+}
+inline const ::greptime::v1::meta::TruncateTableTask& SubmitDdlTaskRequest::truncate_table_task() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+  return _internal_truncate_table_task();
+}
+inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::unsafe_arena_release_truncate_table_task() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+  if (_internal_has_truncate_table_task()) {
+    clear_has_task();
+    ::greptime::v1::meta::TruncateTableTask* temp = _impl_.task_.truncate_table_task_;
+    _impl_.task_.truncate_table_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_truncate_table_task(::greptime::v1::meta::TruncateTableTask* truncate_table_task) {
+  clear_task();
+  if (truncate_table_task) {
+    set_has_truncate_table_task();
+    _impl_.task_.truncate_table_task_ = truncate_table_task;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+}
+inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::_internal_mutable_truncate_table_task() {
+  if (!_internal_has_truncate_table_task()) {
+    clear_task();
+    set_has_truncate_table_task();
+    _impl_.task_.truncate_table_task_ = CreateMaybeMessage< ::greptime::v1::meta::TruncateTableTask >(GetArenaForAllocation());
+  }
+  return _impl_.task_.truncate_table_task_;
+}
+inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::mutable_truncate_table_task() {
+  ::greptime::v1::meta::TruncateTableTask* _msg = _internal_mutable_truncate_table_task();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+  return _msg;
+}
+
 inline bool SubmitDdlTaskRequest::has_task() const {
   return task_case() != TASK_NOT_SET;
 }
@@ -1951,6 +2297,8 @@ inline void SubmitDdlTaskResponse::set_allocated_table_id(::greptime::v1::meta::
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
