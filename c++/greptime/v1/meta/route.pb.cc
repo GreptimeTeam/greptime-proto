@@ -25,8 +25,7 @@ namespace v1 {
 namespace meta {
 PROTOBUF_CONSTEXPR RouteRequest::RouteRequest(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.table_names_)*/{}
-  , /*decltype(_impl_.table_ids_)*/{}
+    /*decltype(_impl_.table_ids_)*/{}
   , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RouteRequestDefaultTypeInternal {
@@ -168,7 +167,6 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets[] PROTO
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RouteRequest, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RouteRequest, _impl_.table_names_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RouteRequest, _impl_.table_ids_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RouteResponse, _internal_metadata_),
@@ -244,14 +242,14 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets[] PROTO
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::RouteRequest)},
-  { 9, -1, -1, sizeof(::greptime::v1::meta::RouteResponse)},
-  { 18, -1, -1, sizeof(::greptime::v1::meta::TableRoute)},
-  { 26, -1, -1, sizeof(::greptime::v1::meta::RegionRoute)},
-  { 35, -1, -1, sizeof(::greptime::v1::meta::Table)},
-  { 44, 52, -1, sizeof(::greptime::v1::meta::Region_AttrsEntry_DoNotUse)},
-  { 54, -1, -1, sizeof(::greptime::v1::meta::Region)},
-  { 64, -1, -1, sizeof(::greptime::v1::meta::Partition)},
-  { 72, -1, -1, sizeof(::greptime::v1::meta::TableRouteValue)},
+  { 8, -1, -1, sizeof(::greptime::v1::meta::RouteResponse)},
+  { 17, -1, -1, sizeof(::greptime::v1::meta::TableRoute)},
+  { 25, -1, -1, sizeof(::greptime::v1::meta::RegionRoute)},
+  { 34, -1, -1, sizeof(::greptime::v1::meta::Table)},
+  { 43, 51, -1, sizeof(::greptime::v1::meta::Region_AttrsEntry_DoNotUse)},
+  { 53, -1, -1, sizeof(::greptime::v1::meta::Region)},
+  { 63, -1, -1, sizeof(::greptime::v1::meta::Partition)},
+  { 71, -1, -1, sizeof(::greptime::v1::meta::TableRouteValue)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -269,42 +267,41 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\034greptime/v1/meta/route.proto\022\020greptime"
   ".v1.meta\032\035greptime/v1/meta/common.proto\""
-  "\237\001\n\014RouteRequest\022/\n\006header\030\001 \001(\0132\037.grept"
-  "ime.v1.meta.RequestHeader\0220\n\013table_names"
-  "\030\002 \003(\0132\033.greptime.v1.meta.TableName\022,\n\tt"
-  "able_ids\030\003 \003(\0132\031.greptime.v1.meta.TableI"
-  "d\"\234\001\n\rRouteResponse\0220\n\006header\030\001 \001(\0132 .gr"
-  "eptime.v1.meta.ResponseHeader\022%\n\005peers\030\002"
-  " \003(\0132\026.greptime.v1.meta.Peer\0222\n\014table_ro"
-  "utes\030\003 \003(\0132\034.greptime.v1.meta.TableRoute"
-  "\"j\n\nTableRoute\022&\n\005table\030\001 \001(\0132\027.greptime"
-  ".v1.meta.Table\0224\n\rregion_routes\030\002 \003(\0132\035."
-  "greptime.v1.meta.RegionRoute\"q\n\013RegionRo"
-  "ute\022(\n\006region\030\001 \001(\0132\030.greptime.v1.meta.R"
-  "egion\022\031\n\021leader_peer_index\030\002 \001(\004\022\035\n\025foll"
-  "ower_peer_indexes\030\003 \003(\004\"Z\n\005Table\022\n\n\002id\030\001"
-  " \001(\004\022/\n\ntable_name\030\002 \001(\0132\033.greptime.v1.m"
-  "eta.TableName\022\024\n\014table_schema\030\003 \001(\014\"\264\001\n\006"
-  "Region\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022.\n\tpart"
-  "ition\030\003 \001(\0132\033.greptime.v1.meta.Partition"
-  "\0222\n\005attrs\030d \003(\0132#.greptime.v1.meta.Regio"
-  "n.AttrsEntry\032,\n\nAttrsEntry\022\013\n\003key\030\001 \001(\t\022"
-  "\r\n\005value\030\002 \001(\t:\0028\001\"4\n\tPartition\022\023\n\013colum"
-  "n_list\030\001 \003(\014\022\022\n\nvalue_list\030\002 \003(\014\"k\n\017Tabl"
-  "eRouteValue\022%\n\005peers\030\001 \003(\0132\026.greptime.v1"
-  ".meta.Peer\0221\n\013table_route\030\002 \001(\0132\034.grepti"
-  "me.v1.meta.TableRoute2T\n\006Router\022J\n\005Route"
-  "\022\036.greptime.v1.meta.RouteRequest\032\037.grept"
-  "ime.v1.meta.RouteResponse\"\000B<Z:github.co"
-  "m/GreptimeTeam/greptime-proto/go/greptim"
-  "e/v1/metab\006proto3"
+  "m\n\014RouteRequest\022/\n\006header\030\001 \001(\0132\037.grepti"
+  "me.v1.meta.RequestHeader\022,\n\ttable_ids\030\002 "
+  "\003(\0132\031.greptime.v1.meta.TableId\"\234\001\n\rRoute"
+  "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
+  "eta.ResponseHeader\022%\n\005peers\030\002 \003(\0132\026.grep"
+  "time.v1.meta.Peer\0222\n\014table_routes\030\003 \003(\0132"
+  "\034.greptime.v1.meta.TableRoute\"j\n\nTableRo"
+  "ute\022&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Ta"
+  "ble\0224\n\rregion_routes\030\002 \003(\0132\035.greptime.v1"
+  ".meta.RegionRoute\"q\n\013RegionRoute\022(\n\006regi"
+  "on\030\001 \001(\0132\030.greptime.v1.meta.Region\022\031\n\021le"
+  "ader_peer_index\030\002 \001(\004\022\035\n\025follower_peer_i"
+  "ndexes\030\003 \003(\004\"Z\n\005Table\022\n\n\002id\030\001 \001(\004\022/\n\ntab"
+  "le_name\030\002 \001(\0132\033.greptime.v1.meta.TableNa"
+  "me\022\024\n\014table_schema\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002i"
+  "d\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\013"
+  "2\033.greptime.v1.meta.Partition\0222\n\005attrs\030d"
+  " \003(\0132#.greptime.v1.meta.Region.AttrsEntr"
+  "y\032,\n\nAttrsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 "
+  "\001(\t:\0028\001\"4\n\tPartition\022\023\n\013column_list\030\001 \003("
+  "\014\022\022\n\nvalue_list\030\002 \003(\014\"k\n\017TableRouteValue"
+  "\022%\n\005peers\030\001 \003(\0132\026.greptime.v1.meta.Peer\022"
+  "1\n\013table_route\030\002 \001(\0132\034.greptime.v1.meta."
+  "TableRoute2T\n\006Router\022J\n\005Route\022\036.greptime"
+  ".v1.meta.RouteRequest\032\037.greptime.v1.meta"
+  ".RouteResponse\"\000B<Z:github.com/GreptimeT"
+  "eam/greptime-proto/go/greptime/v1/metab\006"
+  "proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto = {
-    false, false, 1217, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
+    false, false, 1166, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
     "greptime/v1/meta/route.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps, 1, 9,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets,
@@ -338,9 +335,6 @@ void RouteRequest::clear_header() {
   }
   _impl_.header_ = nullptr;
 }
-void RouteRequest::clear_table_names() {
-  _impl_.table_names_.Clear();
-}
 void RouteRequest::clear_table_ids() {
   _impl_.table_ids_.Clear();
 }
@@ -354,8 +348,7 @@ RouteRequest::RouteRequest(const RouteRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   RouteRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.table_names_){from._impl_.table_names_}
-    , decltype(_impl_.table_ids_){from._impl_.table_ids_}
+      decltype(_impl_.table_ids_){from._impl_.table_ids_}
     , decltype(_impl_.header_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -371,8 +364,7 @@ inline void RouteRequest::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.table_names_){arena}
-    , decltype(_impl_.table_ids_){arena}
+      decltype(_impl_.table_ids_){arena}
     , decltype(_impl_.header_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -389,7 +381,6 @@ RouteRequest::~RouteRequest() {
 
 inline void RouteRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.table_names_.~RepeatedPtrField();
   _impl_.table_ids_.~RepeatedPtrField();
   if (this != internal_default_instance()) delete _impl_.header_;
 }
@@ -404,7 +395,6 @@ void RouteRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.table_names_.Clear();
   _impl_.table_ids_.Clear();
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
@@ -427,29 +417,16 @@ const char* RouteRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // repeated .greptime.v1.meta.TableName table_names = 2;
+      // repeated .greptime.v1.meta.TableId table_ids = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_table_names(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated .greptime.v1.meta.TableId table_ids = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_table_ids(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -489,20 +466,12 @@ uint8_t* RouteRequest::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // repeated .greptime.v1.meta.TableName table_names = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_table_names_size()); i < n; i++) {
-    const auto& repfield = this->_internal_table_names(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
-  }
-
-  // repeated .greptime.v1.meta.TableId table_ids = 3;
+  // repeated .greptime.v1.meta.TableId table_ids = 2;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_table_ids_size()); i < n; i++) {
     const auto& repfield = this->_internal_table_ids(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -521,14 +490,7 @@ size_t RouteRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.meta.TableName table_names = 2;
-  total_size += 1UL * this->_internal_table_names_size();
-  for (const auto& msg : this->_impl_.table_names_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .greptime.v1.meta.TableId table_ids = 3;
+  // repeated .greptime.v1.meta.TableId table_ids = 2;
   total_size += 1UL * this->_internal_table_ids_size();
   for (const auto& msg : this->_impl_.table_ids_) {
     total_size +=
@@ -560,7 +522,6 @@ void RouteRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.table_names_.MergeFrom(from._impl_.table_names_);
   _this->_impl_.table_ids_.MergeFrom(from._impl_.table_ids_);
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::meta::RequestHeader::MergeFrom(
@@ -583,7 +544,6 @@ bool RouteRequest::IsInitialized() const {
 void RouteRequest::InternalSwap(RouteRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.table_names_.InternalSwap(&other->_impl_.table_names_);
   _impl_.table_ids_.InternalSwap(&other->_impl_.table_ids_);
   swap(_impl_.header_, other->_impl_.header_);
 }

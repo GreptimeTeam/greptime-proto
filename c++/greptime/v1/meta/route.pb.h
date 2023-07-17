@@ -219,29 +219,10 @@ class RouteRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTableNamesFieldNumber = 2,
-    kTableIdsFieldNumber = 3,
+    kTableIdsFieldNumber = 2,
     kHeaderFieldNumber = 1,
   };
-  // repeated .greptime.v1.meta.TableName table_names = 2;
-  int table_names_size() const;
-  private:
-  int _internal_table_names_size() const;
-  public:
-  void clear_table_names();
-  ::greptime::v1::meta::TableName* mutable_table_names(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableName >*
-      mutable_table_names();
-  private:
-  const ::greptime::v1::meta::TableName& _internal_table_names(int index) const;
-  ::greptime::v1::meta::TableName* _internal_add_table_names();
-  public:
-  const ::greptime::v1::meta::TableName& table_names(int index) const;
-  ::greptime::v1::meta::TableName* add_table_names();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableName >&
-      table_names() const;
-
-  // repeated .greptime.v1.meta.TableId table_ids = 3;
+  // repeated .greptime.v1.meta.TableId table_ids = 2;
   int table_ids_size() const;
   private:
   int _internal_table_ids_size() const;
@@ -285,7 +266,6 @@ class RouteRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableName > table_names_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId > table_ids_;
     ::greptime::v1::meta::RequestHeader* header_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1744,44 +1724,7 @@ inline void RouteRequest::set_allocated_header(::greptime::v1::meta::RequestHead
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.RouteRequest.header)
 }
 
-// repeated .greptime.v1.meta.TableName table_names = 2;
-inline int RouteRequest::_internal_table_names_size() const {
-  return _impl_.table_names_.size();
-}
-inline int RouteRequest::table_names_size() const {
-  return _internal_table_names_size();
-}
-inline ::greptime::v1::meta::TableName* RouteRequest::mutable_table_names(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RouteRequest.table_names)
-  return _impl_.table_names_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableName >*
-RouteRequest::mutable_table_names() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RouteRequest.table_names)
-  return &_impl_.table_names_;
-}
-inline const ::greptime::v1::meta::TableName& RouteRequest::_internal_table_names(int index) const {
-  return _impl_.table_names_.Get(index);
-}
-inline const ::greptime::v1::meta::TableName& RouteRequest::table_names(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RouteRequest.table_names)
-  return _internal_table_names(index);
-}
-inline ::greptime::v1::meta::TableName* RouteRequest::_internal_add_table_names() {
-  return _impl_.table_names_.Add();
-}
-inline ::greptime::v1::meta::TableName* RouteRequest::add_table_names() {
-  ::greptime::v1::meta::TableName* _add = _internal_add_table_names();
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.RouteRequest.table_names)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableName >&
-RouteRequest::table_names() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.RouteRequest.table_names)
-  return _impl_.table_names_;
-}
-
-// repeated .greptime.v1.meta.TableId table_ids = 3;
+// repeated .greptime.v1.meta.TableId table_ids = 2;
 inline int RouteRequest::_internal_table_ids_size() const {
   return _impl_.table_ids_.size();
 }
