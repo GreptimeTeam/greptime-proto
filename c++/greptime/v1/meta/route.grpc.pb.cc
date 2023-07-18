@@ -24,9 +24,7 @@ namespace v1 {
 namespace meta {
 
 static const char* Router_method_names[] = {
-  "/greptime.v1.meta.Router/Create",
   "/greptime.v1.meta.Router/Route",
-  "/greptime.v1.meta.Router/Delete",
 };
 
 std::unique_ptr< Router::Stub> Router::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -36,33 +34,8 @@ std::unique_ptr< Router::Stub> Router::NewStub(const std::shared_ptr< ::grpc::Ch
 }
 
 Router::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_Create_(Router_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Route_(Router_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Delete_(Router_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_Route_(Router_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
-
-::grpc::Status Router::Stub::Create(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::greptime::v1::meta::RouteResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::CreateRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Create_, context, request, response);
-}
-
-void Router::Stub::async::Create(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest* request, ::greptime::v1::meta::RouteResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::meta::CreateRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, std::move(f));
-}
-
-void Router::Stub::async::Create(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest* request, ::greptime::v1::meta::RouteResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* Router::Stub::PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::meta::RouteResponse, ::greptime::v1::meta::CreateRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Create_, context, request);
-}
-
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* Router::Stub::AsyncCreateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-  auto* result =
-    this->PrepareAsyncCreateRaw(context, request, cq);
-  result->StartCall();
-  return result;
-}
 
 ::grpc::Status Router::Stub::Route(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::greptime::v1::meta::RouteResponse* response) {
   return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::RouteRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Route_, context, request, response);
@@ -87,42 +60,9 @@ void Router::Stub::async::Route(::grpc::ClientContext* context, const ::greptime
   return result;
 }
 
-::grpc::Status Router::Stub::Delete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::greptime::v1::meta::RouteResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::DeleteRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Delete_, context, request, response);
-}
-
-void Router::Stub::async::Delete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest* request, ::greptime::v1::meta::RouteResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::meta::DeleteRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, std::move(f));
-}
-
-void Router::Stub::async::Delete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest* request, ::greptime::v1::meta::RouteResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* Router::Stub::PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::meta::RouteResponse, ::greptime::v1::meta::DeleteRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Delete_, context, request);
-}
-
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* Router::Stub::AsyncDeleteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-  auto* result =
-    this->PrepareAsyncDeleteRaw(context, request, cq);
-  result->StartCall();
-  return result;
-}
-
 Router::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Router_method_names[0],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Router::Service, ::greptime::v1::meta::CreateRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](Router::Service* service,
-             ::grpc::ServerContext* ctx,
-             const ::greptime::v1::meta::CreateRequest* req,
-             ::greptime::v1::meta::RouteResponse* resp) {
-               return service->Create(ctx, req, resp);
-             }, this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Router_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Router::Service, ::greptime::v1::meta::RouteRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Router::Service* service,
@@ -131,36 +71,12 @@ Router::Service::Service() {
              ::greptime::v1::meta::RouteResponse* resp) {
                return service->Route(ctx, req, resp);
              }, this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Router_method_names[2],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Router::Service, ::greptime::v1::meta::DeleteRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](Router::Service* service,
-             ::grpc::ServerContext* ctx,
-             const ::greptime::v1::meta::DeleteRequest* req,
-             ::greptime::v1::meta::RouteResponse* resp) {
-               return service->Delete(ctx, req, resp);
-             }, this)));
 }
 
 Router::Service::~Service() {
 }
 
-::grpc::Status Router::Service::Create(::grpc::ServerContext* context, const ::greptime::v1::meta::CreateRequest* request, ::greptime::v1::meta::RouteResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
 ::grpc::Status Router::Service::Route(::grpc::ServerContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status Router::Service::Delete(::grpc::ServerContext* context, const ::greptime::v1::meta::DeleteRequest* request, ::greptime::v1::meta::RouteResponse* response) {
   (void) context;
   (void) request;
   (void) response;

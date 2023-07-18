@@ -52,13 +52,6 @@ class Router final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status Create(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::greptime::v1::meta::RouteResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>> AsyncCreate(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>>(AsyncCreateRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>> PrepareAsyncCreate(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>>(PrepareAsyncCreateRaw(context, request, cq));
-    }
     // Fetch routing information for tables. The smallest unit is the complete
     // routing information(all regions) of a table.
     //
@@ -85,18 +78,9 @@ class Router final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>> PrepareAsyncRoute(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>>(PrepareAsyncRouteRaw(context, request, cq));
     }
-    virtual ::grpc::Status Delete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::greptime::v1::meta::RouteResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>> AsyncDelete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>>(AsyncDeleteRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>> PrepareAsyncDelete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>>(PrepareAsyncDeleteRaw(context, request, cq));
-    }
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void Create(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest* request, ::greptime::v1::meta::RouteResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Create(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest* request, ::greptime::v1::meta::RouteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Fetch routing information for tables. The smallest unit is the complete
       // routing information(all regions) of a table.
       //
@@ -118,30 +102,17 @@ class Router final {
       //
       virtual void Route(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Route(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void Delete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest* request, ::greptime::v1::meta::RouteResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Delete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest* request, ::greptime::v1::meta::RouteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>* AsyncCreateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>* PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>* AsyncRouteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>* PrepareAsyncRouteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RouteResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status Create(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::greptime::v1::meta::RouteResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>> AsyncCreate(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>>(AsyncCreateRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>> PrepareAsyncCreate(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>>(PrepareAsyncCreateRaw(context, request, cq));
-    }
     ::grpc::Status Route(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::greptime::v1::meta::RouteResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>> AsyncRoute(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>>(AsyncRouteRaw(context, request, cq));
@@ -149,22 +120,11 @@ class Router final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>> PrepareAsyncRoute(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>>(PrepareAsyncRouteRaw(context, request, cq));
     }
-    ::grpc::Status Delete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::greptime::v1::meta::RouteResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>> AsyncDelete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>>(AsyncDeleteRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>> PrepareAsyncDelete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>>(PrepareAsyncDeleteRaw(context, request, cq));
-    }
     class async final :
       public StubInterface::async_interface {
      public:
-      void Create(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest* request, ::greptime::v1::meta::RouteResponse* response, std::function<void(::grpc::Status)>) override;
-      void Create(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest* request, ::greptime::v1::meta::RouteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void Route(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response, std::function<void(::grpc::Status)>) override;
       void Route(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void Delete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest* request, ::greptime::v1::meta::RouteResponse* response, std::function<void(::grpc::Status)>) override;
-      void Delete(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest* request, ::greptime::v1::meta::RouteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -176,15 +136,9 @@ class Router final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* AsyncCreateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::CreateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* AsyncRouteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* PrepareAsyncRouteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRequest& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_Create_;
     const ::grpc::internal::RpcMethod rpcmethod_Route_;
-    const ::grpc::internal::RpcMethod rpcmethod_Delete_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -192,7 +146,6 @@ class Router final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status Create(::grpc::ServerContext* context, const ::greptime::v1::meta::CreateRequest* request, ::greptime::v1::meta::RouteResponse* response);
     // Fetch routing information for tables. The smallest unit is the complete
     // routing information(all regions) of a table.
     //
@@ -213,27 +166,6 @@ class Router final {
     // ```
     //
     virtual ::grpc::Status Route(::grpc::ServerContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response);
-    virtual ::grpc::Status Delete(::grpc::ServerContext* context, const ::greptime::v1::meta::DeleteRequest* request, ::greptime::v1::meta::RouteResponse* response);
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_Create : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_Create() {
-      ::grpc::Service::MarkMethodAsync(0);
-    }
-    ~WithAsyncMethod_Create() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::CreateRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestCreate(::grpc::ServerContext* context, ::greptime::v1::meta::CreateRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::RouteResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
-    }
   };
   template <class BaseClass>
   class WithAsyncMethod_Route : public BaseClass {
@@ -241,7 +173,7 @@ class Router final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Route() {
-      ::grpc::Service::MarkMethodAsync(1);
+      ::grpc::Service::MarkMethodAsync(0);
     }
     ~WithAsyncMethod_Route() override {
       BaseClassMustBeDerivedFromService(this);
@@ -252,70 +184,23 @@ class Router final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRoute(::grpc::ServerContext* context, ::greptime::v1::meta::RouteRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::RouteResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  template <class BaseClass>
-  class WithAsyncMethod_Delete : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_Delete() {
-      ::grpc::Service::MarkMethodAsync(2);
-    }
-    ~WithAsyncMethod_Delete() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DeleteRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDelete(::grpc::ServerContext* context, ::greptime::v1::meta::DeleteRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::RouteResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_Create<WithAsyncMethod_Route<WithAsyncMethod_Delete<Service > > > AsyncService;
-  template <class BaseClass>
-  class WithCallbackMethod_Create : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_Create() {
-      ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::CreateRequest, ::greptime::v1::meta::RouteResponse>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::CreateRequest* request, ::greptime::v1::meta::RouteResponse* response) { return this->Create(context, request, response); }));}
-    void SetMessageAllocatorFor_Create(
-        ::grpc::MessageAllocator< ::greptime::v1::meta::CreateRequest, ::greptime::v1::meta::RouteResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::CreateRequest, ::greptime::v1::meta::RouteResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_Create() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::CreateRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* Create(
-      ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::CreateRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/)  { return nullptr; }
-  };
+  typedef WithAsyncMethod_Route<Service > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_Route : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_Route() {
-      ::grpc::Service::MarkMethodCallback(1,
+      ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::RouteRequest, ::greptime::v1::meta::RouteResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response) { return this->Route(context, request, response); }));}
     void SetMessageAllocatorFor_Route(
         ::grpc::MessageAllocator< ::greptime::v1::meta::RouteRequest, ::greptime::v1::meta::RouteResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::RouteRequest, ::greptime::v1::meta::RouteResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -330,59 +215,15 @@ class Router final {
     virtual ::grpc::ServerUnaryReactor* Route(
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::RouteRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/)  { return nullptr; }
   };
-  template <class BaseClass>
-  class WithCallbackMethod_Delete : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_Delete() {
-      ::grpc::Service::MarkMethodCallback(2,
-          new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::DeleteRequest, ::greptime::v1::meta::RouteResponse>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::DeleteRequest* request, ::greptime::v1::meta::RouteResponse* response) { return this->Delete(context, request, response); }));}
-    void SetMessageAllocatorFor_Delete(
-        ::grpc::MessageAllocator< ::greptime::v1::meta::DeleteRequest, ::greptime::v1::meta::RouteResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::DeleteRequest, ::greptime::v1::meta::RouteResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_Delete() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DeleteRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* Delete(
-      ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::DeleteRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/)  { return nullptr; }
-  };
-  typedef WithCallbackMethod_Create<WithCallbackMethod_Route<WithCallbackMethod_Delete<Service > > > CallbackService;
+  typedef WithCallbackMethod_Route<Service > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
-  template <class BaseClass>
-  class WithGenericMethod_Create : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_Create() {
-      ::grpc::Service::MarkMethodGeneric(0);
-    }
-    ~WithGenericMethod_Create() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::CreateRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
   template <class BaseClass>
   class WithGenericMethod_Route : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Route() {
-      ::grpc::Service::MarkMethodGeneric(1);
+      ::grpc::Service::MarkMethodGeneric(0);
     }
     ~WithGenericMethod_Route() override {
       BaseClassMustBeDerivedFromService(this);
@@ -394,49 +235,12 @@ class Router final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_Delete : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_Delete() {
-      ::grpc::Service::MarkMethodGeneric(2);
-    }
-    ~WithGenericMethod_Delete() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DeleteRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_Create : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_Create() {
-      ::grpc::Service::MarkMethodRaw(0);
-    }
-    ~WithRawMethod_Create() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::CreateRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestCreate(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithRawMethod_Route : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Route() {
-      ::grpc::Service::MarkMethodRaw(1);
+      ::grpc::Service::MarkMethodRaw(0);
     }
     ~WithRawMethod_Route() override {
       BaseClassMustBeDerivedFromService(this);
@@ -447,50 +251,8 @@ class Router final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRoute(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
-  };
-  template <class BaseClass>
-  class WithRawMethod_Delete : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_Delete() {
-      ::grpc::Service::MarkMethodRaw(2);
-    }
-    ~WithRawMethod_Delete() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DeleteRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDelete(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_Create : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_Create() {
-      ::grpc::Service::MarkMethodRawCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Create(context, request, response); }));
-    }
-    ~WithRawCallbackMethod_Create() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::CreateRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* Create(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithRawCallbackMethod_Route : public BaseClass {
@@ -498,7 +260,7 @@ class Router final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_Route() {
-      ::grpc::Service::MarkMethodRawCallback(1,
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Route(context, request, response); }));
@@ -515,61 +277,12 @@ class Router final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_Delete : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_Delete() {
-      ::grpc::Service::MarkMethodRawCallback(2,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Delete(context, request, response); }));
-    }
-    ~WithRawCallbackMethod_Delete() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DeleteRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* Delete(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_Create : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_Create() {
-      ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::greptime::v1::meta::CreateRequest, ::greptime::v1::meta::RouteResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::greptime::v1::meta::CreateRequest, ::greptime::v1::meta::RouteResponse>* streamer) {
-                       return this->StreamedCreate(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_Create() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::CreateRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedCreate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::CreateRequest,::greptime::v1::meta::RouteResponse>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
   class WithStreamedUnaryMethod_Route : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Route() {
-      ::grpc::Service::MarkMethodStreamed(1,
+      ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
           ::greptime::v1::meta::RouteRequest, ::greptime::v1::meta::RouteResponse>(
             [this](::grpc::ServerContext* context,
@@ -590,36 +303,9 @@ class Router final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedRoute(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::RouteRequest,::greptime::v1::meta::RouteResponse>* server_unary_streamer) = 0;
   };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_Delete : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_Delete() {
-      ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::greptime::v1::meta::DeleteRequest, ::greptime::v1::meta::RouteResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::greptime::v1::meta::DeleteRequest, ::greptime::v1::meta::RouteResponse>* streamer) {
-                       return this->StreamedDelete(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_Delete() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DeleteRequest* /*request*/, ::greptime::v1::meta::RouteResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDelete(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::DeleteRequest,::greptime::v1::meta::RouteResponse>* server_unary_streamer) = 0;
-  };
-  typedef WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Route<WithStreamedUnaryMethod_Delete<Service > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_Route<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Route<WithStreamedUnaryMethod_Delete<Service > > > StreamedService;
+  typedef WithStreamedUnaryMethod_Route<Service > StreamedService;
 };
 
 }  // namespace meta
