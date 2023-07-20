@@ -47,6 +47,10 @@ message AlterTableTask{
     AlterExpr alter_table = 1;
 }
 
+message TruncateTableTask {
+    TruncateTableExpr truncate_table = 1;
+}
+
 message SubmitDdlTaskRequest {
     RequestHeader header = 1;
 
@@ -54,6 +58,7 @@ message SubmitDdlTaskRequest {
         CreateTableTask create_table_task = 2;
         DropTableTask drop_table_task = 3;
         AlterTableTask alter_table_task = 4;
+        TruncateTableTask truncate_table_task = 5;
      }
 }
 
