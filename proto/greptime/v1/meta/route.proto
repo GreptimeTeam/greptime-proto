@@ -45,8 +45,7 @@ service Router {
 
 message RouteRequest {
   RequestHeader header = 1;
-  repeated TableName table_names = 2;
-  repeated TableId table_ids = 3;
+  repeated TableId table_ids = 2;
 }
 
 message RouteResponse {

@@ -34,49 +34,25 @@ public final class Route {
     greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    java.util.List<greptime.v1.meta.Common.TableName> 
-        getTableNamesList();
-    /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    greptime.v1.meta.Common.TableName getTableNames(int index);
-    /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    int getTableNamesCount();
-    /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    java.util.List<? extends greptime.v1.meta.Common.TableNameOrBuilder> 
-        getTableNamesOrBuilderList();
-    /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    greptime.v1.meta.Common.TableNameOrBuilder getTableNamesOrBuilder(
-        int index);
-
-    /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     java.util.List<greptime.v1.meta.Common.TableId> 
         getTableIdsList();
     /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     greptime.v1.meta.Common.TableId getTableIds(int index);
     /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     int getTableIdsCount();
     /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     java.util.List<? extends greptime.v1.meta.Common.TableIdOrBuilder> 
         getTableIdsOrBuilderList();
     /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     greptime.v1.meta.Common.TableIdOrBuilder getTableIdsOrBuilder(
         int index);
@@ -94,7 +70,6 @@ public final class Route {
       super(builder);
     }
     private RouteRequest() {
-      tableNames_ = java.util.Collections.emptyList();
       tableIds_ = java.util.Collections.emptyList();
     }
 
@@ -144,17 +119,8 @@ public final class Route {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                tableNames_ = new java.util.ArrayList<greptime.v1.meta.Common.TableName>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              tableNames_.add(
-                  input.readMessage(greptime.v1.meta.Common.TableName.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 tableIds_ = new java.util.ArrayList<greptime.v1.meta.Common.TableId>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               tableIds_.add(
                   input.readMessage(greptime.v1.meta.Common.TableId.parser(), extensionRegistry));
@@ -178,9 +144,6 @@ public final class Route {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          tableNames_ = java.util.Collections.unmodifiableList(tableNames_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           tableIds_ = java.util.Collections.unmodifiableList(tableIds_);
         }
         this.unknownFields = unknownFields.build();
@@ -226,57 +189,17 @@ public final class Route {
       return getHeader();
     }
 
-    public static final int TABLE_NAMES_FIELD_NUMBER = 2;
-    private java.util.List<greptime.v1.meta.Common.TableName> tableNames_;
-    /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    @java.lang.Override
-    public java.util.List<greptime.v1.meta.Common.TableName> getTableNamesList() {
-      return tableNames_;
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends greptime.v1.meta.Common.TableNameOrBuilder> 
-        getTableNamesOrBuilderList() {
-      return tableNames_;
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    @java.lang.Override
-    public int getTableNamesCount() {
-      return tableNames_.size();
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Common.TableName getTableNames(int index) {
-      return tableNames_.get(index);
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Common.TableNameOrBuilder getTableNamesOrBuilder(
-        int index) {
-      return tableNames_.get(index);
-    }
-
-    public static final int TABLE_IDS_FIELD_NUMBER = 3;
+    public static final int TABLE_IDS_FIELD_NUMBER = 2;
     private java.util.List<greptime.v1.meta.Common.TableId> tableIds_;
     /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     @java.lang.Override
     public java.util.List<greptime.v1.meta.Common.TableId> getTableIdsList() {
       return tableIds_;
     }
     /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     @java.lang.Override
     public java.util.List<? extends greptime.v1.meta.Common.TableIdOrBuilder> 
@@ -284,21 +207,21 @@ public final class Route {
       return tableIds_;
     }
     /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     @java.lang.Override
     public int getTableIdsCount() {
       return tableIds_.size();
     }
     /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     @java.lang.Override
     public greptime.v1.meta.Common.TableId getTableIds(int index) {
       return tableIds_.get(index);
     }
     /**
-     * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
      */
     @java.lang.Override
     public greptime.v1.meta.Common.TableIdOrBuilder getTableIdsOrBuilder(
@@ -323,11 +246,8 @@ public final class Route {
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      for (int i = 0; i < tableNames_.size(); i++) {
-        output.writeMessage(2, tableNames_.get(i));
-      }
       for (int i = 0; i < tableIds_.size(); i++) {
-        output.writeMessage(3, tableIds_.get(i));
+        output.writeMessage(2, tableIds_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -342,13 +262,9 @@ public final class Route {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
-      for (int i = 0; i < tableNames_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, tableNames_.get(i));
-      }
       for (int i = 0; i < tableIds_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, tableIds_.get(i));
+          .computeMessageSize(2, tableIds_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -370,8 +286,6 @@ public final class Route {
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
-      if (!getTableNamesList()
-          .equals(other.getTableNamesList())) return false;
       if (!getTableIdsList()
           .equals(other.getTableIdsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -388,10 +302,6 @@ public final class Route {
       if (hasHeader()) {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
-      }
-      if (getTableNamesCount() > 0) {
-        hash = (37 * hash) + TABLE_NAMES_FIELD_NUMBER;
-        hash = (53 * hash) + getTableNamesList().hashCode();
       }
       if (getTableIdsCount() > 0) {
         hash = (37 * hash) + TABLE_IDS_FIELD_NUMBER;
@@ -525,7 +435,6 @@ public final class Route {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getTableNamesFieldBuilder();
           getTableIdsFieldBuilder();
         }
       }
@@ -538,15 +447,9 @@ public final class Route {
           header_ = null;
           headerBuilder_ = null;
         }
-        if (tableNamesBuilder_ == null) {
-          tableNames_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          tableNamesBuilder_.clear();
-        }
         if (tableIdsBuilder_ == null) {
           tableIds_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           tableIdsBuilder_.clear();
         }
@@ -582,19 +485,10 @@ public final class Route {
         } else {
           result.header_ = headerBuilder_.build();
         }
-        if (tableNamesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            tableNames_ = java.util.Collections.unmodifiableList(tableNames_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.tableNames_ = tableNames_;
-        } else {
-          result.tableNames_ = tableNamesBuilder_.build();
-        }
         if (tableIdsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             tableIds_ = java.util.Collections.unmodifiableList(tableIds_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.tableIds_ = tableIds_;
         } else {
@@ -651,37 +545,11 @@ public final class Route {
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        if (tableNamesBuilder_ == null) {
-          if (!other.tableNames_.isEmpty()) {
-            if (tableNames_.isEmpty()) {
-              tableNames_ = other.tableNames_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureTableNamesIsMutable();
-              tableNames_.addAll(other.tableNames_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.tableNames_.isEmpty()) {
-            if (tableNamesBuilder_.isEmpty()) {
-              tableNamesBuilder_.dispose();
-              tableNamesBuilder_ = null;
-              tableNames_ = other.tableNames_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              tableNamesBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getTableNamesFieldBuilder() : null;
-            } else {
-              tableNamesBuilder_.addAllMessages(other.tableNames_);
-            }
-          }
-        }
         if (tableIdsBuilder_ == null) {
           if (!other.tableIds_.isEmpty()) {
             if (tableIds_.isEmpty()) {
               tableIds_ = other.tableIds_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureTableIdsIsMutable();
               tableIds_.addAll(other.tableIds_);
@@ -694,7 +562,7 @@ public final class Route {
               tableIdsBuilder_.dispose();
               tableIdsBuilder_ = null;
               tableIds_ = other.tableIds_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               tableIdsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTableIdsFieldBuilder() : null;
@@ -852,252 +720,12 @@ public final class Route {
         return headerBuilder_;
       }
 
-      private java.util.List<greptime.v1.meta.Common.TableName> tableNames_ =
-        java.util.Collections.emptyList();
-      private void ensureTableNamesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          tableNames_ = new java.util.ArrayList<greptime.v1.meta.Common.TableName>(tableNames_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.Common.TableName, greptime.v1.meta.Common.TableName.Builder, greptime.v1.meta.Common.TableNameOrBuilder> tableNamesBuilder_;
-
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public java.util.List<greptime.v1.meta.Common.TableName> getTableNamesList() {
-        if (tableNamesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(tableNames_);
-        } else {
-          return tableNamesBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public int getTableNamesCount() {
-        if (tableNamesBuilder_ == null) {
-          return tableNames_.size();
-        } else {
-          return tableNamesBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public greptime.v1.meta.Common.TableName getTableNames(int index) {
-        if (tableNamesBuilder_ == null) {
-          return tableNames_.get(index);
-        } else {
-          return tableNamesBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public Builder setTableNames(
-          int index, greptime.v1.meta.Common.TableName value) {
-        if (tableNamesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTableNamesIsMutable();
-          tableNames_.set(index, value);
-          onChanged();
-        } else {
-          tableNamesBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public Builder setTableNames(
-          int index, greptime.v1.meta.Common.TableName.Builder builderForValue) {
-        if (tableNamesBuilder_ == null) {
-          ensureTableNamesIsMutable();
-          tableNames_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          tableNamesBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public Builder addTableNames(greptime.v1.meta.Common.TableName value) {
-        if (tableNamesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTableNamesIsMutable();
-          tableNames_.add(value);
-          onChanged();
-        } else {
-          tableNamesBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public Builder addTableNames(
-          int index, greptime.v1.meta.Common.TableName value) {
-        if (tableNamesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTableNamesIsMutable();
-          tableNames_.add(index, value);
-          onChanged();
-        } else {
-          tableNamesBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public Builder addTableNames(
-          greptime.v1.meta.Common.TableName.Builder builderForValue) {
-        if (tableNamesBuilder_ == null) {
-          ensureTableNamesIsMutable();
-          tableNames_.add(builderForValue.build());
-          onChanged();
-        } else {
-          tableNamesBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public Builder addTableNames(
-          int index, greptime.v1.meta.Common.TableName.Builder builderForValue) {
-        if (tableNamesBuilder_ == null) {
-          ensureTableNamesIsMutable();
-          tableNames_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          tableNamesBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public Builder addAllTableNames(
-          java.lang.Iterable<? extends greptime.v1.meta.Common.TableName> values) {
-        if (tableNamesBuilder_ == null) {
-          ensureTableNamesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, tableNames_);
-          onChanged();
-        } else {
-          tableNamesBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public Builder clearTableNames() {
-        if (tableNamesBuilder_ == null) {
-          tableNames_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          tableNamesBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public Builder removeTableNames(int index) {
-        if (tableNamesBuilder_ == null) {
-          ensureTableNamesIsMutable();
-          tableNames_.remove(index);
-          onChanged();
-        } else {
-          tableNamesBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public greptime.v1.meta.Common.TableName.Builder getTableNamesBuilder(
-          int index) {
-        return getTableNamesFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public greptime.v1.meta.Common.TableNameOrBuilder getTableNamesOrBuilder(
-          int index) {
-        if (tableNamesBuilder_ == null) {
-          return tableNames_.get(index);  } else {
-          return tableNamesBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public java.util.List<? extends greptime.v1.meta.Common.TableNameOrBuilder> 
-           getTableNamesOrBuilderList() {
-        if (tableNamesBuilder_ != null) {
-          return tableNamesBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(tableNames_);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public greptime.v1.meta.Common.TableName.Builder addTableNamesBuilder() {
-        return getTableNamesFieldBuilder().addBuilder(
-            greptime.v1.meta.Common.TableName.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public greptime.v1.meta.Common.TableName.Builder addTableNamesBuilder(
-          int index) {
-        return getTableNamesFieldBuilder().addBuilder(
-            index, greptime.v1.meta.Common.TableName.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.TableName table_names = 2;</code>
-       */
-      public java.util.List<greptime.v1.meta.Common.TableName.Builder> 
-           getTableNamesBuilderList() {
-        return getTableNamesFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.Common.TableName, greptime.v1.meta.Common.TableName.Builder, greptime.v1.meta.Common.TableNameOrBuilder> 
-          getTableNamesFieldBuilder() {
-        if (tableNamesBuilder_ == null) {
-          tableNamesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              greptime.v1.meta.Common.TableName, greptime.v1.meta.Common.TableName.Builder, greptime.v1.meta.Common.TableNameOrBuilder>(
-                  tableNames_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          tableNames_ = null;
-        }
-        return tableNamesBuilder_;
-      }
-
       private java.util.List<greptime.v1.meta.Common.TableId> tableIds_ =
         java.util.Collections.emptyList();
       private void ensureTableIdsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           tableIds_ = new java.util.ArrayList<greptime.v1.meta.Common.TableId>(tableIds_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -1105,7 +733,7 @@ public final class Route {
           greptime.v1.meta.Common.TableId, greptime.v1.meta.Common.TableId.Builder, greptime.v1.meta.Common.TableIdOrBuilder> tableIdsBuilder_;
 
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public java.util.List<greptime.v1.meta.Common.TableId> getTableIdsList() {
         if (tableIdsBuilder_ == null) {
@@ -1115,7 +743,7 @@ public final class Route {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public int getTableIdsCount() {
         if (tableIdsBuilder_ == null) {
@@ -1125,7 +753,7 @@ public final class Route {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public greptime.v1.meta.Common.TableId getTableIds(int index) {
         if (tableIdsBuilder_ == null) {
@@ -1135,7 +763,7 @@ public final class Route {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public Builder setTableIds(
           int index, greptime.v1.meta.Common.TableId value) {
@@ -1152,7 +780,7 @@ public final class Route {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public Builder setTableIds(
           int index, greptime.v1.meta.Common.TableId.Builder builderForValue) {
@@ -1166,7 +794,7 @@ public final class Route {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public Builder addTableIds(greptime.v1.meta.Common.TableId value) {
         if (tableIdsBuilder_ == null) {
@@ -1182,7 +810,7 @@ public final class Route {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public Builder addTableIds(
           int index, greptime.v1.meta.Common.TableId value) {
@@ -1199,7 +827,7 @@ public final class Route {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public Builder addTableIds(
           greptime.v1.meta.Common.TableId.Builder builderForValue) {
@@ -1213,7 +841,7 @@ public final class Route {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public Builder addTableIds(
           int index, greptime.v1.meta.Common.TableId.Builder builderForValue) {
@@ -1227,7 +855,7 @@ public final class Route {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public Builder addAllTableIds(
           java.lang.Iterable<? extends greptime.v1.meta.Common.TableId> values) {
@@ -1242,12 +870,12 @@ public final class Route {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public Builder clearTableIds() {
         if (tableIdsBuilder_ == null) {
           tableIds_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           tableIdsBuilder_.clear();
@@ -1255,7 +883,7 @@ public final class Route {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public Builder removeTableIds(int index) {
         if (tableIdsBuilder_ == null) {
@@ -1268,14 +896,14 @@ public final class Route {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public greptime.v1.meta.Common.TableId.Builder getTableIdsBuilder(
           int index) {
         return getTableIdsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public greptime.v1.meta.Common.TableIdOrBuilder getTableIdsOrBuilder(
           int index) {
@@ -1285,7 +913,7 @@ public final class Route {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public java.util.List<? extends greptime.v1.meta.Common.TableIdOrBuilder> 
            getTableIdsOrBuilderList() {
@@ -1296,14 +924,14 @@ public final class Route {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public greptime.v1.meta.Common.TableId.Builder addTableIdsBuilder() {
         return getTableIdsFieldBuilder().addBuilder(
             greptime.v1.meta.Common.TableId.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public greptime.v1.meta.Common.TableId.Builder addTableIdsBuilder(
           int index) {
@@ -1311,7 +939,7 @@ public final class Route {
             index, greptime.v1.meta.Common.TableId.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.meta.TableId table_ids = 3;</code>
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 2;</code>
        */
       public java.util.List<greptime.v1.meta.Common.TableId.Builder> 
            getTableIdsBuilderList() {
@@ -1324,7 +952,7 @@ public final class Route {
           tableIdsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               greptime.v1.meta.Common.TableId, greptime.v1.meta.Common.TableId.Builder, greptime.v1.meta.Common.TableIdOrBuilder>(
                   tableIds_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           tableIds_ = null;
@@ -8517,35 +8145,34 @@ java.lang.String defaultValue);
     java.lang.String[] descriptorData = {
       "\n\034greptime/v1/meta/route.proto\022\020greptime" +
       ".v1.meta\032\035greptime/v1/meta/common.proto\"" +
-      "\237\001\n\014RouteRequest\022/\n\006header\030\001 \001(\0132\037.grept" +
-      "ime.v1.meta.RequestHeader\0220\n\013table_names" +
-      "\030\002 \003(\0132\033.greptime.v1.meta.TableName\022,\n\tt" +
-      "able_ids\030\003 \003(\0132\031.greptime.v1.meta.TableI" +
-      "d\"\234\001\n\rRouteResponse\0220\n\006header\030\001 \001(\0132 .gr" +
-      "eptime.v1.meta.ResponseHeader\022%\n\005peers\030\002" +
-      " \003(\0132\026.greptime.v1.meta.Peer\0222\n\014table_ro" +
-      "utes\030\003 \003(\0132\034.greptime.v1.meta.TableRoute" +
-      "\"j\n\nTableRoute\022&\n\005table\030\001 \001(\0132\027.greptime" +
-      ".v1.meta.Table\0224\n\rregion_routes\030\002 \003(\0132\035." +
-      "greptime.v1.meta.RegionRoute\"q\n\013RegionRo" +
-      "ute\022(\n\006region\030\001 \001(\0132\030.greptime.v1.meta.R" +
-      "egion\022\031\n\021leader_peer_index\030\002 \001(\004\022\035\n\025foll" +
-      "ower_peer_indexes\030\003 \003(\004\"Z\n\005Table\022\n\n\002id\030\001" +
-      " \001(\004\022/\n\ntable_name\030\002 \001(\0132\033.greptime.v1.m" +
-      "eta.TableName\022\024\n\014table_schema\030\003 \001(\014\"\264\001\n\006" +
-      "Region\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022.\n\tpart" +
-      "ition\030\003 \001(\0132\033.greptime.v1.meta.Partition" +
-      "\0222\n\005attrs\030d \003(\0132#.greptime.v1.meta.Regio" +
-      "n.AttrsEntry\032,\n\nAttrsEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001\"4\n\tPartition\022\023\n\013colum" +
-      "n_list\030\001 \003(\014\022\022\n\nvalue_list\030\002 \003(\014\"k\n\017Tabl" +
-      "eRouteValue\022%\n\005peers\030\001 \003(\0132\026.greptime.v1" +
-      ".meta.Peer\0221\n\013table_route\030\002 \001(\0132\034.grepti" +
-      "me.v1.meta.TableRoute2T\n\006Router\022J\n\005Route" +
-      "\022\036.greptime.v1.meta.RouteRequest\032\037.grept" +
-      "ime.v1.meta.RouteResponse\"\000B<Z:github.co" +
-      "m/GreptimeTeam/greptime-proto/go/greptim" +
-      "e/v1/metab\006proto3"
+      "m\n\014RouteRequest\022/\n\006header\030\001 \001(\0132\037.grepti" +
+      "me.v1.meta.RequestHeader\022,\n\ttable_ids\030\002 " +
+      "\003(\0132\031.greptime.v1.meta.TableId\"\234\001\n\rRoute" +
+      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
+      "eta.ResponseHeader\022%\n\005peers\030\002 \003(\0132\026.grep" +
+      "time.v1.meta.Peer\0222\n\014table_routes\030\003 \003(\0132" +
+      "\034.greptime.v1.meta.TableRoute\"j\n\nTableRo" +
+      "ute\022&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Ta" +
+      "ble\0224\n\rregion_routes\030\002 \003(\0132\035.greptime.v1" +
+      ".meta.RegionRoute\"q\n\013RegionRoute\022(\n\006regi" +
+      "on\030\001 \001(\0132\030.greptime.v1.meta.Region\022\031\n\021le" +
+      "ader_peer_index\030\002 \001(\004\022\035\n\025follower_peer_i" +
+      "ndexes\030\003 \003(\004\"Z\n\005Table\022\n\n\002id\030\001 \001(\004\022/\n\ntab" +
+      "le_name\030\002 \001(\0132\033.greptime.v1.meta.TableNa" +
+      "me\022\024\n\014table_schema\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002i" +
+      "d\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\013" +
+      "2\033.greptime.v1.meta.Partition\0222\n\005attrs\030d" +
+      " \003(\0132#.greptime.v1.meta.Region.AttrsEntr" +
+      "y\032,\n\nAttrsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001\"4\n\tPartition\022\023\n\013column_list\030\001 \003(" +
+      "\014\022\022\n\nvalue_list\030\002 \003(\014\"k\n\017TableRouteValue" +
+      "\022%\n\005peers\030\001 \003(\0132\026.greptime.v1.meta.Peer\022" +
+      "1\n\013table_route\030\002 \001(\0132\034.greptime.v1.meta." +
+      "TableRoute2T\n\006Router\022J\n\005Route\022\036.greptime" +
+      ".v1.meta.RouteRequest\032\037.greptime.v1.meta" +
+      ".RouteResponse\"\000B<Z:github.com/GreptimeT" +
+      "eam/greptime-proto/go/greptime/v1/metab\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8557,7 +8184,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_RouteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RouteRequest_descriptor,
-        new java.lang.String[] { "Header", "TableNames", "TableIds", });
+        new java.lang.String[] { "Header", "TableIds", });
     internal_static_greptime_v1_meta_RouteResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_meta_RouteResponse_fieldAccessorTable = new
