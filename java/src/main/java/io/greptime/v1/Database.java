@@ -79,19 +79,19 @@ public final class Database {
     io.greptime.v1.Ddl.DdlRequestOrBuilder getDdlOrBuilder();
 
     /**
-     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
-     * @return Whether the delete field is set.
+     * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
+     * @return Whether the deletes field is set.
      */
-    boolean hasDelete();
+    boolean hasDeletes();
     /**
-     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
-     * @return The delete.
+     * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
+     * @return The deletes.
      */
-    io.greptime.v1.Database.DeleteRequest getDelete();
+    io.greptime.v1.Database.DeleteRequests getDeletes();
     /**
-     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+     * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
      */
-    io.greptime.v1.Database.DeleteRequestOrBuilder getDeleteOrBuilder();
+    io.greptime.v1.Database.DeleteRequestsOrBuilder getDeletesOrBuilder();
 
     /**
      * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
@@ -226,14 +226,14 @@ public final class Database {
               break;
             }
             case 42: {
-              io.greptime.v1.Database.DeleteRequest.Builder subBuilder = null;
+              io.greptime.v1.Database.DeleteRequests.Builder subBuilder = null;
               if (requestCase_ == 5) {
-                subBuilder = ((io.greptime.v1.Database.DeleteRequest) request_).toBuilder();
+                subBuilder = ((io.greptime.v1.Database.DeleteRequests) request_).toBuilder();
               }
               request_ =
-                  input.readMessage(io.greptime.v1.Database.DeleteRequest.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.Database.DeleteRequests.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Database.DeleteRequest) request_);
+                subBuilder.mergeFrom((io.greptime.v1.Database.DeleteRequests) request_);
                 request_ = subBuilder.buildPartial();
               }
               requestCase_ = 5;
@@ -309,7 +309,7 @@ public final class Database {
       INSERTS(2),
       QUERY(3),
       DDL(4),
-      DELETE(5),
+      DELETES(5),
       ROW_INSERTS(6),
       ROW_DELETE(7),
       REQUEST_NOT_SET(0);
@@ -332,7 +332,7 @@ public final class Database {
           case 2: return INSERTS;
           case 3: return QUERY;
           case 4: return DDL;
-          case 5: return DELETE;
+          case 5: return DELETES;
           case 6: return ROW_INSERTS;
           case 7: return ROW_DELETE;
           case 0: return REQUEST_NOT_SET;
@@ -469,35 +469,35 @@ public final class Database {
       return io.greptime.v1.Ddl.DdlRequest.getDefaultInstance();
     }
 
-    public static final int DELETE_FIELD_NUMBER = 5;
+    public static final int DELETES_FIELD_NUMBER = 5;
     /**
-     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
-     * @return Whether the delete field is set.
+     * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
+     * @return Whether the deletes field is set.
      */
     @java.lang.Override
-    public boolean hasDelete() {
+    public boolean hasDeletes() {
       return requestCase_ == 5;
     }
     /**
-     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
-     * @return The delete.
+     * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
+     * @return The deletes.
      */
     @java.lang.Override
-    public io.greptime.v1.Database.DeleteRequest getDelete() {
+    public io.greptime.v1.Database.DeleteRequests getDeletes() {
       if (requestCase_ == 5) {
-         return (io.greptime.v1.Database.DeleteRequest) request_;
+         return (io.greptime.v1.Database.DeleteRequests) request_;
       }
-      return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+      return io.greptime.v1.Database.DeleteRequests.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+     * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Database.DeleteRequestOrBuilder getDeleteOrBuilder() {
+    public io.greptime.v1.Database.DeleteRequestsOrBuilder getDeletesOrBuilder() {
       if (requestCase_ == 5) {
-         return (io.greptime.v1.Database.DeleteRequest) request_;
+         return (io.greptime.v1.Database.DeleteRequests) request_;
       }
-      return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+      return io.greptime.v1.Database.DeleteRequests.getDefaultInstance();
     }
 
     public static final int ROW_INSERTS_FIELD_NUMBER = 6;
@@ -589,7 +589,7 @@ public final class Database {
         output.writeMessage(4, (io.greptime.v1.Ddl.DdlRequest) request_);
       }
       if (requestCase_ == 5) {
-        output.writeMessage(5, (io.greptime.v1.Database.DeleteRequest) request_);
+        output.writeMessage(5, (io.greptime.v1.Database.DeleteRequests) request_);
       }
       if (requestCase_ == 6) {
         output.writeMessage(6, (io.greptime.v1.Database.RowInsertRequests) request_);
@@ -624,7 +624,7 @@ public final class Database {
       }
       if (requestCase_ == 5) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, (io.greptime.v1.Database.DeleteRequest) request_);
+          .computeMessageSize(5, (io.greptime.v1.Database.DeleteRequests) request_);
       }
       if (requestCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
@@ -669,8 +669,8 @@ public final class Database {
               .equals(other.getDdl())) return false;
           break;
         case 5:
-          if (!getDelete()
-              .equals(other.getDelete())) return false;
+          if (!getDeletes()
+              .equals(other.getDeletes())) return false;
           break;
         case 6:
           if (!getRowInserts()
@@ -712,8 +712,8 @@ public final class Database {
           hash = (53 * hash) + getDdl().hashCode();
           break;
         case 5:
-          hash = (37 * hash) + DELETE_FIELD_NUMBER;
-          hash = (53 * hash) + getDelete().hashCode();
+          hash = (37 * hash) + DELETES_FIELD_NUMBER;
+          hash = (53 * hash) + getDeletes().hashCode();
           break;
         case 6:
           hash = (37 * hash) + ROW_INSERTS_FIELD_NUMBER;
@@ -920,10 +920,10 @@ public final class Database {
           }
         }
         if (requestCase_ == 5) {
-          if (deleteBuilder_ == null) {
+          if (deletesBuilder_ == null) {
             result.request_ = request_;
           } else {
-            result.request_ = deleteBuilder_.build();
+            result.request_ = deletesBuilder_.build();
           }
         }
         if (requestCase_ == 6) {
@@ -1005,8 +1005,8 @@ public final class Database {
             mergeDdl(other.getDdl());
             break;
           }
-          case DELETE: {
-            mergeDelete(other.getDelete());
+          case DELETES: {
+            mergeDeletes(other.getDeletes());
             break;
           }
           case ROW_INSERTS: {
@@ -1611,71 +1611,71 @@ public final class Database {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.DeleteRequest, io.greptime.v1.Database.DeleteRequest.Builder, io.greptime.v1.Database.DeleteRequestOrBuilder> deleteBuilder_;
+          io.greptime.v1.Database.DeleteRequests, io.greptime.v1.Database.DeleteRequests.Builder, io.greptime.v1.Database.DeleteRequestsOrBuilder> deletesBuilder_;
       /**
-       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
-       * @return Whether the delete field is set.
+       * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
+       * @return Whether the deletes field is set.
        */
       @java.lang.Override
-      public boolean hasDelete() {
+      public boolean hasDeletes() {
         return requestCase_ == 5;
       }
       /**
-       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
-       * @return The delete.
+       * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
+       * @return The deletes.
        */
       @java.lang.Override
-      public io.greptime.v1.Database.DeleteRequest getDelete() {
-        if (deleteBuilder_ == null) {
+      public io.greptime.v1.Database.DeleteRequests getDeletes() {
+        if (deletesBuilder_ == null) {
           if (requestCase_ == 5) {
-            return (io.greptime.v1.Database.DeleteRequest) request_;
+            return (io.greptime.v1.Database.DeleteRequests) request_;
           }
-          return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+          return io.greptime.v1.Database.DeleteRequests.getDefaultInstance();
         } else {
           if (requestCase_ == 5) {
-            return deleteBuilder_.getMessage();
+            return deletesBuilder_.getMessage();
           }
-          return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+          return io.greptime.v1.Database.DeleteRequests.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
        */
-      public Builder setDelete(io.greptime.v1.Database.DeleteRequest value) {
-        if (deleteBuilder_ == null) {
+      public Builder setDeletes(io.greptime.v1.Database.DeleteRequests value) {
+        if (deletesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           request_ = value;
           onChanged();
         } else {
-          deleteBuilder_.setMessage(value);
+          deletesBuilder_.setMessage(value);
         }
         requestCase_ = 5;
         return this;
       }
       /**
-       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
        */
-      public Builder setDelete(
-          io.greptime.v1.Database.DeleteRequest.Builder builderForValue) {
-        if (deleteBuilder_ == null) {
+      public Builder setDeletes(
+          io.greptime.v1.Database.DeleteRequests.Builder builderForValue) {
+        if (deletesBuilder_ == null) {
           request_ = builderForValue.build();
           onChanged();
         } else {
-          deleteBuilder_.setMessage(builderForValue.build());
+          deletesBuilder_.setMessage(builderForValue.build());
         }
         requestCase_ = 5;
         return this;
       }
       /**
-       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
        */
-      public Builder mergeDelete(io.greptime.v1.Database.DeleteRequest value) {
-        if (deleteBuilder_ == null) {
+      public Builder mergeDeletes(io.greptime.v1.Database.DeleteRequests value) {
+        if (deletesBuilder_ == null) {
           if (requestCase_ == 5 &&
-              request_ != io.greptime.v1.Database.DeleteRequest.getDefaultInstance()) {
-            request_ = io.greptime.v1.Database.DeleteRequest.newBuilder((io.greptime.v1.Database.DeleteRequest) request_)
+              request_ != io.greptime.v1.Database.DeleteRequests.getDefaultInstance()) {
+            request_ = io.greptime.v1.Database.DeleteRequests.newBuilder((io.greptime.v1.Database.DeleteRequests) request_)
                 .mergeFrom(value).buildPartial();
           } else {
             request_ = value;
@@ -1683,19 +1683,19 @@ public final class Database {
           onChanged();
         } else {
           if (requestCase_ == 5) {
-            deleteBuilder_.mergeFrom(value);
+            deletesBuilder_.mergeFrom(value);
           } else {
-            deleteBuilder_.setMessage(value);
+            deletesBuilder_.setMessage(value);
           }
         }
         requestCase_ = 5;
         return this;
       }
       /**
-       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
        */
-      public Builder clearDelete() {
-        if (deleteBuilder_ == null) {
+      public Builder clearDeletes() {
+        if (deletesBuilder_ == null) {
           if (requestCase_ == 5) {
             requestCase_ = 0;
             request_ = null;
@@ -1706,50 +1706,50 @@ public final class Database {
             requestCase_ = 0;
             request_ = null;
           }
-          deleteBuilder_.clear();
+          deletesBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
        */
-      public io.greptime.v1.Database.DeleteRequest.Builder getDeleteBuilder() {
-        return getDeleteFieldBuilder().getBuilder();
+      public io.greptime.v1.Database.DeleteRequests.Builder getDeletesBuilder() {
+        return getDeletesFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.Database.DeleteRequestOrBuilder getDeleteOrBuilder() {
-        if ((requestCase_ == 5) && (deleteBuilder_ != null)) {
-          return deleteBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Database.DeleteRequestsOrBuilder getDeletesOrBuilder() {
+        if ((requestCase_ == 5) && (deletesBuilder_ != null)) {
+          return deletesBuilder_.getMessageOrBuilder();
         } else {
           if (requestCase_ == 5) {
-            return (io.greptime.v1.Database.DeleteRequest) request_;
+            return (io.greptime.v1.Database.DeleteRequests) request_;
           }
-          return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+          return io.greptime.v1.Database.DeleteRequests.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.DeleteRequest delete = 5;</code>
+       * <code>.greptime.v1.DeleteRequests deletes = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.DeleteRequest, io.greptime.v1.Database.DeleteRequest.Builder, io.greptime.v1.Database.DeleteRequestOrBuilder> 
-          getDeleteFieldBuilder() {
-        if (deleteBuilder_ == null) {
+          io.greptime.v1.Database.DeleteRequests, io.greptime.v1.Database.DeleteRequests.Builder, io.greptime.v1.Database.DeleteRequestsOrBuilder> 
+          getDeletesFieldBuilder() {
+        if (deletesBuilder_ == null) {
           if (!(requestCase_ == 5)) {
-            request_ = io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
+            request_ = io.greptime.v1.Database.DeleteRequests.getDefaultInstance();
           }
-          deleteBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.DeleteRequest, io.greptime.v1.Database.DeleteRequest.Builder, io.greptime.v1.Database.DeleteRequestOrBuilder>(
-                  (io.greptime.v1.Database.DeleteRequest) request_,
+          deletesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Database.DeleteRequests, io.greptime.v1.Database.DeleteRequests.Builder, io.greptime.v1.Database.DeleteRequestsOrBuilder>(
+                  (io.greptime.v1.Database.DeleteRequests) request_,
                   getParentForChildren(),
                   isClean());
           request_ = null;
         }
         requestCase_ = 5;
         onChanged();;
-        return deleteBuilder_;
+        return deletesBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6074,6 +6074,801 @@ public final class Database {
 
   }
 
+  public interface DeleteRequestsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.DeleteRequests)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    java.util.List<io.greptime.v1.Database.DeleteRequest> 
+        getDeletesList();
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    io.greptime.v1.Database.DeleteRequest getDeletes(int index);
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    int getDeletesCount();
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    java.util.List<? extends io.greptime.v1.Database.DeleteRequestOrBuilder> 
+        getDeletesOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    io.greptime.v1.Database.DeleteRequestOrBuilder getDeletesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.DeleteRequests}
+   */
+  public static final class DeleteRequests extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.DeleteRequests)
+      DeleteRequestsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DeleteRequests.newBuilder() to construct.
+    private DeleteRequests(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DeleteRequests() {
+      deletes_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DeleteRequests();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DeleteRequests(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                deletes_ = new java.util.ArrayList<io.greptime.v1.Database.DeleteRequest>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              deletes_.add(
+                  input.readMessage(io.greptime.v1.Database.DeleteRequest.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          deletes_ = java.util.Collections.unmodifiableList(deletes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequests_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequests_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Database.DeleteRequests.class, io.greptime.v1.Database.DeleteRequests.Builder.class);
+    }
+
+    public static final int DELETES_FIELD_NUMBER = 1;
+    private java.util.List<io.greptime.v1.Database.DeleteRequest> deletes_;
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.Database.DeleteRequest> getDeletesList() {
+      return deletes_;
+    }
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.Database.DeleteRequestOrBuilder> 
+        getDeletesOrBuilderList() {
+      return deletes_;
+    }
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    @java.lang.Override
+    public int getDeletesCount() {
+      return deletes_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.DeleteRequest getDeletes(int index) {
+      return deletes_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.DeleteRequestOrBuilder getDeletesOrBuilder(
+        int index) {
+      return deletes_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < deletes_.size(); i++) {
+        output.writeMessage(1, deletes_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < deletes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, deletes_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Database.DeleteRequests)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Database.DeleteRequests other = (io.greptime.v1.Database.DeleteRequests) obj;
+
+      if (!getDeletesList()
+          .equals(other.getDeletesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getDeletesCount() > 0) {
+        hash = (37 * hash) + DELETES_FIELD_NUMBER;
+        hash = (53 * hash) + getDeletesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.DeleteRequests parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Database.DeleteRequests prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.DeleteRequests}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.DeleteRequests)
+        io.greptime.v1.Database.DeleteRequestsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequests_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequests_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Database.DeleteRequests.class, io.greptime.v1.Database.DeleteRequests.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Database.DeleteRequests.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDeletesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (deletesBuilder_ == null) {
+          deletes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          deletesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_DeleteRequests_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.DeleteRequests getDefaultInstanceForType() {
+        return io.greptime.v1.Database.DeleteRequests.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.DeleteRequests build() {
+        io.greptime.v1.Database.DeleteRequests result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.DeleteRequests buildPartial() {
+        io.greptime.v1.Database.DeleteRequests result = new io.greptime.v1.Database.DeleteRequests(this);
+        int from_bitField0_ = bitField0_;
+        if (deletesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            deletes_ = java.util.Collections.unmodifiableList(deletes_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.deletes_ = deletes_;
+        } else {
+          result.deletes_ = deletesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Database.DeleteRequests) {
+          return mergeFrom((io.greptime.v1.Database.DeleteRequests)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Database.DeleteRequests other) {
+        if (other == io.greptime.v1.Database.DeleteRequests.getDefaultInstance()) return this;
+        if (deletesBuilder_ == null) {
+          if (!other.deletes_.isEmpty()) {
+            if (deletes_.isEmpty()) {
+              deletes_ = other.deletes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDeletesIsMutable();
+              deletes_.addAll(other.deletes_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.deletes_.isEmpty()) {
+            if (deletesBuilder_.isEmpty()) {
+              deletesBuilder_.dispose();
+              deletesBuilder_ = null;
+              deletes_ = other.deletes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              deletesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDeletesFieldBuilder() : null;
+            } else {
+              deletesBuilder_.addAllMessages(other.deletes_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Database.DeleteRequests parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Database.DeleteRequests) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<io.greptime.v1.Database.DeleteRequest> deletes_ =
+        java.util.Collections.emptyList();
+      private void ensureDeletesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          deletes_ = new java.util.ArrayList<io.greptime.v1.Database.DeleteRequest>(deletes_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Database.DeleteRequest, io.greptime.v1.Database.DeleteRequest.Builder, io.greptime.v1.Database.DeleteRequestOrBuilder> deletesBuilder_;
+
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.Database.DeleteRequest> getDeletesList() {
+        if (deletesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(deletes_);
+        } else {
+          return deletesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public int getDeletesCount() {
+        if (deletesBuilder_ == null) {
+          return deletes_.size();
+        } else {
+          return deletesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public io.greptime.v1.Database.DeleteRequest getDeletes(int index) {
+        if (deletesBuilder_ == null) {
+          return deletes_.get(index);
+        } else {
+          return deletesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public Builder setDeletes(
+          int index, io.greptime.v1.Database.DeleteRequest value) {
+        if (deletesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDeletesIsMutable();
+          deletes_.set(index, value);
+          onChanged();
+        } else {
+          deletesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public Builder setDeletes(
+          int index, io.greptime.v1.Database.DeleteRequest.Builder builderForValue) {
+        if (deletesBuilder_ == null) {
+          ensureDeletesIsMutable();
+          deletes_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          deletesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public Builder addDeletes(io.greptime.v1.Database.DeleteRequest value) {
+        if (deletesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDeletesIsMutable();
+          deletes_.add(value);
+          onChanged();
+        } else {
+          deletesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public Builder addDeletes(
+          int index, io.greptime.v1.Database.DeleteRequest value) {
+        if (deletesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDeletesIsMutable();
+          deletes_.add(index, value);
+          onChanged();
+        } else {
+          deletesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public Builder addDeletes(
+          io.greptime.v1.Database.DeleteRequest.Builder builderForValue) {
+        if (deletesBuilder_ == null) {
+          ensureDeletesIsMutable();
+          deletes_.add(builderForValue.build());
+          onChanged();
+        } else {
+          deletesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public Builder addDeletes(
+          int index, io.greptime.v1.Database.DeleteRequest.Builder builderForValue) {
+        if (deletesBuilder_ == null) {
+          ensureDeletesIsMutable();
+          deletes_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          deletesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public Builder addAllDeletes(
+          java.lang.Iterable<? extends io.greptime.v1.Database.DeleteRequest> values) {
+        if (deletesBuilder_ == null) {
+          ensureDeletesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, deletes_);
+          onChanged();
+        } else {
+          deletesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public Builder clearDeletes() {
+        if (deletesBuilder_ == null) {
+          deletes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          deletesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public Builder removeDeletes(int index) {
+        if (deletesBuilder_ == null) {
+          ensureDeletesIsMutable();
+          deletes_.remove(index);
+          onChanged();
+        } else {
+          deletesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public io.greptime.v1.Database.DeleteRequest.Builder getDeletesBuilder(
+          int index) {
+        return getDeletesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public io.greptime.v1.Database.DeleteRequestOrBuilder getDeletesOrBuilder(
+          int index) {
+        if (deletesBuilder_ == null) {
+          return deletes_.get(index);  } else {
+          return deletesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.Database.DeleteRequestOrBuilder> 
+           getDeletesOrBuilderList() {
+        if (deletesBuilder_ != null) {
+          return deletesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(deletes_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public io.greptime.v1.Database.DeleteRequest.Builder addDeletesBuilder() {
+        return getDeletesFieldBuilder().addBuilder(
+            io.greptime.v1.Database.DeleteRequest.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public io.greptime.v1.Database.DeleteRequest.Builder addDeletesBuilder(
+          int index) {
+        return getDeletesFieldBuilder().addBuilder(
+            index, io.greptime.v1.Database.DeleteRequest.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.DeleteRequest deletes = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.Database.DeleteRequest.Builder> 
+           getDeletesBuilderList() {
+        return getDeletesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Database.DeleteRequest, io.greptime.v1.Database.DeleteRequest.Builder, io.greptime.v1.Database.DeleteRequestOrBuilder> 
+          getDeletesFieldBuilder() {
+        if (deletesBuilder_ == null) {
+          deletesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.Database.DeleteRequest, io.greptime.v1.Database.DeleteRequest.Builder, io.greptime.v1.Database.DeleteRequestOrBuilder>(
+                  deletes_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          deletes_ = null;
+        }
+        return deletesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.DeleteRequests)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.DeleteRequests)
+    private static final io.greptime.v1.Database.DeleteRequests DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Database.DeleteRequests();
+    }
+
+    public static io.greptime.v1.Database.DeleteRequests getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DeleteRequests>
+        PARSER = new com.google.protobuf.AbstractParser<DeleteRequests>() {
+      @java.lang.Override
+      public DeleteRequests parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DeleteRequests(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DeleteRequests> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DeleteRequests> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Database.DeleteRequests getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface DeleteRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.DeleteRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -10068,6 +10863,11 @@ public final class Database {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_InsertRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_DeleteRequests_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_DeleteRequests_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_DeleteRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10100,42 +10900,44 @@ public final class Database {
       "1\032\025greptime/v1/ddl.proto\032\030greptime/v1/co" +
       "lumn.proto\032\025greptime/v1/row.proto\032\026grept" +
       "ime/v1/prom.proto\032\030greptime/v1/common.pr" +
-      "oto\"\346\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132" +
+      "oto\"\350\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132" +
       "\032.greptime.v1.RequestHeader\022.\n\007inserts\030\002" +
       " \001(\0132\033.greptime.v1.InsertRequestsH\000\022*\n\005q" +
       "uery\030\003 \001(\0132\031.greptime.v1.QueryRequestH\000\022" +
       "&\n\003ddl\030\004 \001(\0132\027.greptime.v1.DdlRequestH\000\022" +
-      ",\n\006delete\030\005 \001(\0132\032.greptime.v1.DeleteRequ" +
-      "estH\000\0225\n\013row_inserts\030\006 \001(\0132\036.greptime.v1" +
-      ".RowInsertRequestsH\000\0223\n\nrow_delete\030\007 \001(\013" +
-      "2\035.greptime.v1.RowDeleteRequestH\000B\t\n\007req" +
-      "uest\"\177\n\020GreptimeResponse\022+\n\006header\030\001 \001(\013" +
-      "2\033.greptime.v1.ResponseHeader\0222\n\raffecte" +
-      "d_rows\030\002 \001(\0132\031.greptime.v1.AffectedRowsH" +
-      "\000B\n\n\010response\"w\n\014QueryRequest\022\r\n\003sql\030\001 \001" +
-      "(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020prom_ran" +
-      "ge_query\030\003 \001(\0132\033.greptime.v1.PromRangeQu" +
-      "eryH\000B\007\n\005query\"=\n\016InsertRequests\022+\n\007inse" +
-      "rts\030\001 \003(\0132\032.greptime.v1.InsertRequest\"s\n" +
-      "\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$\n\007co" +
-      "lumns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\trow_" +
-      "count\030\004 \001(\r\022\025\n\rregion_number\030\005 \001(\r\"w\n\rDe" +
-      "leteRequest\022\022\n\ntable_name\030\001 \001(\t\022\025\n\rregio" +
-      "n_number\030\002 \001(\r\022(\n\013key_columns\030\003 \003(\0132\023.gr" +
-      "eptime.v1.Column\022\021\n\trow_count\030\004 \001(\r\"C\n\021R" +
-      "owInsertRequests\022.\n\007inserts\030\001 \003(\0132\035.grep" +
-      "time.v1.RowInsertRequest\"^\n\020RowInsertReq" +
-      "uest\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021" +
-      ".greptime.v1.Rows\022\025\n\rregion_number\030\003 \001(\r" +
-      "\"^\n\020RowDeleteRequest\022\022\n\ntable_name\030\001 \001(\t" +
-      "\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022\025\n\rreg" +
-      "ion_number\030\003 \001(\r2\252\001\n\020GreptimeDatabase\022E\n" +
-      "\006Handle\022\034.greptime.v1.GreptimeRequest\032\035." +
-      "greptime.v1.GreptimeResponse\022O\n\016HandleRe" +
-      "quests\022\034.greptime.v1.GreptimeRequest\032\035.g" +
-      "reptime.v1.GreptimeResponse(\001BQ\n\016io.grep" +
-      "time.v1B\010DatabaseZ5github.com/GreptimeTe" +
-      "am/greptime-proto/go/greptime/v1b\006proto3"
+      ".\n\007deletes\030\005 \001(\0132\033.greptime.v1.DeleteReq" +
+      "uestsH\000\0225\n\013row_inserts\030\006 \001(\0132\036.greptime." +
+      "v1.RowInsertRequestsH\000\0223\n\nrow_delete\030\007 \001" +
+      "(\0132\035.greptime.v1.RowDeleteRequestH\000B\t\n\007r" +
+      "equest\"\177\n\020GreptimeResponse\022+\n\006header\030\001 \001" +
+      "(\0132\033.greptime.v1.ResponseHeader\0222\n\raffec" +
+      "ted_rows\030\002 \001(\0132\031.greptime.v1.AffectedRow" +
+      "sH\000B\n\n\010response\"w\n\014QueryRequest\022\r\n\003sql\030\001" +
+      " \001(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020prom_r" +
+      "ange_query\030\003 \001(\0132\033.greptime.v1.PromRange" +
+      "QueryH\000B\007\n\005query\"=\n\016InsertRequests\022+\n\007in" +
+      "serts\030\001 \003(\0132\032.greptime.v1.InsertRequest\"" +
+      "s\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$\n\007" +
+      "columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\tro" +
+      "w_count\030\004 \001(\r\022\025\n\rregion_number\030\005 \001(\r\"=\n\016" +
+      "DeleteRequests\022+\n\007deletes\030\001 \003(\0132\032.grepti" +
+      "me.v1.DeleteRequest\"w\n\rDeleteRequest\022\022\n\n" +
+      "table_name\030\001 \001(\t\022\025\n\rregion_number\030\002 \001(\r\022" +
+      "(\n\013key_columns\030\003 \003(\0132\023.greptime.v1.Colum" +
+      "n\022\021\n\trow_count\030\004 \001(\r\"C\n\021RowInsertRequest" +
+      "s\022.\n\007inserts\030\001 \003(\0132\035.greptime.v1.RowInse" +
+      "rtRequest\"^\n\020RowInsertRequest\022\022\n\ntable_n" +
+      "ame\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Ro" +
+      "ws\022\025\n\rregion_number\030\003 \001(\r\"^\n\020RowDeleteRe" +
+      "quest\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132" +
+      "\021.greptime.v1.Rows\022\025\n\rregion_number\030\003 \001(" +
+      "\r2\252\001\n\020GreptimeDatabase\022E\n\006Handle\022\034.grept" +
+      "ime.v1.GreptimeRequest\032\035.greptime.v1.Gre" +
+      "ptimeResponse\022O\n\016HandleRequests\022\034.grepti" +
+      "me.v1.GreptimeRequest\032\035.greptime.v1.Grep" +
+      "timeResponse(\001BQ\n\016io.greptime.v1B\010Databa" +
+      "seZ5github.com/GreptimeTeam/greptime-pro" +
+      "to/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10151,7 +10953,7 @@ public final class Database {
     internal_static_greptime_v1_GreptimeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_GreptimeRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Query", "Ddl", "Delete", "RowInserts", "RowDelete", "Request", });
+        new java.lang.String[] { "Header", "Inserts", "Query", "Ddl", "Deletes", "RowInserts", "RowDelete", "Request", });
     internal_static_greptime_v1_GreptimeResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_GreptimeResponse_fieldAccessorTable = new
@@ -10176,26 +10978,32 @@ public final class Database {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_InsertRequest_descriptor,
         new java.lang.String[] { "TableName", "Columns", "RowCount", "RegionNumber", });
-    internal_static_greptime_v1_DeleteRequest_descriptor =
+    internal_static_greptime_v1_DeleteRequests_descriptor =
       getDescriptor().getMessageTypes().get(5);
+    internal_static_greptime_v1_DeleteRequests_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_DeleteRequests_descriptor,
+        new java.lang.String[] { "Deletes", });
+    internal_static_greptime_v1_DeleteRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_DeleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DeleteRequest_descriptor,
         new java.lang.String[] { "TableName", "RegionNumber", "KeyColumns", "RowCount", });
     internal_static_greptime_v1_RowInsertRequests_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_RowInsertRequests_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowInsertRequests_descriptor,
         new java.lang.String[] { "Inserts", });
     internal_static_greptime_v1_RowInsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_RowInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowInsertRequest_descriptor,
         new java.lang.String[] { "TableName", "Rows", "RegionNumber", });
     internal_static_greptime_v1_RowDeleteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_RowDeleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowDeleteRequest_descriptor,

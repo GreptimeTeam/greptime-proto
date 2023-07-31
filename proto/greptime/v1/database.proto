@@ -38,7 +38,7 @@ message GreptimeRequest {
     InsertRequests inserts = 2;
     QueryRequest query = 3;
     DdlRequest ddl = 4;
-    DeleteRequest delete = 5;
+    DeleteRequests deletes = 5;
     RowInsertRequests row_inserts = 6;
     RowDeleteRequest row_delete = 7;
   }
@@ -74,6 +74,10 @@ message InsertRequest {
 
   // The region number of current insert request.
   uint32 region_number = 5;
+}
+
+message DeleteRequests {
+  repeated DeleteRequest deletes = 1;
 }
 
 message DeleteRequest {
