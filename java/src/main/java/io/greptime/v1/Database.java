@@ -93,6 +93,21 @@ public final class Database {
      */
     io.greptime.v1.Database.DeleteRequestOrBuilder getDeleteOrBuilder();
 
+    /**
+     * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+     * @return Whether the rowInserts field is set.
+     */
+    boolean hasRowInserts();
+    /**
+     * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+     * @return The rowInserts.
+     */
+    io.greptime.v1.Database.RowInsertRequests getRowInserts();
+    /**
+     * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+     */
+    io.greptime.v1.Database.RowInsertRequestsOrBuilder getRowInsertsOrBuilder();
+
     public io.greptime.v1.Database.GreptimeRequest.RequestCase getRequestCase();
   }
   /**
@@ -209,6 +224,20 @@ public final class Database {
               requestCase_ = 5;
               break;
             }
+            case 50: {
+              io.greptime.v1.Database.RowInsertRequests.Builder subBuilder = null;
+              if (requestCase_ == 6) {
+                subBuilder = ((io.greptime.v1.Database.RowInsertRequests) request_).toBuilder();
+              }
+              request_ =
+                  input.readMessage(io.greptime.v1.Database.RowInsertRequests.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Database.RowInsertRequests) request_);
+                request_ = subBuilder.buildPartial();
+              }
+              requestCase_ = 6;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -252,6 +281,7 @@ public final class Database {
       QUERY(3),
       DDL(4),
       DELETE(5),
+      ROW_INSERTS(6),
       REQUEST_NOT_SET(0);
       private final int value;
       private RequestCase(int value) {
@@ -273,6 +303,7 @@ public final class Database {
           case 3: return QUERY;
           case 4: return DDL;
           case 5: return DELETE;
+          case 6: return ROW_INSERTS;
           case 0: return REQUEST_NOT_SET;
           default: return null;
         }
@@ -438,6 +469,37 @@ public final class Database {
       return io.greptime.v1.Database.DeleteRequest.getDefaultInstance();
     }
 
+    public static final int ROW_INSERTS_FIELD_NUMBER = 6;
+    /**
+     * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+     * @return Whether the rowInserts field is set.
+     */
+    @java.lang.Override
+    public boolean hasRowInserts() {
+      return requestCase_ == 6;
+    }
+    /**
+     * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+     * @return The rowInserts.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.RowInsertRequests getRowInserts() {
+      if (requestCase_ == 6) {
+         return (io.greptime.v1.Database.RowInsertRequests) request_;
+      }
+      return io.greptime.v1.Database.RowInsertRequests.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.RowInsertRequestsOrBuilder getRowInsertsOrBuilder() {
+      if (requestCase_ == 6) {
+         return (io.greptime.v1.Database.RowInsertRequests) request_;
+      }
+      return io.greptime.v1.Database.RowInsertRequests.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -467,6 +529,9 @@ public final class Database {
       if (requestCase_ == 5) {
         output.writeMessage(5, (io.greptime.v1.Database.DeleteRequest) request_);
       }
+      if (requestCase_ == 6) {
+        output.writeMessage(6, (io.greptime.v1.Database.RowInsertRequests) request_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -495,6 +560,10 @@ public final class Database {
       if (requestCase_ == 5) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, (io.greptime.v1.Database.DeleteRequest) request_);
+      }
+      if (requestCase_ == 6) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, (io.greptime.v1.Database.RowInsertRequests) request_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -534,6 +603,10 @@ public final class Database {
           if (!getDelete()
               .equals(other.getDelete())) return false;
           break;
+        case 6:
+          if (!getRowInserts()
+              .equals(other.getRowInserts())) return false;
+          break;
         case 0:
         default:
       }
@@ -568,6 +641,10 @@ public final class Database {
         case 5:
           hash = (37 * hash) + DELETE_FIELD_NUMBER;
           hash = (53 * hash) + getDelete().hashCode();
+          break;
+        case 6:
+          hash = (37 * hash) + ROW_INSERTS_FIELD_NUMBER;
+          hash = (53 * hash) + getRowInserts().hashCode();
           break;
         case 0:
         default:
@@ -772,6 +849,13 @@ public final class Database {
             result.request_ = deleteBuilder_.build();
           }
         }
+        if (requestCase_ == 6) {
+          if (rowInsertsBuilder_ == null) {
+            result.request_ = request_;
+          } else {
+            result.request_ = rowInsertsBuilder_.build();
+          }
+        }
         result.requestCase_ = requestCase_;
         onBuilt();
         return result;
@@ -839,6 +923,10 @@ public final class Database {
           }
           case DELETE: {
             mergeDelete(other.getDelete());
+            break;
+          }
+          case ROW_INSERTS: {
+            mergeRowInserts(other.getRowInserts());
             break;
           }
           case REQUEST_NOT_SET: {
@@ -1574,6 +1662,148 @@ public final class Database {
         requestCase_ = 5;
         onChanged();;
         return deleteBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Database.RowInsertRequests, io.greptime.v1.Database.RowInsertRequests.Builder, io.greptime.v1.Database.RowInsertRequestsOrBuilder> rowInsertsBuilder_;
+      /**
+       * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+       * @return Whether the rowInserts field is set.
+       */
+      @java.lang.Override
+      public boolean hasRowInserts() {
+        return requestCase_ == 6;
+      }
+      /**
+       * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+       * @return The rowInserts.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Database.RowInsertRequests getRowInserts() {
+        if (rowInsertsBuilder_ == null) {
+          if (requestCase_ == 6) {
+            return (io.greptime.v1.Database.RowInsertRequests) request_;
+          }
+          return io.greptime.v1.Database.RowInsertRequests.getDefaultInstance();
+        } else {
+          if (requestCase_ == 6) {
+            return rowInsertsBuilder_.getMessage();
+          }
+          return io.greptime.v1.Database.RowInsertRequests.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+       */
+      public Builder setRowInserts(io.greptime.v1.Database.RowInsertRequests value) {
+        if (rowInsertsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          request_ = value;
+          onChanged();
+        } else {
+          rowInsertsBuilder_.setMessage(value);
+        }
+        requestCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+       */
+      public Builder setRowInserts(
+          io.greptime.v1.Database.RowInsertRequests.Builder builderForValue) {
+        if (rowInsertsBuilder_ == null) {
+          request_ = builderForValue.build();
+          onChanged();
+        } else {
+          rowInsertsBuilder_.setMessage(builderForValue.build());
+        }
+        requestCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+       */
+      public Builder mergeRowInserts(io.greptime.v1.Database.RowInsertRequests value) {
+        if (rowInsertsBuilder_ == null) {
+          if (requestCase_ == 6 &&
+              request_ != io.greptime.v1.Database.RowInsertRequests.getDefaultInstance()) {
+            request_ = io.greptime.v1.Database.RowInsertRequests.newBuilder((io.greptime.v1.Database.RowInsertRequests) request_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            request_ = value;
+          }
+          onChanged();
+        } else {
+          if (requestCase_ == 6) {
+            rowInsertsBuilder_.mergeFrom(value);
+          } else {
+            rowInsertsBuilder_.setMessage(value);
+          }
+        }
+        requestCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+       */
+      public Builder clearRowInserts() {
+        if (rowInsertsBuilder_ == null) {
+          if (requestCase_ == 6) {
+            requestCase_ = 0;
+            request_ = null;
+            onChanged();
+          }
+        } else {
+          if (requestCase_ == 6) {
+            requestCase_ = 0;
+            request_ = null;
+          }
+          rowInsertsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+       */
+      public io.greptime.v1.Database.RowInsertRequests.Builder getRowInsertsBuilder() {
+        return getRowInsertsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Database.RowInsertRequestsOrBuilder getRowInsertsOrBuilder() {
+        if ((requestCase_ == 6) && (rowInsertsBuilder_ != null)) {
+          return rowInsertsBuilder_.getMessageOrBuilder();
+        } else {
+          if (requestCase_ == 6) {
+            return (io.greptime.v1.Database.RowInsertRequests) request_;
+          }
+          return io.greptime.v1.Database.RowInsertRequests.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.RowInsertRequests row_inserts = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Database.RowInsertRequests, io.greptime.v1.Database.RowInsertRequests.Builder, io.greptime.v1.Database.RowInsertRequestsOrBuilder> 
+          getRowInsertsFieldBuilder() {
+        if (rowInsertsBuilder_ == null) {
+          if (!(requestCase_ == 6)) {
+            request_ = io.greptime.v1.Database.RowInsertRequests.getDefaultInstance();
+          }
+          rowInsertsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Database.RowInsertRequests, io.greptime.v1.Database.RowInsertRequests.Builder, io.greptime.v1.Database.RowInsertRequestsOrBuilder>(
+                  (io.greptime.v1.Database.RowInsertRequests) request_,
+                  getParentForChildren(),
+                  isClean());
+          request_ = null;
+        }
+        requestCase_ = 6;
+        onChanged();;
+        return rowInsertsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -6896,6 +7126,1724 @@ public final class Database {
 
   }
 
+  public interface RowInsertRequestsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.RowInsertRequests)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    java.util.List<io.greptime.v1.Database.RowInsertRequest> 
+        getInsertsList();
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    io.greptime.v1.Database.RowInsertRequest getInserts(int index);
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    int getInsertsCount();
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    java.util.List<? extends io.greptime.v1.Database.RowInsertRequestOrBuilder> 
+        getInsertsOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    io.greptime.v1.Database.RowInsertRequestOrBuilder getInsertsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.RowInsertRequests}
+   */
+  public static final class RowInsertRequests extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.RowInsertRequests)
+      RowInsertRequestsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RowInsertRequests.newBuilder() to construct.
+    private RowInsertRequests(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RowInsertRequests() {
+      inserts_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RowInsertRequests();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RowInsertRequests(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                inserts_ = new java.util.ArrayList<io.greptime.v1.Database.RowInsertRequest>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              inserts_.add(
+                  input.readMessage(io.greptime.v1.Database.RowInsertRequest.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          inserts_ = java.util.Collections.unmodifiableList(inserts_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequests_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequests_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Database.RowInsertRequests.class, io.greptime.v1.Database.RowInsertRequests.Builder.class);
+    }
+
+    public static final int INSERTS_FIELD_NUMBER = 1;
+    private java.util.List<io.greptime.v1.Database.RowInsertRequest> inserts_;
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.Database.RowInsertRequest> getInsertsList() {
+      return inserts_;
+    }
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.Database.RowInsertRequestOrBuilder> 
+        getInsertsOrBuilderList() {
+      return inserts_;
+    }
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    @java.lang.Override
+    public int getInsertsCount() {
+      return inserts_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.RowInsertRequest getInserts(int index) {
+      return inserts_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.RowInsertRequestOrBuilder getInsertsOrBuilder(
+        int index) {
+      return inserts_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < inserts_.size(); i++) {
+        output.writeMessage(1, inserts_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < inserts_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, inserts_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Database.RowInsertRequests)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Database.RowInsertRequests other = (io.greptime.v1.Database.RowInsertRequests) obj;
+
+      if (!getInsertsList()
+          .equals(other.getInsertsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getInsertsCount() > 0) {
+        hash = (37 * hash) + INSERTS_FIELD_NUMBER;
+        hash = (53 * hash) + getInsertsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.RowInsertRequests parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Database.RowInsertRequests prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.RowInsertRequests}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.RowInsertRequests)
+        io.greptime.v1.Database.RowInsertRequestsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequests_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequests_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Database.RowInsertRequests.class, io.greptime.v1.Database.RowInsertRequests.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Database.RowInsertRequests.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getInsertsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (insertsBuilder_ == null) {
+          inserts_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          insertsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequests_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.RowInsertRequests getDefaultInstanceForType() {
+        return io.greptime.v1.Database.RowInsertRequests.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.RowInsertRequests build() {
+        io.greptime.v1.Database.RowInsertRequests result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.RowInsertRequests buildPartial() {
+        io.greptime.v1.Database.RowInsertRequests result = new io.greptime.v1.Database.RowInsertRequests(this);
+        int from_bitField0_ = bitField0_;
+        if (insertsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            inserts_ = java.util.Collections.unmodifiableList(inserts_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.inserts_ = inserts_;
+        } else {
+          result.inserts_ = insertsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Database.RowInsertRequests) {
+          return mergeFrom((io.greptime.v1.Database.RowInsertRequests)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Database.RowInsertRequests other) {
+        if (other == io.greptime.v1.Database.RowInsertRequests.getDefaultInstance()) return this;
+        if (insertsBuilder_ == null) {
+          if (!other.inserts_.isEmpty()) {
+            if (inserts_.isEmpty()) {
+              inserts_ = other.inserts_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureInsertsIsMutable();
+              inserts_.addAll(other.inserts_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.inserts_.isEmpty()) {
+            if (insertsBuilder_.isEmpty()) {
+              insertsBuilder_.dispose();
+              insertsBuilder_ = null;
+              inserts_ = other.inserts_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              insertsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getInsertsFieldBuilder() : null;
+            } else {
+              insertsBuilder_.addAllMessages(other.inserts_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Database.RowInsertRequests parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Database.RowInsertRequests) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<io.greptime.v1.Database.RowInsertRequest> inserts_ =
+        java.util.Collections.emptyList();
+      private void ensureInsertsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          inserts_ = new java.util.ArrayList<io.greptime.v1.Database.RowInsertRequest>(inserts_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Database.RowInsertRequest, io.greptime.v1.Database.RowInsertRequest.Builder, io.greptime.v1.Database.RowInsertRequestOrBuilder> insertsBuilder_;
+
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.Database.RowInsertRequest> getInsertsList() {
+        if (insertsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(inserts_);
+        } else {
+          return insertsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public int getInsertsCount() {
+        if (insertsBuilder_ == null) {
+          return inserts_.size();
+        } else {
+          return insertsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public io.greptime.v1.Database.RowInsertRequest getInserts(int index) {
+        if (insertsBuilder_ == null) {
+          return inserts_.get(index);
+        } else {
+          return insertsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public Builder setInserts(
+          int index, io.greptime.v1.Database.RowInsertRequest value) {
+        if (insertsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInsertsIsMutable();
+          inserts_.set(index, value);
+          onChanged();
+        } else {
+          insertsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public Builder setInserts(
+          int index, io.greptime.v1.Database.RowInsertRequest.Builder builderForValue) {
+        if (insertsBuilder_ == null) {
+          ensureInsertsIsMutable();
+          inserts_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          insertsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public Builder addInserts(io.greptime.v1.Database.RowInsertRequest value) {
+        if (insertsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInsertsIsMutable();
+          inserts_.add(value);
+          onChanged();
+        } else {
+          insertsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public Builder addInserts(
+          int index, io.greptime.v1.Database.RowInsertRequest value) {
+        if (insertsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInsertsIsMutable();
+          inserts_.add(index, value);
+          onChanged();
+        } else {
+          insertsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public Builder addInserts(
+          io.greptime.v1.Database.RowInsertRequest.Builder builderForValue) {
+        if (insertsBuilder_ == null) {
+          ensureInsertsIsMutable();
+          inserts_.add(builderForValue.build());
+          onChanged();
+        } else {
+          insertsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public Builder addInserts(
+          int index, io.greptime.v1.Database.RowInsertRequest.Builder builderForValue) {
+        if (insertsBuilder_ == null) {
+          ensureInsertsIsMutable();
+          inserts_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          insertsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public Builder addAllInserts(
+          java.lang.Iterable<? extends io.greptime.v1.Database.RowInsertRequest> values) {
+        if (insertsBuilder_ == null) {
+          ensureInsertsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, inserts_);
+          onChanged();
+        } else {
+          insertsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public Builder clearInserts() {
+        if (insertsBuilder_ == null) {
+          inserts_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          insertsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public Builder removeInserts(int index) {
+        if (insertsBuilder_ == null) {
+          ensureInsertsIsMutable();
+          inserts_.remove(index);
+          onChanged();
+        } else {
+          insertsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public io.greptime.v1.Database.RowInsertRequest.Builder getInsertsBuilder(
+          int index) {
+        return getInsertsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public io.greptime.v1.Database.RowInsertRequestOrBuilder getInsertsOrBuilder(
+          int index) {
+        if (insertsBuilder_ == null) {
+          return inserts_.get(index);  } else {
+          return insertsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.Database.RowInsertRequestOrBuilder> 
+           getInsertsOrBuilderList() {
+        if (insertsBuilder_ != null) {
+          return insertsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(inserts_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public io.greptime.v1.Database.RowInsertRequest.Builder addInsertsBuilder() {
+        return getInsertsFieldBuilder().addBuilder(
+            io.greptime.v1.Database.RowInsertRequest.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public io.greptime.v1.Database.RowInsertRequest.Builder addInsertsBuilder(
+          int index) {
+        return getInsertsFieldBuilder().addBuilder(
+            index, io.greptime.v1.Database.RowInsertRequest.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.RowInsertRequest inserts = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.Database.RowInsertRequest.Builder> 
+           getInsertsBuilderList() {
+        return getInsertsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Database.RowInsertRequest, io.greptime.v1.Database.RowInsertRequest.Builder, io.greptime.v1.Database.RowInsertRequestOrBuilder> 
+          getInsertsFieldBuilder() {
+        if (insertsBuilder_ == null) {
+          insertsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.Database.RowInsertRequest, io.greptime.v1.Database.RowInsertRequest.Builder, io.greptime.v1.Database.RowInsertRequestOrBuilder>(
+                  inserts_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          inserts_ = null;
+        }
+        return insertsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.RowInsertRequests)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.RowInsertRequests)
+    private static final io.greptime.v1.Database.RowInsertRequests DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Database.RowInsertRequests();
+    }
+
+    public static io.greptime.v1.Database.RowInsertRequests getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RowInsertRequests>
+        PARSER = new com.google.protobuf.AbstractParser<RowInsertRequests>() {
+      @java.lang.Override
+      public RowInsertRequests parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RowInsertRequests(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RowInsertRequests> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RowInsertRequests> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Database.RowInsertRequests getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RowInsertRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.RowInsertRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string table_name = 1;</code>
+     * @return The tableName.
+     */
+    java.lang.String getTableName();
+    /**
+     * <code>string table_name = 1;</code>
+     * @return The bytes for tableName.
+     */
+    com.google.protobuf.ByteString
+        getTableNameBytes();
+
+    /**
+     * <pre>
+     * Data is represented here.
+     * </pre>
+     *
+     * <code>.greptime.v1.Rows rows = 2;</code>
+     * @return Whether the rows field is set.
+     */
+    boolean hasRows();
+    /**
+     * <pre>
+     * Data is represented here.
+     * </pre>
+     *
+     * <code>.greptime.v1.Rows rows = 2;</code>
+     * @return The rows.
+     */
+    io.greptime.v1.RowData.Rows getRows();
+    /**
+     * <pre>
+     * Data is represented here.
+     * </pre>
+     *
+     * <code>.greptime.v1.Rows rows = 2;</code>
+     */
+    io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder();
+
+    /**
+     * <pre>
+     * The region number of current insert request.
+     * </pre>
+     *
+     * <code>uint32 region_number = 3;</code>
+     * @return The regionNumber.
+     */
+    int getRegionNumber();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.RowInsertRequest}
+   */
+  public static final class RowInsertRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.RowInsertRequest)
+      RowInsertRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RowInsertRequest.newBuilder() to construct.
+    private RowInsertRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RowInsertRequest() {
+      tableName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RowInsertRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RowInsertRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tableName_ = s;
+              break;
+            }
+            case 18: {
+              io.greptime.v1.RowData.Rows.Builder subBuilder = null;
+              if (rows_ != null) {
+                subBuilder = rows_.toBuilder();
+              }
+              rows_ = input.readMessage(io.greptime.v1.RowData.Rows.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(rows_);
+                rows_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 24: {
+
+              regionNumber_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Database.RowInsertRequest.class, io.greptime.v1.Database.RowInsertRequest.Builder.class);
+    }
+
+    public static final int TABLE_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object tableName_;
+    /**
+     * <code>string table_name = 1;</code>
+     * @return The tableName.
+     */
+    @java.lang.Override
+    public java.lang.String getTableName() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tableName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string table_name = 1;</code>
+     * @return The bytes for tableName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTableNameBytes() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tableName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ROWS_FIELD_NUMBER = 2;
+    private io.greptime.v1.RowData.Rows rows_;
+    /**
+     * <pre>
+     * Data is represented here.
+     * </pre>
+     *
+     * <code>.greptime.v1.Rows rows = 2;</code>
+     * @return Whether the rows field is set.
+     */
+    @java.lang.Override
+    public boolean hasRows() {
+      return rows_ != null;
+    }
+    /**
+     * <pre>
+     * Data is represented here.
+     * </pre>
+     *
+     * <code>.greptime.v1.Rows rows = 2;</code>
+     * @return The rows.
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.Rows getRows() {
+      return rows_ == null ? io.greptime.v1.RowData.Rows.getDefaultInstance() : rows_;
+    }
+    /**
+     * <pre>
+     * Data is represented here.
+     * </pre>
+     *
+     * <code>.greptime.v1.Rows rows = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder() {
+      return getRows();
+    }
+
+    public static final int REGION_NUMBER_FIELD_NUMBER = 3;
+    private int regionNumber_;
+    /**
+     * <pre>
+     * The region number of current insert request.
+     * </pre>
+     *
+     * <code>uint32 region_number = 3;</code>
+     * @return The regionNumber.
+     */
+    @java.lang.Override
+    public int getRegionNumber() {
+      return regionNumber_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tableName_);
+      }
+      if (rows_ != null) {
+        output.writeMessage(2, getRows());
+      }
+      if (regionNumber_ != 0) {
+        output.writeUInt32(3, regionNumber_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tableName_);
+      }
+      if (rows_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getRows());
+      }
+      if (regionNumber_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, regionNumber_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Database.RowInsertRequest)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Database.RowInsertRequest other = (io.greptime.v1.Database.RowInsertRequest) obj;
+
+      if (!getTableName()
+          .equals(other.getTableName())) return false;
+      if (hasRows() != other.hasRows()) return false;
+      if (hasRows()) {
+        if (!getRows()
+            .equals(other.getRows())) return false;
+      }
+      if (getRegionNumber()
+          != other.getRegionNumber()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getTableName().hashCode();
+      if (hasRows()) {
+        hash = (37 * hash) + ROWS_FIELD_NUMBER;
+        hash = (53 * hash) + getRows().hashCode();
+      }
+      hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionNumber();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.RowInsertRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Database.RowInsertRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.RowInsertRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.RowInsertRequest)
+        io.greptime.v1.Database.RowInsertRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Database.RowInsertRequest.class, io.greptime.v1.Database.RowInsertRequest.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Database.RowInsertRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        tableName_ = "";
+
+        if (rowsBuilder_ == null) {
+          rows_ = null;
+        } else {
+          rows_ = null;
+          rowsBuilder_ = null;
+        }
+        regionNumber_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_RowInsertRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.RowInsertRequest getDefaultInstanceForType() {
+        return io.greptime.v1.Database.RowInsertRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.RowInsertRequest build() {
+        io.greptime.v1.Database.RowInsertRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.RowInsertRequest buildPartial() {
+        io.greptime.v1.Database.RowInsertRequest result = new io.greptime.v1.Database.RowInsertRequest(this);
+        result.tableName_ = tableName_;
+        if (rowsBuilder_ == null) {
+          result.rows_ = rows_;
+        } else {
+          result.rows_ = rowsBuilder_.build();
+        }
+        result.regionNumber_ = regionNumber_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Database.RowInsertRequest) {
+          return mergeFrom((io.greptime.v1.Database.RowInsertRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Database.RowInsertRequest other) {
+        if (other == io.greptime.v1.Database.RowInsertRequest.getDefaultInstance()) return this;
+        if (!other.getTableName().isEmpty()) {
+          tableName_ = other.tableName_;
+          onChanged();
+        }
+        if (other.hasRows()) {
+          mergeRows(other.getRows());
+        }
+        if (other.getRegionNumber() != 0) {
+          setRegionNumber(other.getRegionNumber());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Database.RowInsertRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Database.RowInsertRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object tableName_ = "";
+      /**
+       * <code>string table_name = 1;</code>
+       * @return The tableName.
+       */
+      public java.lang.String getTableName() {
+        java.lang.Object ref = tableName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tableName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string table_name = 1;</code>
+       * @return The bytes for tableName.
+       */
+      public com.google.protobuf.ByteString
+          getTableNameBytes() {
+        java.lang.Object ref = tableName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tableName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string table_name = 1;</code>
+       * @param value The tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tableName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string table_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTableName() {
+        
+        tableName_ = getDefaultInstance().getTableName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string table_name = 1;</code>
+       * @param value The bytes for tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tableName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.greptime.v1.RowData.Rows rows_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.Rows, io.greptime.v1.RowData.Rows.Builder, io.greptime.v1.RowData.RowsOrBuilder> rowsBuilder_;
+      /**
+       * <pre>
+       * Data is represented here.
+       * </pre>
+       *
+       * <code>.greptime.v1.Rows rows = 2;</code>
+       * @return Whether the rows field is set.
+       */
+      public boolean hasRows() {
+        return rowsBuilder_ != null || rows_ != null;
+      }
+      /**
+       * <pre>
+       * Data is represented here.
+       * </pre>
+       *
+       * <code>.greptime.v1.Rows rows = 2;</code>
+       * @return The rows.
+       */
+      public io.greptime.v1.RowData.Rows getRows() {
+        if (rowsBuilder_ == null) {
+          return rows_ == null ? io.greptime.v1.RowData.Rows.getDefaultInstance() : rows_;
+        } else {
+          return rowsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Data is represented here.
+       * </pre>
+       *
+       * <code>.greptime.v1.Rows rows = 2;</code>
+       */
+      public Builder setRows(io.greptime.v1.RowData.Rows value) {
+        if (rowsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          rows_ = value;
+          onChanged();
+        } else {
+          rowsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Data is represented here.
+       * </pre>
+       *
+       * <code>.greptime.v1.Rows rows = 2;</code>
+       */
+      public Builder setRows(
+          io.greptime.v1.RowData.Rows.Builder builderForValue) {
+        if (rowsBuilder_ == null) {
+          rows_ = builderForValue.build();
+          onChanged();
+        } else {
+          rowsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Data is represented here.
+       * </pre>
+       *
+       * <code>.greptime.v1.Rows rows = 2;</code>
+       */
+      public Builder mergeRows(io.greptime.v1.RowData.Rows value) {
+        if (rowsBuilder_ == null) {
+          if (rows_ != null) {
+            rows_ =
+              io.greptime.v1.RowData.Rows.newBuilder(rows_).mergeFrom(value).buildPartial();
+          } else {
+            rows_ = value;
+          }
+          onChanged();
+        } else {
+          rowsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Data is represented here.
+       * </pre>
+       *
+       * <code>.greptime.v1.Rows rows = 2;</code>
+       */
+      public Builder clearRows() {
+        if (rowsBuilder_ == null) {
+          rows_ = null;
+          onChanged();
+        } else {
+          rows_ = null;
+          rowsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Data is represented here.
+       * </pre>
+       *
+       * <code>.greptime.v1.Rows rows = 2;</code>
+       */
+      public io.greptime.v1.RowData.Rows.Builder getRowsBuilder() {
+        
+        onChanged();
+        return getRowsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Data is represented here.
+       * </pre>
+       *
+       * <code>.greptime.v1.Rows rows = 2;</code>
+       */
+      public io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder() {
+        if (rowsBuilder_ != null) {
+          return rowsBuilder_.getMessageOrBuilder();
+        } else {
+          return rows_ == null ?
+              io.greptime.v1.RowData.Rows.getDefaultInstance() : rows_;
+        }
+      }
+      /**
+       * <pre>
+       * Data is represented here.
+       * </pre>
+       *
+       * <code>.greptime.v1.Rows rows = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.Rows, io.greptime.v1.RowData.Rows.Builder, io.greptime.v1.RowData.RowsOrBuilder> 
+          getRowsFieldBuilder() {
+        if (rowsBuilder_ == null) {
+          rowsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.RowData.Rows, io.greptime.v1.RowData.Rows.Builder, io.greptime.v1.RowData.RowsOrBuilder>(
+                  getRows(),
+                  getParentForChildren(),
+                  isClean());
+          rows_ = null;
+        }
+        return rowsBuilder_;
+      }
+
+      private int regionNumber_ ;
+      /**
+       * <pre>
+       * The region number of current insert request.
+       * </pre>
+       *
+       * <code>uint32 region_number = 3;</code>
+       * @return The regionNumber.
+       */
+      @java.lang.Override
+      public int getRegionNumber() {
+        return regionNumber_;
+      }
+      /**
+       * <pre>
+       * The region number of current insert request.
+       * </pre>
+       *
+       * <code>uint32 region_number = 3;</code>
+       * @param value The regionNumber to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionNumber(int value) {
+        
+        regionNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The region number of current insert request.
+       * </pre>
+       *
+       * <code>uint32 region_number = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionNumber() {
+        
+        regionNumber_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.RowInsertRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.RowInsertRequest)
+    private static final io.greptime.v1.Database.RowInsertRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Database.RowInsertRequest();
+    }
+
+    public static io.greptime.v1.Database.RowInsertRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RowInsertRequest>
+        PARSER = new com.google.protobuf.AbstractParser<RowInsertRequest>() {
+      @java.lang.Override
+      public RowInsertRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RowInsertRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RowInsertRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RowInsertRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Database.RowInsertRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_GreptimeRequest_descriptor;
   private static final 
@@ -6926,6 +8874,16 @@ public final class Database {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_DeleteRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_RowInsertRequests_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_RowInsertRequests_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_RowInsertRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_RowInsertRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -6937,41 +8895,48 @@ public final class Database {
     java.lang.String[] descriptorData = {
       "\n\032greptime/v1/database.proto\022\013greptime.v" +
       "1\032\025greptime/v1/ddl.proto\032\030greptime/v1/co" +
-      "lumn.proto\032\026greptime/v1/prom.proto\032\030grep" +
-      "time/v1/common.proto\"\372\001\n\017GreptimeRequest" +
-      "\022*\n\006header\030\001 \001(\0132\032.greptime.v1.RequestHe" +
-      "ader\022.\n\007inserts\030\002 \001(\0132\033.greptime.v1.Inse" +
-      "rtRequestsH\000\022*\n\005query\030\003 \001(\0132\031.greptime.v" +
-      "1.QueryRequestH\000\022&\n\003ddl\030\004 \001(\0132\027.greptime" +
-      ".v1.DdlRequestH\000\022,\n\006delete\030\005 \001(\0132\032.grept" +
-      "ime.v1.DeleteRequestH\000B\t\n\007request\"\177\n\020Gre" +
-      "ptimeResponse\022+\n\006header\030\001 \001(\0132\033.greptime" +
-      ".v1.ResponseHeader\0222\n\raffected_rows\030\002 \001(" +
-      "\0132\031.greptime.v1.AffectedRowsH\000B\n\n\010respon" +
-      "se\"w\n\014QueryRequest\022\r\n\003sql\030\001 \001(\tH\000\022\026\n\014log" +
-      "ical_plan\030\002 \001(\014H\000\0227\n\020prom_range_query\030\003 " +
-      "\001(\0132\033.greptime.v1.PromRangeQueryH\000B\007\n\005qu" +
-      "ery\"=\n\016InsertRequests\022+\n\007inserts\030\001 \003(\0132\032" +
-      ".greptime.v1.InsertRequest\"s\n\rInsertRequ" +
-      "est\022\022\n\ntable_name\030\001 \001(\t\022$\n\007columns\030\003 \003(\013" +
-      "2\023.greptime.v1.Column\022\021\n\trow_count\030\004 \001(\r" +
-      "\022\025\n\rregion_number\030\005 \001(\r\"w\n\rDeleteRequest" +
-      "\022\022\n\ntable_name\030\001 \001(\t\022\025\n\rregion_number\030\002 " +
-      "\001(\r\022(\n\013key_columns\030\003 \003(\0132\023.greptime.v1.C" +
-      "olumn\022\021\n\trow_count\030\004 \001(\r2\252\001\n\020GreptimeDat" +
-      "abase\022E\n\006Handle\022\034.greptime.v1.GreptimeRe" +
-      "quest\032\035.greptime.v1.GreptimeResponse\022O\n\016" +
-      "HandleRequests\022\034.greptime.v1.GreptimeReq" +
-      "uest\032\035.greptime.v1.GreptimeResponse(\001BQ\n" +
-      "\016io.greptime.v1B\010DatabaseZ5github.com/Gr" +
-      "eptimeTeam/greptime-proto/go/greptime/v1" +
-      "b\006proto3"
+      "lumn.proto\032\025greptime/v1/row.proto\032\026grept" +
+      "ime/v1/prom.proto\032\030greptime/v1/common.pr" +
+      "oto\"\261\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132" +
+      "\032.greptime.v1.RequestHeader\022.\n\007inserts\030\002" +
+      " \001(\0132\033.greptime.v1.InsertRequestsH\000\022*\n\005q" +
+      "uery\030\003 \001(\0132\031.greptime.v1.QueryRequestH\000\022" +
+      "&\n\003ddl\030\004 \001(\0132\027.greptime.v1.DdlRequestH\000\022" +
+      ",\n\006delete\030\005 \001(\0132\032.greptime.v1.DeleteRequ" +
+      "estH\000\0225\n\013row_inserts\030\006 \001(\0132\036.greptime.v1" +
+      ".RowInsertRequestsH\000B\t\n\007request\"\177\n\020Grept" +
+      "imeResponse\022+\n\006header\030\001 \001(\0132\033.greptime.v" +
+      "1.ResponseHeader\0222\n\raffected_rows\030\002 \001(\0132" +
+      "\031.greptime.v1.AffectedRowsH\000B\n\n\010response" +
+      "\"w\n\014QueryRequest\022\r\n\003sql\030\001 \001(\tH\000\022\026\n\014logic" +
+      "al_plan\030\002 \001(\014H\000\0227\n\020prom_range_query\030\003 \001(" +
+      "\0132\033.greptime.v1.PromRangeQueryH\000B\007\n\005quer" +
+      "y\"=\n\016InsertRequests\022+\n\007inserts\030\001 \003(\0132\032.g" +
+      "reptime.v1.InsertRequest\"s\n\rInsertReques" +
+      "t\022\022\n\ntable_name\030\001 \001(\t\022$\n\007columns\030\003 \003(\0132\023" +
+      ".greptime.v1.Column\022\021\n\trow_count\030\004 \001(\r\022\025" +
+      "\n\rregion_number\030\005 \001(\r\"w\n\rDeleteRequest\022\022" +
+      "\n\ntable_name\030\001 \001(\t\022\025\n\rregion_number\030\002 \001(" +
+      "\r\022(\n\013key_columns\030\003 \003(\0132\023.greptime.v1.Col" +
+      "umn\022\021\n\trow_count\030\004 \001(\r\"C\n\021RowInsertReque" +
+      "sts\022.\n\007inserts\030\001 \003(\0132\035.greptime.v1.RowIn" +
+      "sertRequest\"^\n\020RowInsertRequest\022\022\n\ntable" +
+      "_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1." +
+      "Rows\022\025\n\rregion_number\030\003 \001(\r2\252\001\n\020Greptime" +
+      "Database\022E\n\006Handle\022\034.greptime.v1.Greptim" +
+      "eRequest\032\035.greptime.v1.GreptimeResponse\022" +
+      "O\n\016HandleRequests\022\034.greptime.v1.Greptime" +
+      "Request\032\035.greptime.v1.GreptimeResponse(\001" +
+      "BQ\n\016io.greptime.v1B\010DatabaseZ5github.com" +
+      "/GreptimeTeam/greptime-proto/go/greptime" +
+      "/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.greptime.v1.Ddl.getDescriptor(),
           io.greptime.v1.Columns.getDescriptor(),
+          io.greptime.v1.RowData.getDescriptor(),
           io.greptime.v1.Prometheus.getDescriptor(),
           io.greptime.v1.Common.getDescriptor(),
         });
@@ -6980,7 +8945,7 @@ public final class Database {
     internal_static_greptime_v1_GreptimeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_GreptimeRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Query", "Ddl", "Delete", "Request", });
+        new java.lang.String[] { "Header", "Inserts", "Query", "Ddl", "Delete", "RowInserts", "Request", });
     internal_static_greptime_v1_GreptimeResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_GreptimeResponse_fieldAccessorTable = new
@@ -7011,8 +8976,21 @@ public final class Database {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DeleteRequest_descriptor,
         new java.lang.String[] { "TableName", "RegionNumber", "KeyColumns", "RowCount", });
+    internal_static_greptime_v1_RowInsertRequests_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_greptime_v1_RowInsertRequests_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_RowInsertRequests_descriptor,
+        new java.lang.String[] { "Inserts", });
+    internal_static_greptime_v1_RowInsertRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_greptime_v1_RowInsertRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_RowInsertRequest_descriptor,
+        new java.lang.String[] { "TableName", "Rows", "RegionNumber", });
     io.greptime.v1.Ddl.getDescriptor();
     io.greptime.v1.Columns.getDescriptor();
+    io.greptime.v1.RowData.getDescriptor();
     io.greptime.v1.Prometheus.getDescriptor();
     io.greptime.v1.Common.getDescriptor();
   }
