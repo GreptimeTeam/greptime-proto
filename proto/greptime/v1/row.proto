@@ -1,0 +1,70 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package greptime.v1;
+
+option java_package = "io.greptime.v1";
+option java_outer_classname = "RowData";
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
+
+import "greptime/v1/common.proto";
+
+message Rows {
+  repeated ColumnSchema schema = 1;
+  repeated Row rows = 2;
+}
+
+message ColumnSchema {
+  string column_name = 1;
+  ColumnDataType datatype = 2;
+  SemanticType semantic_type = 3;
+}
+
+message Row {
+  repeated Value values = 1;
+}
+
+message Value {
+  oneof value {
+    int32 i8_value = 1;
+    int32 i16_value = 2;
+    int32 i32_value = 3;
+    int64 i64_value = 4;
+
+    uint32 u8_value = 5;
+    uint32 u16_value = 6;
+    uint32 u32_value = 7;
+    uint64 u64_value = 8;
+
+    float f32_value = 9;
+    double f64_value = 10;
+
+    bool bool_value = 11;
+    bytes binary_value = 12;
+    string string_value = 13;
+
+    int32 date_value = 14;
+    int64 datetime_value = 15;
+    int64 ts_second_value = 16;
+    int64 ts_millisecond_value = 17;
+    int64 ts_microsecond_value = 18;
+    int64 ts_nanosecond_value = 19;
+    int64 time_second_value = 20;
+    int64 time_millisecond_value = 21;
+    int64 time_microsecond_value = 22;
+    int64 time_nanosecond_value = 23;
+  }
+}
