@@ -40,6 +40,7 @@ message GreptimeRequest {
     DdlRequest ddl = 4;
     DeleteRequest delete = 5;
     RowInsertRequests row_inserts = 6;
+    RowDeleteRequest row_delete = 7;
   }
 }
 
@@ -101,5 +102,17 @@ message RowInsertRequest {
   Rows rows = 2;
 
   // The region number of current insert request.
+  uint32 region_number = 3;
+}
+
+message RowDeleteRequest {
+  // The table name to delete from. Catalog name and schema name are in the
+  // `RequestHeader`.
+  string table_name = 1;
+
+  // The data to delete.
+  Rows rows = 2;
+
+  // The region number of current delete request.
   uint32 region_number = 3;
 }

@@ -69,6 +69,9 @@ extern InsertRequestsDefaultTypeInternal _InsertRequests_default_instance_;
 class QueryRequest;
 struct QueryRequestDefaultTypeInternal;
 extern QueryRequestDefaultTypeInternal _QueryRequest_default_instance_;
+class RowDeleteRequest;
+struct RowDeleteRequestDefaultTypeInternal;
+extern RowDeleteRequestDefaultTypeInternal _RowDeleteRequest_default_instance_;
 class RowInsertRequest;
 struct RowInsertRequestDefaultTypeInternal;
 extern RowInsertRequestDefaultTypeInternal _RowInsertRequest_default_instance_;
@@ -84,6 +87,7 @@ template<> ::greptime::v1::GreptimeResponse* Arena::CreateMaybeMessage<::greptim
 template<> ::greptime::v1::InsertRequest* Arena::CreateMaybeMessage<::greptime::v1::InsertRequest>(Arena*);
 template<> ::greptime::v1::InsertRequests* Arena::CreateMaybeMessage<::greptime::v1::InsertRequests>(Arena*);
 template<> ::greptime::v1::QueryRequest* Arena::CreateMaybeMessage<::greptime::v1::QueryRequest>(Arena*);
+template<> ::greptime::v1::RowDeleteRequest* Arena::CreateMaybeMessage<::greptime::v1::RowDeleteRequest>(Arena*);
 template<> ::greptime::v1::RowInsertRequest* Arena::CreateMaybeMessage<::greptime::v1::RowInsertRequest>(Arena*);
 template<> ::greptime::v1::RowInsertRequests* Arena::CreateMaybeMessage<::greptime::v1::RowInsertRequests>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -141,6 +145,7 @@ class GreptimeRequest final :
     kDdl = 4,
     kDelete = 5,
     kRowInserts = 6,
+    kRowDelete = 7,
     REQUEST_NOT_SET = 0,
   };
 
@@ -228,6 +233,7 @@ class GreptimeRequest final :
     kDdlFieldNumber = 4,
     kDeleteFieldNumber = 5,
     kRowInsertsFieldNumber = 6,
+    kRowDeleteFieldNumber = 7,
   };
   // .greptime.v1.RequestHeader header = 1;
   bool has_header() const;
@@ -337,6 +343,24 @@ class GreptimeRequest final :
       ::greptime::v1::RowInsertRequests* row_inserts);
   ::greptime::v1::RowInsertRequests* unsafe_arena_release_row_inserts();
 
+  // .greptime.v1.RowDeleteRequest row_delete = 7;
+  bool has_row_delete() const;
+  private:
+  bool _internal_has_row_delete() const;
+  public:
+  void clear_row_delete();
+  const ::greptime::v1::RowDeleteRequest& row_delete() const;
+  PROTOBUF_NODISCARD ::greptime::v1::RowDeleteRequest* release_row_delete();
+  ::greptime::v1::RowDeleteRequest* mutable_row_delete();
+  void set_allocated_row_delete(::greptime::v1::RowDeleteRequest* row_delete);
+  private:
+  const ::greptime::v1::RowDeleteRequest& _internal_row_delete() const;
+  ::greptime::v1::RowDeleteRequest* _internal_mutable_row_delete();
+  public:
+  void unsafe_arena_set_allocated_row_delete(
+      ::greptime::v1::RowDeleteRequest* row_delete);
+  ::greptime::v1::RowDeleteRequest* unsafe_arena_release_row_delete();
+
   void clear_request();
   RequestCase request_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.GreptimeRequest)
@@ -347,6 +371,7 @@ class GreptimeRequest final :
   void set_has_ddl();
   void set_has_delete_();
   void set_has_row_inserts();
+  void set_has_row_delete();
 
   inline bool has_request() const;
   inline void clear_has_request();
@@ -364,6 +389,7 @@ class GreptimeRequest final :
       ::greptime::v1::DdlRequest* ddl_;
       ::greptime::v1::DeleteRequest* delete__;
       ::greptime::v1::RowInsertRequests* row_inserts_;
+      ::greptime::v1::RowDeleteRequest* row_delete_;
     } request_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -1672,6 +1698,190 @@ class RowInsertRequest final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fdatabase_2eproto;
 };
+// -------------------------------------------------------------------
+
+class RowDeleteRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.RowDeleteRequest) */ {
+ public:
+  inline RowDeleteRequest() : RowDeleteRequest(nullptr) {}
+  ~RowDeleteRequest() override;
+  explicit PROTOBUF_CONSTEXPR RowDeleteRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RowDeleteRequest(const RowDeleteRequest& from);
+  RowDeleteRequest(RowDeleteRequest&& from) noexcept
+    : RowDeleteRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline RowDeleteRequest& operator=(const RowDeleteRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RowDeleteRequest& operator=(RowDeleteRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RowDeleteRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RowDeleteRequest* internal_default_instance() {
+    return reinterpret_cast<const RowDeleteRequest*>(
+               &_RowDeleteRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(RowDeleteRequest& a, RowDeleteRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RowDeleteRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RowDeleteRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RowDeleteRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RowDeleteRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RowDeleteRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RowDeleteRequest& from) {
+    RowDeleteRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RowDeleteRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.RowDeleteRequest";
+  }
+  protected:
+  explicit RowDeleteRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTableNameFieldNumber = 1,
+    kRowsFieldNumber = 2,
+    kRegionNumberFieldNumber = 3,
+  };
+  // string table_name = 1;
+  void clear_table_name();
+  const std::string& table_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_table_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_table_name();
+  PROTOBUF_NODISCARD std::string* release_table_name();
+  void set_allocated_table_name(std::string* table_name);
+  private:
+  const std::string& _internal_table_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_name(const std::string& value);
+  std::string* _internal_mutable_table_name();
+  public:
+
+  // .greptime.v1.Rows rows = 2;
+  bool has_rows() const;
+  private:
+  bool _internal_has_rows() const;
+  public:
+  void clear_rows();
+  const ::greptime::v1::Rows& rows() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Rows* release_rows();
+  ::greptime::v1::Rows* mutable_rows();
+  void set_allocated_rows(::greptime::v1::Rows* rows);
+  private:
+  const ::greptime::v1::Rows& _internal_rows() const;
+  ::greptime::v1::Rows* _internal_mutable_rows();
+  public:
+  void unsafe_arena_set_allocated_rows(
+      ::greptime::v1::Rows* rows);
+  ::greptime::v1::Rows* unsafe_arena_release_rows();
+
+  // uint32 region_number = 3;
+  void clear_region_number();
+  uint32_t region_number() const;
+  void set_region_number(uint32_t value);
+  private:
+  uint32_t _internal_region_number() const;
+  void _internal_set_region_number(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.RowDeleteRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
+    ::greptime::v1::Rows* rows_;
+    uint32_t region_number_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fdatabase_2eproto;
+};
 // ===================================================================
 
 
@@ -2127,6 +2337,80 @@ inline ::greptime::v1::RowInsertRequests* GreptimeRequest::_internal_mutable_row
 inline ::greptime::v1::RowInsertRequests* GreptimeRequest::mutable_row_inserts() {
   ::greptime::v1::RowInsertRequests* _msg = _internal_mutable_row_inserts();
   // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeRequest.row_inserts)
+  return _msg;
+}
+
+// .greptime.v1.RowDeleteRequest row_delete = 7;
+inline bool GreptimeRequest::_internal_has_row_delete() const {
+  return request_case() == kRowDelete;
+}
+inline bool GreptimeRequest::has_row_delete() const {
+  return _internal_has_row_delete();
+}
+inline void GreptimeRequest::set_has_row_delete() {
+  _impl_._oneof_case_[0] = kRowDelete;
+}
+inline void GreptimeRequest::clear_row_delete() {
+  if (_internal_has_row_delete()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.request_.row_delete_;
+    }
+    clear_has_request();
+  }
+}
+inline ::greptime::v1::RowDeleteRequest* GreptimeRequest::release_row_delete() {
+  // @@protoc_insertion_point(field_release:greptime.v1.GreptimeRequest.row_delete)
+  if (_internal_has_row_delete()) {
+    clear_has_request();
+    ::greptime::v1::RowDeleteRequest* temp = _impl_.request_.row_delete_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.request_.row_delete_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::RowDeleteRequest& GreptimeRequest::_internal_row_delete() const {
+  return _internal_has_row_delete()
+      ? *_impl_.request_.row_delete_
+      : reinterpret_cast< ::greptime::v1::RowDeleteRequest&>(::greptime::v1::_RowDeleteRequest_default_instance_);
+}
+inline const ::greptime::v1::RowDeleteRequest& GreptimeRequest::row_delete() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.GreptimeRequest.row_delete)
+  return _internal_row_delete();
+}
+inline ::greptime::v1::RowDeleteRequest* GreptimeRequest::unsafe_arena_release_row_delete() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.GreptimeRequest.row_delete)
+  if (_internal_has_row_delete()) {
+    clear_has_request();
+    ::greptime::v1::RowDeleteRequest* temp = _impl_.request_.row_delete_;
+    _impl_.request_.row_delete_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void GreptimeRequest::unsafe_arena_set_allocated_row_delete(::greptime::v1::RowDeleteRequest* row_delete) {
+  clear_request();
+  if (row_delete) {
+    set_has_row_delete();
+    _impl_.request_.row_delete_ = row_delete;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.GreptimeRequest.row_delete)
+}
+inline ::greptime::v1::RowDeleteRequest* GreptimeRequest::_internal_mutable_row_delete() {
+  if (!_internal_has_row_delete()) {
+    clear_request();
+    set_has_row_delete();
+    _impl_.request_.row_delete_ = CreateMaybeMessage< ::greptime::v1::RowDeleteRequest >(GetArenaForAllocation());
+  }
+  return _impl_.request_.row_delete_;
+}
+inline ::greptime::v1::RowDeleteRequest* GreptimeRequest::mutable_row_delete() {
+  ::greptime::v1::RowDeleteRequest* _msg = _internal_mutable_row_delete();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeRequest.row_delete)
   return _msg;
 }
 
@@ -3045,9 +3329,170 @@ inline void RowInsertRequest::set_region_number(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.RowInsertRequest.region_number)
 }
 
+// -------------------------------------------------------------------
+
+// RowDeleteRequest
+
+// string table_name = 1;
+inline void RowDeleteRequest::clear_table_name() {
+  _impl_.table_name_.ClearToEmpty();
+}
+inline const std::string& RowDeleteRequest::table_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.RowDeleteRequest.table_name)
+  return _internal_table_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RowDeleteRequest::set_table_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.RowDeleteRequest.table_name)
+}
+inline std::string* RowDeleteRequest::mutable_table_name() {
+  std::string* _s = _internal_mutable_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.RowDeleteRequest.table_name)
+  return _s;
+}
+inline const std::string& RowDeleteRequest::_internal_table_name() const {
+  return _impl_.table_name_.Get();
+}
+inline void RowDeleteRequest::_internal_set_table_name(const std::string& value) {
+  
+  _impl_.table_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RowDeleteRequest::_internal_mutable_table_name() {
+  
+  return _impl_.table_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RowDeleteRequest::release_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.RowDeleteRequest.table_name)
+  return _impl_.table_name_.Release();
+}
+inline void RowDeleteRequest::set_allocated_table_name(std::string* table_name) {
+  if (table_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.table_name_.SetAllocated(table_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.table_name_.IsDefault()) {
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.RowDeleteRequest.table_name)
+}
+
+// .greptime.v1.Rows rows = 2;
+inline bool RowDeleteRequest::_internal_has_rows() const {
+  return this != internal_default_instance() && _impl_.rows_ != nullptr;
+}
+inline bool RowDeleteRequest::has_rows() const {
+  return _internal_has_rows();
+}
+inline const ::greptime::v1::Rows& RowDeleteRequest::_internal_rows() const {
+  const ::greptime::v1::Rows* p = _impl_.rows_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::Rows&>(
+      ::greptime::v1::_Rows_default_instance_);
+}
+inline const ::greptime::v1::Rows& RowDeleteRequest::rows() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.RowDeleteRequest.rows)
+  return _internal_rows();
+}
+inline void RowDeleteRequest::unsafe_arena_set_allocated_rows(
+    ::greptime::v1::Rows* rows) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.rows_);
+  }
+  _impl_.rows_ = rows;
+  if (rows) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.RowDeleteRequest.rows)
+}
+inline ::greptime::v1::Rows* RowDeleteRequest::release_rows() {
+  
+  ::greptime::v1::Rows* temp = _impl_.rows_;
+  _impl_.rows_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::Rows* RowDeleteRequest::unsafe_arena_release_rows() {
+  // @@protoc_insertion_point(field_release:greptime.v1.RowDeleteRequest.rows)
+  
+  ::greptime::v1::Rows* temp = _impl_.rows_;
+  _impl_.rows_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::Rows* RowDeleteRequest::_internal_mutable_rows() {
+  
+  if (_impl_.rows_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::Rows>(GetArenaForAllocation());
+    _impl_.rows_ = p;
+  }
+  return _impl_.rows_;
+}
+inline ::greptime::v1::Rows* RowDeleteRequest::mutable_rows() {
+  ::greptime::v1::Rows* _msg = _internal_mutable_rows();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.RowDeleteRequest.rows)
+  return _msg;
+}
+inline void RowDeleteRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.rows_);
+  }
+  if (rows) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(rows));
+    if (message_arena != submessage_arena) {
+      rows = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, rows, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.rows_ = rows;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.RowDeleteRequest.rows)
+}
+
+// uint32 region_number = 3;
+inline void RowDeleteRequest::clear_region_number() {
+  _impl_.region_number_ = 0u;
+}
+inline uint32_t RowDeleteRequest::_internal_region_number() const {
+  return _impl_.region_number_;
+}
+inline uint32_t RowDeleteRequest::region_number() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.RowDeleteRequest.region_number)
+  return _internal_region_number();
+}
+inline void RowDeleteRequest::_internal_set_region_number(uint32_t value) {
+  
+  _impl_.region_number_ = value;
+}
+inline void RowDeleteRequest::set_region_number(uint32_t value) {
+  _internal_set_region_number(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.RowDeleteRequest.region_number)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
