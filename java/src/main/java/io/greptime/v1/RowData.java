@@ -2765,260 +2765,271 @@ public final class RowData {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 i8_value = 1;</code>
+     * <code>uint32 null_value = 1;</code>
+     * @return Whether the nullValue field is set.
+     */
+    boolean hasNullValue();
+    /**
+     * <code>uint32 null_value = 1;</code>
+     * @return The nullValue.
+     */
+    int getNullValue();
+
+    /**
+     * <code>int32 i8_value = 2;</code>
      * @return Whether the i8Value field is set.
      */
     boolean hasI8Value();
     /**
-     * <code>int32 i8_value = 1;</code>
+     * <code>int32 i8_value = 2;</code>
      * @return The i8Value.
      */
     int getI8Value();
 
     /**
-     * <code>int32 i16_value = 2;</code>
+     * <code>int32 i16_value = 3;</code>
      * @return Whether the i16Value field is set.
      */
     boolean hasI16Value();
     /**
-     * <code>int32 i16_value = 2;</code>
+     * <code>int32 i16_value = 3;</code>
      * @return The i16Value.
      */
     int getI16Value();
 
     /**
-     * <code>int32 i32_value = 3;</code>
+     * <code>int32 i32_value = 4;</code>
      * @return Whether the i32Value field is set.
      */
     boolean hasI32Value();
     /**
-     * <code>int32 i32_value = 3;</code>
+     * <code>int32 i32_value = 4;</code>
      * @return The i32Value.
      */
     int getI32Value();
 
     /**
-     * <code>int64 i64_value = 4;</code>
+     * <code>int64 i64_value = 5;</code>
      * @return Whether the i64Value field is set.
      */
     boolean hasI64Value();
     /**
-     * <code>int64 i64_value = 4;</code>
+     * <code>int64 i64_value = 5;</code>
      * @return The i64Value.
      */
     long getI64Value();
 
     /**
-     * <code>uint32 u8_value = 5;</code>
+     * <code>uint32 u8_value = 6;</code>
      * @return Whether the u8Value field is set.
      */
     boolean hasU8Value();
     /**
-     * <code>uint32 u8_value = 5;</code>
+     * <code>uint32 u8_value = 6;</code>
      * @return The u8Value.
      */
     int getU8Value();
 
     /**
-     * <code>uint32 u16_value = 6;</code>
+     * <code>uint32 u16_value = 7;</code>
      * @return Whether the u16Value field is set.
      */
     boolean hasU16Value();
     /**
-     * <code>uint32 u16_value = 6;</code>
+     * <code>uint32 u16_value = 7;</code>
      * @return The u16Value.
      */
     int getU16Value();
 
     /**
-     * <code>uint32 u32_value = 7;</code>
+     * <code>uint32 u32_value = 8;</code>
      * @return Whether the u32Value field is set.
      */
     boolean hasU32Value();
     /**
-     * <code>uint32 u32_value = 7;</code>
+     * <code>uint32 u32_value = 8;</code>
      * @return The u32Value.
      */
     int getU32Value();
 
     /**
-     * <code>uint64 u64_value = 8;</code>
+     * <code>uint64 u64_value = 9;</code>
      * @return Whether the u64Value field is set.
      */
     boolean hasU64Value();
     /**
-     * <code>uint64 u64_value = 8;</code>
+     * <code>uint64 u64_value = 9;</code>
      * @return The u64Value.
      */
     long getU64Value();
 
     /**
-     * <code>float f32_value = 9;</code>
+     * <code>float f32_value = 10;</code>
      * @return Whether the f32Value field is set.
      */
     boolean hasF32Value();
     /**
-     * <code>float f32_value = 9;</code>
+     * <code>float f32_value = 10;</code>
      * @return The f32Value.
      */
     float getF32Value();
 
     /**
-     * <code>double f64_value = 10;</code>
+     * <code>double f64_value = 11;</code>
      * @return Whether the f64Value field is set.
      */
     boolean hasF64Value();
     /**
-     * <code>double f64_value = 10;</code>
+     * <code>double f64_value = 11;</code>
      * @return The f64Value.
      */
     double getF64Value();
 
     /**
-     * <code>bool bool_value = 11;</code>
+     * <code>bool bool_value = 12;</code>
      * @return Whether the boolValue field is set.
      */
     boolean hasBoolValue();
     /**
-     * <code>bool bool_value = 11;</code>
+     * <code>bool bool_value = 12;</code>
      * @return The boolValue.
      */
     boolean getBoolValue();
 
     /**
-     * <code>bytes binary_value = 12;</code>
+     * <code>bytes binary_value = 13;</code>
      * @return Whether the binaryValue field is set.
      */
     boolean hasBinaryValue();
     /**
-     * <code>bytes binary_value = 12;</code>
+     * <code>bytes binary_value = 13;</code>
      * @return The binaryValue.
      */
     com.google.protobuf.ByteString getBinaryValue();
 
     /**
-     * <code>string string_value = 13;</code>
+     * <code>string string_value = 14;</code>
      * @return Whether the stringValue field is set.
      */
     boolean hasStringValue();
     /**
-     * <code>string string_value = 13;</code>
+     * <code>string string_value = 14;</code>
      * @return The stringValue.
      */
     java.lang.String getStringValue();
     /**
-     * <code>string string_value = 13;</code>
+     * <code>string string_value = 14;</code>
      * @return The bytes for stringValue.
      */
     com.google.protobuf.ByteString
         getStringValueBytes();
 
     /**
-     * <code>int32 date_value = 14;</code>
+     * <code>int32 date_value = 15;</code>
      * @return Whether the dateValue field is set.
      */
     boolean hasDateValue();
     /**
-     * <code>int32 date_value = 14;</code>
+     * <code>int32 date_value = 15;</code>
      * @return The dateValue.
      */
     int getDateValue();
 
     /**
-     * <code>int64 datetime_value = 15;</code>
+     * <code>int64 datetime_value = 16;</code>
      * @return Whether the datetimeValue field is set.
      */
     boolean hasDatetimeValue();
     /**
-     * <code>int64 datetime_value = 15;</code>
+     * <code>int64 datetime_value = 16;</code>
      * @return The datetimeValue.
      */
     long getDatetimeValue();
 
     /**
-     * <code>int64 ts_second_value = 16;</code>
+     * <code>int64 ts_second_value = 17;</code>
      * @return Whether the tsSecondValue field is set.
      */
     boolean hasTsSecondValue();
     /**
-     * <code>int64 ts_second_value = 16;</code>
+     * <code>int64 ts_second_value = 17;</code>
      * @return The tsSecondValue.
      */
     long getTsSecondValue();
 
     /**
-     * <code>int64 ts_millisecond_value = 17;</code>
+     * <code>int64 ts_millisecond_value = 18;</code>
      * @return Whether the tsMillisecondValue field is set.
      */
     boolean hasTsMillisecondValue();
     /**
-     * <code>int64 ts_millisecond_value = 17;</code>
+     * <code>int64 ts_millisecond_value = 18;</code>
      * @return The tsMillisecondValue.
      */
     long getTsMillisecondValue();
 
     /**
-     * <code>int64 ts_microsecond_value = 18;</code>
+     * <code>int64 ts_microsecond_value = 19;</code>
      * @return Whether the tsMicrosecondValue field is set.
      */
     boolean hasTsMicrosecondValue();
     /**
-     * <code>int64 ts_microsecond_value = 18;</code>
+     * <code>int64 ts_microsecond_value = 19;</code>
      * @return The tsMicrosecondValue.
      */
     long getTsMicrosecondValue();
 
     /**
-     * <code>int64 ts_nanosecond_value = 19;</code>
+     * <code>int64 ts_nanosecond_value = 20;</code>
      * @return Whether the tsNanosecondValue field is set.
      */
     boolean hasTsNanosecondValue();
     /**
-     * <code>int64 ts_nanosecond_value = 19;</code>
+     * <code>int64 ts_nanosecond_value = 20;</code>
      * @return The tsNanosecondValue.
      */
     long getTsNanosecondValue();
 
     /**
-     * <code>int64 time_second_value = 20;</code>
+     * <code>int64 time_second_value = 21;</code>
      * @return Whether the timeSecondValue field is set.
      */
     boolean hasTimeSecondValue();
     /**
-     * <code>int64 time_second_value = 20;</code>
+     * <code>int64 time_second_value = 21;</code>
      * @return The timeSecondValue.
      */
     long getTimeSecondValue();
 
     /**
-     * <code>int64 time_millisecond_value = 21;</code>
+     * <code>int64 time_millisecond_value = 22;</code>
      * @return Whether the timeMillisecondValue field is set.
      */
     boolean hasTimeMillisecondValue();
     /**
-     * <code>int64 time_millisecond_value = 21;</code>
+     * <code>int64 time_millisecond_value = 22;</code>
      * @return The timeMillisecondValue.
      */
     long getTimeMillisecondValue();
 
     /**
-     * <code>int64 time_microsecond_value = 22;</code>
+     * <code>int64 time_microsecond_value = 23;</code>
      * @return Whether the timeMicrosecondValue field is set.
      */
     boolean hasTimeMicrosecondValue();
     /**
-     * <code>int64 time_microsecond_value = 22;</code>
+     * <code>int64 time_microsecond_value = 23;</code>
      * @return The timeMicrosecondValue.
      */
     long getTimeMicrosecondValue();
 
     /**
-     * <code>int64 time_nanosecond_value = 23;</code>
+     * <code>int64 time_nanosecond_value = 24;</code>
      * @return Whether the timeNanosecondValue field is set.
      */
     boolean hasTimeNanosecondValue();
     /**
-     * <code>int64 time_nanosecond_value = 23;</code>
+     * <code>int64 time_nanosecond_value = 24;</code>
      * @return The timeNanosecondValue.
      */
     long getTimeNanosecondValue();
@@ -3071,7 +3082,7 @@ public final class RowData {
               done = true;
               break;
             case 8: {
-              value_ = input.readInt32();
+              value_ = input.readUInt32();
               valueCase_ = 1;
               break;
             }
@@ -3086,12 +3097,12 @@ public final class RowData {
               break;
             }
             case 32: {
-              value_ = input.readInt64();
+              value_ = input.readInt32();
               valueCase_ = 4;
               break;
             }
             case 40: {
-              value_ = input.readUInt32();
+              value_ = input.readInt64();
               valueCase_ = 5;
               break;
             }
@@ -3106,43 +3117,43 @@ public final class RowData {
               break;
             }
             case 64: {
-              value_ = input.readUInt64();
+              value_ = input.readUInt32();
               valueCase_ = 8;
               break;
             }
-            case 77: {
-              value_ = input.readFloat();
+            case 72: {
+              value_ = input.readUInt64();
               valueCase_ = 9;
               break;
             }
-            case 81: {
-              value_ = input.readDouble();
+            case 85: {
+              value_ = input.readFloat();
               valueCase_ = 10;
               break;
             }
-            case 88: {
-              value_ = input.readBool();
+            case 89: {
+              value_ = input.readDouble();
               valueCase_ = 11;
               break;
             }
-            case 98: {
-              value_ = input.readBytes();
+            case 96: {
+              value_ = input.readBool();
               valueCase_ = 12;
               break;
             }
             case 106: {
-              java.lang.String s = input.readStringRequireUtf8();
+              value_ = input.readBytes();
               valueCase_ = 13;
+              break;
+            }
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+              valueCase_ = 14;
               value_ = s;
               break;
             }
-            case 112: {
-              value_ = input.readInt32();
-              valueCase_ = 14;
-              break;
-            }
             case 120: {
-              value_ = input.readInt64();
+              value_ = input.readInt32();
               valueCase_ = 15;
               break;
             }
@@ -3186,6 +3197,11 @@ public final class RowData {
               valueCase_ = 23;
               break;
             }
+            case 192: {
+              value_ = input.readInt64();
+              valueCase_ = 24;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3225,29 +3241,30 @@ public final class RowData {
     public enum ValueCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      I8_VALUE(1),
-      I16_VALUE(2),
-      I32_VALUE(3),
-      I64_VALUE(4),
-      U8_VALUE(5),
-      U16_VALUE(6),
-      U32_VALUE(7),
-      U64_VALUE(8),
-      F32_VALUE(9),
-      F64_VALUE(10),
-      BOOL_VALUE(11),
-      BINARY_VALUE(12),
-      STRING_VALUE(13),
-      DATE_VALUE(14),
-      DATETIME_VALUE(15),
-      TS_SECOND_VALUE(16),
-      TS_MILLISECOND_VALUE(17),
-      TS_MICROSECOND_VALUE(18),
-      TS_NANOSECOND_VALUE(19),
-      TIME_SECOND_VALUE(20),
-      TIME_MILLISECOND_VALUE(21),
-      TIME_MICROSECOND_VALUE(22),
-      TIME_NANOSECOND_VALUE(23),
+      NULL_VALUE(1),
+      I8_VALUE(2),
+      I16_VALUE(3),
+      I32_VALUE(4),
+      I64_VALUE(5),
+      U8_VALUE(6),
+      U16_VALUE(7),
+      U32_VALUE(8),
+      U64_VALUE(9),
+      F32_VALUE(10),
+      F64_VALUE(11),
+      BOOL_VALUE(12),
+      BINARY_VALUE(13),
+      STRING_VALUE(14),
+      DATE_VALUE(15),
+      DATETIME_VALUE(16),
+      TS_SECOND_VALUE(17),
+      TS_MILLISECOND_VALUE(18),
+      TS_MICROSECOND_VALUE(19),
+      TS_NANOSECOND_VALUE(20),
+      TIME_SECOND_VALUE(21),
+      TIME_MILLISECOND_VALUE(22),
+      TIME_MICROSECOND_VALUE(23),
+      TIME_NANOSECOND_VALUE(24),
       VALUE_NOT_SET(0);
       private final int value;
       private ValueCase(int value) {
@@ -3265,29 +3282,30 @@ public final class RowData {
 
       public static ValueCase forNumber(int value) {
         switch (value) {
-          case 1: return I8_VALUE;
-          case 2: return I16_VALUE;
-          case 3: return I32_VALUE;
-          case 4: return I64_VALUE;
-          case 5: return U8_VALUE;
-          case 6: return U16_VALUE;
-          case 7: return U32_VALUE;
-          case 8: return U64_VALUE;
-          case 9: return F32_VALUE;
-          case 10: return F64_VALUE;
-          case 11: return BOOL_VALUE;
-          case 12: return BINARY_VALUE;
-          case 13: return STRING_VALUE;
-          case 14: return DATE_VALUE;
-          case 15: return DATETIME_VALUE;
-          case 16: return TS_SECOND_VALUE;
-          case 17: return TS_MILLISECOND_VALUE;
-          case 18: return TS_MICROSECOND_VALUE;
-          case 19: return TS_NANOSECOND_VALUE;
-          case 20: return TIME_SECOND_VALUE;
-          case 21: return TIME_MILLISECOND_VALUE;
-          case 22: return TIME_MICROSECOND_VALUE;
-          case 23: return TIME_NANOSECOND_VALUE;
+          case 1: return NULL_VALUE;
+          case 2: return I8_VALUE;
+          case 3: return I16_VALUE;
+          case 4: return I32_VALUE;
+          case 5: return I64_VALUE;
+          case 6: return U8_VALUE;
+          case 7: return U16_VALUE;
+          case 8: return U32_VALUE;
+          case 9: return U64_VALUE;
+          case 10: return F32_VALUE;
+          case 11: return F64_VALUE;
+          case 12: return BOOL_VALUE;
+          case 13: return BINARY_VALUE;
+          case 14: return STRING_VALUE;
+          case 15: return DATE_VALUE;
+          case 16: return DATETIME_VALUE;
+          case 17: return TS_SECOND_VALUE;
+          case 18: return TS_MILLISECOND_VALUE;
+          case 19: return TS_MICROSECOND_VALUE;
+          case 20: return TS_NANOSECOND_VALUE;
+          case 21: return TIME_SECOND_VALUE;
+          case 22: return TIME_MILLISECOND_VALUE;
+          case 23: return TIME_MICROSECOND_VALUE;
+          case 24: return TIME_NANOSECOND_VALUE;
           case 0: return VALUE_NOT_SET;
           default: return null;
         }
@@ -3303,273 +3321,294 @@ public final class RowData {
           valueCase_);
     }
 
-    public static final int I8_VALUE_FIELD_NUMBER = 1;
+    public static final int NULL_VALUE_FIELD_NUMBER = 1;
     /**
-     * <code>int32 i8_value = 1;</code>
-     * @return Whether the i8Value field is set.
+     * <code>uint32 null_value = 1;</code>
+     * @return Whether the nullValue field is set.
      */
     @java.lang.Override
-    public boolean hasI8Value() {
+    public boolean hasNullValue() {
       return valueCase_ == 1;
     }
     /**
-     * <code>int32 i8_value = 1;</code>
-     * @return The i8Value.
+     * <code>uint32 null_value = 1;</code>
+     * @return The nullValue.
      */
     @java.lang.Override
-    public int getI8Value() {
+    public int getNullValue() {
       if (valueCase_ == 1) {
         return (java.lang.Integer) value_;
       }
       return 0;
     }
 
-    public static final int I16_VALUE_FIELD_NUMBER = 2;
+    public static final int I8_VALUE_FIELD_NUMBER = 2;
     /**
-     * <code>int32 i16_value = 2;</code>
-     * @return Whether the i16Value field is set.
+     * <code>int32 i8_value = 2;</code>
+     * @return Whether the i8Value field is set.
      */
     @java.lang.Override
-    public boolean hasI16Value() {
+    public boolean hasI8Value() {
       return valueCase_ == 2;
     }
     /**
-     * <code>int32 i16_value = 2;</code>
-     * @return The i16Value.
+     * <code>int32 i8_value = 2;</code>
+     * @return The i8Value.
      */
     @java.lang.Override
-    public int getI16Value() {
+    public int getI8Value() {
       if (valueCase_ == 2) {
         return (java.lang.Integer) value_;
       }
       return 0;
     }
 
-    public static final int I32_VALUE_FIELD_NUMBER = 3;
+    public static final int I16_VALUE_FIELD_NUMBER = 3;
     /**
-     * <code>int32 i32_value = 3;</code>
-     * @return Whether the i32Value field is set.
+     * <code>int32 i16_value = 3;</code>
+     * @return Whether the i16Value field is set.
      */
     @java.lang.Override
-    public boolean hasI32Value() {
+    public boolean hasI16Value() {
       return valueCase_ == 3;
     }
     /**
-     * <code>int32 i32_value = 3;</code>
-     * @return The i32Value.
+     * <code>int32 i16_value = 3;</code>
+     * @return The i16Value.
      */
     @java.lang.Override
-    public int getI32Value() {
+    public int getI16Value() {
       if (valueCase_ == 3) {
         return (java.lang.Integer) value_;
       }
       return 0;
     }
 
-    public static final int I64_VALUE_FIELD_NUMBER = 4;
+    public static final int I32_VALUE_FIELD_NUMBER = 4;
     /**
-     * <code>int64 i64_value = 4;</code>
-     * @return Whether the i64Value field is set.
+     * <code>int32 i32_value = 4;</code>
+     * @return Whether the i32Value field is set.
      */
     @java.lang.Override
-    public boolean hasI64Value() {
+    public boolean hasI32Value() {
       return valueCase_ == 4;
     }
     /**
-     * <code>int64 i64_value = 4;</code>
-     * @return The i64Value.
+     * <code>int32 i32_value = 4;</code>
+     * @return The i32Value.
      */
     @java.lang.Override
-    public long getI64Value() {
+    public int getI32Value() {
       if (valueCase_ == 4) {
-        return (java.lang.Long) value_;
-      }
-      return 0L;
-    }
-
-    public static final int U8_VALUE_FIELD_NUMBER = 5;
-    /**
-     * <code>uint32 u8_value = 5;</code>
-     * @return Whether the u8Value field is set.
-     */
-    @java.lang.Override
-    public boolean hasU8Value() {
-      return valueCase_ == 5;
-    }
-    /**
-     * <code>uint32 u8_value = 5;</code>
-     * @return The u8Value.
-     */
-    @java.lang.Override
-    public int getU8Value() {
-      if (valueCase_ == 5) {
         return (java.lang.Integer) value_;
       }
       return 0;
     }
 
-    public static final int U16_VALUE_FIELD_NUMBER = 6;
+    public static final int I64_VALUE_FIELD_NUMBER = 5;
     /**
-     * <code>uint32 u16_value = 6;</code>
-     * @return Whether the u16Value field is set.
+     * <code>int64 i64_value = 5;</code>
+     * @return Whether the i64Value field is set.
      */
     @java.lang.Override
-    public boolean hasU16Value() {
+    public boolean hasI64Value() {
+      return valueCase_ == 5;
+    }
+    /**
+     * <code>int64 i64_value = 5;</code>
+     * @return The i64Value.
+     */
+    @java.lang.Override
+    public long getI64Value() {
+      if (valueCase_ == 5) {
+        return (java.lang.Long) value_;
+      }
+      return 0L;
+    }
+
+    public static final int U8_VALUE_FIELD_NUMBER = 6;
+    /**
+     * <code>uint32 u8_value = 6;</code>
+     * @return Whether the u8Value field is set.
+     */
+    @java.lang.Override
+    public boolean hasU8Value() {
       return valueCase_ == 6;
     }
     /**
-     * <code>uint32 u16_value = 6;</code>
-     * @return The u16Value.
+     * <code>uint32 u8_value = 6;</code>
+     * @return The u8Value.
      */
     @java.lang.Override
-    public int getU16Value() {
+    public int getU8Value() {
       if (valueCase_ == 6) {
         return (java.lang.Integer) value_;
       }
       return 0;
     }
 
-    public static final int U32_VALUE_FIELD_NUMBER = 7;
+    public static final int U16_VALUE_FIELD_NUMBER = 7;
     /**
-     * <code>uint32 u32_value = 7;</code>
-     * @return Whether the u32Value field is set.
+     * <code>uint32 u16_value = 7;</code>
+     * @return Whether the u16Value field is set.
      */
     @java.lang.Override
-    public boolean hasU32Value() {
+    public boolean hasU16Value() {
       return valueCase_ == 7;
     }
     /**
-     * <code>uint32 u32_value = 7;</code>
-     * @return The u32Value.
+     * <code>uint32 u16_value = 7;</code>
+     * @return The u16Value.
      */
     @java.lang.Override
-    public int getU32Value() {
+    public int getU16Value() {
       if (valueCase_ == 7) {
         return (java.lang.Integer) value_;
       }
       return 0;
     }
 
-    public static final int U64_VALUE_FIELD_NUMBER = 8;
+    public static final int U32_VALUE_FIELD_NUMBER = 8;
     /**
-     * <code>uint64 u64_value = 8;</code>
+     * <code>uint32 u32_value = 8;</code>
+     * @return Whether the u32Value field is set.
+     */
+    @java.lang.Override
+    public boolean hasU32Value() {
+      return valueCase_ == 8;
+    }
+    /**
+     * <code>uint32 u32_value = 8;</code>
+     * @return The u32Value.
+     */
+    @java.lang.Override
+    public int getU32Value() {
+      if (valueCase_ == 8) {
+        return (java.lang.Integer) value_;
+      }
+      return 0;
+    }
+
+    public static final int U64_VALUE_FIELD_NUMBER = 9;
+    /**
+     * <code>uint64 u64_value = 9;</code>
      * @return Whether the u64Value field is set.
      */
     @java.lang.Override
     public boolean hasU64Value() {
-      return valueCase_ == 8;
+      return valueCase_ == 9;
     }
     /**
-     * <code>uint64 u64_value = 8;</code>
+     * <code>uint64 u64_value = 9;</code>
      * @return The u64Value.
      */
     @java.lang.Override
     public long getU64Value() {
-      if (valueCase_ == 8) {
+      if (valueCase_ == 9) {
         return (java.lang.Long) value_;
       }
       return 0L;
     }
 
-    public static final int F32_VALUE_FIELD_NUMBER = 9;
+    public static final int F32_VALUE_FIELD_NUMBER = 10;
     /**
-     * <code>float f32_value = 9;</code>
+     * <code>float f32_value = 10;</code>
      * @return Whether the f32Value field is set.
      */
     @java.lang.Override
     public boolean hasF32Value() {
-      return valueCase_ == 9;
+      return valueCase_ == 10;
     }
     /**
-     * <code>float f32_value = 9;</code>
+     * <code>float f32_value = 10;</code>
      * @return The f32Value.
      */
     @java.lang.Override
     public float getF32Value() {
-      if (valueCase_ == 9) {
+      if (valueCase_ == 10) {
         return (java.lang.Float) value_;
       }
       return 0F;
     }
 
-    public static final int F64_VALUE_FIELD_NUMBER = 10;
+    public static final int F64_VALUE_FIELD_NUMBER = 11;
     /**
-     * <code>double f64_value = 10;</code>
+     * <code>double f64_value = 11;</code>
      * @return Whether the f64Value field is set.
      */
     @java.lang.Override
     public boolean hasF64Value() {
-      return valueCase_ == 10;
+      return valueCase_ == 11;
     }
     /**
-     * <code>double f64_value = 10;</code>
+     * <code>double f64_value = 11;</code>
      * @return The f64Value.
      */
     @java.lang.Override
     public double getF64Value() {
-      if (valueCase_ == 10) {
+      if (valueCase_ == 11) {
         return (java.lang.Double) value_;
       }
       return 0D;
     }
 
-    public static final int BOOL_VALUE_FIELD_NUMBER = 11;
+    public static final int BOOL_VALUE_FIELD_NUMBER = 12;
     /**
-     * <code>bool bool_value = 11;</code>
+     * <code>bool bool_value = 12;</code>
      * @return Whether the boolValue field is set.
      */
     @java.lang.Override
     public boolean hasBoolValue() {
-      return valueCase_ == 11;
+      return valueCase_ == 12;
     }
     /**
-     * <code>bool bool_value = 11;</code>
+     * <code>bool bool_value = 12;</code>
      * @return The boolValue.
      */
     @java.lang.Override
     public boolean getBoolValue() {
-      if (valueCase_ == 11) {
+      if (valueCase_ == 12) {
         return (java.lang.Boolean) value_;
       }
       return false;
     }
 
-    public static final int BINARY_VALUE_FIELD_NUMBER = 12;
+    public static final int BINARY_VALUE_FIELD_NUMBER = 13;
     /**
-     * <code>bytes binary_value = 12;</code>
+     * <code>bytes binary_value = 13;</code>
      * @return Whether the binaryValue field is set.
      */
     @java.lang.Override
     public boolean hasBinaryValue() {
-      return valueCase_ == 12;
+      return valueCase_ == 13;
     }
     /**
-     * <code>bytes binary_value = 12;</code>
+     * <code>bytes binary_value = 13;</code>
      * @return The binaryValue.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString getBinaryValue() {
-      if (valueCase_ == 12) {
+      if (valueCase_ == 13) {
         return (com.google.protobuf.ByteString) value_;
       }
       return com.google.protobuf.ByteString.EMPTY;
     }
 
-    public static final int STRING_VALUE_FIELD_NUMBER = 13;
+    public static final int STRING_VALUE_FIELD_NUMBER = 14;
     /**
-     * <code>string string_value = 13;</code>
+     * <code>string string_value = 14;</code>
      * @return Whether the stringValue field is set.
      */
     public boolean hasStringValue() {
-      return valueCase_ == 13;
+      return valueCase_ == 14;
     }
     /**
-     * <code>string string_value = 13;</code>
+     * <code>string string_value = 14;</code>
      * @return The stringValue.
      */
     public java.lang.String getStringValue() {
       java.lang.Object ref = "";
-      if (valueCase_ == 13) {
+      if (valueCase_ == 14) {
         ref = value_;
       }
       if (ref instanceof java.lang.String) {
@@ -3578,27 +3617,27 @@ public final class RowData {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (valueCase_ == 13) {
+        if (valueCase_ == 14) {
           value_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>string string_value = 13;</code>
+     * <code>string string_value = 14;</code>
      * @return The bytes for stringValue.
      */
     public com.google.protobuf.ByteString
         getStringValueBytes() {
       java.lang.Object ref = "";
-      if (valueCase_ == 13) {
+      if (valueCase_ == 14) {
         ref = value_;
       }
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        if (valueCase_ == 13) {
+        if (valueCase_ == 14) {
           value_ = b;
         }
         return b;
@@ -3607,211 +3646,211 @@ public final class RowData {
       }
     }
 
-    public static final int DATE_VALUE_FIELD_NUMBER = 14;
+    public static final int DATE_VALUE_FIELD_NUMBER = 15;
     /**
-     * <code>int32 date_value = 14;</code>
+     * <code>int32 date_value = 15;</code>
      * @return Whether the dateValue field is set.
      */
     @java.lang.Override
     public boolean hasDateValue() {
-      return valueCase_ == 14;
+      return valueCase_ == 15;
     }
     /**
-     * <code>int32 date_value = 14;</code>
+     * <code>int32 date_value = 15;</code>
      * @return The dateValue.
      */
     @java.lang.Override
     public int getDateValue() {
-      if (valueCase_ == 14) {
+      if (valueCase_ == 15) {
         return (java.lang.Integer) value_;
       }
       return 0;
     }
 
-    public static final int DATETIME_VALUE_FIELD_NUMBER = 15;
+    public static final int DATETIME_VALUE_FIELD_NUMBER = 16;
     /**
-     * <code>int64 datetime_value = 15;</code>
+     * <code>int64 datetime_value = 16;</code>
      * @return Whether the datetimeValue field is set.
      */
     @java.lang.Override
     public boolean hasDatetimeValue() {
-      return valueCase_ == 15;
+      return valueCase_ == 16;
     }
     /**
-     * <code>int64 datetime_value = 15;</code>
+     * <code>int64 datetime_value = 16;</code>
      * @return The datetimeValue.
      */
     @java.lang.Override
     public long getDatetimeValue() {
-      if (valueCase_ == 15) {
-        return (java.lang.Long) value_;
-      }
-      return 0L;
-    }
-
-    public static final int TS_SECOND_VALUE_FIELD_NUMBER = 16;
-    /**
-     * <code>int64 ts_second_value = 16;</code>
-     * @return Whether the tsSecondValue field is set.
-     */
-    @java.lang.Override
-    public boolean hasTsSecondValue() {
-      return valueCase_ == 16;
-    }
-    /**
-     * <code>int64 ts_second_value = 16;</code>
-     * @return The tsSecondValue.
-     */
-    @java.lang.Override
-    public long getTsSecondValue() {
       if (valueCase_ == 16) {
         return (java.lang.Long) value_;
       }
       return 0L;
     }
 
-    public static final int TS_MILLISECOND_VALUE_FIELD_NUMBER = 17;
+    public static final int TS_SECOND_VALUE_FIELD_NUMBER = 17;
     /**
-     * <code>int64 ts_millisecond_value = 17;</code>
-     * @return Whether the tsMillisecondValue field is set.
+     * <code>int64 ts_second_value = 17;</code>
+     * @return Whether the tsSecondValue field is set.
      */
     @java.lang.Override
-    public boolean hasTsMillisecondValue() {
+    public boolean hasTsSecondValue() {
       return valueCase_ == 17;
     }
     /**
-     * <code>int64 ts_millisecond_value = 17;</code>
-     * @return The tsMillisecondValue.
+     * <code>int64 ts_second_value = 17;</code>
+     * @return The tsSecondValue.
      */
     @java.lang.Override
-    public long getTsMillisecondValue() {
+    public long getTsSecondValue() {
       if (valueCase_ == 17) {
         return (java.lang.Long) value_;
       }
       return 0L;
     }
 
-    public static final int TS_MICROSECOND_VALUE_FIELD_NUMBER = 18;
+    public static final int TS_MILLISECOND_VALUE_FIELD_NUMBER = 18;
     /**
-     * <code>int64 ts_microsecond_value = 18;</code>
-     * @return Whether the tsMicrosecondValue field is set.
+     * <code>int64 ts_millisecond_value = 18;</code>
+     * @return Whether the tsMillisecondValue field is set.
      */
     @java.lang.Override
-    public boolean hasTsMicrosecondValue() {
+    public boolean hasTsMillisecondValue() {
       return valueCase_ == 18;
     }
     /**
-     * <code>int64 ts_microsecond_value = 18;</code>
-     * @return The tsMicrosecondValue.
+     * <code>int64 ts_millisecond_value = 18;</code>
+     * @return The tsMillisecondValue.
      */
     @java.lang.Override
-    public long getTsMicrosecondValue() {
+    public long getTsMillisecondValue() {
       if (valueCase_ == 18) {
         return (java.lang.Long) value_;
       }
       return 0L;
     }
 
-    public static final int TS_NANOSECOND_VALUE_FIELD_NUMBER = 19;
+    public static final int TS_MICROSECOND_VALUE_FIELD_NUMBER = 19;
     /**
-     * <code>int64 ts_nanosecond_value = 19;</code>
-     * @return Whether the tsNanosecondValue field is set.
+     * <code>int64 ts_microsecond_value = 19;</code>
+     * @return Whether the tsMicrosecondValue field is set.
      */
     @java.lang.Override
-    public boolean hasTsNanosecondValue() {
+    public boolean hasTsMicrosecondValue() {
       return valueCase_ == 19;
     }
     /**
-     * <code>int64 ts_nanosecond_value = 19;</code>
-     * @return The tsNanosecondValue.
+     * <code>int64 ts_microsecond_value = 19;</code>
+     * @return The tsMicrosecondValue.
      */
     @java.lang.Override
-    public long getTsNanosecondValue() {
+    public long getTsMicrosecondValue() {
       if (valueCase_ == 19) {
         return (java.lang.Long) value_;
       }
       return 0L;
     }
 
-    public static final int TIME_SECOND_VALUE_FIELD_NUMBER = 20;
+    public static final int TS_NANOSECOND_VALUE_FIELD_NUMBER = 20;
     /**
-     * <code>int64 time_second_value = 20;</code>
-     * @return Whether the timeSecondValue field is set.
+     * <code>int64 ts_nanosecond_value = 20;</code>
+     * @return Whether the tsNanosecondValue field is set.
      */
     @java.lang.Override
-    public boolean hasTimeSecondValue() {
+    public boolean hasTsNanosecondValue() {
       return valueCase_ == 20;
     }
     /**
-     * <code>int64 time_second_value = 20;</code>
-     * @return The timeSecondValue.
+     * <code>int64 ts_nanosecond_value = 20;</code>
+     * @return The tsNanosecondValue.
      */
     @java.lang.Override
-    public long getTimeSecondValue() {
+    public long getTsNanosecondValue() {
       if (valueCase_ == 20) {
         return (java.lang.Long) value_;
       }
       return 0L;
     }
 
-    public static final int TIME_MILLISECOND_VALUE_FIELD_NUMBER = 21;
+    public static final int TIME_SECOND_VALUE_FIELD_NUMBER = 21;
     /**
-     * <code>int64 time_millisecond_value = 21;</code>
-     * @return Whether the timeMillisecondValue field is set.
+     * <code>int64 time_second_value = 21;</code>
+     * @return Whether the timeSecondValue field is set.
      */
     @java.lang.Override
-    public boolean hasTimeMillisecondValue() {
+    public boolean hasTimeSecondValue() {
       return valueCase_ == 21;
     }
     /**
-     * <code>int64 time_millisecond_value = 21;</code>
-     * @return The timeMillisecondValue.
+     * <code>int64 time_second_value = 21;</code>
+     * @return The timeSecondValue.
      */
     @java.lang.Override
-    public long getTimeMillisecondValue() {
+    public long getTimeSecondValue() {
       if (valueCase_ == 21) {
         return (java.lang.Long) value_;
       }
       return 0L;
     }
 
-    public static final int TIME_MICROSECOND_VALUE_FIELD_NUMBER = 22;
+    public static final int TIME_MILLISECOND_VALUE_FIELD_NUMBER = 22;
     /**
-     * <code>int64 time_microsecond_value = 22;</code>
-     * @return Whether the timeMicrosecondValue field is set.
+     * <code>int64 time_millisecond_value = 22;</code>
+     * @return Whether the timeMillisecondValue field is set.
      */
     @java.lang.Override
-    public boolean hasTimeMicrosecondValue() {
+    public boolean hasTimeMillisecondValue() {
       return valueCase_ == 22;
     }
     /**
-     * <code>int64 time_microsecond_value = 22;</code>
-     * @return The timeMicrosecondValue.
+     * <code>int64 time_millisecond_value = 22;</code>
+     * @return The timeMillisecondValue.
      */
     @java.lang.Override
-    public long getTimeMicrosecondValue() {
+    public long getTimeMillisecondValue() {
       if (valueCase_ == 22) {
         return (java.lang.Long) value_;
       }
       return 0L;
     }
 
-    public static final int TIME_NANOSECOND_VALUE_FIELD_NUMBER = 23;
+    public static final int TIME_MICROSECOND_VALUE_FIELD_NUMBER = 23;
     /**
-     * <code>int64 time_nanosecond_value = 23;</code>
+     * <code>int64 time_microsecond_value = 23;</code>
+     * @return Whether the timeMicrosecondValue field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimeMicrosecondValue() {
+      return valueCase_ == 23;
+    }
+    /**
+     * <code>int64 time_microsecond_value = 23;</code>
+     * @return The timeMicrosecondValue.
+     */
+    @java.lang.Override
+    public long getTimeMicrosecondValue() {
+      if (valueCase_ == 23) {
+        return (java.lang.Long) value_;
+      }
+      return 0L;
+    }
+
+    public static final int TIME_NANOSECOND_VALUE_FIELD_NUMBER = 24;
+    /**
+     * <code>int64 time_nanosecond_value = 24;</code>
      * @return Whether the timeNanosecondValue field is set.
      */
     @java.lang.Override
     public boolean hasTimeNanosecondValue() {
-      return valueCase_ == 23;
+      return valueCase_ == 24;
     }
     /**
-     * <code>int64 time_nanosecond_value = 23;</code>
+     * <code>int64 time_nanosecond_value = 24;</code>
      * @return The timeNanosecondValue.
      */
     @java.lang.Override
     public long getTimeNanosecondValue() {
-      if (valueCase_ == 23) {
+      if (valueCase_ == 24) {
         return (java.lang.Long) value_;
       }
       return 0L;
@@ -3832,7 +3871,7 @@ public final class RowData {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (valueCase_ == 1) {
-        output.writeInt32(
+        output.writeUInt32(
             1, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 2) {
@@ -3844,12 +3883,12 @@ public final class RowData {
             3, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 4) {
-        output.writeInt64(
-            4, (long)((java.lang.Long) value_));
+        output.writeInt32(
+            4, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 5) {
-        output.writeUInt32(
-            5, (int)((java.lang.Integer) value_));
+        output.writeInt64(
+            5, (long)((java.lang.Long) value_));
       }
       if (valueCase_ == 6) {
         output.writeUInt32(
@@ -3860,35 +3899,35 @@ public final class RowData {
             7, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 8) {
-        output.writeUInt64(
-            8, (long)((java.lang.Long) value_));
+        output.writeUInt32(
+            8, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 9) {
-        output.writeFloat(
-            9, (float)((java.lang.Float) value_));
+        output.writeUInt64(
+            9, (long)((java.lang.Long) value_));
       }
       if (valueCase_ == 10) {
-        output.writeDouble(
-            10, (double)((java.lang.Double) value_));
+        output.writeFloat(
+            10, (float)((java.lang.Float) value_));
       }
       if (valueCase_ == 11) {
-        output.writeBool(
-            11, (boolean)((java.lang.Boolean) value_));
+        output.writeDouble(
+            11, (double)((java.lang.Double) value_));
       }
       if (valueCase_ == 12) {
-        output.writeBytes(
-            12, (com.google.protobuf.ByteString) value_);
+        output.writeBool(
+            12, (boolean)((java.lang.Boolean) value_));
       }
       if (valueCase_ == 13) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, value_);
+        output.writeBytes(
+            13, (com.google.protobuf.ByteString) value_);
       }
       if (valueCase_ == 14) {
-        output.writeInt32(
-            14, (int)((java.lang.Integer) value_));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, value_);
       }
       if (valueCase_ == 15) {
-        output.writeInt64(
-            15, (long)((java.lang.Long) value_));
+        output.writeInt32(
+            15, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 16) {
         output.writeInt64(
@@ -3922,6 +3961,10 @@ public final class RowData {
         output.writeInt64(
             23, (long)((java.lang.Long) value_));
       }
+      if (valueCase_ == 24) {
+        output.writeInt64(
+            24, (long)((java.lang.Long) value_));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3933,7 +3976,7 @@ public final class RowData {
       size = 0;
       if (valueCase_ == 1) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(
+          .computeUInt32Size(
               1, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 2) {
@@ -3948,13 +3991,13 @@ public final class RowData {
       }
       if (valueCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(
-              4, (long)((java.lang.Long) value_));
+          .computeInt32Size(
+              4, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 5) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(
-              5, (int)((java.lang.Integer) value_));
+          .computeInt64Size(
+              5, (long)((java.lang.Long) value_));
       }
       if (valueCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
@@ -3968,41 +4011,41 @@ public final class RowData {
       }
       if (valueCase_ == 8) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(
-              8, (long)((java.lang.Long) value_));
+          .computeUInt32Size(
+              8, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(
-              9, (float)((java.lang.Float) value_));
+          .computeUInt64Size(
+              9, (long)((java.lang.Long) value_));
       }
       if (valueCase_ == 10) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(
-              10, (double)((java.lang.Double) value_));
+          .computeFloatSize(
+              10, (float)((java.lang.Float) value_));
       }
       if (valueCase_ == 11) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(
-              11, (boolean)((java.lang.Boolean) value_));
+          .computeDoubleSize(
+              11, (double)((java.lang.Double) value_));
       }
       if (valueCase_ == 12) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(
-              12, (com.google.protobuf.ByteString) value_);
+          .computeBoolSize(
+              12, (boolean)((java.lang.Boolean) value_));
       }
       if (valueCase_ == 13) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, value_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(
+              13, (com.google.protobuf.ByteString) value_);
       }
       if (valueCase_ == 14) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(
-              14, (int)((java.lang.Integer) value_));
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, value_);
       }
       if (valueCase_ == 15) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(
-              15, (long)((java.lang.Long) value_));
+          .computeInt32Size(
+              15, (int)((java.lang.Integer) value_));
       }
       if (valueCase_ == 16) {
         size += com.google.protobuf.CodedOutputStream
@@ -4044,6 +4087,11 @@ public final class RowData {
           .computeInt64Size(
               23, (long)((java.lang.Long) value_));
       }
+      if (valueCase_ == 24) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(
+              24, (long)((java.lang.Long) value_));
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4062,96 +4110,100 @@ public final class RowData {
       if (!getValueCase().equals(other.getValueCase())) return false;
       switch (valueCase_) {
         case 1:
+          if (getNullValue()
+              != other.getNullValue()) return false;
+          break;
+        case 2:
           if (getI8Value()
               != other.getI8Value()) return false;
           break;
-        case 2:
+        case 3:
           if (getI16Value()
               != other.getI16Value()) return false;
           break;
-        case 3:
+        case 4:
           if (getI32Value()
               != other.getI32Value()) return false;
           break;
-        case 4:
+        case 5:
           if (getI64Value()
               != other.getI64Value()) return false;
           break;
-        case 5:
+        case 6:
           if (getU8Value()
               != other.getU8Value()) return false;
           break;
-        case 6:
+        case 7:
           if (getU16Value()
               != other.getU16Value()) return false;
           break;
-        case 7:
+        case 8:
           if (getU32Value()
               != other.getU32Value()) return false;
           break;
-        case 8:
+        case 9:
           if (getU64Value()
               != other.getU64Value()) return false;
           break;
-        case 9:
+        case 10:
           if (java.lang.Float.floatToIntBits(getF32Value())
               != java.lang.Float.floatToIntBits(
                   other.getF32Value())) return false;
           break;
-        case 10:
+        case 11:
           if (java.lang.Double.doubleToLongBits(getF64Value())
               != java.lang.Double.doubleToLongBits(
                   other.getF64Value())) return false;
           break;
-        case 11:
+        case 12:
           if (getBoolValue()
               != other.getBoolValue()) return false;
           break;
-        case 12:
+        case 13:
           if (!getBinaryValue()
               .equals(other.getBinaryValue())) return false;
           break;
-        case 13:
+        case 14:
           if (!getStringValue()
               .equals(other.getStringValue())) return false;
           break;
-        case 14:
+        case 15:
           if (getDateValue()
               != other.getDateValue()) return false;
           break;
-        case 15:
+        case 16:
           if (getDatetimeValue()
               != other.getDatetimeValue()) return false;
           break;
-        case 16:
+        case 17:
           if (getTsSecondValue()
               != other.getTsSecondValue()) return false;
           break;
-        case 17:
+        case 18:
           if (getTsMillisecondValue()
               != other.getTsMillisecondValue()) return false;
           break;
-        case 18:
+        case 19:
           if (getTsMicrosecondValue()
               != other.getTsMicrosecondValue()) return false;
           break;
-        case 19:
+        case 20:
           if (getTsNanosecondValue()
               != other.getTsNanosecondValue()) return false;
           break;
-        case 20:
+        case 21:
           if (getTimeSecondValue()
               != other.getTimeSecondValue()) return false;
           break;
-        case 21:
+        case 22:
           if (getTimeMillisecondValue()
               != other.getTimeMillisecondValue()) return false;
           break;
-        case 22:
+        case 23:
           if (getTimeMicrosecondValue()
               != other.getTimeMicrosecondValue()) return false;
           break;
-        case 23:
+        case 24:
           if (getTimeNanosecondValue()
               != other.getTimeNanosecondValue()) return false;
           break;
@@ -4171,107 +4223,111 @@ public final class RowData {
       hash = (19 * hash) + getDescriptor().hashCode();
       switch (valueCase_) {
         case 1:
+          hash = (37 * hash) + NULL_VALUE_FIELD_NUMBER;
+          hash = (53 * hash) + getNullValue();
+          break;
+        case 2:
           hash = (37 * hash) + I8_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getI8Value();
           break;
-        case 2:
+        case 3:
           hash = (37 * hash) + I16_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getI16Value();
           break;
-        case 3:
+        case 4:
           hash = (37 * hash) + I32_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getI32Value();
           break;
-        case 4:
+        case 5:
           hash = (37 * hash) + I64_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getI64Value());
           break;
-        case 5:
+        case 6:
           hash = (37 * hash) + U8_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getU8Value();
           break;
-        case 6:
+        case 7:
           hash = (37 * hash) + U16_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getU16Value();
           break;
-        case 7:
+        case 8:
           hash = (37 * hash) + U32_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getU32Value();
           break;
-        case 8:
+        case 9:
           hash = (37 * hash) + U64_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getU64Value());
           break;
-        case 9:
+        case 10:
           hash = (37 * hash) + F32_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + java.lang.Float.floatToIntBits(
               getF32Value());
           break;
-        case 10:
+        case 11:
           hash = (37 * hash) + F64_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               java.lang.Double.doubleToLongBits(getF64Value()));
           break;
-        case 11:
+        case 12:
           hash = (37 * hash) + BOOL_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
               getBoolValue());
           break;
-        case 12:
+        case 13:
           hash = (37 * hash) + BINARY_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getBinaryValue().hashCode();
           break;
-        case 13:
+        case 14:
           hash = (37 * hash) + STRING_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getStringValue().hashCode();
           break;
-        case 14:
+        case 15:
           hash = (37 * hash) + DATE_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getDateValue();
           break;
-        case 15:
+        case 16:
           hash = (37 * hash) + DATETIME_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getDatetimeValue());
           break;
-        case 16:
+        case 17:
           hash = (37 * hash) + TS_SECOND_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTsSecondValue());
           break;
-        case 17:
+        case 18:
           hash = (37 * hash) + TS_MILLISECOND_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTsMillisecondValue());
           break;
-        case 18:
+        case 19:
           hash = (37 * hash) + TS_MICROSECOND_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTsMicrosecondValue());
           break;
-        case 19:
+        case 20:
           hash = (37 * hash) + TS_NANOSECOND_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTsNanosecondValue());
           break;
-        case 20:
+        case 21:
           hash = (37 * hash) + TIME_SECOND_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTimeSecondValue());
           break;
-        case 21:
+        case 22:
           hash = (37 * hash) + TIME_MILLISECOND_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTimeMillisecondValue());
           break;
-        case 22:
+        case 23:
           hash = (37 * hash) + TIME_MICROSECOND_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTimeMicrosecondValue());
           break;
-        case 23:
+        case 24:
           hash = (37 * hash) + TIME_NANOSECOND_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTimeNanosecondValue());
@@ -4509,6 +4565,9 @@ public final class RowData {
         if (valueCase_ == 23) {
           result.value_ = value_;
         }
+        if (valueCase_ == 24) {
+          result.value_ = value_;
+        }
         result.valueCase_ = valueCase_;
         onBuilt();
         return result;
@@ -4559,6 +4618,10 @@ public final class RowData {
       public Builder mergeFrom(io.greptime.v1.RowData.Value other) {
         if (other == io.greptime.v1.RowData.Value.getDefaultInstance()) return this;
         switch (other.getValueCase()) {
+          case NULL_VALUE: {
+            setNullValue(other.getNullValue());
+            break;
+          }
           case I8_VALUE: {
             setI8Value(other.getI8Value());
             break;
@@ -4608,7 +4671,7 @@ public final class RowData {
             break;
           }
           case STRING_VALUE: {
-            valueCase_ = 13;
+            valueCase_ = 14;
             value_ = other.value_;
             onChanged();
             break;
@@ -4702,38 +4765,38 @@ public final class RowData {
 
 
       /**
-       * <code>int32 i8_value = 1;</code>
-       * @return Whether the i8Value field is set.
+       * <code>uint32 null_value = 1;</code>
+       * @return Whether the nullValue field is set.
        */
-      public boolean hasI8Value() {
+      public boolean hasNullValue() {
         return valueCase_ == 1;
       }
       /**
-       * <code>int32 i8_value = 1;</code>
-       * @return The i8Value.
+       * <code>uint32 null_value = 1;</code>
+       * @return The nullValue.
        */
-      public int getI8Value() {
+      public int getNullValue() {
         if (valueCase_ == 1) {
           return (java.lang.Integer) value_;
         }
         return 0;
       }
       /**
-       * <code>int32 i8_value = 1;</code>
-       * @param value The i8Value to set.
+       * <code>uint32 null_value = 1;</code>
+       * @param value The nullValue to set.
        * @return This builder for chaining.
        */
-      public Builder setI8Value(int value) {
+      public Builder setNullValue(int value) {
         valueCase_ = 1;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 i8_value = 1;</code>
+       * <code>uint32 null_value = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearI8Value() {
+      public Builder clearNullValue() {
         if (valueCase_ == 1) {
           valueCase_ = 0;
           value_ = null;
@@ -4743,38 +4806,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int32 i16_value = 2;</code>
-       * @return Whether the i16Value field is set.
+       * <code>int32 i8_value = 2;</code>
+       * @return Whether the i8Value field is set.
        */
-      public boolean hasI16Value() {
+      public boolean hasI8Value() {
         return valueCase_ == 2;
       }
       /**
-       * <code>int32 i16_value = 2;</code>
-       * @return The i16Value.
+       * <code>int32 i8_value = 2;</code>
+       * @return The i8Value.
        */
-      public int getI16Value() {
+      public int getI8Value() {
         if (valueCase_ == 2) {
           return (java.lang.Integer) value_;
         }
         return 0;
       }
       /**
-       * <code>int32 i16_value = 2;</code>
-       * @param value The i16Value to set.
+       * <code>int32 i8_value = 2;</code>
+       * @param value The i8Value to set.
        * @return This builder for chaining.
        */
-      public Builder setI16Value(int value) {
+      public Builder setI8Value(int value) {
         valueCase_ = 2;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 i16_value = 2;</code>
+       * <code>int32 i8_value = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearI16Value() {
+      public Builder clearI8Value() {
         if (valueCase_ == 2) {
           valueCase_ = 0;
           value_ = null;
@@ -4784,38 +4847,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int32 i32_value = 3;</code>
-       * @return Whether the i32Value field is set.
+       * <code>int32 i16_value = 3;</code>
+       * @return Whether the i16Value field is set.
        */
-      public boolean hasI32Value() {
+      public boolean hasI16Value() {
         return valueCase_ == 3;
       }
       /**
-       * <code>int32 i32_value = 3;</code>
-       * @return The i32Value.
+       * <code>int32 i16_value = 3;</code>
+       * @return The i16Value.
        */
-      public int getI32Value() {
+      public int getI16Value() {
         if (valueCase_ == 3) {
           return (java.lang.Integer) value_;
         }
         return 0;
       }
       /**
-       * <code>int32 i32_value = 3;</code>
-       * @param value The i32Value to set.
+       * <code>int32 i16_value = 3;</code>
+       * @param value The i16Value to set.
        * @return This builder for chaining.
        */
-      public Builder setI32Value(int value) {
+      public Builder setI16Value(int value) {
         valueCase_ = 3;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 i32_value = 3;</code>
+       * <code>int32 i16_value = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearI32Value() {
+      public Builder clearI16Value() {
         if (valueCase_ == 3) {
           valueCase_ = 0;
           value_ = null;
@@ -4825,38 +4888,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int64 i64_value = 4;</code>
-       * @return Whether the i64Value field is set.
+       * <code>int32 i32_value = 4;</code>
+       * @return Whether the i32Value field is set.
        */
-      public boolean hasI64Value() {
+      public boolean hasI32Value() {
         return valueCase_ == 4;
       }
       /**
-       * <code>int64 i64_value = 4;</code>
-       * @return The i64Value.
+       * <code>int32 i32_value = 4;</code>
+       * @return The i32Value.
        */
-      public long getI64Value() {
+      public int getI32Value() {
         if (valueCase_ == 4) {
-          return (java.lang.Long) value_;
+          return (java.lang.Integer) value_;
         }
-        return 0L;
+        return 0;
       }
       /**
-       * <code>int64 i64_value = 4;</code>
-       * @param value The i64Value to set.
+       * <code>int32 i32_value = 4;</code>
+       * @param value The i32Value to set.
        * @return This builder for chaining.
        */
-      public Builder setI64Value(long value) {
+      public Builder setI32Value(int value) {
         valueCase_ = 4;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 i64_value = 4;</code>
+       * <code>int32 i32_value = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearI64Value() {
+      public Builder clearI32Value() {
         if (valueCase_ == 4) {
           valueCase_ = 0;
           value_ = null;
@@ -4866,38 +4929,38 @@ public final class RowData {
       }
 
       /**
-       * <code>uint32 u8_value = 5;</code>
-       * @return Whether the u8Value field is set.
+       * <code>int64 i64_value = 5;</code>
+       * @return Whether the i64Value field is set.
        */
-      public boolean hasU8Value() {
+      public boolean hasI64Value() {
         return valueCase_ == 5;
       }
       /**
-       * <code>uint32 u8_value = 5;</code>
-       * @return The u8Value.
+       * <code>int64 i64_value = 5;</code>
+       * @return The i64Value.
        */
-      public int getU8Value() {
+      public long getI64Value() {
         if (valueCase_ == 5) {
-          return (java.lang.Integer) value_;
+          return (java.lang.Long) value_;
         }
-        return 0;
+        return 0L;
       }
       /**
-       * <code>uint32 u8_value = 5;</code>
-       * @param value The u8Value to set.
+       * <code>int64 i64_value = 5;</code>
+       * @param value The i64Value to set.
        * @return This builder for chaining.
        */
-      public Builder setU8Value(int value) {
+      public Builder setI64Value(long value) {
         valueCase_ = 5;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 u8_value = 5;</code>
+       * <code>int64 i64_value = 5;</code>
        * @return This builder for chaining.
        */
-      public Builder clearU8Value() {
+      public Builder clearI64Value() {
         if (valueCase_ == 5) {
           valueCase_ = 0;
           value_ = null;
@@ -4907,38 +4970,38 @@ public final class RowData {
       }
 
       /**
-       * <code>uint32 u16_value = 6;</code>
-       * @return Whether the u16Value field is set.
+       * <code>uint32 u8_value = 6;</code>
+       * @return Whether the u8Value field is set.
        */
-      public boolean hasU16Value() {
+      public boolean hasU8Value() {
         return valueCase_ == 6;
       }
       /**
-       * <code>uint32 u16_value = 6;</code>
-       * @return The u16Value.
+       * <code>uint32 u8_value = 6;</code>
+       * @return The u8Value.
        */
-      public int getU16Value() {
+      public int getU8Value() {
         if (valueCase_ == 6) {
           return (java.lang.Integer) value_;
         }
         return 0;
       }
       /**
-       * <code>uint32 u16_value = 6;</code>
-       * @param value The u16Value to set.
+       * <code>uint32 u8_value = 6;</code>
+       * @param value The u8Value to set.
        * @return This builder for chaining.
        */
-      public Builder setU16Value(int value) {
+      public Builder setU8Value(int value) {
         valueCase_ = 6;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 u16_value = 6;</code>
+       * <code>uint32 u8_value = 6;</code>
        * @return This builder for chaining.
        */
-      public Builder clearU16Value() {
+      public Builder clearU8Value() {
         if (valueCase_ == 6) {
           valueCase_ = 0;
           value_ = null;
@@ -4948,38 +5011,38 @@ public final class RowData {
       }
 
       /**
-       * <code>uint32 u32_value = 7;</code>
-       * @return Whether the u32Value field is set.
+       * <code>uint32 u16_value = 7;</code>
+       * @return Whether the u16Value field is set.
        */
-      public boolean hasU32Value() {
+      public boolean hasU16Value() {
         return valueCase_ == 7;
       }
       /**
-       * <code>uint32 u32_value = 7;</code>
-       * @return The u32Value.
+       * <code>uint32 u16_value = 7;</code>
+       * @return The u16Value.
        */
-      public int getU32Value() {
+      public int getU16Value() {
         if (valueCase_ == 7) {
           return (java.lang.Integer) value_;
         }
         return 0;
       }
       /**
-       * <code>uint32 u32_value = 7;</code>
-       * @param value The u32Value to set.
+       * <code>uint32 u16_value = 7;</code>
+       * @param value The u16Value to set.
        * @return This builder for chaining.
        */
-      public Builder setU32Value(int value) {
+      public Builder setU16Value(int value) {
         valueCase_ = 7;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 u32_value = 7;</code>
+       * <code>uint32 u16_value = 7;</code>
        * @return This builder for chaining.
        */
-      public Builder clearU32Value() {
+      public Builder clearU16Value() {
         if (valueCase_ == 7) {
           valueCase_ = 0;
           value_ = null;
@@ -4989,38 +5052,38 @@ public final class RowData {
       }
 
       /**
-       * <code>uint64 u64_value = 8;</code>
-       * @return Whether the u64Value field is set.
+       * <code>uint32 u32_value = 8;</code>
+       * @return Whether the u32Value field is set.
        */
-      public boolean hasU64Value() {
+      public boolean hasU32Value() {
         return valueCase_ == 8;
       }
       /**
-       * <code>uint64 u64_value = 8;</code>
-       * @return The u64Value.
+       * <code>uint32 u32_value = 8;</code>
+       * @return The u32Value.
        */
-      public long getU64Value() {
+      public int getU32Value() {
         if (valueCase_ == 8) {
-          return (java.lang.Long) value_;
+          return (java.lang.Integer) value_;
         }
-        return 0L;
+        return 0;
       }
       /**
-       * <code>uint64 u64_value = 8;</code>
-       * @param value The u64Value to set.
+       * <code>uint32 u32_value = 8;</code>
+       * @param value The u32Value to set.
        * @return This builder for chaining.
        */
-      public Builder setU64Value(long value) {
+      public Builder setU32Value(int value) {
         valueCase_ = 8;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint64 u64_value = 8;</code>
+       * <code>uint32 u32_value = 8;</code>
        * @return This builder for chaining.
        */
-      public Builder clearU64Value() {
+      public Builder clearU32Value() {
         if (valueCase_ == 8) {
           valueCase_ = 0;
           value_ = null;
@@ -5030,38 +5093,38 @@ public final class RowData {
       }
 
       /**
-       * <code>float f32_value = 9;</code>
-       * @return Whether the f32Value field is set.
+       * <code>uint64 u64_value = 9;</code>
+       * @return Whether the u64Value field is set.
        */
-      public boolean hasF32Value() {
+      public boolean hasU64Value() {
         return valueCase_ == 9;
       }
       /**
-       * <code>float f32_value = 9;</code>
-       * @return The f32Value.
+       * <code>uint64 u64_value = 9;</code>
+       * @return The u64Value.
        */
-      public float getF32Value() {
+      public long getU64Value() {
         if (valueCase_ == 9) {
-          return (java.lang.Float) value_;
+          return (java.lang.Long) value_;
         }
-        return 0F;
+        return 0L;
       }
       /**
-       * <code>float f32_value = 9;</code>
-       * @param value The f32Value to set.
+       * <code>uint64 u64_value = 9;</code>
+       * @param value The u64Value to set.
        * @return This builder for chaining.
        */
-      public Builder setF32Value(float value) {
+      public Builder setU64Value(long value) {
         valueCase_ = 9;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>float f32_value = 9;</code>
+       * <code>uint64 u64_value = 9;</code>
        * @return This builder for chaining.
        */
-      public Builder clearF32Value() {
+      public Builder clearU64Value() {
         if (valueCase_ == 9) {
           valueCase_ = 0;
           value_ = null;
@@ -5071,38 +5134,38 @@ public final class RowData {
       }
 
       /**
-       * <code>double f64_value = 10;</code>
-       * @return Whether the f64Value field is set.
+       * <code>float f32_value = 10;</code>
+       * @return Whether the f32Value field is set.
        */
-      public boolean hasF64Value() {
+      public boolean hasF32Value() {
         return valueCase_ == 10;
       }
       /**
-       * <code>double f64_value = 10;</code>
-       * @return The f64Value.
+       * <code>float f32_value = 10;</code>
+       * @return The f32Value.
        */
-      public double getF64Value() {
+      public float getF32Value() {
         if (valueCase_ == 10) {
-          return (java.lang.Double) value_;
+          return (java.lang.Float) value_;
         }
-        return 0D;
+        return 0F;
       }
       /**
-       * <code>double f64_value = 10;</code>
-       * @param value The f64Value to set.
+       * <code>float f32_value = 10;</code>
+       * @param value The f32Value to set.
        * @return This builder for chaining.
        */
-      public Builder setF64Value(double value) {
+      public Builder setF32Value(float value) {
         valueCase_ = 10;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>double f64_value = 10;</code>
+       * <code>float f32_value = 10;</code>
        * @return This builder for chaining.
        */
-      public Builder clearF64Value() {
+      public Builder clearF32Value() {
         if (valueCase_ == 10) {
           valueCase_ = 0;
           value_ = null;
@@ -5112,38 +5175,38 @@ public final class RowData {
       }
 
       /**
-       * <code>bool bool_value = 11;</code>
-       * @return Whether the boolValue field is set.
+       * <code>double f64_value = 11;</code>
+       * @return Whether the f64Value field is set.
        */
-      public boolean hasBoolValue() {
+      public boolean hasF64Value() {
         return valueCase_ == 11;
       }
       /**
-       * <code>bool bool_value = 11;</code>
-       * @return The boolValue.
+       * <code>double f64_value = 11;</code>
+       * @return The f64Value.
        */
-      public boolean getBoolValue() {
+      public double getF64Value() {
         if (valueCase_ == 11) {
-          return (java.lang.Boolean) value_;
+          return (java.lang.Double) value_;
         }
-        return false;
+        return 0D;
       }
       /**
-       * <code>bool bool_value = 11;</code>
-       * @param value The boolValue to set.
+       * <code>double f64_value = 11;</code>
+       * @param value The f64Value to set.
        * @return This builder for chaining.
        */
-      public Builder setBoolValue(boolean value) {
+      public Builder setF64Value(double value) {
         valueCase_ = 11;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool bool_value = 11;</code>
+       * <code>double f64_value = 11;</code>
        * @return This builder for chaining.
        */
-      public Builder clearBoolValue() {
+      public Builder clearF64Value() {
         if (valueCase_ == 11) {
           valueCase_ = 0;
           value_ = null;
@@ -5153,41 +5216,38 @@ public final class RowData {
       }
 
       /**
-       * <code>bytes binary_value = 12;</code>
-       * @return Whether the binaryValue field is set.
+       * <code>bool bool_value = 12;</code>
+       * @return Whether the boolValue field is set.
        */
-      public boolean hasBinaryValue() {
+      public boolean hasBoolValue() {
         return valueCase_ == 12;
       }
       /**
-       * <code>bytes binary_value = 12;</code>
-       * @return The binaryValue.
+       * <code>bool bool_value = 12;</code>
+       * @return The boolValue.
        */
-      public com.google.protobuf.ByteString getBinaryValue() {
+      public boolean getBoolValue() {
         if (valueCase_ == 12) {
-          return (com.google.protobuf.ByteString) value_;
+          return (java.lang.Boolean) value_;
         }
-        return com.google.protobuf.ByteString.EMPTY;
+        return false;
       }
       /**
-       * <code>bytes binary_value = 12;</code>
-       * @param value The binaryValue to set.
+       * <code>bool bool_value = 12;</code>
+       * @param value The boolValue to set.
        * @return This builder for chaining.
        */
-      public Builder setBinaryValue(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  valueCase_ = 12;
+      public Builder setBoolValue(boolean value) {
+        valueCase_ = 12;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes binary_value = 12;</code>
+       * <code>bool bool_value = 12;</code>
        * @return This builder for chaining.
        */
-      public Builder clearBinaryValue() {
+      public Builder clearBoolValue() {
         if (valueCase_ == 12) {
           valueCase_ = 0;
           value_ = null;
@@ -5197,65 +5257,28 @@ public final class RowData {
       }
 
       /**
-       * <code>string string_value = 13;</code>
-       * @return Whether the stringValue field is set.
+       * <code>bytes binary_value = 13;</code>
+       * @return Whether the binaryValue field is set.
        */
-      @java.lang.Override
-      public boolean hasStringValue() {
+      public boolean hasBinaryValue() {
         return valueCase_ == 13;
       }
       /**
-       * <code>string string_value = 13;</code>
-       * @return The stringValue.
+       * <code>bytes binary_value = 13;</code>
+       * @return The binaryValue.
        */
-      @java.lang.Override
-      public java.lang.String getStringValue() {
-        java.lang.Object ref = "";
+      public com.google.protobuf.ByteString getBinaryValue() {
         if (valueCase_ == 13) {
-          ref = value_;
+          return (com.google.protobuf.ByteString) value_;
         }
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (valueCase_ == 13) {
-            value_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+        return com.google.protobuf.ByteString.EMPTY;
       }
       /**
-       * <code>string string_value = 13;</code>
-       * @return The bytes for stringValue.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getStringValueBytes() {
-        java.lang.Object ref = "";
-        if (valueCase_ == 13) {
-          ref = value_;
-        }
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          if (valueCase_ == 13) {
-            value_ = b;
-          }
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string string_value = 13;</code>
-       * @param value The stringValue to set.
+       * <code>bytes binary_value = 13;</code>
+       * @param value The binaryValue to set.
        * @return This builder for chaining.
        */
-      public Builder setStringValue(
-          java.lang.String value) {
+      public Builder setBinaryValue(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -5265,10 +5288,10 @@ public final class RowData {
         return this;
       }
       /**
-       * <code>string string_value = 13;</code>
+       * <code>bytes binary_value = 13;</code>
        * @return This builder for chaining.
        */
-      public Builder clearStringValue() {
+      public Builder clearBinaryValue() {
         if (valueCase_ == 13) {
           valueCase_ = 0;
           value_ = null;
@@ -5276,8 +5299,89 @@ public final class RowData {
         }
         return this;
       }
+
       /**
-       * <code>string string_value = 13;</code>
+       * <code>string string_value = 14;</code>
+       * @return Whether the stringValue field is set.
+       */
+      @java.lang.Override
+      public boolean hasStringValue() {
+        return valueCase_ == 14;
+      }
+      /**
+       * <code>string string_value = 14;</code>
+       * @return The stringValue.
+       */
+      @java.lang.Override
+      public java.lang.String getStringValue() {
+        java.lang.Object ref = "";
+        if (valueCase_ == 14) {
+          ref = value_;
+        }
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (valueCase_ == 14) {
+            value_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string string_value = 14;</code>
+       * @return The bytes for stringValue.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getStringValueBytes() {
+        java.lang.Object ref = "";
+        if (valueCase_ == 14) {
+          ref = value_;
+        }
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          if (valueCase_ == 14) {
+            value_ = b;
+          }
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string string_value = 14;</code>
+       * @param value The stringValue to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  valueCase_ = 14;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_value = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStringValue() {
+        if (valueCase_ == 14) {
+          valueCase_ = 0;
+          value_ = null;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>string string_value = 14;</code>
        * @param value The bytes for stringValue to set.
        * @return This builder for chaining.
        */
@@ -5287,86 +5391,45 @@ public final class RowData {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        valueCase_ = 13;
-        value_ = value;
-        onChanged();
-        return this;
-      }
-
-      /**
-       * <code>int32 date_value = 14;</code>
-       * @return Whether the dateValue field is set.
-       */
-      public boolean hasDateValue() {
-        return valueCase_ == 14;
-      }
-      /**
-       * <code>int32 date_value = 14;</code>
-       * @return The dateValue.
-       */
-      public int getDateValue() {
-        if (valueCase_ == 14) {
-          return (java.lang.Integer) value_;
-        }
-        return 0;
-      }
-      /**
-       * <code>int32 date_value = 14;</code>
-       * @param value The dateValue to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDateValue(int value) {
         valueCase_ = 14;
         value_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>int32 date_value = 14;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDateValue() {
-        if (valueCase_ == 14) {
-          valueCase_ = 0;
-          value_ = null;
-          onChanged();
-        }
-        return this;
-      }
 
       /**
-       * <code>int64 datetime_value = 15;</code>
-       * @return Whether the datetimeValue field is set.
+       * <code>int32 date_value = 15;</code>
+       * @return Whether the dateValue field is set.
        */
-      public boolean hasDatetimeValue() {
+      public boolean hasDateValue() {
         return valueCase_ == 15;
       }
       /**
-       * <code>int64 datetime_value = 15;</code>
-       * @return The datetimeValue.
+       * <code>int32 date_value = 15;</code>
+       * @return The dateValue.
        */
-      public long getDatetimeValue() {
+      public int getDateValue() {
         if (valueCase_ == 15) {
-          return (java.lang.Long) value_;
+          return (java.lang.Integer) value_;
         }
-        return 0L;
+        return 0;
       }
       /**
-       * <code>int64 datetime_value = 15;</code>
-       * @param value The datetimeValue to set.
+       * <code>int32 date_value = 15;</code>
+       * @param value The dateValue to set.
        * @return This builder for chaining.
        */
-      public Builder setDatetimeValue(long value) {
+      public Builder setDateValue(int value) {
         valueCase_ = 15;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 datetime_value = 15;</code>
+       * <code>int32 date_value = 15;</code>
        * @return This builder for chaining.
        */
-      public Builder clearDatetimeValue() {
+      public Builder clearDateValue() {
         if (valueCase_ == 15) {
           valueCase_ = 0;
           value_ = null;
@@ -5376,38 +5439,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int64 ts_second_value = 16;</code>
-       * @return Whether the tsSecondValue field is set.
+       * <code>int64 datetime_value = 16;</code>
+       * @return Whether the datetimeValue field is set.
        */
-      public boolean hasTsSecondValue() {
+      public boolean hasDatetimeValue() {
         return valueCase_ == 16;
       }
       /**
-       * <code>int64 ts_second_value = 16;</code>
-       * @return The tsSecondValue.
+       * <code>int64 datetime_value = 16;</code>
+       * @return The datetimeValue.
        */
-      public long getTsSecondValue() {
+      public long getDatetimeValue() {
         if (valueCase_ == 16) {
           return (java.lang.Long) value_;
         }
         return 0L;
       }
       /**
-       * <code>int64 ts_second_value = 16;</code>
-       * @param value The tsSecondValue to set.
+       * <code>int64 datetime_value = 16;</code>
+       * @param value The datetimeValue to set.
        * @return This builder for chaining.
        */
-      public Builder setTsSecondValue(long value) {
+      public Builder setDatetimeValue(long value) {
         valueCase_ = 16;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ts_second_value = 16;</code>
+       * <code>int64 datetime_value = 16;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTsSecondValue() {
+      public Builder clearDatetimeValue() {
         if (valueCase_ == 16) {
           valueCase_ = 0;
           value_ = null;
@@ -5417,38 +5480,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int64 ts_millisecond_value = 17;</code>
-       * @return Whether the tsMillisecondValue field is set.
+       * <code>int64 ts_second_value = 17;</code>
+       * @return Whether the tsSecondValue field is set.
        */
-      public boolean hasTsMillisecondValue() {
+      public boolean hasTsSecondValue() {
         return valueCase_ == 17;
       }
       /**
-       * <code>int64 ts_millisecond_value = 17;</code>
-       * @return The tsMillisecondValue.
+       * <code>int64 ts_second_value = 17;</code>
+       * @return The tsSecondValue.
        */
-      public long getTsMillisecondValue() {
+      public long getTsSecondValue() {
         if (valueCase_ == 17) {
           return (java.lang.Long) value_;
         }
         return 0L;
       }
       /**
-       * <code>int64 ts_millisecond_value = 17;</code>
-       * @param value The tsMillisecondValue to set.
+       * <code>int64 ts_second_value = 17;</code>
+       * @param value The tsSecondValue to set.
        * @return This builder for chaining.
        */
-      public Builder setTsMillisecondValue(long value) {
+      public Builder setTsSecondValue(long value) {
         valueCase_ = 17;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ts_millisecond_value = 17;</code>
+       * <code>int64 ts_second_value = 17;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTsMillisecondValue() {
+      public Builder clearTsSecondValue() {
         if (valueCase_ == 17) {
           valueCase_ = 0;
           value_ = null;
@@ -5458,38 +5521,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int64 ts_microsecond_value = 18;</code>
-       * @return Whether the tsMicrosecondValue field is set.
+       * <code>int64 ts_millisecond_value = 18;</code>
+       * @return Whether the tsMillisecondValue field is set.
        */
-      public boolean hasTsMicrosecondValue() {
+      public boolean hasTsMillisecondValue() {
         return valueCase_ == 18;
       }
       /**
-       * <code>int64 ts_microsecond_value = 18;</code>
-       * @return The tsMicrosecondValue.
+       * <code>int64 ts_millisecond_value = 18;</code>
+       * @return The tsMillisecondValue.
        */
-      public long getTsMicrosecondValue() {
+      public long getTsMillisecondValue() {
         if (valueCase_ == 18) {
           return (java.lang.Long) value_;
         }
         return 0L;
       }
       /**
-       * <code>int64 ts_microsecond_value = 18;</code>
-       * @param value The tsMicrosecondValue to set.
+       * <code>int64 ts_millisecond_value = 18;</code>
+       * @param value The tsMillisecondValue to set.
        * @return This builder for chaining.
        */
-      public Builder setTsMicrosecondValue(long value) {
+      public Builder setTsMillisecondValue(long value) {
         valueCase_ = 18;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ts_microsecond_value = 18;</code>
+       * <code>int64 ts_millisecond_value = 18;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTsMicrosecondValue() {
+      public Builder clearTsMillisecondValue() {
         if (valueCase_ == 18) {
           valueCase_ = 0;
           value_ = null;
@@ -5499,38 +5562,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int64 ts_nanosecond_value = 19;</code>
-       * @return Whether the tsNanosecondValue field is set.
+       * <code>int64 ts_microsecond_value = 19;</code>
+       * @return Whether the tsMicrosecondValue field is set.
        */
-      public boolean hasTsNanosecondValue() {
+      public boolean hasTsMicrosecondValue() {
         return valueCase_ == 19;
       }
       /**
-       * <code>int64 ts_nanosecond_value = 19;</code>
-       * @return The tsNanosecondValue.
+       * <code>int64 ts_microsecond_value = 19;</code>
+       * @return The tsMicrosecondValue.
        */
-      public long getTsNanosecondValue() {
+      public long getTsMicrosecondValue() {
         if (valueCase_ == 19) {
           return (java.lang.Long) value_;
         }
         return 0L;
       }
       /**
-       * <code>int64 ts_nanosecond_value = 19;</code>
-       * @param value The tsNanosecondValue to set.
+       * <code>int64 ts_microsecond_value = 19;</code>
+       * @param value The tsMicrosecondValue to set.
        * @return This builder for chaining.
        */
-      public Builder setTsNanosecondValue(long value) {
+      public Builder setTsMicrosecondValue(long value) {
         valueCase_ = 19;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ts_nanosecond_value = 19;</code>
+       * <code>int64 ts_microsecond_value = 19;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTsNanosecondValue() {
+      public Builder clearTsMicrosecondValue() {
         if (valueCase_ == 19) {
           valueCase_ = 0;
           value_ = null;
@@ -5540,38 +5603,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int64 time_second_value = 20;</code>
-       * @return Whether the timeSecondValue field is set.
+       * <code>int64 ts_nanosecond_value = 20;</code>
+       * @return Whether the tsNanosecondValue field is set.
        */
-      public boolean hasTimeSecondValue() {
+      public boolean hasTsNanosecondValue() {
         return valueCase_ == 20;
       }
       /**
-       * <code>int64 time_second_value = 20;</code>
-       * @return The timeSecondValue.
+       * <code>int64 ts_nanosecond_value = 20;</code>
+       * @return The tsNanosecondValue.
        */
-      public long getTimeSecondValue() {
+      public long getTsNanosecondValue() {
         if (valueCase_ == 20) {
           return (java.lang.Long) value_;
         }
         return 0L;
       }
       /**
-       * <code>int64 time_second_value = 20;</code>
-       * @param value The timeSecondValue to set.
+       * <code>int64 ts_nanosecond_value = 20;</code>
+       * @param value The tsNanosecondValue to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeSecondValue(long value) {
+      public Builder setTsNanosecondValue(long value) {
         valueCase_ = 20;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 time_second_value = 20;</code>
+       * <code>int64 ts_nanosecond_value = 20;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTimeSecondValue() {
+      public Builder clearTsNanosecondValue() {
         if (valueCase_ == 20) {
           valueCase_ = 0;
           value_ = null;
@@ -5581,38 +5644,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int64 time_millisecond_value = 21;</code>
-       * @return Whether the timeMillisecondValue field is set.
+       * <code>int64 time_second_value = 21;</code>
+       * @return Whether the timeSecondValue field is set.
        */
-      public boolean hasTimeMillisecondValue() {
+      public boolean hasTimeSecondValue() {
         return valueCase_ == 21;
       }
       /**
-       * <code>int64 time_millisecond_value = 21;</code>
-       * @return The timeMillisecondValue.
+       * <code>int64 time_second_value = 21;</code>
+       * @return The timeSecondValue.
        */
-      public long getTimeMillisecondValue() {
+      public long getTimeSecondValue() {
         if (valueCase_ == 21) {
           return (java.lang.Long) value_;
         }
         return 0L;
       }
       /**
-       * <code>int64 time_millisecond_value = 21;</code>
-       * @param value The timeMillisecondValue to set.
+       * <code>int64 time_second_value = 21;</code>
+       * @param value The timeSecondValue to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeMillisecondValue(long value) {
+      public Builder setTimeSecondValue(long value) {
         valueCase_ = 21;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 time_millisecond_value = 21;</code>
+       * <code>int64 time_second_value = 21;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTimeMillisecondValue() {
+      public Builder clearTimeSecondValue() {
         if (valueCase_ == 21) {
           valueCase_ = 0;
           value_ = null;
@@ -5622,38 +5685,38 @@ public final class RowData {
       }
 
       /**
-       * <code>int64 time_microsecond_value = 22;</code>
-       * @return Whether the timeMicrosecondValue field is set.
+       * <code>int64 time_millisecond_value = 22;</code>
+       * @return Whether the timeMillisecondValue field is set.
        */
-      public boolean hasTimeMicrosecondValue() {
+      public boolean hasTimeMillisecondValue() {
         return valueCase_ == 22;
       }
       /**
-       * <code>int64 time_microsecond_value = 22;</code>
-       * @return The timeMicrosecondValue.
+       * <code>int64 time_millisecond_value = 22;</code>
+       * @return The timeMillisecondValue.
        */
-      public long getTimeMicrosecondValue() {
+      public long getTimeMillisecondValue() {
         if (valueCase_ == 22) {
           return (java.lang.Long) value_;
         }
         return 0L;
       }
       /**
-       * <code>int64 time_microsecond_value = 22;</code>
-       * @param value The timeMicrosecondValue to set.
+       * <code>int64 time_millisecond_value = 22;</code>
+       * @param value The timeMillisecondValue to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeMicrosecondValue(long value) {
+      public Builder setTimeMillisecondValue(long value) {
         valueCase_ = 22;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 time_microsecond_value = 22;</code>
+       * <code>int64 time_millisecond_value = 22;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTimeMicrosecondValue() {
+      public Builder clearTimeMillisecondValue() {
         if (valueCase_ == 22) {
           valueCase_ = 0;
           value_ = null;
@@ -5663,39 +5726,80 @@ public final class RowData {
       }
 
       /**
-       * <code>int64 time_nanosecond_value = 23;</code>
-       * @return Whether the timeNanosecondValue field is set.
+       * <code>int64 time_microsecond_value = 23;</code>
+       * @return Whether the timeMicrosecondValue field is set.
        */
-      public boolean hasTimeNanosecondValue() {
+      public boolean hasTimeMicrosecondValue() {
         return valueCase_ == 23;
       }
       /**
-       * <code>int64 time_nanosecond_value = 23;</code>
-       * @return The timeNanosecondValue.
+       * <code>int64 time_microsecond_value = 23;</code>
+       * @return The timeMicrosecondValue.
        */
-      public long getTimeNanosecondValue() {
+      public long getTimeMicrosecondValue() {
         if (valueCase_ == 23) {
           return (java.lang.Long) value_;
         }
         return 0L;
       }
       /**
-       * <code>int64 time_nanosecond_value = 23;</code>
-       * @param value The timeNanosecondValue to set.
+       * <code>int64 time_microsecond_value = 23;</code>
+       * @param value The timeMicrosecondValue to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeNanosecondValue(long value) {
+      public Builder setTimeMicrosecondValue(long value) {
         valueCase_ = 23;
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 time_nanosecond_value = 23;</code>
+       * <code>int64 time_microsecond_value = 23;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeMicrosecondValue() {
+        if (valueCase_ == 23) {
+          valueCase_ = 0;
+          value_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      /**
+       * <code>int64 time_nanosecond_value = 24;</code>
+       * @return Whether the timeNanosecondValue field is set.
+       */
+      public boolean hasTimeNanosecondValue() {
+        return valueCase_ == 24;
+      }
+      /**
+       * <code>int64 time_nanosecond_value = 24;</code>
+       * @return The timeNanosecondValue.
+       */
+      public long getTimeNanosecondValue() {
+        if (valueCase_ == 24) {
+          return (java.lang.Long) value_;
+        }
+        return 0L;
+      }
+      /**
+       * <code>int64 time_nanosecond_value = 24;</code>
+       * @param value The timeNanosecondValue to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeNanosecondValue(long value) {
+        valueCase_ = 24;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 time_nanosecond_value = 24;</code>
        * @return This builder for chaining.
        */
       public Builder clearTimeNanosecondValue() {
-        if (valueCase_ == 23) {
+        if (valueCase_ == 24) {
           valueCase_ = 0;
           value_ = null;
           onChanged();
@@ -5792,24 +5896,24 @@ public final class RowData {
       "\0162\033.greptime.v1.ColumnDataType\0220\n\rsemant" +
       "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType" +
       "\")\n\003Row\022\"\n\006values\030\001 \003(\0132\022.greptime.v1.Va" +
-      "lue\"\322\004\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16" +
-      "_value\030\002 \001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti" +
-      "64_value\030\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\t" +
-      "u16_value\030\006 \001(\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023" +
-      "\n\tu64_value\030\010 \001(\004H\000\022\023\n\tf32_value\030\t \001(\002H\000" +
-      "\022\023\n\tf64_value\030\n \001(\001H\000\022\024\n\nbool_value\030\013 \001(" +
-      "\010H\000\022\026\n\014binary_value\030\014 \001(\014H\000\022\026\n\014string_va" +
-      "lue\030\r \001(\tH\000\022\024\n\ndate_value\030\016 \001(\005H\000\022\030\n\016dat" +
-      "etime_value\030\017 \001(\003H\000\022\031\n\017ts_second_value\030\020" +
-      " \001(\003H\000\022\036\n\024ts_millisecond_value\030\021 \001(\003H\000\022\036" +
-      "\n\024ts_microsecond_value\030\022 \001(\003H\000\022\035\n\023ts_nan" +
-      "osecond_value\030\023 \001(\003H\000\022\033\n\021time_second_val" +
-      "ue\030\024 \001(\003H\000\022 \n\026time_millisecond_value\030\025 \001" +
-      "(\003H\000\022 \n\026time_microsecond_value\030\026 \001(\003H\000\022\037" +
-      "\n\025time_nanosecond_value\030\027 \001(\003H\000B\007\n\005value" +
-      "BP\n\016io.greptime.v1B\007RowDataZ5github.com/" +
-      "GreptimeTeam/greptime-proto/go/greptime/" +
-      "v1b\006proto3"
+      "lue\"\350\004\n\005Value\022\024\n\nnull_value\030\001 \001(\rH\000\022\022\n\010i" +
+      "8_value\030\002 \001(\005H\000\022\023\n\ti16_value\030\003 \001(\005H\000\022\023\n\t" +
+      "i32_value\030\004 \001(\005H\000\022\023\n\ti64_value\030\005 \001(\003H\000\022\022" +
+      "\n\010u8_value\030\006 \001(\rH\000\022\023\n\tu16_value\030\007 \001(\rH\000\022" +
+      "\023\n\tu32_value\030\010 \001(\rH\000\022\023\n\tu64_value\030\t \001(\004H" +
+      "\000\022\023\n\tf32_value\030\n \001(\002H\000\022\023\n\tf64_value\030\013 \001(" +
+      "\001H\000\022\024\n\nbool_value\030\014 \001(\010H\000\022\026\n\014binary_valu" +
+      "e\030\r \001(\014H\000\022\026\n\014string_value\030\016 \001(\tH\000\022\024\n\ndat" +
+      "e_value\030\017 \001(\005H\000\022\030\n\016datetime_value\030\020 \001(\003H" +
+      "\000\022\031\n\017ts_second_value\030\021 \001(\003H\000\022\036\n\024ts_milli" +
+      "second_value\030\022 \001(\003H\000\022\036\n\024ts_microsecond_v" +
+      "alue\030\023 \001(\003H\000\022\035\n\023ts_nanosecond_value\030\024 \001(" +
+      "\003H\000\022\033\n\021time_second_value\030\025 \001(\003H\000\022 \n\026time" +
+      "_millisecond_value\030\026 \001(\003H\000\022 \n\026time_micro" +
+      "second_value\030\027 \001(\003H\000\022\037\n\025time_nanosecond_" +
+      "value\030\030 \001(\003H\000B\007\n\005valueBP\n\016io.greptime.v1" +
+      "B\007RowDataZ5github.com/GreptimeTeam/grept" +
+      "ime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5839,7 +5943,7 @@ public final class RowData {
     internal_static_greptime_v1_Value_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Value_descriptor,
-        new java.lang.String[] { "I8Value", "I16Value", "I32Value", "I64Value", "U8Value", "U16Value", "U32Value", "U64Value", "F32Value", "F64Value", "BoolValue", "BinaryValue", "StringValue", "DateValue", "DatetimeValue", "TsSecondValue", "TsMillisecondValue", "TsMicrosecondValue", "TsNanosecondValue", "TimeSecondValue", "TimeMillisecondValue", "TimeMicrosecondValue", "TimeNanosecondValue", "Value", });
+        new java.lang.String[] { "NullValue", "I8Value", "I16Value", "I32Value", "I64Value", "U8Value", "U16Value", "U32Value", "U64Value", "F32Value", "F64Value", "BoolValue", "BinaryValue", "StringValue", "DateValue", "DatetimeValue", "TsSecondValue", "TsMillisecondValue", "TsMicrosecondValue", "TsNanosecondValue", "TimeSecondValue", "TimeMillisecondValue", "TimeMicrosecondValue", "TimeNanosecondValue", "Value", });
     io.greptime.v1.Common.getDescriptor();
   }
 
