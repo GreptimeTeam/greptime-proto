@@ -39,34 +39,32 @@ message Row {
 
 message Value {
   oneof value {
-    uint32 null_value = 1;
+    int32 i8_value = 1;
+    int32 i16_value = 2;
+    int32 i32_value = 3;
+    int64 i64_value = 4;
 
-    int32 i8_value = 2;
-    int32 i16_value = 3;
-    int32 i32_value = 4;
-    int64 i64_value = 5;
+    uint32 u8_value = 5;
+    uint32 u16_value = 6;
+    uint32 u32_value = 7;
+    uint64 u64_value = 8;
 
-    uint32 u8_value = 6;
-    uint32 u16_value = 7;
-    uint32 u32_value = 8;
-    uint64 u64_value = 9;
+    float f32_value = 9;
+    double f64_value = 10;
 
-    float f32_value = 10;
-    double f64_value = 11;
+    bool bool_value = 11;
+    bytes binary_value = 12;
+    string string_value = 13;
 
-    bool bool_value = 12;
-    bytes binary_value = 13;
-    string string_value = 14;
-
-    int32 date_value = 15;
-    int64 datetime_value = 16;
-    int64 ts_second_value = 17;
-    int64 ts_millisecond_value = 18;
-    int64 ts_microsecond_value = 19;
-    int64 ts_nanosecond_value = 20;
-    int64 time_second_value = 21;
-    int64 time_millisecond_value = 22;
-    int64 time_microsecond_value = 23;
-    int64 time_nanosecond_value = 24;
+    int32 date_value = 14;
+    int64 datetime_value = 15;
+    int64 ts_second_value = 16;
+    int64 ts_millisecond_value = 17;
+    int64 ts_microsecond_value = 18;
+    int64 ts_nanosecond_value = 19;
+    int64 time_second_value = 20;
+    int64 time_millisecond_value = 21;
+    int64 time_microsecond_value = 22;
+    int64 time_nanosecond_value = 23;
   }
 }
