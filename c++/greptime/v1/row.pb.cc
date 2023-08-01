@@ -138,7 +138,6 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Value, _impl_.value_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -164,31 +163,31 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\0162\033.greptime.v1.ColumnDataType\0220\n\rsemant"
   "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType"
   "\")\n\003Row\022\"\n\006values\030\001 \003(\0132\022.greptime.v1.Va"
-  "lue\"\350\004\n\005Value\022\024\n\nnull_value\030\001 \001(\rH\000\022\022\n\010i"
-  "8_value\030\002 \001(\005H\000\022\023\n\ti16_value\030\003 \001(\005H\000\022\023\n\t"
-  "i32_value\030\004 \001(\005H\000\022\023\n\ti64_value\030\005 \001(\003H\000\022\022"
-  "\n\010u8_value\030\006 \001(\rH\000\022\023\n\tu16_value\030\007 \001(\rH\000\022"
-  "\023\n\tu32_value\030\010 \001(\rH\000\022\023\n\tu64_value\030\t \001(\004H"
-  "\000\022\023\n\tf32_value\030\n \001(\002H\000\022\023\n\tf64_value\030\013 \001("
-  "\001H\000\022\024\n\nbool_value\030\014 \001(\010H\000\022\026\n\014binary_valu"
-  "e\030\r \001(\014H\000\022\026\n\014string_value\030\016 \001(\tH\000\022\024\n\ndat"
-  "e_value\030\017 \001(\005H\000\022\030\n\016datetime_value\030\020 \001(\003H"
-  "\000\022\031\n\017ts_second_value\030\021 \001(\003H\000\022\036\n\024ts_milli"
-  "second_value\030\022 \001(\003H\000\022\036\n\024ts_microsecond_v"
-  "alue\030\023 \001(\003H\000\022\035\n\023ts_nanosecond_value\030\024 \001("
-  "\003H\000\022\033\n\021time_second_value\030\025 \001(\003H\000\022 \n\026time"
-  "_millisecond_value\030\026 \001(\003H\000\022 \n\026time_micro"
-  "second_value\030\027 \001(\003H\000\022\037\n\025time_nanosecond_"
-  "value\030\030 \001(\003H\000B\007\n\005valueBP\n\016io.greptime.v1"
-  "B\007RowDataZ5github.com/GreptimeTeam/grept"
-  "ime-proto/go/greptime/v1b\006proto3"
+  "lue\"\322\004\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16"
+  "_value\030\002 \001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti"
+  "64_value\030\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\t"
+  "u16_value\030\006 \001(\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023"
+  "\n\tu64_value\030\010 \001(\004H\000\022\023\n\tf32_value\030\t \001(\002H\000"
+  "\022\023\n\tf64_value\030\n \001(\001H\000\022\024\n\nbool_value\030\013 \001("
+  "\010H\000\022\026\n\014binary_value\030\014 \001(\014H\000\022\026\n\014string_va"
+  "lue\030\r \001(\tH\000\022\024\n\ndate_value\030\016 \001(\005H\000\022\030\n\016dat"
+  "etime_value\030\017 \001(\003H\000\022\031\n\017ts_second_value\030\020"
+  " \001(\003H\000\022\036\n\024ts_millisecond_value\030\021 \001(\003H\000\022\036"
+  "\n\024ts_microsecond_value\030\022 \001(\003H\000\022\035\n\023ts_nan"
+  "osecond_value\030\023 \001(\003H\000\022\033\n\021time_second_val"
+  "ue\030\024 \001(\003H\000\022 \n\026time_millisecond_value\030\025 \001"
+  "(\003H\000\022 \n\026time_microsecond_value\030\026 \001(\003H\000\022\037"
+  "\n\025time_nanosecond_value\030\027 \001(\003H\000B\007\n\005value"
+  "BP\n\016io.greptime.v1B\007RowDataZ5github.com/"
+  "GreptimeTeam/greptime-proto/go/greptime/"
+  "v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1032, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1010, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
     &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
@@ -900,10 +899,6 @@ Value::Value(const Value& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   clear_has_value();
   switch (from.value_case()) {
-    case kNullValue: {
-      _this->_internal_set_null_value(from._internal_null_value());
-      break;
-    }
     case kI8Value: {
       _this->_internal_set_i8_value(from._internal_i8_value());
       break;
@@ -1038,10 +1033,6 @@ void Value::SetCachedSize(int size) const {
 void Value::clear_value() {
 // @@protoc_insertion_point(one_of_clear_start:greptime.v1.Value)
   switch (value_case()) {
-    case kNullValue: {
-      // No need to clear
-      break;
-    }
     case kI8Value: {
       // No need to clear
       break;
@@ -1158,114 +1149,106 @@ const char* Value::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 null_value = 1;
+      // int32 i8_value = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _internal_set_null_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // int32 i8_value = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _internal_set_i8_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int32 i16_value = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+      // int32 i16_value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _internal_set_i16_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int32 i32_value = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+      // int32 i32_value = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _internal_set_i32_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 i64_value = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+      // int64 i64_value = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _internal_set_i64_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 u8_value = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+      // uint32 u8_value = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           _internal_set_u8_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 u16_value = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+      // uint32 u16_value = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           _internal_set_u16_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 u32_value = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+      // uint32 u32_value = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           _internal_set_u32_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint64 u64_value = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+      // uint64 u64_value = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
           _internal_set_u64_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // float f32_value = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 85)) {
+      // float f32_value = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 77)) {
           _internal_set_f32_value(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
-      // double f64_value = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 89)) {
+      // double f64_value = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 81)) {
           _internal_set_f64_value(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
           ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
-      // bool bool_value = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
+      // bool bool_value = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
           _internal_set_bool_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes binary_value = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 106)) {
+      // bytes binary_value = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
           auto str = _internal_mutable_binary_value();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // string string_value = 14;
-      case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 114)) {
+      // string string_value = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 106)) {
           auto str = _internal_mutable_string_value();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -1273,81 +1256,81 @@ const char* Value::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // int32 date_value = 15;
-      case 15:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 120)) {
+      // int32 date_value = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 112)) {
           _internal_set_date_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 datetime_value = 16;
-      case 16:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 128)) {
+      // int64 datetime_value = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 120)) {
           _internal_set_datetime_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 ts_second_value = 17;
-      case 17:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 136)) {
+      // int64 ts_second_value = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 128)) {
           _internal_set_ts_second_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 ts_millisecond_value = 18;
-      case 18:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 144)) {
+      // int64 ts_millisecond_value = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 136)) {
           _internal_set_ts_millisecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 ts_microsecond_value = 19;
-      case 19:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 152)) {
+      // int64 ts_microsecond_value = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 144)) {
           _internal_set_ts_microsecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 ts_nanosecond_value = 20;
-      case 20:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 160)) {
+      // int64 ts_nanosecond_value = 19;
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 152)) {
           _internal_set_ts_nanosecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 time_second_value = 21;
-      case 21:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 168)) {
+      // int64 time_second_value = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 160)) {
           _internal_set_time_second_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 time_millisecond_value = 22;
-      case 22:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 176)) {
+      // int64 time_millisecond_value = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 168)) {
           _internal_set_time_millisecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 time_microsecond_value = 23;
-      case 23:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 184)) {
+      // int64 time_microsecond_value = 22;
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 176)) {
           _internal_set_time_microsecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 time_nanosecond_value = 24;
-      case 24:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 192)) {
+      // int64 time_nanosecond_value = 23;
+      case 23:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 184)) {
           _internal_set_time_nanosecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
@@ -1382,152 +1365,146 @@ uint8_t* Value::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 null_value = 1;
-  if (_internal_has_null_value()) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_null_value(), target);
-  }
-
-  // int32 i8_value = 2;
+  // int32 i8_value = 1;
   if (_internal_has_i8_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_i8_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_i8_value(), target);
   }
 
-  // int32 i16_value = 3;
+  // int32 i16_value = 2;
   if (_internal_has_i16_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_i16_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_i16_value(), target);
   }
 
-  // int32 i32_value = 4;
+  // int32 i32_value = 3;
   if (_internal_has_i32_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_i32_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_i32_value(), target);
   }
 
-  // int64 i64_value = 5;
+  // int64 i64_value = 4;
   if (_internal_has_i64_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(5, this->_internal_i64_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(4, this->_internal_i64_value(), target);
   }
 
-  // uint32 u8_value = 6;
+  // uint32 u8_value = 5;
   if (_internal_has_u8_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_u8_value(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_u8_value(), target);
   }
 
-  // uint32 u16_value = 7;
+  // uint32 u16_value = 6;
   if (_internal_has_u16_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_u16_value(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_u16_value(), target);
   }
 
-  // uint32 u32_value = 8;
+  // uint32 u32_value = 7;
   if (_internal_has_u32_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_u32_value(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_u32_value(), target);
   }
 
-  // uint64 u64_value = 9;
+  // uint64 u64_value = 8;
   if (_internal_has_u64_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(9, this->_internal_u64_value(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(8, this->_internal_u64_value(), target);
   }
 
-  // float f32_value = 10;
+  // float f32_value = 9;
   if (_internal_has_f32_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(10, this->_internal_f32_value(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(9, this->_internal_f32_value(), target);
   }
 
-  // double f64_value = 11;
+  // double f64_value = 10;
   if (_internal_has_f64_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(11, this->_internal_f64_value(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(10, this->_internal_f64_value(), target);
   }
 
-  // bool bool_value = 12;
+  // bool bool_value = 11;
   if (_internal_has_bool_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(12, this->_internal_bool_value(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(11, this->_internal_bool_value(), target);
   }
 
-  // bytes binary_value = 13;
+  // bytes binary_value = 12;
   if (_internal_has_binary_value()) {
     target = stream->WriteBytesMaybeAliased(
-        13, this->_internal_binary_value(), target);
+        12, this->_internal_binary_value(), target);
   }
 
-  // string string_value = 14;
+  // string string_value = 13;
   if (_internal_has_string_value()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_string_value().data(), static_cast<int>(this->_internal_string_value().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "greptime.v1.Value.string_value");
     target = stream->WriteStringMaybeAliased(
-        14, this->_internal_string_value(), target);
+        13, this->_internal_string_value(), target);
   }
 
-  // int32 date_value = 15;
+  // int32 date_value = 14;
   if (_internal_has_date_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(15, this->_internal_date_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(14, this->_internal_date_value(), target);
   }
 
-  // int64 datetime_value = 16;
+  // int64 datetime_value = 15;
   if (_internal_has_datetime_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(16, this->_internal_datetime_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(15, this->_internal_datetime_value(), target);
   }
 
-  // int64 ts_second_value = 17;
+  // int64 ts_second_value = 16;
   if (_internal_has_ts_second_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(17, this->_internal_ts_second_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(16, this->_internal_ts_second_value(), target);
   }
 
-  // int64 ts_millisecond_value = 18;
+  // int64 ts_millisecond_value = 17;
   if (_internal_has_ts_millisecond_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(18, this->_internal_ts_millisecond_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(17, this->_internal_ts_millisecond_value(), target);
   }
 
-  // int64 ts_microsecond_value = 19;
+  // int64 ts_microsecond_value = 18;
   if (_internal_has_ts_microsecond_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(19, this->_internal_ts_microsecond_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(18, this->_internal_ts_microsecond_value(), target);
   }
 
-  // int64 ts_nanosecond_value = 20;
+  // int64 ts_nanosecond_value = 19;
   if (_internal_has_ts_nanosecond_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(20, this->_internal_ts_nanosecond_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(19, this->_internal_ts_nanosecond_value(), target);
   }
 
-  // int64 time_second_value = 21;
+  // int64 time_second_value = 20;
   if (_internal_has_time_second_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(21, this->_internal_time_second_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(20, this->_internal_time_second_value(), target);
   }
 
-  // int64 time_millisecond_value = 22;
+  // int64 time_millisecond_value = 21;
   if (_internal_has_time_millisecond_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(22, this->_internal_time_millisecond_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(21, this->_internal_time_millisecond_value(), target);
   }
 
-  // int64 time_microsecond_value = 23;
+  // int64 time_microsecond_value = 22;
   if (_internal_has_time_microsecond_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(23, this->_internal_time_microsecond_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(22, this->_internal_time_microsecond_value(), target);
   }
 
-  // int64 time_nanosecond_value = 24;
+  // int64 time_nanosecond_value = 23;
   if (_internal_has_time_nanosecond_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(24, this->_internal_time_nanosecond_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(23, this->_internal_time_nanosecond_value(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1547,142 +1524,135 @@ size_t Value::ByteSizeLong() const {
   (void) cached_has_bits;
 
   switch (value_case()) {
-    // uint32 null_value = 1;
-    case kNullValue: {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_null_value());
-      break;
-    }
-    // int32 i8_value = 2;
+    // int32 i8_value = 1;
     case kI8Value: {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_i8_value());
       break;
     }
-    // int32 i16_value = 3;
+    // int32 i16_value = 2;
     case kI16Value: {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_i16_value());
       break;
     }
-    // int32 i32_value = 4;
+    // int32 i32_value = 3;
     case kI32Value: {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_i32_value());
       break;
     }
-    // int64 i64_value = 5;
+    // int64 i64_value = 4;
     case kI64Value: {
       total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_i64_value());
       break;
     }
-    // uint32 u8_value = 6;
+    // uint32 u8_value = 5;
     case kU8Value: {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_u8_value());
       break;
     }
-    // uint32 u16_value = 7;
+    // uint32 u16_value = 6;
     case kU16Value: {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_u16_value());
       break;
     }
-    // uint32 u32_value = 8;
+    // uint32 u32_value = 7;
     case kU32Value: {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_u32_value());
       break;
     }
-    // uint64 u64_value = 9;
+    // uint64 u64_value = 8;
     case kU64Value: {
       total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_u64_value());
       break;
     }
-    // float f32_value = 10;
+    // float f32_value = 9;
     case kF32Value: {
       total_size += 1 + 4;
       break;
     }
-    // double f64_value = 11;
+    // double f64_value = 10;
     case kF64Value: {
       total_size += 1 + 8;
       break;
     }
-    // bool bool_value = 12;
+    // bool bool_value = 11;
     case kBoolValue: {
       total_size += 1 + 1;
       break;
     }
-    // bytes binary_value = 13;
+    // bytes binary_value = 12;
     case kBinaryValue: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_binary_value());
       break;
     }
-    // string string_value = 14;
+    // string string_value = 13;
     case kStringValue: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_string_value());
       break;
     }
-    // int32 date_value = 15;
+    // int32 date_value = 14;
     case kDateValue: {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_date_value());
       break;
     }
-    // int64 datetime_value = 16;
+    // int64 datetime_value = 15;
     case kDatetimeValue: {
-      total_size += 2 +
-        ::_pbi::WireFormatLite::Int64Size(
-          this->_internal_datetime_value());
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_datetime_value());
       break;
     }
-    // int64 ts_second_value = 17;
+    // int64 ts_second_value = 16;
     case kTsSecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_ts_second_value());
       break;
     }
-    // int64 ts_millisecond_value = 18;
+    // int64 ts_millisecond_value = 17;
     case kTsMillisecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_ts_millisecond_value());
       break;
     }
-    // int64 ts_microsecond_value = 19;
+    // int64 ts_microsecond_value = 18;
     case kTsMicrosecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_ts_microsecond_value());
       break;
     }
-    // int64 ts_nanosecond_value = 20;
+    // int64 ts_nanosecond_value = 19;
     case kTsNanosecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_ts_nanosecond_value());
       break;
     }
-    // int64 time_second_value = 21;
+    // int64 time_second_value = 20;
     case kTimeSecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_time_second_value());
       break;
     }
-    // int64 time_millisecond_value = 22;
+    // int64 time_millisecond_value = 21;
     case kTimeMillisecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_time_millisecond_value());
       break;
     }
-    // int64 time_microsecond_value = 23;
+    // int64 time_microsecond_value = 22;
     case kTimeMicrosecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_time_microsecond_value());
       break;
     }
-    // int64 time_nanosecond_value = 24;
+    // int64 time_nanosecond_value = 23;
     case kTimeNanosecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
@@ -1712,10 +1682,6 @@ void Value::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
   (void) cached_has_bits;
 
   switch (from.value_case()) {
-    case kNullValue: {
-      _this->_internal_set_null_value(from._internal_null_value());
-      break;
-    }
     case kI8Value: {
       _this->_internal_set_i8_value(from._internal_i8_value());
       break;
