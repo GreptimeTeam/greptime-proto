@@ -139,9 +139,24 @@ struct RowInsertRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RowInsertRequestDefaultTypeInternal _RowInsertRequest_default_instance_;
+PROTOBUF_CONSTEXPR RowDeleteRequest::RowDeleteRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.rows_)*/nullptr
+  , /*decltype(_impl_.region_number_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RowDeleteRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RowDeleteRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RowDeleteRequestDefaultTypeInternal() {}
+  union {
+    RowDeleteRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RowDeleteRequestDefaultTypeInternal _RowDeleteRequest_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fdatabase_2eproto[8];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fdatabase_2eproto[9];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2fdatabase_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fdatabase_2eproto = nullptr;
 
@@ -153,6 +168,7 @@ const uint32_t TableStruct_greptime_2fv1_2fdatabase_2eproto::offsets[] PROTOBUF_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::GreptimeRequest, _impl_.header_),
+  ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
@@ -221,16 +237,26 @@ const uint32_t TableStruct_greptime_2fv1_2fdatabase_2eproto::offsets[] PROTOBUF_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RowInsertRequest, _impl_.table_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RowInsertRequest, _impl_.rows_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RowInsertRequest, _impl_.region_number_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::RowDeleteRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::RowDeleteRequest, _impl_.table_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::RowDeleteRequest, _impl_.rows_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::RowDeleteRequest, _impl_.region_number_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::GreptimeRequest)},
-  { 13, -1, -1, sizeof(::greptime::v1::GreptimeResponse)},
-  { 22, -1, -1, sizeof(::greptime::v1::QueryRequest)},
-  { 32, -1, -1, sizeof(::greptime::v1::InsertRequests)},
-  { 39, -1, -1, sizeof(::greptime::v1::InsertRequest)},
-  { 49, -1, -1, sizeof(::greptime::v1::DeleteRequest)},
-  { 59, -1, -1, sizeof(::greptime::v1::RowInsertRequests)},
-  { 66, -1, -1, sizeof(::greptime::v1::RowInsertRequest)},
+  { 14, -1, -1, sizeof(::greptime::v1::GreptimeResponse)},
+  { 23, -1, -1, sizeof(::greptime::v1::QueryRequest)},
+  { 33, -1, -1, sizeof(::greptime::v1::InsertRequests)},
+  { 40, -1, -1, sizeof(::greptime::v1::InsertRequest)},
+  { 50, -1, -1, sizeof(::greptime::v1::DeleteRequest)},
+  { 60, -1, -1, sizeof(::greptime::v1::RowInsertRequests)},
+  { 67, -1, -1, sizeof(::greptime::v1::RowInsertRequest)},
+  { 76, -1, -1, sizeof(::greptime::v1::RowDeleteRequest)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -242,6 +268,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_DeleteRequest_default_instance_._instance,
   &::greptime::v1::_RowInsertRequests_default_instance_._instance,
   &::greptime::v1::_RowInsertRequest_default_instance_._instance,
+  &::greptime::v1::_RowDeleteRequest_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -249,39 +276,42 @@ const char descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto[] PROTOBUF
   "1\032\025greptime/v1/ddl.proto\032\030greptime/v1/co"
   "lumn.proto\032\025greptime/v1/row.proto\032\026grept"
   "ime/v1/prom.proto\032\030greptime/v1/common.pr"
-  "oto\"\261\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132"
+  "oto\"\346\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132"
   "\032.greptime.v1.RequestHeader\022.\n\007inserts\030\002"
   " \001(\0132\033.greptime.v1.InsertRequestsH\000\022*\n\005q"
   "uery\030\003 \001(\0132\031.greptime.v1.QueryRequestH\000\022"
   "&\n\003ddl\030\004 \001(\0132\027.greptime.v1.DdlRequestH\000\022"
   ",\n\006delete\030\005 \001(\0132\032.greptime.v1.DeleteRequ"
   "estH\000\0225\n\013row_inserts\030\006 \001(\0132\036.greptime.v1"
-  ".RowInsertRequestsH\000B\t\n\007request\"\177\n\020Grept"
-  "imeResponse\022+\n\006header\030\001 \001(\0132\033.greptime.v"
-  "1.ResponseHeader\0222\n\raffected_rows\030\002 \001(\0132"
-  "\031.greptime.v1.AffectedRowsH\000B\n\n\010response"
-  "\"w\n\014QueryRequest\022\r\n\003sql\030\001 \001(\tH\000\022\026\n\014logic"
-  "al_plan\030\002 \001(\014H\000\0227\n\020prom_range_query\030\003 \001("
-  "\0132\033.greptime.v1.PromRangeQueryH\000B\007\n\005quer"
-  "y\"=\n\016InsertRequests\022+\n\007inserts\030\001 \003(\0132\032.g"
-  "reptime.v1.InsertRequest\"s\n\rInsertReques"
-  "t\022\022\n\ntable_name\030\001 \001(\t\022$\n\007columns\030\003 \003(\0132\023"
-  ".greptime.v1.Column\022\021\n\trow_count\030\004 \001(\r\022\025"
-  "\n\rregion_number\030\005 \001(\r\"w\n\rDeleteRequest\022\022"
-  "\n\ntable_name\030\001 \001(\t\022\025\n\rregion_number\030\002 \001("
-  "\r\022(\n\013key_columns\030\003 \003(\0132\023.greptime.v1.Col"
-  "umn\022\021\n\trow_count\030\004 \001(\r\"C\n\021RowInsertReque"
-  "sts\022.\n\007inserts\030\001 \003(\0132\035.greptime.v1.RowIn"
-  "sertRequest\"^\n\020RowInsertRequest\022\022\n\ntable"
-  "_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1."
-  "Rows\022\025\n\rregion_number\030\003 \001(\r2\252\001\n\020Greptime"
-  "Database\022E\n\006Handle\022\034.greptime.v1.Greptim"
-  "eRequest\032\035.greptime.v1.GreptimeResponse\022"
-  "O\n\016HandleRequests\022\034.greptime.v1.Greptime"
-  "Request\032\035.greptime.v1.GreptimeResponse(\001"
-  "BQ\n\016io.greptime.v1B\010DatabaseZ5github.com"
-  "/GreptimeTeam/greptime-proto/go/greptime"
-  "/v1b\006proto3"
+  ".RowInsertRequestsH\000\0223\n\nrow_delete\030\007 \001(\013"
+  "2\035.greptime.v1.RowDeleteRequestH\000B\t\n\007req"
+  "uest\"\177\n\020GreptimeResponse\022+\n\006header\030\001 \001(\013"
+  "2\033.greptime.v1.ResponseHeader\0222\n\raffecte"
+  "d_rows\030\002 \001(\0132\031.greptime.v1.AffectedRowsH"
+  "\000B\n\n\010response\"w\n\014QueryRequest\022\r\n\003sql\030\001 \001"
+  "(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020prom_ran"
+  "ge_query\030\003 \001(\0132\033.greptime.v1.PromRangeQu"
+  "eryH\000B\007\n\005query\"=\n\016InsertRequests\022+\n\007inse"
+  "rts\030\001 \003(\0132\032.greptime.v1.InsertRequest\"s\n"
+  "\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$\n\007co"
+  "lumns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\trow_"
+  "count\030\004 \001(\r\022\025\n\rregion_number\030\005 \001(\r\"w\n\rDe"
+  "leteRequest\022\022\n\ntable_name\030\001 \001(\t\022\025\n\rregio"
+  "n_number\030\002 \001(\r\022(\n\013key_columns\030\003 \003(\0132\023.gr"
+  "eptime.v1.Column\022\021\n\trow_count\030\004 \001(\r\"C\n\021R"
+  "owInsertRequests\022.\n\007inserts\030\001 \003(\0132\035.grep"
+  "time.v1.RowInsertRequest\"^\n\020RowInsertReq"
+  "uest\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021"
+  ".greptime.v1.Rows\022\025\n\rregion_number\030\003 \001(\r"
+  "\"^\n\020RowDeleteRequest\022\022\n\ntable_name\030\001 \001(\t"
+  "\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022\025\n\rreg"
+  "ion_number\030\003 \001(\r2\252\001\n\020GreptimeDatabase\022E\n"
+  "\006Handle\022\034.greptime.v1.GreptimeRequest\032\035."
+  "greptime.v1.GreptimeResponse\022O\n\016HandleRe"
+  "quests\022\034.greptime.v1.GreptimeRequest\032\035.g"
+  "reptime.v1.GreptimeResponse(\001BQ\n\016io.grep"
+  "time.v1B\010DatabaseZ5github.com/GreptimeTe"
+  "am/greptime-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fdatabase_2eproto_deps[5] = {
   &::descriptor_table_greptime_2fv1_2fcolumn_2eproto,
@@ -292,9 +322,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fdat
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fdatabase_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fdatabase_2eproto = {
-    false, false, 1451, descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto,
+    false, false, 1600, descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto,
     "greptime/v1/database.proto",
-    &descriptor_table_greptime_2fv1_2fdatabase_2eproto_once, descriptor_table_greptime_2fv1_2fdatabase_2eproto_deps, 5, 8,
+    &descriptor_table_greptime_2fv1_2fdatabase_2eproto_once, descriptor_table_greptime_2fv1_2fdatabase_2eproto_deps, 5, 9,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fdatabase_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fdatabase_2eproto, file_level_enum_descriptors_greptime_2fv1_2fdatabase_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fdatabase_2eproto,
@@ -318,6 +348,7 @@ class GreptimeRequest::_Internal {
   static const ::greptime::v1::DdlRequest& ddl(const GreptimeRequest* msg);
   static const ::greptime::v1::DeleteRequest& delete_(const GreptimeRequest* msg);
   static const ::greptime::v1::RowInsertRequests& row_inserts(const GreptimeRequest* msg);
+  static const ::greptime::v1::RowDeleteRequest& row_delete(const GreptimeRequest* msg);
 };
 
 const ::greptime::v1::RequestHeader&
@@ -343,6 +374,10 @@ GreptimeRequest::_Internal::delete_(const GreptimeRequest* msg) {
 const ::greptime::v1::RowInsertRequests&
 GreptimeRequest::_Internal::row_inserts(const GreptimeRequest* msg) {
   return *msg->_impl_.request_.row_inserts_;
+}
+const ::greptime::v1::RowDeleteRequest&
+GreptimeRequest::_Internal::row_delete(const GreptimeRequest* msg) {
+  return *msg->_impl_.request_.row_delete_;
 }
 void GreptimeRequest::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
@@ -434,6 +469,21 @@ void GreptimeRequest::set_allocated_row_inserts(::greptime::v1::RowInsertRequest
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.GreptimeRequest.row_inserts)
 }
+void GreptimeRequest::set_allocated_row_delete(::greptime::v1::RowDeleteRequest* row_delete) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_request();
+  if (row_delete) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(row_delete);
+    if (message_arena != submessage_arena) {
+      row_delete = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, row_delete, submessage_arena);
+    }
+    set_has_row_delete();
+    _impl_.request_.row_delete_ = row_delete;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.GreptimeRequest.row_delete)
+}
 GreptimeRequest::GreptimeRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -478,6 +528,11 @@ GreptimeRequest::GreptimeRequest(const GreptimeRequest& from)
     case kRowInserts: {
       _this->_internal_mutable_row_inserts()->::greptime::v1::RowInsertRequests::MergeFrom(
           from._internal_row_inserts());
+      break;
+    }
+    case kRowDelete: {
+      _this->_internal_mutable_row_delete()->::greptime::v1::RowDeleteRequest::MergeFrom(
+          from._internal_row_delete());
       break;
     }
     case REQUEST_NOT_SET: {
@@ -551,6 +606,12 @@ void GreptimeRequest::clear_request() {
     case kRowInserts: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.request_.row_inserts_;
+      }
+      break;
+    }
+    case kRowDelete: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.request_.row_delete_;
       }
       break;
     }
@@ -630,6 +691,14 @@ const char* GreptimeRequest::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
+      // .greptime.v1.RowDeleteRequest row_delete = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_row_delete(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -701,6 +770,13 @@ uint8_t* GreptimeRequest::_InternalSerialize(
         _Internal::row_inserts(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.RowDeleteRequest row_delete = 7;
+  if (_internal_has_row_delete()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, _Internal::row_delete(this),
+        _Internal::row_delete(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -760,6 +836,13 @@ size_t GreptimeRequest::ByteSizeLong() const {
           *_impl_.request_.row_inserts_);
       break;
     }
+    // .greptime.v1.RowDeleteRequest row_delete = 7;
+    case kRowDelete: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.request_.row_delete_);
+      break;
+    }
     case REQUEST_NOT_SET: {
       break;
     }
@@ -810,6 +893,11 @@ void GreptimeRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
     case kRowInserts: {
       _this->_internal_mutable_row_inserts()->::greptime::v1::RowInsertRequests::MergeFrom(
           from._internal_row_inserts());
+      break;
+    }
+    case kRowDelete: {
+      _this->_internal_mutable_row_delete()->::greptime::v1::RowDeleteRequest::MergeFrom(
+          from._internal_row_delete());
       break;
     }
     case REQUEST_NOT_SET: {
@@ -2729,6 +2817,288 @@ void RowInsertRequest::InternalSwap(RowInsertRequest* other) {
       file_level_metadata_greptime_2fv1_2fdatabase_2eproto[7]);
 }
 
+// ===================================================================
+
+class RowDeleteRequest::_Internal {
+ public:
+  static const ::greptime::v1::Rows& rows(const RowDeleteRequest* msg);
+};
+
+const ::greptime::v1::Rows&
+RowDeleteRequest::_Internal::rows(const RowDeleteRequest* msg) {
+  return *msg->_impl_.rows_;
+}
+void RowDeleteRequest::clear_rows() {
+  if (GetArenaForAllocation() == nullptr && _impl_.rows_ != nullptr) {
+    delete _impl_.rows_;
+  }
+  _impl_.rows_ = nullptr;
+}
+RowDeleteRequest::RowDeleteRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.RowDeleteRequest)
+}
+RowDeleteRequest::RowDeleteRequest(const RowDeleteRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RowDeleteRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.table_name_){}
+    , decltype(_impl_.rows_){nullptr}
+    , decltype(_impl_.region_number_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.table_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_table_name().empty()) {
+    _this->_impl_.table_name_.Set(from._internal_table_name(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_rows()) {
+    _this->_impl_.rows_ = new ::greptime::v1::Rows(*from._impl_.rows_);
+  }
+  _this->_impl_.region_number_ = from._impl_.region_number_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.RowDeleteRequest)
+}
+
+inline void RowDeleteRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.table_name_){}
+    , decltype(_impl_.rows_){nullptr}
+    , decltype(_impl_.region_number_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.table_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+RowDeleteRequest::~RowDeleteRequest() {
+  // @@protoc_insertion_point(destructor:greptime.v1.RowDeleteRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void RowDeleteRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.table_name_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.rows_;
+}
+
+void RowDeleteRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void RowDeleteRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.RowDeleteRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.table_name_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.rows_ != nullptr) {
+    delete _impl_.rows_;
+  }
+  _impl_.rows_ = nullptr;
+  _impl_.region_number_ = 0u;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RowDeleteRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string table_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_table_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.RowDeleteRequest.table_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.Rows rows = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_rows(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 region_number = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.region_number_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* RowDeleteRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.RowDeleteRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string table_name = 1;
+  if (!this->_internal_table_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_table_name().data(), static_cast<int>(this->_internal_table_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.RowDeleteRequest.table_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_table_name(), target);
+  }
+
+  // .greptime.v1.Rows rows = 2;
+  if (this->_internal_has_rows()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::rows(this),
+        _Internal::rows(this).GetCachedSize(), target, stream);
+  }
+
+  // uint32 region_number = 3;
+  if (this->_internal_region_number() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_region_number(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.RowDeleteRequest)
+  return target;
+}
+
+size_t RowDeleteRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.RowDeleteRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string table_name = 1;
+  if (!this->_internal_table_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_table_name());
+  }
+
+  // .greptime.v1.Rows rows = 2;
+  if (this->_internal_has_rows()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.rows_);
+  }
+
+  // uint32 region_number = 3;
+  if (this->_internal_region_number() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_region_number());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RowDeleteRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RowDeleteRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RowDeleteRequest::GetClassData() const { return &_class_data_; }
+
+
+void RowDeleteRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RowDeleteRequest*>(&to_msg);
+  auto& from = static_cast<const RowDeleteRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.RowDeleteRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_table_name().empty()) {
+    _this->_internal_set_table_name(from._internal_table_name());
+  }
+  if (from._internal_has_rows()) {
+    _this->_internal_mutable_rows()->::greptime::v1::Rows::MergeFrom(
+        from._internal_rows());
+  }
+  if (from._internal_region_number() != 0) {
+    _this->_internal_set_region_number(from._internal_region_number());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void RowDeleteRequest::CopyFrom(const RowDeleteRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.RowDeleteRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RowDeleteRequest::IsInitialized() const {
+  return true;
+}
+
+void RowDeleteRequest::InternalSwap(RowDeleteRequest* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.table_name_, lhs_arena,
+      &other->_impl_.table_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RowDeleteRequest, _impl_.region_number_)
+      + sizeof(RowDeleteRequest::_impl_.region_number_)
+      - PROTOBUF_FIELD_OFFSET(RowDeleteRequest, _impl_.rows_)>(
+          reinterpret_cast<char*>(&_impl_.rows_),
+          reinterpret_cast<char*>(&other->_impl_.rows_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RowDeleteRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fdatabase_2eproto_getter, &descriptor_table_greptime_2fv1_2fdatabase_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fdatabase_2eproto[8]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1
 }  // namespace greptime
@@ -2764,6 +3134,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::RowInsertRequests >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::RowInsertRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::RowInsertRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::RowInsertRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::RowDeleteRequest*
+Arena::CreateMaybeMessage< ::greptime::v1::RowDeleteRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::RowDeleteRequest >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
