@@ -62,3 +62,42 @@ message Token { string token = 1; }
 message AffectedRows { uint32 value = 1; }
 
 message FlightMetadata { AffectedRows affected_rows = 1; }
+
+enum SemanticType {
+  TAG = 0;
+  FIELD = 1;
+  TIMESTAMP = 2;
+}
+
+message ColumnDef {
+  string name = 1;
+  ColumnDataType datatype = 2;
+  bool is_nullable = 3;
+  bytes default_constraint = 4;
+}
+
+enum ColumnDataType {
+  BOOLEAN = 0;
+  INT8 = 1;
+  INT16 = 2;
+  INT32 = 3;
+  INT64 = 4;
+  UINT8 = 5;
+  UINT16 = 6;
+  UINT32 = 7;
+  UINT64 = 8;
+  FLOAT32 = 9;
+  FLOAT64 = 10;
+  BINARY = 11;
+  STRING = 12;
+  DATE = 13;
+  DATETIME = 14;
+  TIMESTAMP_SECOND = 15;
+  TIMESTAMP_MILLISECOND = 16;
+  TIMESTAMP_MICROSECOND = 17;
+  TIMESTAMP_NANOSECOND = 18;
+  TIME_SECOND = 19;
+  TIME_MILLISECOND = 20;
+  TIME_MICROSECOND = 21;
+  TIME_NANOSECOND = 22;
+}

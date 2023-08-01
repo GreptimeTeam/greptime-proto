@@ -2184,12 +2184,12 @@ public final class Ddl {
     /**
      * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
      */
-    java.util.List<io.greptime.v1.Columns.ColumnDef> 
+    java.util.List<io.greptime.v1.Common.ColumnDef> 
         getColumnDefsList();
     /**
      * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
      */
-    io.greptime.v1.Columns.ColumnDef getColumnDefs(int index);
+    io.greptime.v1.Common.ColumnDef getColumnDefs(int index);
     /**
      * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
      */
@@ -2197,12 +2197,12 @@ public final class Ddl {
     /**
      * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
      */
-    java.util.List<? extends io.greptime.v1.Columns.ColumnDefOrBuilder> 
+    java.util.List<? extends io.greptime.v1.Common.ColumnDefOrBuilder> 
         getColumnDefsOrBuilderList();
     /**
      * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
      */
-    io.greptime.v1.Columns.ColumnDefOrBuilder getColumnDefsOrBuilder(
+    io.greptime.v1.Common.ColumnDefOrBuilder getColumnDefsOrBuilder(
         int index);
 
     /**
@@ -2409,11 +2409,11 @@ java.lang.String defaultValue);
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                columnDefs_ = new java.util.ArrayList<io.greptime.v1.Columns.ColumnDef>();
+                columnDefs_ = new java.util.ArrayList<io.greptime.v1.Common.ColumnDef>();
                 mutable_bitField0_ |= 0x00000001;
               }
               columnDefs_.add(
-                  input.readMessage(io.greptime.v1.Columns.ColumnDef.parser(), extensionRegistry));
+                  input.readMessage(io.greptime.v1.Common.ColumnDef.parser(), extensionRegistry));
               break;
             }
             case 50: {
@@ -2697,19 +2697,19 @@ java.lang.String defaultValue);
     }
 
     public static final int COLUMN_DEFS_FIELD_NUMBER = 5;
-    private java.util.List<io.greptime.v1.Columns.ColumnDef> columnDefs_;
+    private java.util.List<io.greptime.v1.Common.ColumnDef> columnDefs_;
     /**
      * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
      */
     @java.lang.Override
-    public java.util.List<io.greptime.v1.Columns.ColumnDef> getColumnDefsList() {
+    public java.util.List<io.greptime.v1.Common.ColumnDef> getColumnDefsList() {
       return columnDefs_;
     }
     /**
      * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.Columns.ColumnDefOrBuilder> 
+    public java.util.List<? extends io.greptime.v1.Common.ColumnDefOrBuilder> 
         getColumnDefsOrBuilderList() {
       return columnDefs_;
     }
@@ -2724,14 +2724,14 @@ java.lang.String defaultValue);
      * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Columns.ColumnDef getColumnDefs(int index) {
+    public io.greptime.v1.Common.ColumnDef getColumnDefs(int index) {
       return columnDefs_.get(index);
     }
     /**
      * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Columns.ColumnDefOrBuilder getColumnDefsOrBuilder(
+    public io.greptime.v1.Common.ColumnDefOrBuilder getColumnDefsOrBuilder(
         int index) {
       return columnDefs_.get(index);
     }
@@ -3917,22 +3917,22 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.util.List<io.greptime.v1.Columns.ColumnDef> columnDefs_ =
+      private java.util.List<io.greptime.v1.Common.ColumnDef> columnDefs_ =
         java.util.Collections.emptyList();
       private void ensureColumnDefsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          columnDefs_ = new java.util.ArrayList<io.greptime.v1.Columns.ColumnDef>(columnDefs_);
+          columnDefs_ = new java.util.ArrayList<io.greptime.v1.Common.ColumnDef>(columnDefs_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Columns.ColumnDef, io.greptime.v1.Columns.ColumnDef.Builder, io.greptime.v1.Columns.ColumnDefOrBuilder> columnDefsBuilder_;
+          io.greptime.v1.Common.ColumnDef, io.greptime.v1.Common.ColumnDef.Builder, io.greptime.v1.Common.ColumnDefOrBuilder> columnDefsBuilder_;
 
       /**
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
-      public java.util.List<io.greptime.v1.Columns.ColumnDef> getColumnDefsList() {
+      public java.util.List<io.greptime.v1.Common.ColumnDef> getColumnDefsList() {
         if (columnDefsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(columnDefs_);
         } else {
@@ -3952,7 +3952,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
-      public io.greptime.v1.Columns.ColumnDef getColumnDefs(int index) {
+      public io.greptime.v1.Common.ColumnDef getColumnDefs(int index) {
         if (columnDefsBuilder_ == null) {
           return columnDefs_.get(index);
         } else {
@@ -3963,7 +3963,7 @@ java.lang.String defaultValue);
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
       public Builder setColumnDefs(
-          int index, io.greptime.v1.Columns.ColumnDef value) {
+          int index, io.greptime.v1.Common.ColumnDef value) {
         if (columnDefsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3980,7 +3980,7 @@ java.lang.String defaultValue);
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
       public Builder setColumnDefs(
-          int index, io.greptime.v1.Columns.ColumnDef.Builder builderForValue) {
+          int index, io.greptime.v1.Common.ColumnDef.Builder builderForValue) {
         if (columnDefsBuilder_ == null) {
           ensureColumnDefsIsMutable();
           columnDefs_.set(index, builderForValue.build());
@@ -3993,7 +3993,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
-      public Builder addColumnDefs(io.greptime.v1.Columns.ColumnDef value) {
+      public Builder addColumnDefs(io.greptime.v1.Common.ColumnDef value) {
         if (columnDefsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4010,7 +4010,7 @@ java.lang.String defaultValue);
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
       public Builder addColumnDefs(
-          int index, io.greptime.v1.Columns.ColumnDef value) {
+          int index, io.greptime.v1.Common.ColumnDef value) {
         if (columnDefsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4027,7 +4027,7 @@ java.lang.String defaultValue);
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
       public Builder addColumnDefs(
-          io.greptime.v1.Columns.ColumnDef.Builder builderForValue) {
+          io.greptime.v1.Common.ColumnDef.Builder builderForValue) {
         if (columnDefsBuilder_ == null) {
           ensureColumnDefsIsMutable();
           columnDefs_.add(builderForValue.build());
@@ -4041,7 +4041,7 @@ java.lang.String defaultValue);
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
       public Builder addColumnDefs(
-          int index, io.greptime.v1.Columns.ColumnDef.Builder builderForValue) {
+          int index, io.greptime.v1.Common.ColumnDef.Builder builderForValue) {
         if (columnDefsBuilder_ == null) {
           ensureColumnDefsIsMutable();
           columnDefs_.add(index, builderForValue.build());
@@ -4055,7 +4055,7 @@ java.lang.String defaultValue);
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
       public Builder addAllColumnDefs(
-          java.lang.Iterable<? extends io.greptime.v1.Columns.ColumnDef> values) {
+          java.lang.Iterable<? extends io.greptime.v1.Common.ColumnDef> values) {
         if (columnDefsBuilder_ == null) {
           ensureColumnDefsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -4095,14 +4095,14 @@ java.lang.String defaultValue);
       /**
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
-      public io.greptime.v1.Columns.ColumnDef.Builder getColumnDefsBuilder(
+      public io.greptime.v1.Common.ColumnDef.Builder getColumnDefsBuilder(
           int index) {
         return getColumnDefsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
-      public io.greptime.v1.Columns.ColumnDefOrBuilder getColumnDefsOrBuilder(
+      public io.greptime.v1.Common.ColumnDefOrBuilder getColumnDefsOrBuilder(
           int index) {
         if (columnDefsBuilder_ == null) {
           return columnDefs_.get(index);  } else {
@@ -4112,7 +4112,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
-      public java.util.List<? extends io.greptime.v1.Columns.ColumnDefOrBuilder> 
+      public java.util.List<? extends io.greptime.v1.Common.ColumnDefOrBuilder> 
            getColumnDefsOrBuilderList() {
         if (columnDefsBuilder_ != null) {
           return columnDefsBuilder_.getMessageOrBuilderList();
@@ -4123,31 +4123,31 @@ java.lang.String defaultValue);
       /**
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
-      public io.greptime.v1.Columns.ColumnDef.Builder addColumnDefsBuilder() {
+      public io.greptime.v1.Common.ColumnDef.Builder addColumnDefsBuilder() {
         return getColumnDefsFieldBuilder().addBuilder(
-            io.greptime.v1.Columns.ColumnDef.getDefaultInstance());
+            io.greptime.v1.Common.ColumnDef.getDefaultInstance());
       }
       /**
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
-      public io.greptime.v1.Columns.ColumnDef.Builder addColumnDefsBuilder(
+      public io.greptime.v1.Common.ColumnDef.Builder addColumnDefsBuilder(
           int index) {
         return getColumnDefsFieldBuilder().addBuilder(
-            index, io.greptime.v1.Columns.ColumnDef.getDefaultInstance());
+            index, io.greptime.v1.Common.ColumnDef.getDefaultInstance());
       }
       /**
        * <code>repeated .greptime.v1.ColumnDef column_defs = 5;</code>
        */
-      public java.util.List<io.greptime.v1.Columns.ColumnDef.Builder> 
+      public java.util.List<io.greptime.v1.Common.ColumnDef.Builder> 
            getColumnDefsBuilderList() {
         return getColumnDefsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Columns.ColumnDef, io.greptime.v1.Columns.ColumnDef.Builder, io.greptime.v1.Columns.ColumnDefOrBuilder> 
+          io.greptime.v1.Common.ColumnDef, io.greptime.v1.Common.ColumnDef.Builder, io.greptime.v1.Common.ColumnDefOrBuilder> 
           getColumnDefsFieldBuilder() {
         if (columnDefsBuilder_ == null) {
           columnDefsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.greptime.v1.Columns.ColumnDef, io.greptime.v1.Columns.ColumnDef.Builder, io.greptime.v1.Columns.ColumnDefOrBuilder>(
+              io.greptime.v1.Common.ColumnDef, io.greptime.v1.Common.ColumnDef.Builder, io.greptime.v1.Common.ColumnDefOrBuilder>(
                   columnDefs_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -13869,11 +13869,11 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.ColumnDef column_def = 1;</code>
      * @return The columnDef.
      */
-    io.greptime.v1.Columns.ColumnDef getColumnDef();
+    io.greptime.v1.Common.ColumnDef getColumnDef();
     /**
      * <code>.greptime.v1.ColumnDef column_def = 1;</code>
      */
-    io.greptime.v1.Columns.ColumnDefOrBuilder getColumnDefOrBuilder();
+    io.greptime.v1.Common.ColumnDefOrBuilder getColumnDefOrBuilder();
 
     /**
      * <code>bool is_key = 2;</code>
@@ -13942,11 +13942,11 @@ java.lang.String defaultValue);
               done = true;
               break;
             case 10: {
-              io.greptime.v1.Columns.ColumnDef.Builder subBuilder = null;
+              io.greptime.v1.Common.ColumnDef.Builder subBuilder = null;
               if (columnDef_ != null) {
                 subBuilder = columnDef_.toBuilder();
               }
-              columnDef_ = input.readMessage(io.greptime.v1.Columns.ColumnDef.parser(), extensionRegistry);
+              columnDef_ = input.readMessage(io.greptime.v1.Common.ColumnDef.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(columnDef_);
                 columnDef_ = subBuilder.buildPartial();
@@ -14792,7 +14792,7 @@ java.lang.String defaultValue);
     }
 
     public static final int COLUMN_DEF_FIELD_NUMBER = 1;
-    private io.greptime.v1.Columns.ColumnDef columnDef_;
+    private io.greptime.v1.Common.ColumnDef columnDef_;
     /**
      * <code>.greptime.v1.ColumnDef column_def = 1;</code>
      * @return Whether the columnDef field is set.
@@ -14806,14 +14806,14 @@ java.lang.String defaultValue);
      * @return The columnDef.
      */
     @java.lang.Override
-    public io.greptime.v1.Columns.ColumnDef getColumnDef() {
-      return columnDef_ == null ? io.greptime.v1.Columns.ColumnDef.getDefaultInstance() : columnDef_;
+    public io.greptime.v1.Common.ColumnDef getColumnDef() {
+      return columnDef_ == null ? io.greptime.v1.Common.ColumnDef.getDefaultInstance() : columnDef_;
     }
     /**
      * <code>.greptime.v1.ColumnDef column_def = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Columns.ColumnDefOrBuilder getColumnDefOrBuilder() {
+    public io.greptime.v1.Common.ColumnDefOrBuilder getColumnDefOrBuilder() {
       return getColumnDef();
     }
 
@@ -15217,9 +15217,9 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private io.greptime.v1.Columns.ColumnDef columnDef_;
+      private io.greptime.v1.Common.ColumnDef columnDef_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Columns.ColumnDef, io.greptime.v1.Columns.ColumnDef.Builder, io.greptime.v1.Columns.ColumnDefOrBuilder> columnDefBuilder_;
+          io.greptime.v1.Common.ColumnDef, io.greptime.v1.Common.ColumnDef.Builder, io.greptime.v1.Common.ColumnDefOrBuilder> columnDefBuilder_;
       /**
        * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        * @return Whether the columnDef field is set.
@@ -15231,9 +15231,9 @@ java.lang.String defaultValue);
        * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        * @return The columnDef.
        */
-      public io.greptime.v1.Columns.ColumnDef getColumnDef() {
+      public io.greptime.v1.Common.ColumnDef getColumnDef() {
         if (columnDefBuilder_ == null) {
-          return columnDef_ == null ? io.greptime.v1.Columns.ColumnDef.getDefaultInstance() : columnDef_;
+          return columnDef_ == null ? io.greptime.v1.Common.ColumnDef.getDefaultInstance() : columnDef_;
         } else {
           return columnDefBuilder_.getMessage();
         }
@@ -15241,7 +15241,7 @@ java.lang.String defaultValue);
       /**
        * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        */
-      public Builder setColumnDef(io.greptime.v1.Columns.ColumnDef value) {
+      public Builder setColumnDef(io.greptime.v1.Common.ColumnDef value) {
         if (columnDefBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15258,7 +15258,7 @@ java.lang.String defaultValue);
        * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        */
       public Builder setColumnDef(
-          io.greptime.v1.Columns.ColumnDef.Builder builderForValue) {
+          io.greptime.v1.Common.ColumnDef.Builder builderForValue) {
         if (columnDefBuilder_ == null) {
           columnDef_ = builderForValue.build();
           onChanged();
@@ -15271,11 +15271,11 @@ java.lang.String defaultValue);
       /**
        * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        */
-      public Builder mergeColumnDef(io.greptime.v1.Columns.ColumnDef value) {
+      public Builder mergeColumnDef(io.greptime.v1.Common.ColumnDef value) {
         if (columnDefBuilder_ == null) {
           if (columnDef_ != null) {
             columnDef_ =
-              io.greptime.v1.Columns.ColumnDef.newBuilder(columnDef_).mergeFrom(value).buildPartial();
+              io.greptime.v1.Common.ColumnDef.newBuilder(columnDef_).mergeFrom(value).buildPartial();
           } else {
             columnDef_ = value;
           }
@@ -15303,7 +15303,7 @@ java.lang.String defaultValue);
       /**
        * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        */
-      public io.greptime.v1.Columns.ColumnDef.Builder getColumnDefBuilder() {
+      public io.greptime.v1.Common.ColumnDef.Builder getColumnDefBuilder() {
         
         onChanged();
         return getColumnDefFieldBuilder().getBuilder();
@@ -15311,23 +15311,23 @@ java.lang.String defaultValue);
       /**
        * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        */
-      public io.greptime.v1.Columns.ColumnDefOrBuilder getColumnDefOrBuilder() {
+      public io.greptime.v1.Common.ColumnDefOrBuilder getColumnDefOrBuilder() {
         if (columnDefBuilder_ != null) {
           return columnDefBuilder_.getMessageOrBuilder();
         } else {
           return columnDef_ == null ?
-              io.greptime.v1.Columns.ColumnDef.getDefaultInstance() : columnDef_;
+              io.greptime.v1.Common.ColumnDef.getDefaultInstance() : columnDef_;
         }
       }
       /**
        * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Columns.ColumnDef, io.greptime.v1.Columns.ColumnDef.Builder, io.greptime.v1.Columns.ColumnDefOrBuilder> 
+          io.greptime.v1.Common.ColumnDef, io.greptime.v1.Common.ColumnDef.Builder, io.greptime.v1.Common.ColumnDefOrBuilder> 
           getColumnDefFieldBuilder() {
         if (columnDefBuilder_ == null) {
           columnDefBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Columns.ColumnDef, io.greptime.v1.Columns.ColumnDef.Builder, io.greptime.v1.Columns.ColumnDefOrBuilder>(
+              io.greptime.v1.Common.ColumnDef, io.greptime.v1.Common.ColumnDef.Builder, io.greptime.v1.Common.ColumnDefOrBuilder>(
                   getColumnDef(),
                   getParentForChildren(),
                   isClean());
@@ -16688,7 +16688,7 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\025greptime/v1/ddl.proto\022\013greptime.v1\032\030gr" +
-      "eptime/v1/column.proto\"\207\003\n\nDdlRequest\022:\n" +
+      "eptime/v1/common.proto\"\207\003\n\nDdlRequest\022:\n" +
       "\017create_database\030\001 \001(\0132\037.greptime.v1.Cre" +
       "ateDatabaseExprH\000\0224\n\014create_table\030\002 \001(\0132" +
       "\034.greptime.v1.CreateTableExprH\000\022\'\n\005alter" +
@@ -16750,7 +16750,7 @@ java.lang.String defaultValue);
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          io.greptime.v1.Columns.getDescriptor(),
+          io.greptime.v1.Common.getDescriptor(),
         });
     internal_static_greptime_v1_DdlRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -16848,7 +16848,7 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TableId_descriptor,
         new java.lang.String[] { "Id", });
-    io.greptime.v1.Columns.getDescriptor();
+    io.greptime.v1.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
