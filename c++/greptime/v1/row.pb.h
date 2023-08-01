@@ -625,29 +625,30 @@ class Value final :
     return *internal_default_instance();
   }
   enum ValueCase {
-    kI8Value = 1,
-    kI16Value = 2,
-    kI32Value = 3,
-    kI64Value = 4,
-    kU8Value = 5,
-    kU16Value = 6,
-    kU32Value = 7,
-    kU64Value = 8,
-    kF32Value = 9,
-    kF64Value = 10,
-    kBoolValue = 11,
-    kBinaryValue = 12,
-    kStringValue = 13,
-    kDateValue = 14,
-    kDatetimeValue = 15,
-    kTsSecondValue = 16,
-    kTsMillisecondValue = 17,
-    kTsMicrosecondValue = 18,
-    kTsNanosecondValue = 19,
-    kTimeSecondValue = 20,
-    kTimeMillisecondValue = 21,
-    kTimeMicrosecondValue = 22,
-    kTimeNanosecondValue = 23,
+    kNullValue = 1,
+    kI8Value = 2,
+    kI16Value = 3,
+    kI32Value = 4,
+    kI64Value = 5,
+    kU8Value = 6,
+    kU16Value = 7,
+    kU32Value = 8,
+    kU64Value = 9,
+    kF32Value = 10,
+    kF64Value = 11,
+    kBoolValue = 12,
+    kBinaryValue = 13,
+    kStringValue = 14,
+    kDateValue = 15,
+    kDatetimeValue = 16,
+    kTsSecondValue = 17,
+    kTsMillisecondValue = 18,
+    kTsMicrosecondValue = 19,
+    kTsNanosecondValue = 20,
+    kTimeSecondValue = 21,
+    kTimeMillisecondValue = 22,
+    kTimeMicrosecondValue = 23,
+    kTimeNanosecondValue = 24,
     VALUE_NOT_SET = 0,
   };
 
@@ -729,31 +730,45 @@ class Value final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kI8ValueFieldNumber = 1,
-    kI16ValueFieldNumber = 2,
-    kI32ValueFieldNumber = 3,
-    kI64ValueFieldNumber = 4,
-    kU8ValueFieldNumber = 5,
-    kU16ValueFieldNumber = 6,
-    kU32ValueFieldNumber = 7,
-    kU64ValueFieldNumber = 8,
-    kF32ValueFieldNumber = 9,
-    kF64ValueFieldNumber = 10,
-    kBoolValueFieldNumber = 11,
-    kBinaryValueFieldNumber = 12,
-    kStringValueFieldNumber = 13,
-    kDateValueFieldNumber = 14,
-    kDatetimeValueFieldNumber = 15,
-    kTsSecondValueFieldNumber = 16,
-    kTsMillisecondValueFieldNumber = 17,
-    kTsMicrosecondValueFieldNumber = 18,
-    kTsNanosecondValueFieldNumber = 19,
-    kTimeSecondValueFieldNumber = 20,
-    kTimeMillisecondValueFieldNumber = 21,
-    kTimeMicrosecondValueFieldNumber = 22,
-    kTimeNanosecondValueFieldNumber = 23,
+    kNullValueFieldNumber = 1,
+    kI8ValueFieldNumber = 2,
+    kI16ValueFieldNumber = 3,
+    kI32ValueFieldNumber = 4,
+    kI64ValueFieldNumber = 5,
+    kU8ValueFieldNumber = 6,
+    kU16ValueFieldNumber = 7,
+    kU32ValueFieldNumber = 8,
+    kU64ValueFieldNumber = 9,
+    kF32ValueFieldNumber = 10,
+    kF64ValueFieldNumber = 11,
+    kBoolValueFieldNumber = 12,
+    kBinaryValueFieldNumber = 13,
+    kStringValueFieldNumber = 14,
+    kDateValueFieldNumber = 15,
+    kDatetimeValueFieldNumber = 16,
+    kTsSecondValueFieldNumber = 17,
+    kTsMillisecondValueFieldNumber = 18,
+    kTsMicrosecondValueFieldNumber = 19,
+    kTsNanosecondValueFieldNumber = 20,
+    kTimeSecondValueFieldNumber = 21,
+    kTimeMillisecondValueFieldNumber = 22,
+    kTimeMicrosecondValueFieldNumber = 23,
+    kTimeNanosecondValueFieldNumber = 24,
   };
-  // int32 i8_value = 1;
+  // uint32 null_value = 1;
+  bool has_null_value() const;
+  private:
+  bool _internal_has_null_value() const;
+  public:
+  void clear_null_value();
+  uint32_t null_value() const;
+  void set_null_value(uint32_t value);
+  private:
+  uint32_t _internal_null_value() const;
+  void _internal_set_null_value(uint32_t value);
+  public:
+
+  // int32 i8_value = 2;
   bool has_i8_value() const;
   private:
   bool _internal_has_i8_value() const;
@@ -766,7 +781,7 @@ class Value final :
   void _internal_set_i8_value(int32_t value);
   public:
 
-  // int32 i16_value = 2;
+  // int32 i16_value = 3;
   bool has_i16_value() const;
   private:
   bool _internal_has_i16_value() const;
@@ -779,7 +794,7 @@ class Value final :
   void _internal_set_i16_value(int32_t value);
   public:
 
-  // int32 i32_value = 3;
+  // int32 i32_value = 4;
   bool has_i32_value() const;
   private:
   bool _internal_has_i32_value() const;
@@ -792,7 +807,7 @@ class Value final :
   void _internal_set_i32_value(int32_t value);
   public:
 
-  // int64 i64_value = 4;
+  // int64 i64_value = 5;
   bool has_i64_value() const;
   private:
   bool _internal_has_i64_value() const;
@@ -805,7 +820,7 @@ class Value final :
   void _internal_set_i64_value(int64_t value);
   public:
 
-  // uint32 u8_value = 5;
+  // uint32 u8_value = 6;
   bool has_u8_value() const;
   private:
   bool _internal_has_u8_value() const;
@@ -818,7 +833,7 @@ class Value final :
   void _internal_set_u8_value(uint32_t value);
   public:
 
-  // uint32 u16_value = 6;
+  // uint32 u16_value = 7;
   bool has_u16_value() const;
   private:
   bool _internal_has_u16_value() const;
@@ -831,7 +846,7 @@ class Value final :
   void _internal_set_u16_value(uint32_t value);
   public:
 
-  // uint32 u32_value = 7;
+  // uint32 u32_value = 8;
   bool has_u32_value() const;
   private:
   bool _internal_has_u32_value() const;
@@ -844,7 +859,7 @@ class Value final :
   void _internal_set_u32_value(uint32_t value);
   public:
 
-  // uint64 u64_value = 8;
+  // uint64 u64_value = 9;
   bool has_u64_value() const;
   private:
   bool _internal_has_u64_value() const;
@@ -857,7 +872,7 @@ class Value final :
   void _internal_set_u64_value(uint64_t value);
   public:
 
-  // float f32_value = 9;
+  // float f32_value = 10;
   bool has_f32_value() const;
   private:
   bool _internal_has_f32_value() const;
@@ -870,7 +885,7 @@ class Value final :
   void _internal_set_f32_value(float value);
   public:
 
-  // double f64_value = 10;
+  // double f64_value = 11;
   bool has_f64_value() const;
   private:
   bool _internal_has_f64_value() const;
@@ -883,7 +898,7 @@ class Value final :
   void _internal_set_f64_value(double value);
   public:
 
-  // bool bool_value = 11;
+  // bool bool_value = 12;
   bool has_bool_value() const;
   private:
   bool _internal_has_bool_value() const;
@@ -896,7 +911,7 @@ class Value final :
   void _internal_set_bool_value(bool value);
   public:
 
-  // bytes binary_value = 12;
+  // bytes binary_value = 13;
   bool has_binary_value() const;
   private:
   bool _internal_has_binary_value() const;
@@ -914,7 +929,7 @@ class Value final :
   std::string* _internal_mutable_binary_value();
   public:
 
-  // string string_value = 13;
+  // string string_value = 14;
   bool has_string_value() const;
   private:
   bool _internal_has_string_value() const;
@@ -932,7 +947,7 @@ class Value final :
   std::string* _internal_mutable_string_value();
   public:
 
-  // int32 date_value = 14;
+  // int32 date_value = 15;
   bool has_date_value() const;
   private:
   bool _internal_has_date_value() const;
@@ -945,7 +960,7 @@ class Value final :
   void _internal_set_date_value(int32_t value);
   public:
 
-  // int64 datetime_value = 15;
+  // int64 datetime_value = 16;
   bool has_datetime_value() const;
   private:
   bool _internal_has_datetime_value() const;
@@ -958,7 +973,7 @@ class Value final :
   void _internal_set_datetime_value(int64_t value);
   public:
 
-  // int64 ts_second_value = 16;
+  // int64 ts_second_value = 17;
   bool has_ts_second_value() const;
   private:
   bool _internal_has_ts_second_value() const;
@@ -971,7 +986,7 @@ class Value final :
   void _internal_set_ts_second_value(int64_t value);
   public:
 
-  // int64 ts_millisecond_value = 17;
+  // int64 ts_millisecond_value = 18;
   bool has_ts_millisecond_value() const;
   private:
   bool _internal_has_ts_millisecond_value() const;
@@ -984,7 +999,7 @@ class Value final :
   void _internal_set_ts_millisecond_value(int64_t value);
   public:
 
-  // int64 ts_microsecond_value = 18;
+  // int64 ts_microsecond_value = 19;
   bool has_ts_microsecond_value() const;
   private:
   bool _internal_has_ts_microsecond_value() const;
@@ -997,7 +1012,7 @@ class Value final :
   void _internal_set_ts_microsecond_value(int64_t value);
   public:
 
-  // int64 ts_nanosecond_value = 19;
+  // int64 ts_nanosecond_value = 20;
   bool has_ts_nanosecond_value() const;
   private:
   bool _internal_has_ts_nanosecond_value() const;
@@ -1010,7 +1025,7 @@ class Value final :
   void _internal_set_ts_nanosecond_value(int64_t value);
   public:
 
-  // int64 time_second_value = 20;
+  // int64 time_second_value = 21;
   bool has_time_second_value() const;
   private:
   bool _internal_has_time_second_value() const;
@@ -1023,7 +1038,7 @@ class Value final :
   void _internal_set_time_second_value(int64_t value);
   public:
 
-  // int64 time_millisecond_value = 21;
+  // int64 time_millisecond_value = 22;
   bool has_time_millisecond_value() const;
   private:
   bool _internal_has_time_millisecond_value() const;
@@ -1036,7 +1051,7 @@ class Value final :
   void _internal_set_time_millisecond_value(int64_t value);
   public:
 
-  // int64 time_microsecond_value = 22;
+  // int64 time_microsecond_value = 23;
   bool has_time_microsecond_value() const;
   private:
   bool _internal_has_time_microsecond_value() const;
@@ -1049,7 +1064,7 @@ class Value final :
   void _internal_set_time_microsecond_value(int64_t value);
   public:
 
-  // int64 time_nanosecond_value = 23;
+  // int64 time_nanosecond_value = 24;
   bool has_time_nanosecond_value() const;
   private:
   bool _internal_has_time_nanosecond_value() const;
@@ -1067,6 +1082,7 @@ class Value final :
   // @@protoc_insertion_point(class_scope:greptime.v1.Value)
  private:
   class _Internal;
+  void set_has_null_value();
   void set_has_i8_value();
   void set_has_i16_value();
   void set_has_i32_value();
@@ -1101,6 +1117,7 @@ class Value final :
     union ValueUnion {
       constexpr ValueUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      uint32_t null_value_;
       int32_t i8_value_;
       int32_t i16_value_;
       int32_t i32_value_;
@@ -1365,7 +1382,45 @@ Row::values() const {
 
 // Value
 
-// int32 i8_value = 1;
+// uint32 null_value = 1;
+inline bool Value::_internal_has_null_value() const {
+  return value_case() == kNullValue;
+}
+inline bool Value::has_null_value() const {
+  return _internal_has_null_value();
+}
+inline void Value::set_has_null_value() {
+  _impl_._oneof_case_[0] = kNullValue;
+}
+inline void Value::clear_null_value() {
+  if (_internal_has_null_value()) {
+    _impl_.value_.null_value_ = 0u;
+    clear_has_value();
+  }
+}
+inline uint32_t Value::_internal_null_value() const {
+  if (_internal_has_null_value()) {
+    return _impl_.value_.null_value_;
+  }
+  return 0u;
+}
+inline void Value::_internal_set_null_value(uint32_t value) {
+  if (!_internal_has_null_value()) {
+    clear_value();
+    set_has_null_value();
+  }
+  _impl_.value_.null_value_ = value;
+}
+inline uint32_t Value::null_value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.null_value)
+  return _internal_null_value();
+}
+inline void Value::set_null_value(uint32_t value) {
+  _internal_set_null_value(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Value.null_value)
+}
+
+// int32 i8_value = 2;
 inline bool Value::_internal_has_i8_value() const {
   return value_case() == kI8Value;
 }
@@ -1403,7 +1458,7 @@ inline void Value::set_i8_value(int32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.i8_value)
 }
 
-// int32 i16_value = 2;
+// int32 i16_value = 3;
 inline bool Value::_internal_has_i16_value() const {
   return value_case() == kI16Value;
 }
@@ -1441,7 +1496,7 @@ inline void Value::set_i16_value(int32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.i16_value)
 }
 
-// int32 i32_value = 3;
+// int32 i32_value = 4;
 inline bool Value::_internal_has_i32_value() const {
   return value_case() == kI32Value;
 }
@@ -1479,7 +1534,7 @@ inline void Value::set_i32_value(int32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.i32_value)
 }
 
-// int64 i64_value = 4;
+// int64 i64_value = 5;
 inline bool Value::_internal_has_i64_value() const {
   return value_case() == kI64Value;
 }
@@ -1517,7 +1572,7 @@ inline void Value::set_i64_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.i64_value)
 }
 
-// uint32 u8_value = 5;
+// uint32 u8_value = 6;
 inline bool Value::_internal_has_u8_value() const {
   return value_case() == kU8Value;
 }
@@ -1555,7 +1610,7 @@ inline void Value::set_u8_value(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.u8_value)
 }
 
-// uint32 u16_value = 6;
+// uint32 u16_value = 7;
 inline bool Value::_internal_has_u16_value() const {
   return value_case() == kU16Value;
 }
@@ -1593,7 +1648,7 @@ inline void Value::set_u16_value(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.u16_value)
 }
 
-// uint32 u32_value = 7;
+// uint32 u32_value = 8;
 inline bool Value::_internal_has_u32_value() const {
   return value_case() == kU32Value;
 }
@@ -1631,7 +1686,7 @@ inline void Value::set_u32_value(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.u32_value)
 }
 
-// uint64 u64_value = 8;
+// uint64 u64_value = 9;
 inline bool Value::_internal_has_u64_value() const {
   return value_case() == kU64Value;
 }
@@ -1669,7 +1724,7 @@ inline void Value::set_u64_value(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.u64_value)
 }
 
-// float f32_value = 9;
+// float f32_value = 10;
 inline bool Value::_internal_has_f32_value() const {
   return value_case() == kF32Value;
 }
@@ -1707,7 +1762,7 @@ inline void Value::set_f32_value(float value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.f32_value)
 }
 
-// double f64_value = 10;
+// double f64_value = 11;
 inline bool Value::_internal_has_f64_value() const {
   return value_case() == kF64Value;
 }
@@ -1745,7 +1800,7 @@ inline void Value::set_f64_value(double value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.f64_value)
 }
 
-// bool bool_value = 11;
+// bool bool_value = 12;
 inline bool Value::_internal_has_bool_value() const {
   return value_case() == kBoolValue;
 }
@@ -1783,7 +1838,7 @@ inline void Value::set_bool_value(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.bool_value)
 }
 
-// bytes binary_value = 12;
+// bytes binary_value = 13;
 inline bool Value::_internal_has_binary_value() const {
   return value_case() == kBinaryValue;
 }
@@ -1860,7 +1915,7 @@ inline void Value::set_allocated_binary_value(std::string* binary_value) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.binary_value)
 }
 
-// string string_value = 13;
+// string string_value = 14;
 inline bool Value::_internal_has_string_value() const {
   return value_case() == kStringValue;
 }
@@ -1937,7 +1992,7 @@ inline void Value::set_allocated_string_value(std::string* string_value) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.string_value)
 }
 
-// int32 date_value = 14;
+// int32 date_value = 15;
 inline bool Value::_internal_has_date_value() const {
   return value_case() == kDateValue;
 }
@@ -1975,7 +2030,7 @@ inline void Value::set_date_value(int32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.date_value)
 }
 
-// int64 datetime_value = 15;
+// int64 datetime_value = 16;
 inline bool Value::_internal_has_datetime_value() const {
   return value_case() == kDatetimeValue;
 }
@@ -2013,7 +2068,7 @@ inline void Value::set_datetime_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.datetime_value)
 }
 
-// int64 ts_second_value = 16;
+// int64 ts_second_value = 17;
 inline bool Value::_internal_has_ts_second_value() const {
   return value_case() == kTsSecondValue;
 }
@@ -2051,7 +2106,7 @@ inline void Value::set_ts_second_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.ts_second_value)
 }
 
-// int64 ts_millisecond_value = 17;
+// int64 ts_millisecond_value = 18;
 inline bool Value::_internal_has_ts_millisecond_value() const {
   return value_case() == kTsMillisecondValue;
 }
@@ -2089,7 +2144,7 @@ inline void Value::set_ts_millisecond_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.ts_millisecond_value)
 }
 
-// int64 ts_microsecond_value = 18;
+// int64 ts_microsecond_value = 19;
 inline bool Value::_internal_has_ts_microsecond_value() const {
   return value_case() == kTsMicrosecondValue;
 }
@@ -2127,7 +2182,7 @@ inline void Value::set_ts_microsecond_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.ts_microsecond_value)
 }
 
-// int64 ts_nanosecond_value = 19;
+// int64 ts_nanosecond_value = 20;
 inline bool Value::_internal_has_ts_nanosecond_value() const {
   return value_case() == kTsNanosecondValue;
 }
@@ -2165,7 +2220,7 @@ inline void Value::set_ts_nanosecond_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.ts_nanosecond_value)
 }
 
-// int64 time_second_value = 20;
+// int64 time_second_value = 21;
 inline bool Value::_internal_has_time_second_value() const {
   return value_case() == kTimeSecondValue;
 }
@@ -2203,7 +2258,7 @@ inline void Value::set_time_second_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.time_second_value)
 }
 
-// int64 time_millisecond_value = 21;
+// int64 time_millisecond_value = 22;
 inline bool Value::_internal_has_time_millisecond_value() const {
   return value_case() == kTimeMillisecondValue;
 }
@@ -2241,7 +2296,7 @@ inline void Value::set_time_millisecond_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.time_millisecond_value)
 }
 
-// int64 time_microsecond_value = 22;
+// int64 time_microsecond_value = 23;
 inline bool Value::_internal_has_time_microsecond_value() const {
   return value_case() == kTimeMicrosecondValue;
 }
@@ -2279,7 +2334,7 @@ inline void Value::set_time_microsecond_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.time_microsecond_value)
 }
 
-// int64 time_nanosecond_value = 23;
+// int64 time_nanosecond_value = 24;
 inline bool Value::_internal_has_time_nanosecond_value() const {
   return value_case() == kTimeNanosecondValue;
 }
