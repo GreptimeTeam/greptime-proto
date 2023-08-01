@@ -29,8 +29,8 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
-#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "greptime/v1/common.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_greptime_2fv1_2fcolumn_2eproto
@@ -50,9 +50,6 @@ namespace v1 {
 class Column;
 struct ColumnDefaultTypeInternal;
 extern ColumnDefaultTypeInternal _Column_default_instance_;
-class ColumnDef;
-struct ColumnDefDefaultTypeInternal;
-extern ColumnDefDefaultTypeInternal _ColumnDef_default_instance_;
 class Column_Values;
 struct Column_ValuesDefaultTypeInternal;
 extern Column_ValuesDefaultTypeInternal _Column_Values_default_instance_;
@@ -60,84 +57,11 @@ extern Column_ValuesDefaultTypeInternal _Column_Values_default_instance_;
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::Column* Arena::CreateMaybeMessage<::greptime::v1::Column>(Arena*);
-template<> ::greptime::v1::ColumnDef* Arena::CreateMaybeMessage<::greptime::v1::ColumnDef>(Arena*);
 template<> ::greptime::v1::Column_Values* Arena::CreateMaybeMessage<::greptime::v1::Column_Values>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
 
-enum Column_SemanticType : int {
-  Column_SemanticType_TAG = 0,
-  Column_SemanticType_FIELD = 1,
-  Column_SemanticType_TIMESTAMP = 2,
-  Column_SemanticType_Column_SemanticType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  Column_SemanticType_Column_SemanticType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool Column_SemanticType_IsValid(int value);
-constexpr Column_SemanticType Column_SemanticType_SemanticType_MIN = Column_SemanticType_TAG;
-constexpr Column_SemanticType Column_SemanticType_SemanticType_MAX = Column_SemanticType_TIMESTAMP;
-constexpr int Column_SemanticType_SemanticType_ARRAYSIZE = Column_SemanticType_SemanticType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Column_SemanticType_descriptor();
-template<typename T>
-inline const std::string& Column_SemanticType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, Column_SemanticType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function Column_SemanticType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    Column_SemanticType_descriptor(), enum_t_value);
-}
-inline bool Column_SemanticType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Column_SemanticType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Column_SemanticType>(
-    Column_SemanticType_descriptor(), name, value);
-}
-enum ColumnDataType : int {
-  BOOLEAN = 0,
-  INT8 = 1,
-  INT16 = 2,
-  INT32 = 3,
-  INT64 = 4,
-  UINT8 = 5,
-  UINT16 = 6,
-  UINT32 = 7,
-  UINT64 = 8,
-  FLOAT32 = 9,
-  FLOAT64 = 10,
-  BINARY = 11,
-  STRING = 12,
-  DATE = 13,
-  DATETIME = 14,
-  TIMESTAMP_SECOND = 15,
-  TIMESTAMP_MILLISECOND = 16,
-  TIMESTAMP_MICROSECOND = 17,
-  TIMESTAMP_NANOSECOND = 18,
-  TIME_SECOND = 19,
-  TIME_MILLISECOND = 20,
-  TIME_MICROSECOND = 21,
-  TIME_NANOSECOND = 22,
-  ColumnDataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  ColumnDataType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool ColumnDataType_IsValid(int value);
-constexpr ColumnDataType ColumnDataType_MIN = BOOLEAN;
-constexpr ColumnDataType ColumnDataType_MAX = TIME_NANOSECOND;
-constexpr int ColumnDataType_ARRAYSIZE = ColumnDataType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ColumnDataType_descriptor();
-template<typename T>
-inline const std::string& ColumnDataType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, ColumnDataType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function ColumnDataType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    ColumnDataType_descriptor(), enum_t_value);
-}
-inline bool ColumnDataType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ColumnDataType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ColumnDataType>(
-    ColumnDataType_descriptor(), name, value);
-}
 // ===================================================================
 
 class Column_Values final :
@@ -971,38 +895,6 @@ class Column final :
 
   typedef Column_Values Values;
 
-  typedef Column_SemanticType SemanticType;
-  static constexpr SemanticType TAG =
-    Column_SemanticType_TAG;
-  static constexpr SemanticType FIELD =
-    Column_SemanticType_FIELD;
-  static constexpr SemanticType TIMESTAMP =
-    Column_SemanticType_TIMESTAMP;
-  static inline bool SemanticType_IsValid(int value) {
-    return Column_SemanticType_IsValid(value);
-  }
-  static constexpr SemanticType SemanticType_MIN =
-    Column_SemanticType_SemanticType_MIN;
-  static constexpr SemanticType SemanticType_MAX =
-    Column_SemanticType_SemanticType_MAX;
-  static constexpr int SemanticType_ARRAYSIZE =
-    Column_SemanticType_SemanticType_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  SemanticType_descriptor() {
-    return Column_SemanticType_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& SemanticType_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, SemanticType>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function SemanticType_Name.");
-    return Column_SemanticType_Name(enum_t_value);
-  }
-  static inline bool SemanticType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      SemanticType* value) {
-    return Column_SemanticType_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
   enum : int {
@@ -1058,13 +950,13 @@ class Column final :
       ::greptime::v1::Column_Values* values);
   ::greptime::v1::Column_Values* unsafe_arena_release_values();
 
-  // .greptime.v1.Column.SemanticType semantic_type = 2;
+  // .greptime.v1.SemanticType semantic_type = 2;
   void clear_semantic_type();
-  ::greptime::v1::Column_SemanticType semantic_type() const;
-  void set_semantic_type(::greptime::v1::Column_SemanticType value);
+  ::greptime::v1::SemanticType semantic_type() const;
+  void set_semantic_type(::greptime::v1::SemanticType value);
   private:
-  ::greptime::v1::Column_SemanticType _internal_semantic_type() const;
-  void _internal_set_semantic_type(::greptime::v1::Column_SemanticType value);
+  ::greptime::v1::SemanticType _internal_semantic_type() const;
+  void _internal_set_semantic_type(::greptime::v1::SemanticType value);
   public:
 
   // .greptime.v1.ColumnDataType datatype = 5;
@@ -1089,197 +981,6 @@ class Column final :
     ::greptime::v1::Column_Values* values_;
     int semantic_type_;
     int datatype_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fcolumn_2eproto;
-};
-// -------------------------------------------------------------------
-
-class ColumnDef final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ColumnDef) */ {
- public:
-  inline ColumnDef() : ColumnDef(nullptr) {}
-  ~ColumnDef() override;
-  explicit PROTOBUF_CONSTEXPR ColumnDef(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  ColumnDef(const ColumnDef& from);
-  ColumnDef(ColumnDef&& from) noexcept
-    : ColumnDef() {
-    *this = ::std::move(from);
-  }
-
-  inline ColumnDef& operator=(const ColumnDef& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline ColumnDef& operator=(ColumnDef&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const ColumnDef& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const ColumnDef* internal_default_instance() {
-    return reinterpret_cast<const ColumnDef*>(
-               &_ColumnDef_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(ColumnDef& a, ColumnDef& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(ColumnDef* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(ColumnDef* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  ColumnDef* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<ColumnDef>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const ColumnDef& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const ColumnDef& from) {
-    ColumnDef::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(ColumnDef* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.ColumnDef";
-  }
-  protected:
-  explicit ColumnDef(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kNameFieldNumber = 1,
-    kDefaultConstraintFieldNumber = 4,
-    kDatatypeFieldNumber = 2,
-    kIsNullableFieldNumber = 3,
-  };
-  // string name = 1;
-  void clear_name();
-  const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
-  private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
-  public:
-
-  // bytes default_constraint = 4;
-  void clear_default_constraint();
-  const std::string& default_constraint() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_default_constraint(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_default_constraint();
-  PROTOBUF_NODISCARD std::string* release_default_constraint();
-  void set_allocated_default_constraint(std::string* default_constraint);
-  private:
-  const std::string& _internal_default_constraint() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_default_constraint(const std::string& value);
-  std::string* _internal_mutable_default_constraint();
-  public:
-
-  // .greptime.v1.ColumnDataType datatype = 2;
-  void clear_datatype();
-  ::greptime::v1::ColumnDataType datatype() const;
-  void set_datatype(::greptime::v1::ColumnDataType value);
-  private:
-  ::greptime::v1::ColumnDataType _internal_datatype() const;
-  void _internal_set_datatype(::greptime::v1::ColumnDataType value);
-  public:
-
-  // bool is_nullable = 3;
-  void clear_is_nullable();
-  bool is_nullable() const;
-  void set_is_nullable(bool value);
-  private:
-  bool _internal_is_nullable() const;
-  void _internal_set_is_nullable(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.ColumnDef)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr default_constraint_;
-    int datatype_;
-    bool is_nullable_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2487,22 +2188,22 @@ inline void Column::set_allocated_column_name(std::string* column_name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Column.column_name)
 }
 
-// .greptime.v1.Column.SemanticType semantic_type = 2;
+// .greptime.v1.SemanticType semantic_type = 2;
 inline void Column::clear_semantic_type() {
   _impl_.semantic_type_ = 0;
 }
-inline ::greptime::v1::Column_SemanticType Column::_internal_semantic_type() const {
-  return static_cast< ::greptime::v1::Column_SemanticType >(_impl_.semantic_type_);
+inline ::greptime::v1::SemanticType Column::_internal_semantic_type() const {
+  return static_cast< ::greptime::v1::SemanticType >(_impl_.semantic_type_);
 }
-inline ::greptime::v1::Column_SemanticType Column::semantic_type() const {
+inline ::greptime::v1::SemanticType Column::semantic_type() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Column.semantic_type)
   return _internal_semantic_type();
 }
-inline void Column::_internal_set_semantic_type(::greptime::v1::Column_SemanticType value) {
+inline void Column::_internal_set_semantic_type(::greptime::v1::SemanticType value) {
   
   _impl_.semantic_type_ = value;
 }
-inline void Column::set_semantic_type(::greptime::v1::Column_SemanticType value) {
+inline void Column::set_semantic_type(::greptime::v1::SemanticType value) {
   _internal_set_semantic_type(value);
   // @@protoc_insertion_point(field_set:greptime.v1.Column.semantic_type)
 }
@@ -2667,155 +2368,9 @@ inline void Column::set_datatype(::greptime::v1::ColumnDataType value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Column.datatype)
 }
 
-// -------------------------------------------------------------------
-
-// ColumnDef
-
-// string name = 1;
-inline void ColumnDef::clear_name() {
-  _impl_.name_.ClearToEmpty();
-}
-inline const std::string& ColumnDef::name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.name)
-  return _internal_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ColumnDef::set_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.name)
-}
-inline std::string* ColumnDef::mutable_name() {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnDef.name)
-  return _s;
-}
-inline const std::string& ColumnDef::_internal_name() const {
-  return _impl_.name_.Get();
-}
-inline void ColumnDef::_internal_set_name(const std::string& value) {
-  
-  _impl_.name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* ColumnDef::_internal_mutable_name() {
-  
-  return _impl_.name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* ColumnDef::release_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.ColumnDef.name)
-  return _impl_.name_.Release();
-}
-inline void ColumnDef::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDef.name)
-}
-
-// .greptime.v1.ColumnDataType datatype = 2;
-inline void ColumnDef::clear_datatype() {
-  _impl_.datatype_ = 0;
-}
-inline ::greptime::v1::ColumnDataType ColumnDef::_internal_datatype() const {
-  return static_cast< ::greptime::v1::ColumnDataType >(_impl_.datatype_);
-}
-inline ::greptime::v1::ColumnDataType ColumnDef::datatype() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.datatype)
-  return _internal_datatype();
-}
-inline void ColumnDef::_internal_set_datatype(::greptime::v1::ColumnDataType value) {
-  
-  _impl_.datatype_ = value;
-}
-inline void ColumnDef::set_datatype(::greptime::v1::ColumnDataType value) {
-  _internal_set_datatype(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.datatype)
-}
-
-// bool is_nullable = 3;
-inline void ColumnDef::clear_is_nullable() {
-  _impl_.is_nullable_ = false;
-}
-inline bool ColumnDef::_internal_is_nullable() const {
-  return _impl_.is_nullable_;
-}
-inline bool ColumnDef::is_nullable() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.is_nullable)
-  return _internal_is_nullable();
-}
-inline void ColumnDef::_internal_set_is_nullable(bool value) {
-  
-  _impl_.is_nullable_ = value;
-}
-inline void ColumnDef::set_is_nullable(bool value) {
-  _internal_set_is_nullable(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.is_nullable)
-}
-
-// bytes default_constraint = 4;
-inline void ColumnDef::clear_default_constraint() {
-  _impl_.default_constraint_.ClearToEmpty();
-}
-inline const std::string& ColumnDef::default_constraint() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.default_constraint)
-  return _internal_default_constraint();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ColumnDef::set_default_constraint(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.default_constraint_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.default_constraint)
-}
-inline std::string* ColumnDef::mutable_default_constraint() {
-  std::string* _s = _internal_mutable_default_constraint();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnDef.default_constraint)
-  return _s;
-}
-inline const std::string& ColumnDef::_internal_default_constraint() const {
-  return _impl_.default_constraint_.Get();
-}
-inline void ColumnDef::_internal_set_default_constraint(const std::string& value) {
-  
-  _impl_.default_constraint_.Set(value, GetArenaForAllocation());
-}
-inline std::string* ColumnDef::_internal_mutable_default_constraint() {
-  
-  return _impl_.default_constraint_.Mutable(GetArenaForAllocation());
-}
-inline std::string* ColumnDef::release_default_constraint() {
-  // @@protoc_insertion_point(field_release:greptime.v1.ColumnDef.default_constraint)
-  return _impl_.default_constraint_.Release();
-}
-inline void ColumnDef::set_allocated_default_constraint(std::string* default_constraint) {
-  if (default_constraint != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.default_constraint_.SetAllocated(default_constraint, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.default_constraint_.IsDefault()) {
-    _impl_.default_constraint_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDef.default_constraint)
-}
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 
@@ -2823,21 +2378,6 @@ inline void ColumnDef::set_allocated_default_constraint(std::string* default_con
 
 }  // namespace v1
 }  // namespace greptime
-
-PROTOBUF_NAMESPACE_OPEN
-
-template <> struct is_proto_enum< ::greptime::v1::Column_SemanticType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::Column_SemanticType>() {
-  return ::greptime::v1::Column_SemanticType_descriptor();
-}
-template <> struct is_proto_enum< ::greptime::v1::ColumnDataType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::ColumnDataType>() {
-  return ::greptime::v1::ColumnDataType_descriptor();
-}
-
-PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 
