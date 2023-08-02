@@ -19,9 +19,9 @@ public final class Wal {
    * Type of operation to rows.
    * </pre>
    *
-   * Protobuf enum {@code greptime.v1.mito.MutationType}
+   * Protobuf enum {@code greptime.v1.mito.OpType}
    */
-  public enum MutationType
+  public enum OpType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
@@ -74,7 +74,7 @@ public final class Wal {
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
-    public static MutationType valueOf(int value) {
+    public static OpType valueOf(int value) {
       return forNumber(value);
     }
 
@@ -82,7 +82,7 @@ public final class Wal {
      * @param value The numeric wire value of the corresponding enum entry.
      * @return The enum associated with the given numeric wire value.
      */
-    public static MutationType forNumber(int value) {
+    public static OpType forNumber(int value) {
       switch (value) {
         case 0: return DELETE;
         case 1: return PUT;
@@ -90,15 +90,15 @@ public final class Wal {
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<MutationType>
+    public static com.google.protobuf.Internal.EnumLiteMap<OpType>
         internalGetValueMap() {
       return internalValueMap;
     }
     private static final com.google.protobuf.Internal.EnumLiteMap<
-        MutationType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<MutationType>() {
-            public MutationType findValueByNumber(int number) {
-              return MutationType.forNumber(number);
+        OpType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<OpType>() {
+            public OpType findValueByNumber(int number) {
+              return OpType.forNumber(number);
             }
           };
 
@@ -119,9 +119,9 @@ public final class Wal {
       return greptime.v1.mito.Wal.getDescriptor().getEnumTypes().get(0);
     }
 
-    private static final MutationType[] VALUES = values();
+    private static final OpType[] VALUES = values();
 
-    public static MutationType valueOf(
+    public static OpType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
@@ -135,11 +135,11 @@ public final class Wal {
 
     private final int value;
 
-    private MutationType(int value) {
+    private OpType(int value) {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:greptime.v1.mito.MutationType)
+    // @@protoc_insertion_point(enum_scope:greptime.v1.mito.OpType)
   }
 
   public interface MutationOrBuilder extends
@@ -151,19 +151,19 @@ public final class Wal {
      * Type of this mutation.
      * </pre>
      *
-     * <code>.greptime.v1.mito.MutationType mutation_type = 1;</code>
-     * @return The enum numeric value on the wire for mutationType.
+     * <code>.greptime.v1.mito.OpType op_type = 1;</code>
+     * @return The enum numeric value on the wire for opType.
      */
-    int getMutationTypeValue();
+    int getOpTypeValue();
     /**
      * <pre>
      * Type of this mutation.
      * </pre>
      *
-     * <code>.greptime.v1.mito.MutationType mutation_type = 1;</code>
-     * @return The mutationType.
+     * <code>.greptime.v1.mito.OpType op_type = 1;</code>
+     * @return The opType.
      */
-    greptime.v1.mito.Wal.MutationType getMutationType();
+    greptime.v1.mito.Wal.OpType getOpType();
 
     /**
      * <pre>
@@ -219,7 +219,7 @@ public final class Wal {
       super(builder);
     }
     private Mutation() {
-      mutationType_ = 0;
+      opType_ = 0;
     }
 
     @java.lang.Override
@@ -255,7 +255,7 @@ public final class Wal {
             case 8: {
               int rawValue = input.readEnum();
 
-              mutationType_ = rawValue;
+              opType_ = rawValue;
               break;
             }
             case 16: {
@@ -310,31 +310,31 @@ public final class Wal {
               greptime.v1.mito.Wal.Mutation.class, greptime.v1.mito.Wal.Mutation.Builder.class);
     }
 
-    public static final int MUTATION_TYPE_FIELD_NUMBER = 1;
-    private int mutationType_;
+    public static final int OP_TYPE_FIELD_NUMBER = 1;
+    private int opType_;
     /**
      * <pre>
      * Type of this mutation.
      * </pre>
      *
-     * <code>.greptime.v1.mito.MutationType mutation_type = 1;</code>
-     * @return The enum numeric value on the wire for mutationType.
+     * <code>.greptime.v1.mito.OpType op_type = 1;</code>
+     * @return The enum numeric value on the wire for opType.
      */
-    @java.lang.Override public int getMutationTypeValue() {
-      return mutationType_;
+    @java.lang.Override public int getOpTypeValue() {
+      return opType_;
     }
     /**
      * <pre>
      * Type of this mutation.
      * </pre>
      *
-     * <code>.greptime.v1.mito.MutationType mutation_type = 1;</code>
-     * @return The mutationType.
+     * <code>.greptime.v1.mito.OpType op_type = 1;</code>
+     * @return The opType.
      */
-    @java.lang.Override public greptime.v1.mito.Wal.MutationType getMutationType() {
+    @java.lang.Override public greptime.v1.mito.Wal.OpType getOpType() {
       @SuppressWarnings("deprecation")
-      greptime.v1.mito.Wal.MutationType result = greptime.v1.mito.Wal.MutationType.valueOf(mutationType_);
-      return result == null ? greptime.v1.mito.Wal.MutationType.UNRECOGNIZED : result;
+      greptime.v1.mito.Wal.OpType result = greptime.v1.mito.Wal.OpType.valueOf(opType_);
+      return result == null ? greptime.v1.mito.Wal.OpType.UNRECOGNIZED : result;
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 2;
@@ -404,8 +404,8 @@ public final class Wal {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (mutationType_ != greptime.v1.mito.Wal.MutationType.DELETE.getNumber()) {
-        output.writeEnum(1, mutationType_);
+      if (opType_ != greptime.v1.mito.Wal.OpType.DELETE.getNumber()) {
+        output.writeEnum(1, opType_);
       }
       if (sequence_ != 0L) {
         output.writeUInt64(2, sequence_);
@@ -422,9 +422,9 @@ public final class Wal {
       if (size != -1) return size;
 
       size = 0;
-      if (mutationType_ != greptime.v1.mito.Wal.MutationType.DELETE.getNumber()) {
+      if (opType_ != greptime.v1.mito.Wal.OpType.DELETE.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, mutationType_);
+          .computeEnumSize(1, opType_);
       }
       if (sequence_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -449,7 +449,7 @@ public final class Wal {
       }
       greptime.v1.mito.Wal.Mutation other = (greptime.v1.mito.Wal.Mutation) obj;
 
-      if (mutationType_ != other.mutationType_) return false;
+      if (opType_ != other.opType_) return false;
       if (getSequence()
           != other.getSequence()) return false;
       if (hasRows() != other.hasRows()) return false;
@@ -468,8 +468,8 @@ public final class Wal {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + MUTATION_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + mutationType_;
+      hash = (37 * hash) + OP_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + opType_;
       hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSequence());
@@ -614,7 +614,7 @@ public final class Wal {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        mutationType_ = 0;
+        opType_ = 0;
 
         sequence_ = 0L;
 
@@ -650,7 +650,7 @@ public final class Wal {
       @java.lang.Override
       public greptime.v1.mito.Wal.Mutation buildPartial() {
         greptime.v1.mito.Wal.Mutation result = new greptime.v1.mito.Wal.Mutation(this);
-        result.mutationType_ = mutationType_;
+        result.opType_ = opType_;
         result.sequence_ = sequence_;
         if (rowsBuilder_ == null) {
           result.rows_ = rows_;
@@ -705,8 +705,8 @@ public final class Wal {
 
       public Builder mergeFrom(greptime.v1.mito.Wal.Mutation other) {
         if (other == greptime.v1.mito.Wal.Mutation.getDefaultInstance()) return this;
-        if (other.mutationType_ != 0) {
-          setMutationTypeValue(other.getMutationTypeValue());
+        if (other.opType_ != 0) {
+          setOpTypeValue(other.getOpTypeValue());
         }
         if (other.getSequence() != 0L) {
           setSequence(other.getSequence());
@@ -743,30 +743,30 @@ public final class Wal {
         return this;
       }
 
-      private int mutationType_ = 0;
+      private int opType_ = 0;
       /**
        * <pre>
        * Type of this mutation.
        * </pre>
        *
-       * <code>.greptime.v1.mito.MutationType mutation_type = 1;</code>
-       * @return The enum numeric value on the wire for mutationType.
+       * <code>.greptime.v1.mito.OpType op_type = 1;</code>
+       * @return The enum numeric value on the wire for opType.
        */
-      @java.lang.Override public int getMutationTypeValue() {
-        return mutationType_;
+      @java.lang.Override public int getOpTypeValue() {
+        return opType_;
       }
       /**
        * <pre>
        * Type of this mutation.
        * </pre>
        *
-       * <code>.greptime.v1.mito.MutationType mutation_type = 1;</code>
-       * @param value The enum numeric value on the wire for mutationType to set.
+       * <code>.greptime.v1.mito.OpType op_type = 1;</code>
+       * @param value The enum numeric value on the wire for opType to set.
        * @return This builder for chaining.
        */
-      public Builder setMutationTypeValue(int value) {
+      public Builder setOpTypeValue(int value) {
         
-        mutationType_ = value;
+        opType_ = value;
         onChanged();
         return this;
       }
@@ -775,30 +775,30 @@ public final class Wal {
        * Type of this mutation.
        * </pre>
        *
-       * <code>.greptime.v1.mito.MutationType mutation_type = 1;</code>
-       * @return The mutationType.
+       * <code>.greptime.v1.mito.OpType op_type = 1;</code>
+       * @return The opType.
        */
       @java.lang.Override
-      public greptime.v1.mito.Wal.MutationType getMutationType() {
+      public greptime.v1.mito.Wal.OpType getOpType() {
         @SuppressWarnings("deprecation")
-        greptime.v1.mito.Wal.MutationType result = greptime.v1.mito.Wal.MutationType.valueOf(mutationType_);
-        return result == null ? greptime.v1.mito.Wal.MutationType.UNRECOGNIZED : result;
+        greptime.v1.mito.Wal.OpType result = greptime.v1.mito.Wal.OpType.valueOf(opType_);
+        return result == null ? greptime.v1.mito.Wal.OpType.UNRECOGNIZED : result;
       }
       /**
        * <pre>
        * Type of this mutation.
        * </pre>
        *
-       * <code>.greptime.v1.mito.MutationType mutation_type = 1;</code>
-       * @param value The mutationType to set.
+       * <code>.greptime.v1.mito.OpType op_type = 1;</code>
+       * @param value The opType to set.
        * @return This builder for chaining.
        */
-      public Builder setMutationType(greptime.v1.mito.Wal.MutationType value) {
+      public Builder setOpType(greptime.v1.mito.Wal.OpType value) {
         if (value == null) {
           throw new NullPointerException();
         }
         
-        mutationType_ = value.getNumber();
+        opType_ = value.getNumber();
         onChanged();
         return this;
       }
@@ -807,12 +807,12 @@ public final class Wal {
        * Type of this mutation.
        * </pre>
        *
-       * <code>.greptime.v1.mito.MutationType mutation_type = 1;</code>
+       * <code>.greptime.v1.mito.OpType op_type = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearMutationType() {
+      public Builder clearOpType() {
         
-        mutationType_ = 0;
+        opType_ = 0;
         onChanged();
         return this;
       }
@@ -3013,17 +3013,16 @@ public final class Wal {
   static {
     java.lang.String[] descriptorData = {
       "\n\032greptime/v1/mito/wal.proto\022\020greptime.v" +
-      "1.mito\032\025greptime/v1/row.proto\"t\n\010Mutatio" +
-      "n\0225\n\rmutation_type\030\001 \001(\0162\036.greptime.v1.m" +
-      "ito.MutationType\022\020\n\010sequence\030\002 \001(\004\022\037\n\004ro" +
-      "ws\030\003 \001(\0132\021.greptime.v1.Rows\"R\n\016RegionMut" +
-      "ation\022\021\n\tregion_id\030\001 \001(\004\022-\n\tmutations\030\002 " +
-      "\003(\0132\032.greptime.v1.mito.Mutation\"F\n\010WalEn" +
-      "try\022:\n\020region_mutations\030\001 \003(\0132 .greptime" +
-      ".v1.mito.RegionMutation*#\n\014MutationType\022" +
-      "\n\n\006DELETE\020\000\022\007\n\003PUT\020\001B<Z:github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1/mi" +
-      "tob\006proto3"
+      "1.mito\032\025greptime/v1/row.proto\"h\n\010Mutatio" +
+      "n\022)\n\007op_type\030\001 \001(\0162\030.greptime.v1.mito.Op" +
+      "Type\022\020\n\010sequence\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.g" +
+      "reptime.v1.Rows\"R\n\016RegionMutation\022\021\n\treg" +
+      "ion_id\030\001 \001(\004\022-\n\tmutations\030\002 \003(\0132\032.grepti" +
+      "me.v1.mito.Mutation\"F\n\010WalEntry\022:\n\020regio" +
+      "n_mutations\030\001 \003(\0132 .greptime.v1.mito.Reg" +
+      "ionMutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003PUT" +
+      "\020\001B<Z:github.com/GreptimeTeam/greptime-p" +
+      "roto/go/greptime/v1/mitob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3035,7 +3034,7 @@ public final class Wal {
     internal_static_greptime_v1_mito_Mutation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_mito_Mutation_descriptor,
-        new java.lang.String[] { "MutationType", "Sequence", "Rows", });
+        new java.lang.String[] { "OpType", "Sequence", "Rows", });
     internal_static_greptime_v1_mito_RegionMutation_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_mito_RegionMutation_fieldAccessorTable = new

@@ -70,30 +70,30 @@ namespace greptime {
 namespace v1 {
 namespace mito {
 
-enum MutationType : int {
+enum OpType : int {
   DELETE = 0,
   PUT = 1,
-  MutationType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  MutationType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+  OpType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  OpType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
-bool MutationType_IsValid(int value);
-constexpr MutationType MutationType_MIN = DELETE;
-constexpr MutationType MutationType_MAX = PUT;
-constexpr int MutationType_ARRAYSIZE = MutationType_MAX + 1;
+bool OpType_IsValid(int value);
+constexpr OpType OpType_MIN = DELETE;
+constexpr OpType OpType_MAX = PUT;
+constexpr int OpType_ARRAYSIZE = OpType_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MutationType_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* OpType_descriptor();
 template<typename T>
-inline const std::string& MutationType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, MutationType>::value ||
+inline const std::string& OpType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, OpType>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function MutationType_Name.");
+    "Incorrect type passed to function OpType_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    MutationType_descriptor(), enum_t_value);
+    OpType_descriptor(), enum_t_value);
 }
-inline bool MutationType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, MutationType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<MutationType>(
-    MutationType_descriptor(), name, value);
+inline bool OpType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, OpType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<OpType>(
+    OpType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -220,7 +220,7 @@ class Mutation final :
   enum : int {
     kRowsFieldNumber = 3,
     kSequenceFieldNumber = 2,
-    kMutationTypeFieldNumber = 1,
+    kOpTypeFieldNumber = 1,
   };
   // .greptime.v1.Rows rows = 3;
   bool has_rows() const;
@@ -249,13 +249,13 @@ class Mutation final :
   void _internal_set_sequence(uint64_t value);
   public:
 
-  // .greptime.v1.mito.MutationType mutation_type = 1;
-  void clear_mutation_type();
-  ::greptime::v1::mito::MutationType mutation_type() const;
-  void set_mutation_type(::greptime::v1::mito::MutationType value);
+  // .greptime.v1.mito.OpType op_type = 1;
+  void clear_op_type();
+  ::greptime::v1::mito::OpType op_type() const;
+  void set_op_type(::greptime::v1::mito::OpType value);
   private:
-  ::greptime::v1::mito::MutationType _internal_mutation_type() const;
-  void _internal_set_mutation_type(::greptime::v1::mito::MutationType value);
+  ::greptime::v1::mito::OpType _internal_op_type() const;
+  void _internal_set_op_type(::greptime::v1::mito::OpType value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.mito.Mutation)
@@ -268,7 +268,7 @@ class Mutation final :
   struct Impl_ {
     ::greptime::v1::Rows* rows_;
     uint64_t sequence_;
-    int mutation_type_;
+    int op_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -610,24 +610,24 @@ class WalEntry final :
 #endif  // __GNUC__
 // Mutation
 
-// .greptime.v1.mito.MutationType mutation_type = 1;
-inline void Mutation::clear_mutation_type() {
-  _impl_.mutation_type_ = 0;
+// .greptime.v1.mito.OpType op_type = 1;
+inline void Mutation::clear_op_type() {
+  _impl_.op_type_ = 0;
 }
-inline ::greptime::v1::mito::MutationType Mutation::_internal_mutation_type() const {
-  return static_cast< ::greptime::v1::mito::MutationType >(_impl_.mutation_type_);
+inline ::greptime::v1::mito::OpType Mutation::_internal_op_type() const {
+  return static_cast< ::greptime::v1::mito::OpType >(_impl_.op_type_);
 }
-inline ::greptime::v1::mito::MutationType Mutation::mutation_type() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.mito.Mutation.mutation_type)
-  return _internal_mutation_type();
+inline ::greptime::v1::mito::OpType Mutation::op_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.mito.Mutation.op_type)
+  return _internal_op_type();
 }
-inline void Mutation::_internal_set_mutation_type(::greptime::v1::mito::MutationType value) {
+inline void Mutation::_internal_set_op_type(::greptime::v1::mito::OpType value) {
   
-  _impl_.mutation_type_ = value;
+  _impl_.op_type_ = value;
 }
-inline void Mutation::set_mutation_type(::greptime::v1::mito::MutationType value) {
-  _internal_set_mutation_type(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.mito.Mutation.mutation_type)
+inline void Mutation::set_op_type(::greptime::v1::mito::OpType value) {
+  _internal_set_op_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.mito.Mutation.op_type)
 }
 
 // uint64 sequence = 2;
@@ -859,10 +859,10 @@ WalEntry::region_mutations() const {
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::greptime::v1::mito::MutationType> : ::std::true_type {};
+template <> struct is_proto_enum< ::greptime::v1::mito::OpType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::mito::MutationType>() {
-  return ::greptime::v1::mito::MutationType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::mito::OpType>() {
+  return ::greptime::v1::mito::OpType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

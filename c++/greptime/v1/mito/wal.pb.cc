@@ -27,7 +27,7 @@ PROTOBUF_CONSTEXPR Mutation::Mutation(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.rows_)*/nullptr
   , /*decltype(_impl_.sequence_)*/uint64_t{0u}
-  , /*decltype(_impl_.mutation_type_)*/0
+  , /*decltype(_impl_.op_type_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MutationDefaultTypeInternal {
   PROTOBUF_CONSTEXPR MutationDefaultTypeInternal()
@@ -79,7 +79,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmito_2fwal_2eproto::offsets[] PROTOBU
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::mito::Mutation, _impl_.mutation_type_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::mito::Mutation, _impl_.op_type_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::mito::Mutation, _impl_.sequence_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::mito::Mutation, _impl_.rows_),
   ~0u,  // no _has_bits_
@@ -112,24 +112,23 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fmito_2fwal_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\032greptime/v1/mito/wal.proto\022\020greptime.v"
-  "1.mito\032\025greptime/v1/row.proto\"t\n\010Mutatio"
-  "n\0225\n\rmutation_type\030\001 \001(\0162\036.greptime.v1.m"
-  "ito.MutationType\022\020\n\010sequence\030\002 \001(\004\022\037\n\004ro"
-  "ws\030\003 \001(\0132\021.greptime.v1.Rows\"R\n\016RegionMut"
-  "ation\022\021\n\tregion_id\030\001 \001(\004\022-\n\tmutations\030\002 "
-  "\003(\0132\032.greptime.v1.mito.Mutation\"F\n\010WalEn"
-  "try\022:\n\020region_mutations\030\001 \003(\0132 .greptime"
-  ".v1.mito.RegionMutation*#\n\014MutationType\022"
-  "\n\n\006DELETE\020\000\022\007\n\003PUT\020\001B<Z:github.com/Grept"
-  "imeTeam/greptime-proto/go/greptime/v1/mi"
-  "tob\006proto3"
+  "1.mito\032\025greptime/v1/row.proto\"h\n\010Mutatio"
+  "n\022)\n\007op_type\030\001 \001(\0162\030.greptime.v1.mito.Op"
+  "Type\022\020\n\010sequence\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.g"
+  "reptime.v1.Rows\"R\n\016RegionMutation\022\021\n\treg"
+  "ion_id\030\001 \001(\004\022-\n\tmutations\030\002 \003(\0132\032.grepti"
+  "me.v1.mito.Mutation\"F\n\010WalEntry\022:\n\020regio"
+  "n_mutations\030\001 \003(\0132 .greptime.v1.mito.Reg"
+  "ionMutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003PUT"
+  "\020\001B<Z:github.com/GreptimeTeam/greptime-p"
+  "roto/go/greptime/v1/mitob\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmito_2fwal_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2frow_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmito_2fwal_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmito_2fwal_2eproto = {
-    false, false, 450, descriptor_table_protodef_greptime_2fv1_2fmito_2fwal_2eproto,
+    false, false, 432, descriptor_table_protodef_greptime_2fv1_2fmito_2fwal_2eproto,
     "greptime/v1/mito/wal.proto",
     &descriptor_table_greptime_2fv1_2fmito_2fwal_2eproto_once, descriptor_table_greptime_2fv1_2fmito_2fwal_2eproto_deps, 1, 3,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmito_2fwal_2eproto::offsets,
@@ -145,11 +144,11 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_in
 namespace greptime {
 namespace v1 {
 namespace mito {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MutationType_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* OpType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fmito_2fwal_2eproto);
   return file_level_enum_descriptors_greptime_2fv1_2fmito_2fwal_2eproto[0];
 }
-bool MutationType_IsValid(int value) {
+bool OpType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -189,7 +188,7 @@ Mutation::Mutation(const Mutation& from)
   new (&_impl_) Impl_{
       decltype(_impl_.rows_){nullptr}
     , decltype(_impl_.sequence_){}
-    , decltype(_impl_.mutation_type_){}
+    , decltype(_impl_.op_type_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -197,8 +196,8 @@ Mutation::Mutation(const Mutation& from)
     _this->_impl_.rows_ = new ::greptime::v1::Rows(*from._impl_.rows_);
   }
   ::memcpy(&_impl_.sequence_, &from._impl_.sequence_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.mutation_type_) -
-    reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.mutation_type_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.op_type_) -
+    reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.op_type_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.mito.Mutation)
 }
 
@@ -209,7 +208,7 @@ inline void Mutation::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.rows_){nullptr}
     , decltype(_impl_.sequence_){uint64_t{0u}}
-    , decltype(_impl_.mutation_type_){0}
+    , decltype(_impl_.op_type_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -243,8 +242,8 @@ void Mutation::Clear() {
   }
   _impl_.rows_ = nullptr;
   ::memset(&_impl_.sequence_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.mutation_type_) -
-      reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.mutation_type_));
+      reinterpret_cast<char*>(&_impl_.op_type_) -
+      reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.op_type_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -254,12 +253,12 @@ const char* Mutation::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .greptime.v1.mito.MutationType mutation_type = 1;
+      // .greptime.v1.mito.OpType op_type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_mutation_type(static_cast<::greptime::v1::mito::MutationType>(val));
+          _internal_set_op_type(static_cast<::greptime::v1::mito::OpType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -308,11 +307,11 @@ uint8_t* Mutation::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .greptime.v1.mito.MutationType mutation_type = 1;
-  if (this->_internal_mutation_type() != 0) {
+  // .greptime.v1.mito.OpType op_type = 1;
+  if (this->_internal_op_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_mutation_type(), target);
+      1, this->_internal_op_type(), target);
   }
 
   // uint64 sequence = 2;
@@ -356,10 +355,10 @@ size_t Mutation::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_sequence());
   }
 
-  // .greptime.v1.mito.MutationType mutation_type = 1;
-  if (this->_internal_mutation_type() != 0) {
+  // .greptime.v1.mito.OpType op_type = 1;
+  if (this->_internal_op_type() != 0) {
     total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_mutation_type());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_op_type());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -387,8 +386,8 @@ void Mutation::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTO
   if (from._internal_sequence() != 0) {
     _this->_internal_set_sequence(from._internal_sequence());
   }
-  if (from._internal_mutation_type() != 0) {
-    _this->_internal_set_mutation_type(from._internal_mutation_type());
+  if (from._internal_op_type() != 0) {
+    _this->_internal_set_op_type(from._internal_op_type());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -408,8 +407,8 @@ void Mutation::InternalSwap(Mutation* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Mutation, _impl_.mutation_type_)
-      + sizeof(Mutation::_impl_.mutation_type_)
+      PROTOBUF_FIELD_OFFSET(Mutation, _impl_.op_type_)
+      + sizeof(Mutation::_impl_.op_type_)
       - PROTOBUF_FIELD_OFFSET(Mutation, _impl_.rows_)>(
           reinterpret_cast<char*>(&_impl_.rows_),
           reinterpret_cast<char*>(&other->_impl_.rows_));
