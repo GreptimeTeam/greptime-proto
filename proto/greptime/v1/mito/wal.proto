@@ -21,7 +21,7 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/mito"
 import "greptime/v1/row.proto";
 
 // Type of operation to rows.
-enum MutationType {
+enum OpType {
   // Delete rows.
   DELETE = 0;
   // Put rows.
@@ -31,7 +31,7 @@ enum MutationType {
 // Mutation contains updates to a set of rows.
 message Mutation {
   // Type of this mutation.
-  MutationType mutation_type = 1;
+  OpType op_type = 1;
   // Start WAL sequence of this mutation.
   uint64 sequence = 2;
   // Row updates to write to the WAL.
