@@ -12,9 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-tonic::include_proto!("greptime.v1");
-
-pub const GREPTIME_GRPC_DESC: &[u8] = tonic::include_file_descriptor_set!("greptime_grpc_desc");
-
-pub mod meta;
-pub mod mito;
+tonic::include_proto!("greptime.v1.mito");
