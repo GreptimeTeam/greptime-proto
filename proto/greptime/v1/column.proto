@@ -54,6 +54,9 @@ message Column {
     repeated int64 time_millisecond_values = 21;
     repeated int64 time_microsecond_values = 22;
     repeated int64 time_nanosecond_values = 23;
+    repeated int32 interval_year_month_values = 24;
+    repeated int64 interval_day_time_values = 25;
+    repeated IntervalMonthDayNano interval_month_day_nano_values = 26;
   }
   // The array of non-null values in this column.
   //
@@ -73,4 +76,10 @@ message Column {
 
   // Helpful in creating vector from column.
   ColumnDataType datatype = 5;
+}
+
+message IntervalMonthDayNano {
+  int32 months = 1;
+  int32 days = 2;
+  int64 nanoseconds = 3;
 }
