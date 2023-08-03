@@ -40,8 +40,6 @@ message Mutation {
 
 // A WAL entry contains a list of mutations for a region to write.
 message WalEntry {
-  // Id of the region to write.
-  uint64 region_id = 1;
-  // List of mutations.
-  repeated Mutation mutations = 2;
+  // List of mutations for a region.
+  repeated Mutation mutations = 1;
 }
