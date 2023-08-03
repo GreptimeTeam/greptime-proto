@@ -38,16 +38,10 @@ message Mutation {
   Rows rows = 3;
 }
 
-// Mutation to a region, contains a list of row mutations to the region.
-message RegionMutation {
+// A WAL entry contains a list of mutations for a region to write.
+message WalEntry {
   // Id of the region to write.
   uint64 region_id = 1;
   // List of mutations.
   repeated Mutation mutations = 2;
-}
-
-// Entry in the WAL.
-message WalEntry {
-  // Mutations to regions.
-  repeated RegionMutation region_mutations = 1;
 }
