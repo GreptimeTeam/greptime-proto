@@ -157,7 +157,7 @@ type Row struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Values []*Value `protobuf:"bytes,1,rep,name=values,proto3" json:"values,omitempty"`
+	Fields []*Field `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
 }
 
 func (x *Row) Reset() {
@@ -192,48 +192,48 @@ func (*Row) Descriptor() ([]byte, []int) {
 	return file_greptime_v1_row_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *Row) GetValues() []*Value {
+func (x *Row) GetFields() []*Field {
 	if x != nil {
-		return x.Values
+		return x.Fields
 	}
 	return nil
 }
 
-type Value struct {
+type Field struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to Value:
 	//
-	//	*Value_I8Value
-	//	*Value_I16Value
-	//	*Value_I32Value
-	//	*Value_I64Value
-	//	*Value_U8Value
-	//	*Value_U16Value
-	//	*Value_U32Value
-	//	*Value_U64Value
-	//	*Value_F32Value
-	//	*Value_F64Value
-	//	*Value_BoolValue
-	//	*Value_BinaryValue
-	//	*Value_StringValue
-	//	*Value_DateValue
-	//	*Value_DatetimeValue
-	//	*Value_TsSecondValue
-	//	*Value_TsMillisecondValue
-	//	*Value_TsMicrosecondValue
-	//	*Value_TsNanosecondValue
-	//	*Value_TimeSecondValue
-	//	*Value_TimeMillisecondValue
-	//	*Value_TimeMicrosecondValue
-	//	*Value_TimeNanosecondValue
-	Value isValue_Value `protobuf_oneof:"value"`
+	//	*Field_I8Value
+	//	*Field_I16Value
+	//	*Field_I32Value
+	//	*Field_I64Value
+	//	*Field_U8Value
+	//	*Field_U16Value
+	//	*Field_U32Value
+	//	*Field_U64Value
+	//	*Field_F32Value
+	//	*Field_F64Value
+	//	*Field_BoolValue
+	//	*Field_BinaryValue
+	//	*Field_StringValue
+	//	*Field_DateValue
+	//	*Field_DatetimeValue
+	//	*Field_TsSecondValue
+	//	*Field_TsMillisecondValue
+	//	*Field_TsMicrosecondValue
+	//	*Field_TsNanosecondValue
+	//	*Field_TimeSecondValue
+	//	*Field_TimeMillisecondValue
+	//	*Field_TimeMicrosecondValue
+	//	*Field_TimeNanosecondValue
+	Value isField_Value `protobuf_oneof:"value"`
 }
 
-func (x *Value) Reset() {
-	*x = Value{}
+func (x *Field) Reset() {
+	*x = Field{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_greptime_v1_row_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -241,13 +241,13 @@ func (x *Value) Reset() {
 	}
 }
 
-func (x *Value) String() string {
+func (x *Field) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Value) ProtoMessage() {}
+func (*Field) ProtoMessage() {}
 
-func (x *Value) ProtoReflect() protoreflect.Message {
+func (x *Field) ProtoReflect() protoreflect.Message {
 	mi := &file_greptime_v1_row_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -259,320 +259,320 @@ func (x *Value) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Value.ProtoReflect.Descriptor instead.
-func (*Value) Descriptor() ([]byte, []int) {
+// Deprecated: Use Field.ProtoReflect.Descriptor instead.
+func (*Field) Descriptor() ([]byte, []int) {
 	return file_greptime_v1_row_proto_rawDescGZIP(), []int{3}
 }
 
-func (m *Value) GetValue() isValue_Value {
+func (m *Field) GetValue() isField_Value {
 	if m != nil {
 		return m.Value
 	}
 	return nil
 }
 
-func (x *Value) GetI8Value() int32 {
-	if x, ok := x.GetValue().(*Value_I8Value); ok {
+func (x *Field) GetI8Value() int32 {
+	if x, ok := x.GetValue().(*Field_I8Value); ok {
 		return x.I8Value
 	}
 	return 0
 }
 
-func (x *Value) GetI16Value() int32 {
-	if x, ok := x.GetValue().(*Value_I16Value); ok {
+func (x *Field) GetI16Value() int32 {
+	if x, ok := x.GetValue().(*Field_I16Value); ok {
 		return x.I16Value
 	}
 	return 0
 }
 
-func (x *Value) GetI32Value() int32 {
-	if x, ok := x.GetValue().(*Value_I32Value); ok {
+func (x *Field) GetI32Value() int32 {
+	if x, ok := x.GetValue().(*Field_I32Value); ok {
 		return x.I32Value
 	}
 	return 0
 }
 
-func (x *Value) GetI64Value() int64 {
-	if x, ok := x.GetValue().(*Value_I64Value); ok {
+func (x *Field) GetI64Value() int64 {
+	if x, ok := x.GetValue().(*Field_I64Value); ok {
 		return x.I64Value
 	}
 	return 0
 }
 
-func (x *Value) GetU8Value() uint32 {
-	if x, ok := x.GetValue().(*Value_U8Value); ok {
+func (x *Field) GetU8Value() uint32 {
+	if x, ok := x.GetValue().(*Field_U8Value); ok {
 		return x.U8Value
 	}
 	return 0
 }
 
-func (x *Value) GetU16Value() uint32 {
-	if x, ok := x.GetValue().(*Value_U16Value); ok {
+func (x *Field) GetU16Value() uint32 {
+	if x, ok := x.GetValue().(*Field_U16Value); ok {
 		return x.U16Value
 	}
 	return 0
 }
 
-func (x *Value) GetU32Value() uint32 {
-	if x, ok := x.GetValue().(*Value_U32Value); ok {
+func (x *Field) GetU32Value() uint32 {
+	if x, ok := x.GetValue().(*Field_U32Value); ok {
 		return x.U32Value
 	}
 	return 0
 }
 
-func (x *Value) GetU64Value() uint64 {
-	if x, ok := x.GetValue().(*Value_U64Value); ok {
+func (x *Field) GetU64Value() uint64 {
+	if x, ok := x.GetValue().(*Field_U64Value); ok {
 		return x.U64Value
 	}
 	return 0
 }
 
-func (x *Value) GetF32Value() float32 {
-	if x, ok := x.GetValue().(*Value_F32Value); ok {
+func (x *Field) GetF32Value() float32 {
+	if x, ok := x.GetValue().(*Field_F32Value); ok {
 		return x.F32Value
 	}
 	return 0
 }
 
-func (x *Value) GetF64Value() float64 {
-	if x, ok := x.GetValue().(*Value_F64Value); ok {
+func (x *Field) GetF64Value() float64 {
+	if x, ok := x.GetValue().(*Field_F64Value); ok {
 		return x.F64Value
 	}
 	return 0
 }
 
-func (x *Value) GetBoolValue() bool {
-	if x, ok := x.GetValue().(*Value_BoolValue); ok {
+func (x *Field) GetBoolValue() bool {
+	if x, ok := x.GetValue().(*Field_BoolValue); ok {
 		return x.BoolValue
 	}
 	return false
 }
 
-func (x *Value) GetBinaryValue() []byte {
-	if x, ok := x.GetValue().(*Value_BinaryValue); ok {
+func (x *Field) GetBinaryValue() []byte {
+	if x, ok := x.GetValue().(*Field_BinaryValue); ok {
 		return x.BinaryValue
 	}
 	return nil
 }
 
-func (x *Value) GetStringValue() string {
-	if x, ok := x.GetValue().(*Value_StringValue); ok {
+func (x *Field) GetStringValue() string {
+	if x, ok := x.GetValue().(*Field_StringValue); ok {
 		return x.StringValue
 	}
 	return ""
 }
 
-func (x *Value) GetDateValue() int32 {
-	if x, ok := x.GetValue().(*Value_DateValue); ok {
+func (x *Field) GetDateValue() int32 {
+	if x, ok := x.GetValue().(*Field_DateValue); ok {
 		return x.DateValue
 	}
 	return 0
 }
 
-func (x *Value) GetDatetimeValue() int64 {
-	if x, ok := x.GetValue().(*Value_DatetimeValue); ok {
+func (x *Field) GetDatetimeValue() int64 {
+	if x, ok := x.GetValue().(*Field_DatetimeValue); ok {
 		return x.DatetimeValue
 	}
 	return 0
 }
 
-func (x *Value) GetTsSecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TsSecondValue); ok {
+func (x *Field) GetTsSecondValue() int64 {
+	if x, ok := x.GetValue().(*Field_TsSecondValue); ok {
 		return x.TsSecondValue
 	}
 	return 0
 }
 
-func (x *Value) GetTsMillisecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TsMillisecondValue); ok {
+func (x *Field) GetTsMillisecondValue() int64 {
+	if x, ok := x.GetValue().(*Field_TsMillisecondValue); ok {
 		return x.TsMillisecondValue
 	}
 	return 0
 }
 
-func (x *Value) GetTsMicrosecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TsMicrosecondValue); ok {
+func (x *Field) GetTsMicrosecondValue() int64 {
+	if x, ok := x.GetValue().(*Field_TsMicrosecondValue); ok {
 		return x.TsMicrosecondValue
 	}
 	return 0
 }
 
-func (x *Value) GetTsNanosecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TsNanosecondValue); ok {
+func (x *Field) GetTsNanosecondValue() int64 {
+	if x, ok := x.GetValue().(*Field_TsNanosecondValue); ok {
 		return x.TsNanosecondValue
 	}
 	return 0
 }
 
-func (x *Value) GetTimeSecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TimeSecondValue); ok {
+func (x *Field) GetTimeSecondValue() int64 {
+	if x, ok := x.GetValue().(*Field_TimeSecondValue); ok {
 		return x.TimeSecondValue
 	}
 	return 0
 }
 
-func (x *Value) GetTimeMillisecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TimeMillisecondValue); ok {
+func (x *Field) GetTimeMillisecondValue() int64 {
+	if x, ok := x.GetValue().(*Field_TimeMillisecondValue); ok {
 		return x.TimeMillisecondValue
 	}
 	return 0
 }
 
-func (x *Value) GetTimeMicrosecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TimeMicrosecondValue); ok {
+func (x *Field) GetTimeMicrosecondValue() int64 {
+	if x, ok := x.GetValue().(*Field_TimeMicrosecondValue); ok {
 		return x.TimeMicrosecondValue
 	}
 	return 0
 }
 
-func (x *Value) GetTimeNanosecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TimeNanosecondValue); ok {
+func (x *Field) GetTimeNanosecondValue() int64 {
+	if x, ok := x.GetValue().(*Field_TimeNanosecondValue); ok {
 		return x.TimeNanosecondValue
 	}
 	return 0
 }
 
-type isValue_Value interface {
-	isValue_Value()
+type isField_Value interface {
+	isField_Value()
 }
 
-type Value_I8Value struct {
+type Field_I8Value struct {
 	I8Value int32 `protobuf:"varint,1,opt,name=i8_value,json=i8Value,proto3,oneof"`
 }
 
-type Value_I16Value struct {
+type Field_I16Value struct {
 	I16Value int32 `protobuf:"varint,2,opt,name=i16_value,json=i16Value,proto3,oneof"`
 }
 
-type Value_I32Value struct {
+type Field_I32Value struct {
 	I32Value int32 `protobuf:"varint,3,opt,name=i32_value,json=i32Value,proto3,oneof"`
 }
 
-type Value_I64Value struct {
+type Field_I64Value struct {
 	I64Value int64 `protobuf:"varint,4,opt,name=i64_value,json=i64Value,proto3,oneof"`
 }
 
-type Value_U8Value struct {
+type Field_U8Value struct {
 	U8Value uint32 `protobuf:"varint,5,opt,name=u8_value,json=u8Value,proto3,oneof"`
 }
 
-type Value_U16Value struct {
+type Field_U16Value struct {
 	U16Value uint32 `protobuf:"varint,6,opt,name=u16_value,json=u16Value,proto3,oneof"`
 }
 
-type Value_U32Value struct {
+type Field_U32Value struct {
 	U32Value uint32 `protobuf:"varint,7,opt,name=u32_value,json=u32Value,proto3,oneof"`
 }
 
-type Value_U64Value struct {
+type Field_U64Value struct {
 	U64Value uint64 `protobuf:"varint,8,opt,name=u64_value,json=u64Value,proto3,oneof"`
 }
 
-type Value_F32Value struct {
+type Field_F32Value struct {
 	F32Value float32 `protobuf:"fixed32,9,opt,name=f32_value,json=f32Value,proto3,oneof"`
 }
 
-type Value_F64Value struct {
+type Field_F64Value struct {
 	F64Value float64 `protobuf:"fixed64,10,opt,name=f64_value,json=f64Value,proto3,oneof"`
 }
 
-type Value_BoolValue struct {
+type Field_BoolValue struct {
 	BoolValue bool `protobuf:"varint,11,opt,name=bool_value,json=boolValue,proto3,oneof"`
 }
 
-type Value_BinaryValue struct {
+type Field_BinaryValue struct {
 	BinaryValue []byte `protobuf:"bytes,12,opt,name=binary_value,json=binaryValue,proto3,oneof"`
 }
 
-type Value_StringValue struct {
+type Field_StringValue struct {
 	StringValue string `protobuf:"bytes,13,opt,name=string_value,json=stringValue,proto3,oneof"`
 }
 
-type Value_DateValue struct {
+type Field_DateValue struct {
 	DateValue int32 `protobuf:"varint,14,opt,name=date_value,json=dateValue,proto3,oneof"`
 }
 
-type Value_DatetimeValue struct {
+type Field_DatetimeValue struct {
 	DatetimeValue int64 `protobuf:"varint,15,opt,name=datetime_value,json=datetimeValue,proto3,oneof"`
 }
 
-type Value_TsSecondValue struct {
+type Field_TsSecondValue struct {
 	TsSecondValue int64 `protobuf:"varint,16,opt,name=ts_second_value,json=tsSecondValue,proto3,oneof"`
 }
 
-type Value_TsMillisecondValue struct {
+type Field_TsMillisecondValue struct {
 	TsMillisecondValue int64 `protobuf:"varint,17,opt,name=ts_millisecond_value,json=tsMillisecondValue,proto3,oneof"`
 }
 
-type Value_TsMicrosecondValue struct {
+type Field_TsMicrosecondValue struct {
 	TsMicrosecondValue int64 `protobuf:"varint,18,opt,name=ts_microsecond_value,json=tsMicrosecondValue,proto3,oneof"`
 }
 
-type Value_TsNanosecondValue struct {
+type Field_TsNanosecondValue struct {
 	TsNanosecondValue int64 `protobuf:"varint,19,opt,name=ts_nanosecond_value,json=tsNanosecondValue,proto3,oneof"`
 }
 
-type Value_TimeSecondValue struct {
+type Field_TimeSecondValue struct {
 	TimeSecondValue int64 `protobuf:"varint,20,opt,name=time_second_value,json=timeSecondValue,proto3,oneof"`
 }
 
-type Value_TimeMillisecondValue struct {
+type Field_TimeMillisecondValue struct {
 	TimeMillisecondValue int64 `protobuf:"varint,21,opt,name=time_millisecond_value,json=timeMillisecondValue,proto3,oneof"`
 }
 
-type Value_TimeMicrosecondValue struct {
+type Field_TimeMicrosecondValue struct {
 	TimeMicrosecondValue int64 `protobuf:"varint,22,opt,name=time_microsecond_value,json=timeMicrosecondValue,proto3,oneof"`
 }
 
-type Value_TimeNanosecondValue struct {
+type Field_TimeNanosecondValue struct {
 	TimeNanosecondValue int64 `protobuf:"varint,23,opt,name=time_nanosecond_value,json=timeNanosecondValue,proto3,oneof"`
 }
 
-func (*Value_I8Value) isValue_Value() {}
+func (*Field_I8Value) isField_Value() {}
 
-func (*Value_I16Value) isValue_Value() {}
+func (*Field_I16Value) isField_Value() {}
 
-func (*Value_I32Value) isValue_Value() {}
+func (*Field_I32Value) isField_Value() {}
 
-func (*Value_I64Value) isValue_Value() {}
+func (*Field_I64Value) isField_Value() {}
 
-func (*Value_U8Value) isValue_Value() {}
+func (*Field_U8Value) isField_Value() {}
 
-func (*Value_U16Value) isValue_Value() {}
+func (*Field_U16Value) isField_Value() {}
 
-func (*Value_U32Value) isValue_Value() {}
+func (*Field_U32Value) isField_Value() {}
 
-func (*Value_U64Value) isValue_Value() {}
+func (*Field_U64Value) isField_Value() {}
 
-func (*Value_F32Value) isValue_Value() {}
+func (*Field_F32Value) isField_Value() {}
 
-func (*Value_F64Value) isValue_Value() {}
+func (*Field_F64Value) isField_Value() {}
 
-func (*Value_BoolValue) isValue_Value() {}
+func (*Field_BoolValue) isField_Value() {}
 
-func (*Value_BinaryValue) isValue_Value() {}
+func (*Field_BinaryValue) isField_Value() {}
 
-func (*Value_StringValue) isValue_Value() {}
+func (*Field_StringValue) isField_Value() {}
 
-func (*Value_DateValue) isValue_Value() {}
+func (*Field_DateValue) isField_Value() {}
 
-func (*Value_DatetimeValue) isValue_Value() {}
+func (*Field_DatetimeValue) isField_Value() {}
 
-func (*Value_TsSecondValue) isValue_Value() {}
+func (*Field_TsSecondValue) isField_Value() {}
 
-func (*Value_TsMillisecondValue) isValue_Value() {}
+func (*Field_TsMillisecondValue) isField_Value() {}
 
-func (*Value_TsMicrosecondValue) isValue_Value() {}
+func (*Field_TsMicrosecondValue) isField_Value() {}
 
-func (*Value_TsNanosecondValue) isValue_Value() {}
+func (*Field_TsNanosecondValue) isField_Value() {}
 
-func (*Value_TimeSecondValue) isValue_Value() {}
+func (*Field_TimeSecondValue) isField_Value() {}
 
-func (*Value_TimeMillisecondValue) isValue_Value() {}
+func (*Field_TimeMillisecondValue) isField_Value() {}
 
-func (*Value_TimeMicrosecondValue) isValue_Value() {}
+func (*Field_TimeMicrosecondValue) isField_Value() {}
 
-func (*Value_TimeNanosecondValue) isValue_Value() {}
+func (*Field_TimeNanosecondValue) isField_Value() {}
 
 var File_greptime_v1_row_proto protoreflect.FileDescriptor
 
@@ -598,10 +598,10 @@ var file_greptime_v1_row_proto_rawDesc = []byte{
 	0x0e, 0x32, 0x19, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e,
 	0x53, 0x65, 0x6d, 0x61, 0x6e, 0x74, 0x69, 0x63, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0c, 0x73, 0x65,
 	0x6d, 0x61, 0x6e, 0x74, 0x69, 0x63, 0x54, 0x79, 0x70, 0x65, 0x22, 0x31, 0x0a, 0x03, 0x52, 0x6f,
-	0x77, 0x12, 0x2a, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
+	0x77, 0x12, 0x2a, 0x0a, 0x06, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
 	0x0b, 0x32, 0x12, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e,
-	0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x8f, 0x07,
-	0x0a, 0x05, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x1b, 0x0a, 0x08, 0x69, 0x38, 0x5f, 0x76, 0x61,
+	0x46, 0x69, 0x65, 0x6c, 0x64, 0x52, 0x06, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x73, 0x22, 0x8f, 0x07,
+	0x0a, 0x05, 0x46, 0x69, 0x65, 0x6c, 0x64, 0x12, 0x1b, 0x0a, 0x08, 0x69, 0x38, 0x5f, 0x76, 0x61,
 	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x48, 0x00, 0x52, 0x07, 0x69, 0x38, 0x56,
 	0x61, 0x6c, 0x75, 0x65, 0x12, 0x1d, 0x0a, 0x09, 0x69, 0x31, 0x36, 0x5f, 0x76, 0x61, 0x6c, 0x75,
 	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x48, 0x00, 0x52, 0x08, 0x69, 0x31, 0x36, 0x56, 0x61,
@@ -683,7 +683,7 @@ var file_greptime_v1_row_proto_goTypes = []interface{}{
 	(*Rows)(nil),         // 0: greptime.v1.Rows
 	(*ColumnSchema)(nil), // 1: greptime.v1.ColumnSchema
 	(*Row)(nil),          // 2: greptime.v1.Row
-	(*Value)(nil),        // 3: greptime.v1.Value
+	(*Field)(nil),        // 3: greptime.v1.Field
 	(ColumnDataType)(0),  // 4: greptime.v1.ColumnDataType
 	(SemanticType)(0),    // 5: greptime.v1.SemanticType
 }
@@ -692,7 +692,7 @@ var file_greptime_v1_row_proto_depIdxs = []int32{
 	2, // 1: greptime.v1.Rows.rows:type_name -> greptime.v1.Row
 	4, // 2: greptime.v1.ColumnSchema.datatype:type_name -> greptime.v1.ColumnDataType
 	5, // 3: greptime.v1.ColumnSchema.semantic_type:type_name -> greptime.v1.SemanticType
-	3, // 4: greptime.v1.Row.values:type_name -> greptime.v1.Value
+	3, // 4: greptime.v1.Row.fields:type_name -> greptime.v1.Field
 	5, // [5:5] is the sub-list for method output_type
 	5, // [5:5] is the sub-list for method input_type
 	5, // [5:5] is the sub-list for extension type_name
@@ -744,7 +744,7 @@ func file_greptime_v1_row_proto_init() {
 			}
 		}
 		file_greptime_v1_row_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Value); i {
+			switch v := v.(*Field); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -757,29 +757,29 @@ func file_greptime_v1_row_proto_init() {
 		}
 	}
 	file_greptime_v1_row_proto_msgTypes[3].OneofWrappers = []interface{}{
-		(*Value_I8Value)(nil),
-		(*Value_I16Value)(nil),
-		(*Value_I32Value)(nil),
-		(*Value_I64Value)(nil),
-		(*Value_U8Value)(nil),
-		(*Value_U16Value)(nil),
-		(*Value_U32Value)(nil),
-		(*Value_U64Value)(nil),
-		(*Value_F32Value)(nil),
-		(*Value_F64Value)(nil),
-		(*Value_BoolValue)(nil),
-		(*Value_BinaryValue)(nil),
-		(*Value_StringValue)(nil),
-		(*Value_DateValue)(nil),
-		(*Value_DatetimeValue)(nil),
-		(*Value_TsSecondValue)(nil),
-		(*Value_TsMillisecondValue)(nil),
-		(*Value_TsMicrosecondValue)(nil),
-		(*Value_TsNanosecondValue)(nil),
-		(*Value_TimeSecondValue)(nil),
-		(*Value_TimeMillisecondValue)(nil),
-		(*Value_TimeMicrosecondValue)(nil),
-		(*Value_TimeNanosecondValue)(nil),
+		(*Field_I8Value)(nil),
+		(*Field_I16Value)(nil),
+		(*Field_I32Value)(nil),
+		(*Field_I64Value)(nil),
+		(*Field_U8Value)(nil),
+		(*Field_U16Value)(nil),
+		(*Field_U32Value)(nil),
+		(*Field_U64Value)(nil),
+		(*Field_F32Value)(nil),
+		(*Field_F64Value)(nil),
+		(*Field_BoolValue)(nil),
+		(*Field_BinaryValue)(nil),
+		(*Field_StringValue)(nil),
+		(*Field_DateValue)(nil),
+		(*Field_DatetimeValue)(nil),
+		(*Field_TsSecondValue)(nil),
+		(*Field_TsMillisecondValue)(nil),
+		(*Field_TsMicrosecondValue)(nil),
+		(*Field_TsNanosecondValue)(nil),
+		(*Field_TimeSecondValue)(nil),
+		(*Field_TimeMillisecondValue)(nil),
+		(*Field_TimeMicrosecondValue)(nil),
+		(*Field_TimeNanosecondValue)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{

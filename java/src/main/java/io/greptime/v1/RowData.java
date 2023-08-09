@@ -1970,27 +1970,27 @@ public final class RowData {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
-    java.util.List<io.greptime.v1.RowData.Value> 
-        getValuesList();
+    java.util.List<io.greptime.v1.RowData.Field> 
+        getFieldsList();
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
-    io.greptime.v1.RowData.Value getValues(int index);
+    io.greptime.v1.RowData.Field getFields(int index);
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
-    int getValuesCount();
+    int getFieldsCount();
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
-    java.util.List<? extends io.greptime.v1.RowData.ValueOrBuilder> 
-        getValuesOrBuilderList();
+    java.util.List<? extends io.greptime.v1.RowData.FieldOrBuilder> 
+        getFieldsOrBuilderList();
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
-    io.greptime.v1.RowData.ValueOrBuilder getValuesOrBuilder(
+    io.greptime.v1.RowData.FieldOrBuilder getFieldsOrBuilder(
         int index);
   }
   /**
@@ -2006,7 +2006,7 @@ public final class RowData {
       super(builder);
     }
     private Row() {
-      values_ = java.util.Collections.emptyList();
+      fields_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -2042,11 +2042,11 @@ public final class RowData {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                values_ = new java.util.ArrayList<io.greptime.v1.RowData.Value>();
+                fields_ = new java.util.ArrayList<io.greptime.v1.RowData.Field>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              values_.add(
-                  input.readMessage(io.greptime.v1.RowData.Value.parser(), extensionRegistry));
+              fields_.add(
+                  input.readMessage(io.greptime.v1.RowData.Field.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -2067,7 +2067,7 @@ public final class RowData {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          values_ = java.util.Collections.unmodifiableList(values_);
+          fields_ = java.util.Collections.unmodifiableList(fields_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2086,44 +2086,44 @@ public final class RowData {
               io.greptime.v1.RowData.Row.class, io.greptime.v1.RowData.Row.Builder.class);
     }
 
-    public static final int VALUES_FIELD_NUMBER = 1;
-    private java.util.List<io.greptime.v1.RowData.Value> values_;
+    public static final int FIELDS_FIELD_NUMBER = 1;
+    private java.util.List<io.greptime.v1.RowData.Field> fields_;
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<io.greptime.v1.RowData.Value> getValuesList() {
-      return values_;
+    public java.util.List<io.greptime.v1.RowData.Field> getFieldsList() {
+      return fields_;
     }
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.RowData.ValueOrBuilder> 
-        getValuesOrBuilderList() {
-      return values_;
+    public java.util.List<? extends io.greptime.v1.RowData.FieldOrBuilder> 
+        getFieldsOrBuilderList() {
+      return fields_;
     }
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
     @java.lang.Override
-    public int getValuesCount() {
-      return values_.size();
+    public int getFieldsCount() {
+      return fields_.size();
     }
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.RowData.Value getValues(int index) {
-      return values_.get(index);
+    public io.greptime.v1.RowData.Field getFields(int index) {
+      return fields_.get(index);
     }
     /**
-     * <code>repeated .greptime.v1.Value values = 1;</code>
+     * <code>repeated .greptime.v1.Field fields = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.RowData.ValueOrBuilder getValuesOrBuilder(
+    public io.greptime.v1.RowData.FieldOrBuilder getFieldsOrBuilder(
         int index) {
-      return values_.get(index);
+      return fields_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2140,8 +2140,8 @@ public final class RowData {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < values_.size(); i++) {
-        output.writeMessage(1, values_.get(i));
+      for (int i = 0; i < fields_.size(); i++) {
+        output.writeMessage(1, fields_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -2152,9 +2152,9 @@ public final class RowData {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < values_.size(); i++) {
+      for (int i = 0; i < fields_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, values_.get(i));
+          .computeMessageSize(1, fields_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2171,8 +2171,8 @@ public final class RowData {
       }
       io.greptime.v1.RowData.Row other = (io.greptime.v1.RowData.Row) obj;
 
-      if (!getValuesList()
-          .equals(other.getValuesList())) return false;
+      if (!getFieldsList()
+          .equals(other.getFieldsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2184,9 +2184,9 @@ public final class RowData {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getValuesCount() > 0) {
-        hash = (37 * hash) + VALUES_FIELD_NUMBER;
-        hash = (53 * hash) + getValuesList().hashCode();
+      if (getFieldsCount() > 0) {
+        hash = (37 * hash) + FIELDS_FIELD_NUMBER;
+        hash = (53 * hash) + getFieldsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2316,17 +2316,17 @@ public final class RowData {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getValuesFieldBuilder();
+          getFieldsFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (valuesBuilder_ == null) {
-          values_ = java.util.Collections.emptyList();
+        if (fieldsBuilder_ == null) {
+          fields_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          valuesBuilder_.clear();
+          fieldsBuilder_.clear();
         }
         return this;
       }
@@ -2355,14 +2355,14 @@ public final class RowData {
       public io.greptime.v1.RowData.Row buildPartial() {
         io.greptime.v1.RowData.Row result = new io.greptime.v1.RowData.Row(this);
         int from_bitField0_ = bitField0_;
-        if (valuesBuilder_ == null) {
+        if (fieldsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
-            values_ = java.util.Collections.unmodifiableList(values_);
+            fields_ = java.util.Collections.unmodifiableList(fields_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.values_ = values_;
+          result.fields_ = fields_;
         } else {
-          result.values_ = valuesBuilder_.build();
+          result.fields_ = fieldsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -2412,29 +2412,29 @@ public final class RowData {
 
       public Builder mergeFrom(io.greptime.v1.RowData.Row other) {
         if (other == io.greptime.v1.RowData.Row.getDefaultInstance()) return this;
-        if (valuesBuilder_ == null) {
-          if (!other.values_.isEmpty()) {
-            if (values_.isEmpty()) {
-              values_ = other.values_;
+        if (fieldsBuilder_ == null) {
+          if (!other.fields_.isEmpty()) {
+            if (fields_.isEmpty()) {
+              fields_ = other.fields_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureValuesIsMutable();
-              values_.addAll(other.values_);
+              ensureFieldsIsMutable();
+              fields_.addAll(other.fields_);
             }
             onChanged();
           }
         } else {
-          if (!other.values_.isEmpty()) {
-            if (valuesBuilder_.isEmpty()) {
-              valuesBuilder_.dispose();
-              valuesBuilder_ = null;
-              values_ = other.values_;
+          if (!other.fields_.isEmpty()) {
+            if (fieldsBuilder_.isEmpty()) {
+              fieldsBuilder_.dispose();
+              fieldsBuilder_ = null;
+              fields_ = other.fields_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              valuesBuilder_ = 
+              fieldsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getValuesFieldBuilder() : null;
+                   getFieldsFieldBuilder() : null;
             } else {
-              valuesBuilder_.addAllMessages(other.values_);
+              fieldsBuilder_.addAllMessages(other.fields_);
             }
           }
         }
@@ -2468,244 +2468,244 @@ public final class RowData {
       }
       private int bitField0_;
 
-      private java.util.List<io.greptime.v1.RowData.Value> values_ =
+      private java.util.List<io.greptime.v1.RowData.Field> fields_ =
         java.util.Collections.emptyList();
-      private void ensureValuesIsMutable() {
+      private void ensureFieldsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          values_ = new java.util.ArrayList<io.greptime.v1.RowData.Value>(values_);
+          fields_ = new java.util.ArrayList<io.greptime.v1.RowData.Field>(fields_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> valuesBuilder_;
+          io.greptime.v1.RowData.Field, io.greptime.v1.RowData.Field.Builder, io.greptime.v1.RowData.FieldOrBuilder> fieldsBuilder_;
 
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public java.util.List<io.greptime.v1.RowData.Value> getValuesList() {
-        if (valuesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(values_);
+      public java.util.List<io.greptime.v1.RowData.Field> getFieldsList() {
+        if (fieldsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(fields_);
         } else {
-          return valuesBuilder_.getMessageList();
+          return fieldsBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public int getValuesCount() {
-        if (valuesBuilder_ == null) {
-          return values_.size();
+      public int getFieldsCount() {
+        if (fieldsBuilder_ == null) {
+          return fields_.size();
         } else {
-          return valuesBuilder_.getCount();
+          return fieldsBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public io.greptime.v1.RowData.Value getValues(int index) {
-        if (valuesBuilder_ == null) {
-          return values_.get(index);
+      public io.greptime.v1.RowData.Field getFields(int index) {
+        if (fieldsBuilder_ == null) {
+          return fields_.get(index);
         } else {
-          return valuesBuilder_.getMessage(index);
+          return fieldsBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public Builder setValues(
-          int index, io.greptime.v1.RowData.Value value) {
-        if (valuesBuilder_ == null) {
+      public Builder setFields(
+          int index, io.greptime.v1.RowData.Field value) {
+        if (fieldsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureValuesIsMutable();
-          values_.set(index, value);
+          ensureFieldsIsMutable();
+          fields_.set(index, value);
           onChanged();
         } else {
-          valuesBuilder_.setMessage(index, value);
+          fieldsBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public Builder setValues(
-          int index, io.greptime.v1.RowData.Value.Builder builderForValue) {
-        if (valuesBuilder_ == null) {
-          ensureValuesIsMutable();
-          values_.set(index, builderForValue.build());
+      public Builder setFields(
+          int index, io.greptime.v1.RowData.Field.Builder builderForValue) {
+        if (fieldsBuilder_ == null) {
+          ensureFieldsIsMutable();
+          fields_.set(index, builderForValue.build());
           onChanged();
         } else {
-          valuesBuilder_.setMessage(index, builderForValue.build());
+          fieldsBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public Builder addValues(io.greptime.v1.RowData.Value value) {
-        if (valuesBuilder_ == null) {
+      public Builder addFields(io.greptime.v1.RowData.Field value) {
+        if (fieldsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureValuesIsMutable();
-          values_.add(value);
+          ensureFieldsIsMutable();
+          fields_.add(value);
           onChanged();
         } else {
-          valuesBuilder_.addMessage(value);
+          fieldsBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public Builder addValues(
-          int index, io.greptime.v1.RowData.Value value) {
-        if (valuesBuilder_ == null) {
+      public Builder addFields(
+          int index, io.greptime.v1.RowData.Field value) {
+        if (fieldsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureValuesIsMutable();
-          values_.add(index, value);
+          ensureFieldsIsMutable();
+          fields_.add(index, value);
           onChanged();
         } else {
-          valuesBuilder_.addMessage(index, value);
+          fieldsBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public Builder addValues(
-          io.greptime.v1.RowData.Value.Builder builderForValue) {
-        if (valuesBuilder_ == null) {
-          ensureValuesIsMutable();
-          values_.add(builderForValue.build());
+      public Builder addFields(
+          io.greptime.v1.RowData.Field.Builder builderForValue) {
+        if (fieldsBuilder_ == null) {
+          ensureFieldsIsMutable();
+          fields_.add(builderForValue.build());
           onChanged();
         } else {
-          valuesBuilder_.addMessage(builderForValue.build());
+          fieldsBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public Builder addValues(
-          int index, io.greptime.v1.RowData.Value.Builder builderForValue) {
-        if (valuesBuilder_ == null) {
-          ensureValuesIsMutable();
-          values_.add(index, builderForValue.build());
+      public Builder addFields(
+          int index, io.greptime.v1.RowData.Field.Builder builderForValue) {
+        if (fieldsBuilder_ == null) {
+          ensureFieldsIsMutable();
+          fields_.add(index, builderForValue.build());
           onChanged();
         } else {
-          valuesBuilder_.addMessage(index, builderForValue.build());
+          fieldsBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public Builder addAllValues(
-          java.lang.Iterable<? extends io.greptime.v1.RowData.Value> values) {
-        if (valuesBuilder_ == null) {
-          ensureValuesIsMutable();
+      public Builder addAllFields(
+          java.lang.Iterable<? extends io.greptime.v1.RowData.Field> values) {
+        if (fieldsBuilder_ == null) {
+          ensureFieldsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, values_);
+              values, fields_);
           onChanged();
         } else {
-          valuesBuilder_.addAllMessages(values);
+          fieldsBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public Builder clearValues() {
-        if (valuesBuilder_ == null) {
-          values_ = java.util.Collections.emptyList();
+      public Builder clearFields() {
+        if (fieldsBuilder_ == null) {
+          fields_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          valuesBuilder_.clear();
+          fieldsBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public Builder removeValues(int index) {
-        if (valuesBuilder_ == null) {
-          ensureValuesIsMutable();
-          values_.remove(index);
+      public Builder removeFields(int index) {
+        if (fieldsBuilder_ == null) {
+          ensureFieldsIsMutable();
+          fields_.remove(index);
           onChanged();
         } else {
-          valuesBuilder_.remove(index);
+          fieldsBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public io.greptime.v1.RowData.Value.Builder getValuesBuilder(
+      public io.greptime.v1.RowData.Field.Builder getFieldsBuilder(
           int index) {
-        return getValuesFieldBuilder().getBuilder(index);
+        return getFieldsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public io.greptime.v1.RowData.ValueOrBuilder getValuesOrBuilder(
+      public io.greptime.v1.RowData.FieldOrBuilder getFieldsOrBuilder(
           int index) {
-        if (valuesBuilder_ == null) {
-          return values_.get(index);  } else {
-          return valuesBuilder_.getMessageOrBuilder(index);
+        if (fieldsBuilder_ == null) {
+          return fields_.get(index);  } else {
+          return fieldsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public java.util.List<? extends io.greptime.v1.RowData.ValueOrBuilder> 
-           getValuesOrBuilderList() {
-        if (valuesBuilder_ != null) {
-          return valuesBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends io.greptime.v1.RowData.FieldOrBuilder> 
+           getFieldsOrBuilderList() {
+        if (fieldsBuilder_ != null) {
+          return fieldsBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(values_);
+          return java.util.Collections.unmodifiableList(fields_);
         }
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public io.greptime.v1.RowData.Value.Builder addValuesBuilder() {
-        return getValuesFieldBuilder().addBuilder(
-            io.greptime.v1.RowData.Value.getDefaultInstance());
+      public io.greptime.v1.RowData.Field.Builder addFieldsBuilder() {
+        return getFieldsFieldBuilder().addBuilder(
+            io.greptime.v1.RowData.Field.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public io.greptime.v1.RowData.Value.Builder addValuesBuilder(
+      public io.greptime.v1.RowData.Field.Builder addFieldsBuilder(
           int index) {
-        return getValuesFieldBuilder().addBuilder(
-            index, io.greptime.v1.RowData.Value.getDefaultInstance());
+        return getFieldsFieldBuilder().addBuilder(
+            index, io.greptime.v1.RowData.Field.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.Value values = 1;</code>
+       * <code>repeated .greptime.v1.Field fields = 1;</code>
        */
-      public java.util.List<io.greptime.v1.RowData.Value.Builder> 
-           getValuesBuilderList() {
-        return getValuesFieldBuilder().getBuilderList();
+      public java.util.List<io.greptime.v1.RowData.Field.Builder> 
+           getFieldsBuilderList() {
+        return getFieldsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> 
-          getValuesFieldBuilder() {
-        if (valuesBuilder_ == null) {
-          valuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder>(
-                  values_,
+          io.greptime.v1.RowData.Field, io.greptime.v1.RowData.Field.Builder, io.greptime.v1.RowData.FieldOrBuilder> 
+          getFieldsFieldBuilder() {
+        if (fieldsBuilder_ == null) {
+          fieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.RowData.Field, io.greptime.v1.RowData.Field.Builder, io.greptime.v1.RowData.FieldOrBuilder>(
+                  fields_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
-          values_ = null;
+          fields_ = null;
         }
-        return valuesBuilder_;
+        return fieldsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2760,8 +2760,8 @@ public final class RowData {
 
   }
 
-  public interface ValueOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.Value)
+  public interface FieldOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.Field)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -3023,28 +3023,28 @@ public final class RowData {
      */
     long getTimeNanosecondValue();
 
-    public io.greptime.v1.RowData.Value.ValueCase getValueCase();
+    public io.greptime.v1.RowData.Field.ValueCase getValueCase();
   }
   /**
-   * Protobuf type {@code greptime.v1.Value}
+   * Protobuf type {@code greptime.v1.Field}
    */
-  public static final class Value extends
+  public static final class Field extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.Value)
-      ValueOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.Field)
+      FieldOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Value.newBuilder() to construct.
-    private Value(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Field.newBuilder() to construct.
+    private Field(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Value() {
+    private Field() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new Value();
+      return new Field();
     }
 
     @java.lang.Override
@@ -3052,7 +3052,7 @@ public final class RowData {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Value(
+    private Field(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3209,15 +3209,15 @@ public final class RowData {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.RowData.internal_static_greptime_v1_Value_descriptor;
+      return io.greptime.v1.RowData.internal_static_greptime_v1_Field_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.RowData.internal_static_greptime_v1_Value_fieldAccessorTable
+      return io.greptime.v1.RowData.internal_static_greptime_v1_Field_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.RowData.Value.class, io.greptime.v1.RowData.Value.Builder.class);
+              io.greptime.v1.RowData.Field.class, io.greptime.v1.RowData.Field.Builder.class);
     }
 
     private int valueCase_ = 0;
@@ -4054,10 +4054,10 @@ public final class RowData {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.RowData.Value)) {
+      if (!(obj instanceof io.greptime.v1.RowData.Field)) {
         return super.equals(obj);
       }
-      io.greptime.v1.RowData.Value other = (io.greptime.v1.RowData.Value) obj;
+      io.greptime.v1.RowData.Field other = (io.greptime.v1.RowData.Field) obj;
 
       if (!getValueCase().equals(other.getValueCase())) return false;
       switch (valueCase_) {
@@ -4284,69 +4284,69 @@ public final class RowData {
       return hash;
     }
 
-    public static io.greptime.v1.RowData.Value parseFrom(
+    public static io.greptime.v1.RowData.Field parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.RowData.Value parseFrom(
+    public static io.greptime.v1.RowData.Field parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Value parseFrom(
+    public static io.greptime.v1.RowData.Field parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.RowData.Value parseFrom(
+    public static io.greptime.v1.RowData.Field parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Value parseFrom(byte[] data)
+    public static io.greptime.v1.RowData.Field parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.RowData.Value parseFrom(
+    public static io.greptime.v1.RowData.Field parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Value parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.RowData.Field parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.RowData.Value parseFrom(
+    public static io.greptime.v1.RowData.Field parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Value parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.RowData.Field parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.RowData.Value parseDelimitedFrom(
+    public static io.greptime.v1.RowData.Field parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Value parseFrom(
+    public static io.greptime.v1.RowData.Field parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.RowData.Value parseFrom(
+    public static io.greptime.v1.RowData.Field parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4359,7 +4359,7 @@ public final class RowData {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.RowData.Value prototype) {
+    public static Builder newBuilder(io.greptime.v1.RowData.Field prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4375,26 +4375,26 @@ public final class RowData {
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.Value}
+     * Protobuf type {@code greptime.v1.Field}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.Value)
-        io.greptime.v1.RowData.ValueOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.Field)
+        io.greptime.v1.RowData.FieldOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.RowData.internal_static_greptime_v1_Value_descriptor;
+        return io.greptime.v1.RowData.internal_static_greptime_v1_Field_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.RowData.internal_static_greptime_v1_Value_fieldAccessorTable
+        return io.greptime.v1.RowData.internal_static_greptime_v1_Field_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.RowData.Value.class, io.greptime.v1.RowData.Value.Builder.class);
+                io.greptime.v1.RowData.Field.class, io.greptime.v1.RowData.Field.Builder.class);
       }
 
-      // Construct using io.greptime.v1.RowData.Value.newBuilder()
+      // Construct using io.greptime.v1.RowData.Field.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4420,17 +4420,17 @@ public final class RowData {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.RowData.internal_static_greptime_v1_Value_descriptor;
+        return io.greptime.v1.RowData.internal_static_greptime_v1_Field_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.RowData.Value getDefaultInstanceForType() {
-        return io.greptime.v1.RowData.Value.getDefaultInstance();
+      public io.greptime.v1.RowData.Field getDefaultInstanceForType() {
+        return io.greptime.v1.RowData.Field.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.RowData.Value build() {
-        io.greptime.v1.RowData.Value result = buildPartial();
+      public io.greptime.v1.RowData.Field build() {
+        io.greptime.v1.RowData.Field result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4438,8 +4438,8 @@ public final class RowData {
       }
 
       @java.lang.Override
-      public io.greptime.v1.RowData.Value buildPartial() {
-        io.greptime.v1.RowData.Value result = new io.greptime.v1.RowData.Value(this);
+      public io.greptime.v1.RowData.Field buildPartial() {
+        io.greptime.v1.RowData.Field result = new io.greptime.v1.RowData.Field(this);
         if (valueCase_ == 1) {
           result.value_ = value_;
         }
@@ -4548,16 +4548,16 @@ public final class RowData {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.RowData.Value) {
-          return mergeFrom((io.greptime.v1.RowData.Value)other);
+        if (other instanceof io.greptime.v1.RowData.Field) {
+          return mergeFrom((io.greptime.v1.RowData.Field)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.RowData.Value other) {
-        if (other == io.greptime.v1.RowData.Value.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.RowData.Field other) {
+        if (other == io.greptime.v1.RowData.Field.getDefaultInstance()) return this;
         switch (other.getValueCase()) {
           case I8_VALUE: {
             setI8Value(other.getI8Value());
@@ -4672,11 +4672,11 @@ public final class RowData {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.RowData.Value parsedMessage = null;
+        io.greptime.v1.RowData.Field parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.RowData.Value) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.RowData.Field) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5715,41 +5715,41 @@ public final class RowData {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.Value)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.Field)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.Value)
-    private static final io.greptime.v1.RowData.Value DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.Field)
+    private static final io.greptime.v1.RowData.Field DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.RowData.Value();
+      DEFAULT_INSTANCE = new io.greptime.v1.RowData.Field();
     }
 
-    public static io.greptime.v1.RowData.Value getDefaultInstance() {
+    public static io.greptime.v1.RowData.Field getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Value>
-        PARSER = new com.google.protobuf.AbstractParser<Value>() {
+    private static final com.google.protobuf.Parser<Field>
+        PARSER = new com.google.protobuf.AbstractParser<Field>() {
       @java.lang.Override
-      public Value parsePartialFrom(
+      public Field parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Value(input, extensionRegistry);
+        return new Field(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Value> parser() {
+    public static com.google.protobuf.Parser<Field> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Value> getParserForType() {
+    public com.google.protobuf.Parser<Field> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.RowData.Value getDefaultInstanceForType() {
+    public io.greptime.v1.RowData.Field getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5771,10 +5771,10 @@ public final class RowData {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_Row_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_Value_descriptor;
+    internal_static_greptime_v1_Field_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_Value_fieldAccessorTable;
+      internal_static_greptime_v1_Field_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5791,8 +5791,8 @@ public final class RowData {
       "ma\022\023\n\013column_name\030\001 \001(\t\022-\n\010datatype\030\002 \001(" +
       "\0162\033.greptime.v1.ColumnDataType\0220\n\rsemant" +
       "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType" +
-      "\")\n\003Row\022\"\n\006values\030\001 \003(\0132\022.greptime.v1.Va" +
-      "lue\"\322\004\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16" +
+      "\")\n\003Row\022\"\n\006fields\030\001 \003(\0132\022.greptime.v1.Fi" +
+      "eld\"\322\004\n\005Field\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16" +
       "_value\030\002 \001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti" +
       "64_value\030\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\t" +
       "u16_value\030\006 \001(\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023" +
@@ -5833,12 +5833,12 @@ public final class RowData {
     internal_static_greptime_v1_Row_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Row_descriptor,
-        new java.lang.String[] { "Values", });
-    internal_static_greptime_v1_Value_descriptor =
+        new java.lang.String[] { "Fields", });
+    internal_static_greptime_v1_Field_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_greptime_v1_Value_fieldAccessorTable = new
+    internal_static_greptime_v1_Field_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_Value_descriptor,
+        internal_static_greptime_v1_Field_descriptor,
         new java.lang.String[] { "I8Value", "I16Value", "I32Value", "I64Value", "U8Value", "U16Value", "U32Value", "U64Value", "F32Value", "F64Value", "BoolValue", "BinaryValue", "StringValue", "DateValue", "DatetimeValue", "TsSecondValue", "TsMillisecondValue", "TsMicrosecondValue", "TsNanosecondValue", "TimeSecondValue", "TimeMillisecondValue", "TimeMicrosecondValue", "TimeNanosecondValue", "Value", });
     io.greptime.v1.Common.getDescriptor();
   }

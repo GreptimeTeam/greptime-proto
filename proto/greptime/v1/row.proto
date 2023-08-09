@@ -34,10 +34,10 @@ message ColumnSchema {
 }
 
 message Row {
-  repeated Value values = 1;
+  repeated Field fields = 1;
 }
 
-message Value {
+message Field {
   oneof value {
     int32 i8_value = 1;
     int32 i16_value = 2;
