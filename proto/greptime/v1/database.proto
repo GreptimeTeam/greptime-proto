@@ -22,6 +22,7 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
 import "greptime/v1/ddl.proto";
 import "greptime/v1/column.proto";
+import "greptime/v1/row.proto";
 import "greptime/v1/prom.proto";
 import "greptime/v1/common.proto";
 
@@ -38,6 +39,8 @@ message GreptimeRequest {
     QueryRequest query = 3;
     DdlRequest ddl = 4;
     DeleteRequest delete = 5;
+    RowInsertRequests row_inserts = 6;
+    RowDeleteRequest row_delete = 7;
   }
 }
 
@@ -86,4 +89,30 @@ message DeleteRequest {
 
   // The row count of all columns above.
   uint32 row_count = 4;
+}
+
+message RowInsertRequests {
+  repeated RowInsertRequest inserts = 1;
+}
+
+message RowInsertRequest {
+  string table_name = 1;
+
+  // Data is represented here.
+  Rows rows = 2;
+
+  // The region number of current insert request.
+  uint32 region_number = 3;
+}
+
+message RowDeleteRequest {
+  // The table name to delete from. Catalog name and schema name are in the
+  // `RequestHeader`.
+  string table_name = 1;
+
+  // The data to delete.
+  Rows rows = 2;
+
+  // The region number of current delete request.
+  uint32 region_number = 3;
 }
