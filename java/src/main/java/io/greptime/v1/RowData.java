@@ -1970,27 +1970,27 @@ public final class RowData {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
-    java.util.List<io.greptime.v1.RowData.Field> 
-        getFieldsList();
+    java.util.List<io.greptime.v1.RowData.Value> 
+        getValuesList();
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
-    io.greptime.v1.RowData.Field getFields(int index);
+    io.greptime.v1.RowData.Value getValues(int index);
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
-    int getFieldsCount();
+    int getValuesCount();
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
-    java.util.List<? extends io.greptime.v1.RowData.FieldOrBuilder> 
-        getFieldsOrBuilderList();
+    java.util.List<? extends io.greptime.v1.RowData.ValueOrBuilder> 
+        getValuesOrBuilderList();
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
-    io.greptime.v1.RowData.FieldOrBuilder getFieldsOrBuilder(
+    io.greptime.v1.RowData.ValueOrBuilder getValuesOrBuilder(
         int index);
   }
   /**
@@ -2006,7 +2006,7 @@ public final class RowData {
       super(builder);
     }
     private Row() {
-      fields_ = java.util.Collections.emptyList();
+      values_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -2042,11 +2042,11 @@ public final class RowData {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                fields_ = new java.util.ArrayList<io.greptime.v1.RowData.Field>();
+                values_ = new java.util.ArrayList<io.greptime.v1.RowData.Value>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              fields_.add(
-                  input.readMessage(io.greptime.v1.RowData.Field.parser(), extensionRegistry));
+              values_.add(
+                  input.readMessage(io.greptime.v1.RowData.Value.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -2067,7 +2067,7 @@ public final class RowData {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          fields_ = java.util.Collections.unmodifiableList(fields_);
+          values_ = java.util.Collections.unmodifiableList(values_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2086,44 +2086,44 @@ public final class RowData {
               io.greptime.v1.RowData.Row.class, io.greptime.v1.RowData.Row.Builder.class);
     }
 
-    public static final int FIELDS_FIELD_NUMBER = 1;
-    private java.util.List<io.greptime.v1.RowData.Field> fields_;
+    public static final int VALUES_FIELD_NUMBER = 1;
+    private java.util.List<io.greptime.v1.RowData.Value> values_;
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<io.greptime.v1.RowData.Field> getFieldsList() {
-      return fields_;
+    public java.util.List<io.greptime.v1.RowData.Value> getValuesList() {
+      return values_;
     }
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.RowData.FieldOrBuilder> 
-        getFieldsOrBuilderList() {
-      return fields_;
+    public java.util.List<? extends io.greptime.v1.RowData.ValueOrBuilder> 
+        getValuesOrBuilderList() {
+      return values_;
     }
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
     @java.lang.Override
-    public int getFieldsCount() {
-      return fields_.size();
+    public int getValuesCount() {
+      return values_.size();
     }
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.RowData.Field getFields(int index) {
-      return fields_.get(index);
+    public io.greptime.v1.RowData.Value getValues(int index) {
+      return values_.get(index);
     }
     /**
-     * <code>repeated .greptime.v1.Field fields = 1;</code>
+     * <code>repeated .greptime.v1.Value values = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.RowData.FieldOrBuilder getFieldsOrBuilder(
+    public io.greptime.v1.RowData.ValueOrBuilder getValuesOrBuilder(
         int index) {
-      return fields_.get(index);
+      return values_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2140,8 +2140,8 @@ public final class RowData {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < fields_.size(); i++) {
-        output.writeMessage(1, fields_.get(i));
+      for (int i = 0; i < values_.size(); i++) {
+        output.writeMessage(1, values_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -2152,9 +2152,9 @@ public final class RowData {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < fields_.size(); i++) {
+      for (int i = 0; i < values_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, fields_.get(i));
+          .computeMessageSize(1, values_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2171,8 +2171,8 @@ public final class RowData {
       }
       io.greptime.v1.RowData.Row other = (io.greptime.v1.RowData.Row) obj;
 
-      if (!getFieldsList()
-          .equals(other.getFieldsList())) return false;
+      if (!getValuesList()
+          .equals(other.getValuesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2184,9 +2184,9 @@ public final class RowData {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getFieldsCount() > 0) {
-        hash = (37 * hash) + FIELDS_FIELD_NUMBER;
-        hash = (53 * hash) + getFieldsList().hashCode();
+      if (getValuesCount() > 0) {
+        hash = (37 * hash) + VALUES_FIELD_NUMBER;
+        hash = (53 * hash) + getValuesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2316,17 +2316,17 @@ public final class RowData {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getFieldsFieldBuilder();
+          getValuesFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (fieldsBuilder_ == null) {
-          fields_ = java.util.Collections.emptyList();
+        if (valuesBuilder_ == null) {
+          values_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          fieldsBuilder_.clear();
+          valuesBuilder_.clear();
         }
         return this;
       }
@@ -2355,14 +2355,14 @@ public final class RowData {
       public io.greptime.v1.RowData.Row buildPartial() {
         io.greptime.v1.RowData.Row result = new io.greptime.v1.RowData.Row(this);
         int from_bitField0_ = bitField0_;
-        if (fieldsBuilder_ == null) {
+        if (valuesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
-            fields_ = java.util.Collections.unmodifiableList(fields_);
+            values_ = java.util.Collections.unmodifiableList(values_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.fields_ = fields_;
+          result.values_ = values_;
         } else {
-          result.fields_ = fieldsBuilder_.build();
+          result.values_ = valuesBuilder_.build();
         }
         onBuilt();
         return result;
@@ -2412,29 +2412,29 @@ public final class RowData {
 
       public Builder mergeFrom(io.greptime.v1.RowData.Row other) {
         if (other == io.greptime.v1.RowData.Row.getDefaultInstance()) return this;
-        if (fieldsBuilder_ == null) {
-          if (!other.fields_.isEmpty()) {
-            if (fields_.isEmpty()) {
-              fields_ = other.fields_;
+        if (valuesBuilder_ == null) {
+          if (!other.values_.isEmpty()) {
+            if (values_.isEmpty()) {
+              values_ = other.values_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureFieldsIsMutable();
-              fields_.addAll(other.fields_);
+              ensureValuesIsMutable();
+              values_.addAll(other.values_);
             }
             onChanged();
           }
         } else {
-          if (!other.fields_.isEmpty()) {
-            if (fieldsBuilder_.isEmpty()) {
-              fieldsBuilder_.dispose();
-              fieldsBuilder_ = null;
-              fields_ = other.fields_;
+          if (!other.values_.isEmpty()) {
+            if (valuesBuilder_.isEmpty()) {
+              valuesBuilder_.dispose();
+              valuesBuilder_ = null;
+              values_ = other.values_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              fieldsBuilder_ = 
+              valuesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getFieldsFieldBuilder() : null;
+                   getValuesFieldBuilder() : null;
             } else {
-              fieldsBuilder_.addAllMessages(other.fields_);
+              valuesBuilder_.addAllMessages(other.values_);
             }
           }
         }
@@ -2468,244 +2468,244 @@ public final class RowData {
       }
       private int bitField0_;
 
-      private java.util.List<io.greptime.v1.RowData.Field> fields_ =
+      private java.util.List<io.greptime.v1.RowData.Value> values_ =
         java.util.Collections.emptyList();
-      private void ensureFieldsIsMutable() {
+      private void ensureValuesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          fields_ = new java.util.ArrayList<io.greptime.v1.RowData.Field>(fields_);
+          values_ = new java.util.ArrayList<io.greptime.v1.RowData.Value>(values_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.RowData.Field, io.greptime.v1.RowData.Field.Builder, io.greptime.v1.RowData.FieldOrBuilder> fieldsBuilder_;
+          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> valuesBuilder_;
 
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public java.util.List<io.greptime.v1.RowData.Field> getFieldsList() {
-        if (fieldsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(fields_);
+      public java.util.List<io.greptime.v1.RowData.Value> getValuesList() {
+        if (valuesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(values_);
         } else {
-          return fieldsBuilder_.getMessageList();
+          return valuesBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public int getFieldsCount() {
-        if (fieldsBuilder_ == null) {
-          return fields_.size();
+      public int getValuesCount() {
+        if (valuesBuilder_ == null) {
+          return values_.size();
         } else {
-          return fieldsBuilder_.getCount();
+          return valuesBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public io.greptime.v1.RowData.Field getFields(int index) {
-        if (fieldsBuilder_ == null) {
-          return fields_.get(index);
+      public io.greptime.v1.RowData.Value getValues(int index) {
+        if (valuesBuilder_ == null) {
+          return values_.get(index);
         } else {
-          return fieldsBuilder_.getMessage(index);
+          return valuesBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public Builder setFields(
-          int index, io.greptime.v1.RowData.Field value) {
-        if (fieldsBuilder_ == null) {
+      public Builder setValues(
+          int index, io.greptime.v1.RowData.Value value) {
+        if (valuesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFieldsIsMutable();
-          fields_.set(index, value);
+          ensureValuesIsMutable();
+          values_.set(index, value);
           onChanged();
         } else {
-          fieldsBuilder_.setMessage(index, value);
+          valuesBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public Builder setFields(
-          int index, io.greptime.v1.RowData.Field.Builder builderForValue) {
-        if (fieldsBuilder_ == null) {
-          ensureFieldsIsMutable();
-          fields_.set(index, builderForValue.build());
+      public Builder setValues(
+          int index, io.greptime.v1.RowData.Value.Builder builderForValue) {
+        if (valuesBuilder_ == null) {
+          ensureValuesIsMutable();
+          values_.set(index, builderForValue.build());
           onChanged();
         } else {
-          fieldsBuilder_.setMessage(index, builderForValue.build());
+          valuesBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public Builder addFields(io.greptime.v1.RowData.Field value) {
-        if (fieldsBuilder_ == null) {
+      public Builder addValues(io.greptime.v1.RowData.Value value) {
+        if (valuesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFieldsIsMutable();
-          fields_.add(value);
+          ensureValuesIsMutable();
+          values_.add(value);
           onChanged();
         } else {
-          fieldsBuilder_.addMessage(value);
+          valuesBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public Builder addFields(
-          int index, io.greptime.v1.RowData.Field value) {
-        if (fieldsBuilder_ == null) {
+      public Builder addValues(
+          int index, io.greptime.v1.RowData.Value value) {
+        if (valuesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFieldsIsMutable();
-          fields_.add(index, value);
+          ensureValuesIsMutable();
+          values_.add(index, value);
           onChanged();
         } else {
-          fieldsBuilder_.addMessage(index, value);
+          valuesBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public Builder addFields(
-          io.greptime.v1.RowData.Field.Builder builderForValue) {
-        if (fieldsBuilder_ == null) {
-          ensureFieldsIsMutable();
-          fields_.add(builderForValue.build());
+      public Builder addValues(
+          io.greptime.v1.RowData.Value.Builder builderForValue) {
+        if (valuesBuilder_ == null) {
+          ensureValuesIsMutable();
+          values_.add(builderForValue.build());
           onChanged();
         } else {
-          fieldsBuilder_.addMessage(builderForValue.build());
+          valuesBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public Builder addFields(
-          int index, io.greptime.v1.RowData.Field.Builder builderForValue) {
-        if (fieldsBuilder_ == null) {
-          ensureFieldsIsMutable();
-          fields_.add(index, builderForValue.build());
+      public Builder addValues(
+          int index, io.greptime.v1.RowData.Value.Builder builderForValue) {
+        if (valuesBuilder_ == null) {
+          ensureValuesIsMutable();
+          values_.add(index, builderForValue.build());
           onChanged();
         } else {
-          fieldsBuilder_.addMessage(index, builderForValue.build());
+          valuesBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public Builder addAllFields(
-          java.lang.Iterable<? extends io.greptime.v1.RowData.Field> values) {
-        if (fieldsBuilder_ == null) {
-          ensureFieldsIsMutable();
+      public Builder addAllValues(
+          java.lang.Iterable<? extends io.greptime.v1.RowData.Value> values) {
+        if (valuesBuilder_ == null) {
+          ensureValuesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, fields_);
+              values, values_);
           onChanged();
         } else {
-          fieldsBuilder_.addAllMessages(values);
+          valuesBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public Builder clearFields() {
-        if (fieldsBuilder_ == null) {
-          fields_ = java.util.Collections.emptyList();
+      public Builder clearValues() {
+        if (valuesBuilder_ == null) {
+          values_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          fieldsBuilder_.clear();
+          valuesBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public Builder removeFields(int index) {
-        if (fieldsBuilder_ == null) {
-          ensureFieldsIsMutable();
-          fields_.remove(index);
+      public Builder removeValues(int index) {
+        if (valuesBuilder_ == null) {
+          ensureValuesIsMutable();
+          values_.remove(index);
           onChanged();
         } else {
-          fieldsBuilder_.remove(index);
+          valuesBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public io.greptime.v1.RowData.Field.Builder getFieldsBuilder(
+      public io.greptime.v1.RowData.Value.Builder getValuesBuilder(
           int index) {
-        return getFieldsFieldBuilder().getBuilder(index);
+        return getValuesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public io.greptime.v1.RowData.FieldOrBuilder getFieldsOrBuilder(
+      public io.greptime.v1.RowData.ValueOrBuilder getValuesOrBuilder(
           int index) {
-        if (fieldsBuilder_ == null) {
-          return fields_.get(index);  } else {
-          return fieldsBuilder_.getMessageOrBuilder(index);
+        if (valuesBuilder_ == null) {
+          return values_.get(index);  } else {
+          return valuesBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public java.util.List<? extends io.greptime.v1.RowData.FieldOrBuilder> 
-           getFieldsOrBuilderList() {
-        if (fieldsBuilder_ != null) {
-          return fieldsBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends io.greptime.v1.RowData.ValueOrBuilder> 
+           getValuesOrBuilderList() {
+        if (valuesBuilder_ != null) {
+          return valuesBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(fields_);
+          return java.util.Collections.unmodifiableList(values_);
         }
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public io.greptime.v1.RowData.Field.Builder addFieldsBuilder() {
-        return getFieldsFieldBuilder().addBuilder(
-            io.greptime.v1.RowData.Field.getDefaultInstance());
+      public io.greptime.v1.RowData.Value.Builder addValuesBuilder() {
+        return getValuesFieldBuilder().addBuilder(
+            io.greptime.v1.RowData.Value.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public io.greptime.v1.RowData.Field.Builder addFieldsBuilder(
+      public io.greptime.v1.RowData.Value.Builder addValuesBuilder(
           int index) {
-        return getFieldsFieldBuilder().addBuilder(
-            index, io.greptime.v1.RowData.Field.getDefaultInstance());
+        return getValuesFieldBuilder().addBuilder(
+            index, io.greptime.v1.RowData.Value.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.Field fields = 1;</code>
+       * <code>repeated .greptime.v1.Value values = 1;</code>
        */
-      public java.util.List<io.greptime.v1.RowData.Field.Builder> 
-           getFieldsBuilderList() {
-        return getFieldsFieldBuilder().getBuilderList();
+      public java.util.List<io.greptime.v1.RowData.Value.Builder> 
+           getValuesBuilderList() {
+        return getValuesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.RowData.Field, io.greptime.v1.RowData.Field.Builder, io.greptime.v1.RowData.FieldOrBuilder> 
-          getFieldsFieldBuilder() {
-        if (fieldsBuilder_ == null) {
-          fieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.greptime.v1.RowData.Field, io.greptime.v1.RowData.Field.Builder, io.greptime.v1.RowData.FieldOrBuilder>(
-                  fields_,
+          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> 
+          getValuesFieldBuilder() {
+        if (valuesBuilder_ == null) {
+          valuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder>(
+                  values_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
-          fields_ = null;
+          values_ = null;
         }
-        return fieldsBuilder_;
+        return valuesBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2760,8 +2760,8 @@ public final class RowData {
 
   }
 
-  public interface FieldOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.Field)
+  public interface ValueOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.Value)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -3023,28 +3023,28 @@ public final class RowData {
      */
     long getTimeNanosecondValue();
 
-    public io.greptime.v1.RowData.Field.ValueCase getValueCase();
+    public io.greptime.v1.RowData.Value.ValueDataCase getValueDataCase();
   }
   /**
-   * Protobuf type {@code greptime.v1.Field}
+   * Protobuf type {@code greptime.v1.Value}
    */
-  public static final class Field extends
+  public static final class Value extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.Field)
-      FieldOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.Value)
+      ValueOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Field.newBuilder() to construct.
-    private Field(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Value.newBuilder() to construct.
+    private Value(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Field() {
+    private Value() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new Field();
+      return new Value();
     }
 
     @java.lang.Override
@@ -3052,7 +3052,7 @@ public final class RowData {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Field(
+    private Value(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3071,119 +3071,119 @@ public final class RowData {
               done = true;
               break;
             case 8: {
-              value_ = input.readInt32();
-              valueCase_ = 1;
+              valueData_ = input.readInt32();
+              valueDataCase_ = 1;
               break;
             }
             case 16: {
-              value_ = input.readInt32();
-              valueCase_ = 2;
+              valueData_ = input.readInt32();
+              valueDataCase_ = 2;
               break;
             }
             case 24: {
-              value_ = input.readInt32();
-              valueCase_ = 3;
+              valueData_ = input.readInt32();
+              valueDataCase_ = 3;
               break;
             }
             case 32: {
-              value_ = input.readInt64();
-              valueCase_ = 4;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 4;
               break;
             }
             case 40: {
-              value_ = input.readUInt32();
-              valueCase_ = 5;
+              valueData_ = input.readUInt32();
+              valueDataCase_ = 5;
               break;
             }
             case 48: {
-              value_ = input.readUInt32();
-              valueCase_ = 6;
+              valueData_ = input.readUInt32();
+              valueDataCase_ = 6;
               break;
             }
             case 56: {
-              value_ = input.readUInt32();
-              valueCase_ = 7;
+              valueData_ = input.readUInt32();
+              valueDataCase_ = 7;
               break;
             }
             case 64: {
-              value_ = input.readUInt64();
-              valueCase_ = 8;
+              valueData_ = input.readUInt64();
+              valueDataCase_ = 8;
               break;
             }
             case 77: {
-              value_ = input.readFloat();
-              valueCase_ = 9;
+              valueData_ = input.readFloat();
+              valueDataCase_ = 9;
               break;
             }
             case 81: {
-              value_ = input.readDouble();
-              valueCase_ = 10;
+              valueData_ = input.readDouble();
+              valueDataCase_ = 10;
               break;
             }
             case 88: {
-              value_ = input.readBool();
-              valueCase_ = 11;
+              valueData_ = input.readBool();
+              valueDataCase_ = 11;
               break;
             }
             case 98: {
-              value_ = input.readBytes();
-              valueCase_ = 12;
+              valueData_ = input.readBytes();
+              valueDataCase_ = 12;
               break;
             }
             case 106: {
               java.lang.String s = input.readStringRequireUtf8();
-              valueCase_ = 13;
-              value_ = s;
+              valueDataCase_ = 13;
+              valueData_ = s;
               break;
             }
             case 112: {
-              value_ = input.readInt32();
-              valueCase_ = 14;
+              valueData_ = input.readInt32();
+              valueDataCase_ = 14;
               break;
             }
             case 120: {
-              value_ = input.readInt64();
-              valueCase_ = 15;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 15;
               break;
             }
             case 128: {
-              value_ = input.readInt64();
-              valueCase_ = 16;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 16;
               break;
             }
             case 136: {
-              value_ = input.readInt64();
-              valueCase_ = 17;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 17;
               break;
             }
             case 144: {
-              value_ = input.readInt64();
-              valueCase_ = 18;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 18;
               break;
             }
             case 152: {
-              value_ = input.readInt64();
-              valueCase_ = 19;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 19;
               break;
             }
             case 160: {
-              value_ = input.readInt64();
-              valueCase_ = 20;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 20;
               break;
             }
             case 168: {
-              value_ = input.readInt64();
-              valueCase_ = 21;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 21;
               break;
             }
             case 176: {
-              value_ = input.readInt64();
-              valueCase_ = 22;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 22;
               break;
             }
             case 184: {
-              value_ = input.readInt64();
-              valueCase_ = 23;
+              valueData_ = input.readInt64();
+              valueDataCase_ = 23;
               break;
             }
             default: {
@@ -3209,20 +3209,20 @@ public final class RowData {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.RowData.internal_static_greptime_v1_Field_descriptor;
+      return io.greptime.v1.RowData.internal_static_greptime_v1_Value_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.RowData.internal_static_greptime_v1_Field_fieldAccessorTable
+      return io.greptime.v1.RowData.internal_static_greptime_v1_Value_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.RowData.Field.class, io.greptime.v1.RowData.Field.Builder.class);
+              io.greptime.v1.RowData.Value.class, io.greptime.v1.RowData.Value.Builder.class);
     }
 
-    private int valueCase_ = 0;
-    private java.lang.Object value_;
-    public enum ValueCase
+    private int valueDataCase_ = 0;
+    private java.lang.Object valueData_;
+    public enum ValueDataCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       I8_VALUE(1),
@@ -3248,9 +3248,9 @@ public final class RowData {
       TIME_MILLISECOND_VALUE(21),
       TIME_MICROSECOND_VALUE(22),
       TIME_NANOSECOND_VALUE(23),
-      VALUE_NOT_SET(0);
+      VALUEDATA_NOT_SET(0);
       private final int value;
-      private ValueCase(int value) {
+      private ValueDataCase(int value) {
         this.value = value;
       }
       /**
@@ -3259,11 +3259,11 @@ public final class RowData {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static ValueCase valueOf(int value) {
+      public static ValueDataCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static ValueCase forNumber(int value) {
+      public static ValueDataCase forNumber(int value) {
         switch (value) {
           case 1: return I8_VALUE;
           case 2: return I16_VALUE;
@@ -3288,7 +3288,7 @@ public final class RowData {
           case 21: return TIME_MILLISECOND_VALUE;
           case 22: return TIME_MICROSECOND_VALUE;
           case 23: return TIME_NANOSECOND_VALUE;
-          case 0: return VALUE_NOT_SET;
+          case 0: return VALUEDATA_NOT_SET;
           default: return null;
         }
       }
@@ -3297,10 +3297,10 @@ public final class RowData {
       }
     };
 
-    public ValueCase
-    getValueCase() {
-      return ValueCase.forNumber(
-          valueCase_);
+    public ValueDataCase
+    getValueDataCase() {
+      return ValueDataCase.forNumber(
+          valueDataCase_);
     }
 
     public static final int I8_VALUE_FIELD_NUMBER = 1;
@@ -3310,7 +3310,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasI8Value() {
-      return valueCase_ == 1;
+      return valueDataCase_ == 1;
     }
     /**
      * <code>int32 i8_value = 1;</code>
@@ -3318,8 +3318,8 @@ public final class RowData {
      */
     @java.lang.Override
     public int getI8Value() {
-      if (valueCase_ == 1) {
-        return (java.lang.Integer) value_;
+      if (valueDataCase_ == 1) {
+        return (java.lang.Integer) valueData_;
       }
       return 0;
     }
@@ -3331,7 +3331,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasI16Value() {
-      return valueCase_ == 2;
+      return valueDataCase_ == 2;
     }
     /**
      * <code>int32 i16_value = 2;</code>
@@ -3339,8 +3339,8 @@ public final class RowData {
      */
     @java.lang.Override
     public int getI16Value() {
-      if (valueCase_ == 2) {
-        return (java.lang.Integer) value_;
+      if (valueDataCase_ == 2) {
+        return (java.lang.Integer) valueData_;
       }
       return 0;
     }
@@ -3352,7 +3352,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasI32Value() {
-      return valueCase_ == 3;
+      return valueDataCase_ == 3;
     }
     /**
      * <code>int32 i32_value = 3;</code>
@@ -3360,8 +3360,8 @@ public final class RowData {
      */
     @java.lang.Override
     public int getI32Value() {
-      if (valueCase_ == 3) {
-        return (java.lang.Integer) value_;
+      if (valueDataCase_ == 3) {
+        return (java.lang.Integer) valueData_;
       }
       return 0;
     }
@@ -3373,7 +3373,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasI64Value() {
-      return valueCase_ == 4;
+      return valueDataCase_ == 4;
     }
     /**
      * <code>int64 i64_value = 4;</code>
@@ -3381,8 +3381,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getI64Value() {
-      if (valueCase_ == 4) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 4) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3394,7 +3394,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasU8Value() {
-      return valueCase_ == 5;
+      return valueDataCase_ == 5;
     }
     /**
      * <code>uint32 u8_value = 5;</code>
@@ -3402,8 +3402,8 @@ public final class RowData {
      */
     @java.lang.Override
     public int getU8Value() {
-      if (valueCase_ == 5) {
-        return (java.lang.Integer) value_;
+      if (valueDataCase_ == 5) {
+        return (java.lang.Integer) valueData_;
       }
       return 0;
     }
@@ -3415,7 +3415,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasU16Value() {
-      return valueCase_ == 6;
+      return valueDataCase_ == 6;
     }
     /**
      * <code>uint32 u16_value = 6;</code>
@@ -3423,8 +3423,8 @@ public final class RowData {
      */
     @java.lang.Override
     public int getU16Value() {
-      if (valueCase_ == 6) {
-        return (java.lang.Integer) value_;
+      if (valueDataCase_ == 6) {
+        return (java.lang.Integer) valueData_;
       }
       return 0;
     }
@@ -3436,7 +3436,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasU32Value() {
-      return valueCase_ == 7;
+      return valueDataCase_ == 7;
     }
     /**
      * <code>uint32 u32_value = 7;</code>
@@ -3444,8 +3444,8 @@ public final class RowData {
      */
     @java.lang.Override
     public int getU32Value() {
-      if (valueCase_ == 7) {
-        return (java.lang.Integer) value_;
+      if (valueDataCase_ == 7) {
+        return (java.lang.Integer) valueData_;
       }
       return 0;
     }
@@ -3457,7 +3457,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasU64Value() {
-      return valueCase_ == 8;
+      return valueDataCase_ == 8;
     }
     /**
      * <code>uint64 u64_value = 8;</code>
@@ -3465,8 +3465,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getU64Value() {
-      if (valueCase_ == 8) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 8) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3478,7 +3478,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasF32Value() {
-      return valueCase_ == 9;
+      return valueDataCase_ == 9;
     }
     /**
      * <code>float f32_value = 9;</code>
@@ -3486,8 +3486,8 @@ public final class RowData {
      */
     @java.lang.Override
     public float getF32Value() {
-      if (valueCase_ == 9) {
-        return (java.lang.Float) value_;
+      if (valueDataCase_ == 9) {
+        return (java.lang.Float) valueData_;
       }
       return 0F;
     }
@@ -3499,7 +3499,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasF64Value() {
-      return valueCase_ == 10;
+      return valueDataCase_ == 10;
     }
     /**
      * <code>double f64_value = 10;</code>
@@ -3507,8 +3507,8 @@ public final class RowData {
      */
     @java.lang.Override
     public double getF64Value() {
-      if (valueCase_ == 10) {
-        return (java.lang.Double) value_;
+      if (valueDataCase_ == 10) {
+        return (java.lang.Double) valueData_;
       }
       return 0D;
     }
@@ -3520,7 +3520,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasBoolValue() {
-      return valueCase_ == 11;
+      return valueDataCase_ == 11;
     }
     /**
      * <code>bool bool_value = 11;</code>
@@ -3528,8 +3528,8 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean getBoolValue() {
-      if (valueCase_ == 11) {
-        return (java.lang.Boolean) value_;
+      if (valueDataCase_ == 11) {
+        return (java.lang.Boolean) valueData_;
       }
       return false;
     }
@@ -3541,7 +3541,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasBinaryValue() {
-      return valueCase_ == 12;
+      return valueDataCase_ == 12;
     }
     /**
      * <code>bytes binary_value = 12;</code>
@@ -3549,8 +3549,8 @@ public final class RowData {
      */
     @java.lang.Override
     public com.google.protobuf.ByteString getBinaryValue() {
-      if (valueCase_ == 12) {
-        return (com.google.protobuf.ByteString) value_;
+      if (valueDataCase_ == 12) {
+        return (com.google.protobuf.ByteString) valueData_;
       }
       return com.google.protobuf.ByteString.EMPTY;
     }
@@ -3561,7 +3561,7 @@ public final class RowData {
      * @return Whether the stringValue field is set.
      */
     public boolean hasStringValue() {
-      return valueCase_ == 13;
+      return valueDataCase_ == 13;
     }
     /**
      * <code>string string_value = 13;</code>
@@ -3569,8 +3569,8 @@ public final class RowData {
      */
     public java.lang.String getStringValue() {
       java.lang.Object ref = "";
-      if (valueCase_ == 13) {
-        ref = value_;
+      if (valueDataCase_ == 13) {
+        ref = valueData_;
       }
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -3578,8 +3578,8 @@ public final class RowData {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (valueCase_ == 13) {
-          value_ = s;
+        if (valueDataCase_ == 13) {
+          valueData_ = s;
         }
         return s;
       }
@@ -3591,15 +3591,15 @@ public final class RowData {
     public com.google.protobuf.ByteString
         getStringValueBytes() {
       java.lang.Object ref = "";
-      if (valueCase_ == 13) {
-        ref = value_;
+      if (valueDataCase_ == 13) {
+        ref = valueData_;
       }
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        if (valueCase_ == 13) {
-          value_ = b;
+        if (valueDataCase_ == 13) {
+          valueData_ = b;
         }
         return b;
       } else {
@@ -3614,7 +3614,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasDateValue() {
-      return valueCase_ == 14;
+      return valueDataCase_ == 14;
     }
     /**
      * <code>int32 date_value = 14;</code>
@@ -3622,8 +3622,8 @@ public final class RowData {
      */
     @java.lang.Override
     public int getDateValue() {
-      if (valueCase_ == 14) {
-        return (java.lang.Integer) value_;
+      if (valueDataCase_ == 14) {
+        return (java.lang.Integer) valueData_;
       }
       return 0;
     }
@@ -3635,7 +3635,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasDatetimeValue() {
-      return valueCase_ == 15;
+      return valueDataCase_ == 15;
     }
     /**
      * <code>int64 datetime_value = 15;</code>
@@ -3643,8 +3643,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getDatetimeValue() {
-      if (valueCase_ == 15) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 15) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3656,7 +3656,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasTsSecondValue() {
-      return valueCase_ == 16;
+      return valueDataCase_ == 16;
     }
     /**
      * <code>int64 ts_second_value = 16;</code>
@@ -3664,8 +3664,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getTsSecondValue() {
-      if (valueCase_ == 16) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 16) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3677,7 +3677,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasTsMillisecondValue() {
-      return valueCase_ == 17;
+      return valueDataCase_ == 17;
     }
     /**
      * <code>int64 ts_millisecond_value = 17;</code>
@@ -3685,8 +3685,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getTsMillisecondValue() {
-      if (valueCase_ == 17) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 17) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3698,7 +3698,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasTsMicrosecondValue() {
-      return valueCase_ == 18;
+      return valueDataCase_ == 18;
     }
     /**
      * <code>int64 ts_microsecond_value = 18;</code>
@@ -3706,8 +3706,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getTsMicrosecondValue() {
-      if (valueCase_ == 18) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 18) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3719,7 +3719,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasTsNanosecondValue() {
-      return valueCase_ == 19;
+      return valueDataCase_ == 19;
     }
     /**
      * <code>int64 ts_nanosecond_value = 19;</code>
@@ -3727,8 +3727,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getTsNanosecondValue() {
-      if (valueCase_ == 19) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 19) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3740,7 +3740,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasTimeSecondValue() {
-      return valueCase_ == 20;
+      return valueDataCase_ == 20;
     }
     /**
      * <code>int64 time_second_value = 20;</code>
@@ -3748,8 +3748,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getTimeSecondValue() {
-      if (valueCase_ == 20) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 20) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3761,7 +3761,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasTimeMillisecondValue() {
-      return valueCase_ == 21;
+      return valueDataCase_ == 21;
     }
     /**
      * <code>int64 time_millisecond_value = 21;</code>
@@ -3769,8 +3769,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getTimeMillisecondValue() {
-      if (valueCase_ == 21) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 21) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3782,7 +3782,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasTimeMicrosecondValue() {
-      return valueCase_ == 22;
+      return valueDataCase_ == 22;
     }
     /**
      * <code>int64 time_microsecond_value = 22;</code>
@@ -3790,8 +3790,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getTimeMicrosecondValue() {
-      if (valueCase_ == 22) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 22) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3803,7 +3803,7 @@ public final class RowData {
      */
     @java.lang.Override
     public boolean hasTimeNanosecondValue() {
-      return valueCase_ == 23;
+      return valueDataCase_ == 23;
     }
     /**
      * <code>int64 time_nanosecond_value = 23;</code>
@@ -3811,8 +3811,8 @@ public final class RowData {
      */
     @java.lang.Override
     public long getTimeNanosecondValue() {
-      if (valueCase_ == 23) {
-        return (java.lang.Long) value_;
+      if (valueDataCase_ == 23) {
+        return (java.lang.Long) valueData_;
       }
       return 0L;
     }
@@ -3831,96 +3831,96 @@ public final class RowData {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (valueCase_ == 1) {
+      if (valueDataCase_ == 1) {
         output.writeInt32(
-            1, (int)((java.lang.Integer) value_));
+            1, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 2) {
+      if (valueDataCase_ == 2) {
         output.writeInt32(
-            2, (int)((java.lang.Integer) value_));
+            2, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 3) {
+      if (valueDataCase_ == 3) {
         output.writeInt32(
-            3, (int)((java.lang.Integer) value_));
+            3, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 4) {
+      if (valueDataCase_ == 4) {
         output.writeInt64(
-            4, (long)((java.lang.Long) value_));
+            4, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 5) {
+      if (valueDataCase_ == 5) {
         output.writeUInt32(
-            5, (int)((java.lang.Integer) value_));
+            5, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 6) {
+      if (valueDataCase_ == 6) {
         output.writeUInt32(
-            6, (int)((java.lang.Integer) value_));
+            6, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 7) {
+      if (valueDataCase_ == 7) {
         output.writeUInt32(
-            7, (int)((java.lang.Integer) value_));
+            7, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 8) {
+      if (valueDataCase_ == 8) {
         output.writeUInt64(
-            8, (long)((java.lang.Long) value_));
+            8, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 9) {
+      if (valueDataCase_ == 9) {
         output.writeFloat(
-            9, (float)((java.lang.Float) value_));
+            9, (float)((java.lang.Float) valueData_));
       }
-      if (valueCase_ == 10) {
+      if (valueDataCase_ == 10) {
         output.writeDouble(
-            10, (double)((java.lang.Double) value_));
+            10, (double)((java.lang.Double) valueData_));
       }
-      if (valueCase_ == 11) {
+      if (valueDataCase_ == 11) {
         output.writeBool(
-            11, (boolean)((java.lang.Boolean) value_));
+            11, (boolean)((java.lang.Boolean) valueData_));
       }
-      if (valueCase_ == 12) {
+      if (valueDataCase_ == 12) {
         output.writeBytes(
-            12, (com.google.protobuf.ByteString) value_);
+            12, (com.google.protobuf.ByteString) valueData_);
       }
-      if (valueCase_ == 13) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, value_);
+      if (valueDataCase_ == 13) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, valueData_);
       }
-      if (valueCase_ == 14) {
+      if (valueDataCase_ == 14) {
         output.writeInt32(
-            14, (int)((java.lang.Integer) value_));
+            14, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 15) {
+      if (valueDataCase_ == 15) {
         output.writeInt64(
-            15, (long)((java.lang.Long) value_));
+            15, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 16) {
+      if (valueDataCase_ == 16) {
         output.writeInt64(
-            16, (long)((java.lang.Long) value_));
+            16, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 17) {
+      if (valueDataCase_ == 17) {
         output.writeInt64(
-            17, (long)((java.lang.Long) value_));
+            17, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 18) {
+      if (valueDataCase_ == 18) {
         output.writeInt64(
-            18, (long)((java.lang.Long) value_));
+            18, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 19) {
+      if (valueDataCase_ == 19) {
         output.writeInt64(
-            19, (long)((java.lang.Long) value_));
+            19, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 20) {
+      if (valueDataCase_ == 20) {
         output.writeInt64(
-            20, (long)((java.lang.Long) value_));
+            20, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 21) {
+      if (valueDataCase_ == 21) {
         output.writeInt64(
-            21, (long)((java.lang.Long) value_));
+            21, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 22) {
+      if (valueDataCase_ == 22) {
         output.writeInt64(
-            22, (long)((java.lang.Long) value_));
+            22, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 23) {
+      if (valueDataCase_ == 23) {
         output.writeInt64(
-            23, (long)((java.lang.Long) value_));
+            23, (long)((java.lang.Long) valueData_));
       }
       unknownFields.writeTo(output);
     }
@@ -3931,118 +3931,118 @@ public final class RowData {
       if (size != -1) return size;
 
       size = 0;
-      if (valueCase_ == 1) {
+      if (valueDataCase_ == 1) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(
-              1, (int)((java.lang.Integer) value_));
+              1, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 2) {
+      if (valueDataCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(
-              2, (int)((java.lang.Integer) value_));
+              2, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 3) {
+      if (valueDataCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(
-              3, (int)((java.lang.Integer) value_));
+              3, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 4) {
+      if (valueDataCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              4, (long)((java.lang.Long) value_));
+              4, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 5) {
+      if (valueDataCase_ == 5) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(
-              5, (int)((java.lang.Integer) value_));
+              5, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 6) {
+      if (valueDataCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(
-              6, (int)((java.lang.Integer) value_));
+              6, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 7) {
+      if (valueDataCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(
-              7, (int)((java.lang.Integer) value_));
+              7, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 8) {
+      if (valueDataCase_ == 8) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(
-              8, (long)((java.lang.Long) value_));
+              8, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 9) {
+      if (valueDataCase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(
-              9, (float)((java.lang.Float) value_));
+              9, (float)((java.lang.Float) valueData_));
       }
-      if (valueCase_ == 10) {
+      if (valueDataCase_ == 10) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(
-              10, (double)((java.lang.Double) value_));
+              10, (double)((java.lang.Double) valueData_));
       }
-      if (valueCase_ == 11) {
+      if (valueDataCase_ == 11) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(
-              11, (boolean)((java.lang.Boolean) value_));
+              11, (boolean)((java.lang.Boolean) valueData_));
       }
-      if (valueCase_ == 12) {
+      if (valueDataCase_ == 12) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(
-              12, (com.google.protobuf.ByteString) value_);
+              12, (com.google.protobuf.ByteString) valueData_);
       }
-      if (valueCase_ == 13) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, value_);
+      if (valueDataCase_ == 13) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, valueData_);
       }
-      if (valueCase_ == 14) {
+      if (valueDataCase_ == 14) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(
-              14, (int)((java.lang.Integer) value_));
+              14, (int)((java.lang.Integer) valueData_));
       }
-      if (valueCase_ == 15) {
+      if (valueDataCase_ == 15) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              15, (long)((java.lang.Long) value_));
+              15, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 16) {
+      if (valueDataCase_ == 16) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              16, (long)((java.lang.Long) value_));
+              16, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 17) {
+      if (valueDataCase_ == 17) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              17, (long)((java.lang.Long) value_));
+              17, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 18) {
+      if (valueDataCase_ == 18) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              18, (long)((java.lang.Long) value_));
+              18, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 19) {
+      if (valueDataCase_ == 19) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              19, (long)((java.lang.Long) value_));
+              19, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 20) {
+      if (valueDataCase_ == 20) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              20, (long)((java.lang.Long) value_));
+              20, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 21) {
+      if (valueDataCase_ == 21) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              21, (long)((java.lang.Long) value_));
+              21, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 22) {
+      if (valueDataCase_ == 22) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              22, (long)((java.lang.Long) value_));
+              22, (long)((java.lang.Long) valueData_));
       }
-      if (valueCase_ == 23) {
+      if (valueDataCase_ == 23) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(
-              23, (long)((java.lang.Long) value_));
+              23, (long)((java.lang.Long) valueData_));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4054,13 +4054,13 @@ public final class RowData {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.RowData.Field)) {
+      if (!(obj instanceof io.greptime.v1.RowData.Value)) {
         return super.equals(obj);
       }
-      io.greptime.v1.RowData.Field other = (io.greptime.v1.RowData.Field) obj;
+      io.greptime.v1.RowData.Value other = (io.greptime.v1.RowData.Value) obj;
 
-      if (!getValueCase().equals(other.getValueCase())) return false;
-      switch (valueCase_) {
+      if (!getValueDataCase().equals(other.getValueDataCase())) return false;
+      switch (valueDataCase_) {
         case 1:
           if (getI8Value()
               != other.getI8Value()) return false;
@@ -4169,7 +4169,7 @@ public final class RowData {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      switch (valueCase_) {
+      switch (valueDataCase_) {
         case 1:
           hash = (37 * hash) + I8_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getI8Value();
@@ -4284,69 +4284,69 @@ public final class RowData {
       return hash;
     }
 
-    public static io.greptime.v1.RowData.Field parseFrom(
+    public static io.greptime.v1.RowData.Value parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.RowData.Field parseFrom(
+    public static io.greptime.v1.RowData.Value parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Field parseFrom(
+    public static io.greptime.v1.RowData.Value parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.RowData.Field parseFrom(
+    public static io.greptime.v1.RowData.Value parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Field parseFrom(byte[] data)
+    public static io.greptime.v1.RowData.Value parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.RowData.Field parseFrom(
+    public static io.greptime.v1.RowData.Value parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Field parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.RowData.Value parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.RowData.Field parseFrom(
+    public static io.greptime.v1.RowData.Value parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Field parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.RowData.Value parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.RowData.Field parseDelimitedFrom(
+    public static io.greptime.v1.RowData.Value parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.RowData.Field parseFrom(
+    public static io.greptime.v1.RowData.Value parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.RowData.Field parseFrom(
+    public static io.greptime.v1.RowData.Value parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4359,7 +4359,7 @@ public final class RowData {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.RowData.Field prototype) {
+    public static Builder newBuilder(io.greptime.v1.RowData.Value prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4375,26 +4375,26 @@ public final class RowData {
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.Field}
+     * Protobuf type {@code greptime.v1.Value}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.Field)
-        io.greptime.v1.RowData.FieldOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.Value)
+        io.greptime.v1.RowData.ValueOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.RowData.internal_static_greptime_v1_Field_descriptor;
+        return io.greptime.v1.RowData.internal_static_greptime_v1_Value_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.RowData.internal_static_greptime_v1_Field_fieldAccessorTable
+        return io.greptime.v1.RowData.internal_static_greptime_v1_Value_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.RowData.Field.class, io.greptime.v1.RowData.Field.Builder.class);
+                io.greptime.v1.RowData.Value.class, io.greptime.v1.RowData.Value.Builder.class);
       }
 
-      // Construct using io.greptime.v1.RowData.Field.newBuilder()
+      // Construct using io.greptime.v1.RowData.Value.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4412,25 +4412,25 @@ public final class RowData {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        valueCase_ = 0;
-        value_ = null;
+        valueDataCase_ = 0;
+        valueData_ = null;
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.RowData.internal_static_greptime_v1_Field_descriptor;
+        return io.greptime.v1.RowData.internal_static_greptime_v1_Value_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.RowData.Field getDefaultInstanceForType() {
-        return io.greptime.v1.RowData.Field.getDefaultInstance();
+      public io.greptime.v1.RowData.Value getDefaultInstanceForType() {
+        return io.greptime.v1.RowData.Value.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.RowData.Field build() {
-        io.greptime.v1.RowData.Field result = buildPartial();
+      public io.greptime.v1.RowData.Value build() {
+        io.greptime.v1.RowData.Value result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4438,78 +4438,78 @@ public final class RowData {
       }
 
       @java.lang.Override
-      public io.greptime.v1.RowData.Field buildPartial() {
-        io.greptime.v1.RowData.Field result = new io.greptime.v1.RowData.Field(this);
-        if (valueCase_ == 1) {
-          result.value_ = value_;
+      public io.greptime.v1.RowData.Value buildPartial() {
+        io.greptime.v1.RowData.Value result = new io.greptime.v1.RowData.Value(this);
+        if (valueDataCase_ == 1) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 2) {
-          result.value_ = value_;
+        if (valueDataCase_ == 2) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 3) {
-          result.value_ = value_;
+        if (valueDataCase_ == 3) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 4) {
-          result.value_ = value_;
+        if (valueDataCase_ == 4) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 5) {
-          result.value_ = value_;
+        if (valueDataCase_ == 5) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 6) {
-          result.value_ = value_;
+        if (valueDataCase_ == 6) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 7) {
-          result.value_ = value_;
+        if (valueDataCase_ == 7) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 8) {
-          result.value_ = value_;
+        if (valueDataCase_ == 8) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 9) {
-          result.value_ = value_;
+        if (valueDataCase_ == 9) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 10) {
-          result.value_ = value_;
+        if (valueDataCase_ == 10) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 11) {
-          result.value_ = value_;
+        if (valueDataCase_ == 11) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 12) {
-          result.value_ = value_;
+        if (valueDataCase_ == 12) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 13) {
-          result.value_ = value_;
+        if (valueDataCase_ == 13) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 14) {
-          result.value_ = value_;
+        if (valueDataCase_ == 14) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 15) {
-          result.value_ = value_;
+        if (valueDataCase_ == 15) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 16) {
-          result.value_ = value_;
+        if (valueDataCase_ == 16) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 17) {
-          result.value_ = value_;
+        if (valueDataCase_ == 17) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 18) {
-          result.value_ = value_;
+        if (valueDataCase_ == 18) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 19) {
-          result.value_ = value_;
+        if (valueDataCase_ == 19) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 20) {
-          result.value_ = value_;
+        if (valueDataCase_ == 20) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 21) {
-          result.value_ = value_;
+        if (valueDataCase_ == 21) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 22) {
-          result.value_ = value_;
+        if (valueDataCase_ == 22) {
+          result.valueData_ = valueData_;
         }
-        if (valueCase_ == 23) {
-          result.value_ = value_;
+        if (valueDataCase_ == 23) {
+          result.valueData_ = valueData_;
         }
-        result.valueCase_ = valueCase_;
+        result.valueDataCase_ = valueDataCase_;
         onBuilt();
         return result;
       }
@@ -4548,17 +4548,17 @@ public final class RowData {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.RowData.Field) {
-          return mergeFrom((io.greptime.v1.RowData.Field)other);
+        if (other instanceof io.greptime.v1.RowData.Value) {
+          return mergeFrom((io.greptime.v1.RowData.Value)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.RowData.Field other) {
-        if (other == io.greptime.v1.RowData.Field.getDefaultInstance()) return this;
-        switch (other.getValueCase()) {
+      public Builder mergeFrom(io.greptime.v1.RowData.Value other) {
+        if (other == io.greptime.v1.RowData.Value.getDefaultInstance()) return this;
+        switch (other.getValueDataCase()) {
           case I8_VALUE: {
             setI8Value(other.getI8Value());
             break;
@@ -4608,8 +4608,8 @@ public final class RowData {
             break;
           }
           case STRING_VALUE: {
-            valueCase_ = 13;
-            value_ = other.value_;
+            valueDataCase_ = 13;
+            valueData_ = other.valueData_;
             onChanged();
             break;
           }
@@ -4653,7 +4653,7 @@ public final class RowData {
             setTimeNanosecondValue(other.getTimeNanosecondValue());
             break;
           }
-          case VALUE_NOT_SET: {
+          case VALUEDATA_NOT_SET: {
             break;
           }
         }
@@ -4672,11 +4672,11 @@ public final class RowData {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.RowData.Field parsedMessage = null;
+        io.greptime.v1.RowData.Value parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.RowData.Field) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.RowData.Value) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4685,17 +4685,17 @@ public final class RowData {
         }
         return this;
       }
-      private int valueCase_ = 0;
-      private java.lang.Object value_;
-      public ValueCase
-          getValueCase() {
-        return ValueCase.forNumber(
-            valueCase_);
+      private int valueDataCase_ = 0;
+      private java.lang.Object valueData_;
+      public ValueDataCase
+          getValueDataCase() {
+        return ValueDataCase.forNumber(
+            valueDataCase_);
       }
 
-      public Builder clearValue() {
-        valueCase_ = 0;
-        value_ = null;
+      public Builder clearValueData() {
+        valueDataCase_ = 0;
+        valueData_ = null;
         onChanged();
         return this;
       }
@@ -4706,15 +4706,15 @@ public final class RowData {
        * @return Whether the i8Value field is set.
        */
       public boolean hasI8Value() {
-        return valueCase_ == 1;
+        return valueDataCase_ == 1;
       }
       /**
        * <code>int32 i8_value = 1;</code>
        * @return The i8Value.
        */
       public int getI8Value() {
-        if (valueCase_ == 1) {
-          return (java.lang.Integer) value_;
+        if (valueDataCase_ == 1) {
+          return (java.lang.Integer) valueData_;
         }
         return 0;
       }
@@ -4724,8 +4724,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setI8Value(int value) {
-        valueCase_ = 1;
-        value_ = value;
+        valueDataCase_ = 1;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -4734,9 +4734,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearI8Value() {
-        if (valueCase_ == 1) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 1) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -4747,15 +4747,15 @@ public final class RowData {
        * @return Whether the i16Value field is set.
        */
       public boolean hasI16Value() {
-        return valueCase_ == 2;
+        return valueDataCase_ == 2;
       }
       /**
        * <code>int32 i16_value = 2;</code>
        * @return The i16Value.
        */
       public int getI16Value() {
-        if (valueCase_ == 2) {
-          return (java.lang.Integer) value_;
+        if (valueDataCase_ == 2) {
+          return (java.lang.Integer) valueData_;
         }
         return 0;
       }
@@ -4765,8 +4765,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setI16Value(int value) {
-        valueCase_ = 2;
-        value_ = value;
+        valueDataCase_ = 2;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -4775,9 +4775,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearI16Value() {
-        if (valueCase_ == 2) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 2) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -4788,15 +4788,15 @@ public final class RowData {
        * @return Whether the i32Value field is set.
        */
       public boolean hasI32Value() {
-        return valueCase_ == 3;
+        return valueDataCase_ == 3;
       }
       /**
        * <code>int32 i32_value = 3;</code>
        * @return The i32Value.
        */
       public int getI32Value() {
-        if (valueCase_ == 3) {
-          return (java.lang.Integer) value_;
+        if (valueDataCase_ == 3) {
+          return (java.lang.Integer) valueData_;
         }
         return 0;
       }
@@ -4806,8 +4806,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setI32Value(int value) {
-        valueCase_ = 3;
-        value_ = value;
+        valueDataCase_ = 3;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -4816,9 +4816,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearI32Value() {
-        if (valueCase_ == 3) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 3) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -4829,15 +4829,15 @@ public final class RowData {
        * @return Whether the i64Value field is set.
        */
       public boolean hasI64Value() {
-        return valueCase_ == 4;
+        return valueDataCase_ == 4;
       }
       /**
        * <code>int64 i64_value = 4;</code>
        * @return The i64Value.
        */
       public long getI64Value() {
-        if (valueCase_ == 4) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 4) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -4847,8 +4847,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setI64Value(long value) {
-        valueCase_ = 4;
-        value_ = value;
+        valueDataCase_ = 4;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -4857,9 +4857,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearI64Value() {
-        if (valueCase_ == 4) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 4) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -4870,15 +4870,15 @@ public final class RowData {
        * @return Whether the u8Value field is set.
        */
       public boolean hasU8Value() {
-        return valueCase_ == 5;
+        return valueDataCase_ == 5;
       }
       /**
        * <code>uint32 u8_value = 5;</code>
        * @return The u8Value.
        */
       public int getU8Value() {
-        if (valueCase_ == 5) {
-          return (java.lang.Integer) value_;
+        if (valueDataCase_ == 5) {
+          return (java.lang.Integer) valueData_;
         }
         return 0;
       }
@@ -4888,8 +4888,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setU8Value(int value) {
-        valueCase_ = 5;
-        value_ = value;
+        valueDataCase_ = 5;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -4898,9 +4898,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearU8Value() {
-        if (valueCase_ == 5) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 5) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -4911,15 +4911,15 @@ public final class RowData {
        * @return Whether the u16Value field is set.
        */
       public boolean hasU16Value() {
-        return valueCase_ == 6;
+        return valueDataCase_ == 6;
       }
       /**
        * <code>uint32 u16_value = 6;</code>
        * @return The u16Value.
        */
       public int getU16Value() {
-        if (valueCase_ == 6) {
-          return (java.lang.Integer) value_;
+        if (valueDataCase_ == 6) {
+          return (java.lang.Integer) valueData_;
         }
         return 0;
       }
@@ -4929,8 +4929,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setU16Value(int value) {
-        valueCase_ = 6;
-        value_ = value;
+        valueDataCase_ = 6;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -4939,9 +4939,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearU16Value() {
-        if (valueCase_ == 6) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 6) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -4952,15 +4952,15 @@ public final class RowData {
        * @return Whether the u32Value field is set.
        */
       public boolean hasU32Value() {
-        return valueCase_ == 7;
+        return valueDataCase_ == 7;
       }
       /**
        * <code>uint32 u32_value = 7;</code>
        * @return The u32Value.
        */
       public int getU32Value() {
-        if (valueCase_ == 7) {
-          return (java.lang.Integer) value_;
+        if (valueDataCase_ == 7) {
+          return (java.lang.Integer) valueData_;
         }
         return 0;
       }
@@ -4970,8 +4970,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setU32Value(int value) {
-        valueCase_ = 7;
-        value_ = value;
+        valueDataCase_ = 7;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -4980,9 +4980,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearU32Value() {
-        if (valueCase_ == 7) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 7) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -4993,15 +4993,15 @@ public final class RowData {
        * @return Whether the u64Value field is set.
        */
       public boolean hasU64Value() {
-        return valueCase_ == 8;
+        return valueDataCase_ == 8;
       }
       /**
        * <code>uint64 u64_value = 8;</code>
        * @return The u64Value.
        */
       public long getU64Value() {
-        if (valueCase_ == 8) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 8) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5011,8 +5011,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setU64Value(long value) {
-        valueCase_ = 8;
-        value_ = value;
+        valueDataCase_ = 8;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5021,9 +5021,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearU64Value() {
-        if (valueCase_ == 8) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 8) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5034,15 +5034,15 @@ public final class RowData {
        * @return Whether the f32Value field is set.
        */
       public boolean hasF32Value() {
-        return valueCase_ == 9;
+        return valueDataCase_ == 9;
       }
       /**
        * <code>float f32_value = 9;</code>
        * @return The f32Value.
        */
       public float getF32Value() {
-        if (valueCase_ == 9) {
-          return (java.lang.Float) value_;
+        if (valueDataCase_ == 9) {
+          return (java.lang.Float) valueData_;
         }
         return 0F;
       }
@@ -5052,8 +5052,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setF32Value(float value) {
-        valueCase_ = 9;
-        value_ = value;
+        valueDataCase_ = 9;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5062,9 +5062,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearF32Value() {
-        if (valueCase_ == 9) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 9) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5075,15 +5075,15 @@ public final class RowData {
        * @return Whether the f64Value field is set.
        */
       public boolean hasF64Value() {
-        return valueCase_ == 10;
+        return valueDataCase_ == 10;
       }
       /**
        * <code>double f64_value = 10;</code>
        * @return The f64Value.
        */
       public double getF64Value() {
-        if (valueCase_ == 10) {
-          return (java.lang.Double) value_;
+        if (valueDataCase_ == 10) {
+          return (java.lang.Double) valueData_;
         }
         return 0D;
       }
@@ -5093,8 +5093,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setF64Value(double value) {
-        valueCase_ = 10;
-        value_ = value;
+        valueDataCase_ = 10;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5103,9 +5103,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearF64Value() {
-        if (valueCase_ == 10) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 10) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5116,15 +5116,15 @@ public final class RowData {
        * @return Whether the boolValue field is set.
        */
       public boolean hasBoolValue() {
-        return valueCase_ == 11;
+        return valueDataCase_ == 11;
       }
       /**
        * <code>bool bool_value = 11;</code>
        * @return The boolValue.
        */
       public boolean getBoolValue() {
-        if (valueCase_ == 11) {
-          return (java.lang.Boolean) value_;
+        if (valueDataCase_ == 11) {
+          return (java.lang.Boolean) valueData_;
         }
         return false;
       }
@@ -5134,8 +5134,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setBoolValue(boolean value) {
-        valueCase_ = 11;
-        value_ = value;
+        valueDataCase_ = 11;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5144,9 +5144,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearBoolValue() {
-        if (valueCase_ == 11) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 11) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5157,15 +5157,15 @@ public final class RowData {
        * @return Whether the binaryValue field is set.
        */
       public boolean hasBinaryValue() {
-        return valueCase_ == 12;
+        return valueDataCase_ == 12;
       }
       /**
        * <code>bytes binary_value = 12;</code>
        * @return The binaryValue.
        */
       public com.google.protobuf.ByteString getBinaryValue() {
-        if (valueCase_ == 12) {
-          return (com.google.protobuf.ByteString) value_;
+        if (valueDataCase_ == 12) {
+          return (com.google.protobuf.ByteString) valueData_;
         }
         return com.google.protobuf.ByteString.EMPTY;
       }
@@ -5178,8 +5178,8 @@ public final class RowData {
         if (value == null) {
     throw new NullPointerException();
   }
-  valueCase_ = 12;
-        value_ = value;
+  valueDataCase_ = 12;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5188,9 +5188,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearBinaryValue() {
-        if (valueCase_ == 12) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 12) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5202,7 +5202,7 @@ public final class RowData {
        */
       @java.lang.Override
       public boolean hasStringValue() {
-        return valueCase_ == 13;
+        return valueDataCase_ == 13;
       }
       /**
        * <code>string string_value = 13;</code>
@@ -5211,15 +5211,15 @@ public final class RowData {
       @java.lang.Override
       public java.lang.String getStringValue() {
         java.lang.Object ref = "";
-        if (valueCase_ == 13) {
-          ref = value_;
+        if (valueDataCase_ == 13) {
+          ref = valueData_;
         }
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          if (valueCase_ == 13) {
-            value_ = s;
+          if (valueDataCase_ == 13) {
+            valueData_ = s;
           }
           return s;
         } else {
@@ -5234,15 +5234,15 @@ public final class RowData {
       public com.google.protobuf.ByteString
           getStringValueBytes() {
         java.lang.Object ref = "";
-        if (valueCase_ == 13) {
-          ref = value_;
+        if (valueDataCase_ == 13) {
+          ref = valueData_;
         }
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          if (valueCase_ == 13) {
-            value_ = b;
+          if (valueDataCase_ == 13) {
+            valueData_ = b;
           }
           return b;
         } else {
@@ -5259,8 +5259,8 @@ public final class RowData {
         if (value == null) {
     throw new NullPointerException();
   }
-  valueCase_ = 13;
-        value_ = value;
+  valueDataCase_ = 13;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5269,9 +5269,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearStringValue() {
-        if (valueCase_ == 13) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 13) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5287,8 +5287,8 @@ public final class RowData {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        valueCase_ = 13;
-        value_ = value;
+        valueDataCase_ = 13;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5298,15 +5298,15 @@ public final class RowData {
        * @return Whether the dateValue field is set.
        */
       public boolean hasDateValue() {
-        return valueCase_ == 14;
+        return valueDataCase_ == 14;
       }
       /**
        * <code>int32 date_value = 14;</code>
        * @return The dateValue.
        */
       public int getDateValue() {
-        if (valueCase_ == 14) {
-          return (java.lang.Integer) value_;
+        if (valueDataCase_ == 14) {
+          return (java.lang.Integer) valueData_;
         }
         return 0;
       }
@@ -5316,8 +5316,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setDateValue(int value) {
-        valueCase_ = 14;
-        value_ = value;
+        valueDataCase_ = 14;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5326,9 +5326,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearDateValue() {
-        if (valueCase_ == 14) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 14) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5339,15 +5339,15 @@ public final class RowData {
        * @return Whether the datetimeValue field is set.
        */
       public boolean hasDatetimeValue() {
-        return valueCase_ == 15;
+        return valueDataCase_ == 15;
       }
       /**
        * <code>int64 datetime_value = 15;</code>
        * @return The datetimeValue.
        */
       public long getDatetimeValue() {
-        if (valueCase_ == 15) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 15) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5357,8 +5357,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setDatetimeValue(long value) {
-        valueCase_ = 15;
-        value_ = value;
+        valueDataCase_ = 15;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5367,9 +5367,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearDatetimeValue() {
-        if (valueCase_ == 15) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 15) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5380,15 +5380,15 @@ public final class RowData {
        * @return Whether the tsSecondValue field is set.
        */
       public boolean hasTsSecondValue() {
-        return valueCase_ == 16;
+        return valueDataCase_ == 16;
       }
       /**
        * <code>int64 ts_second_value = 16;</code>
        * @return The tsSecondValue.
        */
       public long getTsSecondValue() {
-        if (valueCase_ == 16) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 16) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5398,8 +5398,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setTsSecondValue(long value) {
-        valueCase_ = 16;
-        value_ = value;
+        valueDataCase_ = 16;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5408,9 +5408,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearTsSecondValue() {
-        if (valueCase_ == 16) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 16) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5421,15 +5421,15 @@ public final class RowData {
        * @return Whether the tsMillisecondValue field is set.
        */
       public boolean hasTsMillisecondValue() {
-        return valueCase_ == 17;
+        return valueDataCase_ == 17;
       }
       /**
        * <code>int64 ts_millisecond_value = 17;</code>
        * @return The tsMillisecondValue.
        */
       public long getTsMillisecondValue() {
-        if (valueCase_ == 17) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 17) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5439,8 +5439,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setTsMillisecondValue(long value) {
-        valueCase_ = 17;
-        value_ = value;
+        valueDataCase_ = 17;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5449,9 +5449,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearTsMillisecondValue() {
-        if (valueCase_ == 17) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 17) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5462,15 +5462,15 @@ public final class RowData {
        * @return Whether the tsMicrosecondValue field is set.
        */
       public boolean hasTsMicrosecondValue() {
-        return valueCase_ == 18;
+        return valueDataCase_ == 18;
       }
       /**
        * <code>int64 ts_microsecond_value = 18;</code>
        * @return The tsMicrosecondValue.
        */
       public long getTsMicrosecondValue() {
-        if (valueCase_ == 18) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 18) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5480,8 +5480,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setTsMicrosecondValue(long value) {
-        valueCase_ = 18;
-        value_ = value;
+        valueDataCase_ = 18;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5490,9 +5490,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearTsMicrosecondValue() {
-        if (valueCase_ == 18) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 18) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5503,15 +5503,15 @@ public final class RowData {
        * @return Whether the tsNanosecondValue field is set.
        */
       public boolean hasTsNanosecondValue() {
-        return valueCase_ == 19;
+        return valueDataCase_ == 19;
       }
       /**
        * <code>int64 ts_nanosecond_value = 19;</code>
        * @return The tsNanosecondValue.
        */
       public long getTsNanosecondValue() {
-        if (valueCase_ == 19) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 19) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5521,8 +5521,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setTsNanosecondValue(long value) {
-        valueCase_ = 19;
-        value_ = value;
+        valueDataCase_ = 19;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5531,9 +5531,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearTsNanosecondValue() {
-        if (valueCase_ == 19) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 19) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5544,15 +5544,15 @@ public final class RowData {
        * @return Whether the timeSecondValue field is set.
        */
       public boolean hasTimeSecondValue() {
-        return valueCase_ == 20;
+        return valueDataCase_ == 20;
       }
       /**
        * <code>int64 time_second_value = 20;</code>
        * @return The timeSecondValue.
        */
       public long getTimeSecondValue() {
-        if (valueCase_ == 20) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 20) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5562,8 +5562,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setTimeSecondValue(long value) {
-        valueCase_ = 20;
-        value_ = value;
+        valueDataCase_ = 20;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5572,9 +5572,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearTimeSecondValue() {
-        if (valueCase_ == 20) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 20) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5585,15 +5585,15 @@ public final class RowData {
        * @return Whether the timeMillisecondValue field is set.
        */
       public boolean hasTimeMillisecondValue() {
-        return valueCase_ == 21;
+        return valueDataCase_ == 21;
       }
       /**
        * <code>int64 time_millisecond_value = 21;</code>
        * @return The timeMillisecondValue.
        */
       public long getTimeMillisecondValue() {
-        if (valueCase_ == 21) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 21) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5603,8 +5603,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setTimeMillisecondValue(long value) {
-        valueCase_ = 21;
-        value_ = value;
+        valueDataCase_ = 21;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5613,9 +5613,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearTimeMillisecondValue() {
-        if (valueCase_ == 21) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 21) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5626,15 +5626,15 @@ public final class RowData {
        * @return Whether the timeMicrosecondValue field is set.
        */
       public boolean hasTimeMicrosecondValue() {
-        return valueCase_ == 22;
+        return valueDataCase_ == 22;
       }
       /**
        * <code>int64 time_microsecond_value = 22;</code>
        * @return The timeMicrosecondValue.
        */
       public long getTimeMicrosecondValue() {
-        if (valueCase_ == 22) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 22) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5644,8 +5644,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setTimeMicrosecondValue(long value) {
-        valueCase_ = 22;
-        value_ = value;
+        valueDataCase_ = 22;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5654,9 +5654,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearTimeMicrosecondValue() {
-        if (valueCase_ == 22) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 22) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5667,15 +5667,15 @@ public final class RowData {
        * @return Whether the timeNanosecondValue field is set.
        */
       public boolean hasTimeNanosecondValue() {
-        return valueCase_ == 23;
+        return valueDataCase_ == 23;
       }
       /**
        * <code>int64 time_nanosecond_value = 23;</code>
        * @return The timeNanosecondValue.
        */
       public long getTimeNanosecondValue() {
-        if (valueCase_ == 23) {
-          return (java.lang.Long) value_;
+        if (valueDataCase_ == 23) {
+          return (java.lang.Long) valueData_;
         }
         return 0L;
       }
@@ -5685,8 +5685,8 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder setTimeNanosecondValue(long value) {
-        valueCase_ = 23;
-        value_ = value;
+        valueDataCase_ = 23;
+        valueData_ = value;
         onChanged();
         return this;
       }
@@ -5695,9 +5695,9 @@ public final class RowData {
        * @return This builder for chaining.
        */
       public Builder clearTimeNanosecondValue() {
-        if (valueCase_ == 23) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valueDataCase_ == 23) {
+          valueDataCase_ = 0;
+          valueData_ = null;
           onChanged();
         }
         return this;
@@ -5715,41 +5715,41 @@ public final class RowData {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.Field)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.Value)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.Field)
-    private static final io.greptime.v1.RowData.Field DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.Value)
+    private static final io.greptime.v1.RowData.Value DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.RowData.Field();
+      DEFAULT_INSTANCE = new io.greptime.v1.RowData.Value();
     }
 
-    public static io.greptime.v1.RowData.Field getDefaultInstance() {
+    public static io.greptime.v1.RowData.Value getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Field>
-        PARSER = new com.google.protobuf.AbstractParser<Field>() {
+    private static final com.google.protobuf.Parser<Value>
+        PARSER = new com.google.protobuf.AbstractParser<Value>() {
       @java.lang.Override
-      public Field parsePartialFrom(
+      public Value parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Field(input, extensionRegistry);
+        return new Value(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Field> parser() {
+    public static com.google.protobuf.Parser<Value> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Field> getParserForType() {
+    public com.google.protobuf.Parser<Value> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.RowData.Field getDefaultInstanceForType() {
+    public io.greptime.v1.RowData.Value getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5771,10 +5771,10 @@ public final class RowData {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_Row_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_Field_descriptor;
+    internal_static_greptime_v1_Value_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_Field_fieldAccessorTable;
+      internal_static_greptime_v1_Value_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5791,8 +5791,8 @@ public final class RowData {
       "ma\022\023\n\013column_name\030\001 \001(\t\022-\n\010datatype\030\002 \001(" +
       "\0162\033.greptime.v1.ColumnDataType\0220\n\rsemant" +
       "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType" +
-      "\")\n\003Row\022\"\n\006fields\030\001 \003(\0132\022.greptime.v1.Fi" +
-      "eld\"\322\004\n\005Field\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16" +
+      "\")\n\003Row\022\"\n\006values\030\001 \003(\0132\022.greptime.v1.Va" +
+      "lue\"\327\004\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16" +
       "_value\030\002 \001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti" +
       "64_value\030\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\t" +
       "u16_value\030\006 \001(\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023" +
@@ -5806,10 +5806,10 @@ public final class RowData {
       "osecond_value\030\023 \001(\003H\000\022\033\n\021time_second_val" +
       "ue\030\024 \001(\003H\000\022 \n\026time_millisecond_value\030\025 \001" +
       "(\003H\000\022 \n\026time_microsecond_value\030\026 \001(\003H\000\022\037" +
-      "\n\025time_nanosecond_value\030\027 \001(\003H\000B\007\n\005value" +
-      "BP\n\016io.greptime.v1B\007RowDataZ5github.com/" +
-      "GreptimeTeam/greptime-proto/go/greptime/" +
-      "v1b\006proto3"
+      "\n\025time_nanosecond_value\030\027 \001(\003H\000B\014\n\nvalue" +
+      "_dataBP\n\016io.greptime.v1B\007RowDataZ5github" +
+      ".com/GreptimeTeam/greptime-proto/go/grep" +
+      "time/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5833,13 +5833,13 @@ public final class RowData {
     internal_static_greptime_v1_Row_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Row_descriptor,
-        new java.lang.String[] { "Fields", });
-    internal_static_greptime_v1_Field_descriptor =
+        new java.lang.String[] { "Values", });
+    internal_static_greptime_v1_Value_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_greptime_v1_Field_fieldAccessorTable = new
+    internal_static_greptime_v1_Value_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_Field_descriptor,
-        new java.lang.String[] { "I8Value", "I16Value", "I32Value", "I64Value", "U8Value", "U16Value", "U32Value", "U64Value", "F32Value", "F64Value", "BoolValue", "BinaryValue", "StringValue", "DateValue", "DatetimeValue", "TsSecondValue", "TsMillisecondValue", "TsMicrosecondValue", "TsNanosecondValue", "TimeSecondValue", "TimeMillisecondValue", "TimeMicrosecondValue", "TimeNanosecondValue", "Value", });
+        internal_static_greptime_v1_Value_descriptor,
+        new java.lang.String[] { "I8Value", "I16Value", "I32Value", "I64Value", "U8Value", "U16Value", "U32Value", "U64Value", "F32Value", "F64Value", "BoolValue", "BinaryValue", "StringValue", "DateValue", "DatetimeValue", "TsSecondValue", "TsMillisecondValue", "TsMicrosecondValue", "TsNanosecondValue", "TimeSecondValue", "TimeMillisecondValue", "TimeMicrosecondValue", "TimeNanosecondValue", "ValueData", });
     io.greptime.v1.Common.getDescriptor();
   }
 
