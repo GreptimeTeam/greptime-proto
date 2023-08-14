@@ -26,6 +26,7 @@ fn main() {
             &[
                 "proto/greptime/v1/database.proto",
                 "proto/greptime/v1/health.proto",
+                "proto/greptime/v1/wal.proto",
                 "proto/greptime/v1/meta/common.proto",
                 "proto/greptime/v1/meta/heartbeat.proto",
                 "proto/greptime/v1/meta/route.proto",
@@ -33,7 +34,6 @@ fn main() {
                 "proto/greptime/v1/meta/store.proto",
                 "proto/greptime/v1/meta/lock.proto",
                 "proto/greptime/v1/meta/cluster.proto",
-                "proto/greptime/v1/mito/wal.proto",
                 "proto/prometheus/remote/remote.proto",
                 "proto/substrait_extension/promql_plan.proto",
             ],

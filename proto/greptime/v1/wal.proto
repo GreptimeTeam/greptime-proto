@@ -14,9 +14,9 @@
 
 syntax = "proto3";
 
-package greptime.v1.mito;
+package greptime.v1;
 
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/mito";
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
 import "greptime/v1/row.proto";
 
