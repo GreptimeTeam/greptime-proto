@@ -240,6 +240,22 @@ public final class Common {
      * <code>INTERVAL_MONTH_DAY_NANO = 25;</code>
      */
     INTERVAL_MONTH_DAY_NANO(25),
+    /**
+     * <code>DURATION_SECOND = 26;</code>
+     */
+    DURATION_SECOND(26),
+    /**
+     * <code>DURATION_MILLISECOND = 27;</code>
+     */
+    DURATION_MILLISECOND(27),
+    /**
+     * <code>DURATION_MICROSECOND = 28;</code>
+     */
+    DURATION_MICROSECOND(28),
+    /**
+     * <code>DURATION_NANOSECOND = 29;</code>
+     */
+    DURATION_NANOSECOND(29),
     UNRECOGNIZED(-1),
     ;
 
@@ -347,6 +363,22 @@ public final class Common {
      * <code>INTERVAL_MONTH_DAY_NANO = 25;</code>
      */
     public static final int INTERVAL_MONTH_DAY_NANO_VALUE = 25;
+    /**
+     * <code>DURATION_SECOND = 26;</code>
+     */
+    public static final int DURATION_SECOND_VALUE = 26;
+    /**
+     * <code>DURATION_MILLISECOND = 27;</code>
+     */
+    public static final int DURATION_MILLISECOND_VALUE = 27;
+    /**
+     * <code>DURATION_MICROSECOND = 28;</code>
+     */
+    public static final int DURATION_MICROSECOND_VALUE = 28;
+    /**
+     * <code>DURATION_NANOSECOND = 29;</code>
+     */
+    public static final int DURATION_NANOSECOND_VALUE = 29;
 
 
     public final int getNumber() {
@@ -399,6 +431,10 @@ public final class Common {
         case 23: return INTERVAL_YEAR_MONTH;
         case 24: return INTERVAL_DAY_TIME;
         case 25: return INTERVAL_MONTH_DAY_NANO;
+        case 26: return DURATION_SECOND;
+        case 27: return DURATION_MILLISECOND;
+        case 28: return DURATION_MICROSECOND;
+        case 29: return DURATION_NANOSECOND;
         default: return null;
       }
     }
@@ -7498,7 +7534,7 @@ public final class Common {
       "\001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_n" +
       "ullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(" +
       "\014*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n" +
-      "\tTIMESTAMP\020\002*\306\003\n\016ColumnDataType\022\013\n\007BOOLE" +
+      "\tTIMESTAMP\020\002*\250\004\n\016ColumnDataType\022\013\n\007BOOLE" +
       "AN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005" +
       "INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32" +
       "\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n" +
@@ -7509,9 +7545,12 @@ public final class Common {
       "ECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MI" +
       "CROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTE" +
       "RVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030" +
-      "\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031BO\n\016io.grep" +
-      "time.v1B\006CommonZ5github.com/GreptimeTeam" +
-      "/greptime-proto/go/greptime/v1b\006proto3"
+      "\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATIO" +
+      "N_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024" +
+      "DURATION_MICROSECOND\020\034\022\027\n\023DURATION_NANOS" +
+      "ECOND\020\035BO\n\016io.greptime.v1B\006CommonZ5githu" +
+      "b.com/GreptimeTeam/greptime-proto/go/gre" +
+      "ptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

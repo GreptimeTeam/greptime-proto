@@ -699,6 +699,74 @@ public final class Columns {
        */
       io.greptime.v1.Columns.IntervalMonthDayNanoOrBuilder getIntervalMonthDayNanoValuesOrBuilder(
           int index);
+
+      /**
+       * <code>repeated int64 dur_second_values = 27;</code>
+       * @return A list containing the durSecondValues.
+       */
+      java.util.List<java.lang.Long> getDurSecondValuesList();
+      /**
+       * <code>repeated int64 dur_second_values = 27;</code>
+       * @return The count of durSecondValues.
+       */
+      int getDurSecondValuesCount();
+      /**
+       * <code>repeated int64 dur_second_values = 27;</code>
+       * @param index The index of the element to return.
+       * @return The durSecondValues at the given index.
+       */
+      long getDurSecondValues(int index);
+
+      /**
+       * <code>repeated int64 dur_millisecond_values = 28;</code>
+       * @return A list containing the durMillisecondValues.
+       */
+      java.util.List<java.lang.Long> getDurMillisecondValuesList();
+      /**
+       * <code>repeated int64 dur_millisecond_values = 28;</code>
+       * @return The count of durMillisecondValues.
+       */
+      int getDurMillisecondValuesCount();
+      /**
+       * <code>repeated int64 dur_millisecond_values = 28;</code>
+       * @param index The index of the element to return.
+       * @return The durMillisecondValues at the given index.
+       */
+      long getDurMillisecondValues(int index);
+
+      /**
+       * <code>repeated int64 dur_microsecond_values = 29;</code>
+       * @return A list containing the durMicrosecondValues.
+       */
+      java.util.List<java.lang.Long> getDurMicrosecondValuesList();
+      /**
+       * <code>repeated int64 dur_microsecond_values = 29;</code>
+       * @return The count of durMicrosecondValues.
+       */
+      int getDurMicrosecondValuesCount();
+      /**
+       * <code>repeated int64 dur_microsecond_values = 29;</code>
+       * @param index The index of the element to return.
+       * @return The durMicrosecondValues at the given index.
+       */
+      long getDurMicrosecondValues(int index);
+
+      /**
+       * <code>repeated int64 dur_nanosecond_values = 30;</code>
+       * @return A list containing the durNanosecondValues.
+       */
+      java.util.List<java.lang.Long> getDurNanosecondValuesList();
+      /**
+       * <code>repeated int64 dur_nanosecond_values = 30;</code>
+       * @return The count of durNanosecondValues.
+       */
+      int getDurNanosecondValuesCount();
+      /**
+       * <code>repeated int64 dur_nanosecond_values = 30;</code>
+       * @param index The index of the element to return.
+       * @return The durNanosecondValues at the given index.
+       */
+      long getDurNanosecondValues(int index);
     }
     /**
      * Protobuf type {@code greptime.v1.Column.Values}
@@ -739,6 +807,10 @@ public final class Columns {
         intervalYearMonthValues_ = emptyIntList();
         intervalDayTimeValues_ = emptyLongList();
         intervalMonthDayNanoValues_ = java.util.Collections.emptyList();
+        durSecondValues_ = emptyLongList();
+        durMillisecondValues_ = emptyLongList();
+        durMicrosecondValues_ = emptyLongList();
+        durNanosecondValues_ = emptyLongList();
       }
 
       @java.lang.Override
@@ -1281,6 +1353,90 @@ public final class Columns {
                     input.readMessage(io.greptime.v1.Columns.IntervalMonthDayNano.parser(), extensionRegistry));
                 break;
               }
+              case 216: {
+                if (!((mutable_bitField0_ & 0x04000000) != 0)) {
+                  durSecondValues_ = newLongList();
+                  mutable_bitField0_ |= 0x04000000;
+                }
+                durSecondValues_.addLong(input.readInt64());
+                break;
+              }
+              case 218: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                if (!((mutable_bitField0_ & 0x04000000) != 0) && input.getBytesUntilLimit() > 0) {
+                  durSecondValues_ = newLongList();
+                  mutable_bitField0_ |= 0x04000000;
+                }
+                while (input.getBytesUntilLimit() > 0) {
+                  durSecondValues_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              }
+              case 224: {
+                if (!((mutable_bitField0_ & 0x08000000) != 0)) {
+                  durMillisecondValues_ = newLongList();
+                  mutable_bitField0_ |= 0x08000000;
+                }
+                durMillisecondValues_.addLong(input.readInt64());
+                break;
+              }
+              case 226: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                if (!((mutable_bitField0_ & 0x08000000) != 0) && input.getBytesUntilLimit() > 0) {
+                  durMillisecondValues_ = newLongList();
+                  mutable_bitField0_ |= 0x08000000;
+                }
+                while (input.getBytesUntilLimit() > 0) {
+                  durMillisecondValues_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              }
+              case 232: {
+                if (!((mutable_bitField0_ & 0x10000000) != 0)) {
+                  durMicrosecondValues_ = newLongList();
+                  mutable_bitField0_ |= 0x10000000;
+                }
+                durMicrosecondValues_.addLong(input.readInt64());
+                break;
+              }
+              case 234: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                if (!((mutable_bitField0_ & 0x10000000) != 0) && input.getBytesUntilLimit() > 0) {
+                  durMicrosecondValues_ = newLongList();
+                  mutable_bitField0_ |= 0x10000000;
+                }
+                while (input.getBytesUntilLimit() > 0) {
+                  durMicrosecondValues_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              }
+              case 240: {
+                if (!((mutable_bitField0_ & 0x20000000) != 0)) {
+                  durNanosecondValues_ = newLongList();
+                  mutable_bitField0_ |= 0x20000000;
+                }
+                durNanosecondValues_.addLong(input.readInt64());
+                break;
+              }
+              case 242: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                if (!((mutable_bitField0_ & 0x20000000) != 0) && input.getBytesUntilLimit() > 0) {
+                  durNanosecondValues_ = newLongList();
+                  mutable_bitField0_ |= 0x20000000;
+                }
+                while (input.getBytesUntilLimit() > 0) {
+                  durNanosecondValues_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              }
               default: {
                 if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
@@ -1375,6 +1531,18 @@ public final class Columns {
           }
           if (((mutable_bitField0_ & 0x02000000) != 0)) {
             intervalMonthDayNanoValues_ = java.util.Collections.unmodifiableList(intervalMonthDayNanoValues_);
+          }
+          if (((mutable_bitField0_ & 0x04000000) != 0)) {
+            durSecondValues_.makeImmutable(); // C
+          }
+          if (((mutable_bitField0_ & 0x08000000) != 0)) {
+            durMillisecondValues_.makeImmutable(); // C
+          }
+          if (((mutable_bitField0_ & 0x10000000) != 0)) {
+            durMicrosecondValues_.makeImmutable(); // C
+          }
+          if (((mutable_bitField0_ & 0x20000000) != 0)) {
+            durNanosecondValues_.makeImmutable(); // C
           }
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
@@ -2139,6 +2307,118 @@ public final class Columns {
         return intervalMonthDayNanoValues_.get(index);
       }
 
+      public static final int DUR_SECOND_VALUES_FIELD_NUMBER = 27;
+      private com.google.protobuf.Internal.LongList durSecondValues_;
+      /**
+       * <code>repeated int64 dur_second_values = 27;</code>
+       * @return A list containing the durSecondValues.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.Long>
+          getDurSecondValuesList() {
+        return durSecondValues_;
+      }
+      /**
+       * <code>repeated int64 dur_second_values = 27;</code>
+       * @return The count of durSecondValues.
+       */
+      public int getDurSecondValuesCount() {
+        return durSecondValues_.size();
+      }
+      /**
+       * <code>repeated int64 dur_second_values = 27;</code>
+       * @param index The index of the element to return.
+       * @return The durSecondValues at the given index.
+       */
+      public long getDurSecondValues(int index) {
+        return durSecondValues_.getLong(index);
+      }
+      private int durSecondValuesMemoizedSerializedSize = -1;
+
+      public static final int DUR_MILLISECOND_VALUES_FIELD_NUMBER = 28;
+      private com.google.protobuf.Internal.LongList durMillisecondValues_;
+      /**
+       * <code>repeated int64 dur_millisecond_values = 28;</code>
+       * @return A list containing the durMillisecondValues.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.Long>
+          getDurMillisecondValuesList() {
+        return durMillisecondValues_;
+      }
+      /**
+       * <code>repeated int64 dur_millisecond_values = 28;</code>
+       * @return The count of durMillisecondValues.
+       */
+      public int getDurMillisecondValuesCount() {
+        return durMillisecondValues_.size();
+      }
+      /**
+       * <code>repeated int64 dur_millisecond_values = 28;</code>
+       * @param index The index of the element to return.
+       * @return The durMillisecondValues at the given index.
+       */
+      public long getDurMillisecondValues(int index) {
+        return durMillisecondValues_.getLong(index);
+      }
+      private int durMillisecondValuesMemoizedSerializedSize = -1;
+
+      public static final int DUR_MICROSECOND_VALUES_FIELD_NUMBER = 29;
+      private com.google.protobuf.Internal.LongList durMicrosecondValues_;
+      /**
+       * <code>repeated int64 dur_microsecond_values = 29;</code>
+       * @return A list containing the durMicrosecondValues.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.Long>
+          getDurMicrosecondValuesList() {
+        return durMicrosecondValues_;
+      }
+      /**
+       * <code>repeated int64 dur_microsecond_values = 29;</code>
+       * @return The count of durMicrosecondValues.
+       */
+      public int getDurMicrosecondValuesCount() {
+        return durMicrosecondValues_.size();
+      }
+      /**
+       * <code>repeated int64 dur_microsecond_values = 29;</code>
+       * @param index The index of the element to return.
+       * @return The durMicrosecondValues at the given index.
+       */
+      public long getDurMicrosecondValues(int index) {
+        return durMicrosecondValues_.getLong(index);
+      }
+      private int durMicrosecondValuesMemoizedSerializedSize = -1;
+
+      public static final int DUR_NANOSECOND_VALUES_FIELD_NUMBER = 30;
+      private com.google.protobuf.Internal.LongList durNanosecondValues_;
+      /**
+       * <code>repeated int64 dur_nanosecond_values = 30;</code>
+       * @return A list containing the durNanosecondValues.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.Long>
+          getDurNanosecondValuesList() {
+        return durNanosecondValues_;
+      }
+      /**
+       * <code>repeated int64 dur_nanosecond_values = 30;</code>
+       * @return The count of durNanosecondValues.
+       */
+      public int getDurNanosecondValuesCount() {
+        return durNanosecondValues_.size();
+      }
+      /**
+       * <code>repeated int64 dur_nanosecond_values = 30;</code>
+       * @param index The index of the element to return.
+       * @return The durNanosecondValues at the given index.
+       */
+      public long getDurNanosecondValues(int index) {
+        return durNanosecondValues_.getLong(index);
+      }
+      private int durNanosecondValuesMemoizedSerializedSize = -1;
+
       private byte memoizedIsInitialized = -1;
       @java.lang.Override
       public final boolean isInitialized() {
@@ -2323,6 +2603,34 @@ public final class Columns {
         }
         for (int i = 0; i < intervalMonthDayNanoValues_.size(); i++) {
           output.writeMessage(26, intervalMonthDayNanoValues_.get(i));
+        }
+        if (getDurSecondValuesList().size() > 0) {
+          output.writeUInt32NoTag(218);
+          output.writeUInt32NoTag(durSecondValuesMemoizedSerializedSize);
+        }
+        for (int i = 0; i < durSecondValues_.size(); i++) {
+          output.writeInt64NoTag(durSecondValues_.getLong(i));
+        }
+        if (getDurMillisecondValuesList().size() > 0) {
+          output.writeUInt32NoTag(226);
+          output.writeUInt32NoTag(durMillisecondValuesMemoizedSerializedSize);
+        }
+        for (int i = 0; i < durMillisecondValues_.size(); i++) {
+          output.writeInt64NoTag(durMillisecondValues_.getLong(i));
+        }
+        if (getDurMicrosecondValuesList().size() > 0) {
+          output.writeUInt32NoTag(234);
+          output.writeUInt32NoTag(durMicrosecondValuesMemoizedSerializedSize);
+        }
+        for (int i = 0; i < durMicrosecondValues_.size(); i++) {
+          output.writeInt64NoTag(durMicrosecondValues_.getLong(i));
+        }
+        if (getDurNanosecondValuesList().size() > 0) {
+          output.writeUInt32NoTag(242);
+          output.writeUInt32NoTag(durNanosecondValuesMemoizedSerializedSize);
+        }
+        for (int i = 0; i < durNanosecondValues_.size(); i++) {
+          output.writeInt64NoTag(durNanosecondValues_.getLong(i));
         }
         unknownFields.writeTo(output);
       }
@@ -2667,6 +2975,62 @@ public final class Columns {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(26, intervalMonthDayNanoValues_.get(i));
         }
+        {
+          int dataSize = 0;
+          for (int i = 0; i < durSecondValues_.size(); i++) {
+            dataSize += com.google.protobuf.CodedOutputStream
+              .computeInt64SizeNoTag(durSecondValues_.getLong(i));
+          }
+          size += dataSize;
+          if (!getDurSecondValuesList().isEmpty()) {
+            size += 2;
+            size += com.google.protobuf.CodedOutputStream
+                .computeInt32SizeNoTag(dataSize);
+          }
+          durSecondValuesMemoizedSerializedSize = dataSize;
+        }
+        {
+          int dataSize = 0;
+          for (int i = 0; i < durMillisecondValues_.size(); i++) {
+            dataSize += com.google.protobuf.CodedOutputStream
+              .computeInt64SizeNoTag(durMillisecondValues_.getLong(i));
+          }
+          size += dataSize;
+          if (!getDurMillisecondValuesList().isEmpty()) {
+            size += 2;
+            size += com.google.protobuf.CodedOutputStream
+                .computeInt32SizeNoTag(dataSize);
+          }
+          durMillisecondValuesMemoizedSerializedSize = dataSize;
+        }
+        {
+          int dataSize = 0;
+          for (int i = 0; i < durMicrosecondValues_.size(); i++) {
+            dataSize += com.google.protobuf.CodedOutputStream
+              .computeInt64SizeNoTag(durMicrosecondValues_.getLong(i));
+          }
+          size += dataSize;
+          if (!getDurMicrosecondValuesList().isEmpty()) {
+            size += 2;
+            size += com.google.protobuf.CodedOutputStream
+                .computeInt32SizeNoTag(dataSize);
+          }
+          durMicrosecondValuesMemoizedSerializedSize = dataSize;
+        }
+        {
+          int dataSize = 0;
+          for (int i = 0; i < durNanosecondValues_.size(); i++) {
+            dataSize += com.google.protobuf.CodedOutputStream
+              .computeInt64SizeNoTag(durNanosecondValues_.getLong(i));
+          }
+          size += dataSize;
+          if (!getDurNanosecondValuesList().isEmpty()) {
+            size += 2;
+            size += com.google.protobuf.CodedOutputStream
+                .computeInt32SizeNoTag(dataSize);
+          }
+          durNanosecondValuesMemoizedSerializedSize = dataSize;
+        }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
@@ -2734,6 +3098,14 @@ public final class Columns {
             .equals(other.getIntervalDayTimeValuesList())) return false;
         if (!getIntervalMonthDayNanoValuesList()
             .equals(other.getIntervalMonthDayNanoValuesList())) return false;
+        if (!getDurSecondValuesList()
+            .equals(other.getDurSecondValuesList())) return false;
+        if (!getDurMillisecondValuesList()
+            .equals(other.getDurMillisecondValuesList())) return false;
+        if (!getDurMicrosecondValuesList()
+            .equals(other.getDurMicrosecondValuesList())) return false;
+        if (!getDurNanosecondValuesList()
+            .equals(other.getDurNanosecondValuesList())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -2848,6 +3220,22 @@ public final class Columns {
         if (getIntervalMonthDayNanoValuesCount() > 0) {
           hash = (37 * hash) + INTERVAL_MONTH_DAY_NANO_VALUES_FIELD_NUMBER;
           hash = (53 * hash) + getIntervalMonthDayNanoValuesList().hashCode();
+        }
+        if (getDurSecondValuesCount() > 0) {
+          hash = (37 * hash) + DUR_SECOND_VALUES_FIELD_NUMBER;
+          hash = (53 * hash) + getDurSecondValuesList().hashCode();
+        }
+        if (getDurMillisecondValuesCount() > 0) {
+          hash = (37 * hash) + DUR_MILLISECOND_VALUES_FIELD_NUMBER;
+          hash = (53 * hash) + getDurMillisecondValuesList().hashCode();
+        }
+        if (getDurMicrosecondValuesCount() > 0) {
+          hash = (37 * hash) + DUR_MICROSECOND_VALUES_FIELD_NUMBER;
+          hash = (53 * hash) + getDurMicrosecondValuesList().hashCode();
+        }
+        if (getDurNanosecondValuesCount() > 0) {
+          hash = (37 * hash) + DUR_NANOSECOND_VALUES_FIELD_NUMBER;
+          hash = (53 * hash) + getDurNanosecondValuesList().hashCode();
         }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
@@ -3039,6 +3427,14 @@ public final class Columns {
           } else {
             intervalMonthDayNanoValuesBuilder_.clear();
           }
+          durSecondValues_ = emptyLongList();
+          bitField0_ = (bitField0_ & ~0x04000000);
+          durMillisecondValues_ = emptyLongList();
+          bitField0_ = (bitField0_ & ~0x08000000);
+          durMicrosecondValues_ = emptyLongList();
+          bitField0_ = (bitField0_ & ~0x10000000);
+          durNanosecondValues_ = emptyLongList();
+          bitField0_ = (bitField0_ & ~0x20000000);
           return this;
         }
 
@@ -3200,6 +3596,26 @@ public final class Columns {
           } else {
             result.intervalMonthDayNanoValues_ = intervalMonthDayNanoValuesBuilder_.build();
           }
+          if (((bitField0_ & 0x04000000) != 0)) {
+            durSecondValues_.makeImmutable();
+            bitField0_ = (bitField0_ & ~0x04000000);
+          }
+          result.durSecondValues_ = durSecondValues_;
+          if (((bitField0_ & 0x08000000) != 0)) {
+            durMillisecondValues_.makeImmutable();
+            bitField0_ = (bitField0_ & ~0x08000000);
+          }
+          result.durMillisecondValues_ = durMillisecondValues_;
+          if (((bitField0_ & 0x10000000) != 0)) {
+            durMicrosecondValues_.makeImmutable();
+            bitField0_ = (bitField0_ & ~0x10000000);
+          }
+          result.durMicrosecondValues_ = durMicrosecondValues_;
+          if (((bitField0_ & 0x20000000) != 0)) {
+            durNanosecondValues_.makeImmutable();
+            bitField0_ = (bitField0_ & ~0x20000000);
+          }
+          result.durNanosecondValues_ = durNanosecondValues_;
           onBuilt();
           return result;
         }
@@ -3523,6 +3939,46 @@ public final class Columns {
                 intervalMonthDayNanoValuesBuilder_.addAllMessages(other.intervalMonthDayNanoValues_);
               }
             }
+          }
+          if (!other.durSecondValues_.isEmpty()) {
+            if (durSecondValues_.isEmpty()) {
+              durSecondValues_ = other.durSecondValues_;
+              bitField0_ = (bitField0_ & ~0x04000000);
+            } else {
+              ensureDurSecondValuesIsMutable();
+              durSecondValues_.addAll(other.durSecondValues_);
+            }
+            onChanged();
+          }
+          if (!other.durMillisecondValues_.isEmpty()) {
+            if (durMillisecondValues_.isEmpty()) {
+              durMillisecondValues_ = other.durMillisecondValues_;
+              bitField0_ = (bitField0_ & ~0x08000000);
+            } else {
+              ensureDurMillisecondValuesIsMutable();
+              durMillisecondValues_.addAll(other.durMillisecondValues_);
+            }
+            onChanged();
+          }
+          if (!other.durMicrosecondValues_.isEmpty()) {
+            if (durMicrosecondValues_.isEmpty()) {
+              durMicrosecondValues_ = other.durMicrosecondValues_;
+              bitField0_ = (bitField0_ & ~0x10000000);
+            } else {
+              ensureDurMicrosecondValuesIsMutable();
+              durMicrosecondValues_.addAll(other.durMicrosecondValues_);
+            }
+            onChanged();
+          }
+          if (!other.durNanosecondValues_.isEmpty()) {
+            if (durNanosecondValues_.isEmpty()) {
+              durNanosecondValues_ = other.durNanosecondValues_;
+              bitField0_ = (bitField0_ & ~0x20000000);
+            } else {
+              ensureDurNanosecondValuesIsMutable();
+              durNanosecondValues_.addAll(other.durNanosecondValues_);
+            }
+            onChanged();
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -5805,6 +6261,322 @@ public final class Columns {
           }
           return intervalMonthDayNanoValuesBuilder_;
         }
+
+        private com.google.protobuf.Internal.LongList durSecondValues_ = emptyLongList();
+        private void ensureDurSecondValuesIsMutable() {
+          if (!((bitField0_ & 0x04000000) != 0)) {
+            durSecondValues_ = mutableCopy(durSecondValues_);
+            bitField0_ |= 0x04000000;
+           }
+        }
+        /**
+         * <code>repeated int64 dur_second_values = 27;</code>
+         * @return A list containing the durSecondValues.
+         */
+        public java.util.List<java.lang.Long>
+            getDurSecondValuesList() {
+          return ((bitField0_ & 0x04000000) != 0) ?
+                   java.util.Collections.unmodifiableList(durSecondValues_) : durSecondValues_;
+        }
+        /**
+         * <code>repeated int64 dur_second_values = 27;</code>
+         * @return The count of durSecondValues.
+         */
+        public int getDurSecondValuesCount() {
+          return durSecondValues_.size();
+        }
+        /**
+         * <code>repeated int64 dur_second_values = 27;</code>
+         * @param index The index of the element to return.
+         * @return The durSecondValues at the given index.
+         */
+        public long getDurSecondValues(int index) {
+          return durSecondValues_.getLong(index);
+        }
+        /**
+         * <code>repeated int64 dur_second_values = 27;</code>
+         * @param index The index to set the value at.
+         * @param value The durSecondValues to set.
+         * @return This builder for chaining.
+         */
+        public Builder setDurSecondValues(
+            int index, long value) {
+          ensureDurSecondValuesIsMutable();
+          durSecondValues_.setLong(index, value);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_second_values = 27;</code>
+         * @param value The durSecondValues to add.
+         * @return This builder for chaining.
+         */
+        public Builder addDurSecondValues(long value) {
+          ensureDurSecondValuesIsMutable();
+          durSecondValues_.addLong(value);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_second_values = 27;</code>
+         * @param values The durSecondValues to add.
+         * @return This builder for chaining.
+         */
+        public Builder addAllDurSecondValues(
+            java.lang.Iterable<? extends java.lang.Long> values) {
+          ensureDurSecondValuesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, durSecondValues_);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_second_values = 27;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearDurSecondValues() {
+          durSecondValues_ = emptyLongList();
+          bitField0_ = (bitField0_ & ~0x04000000);
+          onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.Internal.LongList durMillisecondValues_ = emptyLongList();
+        private void ensureDurMillisecondValuesIsMutable() {
+          if (!((bitField0_ & 0x08000000) != 0)) {
+            durMillisecondValues_ = mutableCopy(durMillisecondValues_);
+            bitField0_ |= 0x08000000;
+           }
+        }
+        /**
+         * <code>repeated int64 dur_millisecond_values = 28;</code>
+         * @return A list containing the durMillisecondValues.
+         */
+        public java.util.List<java.lang.Long>
+            getDurMillisecondValuesList() {
+          return ((bitField0_ & 0x08000000) != 0) ?
+                   java.util.Collections.unmodifiableList(durMillisecondValues_) : durMillisecondValues_;
+        }
+        /**
+         * <code>repeated int64 dur_millisecond_values = 28;</code>
+         * @return The count of durMillisecondValues.
+         */
+        public int getDurMillisecondValuesCount() {
+          return durMillisecondValues_.size();
+        }
+        /**
+         * <code>repeated int64 dur_millisecond_values = 28;</code>
+         * @param index The index of the element to return.
+         * @return The durMillisecondValues at the given index.
+         */
+        public long getDurMillisecondValues(int index) {
+          return durMillisecondValues_.getLong(index);
+        }
+        /**
+         * <code>repeated int64 dur_millisecond_values = 28;</code>
+         * @param index The index to set the value at.
+         * @param value The durMillisecondValues to set.
+         * @return This builder for chaining.
+         */
+        public Builder setDurMillisecondValues(
+            int index, long value) {
+          ensureDurMillisecondValuesIsMutable();
+          durMillisecondValues_.setLong(index, value);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_millisecond_values = 28;</code>
+         * @param value The durMillisecondValues to add.
+         * @return This builder for chaining.
+         */
+        public Builder addDurMillisecondValues(long value) {
+          ensureDurMillisecondValuesIsMutable();
+          durMillisecondValues_.addLong(value);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_millisecond_values = 28;</code>
+         * @param values The durMillisecondValues to add.
+         * @return This builder for chaining.
+         */
+        public Builder addAllDurMillisecondValues(
+            java.lang.Iterable<? extends java.lang.Long> values) {
+          ensureDurMillisecondValuesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, durMillisecondValues_);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_millisecond_values = 28;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearDurMillisecondValues() {
+          durMillisecondValues_ = emptyLongList();
+          bitField0_ = (bitField0_ & ~0x08000000);
+          onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.Internal.LongList durMicrosecondValues_ = emptyLongList();
+        private void ensureDurMicrosecondValuesIsMutable() {
+          if (!((bitField0_ & 0x10000000) != 0)) {
+            durMicrosecondValues_ = mutableCopy(durMicrosecondValues_);
+            bitField0_ |= 0x10000000;
+           }
+        }
+        /**
+         * <code>repeated int64 dur_microsecond_values = 29;</code>
+         * @return A list containing the durMicrosecondValues.
+         */
+        public java.util.List<java.lang.Long>
+            getDurMicrosecondValuesList() {
+          return ((bitField0_ & 0x10000000) != 0) ?
+                   java.util.Collections.unmodifiableList(durMicrosecondValues_) : durMicrosecondValues_;
+        }
+        /**
+         * <code>repeated int64 dur_microsecond_values = 29;</code>
+         * @return The count of durMicrosecondValues.
+         */
+        public int getDurMicrosecondValuesCount() {
+          return durMicrosecondValues_.size();
+        }
+        /**
+         * <code>repeated int64 dur_microsecond_values = 29;</code>
+         * @param index The index of the element to return.
+         * @return The durMicrosecondValues at the given index.
+         */
+        public long getDurMicrosecondValues(int index) {
+          return durMicrosecondValues_.getLong(index);
+        }
+        /**
+         * <code>repeated int64 dur_microsecond_values = 29;</code>
+         * @param index The index to set the value at.
+         * @param value The durMicrosecondValues to set.
+         * @return This builder for chaining.
+         */
+        public Builder setDurMicrosecondValues(
+            int index, long value) {
+          ensureDurMicrosecondValuesIsMutable();
+          durMicrosecondValues_.setLong(index, value);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_microsecond_values = 29;</code>
+         * @param value The durMicrosecondValues to add.
+         * @return This builder for chaining.
+         */
+        public Builder addDurMicrosecondValues(long value) {
+          ensureDurMicrosecondValuesIsMutable();
+          durMicrosecondValues_.addLong(value);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_microsecond_values = 29;</code>
+         * @param values The durMicrosecondValues to add.
+         * @return This builder for chaining.
+         */
+        public Builder addAllDurMicrosecondValues(
+            java.lang.Iterable<? extends java.lang.Long> values) {
+          ensureDurMicrosecondValuesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, durMicrosecondValues_);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_microsecond_values = 29;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearDurMicrosecondValues() {
+          durMicrosecondValues_ = emptyLongList();
+          bitField0_ = (bitField0_ & ~0x10000000);
+          onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.Internal.LongList durNanosecondValues_ = emptyLongList();
+        private void ensureDurNanosecondValuesIsMutable() {
+          if (!((bitField0_ & 0x20000000) != 0)) {
+            durNanosecondValues_ = mutableCopy(durNanosecondValues_);
+            bitField0_ |= 0x20000000;
+           }
+        }
+        /**
+         * <code>repeated int64 dur_nanosecond_values = 30;</code>
+         * @return A list containing the durNanosecondValues.
+         */
+        public java.util.List<java.lang.Long>
+            getDurNanosecondValuesList() {
+          return ((bitField0_ & 0x20000000) != 0) ?
+                   java.util.Collections.unmodifiableList(durNanosecondValues_) : durNanosecondValues_;
+        }
+        /**
+         * <code>repeated int64 dur_nanosecond_values = 30;</code>
+         * @return The count of durNanosecondValues.
+         */
+        public int getDurNanosecondValuesCount() {
+          return durNanosecondValues_.size();
+        }
+        /**
+         * <code>repeated int64 dur_nanosecond_values = 30;</code>
+         * @param index The index of the element to return.
+         * @return The durNanosecondValues at the given index.
+         */
+        public long getDurNanosecondValues(int index) {
+          return durNanosecondValues_.getLong(index);
+        }
+        /**
+         * <code>repeated int64 dur_nanosecond_values = 30;</code>
+         * @param index The index to set the value at.
+         * @param value The durNanosecondValues to set.
+         * @return This builder for chaining.
+         */
+        public Builder setDurNanosecondValues(
+            int index, long value) {
+          ensureDurNanosecondValuesIsMutable();
+          durNanosecondValues_.setLong(index, value);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_nanosecond_values = 30;</code>
+         * @param value The durNanosecondValues to add.
+         * @return This builder for chaining.
+         */
+        public Builder addDurNanosecondValues(long value) {
+          ensureDurNanosecondValuesIsMutable();
+          durNanosecondValues_.addLong(value);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_nanosecond_values = 30;</code>
+         * @param values The durNanosecondValues to add.
+         * @return This builder for chaining.
+         */
+        public Builder addAllDurNanosecondValues(
+            java.lang.Iterable<? extends java.lang.Long> values) {
+          ensureDurNanosecondValuesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, durNanosecondValues_);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>repeated int64 dur_nanosecond_values = 30;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearDurNanosecondValues() {
+          durNanosecondValues_ = emptyLongList();
+          bitField0_ = (bitField0_ & ~0x20000000);
+          onChanged();
+          return this;
+        }
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7581,12 +8353,12 @@ public final class Columns {
   static {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/column.proto\022\013greptime.v1\032" +
-      "\030greptime/v1/common.proto\"\204\007\n\006Column\022\023\n\013" +
+      "\030greptime/v1/common.proto\"\376\007\n\006Column\022\023\n\013" +
       "column_name\030\001 \001(\t\0220\n\rsemantic_type\030\002 \001(\016" +
       "2\031.greptime.v1.SemanticType\022*\n\006values\030\003 " +
       "\001(\0132\032.greptime.v1.Column.Values\022\021\n\tnull_" +
       "mask\030\004 \001(\014\022-\n\010datatype\030\005 \001(\0162\033.greptime." +
-      "v1.ColumnDataType\032\304\005\n\006Values\022\021\n\ti8_value" +
+      "v1.ColumnDataType\032\276\006\n\006Values\022\021\n\ti8_value" +
       "s\030\001 \003(\005\022\022\n\ni16_values\030\002 \003(\005\022\022\n\ni32_value" +
       "s\030\003 \003(\005\022\022\n\ni64_values\030\004 \003(\003\022\021\n\tu8_values" +
       "\030\005 \003(\r\022\022\n\nu16_values\030\006 \003(\r\022\022\n\nu32_values" +
@@ -7604,11 +8376,14 @@ public final class Columns {
       "_month_values\030\030 \003(\005\022 \n\030interval_day_time" +
       "_values\030\031 \003(\003\022I\n\036interval_month_day_nano" +
       "_values\030\032 \003(\0132!.greptime.v1.IntervalMont" +
-      "hDayNano\"I\n\024IntervalMonthDayNano\022\016\n\006mont" +
-      "hs\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 " +
-      "\001(\003BP\n\016io.greptime.v1B\007ColumnsZ5github.c" +
-      "om/GreptimeTeam/greptime-proto/go/grepti" +
-      "me/v1b\006proto3"
+      "hDayNano\022\031\n\021dur_second_values\030\033 \003(\003\022\036\n\026d" +
+      "ur_millisecond_values\030\034 \003(\003\022\036\n\026dur_micro" +
+      "second_values\030\035 \003(\003\022\035\n\025dur_nanosecond_va" +
+      "lues\030\036 \003(\003\"I\n\024IntervalMonthDayNano\022\016\n\006mo" +
+      "nths\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030" +
+      "\003 \001(\003BP\n\016io.greptime.v1B\007ColumnsZ5github" +
+      ".com/GreptimeTeam/greptime-proto/go/grep" +
+      "time/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7626,7 +8401,7 @@ public final class Columns {
     internal_static_greptime_v1_Column_Values_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Column_Values_descriptor,
-        new java.lang.String[] { "I8Values", "I16Values", "I32Values", "I64Values", "U8Values", "U16Values", "U32Values", "U64Values", "F32Values", "F64Values", "BoolValues", "BinaryValues", "StringValues", "DateValues", "DatetimeValues", "TsSecondValues", "TsMillisecondValues", "TsMicrosecondValues", "TsNanosecondValues", "TimeSecondValues", "TimeMillisecondValues", "TimeMicrosecondValues", "TimeNanosecondValues", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", });
+        new java.lang.String[] { "I8Values", "I16Values", "I32Values", "I64Values", "U8Values", "U16Values", "U32Values", "U64Values", "F32Values", "F64Values", "BoolValues", "BinaryValues", "StringValues", "DateValues", "DatetimeValues", "TsSecondValues", "TsMillisecondValues", "TsMicrosecondValues", "TsNanosecondValues", "TimeSecondValues", "TimeMillisecondValues", "TimeMicrosecondValues", "TimeNanosecondValues", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", "DurSecondValues", "DurMillisecondValues", "DurMicrosecondValues", "DurNanosecondValues", });
     internal_static_greptime_v1_IntervalMonthDayNano_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable = new

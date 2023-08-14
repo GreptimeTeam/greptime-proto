@@ -215,6 +215,10 @@ class Column_Values final :
     kIntervalYearMonthValuesFieldNumber = 24,
     kIntervalDayTimeValuesFieldNumber = 25,
     kIntervalMonthDayNanoValuesFieldNumber = 26,
+    kDurSecondValuesFieldNumber = 27,
+    kDurMillisecondValuesFieldNumber = 28,
+    kDurMicrosecondValuesFieldNumber = 29,
+    kDurNanosecondValuesFieldNumber = 30,
   };
   // repeated int32 i8_values = 1;
   int i8_values_size() const;
@@ -788,6 +792,94 @@ class Column_Values final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::IntervalMonthDayNano >&
       interval_month_day_nano_values() const;
 
+  // repeated int64 dur_second_values = 27;
+  int dur_second_values_size() const;
+  private:
+  int _internal_dur_second_values_size() const;
+  public:
+  void clear_dur_second_values();
+  private:
+  int64_t _internal_dur_second_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_dur_second_values() const;
+  void _internal_add_dur_second_values(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_dur_second_values();
+  public:
+  int64_t dur_second_values(int index) const;
+  void set_dur_second_values(int index, int64_t value);
+  void add_dur_second_values(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      dur_second_values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_dur_second_values();
+
+  // repeated int64 dur_millisecond_values = 28;
+  int dur_millisecond_values_size() const;
+  private:
+  int _internal_dur_millisecond_values_size() const;
+  public:
+  void clear_dur_millisecond_values();
+  private:
+  int64_t _internal_dur_millisecond_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_dur_millisecond_values() const;
+  void _internal_add_dur_millisecond_values(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_dur_millisecond_values();
+  public:
+  int64_t dur_millisecond_values(int index) const;
+  void set_dur_millisecond_values(int index, int64_t value);
+  void add_dur_millisecond_values(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      dur_millisecond_values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_dur_millisecond_values();
+
+  // repeated int64 dur_microsecond_values = 29;
+  int dur_microsecond_values_size() const;
+  private:
+  int _internal_dur_microsecond_values_size() const;
+  public:
+  void clear_dur_microsecond_values();
+  private:
+  int64_t _internal_dur_microsecond_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_dur_microsecond_values() const;
+  void _internal_add_dur_microsecond_values(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_dur_microsecond_values();
+  public:
+  int64_t dur_microsecond_values(int index) const;
+  void set_dur_microsecond_values(int index, int64_t value);
+  void add_dur_microsecond_values(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      dur_microsecond_values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_dur_microsecond_values();
+
+  // repeated int64 dur_nanosecond_values = 30;
+  int dur_nanosecond_values_size() const;
+  private:
+  int _internal_dur_nanosecond_values_size() const;
+  public:
+  void clear_dur_nanosecond_values();
+  private:
+  int64_t _internal_dur_nanosecond_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_dur_nanosecond_values() const;
+  void _internal_add_dur_nanosecond_values(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_dur_nanosecond_values();
+  public:
+  int64_t dur_nanosecond_values(int index) const;
+  void set_dur_nanosecond_values(int index, int64_t value);
+  void add_dur_nanosecond_values(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      dur_nanosecond_values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_dur_nanosecond_values();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.Column.Values)
  private:
   class _Internal;
@@ -842,6 +934,14 @@ class Column_Values final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > interval_day_time_values_;
     mutable std::atomic<int> _interval_day_time_values_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::IntervalMonthDayNano > interval_month_day_nano_values_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > dur_second_values_;
+    mutable std::atomic<int> _dur_second_values_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > dur_millisecond_values_;
+    mutable std::atomic<int> _dur_millisecond_values_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > dur_microsecond_values_;
+    mutable std::atomic<int> _dur_microsecond_values_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > dur_nanosecond_values_;
+    mutable std::atomic<int> _dur_nanosecond_values_cached_byte_size_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2510,6 +2610,194 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Interval
 Column_Values::interval_month_day_nano_values() const {
   // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.interval_month_day_nano_values)
   return _impl_.interval_month_day_nano_values_;
+}
+
+// repeated int64 dur_second_values = 27;
+inline int Column_Values::_internal_dur_second_values_size() const {
+  return _impl_.dur_second_values_.size();
+}
+inline int Column_Values::dur_second_values_size() const {
+  return _internal_dur_second_values_size();
+}
+inline void Column_Values::clear_dur_second_values() {
+  _impl_.dur_second_values_.Clear();
+}
+inline int64_t Column_Values::_internal_dur_second_values(int index) const {
+  return _impl_.dur_second_values_.Get(index);
+}
+inline int64_t Column_Values::dur_second_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.dur_second_values)
+  return _internal_dur_second_values(index);
+}
+inline void Column_Values::set_dur_second_values(int index, int64_t value) {
+  _impl_.dur_second_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.dur_second_values)
+}
+inline void Column_Values::_internal_add_dur_second_values(int64_t value) {
+  _impl_.dur_second_values_.Add(value);
+}
+inline void Column_Values::add_dur_second_values(int64_t value) {
+  _internal_add_dur_second_values(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.dur_second_values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::_internal_dur_second_values() const {
+  return _impl_.dur_second_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::dur_second_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.dur_second_values)
+  return _internal_dur_second_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::_internal_mutable_dur_second_values() {
+  return &_impl_.dur_second_values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::mutable_dur_second_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.dur_second_values)
+  return _internal_mutable_dur_second_values();
+}
+
+// repeated int64 dur_millisecond_values = 28;
+inline int Column_Values::_internal_dur_millisecond_values_size() const {
+  return _impl_.dur_millisecond_values_.size();
+}
+inline int Column_Values::dur_millisecond_values_size() const {
+  return _internal_dur_millisecond_values_size();
+}
+inline void Column_Values::clear_dur_millisecond_values() {
+  _impl_.dur_millisecond_values_.Clear();
+}
+inline int64_t Column_Values::_internal_dur_millisecond_values(int index) const {
+  return _impl_.dur_millisecond_values_.Get(index);
+}
+inline int64_t Column_Values::dur_millisecond_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.dur_millisecond_values)
+  return _internal_dur_millisecond_values(index);
+}
+inline void Column_Values::set_dur_millisecond_values(int index, int64_t value) {
+  _impl_.dur_millisecond_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.dur_millisecond_values)
+}
+inline void Column_Values::_internal_add_dur_millisecond_values(int64_t value) {
+  _impl_.dur_millisecond_values_.Add(value);
+}
+inline void Column_Values::add_dur_millisecond_values(int64_t value) {
+  _internal_add_dur_millisecond_values(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.dur_millisecond_values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::_internal_dur_millisecond_values() const {
+  return _impl_.dur_millisecond_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::dur_millisecond_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.dur_millisecond_values)
+  return _internal_dur_millisecond_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::_internal_mutable_dur_millisecond_values() {
+  return &_impl_.dur_millisecond_values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::mutable_dur_millisecond_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.dur_millisecond_values)
+  return _internal_mutable_dur_millisecond_values();
+}
+
+// repeated int64 dur_microsecond_values = 29;
+inline int Column_Values::_internal_dur_microsecond_values_size() const {
+  return _impl_.dur_microsecond_values_.size();
+}
+inline int Column_Values::dur_microsecond_values_size() const {
+  return _internal_dur_microsecond_values_size();
+}
+inline void Column_Values::clear_dur_microsecond_values() {
+  _impl_.dur_microsecond_values_.Clear();
+}
+inline int64_t Column_Values::_internal_dur_microsecond_values(int index) const {
+  return _impl_.dur_microsecond_values_.Get(index);
+}
+inline int64_t Column_Values::dur_microsecond_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.dur_microsecond_values)
+  return _internal_dur_microsecond_values(index);
+}
+inline void Column_Values::set_dur_microsecond_values(int index, int64_t value) {
+  _impl_.dur_microsecond_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.dur_microsecond_values)
+}
+inline void Column_Values::_internal_add_dur_microsecond_values(int64_t value) {
+  _impl_.dur_microsecond_values_.Add(value);
+}
+inline void Column_Values::add_dur_microsecond_values(int64_t value) {
+  _internal_add_dur_microsecond_values(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.dur_microsecond_values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::_internal_dur_microsecond_values() const {
+  return _impl_.dur_microsecond_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::dur_microsecond_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.dur_microsecond_values)
+  return _internal_dur_microsecond_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::_internal_mutable_dur_microsecond_values() {
+  return &_impl_.dur_microsecond_values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::mutable_dur_microsecond_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.dur_microsecond_values)
+  return _internal_mutable_dur_microsecond_values();
+}
+
+// repeated int64 dur_nanosecond_values = 30;
+inline int Column_Values::_internal_dur_nanosecond_values_size() const {
+  return _impl_.dur_nanosecond_values_.size();
+}
+inline int Column_Values::dur_nanosecond_values_size() const {
+  return _internal_dur_nanosecond_values_size();
+}
+inline void Column_Values::clear_dur_nanosecond_values() {
+  _impl_.dur_nanosecond_values_.Clear();
+}
+inline int64_t Column_Values::_internal_dur_nanosecond_values(int index) const {
+  return _impl_.dur_nanosecond_values_.Get(index);
+}
+inline int64_t Column_Values::dur_nanosecond_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.dur_nanosecond_values)
+  return _internal_dur_nanosecond_values(index);
+}
+inline void Column_Values::set_dur_nanosecond_values(int index, int64_t value) {
+  _impl_.dur_nanosecond_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.dur_nanosecond_values)
+}
+inline void Column_Values::_internal_add_dur_nanosecond_values(int64_t value) {
+  _impl_.dur_nanosecond_values_.Add(value);
+}
+inline void Column_Values::add_dur_nanosecond_values(int64_t value) {
+  _internal_add_dur_nanosecond_values(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.dur_nanosecond_values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::_internal_dur_nanosecond_values() const {
+  return _impl_.dur_nanosecond_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::dur_nanosecond_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.dur_nanosecond_values)
+  return _internal_dur_nanosecond_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::_internal_mutable_dur_nanosecond_values() {
+  return &_impl_.dur_nanosecond_values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Column_Values::mutable_dur_nanosecond_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.dur_nanosecond_values)
+  return _internal_mutable_dur_nanosecond_values();
 }
 
 // -------------------------------------------------------------------
