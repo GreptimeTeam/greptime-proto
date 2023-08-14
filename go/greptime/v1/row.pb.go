@@ -204,7 +204,7 @@ type Value struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Types that are assignable to Value:
+	// Types that are assignable to ValueData:
 	//
 	//	*Value_I8Value
 	//	*Value_I16Value
@@ -229,7 +229,7 @@ type Value struct {
 	//	*Value_TimeMillisecondValue
 	//	*Value_TimeMicrosecondValue
 	//	*Value_TimeNanosecondValue
-	Value isValue_Value `protobuf_oneof:"value"`
+	ValueData isValue_ValueData `protobuf_oneof:"value_data"`
 }
 
 func (x *Value) Reset() {
@@ -264,176 +264,176 @@ func (*Value) Descriptor() ([]byte, []int) {
 	return file_greptime_v1_row_proto_rawDescGZIP(), []int{3}
 }
 
-func (m *Value) GetValue() isValue_Value {
+func (m *Value) GetValueData() isValue_ValueData {
 	if m != nil {
-		return m.Value
+		return m.ValueData
 	}
 	return nil
 }
 
 func (x *Value) GetI8Value() int32 {
-	if x, ok := x.GetValue().(*Value_I8Value); ok {
+	if x, ok := x.GetValueData().(*Value_I8Value); ok {
 		return x.I8Value
 	}
 	return 0
 }
 
 func (x *Value) GetI16Value() int32 {
-	if x, ok := x.GetValue().(*Value_I16Value); ok {
+	if x, ok := x.GetValueData().(*Value_I16Value); ok {
 		return x.I16Value
 	}
 	return 0
 }
 
 func (x *Value) GetI32Value() int32 {
-	if x, ok := x.GetValue().(*Value_I32Value); ok {
+	if x, ok := x.GetValueData().(*Value_I32Value); ok {
 		return x.I32Value
 	}
 	return 0
 }
 
 func (x *Value) GetI64Value() int64 {
-	if x, ok := x.GetValue().(*Value_I64Value); ok {
+	if x, ok := x.GetValueData().(*Value_I64Value); ok {
 		return x.I64Value
 	}
 	return 0
 }
 
 func (x *Value) GetU8Value() uint32 {
-	if x, ok := x.GetValue().(*Value_U8Value); ok {
+	if x, ok := x.GetValueData().(*Value_U8Value); ok {
 		return x.U8Value
 	}
 	return 0
 }
 
 func (x *Value) GetU16Value() uint32 {
-	if x, ok := x.GetValue().(*Value_U16Value); ok {
+	if x, ok := x.GetValueData().(*Value_U16Value); ok {
 		return x.U16Value
 	}
 	return 0
 }
 
 func (x *Value) GetU32Value() uint32 {
-	if x, ok := x.GetValue().(*Value_U32Value); ok {
+	if x, ok := x.GetValueData().(*Value_U32Value); ok {
 		return x.U32Value
 	}
 	return 0
 }
 
 func (x *Value) GetU64Value() uint64 {
-	if x, ok := x.GetValue().(*Value_U64Value); ok {
+	if x, ok := x.GetValueData().(*Value_U64Value); ok {
 		return x.U64Value
 	}
 	return 0
 }
 
 func (x *Value) GetF32Value() float32 {
-	if x, ok := x.GetValue().(*Value_F32Value); ok {
+	if x, ok := x.GetValueData().(*Value_F32Value); ok {
 		return x.F32Value
 	}
 	return 0
 }
 
 func (x *Value) GetF64Value() float64 {
-	if x, ok := x.GetValue().(*Value_F64Value); ok {
+	if x, ok := x.GetValueData().(*Value_F64Value); ok {
 		return x.F64Value
 	}
 	return 0
 }
 
 func (x *Value) GetBoolValue() bool {
-	if x, ok := x.GetValue().(*Value_BoolValue); ok {
+	if x, ok := x.GetValueData().(*Value_BoolValue); ok {
 		return x.BoolValue
 	}
 	return false
 }
 
 func (x *Value) GetBinaryValue() []byte {
-	if x, ok := x.GetValue().(*Value_BinaryValue); ok {
+	if x, ok := x.GetValueData().(*Value_BinaryValue); ok {
 		return x.BinaryValue
 	}
 	return nil
 }
 
 func (x *Value) GetStringValue() string {
-	if x, ok := x.GetValue().(*Value_StringValue); ok {
+	if x, ok := x.GetValueData().(*Value_StringValue); ok {
 		return x.StringValue
 	}
 	return ""
 }
 
 func (x *Value) GetDateValue() int32 {
-	if x, ok := x.GetValue().(*Value_DateValue); ok {
+	if x, ok := x.GetValueData().(*Value_DateValue); ok {
 		return x.DateValue
 	}
 	return 0
 }
 
 func (x *Value) GetDatetimeValue() int64 {
-	if x, ok := x.GetValue().(*Value_DatetimeValue); ok {
+	if x, ok := x.GetValueData().(*Value_DatetimeValue); ok {
 		return x.DatetimeValue
 	}
 	return 0
 }
 
 func (x *Value) GetTsSecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TsSecondValue); ok {
+	if x, ok := x.GetValueData().(*Value_TsSecondValue); ok {
 		return x.TsSecondValue
 	}
 	return 0
 }
 
 func (x *Value) GetTsMillisecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TsMillisecondValue); ok {
+	if x, ok := x.GetValueData().(*Value_TsMillisecondValue); ok {
 		return x.TsMillisecondValue
 	}
 	return 0
 }
 
 func (x *Value) GetTsMicrosecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TsMicrosecondValue); ok {
+	if x, ok := x.GetValueData().(*Value_TsMicrosecondValue); ok {
 		return x.TsMicrosecondValue
 	}
 	return 0
 }
 
 func (x *Value) GetTsNanosecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TsNanosecondValue); ok {
+	if x, ok := x.GetValueData().(*Value_TsNanosecondValue); ok {
 		return x.TsNanosecondValue
 	}
 	return 0
 }
 
 func (x *Value) GetTimeSecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TimeSecondValue); ok {
+	if x, ok := x.GetValueData().(*Value_TimeSecondValue); ok {
 		return x.TimeSecondValue
 	}
 	return 0
 }
 
 func (x *Value) GetTimeMillisecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TimeMillisecondValue); ok {
+	if x, ok := x.GetValueData().(*Value_TimeMillisecondValue); ok {
 		return x.TimeMillisecondValue
 	}
 	return 0
 }
 
 func (x *Value) GetTimeMicrosecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TimeMicrosecondValue); ok {
+	if x, ok := x.GetValueData().(*Value_TimeMicrosecondValue); ok {
 		return x.TimeMicrosecondValue
 	}
 	return 0
 }
 
 func (x *Value) GetTimeNanosecondValue() int64 {
-	if x, ok := x.GetValue().(*Value_TimeNanosecondValue); ok {
+	if x, ok := x.GetValueData().(*Value_TimeNanosecondValue); ok {
 		return x.TimeNanosecondValue
 	}
 	return 0
 }
 
-type isValue_Value interface {
-	isValue_Value()
+type isValue_ValueData interface {
+	isValue_ValueData()
 }
 
 type Value_I8Value struct {
@@ -528,51 +528,51 @@ type Value_TimeNanosecondValue struct {
 	TimeNanosecondValue int64 `protobuf:"varint,23,opt,name=time_nanosecond_value,json=timeNanosecondValue,proto3,oneof"`
 }
 
-func (*Value_I8Value) isValue_Value() {}
+func (*Value_I8Value) isValue_ValueData() {}
 
-func (*Value_I16Value) isValue_Value() {}
+func (*Value_I16Value) isValue_ValueData() {}
 
-func (*Value_I32Value) isValue_Value() {}
+func (*Value_I32Value) isValue_ValueData() {}
 
-func (*Value_I64Value) isValue_Value() {}
+func (*Value_I64Value) isValue_ValueData() {}
 
-func (*Value_U8Value) isValue_Value() {}
+func (*Value_U8Value) isValue_ValueData() {}
 
-func (*Value_U16Value) isValue_Value() {}
+func (*Value_U16Value) isValue_ValueData() {}
 
-func (*Value_U32Value) isValue_Value() {}
+func (*Value_U32Value) isValue_ValueData() {}
 
-func (*Value_U64Value) isValue_Value() {}
+func (*Value_U64Value) isValue_ValueData() {}
 
-func (*Value_F32Value) isValue_Value() {}
+func (*Value_F32Value) isValue_ValueData() {}
 
-func (*Value_F64Value) isValue_Value() {}
+func (*Value_F64Value) isValue_ValueData() {}
 
-func (*Value_BoolValue) isValue_Value() {}
+func (*Value_BoolValue) isValue_ValueData() {}
 
-func (*Value_BinaryValue) isValue_Value() {}
+func (*Value_BinaryValue) isValue_ValueData() {}
 
-func (*Value_StringValue) isValue_Value() {}
+func (*Value_StringValue) isValue_ValueData() {}
 
-func (*Value_DateValue) isValue_Value() {}
+func (*Value_DateValue) isValue_ValueData() {}
 
-func (*Value_DatetimeValue) isValue_Value() {}
+func (*Value_DatetimeValue) isValue_ValueData() {}
 
-func (*Value_TsSecondValue) isValue_Value() {}
+func (*Value_TsSecondValue) isValue_ValueData() {}
 
-func (*Value_TsMillisecondValue) isValue_Value() {}
+func (*Value_TsMillisecondValue) isValue_ValueData() {}
 
-func (*Value_TsMicrosecondValue) isValue_Value() {}
+func (*Value_TsMicrosecondValue) isValue_ValueData() {}
 
-func (*Value_TsNanosecondValue) isValue_Value() {}
+func (*Value_TsNanosecondValue) isValue_ValueData() {}
 
-func (*Value_TimeSecondValue) isValue_Value() {}
+func (*Value_TimeSecondValue) isValue_ValueData() {}
 
-func (*Value_TimeMillisecondValue) isValue_Value() {}
+func (*Value_TimeMillisecondValue) isValue_ValueData() {}
 
-func (*Value_TimeMicrosecondValue) isValue_Value() {}
+func (*Value_TimeMicrosecondValue) isValue_ValueData() {}
 
-func (*Value_TimeNanosecondValue) isValue_Value() {}
+func (*Value_TimeNanosecondValue) isValue_ValueData() {}
 
 var File_greptime_v1_row_proto protoreflect.FileDescriptor
 
@@ -600,7 +600,7 @@ var file_greptime_v1_row_proto_rawDesc = []byte{
 	0x6d, 0x61, 0x6e, 0x74, 0x69, 0x63, 0x54, 0x79, 0x70, 0x65, 0x22, 0x31, 0x0a, 0x03, 0x52, 0x6f,
 	0x77, 0x12, 0x2a, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
 	0x0b, 0x32, 0x12, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e,
-	0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x8f, 0x07,
+	0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x94, 0x07,
 	0x0a, 0x05, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x1b, 0x0a, 0x08, 0x69, 0x38, 0x5f, 0x76, 0x61,
 	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x48, 0x00, 0x52, 0x07, 0x69, 0x38, 0x56,
 	0x61, 0x6c, 0x75, 0x65, 0x12, 0x1d, 0x0a, 0x09, 0x69, 0x31, 0x36, 0x5f, 0x76, 0x61, 0x6c, 0x75,
@@ -657,13 +657,13 @@ var file_greptime_v1_row_proto_rawDesc = []byte{
 	0x12, 0x34, 0x0a, 0x15, 0x74, 0x69, 0x6d, 0x65, 0x5f, 0x6e, 0x61, 0x6e, 0x6f, 0x73, 0x65, 0x63,
 	0x6f, 0x6e, 0x64, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x17, 0x20, 0x01, 0x28, 0x03, 0x48,
 	0x00, 0x52, 0x13, 0x74, 0x69, 0x6d, 0x65, 0x4e, 0x61, 0x6e, 0x6f, 0x73, 0x65, 0x63, 0x6f, 0x6e,
-	0x64, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x07, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x42,
-	0x50, 0x0a, 0x0e, 0x69, 0x6f, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76,
-	0x31, 0x42, 0x07, 0x52, 0x6f, 0x77, 0x44, 0x61, 0x74, 0x61, 0x5a, 0x35, 0x67, 0x69, 0x74, 0x68,
-	0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54,
-	0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76,
-	0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x64, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x0c, 0x0a, 0x0a, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x5f,
+	0x64, 0x61, 0x74, 0x61, 0x42, 0x50, 0x0a, 0x0e, 0x69, 0x6f, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74,
+	0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x07, 0x52, 0x6f, 0x77, 0x44, 0x61, 0x74, 0x61, 0x5a,
+	0x35, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70,
+	0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
+	0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74,
+	0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (

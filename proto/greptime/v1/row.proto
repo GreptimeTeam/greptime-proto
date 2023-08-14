@@ -38,7 +38,7 @@ message Row {
 }
 
 message Value {
-  oneof value {
+  oneof value_data {
     int32 i8_value = 1;
     int32 i16_value = 2;
     int32 i32_value = 3;

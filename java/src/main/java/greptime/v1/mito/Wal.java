@@ -1067,1063 +1067,57 @@ public final class Wal {
 
   }
 
-  public interface RegionMutationOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.mito.RegionMutation)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * Id of the region to write.
-     * </pre>
-     *
-     * <code>uint64 region_id = 1;</code>
-     * @return The regionId.
-     */
-    long getRegionId();
-
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    java.util.List<greptime.v1.mito.Wal.Mutation> 
-        getMutationsList();
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    greptime.v1.mito.Wal.Mutation getMutations(int index);
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    int getMutationsCount();
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    java.util.List<? extends greptime.v1.mito.Wal.MutationOrBuilder> 
-        getMutationsOrBuilderList();
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    greptime.v1.mito.Wal.MutationOrBuilder getMutationsOrBuilder(
-        int index);
-  }
-  /**
-   * <pre>
-   * Mutation to a region, contains a list of row mutations to the region.
-   * </pre>
-   *
-   * Protobuf type {@code greptime.v1.mito.RegionMutation}
-   */
-  public static final class RegionMutation extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.mito.RegionMutation)
-      RegionMutationOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use RegionMutation.newBuilder() to construct.
-    private RegionMutation(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private RegionMutation() {
-      mutations_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new RegionMutation();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private RegionMutation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              regionId_ = input.readUInt64();
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                mutations_ = new java.util.ArrayList<greptime.v1.mito.Wal.Mutation>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              mutations_.add(
-                  input.readMessage(greptime.v1.mito.Wal.Mutation.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          mutations_ = java.util.Collections.unmodifiableList(mutations_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return greptime.v1.mito.Wal.internal_static_greptime_v1_mito_RegionMutation_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return greptime.v1.mito.Wal.internal_static_greptime_v1_mito_RegionMutation_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              greptime.v1.mito.Wal.RegionMutation.class, greptime.v1.mito.Wal.RegionMutation.Builder.class);
-    }
-
-    public static final int REGION_ID_FIELD_NUMBER = 1;
-    private long regionId_;
-    /**
-     * <pre>
-     * Id of the region to write.
-     * </pre>
-     *
-     * <code>uint64 region_id = 1;</code>
-     * @return The regionId.
-     */
-    @java.lang.Override
-    public long getRegionId() {
-      return regionId_;
-    }
-
-    public static final int MUTATIONS_FIELD_NUMBER = 2;
-    private java.util.List<greptime.v1.mito.Wal.Mutation> mutations_;
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    @java.lang.Override
-    public java.util.List<greptime.v1.mito.Wal.Mutation> getMutationsList() {
-      return mutations_;
-    }
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends greptime.v1.mito.Wal.MutationOrBuilder> 
-        getMutationsOrBuilderList() {
-      return mutations_;
-    }
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    @java.lang.Override
-    public int getMutationsCount() {
-      return mutations_.size();
-    }
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.mito.Wal.Mutation getMutations(int index) {
-      return mutations_.get(index);
-    }
-    /**
-     * <pre>
-     * List of mutations.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.mito.Wal.MutationOrBuilder getMutationsOrBuilder(
-        int index) {
-      return mutations_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (regionId_ != 0L) {
-        output.writeUInt64(1, regionId_);
-      }
-      for (int i = 0; i < mutations_.size(); i++) {
-        output.writeMessage(2, mutations_.get(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (regionId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, regionId_);
-      }
-      for (int i = 0; i < mutations_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, mutations_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof greptime.v1.mito.Wal.RegionMutation)) {
-        return super.equals(obj);
-      }
-      greptime.v1.mito.Wal.RegionMutation other = (greptime.v1.mito.Wal.RegionMutation) obj;
-
-      if (getRegionId()
-          != other.getRegionId()) return false;
-      if (!getMutationsList()
-          .equals(other.getMutationsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getRegionId());
-      if (getMutationsCount() > 0) {
-        hash = (37 * hash) + MUTATIONS_FIELD_NUMBER;
-        hash = (53 * hash) + getMutationsList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static greptime.v1.mito.Wal.RegionMutation parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(greptime.v1.mito.Wal.RegionMutation prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * Mutation to a region, contains a list of row mutations to the region.
-     * </pre>
-     *
-     * Protobuf type {@code greptime.v1.mito.RegionMutation}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.mito.RegionMutation)
-        greptime.v1.mito.Wal.RegionMutationOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return greptime.v1.mito.Wal.internal_static_greptime_v1_mito_RegionMutation_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return greptime.v1.mito.Wal.internal_static_greptime_v1_mito_RegionMutation_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                greptime.v1.mito.Wal.RegionMutation.class, greptime.v1.mito.Wal.RegionMutation.Builder.class);
-      }
-
-      // Construct using greptime.v1.mito.Wal.RegionMutation.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getMutationsFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        regionId_ = 0L;
-
-        if (mutationsBuilder_ == null) {
-          mutations_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          mutationsBuilder_.clear();
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return greptime.v1.mito.Wal.internal_static_greptime_v1_mito_RegionMutation_descriptor;
-      }
-
-      @java.lang.Override
-      public greptime.v1.mito.Wal.RegionMutation getDefaultInstanceForType() {
-        return greptime.v1.mito.Wal.RegionMutation.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public greptime.v1.mito.Wal.RegionMutation build() {
-        greptime.v1.mito.Wal.RegionMutation result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public greptime.v1.mito.Wal.RegionMutation buildPartial() {
-        greptime.v1.mito.Wal.RegionMutation result = new greptime.v1.mito.Wal.RegionMutation(this);
-        int from_bitField0_ = bitField0_;
-        result.regionId_ = regionId_;
-        if (mutationsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            mutations_ = java.util.Collections.unmodifiableList(mutations_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.mutations_ = mutations_;
-        } else {
-          result.mutations_ = mutationsBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.mito.Wal.RegionMutation) {
-          return mergeFrom((greptime.v1.mito.Wal.RegionMutation)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(greptime.v1.mito.Wal.RegionMutation other) {
-        if (other == greptime.v1.mito.Wal.RegionMutation.getDefaultInstance()) return this;
-        if (other.getRegionId() != 0L) {
-          setRegionId(other.getRegionId());
-        }
-        if (mutationsBuilder_ == null) {
-          if (!other.mutations_.isEmpty()) {
-            if (mutations_.isEmpty()) {
-              mutations_ = other.mutations_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureMutationsIsMutable();
-              mutations_.addAll(other.mutations_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.mutations_.isEmpty()) {
-            if (mutationsBuilder_.isEmpty()) {
-              mutationsBuilder_.dispose();
-              mutationsBuilder_ = null;
-              mutations_ = other.mutations_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              mutationsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getMutationsFieldBuilder() : null;
-            } else {
-              mutationsBuilder_.addAllMessages(other.mutations_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        greptime.v1.mito.Wal.RegionMutation parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.mito.Wal.RegionMutation) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private long regionId_ ;
-      /**
-       * <pre>
-       * Id of the region to write.
-       * </pre>
-       *
-       * <code>uint64 region_id = 1;</code>
-       * @return The regionId.
-       */
-      @java.lang.Override
-      public long getRegionId() {
-        return regionId_;
-      }
-      /**
-       * <pre>
-       * Id of the region to write.
-       * </pre>
-       *
-       * <code>uint64 region_id = 1;</code>
-       * @param value The regionId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegionId(long value) {
-        
-        regionId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Id of the region to write.
-       * </pre>
-       *
-       * <code>uint64 region_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRegionId() {
-        
-        regionId_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<greptime.v1.mito.Wal.Mutation> mutations_ =
-        java.util.Collections.emptyList();
-      private void ensureMutationsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          mutations_ = new java.util.ArrayList<greptime.v1.mito.Wal.Mutation>(mutations_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.mito.Wal.Mutation, greptime.v1.mito.Wal.Mutation.Builder, greptime.v1.mito.Wal.MutationOrBuilder> mutationsBuilder_;
-
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public java.util.List<greptime.v1.mito.Wal.Mutation> getMutationsList() {
-        if (mutationsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(mutations_);
-        } else {
-          return mutationsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public int getMutationsCount() {
-        if (mutationsBuilder_ == null) {
-          return mutations_.size();
-        } else {
-          return mutationsBuilder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public greptime.v1.mito.Wal.Mutation getMutations(int index) {
-        if (mutationsBuilder_ == null) {
-          return mutations_.get(index);
-        } else {
-          return mutationsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public Builder setMutations(
-          int index, greptime.v1.mito.Wal.Mutation value) {
-        if (mutationsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureMutationsIsMutable();
-          mutations_.set(index, value);
-          onChanged();
-        } else {
-          mutationsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public Builder setMutations(
-          int index, greptime.v1.mito.Wal.Mutation.Builder builderForValue) {
-        if (mutationsBuilder_ == null) {
-          ensureMutationsIsMutable();
-          mutations_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          mutationsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public Builder addMutations(greptime.v1.mito.Wal.Mutation value) {
-        if (mutationsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureMutationsIsMutable();
-          mutations_.add(value);
-          onChanged();
-        } else {
-          mutationsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public Builder addMutations(
-          int index, greptime.v1.mito.Wal.Mutation value) {
-        if (mutationsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureMutationsIsMutable();
-          mutations_.add(index, value);
-          onChanged();
-        } else {
-          mutationsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public Builder addMutations(
-          greptime.v1.mito.Wal.Mutation.Builder builderForValue) {
-        if (mutationsBuilder_ == null) {
-          ensureMutationsIsMutable();
-          mutations_.add(builderForValue.build());
-          onChanged();
-        } else {
-          mutationsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public Builder addMutations(
-          int index, greptime.v1.mito.Wal.Mutation.Builder builderForValue) {
-        if (mutationsBuilder_ == null) {
-          ensureMutationsIsMutable();
-          mutations_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          mutationsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public Builder addAllMutations(
-          java.lang.Iterable<? extends greptime.v1.mito.Wal.Mutation> values) {
-        if (mutationsBuilder_ == null) {
-          ensureMutationsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, mutations_);
-          onChanged();
-        } else {
-          mutationsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public Builder clearMutations() {
-        if (mutationsBuilder_ == null) {
-          mutations_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          mutationsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public Builder removeMutations(int index) {
-        if (mutationsBuilder_ == null) {
-          ensureMutationsIsMutable();
-          mutations_.remove(index);
-          onChanged();
-        } else {
-          mutationsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public greptime.v1.mito.Wal.Mutation.Builder getMutationsBuilder(
-          int index) {
-        return getMutationsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public greptime.v1.mito.Wal.MutationOrBuilder getMutationsOrBuilder(
-          int index) {
-        if (mutationsBuilder_ == null) {
-          return mutations_.get(index);  } else {
-          return mutationsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public java.util.List<? extends greptime.v1.mito.Wal.MutationOrBuilder> 
-           getMutationsOrBuilderList() {
-        if (mutationsBuilder_ != null) {
-          return mutationsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(mutations_);
-        }
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public greptime.v1.mito.Wal.Mutation.Builder addMutationsBuilder() {
-        return getMutationsFieldBuilder().addBuilder(
-            greptime.v1.mito.Wal.Mutation.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public greptime.v1.mito.Wal.Mutation.Builder addMutationsBuilder(
-          int index) {
-        return getMutationsFieldBuilder().addBuilder(
-            index, greptime.v1.mito.Wal.Mutation.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * List of mutations.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.mito.Mutation mutations = 2;</code>
-       */
-      public java.util.List<greptime.v1.mito.Wal.Mutation.Builder> 
-           getMutationsBuilderList() {
-        return getMutationsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.mito.Wal.Mutation, greptime.v1.mito.Wal.Mutation.Builder, greptime.v1.mito.Wal.MutationOrBuilder> 
-          getMutationsFieldBuilder() {
-        if (mutationsBuilder_ == null) {
-          mutationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              greptime.v1.mito.Wal.Mutation, greptime.v1.mito.Wal.Mutation.Builder, greptime.v1.mito.Wal.MutationOrBuilder>(
-                  mutations_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          mutations_ = null;
-        }
-        return mutationsBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.mito.RegionMutation)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.mito.RegionMutation)
-    private static final greptime.v1.mito.Wal.RegionMutation DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new greptime.v1.mito.Wal.RegionMutation();
-    }
-
-    public static greptime.v1.mito.Wal.RegionMutation getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<RegionMutation>
-        PARSER = new com.google.protobuf.AbstractParser<RegionMutation>() {
-      @java.lang.Override
-      public RegionMutation parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RegionMutation(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<RegionMutation> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<RegionMutation> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public greptime.v1.mito.Wal.RegionMutation getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface WalEntryOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.mito.WalEntry)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
-    java.util.List<greptime.v1.mito.Wal.RegionMutation> 
-        getRegionMutationsList();
+    java.util.List<greptime.v1.mito.Wal.Mutation> 
+        getMutationsList();
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
-    greptime.v1.mito.Wal.RegionMutation getRegionMutations(int index);
+    greptime.v1.mito.Wal.Mutation getMutations(int index);
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
-    int getRegionMutationsCount();
+    int getMutationsCount();
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
-    java.util.List<? extends greptime.v1.mito.Wal.RegionMutationOrBuilder> 
-        getRegionMutationsOrBuilderList();
+    java.util.List<? extends greptime.v1.mito.Wal.MutationOrBuilder> 
+        getMutationsOrBuilderList();
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
-    greptime.v1.mito.Wal.RegionMutationOrBuilder getRegionMutationsOrBuilder(
+    greptime.v1.mito.Wal.MutationOrBuilder getMutationsOrBuilder(
         int index);
   }
   /**
    * <pre>
-   * Entry in the WAL.
+   * A WAL entry contains a list of mutations for a region to write.
    * </pre>
    *
    * Protobuf type {@code greptime.v1.mito.WalEntry}
@@ -2138,7 +1132,7 @@ public final class Wal {
       super(builder);
     }
     private WalEntry() {
-      regionMutations_ = java.util.Collections.emptyList();
+      mutations_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -2174,11 +1168,11 @@ public final class Wal {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                regionMutations_ = new java.util.ArrayList<greptime.v1.mito.Wal.RegionMutation>();
+                mutations_ = new java.util.ArrayList<greptime.v1.mito.Wal.Mutation>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              regionMutations_.add(
-                  input.readMessage(greptime.v1.mito.Wal.RegionMutation.parser(), extensionRegistry));
+              mutations_.add(
+                  input.readMessage(greptime.v1.mito.Wal.Mutation.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -2199,7 +1193,7 @@ public final class Wal {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          regionMutations_ = java.util.Collections.unmodifiableList(regionMutations_);
+          mutations_ = java.util.Collections.unmodifiableList(mutations_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2218,64 +1212,64 @@ public final class Wal {
               greptime.v1.mito.Wal.WalEntry.class, greptime.v1.mito.Wal.WalEntry.Builder.class);
     }
 
-    public static final int REGION_MUTATIONS_FIELD_NUMBER = 1;
-    private java.util.List<greptime.v1.mito.Wal.RegionMutation> regionMutations_;
+    public static final int MUTATIONS_FIELD_NUMBER = 1;
+    private java.util.List<greptime.v1.mito.Wal.Mutation> mutations_;
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<greptime.v1.mito.Wal.RegionMutation> getRegionMutationsList() {
-      return regionMutations_;
+    public java.util.List<greptime.v1.mito.Wal.Mutation> getMutationsList() {
+      return mutations_;
     }
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends greptime.v1.mito.Wal.RegionMutationOrBuilder> 
-        getRegionMutationsOrBuilderList() {
-      return regionMutations_;
+    public java.util.List<? extends greptime.v1.mito.Wal.MutationOrBuilder> 
+        getMutationsOrBuilderList() {
+      return mutations_;
     }
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
     @java.lang.Override
-    public int getRegionMutationsCount() {
-      return regionMutations_.size();
+    public int getMutationsCount() {
+      return mutations_.size();
     }
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
     @java.lang.Override
-    public greptime.v1.mito.Wal.RegionMutation getRegionMutations(int index) {
-      return regionMutations_.get(index);
+    public greptime.v1.mito.Wal.Mutation getMutations(int index) {
+      return mutations_.get(index);
     }
     /**
      * <pre>
-     * Mutations to regions.
+     * List of mutations for a region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+     * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
      */
     @java.lang.Override
-    public greptime.v1.mito.Wal.RegionMutationOrBuilder getRegionMutationsOrBuilder(
+    public greptime.v1.mito.Wal.MutationOrBuilder getMutationsOrBuilder(
         int index) {
-      return regionMutations_.get(index);
+      return mutations_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2292,8 +1286,8 @@ public final class Wal {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < regionMutations_.size(); i++) {
-        output.writeMessage(1, regionMutations_.get(i));
+      for (int i = 0; i < mutations_.size(); i++) {
+        output.writeMessage(1, mutations_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -2304,9 +1298,9 @@ public final class Wal {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < regionMutations_.size(); i++) {
+      for (int i = 0; i < mutations_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, regionMutations_.get(i));
+          .computeMessageSize(1, mutations_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2323,8 +1317,8 @@ public final class Wal {
       }
       greptime.v1.mito.Wal.WalEntry other = (greptime.v1.mito.Wal.WalEntry) obj;
 
-      if (!getRegionMutationsList()
-          .equals(other.getRegionMutationsList())) return false;
+      if (!getMutationsList()
+          .equals(other.getMutationsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2336,9 +1330,9 @@ public final class Wal {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getRegionMutationsCount() > 0) {
-        hash = (37 * hash) + REGION_MUTATIONS_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionMutationsList().hashCode();
+      if (getMutationsCount() > 0) {
+        hash = (37 * hash) + MUTATIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getMutationsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2437,7 +1431,7 @@ public final class Wal {
     }
     /**
      * <pre>
-     * Entry in the WAL.
+     * A WAL entry contains a list of mutations for a region to write.
      * </pre>
      *
      * Protobuf type {@code greptime.v1.mito.WalEntry}
@@ -2472,17 +1466,17 @@ public final class Wal {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getRegionMutationsFieldBuilder();
+          getMutationsFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (regionMutationsBuilder_ == null) {
-          regionMutations_ = java.util.Collections.emptyList();
+        if (mutationsBuilder_ == null) {
+          mutations_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          regionMutationsBuilder_.clear();
+          mutationsBuilder_.clear();
         }
         return this;
       }
@@ -2511,14 +1505,14 @@ public final class Wal {
       public greptime.v1.mito.Wal.WalEntry buildPartial() {
         greptime.v1.mito.Wal.WalEntry result = new greptime.v1.mito.Wal.WalEntry(this);
         int from_bitField0_ = bitField0_;
-        if (regionMutationsBuilder_ == null) {
+        if (mutationsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
-            regionMutations_ = java.util.Collections.unmodifiableList(regionMutations_);
+            mutations_ = java.util.Collections.unmodifiableList(mutations_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.regionMutations_ = regionMutations_;
+          result.mutations_ = mutations_;
         } else {
-          result.regionMutations_ = regionMutationsBuilder_.build();
+          result.mutations_ = mutationsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -2568,29 +1562,29 @@ public final class Wal {
 
       public Builder mergeFrom(greptime.v1.mito.Wal.WalEntry other) {
         if (other == greptime.v1.mito.Wal.WalEntry.getDefaultInstance()) return this;
-        if (regionMutationsBuilder_ == null) {
-          if (!other.regionMutations_.isEmpty()) {
-            if (regionMutations_.isEmpty()) {
-              regionMutations_ = other.regionMutations_;
+        if (mutationsBuilder_ == null) {
+          if (!other.mutations_.isEmpty()) {
+            if (mutations_.isEmpty()) {
+              mutations_ = other.mutations_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureRegionMutationsIsMutable();
-              regionMutations_.addAll(other.regionMutations_);
+              ensureMutationsIsMutable();
+              mutations_.addAll(other.mutations_);
             }
             onChanged();
           }
         } else {
-          if (!other.regionMutations_.isEmpty()) {
-            if (regionMutationsBuilder_.isEmpty()) {
-              regionMutationsBuilder_.dispose();
-              regionMutationsBuilder_ = null;
-              regionMutations_ = other.regionMutations_;
+          if (!other.mutations_.isEmpty()) {
+            if (mutationsBuilder_.isEmpty()) {
+              mutationsBuilder_.dispose();
+              mutationsBuilder_ = null;
+              mutations_ = other.mutations_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              regionMutationsBuilder_ = 
+              mutationsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRegionMutationsFieldBuilder() : null;
+                   getMutationsFieldBuilder() : null;
             } else {
-              regionMutationsBuilder_.addAllMessages(other.regionMutations_);
+              mutationsBuilder_.addAllMessages(other.mutations_);
             }
           }
         }
@@ -2624,316 +1618,316 @@ public final class Wal {
       }
       private int bitField0_;
 
-      private java.util.List<greptime.v1.mito.Wal.RegionMutation> regionMutations_ =
+      private java.util.List<greptime.v1.mito.Wal.Mutation> mutations_ =
         java.util.Collections.emptyList();
-      private void ensureRegionMutationsIsMutable() {
+      private void ensureMutationsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          regionMutations_ = new java.util.ArrayList<greptime.v1.mito.Wal.RegionMutation>(regionMutations_);
+          mutations_ = new java.util.ArrayList<greptime.v1.mito.Wal.Mutation>(mutations_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.mito.Wal.RegionMutation, greptime.v1.mito.Wal.RegionMutation.Builder, greptime.v1.mito.Wal.RegionMutationOrBuilder> regionMutationsBuilder_;
+          greptime.v1.mito.Wal.Mutation, greptime.v1.mito.Wal.Mutation.Builder, greptime.v1.mito.Wal.MutationOrBuilder> mutationsBuilder_;
 
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public java.util.List<greptime.v1.mito.Wal.RegionMutation> getRegionMutationsList() {
-        if (regionMutationsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(regionMutations_);
+      public java.util.List<greptime.v1.mito.Wal.Mutation> getMutationsList() {
+        if (mutationsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(mutations_);
         } else {
-          return regionMutationsBuilder_.getMessageList();
+          return mutationsBuilder_.getMessageList();
         }
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public int getRegionMutationsCount() {
-        if (regionMutationsBuilder_ == null) {
-          return regionMutations_.size();
+      public int getMutationsCount() {
+        if (mutationsBuilder_ == null) {
+          return mutations_.size();
         } else {
-          return regionMutationsBuilder_.getCount();
+          return mutationsBuilder_.getCount();
         }
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public greptime.v1.mito.Wal.RegionMutation getRegionMutations(int index) {
-        if (regionMutationsBuilder_ == null) {
-          return regionMutations_.get(index);
+      public greptime.v1.mito.Wal.Mutation getMutations(int index) {
+        if (mutationsBuilder_ == null) {
+          return mutations_.get(index);
         } else {
-          return regionMutationsBuilder_.getMessage(index);
+          return mutationsBuilder_.getMessage(index);
         }
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public Builder setRegionMutations(
-          int index, greptime.v1.mito.Wal.RegionMutation value) {
-        if (regionMutationsBuilder_ == null) {
+      public Builder setMutations(
+          int index, greptime.v1.mito.Wal.Mutation value) {
+        if (mutationsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureRegionMutationsIsMutable();
-          regionMutations_.set(index, value);
+          ensureMutationsIsMutable();
+          mutations_.set(index, value);
           onChanged();
         } else {
-          regionMutationsBuilder_.setMessage(index, value);
+          mutationsBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public Builder setRegionMutations(
-          int index, greptime.v1.mito.Wal.RegionMutation.Builder builderForValue) {
-        if (regionMutationsBuilder_ == null) {
-          ensureRegionMutationsIsMutable();
-          regionMutations_.set(index, builderForValue.build());
+      public Builder setMutations(
+          int index, greptime.v1.mito.Wal.Mutation.Builder builderForValue) {
+        if (mutationsBuilder_ == null) {
+          ensureMutationsIsMutable();
+          mutations_.set(index, builderForValue.build());
           onChanged();
         } else {
-          regionMutationsBuilder_.setMessage(index, builderForValue.build());
+          mutationsBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public Builder addRegionMutations(greptime.v1.mito.Wal.RegionMutation value) {
-        if (regionMutationsBuilder_ == null) {
+      public Builder addMutations(greptime.v1.mito.Wal.Mutation value) {
+        if (mutationsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureRegionMutationsIsMutable();
-          regionMutations_.add(value);
+          ensureMutationsIsMutable();
+          mutations_.add(value);
           onChanged();
         } else {
-          regionMutationsBuilder_.addMessage(value);
+          mutationsBuilder_.addMessage(value);
         }
         return this;
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public Builder addRegionMutations(
-          int index, greptime.v1.mito.Wal.RegionMutation value) {
-        if (regionMutationsBuilder_ == null) {
+      public Builder addMutations(
+          int index, greptime.v1.mito.Wal.Mutation value) {
+        if (mutationsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureRegionMutationsIsMutable();
-          regionMutations_.add(index, value);
+          ensureMutationsIsMutable();
+          mutations_.add(index, value);
           onChanged();
         } else {
-          regionMutationsBuilder_.addMessage(index, value);
+          mutationsBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public Builder addRegionMutations(
-          greptime.v1.mito.Wal.RegionMutation.Builder builderForValue) {
-        if (regionMutationsBuilder_ == null) {
-          ensureRegionMutationsIsMutable();
-          regionMutations_.add(builderForValue.build());
+      public Builder addMutations(
+          greptime.v1.mito.Wal.Mutation.Builder builderForValue) {
+        if (mutationsBuilder_ == null) {
+          ensureMutationsIsMutable();
+          mutations_.add(builderForValue.build());
           onChanged();
         } else {
-          regionMutationsBuilder_.addMessage(builderForValue.build());
+          mutationsBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public Builder addRegionMutations(
-          int index, greptime.v1.mito.Wal.RegionMutation.Builder builderForValue) {
-        if (regionMutationsBuilder_ == null) {
-          ensureRegionMutationsIsMutable();
-          regionMutations_.add(index, builderForValue.build());
+      public Builder addMutations(
+          int index, greptime.v1.mito.Wal.Mutation.Builder builderForValue) {
+        if (mutationsBuilder_ == null) {
+          ensureMutationsIsMutable();
+          mutations_.add(index, builderForValue.build());
           onChanged();
         } else {
-          regionMutationsBuilder_.addMessage(index, builderForValue.build());
+          mutationsBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public Builder addAllRegionMutations(
-          java.lang.Iterable<? extends greptime.v1.mito.Wal.RegionMutation> values) {
-        if (regionMutationsBuilder_ == null) {
-          ensureRegionMutationsIsMutable();
+      public Builder addAllMutations(
+          java.lang.Iterable<? extends greptime.v1.mito.Wal.Mutation> values) {
+        if (mutationsBuilder_ == null) {
+          ensureMutationsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, regionMutations_);
+              values, mutations_);
           onChanged();
         } else {
-          regionMutationsBuilder_.addAllMessages(values);
+          mutationsBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public Builder clearRegionMutations() {
-        if (regionMutationsBuilder_ == null) {
-          regionMutations_ = java.util.Collections.emptyList();
+      public Builder clearMutations() {
+        if (mutationsBuilder_ == null) {
+          mutations_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          regionMutationsBuilder_.clear();
+          mutationsBuilder_.clear();
         }
         return this;
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public Builder removeRegionMutations(int index) {
-        if (regionMutationsBuilder_ == null) {
-          ensureRegionMutationsIsMutable();
-          regionMutations_.remove(index);
+      public Builder removeMutations(int index) {
+        if (mutationsBuilder_ == null) {
+          ensureMutationsIsMutable();
+          mutations_.remove(index);
           onChanged();
         } else {
-          regionMutationsBuilder_.remove(index);
+          mutationsBuilder_.remove(index);
         }
         return this;
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public greptime.v1.mito.Wal.RegionMutation.Builder getRegionMutationsBuilder(
+      public greptime.v1.mito.Wal.Mutation.Builder getMutationsBuilder(
           int index) {
-        return getRegionMutationsFieldBuilder().getBuilder(index);
+        return getMutationsFieldBuilder().getBuilder(index);
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public greptime.v1.mito.Wal.RegionMutationOrBuilder getRegionMutationsOrBuilder(
+      public greptime.v1.mito.Wal.MutationOrBuilder getMutationsOrBuilder(
           int index) {
-        if (regionMutationsBuilder_ == null) {
-          return regionMutations_.get(index);  } else {
-          return regionMutationsBuilder_.getMessageOrBuilder(index);
+        if (mutationsBuilder_ == null) {
+          return mutations_.get(index);  } else {
+          return mutationsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public java.util.List<? extends greptime.v1.mito.Wal.RegionMutationOrBuilder> 
-           getRegionMutationsOrBuilderList() {
-        if (regionMutationsBuilder_ != null) {
-          return regionMutationsBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends greptime.v1.mito.Wal.MutationOrBuilder> 
+           getMutationsOrBuilderList() {
+        if (mutationsBuilder_ != null) {
+          return mutationsBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(regionMutations_);
+          return java.util.Collections.unmodifiableList(mutations_);
         }
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public greptime.v1.mito.Wal.RegionMutation.Builder addRegionMutationsBuilder() {
-        return getRegionMutationsFieldBuilder().addBuilder(
-            greptime.v1.mito.Wal.RegionMutation.getDefaultInstance());
+      public greptime.v1.mito.Wal.Mutation.Builder addMutationsBuilder() {
+        return getMutationsFieldBuilder().addBuilder(
+            greptime.v1.mito.Wal.Mutation.getDefaultInstance());
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public greptime.v1.mito.Wal.RegionMutation.Builder addRegionMutationsBuilder(
+      public greptime.v1.mito.Wal.Mutation.Builder addMutationsBuilder(
           int index) {
-        return getRegionMutationsFieldBuilder().addBuilder(
-            index, greptime.v1.mito.Wal.RegionMutation.getDefaultInstance());
+        return getMutationsFieldBuilder().addBuilder(
+            index, greptime.v1.mito.Wal.Mutation.getDefaultInstance());
       }
       /**
        * <pre>
-       * Mutations to regions.
+       * List of mutations for a region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.mito.RegionMutation region_mutations = 1;</code>
+       * <code>repeated .greptime.v1.mito.Mutation mutations = 1;</code>
        */
-      public java.util.List<greptime.v1.mito.Wal.RegionMutation.Builder> 
-           getRegionMutationsBuilderList() {
-        return getRegionMutationsFieldBuilder().getBuilderList();
+      public java.util.List<greptime.v1.mito.Wal.Mutation.Builder> 
+           getMutationsBuilderList() {
+        return getMutationsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.mito.Wal.RegionMutation, greptime.v1.mito.Wal.RegionMutation.Builder, greptime.v1.mito.Wal.RegionMutationOrBuilder> 
-          getRegionMutationsFieldBuilder() {
-        if (regionMutationsBuilder_ == null) {
-          regionMutationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              greptime.v1.mito.Wal.RegionMutation, greptime.v1.mito.Wal.RegionMutation.Builder, greptime.v1.mito.Wal.RegionMutationOrBuilder>(
-                  regionMutations_,
+          greptime.v1.mito.Wal.Mutation, greptime.v1.mito.Wal.Mutation.Builder, greptime.v1.mito.Wal.MutationOrBuilder> 
+          getMutationsFieldBuilder() {
+        if (mutationsBuilder_ == null) {
+          mutationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              greptime.v1.mito.Wal.Mutation, greptime.v1.mito.Wal.Mutation.Builder, greptime.v1.mito.Wal.MutationOrBuilder>(
+                  mutations_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
-          regionMutations_ = null;
+          mutations_ = null;
         }
-        return regionMutationsBuilder_;
+        return mutationsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2994,11 +1988,6 @@ public final class Wal {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_mito_Mutation_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_mito_RegionMutation_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_mito_RegionMutation_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_mito_WalEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -3016,13 +2005,11 @@ public final class Wal {
       "1.mito\032\025greptime/v1/row.proto\"h\n\010Mutatio" +
       "n\022)\n\007op_type\030\001 \001(\0162\030.greptime.v1.mito.Op" +
       "Type\022\020\n\010sequence\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.g" +
-      "reptime.v1.Rows\"R\n\016RegionMutation\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\022-\n\tmutations\030\002 \003(\0132\032.grepti" +
-      "me.v1.mito.Mutation\"F\n\010WalEntry\022:\n\020regio" +
-      "n_mutations\030\001 \003(\0132 .greptime.v1.mito.Reg" +
-      "ionMutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003PUT" +
-      "\020\001B<Z:github.com/GreptimeTeam/greptime-p" +
-      "roto/go/greptime/v1/mitob\006proto3"
+      "reptime.v1.Rows\"9\n\010WalEntry\022-\n\tmutations" +
+      "\030\001 \003(\0132\032.greptime.v1.mito.Mutation*\035\n\006Op" +
+      "Type\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001B<Z:github.com/" +
+      "GreptimeTeam/greptime-proto/go/greptime/" +
+      "v1/mitob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3035,18 +2022,12 @@ public final class Wal {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_mito_Mutation_descriptor,
         new java.lang.String[] { "OpType", "Sequence", "Rows", });
-    internal_static_greptime_v1_mito_RegionMutation_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_greptime_v1_mito_RegionMutation_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_mito_RegionMutation_descriptor,
-        new java.lang.String[] { "RegionId", "Mutations", });
     internal_static_greptime_v1_mito_WalEntry_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_mito_WalEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_mito_WalEntry_descriptor,
-        new java.lang.String[] { "RegionMutations", });
+        new java.lang.String[] { "Mutations", });
     io.greptime.v1.RowData.getDescriptor();
   }
 

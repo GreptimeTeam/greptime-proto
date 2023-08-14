@@ -66,7 +66,7 @@ struct RowDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RowDefaultTypeInternal _Row_default_instance_;
 PROTOBUF_CONSTEXPR Value::Value(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.value_)*/{}
+    /*decltype(_impl_.value_data_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_._oneof_case_)*/{}} {}
 struct ValueDefaultTypeInternal {
@@ -138,7 +138,7 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value, _impl_.value_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value, _impl_.value_data_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::Rows)},
@@ -163,7 +163,7 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\0162\033.greptime.v1.ColumnDataType\0220\n\rsemant"
   "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType"
   "\")\n\003Row\022\"\n\006values\030\001 \003(\0132\022.greptime.v1.Va"
-  "lue\"\322\004\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16"
+  "lue\"\327\004\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16"
   "_value\030\002 \001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti"
   "64_value\030\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\t"
   "u16_value\030\006 \001(\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023"
@@ -177,17 +177,17 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "osecond_value\030\023 \001(\003H\000\022\033\n\021time_second_val"
   "ue\030\024 \001(\003H\000\022 \n\026time_millisecond_value\030\025 \001"
   "(\003H\000\022 \n\026time_microsecond_value\030\026 \001(\003H\000\022\037"
-  "\n\025time_nanosecond_value\030\027 \001(\003H\000B\007\n\005value"
-  "BP\n\016io.greptime.v1B\007RowDataZ5github.com/"
-  "GreptimeTeam/greptime-proto/go/greptime/"
-  "v1b\006proto3"
+  "\n\025time_nanosecond_value\030\027 \001(\003H\000B\014\n\nvalue"
+  "_dataBP\n\016io.greptime.v1B\007RowDataZ5github"
+  ".com/GreptimeTeam/greptime-proto/go/grep"
+  "time/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1010, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1015, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
     &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
@@ -892,13 +892,13 @@ Value::Value(const Value& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   Value* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.value_){}
+      decltype(_impl_.value_data_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , /*decltype(_impl_._oneof_case_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  clear_has_value();
-  switch (from.value_case()) {
+  clear_has_value_data();
+  switch (from.value_data_case()) {
     case kI8Value: {
       _this->_internal_set_i8_value(from._internal_i8_value());
       break;
@@ -991,7 +991,7 @@ Value::Value(const Value& from)
       _this->_internal_set_time_nanosecond_value(from._internal_time_nanosecond_value());
       break;
     }
-    case VALUE_NOT_SET: {
+    case VALUE_DATA_NOT_SET: {
       break;
     }
   }
@@ -1003,11 +1003,11 @@ inline void Value::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.value_){}
+      decltype(_impl_.value_data_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , /*decltype(_impl_._oneof_case_)*/{}
   };
-  clear_has_value();
+  clear_has_value_data();
 }
 
 Value::~Value() {
@@ -1021,8 +1021,8 @@ Value::~Value() {
 
 inline void Value::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (has_value()) {
-    clear_value();
+  if (has_value_data()) {
+    clear_value_data();
   }
 }
 
@@ -1030,9 +1030,9 @@ void Value::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void Value::clear_value() {
+void Value::clear_value_data() {
 // @@protoc_insertion_point(one_of_clear_start:greptime.v1.Value)
-  switch (value_case()) {
+  switch (value_data_case()) {
     case kI8Value: {
       // No need to clear
       break;
@@ -1078,11 +1078,11 @@ void Value::clear_value() {
       break;
     }
     case kBinaryValue: {
-      _impl_.value_.binary_value_.Destroy();
+      _impl_.value_data_.binary_value_.Destroy();
       break;
     }
     case kStringValue: {
-      _impl_.value_.string_value_.Destroy();
+      _impl_.value_data_.string_value_.Destroy();
       break;
     }
     case kDateValue: {
@@ -1125,11 +1125,11 @@ void Value::clear_value() {
       // No need to clear
       break;
     }
-    case VALUE_NOT_SET: {
+    case VALUE_DATA_NOT_SET: {
       break;
     }
   }
-  _impl_._oneof_case_[0] = VALUE_NOT_SET;
+  _impl_._oneof_case_[0] = VALUE_DATA_NOT_SET;
 }
 
 
@@ -1139,7 +1139,7 @@ void Value::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  clear_value();
+  clear_value_data();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1523,7 +1523,7 @@ size_t Value::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  switch (value_case()) {
+  switch (value_data_case()) {
     // int32 i8_value = 1;
     case kI8Value: {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_i8_value());
@@ -1659,7 +1659,7 @@ size_t Value::ByteSizeLong() const {
           this->_internal_time_nanosecond_value());
       break;
     }
-    case VALUE_NOT_SET: {
+    case VALUE_DATA_NOT_SET: {
       break;
     }
   }
@@ -1681,7 +1681,7 @@ void Value::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  switch (from.value_case()) {
+  switch (from.value_data_case()) {
     case kI8Value: {
       _this->_internal_set_i8_value(from._internal_i8_value());
       break;
@@ -1774,7 +1774,7 @@ void Value::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
       _this->_internal_set_time_nanosecond_value(from._internal_time_nanosecond_value());
       break;
     }
-    case VALUE_NOT_SET: {
+    case VALUE_DATA_NOT_SET: {
       break;
     }
   }
@@ -1795,7 +1795,7 @@ bool Value::IsInitialized() const {
 void Value::InternalSwap(Value* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.value_, other->_impl_.value_);
+  swap(_impl_.value_data_, other->_impl_.value_data_);
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 

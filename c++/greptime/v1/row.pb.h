@@ -624,7 +624,7 @@ class Value final :
   static const Value& default_instance() {
     return *internal_default_instance();
   }
-  enum ValueCase {
+  enum ValueDataCase {
     kI8Value = 1,
     kI16Value = 2,
     kI32Value = 3,
@@ -648,7 +648,7 @@ class Value final :
     kTimeMillisecondValue = 21,
     kTimeMicrosecondValue = 22,
     kTimeNanosecondValue = 23,
-    VALUE_NOT_SET = 0,
+    VALUE_DATA_NOT_SET = 0,
   };
 
   static inline const Value* internal_default_instance() {
@@ -1062,8 +1062,8 @@ class Value final :
   void _internal_set_time_nanosecond_value(int64_t value);
   public:
 
-  void clear_value();
-  ValueCase value_case() const;
+  void clear_value_data();
+  ValueDataCase value_data_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.Value)
  private:
   class _Internal;
@@ -1091,15 +1091,15 @@ class Value final :
   void set_has_time_microsecond_value();
   void set_has_time_nanosecond_value();
 
-  inline bool has_value() const;
-  inline void clear_has_value();
+  inline bool has_value_data() const;
+  inline void clear_has_value_data();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    union ValueUnion {
-      constexpr ValueUnion() : _constinit_{} {}
+    union ValueDataUnion {
+      constexpr ValueDataUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       int32_t i8_value_;
       int32_t i16_value_;
@@ -1124,7 +1124,7 @@ class Value final :
       int64_t time_millisecond_value_;
       int64_t time_microsecond_value_;
       int64_t time_nanosecond_value_;
-    } value_;
+    } value_data_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
 
@@ -1367,7 +1367,7 @@ Row::values() const {
 
 // int32 i8_value = 1;
 inline bool Value::_internal_has_i8_value() const {
-  return value_case() == kI8Value;
+  return value_data_case() == kI8Value;
 }
 inline bool Value::has_i8_value() const {
   return _internal_has_i8_value();
@@ -1377,22 +1377,22 @@ inline void Value::set_has_i8_value() {
 }
 inline void Value::clear_i8_value() {
   if (_internal_has_i8_value()) {
-    _impl_.value_.i8_value_ = 0;
-    clear_has_value();
+    _impl_.value_data_.i8_value_ = 0;
+    clear_has_value_data();
   }
 }
 inline int32_t Value::_internal_i8_value() const {
   if (_internal_has_i8_value()) {
-    return _impl_.value_.i8_value_;
+    return _impl_.value_data_.i8_value_;
   }
   return 0;
 }
 inline void Value::_internal_set_i8_value(int32_t value) {
   if (!_internal_has_i8_value()) {
-    clear_value();
+    clear_value_data();
     set_has_i8_value();
   }
-  _impl_.value_.i8_value_ = value;
+  _impl_.value_data_.i8_value_ = value;
 }
 inline int32_t Value::i8_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.i8_value)
@@ -1405,7 +1405,7 @@ inline void Value::set_i8_value(int32_t value) {
 
 // int32 i16_value = 2;
 inline bool Value::_internal_has_i16_value() const {
-  return value_case() == kI16Value;
+  return value_data_case() == kI16Value;
 }
 inline bool Value::has_i16_value() const {
   return _internal_has_i16_value();
@@ -1415,22 +1415,22 @@ inline void Value::set_has_i16_value() {
 }
 inline void Value::clear_i16_value() {
   if (_internal_has_i16_value()) {
-    _impl_.value_.i16_value_ = 0;
-    clear_has_value();
+    _impl_.value_data_.i16_value_ = 0;
+    clear_has_value_data();
   }
 }
 inline int32_t Value::_internal_i16_value() const {
   if (_internal_has_i16_value()) {
-    return _impl_.value_.i16_value_;
+    return _impl_.value_data_.i16_value_;
   }
   return 0;
 }
 inline void Value::_internal_set_i16_value(int32_t value) {
   if (!_internal_has_i16_value()) {
-    clear_value();
+    clear_value_data();
     set_has_i16_value();
   }
-  _impl_.value_.i16_value_ = value;
+  _impl_.value_data_.i16_value_ = value;
 }
 inline int32_t Value::i16_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.i16_value)
@@ -1443,7 +1443,7 @@ inline void Value::set_i16_value(int32_t value) {
 
 // int32 i32_value = 3;
 inline bool Value::_internal_has_i32_value() const {
-  return value_case() == kI32Value;
+  return value_data_case() == kI32Value;
 }
 inline bool Value::has_i32_value() const {
   return _internal_has_i32_value();
@@ -1453,22 +1453,22 @@ inline void Value::set_has_i32_value() {
 }
 inline void Value::clear_i32_value() {
   if (_internal_has_i32_value()) {
-    _impl_.value_.i32_value_ = 0;
-    clear_has_value();
+    _impl_.value_data_.i32_value_ = 0;
+    clear_has_value_data();
   }
 }
 inline int32_t Value::_internal_i32_value() const {
   if (_internal_has_i32_value()) {
-    return _impl_.value_.i32_value_;
+    return _impl_.value_data_.i32_value_;
   }
   return 0;
 }
 inline void Value::_internal_set_i32_value(int32_t value) {
   if (!_internal_has_i32_value()) {
-    clear_value();
+    clear_value_data();
     set_has_i32_value();
   }
-  _impl_.value_.i32_value_ = value;
+  _impl_.value_data_.i32_value_ = value;
 }
 inline int32_t Value::i32_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.i32_value)
@@ -1481,7 +1481,7 @@ inline void Value::set_i32_value(int32_t value) {
 
 // int64 i64_value = 4;
 inline bool Value::_internal_has_i64_value() const {
-  return value_case() == kI64Value;
+  return value_data_case() == kI64Value;
 }
 inline bool Value::has_i64_value() const {
   return _internal_has_i64_value();
@@ -1491,22 +1491,22 @@ inline void Value::set_has_i64_value() {
 }
 inline void Value::clear_i64_value() {
   if (_internal_has_i64_value()) {
-    _impl_.value_.i64_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.i64_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_i64_value() const {
   if (_internal_has_i64_value()) {
-    return _impl_.value_.i64_value_;
+    return _impl_.value_data_.i64_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_i64_value(int64_t value) {
   if (!_internal_has_i64_value()) {
-    clear_value();
+    clear_value_data();
     set_has_i64_value();
   }
-  _impl_.value_.i64_value_ = value;
+  _impl_.value_data_.i64_value_ = value;
 }
 inline int64_t Value::i64_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.i64_value)
@@ -1519,7 +1519,7 @@ inline void Value::set_i64_value(int64_t value) {
 
 // uint32 u8_value = 5;
 inline bool Value::_internal_has_u8_value() const {
-  return value_case() == kU8Value;
+  return value_data_case() == kU8Value;
 }
 inline bool Value::has_u8_value() const {
   return _internal_has_u8_value();
@@ -1529,22 +1529,22 @@ inline void Value::set_has_u8_value() {
 }
 inline void Value::clear_u8_value() {
   if (_internal_has_u8_value()) {
-    _impl_.value_.u8_value_ = 0u;
-    clear_has_value();
+    _impl_.value_data_.u8_value_ = 0u;
+    clear_has_value_data();
   }
 }
 inline uint32_t Value::_internal_u8_value() const {
   if (_internal_has_u8_value()) {
-    return _impl_.value_.u8_value_;
+    return _impl_.value_data_.u8_value_;
   }
   return 0u;
 }
 inline void Value::_internal_set_u8_value(uint32_t value) {
   if (!_internal_has_u8_value()) {
-    clear_value();
+    clear_value_data();
     set_has_u8_value();
   }
-  _impl_.value_.u8_value_ = value;
+  _impl_.value_data_.u8_value_ = value;
 }
 inline uint32_t Value::u8_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.u8_value)
@@ -1557,7 +1557,7 @@ inline void Value::set_u8_value(uint32_t value) {
 
 // uint32 u16_value = 6;
 inline bool Value::_internal_has_u16_value() const {
-  return value_case() == kU16Value;
+  return value_data_case() == kU16Value;
 }
 inline bool Value::has_u16_value() const {
   return _internal_has_u16_value();
@@ -1567,22 +1567,22 @@ inline void Value::set_has_u16_value() {
 }
 inline void Value::clear_u16_value() {
   if (_internal_has_u16_value()) {
-    _impl_.value_.u16_value_ = 0u;
-    clear_has_value();
+    _impl_.value_data_.u16_value_ = 0u;
+    clear_has_value_data();
   }
 }
 inline uint32_t Value::_internal_u16_value() const {
   if (_internal_has_u16_value()) {
-    return _impl_.value_.u16_value_;
+    return _impl_.value_data_.u16_value_;
   }
   return 0u;
 }
 inline void Value::_internal_set_u16_value(uint32_t value) {
   if (!_internal_has_u16_value()) {
-    clear_value();
+    clear_value_data();
     set_has_u16_value();
   }
-  _impl_.value_.u16_value_ = value;
+  _impl_.value_data_.u16_value_ = value;
 }
 inline uint32_t Value::u16_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.u16_value)
@@ -1595,7 +1595,7 @@ inline void Value::set_u16_value(uint32_t value) {
 
 // uint32 u32_value = 7;
 inline bool Value::_internal_has_u32_value() const {
-  return value_case() == kU32Value;
+  return value_data_case() == kU32Value;
 }
 inline bool Value::has_u32_value() const {
   return _internal_has_u32_value();
@@ -1605,22 +1605,22 @@ inline void Value::set_has_u32_value() {
 }
 inline void Value::clear_u32_value() {
   if (_internal_has_u32_value()) {
-    _impl_.value_.u32_value_ = 0u;
-    clear_has_value();
+    _impl_.value_data_.u32_value_ = 0u;
+    clear_has_value_data();
   }
 }
 inline uint32_t Value::_internal_u32_value() const {
   if (_internal_has_u32_value()) {
-    return _impl_.value_.u32_value_;
+    return _impl_.value_data_.u32_value_;
   }
   return 0u;
 }
 inline void Value::_internal_set_u32_value(uint32_t value) {
   if (!_internal_has_u32_value()) {
-    clear_value();
+    clear_value_data();
     set_has_u32_value();
   }
-  _impl_.value_.u32_value_ = value;
+  _impl_.value_data_.u32_value_ = value;
 }
 inline uint32_t Value::u32_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.u32_value)
@@ -1633,7 +1633,7 @@ inline void Value::set_u32_value(uint32_t value) {
 
 // uint64 u64_value = 8;
 inline bool Value::_internal_has_u64_value() const {
-  return value_case() == kU64Value;
+  return value_data_case() == kU64Value;
 }
 inline bool Value::has_u64_value() const {
   return _internal_has_u64_value();
@@ -1643,22 +1643,22 @@ inline void Value::set_has_u64_value() {
 }
 inline void Value::clear_u64_value() {
   if (_internal_has_u64_value()) {
-    _impl_.value_.u64_value_ = uint64_t{0u};
-    clear_has_value();
+    _impl_.value_data_.u64_value_ = uint64_t{0u};
+    clear_has_value_data();
   }
 }
 inline uint64_t Value::_internal_u64_value() const {
   if (_internal_has_u64_value()) {
-    return _impl_.value_.u64_value_;
+    return _impl_.value_data_.u64_value_;
   }
   return uint64_t{0u};
 }
 inline void Value::_internal_set_u64_value(uint64_t value) {
   if (!_internal_has_u64_value()) {
-    clear_value();
+    clear_value_data();
     set_has_u64_value();
   }
-  _impl_.value_.u64_value_ = value;
+  _impl_.value_data_.u64_value_ = value;
 }
 inline uint64_t Value::u64_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.u64_value)
@@ -1671,7 +1671,7 @@ inline void Value::set_u64_value(uint64_t value) {
 
 // float f32_value = 9;
 inline bool Value::_internal_has_f32_value() const {
-  return value_case() == kF32Value;
+  return value_data_case() == kF32Value;
 }
 inline bool Value::has_f32_value() const {
   return _internal_has_f32_value();
@@ -1681,22 +1681,22 @@ inline void Value::set_has_f32_value() {
 }
 inline void Value::clear_f32_value() {
   if (_internal_has_f32_value()) {
-    _impl_.value_.f32_value_ = 0;
-    clear_has_value();
+    _impl_.value_data_.f32_value_ = 0;
+    clear_has_value_data();
   }
 }
 inline float Value::_internal_f32_value() const {
   if (_internal_has_f32_value()) {
-    return _impl_.value_.f32_value_;
+    return _impl_.value_data_.f32_value_;
   }
   return 0;
 }
 inline void Value::_internal_set_f32_value(float value) {
   if (!_internal_has_f32_value()) {
-    clear_value();
+    clear_value_data();
     set_has_f32_value();
   }
-  _impl_.value_.f32_value_ = value;
+  _impl_.value_data_.f32_value_ = value;
 }
 inline float Value::f32_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.f32_value)
@@ -1709,7 +1709,7 @@ inline void Value::set_f32_value(float value) {
 
 // double f64_value = 10;
 inline bool Value::_internal_has_f64_value() const {
-  return value_case() == kF64Value;
+  return value_data_case() == kF64Value;
 }
 inline bool Value::has_f64_value() const {
   return _internal_has_f64_value();
@@ -1719,22 +1719,22 @@ inline void Value::set_has_f64_value() {
 }
 inline void Value::clear_f64_value() {
   if (_internal_has_f64_value()) {
-    _impl_.value_.f64_value_ = 0;
-    clear_has_value();
+    _impl_.value_data_.f64_value_ = 0;
+    clear_has_value_data();
   }
 }
 inline double Value::_internal_f64_value() const {
   if (_internal_has_f64_value()) {
-    return _impl_.value_.f64_value_;
+    return _impl_.value_data_.f64_value_;
   }
   return 0;
 }
 inline void Value::_internal_set_f64_value(double value) {
   if (!_internal_has_f64_value()) {
-    clear_value();
+    clear_value_data();
     set_has_f64_value();
   }
-  _impl_.value_.f64_value_ = value;
+  _impl_.value_data_.f64_value_ = value;
 }
 inline double Value::f64_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.f64_value)
@@ -1747,7 +1747,7 @@ inline void Value::set_f64_value(double value) {
 
 // bool bool_value = 11;
 inline bool Value::_internal_has_bool_value() const {
-  return value_case() == kBoolValue;
+  return value_data_case() == kBoolValue;
 }
 inline bool Value::has_bool_value() const {
   return _internal_has_bool_value();
@@ -1757,22 +1757,22 @@ inline void Value::set_has_bool_value() {
 }
 inline void Value::clear_bool_value() {
   if (_internal_has_bool_value()) {
-    _impl_.value_.bool_value_ = false;
-    clear_has_value();
+    _impl_.value_data_.bool_value_ = false;
+    clear_has_value_data();
   }
 }
 inline bool Value::_internal_bool_value() const {
   if (_internal_has_bool_value()) {
-    return _impl_.value_.bool_value_;
+    return _impl_.value_data_.bool_value_;
   }
   return false;
 }
 inline void Value::_internal_set_bool_value(bool value) {
   if (!_internal_has_bool_value()) {
-    clear_value();
+    clear_value_data();
     set_has_bool_value();
   }
-  _impl_.value_.bool_value_ = value;
+  _impl_.value_data_.bool_value_ = value;
 }
 inline bool Value::bool_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.bool_value)
@@ -1785,7 +1785,7 @@ inline void Value::set_bool_value(bool value) {
 
 // bytes binary_value = 12;
 inline bool Value::_internal_has_binary_value() const {
-  return value_case() == kBinaryValue;
+  return value_data_case() == kBinaryValue;
 }
 inline bool Value::has_binary_value() const {
   return _internal_has_binary_value();
@@ -1795,8 +1795,8 @@ inline void Value::set_has_binary_value() {
 }
 inline void Value::clear_binary_value() {
   if (_internal_has_binary_value()) {
-    _impl_.value_.binary_value_.Destroy();
-    clear_has_value();
+    _impl_.value_data_.binary_value_.Destroy();
+    clear_has_value_data();
   }
 }
 inline const std::string& Value::binary_value() const {
@@ -1806,11 +1806,11 @@ inline const std::string& Value::binary_value() const {
 template <typename ArgT0, typename... ArgT>
 inline void Value::set_binary_value(ArgT0&& arg0, ArgT... args) {
   if (!_internal_has_binary_value()) {
-    clear_value();
+    clear_value_data();
     set_has_binary_value();
-    _impl_.value_.binary_value_.InitDefault();
+    _impl_.value_data_.binary_value_.InitDefault();
   }
-  _impl_.value_.binary_value_.SetBytes( static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  _impl_.value_data_.binary_value_.SetBytes( static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:greptime.v1.Value.binary_value)
 }
 inline std::string* Value::mutable_binary_value() {
@@ -1820,49 +1820,49 @@ inline std::string* Value::mutable_binary_value() {
 }
 inline const std::string& Value::_internal_binary_value() const {
   if (_internal_has_binary_value()) {
-    return _impl_.value_.binary_value_.Get();
+    return _impl_.value_data_.binary_value_.Get();
   }
   return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
 }
 inline void Value::_internal_set_binary_value(const std::string& value) {
   if (!_internal_has_binary_value()) {
-    clear_value();
+    clear_value_data();
     set_has_binary_value();
-    _impl_.value_.binary_value_.InitDefault();
+    _impl_.value_data_.binary_value_.InitDefault();
   }
-  _impl_.value_.binary_value_.Set(value, GetArenaForAllocation());
+  _impl_.value_data_.binary_value_.Set(value, GetArenaForAllocation());
 }
 inline std::string* Value::_internal_mutable_binary_value() {
   if (!_internal_has_binary_value()) {
-    clear_value();
+    clear_value_data();
     set_has_binary_value();
-    _impl_.value_.binary_value_.InitDefault();
+    _impl_.value_data_.binary_value_.InitDefault();
   }
-  return _impl_.value_.binary_value_.Mutable(      GetArenaForAllocation());
+  return _impl_.value_data_.binary_value_.Mutable(      GetArenaForAllocation());
 }
 inline std::string* Value::release_binary_value() {
   // @@protoc_insertion_point(field_release:greptime.v1.Value.binary_value)
   if (_internal_has_binary_value()) {
-    clear_has_value();
-    return _impl_.value_.binary_value_.Release();
+    clear_has_value_data();
+    return _impl_.value_data_.binary_value_.Release();
   } else {
     return nullptr;
   }
 }
 inline void Value::set_allocated_binary_value(std::string* binary_value) {
-  if (has_value()) {
-    clear_value();
+  if (has_value_data()) {
+    clear_value_data();
   }
   if (binary_value != nullptr) {
     set_has_binary_value();
-    _impl_.value_.binary_value_.InitAllocated(binary_value, GetArenaForAllocation());
+    _impl_.value_data_.binary_value_.InitAllocated(binary_value, GetArenaForAllocation());
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.binary_value)
 }
 
 // string string_value = 13;
 inline bool Value::_internal_has_string_value() const {
-  return value_case() == kStringValue;
+  return value_data_case() == kStringValue;
 }
 inline bool Value::has_string_value() const {
   return _internal_has_string_value();
@@ -1872,8 +1872,8 @@ inline void Value::set_has_string_value() {
 }
 inline void Value::clear_string_value() {
   if (_internal_has_string_value()) {
-    _impl_.value_.string_value_.Destroy();
-    clear_has_value();
+    _impl_.value_data_.string_value_.Destroy();
+    clear_has_value_data();
   }
 }
 inline const std::string& Value::string_value() const {
@@ -1883,11 +1883,11 @@ inline const std::string& Value::string_value() const {
 template <typename ArgT0, typename... ArgT>
 inline void Value::set_string_value(ArgT0&& arg0, ArgT... args) {
   if (!_internal_has_string_value()) {
-    clear_value();
+    clear_value_data();
     set_has_string_value();
-    _impl_.value_.string_value_.InitDefault();
+    _impl_.value_data_.string_value_.InitDefault();
   }
-  _impl_.value_.string_value_.Set( static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  _impl_.value_data_.string_value_.Set( static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:greptime.v1.Value.string_value)
 }
 inline std::string* Value::mutable_string_value() {
@@ -1897,49 +1897,49 @@ inline std::string* Value::mutable_string_value() {
 }
 inline const std::string& Value::_internal_string_value() const {
   if (_internal_has_string_value()) {
-    return _impl_.value_.string_value_.Get();
+    return _impl_.value_data_.string_value_.Get();
   }
   return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
 }
 inline void Value::_internal_set_string_value(const std::string& value) {
   if (!_internal_has_string_value()) {
-    clear_value();
+    clear_value_data();
     set_has_string_value();
-    _impl_.value_.string_value_.InitDefault();
+    _impl_.value_data_.string_value_.InitDefault();
   }
-  _impl_.value_.string_value_.Set(value, GetArenaForAllocation());
+  _impl_.value_data_.string_value_.Set(value, GetArenaForAllocation());
 }
 inline std::string* Value::_internal_mutable_string_value() {
   if (!_internal_has_string_value()) {
-    clear_value();
+    clear_value_data();
     set_has_string_value();
-    _impl_.value_.string_value_.InitDefault();
+    _impl_.value_data_.string_value_.InitDefault();
   }
-  return _impl_.value_.string_value_.Mutable(      GetArenaForAllocation());
+  return _impl_.value_data_.string_value_.Mutable(      GetArenaForAllocation());
 }
 inline std::string* Value::release_string_value() {
   // @@protoc_insertion_point(field_release:greptime.v1.Value.string_value)
   if (_internal_has_string_value()) {
-    clear_has_value();
-    return _impl_.value_.string_value_.Release();
+    clear_has_value_data();
+    return _impl_.value_data_.string_value_.Release();
   } else {
     return nullptr;
   }
 }
 inline void Value::set_allocated_string_value(std::string* string_value) {
-  if (has_value()) {
-    clear_value();
+  if (has_value_data()) {
+    clear_value_data();
   }
   if (string_value != nullptr) {
     set_has_string_value();
-    _impl_.value_.string_value_.InitAllocated(string_value, GetArenaForAllocation());
+    _impl_.value_data_.string_value_.InitAllocated(string_value, GetArenaForAllocation());
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.string_value)
 }
 
 // int32 date_value = 14;
 inline bool Value::_internal_has_date_value() const {
-  return value_case() == kDateValue;
+  return value_data_case() == kDateValue;
 }
 inline bool Value::has_date_value() const {
   return _internal_has_date_value();
@@ -1949,22 +1949,22 @@ inline void Value::set_has_date_value() {
 }
 inline void Value::clear_date_value() {
   if (_internal_has_date_value()) {
-    _impl_.value_.date_value_ = 0;
-    clear_has_value();
+    _impl_.value_data_.date_value_ = 0;
+    clear_has_value_data();
   }
 }
 inline int32_t Value::_internal_date_value() const {
   if (_internal_has_date_value()) {
-    return _impl_.value_.date_value_;
+    return _impl_.value_data_.date_value_;
   }
   return 0;
 }
 inline void Value::_internal_set_date_value(int32_t value) {
   if (!_internal_has_date_value()) {
-    clear_value();
+    clear_value_data();
     set_has_date_value();
   }
-  _impl_.value_.date_value_ = value;
+  _impl_.value_data_.date_value_ = value;
 }
 inline int32_t Value::date_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.date_value)
@@ -1977,7 +1977,7 @@ inline void Value::set_date_value(int32_t value) {
 
 // int64 datetime_value = 15;
 inline bool Value::_internal_has_datetime_value() const {
-  return value_case() == kDatetimeValue;
+  return value_data_case() == kDatetimeValue;
 }
 inline bool Value::has_datetime_value() const {
   return _internal_has_datetime_value();
@@ -1987,22 +1987,22 @@ inline void Value::set_has_datetime_value() {
 }
 inline void Value::clear_datetime_value() {
   if (_internal_has_datetime_value()) {
-    _impl_.value_.datetime_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.datetime_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_datetime_value() const {
   if (_internal_has_datetime_value()) {
-    return _impl_.value_.datetime_value_;
+    return _impl_.value_data_.datetime_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_datetime_value(int64_t value) {
   if (!_internal_has_datetime_value()) {
-    clear_value();
+    clear_value_data();
     set_has_datetime_value();
   }
-  _impl_.value_.datetime_value_ = value;
+  _impl_.value_data_.datetime_value_ = value;
 }
 inline int64_t Value::datetime_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.datetime_value)
@@ -2015,7 +2015,7 @@ inline void Value::set_datetime_value(int64_t value) {
 
 // int64 ts_second_value = 16;
 inline bool Value::_internal_has_ts_second_value() const {
-  return value_case() == kTsSecondValue;
+  return value_data_case() == kTsSecondValue;
 }
 inline bool Value::has_ts_second_value() const {
   return _internal_has_ts_second_value();
@@ -2025,22 +2025,22 @@ inline void Value::set_has_ts_second_value() {
 }
 inline void Value::clear_ts_second_value() {
   if (_internal_has_ts_second_value()) {
-    _impl_.value_.ts_second_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.ts_second_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_ts_second_value() const {
   if (_internal_has_ts_second_value()) {
-    return _impl_.value_.ts_second_value_;
+    return _impl_.value_data_.ts_second_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_ts_second_value(int64_t value) {
   if (!_internal_has_ts_second_value()) {
-    clear_value();
+    clear_value_data();
     set_has_ts_second_value();
   }
-  _impl_.value_.ts_second_value_ = value;
+  _impl_.value_data_.ts_second_value_ = value;
 }
 inline int64_t Value::ts_second_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.ts_second_value)
@@ -2053,7 +2053,7 @@ inline void Value::set_ts_second_value(int64_t value) {
 
 // int64 ts_millisecond_value = 17;
 inline bool Value::_internal_has_ts_millisecond_value() const {
-  return value_case() == kTsMillisecondValue;
+  return value_data_case() == kTsMillisecondValue;
 }
 inline bool Value::has_ts_millisecond_value() const {
   return _internal_has_ts_millisecond_value();
@@ -2063,22 +2063,22 @@ inline void Value::set_has_ts_millisecond_value() {
 }
 inline void Value::clear_ts_millisecond_value() {
   if (_internal_has_ts_millisecond_value()) {
-    _impl_.value_.ts_millisecond_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.ts_millisecond_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_ts_millisecond_value() const {
   if (_internal_has_ts_millisecond_value()) {
-    return _impl_.value_.ts_millisecond_value_;
+    return _impl_.value_data_.ts_millisecond_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_ts_millisecond_value(int64_t value) {
   if (!_internal_has_ts_millisecond_value()) {
-    clear_value();
+    clear_value_data();
     set_has_ts_millisecond_value();
   }
-  _impl_.value_.ts_millisecond_value_ = value;
+  _impl_.value_data_.ts_millisecond_value_ = value;
 }
 inline int64_t Value::ts_millisecond_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.ts_millisecond_value)
@@ -2091,7 +2091,7 @@ inline void Value::set_ts_millisecond_value(int64_t value) {
 
 // int64 ts_microsecond_value = 18;
 inline bool Value::_internal_has_ts_microsecond_value() const {
-  return value_case() == kTsMicrosecondValue;
+  return value_data_case() == kTsMicrosecondValue;
 }
 inline bool Value::has_ts_microsecond_value() const {
   return _internal_has_ts_microsecond_value();
@@ -2101,22 +2101,22 @@ inline void Value::set_has_ts_microsecond_value() {
 }
 inline void Value::clear_ts_microsecond_value() {
   if (_internal_has_ts_microsecond_value()) {
-    _impl_.value_.ts_microsecond_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.ts_microsecond_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_ts_microsecond_value() const {
   if (_internal_has_ts_microsecond_value()) {
-    return _impl_.value_.ts_microsecond_value_;
+    return _impl_.value_data_.ts_microsecond_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_ts_microsecond_value(int64_t value) {
   if (!_internal_has_ts_microsecond_value()) {
-    clear_value();
+    clear_value_data();
     set_has_ts_microsecond_value();
   }
-  _impl_.value_.ts_microsecond_value_ = value;
+  _impl_.value_data_.ts_microsecond_value_ = value;
 }
 inline int64_t Value::ts_microsecond_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.ts_microsecond_value)
@@ -2129,7 +2129,7 @@ inline void Value::set_ts_microsecond_value(int64_t value) {
 
 // int64 ts_nanosecond_value = 19;
 inline bool Value::_internal_has_ts_nanosecond_value() const {
-  return value_case() == kTsNanosecondValue;
+  return value_data_case() == kTsNanosecondValue;
 }
 inline bool Value::has_ts_nanosecond_value() const {
   return _internal_has_ts_nanosecond_value();
@@ -2139,22 +2139,22 @@ inline void Value::set_has_ts_nanosecond_value() {
 }
 inline void Value::clear_ts_nanosecond_value() {
   if (_internal_has_ts_nanosecond_value()) {
-    _impl_.value_.ts_nanosecond_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.ts_nanosecond_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_ts_nanosecond_value() const {
   if (_internal_has_ts_nanosecond_value()) {
-    return _impl_.value_.ts_nanosecond_value_;
+    return _impl_.value_data_.ts_nanosecond_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_ts_nanosecond_value(int64_t value) {
   if (!_internal_has_ts_nanosecond_value()) {
-    clear_value();
+    clear_value_data();
     set_has_ts_nanosecond_value();
   }
-  _impl_.value_.ts_nanosecond_value_ = value;
+  _impl_.value_data_.ts_nanosecond_value_ = value;
 }
 inline int64_t Value::ts_nanosecond_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.ts_nanosecond_value)
@@ -2167,7 +2167,7 @@ inline void Value::set_ts_nanosecond_value(int64_t value) {
 
 // int64 time_second_value = 20;
 inline bool Value::_internal_has_time_second_value() const {
-  return value_case() == kTimeSecondValue;
+  return value_data_case() == kTimeSecondValue;
 }
 inline bool Value::has_time_second_value() const {
   return _internal_has_time_second_value();
@@ -2177,22 +2177,22 @@ inline void Value::set_has_time_second_value() {
 }
 inline void Value::clear_time_second_value() {
   if (_internal_has_time_second_value()) {
-    _impl_.value_.time_second_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.time_second_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_time_second_value() const {
   if (_internal_has_time_second_value()) {
-    return _impl_.value_.time_second_value_;
+    return _impl_.value_data_.time_second_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_time_second_value(int64_t value) {
   if (!_internal_has_time_second_value()) {
-    clear_value();
+    clear_value_data();
     set_has_time_second_value();
   }
-  _impl_.value_.time_second_value_ = value;
+  _impl_.value_data_.time_second_value_ = value;
 }
 inline int64_t Value::time_second_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.time_second_value)
@@ -2205,7 +2205,7 @@ inline void Value::set_time_second_value(int64_t value) {
 
 // int64 time_millisecond_value = 21;
 inline bool Value::_internal_has_time_millisecond_value() const {
-  return value_case() == kTimeMillisecondValue;
+  return value_data_case() == kTimeMillisecondValue;
 }
 inline bool Value::has_time_millisecond_value() const {
   return _internal_has_time_millisecond_value();
@@ -2215,22 +2215,22 @@ inline void Value::set_has_time_millisecond_value() {
 }
 inline void Value::clear_time_millisecond_value() {
   if (_internal_has_time_millisecond_value()) {
-    _impl_.value_.time_millisecond_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.time_millisecond_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_time_millisecond_value() const {
   if (_internal_has_time_millisecond_value()) {
-    return _impl_.value_.time_millisecond_value_;
+    return _impl_.value_data_.time_millisecond_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_time_millisecond_value(int64_t value) {
   if (!_internal_has_time_millisecond_value()) {
-    clear_value();
+    clear_value_data();
     set_has_time_millisecond_value();
   }
-  _impl_.value_.time_millisecond_value_ = value;
+  _impl_.value_data_.time_millisecond_value_ = value;
 }
 inline int64_t Value::time_millisecond_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.time_millisecond_value)
@@ -2243,7 +2243,7 @@ inline void Value::set_time_millisecond_value(int64_t value) {
 
 // int64 time_microsecond_value = 22;
 inline bool Value::_internal_has_time_microsecond_value() const {
-  return value_case() == kTimeMicrosecondValue;
+  return value_data_case() == kTimeMicrosecondValue;
 }
 inline bool Value::has_time_microsecond_value() const {
   return _internal_has_time_microsecond_value();
@@ -2253,22 +2253,22 @@ inline void Value::set_has_time_microsecond_value() {
 }
 inline void Value::clear_time_microsecond_value() {
   if (_internal_has_time_microsecond_value()) {
-    _impl_.value_.time_microsecond_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.time_microsecond_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_time_microsecond_value() const {
   if (_internal_has_time_microsecond_value()) {
-    return _impl_.value_.time_microsecond_value_;
+    return _impl_.value_data_.time_microsecond_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_time_microsecond_value(int64_t value) {
   if (!_internal_has_time_microsecond_value()) {
-    clear_value();
+    clear_value_data();
     set_has_time_microsecond_value();
   }
-  _impl_.value_.time_microsecond_value_ = value;
+  _impl_.value_data_.time_microsecond_value_ = value;
 }
 inline int64_t Value::time_microsecond_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.time_microsecond_value)
@@ -2281,7 +2281,7 @@ inline void Value::set_time_microsecond_value(int64_t value) {
 
 // int64 time_nanosecond_value = 23;
 inline bool Value::_internal_has_time_nanosecond_value() const {
-  return value_case() == kTimeNanosecondValue;
+  return value_data_case() == kTimeNanosecondValue;
 }
 inline bool Value::has_time_nanosecond_value() const {
   return _internal_has_time_nanosecond_value();
@@ -2291,22 +2291,22 @@ inline void Value::set_has_time_nanosecond_value() {
 }
 inline void Value::clear_time_nanosecond_value() {
   if (_internal_has_time_nanosecond_value()) {
-    _impl_.value_.time_nanosecond_value_ = int64_t{0};
-    clear_has_value();
+    _impl_.value_data_.time_nanosecond_value_ = int64_t{0};
+    clear_has_value_data();
   }
 }
 inline int64_t Value::_internal_time_nanosecond_value() const {
   if (_internal_has_time_nanosecond_value()) {
-    return _impl_.value_.time_nanosecond_value_;
+    return _impl_.value_data_.time_nanosecond_value_;
   }
   return int64_t{0};
 }
 inline void Value::_internal_set_time_nanosecond_value(int64_t value) {
   if (!_internal_has_time_nanosecond_value()) {
-    clear_value();
+    clear_value_data();
     set_has_time_nanosecond_value();
   }
-  _impl_.value_.time_nanosecond_value_ = value;
+  _impl_.value_data_.time_nanosecond_value_ = value;
 }
 inline int64_t Value::time_nanosecond_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.time_nanosecond_value)
@@ -2317,14 +2317,14 @@ inline void Value::set_time_nanosecond_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.time_nanosecond_value)
 }
 
-inline bool Value::has_value() const {
-  return value_case() != VALUE_NOT_SET;
+inline bool Value::has_value_data() const {
+  return value_data_case() != VALUE_DATA_NOT_SET;
 }
-inline void Value::clear_has_value() {
-  _impl_._oneof_case_[0] = VALUE_NOT_SET;
+inline void Value::clear_has_value_data() {
+  _impl_._oneof_case_[0] = VALUE_DATA_NOT_SET;
 }
-inline Value::ValueCase Value::value_case() const {
-  return Value::ValueCase(_impl_._oneof_case_[0]);
+inline Value::ValueDataCase Value::value_data_case() const {
+  return Value::ValueDataCase(_impl_._oneof_case_[0]);
 }
 #ifdef __GNUC__
   #pragma GCC diagnostic pop

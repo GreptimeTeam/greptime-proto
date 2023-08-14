@@ -52,9 +52,6 @@ namespace mito {
 class Mutation;
 struct MutationDefaultTypeInternal;
 extern MutationDefaultTypeInternal _Mutation_default_instance_;
-class RegionMutation;
-struct RegionMutationDefaultTypeInternal;
-extern RegionMutationDefaultTypeInternal _RegionMutation_default_instance_;
 class WalEntry;
 struct WalEntryDefaultTypeInternal;
 extern WalEntryDefaultTypeInternal _WalEntry_default_instance_;
@@ -63,7 +60,6 @@ extern WalEntryDefaultTypeInternal _WalEntry_default_instance_;
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::mito::Mutation* Arena::CreateMaybeMessage<::greptime::v1::mito::Mutation>(Arena*);
-template<> ::greptime::v1::mito::RegionMutation* Arena::CreateMaybeMessage<::greptime::v1::mito::RegionMutation>(Arena*);
 template<> ::greptime::v1::mito::WalEntry* Arena::CreateMaybeMessage<::greptime::v1::mito::WalEntry>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -276,174 +272,6 @@ class Mutation final :
 };
 // -------------------------------------------------------------------
 
-class RegionMutation final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.mito.RegionMutation) */ {
- public:
-  inline RegionMutation() : RegionMutation(nullptr) {}
-  ~RegionMutation() override;
-  explicit PROTOBUF_CONSTEXPR RegionMutation(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  RegionMutation(const RegionMutation& from);
-  RegionMutation(RegionMutation&& from) noexcept
-    : RegionMutation() {
-    *this = ::std::move(from);
-  }
-
-  inline RegionMutation& operator=(const RegionMutation& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline RegionMutation& operator=(RegionMutation&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const RegionMutation& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const RegionMutation* internal_default_instance() {
-    return reinterpret_cast<const RegionMutation*>(
-               &_RegionMutation_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(RegionMutation& a, RegionMutation& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(RegionMutation* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(RegionMutation* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  RegionMutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<RegionMutation>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const RegionMutation& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const RegionMutation& from) {
-    RegionMutation::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(RegionMutation* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.mito.RegionMutation";
-  }
-  protected:
-  explicit RegionMutation(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kMutationsFieldNumber = 2,
-    kRegionIdFieldNumber = 1,
-  };
-  // repeated .greptime.v1.mito.Mutation mutations = 2;
-  int mutations_size() const;
-  private:
-  int _internal_mutations_size() const;
-  public:
-  void clear_mutations();
-  ::greptime::v1::mito::Mutation* mutable_mutations(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::Mutation >*
-      mutable_mutations();
-  private:
-  const ::greptime::v1::mito::Mutation& _internal_mutations(int index) const;
-  ::greptime::v1::mito::Mutation* _internal_add_mutations();
-  public:
-  const ::greptime::v1::mito::Mutation& mutations(int index) const;
-  ::greptime::v1::mito::Mutation* add_mutations();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::Mutation >&
-      mutations() const;
-
-  // uint64 region_id = 1;
-  void clear_region_id();
-  uint64_t region_id() const;
-  void set_region_id(uint64_t value);
-  private:
-  uint64_t _internal_region_id() const;
-  void _internal_set_region_id(uint64_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.mito.RegionMutation)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::Mutation > mutations_;
-    uint64_t region_id_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fmito_2fwal_2eproto;
-};
-// -------------------------------------------------------------------
-
 class WalEntry final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.mito.WalEntry) */ {
  public:
@@ -492,7 +320,7 @@ class WalEntry final :
                &_WalEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   friend void swap(WalEntry& a, WalEntry& b) {
     a.Swap(&b);
@@ -565,25 +393,25 @@ class WalEntry final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRegionMutationsFieldNumber = 1,
+    kMutationsFieldNumber = 1,
   };
-  // repeated .greptime.v1.mito.RegionMutation region_mutations = 1;
-  int region_mutations_size() const;
+  // repeated .greptime.v1.mito.Mutation mutations = 1;
+  int mutations_size() const;
   private:
-  int _internal_region_mutations_size() const;
+  int _internal_mutations_size() const;
   public:
-  void clear_region_mutations();
-  ::greptime::v1::mito::RegionMutation* mutable_region_mutations(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::RegionMutation >*
-      mutable_region_mutations();
+  void clear_mutations();
+  ::greptime::v1::mito::Mutation* mutable_mutations(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::Mutation >*
+      mutable_mutations();
   private:
-  const ::greptime::v1::mito::RegionMutation& _internal_region_mutations(int index) const;
-  ::greptime::v1::mito::RegionMutation* _internal_add_region_mutations();
+  const ::greptime::v1::mito::Mutation& _internal_mutations(int index) const;
+  ::greptime::v1::mito::Mutation* _internal_add_mutations();
   public:
-  const ::greptime::v1::mito::RegionMutation& region_mutations(int index) const;
-  ::greptime::v1::mito::RegionMutation* add_region_mutations();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::RegionMutation >&
-      region_mutations() const;
+  const ::greptime::v1::mito::Mutation& mutations(int index) const;
+  ::greptime::v1::mito::Mutation* add_mutations();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::Mutation >&
+      mutations() const;
 
   // @@protoc_insertion_point(class_scope:greptime.v1.mito.WalEntry)
  private:
@@ -593,7 +421,7 @@ class WalEntry final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::RegionMutation > region_mutations_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::Mutation > mutations_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -737,117 +565,51 @@ inline void Mutation::set_allocated_rows(::greptime::v1::Rows* rows) {
 
 // -------------------------------------------------------------------
 
-// RegionMutation
+// WalEntry
 
-// uint64 region_id = 1;
-inline void RegionMutation::clear_region_id() {
-  _impl_.region_id_ = uint64_t{0u};
-}
-inline uint64_t RegionMutation::_internal_region_id() const {
-  return _impl_.region_id_;
-}
-inline uint64_t RegionMutation::region_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.mito.RegionMutation.region_id)
-  return _internal_region_id();
-}
-inline void RegionMutation::_internal_set_region_id(uint64_t value) {
-  
-  _impl_.region_id_ = value;
-}
-inline void RegionMutation::set_region_id(uint64_t value) {
-  _internal_set_region_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.mito.RegionMutation.region_id)
-}
-
-// repeated .greptime.v1.mito.Mutation mutations = 2;
-inline int RegionMutation::_internal_mutations_size() const {
+// repeated .greptime.v1.mito.Mutation mutations = 1;
+inline int WalEntry::_internal_mutations_size() const {
   return _impl_.mutations_.size();
 }
-inline int RegionMutation::mutations_size() const {
+inline int WalEntry::mutations_size() const {
   return _internal_mutations_size();
 }
-inline void RegionMutation::clear_mutations() {
+inline void WalEntry::clear_mutations() {
   _impl_.mutations_.Clear();
 }
-inline ::greptime::v1::mito::Mutation* RegionMutation::mutable_mutations(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.mito.RegionMutation.mutations)
+inline ::greptime::v1::mito::Mutation* WalEntry::mutable_mutations(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.mito.WalEntry.mutations)
   return _impl_.mutations_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::Mutation >*
-RegionMutation::mutable_mutations() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.mito.RegionMutation.mutations)
+WalEntry::mutable_mutations() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.mito.WalEntry.mutations)
   return &_impl_.mutations_;
 }
-inline const ::greptime::v1::mito::Mutation& RegionMutation::_internal_mutations(int index) const {
+inline const ::greptime::v1::mito::Mutation& WalEntry::_internal_mutations(int index) const {
   return _impl_.mutations_.Get(index);
 }
-inline const ::greptime::v1::mito::Mutation& RegionMutation::mutations(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.mito.RegionMutation.mutations)
+inline const ::greptime::v1::mito::Mutation& WalEntry::mutations(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.mito.WalEntry.mutations)
   return _internal_mutations(index);
 }
-inline ::greptime::v1::mito::Mutation* RegionMutation::_internal_add_mutations() {
+inline ::greptime::v1::mito::Mutation* WalEntry::_internal_add_mutations() {
   return _impl_.mutations_.Add();
 }
-inline ::greptime::v1::mito::Mutation* RegionMutation::add_mutations() {
+inline ::greptime::v1::mito::Mutation* WalEntry::add_mutations() {
   ::greptime::v1::mito::Mutation* _add = _internal_add_mutations();
-  // @@protoc_insertion_point(field_add:greptime.v1.mito.RegionMutation.mutations)
+  // @@protoc_insertion_point(field_add:greptime.v1.mito.WalEntry.mutations)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::Mutation >&
-RegionMutation::mutations() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.mito.RegionMutation.mutations)
+WalEntry::mutations() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.mito.WalEntry.mutations)
   return _impl_.mutations_;
-}
-
-// -------------------------------------------------------------------
-
-// WalEntry
-
-// repeated .greptime.v1.mito.RegionMutation region_mutations = 1;
-inline int WalEntry::_internal_region_mutations_size() const {
-  return _impl_.region_mutations_.size();
-}
-inline int WalEntry::region_mutations_size() const {
-  return _internal_region_mutations_size();
-}
-inline void WalEntry::clear_region_mutations() {
-  _impl_.region_mutations_.Clear();
-}
-inline ::greptime::v1::mito::RegionMutation* WalEntry::mutable_region_mutations(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.mito.WalEntry.region_mutations)
-  return _impl_.region_mutations_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::RegionMutation >*
-WalEntry::mutable_region_mutations() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.mito.WalEntry.region_mutations)
-  return &_impl_.region_mutations_;
-}
-inline const ::greptime::v1::mito::RegionMutation& WalEntry::_internal_region_mutations(int index) const {
-  return _impl_.region_mutations_.Get(index);
-}
-inline const ::greptime::v1::mito::RegionMutation& WalEntry::region_mutations(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.mito.WalEntry.region_mutations)
-  return _internal_region_mutations(index);
-}
-inline ::greptime::v1::mito::RegionMutation* WalEntry::_internal_add_region_mutations() {
-  return _impl_.region_mutations_.Add();
-}
-inline ::greptime::v1::mito::RegionMutation* WalEntry::add_region_mutations() {
-  ::greptime::v1::mito::RegionMutation* _add = _internal_add_region_mutations();
-  // @@protoc_insertion_point(field_add:greptime.v1.mito.WalEntry.region_mutations)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::mito::RegionMutation >&
-WalEntry::region_mutations() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.mito.WalEntry.region_mutations)
-  return _impl_.region_mutations_;
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 

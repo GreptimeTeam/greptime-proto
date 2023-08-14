@@ -140,12 +140,15 @@ enum ColumnDataType : int {
   TIME_MILLISECOND = 20,
   TIME_MICROSECOND = 21,
   TIME_NANOSECOND = 22,
+  INTERVAL_YEAR_MONTH = 23,
+  INTERVAL_DAY_TIME = 24,
+  INTERVAL_MONTH_DAY_NANO = 25,
   ColumnDataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ColumnDataType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool ColumnDataType_IsValid(int value);
 constexpr ColumnDataType ColumnDataType_MIN = BOOLEAN;
-constexpr ColumnDataType ColumnDataType_MAX = TIME_NANOSECOND;
+constexpr ColumnDataType ColumnDataType_MAX = INTERVAL_MONTH_DAY_NANO;
 constexpr int ColumnDataType_ARRAYSIZE = ColumnDataType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ColumnDataType_descriptor();
