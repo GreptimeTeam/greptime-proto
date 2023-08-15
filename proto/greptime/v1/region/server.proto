@@ -14,10 +14,10 @@
 
 syntax = "proto3";
 
-package greptime.v1;
+package greptime.v1.region;
 
 option java_package = "io.greptime.v1";
-option java_outer_classname = "RegionServer";
+option java_outer_classname = "Server";
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
 import "greptime/v1/common.proto";
