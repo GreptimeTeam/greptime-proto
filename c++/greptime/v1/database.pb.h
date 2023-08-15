@@ -54,6 +54,9 @@ namespace v1 {
 class DeleteRequest;
 struct DeleteRequestDefaultTypeInternal;
 extern DeleteRequestDefaultTypeInternal _DeleteRequest_default_instance_;
+class DeleteRequests;
+struct DeleteRequestsDefaultTypeInternal;
+extern DeleteRequestsDefaultTypeInternal _DeleteRequests_default_instance_;
 class GreptimeRequest;
 struct GreptimeRequestDefaultTypeInternal;
 extern GreptimeRequestDefaultTypeInternal _GreptimeRequest_default_instance_;
@@ -82,6 +85,7 @@ extern RowInsertRequestsDefaultTypeInternal _RowInsertRequests_default_instance_
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::DeleteRequest* Arena::CreateMaybeMessage<::greptime::v1::DeleteRequest>(Arena*);
+template<> ::greptime::v1::DeleteRequests* Arena::CreateMaybeMessage<::greptime::v1::DeleteRequests>(Arena*);
 template<> ::greptime::v1::GreptimeRequest* Arena::CreateMaybeMessage<::greptime::v1::GreptimeRequest>(Arena*);
 template<> ::greptime::v1::GreptimeResponse* Arena::CreateMaybeMessage<::greptime::v1::GreptimeResponse>(Arena*);
 template<> ::greptime::v1::InsertRequest* Arena::CreateMaybeMessage<::greptime::v1::InsertRequest>(Arena*);
@@ -143,7 +147,7 @@ class GreptimeRequest final :
     kInserts = 2,
     kQuery = 3,
     kDdl = 4,
-    kDelete = 5,
+    kDeletes = 5,
     kRowInserts = 6,
     kRowDelete = 7,
     REQUEST_NOT_SET = 0,
@@ -231,7 +235,7 @@ class GreptimeRequest final :
     kInsertsFieldNumber = 2,
     kQueryFieldNumber = 3,
     kDdlFieldNumber = 4,
-    kDeleteFieldNumber = 5,
+    kDeletesFieldNumber = 5,
     kRowInsertsFieldNumber = 6,
     kRowDeleteFieldNumber = 7,
   };
@@ -307,23 +311,23 @@ class GreptimeRequest final :
       ::greptime::v1::DdlRequest* ddl);
   ::greptime::v1::DdlRequest* unsafe_arena_release_ddl();
 
-  // .greptime.v1.DeleteRequest delete = 5;
-  bool has_delete_() const;
+  // .greptime.v1.DeleteRequests deletes = 5;
+  bool has_deletes() const;
   private:
-  bool _internal_has_delete_() const;
+  bool _internal_has_deletes() const;
   public:
-  void clear_delete_();
-  const ::greptime::v1::DeleteRequest& delete_() const;
-  PROTOBUF_NODISCARD ::greptime::v1::DeleteRequest* release_delete_();
-  ::greptime::v1::DeleteRequest* mutable_delete_();
-  void set_allocated_delete_(::greptime::v1::DeleteRequest* delete_);
+  void clear_deletes();
+  const ::greptime::v1::DeleteRequests& deletes() const;
+  PROTOBUF_NODISCARD ::greptime::v1::DeleteRequests* release_deletes();
+  ::greptime::v1::DeleteRequests* mutable_deletes();
+  void set_allocated_deletes(::greptime::v1::DeleteRequests* deletes);
   private:
-  const ::greptime::v1::DeleteRequest& _internal_delete_() const;
-  ::greptime::v1::DeleteRequest* _internal_mutable_delete_();
+  const ::greptime::v1::DeleteRequests& _internal_deletes() const;
+  ::greptime::v1::DeleteRequests* _internal_mutable_deletes();
   public:
-  void unsafe_arena_set_allocated_delete_(
-      ::greptime::v1::DeleteRequest* delete_);
-  ::greptime::v1::DeleteRequest* unsafe_arena_release_delete_();
+  void unsafe_arena_set_allocated_deletes(
+      ::greptime::v1::DeleteRequests* deletes);
+  ::greptime::v1::DeleteRequests* unsafe_arena_release_deletes();
 
   // .greptime.v1.RowInsertRequests row_inserts = 6;
   bool has_row_inserts() const;
@@ -369,7 +373,7 @@ class GreptimeRequest final :
   void set_has_inserts();
   void set_has_query();
   void set_has_ddl();
-  void set_has_delete_();
+  void set_has_deletes();
   void set_has_row_inserts();
   void set_has_row_delete();
 
@@ -387,7 +391,7 @@ class GreptimeRequest final :
       ::greptime::v1::InsertRequests* inserts_;
       ::greptime::v1::QueryRequest* query_;
       ::greptime::v1::DdlRequest* ddl_;
-      ::greptime::v1::DeleteRequest* delete__;
+      ::greptime::v1::DeleteRequests* deletes_;
       ::greptime::v1::RowInsertRequests* row_inserts_;
       ::greptime::v1::RowDeleteRequest* row_delete_;
     } request_;
@@ -1164,6 +1168,163 @@ class InsertRequest final :
 };
 // -------------------------------------------------------------------
 
+class DeleteRequests final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.DeleteRequests) */ {
+ public:
+  inline DeleteRequests() : DeleteRequests(nullptr) {}
+  ~DeleteRequests() override;
+  explicit PROTOBUF_CONSTEXPR DeleteRequests(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DeleteRequests(const DeleteRequests& from);
+  DeleteRequests(DeleteRequests&& from) noexcept
+    : DeleteRequests() {
+    *this = ::std::move(from);
+  }
+
+  inline DeleteRequests& operator=(const DeleteRequests& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeleteRequests& operator=(DeleteRequests&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeleteRequests& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeleteRequests* internal_default_instance() {
+    return reinterpret_cast<const DeleteRequests*>(
+               &_DeleteRequests_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(DeleteRequests& a, DeleteRequests& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DeleteRequests* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeleteRequests* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeleteRequests* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DeleteRequests>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DeleteRequests& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const DeleteRequests& from) {
+    DeleteRequests::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DeleteRequests* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.DeleteRequests";
+  }
+  protected:
+  explicit DeleteRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDeletesFieldNumber = 1,
+  };
+  // repeated .greptime.v1.DeleteRequest deletes = 1;
+  int deletes_size() const;
+  private:
+  int _internal_deletes_size() const;
+  public:
+  void clear_deletes();
+  ::greptime::v1::DeleteRequest* mutable_deletes(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::DeleteRequest >*
+      mutable_deletes();
+  private:
+  const ::greptime::v1::DeleteRequest& _internal_deletes(int index) const;
+  ::greptime::v1::DeleteRequest* _internal_add_deletes();
+  public:
+  const ::greptime::v1::DeleteRequest& deletes(int index) const;
+  ::greptime::v1::DeleteRequest* add_deletes();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::DeleteRequest >&
+      deletes() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.DeleteRequests)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::DeleteRequest > deletes_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fdatabase_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DeleteRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.DeleteRequest) */ {
  public:
@@ -1212,7 +1373,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
     a.Swap(&b);
@@ -1407,7 +1568,7 @@ class RowInsertRequests final :
                &_RowInsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(RowInsertRequests& a, RowInsertRequests& b) {
     a.Swap(&b);
@@ -1564,7 +1725,7 @@ class RowInsertRequest final :
                &_RowInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(RowInsertRequest& a, RowInsertRequest& b) {
     a.Swap(&b);
@@ -1748,7 +1909,7 @@ class RowDeleteRequest final :
                &_RowDeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(RowDeleteRequest& a, RowDeleteRequest& b) {
     a.Swap(&b);
@@ -2192,77 +2353,77 @@ inline ::greptime::v1::DdlRequest* GreptimeRequest::mutable_ddl() {
   return _msg;
 }
 
-// .greptime.v1.DeleteRequest delete = 5;
-inline bool GreptimeRequest::_internal_has_delete_() const {
-  return request_case() == kDelete;
+// .greptime.v1.DeleteRequests deletes = 5;
+inline bool GreptimeRequest::_internal_has_deletes() const {
+  return request_case() == kDeletes;
 }
-inline bool GreptimeRequest::has_delete_() const {
-  return _internal_has_delete_();
+inline bool GreptimeRequest::has_deletes() const {
+  return _internal_has_deletes();
 }
-inline void GreptimeRequest::set_has_delete_() {
-  _impl_._oneof_case_[0] = kDelete;
+inline void GreptimeRequest::set_has_deletes() {
+  _impl_._oneof_case_[0] = kDeletes;
 }
-inline void GreptimeRequest::clear_delete_() {
-  if (_internal_has_delete_()) {
+inline void GreptimeRequest::clear_deletes() {
+  if (_internal_has_deletes()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.delete__;
+      delete _impl_.request_.deletes_;
     }
     clear_has_request();
   }
 }
-inline ::greptime::v1::DeleteRequest* GreptimeRequest::release_delete_() {
-  // @@protoc_insertion_point(field_release:greptime.v1.GreptimeRequest.delete)
-  if (_internal_has_delete_()) {
+inline ::greptime::v1::DeleteRequests* GreptimeRequest::release_deletes() {
+  // @@protoc_insertion_point(field_release:greptime.v1.GreptimeRequest.deletes)
+  if (_internal_has_deletes()) {
     clear_has_request();
-    ::greptime::v1::DeleteRequest* temp = _impl_.request_.delete__;
+    ::greptime::v1::DeleteRequests* temp = _impl_.request_.deletes_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.delete__ = nullptr;
+    _impl_.request_.deletes_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::greptime::v1::DeleteRequest& GreptimeRequest::_internal_delete_() const {
-  return _internal_has_delete_()
-      ? *_impl_.request_.delete__
-      : reinterpret_cast< ::greptime::v1::DeleteRequest&>(::greptime::v1::_DeleteRequest_default_instance_);
+inline const ::greptime::v1::DeleteRequests& GreptimeRequest::_internal_deletes() const {
+  return _internal_has_deletes()
+      ? *_impl_.request_.deletes_
+      : reinterpret_cast< ::greptime::v1::DeleteRequests&>(::greptime::v1::_DeleteRequests_default_instance_);
 }
-inline const ::greptime::v1::DeleteRequest& GreptimeRequest::delete_() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.GreptimeRequest.delete)
-  return _internal_delete_();
+inline const ::greptime::v1::DeleteRequests& GreptimeRequest::deletes() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.GreptimeRequest.deletes)
+  return _internal_deletes();
 }
-inline ::greptime::v1::DeleteRequest* GreptimeRequest::unsafe_arena_release_delete_() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.GreptimeRequest.delete)
-  if (_internal_has_delete_()) {
+inline ::greptime::v1::DeleteRequests* GreptimeRequest::unsafe_arena_release_deletes() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.GreptimeRequest.deletes)
+  if (_internal_has_deletes()) {
     clear_has_request();
-    ::greptime::v1::DeleteRequest* temp = _impl_.request_.delete__;
-    _impl_.request_.delete__ = nullptr;
+    ::greptime::v1::DeleteRequests* temp = _impl_.request_.deletes_;
+    _impl_.request_.deletes_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void GreptimeRequest::unsafe_arena_set_allocated_delete_(::greptime::v1::DeleteRequest* delete_) {
+inline void GreptimeRequest::unsafe_arena_set_allocated_deletes(::greptime::v1::DeleteRequests* deletes) {
   clear_request();
-  if (delete_) {
-    set_has_delete_();
-    _impl_.request_.delete__ = delete_;
+  if (deletes) {
+    set_has_deletes();
+    _impl_.request_.deletes_ = deletes;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.GreptimeRequest.delete)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.GreptimeRequest.deletes)
 }
-inline ::greptime::v1::DeleteRequest* GreptimeRequest::_internal_mutable_delete_() {
-  if (!_internal_has_delete_()) {
+inline ::greptime::v1::DeleteRequests* GreptimeRequest::_internal_mutable_deletes() {
+  if (!_internal_has_deletes()) {
     clear_request();
-    set_has_delete_();
-    _impl_.request_.delete__ = CreateMaybeMessage< ::greptime::v1::DeleteRequest >(GetArenaForAllocation());
+    set_has_deletes();
+    _impl_.request_.deletes_ = CreateMaybeMessage< ::greptime::v1::DeleteRequests >(GetArenaForAllocation());
   }
-  return _impl_.request_.delete__;
+  return _impl_.request_.deletes_;
 }
-inline ::greptime::v1::DeleteRequest* GreptimeRequest::mutable_delete_() {
-  ::greptime::v1::DeleteRequest* _msg = _internal_mutable_delete_();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeRequest.delete)
+inline ::greptime::v1::DeleteRequests* GreptimeRequest::mutable_deletes() {
+  ::greptime::v1::DeleteRequests* _msg = _internal_mutable_deletes();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeRequest.deletes)
   return _msg;
 }
 
@@ -2997,6 +3158,50 @@ inline void InsertRequest::set_region_number(uint32_t value) {
 
 // -------------------------------------------------------------------
 
+// DeleteRequests
+
+// repeated .greptime.v1.DeleteRequest deletes = 1;
+inline int DeleteRequests::_internal_deletes_size() const {
+  return _impl_.deletes_.size();
+}
+inline int DeleteRequests::deletes_size() const {
+  return _internal_deletes_size();
+}
+inline void DeleteRequests::clear_deletes() {
+  _impl_.deletes_.Clear();
+}
+inline ::greptime::v1::DeleteRequest* DeleteRequests::mutable_deletes(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DeleteRequests.deletes)
+  return _impl_.deletes_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::DeleteRequest >*
+DeleteRequests::mutable_deletes() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.DeleteRequests.deletes)
+  return &_impl_.deletes_;
+}
+inline const ::greptime::v1::DeleteRequest& DeleteRequests::_internal_deletes(int index) const {
+  return _impl_.deletes_.Get(index);
+}
+inline const ::greptime::v1::DeleteRequest& DeleteRequests::deletes(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DeleteRequests.deletes)
+  return _internal_deletes(index);
+}
+inline ::greptime::v1::DeleteRequest* DeleteRequests::_internal_add_deletes() {
+  return _impl_.deletes_.Add();
+}
+inline ::greptime::v1::DeleteRequest* DeleteRequests::add_deletes() {
+  ::greptime::v1::DeleteRequest* _add = _internal_add_deletes();
+  // @@protoc_insertion_point(field_add:greptime.v1.DeleteRequests.deletes)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::DeleteRequest >&
+DeleteRequests::deletes() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.DeleteRequests.deletes)
+  return _impl_.deletes_;
+}
+
+// -------------------------------------------------------------------
+
 // DeleteRequest
 
 // string table_name = 1;
@@ -3491,6 +3696,8 @@ inline void RowDeleteRequest::set_region_number(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
