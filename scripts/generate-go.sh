@@ -9,10 +9,6 @@ protoc --go_out=${GO_OUTPUT} --go_opt=paths=source_relative \
        --go-grpc_out=${GO_OUTPUT}  --go-grpc_opt=paths=source_relative \
        -Iproto proto/greptime/v1/meta/*.proto
 
-protoc --go_out=${GO_OUTPUT} --go_opt=paths=source_relative \
-       --go-grpc_out=${GO_OUTPUT}  --go-grpc_opt=paths=source_relative \
-       -Iproto proto/greptime/v1/region/*.proto
-
 protoc --go_out=${GO_OUTPUT}  --go_opt=paths=source_relative \
        --go-grpc_out=${GO_OUTPUT}  --go-grpc_opt=paths=source_relative \
        -Iproto proto/greptime/v1/*.proto
