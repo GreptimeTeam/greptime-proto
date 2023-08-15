@@ -1,0 +1,92 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package greptime.v1;
+
+option java_package = "io.greptime.v1";
+option java_outer_classname = "RegionServer";
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
+
+import "greptime/v1/common.proto";
+import "greptime/v1/row.proto";
+
+service GreptimeDatabase {
+  rpc Handle(RegionRequest) returns (RegionResponse);
+  // TODO: add stream API
+}
+
+message RegionRequest {
+  RequestHeader header = 1;
+  RegionId region_id = 2;
+  oneof request {
+    InsertRequests inserts = 2;
+    QueryRequest query = 3;
+    DdlRequest ddl = 4;
+    DeleteRequest delete = 5;
+    RowInsertRequests row_inserts = 6;
+    RowDeleteRequest row_delete = 7;
+  }
+}
+
+message InsertRequest { repeated Row rows = 1; }
+
+message DeleteRequest { repeated Row rows = 1; }
+
+message CreateRequest {
+  // Region engine name
+  string engine = 1;
+  // Columns in this region.
+  // todo:  pub column_metadatas : Vec<ColumnMetadata>,
+
+  // Columns in the primary key.
+  repeated ColumnId primary_key = 3;
+  // Create region if not exists.
+  bool create_if_not_exists = 4;
+  // Directory for region's data home. Usually is composed by catalog and
+  string region_dir = 5;
+  // Options of the created region.
+  map<string, string> options = 6;
+  // TODO: add partition def
+}
+
+message DropRequest {}
+
+message OpenRequest {
+  // Region engine name
+  string engine = 1;
+  // Data directory of the region.
+  string region_dir = 2;
+  // Options of the opened region.
+  map<string, string> options = 6;
+}
+
+message CloseRequest {}
+
+// TODO: implement alter request
+message AlterRequest {}
+
+message FlushRequest {}
+
+message CompactRequest {}
+
+message ColumnDef {
+  string name = 1;
+  ColumnDataType datatype = 2;
+  bool is_nullable = 3;
+  bytes default_constraint = 4;
+  SemanticType semantic_type = 5;
+  ColumnId column_id = 6;
+}

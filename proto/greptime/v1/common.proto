@@ -35,9 +35,7 @@ message RequestHeader {
   optional uint64 span_id = 6;
 }
 
-message ResponseHeader {
-  Status status = 1;
-}
+message ResponseHeader { Status status = 1; }
 
 message Status {
   // Corresponding to the `StatusCode` definition of GreptimeDB
@@ -69,12 +67,17 @@ enum SemanticType {
   TIMESTAMP = 2;
 }
 
+// TODO: deprecate this, and use the `ColumnDef` in region_server.proto instead
 message ColumnDef {
   string name = 1;
   ColumnDataType datatype = 2;
   bool is_nullable = 3;
   bytes default_constraint = 4;
 }
+
+message ColumnId { uint32 column_id = 1; }
+
+message RegionId { uint64 region_id = 1; }
 
 enum ColumnDataType {
   BOOLEAN = 0;
@@ -104,4 +107,3 @@ enum ColumnDataType {
   INTERVAL_DAY_TIME = 24;
   INTERVAL_MONTH_DAY_NANO = 25;
 }
-
