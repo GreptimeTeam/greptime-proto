@@ -30,6 +30,7 @@ service RegionServer {
 
 message RegionRequest {
   RequestHeader header = 1;
+  // query request is handled in flight services.
   oneof request {
     InsertRequests inserts = 3;
     DeleteRequests deletes = 4;
@@ -60,6 +61,12 @@ message InsertRequest {
 message DeleteRequest {
   uint64 region_id = 1;
   repeated Row rows = 2;
+}
+
+message QueryRequest {
+  uint64 region_id = 1;
+  // substrait plan to query
+  bytes plan = 2;
 }
 
 message CreateRequest {
