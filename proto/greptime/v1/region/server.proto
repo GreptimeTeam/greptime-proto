@@ -57,13 +57,13 @@ message CreateRequest {
   // Region engine name
   string engine = 1;
   // Columns in this region.
-  // todo:  pub column_metadatas : Vec<ColumnMetadata>,
-
+  repeated ColumnDef column_defs = 2;
   // Columns in the primary key.
   repeated ColumnId primary_key = 3;
   // Create region if not exists.
   bool create_if_not_exists = 4;
-  // Directory for region's data home. Usually is composed by catalog and
+  // Directory for region's data home. Usually is composed by catalog and table
+  // id
   string region_dir = 5;
   // Options of the created region.
   map<string, string> options = 6;
@@ -92,9 +92,9 @@ message CompactRequest {}
 
 message ColumnDef {
   string name = 1;
-  ColumnDataType datatype = 2;
-  bool is_nullable = 3;
-  bytes default_constraint = 4;
-  SemanticType semantic_type = 5;
-  ColumnId column_id = 6;
+  ColumnId column_id = 2;
+  ColumnDataType datatype = 3;
+  bool is_nullable = 4;
+  bytes default_constraint = 5;
+  SemanticType semantic_type = 6;
 }
