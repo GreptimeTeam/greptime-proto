@@ -674,6 +674,7 @@ func (x *FlightMetadata) GetAffectedRows() *AffectedRows {
 	return nil
 }
 
+// TODO: deprecate this, and use the `ColumnDef` in region_server.proto instead
 type ColumnDef struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

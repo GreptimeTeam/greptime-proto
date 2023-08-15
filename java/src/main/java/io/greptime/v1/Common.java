@@ -6643,6 +6643,10 @@ public final class Common {
     com.google.protobuf.ByteString getDefaultConstraint();
   }
   /**
+   * <pre>
+   * TODO: deprecate this, and use the `ColumnDef` in region_server.proto instead
+   * </pre>
+   *
    * Protobuf type {@code greptime.v1.ColumnDef}
    */
   public static final class ColumnDef extends
@@ -7013,6 +7017,10 @@ public final class Common {
       return builder;
     }
     /**
+     * <pre>
+     * TODO: deprecate this, and use the `ColumnDef` in region_server.proto instead
+     * </pre>
+     *
      * Protobuf type {@code greptime.v1.ColumnDef}
      */
     public static final class Builder extends
