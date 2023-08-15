@@ -6873,24 +6873,17 @@ public final class Server {
      * Columns in the primary key.
      * </pre>
      *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+     * <code>repeated uint32 primary_key = 4;</code>
+     * @return A list containing the primaryKey.
      */
-    java.util.List<io.greptime.v1.Common.ColumnId> 
-        getPrimaryKeyList();
+    java.util.List<java.lang.Integer> getPrimaryKeyList();
     /**
      * <pre>
      * Columns in the primary key.
      * </pre>
      *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-     */
-    io.greptime.v1.Common.ColumnId getPrimaryKey(int index);
-    /**
-     * <pre>
-     * Columns in the primary key.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+     * <code>repeated uint32 primary_key = 4;</code>
+     * @return The count of primaryKey.
      */
     int getPrimaryKeyCount();
     /**
@@ -6898,19 +6891,11 @@ public final class Server {
      * Columns in the primary key.
      * </pre>
      *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+     * <code>repeated uint32 primary_key = 4;</code>
+     * @param index The index of the element to return.
+     * @return The primaryKey at the given index.
      */
-    java.util.List<? extends io.greptime.v1.Common.ColumnIdOrBuilder> 
-        getPrimaryKeyOrBuilderList();
-    /**
-     * <pre>
-     * Columns in the primary key.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-     */
-    io.greptime.v1.Common.ColumnIdOrBuilder getPrimaryKeyOrBuilder(
-        int index);
+    int getPrimaryKey(int index);
 
     /**
      * <pre>
@@ -7015,7 +7000,7 @@ java.lang.String defaultValue);
     private CreateRequest() {
       engine_ = "";
       columnDefs_ = java.util.Collections.emptyList();
-      primaryKey_ = java.util.Collections.emptyList();
+      primaryKey_ = emptyIntList();
       regionDir_ = "";
     }
 
@@ -7070,13 +7055,25 @@ java.lang.String defaultValue);
                   input.readMessage(io.greptime.v1.region.Server.ColumnDef.parser(), extensionRegistry));
               break;
             }
-            case 34: {
+            case 32: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                primaryKey_ = new java.util.ArrayList<io.greptime.v1.Common.ColumnId>();
+                primaryKey_ = newIntList();
                 mutable_bitField0_ |= 0x00000002;
               }
-              primaryKey_.add(
-                  input.readMessage(io.greptime.v1.Common.ColumnId.parser(), extensionRegistry));
+              primaryKey_.addInt(input.readUInt32());
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                primaryKey_ = newIntList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                primaryKey_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
               break;
             }
             case 40: {
@@ -7124,7 +7121,7 @@ java.lang.String defaultValue);
           columnDefs_ = java.util.Collections.unmodifiableList(columnDefs_);
         }
         if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          primaryKey_ = java.util.Collections.unmodifiableList(primaryKey_);
+          primaryKey_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -7273,16 +7270,18 @@ java.lang.String defaultValue);
     }
 
     public static final int PRIMARY_KEY_FIELD_NUMBER = 4;
-    private java.util.List<io.greptime.v1.Common.ColumnId> primaryKey_;
+    private com.google.protobuf.Internal.IntList primaryKey_;
     /**
      * <pre>
      * Columns in the primary key.
      * </pre>
      *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+     * <code>repeated uint32 primary_key = 4;</code>
+     * @return A list containing the primaryKey.
      */
     @java.lang.Override
-    public java.util.List<io.greptime.v1.Common.ColumnId> getPrimaryKeyList() {
+    public java.util.List<java.lang.Integer>
+        getPrimaryKeyList() {
       return primaryKey_;
     }
     /**
@@ -7290,21 +7289,9 @@ java.lang.String defaultValue);
      * Columns in the primary key.
      * </pre>
      *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+     * <code>repeated uint32 primary_key = 4;</code>
+     * @return The count of primaryKey.
      */
-    @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.Common.ColumnIdOrBuilder> 
-        getPrimaryKeyOrBuilderList() {
-      return primaryKey_;
-    }
-    /**
-     * <pre>
-     * Columns in the primary key.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-     */
-    @java.lang.Override
     public int getPrimaryKeyCount() {
       return primaryKey_.size();
     }
@@ -7313,24 +7300,14 @@ java.lang.String defaultValue);
      * Columns in the primary key.
      * </pre>
      *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+     * <code>repeated uint32 primary_key = 4;</code>
+     * @param index The index of the element to return.
+     * @return The primaryKey at the given index.
      */
-    @java.lang.Override
-    public io.greptime.v1.Common.ColumnId getPrimaryKey(int index) {
-      return primaryKey_.get(index);
+    public int getPrimaryKey(int index) {
+      return primaryKey_.getInt(index);
     }
-    /**
-     * <pre>
-     * Columns in the primary key.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Common.ColumnIdOrBuilder getPrimaryKeyOrBuilder(
-        int index) {
-      return primaryKey_.get(index);
-    }
+    private int primaryKeyMemoizedSerializedSize = -1;
 
     public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 5;
     private boolean createIfNotExists_;
@@ -7506,6 +7483,7 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (regionId_ != 0L) {
         output.writeUInt64(1, regionId_);
       }
@@ -7515,8 +7493,12 @@ java.lang.String defaultValue);
       for (int i = 0; i < columnDefs_.size(); i++) {
         output.writeMessage(3, columnDefs_.get(i));
       }
+      if (getPrimaryKeyList().size() > 0) {
+        output.writeUInt32NoTag(34);
+        output.writeUInt32NoTag(primaryKeyMemoizedSerializedSize);
+      }
       for (int i = 0; i < primaryKey_.size(); i++) {
-        output.writeMessage(4, primaryKey_.get(i));
+        output.writeUInt32NoTag(primaryKey_.getInt(i));
       }
       if (createIfNotExists_ != false) {
         output.writeBool(5, createIfNotExists_);
@@ -7550,9 +7532,19 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, columnDefs_.get(i));
       }
-      for (int i = 0; i < primaryKey_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, primaryKey_.get(i));
+      {
+        int dataSize = 0;
+        for (int i = 0; i < primaryKey_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(primaryKey_.getInt(i));
+        }
+        size += dataSize;
+        if (!getPrimaryKeyList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        primaryKeyMemoizedSerializedSize = dataSize;
       }
       if (createIfNotExists_ != false) {
         size += com.google.protobuf.CodedOutputStream
@@ -7784,7 +7776,6 @@ java.lang.String defaultValue);
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getColumnDefsFieldBuilder();
-          getPrimaryKeyFieldBuilder();
         }
       }
       @java.lang.Override
@@ -7800,12 +7791,8 @@ java.lang.String defaultValue);
         } else {
           columnDefsBuilder_.clear();
         }
-        if (primaryKeyBuilder_ == null) {
-          primaryKey_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        } else {
-          primaryKeyBuilder_.clear();
-        }
+        primaryKey_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         createIfNotExists_ = false;
 
         regionDir_ = "";
@@ -7849,15 +7836,11 @@ java.lang.String defaultValue);
         } else {
           result.columnDefs_ = columnDefsBuilder_.build();
         }
-        if (primaryKeyBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
-            primaryKey_ = java.util.Collections.unmodifiableList(primaryKey_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
-          result.primaryKey_ = primaryKey_;
-        } else {
-          result.primaryKey_ = primaryKeyBuilder_.build();
+        if (((bitField0_ & 0x00000002) != 0)) {
+          primaryKey_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
+        result.primaryKey_ = primaryKey_;
         result.createIfNotExists_ = createIfNotExists_;
         result.regionDir_ = regionDir_;
         result.options_ = internalGetOptions();
@@ -7943,31 +7926,15 @@ java.lang.String defaultValue);
             }
           }
         }
-        if (primaryKeyBuilder_ == null) {
-          if (!other.primaryKey_.isEmpty()) {
-            if (primaryKey_.isEmpty()) {
-              primaryKey_ = other.primaryKey_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-              ensurePrimaryKeyIsMutable();
-              primaryKey_.addAll(other.primaryKey_);
-            }
-            onChanged();
+        if (!other.primaryKey_.isEmpty()) {
+          if (primaryKey_.isEmpty()) {
+            primaryKey_ = other.primaryKey_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensurePrimaryKeyIsMutable();
+            primaryKey_.addAll(other.primaryKey_);
           }
-        } else {
-          if (!other.primaryKey_.isEmpty()) {
-            if (primaryKeyBuilder_.isEmpty()) {
-              primaryKeyBuilder_.dispose();
-              primaryKeyBuilder_ = null;
-              primaryKey_ = other.primaryKey_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              primaryKeyBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getPrimaryKeyFieldBuilder() : null;
-            } else {
-              primaryKeyBuilder_.addAllMessages(other.primaryKey_);
-            }
-          }
+          onChanged();
         }
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
@@ -8447,79 +8414,64 @@ java.lang.String defaultValue);
         return columnDefsBuilder_;
       }
 
-      private java.util.List<io.greptime.v1.Common.ColumnId> primaryKey_ =
-        java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.IntList primaryKey_ = emptyIntList();
       private void ensurePrimaryKeyIsMutable() {
         if (!((bitField0_ & 0x00000002) != 0)) {
-          primaryKey_ = new java.util.ArrayList<io.greptime.v1.Common.ColumnId>(primaryKey_);
+          primaryKey_ = mutableCopy(primaryKey_);
           bitField0_ |= 0x00000002;
          }
       }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Common.ColumnId, io.greptime.v1.Common.ColumnId.Builder, io.greptime.v1.Common.ColumnIdOrBuilder> primaryKeyBuilder_;
-
       /**
        * <pre>
        * Columns in the primary key.
        * </pre>
        *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+       * <code>repeated uint32 primary_key = 4;</code>
+       * @return A list containing the primaryKey.
        */
-      public java.util.List<io.greptime.v1.Common.ColumnId> getPrimaryKeyList() {
-        if (primaryKeyBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(primaryKey_);
-        } else {
-          return primaryKeyBuilder_.getMessageList();
-        }
+      public java.util.List<java.lang.Integer>
+          getPrimaryKeyList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(primaryKey_) : primaryKey_;
       }
       /**
        * <pre>
        * Columns in the primary key.
        * </pre>
        *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+       * <code>repeated uint32 primary_key = 4;</code>
+       * @return The count of primaryKey.
        */
       public int getPrimaryKeyCount() {
-        if (primaryKeyBuilder_ == null) {
-          return primaryKey_.size();
-        } else {
-          return primaryKeyBuilder_.getCount();
-        }
+        return primaryKey_.size();
       }
       /**
        * <pre>
        * Columns in the primary key.
        * </pre>
        *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+       * <code>repeated uint32 primary_key = 4;</code>
+       * @param index The index of the element to return.
+       * @return The primaryKey at the given index.
        */
-      public io.greptime.v1.Common.ColumnId getPrimaryKey(int index) {
-        if (primaryKeyBuilder_ == null) {
-          return primaryKey_.get(index);
-        } else {
-          return primaryKeyBuilder_.getMessage(index);
-        }
+      public int getPrimaryKey(int index) {
+        return primaryKey_.getInt(index);
       }
       /**
        * <pre>
        * Columns in the primary key.
        * </pre>
        *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+       * <code>repeated uint32 primary_key = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The primaryKey to set.
+       * @return This builder for chaining.
        */
       public Builder setPrimaryKey(
-          int index, io.greptime.v1.Common.ColumnId value) {
-        if (primaryKeyBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePrimaryKeyIsMutable();
-          primaryKey_.set(index, value);
-          onChanged();
-        } else {
-          primaryKeyBuilder_.setMessage(index, value);
-        }
+          int index, int value) {
+        ensurePrimaryKeyIsMutable();
+        primaryKey_.setInt(index, value);
+        onChanged();
         return this;
       }
       /**
@@ -8527,17 +8479,14 @@ java.lang.String defaultValue);
        * Columns in the primary key.
        * </pre>
        *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+       * <code>repeated uint32 primary_key = 4;</code>
+       * @param value The primaryKey to add.
+       * @return This builder for chaining.
        */
-      public Builder setPrimaryKey(
-          int index, io.greptime.v1.Common.ColumnId.Builder builderForValue) {
-        if (primaryKeyBuilder_ == null) {
-          ensurePrimaryKeyIsMutable();
-          primaryKey_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          primaryKeyBuilder_.setMessage(index, builderForValue.build());
-        }
+      public Builder addPrimaryKey(int value) {
+        ensurePrimaryKeyIsMutable();
+        primaryKey_.addInt(value);
+        onChanged();
         return this;
       }
       /**
@@ -8545,95 +8494,16 @@ java.lang.String defaultValue);
        * Columns in the primary key.
        * </pre>
        *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public Builder addPrimaryKey(io.greptime.v1.Common.ColumnId value) {
-        if (primaryKeyBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePrimaryKeyIsMutable();
-          primaryKey_.add(value);
-          onChanged();
-        } else {
-          primaryKeyBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public Builder addPrimaryKey(
-          int index, io.greptime.v1.Common.ColumnId value) {
-        if (primaryKeyBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePrimaryKeyIsMutable();
-          primaryKey_.add(index, value);
-          onChanged();
-        } else {
-          primaryKeyBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public Builder addPrimaryKey(
-          io.greptime.v1.Common.ColumnId.Builder builderForValue) {
-        if (primaryKeyBuilder_ == null) {
-          ensurePrimaryKeyIsMutable();
-          primaryKey_.add(builderForValue.build());
-          onChanged();
-        } else {
-          primaryKeyBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public Builder addPrimaryKey(
-          int index, io.greptime.v1.Common.ColumnId.Builder builderForValue) {
-        if (primaryKeyBuilder_ == null) {
-          ensurePrimaryKeyIsMutable();
-          primaryKey_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          primaryKeyBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+       * <code>repeated uint32 primary_key = 4;</code>
+       * @param values The primaryKey to add.
+       * @return This builder for chaining.
        */
       public Builder addAllPrimaryKey(
-          java.lang.Iterable<? extends io.greptime.v1.Common.ColumnId> values) {
-        if (primaryKeyBuilder_ == null) {
-          ensurePrimaryKeyIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, primaryKey_);
-          onChanged();
-        } else {
-          primaryKeyBuilder_.addAllMessages(values);
-        }
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensurePrimaryKeyIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, primaryKey_);
+        onChanged();
         return this;
       }
       /**
@@ -8641,122 +8511,14 @@ java.lang.String defaultValue);
        * Columns in the primary key.
        * </pre>
        *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
+       * <code>repeated uint32 primary_key = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrimaryKey() {
-        if (primaryKeyBuilder_ == null) {
-          primaryKey_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-          onChanged();
-        } else {
-          primaryKeyBuilder_.clear();
-        }
+        primaryKey_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
         return this;
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public Builder removePrimaryKey(int index) {
-        if (primaryKeyBuilder_ == null) {
-          ensurePrimaryKeyIsMutable();
-          primaryKey_.remove(index);
-          onChanged();
-        } else {
-          primaryKeyBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public io.greptime.v1.Common.ColumnId.Builder getPrimaryKeyBuilder(
-          int index) {
-        return getPrimaryKeyFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public io.greptime.v1.Common.ColumnIdOrBuilder getPrimaryKeyOrBuilder(
-          int index) {
-        if (primaryKeyBuilder_ == null) {
-          return primaryKey_.get(index);  } else {
-          return primaryKeyBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public java.util.List<? extends io.greptime.v1.Common.ColumnIdOrBuilder> 
-           getPrimaryKeyOrBuilderList() {
-        if (primaryKeyBuilder_ != null) {
-          return primaryKeyBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(primaryKey_);
-        }
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public io.greptime.v1.Common.ColumnId.Builder addPrimaryKeyBuilder() {
-        return getPrimaryKeyFieldBuilder().addBuilder(
-            io.greptime.v1.Common.ColumnId.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public io.greptime.v1.Common.ColumnId.Builder addPrimaryKeyBuilder(
-          int index) {
-        return getPrimaryKeyFieldBuilder().addBuilder(
-            index, io.greptime.v1.Common.ColumnId.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * Columns in the primary key.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.ColumnId primary_key = 4;</code>
-       */
-      public java.util.List<io.greptime.v1.Common.ColumnId.Builder> 
-           getPrimaryKeyBuilderList() {
-        return getPrimaryKeyFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Common.ColumnId, io.greptime.v1.Common.ColumnId.Builder, io.greptime.v1.Common.ColumnIdOrBuilder> 
-          getPrimaryKeyFieldBuilder() {
-        if (primaryKeyBuilder_ == null) {
-          primaryKeyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.greptime.v1.Common.ColumnId, io.greptime.v1.Common.ColumnId.Builder, io.greptime.v1.Common.ColumnIdOrBuilder>(
-                  primaryKey_,
-                  ((bitField0_ & 0x00000002) != 0),
-                  getParentForChildren(),
-                  isClean());
-          primaryKey_ = null;
-        }
-        return primaryKeyBuilder_;
       }
 
       private boolean createIfNotExists_ ;
@@ -12846,19 +12608,10 @@ java.lang.String defaultValue);
         getNameBytes();
 
     /**
-     * <code>.greptime.v1.ColumnId column_id = 2;</code>
-     * @return Whether the columnId field is set.
-     */
-    boolean hasColumnId();
-    /**
-     * <code>.greptime.v1.ColumnId column_id = 2;</code>
+     * <code>uint32 column_id = 2;</code>
      * @return The columnId.
      */
-    io.greptime.v1.Common.ColumnId getColumnId();
-    /**
-     * <code>.greptime.v1.ColumnId column_id = 2;</code>
-     */
-    io.greptime.v1.Common.ColumnIdOrBuilder getColumnIdOrBuilder();
+    int getColumnId();
 
     /**
      * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
@@ -12949,17 +12702,9 @@ java.lang.String defaultValue);
               name_ = s;
               break;
             }
-            case 18: {
-              io.greptime.v1.Common.ColumnId.Builder subBuilder = null;
-              if (columnId_ != null) {
-                subBuilder = columnId_.toBuilder();
-              }
-              columnId_ = input.readMessage(io.greptime.v1.Common.ColumnId.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(columnId_);
-                columnId_ = subBuilder.buildPartial();
-              }
+            case 16: {
 
+              columnId_ = input.readUInt32();
               break;
             }
             case 24: {
@@ -13057,29 +12802,14 @@ java.lang.String defaultValue);
     }
 
     public static final int COLUMN_ID_FIELD_NUMBER = 2;
-    private io.greptime.v1.Common.ColumnId columnId_;
+    private int columnId_;
     /**
-     * <code>.greptime.v1.ColumnId column_id = 2;</code>
-     * @return Whether the columnId field is set.
-     */
-    @java.lang.Override
-    public boolean hasColumnId() {
-      return columnId_ != null;
-    }
-    /**
-     * <code>.greptime.v1.ColumnId column_id = 2;</code>
+     * <code>uint32 column_id = 2;</code>
      * @return The columnId.
      */
     @java.lang.Override
-    public io.greptime.v1.Common.ColumnId getColumnId() {
-      return columnId_ == null ? io.greptime.v1.Common.ColumnId.getDefaultInstance() : columnId_;
-    }
-    /**
-     * <code>.greptime.v1.ColumnId column_id = 2;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Common.ColumnIdOrBuilder getColumnIdOrBuilder() {
-      return getColumnId();
+    public int getColumnId() {
+      return columnId_;
     }
 
     public static final int DATATYPE_FIELD_NUMBER = 3;
@@ -13159,8 +12889,8 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (columnId_ != null) {
-        output.writeMessage(2, getColumnId());
+      if (columnId_ != 0) {
+        output.writeUInt32(2, columnId_);
       }
       if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
         output.writeEnum(3, datatype_);
@@ -13186,9 +12916,9 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (columnId_ != null) {
+      if (columnId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getColumnId());
+          .computeUInt32Size(2, columnId_);
       }
       if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -13223,11 +12953,8 @@ java.lang.String defaultValue);
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (hasColumnId() != other.hasColumnId()) return false;
-      if (hasColumnId()) {
-        if (!getColumnId()
-            .equals(other.getColumnId())) return false;
-      }
+      if (getColumnId()
+          != other.getColumnId()) return false;
       if (datatype_ != other.datatype_) return false;
       if (getIsNullable()
           != other.getIsNullable()) return false;
@@ -13247,10 +12974,8 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      if (hasColumnId()) {
-        hash = (37 * hash) + COLUMN_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getColumnId().hashCode();
-      }
+      hash = (37 * hash) + COLUMN_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getColumnId();
       hash = (37 * hash) + DATATYPE_FIELD_NUMBER;
       hash = (53 * hash) + datatype_;
       hash = (37 * hash) + IS_NULLABLE_FIELD_NUMBER;
@@ -13395,12 +13120,8 @@ java.lang.String defaultValue);
         super.clear();
         name_ = "";
 
-        if (columnIdBuilder_ == null) {
-          columnId_ = null;
-        } else {
-          columnId_ = null;
-          columnIdBuilder_ = null;
-        }
+        columnId_ = 0;
+
         datatype_ = 0;
 
         isNullable_ = false;
@@ -13436,11 +13157,7 @@ java.lang.String defaultValue);
       public io.greptime.v1.region.Server.ColumnDef buildPartial() {
         io.greptime.v1.region.Server.ColumnDef result = new io.greptime.v1.region.Server.ColumnDef(this);
         result.name_ = name_;
-        if (columnIdBuilder_ == null) {
-          result.columnId_ = columnId_;
-        } else {
-          result.columnId_ = columnIdBuilder_.build();
-        }
+        result.columnId_ = columnId_;
         result.datatype_ = datatype_;
         result.isNullable_ = isNullable_;
         result.defaultConstraint_ = defaultConstraint_;
@@ -13497,8 +13214,8 @@ java.lang.String defaultValue);
           name_ = other.name_;
           onChanged();
         }
-        if (other.hasColumnId()) {
-          mergeColumnId(other.getColumnId());
+        if (other.getColumnId() != 0) {
+          setColumnId(other.getColumnId());
         }
         if (other.datatype_ != 0) {
           setDatatypeValue(other.getDatatypeValue());
@@ -13617,123 +13334,35 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private io.greptime.v1.Common.ColumnId columnId_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Common.ColumnId, io.greptime.v1.Common.ColumnId.Builder, io.greptime.v1.Common.ColumnIdOrBuilder> columnIdBuilder_;
+      private int columnId_ ;
       /**
-       * <code>.greptime.v1.ColumnId column_id = 2;</code>
-       * @return Whether the columnId field is set.
-       */
-      public boolean hasColumnId() {
-        return columnIdBuilder_ != null || columnId_ != null;
-      }
-      /**
-       * <code>.greptime.v1.ColumnId column_id = 2;</code>
+       * <code>uint32 column_id = 2;</code>
        * @return The columnId.
        */
-      public io.greptime.v1.Common.ColumnId getColumnId() {
-        if (columnIdBuilder_ == null) {
-          return columnId_ == null ? io.greptime.v1.Common.ColumnId.getDefaultInstance() : columnId_;
-        } else {
-          return columnIdBuilder_.getMessage();
-        }
+      @java.lang.Override
+      public int getColumnId() {
+        return columnId_;
       }
       /**
-       * <code>.greptime.v1.ColumnId column_id = 2;</code>
+       * <code>uint32 column_id = 2;</code>
+       * @param value The columnId to set.
+       * @return This builder for chaining.
        */
-      public Builder setColumnId(io.greptime.v1.Common.ColumnId value) {
-        if (columnIdBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          columnId_ = value;
-          onChanged();
-        } else {
-          columnIdBuilder_.setMessage(value);
-        }
-
+      public Builder setColumnId(int value) {
+        
+        columnId_ = value;
+        onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.ColumnId column_id = 2;</code>
-       */
-      public Builder setColumnId(
-          io.greptime.v1.Common.ColumnId.Builder builderForValue) {
-        if (columnIdBuilder_ == null) {
-          columnId_ = builderForValue.build();
-          onChanged();
-        } else {
-          columnIdBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.ColumnId column_id = 2;</code>
-       */
-      public Builder mergeColumnId(io.greptime.v1.Common.ColumnId value) {
-        if (columnIdBuilder_ == null) {
-          if (columnId_ != null) {
-            columnId_ =
-              io.greptime.v1.Common.ColumnId.newBuilder(columnId_).mergeFrom(value).buildPartial();
-          } else {
-            columnId_ = value;
-          }
-          onChanged();
-        } else {
-          columnIdBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.ColumnId column_id = 2;</code>
+       * <code>uint32 column_id = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearColumnId() {
-        if (columnIdBuilder_ == null) {
-          columnId_ = null;
-          onChanged();
-        } else {
-          columnId_ = null;
-          columnIdBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.ColumnId column_id = 2;</code>
-       */
-      public io.greptime.v1.Common.ColumnId.Builder getColumnIdBuilder() {
         
+        columnId_ = 0;
         onChanged();
-        return getColumnIdFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.ColumnId column_id = 2;</code>
-       */
-      public io.greptime.v1.Common.ColumnIdOrBuilder getColumnIdOrBuilder() {
-        if (columnIdBuilder_ != null) {
-          return columnIdBuilder_.getMessageOrBuilder();
-        } else {
-          return columnId_ == null ?
-              io.greptime.v1.Common.ColumnId.getDefaultInstance() : columnId_;
-        }
-      }
-      /**
-       * <code>.greptime.v1.ColumnId column_id = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Common.ColumnId, io.greptime.v1.Common.ColumnId.Builder, io.greptime.v1.Common.ColumnIdOrBuilder> 
-          getColumnIdFieldBuilder() {
-        if (columnIdBuilder_ == null) {
-          columnIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Common.ColumnId, io.greptime.v1.Common.ColumnId.Builder, io.greptime.v1.Common.ColumnIdOrBuilder>(
-                  getColumnId(),
-                  getParentForChildren(),
-                  isClean());
-          columnId_ = null;
-        }
-        return columnIdBuilder_;
+        return this;
       }
 
       private int datatype_ = 0;
@@ -14075,34 +13704,33 @@ java.lang.String defaultValue);
       "rtRequest\022\021\n\tregion_id\030\001 \001(\004\022\036\n\004rows\030\002 \003" +
       "(\0132\020.greptime.v1.Row\"B\n\rDeleteRequest\022\021\n" +
       "\tregion_id\030\001 \001(\004\022\036\n\004rows\030\002 \003(\0132\020.greptim" +
-      "e.v1.Row\"\265\002\n\rCreateRequest\022\021\n\tregion_id\030" +
+      "e.v1.Row\"\236\002\n\rCreateRequest\022\021\n\tregion_id\030" +
       "\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0222\n\013column_defs\030\003 \003" +
-      "(\0132\035.greptime.v1.region.ColumnDef\022*\n\013pri" +
-      "mary_key\030\004 \003(\0132\025.greptime.v1.ColumnId\022\034\n" +
-      "\024create_if_not_exists\030\005 \001(\010\022\022\n\nregion_di" +
-      "r\030\006 \001(\t\022?\n\007options\030\007 \003(\0132..greptime.v1.r" +
-      "egion.CreateRequest.OptionsEntry\032.\n\014Opti" +
-      "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\" \n\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\"\263\001\n\013O" +
-      "penRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030" +
-      "\002 \001(\t\022\022\n\nregion_dir\030\003 \001(\t\022=\n\007options\030\004 \003" +
-      "(\0132,.greptime.v1.region.OpenRequest.Opti" +
-      "onsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregi" +
-      "on_id\030\001 \001(\004\"!\n\014AlterRequest\022\021\n\tregion_id" +
-      "\030\001 \001(\004\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(" +
-      "\004\"#\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"\325" +
-      "\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022(\n\tcolumn_id\030" +
-      "\002 \001(\0132\025.greptime.v1.ColumnId\022-\n\010datatype" +
-      "\030\003 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013i" +
-      "s_nullable\030\004 \001(\010\022\032\n\022default_constraint\030\005" +
-      " \001(\014\0220\n\rsemantic_type\030\006 \001(\0162\031.greptime.v" +
-      "1.SemanticType2_\n\014RegionServer\022O\n\006Handle" +
-      "\022!.greptime.v1.region.RegionRequest\032\".gr" +
-      "eptime.v1.region.RegionResponseB]\n\025io.gr" +
-      "eptime.v1.regionB\006ServerZ<github.com/Gre" +
-      "ptimeTeam/greptime-proto/go/greptime/v1/" +
-      "regionb\006proto3"
+      "(\0132\035.greptime.v1.region.ColumnDef\022\023\n\013pri" +
+      "mary_key\030\004 \003(\r\022\034\n\024create_if_not_exists\030\005" +
+      " \001(\010\022\022\n\nregion_dir\030\006 \001(\t\022?\n\007options\030\007 \003(" +
+      "\0132..greptime.v1.region.CreateRequest.Opt" +
+      "ionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\" \n\013DropRequest\022\021\n\tregi" +
+      "on_id\030\001 \001(\004\"\263\001\n\013OpenRequest\022\021\n\tregion_id" +
+      "\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\022\n\nregion_dir\030\003 \001" +
+      "(\t\022=\n\007options\030\004 \003(\0132,.greptime.v1.region" +
+      ".OpenRequest.OptionsEntry\032.\n\014OptionsEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014Clo" +
+      "seRequest\022\021\n\tregion_id\030\001 \001(\004\"!\n\014AlterReq" +
+      "uest\022\021\n\tregion_id\030\001 \001(\004\"!\n\014FlushRequest\022" +
+      "\021\n\tregion_id\030\001 \001(\004\"#\n\016CompactRequest\022\021\n\t" +
+      "region_id\030\001 \001(\004\"\276\001\n\tColumnDef\022\014\n\004name\030\001 " +
+      "\001(\t\022\021\n\tcolumn_id\030\002 \001(\r\022-\n\010datatype\030\003 \001(\016" +
+      "2\033.greptime.v1.ColumnDataType\022\023\n\013is_null" +
+      "able\030\004 \001(\010\022\032\n\022default_constraint\030\005 \001(\014\0220" +
+      "\n\rsemantic_type\030\006 \001(\0162\031.greptime.v1.Sema" +
+      "nticType2_\n\014RegionServer\022O\n\006Handle\022!.gre" +
+      "ptime.v1.region.RegionRequest\032\".greptime" +
+      ".v1.region.RegionResponseB]\n\025io.greptime" +
+      ".v1.regionB\006ServerZ<github.com/GreptimeT" +
+      "eam/greptime-proto/go/greptime/v1/region" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

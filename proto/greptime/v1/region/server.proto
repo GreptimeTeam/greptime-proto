@@ -69,7 +69,7 @@ message CreateRequest {
   // Columns in this region.
   repeated ColumnDef column_defs = 3;
   // Columns in the primary key.
-  repeated ColumnId primary_key = 4;
+  repeated uint32 primary_key = 4;
   // Create region if not exists.
   bool create_if_not_exists = 5;
   // Directory for region's data home. Usually is composed by catalog and table
@@ -103,7 +103,7 @@ message CompactRequest { uint64 region_id = 1; }
 
 message ColumnDef {
   string name = 1;
-  ColumnId column_id = 2;
+  uint32 column_id = 2;
   ColumnDataType datatype = 3;
   bool is_nullable = 4;
   bytes default_constraint = 5;

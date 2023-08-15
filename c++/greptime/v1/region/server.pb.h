@@ -1493,23 +1493,27 @@ class CreateRequest final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::ColumnDef >&
       column_defs() const;
 
-  // repeated .greptime.v1.ColumnId primary_key = 4;
+  // repeated uint32 primary_key = 4;
   int primary_key_size() const;
   private:
   int _internal_primary_key_size() const;
   public:
   void clear_primary_key();
-  ::greptime::v1::ColumnId* mutable_primary_key(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ColumnId >*
-      mutable_primary_key();
   private:
-  const ::greptime::v1::ColumnId& _internal_primary_key(int index) const;
-  ::greptime::v1::ColumnId* _internal_add_primary_key();
+  uint32_t _internal_primary_key(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_primary_key() const;
+  void _internal_add_primary_key(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_primary_key();
   public:
-  const ::greptime::v1::ColumnId& primary_key(int index) const;
-  ::greptime::v1::ColumnId* add_primary_key();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ColumnId >&
+  uint32_t primary_key(int index) const;
+  void set_primary_key(int index, uint32_t value);
+  void add_primary_key(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
       primary_key() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_primary_key();
 
   // map<string, string> options = 7;
   int options_size() const;
@@ -1583,7 +1587,8 @@ class CreateRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::ColumnDef > column_defs_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ColumnId > primary_key_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > primary_key_;
+    mutable std::atomic<int> _primary_key_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
         CreateRequest_OptionsEntry_DoNotUse,
         std::string, std::string,
@@ -2730,23 +2735,14 @@ class ColumnDef final :
   std::string* _internal_mutable_default_constraint();
   public:
 
-  // .greptime.v1.ColumnId column_id = 2;
-  bool has_column_id() const;
-  private:
-  bool _internal_has_column_id() const;
-  public:
+  // uint32 column_id = 2;
   void clear_column_id();
-  const ::greptime::v1::ColumnId& column_id() const;
-  PROTOBUF_NODISCARD ::greptime::v1::ColumnId* release_column_id();
-  ::greptime::v1::ColumnId* mutable_column_id();
-  void set_allocated_column_id(::greptime::v1::ColumnId* column_id);
+  uint32_t column_id() const;
+  void set_column_id(uint32_t value);
   private:
-  const ::greptime::v1::ColumnId& _internal_column_id() const;
-  ::greptime::v1::ColumnId* _internal_mutable_column_id();
+  uint32_t _internal_column_id() const;
+  void _internal_set_column_id(uint32_t value);
   public:
-  void unsafe_arena_set_allocated_column_id(
-      ::greptime::v1::ColumnId* column_id);
-  ::greptime::v1::ColumnId* unsafe_arena_release_column_id();
 
   // .greptime.v1.ColumnDataType datatype = 3;
   void clear_datatype();
@@ -2785,7 +2781,7 @@ class ColumnDef final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr default_constraint_;
-    ::greptime::v1::ColumnId* column_id_;
+    uint32_t column_id_;
     int datatype_;
     bool is_nullable_;
     int semantic_type_;
@@ -4000,41 +3996,51 @@ CreateRequest::column_defs() const {
   return _impl_.column_defs_;
 }
 
-// repeated .greptime.v1.ColumnId primary_key = 4;
+// repeated uint32 primary_key = 4;
 inline int CreateRequest::_internal_primary_key_size() const {
   return _impl_.primary_key_.size();
 }
 inline int CreateRequest::primary_key_size() const {
   return _internal_primary_key_size();
 }
-inline ::greptime::v1::ColumnId* CreateRequest::mutable_primary_key(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CreateRequest.primary_key)
-  return _impl_.primary_key_.Mutable(index);
+inline void CreateRequest::clear_primary_key() {
+  _impl_.primary_key_.Clear();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ColumnId >*
-CreateRequest::mutable_primary_key() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.CreateRequest.primary_key)
-  return &_impl_.primary_key_;
-}
-inline const ::greptime::v1::ColumnId& CreateRequest::_internal_primary_key(int index) const {
+inline uint32_t CreateRequest::_internal_primary_key(int index) const {
   return _impl_.primary_key_.Get(index);
 }
-inline const ::greptime::v1::ColumnId& CreateRequest::primary_key(int index) const {
+inline uint32_t CreateRequest::primary_key(int index) const {
   // @@protoc_insertion_point(field_get:greptime.v1.region.CreateRequest.primary_key)
   return _internal_primary_key(index);
 }
-inline ::greptime::v1::ColumnId* CreateRequest::_internal_add_primary_key() {
-  return _impl_.primary_key_.Add();
+inline void CreateRequest::set_primary_key(int index, uint32_t value) {
+  _impl_.primary_key_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CreateRequest.primary_key)
 }
-inline ::greptime::v1::ColumnId* CreateRequest::add_primary_key() {
-  ::greptime::v1::ColumnId* _add = _internal_add_primary_key();
+inline void CreateRequest::_internal_add_primary_key(uint32_t value) {
+  _impl_.primary_key_.Add(value);
+}
+inline void CreateRequest::add_primary_key(uint32_t value) {
+  _internal_add_primary_key(value);
   // @@protoc_insertion_point(field_add:greptime.v1.region.CreateRequest.primary_key)
-  return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ColumnId >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CreateRequest::_internal_primary_key() const {
+  return _impl_.primary_key_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
 CreateRequest::primary_key() const {
   // @@protoc_insertion_point(field_list:greptime.v1.region.CreateRequest.primary_key)
-  return _impl_.primary_key_;
+  return _internal_primary_key();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CreateRequest::_internal_mutable_primary_key() {
+  return &_impl_.primary_key_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CreateRequest::mutable_primary_key() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.CreateRequest.primary_key)
+  return _internal_mutable_primary_key();
 }
 
 // bool create_if_not_exists = 5;
@@ -4465,89 +4471,24 @@ inline void ColumnDef::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ColumnDef.name)
 }
 
-// .greptime.v1.ColumnId column_id = 2;
-inline bool ColumnDef::_internal_has_column_id() const {
-  return this != internal_default_instance() && _impl_.column_id_ != nullptr;
+// uint32 column_id = 2;
+inline void ColumnDef::clear_column_id() {
+  _impl_.column_id_ = 0u;
 }
-inline bool ColumnDef::has_column_id() const {
-  return _internal_has_column_id();
+inline uint32_t ColumnDef::_internal_column_id() const {
+  return _impl_.column_id_;
 }
-inline const ::greptime::v1::ColumnId& ColumnDef::_internal_column_id() const {
-  const ::greptime::v1::ColumnId* p = _impl_.column_id_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ColumnId&>(
-      ::greptime::v1::_ColumnId_default_instance_);
-}
-inline const ::greptime::v1::ColumnId& ColumnDef::column_id() const {
+inline uint32_t ColumnDef::column_id() const {
   // @@protoc_insertion_point(field_get:greptime.v1.region.ColumnDef.column_id)
   return _internal_column_id();
 }
-inline void ColumnDef::unsafe_arena_set_allocated_column_id(
-    ::greptime::v1::ColumnId* column_id) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.column_id_);
-  }
-  _impl_.column_id_ = column_id;
-  if (column_id) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.ColumnDef.column_id)
-}
-inline ::greptime::v1::ColumnId* ColumnDef::release_column_id() {
+inline void ColumnDef::_internal_set_column_id(uint32_t value) {
   
-  ::greptime::v1::ColumnId* temp = _impl_.column_id_;
-  _impl_.column_id_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
+  _impl_.column_id_ = value;
 }
-inline ::greptime::v1::ColumnId* ColumnDef::unsafe_arena_release_column_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.ColumnDef.column_id)
-  
-  ::greptime::v1::ColumnId* temp = _impl_.column_id_;
-  _impl_.column_id_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::ColumnId* ColumnDef::_internal_mutable_column_id() {
-  
-  if (_impl_.column_id_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::ColumnId>(GetArenaForAllocation());
-    _impl_.column_id_ = p;
-  }
-  return _impl_.column_id_;
-}
-inline ::greptime::v1::ColumnId* ColumnDef::mutable_column_id() {
-  ::greptime::v1::ColumnId* _msg = _internal_mutable_column_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.ColumnDef.column_id)
-  return _msg;
-}
-inline void ColumnDef::set_allocated_column_id(::greptime::v1::ColumnId* column_id) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.column_id_);
-  }
-  if (column_id) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(column_id));
-    if (message_arena != submessage_arena) {
-      column_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, column_id, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.column_id_ = column_id;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ColumnDef.column_id)
+inline void ColumnDef::set_column_id(uint32_t value) {
+  _internal_set_column_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ColumnDef.column_id)
 }
 
 // .greptime.v1.ColumnDataType datatype = 3;

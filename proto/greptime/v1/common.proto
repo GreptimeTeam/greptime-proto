@@ -75,10 +75,6 @@ message ColumnDef {
   bytes default_constraint = 4;
 }
 
-message ColumnId { uint32 column_id = 1; }
-
-message RegionId { uint64 region_id = 1; }
-
 enum ColumnDataType {
   BOOLEAN = 0;
   INT8 = 1;

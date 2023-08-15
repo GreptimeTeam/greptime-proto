@@ -121,6 +121,7 @@ PROTOBUF_CONSTEXPR CreateRequest::CreateRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.column_defs_)*/{}
   , /*decltype(_impl_.primary_key_)*/{}
+  , /*decltype(_impl_._primary_key_cached_byte_size_)*/{0}
   , /*decltype(_impl_.options_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.engine_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.region_dir_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -232,7 +233,7 @@ PROTOBUF_CONSTEXPR ColumnDef::ColumnDef(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.default_constraint_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.column_id_)*/nullptr
+  , /*decltype(_impl_.column_id_)*/0u
   , /*decltype(_impl_.datatype_)*/0
   , /*decltype(_impl_.is_nullable_)*/false
   , /*decltype(_impl_.semantic_type_)*/0
@@ -464,34 +465,33 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "rtRequest\022\021\n\tregion_id\030\001 \001(\004\022\036\n\004rows\030\002 \003"
   "(\0132\020.greptime.v1.Row\"B\n\rDeleteRequest\022\021\n"
   "\tregion_id\030\001 \001(\004\022\036\n\004rows\030\002 \003(\0132\020.greptim"
-  "e.v1.Row\"\265\002\n\rCreateRequest\022\021\n\tregion_id\030"
+  "e.v1.Row\"\236\002\n\rCreateRequest\022\021\n\tregion_id\030"
   "\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0222\n\013column_defs\030\003 \003"
-  "(\0132\035.greptime.v1.region.ColumnDef\022*\n\013pri"
-  "mary_key\030\004 \003(\0132\025.greptime.v1.ColumnId\022\034\n"
-  "\024create_if_not_exists\030\005 \001(\010\022\022\n\nregion_di"
-  "r\030\006 \001(\t\022\?\n\007options\030\007 \003(\0132..greptime.v1.r"
-  "egion.CreateRequest.OptionsEntry\032.\n\014Opti"
-  "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001"
-  "\" \n\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\"\263\001\n\013O"
-  "penRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030"
-  "\002 \001(\t\022\022\n\nregion_dir\030\003 \001(\t\022=\n\007options\030\004 \003"
-  "(\0132,.greptime.v1.region.OpenRequest.Opti"
-  "onsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n"
-  "\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregi"
-  "on_id\030\001 \001(\004\"!\n\014AlterRequest\022\021\n\tregion_id"
-  "\030\001 \001(\004\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001("
-  "\004\"#\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"\325"
-  "\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022(\n\tcolumn_id\030"
-  "\002 \001(\0132\025.greptime.v1.ColumnId\022-\n\010datatype"
-  "\030\003 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013i"
-  "s_nullable\030\004 \001(\010\022\032\n\022default_constraint\030\005"
-  " \001(\014\0220\n\rsemantic_type\030\006 \001(\0162\031.greptime.v"
-  "1.SemanticType2_\n\014RegionServer\022O\n\006Handle"
-  "\022!.greptime.v1.region.RegionRequest\032\".gr"
-  "eptime.v1.region.RegionResponseB]\n\025io.gr"
-  "eptime.v1.regionB\006ServerZ<github.com/Gre"
-  "ptimeTeam/greptime-proto/go/greptime/v1/"
-  "regionb\006proto3"
+  "(\0132\035.greptime.v1.region.ColumnDef\022\023\n\013pri"
+  "mary_key\030\004 \003(\r\022\034\n\024create_if_not_exists\030\005"
+  " \001(\010\022\022\n\nregion_dir\030\006 \001(\t\022\?\n\007options\030\007 \003("
+  "\0132..greptime.v1.region.CreateRequest.Opt"
+  "ionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r"
+  "\n\005value\030\002 \001(\t:\0028\001\" \n\013DropRequest\022\021\n\tregi"
+  "on_id\030\001 \001(\004\"\263\001\n\013OpenRequest\022\021\n\tregion_id"
+  "\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\022\n\nregion_dir\030\003 \001"
+  "(\t\022=\n\007options\030\004 \003(\0132,.greptime.v1.region"
+  ".OpenRequest.OptionsEntry\032.\n\014OptionsEntr"
+  "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014Clo"
+  "seRequest\022\021\n\tregion_id\030\001 \001(\004\"!\n\014AlterReq"
+  "uest\022\021\n\tregion_id\030\001 \001(\004\"!\n\014FlushRequest\022"
+  "\021\n\tregion_id\030\001 \001(\004\"#\n\016CompactRequest\022\021\n\t"
+  "region_id\030\001 \001(\004\"\276\001\n\tColumnDef\022\014\n\004name\030\001 "
+  "\001(\t\022\021\n\tcolumn_id\030\002 \001(\r\022-\n\010datatype\030\003 \001(\016"
+  "2\033.greptime.v1.ColumnDataType\022\023\n\013is_null"
+  "able\030\004 \001(\010\022\032\n\022default_constraint\030\005 \001(\014\0220"
+  "\n\rsemantic_type\030\006 \001(\0162\031.greptime.v1.Sema"
+  "nticType2_\n\014RegionServer\022O\n\006Handle\022!.gre"
+  "ptime.v1.region.RegionRequest\032\".greptime"
+  ".v1.region.RegionResponseB]\n\025io.greptime"
+  ".v1.regionB\006ServerZ<github.com/GreptimeT"
+  "eam/greptime-proto/go/greptime/v1/region"
+  "b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[2] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -499,7 +499,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 2094, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 2048, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 2, 16,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
@@ -2325,9 +2325,6 @@ class CreateRequest::_Internal {
  public:
 };
 
-void CreateRequest::clear_primary_key() {
-  _impl_.primary_key_.Clear();
-}
 CreateRequest::CreateRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -2343,6 +2340,7 @@ CreateRequest::CreateRequest(const CreateRequest& from)
   new (&_impl_) Impl_{
       decltype(_impl_.column_defs_){from._impl_.column_defs_}
     , decltype(_impl_.primary_key_){from._impl_.primary_key_}
+    , /*decltype(_impl_._primary_key_cached_byte_size_)*/{0}
     , /*decltype(_impl_.options_)*/{}
     , decltype(_impl_.engine_){}
     , decltype(_impl_.region_dir_){}
@@ -2381,6 +2379,7 @@ inline void CreateRequest::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.column_defs_){arena}
     , decltype(_impl_.primary_key_){arena}
+    , /*decltype(_impl_._primary_key_cached_byte_size_)*/{0}
     , /*decltype(_impl_.options_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.engine_){}
     , decltype(_impl_.region_dir_){}
@@ -2411,7 +2410,7 @@ CreateRequest::~CreateRequest() {
 inline void CreateRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.column_defs_.~RepeatedPtrField();
-  _impl_.primary_key_.~RepeatedPtrField();
+  _impl_.primary_key_.~RepeatedField();
   _impl_.options_.Destruct();
   _impl_.options_.~MapField();
   _impl_.engine_.Destroy();
@@ -2480,16 +2479,14 @@ const char* CreateRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // repeated .greptime.v1.ColumnId primary_key = 4;
+      // repeated uint32 primary_key = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_primary_key(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_primary_key(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 32) {
+          _internal_add_primary_key(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -2577,12 +2574,13 @@ uint8_t* CreateRequest::_InternalSerialize(
         InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .greptime.v1.ColumnId primary_key = 4;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_primary_key_size()); i < n; i++) {
-    const auto& repfield = this->_internal_primary_key(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
+  // repeated uint32 primary_key = 4;
+  {
+    int byte_size = _impl_._primary_key_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt32Packed(
+          4, _internal_primary_key(), byte_size, target);
+    }
   }
 
   // bool create_if_not_exists = 5;
@@ -2654,11 +2652,18 @@ size_t CreateRequest::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .greptime.v1.ColumnId primary_key = 4;
-  total_size += 1UL * this->_internal_primary_key_size();
-  for (const auto& msg : this->_impl_.primary_key_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  // repeated uint32 primary_key = 4;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.primary_key_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._primary_key_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
   }
 
   // map<string, string> options = 7;
@@ -4027,19 +4032,8 @@ void CompactRequest::InternalSwap(CompactRequest* other) {
 
 class ColumnDef::_Internal {
  public:
-  static const ::greptime::v1::ColumnId& column_id(const ColumnDef* msg);
 };
 
-const ::greptime::v1::ColumnId&
-ColumnDef::_Internal::column_id(const ColumnDef* msg) {
-  return *msg->_impl_.column_id_;
-}
-void ColumnDef::clear_column_id() {
-  if (GetArenaForAllocation() == nullptr && _impl_.column_id_ != nullptr) {
-    delete _impl_.column_id_;
-  }
-  _impl_.column_id_ = nullptr;
-}
 ColumnDef::ColumnDef(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -4052,7 +4046,7 @@ ColumnDef::ColumnDef(const ColumnDef& from)
   new (&_impl_) Impl_{
       decltype(_impl_.name_){}
     , decltype(_impl_.default_constraint_){}
-    , decltype(_impl_.column_id_){nullptr}
+    , decltype(_impl_.column_id_){}
     , decltype(_impl_.datatype_){}
     , decltype(_impl_.is_nullable_){}
     , decltype(_impl_.semantic_type_){}
@@ -4075,12 +4069,9 @@ ColumnDef::ColumnDef(const ColumnDef& from)
     _this->_impl_.default_constraint_.Set(from._internal_default_constraint(), 
       _this->GetArenaForAllocation());
   }
-  if (from._internal_has_column_id()) {
-    _this->_impl_.column_id_ = new ::greptime::v1::ColumnId(*from._impl_.column_id_);
-  }
-  ::memcpy(&_impl_.datatype_, &from._impl_.datatype_,
+  ::memcpy(&_impl_.column_id_, &from._impl_.column_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.semantic_type_) -
-    reinterpret_cast<char*>(&_impl_.datatype_)) + sizeof(_impl_.semantic_type_));
+    reinterpret_cast<char*>(&_impl_.column_id_)) + sizeof(_impl_.semantic_type_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.region.ColumnDef)
 }
 
@@ -4091,7 +4082,7 @@ inline void ColumnDef::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.name_){}
     , decltype(_impl_.default_constraint_){}
-    , decltype(_impl_.column_id_){nullptr}
+    , decltype(_impl_.column_id_){0u}
     , decltype(_impl_.datatype_){0}
     , decltype(_impl_.is_nullable_){false}
     , decltype(_impl_.semantic_type_){0}
@@ -4120,7 +4111,6 @@ inline void ColumnDef::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.name_.Destroy();
   _impl_.default_constraint_.Destroy();
-  if (this != internal_default_instance()) delete _impl_.column_id_;
 }
 
 void ColumnDef::SetCachedSize(int size) const {
@@ -4135,13 +4125,9 @@ void ColumnDef::Clear() {
 
   _impl_.name_.ClearToEmpty();
   _impl_.default_constraint_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && _impl_.column_id_ != nullptr) {
-    delete _impl_.column_id_;
-  }
-  _impl_.column_id_ = nullptr;
-  ::memset(&_impl_.datatype_, 0, static_cast<size_t>(
+  ::memset(&_impl_.column_id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.semantic_type_) -
-      reinterpret_cast<char*>(&_impl_.datatype_)) + sizeof(_impl_.semantic_type_));
+      reinterpret_cast<char*>(&_impl_.column_id_)) + sizeof(_impl_.semantic_type_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4161,10 +4147,10 @@ const char* ColumnDef::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.ColumnId column_id = 2;
+      // uint32 column_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_column_id(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.column_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4243,11 +4229,10 @@ uint8_t* ColumnDef::_InternalSerialize(
         1, this->_internal_name(), target);
   }
 
-  // .greptime.v1.ColumnId column_id = 2;
-  if (this->_internal_has_column_id()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::column_id(this),
-        _Internal::column_id(this).GetCachedSize(), target, stream);
+  // uint32 column_id = 2;
+  if (this->_internal_column_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_column_id(), target);
   }
 
   // .greptime.v1.ColumnDataType datatype = 3;
@@ -4306,11 +4291,9 @@ size_t ColumnDef::ByteSizeLong() const {
         this->_internal_default_constraint());
   }
 
-  // .greptime.v1.ColumnId column_id = 2;
-  if (this->_internal_has_column_id()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.column_id_);
+  // uint32 column_id = 2;
+  if (this->_internal_column_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_column_id());
   }
 
   // .greptime.v1.ColumnDataType datatype = 3;
@@ -4354,9 +4337,8 @@ void ColumnDef::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
   if (!from._internal_default_constraint().empty()) {
     _this->_internal_set_default_constraint(from._internal_default_constraint());
   }
-  if (from._internal_has_column_id()) {
-    _this->_internal_mutable_column_id()->::greptime::v1::ColumnId::MergeFrom(
-        from._internal_column_id());
+  if (from._internal_column_id() != 0) {
+    _this->_internal_set_column_id(from._internal_column_id());
   }
   if (from._internal_datatype() != 0) {
     _this->_internal_set_datatype(from._internal_datatype());
