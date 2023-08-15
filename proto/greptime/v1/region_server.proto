@@ -23,7 +23,7 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 import "greptime/v1/common.proto";
 import "greptime/v1/row.proto";
 
-service GreptimeDatabase {
+service RegionServer {
   rpc Handle(RegionRequest) returns (RegionResponse);
   // TODO: add stream API
 }
@@ -32,13 +32,21 @@ message RegionRequest {
   RequestHeader header = 1;
   RegionId region_id = 2;
   oneof request {
-    InsertRequests inserts = 2;
-    QueryRequest query = 3;
-    DdlRequest ddl = 4;
-    DeleteRequest delete = 5;
-    RowInsertRequests row_inserts = 6;
-    RowDeleteRequest row_delete = 7;
+    InsertRequest insert = 3;
+    DeleteRequest delete = 4;
+    CreateRequest create = 5;
+    DropRequest drop = 6;
+    OpenRequest open = 7;
+    CloseRequest close = 8;
+    AlterRequest alter = 9;
+    FlushRequest flush = 10;
+    CompactRequest compact = 11;
   }
+}
+
+message RegionResponse {
+  ResponseHeader header = 1;
+  uint64 affacted_rows = 2;
 }
 
 message InsertRequest { repeated Row rows = 1; }
