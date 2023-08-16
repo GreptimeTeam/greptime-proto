@@ -77,9 +77,3 @@ message Column {
   // Helpful in creating vector from column.
   ColumnDataType datatype = 5;
 }
-
-message IntervalMonthDayNano {
-  int32 months = 1;
-  int32 days = 2;
-  int64 nanoseconds = 3;
-}

@@ -7433,6 +7433,637 @@ public final class Common {
 
   }
 
+  public interface IntervalMonthDayNanoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.IntervalMonthDayNano)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 months = 1;</code>
+     * @return The months.
+     */
+    int getMonths();
+
+    /**
+     * <code>int32 days = 2;</code>
+     * @return The days.
+     */
+    int getDays();
+
+    /**
+     * <code>int64 nanoseconds = 3;</code>
+     * @return The nanoseconds.
+     */
+    long getNanoseconds();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.IntervalMonthDayNano}
+   */
+  public static final class IntervalMonthDayNano extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.IntervalMonthDayNano)
+      IntervalMonthDayNanoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use IntervalMonthDayNano.newBuilder() to construct.
+    private IntervalMonthDayNano(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IntervalMonthDayNano() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new IntervalMonthDayNano();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private IntervalMonthDayNano(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              months_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              days_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              nanoseconds_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_IntervalMonthDayNano_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Common.IntervalMonthDayNano.class, io.greptime.v1.Common.IntervalMonthDayNano.Builder.class);
+    }
+
+    public static final int MONTHS_FIELD_NUMBER = 1;
+    private int months_;
+    /**
+     * <code>int32 months = 1;</code>
+     * @return The months.
+     */
+    @java.lang.Override
+    public int getMonths() {
+      return months_;
+    }
+
+    public static final int DAYS_FIELD_NUMBER = 2;
+    private int days_;
+    /**
+     * <code>int32 days = 2;</code>
+     * @return The days.
+     */
+    @java.lang.Override
+    public int getDays() {
+      return days_;
+    }
+
+    public static final int NANOSECONDS_FIELD_NUMBER = 3;
+    private long nanoseconds_;
+    /**
+     * <code>int64 nanoseconds = 3;</code>
+     * @return The nanoseconds.
+     */
+    @java.lang.Override
+    public long getNanoseconds() {
+      return nanoseconds_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (months_ != 0) {
+        output.writeInt32(1, months_);
+      }
+      if (days_ != 0) {
+        output.writeInt32(2, days_);
+      }
+      if (nanoseconds_ != 0L) {
+        output.writeInt64(3, nanoseconds_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (months_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, months_);
+      }
+      if (days_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, days_);
+      }
+      if (nanoseconds_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, nanoseconds_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Common.IntervalMonthDayNano)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Common.IntervalMonthDayNano other = (io.greptime.v1.Common.IntervalMonthDayNano) obj;
+
+      if (getMonths()
+          != other.getMonths()) return false;
+      if (getDays()
+          != other.getDays()) return false;
+      if (getNanoseconds()
+          != other.getNanoseconds()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MONTHS_FIELD_NUMBER;
+      hash = (53 * hash) + getMonths();
+      hash = (37 * hash) + DAYS_FIELD_NUMBER;
+      hash = (53 * hash) + getDays();
+      hash = (37 * hash) + NANOSECONDS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getNanoseconds());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.IntervalMonthDayNano parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Common.IntervalMonthDayNano prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.IntervalMonthDayNano}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.IntervalMonthDayNano)
+        io.greptime.v1.Common.IntervalMonthDayNanoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_IntervalMonthDayNano_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Common.IntervalMonthDayNano.class, io.greptime.v1.Common.IntervalMonthDayNano.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Common.IntervalMonthDayNano.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        months_ = 0;
+
+        days_ = 0;
+
+        nanoseconds_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_IntervalMonthDayNano_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.IntervalMonthDayNano getDefaultInstanceForType() {
+        return io.greptime.v1.Common.IntervalMonthDayNano.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.IntervalMonthDayNano build() {
+        io.greptime.v1.Common.IntervalMonthDayNano result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.IntervalMonthDayNano buildPartial() {
+        io.greptime.v1.Common.IntervalMonthDayNano result = new io.greptime.v1.Common.IntervalMonthDayNano(this);
+        result.months_ = months_;
+        result.days_ = days_;
+        result.nanoseconds_ = nanoseconds_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Common.IntervalMonthDayNano) {
+          return mergeFrom((io.greptime.v1.Common.IntervalMonthDayNano)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Common.IntervalMonthDayNano other) {
+        if (other == io.greptime.v1.Common.IntervalMonthDayNano.getDefaultInstance()) return this;
+        if (other.getMonths() != 0) {
+          setMonths(other.getMonths());
+        }
+        if (other.getDays() != 0) {
+          setDays(other.getDays());
+        }
+        if (other.getNanoseconds() != 0L) {
+          setNanoseconds(other.getNanoseconds());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Common.IntervalMonthDayNano parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Common.IntervalMonthDayNano) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int months_ ;
+      /**
+       * <code>int32 months = 1;</code>
+       * @return The months.
+       */
+      @java.lang.Override
+      public int getMonths() {
+        return months_;
+      }
+      /**
+       * <code>int32 months = 1;</code>
+       * @param value The months to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMonths(int value) {
+        
+        months_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 months = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMonths() {
+        
+        months_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int days_ ;
+      /**
+       * <code>int32 days = 2;</code>
+       * @return The days.
+       */
+      @java.lang.Override
+      public int getDays() {
+        return days_;
+      }
+      /**
+       * <code>int32 days = 2;</code>
+       * @param value The days to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDays(int value) {
+        
+        days_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 days = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDays() {
+        
+        days_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long nanoseconds_ ;
+      /**
+       * <code>int64 nanoseconds = 3;</code>
+       * @return The nanoseconds.
+       */
+      @java.lang.Override
+      public long getNanoseconds() {
+        return nanoseconds_;
+      }
+      /**
+       * <code>int64 nanoseconds = 3;</code>
+       * @param value The nanoseconds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNanoseconds(long value) {
+        
+        nanoseconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 nanoseconds = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNanoseconds() {
+        
+        nanoseconds_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.IntervalMonthDayNano)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.IntervalMonthDayNano)
+    private static final io.greptime.v1.Common.IntervalMonthDayNano DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Common.IntervalMonthDayNano();
+    }
+
+    public static io.greptime.v1.Common.IntervalMonthDayNano getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<IntervalMonthDayNano>
+        PARSER = new com.google.protobuf.AbstractParser<IntervalMonthDayNano>() {
+      @java.lang.Override
+      public IntervalMonthDayNano parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new IntervalMonthDayNano(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<IntervalMonthDayNano> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IntervalMonthDayNano> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Common.IntervalMonthDayNano getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_RequestHeader_descriptor;
   private static final 
@@ -7478,6 +8109,11 @@ public final class Common {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_ColumnDef_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_IntervalMonthDayNano_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -7505,21 +8141,23 @@ public final class Common {
       "\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022-\n\010datatype\030\002 " +
       "\001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_n" +
       "ullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(" +
-      "\014*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n" +
-      "\tTIMESTAMP\020\002*\306\003\n\016ColumnDataType\022\013\n\007BOOLE" +
-      "AN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005" +
-      "INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32" +
-      "\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n" +
-      "\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DA" +
-      "TETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMEST" +
-      "AMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECO" +
-      "ND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_S" +
-      "ECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MI" +
-      "CROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTE" +
-      "RVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030" +
-      "\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031BO\n\016io.grep" +
-      "time.v1B\006CommonZ5github.com/GreptimeTeam" +
-      "/greptime-proto/go/greptime/v1b\006proto3"
+      "\014\"I\n\024IntervalMonthDayNano\022\016\n\006months\030\001 \001(" +
+      "\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003*1\n\014" +
+      "SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIME" +
+      "STAMP\020\002*\306\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022" +
+      "\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64" +
+      "\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n" +
+      "\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006B" +
+      "INARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIM" +
+      "E\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_M" +
+      "ILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022" +
+      "\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND" +
+      "\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROSE" +
+      "COND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_" +
+      "YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027I" +
+      "NTERVAL_MONTH_DAY_NANO\020\031BO\n\016io.greptime." +
+      "v1B\006CommonZ5github.com/GreptimeTeam/grep" +
+      "time-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7579,6 +8217,12 @@ public final class Common {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
         new java.lang.String[] { "Name", "Datatype", "IsNullable", "DefaultConstraint", });
+    internal_static_greptime_v1_IntervalMonthDayNano_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_IntervalMonthDayNano_descriptor,
+        new java.lang.String[] { "Months", "Days", "Nanoseconds", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

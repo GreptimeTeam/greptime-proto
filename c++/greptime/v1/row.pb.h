@@ -648,6 +648,9 @@ class Value final :
     kTimeMillisecondValue = 21,
     kTimeMicrosecondValue = 22,
     kTimeNanosecondValue = 23,
+    kIntervalYearMonthValues = 24,
+    kIntervalDayTimeValues = 25,
+    kIntervalMonthDayNanoValues = 26,
     VALUE_DATA_NOT_SET = 0,
   };
 
@@ -752,6 +755,9 @@ class Value final :
     kTimeMillisecondValueFieldNumber = 21,
     kTimeMicrosecondValueFieldNumber = 22,
     kTimeNanosecondValueFieldNumber = 23,
+    kIntervalYearMonthValuesFieldNumber = 24,
+    kIntervalDayTimeValuesFieldNumber = 25,
+    kIntervalMonthDayNanoValuesFieldNumber = 26,
   };
   // int32 i8_value = 1;
   bool has_i8_value() const;
@@ -1062,6 +1068,50 @@ class Value final :
   void _internal_set_time_nanosecond_value(int64_t value);
   public:
 
+  // int32 interval_year_month_values = 24;
+  bool has_interval_year_month_values() const;
+  private:
+  bool _internal_has_interval_year_month_values() const;
+  public:
+  void clear_interval_year_month_values();
+  int32_t interval_year_month_values() const;
+  void set_interval_year_month_values(int32_t value);
+  private:
+  int32_t _internal_interval_year_month_values() const;
+  void _internal_set_interval_year_month_values(int32_t value);
+  public:
+
+  // int64 interval_day_time_values = 25;
+  bool has_interval_day_time_values() const;
+  private:
+  bool _internal_has_interval_day_time_values() const;
+  public:
+  void clear_interval_day_time_values();
+  int64_t interval_day_time_values() const;
+  void set_interval_day_time_values(int64_t value);
+  private:
+  int64_t _internal_interval_day_time_values() const;
+  void _internal_set_interval_day_time_values(int64_t value);
+  public:
+
+  // .greptime.v1.IntervalMonthDayNano interval_month_day_nano_values = 26;
+  bool has_interval_month_day_nano_values() const;
+  private:
+  bool _internal_has_interval_month_day_nano_values() const;
+  public:
+  void clear_interval_month_day_nano_values();
+  const ::greptime::v1::IntervalMonthDayNano& interval_month_day_nano_values() const;
+  PROTOBUF_NODISCARD ::greptime::v1::IntervalMonthDayNano* release_interval_month_day_nano_values();
+  ::greptime::v1::IntervalMonthDayNano* mutable_interval_month_day_nano_values();
+  void set_allocated_interval_month_day_nano_values(::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_values);
+  private:
+  const ::greptime::v1::IntervalMonthDayNano& _internal_interval_month_day_nano_values() const;
+  ::greptime::v1::IntervalMonthDayNano* _internal_mutable_interval_month_day_nano_values();
+  public:
+  void unsafe_arena_set_allocated_interval_month_day_nano_values(
+      ::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_values);
+  ::greptime::v1::IntervalMonthDayNano* unsafe_arena_release_interval_month_day_nano_values();
+
   void clear_value_data();
   ValueDataCase value_data_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.Value)
@@ -1090,6 +1140,9 @@ class Value final :
   void set_has_time_millisecond_value();
   void set_has_time_microsecond_value();
   void set_has_time_nanosecond_value();
+  void set_has_interval_year_month_values();
+  void set_has_interval_day_time_values();
+  void set_has_interval_month_day_nano_values();
 
   inline bool has_value_data() const;
   inline void clear_has_value_data();
@@ -1124,6 +1177,9 @@ class Value final :
       int64_t time_millisecond_value_;
       int64_t time_microsecond_value_;
       int64_t time_nanosecond_value_;
+      int32_t interval_year_month_values_;
+      int64_t interval_day_time_values_;
+      ::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_values_;
     } value_data_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -2315,6 +2371,148 @@ inline int64_t Value::time_nanosecond_value() const {
 inline void Value::set_time_nanosecond_value(int64_t value) {
   _internal_set_time_nanosecond_value(value);
   // @@protoc_insertion_point(field_set:greptime.v1.Value.time_nanosecond_value)
+}
+
+// int32 interval_year_month_values = 24;
+inline bool Value::_internal_has_interval_year_month_values() const {
+  return value_data_case() == kIntervalYearMonthValues;
+}
+inline bool Value::has_interval_year_month_values() const {
+  return _internal_has_interval_year_month_values();
+}
+inline void Value::set_has_interval_year_month_values() {
+  _impl_._oneof_case_[0] = kIntervalYearMonthValues;
+}
+inline void Value::clear_interval_year_month_values() {
+  if (_internal_has_interval_year_month_values()) {
+    _impl_.value_data_.interval_year_month_values_ = 0;
+    clear_has_value_data();
+  }
+}
+inline int32_t Value::_internal_interval_year_month_values() const {
+  if (_internal_has_interval_year_month_values()) {
+    return _impl_.value_data_.interval_year_month_values_;
+  }
+  return 0;
+}
+inline void Value::_internal_set_interval_year_month_values(int32_t value) {
+  if (!_internal_has_interval_year_month_values()) {
+    clear_value_data();
+    set_has_interval_year_month_values();
+  }
+  _impl_.value_data_.interval_year_month_values_ = value;
+}
+inline int32_t Value::interval_year_month_values() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.interval_year_month_values)
+  return _internal_interval_year_month_values();
+}
+inline void Value::set_interval_year_month_values(int32_t value) {
+  _internal_set_interval_year_month_values(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Value.interval_year_month_values)
+}
+
+// int64 interval_day_time_values = 25;
+inline bool Value::_internal_has_interval_day_time_values() const {
+  return value_data_case() == kIntervalDayTimeValues;
+}
+inline bool Value::has_interval_day_time_values() const {
+  return _internal_has_interval_day_time_values();
+}
+inline void Value::set_has_interval_day_time_values() {
+  _impl_._oneof_case_[0] = kIntervalDayTimeValues;
+}
+inline void Value::clear_interval_day_time_values() {
+  if (_internal_has_interval_day_time_values()) {
+    _impl_.value_data_.interval_day_time_values_ = int64_t{0};
+    clear_has_value_data();
+  }
+}
+inline int64_t Value::_internal_interval_day_time_values() const {
+  if (_internal_has_interval_day_time_values()) {
+    return _impl_.value_data_.interval_day_time_values_;
+  }
+  return int64_t{0};
+}
+inline void Value::_internal_set_interval_day_time_values(int64_t value) {
+  if (!_internal_has_interval_day_time_values()) {
+    clear_value_data();
+    set_has_interval_day_time_values();
+  }
+  _impl_.value_data_.interval_day_time_values_ = value;
+}
+inline int64_t Value::interval_day_time_values() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.interval_day_time_values)
+  return _internal_interval_day_time_values();
+}
+inline void Value::set_interval_day_time_values(int64_t value) {
+  _internal_set_interval_day_time_values(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Value.interval_day_time_values)
+}
+
+// .greptime.v1.IntervalMonthDayNano interval_month_day_nano_values = 26;
+inline bool Value::_internal_has_interval_month_day_nano_values() const {
+  return value_data_case() == kIntervalMonthDayNanoValues;
+}
+inline bool Value::has_interval_month_day_nano_values() const {
+  return _internal_has_interval_month_day_nano_values();
+}
+inline void Value::set_has_interval_month_day_nano_values() {
+  _impl_._oneof_case_[0] = kIntervalMonthDayNanoValues;
+}
+inline ::greptime::v1::IntervalMonthDayNano* Value::release_interval_month_day_nano_values() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Value.interval_month_day_nano_values)
+  if (_internal_has_interval_month_day_nano_values()) {
+    clear_has_value_data();
+    ::greptime::v1::IntervalMonthDayNano* temp = _impl_.value_data_.interval_month_day_nano_values_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.value_data_.interval_month_day_nano_values_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::IntervalMonthDayNano& Value::_internal_interval_month_day_nano_values() const {
+  return _internal_has_interval_month_day_nano_values()
+      ? *_impl_.value_data_.interval_month_day_nano_values_
+      : reinterpret_cast< ::greptime::v1::IntervalMonthDayNano&>(::greptime::v1::_IntervalMonthDayNano_default_instance_);
+}
+inline const ::greptime::v1::IntervalMonthDayNano& Value::interval_month_day_nano_values() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.interval_month_day_nano_values)
+  return _internal_interval_month_day_nano_values();
+}
+inline ::greptime::v1::IntervalMonthDayNano* Value::unsafe_arena_release_interval_month_day_nano_values() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.Value.interval_month_day_nano_values)
+  if (_internal_has_interval_month_day_nano_values()) {
+    clear_has_value_data();
+    ::greptime::v1::IntervalMonthDayNano* temp = _impl_.value_data_.interval_month_day_nano_values_;
+    _impl_.value_data_.interval_month_day_nano_values_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Value::unsafe_arena_set_allocated_interval_month_day_nano_values(::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_values) {
+  clear_value_data();
+  if (interval_month_day_nano_values) {
+    set_has_interval_month_day_nano_values();
+    _impl_.value_data_.interval_month_day_nano_values_ = interval_month_day_nano_values;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.Value.interval_month_day_nano_values)
+}
+inline ::greptime::v1::IntervalMonthDayNano* Value::_internal_mutable_interval_month_day_nano_values() {
+  if (!_internal_has_interval_month_day_nano_values()) {
+    clear_value_data();
+    set_has_interval_month_day_nano_values();
+    _impl_.value_data_.interval_month_day_nano_values_ = CreateMaybeMessage< ::greptime::v1::IntervalMonthDayNano >(GetArenaForAllocation());
+  }
+  return _impl_.value_data_.interval_month_day_nano_values_;
+}
+inline ::greptime::v1::IntervalMonthDayNano* Value::mutable_interval_month_day_nano_values() {
+  ::greptime::v1::IntervalMonthDayNano* _msg = _internal_mutable_interval_month_day_nano_values();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.interval_month_day_nano_values)
+  return _msg;
 }
 
 inline bool Value::has_value_data() const {
