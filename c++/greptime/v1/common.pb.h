@@ -62,6 +62,9 @@ extern ColumnDefDefaultTypeInternal _ColumnDef_default_instance_;
 class FlightMetadata;
 struct FlightMetadataDefaultTypeInternal;
 extern FlightMetadataDefaultTypeInternal _FlightMetadata_default_instance_;
+class IntervalMonthDayNano;
+struct IntervalMonthDayNanoDefaultTypeInternal;
+extern IntervalMonthDayNanoDefaultTypeInternal _IntervalMonthDayNano_default_instance_;
 class RequestHeader;
 struct RequestHeaderDefaultTypeInternal;
 extern RequestHeaderDefaultTypeInternal _RequestHeader_default_instance_;
@@ -82,6 +85,7 @@ template<> ::greptime::v1::AuthHeader* Arena::CreateMaybeMessage<::greptime::v1:
 template<> ::greptime::v1::Basic* Arena::CreateMaybeMessage<::greptime::v1::Basic>(Arena*);
 template<> ::greptime::v1::ColumnDef* Arena::CreateMaybeMessage<::greptime::v1::ColumnDef>(Arena*);
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
+template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::greptime::v1::IntervalMonthDayNano>(Arena*);
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
 template<> ::greptime::v1::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::ResponseHeader>(Arena*);
 template<> ::greptime::v1::Status* Arena::CreateMaybeMessage<::greptime::v1::Status>(Arena*);
@@ -1736,6 +1740,176 @@ class ColumnDef final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
 };
+// -------------------------------------------------------------------
+
+class IntervalMonthDayNano final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.IntervalMonthDayNano) */ {
+ public:
+  inline IntervalMonthDayNano() : IntervalMonthDayNano(nullptr) {}
+  ~IntervalMonthDayNano() override;
+  explicit PROTOBUF_CONSTEXPR IntervalMonthDayNano(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  IntervalMonthDayNano(const IntervalMonthDayNano& from);
+  IntervalMonthDayNano(IntervalMonthDayNano&& from) noexcept
+    : IntervalMonthDayNano() {
+    *this = ::std::move(from);
+  }
+
+  inline IntervalMonthDayNano& operator=(const IntervalMonthDayNano& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline IntervalMonthDayNano& operator=(IntervalMonthDayNano&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const IntervalMonthDayNano& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const IntervalMonthDayNano* internal_default_instance() {
+    return reinterpret_cast<const IntervalMonthDayNano*>(
+               &_IntervalMonthDayNano_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(IntervalMonthDayNano* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(IntervalMonthDayNano* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  IntervalMonthDayNano* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<IntervalMonthDayNano>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const IntervalMonthDayNano& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const IntervalMonthDayNano& from) {
+    IntervalMonthDayNano::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(IntervalMonthDayNano* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.IntervalMonthDayNano";
+  }
+  protected:
+  explicit IntervalMonthDayNano(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMonthsFieldNumber = 1,
+    kDaysFieldNumber = 2,
+    kNanosecondsFieldNumber = 3,
+  };
+  // int32 months = 1;
+  void clear_months();
+  int32_t months() const;
+  void set_months(int32_t value);
+  private:
+  int32_t _internal_months() const;
+  void _internal_set_months(int32_t value);
+  public:
+
+  // int32 days = 2;
+  void clear_days();
+  int32_t days() const;
+  void set_days(int32_t value);
+  private:
+  int32_t _internal_days() const;
+  void _internal_set_days(int32_t value);
+  public:
+
+  // int64 nanoseconds = 3;
+  void clear_nanoseconds();
+  int64_t nanoseconds() const;
+  void set_nanoseconds(int64_t value);
+  private:
+  int64_t _internal_nanoseconds() const;
+  void _internal_set_nanoseconds(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.IntervalMonthDayNano)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int32_t months_;
+    int32_t days_;
+    int64_t nanoseconds_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
 // ===================================================================
 
 
@@ -2792,9 +2966,75 @@ inline void ColumnDef::set_allocated_default_constraint(std::string* default_con
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDef.default_constraint)
 }
 
+// -------------------------------------------------------------------
+
+// IntervalMonthDayNano
+
+// int32 months = 1;
+inline void IntervalMonthDayNano::clear_months() {
+  _impl_.months_ = 0;
+}
+inline int32_t IntervalMonthDayNano::_internal_months() const {
+  return _impl_.months_;
+}
+inline int32_t IntervalMonthDayNano::months() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.IntervalMonthDayNano.months)
+  return _internal_months();
+}
+inline void IntervalMonthDayNano::_internal_set_months(int32_t value) {
+  
+  _impl_.months_ = value;
+}
+inline void IntervalMonthDayNano::set_months(int32_t value) {
+  _internal_set_months(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.IntervalMonthDayNano.months)
+}
+
+// int32 days = 2;
+inline void IntervalMonthDayNano::clear_days() {
+  _impl_.days_ = 0;
+}
+inline int32_t IntervalMonthDayNano::_internal_days() const {
+  return _impl_.days_;
+}
+inline int32_t IntervalMonthDayNano::days() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.IntervalMonthDayNano.days)
+  return _internal_days();
+}
+inline void IntervalMonthDayNano::_internal_set_days(int32_t value) {
+  
+  _impl_.days_ = value;
+}
+inline void IntervalMonthDayNano::set_days(int32_t value) {
+  _internal_set_days(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.IntervalMonthDayNano.days)
+}
+
+// int64 nanoseconds = 3;
+inline void IntervalMonthDayNano::clear_nanoseconds() {
+  _impl_.nanoseconds_ = int64_t{0};
+}
+inline int64_t IntervalMonthDayNano::_internal_nanoseconds() const {
+  return _impl_.nanoseconds_;
+}
+inline int64_t IntervalMonthDayNano::nanoseconds() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.IntervalMonthDayNano.nanoseconds)
+  return _internal_nanoseconds();
+}
+inline void IntervalMonthDayNano::_internal_set_nanoseconds(int64_t value) {
+  
+  _impl_.nanoseconds_ = value;
+}
+inline void IntervalMonthDayNano::set_nanoseconds(int64_t value) {
+  _internal_set_nanoseconds(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.IntervalMonthDayNano.nanoseconds)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

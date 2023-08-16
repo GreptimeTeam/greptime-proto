@@ -127,69 +127,6 @@ func (x *Column) GetDatatype() ColumnDataType {
 	return ColumnDataType_BOOLEAN
 }
 
-type IntervalMonthDayNano struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Months      int32 `protobuf:"varint,1,opt,name=months,proto3" json:"months,omitempty"`
-	Days        int32 `protobuf:"varint,2,opt,name=days,proto3" json:"days,omitempty"`
-	Nanoseconds int64 `protobuf:"varint,3,opt,name=nanoseconds,proto3" json:"nanoseconds,omitempty"`
-}
-
-func (x *IntervalMonthDayNano) Reset() {
-	*x = IntervalMonthDayNano{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_column_proto_msgTypes[1]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *IntervalMonthDayNano) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IntervalMonthDayNano) ProtoMessage() {}
-
-func (x *IntervalMonthDayNano) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_column_proto_msgTypes[1]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IntervalMonthDayNano.ProtoReflect.Descriptor instead.
-func (*IntervalMonthDayNano) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_column_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *IntervalMonthDayNano) GetMonths() int32 {
-	if x != nil {
-		return x.Months
-	}
-	return 0
-}
-
-func (x *IntervalMonthDayNano) GetDays() int32 {
-	if x != nil {
-		return x.Days
-	}
-	return 0
-}
-
-func (x *IntervalMonthDayNano) GetNanoseconds() int64 {
-	if x != nil {
-		return x.Nanoseconds
-	}
-	return 0
-}
-
 type Column_Values struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -226,7 +163,7 @@ type Column_Values struct {
 func (x *Column_Values) Reset() {
 	*x = Column_Values{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_column_proto_msgTypes[2]
+		mi := &file_greptime_v1_column_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -239,7 +176,7 @@ func (x *Column_Values) String() string {
 func (*Column_Values) ProtoMessage() {}
 
 func (x *Column_Values) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_column_proto_msgTypes[2]
+	mi := &file_greptime_v1_column_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -529,19 +466,13 @@ var file_greptime_v1_column_proto_rawDesc = []byte{
 	0x21, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e,
 	0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x4d, 0x6f, 0x6e, 0x74, 0x68, 0x44, 0x61, 0x79, 0x4e, 0x61,
 	0x6e, 0x6f, 0x52, 0x1a, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x4d, 0x6f, 0x6e, 0x74,
-	0x68, 0x44, 0x61, 0x79, 0x4e, 0x61, 0x6e, 0x6f, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x64,
-	0x0a, 0x14, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x4d, 0x6f, 0x6e, 0x74, 0x68, 0x44,
-	0x61, 0x79, 0x4e, 0x61, 0x6e, 0x6f, 0x12, 0x16, 0x0a, 0x06, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x73,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x73, 0x12, 0x12,
-	0x0a, 0x04, 0x64, 0x61, 0x79, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x04, 0x64, 0x61,
-	0x79, 0x73, 0x12, 0x20, 0x0a, 0x0b, 0x6e, 0x61, 0x6e, 0x6f, 0x73, 0x65, 0x63, 0x6f, 0x6e, 0x64,
-	0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x6e, 0x61, 0x6e, 0x6f, 0x73, 0x65, 0x63,
-	0x6f, 0x6e, 0x64, 0x73, 0x42, 0x50, 0x0a, 0x0e, 0x69, 0x6f, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74,
-	0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x07, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x5a,
-	0x35, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70,
-	0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
-	0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74,
-	0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x68, 0x44, 0x61, 0x79, 0x4e, 0x61, 0x6e, 0x6f, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x42, 0x50,
+	0x0a, 0x0e, 0x69, 0x6f, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31,
+	0x42, 0x07, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x5a, 0x35, 0x67, 0x69, 0x74, 0x68, 0x75,
+	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65,
+	0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -556,19 +487,19 @@ func file_greptime_v1_column_proto_rawDescGZIP() []byte {
 	return file_greptime_v1_column_proto_rawDescData
 }
 
-var file_greptime_v1_column_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_greptime_v1_column_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_greptime_v1_column_proto_goTypes = []interface{}{
 	(*Column)(nil),               // 0: greptime.v1.Column
-	(*IntervalMonthDayNano)(nil), // 1: greptime.v1.IntervalMonthDayNano
-	(*Column_Values)(nil),        // 2: greptime.v1.Column.Values
-	(SemanticType)(0),            // 3: greptime.v1.SemanticType
-	(ColumnDataType)(0),          // 4: greptime.v1.ColumnDataType
+	(*Column_Values)(nil),        // 1: greptime.v1.Column.Values
+	(SemanticType)(0),            // 2: greptime.v1.SemanticType
+	(ColumnDataType)(0),          // 3: greptime.v1.ColumnDataType
+	(*IntervalMonthDayNano)(nil), // 4: greptime.v1.IntervalMonthDayNano
 }
 var file_greptime_v1_column_proto_depIdxs = []int32{
-	3, // 0: greptime.v1.Column.semantic_type:type_name -> greptime.v1.SemanticType
-	2, // 1: greptime.v1.Column.values:type_name -> greptime.v1.Column.Values
-	4, // 2: greptime.v1.Column.datatype:type_name -> greptime.v1.ColumnDataType
-	1, // 3: greptime.v1.Column.Values.interval_month_day_nano_values:type_name -> greptime.v1.IntervalMonthDayNano
+	2, // 0: greptime.v1.Column.semantic_type:type_name -> greptime.v1.SemanticType
+	1, // 1: greptime.v1.Column.values:type_name -> greptime.v1.Column.Values
+	3, // 2: greptime.v1.Column.datatype:type_name -> greptime.v1.ColumnDataType
+	4, // 3: greptime.v1.Column.Values.interval_month_day_nano_values:type_name -> greptime.v1.IntervalMonthDayNano
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -596,18 +527,6 @@ func file_greptime_v1_column_proto_init() {
 			}
 		}
 		file_greptime_v1_column_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*IntervalMonthDayNano); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_greptime_v1_column_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Column_Values); i {
 			case 0:
 				return &v.state
@@ -626,7 +545,7 @@ func file_greptime_v1_column_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greptime_v1_column_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
