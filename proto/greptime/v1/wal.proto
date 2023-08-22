@@ -43,3 +43,8 @@ message WalEntry {
   // List of mutations for a region.
   repeated Mutation mutations = 1;
 }
+
+// Wrapper message for bytes array used for KV service.
+message BytesWrapper {
+  bytes data = 1;
+}
