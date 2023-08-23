@@ -26,6 +26,10 @@ fn main() {
             "SemanticType",
             "#[derive(::serde::Serialize, ::serde::Deserialize)]",
         )
+        .enum_attribute(
+            "region.RegionRequest.request",
+            "#[derive(strum_macros::AsRefStr)]",
+        )
         .compile(
             &[
                 "proto/greptime/v1/database.proto",
