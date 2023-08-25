@@ -25,13 +25,14 @@ import "greptime/v1/row.proto";
 
 service Region {
   rpc Handle(RegionRequest) returns (RegionResponse);
-  // TODO: add stream API
+
+  rpc HandleRequests(stream RegionRequest) returns (RegionResponse);
 }
 
 message RegionRequest {
   RequestHeader header = 1;
   // query request is handled in flight services.
-  oneof region_request_body {
+  oneof body {
     InsertRequests inserts = 3;
     DeleteRequests deletes = 4;
     CreateRequest create = 5;
