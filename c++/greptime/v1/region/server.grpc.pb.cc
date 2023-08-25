@@ -23,49 +23,49 @@ namespace greptime {
 namespace v1 {
 namespace region {
 
-static const char* RegionServer_method_names[] = {
-  "/greptime.v1.region.RegionServer/Handle",
+static const char* Region_method_names[] = {
+  "/greptime.v1.region.Region/Handle",
 };
 
-std::unique_ptr< RegionServer::Stub> RegionServer::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< Region::Stub> Region::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< RegionServer::Stub> stub(new RegionServer::Stub(channel, options));
+  std::unique_ptr< Region::Stub> stub(new Region::Stub(channel, options));
   return stub;
 }
 
-RegionServer::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_Handle_(RegionServer_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+Region::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_Handle_(Region_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status RegionServer::Stub::Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::greptime::v1::region::RegionResponse* response) {
+::grpc::Status Region::Stub::Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::greptime::v1::region::RegionResponse* response) {
   return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::region::RegionRequest, ::greptime::v1::region::RegionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Handle_, context, request, response);
 }
 
-void RegionServer::Stub::async::Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, std::function<void(::grpc::Status)> f) {
+void Region::Stub::async::Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::greptime::v1::region::RegionRequest, ::greptime::v1::region::RegionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Handle_, context, request, response, std::move(f));
 }
 
-void RegionServer::Stub::async::Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void Region::Stub::async::Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Handle_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>* RegionServer::Stub::PrepareAsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>* Region::Stub::PrepareAsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::region::RegionResponse, ::greptime::v1::region::RegionRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Handle_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>* RegionServer::Stub::AsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>* Region::Stub::AsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncHandleRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-RegionServer::Service::Service() {
+Region::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      RegionServer_method_names[0],
+      Region_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RegionServer::Service, ::greptime::v1::region::RegionRequest, ::greptime::v1::region::RegionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](RegionServer::Service* service,
+      new ::grpc::internal::RpcMethodHandler< Region::Service, ::greptime::v1::region::RegionRequest, ::greptime::v1::region::RegionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Region::Service* service,
              ::grpc::ServerContext* ctx,
              const ::greptime::v1::region::RegionRequest* req,
              ::greptime::v1::region::RegionResponse* resp) {
@@ -73,10 +73,10 @@ RegionServer::Service::Service() {
              }, this)));
 }
 
-RegionServer::Service::~Service() {
+Region::Service::~Service() {
 }
 
-::grpc::Status RegionServer::Service::Handle(::grpc::ServerContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response) {
+::grpc::Status Region::Service::Handle(::grpc::ServerContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -23,7 +23,7 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/regio
 import "greptime/v1/common.proto";
 import "greptime/v1/row.proto";
 
-service RegionServer {
+service Region {
   rpc Handle(RegionRequest) returns (RegionResponse);
   // TODO: add stream API
 }
@@ -31,7 +31,7 @@ service RegionServer {
 message RegionRequest {
   RequestHeader header = 1;
   // query request is handled in flight services.
-  oneof request {
+  oneof region_request_body {
     InsertRequests inserts = 3;
     DeleteRequests deletes = 4;
     CreateRequest create = 5;

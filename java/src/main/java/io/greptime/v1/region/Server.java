@@ -168,7 +168,7 @@ public final class Server {
      */
     io.greptime.v1.region.Server.CompactRequestOrBuilder getCompactOrBuilder();
 
-    public io.greptime.v1.region.Server.RegionRequest.RequestCase getRequestCase();
+    public io.greptime.v1.region.Server.RegionRequest.RegionRequestBodyCase getRegionRequestBodyCase();
   }
   /**
    * Protobuf type {@code greptime.v1.region.RegionRequest}
@@ -230,128 +230,128 @@ public final class Server {
             }
             case 26: {
               io.greptime.v1.region.Server.InsertRequests.Builder subBuilder = null;
-              if (requestCase_ == 3) {
-                subBuilder = ((io.greptime.v1.region.Server.InsertRequests) request_).toBuilder();
+              if (regionRequestBodyCase_ == 3) {
+                subBuilder = ((io.greptime.v1.region.Server.InsertRequests) regionRequestBody_).toBuilder();
               }
-              request_ =
+              regionRequestBody_ =
                   input.readMessage(io.greptime.v1.region.Server.InsertRequests.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.InsertRequests) request_);
-                request_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.InsertRequests) regionRequestBody_);
+                regionRequestBody_ = subBuilder.buildPartial();
               }
-              requestCase_ = 3;
+              regionRequestBodyCase_ = 3;
               break;
             }
             case 34: {
               io.greptime.v1.region.Server.DeleteRequests.Builder subBuilder = null;
-              if (requestCase_ == 4) {
-                subBuilder = ((io.greptime.v1.region.Server.DeleteRequests) request_).toBuilder();
+              if (regionRequestBodyCase_ == 4) {
+                subBuilder = ((io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_).toBuilder();
               }
-              request_ =
+              regionRequestBody_ =
                   input.readMessage(io.greptime.v1.region.Server.DeleteRequests.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.DeleteRequests) request_);
-                request_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_);
+                regionRequestBody_ = subBuilder.buildPartial();
               }
-              requestCase_ = 4;
+              regionRequestBodyCase_ = 4;
               break;
             }
             case 42: {
               io.greptime.v1.region.Server.CreateRequest.Builder subBuilder = null;
-              if (requestCase_ == 5) {
-                subBuilder = ((io.greptime.v1.region.Server.CreateRequest) request_).toBuilder();
+              if (regionRequestBodyCase_ == 5) {
+                subBuilder = ((io.greptime.v1.region.Server.CreateRequest) regionRequestBody_).toBuilder();
               }
-              request_ =
+              regionRequestBody_ =
                   input.readMessage(io.greptime.v1.region.Server.CreateRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.CreateRequest) request_);
-                request_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.CreateRequest) regionRequestBody_);
+                regionRequestBody_ = subBuilder.buildPartial();
               }
-              requestCase_ = 5;
+              regionRequestBodyCase_ = 5;
               break;
             }
             case 50: {
               io.greptime.v1.region.Server.DropRequest.Builder subBuilder = null;
-              if (requestCase_ == 6) {
-                subBuilder = ((io.greptime.v1.region.Server.DropRequest) request_).toBuilder();
+              if (regionRequestBodyCase_ == 6) {
+                subBuilder = ((io.greptime.v1.region.Server.DropRequest) regionRequestBody_).toBuilder();
               }
-              request_ =
+              regionRequestBody_ =
                   input.readMessage(io.greptime.v1.region.Server.DropRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.DropRequest) request_);
-                request_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.DropRequest) regionRequestBody_);
+                regionRequestBody_ = subBuilder.buildPartial();
               }
-              requestCase_ = 6;
+              regionRequestBodyCase_ = 6;
               break;
             }
             case 58: {
               io.greptime.v1.region.Server.OpenRequest.Builder subBuilder = null;
-              if (requestCase_ == 7) {
-                subBuilder = ((io.greptime.v1.region.Server.OpenRequest) request_).toBuilder();
+              if (regionRequestBodyCase_ == 7) {
+                subBuilder = ((io.greptime.v1.region.Server.OpenRequest) regionRequestBody_).toBuilder();
               }
-              request_ =
+              regionRequestBody_ =
                   input.readMessage(io.greptime.v1.region.Server.OpenRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.OpenRequest) request_);
-                request_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.OpenRequest) regionRequestBody_);
+                regionRequestBody_ = subBuilder.buildPartial();
               }
-              requestCase_ = 7;
+              regionRequestBodyCase_ = 7;
               break;
             }
             case 66: {
               io.greptime.v1.region.Server.CloseRequest.Builder subBuilder = null;
-              if (requestCase_ == 8) {
-                subBuilder = ((io.greptime.v1.region.Server.CloseRequest) request_).toBuilder();
+              if (regionRequestBodyCase_ == 8) {
+                subBuilder = ((io.greptime.v1.region.Server.CloseRequest) regionRequestBody_).toBuilder();
               }
-              request_ =
+              regionRequestBody_ =
                   input.readMessage(io.greptime.v1.region.Server.CloseRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.CloseRequest) request_);
-                request_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.CloseRequest) regionRequestBody_);
+                regionRequestBody_ = subBuilder.buildPartial();
               }
-              requestCase_ = 8;
+              regionRequestBodyCase_ = 8;
               break;
             }
             case 74: {
               io.greptime.v1.region.Server.AlterRequest.Builder subBuilder = null;
-              if (requestCase_ == 9) {
-                subBuilder = ((io.greptime.v1.region.Server.AlterRequest) request_).toBuilder();
+              if (regionRequestBodyCase_ == 9) {
+                subBuilder = ((io.greptime.v1.region.Server.AlterRequest) regionRequestBody_).toBuilder();
               }
-              request_ =
+              regionRequestBody_ =
                   input.readMessage(io.greptime.v1.region.Server.AlterRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.AlterRequest) request_);
-                request_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.AlterRequest) regionRequestBody_);
+                regionRequestBody_ = subBuilder.buildPartial();
               }
-              requestCase_ = 9;
+              regionRequestBodyCase_ = 9;
               break;
             }
             case 82: {
               io.greptime.v1.region.Server.FlushRequest.Builder subBuilder = null;
-              if (requestCase_ == 10) {
-                subBuilder = ((io.greptime.v1.region.Server.FlushRequest) request_).toBuilder();
+              if (regionRequestBodyCase_ == 10) {
+                subBuilder = ((io.greptime.v1.region.Server.FlushRequest) regionRequestBody_).toBuilder();
               }
-              request_ =
+              regionRequestBody_ =
                   input.readMessage(io.greptime.v1.region.Server.FlushRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.FlushRequest) request_);
-                request_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.FlushRequest) regionRequestBody_);
+                regionRequestBody_ = subBuilder.buildPartial();
               }
-              requestCase_ = 10;
+              regionRequestBodyCase_ = 10;
               break;
             }
             case 90: {
               io.greptime.v1.region.Server.CompactRequest.Builder subBuilder = null;
-              if (requestCase_ == 11) {
-                subBuilder = ((io.greptime.v1.region.Server.CompactRequest) request_).toBuilder();
+              if (regionRequestBodyCase_ == 11) {
+                subBuilder = ((io.greptime.v1.region.Server.CompactRequest) regionRequestBody_).toBuilder();
               }
-              request_ =
+              regionRequestBody_ =
                   input.readMessage(io.greptime.v1.region.Server.CompactRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.CompactRequest) request_);
-                request_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.CompactRequest) regionRequestBody_);
+                regionRequestBody_ = subBuilder.buildPartial();
               }
-              requestCase_ = 11;
+              regionRequestBodyCase_ = 11;
               break;
             }
             default: {
@@ -388,9 +388,9 @@ public final class Server {
               io.greptime.v1.region.Server.RegionRequest.class, io.greptime.v1.region.Server.RegionRequest.Builder.class);
     }
 
-    private int requestCase_ = 0;
-    private java.lang.Object request_;
-    public enum RequestCase
+    private int regionRequestBodyCase_ = 0;
+    private java.lang.Object regionRequestBody_;
+    public enum RegionRequestBodyCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       INSERTS(3),
@@ -402,9 +402,9 @@ public final class Server {
       ALTER(9),
       FLUSH(10),
       COMPACT(11),
-      REQUEST_NOT_SET(0);
+      REGIONREQUESTBODY_NOT_SET(0);
       private final int value;
-      private RequestCase(int value) {
+      private RegionRequestBodyCase(int value) {
         this.value = value;
       }
       /**
@@ -413,11 +413,11 @@ public final class Server {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static RequestCase valueOf(int value) {
+      public static RegionRequestBodyCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static RequestCase forNumber(int value) {
+      public static RegionRequestBodyCase forNumber(int value) {
         switch (value) {
           case 3: return INSERTS;
           case 4: return DELETES;
@@ -428,7 +428,7 @@ public final class Server {
           case 9: return ALTER;
           case 10: return FLUSH;
           case 11: return COMPACT;
-          case 0: return REQUEST_NOT_SET;
+          case 0: return REGIONREQUESTBODY_NOT_SET;
           default: return null;
         }
       }
@@ -437,10 +437,10 @@ public final class Server {
       }
     };
 
-    public RequestCase
-    getRequestCase() {
-      return RequestCase.forNumber(
-          requestCase_);
+    public RegionRequestBodyCase
+    getRegionRequestBodyCase() {
+      return RegionRequestBodyCase.forNumber(
+          regionRequestBodyCase_);
     }
 
     public static final int HEADER_FIELD_NUMBER = 1;
@@ -476,7 +476,7 @@ public final class Server {
      */
     @java.lang.Override
     public boolean hasInserts() {
-      return requestCase_ == 3;
+      return regionRequestBodyCase_ == 3;
     }
     /**
      * <code>.greptime.v1.region.InsertRequests inserts = 3;</code>
@@ -484,8 +484,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.InsertRequests getInserts() {
-      if (requestCase_ == 3) {
-         return (io.greptime.v1.region.Server.InsertRequests) request_;
+      if (regionRequestBodyCase_ == 3) {
+         return (io.greptime.v1.region.Server.InsertRequests) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.InsertRequests.getDefaultInstance();
     }
@@ -494,8 +494,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.InsertRequestsOrBuilder getInsertsOrBuilder() {
-      if (requestCase_ == 3) {
-         return (io.greptime.v1.region.Server.InsertRequests) request_;
+      if (regionRequestBodyCase_ == 3) {
+         return (io.greptime.v1.region.Server.InsertRequests) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.InsertRequests.getDefaultInstance();
     }
@@ -507,7 +507,7 @@ public final class Server {
      */
     @java.lang.Override
     public boolean hasDeletes() {
-      return requestCase_ == 4;
+      return regionRequestBodyCase_ == 4;
     }
     /**
      * <code>.greptime.v1.region.DeleteRequests deletes = 4;</code>
@@ -515,8 +515,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.DeleteRequests getDeletes() {
-      if (requestCase_ == 4) {
-         return (io.greptime.v1.region.Server.DeleteRequests) request_;
+      if (regionRequestBodyCase_ == 4) {
+         return (io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.DeleteRequests.getDefaultInstance();
     }
@@ -525,8 +525,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.DeleteRequestsOrBuilder getDeletesOrBuilder() {
-      if (requestCase_ == 4) {
-         return (io.greptime.v1.region.Server.DeleteRequests) request_;
+      if (regionRequestBodyCase_ == 4) {
+         return (io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.DeleteRequests.getDefaultInstance();
     }
@@ -538,7 +538,7 @@ public final class Server {
      */
     @java.lang.Override
     public boolean hasCreate() {
-      return requestCase_ == 5;
+      return regionRequestBodyCase_ == 5;
     }
     /**
      * <code>.greptime.v1.region.CreateRequest create = 5;</code>
@@ -546,8 +546,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.CreateRequest getCreate() {
-      if (requestCase_ == 5) {
-         return (io.greptime.v1.region.Server.CreateRequest) request_;
+      if (regionRequestBodyCase_ == 5) {
+         return (io.greptime.v1.region.Server.CreateRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.CreateRequest.getDefaultInstance();
     }
@@ -556,8 +556,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.CreateRequestOrBuilder getCreateOrBuilder() {
-      if (requestCase_ == 5) {
-         return (io.greptime.v1.region.Server.CreateRequest) request_;
+      if (regionRequestBodyCase_ == 5) {
+         return (io.greptime.v1.region.Server.CreateRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.CreateRequest.getDefaultInstance();
     }
@@ -569,7 +569,7 @@ public final class Server {
      */
     @java.lang.Override
     public boolean hasDrop() {
-      return requestCase_ == 6;
+      return regionRequestBodyCase_ == 6;
     }
     /**
      * <code>.greptime.v1.region.DropRequest drop = 6;</code>
@@ -577,8 +577,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.DropRequest getDrop() {
-      if (requestCase_ == 6) {
-         return (io.greptime.v1.region.Server.DropRequest) request_;
+      if (regionRequestBodyCase_ == 6) {
+         return (io.greptime.v1.region.Server.DropRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.DropRequest.getDefaultInstance();
     }
@@ -587,8 +587,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.DropRequestOrBuilder getDropOrBuilder() {
-      if (requestCase_ == 6) {
-         return (io.greptime.v1.region.Server.DropRequest) request_;
+      if (regionRequestBodyCase_ == 6) {
+         return (io.greptime.v1.region.Server.DropRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.DropRequest.getDefaultInstance();
     }
@@ -600,7 +600,7 @@ public final class Server {
      */
     @java.lang.Override
     public boolean hasOpen() {
-      return requestCase_ == 7;
+      return regionRequestBodyCase_ == 7;
     }
     /**
      * <code>.greptime.v1.region.OpenRequest open = 7;</code>
@@ -608,8 +608,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.OpenRequest getOpen() {
-      if (requestCase_ == 7) {
-         return (io.greptime.v1.region.Server.OpenRequest) request_;
+      if (regionRequestBodyCase_ == 7) {
+         return (io.greptime.v1.region.Server.OpenRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.OpenRequest.getDefaultInstance();
     }
@@ -618,8 +618,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.OpenRequestOrBuilder getOpenOrBuilder() {
-      if (requestCase_ == 7) {
-         return (io.greptime.v1.region.Server.OpenRequest) request_;
+      if (regionRequestBodyCase_ == 7) {
+         return (io.greptime.v1.region.Server.OpenRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.OpenRequest.getDefaultInstance();
     }
@@ -631,7 +631,7 @@ public final class Server {
      */
     @java.lang.Override
     public boolean hasClose() {
-      return requestCase_ == 8;
+      return regionRequestBodyCase_ == 8;
     }
     /**
      * <code>.greptime.v1.region.CloseRequest close = 8;</code>
@@ -639,8 +639,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.CloseRequest getClose() {
-      if (requestCase_ == 8) {
-         return (io.greptime.v1.region.Server.CloseRequest) request_;
+      if (regionRequestBodyCase_ == 8) {
+         return (io.greptime.v1.region.Server.CloseRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.CloseRequest.getDefaultInstance();
     }
@@ -649,8 +649,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.CloseRequestOrBuilder getCloseOrBuilder() {
-      if (requestCase_ == 8) {
-         return (io.greptime.v1.region.Server.CloseRequest) request_;
+      if (regionRequestBodyCase_ == 8) {
+         return (io.greptime.v1.region.Server.CloseRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.CloseRequest.getDefaultInstance();
     }
@@ -662,7 +662,7 @@ public final class Server {
      */
     @java.lang.Override
     public boolean hasAlter() {
-      return requestCase_ == 9;
+      return regionRequestBodyCase_ == 9;
     }
     /**
      * <code>.greptime.v1.region.AlterRequest alter = 9;</code>
@@ -670,8 +670,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.AlterRequest getAlter() {
-      if (requestCase_ == 9) {
-         return (io.greptime.v1.region.Server.AlterRequest) request_;
+      if (regionRequestBodyCase_ == 9) {
+         return (io.greptime.v1.region.Server.AlterRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.AlterRequest.getDefaultInstance();
     }
@@ -680,8 +680,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.AlterRequestOrBuilder getAlterOrBuilder() {
-      if (requestCase_ == 9) {
-         return (io.greptime.v1.region.Server.AlterRequest) request_;
+      if (regionRequestBodyCase_ == 9) {
+         return (io.greptime.v1.region.Server.AlterRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.AlterRequest.getDefaultInstance();
     }
@@ -693,7 +693,7 @@ public final class Server {
      */
     @java.lang.Override
     public boolean hasFlush() {
-      return requestCase_ == 10;
+      return regionRequestBodyCase_ == 10;
     }
     /**
      * <code>.greptime.v1.region.FlushRequest flush = 10;</code>
@@ -701,8 +701,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.FlushRequest getFlush() {
-      if (requestCase_ == 10) {
-         return (io.greptime.v1.region.Server.FlushRequest) request_;
+      if (regionRequestBodyCase_ == 10) {
+         return (io.greptime.v1.region.Server.FlushRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.FlushRequest.getDefaultInstance();
     }
@@ -711,8 +711,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.FlushRequestOrBuilder getFlushOrBuilder() {
-      if (requestCase_ == 10) {
-         return (io.greptime.v1.region.Server.FlushRequest) request_;
+      if (regionRequestBodyCase_ == 10) {
+         return (io.greptime.v1.region.Server.FlushRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.FlushRequest.getDefaultInstance();
     }
@@ -724,7 +724,7 @@ public final class Server {
      */
     @java.lang.Override
     public boolean hasCompact() {
-      return requestCase_ == 11;
+      return regionRequestBodyCase_ == 11;
     }
     /**
      * <code>.greptime.v1.region.CompactRequest compact = 11;</code>
@@ -732,8 +732,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.CompactRequest getCompact() {
-      if (requestCase_ == 11) {
-         return (io.greptime.v1.region.Server.CompactRequest) request_;
+      if (regionRequestBodyCase_ == 11) {
+         return (io.greptime.v1.region.Server.CompactRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.CompactRequest.getDefaultInstance();
     }
@@ -742,8 +742,8 @@ public final class Server {
      */
     @java.lang.Override
     public io.greptime.v1.region.Server.CompactRequestOrBuilder getCompactOrBuilder() {
-      if (requestCase_ == 11) {
-         return (io.greptime.v1.region.Server.CompactRequest) request_;
+      if (regionRequestBodyCase_ == 11) {
+         return (io.greptime.v1.region.Server.CompactRequest) regionRequestBody_;
       }
       return io.greptime.v1.region.Server.CompactRequest.getDefaultInstance();
     }
@@ -765,32 +765,32 @@ public final class Server {
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      if (requestCase_ == 3) {
-        output.writeMessage(3, (io.greptime.v1.region.Server.InsertRequests) request_);
+      if (regionRequestBodyCase_ == 3) {
+        output.writeMessage(3, (io.greptime.v1.region.Server.InsertRequests) regionRequestBody_);
       }
-      if (requestCase_ == 4) {
-        output.writeMessage(4, (io.greptime.v1.region.Server.DeleteRequests) request_);
+      if (regionRequestBodyCase_ == 4) {
+        output.writeMessage(4, (io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_);
       }
-      if (requestCase_ == 5) {
-        output.writeMessage(5, (io.greptime.v1.region.Server.CreateRequest) request_);
+      if (regionRequestBodyCase_ == 5) {
+        output.writeMessage(5, (io.greptime.v1.region.Server.CreateRequest) regionRequestBody_);
       }
-      if (requestCase_ == 6) {
-        output.writeMessage(6, (io.greptime.v1.region.Server.DropRequest) request_);
+      if (regionRequestBodyCase_ == 6) {
+        output.writeMessage(6, (io.greptime.v1.region.Server.DropRequest) regionRequestBody_);
       }
-      if (requestCase_ == 7) {
-        output.writeMessage(7, (io.greptime.v1.region.Server.OpenRequest) request_);
+      if (regionRequestBodyCase_ == 7) {
+        output.writeMessage(7, (io.greptime.v1.region.Server.OpenRequest) regionRequestBody_);
       }
-      if (requestCase_ == 8) {
-        output.writeMessage(8, (io.greptime.v1.region.Server.CloseRequest) request_);
+      if (regionRequestBodyCase_ == 8) {
+        output.writeMessage(8, (io.greptime.v1.region.Server.CloseRequest) regionRequestBody_);
       }
-      if (requestCase_ == 9) {
-        output.writeMessage(9, (io.greptime.v1.region.Server.AlterRequest) request_);
+      if (regionRequestBodyCase_ == 9) {
+        output.writeMessage(9, (io.greptime.v1.region.Server.AlterRequest) regionRequestBody_);
       }
-      if (requestCase_ == 10) {
-        output.writeMessage(10, (io.greptime.v1.region.Server.FlushRequest) request_);
+      if (regionRequestBodyCase_ == 10) {
+        output.writeMessage(10, (io.greptime.v1.region.Server.FlushRequest) regionRequestBody_);
       }
-      if (requestCase_ == 11) {
-        output.writeMessage(11, (io.greptime.v1.region.Server.CompactRequest) request_);
+      if (regionRequestBodyCase_ == 11) {
+        output.writeMessage(11, (io.greptime.v1.region.Server.CompactRequest) regionRequestBody_);
       }
       unknownFields.writeTo(output);
     }
@@ -805,41 +805,41 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
-      if (requestCase_ == 3) {
+      if (regionRequestBodyCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (io.greptime.v1.region.Server.InsertRequests) request_);
+          .computeMessageSize(3, (io.greptime.v1.region.Server.InsertRequests) regionRequestBody_);
       }
-      if (requestCase_ == 4) {
+      if (regionRequestBodyCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, (io.greptime.v1.region.Server.DeleteRequests) request_);
+          .computeMessageSize(4, (io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_);
       }
-      if (requestCase_ == 5) {
+      if (regionRequestBodyCase_ == 5) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, (io.greptime.v1.region.Server.CreateRequest) request_);
+          .computeMessageSize(5, (io.greptime.v1.region.Server.CreateRequest) regionRequestBody_);
       }
-      if (requestCase_ == 6) {
+      if (regionRequestBodyCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, (io.greptime.v1.region.Server.DropRequest) request_);
+          .computeMessageSize(6, (io.greptime.v1.region.Server.DropRequest) regionRequestBody_);
       }
-      if (requestCase_ == 7) {
+      if (regionRequestBodyCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, (io.greptime.v1.region.Server.OpenRequest) request_);
+          .computeMessageSize(7, (io.greptime.v1.region.Server.OpenRequest) regionRequestBody_);
       }
-      if (requestCase_ == 8) {
+      if (regionRequestBodyCase_ == 8) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, (io.greptime.v1.region.Server.CloseRequest) request_);
+          .computeMessageSize(8, (io.greptime.v1.region.Server.CloseRequest) regionRequestBody_);
       }
-      if (requestCase_ == 9) {
+      if (regionRequestBodyCase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, (io.greptime.v1.region.Server.AlterRequest) request_);
+          .computeMessageSize(9, (io.greptime.v1.region.Server.AlterRequest) regionRequestBody_);
       }
-      if (requestCase_ == 10) {
+      if (regionRequestBodyCase_ == 10) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, (io.greptime.v1.region.Server.FlushRequest) request_);
+          .computeMessageSize(10, (io.greptime.v1.region.Server.FlushRequest) regionRequestBody_);
       }
-      if (requestCase_ == 11) {
+      if (regionRequestBodyCase_ == 11) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, (io.greptime.v1.region.Server.CompactRequest) request_);
+          .computeMessageSize(11, (io.greptime.v1.region.Server.CompactRequest) regionRequestBody_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -861,8 +861,8 @@ public final class Server {
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
-      if (!getRequestCase().equals(other.getRequestCase())) return false;
-      switch (requestCase_) {
+      if (!getRegionRequestBodyCase().equals(other.getRegionRequestBodyCase())) return false;
+      switch (regionRequestBodyCase_) {
         case 3:
           if (!getInserts()
               .equals(other.getInserts())) return false;
@@ -917,7 +917,7 @@ public final class Server {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
       }
-      switch (requestCase_) {
+      switch (regionRequestBodyCase_) {
         case 3:
           hash = (37 * hash) + INSERTS_FIELD_NUMBER;
           hash = (53 * hash) + getInserts().hashCode();
@@ -1096,8 +1096,8 @@ public final class Server {
           header_ = null;
           headerBuilder_ = null;
         }
-        requestCase_ = 0;
-        request_ = null;
+        regionRequestBodyCase_ = 0;
+        regionRequestBody_ = null;
         return this;
       }
 
@@ -1129,70 +1129,70 @@ public final class Server {
         } else {
           result.header_ = headerBuilder_.build();
         }
-        if (requestCase_ == 3) {
+        if (regionRequestBodyCase_ == 3) {
           if (insertsBuilder_ == null) {
-            result.request_ = request_;
+            result.regionRequestBody_ = regionRequestBody_;
           } else {
-            result.request_ = insertsBuilder_.build();
+            result.regionRequestBody_ = insertsBuilder_.build();
           }
         }
-        if (requestCase_ == 4) {
+        if (regionRequestBodyCase_ == 4) {
           if (deletesBuilder_ == null) {
-            result.request_ = request_;
+            result.regionRequestBody_ = regionRequestBody_;
           } else {
-            result.request_ = deletesBuilder_.build();
+            result.regionRequestBody_ = deletesBuilder_.build();
           }
         }
-        if (requestCase_ == 5) {
+        if (regionRequestBodyCase_ == 5) {
           if (createBuilder_ == null) {
-            result.request_ = request_;
+            result.regionRequestBody_ = regionRequestBody_;
           } else {
-            result.request_ = createBuilder_.build();
+            result.regionRequestBody_ = createBuilder_.build();
           }
         }
-        if (requestCase_ == 6) {
+        if (regionRequestBodyCase_ == 6) {
           if (dropBuilder_ == null) {
-            result.request_ = request_;
+            result.regionRequestBody_ = regionRequestBody_;
           } else {
-            result.request_ = dropBuilder_.build();
+            result.regionRequestBody_ = dropBuilder_.build();
           }
         }
-        if (requestCase_ == 7) {
+        if (regionRequestBodyCase_ == 7) {
           if (openBuilder_ == null) {
-            result.request_ = request_;
+            result.regionRequestBody_ = regionRequestBody_;
           } else {
-            result.request_ = openBuilder_.build();
+            result.regionRequestBody_ = openBuilder_.build();
           }
         }
-        if (requestCase_ == 8) {
+        if (regionRequestBodyCase_ == 8) {
           if (closeBuilder_ == null) {
-            result.request_ = request_;
+            result.regionRequestBody_ = regionRequestBody_;
           } else {
-            result.request_ = closeBuilder_.build();
+            result.regionRequestBody_ = closeBuilder_.build();
           }
         }
-        if (requestCase_ == 9) {
+        if (regionRequestBodyCase_ == 9) {
           if (alterBuilder_ == null) {
-            result.request_ = request_;
+            result.regionRequestBody_ = regionRequestBody_;
           } else {
-            result.request_ = alterBuilder_.build();
+            result.regionRequestBody_ = alterBuilder_.build();
           }
         }
-        if (requestCase_ == 10) {
+        if (regionRequestBodyCase_ == 10) {
           if (flushBuilder_ == null) {
-            result.request_ = request_;
+            result.regionRequestBody_ = regionRequestBody_;
           } else {
-            result.request_ = flushBuilder_.build();
+            result.regionRequestBody_ = flushBuilder_.build();
           }
         }
-        if (requestCase_ == 11) {
+        if (regionRequestBodyCase_ == 11) {
           if (compactBuilder_ == null) {
-            result.request_ = request_;
+            result.regionRequestBody_ = regionRequestBody_;
           } else {
-            result.request_ = compactBuilder_.build();
+            result.regionRequestBody_ = compactBuilder_.build();
           }
         }
-        result.requestCase_ = requestCase_;
+        result.regionRequestBodyCase_ = regionRequestBodyCase_;
         onBuilt();
         return result;
       }
@@ -1244,7 +1244,7 @@ public final class Server {
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        switch (other.getRequestCase()) {
+        switch (other.getRegionRequestBodyCase()) {
           case INSERTS: {
             mergeInserts(other.getInserts());
             break;
@@ -1281,7 +1281,7 @@ public final class Server {
             mergeCompact(other.getCompact());
             break;
           }
-          case REQUEST_NOT_SET: {
+          case REGIONREQUESTBODY_NOT_SET: {
             break;
           }
         }
@@ -1313,17 +1313,17 @@ public final class Server {
         }
         return this;
       }
-      private int requestCase_ = 0;
-      private java.lang.Object request_;
-      public RequestCase
-          getRequestCase() {
-        return RequestCase.forNumber(
-            requestCase_);
+      private int regionRequestBodyCase_ = 0;
+      private java.lang.Object regionRequestBody_;
+      public RegionRequestBodyCase
+          getRegionRequestBodyCase() {
+        return RegionRequestBodyCase.forNumber(
+            regionRequestBodyCase_);
       }
 
-      public Builder clearRequest() {
-        requestCase_ = 0;
-        request_ = null;
+      public Builder clearRegionRequestBody() {
+        regionRequestBodyCase_ = 0;
+        regionRequestBody_ = null;
         onChanged();
         return this;
       }
@@ -1456,7 +1456,7 @@ public final class Server {
        */
       @java.lang.Override
       public boolean hasInserts() {
-        return requestCase_ == 3;
+        return regionRequestBodyCase_ == 3;
       }
       /**
        * <code>.greptime.v1.region.InsertRequests inserts = 3;</code>
@@ -1465,12 +1465,12 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.InsertRequests getInserts() {
         if (insertsBuilder_ == null) {
-          if (requestCase_ == 3) {
-            return (io.greptime.v1.region.Server.InsertRequests) request_;
+          if (regionRequestBodyCase_ == 3) {
+            return (io.greptime.v1.region.Server.InsertRequests) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.InsertRequests.getDefaultInstance();
         } else {
-          if (requestCase_ == 3) {
+          if (regionRequestBodyCase_ == 3) {
             return insertsBuilder_.getMessage();
           }
           return io.greptime.v1.region.Server.InsertRequests.getDefaultInstance();
@@ -1484,12 +1484,12 @@ public final class Server {
           if (value == null) {
             throw new NullPointerException();
           }
-          request_ = value;
+          regionRequestBody_ = value;
           onChanged();
         } else {
           insertsBuilder_.setMessage(value);
         }
-        requestCase_ = 3;
+        regionRequestBodyCase_ = 3;
         return this;
       }
       /**
@@ -1498,12 +1498,12 @@ public final class Server {
       public Builder setInserts(
           io.greptime.v1.region.Server.InsertRequests.Builder builderForValue) {
         if (insertsBuilder_ == null) {
-          request_ = builderForValue.build();
+          regionRequestBody_ = builderForValue.build();
           onChanged();
         } else {
           insertsBuilder_.setMessage(builderForValue.build());
         }
-        requestCase_ = 3;
+        regionRequestBodyCase_ = 3;
         return this;
       }
       /**
@@ -1511,22 +1511,22 @@ public final class Server {
        */
       public Builder mergeInserts(io.greptime.v1.region.Server.InsertRequests value) {
         if (insertsBuilder_ == null) {
-          if (requestCase_ == 3 &&
-              request_ != io.greptime.v1.region.Server.InsertRequests.getDefaultInstance()) {
-            request_ = io.greptime.v1.region.Server.InsertRequests.newBuilder((io.greptime.v1.region.Server.InsertRequests) request_)
+          if (regionRequestBodyCase_ == 3 &&
+              regionRequestBody_ != io.greptime.v1.region.Server.InsertRequests.getDefaultInstance()) {
+            regionRequestBody_ = io.greptime.v1.region.Server.InsertRequests.newBuilder((io.greptime.v1.region.Server.InsertRequests) regionRequestBody_)
                 .mergeFrom(value).buildPartial();
           } else {
-            request_ = value;
+            regionRequestBody_ = value;
           }
           onChanged();
         } else {
-          if (requestCase_ == 3) {
+          if (regionRequestBodyCase_ == 3) {
             insertsBuilder_.mergeFrom(value);
           } else {
             insertsBuilder_.setMessage(value);
           }
         }
-        requestCase_ = 3;
+        regionRequestBodyCase_ = 3;
         return this;
       }
       /**
@@ -1534,15 +1534,15 @@ public final class Server {
        */
       public Builder clearInserts() {
         if (insertsBuilder_ == null) {
-          if (requestCase_ == 3) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 3) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
             onChanged();
           }
         } else {
-          if (requestCase_ == 3) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 3) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
           }
           insertsBuilder_.clear();
         }
@@ -1559,11 +1559,11 @@ public final class Server {
        */
       @java.lang.Override
       public io.greptime.v1.region.Server.InsertRequestsOrBuilder getInsertsOrBuilder() {
-        if ((requestCase_ == 3) && (insertsBuilder_ != null)) {
+        if ((regionRequestBodyCase_ == 3) && (insertsBuilder_ != null)) {
           return insertsBuilder_.getMessageOrBuilder();
         } else {
-          if (requestCase_ == 3) {
-            return (io.greptime.v1.region.Server.InsertRequests) request_;
+          if (regionRequestBodyCase_ == 3) {
+            return (io.greptime.v1.region.Server.InsertRequests) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.InsertRequests.getDefaultInstance();
         }
@@ -1575,17 +1575,17 @@ public final class Server {
           io.greptime.v1.region.Server.InsertRequests, io.greptime.v1.region.Server.InsertRequests.Builder, io.greptime.v1.region.Server.InsertRequestsOrBuilder> 
           getInsertsFieldBuilder() {
         if (insertsBuilder_ == null) {
-          if (!(requestCase_ == 3)) {
-            request_ = io.greptime.v1.region.Server.InsertRequests.getDefaultInstance();
+          if (!(regionRequestBodyCase_ == 3)) {
+            regionRequestBody_ = io.greptime.v1.region.Server.InsertRequests.getDefaultInstance();
           }
           insertsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.InsertRequests, io.greptime.v1.region.Server.InsertRequests.Builder, io.greptime.v1.region.Server.InsertRequestsOrBuilder>(
-                  (io.greptime.v1.region.Server.InsertRequests) request_,
+                  (io.greptime.v1.region.Server.InsertRequests) regionRequestBody_,
                   getParentForChildren(),
                   isClean());
-          request_ = null;
+          regionRequestBody_ = null;
         }
-        requestCase_ = 3;
+        regionRequestBodyCase_ = 3;
         onChanged();;
         return insertsBuilder_;
       }
@@ -1598,7 +1598,7 @@ public final class Server {
        */
       @java.lang.Override
       public boolean hasDeletes() {
-        return requestCase_ == 4;
+        return regionRequestBodyCase_ == 4;
       }
       /**
        * <code>.greptime.v1.region.DeleteRequests deletes = 4;</code>
@@ -1607,12 +1607,12 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.DeleteRequests getDeletes() {
         if (deletesBuilder_ == null) {
-          if (requestCase_ == 4) {
-            return (io.greptime.v1.region.Server.DeleteRequests) request_;
+          if (regionRequestBodyCase_ == 4) {
+            return (io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.DeleteRequests.getDefaultInstance();
         } else {
-          if (requestCase_ == 4) {
+          if (regionRequestBodyCase_ == 4) {
             return deletesBuilder_.getMessage();
           }
           return io.greptime.v1.region.Server.DeleteRequests.getDefaultInstance();
@@ -1626,12 +1626,12 @@ public final class Server {
           if (value == null) {
             throw new NullPointerException();
           }
-          request_ = value;
+          regionRequestBody_ = value;
           onChanged();
         } else {
           deletesBuilder_.setMessage(value);
         }
-        requestCase_ = 4;
+        regionRequestBodyCase_ = 4;
         return this;
       }
       /**
@@ -1640,12 +1640,12 @@ public final class Server {
       public Builder setDeletes(
           io.greptime.v1.region.Server.DeleteRequests.Builder builderForValue) {
         if (deletesBuilder_ == null) {
-          request_ = builderForValue.build();
+          regionRequestBody_ = builderForValue.build();
           onChanged();
         } else {
           deletesBuilder_.setMessage(builderForValue.build());
         }
-        requestCase_ = 4;
+        regionRequestBodyCase_ = 4;
         return this;
       }
       /**
@@ -1653,22 +1653,22 @@ public final class Server {
        */
       public Builder mergeDeletes(io.greptime.v1.region.Server.DeleteRequests value) {
         if (deletesBuilder_ == null) {
-          if (requestCase_ == 4 &&
-              request_ != io.greptime.v1.region.Server.DeleteRequests.getDefaultInstance()) {
-            request_ = io.greptime.v1.region.Server.DeleteRequests.newBuilder((io.greptime.v1.region.Server.DeleteRequests) request_)
+          if (regionRequestBodyCase_ == 4 &&
+              regionRequestBody_ != io.greptime.v1.region.Server.DeleteRequests.getDefaultInstance()) {
+            regionRequestBody_ = io.greptime.v1.region.Server.DeleteRequests.newBuilder((io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_)
                 .mergeFrom(value).buildPartial();
           } else {
-            request_ = value;
+            regionRequestBody_ = value;
           }
           onChanged();
         } else {
-          if (requestCase_ == 4) {
+          if (regionRequestBodyCase_ == 4) {
             deletesBuilder_.mergeFrom(value);
           } else {
             deletesBuilder_.setMessage(value);
           }
         }
-        requestCase_ = 4;
+        regionRequestBodyCase_ = 4;
         return this;
       }
       /**
@@ -1676,15 +1676,15 @@ public final class Server {
        */
       public Builder clearDeletes() {
         if (deletesBuilder_ == null) {
-          if (requestCase_ == 4) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 4) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
             onChanged();
           }
         } else {
-          if (requestCase_ == 4) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 4) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
           }
           deletesBuilder_.clear();
         }
@@ -1701,11 +1701,11 @@ public final class Server {
        */
       @java.lang.Override
       public io.greptime.v1.region.Server.DeleteRequestsOrBuilder getDeletesOrBuilder() {
-        if ((requestCase_ == 4) && (deletesBuilder_ != null)) {
+        if ((regionRequestBodyCase_ == 4) && (deletesBuilder_ != null)) {
           return deletesBuilder_.getMessageOrBuilder();
         } else {
-          if (requestCase_ == 4) {
-            return (io.greptime.v1.region.Server.DeleteRequests) request_;
+          if (regionRequestBodyCase_ == 4) {
+            return (io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.DeleteRequests.getDefaultInstance();
         }
@@ -1717,17 +1717,17 @@ public final class Server {
           io.greptime.v1.region.Server.DeleteRequests, io.greptime.v1.region.Server.DeleteRequests.Builder, io.greptime.v1.region.Server.DeleteRequestsOrBuilder> 
           getDeletesFieldBuilder() {
         if (deletesBuilder_ == null) {
-          if (!(requestCase_ == 4)) {
-            request_ = io.greptime.v1.region.Server.DeleteRequests.getDefaultInstance();
+          if (!(regionRequestBodyCase_ == 4)) {
+            regionRequestBody_ = io.greptime.v1.region.Server.DeleteRequests.getDefaultInstance();
           }
           deletesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.DeleteRequests, io.greptime.v1.region.Server.DeleteRequests.Builder, io.greptime.v1.region.Server.DeleteRequestsOrBuilder>(
-                  (io.greptime.v1.region.Server.DeleteRequests) request_,
+                  (io.greptime.v1.region.Server.DeleteRequests) regionRequestBody_,
                   getParentForChildren(),
                   isClean());
-          request_ = null;
+          regionRequestBody_ = null;
         }
-        requestCase_ = 4;
+        regionRequestBodyCase_ = 4;
         onChanged();;
         return deletesBuilder_;
       }
@@ -1740,7 +1740,7 @@ public final class Server {
        */
       @java.lang.Override
       public boolean hasCreate() {
-        return requestCase_ == 5;
+        return regionRequestBodyCase_ == 5;
       }
       /**
        * <code>.greptime.v1.region.CreateRequest create = 5;</code>
@@ -1749,12 +1749,12 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.CreateRequest getCreate() {
         if (createBuilder_ == null) {
-          if (requestCase_ == 5) {
-            return (io.greptime.v1.region.Server.CreateRequest) request_;
+          if (regionRequestBodyCase_ == 5) {
+            return (io.greptime.v1.region.Server.CreateRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.CreateRequest.getDefaultInstance();
         } else {
-          if (requestCase_ == 5) {
+          if (regionRequestBodyCase_ == 5) {
             return createBuilder_.getMessage();
           }
           return io.greptime.v1.region.Server.CreateRequest.getDefaultInstance();
@@ -1768,12 +1768,12 @@ public final class Server {
           if (value == null) {
             throw new NullPointerException();
           }
-          request_ = value;
+          regionRequestBody_ = value;
           onChanged();
         } else {
           createBuilder_.setMessage(value);
         }
-        requestCase_ = 5;
+        regionRequestBodyCase_ = 5;
         return this;
       }
       /**
@@ -1782,12 +1782,12 @@ public final class Server {
       public Builder setCreate(
           io.greptime.v1.region.Server.CreateRequest.Builder builderForValue) {
         if (createBuilder_ == null) {
-          request_ = builderForValue.build();
+          regionRequestBody_ = builderForValue.build();
           onChanged();
         } else {
           createBuilder_.setMessage(builderForValue.build());
         }
-        requestCase_ = 5;
+        regionRequestBodyCase_ = 5;
         return this;
       }
       /**
@@ -1795,22 +1795,22 @@ public final class Server {
        */
       public Builder mergeCreate(io.greptime.v1.region.Server.CreateRequest value) {
         if (createBuilder_ == null) {
-          if (requestCase_ == 5 &&
-              request_ != io.greptime.v1.region.Server.CreateRequest.getDefaultInstance()) {
-            request_ = io.greptime.v1.region.Server.CreateRequest.newBuilder((io.greptime.v1.region.Server.CreateRequest) request_)
+          if (regionRequestBodyCase_ == 5 &&
+              regionRequestBody_ != io.greptime.v1.region.Server.CreateRequest.getDefaultInstance()) {
+            regionRequestBody_ = io.greptime.v1.region.Server.CreateRequest.newBuilder((io.greptime.v1.region.Server.CreateRequest) regionRequestBody_)
                 .mergeFrom(value).buildPartial();
           } else {
-            request_ = value;
+            regionRequestBody_ = value;
           }
           onChanged();
         } else {
-          if (requestCase_ == 5) {
+          if (regionRequestBodyCase_ == 5) {
             createBuilder_.mergeFrom(value);
           } else {
             createBuilder_.setMessage(value);
           }
         }
-        requestCase_ = 5;
+        regionRequestBodyCase_ = 5;
         return this;
       }
       /**
@@ -1818,15 +1818,15 @@ public final class Server {
        */
       public Builder clearCreate() {
         if (createBuilder_ == null) {
-          if (requestCase_ == 5) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 5) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
             onChanged();
           }
         } else {
-          if (requestCase_ == 5) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 5) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
           }
           createBuilder_.clear();
         }
@@ -1843,11 +1843,11 @@ public final class Server {
        */
       @java.lang.Override
       public io.greptime.v1.region.Server.CreateRequestOrBuilder getCreateOrBuilder() {
-        if ((requestCase_ == 5) && (createBuilder_ != null)) {
+        if ((regionRequestBodyCase_ == 5) && (createBuilder_ != null)) {
           return createBuilder_.getMessageOrBuilder();
         } else {
-          if (requestCase_ == 5) {
-            return (io.greptime.v1.region.Server.CreateRequest) request_;
+          if (regionRequestBodyCase_ == 5) {
+            return (io.greptime.v1.region.Server.CreateRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.CreateRequest.getDefaultInstance();
         }
@@ -1859,17 +1859,17 @@ public final class Server {
           io.greptime.v1.region.Server.CreateRequest, io.greptime.v1.region.Server.CreateRequest.Builder, io.greptime.v1.region.Server.CreateRequestOrBuilder> 
           getCreateFieldBuilder() {
         if (createBuilder_ == null) {
-          if (!(requestCase_ == 5)) {
-            request_ = io.greptime.v1.region.Server.CreateRequest.getDefaultInstance();
+          if (!(regionRequestBodyCase_ == 5)) {
+            regionRequestBody_ = io.greptime.v1.region.Server.CreateRequest.getDefaultInstance();
           }
           createBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.CreateRequest, io.greptime.v1.region.Server.CreateRequest.Builder, io.greptime.v1.region.Server.CreateRequestOrBuilder>(
-                  (io.greptime.v1.region.Server.CreateRequest) request_,
+                  (io.greptime.v1.region.Server.CreateRequest) regionRequestBody_,
                   getParentForChildren(),
                   isClean());
-          request_ = null;
+          regionRequestBody_ = null;
         }
-        requestCase_ = 5;
+        regionRequestBodyCase_ = 5;
         onChanged();;
         return createBuilder_;
       }
@@ -1882,7 +1882,7 @@ public final class Server {
        */
       @java.lang.Override
       public boolean hasDrop() {
-        return requestCase_ == 6;
+        return regionRequestBodyCase_ == 6;
       }
       /**
        * <code>.greptime.v1.region.DropRequest drop = 6;</code>
@@ -1891,12 +1891,12 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.DropRequest getDrop() {
         if (dropBuilder_ == null) {
-          if (requestCase_ == 6) {
-            return (io.greptime.v1.region.Server.DropRequest) request_;
+          if (regionRequestBodyCase_ == 6) {
+            return (io.greptime.v1.region.Server.DropRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.DropRequest.getDefaultInstance();
         } else {
-          if (requestCase_ == 6) {
+          if (regionRequestBodyCase_ == 6) {
             return dropBuilder_.getMessage();
           }
           return io.greptime.v1.region.Server.DropRequest.getDefaultInstance();
@@ -1910,12 +1910,12 @@ public final class Server {
           if (value == null) {
             throw new NullPointerException();
           }
-          request_ = value;
+          regionRequestBody_ = value;
           onChanged();
         } else {
           dropBuilder_.setMessage(value);
         }
-        requestCase_ = 6;
+        regionRequestBodyCase_ = 6;
         return this;
       }
       /**
@@ -1924,12 +1924,12 @@ public final class Server {
       public Builder setDrop(
           io.greptime.v1.region.Server.DropRequest.Builder builderForValue) {
         if (dropBuilder_ == null) {
-          request_ = builderForValue.build();
+          regionRequestBody_ = builderForValue.build();
           onChanged();
         } else {
           dropBuilder_.setMessage(builderForValue.build());
         }
-        requestCase_ = 6;
+        regionRequestBodyCase_ = 6;
         return this;
       }
       /**
@@ -1937,22 +1937,22 @@ public final class Server {
        */
       public Builder mergeDrop(io.greptime.v1.region.Server.DropRequest value) {
         if (dropBuilder_ == null) {
-          if (requestCase_ == 6 &&
-              request_ != io.greptime.v1.region.Server.DropRequest.getDefaultInstance()) {
-            request_ = io.greptime.v1.region.Server.DropRequest.newBuilder((io.greptime.v1.region.Server.DropRequest) request_)
+          if (regionRequestBodyCase_ == 6 &&
+              regionRequestBody_ != io.greptime.v1.region.Server.DropRequest.getDefaultInstance()) {
+            regionRequestBody_ = io.greptime.v1.region.Server.DropRequest.newBuilder((io.greptime.v1.region.Server.DropRequest) regionRequestBody_)
                 .mergeFrom(value).buildPartial();
           } else {
-            request_ = value;
+            regionRequestBody_ = value;
           }
           onChanged();
         } else {
-          if (requestCase_ == 6) {
+          if (regionRequestBodyCase_ == 6) {
             dropBuilder_.mergeFrom(value);
           } else {
             dropBuilder_.setMessage(value);
           }
         }
-        requestCase_ = 6;
+        regionRequestBodyCase_ = 6;
         return this;
       }
       /**
@@ -1960,15 +1960,15 @@ public final class Server {
        */
       public Builder clearDrop() {
         if (dropBuilder_ == null) {
-          if (requestCase_ == 6) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 6) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
             onChanged();
           }
         } else {
-          if (requestCase_ == 6) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 6) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
           }
           dropBuilder_.clear();
         }
@@ -1985,11 +1985,11 @@ public final class Server {
        */
       @java.lang.Override
       public io.greptime.v1.region.Server.DropRequestOrBuilder getDropOrBuilder() {
-        if ((requestCase_ == 6) && (dropBuilder_ != null)) {
+        if ((regionRequestBodyCase_ == 6) && (dropBuilder_ != null)) {
           return dropBuilder_.getMessageOrBuilder();
         } else {
-          if (requestCase_ == 6) {
-            return (io.greptime.v1.region.Server.DropRequest) request_;
+          if (regionRequestBodyCase_ == 6) {
+            return (io.greptime.v1.region.Server.DropRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.DropRequest.getDefaultInstance();
         }
@@ -2001,17 +2001,17 @@ public final class Server {
           io.greptime.v1.region.Server.DropRequest, io.greptime.v1.region.Server.DropRequest.Builder, io.greptime.v1.region.Server.DropRequestOrBuilder> 
           getDropFieldBuilder() {
         if (dropBuilder_ == null) {
-          if (!(requestCase_ == 6)) {
-            request_ = io.greptime.v1.region.Server.DropRequest.getDefaultInstance();
+          if (!(regionRequestBodyCase_ == 6)) {
+            regionRequestBody_ = io.greptime.v1.region.Server.DropRequest.getDefaultInstance();
           }
           dropBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.DropRequest, io.greptime.v1.region.Server.DropRequest.Builder, io.greptime.v1.region.Server.DropRequestOrBuilder>(
-                  (io.greptime.v1.region.Server.DropRequest) request_,
+                  (io.greptime.v1.region.Server.DropRequest) regionRequestBody_,
                   getParentForChildren(),
                   isClean());
-          request_ = null;
+          regionRequestBody_ = null;
         }
-        requestCase_ = 6;
+        regionRequestBodyCase_ = 6;
         onChanged();;
         return dropBuilder_;
       }
@@ -2024,7 +2024,7 @@ public final class Server {
        */
       @java.lang.Override
       public boolean hasOpen() {
-        return requestCase_ == 7;
+        return regionRequestBodyCase_ == 7;
       }
       /**
        * <code>.greptime.v1.region.OpenRequest open = 7;</code>
@@ -2033,12 +2033,12 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.OpenRequest getOpen() {
         if (openBuilder_ == null) {
-          if (requestCase_ == 7) {
-            return (io.greptime.v1.region.Server.OpenRequest) request_;
+          if (regionRequestBodyCase_ == 7) {
+            return (io.greptime.v1.region.Server.OpenRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.OpenRequest.getDefaultInstance();
         } else {
-          if (requestCase_ == 7) {
+          if (regionRequestBodyCase_ == 7) {
             return openBuilder_.getMessage();
           }
           return io.greptime.v1.region.Server.OpenRequest.getDefaultInstance();
@@ -2052,12 +2052,12 @@ public final class Server {
           if (value == null) {
             throw new NullPointerException();
           }
-          request_ = value;
+          regionRequestBody_ = value;
           onChanged();
         } else {
           openBuilder_.setMessage(value);
         }
-        requestCase_ = 7;
+        regionRequestBodyCase_ = 7;
         return this;
       }
       /**
@@ -2066,12 +2066,12 @@ public final class Server {
       public Builder setOpen(
           io.greptime.v1.region.Server.OpenRequest.Builder builderForValue) {
         if (openBuilder_ == null) {
-          request_ = builderForValue.build();
+          regionRequestBody_ = builderForValue.build();
           onChanged();
         } else {
           openBuilder_.setMessage(builderForValue.build());
         }
-        requestCase_ = 7;
+        regionRequestBodyCase_ = 7;
         return this;
       }
       /**
@@ -2079,22 +2079,22 @@ public final class Server {
        */
       public Builder mergeOpen(io.greptime.v1.region.Server.OpenRequest value) {
         if (openBuilder_ == null) {
-          if (requestCase_ == 7 &&
-              request_ != io.greptime.v1.region.Server.OpenRequest.getDefaultInstance()) {
-            request_ = io.greptime.v1.region.Server.OpenRequest.newBuilder((io.greptime.v1.region.Server.OpenRequest) request_)
+          if (regionRequestBodyCase_ == 7 &&
+              regionRequestBody_ != io.greptime.v1.region.Server.OpenRequest.getDefaultInstance()) {
+            regionRequestBody_ = io.greptime.v1.region.Server.OpenRequest.newBuilder((io.greptime.v1.region.Server.OpenRequest) regionRequestBody_)
                 .mergeFrom(value).buildPartial();
           } else {
-            request_ = value;
+            regionRequestBody_ = value;
           }
           onChanged();
         } else {
-          if (requestCase_ == 7) {
+          if (regionRequestBodyCase_ == 7) {
             openBuilder_.mergeFrom(value);
           } else {
             openBuilder_.setMessage(value);
           }
         }
-        requestCase_ = 7;
+        regionRequestBodyCase_ = 7;
         return this;
       }
       /**
@@ -2102,15 +2102,15 @@ public final class Server {
        */
       public Builder clearOpen() {
         if (openBuilder_ == null) {
-          if (requestCase_ == 7) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 7) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
             onChanged();
           }
         } else {
-          if (requestCase_ == 7) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 7) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
           }
           openBuilder_.clear();
         }
@@ -2127,11 +2127,11 @@ public final class Server {
        */
       @java.lang.Override
       public io.greptime.v1.region.Server.OpenRequestOrBuilder getOpenOrBuilder() {
-        if ((requestCase_ == 7) && (openBuilder_ != null)) {
+        if ((regionRequestBodyCase_ == 7) && (openBuilder_ != null)) {
           return openBuilder_.getMessageOrBuilder();
         } else {
-          if (requestCase_ == 7) {
-            return (io.greptime.v1.region.Server.OpenRequest) request_;
+          if (regionRequestBodyCase_ == 7) {
+            return (io.greptime.v1.region.Server.OpenRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.OpenRequest.getDefaultInstance();
         }
@@ -2143,17 +2143,17 @@ public final class Server {
           io.greptime.v1.region.Server.OpenRequest, io.greptime.v1.region.Server.OpenRequest.Builder, io.greptime.v1.region.Server.OpenRequestOrBuilder> 
           getOpenFieldBuilder() {
         if (openBuilder_ == null) {
-          if (!(requestCase_ == 7)) {
-            request_ = io.greptime.v1.region.Server.OpenRequest.getDefaultInstance();
+          if (!(regionRequestBodyCase_ == 7)) {
+            regionRequestBody_ = io.greptime.v1.region.Server.OpenRequest.getDefaultInstance();
           }
           openBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.OpenRequest, io.greptime.v1.region.Server.OpenRequest.Builder, io.greptime.v1.region.Server.OpenRequestOrBuilder>(
-                  (io.greptime.v1.region.Server.OpenRequest) request_,
+                  (io.greptime.v1.region.Server.OpenRequest) regionRequestBody_,
                   getParentForChildren(),
                   isClean());
-          request_ = null;
+          regionRequestBody_ = null;
         }
-        requestCase_ = 7;
+        regionRequestBodyCase_ = 7;
         onChanged();;
         return openBuilder_;
       }
@@ -2166,7 +2166,7 @@ public final class Server {
        */
       @java.lang.Override
       public boolean hasClose() {
-        return requestCase_ == 8;
+        return regionRequestBodyCase_ == 8;
       }
       /**
        * <code>.greptime.v1.region.CloseRequest close = 8;</code>
@@ -2175,12 +2175,12 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.CloseRequest getClose() {
         if (closeBuilder_ == null) {
-          if (requestCase_ == 8) {
-            return (io.greptime.v1.region.Server.CloseRequest) request_;
+          if (regionRequestBodyCase_ == 8) {
+            return (io.greptime.v1.region.Server.CloseRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.CloseRequest.getDefaultInstance();
         } else {
-          if (requestCase_ == 8) {
+          if (regionRequestBodyCase_ == 8) {
             return closeBuilder_.getMessage();
           }
           return io.greptime.v1.region.Server.CloseRequest.getDefaultInstance();
@@ -2194,12 +2194,12 @@ public final class Server {
           if (value == null) {
             throw new NullPointerException();
           }
-          request_ = value;
+          regionRequestBody_ = value;
           onChanged();
         } else {
           closeBuilder_.setMessage(value);
         }
-        requestCase_ = 8;
+        regionRequestBodyCase_ = 8;
         return this;
       }
       /**
@@ -2208,12 +2208,12 @@ public final class Server {
       public Builder setClose(
           io.greptime.v1.region.Server.CloseRequest.Builder builderForValue) {
         if (closeBuilder_ == null) {
-          request_ = builderForValue.build();
+          regionRequestBody_ = builderForValue.build();
           onChanged();
         } else {
           closeBuilder_.setMessage(builderForValue.build());
         }
-        requestCase_ = 8;
+        regionRequestBodyCase_ = 8;
         return this;
       }
       /**
@@ -2221,22 +2221,22 @@ public final class Server {
        */
       public Builder mergeClose(io.greptime.v1.region.Server.CloseRequest value) {
         if (closeBuilder_ == null) {
-          if (requestCase_ == 8 &&
-              request_ != io.greptime.v1.region.Server.CloseRequest.getDefaultInstance()) {
-            request_ = io.greptime.v1.region.Server.CloseRequest.newBuilder((io.greptime.v1.region.Server.CloseRequest) request_)
+          if (regionRequestBodyCase_ == 8 &&
+              regionRequestBody_ != io.greptime.v1.region.Server.CloseRequest.getDefaultInstance()) {
+            regionRequestBody_ = io.greptime.v1.region.Server.CloseRequest.newBuilder((io.greptime.v1.region.Server.CloseRequest) regionRequestBody_)
                 .mergeFrom(value).buildPartial();
           } else {
-            request_ = value;
+            regionRequestBody_ = value;
           }
           onChanged();
         } else {
-          if (requestCase_ == 8) {
+          if (regionRequestBodyCase_ == 8) {
             closeBuilder_.mergeFrom(value);
           } else {
             closeBuilder_.setMessage(value);
           }
         }
-        requestCase_ = 8;
+        regionRequestBodyCase_ = 8;
         return this;
       }
       /**
@@ -2244,15 +2244,15 @@ public final class Server {
        */
       public Builder clearClose() {
         if (closeBuilder_ == null) {
-          if (requestCase_ == 8) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 8) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
             onChanged();
           }
         } else {
-          if (requestCase_ == 8) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 8) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
           }
           closeBuilder_.clear();
         }
@@ -2269,11 +2269,11 @@ public final class Server {
        */
       @java.lang.Override
       public io.greptime.v1.region.Server.CloseRequestOrBuilder getCloseOrBuilder() {
-        if ((requestCase_ == 8) && (closeBuilder_ != null)) {
+        if ((regionRequestBodyCase_ == 8) && (closeBuilder_ != null)) {
           return closeBuilder_.getMessageOrBuilder();
         } else {
-          if (requestCase_ == 8) {
-            return (io.greptime.v1.region.Server.CloseRequest) request_;
+          if (regionRequestBodyCase_ == 8) {
+            return (io.greptime.v1.region.Server.CloseRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.CloseRequest.getDefaultInstance();
         }
@@ -2285,17 +2285,17 @@ public final class Server {
           io.greptime.v1.region.Server.CloseRequest, io.greptime.v1.region.Server.CloseRequest.Builder, io.greptime.v1.region.Server.CloseRequestOrBuilder> 
           getCloseFieldBuilder() {
         if (closeBuilder_ == null) {
-          if (!(requestCase_ == 8)) {
-            request_ = io.greptime.v1.region.Server.CloseRequest.getDefaultInstance();
+          if (!(regionRequestBodyCase_ == 8)) {
+            regionRequestBody_ = io.greptime.v1.region.Server.CloseRequest.getDefaultInstance();
           }
           closeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.CloseRequest, io.greptime.v1.region.Server.CloseRequest.Builder, io.greptime.v1.region.Server.CloseRequestOrBuilder>(
-                  (io.greptime.v1.region.Server.CloseRequest) request_,
+                  (io.greptime.v1.region.Server.CloseRequest) regionRequestBody_,
                   getParentForChildren(),
                   isClean());
-          request_ = null;
+          regionRequestBody_ = null;
         }
-        requestCase_ = 8;
+        regionRequestBodyCase_ = 8;
         onChanged();;
         return closeBuilder_;
       }
@@ -2308,7 +2308,7 @@ public final class Server {
        */
       @java.lang.Override
       public boolean hasAlter() {
-        return requestCase_ == 9;
+        return regionRequestBodyCase_ == 9;
       }
       /**
        * <code>.greptime.v1.region.AlterRequest alter = 9;</code>
@@ -2317,12 +2317,12 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.AlterRequest getAlter() {
         if (alterBuilder_ == null) {
-          if (requestCase_ == 9) {
-            return (io.greptime.v1.region.Server.AlterRequest) request_;
+          if (regionRequestBodyCase_ == 9) {
+            return (io.greptime.v1.region.Server.AlterRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.AlterRequest.getDefaultInstance();
         } else {
-          if (requestCase_ == 9) {
+          if (regionRequestBodyCase_ == 9) {
             return alterBuilder_.getMessage();
           }
           return io.greptime.v1.region.Server.AlterRequest.getDefaultInstance();
@@ -2336,12 +2336,12 @@ public final class Server {
           if (value == null) {
             throw new NullPointerException();
           }
-          request_ = value;
+          regionRequestBody_ = value;
           onChanged();
         } else {
           alterBuilder_.setMessage(value);
         }
-        requestCase_ = 9;
+        regionRequestBodyCase_ = 9;
         return this;
       }
       /**
@@ -2350,12 +2350,12 @@ public final class Server {
       public Builder setAlter(
           io.greptime.v1.region.Server.AlterRequest.Builder builderForValue) {
         if (alterBuilder_ == null) {
-          request_ = builderForValue.build();
+          regionRequestBody_ = builderForValue.build();
           onChanged();
         } else {
           alterBuilder_.setMessage(builderForValue.build());
         }
-        requestCase_ = 9;
+        regionRequestBodyCase_ = 9;
         return this;
       }
       /**
@@ -2363,22 +2363,22 @@ public final class Server {
        */
       public Builder mergeAlter(io.greptime.v1.region.Server.AlterRequest value) {
         if (alterBuilder_ == null) {
-          if (requestCase_ == 9 &&
-              request_ != io.greptime.v1.region.Server.AlterRequest.getDefaultInstance()) {
-            request_ = io.greptime.v1.region.Server.AlterRequest.newBuilder((io.greptime.v1.region.Server.AlterRequest) request_)
+          if (regionRequestBodyCase_ == 9 &&
+              regionRequestBody_ != io.greptime.v1.region.Server.AlterRequest.getDefaultInstance()) {
+            regionRequestBody_ = io.greptime.v1.region.Server.AlterRequest.newBuilder((io.greptime.v1.region.Server.AlterRequest) regionRequestBody_)
                 .mergeFrom(value).buildPartial();
           } else {
-            request_ = value;
+            regionRequestBody_ = value;
           }
           onChanged();
         } else {
-          if (requestCase_ == 9) {
+          if (regionRequestBodyCase_ == 9) {
             alterBuilder_.mergeFrom(value);
           } else {
             alterBuilder_.setMessage(value);
           }
         }
-        requestCase_ = 9;
+        regionRequestBodyCase_ = 9;
         return this;
       }
       /**
@@ -2386,15 +2386,15 @@ public final class Server {
        */
       public Builder clearAlter() {
         if (alterBuilder_ == null) {
-          if (requestCase_ == 9) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 9) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
             onChanged();
           }
         } else {
-          if (requestCase_ == 9) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 9) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
           }
           alterBuilder_.clear();
         }
@@ -2411,11 +2411,11 @@ public final class Server {
        */
       @java.lang.Override
       public io.greptime.v1.region.Server.AlterRequestOrBuilder getAlterOrBuilder() {
-        if ((requestCase_ == 9) && (alterBuilder_ != null)) {
+        if ((regionRequestBodyCase_ == 9) && (alterBuilder_ != null)) {
           return alterBuilder_.getMessageOrBuilder();
         } else {
-          if (requestCase_ == 9) {
-            return (io.greptime.v1.region.Server.AlterRequest) request_;
+          if (regionRequestBodyCase_ == 9) {
+            return (io.greptime.v1.region.Server.AlterRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.AlterRequest.getDefaultInstance();
         }
@@ -2427,17 +2427,17 @@ public final class Server {
           io.greptime.v1.region.Server.AlterRequest, io.greptime.v1.region.Server.AlterRequest.Builder, io.greptime.v1.region.Server.AlterRequestOrBuilder> 
           getAlterFieldBuilder() {
         if (alterBuilder_ == null) {
-          if (!(requestCase_ == 9)) {
-            request_ = io.greptime.v1.region.Server.AlterRequest.getDefaultInstance();
+          if (!(regionRequestBodyCase_ == 9)) {
+            regionRequestBody_ = io.greptime.v1.region.Server.AlterRequest.getDefaultInstance();
           }
           alterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.AlterRequest, io.greptime.v1.region.Server.AlterRequest.Builder, io.greptime.v1.region.Server.AlterRequestOrBuilder>(
-                  (io.greptime.v1.region.Server.AlterRequest) request_,
+                  (io.greptime.v1.region.Server.AlterRequest) regionRequestBody_,
                   getParentForChildren(),
                   isClean());
-          request_ = null;
+          regionRequestBody_ = null;
         }
-        requestCase_ = 9;
+        regionRequestBodyCase_ = 9;
         onChanged();;
         return alterBuilder_;
       }
@@ -2450,7 +2450,7 @@ public final class Server {
        */
       @java.lang.Override
       public boolean hasFlush() {
-        return requestCase_ == 10;
+        return regionRequestBodyCase_ == 10;
       }
       /**
        * <code>.greptime.v1.region.FlushRequest flush = 10;</code>
@@ -2459,12 +2459,12 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.FlushRequest getFlush() {
         if (flushBuilder_ == null) {
-          if (requestCase_ == 10) {
-            return (io.greptime.v1.region.Server.FlushRequest) request_;
+          if (regionRequestBodyCase_ == 10) {
+            return (io.greptime.v1.region.Server.FlushRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.FlushRequest.getDefaultInstance();
         } else {
-          if (requestCase_ == 10) {
+          if (regionRequestBodyCase_ == 10) {
             return flushBuilder_.getMessage();
           }
           return io.greptime.v1.region.Server.FlushRequest.getDefaultInstance();
@@ -2478,12 +2478,12 @@ public final class Server {
           if (value == null) {
             throw new NullPointerException();
           }
-          request_ = value;
+          regionRequestBody_ = value;
           onChanged();
         } else {
           flushBuilder_.setMessage(value);
         }
-        requestCase_ = 10;
+        regionRequestBodyCase_ = 10;
         return this;
       }
       /**
@@ -2492,12 +2492,12 @@ public final class Server {
       public Builder setFlush(
           io.greptime.v1.region.Server.FlushRequest.Builder builderForValue) {
         if (flushBuilder_ == null) {
-          request_ = builderForValue.build();
+          regionRequestBody_ = builderForValue.build();
           onChanged();
         } else {
           flushBuilder_.setMessage(builderForValue.build());
         }
-        requestCase_ = 10;
+        regionRequestBodyCase_ = 10;
         return this;
       }
       /**
@@ -2505,22 +2505,22 @@ public final class Server {
        */
       public Builder mergeFlush(io.greptime.v1.region.Server.FlushRequest value) {
         if (flushBuilder_ == null) {
-          if (requestCase_ == 10 &&
-              request_ != io.greptime.v1.region.Server.FlushRequest.getDefaultInstance()) {
-            request_ = io.greptime.v1.region.Server.FlushRequest.newBuilder((io.greptime.v1.region.Server.FlushRequest) request_)
+          if (regionRequestBodyCase_ == 10 &&
+              regionRequestBody_ != io.greptime.v1.region.Server.FlushRequest.getDefaultInstance()) {
+            regionRequestBody_ = io.greptime.v1.region.Server.FlushRequest.newBuilder((io.greptime.v1.region.Server.FlushRequest) regionRequestBody_)
                 .mergeFrom(value).buildPartial();
           } else {
-            request_ = value;
+            regionRequestBody_ = value;
           }
           onChanged();
         } else {
-          if (requestCase_ == 10) {
+          if (regionRequestBodyCase_ == 10) {
             flushBuilder_.mergeFrom(value);
           } else {
             flushBuilder_.setMessage(value);
           }
         }
-        requestCase_ = 10;
+        regionRequestBodyCase_ = 10;
         return this;
       }
       /**
@@ -2528,15 +2528,15 @@ public final class Server {
        */
       public Builder clearFlush() {
         if (flushBuilder_ == null) {
-          if (requestCase_ == 10) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 10) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
             onChanged();
           }
         } else {
-          if (requestCase_ == 10) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 10) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
           }
           flushBuilder_.clear();
         }
@@ -2553,11 +2553,11 @@ public final class Server {
        */
       @java.lang.Override
       public io.greptime.v1.region.Server.FlushRequestOrBuilder getFlushOrBuilder() {
-        if ((requestCase_ == 10) && (flushBuilder_ != null)) {
+        if ((regionRequestBodyCase_ == 10) && (flushBuilder_ != null)) {
           return flushBuilder_.getMessageOrBuilder();
         } else {
-          if (requestCase_ == 10) {
-            return (io.greptime.v1.region.Server.FlushRequest) request_;
+          if (regionRequestBodyCase_ == 10) {
+            return (io.greptime.v1.region.Server.FlushRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.FlushRequest.getDefaultInstance();
         }
@@ -2569,17 +2569,17 @@ public final class Server {
           io.greptime.v1.region.Server.FlushRequest, io.greptime.v1.region.Server.FlushRequest.Builder, io.greptime.v1.region.Server.FlushRequestOrBuilder> 
           getFlushFieldBuilder() {
         if (flushBuilder_ == null) {
-          if (!(requestCase_ == 10)) {
-            request_ = io.greptime.v1.region.Server.FlushRequest.getDefaultInstance();
+          if (!(regionRequestBodyCase_ == 10)) {
+            regionRequestBody_ = io.greptime.v1.region.Server.FlushRequest.getDefaultInstance();
           }
           flushBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.FlushRequest, io.greptime.v1.region.Server.FlushRequest.Builder, io.greptime.v1.region.Server.FlushRequestOrBuilder>(
-                  (io.greptime.v1.region.Server.FlushRequest) request_,
+                  (io.greptime.v1.region.Server.FlushRequest) regionRequestBody_,
                   getParentForChildren(),
                   isClean());
-          request_ = null;
+          regionRequestBody_ = null;
         }
-        requestCase_ = 10;
+        regionRequestBodyCase_ = 10;
         onChanged();;
         return flushBuilder_;
       }
@@ -2592,7 +2592,7 @@ public final class Server {
        */
       @java.lang.Override
       public boolean hasCompact() {
-        return requestCase_ == 11;
+        return regionRequestBodyCase_ == 11;
       }
       /**
        * <code>.greptime.v1.region.CompactRequest compact = 11;</code>
@@ -2601,12 +2601,12 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.CompactRequest getCompact() {
         if (compactBuilder_ == null) {
-          if (requestCase_ == 11) {
-            return (io.greptime.v1.region.Server.CompactRequest) request_;
+          if (regionRequestBodyCase_ == 11) {
+            return (io.greptime.v1.region.Server.CompactRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.CompactRequest.getDefaultInstance();
         } else {
-          if (requestCase_ == 11) {
+          if (regionRequestBodyCase_ == 11) {
             return compactBuilder_.getMessage();
           }
           return io.greptime.v1.region.Server.CompactRequest.getDefaultInstance();
@@ -2620,12 +2620,12 @@ public final class Server {
           if (value == null) {
             throw new NullPointerException();
           }
-          request_ = value;
+          regionRequestBody_ = value;
           onChanged();
         } else {
           compactBuilder_.setMessage(value);
         }
-        requestCase_ = 11;
+        regionRequestBodyCase_ = 11;
         return this;
       }
       /**
@@ -2634,12 +2634,12 @@ public final class Server {
       public Builder setCompact(
           io.greptime.v1.region.Server.CompactRequest.Builder builderForValue) {
         if (compactBuilder_ == null) {
-          request_ = builderForValue.build();
+          regionRequestBody_ = builderForValue.build();
           onChanged();
         } else {
           compactBuilder_.setMessage(builderForValue.build());
         }
-        requestCase_ = 11;
+        regionRequestBodyCase_ = 11;
         return this;
       }
       /**
@@ -2647,22 +2647,22 @@ public final class Server {
        */
       public Builder mergeCompact(io.greptime.v1.region.Server.CompactRequest value) {
         if (compactBuilder_ == null) {
-          if (requestCase_ == 11 &&
-              request_ != io.greptime.v1.region.Server.CompactRequest.getDefaultInstance()) {
-            request_ = io.greptime.v1.region.Server.CompactRequest.newBuilder((io.greptime.v1.region.Server.CompactRequest) request_)
+          if (regionRequestBodyCase_ == 11 &&
+              regionRequestBody_ != io.greptime.v1.region.Server.CompactRequest.getDefaultInstance()) {
+            regionRequestBody_ = io.greptime.v1.region.Server.CompactRequest.newBuilder((io.greptime.v1.region.Server.CompactRequest) regionRequestBody_)
                 .mergeFrom(value).buildPartial();
           } else {
-            request_ = value;
+            regionRequestBody_ = value;
           }
           onChanged();
         } else {
-          if (requestCase_ == 11) {
+          if (regionRequestBodyCase_ == 11) {
             compactBuilder_.mergeFrom(value);
           } else {
             compactBuilder_.setMessage(value);
           }
         }
-        requestCase_ = 11;
+        regionRequestBodyCase_ = 11;
         return this;
       }
       /**
@@ -2670,15 +2670,15 @@ public final class Server {
        */
       public Builder clearCompact() {
         if (compactBuilder_ == null) {
-          if (requestCase_ == 11) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 11) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
             onChanged();
           }
         } else {
-          if (requestCase_ == 11) {
-            requestCase_ = 0;
-            request_ = null;
+          if (regionRequestBodyCase_ == 11) {
+            regionRequestBodyCase_ = 0;
+            regionRequestBody_ = null;
           }
           compactBuilder_.clear();
         }
@@ -2695,11 +2695,11 @@ public final class Server {
        */
       @java.lang.Override
       public io.greptime.v1.region.Server.CompactRequestOrBuilder getCompactOrBuilder() {
-        if ((requestCase_ == 11) && (compactBuilder_ != null)) {
+        if ((regionRequestBodyCase_ == 11) && (compactBuilder_ != null)) {
           return compactBuilder_.getMessageOrBuilder();
         } else {
-          if (requestCase_ == 11) {
-            return (io.greptime.v1.region.Server.CompactRequest) request_;
+          if (regionRequestBodyCase_ == 11) {
+            return (io.greptime.v1.region.Server.CompactRequest) regionRequestBody_;
           }
           return io.greptime.v1.region.Server.CompactRequest.getDefaultInstance();
         }
@@ -2711,17 +2711,17 @@ public final class Server {
           io.greptime.v1.region.Server.CompactRequest, io.greptime.v1.region.Server.CompactRequest.Builder, io.greptime.v1.region.Server.CompactRequestOrBuilder> 
           getCompactFieldBuilder() {
         if (compactBuilder_ == null) {
-          if (!(requestCase_ == 11)) {
-            request_ = io.greptime.v1.region.Server.CompactRequest.getDefaultInstance();
+          if (!(regionRequestBodyCase_ == 11)) {
+            regionRequestBody_ = io.greptime.v1.region.Server.CompactRequest.getDefaultInstance();
           }
           compactBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.CompactRequest, io.greptime.v1.region.Server.CompactRequest.Builder, io.greptime.v1.region.Server.CompactRequestOrBuilder>(
-                  (io.greptime.v1.region.Server.CompactRequest) request_,
+                  (io.greptime.v1.region.Server.CompactRequest) regionRequestBody_,
                   getParentForChildren(),
                   isClean());
-          request_ = null;
+          regionRequestBody_ = null;
         }
-        requestCase_ = 11;
+        regionRequestBodyCase_ = 11;
         onChanged();;
         return compactBuilder_;
       }
@@ -14271,7 +14271,7 @@ java.lang.String defaultValue);
     java.lang.String[] descriptorData = {
       "\n\037greptime/v1/region/server.proto\022\022grept" +
       "ime.v1.region\032\030greptime/v1/common.proto\032" +
-      "\025greptime/v1/row.proto\"\233\004\n\rRegionRequest" +
+      "\025greptime/v1/row.proto\"\247\004\n\rRegionRequest" +
       "\022*\n\006header\030\001 \001(\0132\032.greptime.v1.RequestHe" +
       "ader\0225\n\007inserts\030\003 \001(\0132\".greptime.v1.regi" +
       "on.InsertRequestsH\000\0225\n\007deletes\030\004 \001(\0132\".g" +
@@ -14284,44 +14284,44 @@ java.lang.String defaultValue);
       "alter\030\t \001(\0132 .greptime.v1.region.AlterRe" +
       "questH\000\0221\n\005flush\030\n \001(\0132 .greptime.v1.reg" +
       "ion.FlushRequestH\000\0225\n\007compact\030\013 \001(\0132\".gr" +
-      "eptime.v1.region.CompactRequestH\000B\t\n\007req" +
-      "uest\"T\n\016RegionResponse\022+\n\006header\030\001 \001(\0132\033" +
-      ".greptime.v1.ResponseHeader\022\025\n\raffacted_" +
-      "rows\030\002 \001(\004\"E\n\016InsertRequests\0223\n\010requests" +
-      "\030\001 \003(\0132!.greptime.v1.region.InsertReques" +
-      "t\"E\n\016DeleteRequests\0223\n\010requests\030\001 \003(\0132!." +
-      "greptime.v1.region.DeleteRequest\"B\n\rInse" +
-      "rtRequest\022\021\n\tregion_id\030\001 \001(\004\022\036\n\004rows\030\002 \003" +
-      "(\0132\020.greptime.v1.Row\"B\n\rDeleteRequest\022\021\n" +
-      "\tregion_id\030\001 \001(\004\022\036\n\004rows\030\002 \003(\0132\020.greptim" +
-      "e.v1.Row\"/\n\014QueryRequest\022\021\n\tregion_id\030\001 " +
-      "\001(\004\022\014\n\004plan\030\002 \001(\014\"\236\002\n\rCreateRequest\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0222\n\013column" +
-      "_defs\030\003 \003(\0132\035.greptime.v1.region.ColumnD" +
-      "ef\022\023\n\013primary_key\030\004 \003(\r\022\034\n\024create_if_not" +
-      "_exists\030\005 \001(\010\022\022\n\nregion_dir\030\006 \001(\t\022?\n\007opt" +
-      "ions\030\007 \003(\0132..greptime.v1.region.CreateRe" +
-      "quest.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\013DropReques" +
-      "t\022\021\n\tregion_id\030\001 \001(\004\"\263\001\n\013OpenRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\022\n\nregio" +
-      "n_dir\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,.greptime." +
-      "v1.region.OpenRequest.OptionsEntry\032.\n\014Op" +
-      "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001(\004\"!\n" +
-      "\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\"!\n\014Flus" +
-      "hRequest\022\021\n\tregion_id\030\001 \001(\004\"#\n\016CompactRe" +
-      "quest\022\021\n\tregion_id\030\001 \001(\004\"\276\001\n\tColumnDef\022\014" +
-      "\n\004name\030\001 \001(\t\022\021\n\tcolumn_id\030\002 \001(\r\022-\n\010datat" +
-      "ype\030\003 \001(\0162\033.greptime.v1.ColumnDataType\022\023" +
-      "\n\013is_nullable\030\004 \001(\010\022\032\n\022default_constrain" +
-      "t\030\005 \001(\014\0220\n\rsemantic_type\030\006 \001(\0162\031.greptim" +
-      "e.v1.SemanticType2_\n\014RegionServer\022O\n\006Han" +
-      "dle\022!.greptime.v1.region.RegionRequest\032\"" +
-      ".greptime.v1.region.RegionResponseB]\n\025io" +
-      ".greptime.v1.regionB\006ServerZ<github.com/" +
-      "GreptimeTeam/greptime-proto/go/greptime/" +
-      "v1/regionb\006proto3"
+      "eptime.v1.region.CompactRequestH\000B\025\n\023reg" +
+      "ion_request_body\"T\n\016RegionResponse\022+\n\006he" +
+      "ader\030\001 \001(\0132\033.greptime.v1.ResponseHeader\022" +
+      "\025\n\raffacted_rows\030\002 \001(\004\"E\n\016InsertRequests" +
+      "\0223\n\010requests\030\001 \003(\0132!.greptime.v1.region." +
+      "InsertRequest\"E\n\016DeleteRequests\0223\n\010reque" +
+      "sts\030\001 \003(\0132!.greptime.v1.region.DeleteReq" +
+      "uest\"B\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004" +
+      "\022\036\n\004rows\030\002 \003(\0132\020.greptime.v1.Row\"B\n\rDele" +
+      "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\036\n\004rows\030\002 \003" +
+      "(\0132\020.greptime.v1.Row\"/\n\014QueryRequest\022\021\n\t" +
+      "region_id\030\001 \001(\004\022\014\n\004plan\030\002 \001(\014\"\236\002\n\rCreate" +
+      "Request\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001" +
+      "(\t\0222\n\013column_defs\030\003 \003(\0132\035.greptime.v1.re" +
+      "gion.ColumnDef\022\023\n\013primary_key\030\004 \003(\r\022\034\n\024c" +
+      "reate_if_not_exists\030\005 \001(\010\022\022\n\nregion_dir\030" +
+      "\006 \001(\t\022?\n\007options\030\007 \003(\0132..greptime.v1.reg" +
+      "ion.CreateRequest.OptionsEntry\032.\n\014Option" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" " +
+      "\n\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\"\263\001\n\013Ope" +
+      "nRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 " +
+      "\001(\t\022\022\n\nregion_dir\030\003 \001(\t\022=\n\007options\030\004 \003(\013" +
+      "2,.greptime.v1.region.OpenRequest.Option" +
+      "sEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion" +
+      "_id\030\001 \001(\004\"!\n\014AlterRequest\022\021\n\tregion_id\030\001" +
+      " \001(\004\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"" +
+      "#\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"\276\001\n" +
+      "\tColumnDef\022\014\n\004name\030\001 \001(\t\022\021\n\tcolumn_id\030\002 " +
+      "\001(\r\022-\n\010datatype\030\003 \001(\0162\033.greptime.v1.Colu" +
+      "mnDataType\022\023\n\013is_nullable\030\004 \001(\010\022\032\n\022defau" +
+      "lt_constraint\030\005 \001(\014\0220\n\rsemantic_type\030\006 \001" +
+      "(\0162\031.greptime.v1.SemanticType2Y\n\006Region\022" +
+      "O\n\006Handle\022!.greptime.v1.region.RegionReq" +
+      "uest\032\".greptime.v1.region.RegionResponse" +
+      "B]\n\025io.greptime.v1.regionB\006ServerZ<githu" +
+      "b.com/GreptimeTeam/greptime-proto/go/gre" +
+      "ptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14334,7 +14334,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Request", });
+        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "RegionRequestBody", });
     internal_static_greptime_v1_region_RegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_region_RegionResponse_fieldAccessorTable = new

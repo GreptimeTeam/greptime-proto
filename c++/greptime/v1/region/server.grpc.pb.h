@@ -44,10 +44,10 @@ namespace greptime {
 namespace v1 {
 namespace region {
 
-class RegionServer final {
+class Region final {
  public:
   static constexpr char const* service_full_name() {
-    return "greptime.v1.region.RegionServer";
+    return "greptime.v1.region.Region";
   }
   class StubInterface {
    public:
