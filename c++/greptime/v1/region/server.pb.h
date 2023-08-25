@@ -174,7 +174,7 @@ class RegionRequest final :
   static const RegionRequest& default_instance() {
     return *internal_default_instance();
   }
-  enum RequestCase {
+  enum BodyCase {
     kInserts = 3,
     kDeletes = 4,
     kCreate = 5,
@@ -184,7 +184,7 @@ class RegionRequest final :
     kAlter = 9,
     kFlush = 10,
     kCompact = 11,
-    REQUEST_NOT_SET = 0,
+    BODY_NOT_SET = 0,
   };
 
   static inline const RegionRequest* internal_default_instance() {
@@ -456,8 +456,8 @@ class RegionRequest final :
       ::greptime::v1::region::CompactRequest* compact);
   ::greptime::v1::region::CompactRequest* unsafe_arena_release_compact();
 
-  void clear_request();
-  RequestCase request_case() const;
+  void clear_body();
+  BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
  private:
   class _Internal;
@@ -471,16 +471,16 @@ class RegionRequest final :
   void set_has_flush();
   void set_has_compact();
 
-  inline bool has_request() const;
-  inline void clear_has_request();
+  inline bool has_body() const;
+  inline void clear_has_body();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::RequestHeader* header_;
-    union RequestUnion {
-      constexpr RequestUnion() : _constinit_{} {}
+    union BodyUnion {
+      constexpr BodyUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::region::InsertRequests* inserts_;
       ::greptime::v1::region::DeleteRequests* deletes_;
@@ -491,7 +491,7 @@ class RegionRequest final :
       ::greptime::v1::region::AlterRequest* alter_;
       ::greptime::v1::region::FlushRequest* flush_;
       ::greptime::v1::region::CompactRequest* compact_;
-    } request_;
+    } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
 
@@ -3056,7 +3056,7 @@ inline void RegionRequest::set_allocated_header(::greptime::v1::RequestHeader* h
 
 // .greptime.v1.region.InsertRequests inserts = 3;
 inline bool RegionRequest::_internal_has_inserts() const {
-  return request_case() == kInserts;
+  return body_case() == kInserts;
 }
 inline bool RegionRequest::has_inserts() const {
   return _internal_has_inserts();
@@ -3067,20 +3067,20 @@ inline void RegionRequest::set_has_inserts() {
 inline void RegionRequest::clear_inserts() {
   if (_internal_has_inserts()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.inserts_;
+      delete _impl_.body_.inserts_;
     }
-    clear_has_request();
+    clear_has_body();
   }
 }
 inline ::greptime::v1::region::InsertRequests* RegionRequest::release_inserts() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.inserts)
   if (_internal_has_inserts()) {
-    clear_has_request();
-    ::greptime::v1::region::InsertRequests* temp = _impl_.request_.inserts_;
+    clear_has_body();
+    ::greptime::v1::region::InsertRequests* temp = _impl_.body_.inserts_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.inserts_ = nullptr;
+    _impl_.body_.inserts_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3088,7 +3088,7 @@ inline ::greptime::v1::region::InsertRequests* RegionRequest::release_inserts() 
 }
 inline const ::greptime::v1::region::InsertRequests& RegionRequest::_internal_inserts() const {
   return _internal_has_inserts()
-      ? *_impl_.request_.inserts_
+      ? *_impl_.body_.inserts_
       : reinterpret_cast< ::greptime::v1::region::InsertRequests&>(::greptime::v1::region::_InsertRequests_default_instance_);
 }
 inline const ::greptime::v1::region::InsertRequests& RegionRequest::inserts() const {
@@ -3098,29 +3098,29 @@ inline const ::greptime::v1::region::InsertRequests& RegionRequest::inserts() co
 inline ::greptime::v1::region::InsertRequests* RegionRequest::unsafe_arena_release_inserts() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.inserts)
   if (_internal_has_inserts()) {
-    clear_has_request();
-    ::greptime::v1::region::InsertRequests* temp = _impl_.request_.inserts_;
-    _impl_.request_.inserts_ = nullptr;
+    clear_has_body();
+    ::greptime::v1::region::InsertRequests* temp = _impl_.body_.inserts_;
+    _impl_.body_.inserts_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void RegionRequest::unsafe_arena_set_allocated_inserts(::greptime::v1::region::InsertRequests* inserts) {
-  clear_request();
+  clear_body();
   if (inserts) {
     set_has_inserts();
-    _impl_.request_.inserts_ = inserts;
+    _impl_.body_.inserts_ = inserts;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.inserts)
 }
 inline ::greptime::v1::region::InsertRequests* RegionRequest::_internal_mutable_inserts() {
   if (!_internal_has_inserts()) {
-    clear_request();
+    clear_body();
     set_has_inserts();
-    _impl_.request_.inserts_ = CreateMaybeMessage< ::greptime::v1::region::InsertRequests >(GetArenaForAllocation());
+    _impl_.body_.inserts_ = CreateMaybeMessage< ::greptime::v1::region::InsertRequests >(GetArenaForAllocation());
   }
-  return _impl_.request_.inserts_;
+  return _impl_.body_.inserts_;
 }
 inline ::greptime::v1::region::InsertRequests* RegionRequest::mutable_inserts() {
   ::greptime::v1::region::InsertRequests* _msg = _internal_mutable_inserts();
@@ -3130,7 +3130,7 @@ inline ::greptime::v1::region::InsertRequests* RegionRequest::mutable_inserts() 
 
 // .greptime.v1.region.DeleteRequests deletes = 4;
 inline bool RegionRequest::_internal_has_deletes() const {
-  return request_case() == kDeletes;
+  return body_case() == kDeletes;
 }
 inline bool RegionRequest::has_deletes() const {
   return _internal_has_deletes();
@@ -3141,20 +3141,20 @@ inline void RegionRequest::set_has_deletes() {
 inline void RegionRequest::clear_deletes() {
   if (_internal_has_deletes()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.deletes_;
+      delete _impl_.body_.deletes_;
     }
-    clear_has_request();
+    clear_has_body();
   }
 }
 inline ::greptime::v1::region::DeleteRequests* RegionRequest::release_deletes() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.deletes)
   if (_internal_has_deletes()) {
-    clear_has_request();
-    ::greptime::v1::region::DeleteRequests* temp = _impl_.request_.deletes_;
+    clear_has_body();
+    ::greptime::v1::region::DeleteRequests* temp = _impl_.body_.deletes_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.deletes_ = nullptr;
+    _impl_.body_.deletes_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3162,7 +3162,7 @@ inline ::greptime::v1::region::DeleteRequests* RegionRequest::release_deletes() 
 }
 inline const ::greptime::v1::region::DeleteRequests& RegionRequest::_internal_deletes() const {
   return _internal_has_deletes()
-      ? *_impl_.request_.deletes_
+      ? *_impl_.body_.deletes_
       : reinterpret_cast< ::greptime::v1::region::DeleteRequests&>(::greptime::v1::region::_DeleteRequests_default_instance_);
 }
 inline const ::greptime::v1::region::DeleteRequests& RegionRequest::deletes() const {
@@ -3172,29 +3172,29 @@ inline const ::greptime::v1::region::DeleteRequests& RegionRequest::deletes() co
 inline ::greptime::v1::region::DeleteRequests* RegionRequest::unsafe_arena_release_deletes() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.deletes)
   if (_internal_has_deletes()) {
-    clear_has_request();
-    ::greptime::v1::region::DeleteRequests* temp = _impl_.request_.deletes_;
-    _impl_.request_.deletes_ = nullptr;
+    clear_has_body();
+    ::greptime::v1::region::DeleteRequests* temp = _impl_.body_.deletes_;
+    _impl_.body_.deletes_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void RegionRequest::unsafe_arena_set_allocated_deletes(::greptime::v1::region::DeleteRequests* deletes) {
-  clear_request();
+  clear_body();
   if (deletes) {
     set_has_deletes();
-    _impl_.request_.deletes_ = deletes;
+    _impl_.body_.deletes_ = deletes;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.deletes)
 }
 inline ::greptime::v1::region::DeleteRequests* RegionRequest::_internal_mutable_deletes() {
   if (!_internal_has_deletes()) {
-    clear_request();
+    clear_body();
     set_has_deletes();
-    _impl_.request_.deletes_ = CreateMaybeMessage< ::greptime::v1::region::DeleteRequests >(GetArenaForAllocation());
+    _impl_.body_.deletes_ = CreateMaybeMessage< ::greptime::v1::region::DeleteRequests >(GetArenaForAllocation());
   }
-  return _impl_.request_.deletes_;
+  return _impl_.body_.deletes_;
 }
 inline ::greptime::v1::region::DeleteRequests* RegionRequest::mutable_deletes() {
   ::greptime::v1::region::DeleteRequests* _msg = _internal_mutable_deletes();
@@ -3204,7 +3204,7 @@ inline ::greptime::v1::region::DeleteRequests* RegionRequest::mutable_deletes() 
 
 // .greptime.v1.region.CreateRequest create = 5;
 inline bool RegionRequest::_internal_has_create() const {
-  return request_case() == kCreate;
+  return body_case() == kCreate;
 }
 inline bool RegionRequest::has_create() const {
   return _internal_has_create();
@@ -3215,20 +3215,20 @@ inline void RegionRequest::set_has_create() {
 inline void RegionRequest::clear_create() {
   if (_internal_has_create()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.create_;
+      delete _impl_.body_.create_;
     }
-    clear_has_request();
+    clear_has_body();
   }
 }
 inline ::greptime::v1::region::CreateRequest* RegionRequest::release_create() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.create)
   if (_internal_has_create()) {
-    clear_has_request();
-    ::greptime::v1::region::CreateRequest* temp = _impl_.request_.create_;
+    clear_has_body();
+    ::greptime::v1::region::CreateRequest* temp = _impl_.body_.create_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.create_ = nullptr;
+    _impl_.body_.create_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3236,7 +3236,7 @@ inline ::greptime::v1::region::CreateRequest* RegionRequest::release_create() {
 }
 inline const ::greptime::v1::region::CreateRequest& RegionRequest::_internal_create() const {
   return _internal_has_create()
-      ? *_impl_.request_.create_
+      ? *_impl_.body_.create_
       : reinterpret_cast< ::greptime::v1::region::CreateRequest&>(::greptime::v1::region::_CreateRequest_default_instance_);
 }
 inline const ::greptime::v1::region::CreateRequest& RegionRequest::create() const {
@@ -3246,29 +3246,29 @@ inline const ::greptime::v1::region::CreateRequest& RegionRequest::create() cons
 inline ::greptime::v1::region::CreateRequest* RegionRequest::unsafe_arena_release_create() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.create)
   if (_internal_has_create()) {
-    clear_has_request();
-    ::greptime::v1::region::CreateRequest* temp = _impl_.request_.create_;
-    _impl_.request_.create_ = nullptr;
+    clear_has_body();
+    ::greptime::v1::region::CreateRequest* temp = _impl_.body_.create_;
+    _impl_.body_.create_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void RegionRequest::unsafe_arena_set_allocated_create(::greptime::v1::region::CreateRequest* create) {
-  clear_request();
+  clear_body();
   if (create) {
     set_has_create();
-    _impl_.request_.create_ = create;
+    _impl_.body_.create_ = create;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.create)
 }
 inline ::greptime::v1::region::CreateRequest* RegionRequest::_internal_mutable_create() {
   if (!_internal_has_create()) {
-    clear_request();
+    clear_body();
     set_has_create();
-    _impl_.request_.create_ = CreateMaybeMessage< ::greptime::v1::region::CreateRequest >(GetArenaForAllocation());
+    _impl_.body_.create_ = CreateMaybeMessage< ::greptime::v1::region::CreateRequest >(GetArenaForAllocation());
   }
-  return _impl_.request_.create_;
+  return _impl_.body_.create_;
 }
 inline ::greptime::v1::region::CreateRequest* RegionRequest::mutable_create() {
   ::greptime::v1::region::CreateRequest* _msg = _internal_mutable_create();
@@ -3278,7 +3278,7 @@ inline ::greptime::v1::region::CreateRequest* RegionRequest::mutable_create() {
 
 // .greptime.v1.region.DropRequest drop = 6;
 inline bool RegionRequest::_internal_has_drop() const {
-  return request_case() == kDrop;
+  return body_case() == kDrop;
 }
 inline bool RegionRequest::has_drop() const {
   return _internal_has_drop();
@@ -3289,20 +3289,20 @@ inline void RegionRequest::set_has_drop() {
 inline void RegionRequest::clear_drop() {
   if (_internal_has_drop()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.drop_;
+      delete _impl_.body_.drop_;
     }
-    clear_has_request();
+    clear_has_body();
   }
 }
 inline ::greptime::v1::region::DropRequest* RegionRequest::release_drop() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.drop)
   if (_internal_has_drop()) {
-    clear_has_request();
-    ::greptime::v1::region::DropRequest* temp = _impl_.request_.drop_;
+    clear_has_body();
+    ::greptime::v1::region::DropRequest* temp = _impl_.body_.drop_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.drop_ = nullptr;
+    _impl_.body_.drop_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3310,7 +3310,7 @@ inline ::greptime::v1::region::DropRequest* RegionRequest::release_drop() {
 }
 inline const ::greptime::v1::region::DropRequest& RegionRequest::_internal_drop() const {
   return _internal_has_drop()
-      ? *_impl_.request_.drop_
+      ? *_impl_.body_.drop_
       : reinterpret_cast< ::greptime::v1::region::DropRequest&>(::greptime::v1::region::_DropRequest_default_instance_);
 }
 inline const ::greptime::v1::region::DropRequest& RegionRequest::drop() const {
@@ -3320,29 +3320,29 @@ inline const ::greptime::v1::region::DropRequest& RegionRequest::drop() const {
 inline ::greptime::v1::region::DropRequest* RegionRequest::unsafe_arena_release_drop() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.drop)
   if (_internal_has_drop()) {
-    clear_has_request();
-    ::greptime::v1::region::DropRequest* temp = _impl_.request_.drop_;
-    _impl_.request_.drop_ = nullptr;
+    clear_has_body();
+    ::greptime::v1::region::DropRequest* temp = _impl_.body_.drop_;
+    _impl_.body_.drop_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void RegionRequest::unsafe_arena_set_allocated_drop(::greptime::v1::region::DropRequest* drop) {
-  clear_request();
+  clear_body();
   if (drop) {
     set_has_drop();
-    _impl_.request_.drop_ = drop;
+    _impl_.body_.drop_ = drop;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.drop)
 }
 inline ::greptime::v1::region::DropRequest* RegionRequest::_internal_mutable_drop() {
   if (!_internal_has_drop()) {
-    clear_request();
+    clear_body();
     set_has_drop();
-    _impl_.request_.drop_ = CreateMaybeMessage< ::greptime::v1::region::DropRequest >(GetArenaForAllocation());
+    _impl_.body_.drop_ = CreateMaybeMessage< ::greptime::v1::region::DropRequest >(GetArenaForAllocation());
   }
-  return _impl_.request_.drop_;
+  return _impl_.body_.drop_;
 }
 inline ::greptime::v1::region::DropRequest* RegionRequest::mutable_drop() {
   ::greptime::v1::region::DropRequest* _msg = _internal_mutable_drop();
@@ -3352,7 +3352,7 @@ inline ::greptime::v1::region::DropRequest* RegionRequest::mutable_drop() {
 
 // .greptime.v1.region.OpenRequest open = 7;
 inline bool RegionRequest::_internal_has_open() const {
-  return request_case() == kOpen;
+  return body_case() == kOpen;
 }
 inline bool RegionRequest::has_open() const {
   return _internal_has_open();
@@ -3363,20 +3363,20 @@ inline void RegionRequest::set_has_open() {
 inline void RegionRequest::clear_open() {
   if (_internal_has_open()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.open_;
+      delete _impl_.body_.open_;
     }
-    clear_has_request();
+    clear_has_body();
   }
 }
 inline ::greptime::v1::region::OpenRequest* RegionRequest::release_open() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.open)
   if (_internal_has_open()) {
-    clear_has_request();
-    ::greptime::v1::region::OpenRequest* temp = _impl_.request_.open_;
+    clear_has_body();
+    ::greptime::v1::region::OpenRequest* temp = _impl_.body_.open_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.open_ = nullptr;
+    _impl_.body_.open_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3384,7 +3384,7 @@ inline ::greptime::v1::region::OpenRequest* RegionRequest::release_open() {
 }
 inline const ::greptime::v1::region::OpenRequest& RegionRequest::_internal_open() const {
   return _internal_has_open()
-      ? *_impl_.request_.open_
+      ? *_impl_.body_.open_
       : reinterpret_cast< ::greptime::v1::region::OpenRequest&>(::greptime::v1::region::_OpenRequest_default_instance_);
 }
 inline const ::greptime::v1::region::OpenRequest& RegionRequest::open() const {
@@ -3394,29 +3394,29 @@ inline const ::greptime::v1::region::OpenRequest& RegionRequest::open() const {
 inline ::greptime::v1::region::OpenRequest* RegionRequest::unsafe_arena_release_open() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.open)
   if (_internal_has_open()) {
-    clear_has_request();
-    ::greptime::v1::region::OpenRequest* temp = _impl_.request_.open_;
-    _impl_.request_.open_ = nullptr;
+    clear_has_body();
+    ::greptime::v1::region::OpenRequest* temp = _impl_.body_.open_;
+    _impl_.body_.open_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void RegionRequest::unsafe_arena_set_allocated_open(::greptime::v1::region::OpenRequest* open) {
-  clear_request();
+  clear_body();
   if (open) {
     set_has_open();
-    _impl_.request_.open_ = open;
+    _impl_.body_.open_ = open;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.open)
 }
 inline ::greptime::v1::region::OpenRequest* RegionRequest::_internal_mutable_open() {
   if (!_internal_has_open()) {
-    clear_request();
+    clear_body();
     set_has_open();
-    _impl_.request_.open_ = CreateMaybeMessage< ::greptime::v1::region::OpenRequest >(GetArenaForAllocation());
+    _impl_.body_.open_ = CreateMaybeMessage< ::greptime::v1::region::OpenRequest >(GetArenaForAllocation());
   }
-  return _impl_.request_.open_;
+  return _impl_.body_.open_;
 }
 inline ::greptime::v1::region::OpenRequest* RegionRequest::mutable_open() {
   ::greptime::v1::region::OpenRequest* _msg = _internal_mutable_open();
@@ -3426,7 +3426,7 @@ inline ::greptime::v1::region::OpenRequest* RegionRequest::mutable_open() {
 
 // .greptime.v1.region.CloseRequest close = 8;
 inline bool RegionRequest::_internal_has_close() const {
-  return request_case() == kClose;
+  return body_case() == kClose;
 }
 inline bool RegionRequest::has_close() const {
   return _internal_has_close();
@@ -3437,20 +3437,20 @@ inline void RegionRequest::set_has_close() {
 inline void RegionRequest::clear_close() {
   if (_internal_has_close()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.close_;
+      delete _impl_.body_.close_;
     }
-    clear_has_request();
+    clear_has_body();
   }
 }
 inline ::greptime::v1::region::CloseRequest* RegionRequest::release_close() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.close)
   if (_internal_has_close()) {
-    clear_has_request();
-    ::greptime::v1::region::CloseRequest* temp = _impl_.request_.close_;
+    clear_has_body();
+    ::greptime::v1::region::CloseRequest* temp = _impl_.body_.close_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.close_ = nullptr;
+    _impl_.body_.close_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3458,7 +3458,7 @@ inline ::greptime::v1::region::CloseRequest* RegionRequest::release_close() {
 }
 inline const ::greptime::v1::region::CloseRequest& RegionRequest::_internal_close() const {
   return _internal_has_close()
-      ? *_impl_.request_.close_
+      ? *_impl_.body_.close_
       : reinterpret_cast< ::greptime::v1::region::CloseRequest&>(::greptime::v1::region::_CloseRequest_default_instance_);
 }
 inline const ::greptime::v1::region::CloseRequest& RegionRequest::close() const {
@@ -3468,29 +3468,29 @@ inline const ::greptime::v1::region::CloseRequest& RegionRequest::close() const 
 inline ::greptime::v1::region::CloseRequest* RegionRequest::unsafe_arena_release_close() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.close)
   if (_internal_has_close()) {
-    clear_has_request();
-    ::greptime::v1::region::CloseRequest* temp = _impl_.request_.close_;
-    _impl_.request_.close_ = nullptr;
+    clear_has_body();
+    ::greptime::v1::region::CloseRequest* temp = _impl_.body_.close_;
+    _impl_.body_.close_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void RegionRequest::unsafe_arena_set_allocated_close(::greptime::v1::region::CloseRequest* close) {
-  clear_request();
+  clear_body();
   if (close) {
     set_has_close();
-    _impl_.request_.close_ = close;
+    _impl_.body_.close_ = close;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.close)
 }
 inline ::greptime::v1::region::CloseRequest* RegionRequest::_internal_mutable_close() {
   if (!_internal_has_close()) {
-    clear_request();
+    clear_body();
     set_has_close();
-    _impl_.request_.close_ = CreateMaybeMessage< ::greptime::v1::region::CloseRequest >(GetArenaForAllocation());
+    _impl_.body_.close_ = CreateMaybeMessage< ::greptime::v1::region::CloseRequest >(GetArenaForAllocation());
   }
-  return _impl_.request_.close_;
+  return _impl_.body_.close_;
 }
 inline ::greptime::v1::region::CloseRequest* RegionRequest::mutable_close() {
   ::greptime::v1::region::CloseRequest* _msg = _internal_mutable_close();
@@ -3500,7 +3500,7 @@ inline ::greptime::v1::region::CloseRequest* RegionRequest::mutable_close() {
 
 // .greptime.v1.region.AlterRequest alter = 9;
 inline bool RegionRequest::_internal_has_alter() const {
-  return request_case() == kAlter;
+  return body_case() == kAlter;
 }
 inline bool RegionRequest::has_alter() const {
   return _internal_has_alter();
@@ -3511,20 +3511,20 @@ inline void RegionRequest::set_has_alter() {
 inline void RegionRequest::clear_alter() {
   if (_internal_has_alter()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.alter_;
+      delete _impl_.body_.alter_;
     }
-    clear_has_request();
+    clear_has_body();
   }
 }
 inline ::greptime::v1::region::AlterRequest* RegionRequest::release_alter() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.alter)
   if (_internal_has_alter()) {
-    clear_has_request();
-    ::greptime::v1::region::AlterRequest* temp = _impl_.request_.alter_;
+    clear_has_body();
+    ::greptime::v1::region::AlterRequest* temp = _impl_.body_.alter_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.alter_ = nullptr;
+    _impl_.body_.alter_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3532,7 +3532,7 @@ inline ::greptime::v1::region::AlterRequest* RegionRequest::release_alter() {
 }
 inline const ::greptime::v1::region::AlterRequest& RegionRequest::_internal_alter() const {
   return _internal_has_alter()
-      ? *_impl_.request_.alter_
+      ? *_impl_.body_.alter_
       : reinterpret_cast< ::greptime::v1::region::AlterRequest&>(::greptime::v1::region::_AlterRequest_default_instance_);
 }
 inline const ::greptime::v1::region::AlterRequest& RegionRequest::alter() const {
@@ -3542,29 +3542,29 @@ inline const ::greptime::v1::region::AlterRequest& RegionRequest::alter() const 
 inline ::greptime::v1::region::AlterRequest* RegionRequest::unsafe_arena_release_alter() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.alter)
   if (_internal_has_alter()) {
-    clear_has_request();
-    ::greptime::v1::region::AlterRequest* temp = _impl_.request_.alter_;
-    _impl_.request_.alter_ = nullptr;
+    clear_has_body();
+    ::greptime::v1::region::AlterRequest* temp = _impl_.body_.alter_;
+    _impl_.body_.alter_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void RegionRequest::unsafe_arena_set_allocated_alter(::greptime::v1::region::AlterRequest* alter) {
-  clear_request();
+  clear_body();
   if (alter) {
     set_has_alter();
-    _impl_.request_.alter_ = alter;
+    _impl_.body_.alter_ = alter;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.alter)
 }
 inline ::greptime::v1::region::AlterRequest* RegionRequest::_internal_mutable_alter() {
   if (!_internal_has_alter()) {
-    clear_request();
+    clear_body();
     set_has_alter();
-    _impl_.request_.alter_ = CreateMaybeMessage< ::greptime::v1::region::AlterRequest >(GetArenaForAllocation());
+    _impl_.body_.alter_ = CreateMaybeMessage< ::greptime::v1::region::AlterRequest >(GetArenaForAllocation());
   }
-  return _impl_.request_.alter_;
+  return _impl_.body_.alter_;
 }
 inline ::greptime::v1::region::AlterRequest* RegionRequest::mutable_alter() {
   ::greptime::v1::region::AlterRequest* _msg = _internal_mutable_alter();
@@ -3574,7 +3574,7 @@ inline ::greptime::v1::region::AlterRequest* RegionRequest::mutable_alter() {
 
 // .greptime.v1.region.FlushRequest flush = 10;
 inline bool RegionRequest::_internal_has_flush() const {
-  return request_case() == kFlush;
+  return body_case() == kFlush;
 }
 inline bool RegionRequest::has_flush() const {
   return _internal_has_flush();
@@ -3585,20 +3585,20 @@ inline void RegionRequest::set_has_flush() {
 inline void RegionRequest::clear_flush() {
   if (_internal_has_flush()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.flush_;
+      delete _impl_.body_.flush_;
     }
-    clear_has_request();
+    clear_has_body();
   }
 }
 inline ::greptime::v1::region::FlushRequest* RegionRequest::release_flush() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.flush)
   if (_internal_has_flush()) {
-    clear_has_request();
-    ::greptime::v1::region::FlushRequest* temp = _impl_.request_.flush_;
+    clear_has_body();
+    ::greptime::v1::region::FlushRequest* temp = _impl_.body_.flush_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.flush_ = nullptr;
+    _impl_.body_.flush_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3606,7 +3606,7 @@ inline ::greptime::v1::region::FlushRequest* RegionRequest::release_flush() {
 }
 inline const ::greptime::v1::region::FlushRequest& RegionRequest::_internal_flush() const {
   return _internal_has_flush()
-      ? *_impl_.request_.flush_
+      ? *_impl_.body_.flush_
       : reinterpret_cast< ::greptime::v1::region::FlushRequest&>(::greptime::v1::region::_FlushRequest_default_instance_);
 }
 inline const ::greptime::v1::region::FlushRequest& RegionRequest::flush() const {
@@ -3616,29 +3616,29 @@ inline const ::greptime::v1::region::FlushRequest& RegionRequest::flush() const 
 inline ::greptime::v1::region::FlushRequest* RegionRequest::unsafe_arena_release_flush() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.flush)
   if (_internal_has_flush()) {
-    clear_has_request();
-    ::greptime::v1::region::FlushRequest* temp = _impl_.request_.flush_;
-    _impl_.request_.flush_ = nullptr;
+    clear_has_body();
+    ::greptime::v1::region::FlushRequest* temp = _impl_.body_.flush_;
+    _impl_.body_.flush_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void RegionRequest::unsafe_arena_set_allocated_flush(::greptime::v1::region::FlushRequest* flush) {
-  clear_request();
+  clear_body();
   if (flush) {
     set_has_flush();
-    _impl_.request_.flush_ = flush;
+    _impl_.body_.flush_ = flush;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.flush)
 }
 inline ::greptime::v1::region::FlushRequest* RegionRequest::_internal_mutable_flush() {
   if (!_internal_has_flush()) {
-    clear_request();
+    clear_body();
     set_has_flush();
-    _impl_.request_.flush_ = CreateMaybeMessage< ::greptime::v1::region::FlushRequest >(GetArenaForAllocation());
+    _impl_.body_.flush_ = CreateMaybeMessage< ::greptime::v1::region::FlushRequest >(GetArenaForAllocation());
   }
-  return _impl_.request_.flush_;
+  return _impl_.body_.flush_;
 }
 inline ::greptime::v1::region::FlushRequest* RegionRequest::mutable_flush() {
   ::greptime::v1::region::FlushRequest* _msg = _internal_mutable_flush();
@@ -3648,7 +3648,7 @@ inline ::greptime::v1::region::FlushRequest* RegionRequest::mutable_flush() {
 
 // .greptime.v1.region.CompactRequest compact = 11;
 inline bool RegionRequest::_internal_has_compact() const {
-  return request_case() == kCompact;
+  return body_case() == kCompact;
 }
 inline bool RegionRequest::has_compact() const {
   return _internal_has_compact();
@@ -3659,20 +3659,20 @@ inline void RegionRequest::set_has_compact() {
 inline void RegionRequest::clear_compact() {
   if (_internal_has_compact()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.compact_;
+      delete _impl_.body_.compact_;
     }
-    clear_has_request();
+    clear_has_body();
   }
 }
 inline ::greptime::v1::region::CompactRequest* RegionRequest::release_compact() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.compact)
   if (_internal_has_compact()) {
-    clear_has_request();
-    ::greptime::v1::region::CompactRequest* temp = _impl_.request_.compact_;
+    clear_has_body();
+    ::greptime::v1::region::CompactRequest* temp = _impl_.body_.compact_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.request_.compact_ = nullptr;
+    _impl_.body_.compact_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3680,7 +3680,7 @@ inline ::greptime::v1::region::CompactRequest* RegionRequest::release_compact() 
 }
 inline const ::greptime::v1::region::CompactRequest& RegionRequest::_internal_compact() const {
   return _internal_has_compact()
-      ? *_impl_.request_.compact_
+      ? *_impl_.body_.compact_
       : reinterpret_cast< ::greptime::v1::region::CompactRequest&>(::greptime::v1::region::_CompactRequest_default_instance_);
 }
 inline const ::greptime::v1::region::CompactRequest& RegionRequest::compact() const {
@@ -3690,29 +3690,29 @@ inline const ::greptime::v1::region::CompactRequest& RegionRequest::compact() co
 inline ::greptime::v1::region::CompactRequest* RegionRequest::unsafe_arena_release_compact() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.compact)
   if (_internal_has_compact()) {
-    clear_has_request();
-    ::greptime::v1::region::CompactRequest* temp = _impl_.request_.compact_;
-    _impl_.request_.compact_ = nullptr;
+    clear_has_body();
+    ::greptime::v1::region::CompactRequest* temp = _impl_.body_.compact_;
+    _impl_.body_.compact_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void RegionRequest::unsafe_arena_set_allocated_compact(::greptime::v1::region::CompactRequest* compact) {
-  clear_request();
+  clear_body();
   if (compact) {
     set_has_compact();
-    _impl_.request_.compact_ = compact;
+    _impl_.body_.compact_ = compact;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.compact)
 }
 inline ::greptime::v1::region::CompactRequest* RegionRequest::_internal_mutable_compact() {
   if (!_internal_has_compact()) {
-    clear_request();
+    clear_body();
     set_has_compact();
-    _impl_.request_.compact_ = CreateMaybeMessage< ::greptime::v1::region::CompactRequest >(GetArenaForAllocation());
+    _impl_.body_.compact_ = CreateMaybeMessage< ::greptime::v1::region::CompactRequest >(GetArenaForAllocation());
   }
-  return _impl_.request_.compact_;
+  return _impl_.body_.compact_;
 }
 inline ::greptime::v1::region::CompactRequest* RegionRequest::mutable_compact() {
   ::greptime::v1::region::CompactRequest* _msg = _internal_mutable_compact();
@@ -3720,14 +3720,14 @@ inline ::greptime::v1::region::CompactRequest* RegionRequest::mutable_compact() 
   return _msg;
 }
 
-inline bool RegionRequest::has_request() const {
-  return request_case() != REQUEST_NOT_SET;
+inline bool RegionRequest::has_body() const {
+  return body_case() != BODY_NOT_SET;
 }
-inline void RegionRequest::clear_has_request() {
-  _impl_._oneof_case_[0] = REQUEST_NOT_SET;
+inline void RegionRequest::clear_has_body() {
+  _impl_._oneof_case_[0] = BODY_NOT_SET;
 }
-inline RegionRequest::RequestCase RegionRequest::request_case() const {
-  return RegionRequest::RequestCase(_impl_._oneof_case_[0]);
+inline RegionRequest::BodyCase RegionRequest::body_case() const {
+  return RegionRequest::BodyCase(_impl_._oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 
