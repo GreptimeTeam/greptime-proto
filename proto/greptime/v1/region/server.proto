@@ -47,7 +47,7 @@ message RegionRequest {
 
 message RegionResponse {
   ResponseHeader header = 1;
-  uint64 affacted_rows = 2;
+  uint64 affected_rows = 2;
 }
 
 message InsertRequests { repeated InsertRequest requests = 1; }

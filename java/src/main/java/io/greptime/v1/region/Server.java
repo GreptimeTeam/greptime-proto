@@ -2798,10 +2798,10 @@ public final class Server {
     io.greptime.v1.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <code>uint64 affacted_rows = 2;</code>
-     * @return The affactedRows.
+     * <code>uint64 affected_rows = 2;</code>
+     * @return The affectedRows.
      */
-    long getAffactedRows();
+    long getAffectedRows();
   }
   /**
    * Protobuf type {@code greptime.v1.region.RegionResponse}
@@ -2863,7 +2863,7 @@ public final class Server {
             }
             case 16: {
 
-              affactedRows_ = input.readUInt64();
+              affectedRows_ = input.readUInt64();
               break;
             }
             default: {
@@ -2926,15 +2926,15 @@ public final class Server {
       return getHeader();
     }
 
-    public static final int AFFACTED_ROWS_FIELD_NUMBER = 2;
-    private long affactedRows_;
+    public static final int AFFECTED_ROWS_FIELD_NUMBER = 2;
+    private long affectedRows_;
     /**
-     * <code>uint64 affacted_rows = 2;</code>
-     * @return The affactedRows.
+     * <code>uint64 affected_rows = 2;</code>
+     * @return The affectedRows.
      */
     @java.lang.Override
-    public long getAffactedRows() {
-      return affactedRows_;
+    public long getAffectedRows() {
+      return affectedRows_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2954,8 +2954,8 @@ public final class Server {
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      if (affactedRows_ != 0L) {
-        output.writeUInt64(2, affactedRows_);
+      if (affectedRows_ != 0L) {
+        output.writeUInt64(2, affectedRows_);
       }
       unknownFields.writeTo(output);
     }
@@ -2970,9 +2970,9 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
-      if (affactedRows_ != 0L) {
+      if (affectedRows_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, affactedRows_);
+          .computeUInt64Size(2, affectedRows_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2994,8 +2994,8 @@ public final class Server {
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
-      if (getAffactedRows()
-          != other.getAffactedRows()) return false;
+      if (getAffectedRows()
+          != other.getAffectedRows()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3011,9 +3011,9 @@ public final class Server {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
       }
-      hash = (37 * hash) + AFFACTED_ROWS_FIELD_NUMBER;
+      hash = (37 * hash) + AFFECTED_ROWS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getAffactedRows());
+          getAffectedRows());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3153,7 +3153,7 @@ public final class Server {
           header_ = null;
           headerBuilder_ = null;
         }
-        affactedRows_ = 0L;
+        affectedRows_ = 0L;
 
         return this;
       }
@@ -3186,7 +3186,7 @@ public final class Server {
         } else {
           result.header_ = headerBuilder_.build();
         }
-        result.affactedRows_ = affactedRows_;
+        result.affectedRows_ = affectedRows_;
         onBuilt();
         return result;
       }
@@ -3238,8 +3238,8 @@ public final class Server {
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        if (other.getAffactedRows() != 0L) {
-          setAffactedRows(other.getAffactedRows());
+        if (other.getAffectedRows() != 0L) {
+          setAffectedRows(other.getAffectedRows());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3389,33 +3389,33 @@ public final class Server {
         return headerBuilder_;
       }
 
-      private long affactedRows_ ;
+      private long affectedRows_ ;
       /**
-       * <code>uint64 affacted_rows = 2;</code>
-       * @return The affactedRows.
+       * <code>uint64 affected_rows = 2;</code>
+       * @return The affectedRows.
        */
       @java.lang.Override
-      public long getAffactedRows() {
-        return affactedRows_;
+      public long getAffectedRows() {
+        return affectedRows_;
       }
       /**
-       * <code>uint64 affacted_rows = 2;</code>
-       * @param value The affactedRows to set.
+       * <code>uint64 affected_rows = 2;</code>
+       * @param value The affectedRows to set.
        * @return This builder for chaining.
        */
-      public Builder setAffactedRows(long value) {
+      public Builder setAffectedRows(long value) {
         
-        affactedRows_ = value;
+        affectedRows_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint64 affacted_rows = 2;</code>
+       * <code>uint64 affected_rows = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearAffactedRows() {
+      public Builder clearAffectedRows() {
         
-        affactedRows_ = 0L;
+        affectedRows_ = 0L;
         onChanged();
         return this;
       }
@@ -14286,7 +14286,7 @@ java.lang.String defaultValue);
       "ion.FlushRequestH\000\0225\n\007compact\030\013 \001(\0132\".gr" +
       "eptime.v1.region.CompactRequestH\000B\006\n\004bod" +
       "y\"T\n\016RegionResponse\022+\n\006header\030\001 \001(\0132\033.gr" +
-      "eptime.v1.ResponseHeader\022\025\n\raffacted_row" +
+      "eptime.v1.ResponseHeader\022\025\n\raffected_row" +
       "s\030\002 \001(\004\"E\n\016InsertRequests\0223\n\010requests\030\001 " +
       "\003(\0132!.greptime.v1.region.InsertRequest\"E" +
       "\n\016DeleteRequests\0223\n\010requests\030\001 \003(\0132!.gre" +
@@ -14342,7 +14342,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionResponse_descriptor,
-        new java.lang.String[] { "Header", "AffactedRows", });
+        new java.lang.String[] { "Header", "AffectedRows", });
     internal_static_greptime_v1_region_InsertRequests_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_region_InsertRequests_fieldAccessorTable = new

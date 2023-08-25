@@ -623,7 +623,7 @@ class RegionResponse final :
 
   enum : int {
     kHeaderFieldNumber = 1,
-    kAffactedRowsFieldNumber = 2,
+    kAffectedRowsFieldNumber = 2,
   };
   // .greptime.v1.ResponseHeader header = 1;
   bool has_header() const;
@@ -643,13 +643,13 @@ class RegionResponse final :
       ::greptime::v1::ResponseHeader* header);
   ::greptime::v1::ResponseHeader* unsafe_arena_release_header();
 
-  // uint64 affacted_rows = 2;
-  void clear_affacted_rows();
-  uint64_t affacted_rows() const;
-  void set_affacted_rows(uint64_t value);
+  // uint64 affected_rows = 2;
+  void clear_affected_rows();
+  uint64_t affected_rows() const;
+  void set_affected_rows(uint64_t value);
   private:
-  uint64_t _internal_affacted_rows() const;
-  void _internal_set_affacted_rows(uint64_t value);
+  uint64_t _internal_affected_rows() const;
+  void _internal_set_affected_rows(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionResponse)
@@ -661,7 +661,7 @@ class RegionResponse final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::ResponseHeader* header_;
-    uint64_t affacted_rows_;
+    uint64_t affected_rows_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3818,24 +3818,24 @@ inline void RegionResponse::set_allocated_header(::greptime::v1::ResponseHeader*
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionResponse.header)
 }
 
-// uint64 affacted_rows = 2;
-inline void RegionResponse::clear_affacted_rows() {
-  _impl_.affacted_rows_ = uint64_t{0u};
+// uint64 affected_rows = 2;
+inline void RegionResponse::clear_affected_rows() {
+  _impl_.affected_rows_ = uint64_t{0u};
 }
-inline uint64_t RegionResponse::_internal_affacted_rows() const {
-  return _impl_.affacted_rows_;
+inline uint64_t RegionResponse::_internal_affected_rows() const {
+  return _impl_.affected_rows_;
 }
-inline uint64_t RegionResponse::affacted_rows() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionResponse.affacted_rows)
-  return _internal_affacted_rows();
+inline uint64_t RegionResponse::affected_rows() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionResponse.affected_rows)
+  return _internal_affected_rows();
 }
-inline void RegionResponse::_internal_set_affacted_rows(uint64_t value) {
+inline void RegionResponse::_internal_set_affected_rows(uint64_t value) {
   
-  _impl_.affacted_rows_ = value;
+  _impl_.affected_rows_ = value;
 }
-inline void RegionResponse::set_affacted_rows(uint64_t value) {
-  _internal_set_affacted_rows(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionResponse.affacted_rows)
+inline void RegionResponse::set_affected_rows(uint64_t value) {
+  _internal_set_affected_rows(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionResponse.affected_rows)
 }
 
 // -------------------------------------------------------------------

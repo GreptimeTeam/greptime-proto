@@ -41,7 +41,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR RegionResponse::RegionResponse(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.affacted_rows_)*/uint64_t{0u}
+  , /*decltype(_impl_.affected_rows_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RegionResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR RegionResponseDefaultTypeInternal()
@@ -293,7 +293,7 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets[] PR
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse, _impl_.affacted_rows_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse, _impl_.affected_rows_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::InsertRequests, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -481,7 +481,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "ion.FlushRequestH\000\0225\n\007compact\030\013 \001(\0132\".gr"
   "eptime.v1.region.CompactRequestH\000B\006\n\004bod"
   "y\"T\n\016RegionResponse\022+\n\006header\030\001 \001(\0132\033.gr"
-  "eptime.v1.ResponseHeader\022\025\n\raffacted_row"
+  "eptime.v1.ResponseHeader\022\025\n\raffected_row"
   "s\030\002 \001(\004\"E\n\016InsertRequests\0223\n\010requests\030\001 "
   "\003(\0132!.greptime.v1.region.InsertRequest\"E"
   "\n\016DeleteRequests\0223\n\010requests\030\001 \003(\0132!.gre"
@@ -1330,14 +1330,14 @@ RegionResponse::RegionResponse(const RegionResponse& from)
   RegionResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.affacted_rows_){}
+    , decltype(_impl_.affected_rows_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::ResponseHeader(*from._impl_.header_);
   }
-  _this->_impl_.affacted_rows_ = from._impl_.affacted_rows_;
+  _this->_impl_.affected_rows_ = from._impl_.affected_rows_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.region.RegionResponse)
 }
 
@@ -1347,7 +1347,7 @@ inline void RegionResponse::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.affacted_rows_){uint64_t{0u}}
+    , decltype(_impl_.affected_rows_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -1380,7 +1380,7 @@ void RegionResponse::Clear() {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
-  _impl_.affacted_rows_ = uint64_t{0u};
+  _impl_.affected_rows_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1398,10 +1398,10 @@ const char* RegionResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // uint64 affacted_rows = 2;
+      // uint64 affected_rows = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.affacted_rows_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.affected_rows_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1442,10 +1442,10 @@ uint8_t* RegionResponse::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // uint64 affacted_rows = 2;
-  if (this->_internal_affacted_rows() != 0) {
+  // uint64 affected_rows = 2;
+  if (this->_internal_affected_rows() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_affacted_rows(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_affected_rows(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1471,9 +1471,9 @@ size_t RegionResponse::ByteSizeLong() const {
         *_impl_.header_);
   }
 
-  // uint64 affacted_rows = 2;
-  if (this->_internal_affacted_rows() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_affacted_rows());
+  // uint64 affected_rows = 2;
+  if (this->_internal_affected_rows() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_affected_rows());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -1498,8 +1498,8 @@ void RegionResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
     _this->_internal_mutable_header()->::greptime::v1::ResponseHeader::MergeFrom(
         from._internal_header());
   }
-  if (from._internal_affacted_rows() != 0) {
-    _this->_internal_set_affacted_rows(from._internal_affacted_rows());
+  if (from._internal_affected_rows() != 0) {
+    _this->_internal_set_affected_rows(from._internal_affected_rows());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1519,8 +1519,8 @@ void RegionResponse::InternalSwap(RegionResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RegionResponse, _impl_.affacted_rows_)
-      + sizeof(RegionResponse::_impl_.affacted_rows_)
+      PROTOBUF_FIELD_OFFSET(RegionResponse, _impl_.affected_rows_)
+      + sizeof(RegionResponse::_impl_.affected_rows_)
       - PROTOBUF_FIELD_OFFSET(RegionResponse, _impl_.header_)>(
           reinterpret_cast<char*>(&_impl_.header_),
           reinterpret_cast<char*>(&other->_impl_.header_));
