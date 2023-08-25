@@ -16,7 +16,7 @@ tonic::include_proto!("greptime.v1.region");
 
 #[cfg(test)]
 mod test {
-    use crate::v1::region::region_request::Request as RegionRequest;
+    use crate::v1::region::region_request::Body as RegionRequest;
     use crate::v1::region::InsertRequests;
 
     #[test]

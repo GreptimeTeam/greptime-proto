@@ -27,7 +27,7 @@ fn main() {
             "#[derive(::serde::Serialize, ::serde::Deserialize)]",
         )
         .enum_attribute(
-            "region.RegionRequest.request",
+            "region.RegionRequest.body",
             "#[derive(strum_macros::AsRefStr)]",
         )
         .compile(
