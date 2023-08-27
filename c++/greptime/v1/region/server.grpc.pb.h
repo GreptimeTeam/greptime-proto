@@ -59,21 +59,11 @@ class Region final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::RegionResponse>> PrepareAsyncHandle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::RegionResponse>>(PrepareAsyncHandleRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientWriterInterface< ::greptime::v1::region::RegionRequest>> HandleRequests(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response) {
-      return std::unique_ptr< ::grpc::ClientWriterInterface< ::greptime::v1::region::RegionRequest>>(HandleRequestsRaw(context, response));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::greptime::v1::region::RegionRequest>> AsyncHandleRequests(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::greptime::v1::region::RegionRequest>>(AsyncHandleRequestsRaw(context, response, cq, tag));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::greptime::v1::region::RegionRequest>> PrepareAsyncHandleRequests(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::greptime::v1::region::RegionRequest>>(PrepareAsyncHandleRequestsRaw(context, response, cq));
-    }
     class async_interface {
      public:
       virtual ~async_interface() {}
       virtual void Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void HandleRequests(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::ClientWriteReactor< ::greptime::v1::region::RegionRequest>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -81,9 +71,6 @@ class Region final {
    private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::RegionResponse>* AsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::RegionResponse>* PrepareAsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientWriterInterface< ::greptime::v1::region::RegionRequest>* HandleRequestsRaw(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response) = 0;
-    virtual ::grpc::ClientAsyncWriterInterface< ::greptime::v1::region::RegionRequest>* AsyncHandleRequestsRaw(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncWriterInterface< ::greptime::v1::region::RegionRequest>* PrepareAsyncHandleRequestsRaw(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -95,21 +82,11 @@ class Region final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>> PrepareAsyncHandle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>>(PrepareAsyncHandleRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientWriter< ::greptime::v1::region::RegionRequest>> HandleRequests(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response) {
-      return std::unique_ptr< ::grpc::ClientWriter< ::greptime::v1::region::RegionRequest>>(HandleRequestsRaw(context, response));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncWriter< ::greptime::v1::region::RegionRequest>> AsyncHandleRequests(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::greptime::v1::region::RegionRequest>>(AsyncHandleRequestsRaw(context, response, cq, tag));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncWriter< ::greptime::v1::region::RegionRequest>> PrepareAsyncHandleRequests(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::greptime::v1::region::RegionRequest>>(PrepareAsyncHandleRequestsRaw(context, response, cq));
-    }
     class async final :
       public StubInterface::async_interface {
      public:
       void Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, std::function<void(::grpc::Status)>) override;
       void Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void HandleRequests(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::ClientWriteReactor< ::greptime::v1::region::RegionRequest>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -123,11 +100,7 @@ class Region final {
     class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>* AsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>* PrepareAsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientWriter< ::greptime::v1::region::RegionRequest>* HandleRequestsRaw(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response) override;
-    ::grpc::ClientAsyncWriter< ::greptime::v1::region::RegionRequest>* AsyncHandleRequestsRaw(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncWriter< ::greptime::v1::region::RegionRequest>* PrepareAsyncHandleRequestsRaw(::grpc::ClientContext* context, ::greptime::v1::region::RegionResponse* response, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Handle_;
-    const ::grpc::internal::RpcMethod rpcmethod_HandleRequests_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -136,7 +109,6 @@ class Region final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status Handle(::grpc::ServerContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response);
-    virtual ::grpc::Status HandleRequests(::grpc::ServerContext* context, ::grpc::ServerReader< ::greptime::v1::region::RegionRequest>* reader, ::greptime::v1::region::RegionResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_Handle : public BaseClass {
@@ -158,27 +130,7 @@ class Region final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  template <class BaseClass>
-  class WithAsyncMethod_HandleRequests : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_HandleRequests() {
-      ::grpc::Service::MarkMethodAsync(1);
-    }
-    ~WithAsyncMethod_HandleRequests() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status HandleRequests(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::greptime::v1::region::RegionRequest>* /*reader*/, ::greptime::v1::region::RegionResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestHandleRequests(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::greptime::v1::region::RegionResponse, ::greptime::v1::region::RegionRequest>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncClientStreaming(1, context, reader, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_Handle<WithAsyncMethod_HandleRequests<Service > > AsyncService;
+  typedef WithAsyncMethod_Handle<Service > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_Handle : public BaseClass {
    private:
@@ -206,29 +158,7 @@ class Region final {
     virtual ::grpc::ServerUnaryReactor* Handle(
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::region::RegionRequest* /*request*/, ::greptime::v1::region::RegionResponse* /*response*/)  { return nullptr; }
   };
-  template <class BaseClass>
-  class WithCallbackMethod_HandleRequests : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_HandleRequests() {
-      ::grpc::Service::MarkMethodCallback(1,
-          new ::grpc::internal::CallbackClientStreamingHandler< ::greptime::v1::region::RegionRequest, ::greptime::v1::region::RegionResponse>(
-            [this](
-                   ::grpc::CallbackServerContext* context, ::greptime::v1::region::RegionResponse* response) { return this->HandleRequests(context, response); }));
-    }
-    ~WithCallbackMethod_HandleRequests() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status HandleRequests(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::greptime::v1::region::RegionRequest>* /*reader*/, ::greptime::v1::region::RegionResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerReadReactor< ::greptime::v1::region::RegionRequest>* HandleRequests(
-      ::grpc::CallbackServerContext* /*context*/, ::greptime::v1::region::RegionResponse* /*response*/)  { return nullptr; }
-  };
-  typedef WithCallbackMethod_Handle<WithCallbackMethod_HandleRequests<Service > > CallbackService;
+  typedef WithCallbackMethod_Handle<Service > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Handle : public BaseClass {
@@ -243,23 +173,6 @@ class Region final {
     }
     // disable synchronous version of this method
     ::grpc::Status Handle(::grpc::ServerContext* /*context*/, const ::greptime::v1::region::RegionRequest* /*request*/, ::greptime::v1::region::RegionResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_HandleRequests : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_HandleRequests() {
-      ::grpc::Service::MarkMethodGeneric(1);
-    }
-    ~WithGenericMethod_HandleRequests() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status HandleRequests(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::greptime::v1::region::RegionRequest>* /*reader*/, ::greptime::v1::region::RegionResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -285,26 +198,6 @@ class Region final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_HandleRequests : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_HandleRequests() {
-      ::grpc::Service::MarkMethodRaw(1);
-    }
-    ~WithRawMethod_HandleRequests() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status HandleRequests(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::greptime::v1::region::RegionRequest>* /*reader*/, ::greptime::v1::region::RegionResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestHandleRequests(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncClientStreaming(1, context, reader, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithRawCallbackMethod_Handle : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -325,28 +218,6 @@ class Region final {
     }
     virtual ::grpc::ServerUnaryReactor* Handle(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_HandleRequests : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_HandleRequests() {
-      ::grpc::Service::MarkMethodRawCallback(1,
-          new ::grpc::internal::CallbackClientStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, ::grpc::ByteBuffer* response) { return this->HandleRequests(context, response); }));
-    }
-    ~WithRawCallbackMethod_HandleRequests() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status HandleRequests(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::greptime::v1::region::RegionRequest>* /*reader*/, ::greptime::v1::region::RegionResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerReadReactor< ::grpc::ByteBuffer>* HandleRequests(
-      ::grpc::CallbackServerContext* /*context*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Handle : public BaseClass {
