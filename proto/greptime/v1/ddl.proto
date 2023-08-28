@@ -92,6 +92,7 @@ message CompactTableExpr {
 message CreateDatabaseExpr {
   string database_name = 1;
   bool create_if_not_exists = 2;
+  map<string, string> options = 3;
 }
 
 message TruncateTableExpr {

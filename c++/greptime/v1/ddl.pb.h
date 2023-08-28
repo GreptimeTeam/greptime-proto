@@ -69,6 +69,9 @@ extern CompactTableExprDefaultTypeInternal _CompactTableExpr_default_instance_;
 class CreateDatabaseExpr;
 struct CreateDatabaseExprDefaultTypeInternal;
 extern CreateDatabaseExprDefaultTypeInternal _CreateDatabaseExpr_default_instance_;
+class CreateDatabaseExpr_OptionsEntry_DoNotUse;
+struct CreateDatabaseExpr_OptionsEntry_DoNotUseDefaultTypeInternal;
+extern CreateDatabaseExpr_OptionsEntry_DoNotUseDefaultTypeInternal _CreateDatabaseExpr_OptionsEntry_DoNotUse_default_instance_;
 class CreateTableExpr;
 struct CreateTableExprDefaultTypeInternal;
 extern CreateTableExprDefaultTypeInternal _CreateTableExpr_default_instance_;
@@ -108,6 +111,7 @@ template<> ::greptime::v1::AddColumns* Arena::CreateMaybeMessage<::greptime::v1:
 template<> ::greptime::v1::AlterExpr* Arena::CreateMaybeMessage<::greptime::v1::AlterExpr>(Arena*);
 template<> ::greptime::v1::CompactTableExpr* Arena::CreateMaybeMessage<::greptime::v1::CompactTableExpr>(Arena*);
 template<> ::greptime::v1::CreateDatabaseExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr>(Arena*);
+template<> ::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::CreateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr>(Arena*);
 template<> ::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::DdlRequest* Arena::CreateMaybeMessage<::greptime::v1::DdlRequest>(Arena*);
@@ -1758,6 +1762,34 @@ class CompactTableExpr final :
 };
 // -------------------------------------------------------------------
 
+class CreateDatabaseExpr_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateDatabaseExpr_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateDatabaseExpr_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  CreateDatabaseExpr_OptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR CreateDatabaseExpr_OptionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit CreateDatabaseExpr_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const CreateDatabaseExpr_OptionsEntry_DoNotUse& other);
+  static const CreateDatabaseExpr_OptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CreateDatabaseExpr_OptionsEntry_DoNotUse*>(&_CreateDatabaseExpr_OptionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateDatabaseExpr.OptionsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateDatabaseExpr.OptionsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class CreateDatabaseExpr final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.CreateDatabaseExpr) */ {
  public:
@@ -1806,7 +1838,7 @@ class CreateDatabaseExpr final :
                &_CreateDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(CreateDatabaseExpr& a, CreateDatabaseExpr& b) {
     a.Swap(&b);
@@ -1867,6 +1899,8 @@ class CreateDatabaseExpr final :
   protected:
   explicit CreateDatabaseExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -1876,12 +1910,31 @@ class CreateDatabaseExpr final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kOptionsFieldNumber = 3,
     kDatabaseNameFieldNumber = 1,
     kCreateIfNotExistsFieldNumber = 2,
   };
+  // map<string, string> options = 3;
+  int options_size() const;
+  private:
+  int _internal_options_size() const;
+  public:
+  void clear_options();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_options();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_options();
+
   // string database_name = 1;
   void clear_database_name();
   const std::string& database_name() const;
@@ -1913,6 +1966,11 @@ class CreateDatabaseExpr final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        CreateDatabaseExpr_OptionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr database_name_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1970,7 +2028,7 @@ class TruncateTableExpr final :
                &_TruncateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(TruncateTableExpr& a, TruncateTableExpr& b) {
     a.Swap(&b);
@@ -2175,7 +2233,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -2332,7 +2390,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -2489,7 +2547,7 @@ class RenameTable final :
                &_RenameTable_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(RenameTable& a, RenameTable& b) {
     a.Swap(&b);
@@ -2642,7 +2700,7 @@ class AddColumn_Location final :
                &_AddColumn_Location_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(AddColumn_Location& a, AddColumn_Location& b) {
     a.Swap(&b);
@@ -2836,7 +2894,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -3026,7 +3084,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -3179,7 +3237,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -5598,6 +5656,8 @@ inline void CompactTableExpr::set_region_number(uint32_t value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // CreateDatabaseExpr
 
 // string database_name = 1;
@@ -5668,6 +5728,35 @@ inline void CreateDatabaseExpr::_internal_set_create_if_not_exists(bool value) {
 inline void CreateDatabaseExpr::set_create_if_not_exists(bool value) {
   _internal_set_create_if_not_exists(value);
   // @@protoc_insertion_point(field_set:greptime.v1.CreateDatabaseExpr.create_if_not_exists)
+}
+
+// map<string, string> options = 3;
+inline int CreateDatabaseExpr::_internal_options_size() const {
+  return _impl_.options_.size();
+}
+inline int CreateDatabaseExpr::options_size() const {
+  return _internal_options_size();
+}
+inline void CreateDatabaseExpr::clear_options() {
+  _impl_.options_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateDatabaseExpr::_internal_options() const {
+  return _impl_.options_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateDatabaseExpr::options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.CreateDatabaseExpr.options)
+  return _internal_options();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CreateDatabaseExpr::_internal_mutable_options() {
+  return _impl_.options_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CreateDatabaseExpr::mutable_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.CreateDatabaseExpr.options)
+  return _internal_mutable_options();
 }
 
 // -------------------------------------------------------------------
@@ -6410,6 +6499,8 @@ inline void TableId::set_id(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
