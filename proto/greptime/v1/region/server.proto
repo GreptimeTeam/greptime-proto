@@ -23,11 +23,7 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/regio
 import "greptime/v1/common.proto";
 import "greptime/v1/row.proto";
 
-service Region {
-  rpc Handle(RegionRequest) returns (RegionResponse);
-
-  rpc HandleRequests(stream RegionRequest) returns (RegionResponse);
-}
+service Region { rpc Handle(RegionRequest) returns (RegionResponse); }
 
 message RegionRequest {
   RequestHeader header = 1;
@@ -56,12 +52,12 @@ message DeleteRequests { repeated DeleteRequest requests = 1; }
 
 message InsertRequest {
   uint64 region_id = 1;
-  repeated Row rows = 2;
+  Rows rows = 2;
 }
 
 message DeleteRequest {
   uint64 region_id = 1;
-  repeated Row rows = 2;
+  Rows rows = 2;
 }
 
 message QueryRequest {
