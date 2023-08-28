@@ -100,6 +100,9 @@ extern QueryRequestDefaultTypeInternal _QueryRequest_default_instance_;
 class RegionRequest;
 struct RegionRequestDefaultTypeInternal;
 extern RegionRequestDefaultTypeInternal _RegionRequest_default_instance_;
+class RegionRequestHeader;
+struct RegionRequestHeaderDefaultTypeInternal;
+extern RegionRequestHeaderDefaultTypeInternal _RegionRequestHeader_default_instance_;
 class RegionResponse;
 struct RegionResponseDefaultTypeInternal;
 extern RegionResponseDefaultTypeInternal _RegionResponse_default_instance_;
@@ -123,6 +126,7 @@ template<> ::greptime::v1::region::OpenRequest* Arena::CreateMaybeMessage<::grep
 template<> ::greptime::v1::region::OpenRequest_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::OpenRequest_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::QueryRequest* Arena::CreateMaybeMessage<::greptime::v1::region::QueryRequest>(Arena*);
 template<> ::greptime::v1::region::RegionRequest* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequest>(Arena*);
+template<> ::greptime::v1::region::RegionRequestHeader* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader>(Arena*);
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -130,6 +134,174 @@ namespace v1 {
 namespace region {
 
 // ===================================================================
+
+class RegionRequestHeader final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionRequestHeader) */ {
+ public:
+  inline RegionRequestHeader() : RegionRequestHeader(nullptr) {}
+  ~RegionRequestHeader() override;
+  explicit PROTOBUF_CONSTEXPR RegionRequestHeader(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RegionRequestHeader(const RegionRequestHeader& from);
+  RegionRequestHeader(RegionRequestHeader&& from) noexcept
+    : RegionRequestHeader() {
+    *this = ::std::move(from);
+  }
+
+  inline RegionRequestHeader& operator=(const RegionRequestHeader& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RegionRequestHeader& operator=(RegionRequestHeader&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RegionRequestHeader& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RegionRequestHeader* internal_default_instance() {
+    return reinterpret_cast<const RegionRequestHeader*>(
+               &_RegionRequestHeader_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(RegionRequestHeader& a, RegionRequestHeader& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RegionRequestHeader* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RegionRequestHeader* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RegionRequestHeader* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RegionRequestHeader>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RegionRequestHeader& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RegionRequestHeader& from) {
+    RegionRequestHeader::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RegionRequestHeader* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RegionRequestHeader";
+  }
+  protected:
+  explicit RegionRequestHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTraceIdFieldNumber = 1,
+    kSpanIdFieldNumber = 2,
+  };
+  // optional uint64 trace_id = 1;
+  bool has_trace_id() const;
+  private:
+  bool _internal_has_trace_id() const;
+  public:
+  void clear_trace_id();
+  uint64_t trace_id() const;
+  void set_trace_id(uint64_t value);
+  private:
+  uint64_t _internal_trace_id() const;
+  void _internal_set_trace_id(uint64_t value);
+  public:
+
+  // optional uint64 span_id = 2;
+  bool has_span_id() const;
+  private:
+  bool _internal_has_span_id() const;
+  public:
+  void clear_span_id();
+  uint64_t span_id() const;
+  void set_span_id(uint64_t value);
+  private:
+  uint64_t _internal_span_id() const;
+  void _internal_set_span_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequestHeader)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t trace_id_;
+    uint64_t span_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
 
 class RegionRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionRequest) */ {
@@ -192,7 +364,7 @@ class RegionRequest final :
                &_RegionRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(RegionRequest& a, RegionRequest& b) {
     a.Swap(&b);
@@ -276,23 +448,23 @@ class RegionRequest final :
     kFlushFieldNumber = 10,
     kCompactFieldNumber = 11,
   };
-  // .greptime.v1.RequestHeader header = 1;
+  // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
   private:
   bool _internal_has_header() const;
   public:
   void clear_header();
-  const ::greptime::v1::RequestHeader& header() const;
-  PROTOBUF_NODISCARD ::greptime::v1::RequestHeader* release_header();
-  ::greptime::v1::RequestHeader* mutable_header();
-  void set_allocated_header(::greptime::v1::RequestHeader* header);
+  const ::greptime::v1::region::RegionRequestHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::RegionRequestHeader* release_header();
+  ::greptime::v1::region::RegionRequestHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::region::RegionRequestHeader* header);
   private:
-  const ::greptime::v1::RequestHeader& _internal_header() const;
-  ::greptime::v1::RequestHeader* _internal_mutable_header();
+  const ::greptime::v1::region::RegionRequestHeader& _internal_header() const;
+  ::greptime::v1::region::RegionRequestHeader* _internal_mutable_header();
   public:
   void unsafe_arena_set_allocated_header(
-      ::greptime::v1::RequestHeader* header);
-  ::greptime::v1::RequestHeader* unsafe_arena_release_header();
+      ::greptime::v1::region::RegionRequestHeader* header);
+  ::greptime::v1::region::RegionRequestHeader* unsafe_arena_release_header();
 
   // .greptime.v1.region.InsertRequests inserts = 3;
   bool has_inserts() const;
@@ -478,7 +650,7 @@ class RegionRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::greptime::v1::RequestHeader* header_;
+    ::greptime::v1::region::RegionRequestHeader* header_;
     union BodyUnion {
       constexpr BodyUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -549,7 +721,7 @@ class RegionResponse final :
                &_RegionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(RegionResponse& a, RegionResponse& b) {
     a.Swap(&b);
@@ -717,7 +889,7 @@ class InsertRequests final :
                &_InsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(InsertRequests& a, InsertRequests& b) {
     a.Swap(&b);
@@ -874,7 +1046,7 @@ class DeleteRequests final :
                &_DeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(DeleteRequests& a, DeleteRequests& b) {
     a.Swap(&b);
@@ -1031,7 +1203,7 @@ class InsertRequest final :
                &_InsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(InsertRequest& a, InsertRequest& b) {
     a.Swap(&b);
@@ -1199,7 +1371,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
     a.Swap(&b);
@@ -1367,7 +1539,7 @@ class QueryRequest final :
                &_QueryRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(QueryRequest& a, QueryRequest& b) {
     a.Swap(&b);
@@ -1559,7 +1731,7 @@ class CreateRequest final :
                &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(CreateRequest& a, CreateRequest& b) {
     a.Swap(&b);
@@ -1821,7 +1993,7 @@ class DropRequest final :
                &_DropRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(DropRequest& a, DropRequest& b) {
     a.Swap(&b);
@@ -1997,7 +2169,7 @@ class OpenRequest final :
                &_OpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(OpenRequest& a, OpenRequest& b) {
     a.Swap(&b);
@@ -2203,7 +2375,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -2351,7 +2523,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -2499,7 +2671,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -2647,7 +2819,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -2795,7 +2967,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -2967,26 +3139,92 @@ class ColumnDef final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// RegionRequestHeader
+
+// optional uint64 trace_id = 1;
+inline bool RegionRequestHeader::_internal_has_trace_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool RegionRequestHeader::has_trace_id() const {
+  return _internal_has_trace_id();
+}
+inline void RegionRequestHeader::clear_trace_id() {
+  _impl_.trace_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t RegionRequestHeader::_internal_trace_id() const {
+  return _impl_.trace_id_;
+}
+inline uint64_t RegionRequestHeader::trace_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequestHeader.trace_id)
+  return _internal_trace_id();
+}
+inline void RegionRequestHeader::_internal_set_trace_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.trace_id_ = value;
+}
+inline void RegionRequestHeader::set_trace_id(uint64_t value) {
+  _internal_set_trace_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionRequestHeader.trace_id)
+}
+
+// optional uint64 span_id = 2;
+inline bool RegionRequestHeader::_internal_has_span_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool RegionRequestHeader::has_span_id() const {
+  return _internal_has_span_id();
+}
+inline void RegionRequestHeader::clear_span_id() {
+  _impl_.span_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint64_t RegionRequestHeader::_internal_span_id() const {
+  return _impl_.span_id_;
+}
+inline uint64_t RegionRequestHeader::span_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequestHeader.span_id)
+  return _internal_span_id();
+}
+inline void RegionRequestHeader::_internal_set_span_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.span_id_ = value;
+}
+inline void RegionRequestHeader::set_span_id(uint64_t value) {
+  _internal_set_span_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionRequestHeader.span_id)
+}
+
+// -------------------------------------------------------------------
+
 // RegionRequest
 
-// .greptime.v1.RequestHeader header = 1;
+// .greptime.v1.region.RegionRequestHeader header = 1;
 inline bool RegionRequest::_internal_has_header() const {
   return this != internal_default_instance() && _impl_.header_ != nullptr;
 }
 inline bool RegionRequest::has_header() const {
   return _internal_has_header();
 }
-inline const ::greptime::v1::RequestHeader& RegionRequest::_internal_header() const {
-  const ::greptime::v1::RequestHeader* p = _impl_.header_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::RequestHeader&>(
-      ::greptime::v1::_RequestHeader_default_instance_);
+inline void RegionRequest::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
 }
-inline const ::greptime::v1::RequestHeader& RegionRequest::header() const {
+inline const ::greptime::v1::region::RegionRequestHeader& RegionRequest::_internal_header() const {
+  const ::greptime::v1::region::RegionRequestHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::RegionRequestHeader&>(
+      ::greptime::v1::region::_RegionRequestHeader_default_instance_);
+}
+inline const ::greptime::v1::region::RegionRequestHeader& RegionRequest::header() const {
   // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.header)
   return _internal_header();
 }
 inline void RegionRequest::unsafe_arena_set_allocated_header(
-    ::greptime::v1::RequestHeader* header) {
+    ::greptime::v1::region::RegionRequestHeader* header) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
   }
@@ -2998,9 +3236,9 @@ inline void RegionRequest::unsafe_arena_set_allocated_header(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.header)
 }
-inline ::greptime::v1::RequestHeader* RegionRequest::release_header() {
+inline ::greptime::v1::region::RegionRequestHeader* RegionRequest::release_header() {
   
-  ::greptime::v1::RequestHeader* temp = _impl_.header_;
+  ::greptime::v1::region::RegionRequestHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -3013,35 +3251,34 @@ inline ::greptime::v1::RequestHeader* RegionRequest::release_header() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::RequestHeader* RegionRequest::unsafe_arena_release_header() {
+inline ::greptime::v1::region::RegionRequestHeader* RegionRequest::unsafe_arena_release_header() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.header)
   
-  ::greptime::v1::RequestHeader* temp = _impl_.header_;
+  ::greptime::v1::region::RegionRequestHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::RequestHeader* RegionRequest::_internal_mutable_header() {
+inline ::greptime::v1::region::RegionRequestHeader* RegionRequest::_internal_mutable_header() {
   
   if (_impl_.header_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::RequestHeader>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader>(GetArenaForAllocation());
     _impl_.header_ = p;
   }
   return _impl_.header_;
 }
-inline ::greptime::v1::RequestHeader* RegionRequest::mutable_header() {
-  ::greptime::v1::RequestHeader* _msg = _internal_mutable_header();
+inline ::greptime::v1::region::RegionRequestHeader* RegionRequest::mutable_header() {
+  ::greptime::v1::region::RegionRequestHeader* _msg = _internal_mutable_header();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.header)
   return _msg;
 }
-inline void RegionRequest::set_allocated_header(::greptime::v1::RequestHeader* header) {
+inline void RegionRequest::set_allocated_header(::greptime::v1::region::RegionRequestHeader* header) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+    delete _impl_.header_;
   }
   if (header) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(header);
     if (message_arena != submessage_arena) {
       header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, header, submessage_arena);
@@ -4942,6 +5179,8 @@ inline void ColumnDef::set_semantic_type(::greptime::v1::SemanticType value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
