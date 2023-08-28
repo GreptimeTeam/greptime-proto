@@ -13,3 +13,15 @@
 // limitations under the License.
 
 tonic::include_proto!("greptime.v1.region");
+
+#[cfg(test)]
+mod test {
+    use crate::v1::region::region_request::Body as RegionRequest;
+    use crate::v1::region::InsertRequests;
+
+    #[test]
+    fn test_region_request_name() {
+        let request = RegionRequest::Inserts(InsertRequests { requests: vec![] });
+        assert_eq!("Inserts", request.as_ref());
+    }
+}
