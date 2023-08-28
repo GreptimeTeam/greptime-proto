@@ -72,7 +72,7 @@ message CreateRequest {
   string engine = 2;
   // Columns in this region.
   repeated ColumnDef column_defs = 3;
-  // Columns in the primary key.
+  // Id of columns in the primary key.
   repeated uint32 primary_key = 4;
   // Create region if not exists.
   bool create_if_not_exists = 5;
