@@ -109,13 +109,12 @@ struct DropTableExprDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DropTableExprDefaultTypeInternal _DropTableExpr_default_instance_;
 PROTOBUF_CONSTEXPR FlushTableExpr::FlushTableExpr(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_._has_bits_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.schema_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.table_id_)*/nullptr
-  , /*decltype(_impl_.region_number_)*/0u} {}
+  , /*decltype(_impl_.region_number_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct FlushTableExprDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FlushTableExprDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -127,12 +126,11 @@ struct FlushTableExprDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlushTableExprDefaultTypeInternal _FlushTableExpr_default_instance_;
 PROTOBUF_CONSTEXPR CompactTableExpr::CompactTableExpr(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_._has_bits_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.schema_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.region_number_)*/0u} {}
+  , /*decltype(_impl_.region_number_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CompactTableExprDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CompactTableExprDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -340,7 +338,7 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTableExpr, _impl_.schema_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTableExpr, _impl_.table_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTableExpr, _impl_.table_id_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::FlushTableExpr, _impl_._has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::FlushTableExpr, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -351,12 +349,7 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::FlushTableExpr, _impl_.table_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::FlushTableExpr, _impl_.region_number_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::FlushTableExpr, _impl_.table_id_),
-  ~0u,
-  ~0u,
-  ~0u,
-  0,
-  ~0u,
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::CompactTableExpr, _impl_._has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CompactTableExpr, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -366,10 +359,6 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CompactTableExpr, _impl_.schema_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CompactTableExpr, _impl_.table_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CompactTableExpr, _impl_.region_number_),
-  ~0u,
-  ~0u,
-  ~0u,
-  0,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateDatabaseExpr, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -447,17 +436,17 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 24, -1, -1, sizeof(::greptime::v1::CreateTableExpr)},
   { 42, -1, -1, sizeof(::greptime::v1::AlterExpr)},
   { 57, -1, -1, sizeof(::greptime::v1::DropTableExpr)},
-  { 67, 78, -1, sizeof(::greptime::v1::FlushTableExpr)},
-  { 83, 93, -1, sizeof(::greptime::v1::CompactTableExpr)},
-  { 97, -1, -1, sizeof(::greptime::v1::CreateDatabaseExpr)},
-  { 105, -1, -1, sizeof(::greptime::v1::TruncateTableExpr)},
-  { 115, -1, -1, sizeof(::greptime::v1::AddColumns)},
-  { 122, -1, -1, sizeof(::greptime::v1::DropColumns)},
-  { 129, -1, -1, sizeof(::greptime::v1::RenameTable)},
-  { 136, -1, -1, sizeof(::greptime::v1::AddColumn_Location)},
-  { 144, -1, -1, sizeof(::greptime::v1::AddColumn)},
-  { 153, -1, -1, sizeof(::greptime::v1::DropColumn)},
-  { 160, -1, -1, sizeof(::greptime::v1::TableId)},
+  { 67, -1, -1, sizeof(::greptime::v1::FlushTableExpr)},
+  { 78, -1, -1, sizeof(::greptime::v1::CompactTableExpr)},
+  { 88, -1, -1, sizeof(::greptime::v1::CreateDatabaseExpr)},
+  { 96, -1, -1, sizeof(::greptime::v1::TruncateTableExpr)},
+  { 106, -1, -1, sizeof(::greptime::v1::AddColumns)},
+  { 113, -1, -1, sizeof(::greptime::v1::DropColumns)},
+  { 120, -1, -1, sizeof(::greptime::v1::RenameTable)},
+  { 127, -1, -1, sizeof(::greptime::v1::AddColumn_Location)},
+  { 135, -1, -1, sizeof(::greptime::v1::AddColumn)},
+  { 144, -1, -1, sizeof(::greptime::v1::DropColumn)},
+  { 151, -1, -1, sizeof(::greptime::v1::TableId)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -512,40 +501,39 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "(\004B\006\n\004kind\"v\n\rDropTableExpr\022\024\n\014catalog_n"
   "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_"
   "name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime."
-  "v1.TableId\"\245\001\n\016FlushTableExpr\022\024\n\014catalog"
+  "v1.TableId\"\216\001\n\016FlushTableExpr\022\024\n\014catalog"
   "_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntabl"
-  "e_name\030\003 \001(\t\022\032\n\rregion_number\030\004 \001(\rH\000\210\001\001"
-  "\022&\n\010table_id\030\005 \001(\0132\024.greptime.v1.TableId"
-  "B\020\n\016_region_number\"\177\n\020CompactTableExpr\022\024"
-  "\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001("
-  "\t\022\022\n\ntable_name\030\003 \001(\t\022\032\n\rregion_number\030\004"
-  " \001(\rH\000\210\001\001B\020\n\016_region_number\"I\n\022CreateDat"
-  "abaseExpr\022\025\n\rdatabase_name\030\001 \001(\t\022\034\n\024crea"
-  "te_if_not_exists\030\002 \001(\010\"z\n\021TruncateTableE"
-  "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name"
-  "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004"
-  " \001(\0132\024.greptime.v1.TableId\"9\n\nAddColumns"
-  "\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1.AddC"
-  "olumn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003"
-  "(\0132\027.greptime.v1.DropColumn\"%\n\013RenameTab"
-  "le\022\026\n\016new_table_name\030\001 \001(\t\"\215\002\n\tAddColumn"
-  "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum"
-  "nDef\022\016\n\006is_key\030\002 \001(\010\0221\n\010location\030\003 \001(\0132\037"
-  ".greptime.v1.AddColumn.Location\032\220\001\n\010Loca"
-  "tion\022C\n\rlocation_type\030\001 \001(\0162,.greptime.v"
-  "1.AddColumn.Location.LocationType\022\031\n\021aft"
-  "er_cloumn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005"
-  "FIRST\020\000\022\t\n\005AFTER\020\001\"\032\n\nDropColumn\022\014\n\004name"
-  "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\rBL\n\016io.grep"
-  "time.v1B\003DdlZ5github.com/GreptimeTeam/gr"
-  "eptime-proto/go/greptime/v1b\006proto3"
+  "e_name\030\003 \001(\t\022\025\n\rregion_number\030\004 \001(\r\022&\n\010t"
+  "able_id\030\005 \001(\0132\024.greptime.v1.TableId\"h\n\020C"
+  "ompactTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n"
+  "\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\025"
+  "\n\rregion_number\030\004 \001(\r\"I\n\022CreateDatabaseE"
+  "xpr\022\025\n\rdatabase_name\030\001 \001(\t\022\034\n\024create_if_"
+  "not_exists\030\002 \001(\010\"z\n\021TruncateTableExpr\022\024\n"
+  "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t"
+  "\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024"
+  ".greptime.v1.TableId\"9\n\nAddColumns\022+\n\013ad"
+  "d_columns\030\001 \003(\0132\026.greptime.v1.AddColumn\""
+  "<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.g"
+  "reptime.v1.DropColumn\"%\n\013RenameTable\022\026\n\016"
+  "new_table_name\030\001 \001(\t\"\215\002\n\tAddColumn\022*\n\nco"
+  "lumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\016"
+  "\n\006is_key\030\002 \001(\010\0221\n\010location\030\003 \001(\0132\037.grept"
+  "ime.v1.AddColumn.Location\032\220\001\n\010Location\022C"
+  "\n\rlocation_type\030\001 \001(\0162,.greptime.v1.AddC"
+  "olumn.Location.LocationType\022\031\n\021after_clo"
+  "umn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020"
+  "\000\022\t\n\005AFTER\020\001\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t"
+  "\"\025\n\007TableId\022\n\n\002id\030\001 \001(\rBL\n\016io.greptime.v"
+  "1B\003DdlZ5github.com/GreptimeTeam/greptime"
+  "-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 2355, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 2309, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
     &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 16,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
@@ -2840,10 +2828,6 @@ void DropTableExpr::InternalSwap(DropTableExpr* other) {
 
 class FlushTableExpr::_Internal {
  public:
-  using HasBits = decltype(std::declval<FlushTableExpr>()._impl_._has_bits_);
-  static void set_has_region_number(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
   static const ::greptime::v1::TableId& table_id(const FlushTableExpr* msg);
 };
 
@@ -2861,13 +2845,12 @@ FlushTableExpr::FlushTableExpr(const FlushTableExpr& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   FlushTableExpr* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){from._impl_._has_bits_}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.catalog_name_){}
+      decltype(_impl_.catalog_name_){}
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
     , decltype(_impl_.table_id_){nullptr}
-    , decltype(_impl_.region_number_){}};
+    , decltype(_impl_.region_number_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.catalog_name_.InitDefault();
@@ -2906,13 +2889,12 @@ inline void FlushTableExpr::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.catalog_name_){}
+      decltype(_impl_.catalog_name_){}
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
     , decltype(_impl_.table_id_){nullptr}
     , decltype(_impl_.region_number_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.catalog_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2963,13 +2945,11 @@ void FlushTableExpr::Clear() {
   }
   _impl_.table_id_ = nullptr;
   _impl_.region_number_ = 0u;
-  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* FlushTableExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
@@ -3004,10 +2984,9 @@ const char* FlushTableExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 region_number = 4;
+      // uint32 region_number = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _Internal::set_has_region_number(&has_bits);
           _impl_.region_number_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -3037,7 +3016,6 @@ const char* FlushTableExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext
     CHK_(ptr != nullptr);
   }  // while
 message_done:
-  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -3081,8 +3059,8 @@ uint8_t* FlushTableExpr::_InternalSerialize(
         3, this->_internal_table_name(), target);
   }
 
-  // optional uint32 region_number = 4;
-  if (_internal_has_region_number()) {
+  // uint32 region_number = 4;
+  if (this->_internal_region_number() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_region_number(), target);
   }
@@ -3138,9 +3116,8 @@ size_t FlushTableExpr::ByteSizeLong() const {
         *_impl_.table_id_);
   }
 
-  // optional uint32 region_number = 4;
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
+  // uint32 region_number = 4;
+  if (this->_internal_region_number() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_region_number());
   }
 
@@ -3175,7 +3152,7 @@ void FlushTableExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
     _this->_internal_mutable_table_id()->::greptime::v1::TableId::MergeFrom(
         from._internal_table_id());
   }
-  if (from._internal_has_region_number()) {
+  if (from._internal_region_number() != 0) {
     _this->_internal_set_region_number(from._internal_region_number());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -3197,7 +3174,6 @@ void FlushTableExpr::InternalSwap(FlushTableExpr* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.catalog_name_, lhs_arena,
       &other->_impl_.catalog_name_, rhs_arena
@@ -3228,10 +3204,6 @@ void FlushTableExpr::InternalSwap(FlushTableExpr* other) {
 
 class CompactTableExpr::_Internal {
  public:
-  using HasBits = decltype(std::declval<CompactTableExpr>()._impl_._has_bits_);
-  static void set_has_region_number(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
 };
 
 CompactTableExpr::CompactTableExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -3244,12 +3216,11 @@ CompactTableExpr::CompactTableExpr(const CompactTableExpr& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   CompactTableExpr* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){from._impl_._has_bits_}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.catalog_name_){}
+      decltype(_impl_.catalog_name_){}
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
-    , decltype(_impl_.region_number_){}};
+    , decltype(_impl_.region_number_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.catalog_name_.InitDefault();
@@ -3285,12 +3256,11 @@ inline void CompactTableExpr::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.catalog_name_){}
+      decltype(_impl_.catalog_name_){}
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
     , decltype(_impl_.region_number_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.catalog_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3336,13 +3306,11 @@ void CompactTableExpr::Clear() {
   _impl_.schema_name_.ClearToEmpty();
   _impl_.table_name_.ClearToEmpty();
   _impl_.region_number_ = 0u;
-  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CompactTableExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
@@ -3377,10 +3345,9 @@ const char* CompactTableExpr::_InternalParse(const char* ptr, ::_pbi::ParseConte
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 region_number = 4;
+      // uint32 region_number = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _Internal::set_has_region_number(&has_bits);
           _impl_.region_number_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -3402,7 +3369,6 @@ const char* CompactTableExpr::_InternalParse(const char* ptr, ::_pbi::ParseConte
     CHK_(ptr != nullptr);
   }  // while
 message_done:
-  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -3446,8 +3412,8 @@ uint8_t* CompactTableExpr::_InternalSerialize(
         3, this->_internal_table_name(), target);
   }
 
-  // optional uint32 region_number = 4;
-  if (_internal_has_region_number()) {
+  // uint32 region_number = 4;
+  if (this->_internal_region_number() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_region_number(), target);
   }
@@ -3489,9 +3455,8 @@ size_t CompactTableExpr::ByteSizeLong() const {
         this->_internal_table_name());
   }
 
-  // optional uint32 region_number = 4;
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
+  // uint32 region_number = 4;
+  if (this->_internal_region_number() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_region_number());
   }
 
@@ -3522,7 +3487,7 @@ void CompactTableExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
   if (!from._internal_table_name().empty()) {
     _this->_internal_set_table_name(from._internal_table_name());
   }
-  if (from._internal_has_region_number()) {
+  if (from._internal_region_number() != 0) {
     _this->_internal_set_region_number(from._internal_region_number());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -3544,7 +3509,6 @@ void CompactTableExpr::InternalSwap(CompactTableExpr* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.catalog_name_, lhs_arena,
       &other->_impl_.catalog_name_, rhs_arena

@@ -1533,11 +1533,7 @@ class FlushTableExpr final :
       ::greptime::v1::TableId* table_id);
   ::greptime::v1::TableId* unsafe_arena_release_table_id();
 
-  // optional uint32 region_number = 4;
-  bool has_region_number() const;
-  private:
-  bool _internal_has_region_number() const;
-  public:
+  // uint32 region_number = 4;
   void clear_region_number();
   uint32_t region_number() const;
   void set_region_number(uint32_t value);
@@ -1554,13 +1550,12 @@ class FlushTableExpr final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     ::greptime::v1::TableId* table_id_;
     uint32_t region_number_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
@@ -1735,11 +1730,7 @@ class CompactTableExpr final :
   std::string* _internal_mutable_table_name();
   public:
 
-  // optional uint32 region_number = 4;
-  bool has_region_number() const;
-  private:
-  bool _internal_has_region_number() const;
-  public:
+  // uint32 region_number = 4;
   void clear_region_number();
   uint32_t region_number() const;
   void set_region_number(uint32_t value);
@@ -1756,12 +1747,11 @@ class CompactTableExpr final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     uint32_t region_number_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
@@ -5322,17 +5312,9 @@ inline void FlushTableExpr::set_allocated_table_name(std::string* table_name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlushTableExpr.table_name)
 }
 
-// optional uint32 region_number = 4;
-inline bool FlushTableExpr::_internal_has_region_number() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool FlushTableExpr::has_region_number() const {
-  return _internal_has_region_number();
-}
+// uint32 region_number = 4;
 inline void FlushTableExpr::clear_region_number() {
   _impl_.region_number_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t FlushTableExpr::_internal_region_number() const {
   return _impl_.region_number_;
@@ -5342,7 +5324,7 @@ inline uint32_t FlushTableExpr::region_number() const {
   return _internal_region_number();
 }
 inline void FlushTableExpr::_internal_set_region_number(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  
   _impl_.region_number_ = value;
 }
 inline void FlushTableExpr::set_region_number(uint32_t value) {
@@ -5594,17 +5576,9 @@ inline void CompactTableExpr::set_allocated_table_name(std::string* table_name) 
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CompactTableExpr.table_name)
 }
 
-// optional uint32 region_number = 4;
-inline bool CompactTableExpr::_internal_has_region_number() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CompactTableExpr::has_region_number() const {
-  return _internal_has_region_number();
-}
+// uint32 region_number = 4;
 inline void CompactTableExpr::clear_region_number() {
   _impl_.region_number_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CompactTableExpr::_internal_region_number() const {
   return _impl_.region_number_;
@@ -5614,7 +5588,7 @@ inline uint32_t CompactTableExpr::region_number() const {
   return _internal_region_number();
 }
 inline void CompactTableExpr::_internal_set_region_number(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  
   _impl_.region_number_ = value;
 }
 inline void CompactTableExpr::set_region_number(uint32_t value) {
