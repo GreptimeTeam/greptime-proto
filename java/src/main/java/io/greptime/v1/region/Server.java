@@ -7801,7 +7801,7 @@ public final class Server {
 
     /**
      * <pre>
-     * Columns in the primary key.
+     * Id of columns in the primary key.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -7810,7 +7810,7 @@ public final class Server {
     java.util.List<java.lang.Integer> getPrimaryKeyList();
     /**
      * <pre>
-     * Columns in the primary key.
+     * Id of columns in the primary key.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -7819,7 +7819,7 @@ public final class Server {
     int getPrimaryKeyCount();
     /**
      * <pre>
-     * Columns in the primary key.
+     * Id of columns in the primary key.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -8204,7 +8204,7 @@ java.lang.String defaultValue);
     private com.google.protobuf.Internal.IntList primaryKey_;
     /**
      * <pre>
-     * Columns in the primary key.
+     * Id of columns in the primary key.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -8217,7 +8217,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * Columns in the primary key.
+     * Id of columns in the primary key.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -8228,7 +8228,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * Columns in the primary key.
+     * Id of columns in the primary key.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -9354,7 +9354,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Id of columns in the primary key.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9367,7 +9367,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Id of columns in the primary key.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9378,7 +9378,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Id of columns in the primary key.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9390,7 +9390,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Id of columns in the primary key.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9407,7 +9407,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Id of columns in the primary key.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9422,7 +9422,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Id of columns in the primary key.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9439,7 +9439,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Id of columns in the primary key.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
