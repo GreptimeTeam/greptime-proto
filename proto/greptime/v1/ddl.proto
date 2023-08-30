@@ -32,8 +32,6 @@ message DdlRequest {
     CreateTableExpr create_table = 2;
     AlterExpr alter = 3;
     DropTableExpr drop_table = 4;
-    FlushTableExpr flush_table = 5;
-    CompactTableExpr compact_table = 6;
     TruncateTableExpr truncate_table = 7;
   }
 }
@@ -74,21 +72,6 @@ message DropTableExpr {
   TableId table_id = 4;
 }
 
-message FlushTableExpr {
-  string catalog_name = 1;
-  string schema_name = 2;
-  string table_name = 3;
-  uint32 region_number = 4;
-  TableId table_id = 5;
-}
-
-message CompactTableExpr {
-  string catalog_name = 1;
-  string schema_name = 2;
-  string table_name = 3;
-  uint32 region_number = 4;
-}
-
 message CreateDatabaseExpr {
   string database_name = 1;
   bool create_if_not_exists = 2;
@@ -118,7 +101,7 @@ message AddColumn {
       AFTER = 1;
     }
     LocationType location_type = 1;
-    string after_cloumn_name = 2;
+    string after_column_name = 2;
   }
   Location location = 3;
 }
