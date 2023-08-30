@@ -27,9 +27,9 @@ service Region { rpc Handle(RegionRequest) returns (RegionResponse); }
 
 message RegionRequestHeader {
   // TraceID of request
-  optional uint64 trace_id = 1;
+  uint64 trace_id = 1;
   // SpanID of request
-  optional uint64 span_id = 2;
+  uint64 span_id = 2;
 }
 
 message RegionRequest {
@@ -79,7 +79,7 @@ message CreateRequest {
   string engine = 2;
   // Columns in this region.
   repeated ColumnDef column_defs = 3;
-  // Columns in the primary key.
+  // Column Id of primary keys.
   repeated uint32 primary_key = 4;
   // Create region if not exists.
   bool create_if_not_exists = 5;
