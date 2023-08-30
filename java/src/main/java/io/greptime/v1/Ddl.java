@@ -7870,12 +7870,7 @@ java.lang.String defaultValue);
         getTableNameBytes();
 
     /**
-     * <code>optional uint32 region_number = 4;</code>
-     * @return Whether the regionNumber field is set.
-     */
-    boolean hasRegionNumber();
-    /**
-     * <code>optional uint32 region_number = 4;</code>
+     * <code>uint32 region_number = 4;</code>
      * @return The regionNumber.
      */
     int getRegionNumber();
@@ -7933,7 +7928,6 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -7963,7 +7957,7 @@ java.lang.String defaultValue);
               break;
             }
             case 32: {
-              bitField0_ |= 0x00000001;
+
               regionNumber_ = input.readUInt32();
               break;
             }
@@ -8014,7 +8008,6 @@ java.lang.String defaultValue);
               io.greptime.v1.Ddl.FlushTableExpr.class, io.greptime.v1.Ddl.FlushTableExpr.Builder.class);
     }
 
-    private int bitField0_;
     public static final int CATALOG_NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object catalogName_;
     /**
@@ -8132,15 +8125,7 @@ java.lang.String defaultValue);
     public static final int REGION_NUMBER_FIELD_NUMBER = 4;
     private int regionNumber_;
     /**
-     * <code>optional uint32 region_number = 4;</code>
-     * @return Whether the regionNumber field is set.
-     */
-    @java.lang.Override
-    public boolean hasRegionNumber() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>optional uint32 region_number = 4;</code>
+     * <code>uint32 region_number = 4;</code>
      * @return The regionNumber.
      */
     @java.lang.Override
@@ -8197,7 +8182,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (regionNumber_ != 0) {
         output.writeUInt32(4, regionNumber_);
       }
       if (tableId_ != null) {
@@ -8221,7 +8206,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
       }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (regionNumber_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, regionNumber_);
       }
@@ -8250,11 +8235,8 @@ java.lang.String defaultValue);
           .equals(other.getSchemaName())) return false;
       if (!getTableName()
           .equals(other.getTableName())) return false;
-      if (hasRegionNumber() != other.hasRegionNumber()) return false;
-      if (hasRegionNumber()) {
-        if (getRegionNumber()
-            != other.getRegionNumber()) return false;
-      }
+      if (getRegionNumber()
+          != other.getRegionNumber()) return false;
       if (hasTableId() != other.hasTableId()) return false;
       if (hasTableId()) {
         if (!getTableId()
@@ -8277,10 +8259,8 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getSchemaName().hashCode();
       hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getTableName().hashCode();
-      if (hasRegionNumber()) {
-        hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionNumber();
-      }
+      hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionNumber();
       if (hasTableId()) {
         hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
         hash = (53 * hash) + getTableId().hashCode();
@@ -8425,7 +8405,7 @@ java.lang.String defaultValue);
         tableName_ = "";
 
         regionNumber_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         if (tableIdBuilder_ == null) {
           tableId_ = null;
         } else {
@@ -8458,21 +8438,15 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Ddl.FlushTableExpr buildPartial() {
         io.greptime.v1.Ddl.FlushTableExpr result = new io.greptime.v1.Ddl.FlushTableExpr(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.catalogName_ = catalogName_;
         result.schemaName_ = schemaName_;
         result.tableName_ = tableName_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.regionNumber_ = regionNumber_;
-          to_bitField0_ |= 0x00000001;
-        }
+        result.regionNumber_ = regionNumber_;
         if (tableIdBuilder_ == null) {
           result.tableId_ = tableId_;
         } else {
           result.tableId_ = tableIdBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -8533,7 +8507,7 @@ java.lang.String defaultValue);
           tableName_ = other.tableName_;
           onChanged();
         }
-        if (other.hasRegionNumber()) {
+        if (other.getRegionNumber() != 0) {
           setRegionNumber(other.getRegionNumber());
         }
         if (other.hasTableId()) {
@@ -8567,7 +8541,6 @@ java.lang.String defaultValue);
         }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object catalogName_ = "";
       /**
@@ -8799,15 +8772,7 @@ java.lang.String defaultValue);
 
       private int regionNumber_ ;
       /**
-       * <code>optional uint32 region_number = 4;</code>
-       * @return Whether the regionNumber field is set.
-       */
-      @java.lang.Override
-      public boolean hasRegionNumber() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <code>optional uint32 region_number = 4;</code>
+       * <code>uint32 region_number = 4;</code>
        * @return The regionNumber.
        */
       @java.lang.Override
@@ -8815,22 +8780,22 @@ java.lang.String defaultValue);
         return regionNumber_;
       }
       /**
-       * <code>optional uint32 region_number = 4;</code>
+       * <code>uint32 region_number = 4;</code>
        * @param value The regionNumber to set.
        * @return This builder for chaining.
        */
       public Builder setRegionNumber(int value) {
-        bitField0_ |= 0x00000001;
+        
         regionNumber_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint32 region_number = 4;</code>
+       * <code>uint32 region_number = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearRegionNumber() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         regionNumber_ = 0;
         onChanged();
         return this;
@@ -9048,12 +9013,7 @@ java.lang.String defaultValue);
         getTableNameBytes();
 
     /**
-     * <code>optional uint32 region_number = 4;</code>
-     * @return Whether the regionNumber field is set.
-     */
-    boolean hasRegionNumber();
-    /**
-     * <code>optional uint32 region_number = 4;</code>
+     * <code>uint32 region_number = 4;</code>
      * @return The regionNumber.
      */
     int getRegionNumber();
@@ -9096,7 +9056,6 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -9126,7 +9085,7 @@ java.lang.String defaultValue);
               break;
             }
             case 32: {
-              bitField0_ |= 0x00000001;
+
               regionNumber_ = input.readUInt32();
               break;
             }
@@ -9164,7 +9123,6 @@ java.lang.String defaultValue);
               io.greptime.v1.Ddl.CompactTableExpr.class, io.greptime.v1.Ddl.CompactTableExpr.Builder.class);
     }
 
-    private int bitField0_;
     public static final int CATALOG_NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object catalogName_;
     /**
@@ -9282,15 +9240,7 @@ java.lang.String defaultValue);
     public static final int REGION_NUMBER_FIELD_NUMBER = 4;
     private int regionNumber_;
     /**
-     * <code>optional uint32 region_number = 4;</code>
-     * @return Whether the regionNumber field is set.
-     */
-    @java.lang.Override
-    public boolean hasRegionNumber() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>optional uint32 region_number = 4;</code>
+     * <code>uint32 region_number = 4;</code>
      * @return The regionNumber.
      */
     @java.lang.Override
@@ -9321,7 +9271,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (regionNumber_ != 0) {
         output.writeUInt32(4, regionNumber_);
       }
       unknownFields.writeTo(output);
@@ -9342,7 +9292,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
       }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (regionNumber_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, regionNumber_);
       }
@@ -9367,11 +9317,8 @@ java.lang.String defaultValue);
           .equals(other.getSchemaName())) return false;
       if (!getTableName()
           .equals(other.getTableName())) return false;
-      if (hasRegionNumber() != other.hasRegionNumber()) return false;
-      if (hasRegionNumber()) {
-        if (getRegionNumber()
-            != other.getRegionNumber()) return false;
-      }
+      if (getRegionNumber()
+          != other.getRegionNumber()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9389,10 +9336,8 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getSchemaName().hashCode();
       hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getTableName().hashCode();
-      if (hasRegionNumber()) {
-        hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionNumber();
-      }
+      hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionNumber();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9533,7 +9478,7 @@ java.lang.String defaultValue);
         tableName_ = "";
 
         regionNumber_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
 
@@ -9560,16 +9505,10 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Ddl.CompactTableExpr buildPartial() {
         io.greptime.v1.Ddl.CompactTableExpr result = new io.greptime.v1.Ddl.CompactTableExpr(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.catalogName_ = catalogName_;
         result.schemaName_ = schemaName_;
         result.tableName_ = tableName_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.regionNumber_ = regionNumber_;
-          to_bitField0_ |= 0x00000001;
-        }
-        result.bitField0_ = to_bitField0_;
+        result.regionNumber_ = regionNumber_;
         onBuilt();
         return result;
       }
@@ -9630,7 +9569,7 @@ java.lang.String defaultValue);
           tableName_ = other.tableName_;
           onChanged();
         }
-        if (other.hasRegionNumber()) {
+        if (other.getRegionNumber() != 0) {
           setRegionNumber(other.getRegionNumber());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -9661,7 +9600,6 @@ java.lang.String defaultValue);
         }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object catalogName_ = "";
       /**
@@ -9893,15 +9831,7 @@ java.lang.String defaultValue);
 
       private int regionNumber_ ;
       /**
-       * <code>optional uint32 region_number = 4;</code>
-       * @return Whether the regionNumber field is set.
-       */
-      @java.lang.Override
-      public boolean hasRegionNumber() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <code>optional uint32 region_number = 4;</code>
+       * <code>uint32 region_number = 4;</code>
        * @return The regionNumber.
        */
       @java.lang.Override
@@ -9909,22 +9839,22 @@ java.lang.String defaultValue);
         return regionNumber_;
       }
       /**
-       * <code>optional uint32 region_number = 4;</code>
+       * <code>uint32 region_number = 4;</code>
        * @param value The regionNumber to set.
        * @return This builder for chaining.
        */
       public Builder setRegionNumber(int value) {
-        bitField0_ |= 0x00000001;
+        
         regionNumber_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint32 region_number = 4;</code>
+       * <code>uint32 region_number = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearRegionNumber() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         regionNumber_ = 0;
         onChanged();
         return this;
@@ -16719,33 +16649,32 @@ java.lang.String defaultValue);
       "(\004B\006\n\004kind\"v\n\rDropTableExpr\022\024\n\014catalog_n" +
       "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_" +
       "name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime." +
-      "v1.TableId\"\245\001\n\016FlushTableExpr\022\024\n\014catalog" +
+      "v1.TableId\"\216\001\n\016FlushTableExpr\022\024\n\014catalog" +
       "_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntabl" +
-      "e_name\030\003 \001(\t\022\032\n\rregion_number\030\004 \001(\rH\000\210\001\001" +
-      "\022&\n\010table_id\030\005 \001(\0132\024.greptime.v1.TableId" +
-      "B\020\n\016_region_number\"\177\n\020CompactTableExpr\022\024" +
-      "\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(" +
-      "\t\022\022\n\ntable_name\030\003 \001(\t\022\032\n\rregion_number\030\004" +
-      " \001(\rH\000\210\001\001B\020\n\016_region_number\"I\n\022CreateDat" +
-      "abaseExpr\022\025\n\rdatabase_name\030\001 \001(\t\022\034\n\024crea" +
-      "te_if_not_exists\030\002 \001(\010\"z\n\021TruncateTableE" +
-      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
-      "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004" +
-      " \001(\0132\024.greptime.v1.TableId\"9\n\nAddColumns" +
-      "\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1.AddC" +
-      "olumn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003" +
-      "(\0132\027.greptime.v1.DropColumn\"%\n\013RenameTab" +
-      "le\022\026\n\016new_table_name\030\001 \001(\t\"\215\002\n\tAddColumn" +
-      "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum" +
-      "nDef\022\016\n\006is_key\030\002 \001(\010\0221\n\010location\030\003 \001(\0132\037" +
-      ".greptime.v1.AddColumn.Location\032\220\001\n\010Loca" +
-      "tion\022C\n\rlocation_type\030\001 \001(\0162,.greptime.v" +
-      "1.AddColumn.Location.LocationType\022\031\n\021aft" +
-      "er_cloumn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005" +
-      "FIRST\020\000\022\t\n\005AFTER\020\001\"\032\n\nDropColumn\022\014\n\004name" +
-      "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\rBL\n\016io.grep" +
-      "time.v1B\003DdlZ5github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1b\006proto3"
+      "e_name\030\003 \001(\t\022\025\n\rregion_number\030\004 \001(\r\022&\n\010t" +
+      "able_id\030\005 \001(\0132\024.greptime.v1.TableId\"h\n\020C" +
+      "ompactTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
+      "\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\025" +
+      "\n\rregion_number\030\004 \001(\r\"I\n\022CreateDatabaseE" +
+      "xpr\022\025\n\rdatabase_name\030\001 \001(\t\022\034\n\024create_if_" +
+      "not_exists\030\002 \001(\010\"z\n\021TruncateTableExpr\022\024\n" +
+      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
+      "\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024" +
+      ".greptime.v1.TableId\"9\n\nAddColumns\022+\n\013ad" +
+      "d_columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"" +
+      "<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.g" +
+      "reptime.v1.DropColumn\"%\n\013RenameTable\022\026\n\016" +
+      "new_table_name\030\001 \001(\t\"\215\002\n\tAddColumn\022*\n\nco" +
+      "lumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\016" +
+      "\n\006is_key\030\002 \001(\010\0221\n\010location\030\003 \001(\0132\037.grept" +
+      "ime.v1.AddColumn.Location\032\220\001\n\010Location\022C" +
+      "\n\rlocation_type\030\001 \001(\0162,.greptime.v1.AddC" +
+      "olumn.Location.LocationType\022\031\n\021after_clo" +
+      "umn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020" +
+      "\000\022\t\n\005AFTER\020\001\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t" +
+      "\"\025\n\007TableId\022\n\n\002id\030\001 \001(\rBL\n\016io.greptime.v" +
+      "1B\003DdlZ5github.com/GreptimeTeam/greptime" +
+      "-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -16787,13 +16716,13 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_FlushTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlushTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "RegionNumber", "TableId", "RegionNumber", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "RegionNumber", "TableId", });
     internal_static_greptime_v1_CompactTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_CompactTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CompactTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "RegionNumber", "RegionNumber", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "RegionNumber", });
     internal_static_greptime_v1_CreateDatabaseExpr_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_CreateDatabaseExpr_fieldAccessorTable = new

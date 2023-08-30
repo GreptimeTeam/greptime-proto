@@ -30,9 +30,9 @@ message RequestHeader {
   // The `dbname` for the request
   string dbname = 4;
   // TraceID of request
-  optional uint64 trace_id = 5;
+  uint64 trace_id = 5;
   // SpanID of request
-  optional uint64 span_id = 6;
+  uint64 span_id = 6;
 }
 
 message ResponseHeader { Status status = 1; }
