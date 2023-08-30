@@ -27,9 +27,9 @@ service Region { rpc Handle(RegionRequest) returns (RegionResponse); }
 
 message RegionRequestHeader {
   // TraceID of request
-  uint64 trace_id = 1;
+  optional uint64 trace_id = 1;
   // SpanID of request
-  uint64 span_id = 2;
+  optional uint64 span_id = 2;
 }
 
 message RegionRequest {
@@ -79,15 +79,17 @@ message CreateRequest {
   string engine = 2;
   // Columns in this region.
   repeated ColumnDef column_defs = 3;
-  // Id of columns in the primary key.
+  // Columns in the primary key.
   repeated uint32 primary_key = 4;
   // Create region if not exists.
   bool create_if_not_exists = 5;
-  // Directory for region's data home. Usually is composed by catalog and table
-  // id
-  string region_dir = 6;
+  // catalog name and schema name is to accomplish storage path
+  // catalog name
+  string catalog = 6;
+  // schema name
+  string schema = 7;
   // Options of the created region.
-  map<string, string> options = 7;
+  map<string, string> options = 8;
   // TODO: add partition def
 }
 
@@ -97,10 +99,13 @@ message OpenRequest {
   uint64 region_id = 1;
   // Region engine name
   string engine = 2;
-  // Data directory of the region.
-  string region_dir = 3;
+  // catalog name and schema name is to accomplish storage path
+  // catalog name
+  string catalog = 3;
+  // schema name
+  string schema = 4;
   // Options of the opened region.
-  map<string, string> options = 4;
+  map<string, string> options = 5;
 }
 
 message CloseRequest { uint64 region_id = 1; }
