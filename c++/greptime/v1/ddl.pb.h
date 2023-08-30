@@ -63,9 +63,6 @@ extern AddColumnsDefaultTypeInternal _AddColumns_default_instance_;
 class AlterExpr;
 struct AlterExprDefaultTypeInternal;
 extern AlterExprDefaultTypeInternal _AlterExpr_default_instance_;
-class CompactTableExpr;
-struct CompactTableExprDefaultTypeInternal;
-extern CompactTableExprDefaultTypeInternal _CompactTableExpr_default_instance_;
 class CreateDatabaseExpr;
 struct CreateDatabaseExprDefaultTypeInternal;
 extern CreateDatabaseExprDefaultTypeInternal _CreateDatabaseExpr_default_instance_;
@@ -87,9 +84,6 @@ extern DropColumnsDefaultTypeInternal _DropColumns_default_instance_;
 class DropTableExpr;
 struct DropTableExprDefaultTypeInternal;
 extern DropTableExprDefaultTypeInternal _DropTableExpr_default_instance_;
-class FlushTableExpr;
-struct FlushTableExprDefaultTypeInternal;
-extern FlushTableExprDefaultTypeInternal _FlushTableExpr_default_instance_;
 class RenameTable;
 struct RenameTableDefaultTypeInternal;
 extern RenameTableDefaultTypeInternal _RenameTable_default_instance_;
@@ -106,7 +100,6 @@ template<> ::greptime::v1::AddColumn* Arena::CreateMaybeMessage<::greptime::v1::
 template<> ::greptime::v1::AddColumn_Location* Arena::CreateMaybeMessage<::greptime::v1::AddColumn_Location>(Arena*);
 template<> ::greptime::v1::AddColumns* Arena::CreateMaybeMessage<::greptime::v1::AddColumns>(Arena*);
 template<> ::greptime::v1::AlterExpr* Arena::CreateMaybeMessage<::greptime::v1::AlterExpr>(Arena*);
-template<> ::greptime::v1::CompactTableExpr* Arena::CreateMaybeMessage<::greptime::v1::CompactTableExpr>(Arena*);
 template<> ::greptime::v1::CreateDatabaseExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr>(Arena*);
 template<> ::greptime::v1::CreateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr>(Arena*);
 template<> ::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse>(Arena*);
@@ -114,7 +107,6 @@ template<> ::greptime::v1::DdlRequest* Arena::CreateMaybeMessage<::greptime::v1:
 template<> ::greptime::v1::DropColumn* Arena::CreateMaybeMessage<::greptime::v1::DropColumn>(Arena*);
 template<> ::greptime::v1::DropColumns* Arena::CreateMaybeMessage<::greptime::v1::DropColumns>(Arena*);
 template<> ::greptime::v1::DropTableExpr* Arena::CreateMaybeMessage<::greptime::v1::DropTableExpr>(Arena*);
-template<> ::greptime::v1::FlushTableExpr* Arena::CreateMaybeMessage<::greptime::v1::FlushTableExpr>(Arena*);
 template<> ::greptime::v1::RenameTable* Arena::CreateMaybeMessage<::greptime::v1::RenameTable>(Arena*);
 template<> ::greptime::v1::TableId* Arena::CreateMaybeMessage<::greptime::v1::TableId>(Arena*);
 template<> ::greptime::v1::TruncateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::TruncateTableExpr>(Arena*);
@@ -197,8 +189,6 @@ class DdlRequest final :
     kCreateTable = 2,
     kAlter = 3,
     kDropTable = 4,
-    kFlushTable = 5,
-    kCompactTable = 6,
     kTruncateTable = 7,
     EXPR_NOT_SET = 0,
   };
@@ -285,8 +275,6 @@ class DdlRequest final :
     kCreateTableFieldNumber = 2,
     kAlterFieldNumber = 3,
     kDropTableFieldNumber = 4,
-    kFlushTableFieldNumber = 5,
-    kCompactTableFieldNumber = 6,
     kTruncateTableFieldNumber = 7,
   };
   // .greptime.v1.CreateDatabaseExpr create_database = 1;
@@ -361,42 +349,6 @@ class DdlRequest final :
       ::greptime::v1::DropTableExpr* drop_table);
   ::greptime::v1::DropTableExpr* unsafe_arena_release_drop_table();
 
-  // .greptime.v1.FlushTableExpr flush_table = 5;
-  bool has_flush_table() const;
-  private:
-  bool _internal_has_flush_table() const;
-  public:
-  void clear_flush_table();
-  const ::greptime::v1::FlushTableExpr& flush_table() const;
-  PROTOBUF_NODISCARD ::greptime::v1::FlushTableExpr* release_flush_table();
-  ::greptime::v1::FlushTableExpr* mutable_flush_table();
-  void set_allocated_flush_table(::greptime::v1::FlushTableExpr* flush_table);
-  private:
-  const ::greptime::v1::FlushTableExpr& _internal_flush_table() const;
-  ::greptime::v1::FlushTableExpr* _internal_mutable_flush_table();
-  public:
-  void unsafe_arena_set_allocated_flush_table(
-      ::greptime::v1::FlushTableExpr* flush_table);
-  ::greptime::v1::FlushTableExpr* unsafe_arena_release_flush_table();
-
-  // .greptime.v1.CompactTableExpr compact_table = 6;
-  bool has_compact_table() const;
-  private:
-  bool _internal_has_compact_table() const;
-  public:
-  void clear_compact_table();
-  const ::greptime::v1::CompactTableExpr& compact_table() const;
-  PROTOBUF_NODISCARD ::greptime::v1::CompactTableExpr* release_compact_table();
-  ::greptime::v1::CompactTableExpr* mutable_compact_table();
-  void set_allocated_compact_table(::greptime::v1::CompactTableExpr* compact_table);
-  private:
-  const ::greptime::v1::CompactTableExpr& _internal_compact_table() const;
-  ::greptime::v1::CompactTableExpr* _internal_mutable_compact_table();
-  public:
-  void unsafe_arena_set_allocated_compact_table(
-      ::greptime::v1::CompactTableExpr* compact_table);
-  ::greptime::v1::CompactTableExpr* unsafe_arena_release_compact_table();
-
   // .greptime.v1.TruncateTableExpr truncate_table = 7;
   bool has_truncate_table() const;
   private:
@@ -424,8 +376,6 @@ class DdlRequest final :
   void set_has_create_table();
   void set_has_alter();
   void set_has_drop_table();
-  void set_has_flush_table();
-  void set_has_compact_table();
   void set_has_truncate_table();
 
   inline bool has_expr() const;
@@ -442,8 +392,6 @@ class DdlRequest final :
       ::greptime::v1::CreateTableExpr* create_table_;
       ::greptime::v1::AlterExpr* alter_;
       ::greptime::v1::DropTableExpr* drop_table_;
-      ::greptime::v1::FlushTableExpr* flush_table_;
-      ::greptime::v1::CompactTableExpr* compact_table_;
       ::greptime::v1::TruncateTableExpr* truncate_table_;
     } expr_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1346,418 +1294,6 @@ class DropTableExpr final :
 };
 // -------------------------------------------------------------------
 
-class FlushTableExpr final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.FlushTableExpr) */ {
- public:
-  inline FlushTableExpr() : FlushTableExpr(nullptr) {}
-  ~FlushTableExpr() override;
-  explicit PROTOBUF_CONSTEXPR FlushTableExpr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  FlushTableExpr(const FlushTableExpr& from);
-  FlushTableExpr(FlushTableExpr&& from) noexcept
-    : FlushTableExpr() {
-    *this = ::std::move(from);
-  }
-
-  inline FlushTableExpr& operator=(const FlushTableExpr& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline FlushTableExpr& operator=(FlushTableExpr&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const FlushTableExpr& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const FlushTableExpr* internal_default_instance() {
-    return reinterpret_cast<const FlushTableExpr*>(
-               &_FlushTableExpr_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(FlushTableExpr& a, FlushTableExpr& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(FlushTableExpr* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(FlushTableExpr* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  FlushTableExpr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<FlushTableExpr>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const FlushTableExpr& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const FlushTableExpr& from) {
-    FlushTableExpr::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(FlushTableExpr* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.FlushTableExpr";
-  }
-  protected:
-  explicit FlushTableExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kCatalogNameFieldNumber = 1,
-    kSchemaNameFieldNumber = 2,
-    kTableNameFieldNumber = 3,
-    kTableIdFieldNumber = 5,
-    kRegionNumberFieldNumber = 4,
-  };
-  // string catalog_name = 1;
-  void clear_catalog_name();
-  const std::string& catalog_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_catalog_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_catalog_name();
-  PROTOBUF_NODISCARD std::string* release_catalog_name();
-  void set_allocated_catalog_name(std::string* catalog_name);
-  private:
-  const std::string& _internal_catalog_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
-  std::string* _internal_mutable_catalog_name();
-  public:
-
-  // string schema_name = 2;
-  void clear_schema_name();
-  const std::string& schema_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_schema_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_schema_name();
-  PROTOBUF_NODISCARD std::string* release_schema_name();
-  void set_allocated_schema_name(std::string* schema_name);
-  private:
-  const std::string& _internal_schema_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema_name(const std::string& value);
-  std::string* _internal_mutable_schema_name();
-  public:
-
-  // string table_name = 3;
-  void clear_table_name();
-  const std::string& table_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_table_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_table_name();
-  PROTOBUF_NODISCARD std::string* release_table_name();
-  void set_allocated_table_name(std::string* table_name);
-  private:
-  const std::string& _internal_table_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_name(const std::string& value);
-  std::string* _internal_mutable_table_name();
-  public:
-
-  // .greptime.v1.TableId table_id = 5;
-  bool has_table_id() const;
-  private:
-  bool _internal_has_table_id() const;
-  public:
-  void clear_table_id();
-  const ::greptime::v1::TableId& table_id() const;
-  PROTOBUF_NODISCARD ::greptime::v1::TableId* release_table_id();
-  ::greptime::v1::TableId* mutable_table_id();
-  void set_allocated_table_id(::greptime::v1::TableId* table_id);
-  private:
-  const ::greptime::v1::TableId& _internal_table_id() const;
-  ::greptime::v1::TableId* _internal_mutable_table_id();
-  public:
-  void unsafe_arena_set_allocated_table_id(
-      ::greptime::v1::TableId* table_id);
-  ::greptime::v1::TableId* unsafe_arena_release_table_id();
-
-  // uint32 region_number = 4;
-  void clear_region_number();
-  uint32_t region_number() const;
-  void set_region_number(uint32_t value);
-  private:
-  uint32_t _internal_region_number() const;
-  void _internal_set_region_number(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.FlushTableExpr)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
-    ::greptime::v1::TableId* table_id_;
-    uint32_t region_number_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CompactTableExpr final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.CompactTableExpr) */ {
- public:
-  inline CompactTableExpr() : CompactTableExpr(nullptr) {}
-  ~CompactTableExpr() override;
-  explicit PROTOBUF_CONSTEXPR CompactTableExpr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CompactTableExpr(const CompactTableExpr& from);
-  CompactTableExpr(CompactTableExpr&& from) noexcept
-    : CompactTableExpr() {
-    *this = ::std::move(from);
-  }
-
-  inline CompactTableExpr& operator=(const CompactTableExpr& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CompactTableExpr& operator=(CompactTableExpr&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CompactTableExpr& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CompactTableExpr* internal_default_instance() {
-    return reinterpret_cast<const CompactTableExpr*>(
-               &_CompactTableExpr_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    6;
-
-  friend void swap(CompactTableExpr& a, CompactTableExpr& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CompactTableExpr* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CompactTableExpr* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CompactTableExpr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CompactTableExpr>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CompactTableExpr& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CompactTableExpr& from) {
-    CompactTableExpr::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CompactTableExpr* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.CompactTableExpr";
-  }
-  protected:
-  explicit CompactTableExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kCatalogNameFieldNumber = 1,
-    kSchemaNameFieldNumber = 2,
-    kTableNameFieldNumber = 3,
-    kRegionNumberFieldNumber = 4,
-  };
-  // string catalog_name = 1;
-  void clear_catalog_name();
-  const std::string& catalog_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_catalog_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_catalog_name();
-  PROTOBUF_NODISCARD std::string* release_catalog_name();
-  void set_allocated_catalog_name(std::string* catalog_name);
-  private:
-  const std::string& _internal_catalog_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
-  std::string* _internal_mutable_catalog_name();
-  public:
-
-  // string schema_name = 2;
-  void clear_schema_name();
-  const std::string& schema_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_schema_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_schema_name();
-  PROTOBUF_NODISCARD std::string* release_schema_name();
-  void set_allocated_schema_name(std::string* schema_name);
-  private:
-  const std::string& _internal_schema_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema_name(const std::string& value);
-  std::string* _internal_mutable_schema_name();
-  public:
-
-  // string table_name = 3;
-  void clear_table_name();
-  const std::string& table_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_table_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_table_name();
-  PROTOBUF_NODISCARD std::string* release_table_name();
-  void set_allocated_table_name(std::string* table_name);
-  private:
-  const std::string& _internal_table_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_name(const std::string& value);
-  std::string* _internal_mutable_table_name();
-  public:
-
-  // uint32 region_number = 4;
-  void clear_region_number();
-  uint32_t region_number() const;
-  void set_region_number(uint32_t value);
-  private:
-  uint32_t _internal_region_number() const;
-  void _internal_set_region_number(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.CompactTableExpr)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
-    uint32_t region_number_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CreateDatabaseExpr final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.CreateDatabaseExpr) */ {
  public:
@@ -1806,7 +1342,7 @@ class CreateDatabaseExpr final :
                &_CreateDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    5;
 
   friend void swap(CreateDatabaseExpr& a, CreateDatabaseExpr& b) {
     a.Swap(&b);
@@ -1970,7 +1506,7 @@ class TruncateTableExpr final :
                &_TruncateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    6;
 
   friend void swap(TruncateTableExpr& a, TruncateTableExpr& b) {
     a.Swap(&b);
@@ -2175,7 +1711,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    7;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -2332,7 +1868,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    8;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -2489,7 +2025,7 @@ class RenameTable final :
                &_RenameTable_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    9;
 
   friend void swap(RenameTable& a, RenameTable& b) {
     a.Swap(&b);
@@ -2642,7 +2178,7 @@ class AddColumn_Location final :
                &_AddColumn_Location_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    10;
 
   friend void swap(AddColumn_Location& a, AddColumn_Location& b) {
     a.Swap(&b);
@@ -2745,21 +2281,21 @@ class AddColumn_Location final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAfterCloumnNameFieldNumber = 2,
+    kAfterColumnNameFieldNumber = 2,
     kLocationTypeFieldNumber = 1,
   };
-  // string after_cloumn_name = 2;
-  void clear_after_cloumn_name();
-  const std::string& after_cloumn_name() const;
+  // string after_column_name = 2;
+  void clear_after_column_name();
+  const std::string& after_column_name() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_after_cloumn_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_after_cloumn_name();
-  PROTOBUF_NODISCARD std::string* release_after_cloumn_name();
-  void set_allocated_after_cloumn_name(std::string* after_cloumn_name);
+  void set_after_column_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_after_column_name();
+  PROTOBUF_NODISCARD std::string* release_after_column_name();
+  void set_allocated_after_column_name(std::string* after_column_name);
   private:
-  const std::string& _internal_after_cloumn_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_after_cloumn_name(const std::string& value);
-  std::string* _internal_mutable_after_cloumn_name();
+  const std::string& _internal_after_column_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_after_column_name(const std::string& value);
+  std::string* _internal_mutable_after_column_name();
   public:
 
   // .greptime.v1.AddColumn.Location.LocationType location_type = 1;
@@ -2779,7 +2315,7 @@ class AddColumn_Location final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr after_cloumn_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr after_column_name_;
     int location_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2836,7 +2372,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    11;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -3026,7 +2562,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    12;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -3179,7 +2715,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    13;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -3581,154 +3117,6 @@ inline ::greptime::v1::DropTableExpr* DdlRequest::_internal_mutable_drop_table()
 inline ::greptime::v1::DropTableExpr* DdlRequest::mutable_drop_table() {
   ::greptime::v1::DropTableExpr* _msg = _internal_mutable_drop_table();
   // @@protoc_insertion_point(field_mutable:greptime.v1.DdlRequest.drop_table)
-  return _msg;
-}
-
-// .greptime.v1.FlushTableExpr flush_table = 5;
-inline bool DdlRequest::_internal_has_flush_table() const {
-  return expr_case() == kFlushTable;
-}
-inline bool DdlRequest::has_flush_table() const {
-  return _internal_has_flush_table();
-}
-inline void DdlRequest::set_has_flush_table() {
-  _impl_._oneof_case_[0] = kFlushTable;
-}
-inline void DdlRequest::clear_flush_table() {
-  if (_internal_has_flush_table()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.expr_.flush_table_;
-    }
-    clear_has_expr();
-  }
-}
-inline ::greptime::v1::FlushTableExpr* DdlRequest::release_flush_table() {
-  // @@protoc_insertion_point(field_release:greptime.v1.DdlRequest.flush_table)
-  if (_internal_has_flush_table()) {
-    clear_has_expr();
-    ::greptime::v1::FlushTableExpr* temp = _impl_.expr_.flush_table_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.expr_.flush_table_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::greptime::v1::FlushTableExpr& DdlRequest::_internal_flush_table() const {
-  return _internal_has_flush_table()
-      ? *_impl_.expr_.flush_table_
-      : reinterpret_cast< ::greptime::v1::FlushTableExpr&>(::greptime::v1::_FlushTableExpr_default_instance_);
-}
-inline const ::greptime::v1::FlushTableExpr& DdlRequest::flush_table() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.DdlRequest.flush_table)
-  return _internal_flush_table();
-}
-inline ::greptime::v1::FlushTableExpr* DdlRequest::unsafe_arena_release_flush_table() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.DdlRequest.flush_table)
-  if (_internal_has_flush_table()) {
-    clear_has_expr();
-    ::greptime::v1::FlushTableExpr* temp = _impl_.expr_.flush_table_;
-    _impl_.expr_.flush_table_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void DdlRequest::unsafe_arena_set_allocated_flush_table(::greptime::v1::FlushTableExpr* flush_table) {
-  clear_expr();
-  if (flush_table) {
-    set_has_flush_table();
-    _impl_.expr_.flush_table_ = flush_table;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.DdlRequest.flush_table)
-}
-inline ::greptime::v1::FlushTableExpr* DdlRequest::_internal_mutable_flush_table() {
-  if (!_internal_has_flush_table()) {
-    clear_expr();
-    set_has_flush_table();
-    _impl_.expr_.flush_table_ = CreateMaybeMessage< ::greptime::v1::FlushTableExpr >(GetArenaForAllocation());
-  }
-  return _impl_.expr_.flush_table_;
-}
-inline ::greptime::v1::FlushTableExpr* DdlRequest::mutable_flush_table() {
-  ::greptime::v1::FlushTableExpr* _msg = _internal_mutable_flush_table();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.DdlRequest.flush_table)
-  return _msg;
-}
-
-// .greptime.v1.CompactTableExpr compact_table = 6;
-inline bool DdlRequest::_internal_has_compact_table() const {
-  return expr_case() == kCompactTable;
-}
-inline bool DdlRequest::has_compact_table() const {
-  return _internal_has_compact_table();
-}
-inline void DdlRequest::set_has_compact_table() {
-  _impl_._oneof_case_[0] = kCompactTable;
-}
-inline void DdlRequest::clear_compact_table() {
-  if (_internal_has_compact_table()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.expr_.compact_table_;
-    }
-    clear_has_expr();
-  }
-}
-inline ::greptime::v1::CompactTableExpr* DdlRequest::release_compact_table() {
-  // @@protoc_insertion_point(field_release:greptime.v1.DdlRequest.compact_table)
-  if (_internal_has_compact_table()) {
-    clear_has_expr();
-    ::greptime::v1::CompactTableExpr* temp = _impl_.expr_.compact_table_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.expr_.compact_table_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::greptime::v1::CompactTableExpr& DdlRequest::_internal_compact_table() const {
-  return _internal_has_compact_table()
-      ? *_impl_.expr_.compact_table_
-      : reinterpret_cast< ::greptime::v1::CompactTableExpr&>(::greptime::v1::_CompactTableExpr_default_instance_);
-}
-inline const ::greptime::v1::CompactTableExpr& DdlRequest::compact_table() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.DdlRequest.compact_table)
-  return _internal_compact_table();
-}
-inline ::greptime::v1::CompactTableExpr* DdlRequest::unsafe_arena_release_compact_table() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.DdlRequest.compact_table)
-  if (_internal_has_compact_table()) {
-    clear_has_expr();
-    ::greptime::v1::CompactTableExpr* temp = _impl_.expr_.compact_table_;
-    _impl_.expr_.compact_table_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void DdlRequest::unsafe_arena_set_allocated_compact_table(::greptime::v1::CompactTableExpr* compact_table) {
-  clear_expr();
-  if (compact_table) {
-    set_has_compact_table();
-    _impl_.expr_.compact_table_ = compact_table;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.DdlRequest.compact_table)
-}
-inline ::greptime::v1::CompactTableExpr* DdlRequest::_internal_mutable_compact_table() {
-  if (!_internal_has_compact_table()) {
-    clear_expr();
-    set_has_compact_table();
-    _impl_.expr_.compact_table_ = CreateMaybeMessage< ::greptime::v1::CompactTableExpr >(GetArenaForAllocation());
-  }
-  return _impl_.expr_.compact_table_;
-}
-inline ::greptime::v1::CompactTableExpr* DdlRequest::mutable_compact_table() {
-  ::greptime::v1::CompactTableExpr* _msg = _internal_mutable_compact_table();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.DdlRequest.compact_table)
   return _msg;
 }
 
@@ -5160,444 +4548,6 @@ inline void DropTableExpr::set_allocated_table_id(::greptime::v1::TableId* table
 
 // -------------------------------------------------------------------
 
-// FlushTableExpr
-
-// string catalog_name = 1;
-inline void FlushTableExpr::clear_catalog_name() {
-  _impl_.catalog_name_.ClearToEmpty();
-}
-inline const std::string& FlushTableExpr::catalog_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.FlushTableExpr.catalog_name)
-  return _internal_catalog_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FlushTableExpr::set_catalog_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.FlushTableExpr.catalog_name)
-}
-inline std::string* FlushTableExpr::mutable_catalog_name() {
-  std::string* _s = _internal_mutable_catalog_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.FlushTableExpr.catalog_name)
-  return _s;
-}
-inline const std::string& FlushTableExpr::_internal_catalog_name() const {
-  return _impl_.catalog_name_.Get();
-}
-inline void FlushTableExpr::_internal_set_catalog_name(const std::string& value) {
-  
-  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* FlushTableExpr::_internal_mutable_catalog_name() {
-  
-  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* FlushTableExpr::release_catalog_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.FlushTableExpr.catalog_name)
-  return _impl_.catalog_name_.Release();
-}
-inline void FlushTableExpr::set_allocated_catalog_name(std::string* catalog_name) {
-  if (catalog_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.catalog_name_.IsDefault()) {
-    _impl_.catalog_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlushTableExpr.catalog_name)
-}
-
-// string schema_name = 2;
-inline void FlushTableExpr::clear_schema_name() {
-  _impl_.schema_name_.ClearToEmpty();
-}
-inline const std::string& FlushTableExpr::schema_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.FlushTableExpr.schema_name)
-  return _internal_schema_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FlushTableExpr::set_schema_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.FlushTableExpr.schema_name)
-}
-inline std::string* FlushTableExpr::mutable_schema_name() {
-  std::string* _s = _internal_mutable_schema_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.FlushTableExpr.schema_name)
-  return _s;
-}
-inline const std::string& FlushTableExpr::_internal_schema_name() const {
-  return _impl_.schema_name_.Get();
-}
-inline void FlushTableExpr::_internal_set_schema_name(const std::string& value) {
-  
-  _impl_.schema_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* FlushTableExpr::_internal_mutable_schema_name() {
-  
-  return _impl_.schema_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* FlushTableExpr::release_schema_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.FlushTableExpr.schema_name)
-  return _impl_.schema_name_.Release();
-}
-inline void FlushTableExpr::set_allocated_schema_name(std::string* schema_name) {
-  if (schema_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.schema_name_.SetAllocated(schema_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.schema_name_.IsDefault()) {
-    _impl_.schema_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlushTableExpr.schema_name)
-}
-
-// string table_name = 3;
-inline void FlushTableExpr::clear_table_name() {
-  _impl_.table_name_.ClearToEmpty();
-}
-inline const std::string& FlushTableExpr::table_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.FlushTableExpr.table_name)
-  return _internal_table_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FlushTableExpr::set_table_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.FlushTableExpr.table_name)
-}
-inline std::string* FlushTableExpr::mutable_table_name() {
-  std::string* _s = _internal_mutable_table_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.FlushTableExpr.table_name)
-  return _s;
-}
-inline const std::string& FlushTableExpr::_internal_table_name() const {
-  return _impl_.table_name_.Get();
-}
-inline void FlushTableExpr::_internal_set_table_name(const std::string& value) {
-  
-  _impl_.table_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* FlushTableExpr::_internal_mutable_table_name() {
-  
-  return _impl_.table_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* FlushTableExpr::release_table_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.FlushTableExpr.table_name)
-  return _impl_.table_name_.Release();
-}
-inline void FlushTableExpr::set_allocated_table_name(std::string* table_name) {
-  if (table_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.table_name_.SetAllocated(table_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.table_name_.IsDefault()) {
-    _impl_.table_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlushTableExpr.table_name)
-}
-
-// uint32 region_number = 4;
-inline void FlushTableExpr::clear_region_number() {
-  _impl_.region_number_ = 0u;
-}
-inline uint32_t FlushTableExpr::_internal_region_number() const {
-  return _impl_.region_number_;
-}
-inline uint32_t FlushTableExpr::region_number() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.FlushTableExpr.region_number)
-  return _internal_region_number();
-}
-inline void FlushTableExpr::_internal_set_region_number(uint32_t value) {
-  
-  _impl_.region_number_ = value;
-}
-inline void FlushTableExpr::set_region_number(uint32_t value) {
-  _internal_set_region_number(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.FlushTableExpr.region_number)
-}
-
-// .greptime.v1.TableId table_id = 5;
-inline bool FlushTableExpr::_internal_has_table_id() const {
-  return this != internal_default_instance() && _impl_.table_id_ != nullptr;
-}
-inline bool FlushTableExpr::has_table_id() const {
-  return _internal_has_table_id();
-}
-inline void FlushTableExpr::clear_table_id() {
-  if (GetArenaForAllocation() == nullptr && _impl_.table_id_ != nullptr) {
-    delete _impl_.table_id_;
-  }
-  _impl_.table_id_ = nullptr;
-}
-inline const ::greptime::v1::TableId& FlushTableExpr::_internal_table_id() const {
-  const ::greptime::v1::TableId* p = _impl_.table_id_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableId&>(
-      ::greptime::v1::_TableId_default_instance_);
-}
-inline const ::greptime::v1::TableId& FlushTableExpr::table_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.FlushTableExpr.table_id)
-  return _internal_table_id();
-}
-inline void FlushTableExpr::unsafe_arena_set_allocated_table_id(
-    ::greptime::v1::TableId* table_id) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_id_);
-  }
-  _impl_.table_id_ = table_id;
-  if (table_id) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.FlushTableExpr.table_id)
-}
-inline ::greptime::v1::TableId* FlushTableExpr::release_table_id() {
-  
-  ::greptime::v1::TableId* temp = _impl_.table_id_;
-  _impl_.table_id_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::TableId* FlushTableExpr::unsafe_arena_release_table_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.FlushTableExpr.table_id)
-  
-  ::greptime::v1::TableId* temp = _impl_.table_id_;
-  _impl_.table_id_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::TableId* FlushTableExpr::_internal_mutable_table_id() {
-  
-  if (_impl_.table_id_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::TableId>(GetArenaForAllocation());
-    _impl_.table_id_ = p;
-  }
-  return _impl_.table_id_;
-}
-inline ::greptime::v1::TableId* FlushTableExpr::mutable_table_id() {
-  ::greptime::v1::TableId* _msg = _internal_mutable_table_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.FlushTableExpr.table_id)
-  return _msg;
-}
-inline void FlushTableExpr::set_allocated_table_id(::greptime::v1::TableId* table_id) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.table_id_;
-  }
-  if (table_id) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(table_id);
-    if (message_arena != submessage_arena) {
-      table_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, table_id, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.table_id_ = table_id;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlushTableExpr.table_id)
-}
-
-// -------------------------------------------------------------------
-
-// CompactTableExpr
-
-// string catalog_name = 1;
-inline void CompactTableExpr::clear_catalog_name() {
-  _impl_.catalog_name_.ClearToEmpty();
-}
-inline const std::string& CompactTableExpr::catalog_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CompactTableExpr.catalog_name)
-  return _internal_catalog_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CompactTableExpr::set_catalog_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.CompactTableExpr.catalog_name)
-}
-inline std::string* CompactTableExpr::mutable_catalog_name() {
-  std::string* _s = _internal_mutable_catalog_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.CompactTableExpr.catalog_name)
-  return _s;
-}
-inline const std::string& CompactTableExpr::_internal_catalog_name() const {
-  return _impl_.catalog_name_.Get();
-}
-inline void CompactTableExpr::_internal_set_catalog_name(const std::string& value) {
-  
-  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CompactTableExpr::_internal_mutable_catalog_name() {
-  
-  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CompactTableExpr::release_catalog_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.CompactTableExpr.catalog_name)
-  return _impl_.catalog_name_.Release();
-}
-inline void CompactTableExpr::set_allocated_catalog_name(std::string* catalog_name) {
-  if (catalog_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.catalog_name_.IsDefault()) {
-    _impl_.catalog_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CompactTableExpr.catalog_name)
-}
-
-// string schema_name = 2;
-inline void CompactTableExpr::clear_schema_name() {
-  _impl_.schema_name_.ClearToEmpty();
-}
-inline const std::string& CompactTableExpr::schema_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CompactTableExpr.schema_name)
-  return _internal_schema_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CompactTableExpr::set_schema_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.CompactTableExpr.schema_name)
-}
-inline std::string* CompactTableExpr::mutable_schema_name() {
-  std::string* _s = _internal_mutable_schema_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.CompactTableExpr.schema_name)
-  return _s;
-}
-inline const std::string& CompactTableExpr::_internal_schema_name() const {
-  return _impl_.schema_name_.Get();
-}
-inline void CompactTableExpr::_internal_set_schema_name(const std::string& value) {
-  
-  _impl_.schema_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CompactTableExpr::_internal_mutable_schema_name() {
-  
-  return _impl_.schema_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CompactTableExpr::release_schema_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.CompactTableExpr.schema_name)
-  return _impl_.schema_name_.Release();
-}
-inline void CompactTableExpr::set_allocated_schema_name(std::string* schema_name) {
-  if (schema_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.schema_name_.SetAllocated(schema_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.schema_name_.IsDefault()) {
-    _impl_.schema_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CompactTableExpr.schema_name)
-}
-
-// string table_name = 3;
-inline void CompactTableExpr::clear_table_name() {
-  _impl_.table_name_.ClearToEmpty();
-}
-inline const std::string& CompactTableExpr::table_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CompactTableExpr.table_name)
-  return _internal_table_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CompactTableExpr::set_table_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.CompactTableExpr.table_name)
-}
-inline std::string* CompactTableExpr::mutable_table_name() {
-  std::string* _s = _internal_mutable_table_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.CompactTableExpr.table_name)
-  return _s;
-}
-inline const std::string& CompactTableExpr::_internal_table_name() const {
-  return _impl_.table_name_.Get();
-}
-inline void CompactTableExpr::_internal_set_table_name(const std::string& value) {
-  
-  _impl_.table_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CompactTableExpr::_internal_mutable_table_name() {
-  
-  return _impl_.table_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CompactTableExpr::release_table_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.CompactTableExpr.table_name)
-  return _impl_.table_name_.Release();
-}
-inline void CompactTableExpr::set_allocated_table_name(std::string* table_name) {
-  if (table_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.table_name_.SetAllocated(table_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.table_name_.IsDefault()) {
-    _impl_.table_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CompactTableExpr.table_name)
-}
-
-// uint32 region_number = 4;
-inline void CompactTableExpr::clear_region_number() {
-  _impl_.region_number_ = 0u;
-}
-inline uint32_t CompactTableExpr::_internal_region_number() const {
-  return _impl_.region_number_;
-}
-inline uint32_t CompactTableExpr::region_number() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CompactTableExpr.region_number)
-  return _internal_region_number();
-}
-inline void CompactTableExpr::_internal_set_region_number(uint32_t value) {
-  
-  _impl_.region_number_ = value;
-}
-inline void CompactTableExpr::set_region_number(uint32_t value) {
-  _internal_set_region_number(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.CompactTableExpr.region_number)
-}
-
-// -------------------------------------------------------------------
-
 // CreateDatabaseExpr
 
 // string database_name = 1;
@@ -6080,54 +5030,54 @@ inline void AddColumn_Location::set_location_type(::greptime::v1::AddColumn_Loca
   // @@protoc_insertion_point(field_set:greptime.v1.AddColumn.Location.location_type)
 }
 
-// string after_cloumn_name = 2;
-inline void AddColumn_Location::clear_after_cloumn_name() {
-  _impl_.after_cloumn_name_.ClearToEmpty();
+// string after_column_name = 2;
+inline void AddColumn_Location::clear_after_column_name() {
+  _impl_.after_column_name_.ClearToEmpty();
 }
-inline const std::string& AddColumn_Location::after_cloumn_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.AddColumn.Location.after_cloumn_name)
-  return _internal_after_cloumn_name();
+inline const std::string& AddColumn_Location::after_column_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AddColumn.Location.after_column_name)
+  return _internal_after_column_name();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void AddColumn_Location::set_after_cloumn_name(ArgT0&& arg0, ArgT... args) {
+void AddColumn_Location::set_after_column_name(ArgT0&& arg0, ArgT... args) {
  
- _impl_.after_cloumn_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.AddColumn.Location.after_cloumn_name)
+ _impl_.after_column_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.AddColumn.Location.after_column_name)
 }
-inline std::string* AddColumn_Location::mutable_after_cloumn_name() {
-  std::string* _s = _internal_mutable_after_cloumn_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.AddColumn.Location.after_cloumn_name)
+inline std::string* AddColumn_Location::mutable_after_column_name() {
+  std::string* _s = _internal_mutable_after_column_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.AddColumn.Location.after_column_name)
   return _s;
 }
-inline const std::string& AddColumn_Location::_internal_after_cloumn_name() const {
-  return _impl_.after_cloumn_name_.Get();
+inline const std::string& AddColumn_Location::_internal_after_column_name() const {
+  return _impl_.after_column_name_.Get();
 }
-inline void AddColumn_Location::_internal_set_after_cloumn_name(const std::string& value) {
+inline void AddColumn_Location::_internal_set_after_column_name(const std::string& value) {
   
-  _impl_.after_cloumn_name_.Set(value, GetArenaForAllocation());
+  _impl_.after_column_name_.Set(value, GetArenaForAllocation());
 }
-inline std::string* AddColumn_Location::_internal_mutable_after_cloumn_name() {
+inline std::string* AddColumn_Location::_internal_mutable_after_column_name() {
   
-  return _impl_.after_cloumn_name_.Mutable(GetArenaForAllocation());
+  return _impl_.after_column_name_.Mutable(GetArenaForAllocation());
 }
-inline std::string* AddColumn_Location::release_after_cloumn_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.AddColumn.Location.after_cloumn_name)
-  return _impl_.after_cloumn_name_.Release();
+inline std::string* AddColumn_Location::release_after_column_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.AddColumn.Location.after_column_name)
+  return _impl_.after_column_name_.Release();
 }
-inline void AddColumn_Location::set_allocated_after_cloumn_name(std::string* after_cloumn_name) {
-  if (after_cloumn_name != nullptr) {
+inline void AddColumn_Location::set_allocated_after_column_name(std::string* after_column_name) {
+  if (after_column_name != nullptr) {
     
   } else {
     
   }
-  _impl_.after_cloumn_name_.SetAllocated(after_cloumn_name, GetArenaForAllocation());
+  _impl_.after_column_name_.SetAllocated(after_column_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.after_cloumn_name_.IsDefault()) {
-    _impl_.after_cloumn_name_.Set("", GetArenaForAllocation());
+  if (_impl_.after_column_name_.IsDefault()) {
+    _impl_.after_column_name_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.AddColumn.Location.after_cloumn_name)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.AddColumn.Location.after_column_name)
 }
 
 // -------------------------------------------------------------------
@@ -6410,10 +5360,6 @@ inline void TableId::set_id(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
