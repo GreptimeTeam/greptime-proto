@@ -24,13 +24,14 @@ namespace greptime {
 namespace v1 {
 PROTOBUF_CONSTEXPR RequestHeader::RequestHeader(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.schema_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.dbname_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.authorization_)*/nullptr
   , /*decltype(_impl_.trace_id_)*/uint64_t{0u}
-  , /*decltype(_impl_.span_id_)*/uint64_t{0u}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+  , /*decltype(_impl_.span_id_)*/uint64_t{0u}} {}
 struct RequestHeaderDefaultTypeInternal {
   PROTOBUF_CONSTEXPR RequestHeaderDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -172,7 +173,7 @@ static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2f
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fcommon_2eproto = nullptr;
 
 const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -184,6 +185,12 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader, _impl_.dbname_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader, _impl_.trace_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader, _impl_.span_id_),
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ResponseHeader, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -258,16 +265,16 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::IntervalMonthDayNano, _impl_.nanoseconds_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::greptime::v1::RequestHeader)},
-  { 12, -1, -1, sizeof(::greptime::v1::ResponseHeader)},
-  { 19, -1, -1, sizeof(::greptime::v1::Status)},
-  { 27, -1, -1, sizeof(::greptime::v1::AuthHeader)},
-  { 36, -1, -1, sizeof(::greptime::v1::Basic)},
-  { 44, -1, -1, sizeof(::greptime::v1::Token)},
-  { 51, -1, -1, sizeof(::greptime::v1::AffectedRows)},
-  { 58, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
-  { 65, -1, -1, sizeof(::greptime::v1::ColumnDef)},
-  { 75, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
+  { 0, 12, -1, sizeof(::greptime::v1::RequestHeader)},
+  { 18, -1, -1, sizeof(::greptime::v1::ResponseHeader)},
+  { 25, -1, -1, sizeof(::greptime::v1::Status)},
+  { 33, -1, -1, sizeof(::greptime::v1::AuthHeader)},
+  { 42, -1, -1, sizeof(::greptime::v1::Basic)},
+  { 50, -1, -1, sizeof(::greptime::v1::Token)},
+  { 57, -1, -1, sizeof(::greptime::v1::AffectedRows)},
+  { 64, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
+  { 71, -1, -1, sizeof(::greptime::v1::ColumnDef)},
+  { 81, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -285,43 +292,44 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030greptime/v1/common.proto\022\013greptime.v1\""
-  "\223\001\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc"
+  "\266\001\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc"
   "hema\030\002 \001(\t\022.\n\rauthorization\030\003 \001(\0132\027.grep"
-  "time.v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022\020\n\010tr"
-  "ace_id\030\005 \001(\004\022\017\n\007span_id\030\006 \001(\004\"5\n\016Respons"
-  "eHeader\022#\n\006status\030\001 \001(\0132\023.greptime.v1.St"
-  "atus\".\n\006Status\022\023\n\013status_code\030\001 \001(\r\022\017\n\007e"
-  "rr_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basic\030\001 \001("
-  "\0132\022.greptime.v1.BasicH\000\022#\n\005token\030\002 \001(\0132\022"
-  ".greptime.v1.TokenH\000B\r\n\013auth_scheme\"+\n\005B"
-  "asic\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t"
-  "\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"\035\n\014AffectedRows"
-  "\022\r\n\005value\030\001 \001(\r\"B\n\016FlightMetadata\0220\n\raff"
-  "ected_rows\030\001 \001(\0132\031.greptime.v1.AffectedR"
-  "ows\"y\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022-\n\010dataty"
-  "pe\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n"
-  "\013is_nullable\030\003 \001(\010\022\032\n\022default_constraint"
-  "\030\004 \001(\014\"I\n\024IntervalMonthDayNano\022\016\n\006months"
-  "\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001("
-  "\003*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n"
-  "\tTIMESTAMP\020\002*\306\003\n\016ColumnDataType\022\013\n\007BOOLE"
-  "AN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005"
-  "INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32"
-  "\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n"
-  "\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DA"
-  "TETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMEST"
-  "AMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECO"
-  "ND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_S"
-  "ECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MI"
-  "CROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTE"
-  "RVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030"
-  "\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031BO\n\016io.grep"
-  "time.v1B\006CommonZ5github.com/GreptimeTeam"
-  "/greptime-proto/go/greptime/v1b\006proto3"
+  "time.v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022\025\n\010tr"
+  "ace_id\030\005 \001(\004H\000\210\001\001\022\024\n\007span_id\030\006 \001(\004H\001\210\001\001B"
+  "\013\n\t_trace_idB\n\n\010_span_id\"5\n\016ResponseHead"
+  "er\022#\n\006status\030\001 \001(\0132\023.greptime.v1.Status\""
+  ".\n\006Status\022\023\n\013status_code\030\001 \001(\r\022\017\n\007err_ms"
+  "g\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basic\030\001 \001(\0132\022.g"
+  "reptime.v1.BasicH\000\022#\n\005token\030\002 \001(\0132\022.grep"
+  "time.v1.TokenH\000B\r\n\013auth_scheme\"+\n\005Basic\022"
+  "\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\026\n\005T"
+  "oken\022\r\n\005token\030\001 \001(\t\"\035\n\014AffectedRows\022\r\n\005v"
+  "alue\030\001 \001(\r\"B\n\016FlightMetadata\0220\n\raffected"
+  "_rows\030\001 \001(\0132\031.greptime.v1.AffectedRows\"y"
+  "\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022-\n\010datatype\030\002 "
+  "\001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_n"
+  "ullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001("
+  "\014\"I\n\024IntervalMonthDayNano\022\016\n\006months\030\001 \001("
+  "\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003*1\n\014"
+  "SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIME"
+  "STAMP\020\002*\306\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022"
+  "\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64"
+  "\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n"
+  "\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006B"
+  "INARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIM"
+  "E\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_M"
+  "ILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022"
+  "\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND"
+  "\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROSE"
+  "COND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_"
+  "YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027I"
+  "NTERVAL_MONTH_DAY_NANO\020\031BO\n\016io.greptime."
+  "v1B\006CommonZ5github.com/GreptimeTeam/grep"
+  "time-proto/go/greptime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 1358, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 1393, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
     &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 10,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
@@ -394,7 +402,14 @@ bool ColumnDataType_IsValid(int value) {
 
 class RequestHeader::_Internal {
  public:
+  using HasBits = decltype(std::declval<RequestHeader>()._impl_._has_bits_);
   static const ::greptime::v1::AuthHeader& authorization(const RequestHeader* msg);
+  static void set_has_trace_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_span_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
 const ::greptime::v1::AuthHeader&
@@ -411,13 +426,14 @@ RequestHeader::RequestHeader(const RequestHeader& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   RequestHeader* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.catalog_){}
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.catalog_){}
     , decltype(_impl_.schema_){}
     , decltype(_impl_.dbname_){}
     , decltype(_impl_.authorization_){nullptr}
     , decltype(_impl_.trace_id_){}
-    , decltype(_impl_.span_id_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
+    , decltype(_impl_.span_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.catalog_.InitDefault();
@@ -458,13 +474,14 @@ inline void RequestHeader::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.catalog_){}
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.catalog_){}
     , decltype(_impl_.schema_){}
     , decltype(_impl_.dbname_){}
     , decltype(_impl_.authorization_){nullptr}
     , decltype(_impl_.trace_id_){uint64_t{0u}}
     , decltype(_impl_.span_id_){uint64_t{0u}}
-    , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.catalog_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -514,14 +531,19 @@ void RequestHeader::Clear() {
     delete _impl_.authorization_;
   }
   _impl_.authorization_ = nullptr;
-  ::memset(&_impl_.trace_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.span_id_) -
-      reinterpret_cast<char*>(&_impl_.trace_id_)) + sizeof(_impl_.span_id_));
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&_impl_.trace_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.span_id_) -
+        reinterpret_cast<char*>(&_impl_.trace_id_)) + sizeof(_impl_.span_id_));
+  }
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* RequestHeader::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
@@ -564,17 +586,19 @@ const char* RequestHeader::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // uint64 trace_id = 5;
+      // optional uint64 trace_id = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _Internal::set_has_trace_id(&has_bits);
           _impl_.trace_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint64 span_id = 6;
+      // optional uint64 span_id = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _Internal::set_has_span_id(&has_bits);
           _impl_.span_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -596,6 +620,7 @@ const char* RequestHeader::_InternalParse(const char* ptr, ::_pbi::ParseContext*
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -646,14 +671,14 @@ uint8_t* RequestHeader::_InternalSerialize(
         4, this->_internal_dbname(), target);
   }
 
-  // uint64 trace_id = 5;
-  if (this->_internal_trace_id() != 0) {
+  // optional uint64 trace_id = 5;
+  if (_internal_has_trace_id()) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_trace_id(), target);
   }
 
-  // uint64 span_id = 6;
-  if (this->_internal_span_id() != 0) {
+  // optional uint64 span_id = 6;
+  if (_internal_has_span_id()) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(6, this->_internal_span_id(), target);
   }
@@ -702,16 +727,19 @@ size_t RequestHeader::ByteSizeLong() const {
         *_impl_.authorization_);
   }
 
-  // uint64 trace_id = 5;
-  if (this->_internal_trace_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_trace_id());
-  }
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint64 trace_id = 5;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_trace_id());
+    }
 
-  // uint64 span_id = 6;
-  if (this->_internal_span_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_span_id());
-  }
+    // optional uint64 span_id = 6;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_span_id());
+    }
 
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -743,11 +771,15 @@ void RequestHeader::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
     _this->_internal_mutable_authorization()->::greptime::v1::AuthHeader::MergeFrom(
         from._internal_authorization());
   }
-  if (from._internal_trace_id() != 0) {
-    _this->_internal_set_trace_id(from._internal_trace_id());
-  }
-  if (from._internal_span_id() != 0) {
-    _this->_internal_set_span_id(from._internal_span_id());
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.trace_id_ = from._impl_.trace_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.span_id_ = from._impl_.span_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -768,6 +800,7 @@ void RequestHeader::InternalSwap(RequestHeader* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.catalog_, lhs_arena,
       &other->_impl_.catalog_, rhs_arena

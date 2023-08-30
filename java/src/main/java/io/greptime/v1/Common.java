@@ -551,7 +551,16 @@ public final class Common {
      * TraceID of request
      * </pre>
      *
-     * <code>uint64 trace_id = 5;</code>
+     * <code>optional uint64 trace_id = 5;</code>
+     * @return Whether the traceId field is set.
+     */
+    boolean hasTraceId();
+    /**
+     * <pre>
+     * TraceID of request
+     * </pre>
+     *
+     * <code>optional uint64 trace_id = 5;</code>
      * @return The traceId.
      */
     long getTraceId();
@@ -561,7 +570,16 @@ public final class Common {
      * SpanID of request
      * </pre>
      *
-     * <code>uint64 span_id = 6;</code>
+     * <code>optional uint64 span_id = 6;</code>
+     * @return Whether the spanId field is set.
+     */
+    boolean hasSpanId();
+    /**
+     * <pre>
+     * SpanID of request
+     * </pre>
+     *
+     * <code>optional uint64 span_id = 6;</code>
      * @return The spanId.
      */
     long getSpanId();
@@ -604,6 +622,7 @@ public final class Common {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -646,12 +665,12 @@ public final class Common {
               break;
             }
             case 40: {
-
+              bitField0_ |= 0x00000001;
               traceId_ = input.readUInt64();
               break;
             }
             case 48: {
-
+              bitField0_ |= 0x00000002;
               spanId_ = input.readUInt64();
               break;
             }
@@ -689,6 +708,7 @@ public final class Common {
               io.greptime.v1.Common.RequestHeader.class, io.greptime.v1.Common.RequestHeader.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CATALOG_FIELD_NUMBER = 1;
     private volatile java.lang.Object catalog_;
     /**
@@ -872,7 +892,19 @@ public final class Common {
      * TraceID of request
      * </pre>
      *
-     * <code>uint64 trace_id = 5;</code>
+     * <code>optional uint64 trace_id = 5;</code>
+     * @return Whether the traceId field is set.
+     */
+    @java.lang.Override
+    public boolean hasTraceId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * TraceID of request
+     * </pre>
+     *
+     * <code>optional uint64 trace_id = 5;</code>
      * @return The traceId.
      */
     @java.lang.Override
@@ -887,7 +919,19 @@ public final class Common {
      * SpanID of request
      * </pre>
      *
-     * <code>uint64 span_id = 6;</code>
+     * <code>optional uint64 span_id = 6;</code>
+     * @return Whether the spanId field is set.
+     */
+    @java.lang.Override
+    public boolean hasSpanId() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * SpanID of request
+     * </pre>
+     *
+     * <code>optional uint64 span_id = 6;</code>
      * @return The spanId.
      */
     @java.lang.Override
@@ -921,10 +965,10 @@ public final class Common {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, dbname_);
       }
-      if (traceId_ != 0L) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeUInt64(5, traceId_);
       }
-      if (spanId_ != 0L) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt64(6, spanId_);
       }
       unknownFields.writeTo(output);
@@ -949,11 +993,11 @@ public final class Common {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, dbname_);
       }
-      if (traceId_ != 0L) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(5, traceId_);
       }
-      if (spanId_ != 0L) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(6, spanId_);
       }
@@ -983,10 +1027,16 @@ public final class Common {
       }
       if (!getDbname()
           .equals(other.getDbname())) return false;
-      if (getTraceId()
-          != other.getTraceId()) return false;
-      if (getSpanId()
-          != other.getSpanId()) return false;
+      if (hasTraceId() != other.hasTraceId()) return false;
+      if (hasTraceId()) {
+        if (getTraceId()
+            != other.getTraceId()) return false;
+      }
+      if (hasSpanId() != other.hasSpanId()) return false;
+      if (hasSpanId()) {
+        if (getSpanId()
+            != other.getSpanId()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1008,12 +1058,16 @@ public final class Common {
       }
       hash = (37 * hash) + DBNAME_FIELD_NUMBER;
       hash = (53 * hash) + getDbname().hashCode();
-      hash = (37 * hash) + TRACE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getTraceId());
-      hash = (37 * hash) + SPAN_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getSpanId());
+      if (hasTraceId()) {
+        hash = (37 * hash) + TRACE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTraceId());
+      }
+      if (hasSpanId()) {
+        hash = (37 * hash) + SPAN_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getSpanId());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1160,9 +1214,9 @@ public final class Common {
         dbname_ = "";
 
         traceId_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         spanId_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1189,6 +1243,8 @@ public final class Common {
       @java.lang.Override
       public io.greptime.v1.Common.RequestHeader buildPartial() {
         io.greptime.v1.Common.RequestHeader result = new io.greptime.v1.Common.RequestHeader(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.catalog_ = catalog_;
         result.schema_ = schema_;
         if (authorizationBuilder_ == null) {
@@ -1197,8 +1253,15 @@ public final class Common {
           result.authorization_ = authorizationBuilder_.build();
         }
         result.dbname_ = dbname_;
-        result.traceId_ = traceId_;
-        result.spanId_ = spanId_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.traceId_ = traceId_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.spanId_ = spanId_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1262,10 +1325,10 @@ public final class Common {
           dbname_ = other.dbname_;
           onChanged();
         }
-        if (other.getTraceId() != 0L) {
+        if (other.hasTraceId()) {
           setTraceId(other.getTraceId());
         }
-        if (other.getSpanId() != 0L) {
+        if (other.hasSpanId()) {
           setSpanId(other.getSpanId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1296,6 +1359,7 @@ public final class Common {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object catalog_ = "";
       /**
@@ -1746,7 +1810,19 @@ public final class Common {
        * TraceID of request
        * </pre>
        *
-       * <code>uint64 trace_id = 5;</code>
+       * <code>optional uint64 trace_id = 5;</code>
+       * @return Whether the traceId field is set.
+       */
+      @java.lang.Override
+      public boolean hasTraceId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * TraceID of request
+       * </pre>
+       *
+       * <code>optional uint64 trace_id = 5;</code>
        * @return The traceId.
        */
       @java.lang.Override
@@ -1758,12 +1834,12 @@ public final class Common {
        * TraceID of request
        * </pre>
        *
-       * <code>uint64 trace_id = 5;</code>
+       * <code>optional uint64 trace_id = 5;</code>
        * @param value The traceId to set.
        * @return This builder for chaining.
        */
       public Builder setTraceId(long value) {
-        
+        bitField0_ |= 0x00000001;
         traceId_ = value;
         onChanged();
         return this;
@@ -1773,11 +1849,11 @@ public final class Common {
        * TraceID of request
        * </pre>
        *
-       * <code>uint64 trace_id = 5;</code>
+       * <code>optional uint64 trace_id = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearTraceId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         traceId_ = 0L;
         onChanged();
         return this;
@@ -1789,7 +1865,19 @@ public final class Common {
        * SpanID of request
        * </pre>
        *
-       * <code>uint64 span_id = 6;</code>
+       * <code>optional uint64 span_id = 6;</code>
+       * @return Whether the spanId field is set.
+       */
+      @java.lang.Override
+      public boolean hasSpanId() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * SpanID of request
+       * </pre>
+       *
+       * <code>optional uint64 span_id = 6;</code>
        * @return The spanId.
        */
       @java.lang.Override
@@ -1801,12 +1889,12 @@ public final class Common {
        * SpanID of request
        * </pre>
        *
-       * <code>uint64 span_id = 6;</code>
+       * <code>optional uint64 span_id = 6;</code>
        * @param value The spanId to set.
        * @return This builder for chaining.
        */
       public Builder setSpanId(long value) {
-        
+        bitField0_ |= 0x00000002;
         spanId_ = value;
         onChanged();
         return this;
@@ -1816,11 +1904,11 @@ public final class Common {
        * SpanID of request
        * </pre>
        *
-       * <code>uint64 span_id = 6;</code>
+       * <code>optional uint64 span_id = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearSpanId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         spanId_ = 0L;
         onChanged();
         return this;
@@ -8036,39 +8124,40 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/common.proto\022\013greptime.v1\"" +
-      "\223\001\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc" +
+      "\266\001\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc" +
       "hema\030\002 \001(\t\022.\n\rauthorization\030\003 \001(\0132\027.grep" +
-      "time.v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022\020\n\010tr" +
-      "ace_id\030\005 \001(\004\022\017\n\007span_id\030\006 \001(\004\"5\n\016Respons" +
-      "eHeader\022#\n\006status\030\001 \001(\0132\023.greptime.v1.St" +
-      "atus\".\n\006Status\022\023\n\013status_code\030\001 \001(\r\022\017\n\007e" +
-      "rr_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basic\030\001 \001(" +
-      "\0132\022.greptime.v1.BasicH\000\022#\n\005token\030\002 \001(\0132\022" +
-      ".greptime.v1.TokenH\000B\r\n\013auth_scheme\"+\n\005B" +
-      "asic\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t" +
-      "\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"\035\n\014AffectedRows" +
-      "\022\r\n\005value\030\001 \001(\r\"B\n\016FlightMetadata\0220\n\raff" +
-      "ected_rows\030\001 \001(\0132\031.greptime.v1.AffectedR" +
-      "ows\"y\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022-\n\010dataty" +
-      "pe\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n" +
-      "\013is_nullable\030\003 \001(\010\022\032\n\022default_constraint" +
-      "\030\004 \001(\014\"I\n\024IntervalMonthDayNano\022\016\n\006months" +
-      "\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(" +
-      "\003*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n" +
-      "\tTIMESTAMP\020\002*\306\003\n\016ColumnDataType\022\013\n\007BOOLE" +
-      "AN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005" +
-      "INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32" +
-      "\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n" +
-      "\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DA" +
-      "TETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMEST" +
-      "AMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECO" +
-      "ND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_S" +
-      "ECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MI" +
-      "CROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTE" +
-      "RVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030" +
-      "\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031BO\n\016io.grep" +
-      "time.v1B\006CommonZ5github.com/GreptimeTeam" +
-      "/greptime-proto/go/greptime/v1b\006proto3"
+      "time.v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022\025\n\010tr" +
+      "ace_id\030\005 \001(\004H\000\210\001\001\022\024\n\007span_id\030\006 \001(\004H\001\210\001\001B" +
+      "\013\n\t_trace_idB\n\n\010_span_id\"5\n\016ResponseHead" +
+      "er\022#\n\006status\030\001 \001(\0132\023.greptime.v1.Status\"" +
+      ".\n\006Status\022\023\n\013status_code\030\001 \001(\r\022\017\n\007err_ms" +
+      "g\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basic\030\001 \001(\0132\022.g" +
+      "reptime.v1.BasicH\000\022#\n\005token\030\002 \001(\0132\022.grep" +
+      "time.v1.TokenH\000B\r\n\013auth_scheme\"+\n\005Basic\022" +
+      "\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\026\n\005T" +
+      "oken\022\r\n\005token\030\001 \001(\t\"\035\n\014AffectedRows\022\r\n\005v" +
+      "alue\030\001 \001(\r\"B\n\016FlightMetadata\0220\n\raffected" +
+      "_rows\030\001 \001(\0132\031.greptime.v1.AffectedRows\"y" +
+      "\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022-\n\010datatype\030\002 " +
+      "\001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_n" +
+      "ullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(" +
+      "\014\"I\n\024IntervalMonthDayNano\022\016\n\006months\030\001 \001(" +
+      "\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003*1\n\014" +
+      "SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIME" +
+      "STAMP\020\002*\306\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022" +
+      "\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64" +
+      "\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n" +
+      "\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006B" +
+      "INARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIM" +
+      "E\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_M" +
+      "ILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022" +
+      "\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND" +
+      "\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROSE" +
+      "COND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_" +
+      "YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027I" +
+      "NTERVAL_MONTH_DAY_NANO\020\031BO\n\016io.greptime." +
+      "v1B\006CommonZ5github.com/GreptimeTeam/grep" +
+      "time-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8079,7 +8168,7 @@ public final class Common {
     internal_static_greptime_v1_RequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RequestHeader_descriptor,
-        new java.lang.String[] { "Catalog", "Schema", "Authorization", "Dbname", "TraceId", "SpanId", });
+        new java.lang.String[] { "Catalog", "Schema", "Authorization", "Dbname", "TraceId", "SpanId", "TraceId", "SpanId", });
     internal_static_greptime_v1_ResponseHeader_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_ResponseHeader_fieldAccessorTable = new

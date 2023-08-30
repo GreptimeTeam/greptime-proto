@@ -359,7 +359,11 @@ class RequestHeader final :
       ::greptime::v1::AuthHeader* authorization);
   ::greptime::v1::AuthHeader* unsafe_arena_release_authorization();
 
-  // uint64 trace_id = 5;
+  // optional uint64 trace_id = 5;
+  bool has_trace_id() const;
+  private:
+  bool _internal_has_trace_id() const;
+  public:
   void clear_trace_id();
   uint64_t trace_id() const;
   void set_trace_id(uint64_t value);
@@ -368,7 +372,11 @@ class RequestHeader final :
   void _internal_set_trace_id(uint64_t value);
   public:
 
-  // uint64 span_id = 6;
+  // optional uint64 span_id = 6;
+  bool has_span_id() const;
+  private:
+  bool _internal_has_span_id() const;
+  public:
   void clear_span_id();
   uint64_t span_id() const;
   void set_span_id(uint64_t value);
@@ -385,13 +393,14 @@ class RequestHeader final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dbname_;
     ::greptime::v1::AuthHeader* authorization_;
     uint64_t trace_id_;
     uint64_t span_id_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
@@ -2152,9 +2161,17 @@ inline void RequestHeader::set_allocated_dbname(std::string* dbname) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.RequestHeader.dbname)
 }
 
-// uint64 trace_id = 5;
+// optional uint64 trace_id = 5;
+inline bool RequestHeader::_internal_has_trace_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool RequestHeader::has_trace_id() const {
+  return _internal_has_trace_id();
+}
 inline void RequestHeader::clear_trace_id() {
   _impl_.trace_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint64_t RequestHeader::_internal_trace_id() const {
   return _impl_.trace_id_;
@@ -2164,7 +2181,7 @@ inline uint64_t RequestHeader::trace_id() const {
   return _internal_trace_id();
 }
 inline void RequestHeader::_internal_set_trace_id(uint64_t value) {
-  
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.trace_id_ = value;
 }
 inline void RequestHeader::set_trace_id(uint64_t value) {
@@ -2172,9 +2189,17 @@ inline void RequestHeader::set_trace_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.RequestHeader.trace_id)
 }
 
-// uint64 span_id = 6;
+// optional uint64 span_id = 6;
+inline bool RequestHeader::_internal_has_span_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool RequestHeader::has_span_id() const {
+  return _internal_has_span_id();
+}
 inline void RequestHeader::clear_span_id() {
   _impl_.span_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint64_t RequestHeader::_internal_span_id() const {
   return _impl_.span_id_;
@@ -2184,7 +2209,7 @@ inline uint64_t RequestHeader::span_id() const {
   return _internal_span_id();
 }
 inline void RequestHeader::_internal_set_span_id(uint64_t value) {
-  
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.span_id_ = value;
 }
 inline void RequestHeader::set_span_id(uint64_t value) {
