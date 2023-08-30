@@ -29,9 +29,6 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
-#include <google/protobuf/map.h>  // IWYU pragma: export
-#include <google/protobuf/map_entry.h>
-#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/meta/common.pb.h"
 // @@protoc_insertion_point(includes)
@@ -66,21 +63,12 @@ extern HeartbeatResponseDefaultTypeInternal _HeartbeatResponse_default_instance_
 class MailboxMessage;
 struct MailboxMessageDefaultTypeInternal;
 extern MailboxMessageDefaultTypeInternal _MailboxMessage_default_instance_;
-class NodeStat;
-struct NodeStatDefaultTypeInternal;
-extern NodeStatDefaultTypeInternal _NodeStat_default_instance_;
-class NodeStat_AttrsEntry_DoNotUse;
-struct NodeStat_AttrsEntry_DoNotUseDefaultTypeInternal;
-extern NodeStat_AttrsEntry_DoNotUseDefaultTypeInternal _NodeStat_AttrsEntry_DoNotUse_default_instance_;
 class RegionLease;
 struct RegionLeaseDefaultTypeInternal;
 extern RegionLeaseDefaultTypeInternal _RegionLease_default_instance_;
 class RegionStat;
 struct RegionStatDefaultTypeInternal;
 extern RegionStatDefaultTypeInternal _RegionStat_default_instance_;
-class RegionStat_AttrsEntry_DoNotUse;
-struct RegionStat_AttrsEntry_DoNotUseDefaultTypeInternal;
-extern RegionStat_AttrsEntry_DoNotUseDefaultTypeInternal _RegionStat_AttrsEntry_DoNotUse_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
@@ -90,11 +78,8 @@ template<> ::greptime::v1::meta::AskLeaderResponse* Arena::CreateMaybeMessage<::
 template<> ::greptime::v1::meta::HeartbeatRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatResponse>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessage>(Arena*);
-template<> ::greptime::v1::meta::NodeStat* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeStat>(Arena*);
-template<> ::greptime::v1::meta::NodeStat_AttrsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeStat_AttrsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
-template<> ::greptime::v1::meta::RegionStat_AttrsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat_AttrsEntry_DoNotUse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -223,16 +208,15 @@ class HeartbeatRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRegionStatsFieldNumber = 5,
+    kRegionStatsFieldNumber = 4,
     kHeaderFieldNumber = 1,
     kPeerFieldNumber = 2,
     kReportIntervalFieldNumber = 3,
-    kNodeStatFieldNumber = 4,
-    kMailboxMessageFieldNumber = 6,
-    kDurationSinceEpochFieldNumber = 7,
-    kNodeEpochFieldNumber = 8,
+    kMailboxMessageFieldNumber = 5,
+    kDurationSinceEpochFieldNumber = 6,
+    kNodeEpochFieldNumber = 7,
   };
-  // repeated .greptime.v1.meta.RegionStat region_stats = 5;
+  // repeated .greptime.v1.meta.RegionStat region_stats = 4;
   int region_stats_size() const;
   private:
   int _internal_region_stats_size() const;
@@ -304,25 +288,7 @@ class HeartbeatRequest final :
       ::greptime::v1::meta::TimeInterval* report_interval);
   ::greptime::v1::meta::TimeInterval* unsafe_arena_release_report_interval();
 
-  // .greptime.v1.meta.NodeStat node_stat = 4;
-  bool has_node_stat() const;
-  private:
-  bool _internal_has_node_stat() const;
-  public:
-  void clear_node_stat();
-  const ::greptime::v1::meta::NodeStat& node_stat() const;
-  PROTOBUF_NODISCARD ::greptime::v1::meta::NodeStat* release_node_stat();
-  ::greptime::v1::meta::NodeStat* mutable_node_stat();
-  void set_allocated_node_stat(::greptime::v1::meta::NodeStat* node_stat);
-  private:
-  const ::greptime::v1::meta::NodeStat& _internal_node_stat() const;
-  ::greptime::v1::meta::NodeStat* _internal_mutable_node_stat();
-  public:
-  void unsafe_arena_set_allocated_node_stat(
-      ::greptime::v1::meta::NodeStat* node_stat);
-  ::greptime::v1::meta::NodeStat* unsafe_arena_release_node_stat();
-
-  // .greptime.v1.meta.MailboxMessage mailbox_message = 6;
+  // .greptime.v1.meta.MailboxMessage mailbox_message = 5;
   bool has_mailbox_message() const;
   private:
   bool _internal_has_mailbox_message() const;
@@ -340,7 +306,7 @@ class HeartbeatRequest final :
       ::greptime::v1::meta::MailboxMessage* mailbox_message);
   ::greptime::v1::meta::MailboxMessage* unsafe_arena_release_mailbox_message();
 
-  // uint64 duration_since_epoch = 7;
+  // uint64 duration_since_epoch = 6;
   void clear_duration_since_epoch();
   uint64_t duration_since_epoch() const;
   void set_duration_since_epoch(uint64_t value);
@@ -349,7 +315,7 @@ class HeartbeatRequest final :
   void _internal_set_duration_since_epoch(uint64_t value);
   public:
 
-  // uint64 node_epoch = 8;
+  // uint64 node_epoch = 7;
   void clear_node_epoch();
   uint64_t node_epoch() const;
   void set_node_epoch(uint64_t value);
@@ -370,7 +336,6 @@ class HeartbeatRequest final :
     ::greptime::v1::meta::RequestHeader* header_;
     ::greptime::v1::meta::Peer* peer_;
     ::greptime::v1::meta::TimeInterval* report_interval_;
-    ::greptime::v1::meta::NodeStat* node_stat_;
     ::greptime::v1::meta::MailboxMessage* mailbox_message_;
     uint64_t duration_since_epoch_;
     uint64_t node_epoch_;
@@ -379,269 +344,6 @@ class HeartbeatRequest final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
 };
-// -------------------------------------------------------------------
-
-class NodeStat_AttrsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<NodeStat_AttrsEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<NodeStat_AttrsEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  NodeStat_AttrsEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR NodeStat_AttrsEntry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit NodeStat_AttrsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const NodeStat_AttrsEntry_DoNotUse& other);
-  static const NodeStat_AttrsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const NodeStat_AttrsEntry_DoNotUse*>(&_NodeStat_AttrsEntry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.NodeStat.AttrsEntry.key");
- }
-  static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.NodeStat.AttrsEntry.value");
- }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
-};
-
-// -------------------------------------------------------------------
-
-class NodeStat final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.NodeStat) */ {
- public:
-  inline NodeStat() : NodeStat(nullptr) {}
-  ~NodeStat() override;
-  explicit PROTOBUF_CONSTEXPR NodeStat(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  NodeStat(const NodeStat& from);
-  NodeStat(NodeStat&& from) noexcept
-    : NodeStat() {
-    *this = ::std::move(from);
-  }
-
-  inline NodeStat& operator=(const NodeStat& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline NodeStat& operator=(NodeStat&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const NodeStat& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const NodeStat* internal_default_instance() {
-    return reinterpret_cast<const NodeStat*>(
-               &_NodeStat_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(NodeStat& a, NodeStat& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(NodeStat* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(NodeStat* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  NodeStat* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<NodeStat>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const NodeStat& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const NodeStat& from) {
-    NodeStat::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(NodeStat* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.meta.NodeStat";
-  }
-  protected:
-  explicit NodeStat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kAttrsFieldNumber = 100,
-    kRcusFieldNumber = 1,
-    kWcusFieldNumber = 2,
-    kTableNumFieldNumber = 3,
-    kRegionNumFieldNumber = 4,
-  };
-  // map<string, string> attrs = 100;
-  int attrs_size() const;
-  private:
-  int _internal_attrs_size() const;
-  public:
-  void clear_attrs();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      _internal_attrs() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      _internal_mutable_attrs();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      attrs() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      mutable_attrs();
-
-  // int64 rcus = 1;
-  void clear_rcus();
-  int64_t rcus() const;
-  void set_rcus(int64_t value);
-  private:
-  int64_t _internal_rcus() const;
-  void _internal_set_rcus(int64_t value);
-  public:
-
-  // int64 wcus = 2;
-  void clear_wcus();
-  int64_t wcus() const;
-  void set_wcus(int64_t value);
-  private:
-  int64_t _internal_wcus() const;
-  void _internal_set_wcus(int64_t value);
-  public:
-
-  // int64 table_num = 3;
-  void clear_table_num();
-  int64_t table_num() const;
-  void set_table_num(int64_t value);
-  private:
-  int64_t _internal_table_num() const;
-  void _internal_set_table_num(int64_t value);
-  public:
-
-  // int64 region_num = 4;
-  void clear_region_num();
-  int64_t region_num() const;
-  void set_region_num(int64_t value);
-  private:
-  int64_t _internal_region_num() const;
-  void _internal_set_region_num(int64_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.meta.NodeStat)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        NodeStat_AttrsEntry_DoNotUse,
-        std::string, std::string,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> attrs_;
-    int64_t rcus_;
-    int64_t wcus_;
-    int64_t table_num_;
-    int64_t region_num_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
-};
-// -------------------------------------------------------------------
-
-class RegionStat_AttrsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionStat_AttrsEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionStat_AttrsEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  RegionStat_AttrsEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR RegionStat_AttrsEntry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit RegionStat_AttrsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const RegionStat_AttrsEntry_DoNotUse& other);
-  static const RegionStat_AttrsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const RegionStat_AttrsEntry_DoNotUse*>(&_RegionStat_AttrsEntry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.RegionStat.AttrsEntry.key");
- }
-  static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.RegionStat.AttrsEntry.value");
- }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
-};
-
 // -------------------------------------------------------------------
 
 class RegionStat final :
@@ -692,7 +394,7 @@ class RegionStat final :
                &_RegionStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    1;
 
   friend void swap(RegionStat& a, RegionStat& b) {
     a.Swap(&b);
@@ -753,8 +455,6 @@ class RegionStat final :
   protected:
   explicit RegionStat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -764,52 +464,29 @@ class RegionStat final :
 
   // nested types ----------------------------------------------------
 
-
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAttrsFieldNumber = 100,
-    kTableIdentFieldNumber = 2,
+    kEngineFieldNumber = 6,
     kRegionIdFieldNumber = 1,
-    kRcusFieldNumber = 3,
-    kWcusFieldNumber = 4,
-    kApproximateBytesFieldNumber = 5,
-    kApproximateRowsFieldNumber = 6,
+    kRcusFieldNumber = 2,
+    kWcusFieldNumber = 3,
+    kApproximateBytesFieldNumber = 4,
+    kApproximateRowsFieldNumber = 5,
   };
-  // map<string, string> attrs = 100;
-  int attrs_size() const;
+  // string engine = 6;
+  void clear_engine();
+  const std::string& engine() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_engine(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_engine();
+  PROTOBUF_NODISCARD std::string* release_engine();
+  void set_allocated_engine(std::string* engine);
   private:
-  int _internal_attrs_size() const;
+  const std::string& _internal_engine() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_engine(const std::string& value);
+  std::string* _internal_mutable_engine();
   public:
-  void clear_attrs();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      _internal_attrs() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      _internal_mutable_attrs();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      attrs() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      mutable_attrs();
-
-  // .greptime.v1.meta.TableIdent table_ident = 2;
-  bool has_table_ident() const;
-  private:
-  bool _internal_has_table_ident() const;
-  public:
-  void clear_table_ident();
-  const ::greptime::v1::meta::TableIdent& table_ident() const;
-  PROTOBUF_NODISCARD ::greptime::v1::meta::TableIdent* release_table_ident();
-  ::greptime::v1::meta::TableIdent* mutable_table_ident();
-  void set_allocated_table_ident(::greptime::v1::meta::TableIdent* table_ident);
-  private:
-  const ::greptime::v1::meta::TableIdent& _internal_table_ident() const;
-  ::greptime::v1::meta::TableIdent* _internal_mutable_table_ident();
-  public:
-  void unsafe_arena_set_allocated_table_ident(
-      ::greptime::v1::meta::TableIdent* table_ident);
-  ::greptime::v1::meta::TableIdent* unsafe_arena_release_table_ident();
 
   // uint64 region_id = 1;
   void clear_region_id();
@@ -820,7 +497,7 @@ class RegionStat final :
   void _internal_set_region_id(uint64_t value);
   public:
 
-  // int64 rcus = 3;
+  // int64 rcus = 2;
   void clear_rcus();
   int64_t rcus() const;
   void set_rcus(int64_t value);
@@ -829,7 +506,7 @@ class RegionStat final :
   void _internal_set_rcus(int64_t value);
   public:
 
-  // int64 wcus = 4;
+  // int64 wcus = 3;
   void clear_wcus();
   int64_t wcus() const;
   void set_wcus(int64_t value);
@@ -838,7 +515,7 @@ class RegionStat final :
   void _internal_set_wcus(int64_t value);
   public:
 
-  // int64 approximate_bytes = 5;
+  // int64 approximate_bytes = 4;
   void clear_approximate_bytes();
   int64_t approximate_bytes() const;
   void set_approximate_bytes(int64_t value);
@@ -847,7 +524,7 @@ class RegionStat final :
   void _internal_set_approximate_bytes(int64_t value);
   public:
 
-  // int64 approximate_rows = 6;
+  // int64 approximate_rows = 5;
   void clear_approximate_rows();
   int64_t approximate_rows() const;
   void set_approximate_rows(int64_t value);
@@ -864,12 +541,7 @@ class RegionStat final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        RegionStat_AttrsEntry_DoNotUse,
-        std::string, std::string,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> attrs_;
-    ::greptime::v1::meta::TableIdent* table_ident_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
     uint64_t region_id_;
     int64_t rcus_;
     int64_t wcus_;
@@ -930,7 +602,7 @@ class HeartbeatResponse final :
                &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    2;
 
   friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
@@ -1127,7 +799,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    3;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -1200,52 +872,33 @@ class RegionLease final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRegionsFieldNumber = 2,
-    kTableIdentFieldNumber = 1,
-    kDurationSinceEpochFieldNumber = 3,
-    kLeaseSecondsFieldNumber = 4,
+    kRegionIdsFieldNumber = 1,
+    kDurationSinceEpochFieldNumber = 2,
+    kLeaseSecondsFieldNumber = 3,
   };
-  // repeated uint32 regions = 2;
-  int regions_size() const;
+  // repeated uint64 region_ids = 1;
+  int region_ids_size() const;
   private:
-  int _internal_regions_size() const;
+  int _internal_region_ids_size() const;
   public:
-  void clear_regions();
+  void clear_region_ids();
   private:
-  uint32_t _internal_regions(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_regions() const;
-  void _internal_add_regions(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_regions();
+  uint64_t _internal_region_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_region_ids() const;
+  void _internal_add_region_ids(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_region_ids();
   public:
-  uint32_t regions(int index) const;
-  void set_regions(int index, uint32_t value);
-  void add_regions(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      regions() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_regions();
+  uint64_t region_ids(int index) const;
+  void set_region_ids(int index, uint64_t value);
+  void add_region_ids(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      region_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_region_ids();
 
-  // .greptime.v1.meta.TableIdent table_ident = 1;
-  bool has_table_ident() const;
-  private:
-  bool _internal_has_table_ident() const;
-  public:
-  void clear_table_ident();
-  const ::greptime::v1::meta::TableIdent& table_ident() const;
-  PROTOBUF_NODISCARD ::greptime::v1::meta::TableIdent* release_table_ident();
-  ::greptime::v1::meta::TableIdent* mutable_table_ident();
-  void set_allocated_table_ident(::greptime::v1::meta::TableIdent* table_ident);
-  private:
-  const ::greptime::v1::meta::TableIdent& _internal_table_ident() const;
-  ::greptime::v1::meta::TableIdent* _internal_mutable_table_ident();
-  public:
-  void unsafe_arena_set_allocated_table_ident(
-      ::greptime::v1::meta::TableIdent* table_ident);
-  ::greptime::v1::meta::TableIdent* unsafe_arena_release_table_ident();
-
-  // uint64 duration_since_epoch = 3;
+  // uint64 duration_since_epoch = 2;
   void clear_duration_since_epoch();
   uint64_t duration_since_epoch() const;
   void set_duration_since_epoch(uint64_t value);
@@ -1254,7 +907,7 @@ class RegionLease final :
   void _internal_set_duration_since_epoch(uint64_t value);
   public:
 
-  // uint64 lease_seconds = 4;
+  // uint64 lease_seconds = 3;
   void clear_lease_seconds();
   uint64_t lease_seconds() const;
   void set_lease_seconds(uint64_t value);
@@ -1271,9 +924,8 @@ class RegionLease final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > regions_;
-    mutable std::atomic<int> _regions_cached_byte_size_;
-    ::greptime::v1::meta::TableIdent* table_ident_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > region_ids_;
+    mutable std::atomic<int> _region_ids_cached_byte_size_;
     uint64_t duration_since_epoch_;
     uint64_t lease_seconds_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1331,7 +983,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    4;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -1488,7 +1140,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    5;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -1670,7 +1322,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    6;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -2125,97 +1777,7 @@ inline void HeartbeatRequest::set_allocated_report_interval(::greptime::v1::meta
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatRequest.report_interval)
 }
 
-// .greptime.v1.meta.NodeStat node_stat = 4;
-inline bool HeartbeatRequest::_internal_has_node_stat() const {
-  return this != internal_default_instance() && _impl_.node_stat_ != nullptr;
-}
-inline bool HeartbeatRequest::has_node_stat() const {
-  return _internal_has_node_stat();
-}
-inline void HeartbeatRequest::clear_node_stat() {
-  if (GetArenaForAllocation() == nullptr && _impl_.node_stat_ != nullptr) {
-    delete _impl_.node_stat_;
-  }
-  _impl_.node_stat_ = nullptr;
-}
-inline const ::greptime::v1::meta::NodeStat& HeartbeatRequest::_internal_node_stat() const {
-  const ::greptime::v1::meta::NodeStat* p = _impl_.node_stat_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::NodeStat&>(
-      ::greptime::v1::meta::_NodeStat_default_instance_);
-}
-inline const ::greptime::v1::meta::NodeStat& HeartbeatRequest::node_stat() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatRequest.node_stat)
-  return _internal_node_stat();
-}
-inline void HeartbeatRequest::unsafe_arena_set_allocated_node_stat(
-    ::greptime::v1::meta::NodeStat* node_stat) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.node_stat_);
-  }
-  _impl_.node_stat_ = node_stat;
-  if (node_stat) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.HeartbeatRequest.node_stat)
-}
-inline ::greptime::v1::meta::NodeStat* HeartbeatRequest::release_node_stat() {
-  
-  ::greptime::v1::meta::NodeStat* temp = _impl_.node_stat_;
-  _impl_.node_stat_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::meta::NodeStat* HeartbeatRequest::unsafe_arena_release_node_stat() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.HeartbeatRequest.node_stat)
-  
-  ::greptime::v1::meta::NodeStat* temp = _impl_.node_stat_;
-  _impl_.node_stat_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::meta::NodeStat* HeartbeatRequest::_internal_mutable_node_stat() {
-  
-  if (_impl_.node_stat_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::meta::NodeStat>(GetArenaForAllocation());
-    _impl_.node_stat_ = p;
-  }
-  return _impl_.node_stat_;
-}
-inline ::greptime::v1::meta::NodeStat* HeartbeatRequest::mutable_node_stat() {
-  ::greptime::v1::meta::NodeStat* _msg = _internal_mutable_node_stat();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatRequest.node_stat)
-  return _msg;
-}
-inline void HeartbeatRequest::set_allocated_node_stat(::greptime::v1::meta::NodeStat* node_stat) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.node_stat_;
-  }
-  if (node_stat) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(node_stat);
-    if (message_arena != submessage_arena) {
-      node_stat = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, node_stat, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.node_stat_ = node_stat;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatRequest.node_stat)
-}
-
-// repeated .greptime.v1.meta.RegionStat region_stats = 5;
+// repeated .greptime.v1.meta.RegionStat region_stats = 4;
 inline int HeartbeatRequest::_internal_region_stats_size() const {
   return _impl_.region_stats_.size();
 }
@@ -2255,7 +1817,7 @@ HeartbeatRequest::region_stats() const {
   return _impl_.region_stats_;
 }
 
-// .greptime.v1.meta.MailboxMessage mailbox_message = 6;
+// .greptime.v1.meta.MailboxMessage mailbox_message = 5;
 inline bool HeartbeatRequest::_internal_has_mailbox_message() const {
   return this != internal_default_instance() && _impl_.mailbox_message_ != nullptr;
 }
@@ -2345,7 +1907,7 @@ inline void HeartbeatRequest::set_allocated_mailbox_message(::greptime::v1::meta
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatRequest.mailbox_message)
 }
 
-// uint64 duration_since_epoch = 7;
+// uint64 duration_since_epoch = 6;
 inline void HeartbeatRequest::clear_duration_since_epoch() {
   _impl_.duration_since_epoch_ = uint64_t{0u};
 }
@@ -2365,7 +1927,7 @@ inline void HeartbeatRequest::set_duration_since_epoch(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.HeartbeatRequest.duration_since_epoch)
 }
 
-// uint64 node_epoch = 8;
+// uint64 node_epoch = 7;
 inline void HeartbeatRequest::clear_node_epoch() {
   _impl_.node_epoch_ = uint64_t{0u};
 }
@@ -2384,123 +1946,6 @@ inline void HeartbeatRequest::set_node_epoch(uint64_t value) {
   _internal_set_node_epoch(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.HeartbeatRequest.node_epoch)
 }
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// NodeStat
-
-// int64 rcus = 1;
-inline void NodeStat::clear_rcus() {
-  _impl_.rcus_ = int64_t{0};
-}
-inline int64_t NodeStat::_internal_rcus() const {
-  return _impl_.rcus_;
-}
-inline int64_t NodeStat::rcus() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.NodeStat.rcus)
-  return _internal_rcus();
-}
-inline void NodeStat::_internal_set_rcus(int64_t value) {
-  
-  _impl_.rcus_ = value;
-}
-inline void NodeStat::set_rcus(int64_t value) {
-  _internal_set_rcus(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeStat.rcus)
-}
-
-// int64 wcus = 2;
-inline void NodeStat::clear_wcus() {
-  _impl_.wcus_ = int64_t{0};
-}
-inline int64_t NodeStat::_internal_wcus() const {
-  return _impl_.wcus_;
-}
-inline int64_t NodeStat::wcus() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.NodeStat.wcus)
-  return _internal_wcus();
-}
-inline void NodeStat::_internal_set_wcus(int64_t value) {
-  
-  _impl_.wcus_ = value;
-}
-inline void NodeStat::set_wcus(int64_t value) {
-  _internal_set_wcus(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeStat.wcus)
-}
-
-// int64 table_num = 3;
-inline void NodeStat::clear_table_num() {
-  _impl_.table_num_ = int64_t{0};
-}
-inline int64_t NodeStat::_internal_table_num() const {
-  return _impl_.table_num_;
-}
-inline int64_t NodeStat::table_num() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.NodeStat.table_num)
-  return _internal_table_num();
-}
-inline void NodeStat::_internal_set_table_num(int64_t value) {
-  
-  _impl_.table_num_ = value;
-}
-inline void NodeStat::set_table_num(int64_t value) {
-  _internal_set_table_num(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeStat.table_num)
-}
-
-// int64 region_num = 4;
-inline void NodeStat::clear_region_num() {
-  _impl_.region_num_ = int64_t{0};
-}
-inline int64_t NodeStat::_internal_region_num() const {
-  return _impl_.region_num_;
-}
-inline int64_t NodeStat::region_num() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.NodeStat.region_num)
-  return _internal_region_num();
-}
-inline void NodeStat::_internal_set_region_num(int64_t value) {
-  
-  _impl_.region_num_ = value;
-}
-inline void NodeStat::set_region_num(int64_t value) {
-  _internal_set_region_num(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeStat.region_num)
-}
-
-// map<string, string> attrs = 100;
-inline int NodeStat::_internal_attrs_size() const {
-  return _impl_.attrs_.size();
-}
-inline int NodeStat::attrs_size() const {
-  return _internal_attrs_size();
-}
-inline void NodeStat::clear_attrs() {
-  _impl_.attrs_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-NodeStat::_internal_attrs() const {
-  return _impl_.attrs_.GetMap();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-NodeStat::attrs() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.meta.NodeStat.attrs)
-  return _internal_attrs();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-NodeStat::_internal_mutable_attrs() {
-  return _impl_.attrs_.MutableMap();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-NodeStat::mutable_attrs() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.NodeStat.attrs)
-  return _internal_mutable_attrs();
-}
-
-// -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
 
@@ -2526,92 +1971,7 @@ inline void RegionStat::set_region_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.region_id)
 }
 
-// .greptime.v1.meta.TableIdent table_ident = 2;
-inline bool RegionStat::_internal_has_table_ident() const {
-  return this != internal_default_instance() && _impl_.table_ident_ != nullptr;
-}
-inline bool RegionStat::has_table_ident() const {
-  return _internal_has_table_ident();
-}
-inline const ::greptime::v1::meta::TableIdent& RegionStat::_internal_table_ident() const {
-  const ::greptime::v1::meta::TableIdent* p = _impl_.table_ident_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::TableIdent&>(
-      ::greptime::v1::meta::_TableIdent_default_instance_);
-}
-inline const ::greptime::v1::meta::TableIdent& RegionStat::table_ident() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionStat.table_ident)
-  return _internal_table_ident();
-}
-inline void RegionStat::unsafe_arena_set_allocated_table_ident(
-    ::greptime::v1::meta::TableIdent* table_ident) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_ident_);
-  }
-  _impl_.table_ident_ = table_ident;
-  if (table_ident) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.RegionStat.table_ident)
-}
-inline ::greptime::v1::meta::TableIdent* RegionStat::release_table_ident() {
-  
-  ::greptime::v1::meta::TableIdent* temp = _impl_.table_ident_;
-  _impl_.table_ident_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::meta::TableIdent* RegionStat::unsafe_arena_release_table_ident() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.RegionStat.table_ident)
-  
-  ::greptime::v1::meta::TableIdent* temp = _impl_.table_ident_;
-  _impl_.table_ident_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::meta::TableIdent* RegionStat::_internal_mutable_table_ident() {
-  
-  if (_impl_.table_ident_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::meta::TableIdent>(GetArenaForAllocation());
-    _impl_.table_ident_ = p;
-  }
-  return _impl_.table_ident_;
-}
-inline ::greptime::v1::meta::TableIdent* RegionStat::mutable_table_ident() {
-  ::greptime::v1::meta::TableIdent* _msg = _internal_mutable_table_ident();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RegionStat.table_ident)
-  return _msg;
-}
-inline void RegionStat::set_allocated_table_ident(::greptime::v1::meta::TableIdent* table_ident) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_ident_);
-  }
-  if (table_ident) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(table_ident));
-    if (message_arena != submessage_arena) {
-      table_ident = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, table_ident, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.table_ident_ = table_ident;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.RegionStat.table_ident)
-}
-
-// int64 rcus = 3;
+// int64 rcus = 2;
 inline void RegionStat::clear_rcus() {
   _impl_.rcus_ = int64_t{0};
 }
@@ -2631,7 +1991,7 @@ inline void RegionStat::set_rcus(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.rcus)
 }
 
-// int64 wcus = 4;
+// int64 wcus = 3;
 inline void RegionStat::clear_wcus() {
   _impl_.wcus_ = int64_t{0};
 }
@@ -2651,7 +2011,7 @@ inline void RegionStat::set_wcus(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.wcus)
 }
 
-// int64 approximate_bytes = 5;
+// int64 approximate_bytes = 4;
 inline void RegionStat::clear_approximate_bytes() {
   _impl_.approximate_bytes_ = int64_t{0};
 }
@@ -2671,7 +2031,7 @@ inline void RegionStat::set_approximate_bytes(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.approximate_bytes)
 }
 
-// int64 approximate_rows = 6;
+// int64 approximate_rows = 5;
 inline void RegionStat::clear_approximate_rows() {
   _impl_.approximate_rows_ = int64_t{0};
 }
@@ -2691,33 +2051,54 @@ inline void RegionStat::set_approximate_rows(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.approximate_rows)
 }
 
-// map<string, string> attrs = 100;
-inline int RegionStat::_internal_attrs_size() const {
-  return _impl_.attrs_.size();
+// string engine = 6;
+inline void RegionStat::clear_engine() {
+  _impl_.engine_.ClearToEmpty();
 }
-inline int RegionStat::attrs_size() const {
-  return _internal_attrs_size();
+inline const std::string& RegionStat::engine() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionStat.engine)
+  return _internal_engine();
 }
-inline void RegionStat::clear_attrs() {
-  _impl_.attrs_.Clear();
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RegionStat::set_engine(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.engine_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.engine)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-RegionStat::_internal_attrs() const {
-  return _impl_.attrs_.GetMap();
+inline std::string* RegionStat::mutable_engine() {
+  std::string* _s = _internal_mutable_engine();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RegionStat.engine)
+  return _s;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-RegionStat::attrs() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.meta.RegionStat.attrs)
-  return _internal_attrs();
+inline const std::string& RegionStat::_internal_engine() const {
+  return _impl_.engine_.Get();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-RegionStat::_internal_mutable_attrs() {
-  return _impl_.attrs_.MutableMap();
+inline void RegionStat::_internal_set_engine(const std::string& value) {
+  
+  _impl_.engine_.Set(value, GetArenaForAllocation());
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-RegionStat::mutable_attrs() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.RegionStat.attrs)
-  return _internal_mutable_attrs();
+inline std::string* RegionStat::_internal_mutable_engine() {
+  
+  return _impl_.engine_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RegionStat::release_engine() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.RegionStat.engine)
+  return _impl_.engine_.Release();
+}
+inline void RegionStat::set_allocated_engine(std::string* engine) {
+  if (engine != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.engine_.SetAllocated(engine, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.engine_.IsDefault()) {
+    _impl_.engine_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.RegionStat.engine)
 }
 
 // -------------------------------------------------------------------
@@ -2943,139 +2324,54 @@ HeartbeatResponse::region_leases() const {
 
 // RegionLease
 
-// .greptime.v1.meta.TableIdent table_ident = 1;
-inline bool RegionLease::_internal_has_table_ident() const {
-  return this != internal_default_instance() && _impl_.table_ident_ != nullptr;
+// repeated uint64 region_ids = 1;
+inline int RegionLease::_internal_region_ids_size() const {
+  return _impl_.region_ids_.size();
 }
-inline bool RegionLease::has_table_ident() const {
-  return _internal_has_table_ident();
+inline int RegionLease::region_ids_size() const {
+  return _internal_region_ids_size();
 }
-inline const ::greptime::v1::meta::TableIdent& RegionLease::_internal_table_ident() const {
-  const ::greptime::v1::meta::TableIdent* p = _impl_.table_ident_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::TableIdent&>(
-      ::greptime::v1::meta::_TableIdent_default_instance_);
+inline void RegionLease::clear_region_ids() {
+  _impl_.region_ids_.Clear();
 }
-inline const ::greptime::v1::meta::TableIdent& RegionLease::table_ident() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionLease.table_ident)
-  return _internal_table_ident();
+inline uint64_t RegionLease::_internal_region_ids(int index) const {
+  return _impl_.region_ids_.Get(index);
 }
-inline void RegionLease::unsafe_arena_set_allocated_table_ident(
-    ::greptime::v1::meta::TableIdent* table_ident) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_ident_);
-  }
-  _impl_.table_ident_ = table_ident;
-  if (table_ident) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.RegionLease.table_ident)
+inline uint64_t RegionLease::region_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionLease.region_ids)
+  return _internal_region_ids(index);
 }
-inline ::greptime::v1::meta::TableIdent* RegionLease::release_table_ident() {
-  
-  ::greptime::v1::meta::TableIdent* temp = _impl_.table_ident_;
-  _impl_.table_ident_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
+inline void RegionLease::set_region_ids(int index, uint64_t value) {
+  _impl_.region_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionLease.region_ids)
 }
-inline ::greptime::v1::meta::TableIdent* RegionLease::unsafe_arena_release_table_ident() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.RegionLease.table_ident)
-  
-  ::greptime::v1::meta::TableIdent* temp = _impl_.table_ident_;
-  _impl_.table_ident_ = nullptr;
-  return temp;
+inline void RegionLease::_internal_add_region_ids(uint64_t value) {
+  _impl_.region_ids_.Add(value);
 }
-inline ::greptime::v1::meta::TableIdent* RegionLease::_internal_mutable_table_ident() {
-  
-  if (_impl_.table_ident_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::meta::TableIdent>(GetArenaForAllocation());
-    _impl_.table_ident_ = p;
-  }
-  return _impl_.table_ident_;
+inline void RegionLease::add_region_ids(uint64_t value) {
+  _internal_add_region_ids(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.RegionLease.region_ids)
 }
-inline ::greptime::v1::meta::TableIdent* RegionLease::mutable_table_ident() {
-  ::greptime::v1::meta::TableIdent* _msg = _internal_mutable_table_ident();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RegionLease.table_ident)
-  return _msg;
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+RegionLease::_internal_region_ids() const {
+  return _impl_.region_ids_;
 }
-inline void RegionLease::set_allocated_table_ident(::greptime::v1::meta::TableIdent* table_ident) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_ident_);
-  }
-  if (table_ident) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(table_ident));
-    if (message_arena != submessage_arena) {
-      table_ident = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, table_ident, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.table_ident_ = table_ident;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.RegionLease.table_ident)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+RegionLease::region_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.RegionLease.region_ids)
+  return _internal_region_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+RegionLease::_internal_mutable_region_ids() {
+  return &_impl_.region_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+RegionLease::mutable_region_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RegionLease.region_ids)
+  return _internal_mutable_region_ids();
 }
 
-// repeated uint32 regions = 2;
-inline int RegionLease::_internal_regions_size() const {
-  return _impl_.regions_.size();
-}
-inline int RegionLease::regions_size() const {
-  return _internal_regions_size();
-}
-inline void RegionLease::clear_regions() {
-  _impl_.regions_.Clear();
-}
-inline uint32_t RegionLease::_internal_regions(int index) const {
-  return _impl_.regions_.Get(index);
-}
-inline uint32_t RegionLease::regions(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionLease.regions)
-  return _internal_regions(index);
-}
-inline void RegionLease::set_regions(int index, uint32_t value) {
-  _impl_.regions_.Set(index, value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionLease.regions)
-}
-inline void RegionLease::_internal_add_regions(uint32_t value) {
-  _impl_.regions_.Add(value);
-}
-inline void RegionLease::add_regions(uint32_t value) {
-  _internal_add_regions(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.RegionLease.regions)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-RegionLease::_internal_regions() const {
-  return _impl_.regions_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-RegionLease::regions() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.RegionLease.regions)
-  return _internal_regions();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-RegionLease::_internal_mutable_regions() {
-  return &_impl_.regions_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-RegionLease::mutable_regions() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RegionLease.regions)
-  return _internal_mutable_regions();
-}
-
-// uint64 duration_since_epoch = 3;
+// uint64 duration_since_epoch = 2;
 inline void RegionLease::clear_duration_since_epoch() {
   _impl_.duration_since_epoch_ = uint64_t{0u};
 }
@@ -3095,7 +2391,7 @@ inline void RegionLease::set_duration_since_epoch(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionLease.duration_since_epoch)
 }
 
-// uint64 lease_seconds = 4;
+// uint64 lease_seconds = 3;
 inline void RegionLease::clear_lease_seconds() {
   _impl_.lease_seconds_ = uint64_t{0u};
 }
@@ -3661,12 +2957,6 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
