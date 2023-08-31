@@ -3171,28 +3171,19 @@ public final class HeartbeatOuterClass {
     greptime.v1.meta.HeartbeatOuterClass.MailboxMessageOrBuilder getMailboxMessageOrBuilder();
 
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+     * @return Whether the regionLease field is set.
      */
-    java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> 
-        getRegionLeasesList();
+    boolean hasRegionLease();
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+     * @return The regionLease.
      */
-    greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLeases(int index);
+    greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLease();
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
      */
-    int getRegionLeasesCount();
-    /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-     */
-    java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> 
-        getRegionLeasesOrBuilderList();
-    /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-     */
-    greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeasesOrBuilder(
-        int index);
+    greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeaseOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.HeartbeatResponse}
@@ -3207,7 +3198,6 @@ public final class HeartbeatOuterClass {
       super(builder);
     }
     private HeartbeatResponse() {
-      regionLeases_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -3230,7 +3220,6 @@ public final class HeartbeatOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3268,12 +3257,16 @@ public final class HeartbeatOuterClass {
               break;
             }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                regionLeases_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.RegionLease>();
-                mutable_bitField0_ |= 0x00000001;
+              greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder subBuilder = null;
+              if (regionLease_ != null) {
+                subBuilder = regionLease_.toBuilder();
               }
-              regionLeases_.add(
-                  input.readMessage(greptime.v1.meta.HeartbeatOuterClass.RegionLease.parser(), extensionRegistry));
+              regionLease_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.RegionLease.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(regionLease_);
+                regionLease_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -3293,9 +3286,6 @@ public final class HeartbeatOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          regionLeases_ = java.util.Collections.unmodifiableList(regionLeases_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -3365,44 +3355,30 @@ public final class HeartbeatOuterClass {
       return getMailboxMessage();
     }
 
-    public static final int REGION_LEASES_FIELD_NUMBER = 3;
-    private java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> regionLeases_;
+    public static final int REGION_LEASE_FIELD_NUMBER = 3;
+    private greptime.v1.meta.HeartbeatOuterClass.RegionLease regionLease_;
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+     * @return Whether the regionLease field is set.
      */
     @java.lang.Override
-    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> getRegionLeasesList() {
-      return regionLeases_;
+    public boolean hasRegionLease() {
+      return regionLease_ != null;
     }
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+     * @return The regionLease.
      */
     @java.lang.Override
-    public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> 
-        getRegionLeasesOrBuilderList() {
-      return regionLeases_;
+    public greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLease() {
+      return regionLease_ == null ? greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance() : regionLease_;
     }
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
      */
     @java.lang.Override
-    public int getRegionLeasesCount() {
-      return regionLeases_.size();
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLeases(int index) {
-      return regionLeases_.get(index);
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeasesOrBuilder(
-        int index) {
-      return regionLeases_.get(index);
+    public greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeaseOrBuilder() {
+      return getRegionLease();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3425,8 +3401,8 @@ public final class HeartbeatOuterClass {
       if (mailboxMessage_ != null) {
         output.writeMessage(2, getMailboxMessage());
       }
-      for (int i = 0; i < regionLeases_.size(); i++) {
-        output.writeMessage(3, regionLeases_.get(i));
+      if (regionLease_ != null) {
+        output.writeMessage(3, getRegionLease());
       }
       unknownFields.writeTo(output);
     }
@@ -3445,9 +3421,9 @@ public final class HeartbeatOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getMailboxMessage());
       }
-      for (int i = 0; i < regionLeases_.size(); i++) {
+      if (regionLease_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, regionLeases_.get(i));
+          .computeMessageSize(3, getRegionLease());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3474,8 +3450,11 @@ public final class HeartbeatOuterClass {
         if (!getMailboxMessage()
             .equals(other.getMailboxMessage())) return false;
       }
-      if (!getRegionLeasesList()
-          .equals(other.getRegionLeasesList())) return false;
+      if (hasRegionLease() != other.hasRegionLease()) return false;
+      if (hasRegionLease()) {
+        if (!getRegionLease()
+            .equals(other.getRegionLease())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3495,9 +3474,9 @@ public final class HeartbeatOuterClass {
         hash = (37 * hash) + MAILBOX_MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + getMailboxMessage().hashCode();
       }
-      if (getRegionLeasesCount() > 0) {
-        hash = (37 * hash) + REGION_LEASES_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionLeasesList().hashCode();
+      if (hasRegionLease()) {
+        hash = (37 * hash) + REGION_LEASE_FIELD_NUMBER;
+        hash = (53 * hash) + getRegionLease().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3627,7 +3606,6 @@ public final class HeartbeatOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getRegionLeasesFieldBuilder();
         }
       }
       @java.lang.Override
@@ -3645,11 +3623,11 @@ public final class HeartbeatOuterClass {
           mailboxMessage_ = null;
           mailboxMessageBuilder_ = null;
         }
-        if (regionLeasesBuilder_ == null) {
-          regionLeases_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (regionLeaseBuilder_ == null) {
+          regionLease_ = null;
         } else {
-          regionLeasesBuilder_.clear();
+          regionLease_ = null;
+          regionLeaseBuilder_ = null;
         }
         return this;
       }
@@ -3677,7 +3655,6 @@ public final class HeartbeatOuterClass {
       @java.lang.Override
       public greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse result = new greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse(this);
-        int from_bitField0_ = bitField0_;
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
@@ -3688,14 +3665,10 @@ public final class HeartbeatOuterClass {
         } else {
           result.mailboxMessage_ = mailboxMessageBuilder_.build();
         }
-        if (regionLeasesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            regionLeases_ = java.util.Collections.unmodifiableList(regionLeases_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.regionLeases_ = regionLeases_;
+        if (regionLeaseBuilder_ == null) {
+          result.regionLease_ = regionLease_;
         } else {
-          result.regionLeases_ = regionLeasesBuilder_.build();
+          result.regionLease_ = regionLeaseBuilder_.build();
         }
         onBuilt();
         return result;
@@ -3751,31 +3724,8 @@ public final class HeartbeatOuterClass {
         if (other.hasMailboxMessage()) {
           mergeMailboxMessage(other.getMailboxMessage());
         }
-        if (regionLeasesBuilder_ == null) {
-          if (!other.regionLeases_.isEmpty()) {
-            if (regionLeases_.isEmpty()) {
-              regionLeases_ = other.regionLeases_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureRegionLeasesIsMutable();
-              regionLeases_.addAll(other.regionLeases_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.regionLeases_.isEmpty()) {
-            if (regionLeasesBuilder_.isEmpty()) {
-              regionLeasesBuilder_.dispose();
-              regionLeasesBuilder_ = null;
-              regionLeases_ = other.regionLeases_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              regionLeasesBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRegionLeasesFieldBuilder() : null;
-            } else {
-              regionLeasesBuilder_.addAllMessages(other.regionLeases_);
-            }
-          }
+        if (other.hasRegionLease()) {
+          mergeRegionLease(other.getRegionLease());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3805,7 +3755,6 @@ public final class HeartbeatOuterClass {
         }
         return this;
       }
-      private int bitField0_;
 
       private greptime.v1.meta.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4045,244 +3994,123 @@ public final class HeartbeatOuterClass {
         return mailboxMessageBuilder_;
       }
 
-      private java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> regionLeases_ =
-        java.util.Collections.emptyList();
-      private void ensureRegionLeasesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          regionLeases_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.RegionLease>(regionLeases_);
-          bitField0_ |= 0x00000001;
-         }
+      private greptime.v1.meta.HeartbeatOuterClass.RegionLease regionLease_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.RegionLease, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder, greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> regionLeaseBuilder_;
+      /**
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+       * @return Whether the regionLease field is set.
+       */
+      public boolean hasRegionLease() {
+        return regionLeaseBuilder_ != null || regionLease_ != null;
       }
+      /**
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+       * @return The regionLease.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLease() {
+        if (regionLeaseBuilder_ == null) {
+          return regionLease_ == null ? greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance() : regionLease_;
+        } else {
+          return regionLeaseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+       */
+      public Builder setRegionLease(greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
+        if (regionLeaseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          regionLease_ = value;
+          onChanged();
+        } else {
+          regionLeaseBuilder_.setMessage(value);
+        }
 
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.HeartbeatOuterClass.RegionLease, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder, greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> regionLeasesBuilder_;
-
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> getRegionLeasesList() {
-        if (regionLeasesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(regionLeases_);
-        } else {
-          return regionLeasesBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public int getRegionLeasesCount() {
-        if (regionLeasesBuilder_ == null) {
-          return regionLeases_.size();
-        } else {
-          return regionLeasesBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLeases(int index) {
-        if (regionLeasesBuilder_ == null) {
-          return regionLeases_.get(index);
-        } else {
-          return regionLeasesBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder setRegionLeases(
-          int index, greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
-        if (regionLeasesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRegionLeasesIsMutable();
-          regionLeases_.set(index, value);
-          onChanged();
-        } else {
-          regionLeasesBuilder_.setMessage(index, value);
-        }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public Builder setRegionLeases(
-          int index, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder builderForValue) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          regionLeases_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          regionLeasesBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder addRegionLeases(greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
-        if (regionLeasesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRegionLeasesIsMutable();
-          regionLeases_.add(value);
-          onChanged();
-        } else {
-          regionLeasesBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder addRegionLeases(
-          int index, greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
-        if (regionLeasesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRegionLeasesIsMutable();
-          regionLeases_.add(index, value);
-          onChanged();
-        } else {
-          regionLeasesBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder addRegionLeases(
+      public Builder setRegionLease(
           greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder builderForValue) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          regionLeases_.add(builderForValue.build());
+        if (regionLeaseBuilder_ == null) {
+          regionLease_ = builderForValue.build();
           onChanged();
         } else {
-          regionLeasesBuilder_.addMessage(builderForValue.build());
+          regionLeaseBuilder_.setMessage(builderForValue.build());
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public Builder addRegionLeases(
-          int index, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder builderForValue) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          regionLeases_.add(index, builderForValue.build());
+      public Builder mergeRegionLease(greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
+        if (regionLeaseBuilder_ == null) {
+          if (regionLease_ != null) {
+            regionLease_ =
+              greptime.v1.meta.HeartbeatOuterClass.RegionLease.newBuilder(regionLease_).mergeFrom(value).buildPartial();
+          } else {
+            regionLease_ = value;
+          }
           onChanged();
         } else {
-          regionLeasesBuilder_.addMessage(index, builderForValue.build());
+          regionLeaseBuilder_.mergeFrom(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public Builder addAllRegionLeases(
-          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.RegionLease> values) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, regionLeases_);
+      public Builder clearRegionLease() {
+        if (regionLeaseBuilder_ == null) {
+          regionLease_ = null;
           onChanged();
         } else {
-          regionLeasesBuilder_.addAllMessages(values);
+          regionLease_ = null;
+          regionLeaseBuilder_ = null;
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public Builder clearRegionLeases() {
-        if (regionLeasesBuilder_ == null) {
-          regionLeases_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
+      public greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder getRegionLeaseBuilder() {
+        
+        onChanged();
+        return getRegionLeaseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeaseOrBuilder() {
+        if (regionLeaseBuilder_ != null) {
+          return regionLeaseBuilder_.getMessageOrBuilder();
         } else {
-          regionLeasesBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder removeRegionLeases(int index) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          regionLeases_.remove(index);
-          onChanged();
-        } else {
-          regionLeasesBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder getRegionLeasesBuilder(
-          int index) {
-        return getRegionLeasesFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeasesOrBuilder(
-          int index) {
-        if (regionLeasesBuilder_ == null) {
-          return regionLeases_.get(index);  } else {
-          return regionLeasesBuilder_.getMessageOrBuilder(index);
+          return regionLease_ == null ?
+              greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance() : regionLease_;
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> 
-           getRegionLeasesOrBuilderList() {
-        if (regionLeasesBuilder_ != null) {
-          return regionLeasesBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(regionLeases_);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder addRegionLeasesBuilder() {
-        return getRegionLeasesFieldBuilder().addBuilder(
-            greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder addRegionLeasesBuilder(
-          int index) {
-        return getRegionLeasesFieldBuilder().addBuilder(
-            index, greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder> 
-           getRegionLeasesBuilderList() {
-        return getRegionLeasesFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
+      private com.google.protobuf.SingleFieldBuilderV3<
           greptime.v1.meta.HeartbeatOuterClass.RegionLease, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder, greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> 
-          getRegionLeasesFieldBuilder() {
-        if (regionLeasesBuilder_ == null) {
-          regionLeasesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          getRegionLeaseFieldBuilder() {
+        if (regionLeaseBuilder_ == null) {
+          regionLeaseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               greptime.v1.meta.HeartbeatOuterClass.RegionLease, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder, greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder>(
-                  regionLeases_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  getRegionLease(),
                   getParentForChildren(),
                   isClean());
-          regionLeases_ = null;
+          regionLease_ = null;
         }
-        return regionLeasesBuilder_;
+        return regionLeaseBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7967,28 +7795,28 @@ public final class HeartbeatOuterClass {
       "och\030\007 \001(\004\"\200\001\n\nRegionStat\022\021\n\tregion_id\030\001 " +
       "\001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021appro" +
       "ximate_bytes\030\004 \001(\003\022\030\n\020approximate_rows\030\005" +
-      " \001(\003\022\016\n\006engine\030\006 \001(\t\"\266\001\n\021HeartbeatRespon" +
+      " \001(\003\022\016\n\006engine\030\006 \001(\t\"\265\001\n\021HeartbeatRespon" +
       "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re" +
       "sponseHeader\0229\n\017mailbox_message\030\002 \001(\0132 ." +
-      "greptime.v1.meta.MailboxMessage\0224\n\rregio" +
-      "n_leases\030\003 \003(\0132\035.greptime.v1.meta.Region" +
-      "Lease\"V\n\013RegionLease\022\022\n\nregion_ids\030\001 \003(\004" +
-      "\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_" +
-      "seconds\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006hea" +
-      "der\030\001 \001(\0132\037.greptime.v1.meta.RequestHead" +
-      "er\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(\0132" +
-      " .greptime.v1.meta.ResponseHeader\022&\n\006lea" +
-      "der\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016Mai" +
-      "lboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t" +
-      "\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_" +
-      "millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload2" +
-      "\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime.v1" +
-      ".meta.HeartbeatRequest\032#.greptime.v1.met" +
-      "a.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\"" +
-      ".greptime.v1.meta.AskLeaderRequest\032#.gre" +
-      "ptime.v1.meta.AskLeaderResponse\"\000B<Z:git" +
-      "hub.com/GreptimeTeam/greptime-proto/go/g" +
-      "reptime/v1/metab\006proto3"
+      "greptime.v1.meta.MailboxMessage\0223\n\014regio" +
+      "n_lease\030\003 \001(\0132\035.greptime.v1.meta.RegionL" +
+      "ease\"V\n\013RegionLease\022\022\n\nregion_ids\030\001 \003(\004\022" +
+      "\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_s" +
+      "econds\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006head" +
+      "er\030\001 \001(\0132\037.greptime.v1.meta.RequestHeade" +
+      "r\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(\0132 " +
+      ".greptime.v1.meta.ResponseHeader\022&\n\006lead" +
+      "er\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016Mail" +
+      "boxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022" +
+      "\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_m" +
+      "illis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload2\277" +
+      "\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime.v1." +
+      "meta.HeartbeatRequest\032#.greptime.v1.meta" +
+      ".HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\"." +
+      "greptime.v1.meta.AskLeaderRequest\032#.grep" +
+      "time.v1.meta.AskLeaderResponse\"\000B<Z:gith" +
+      "ub.com/GreptimeTeam/greptime-proto/go/gr" +
+      "eptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8012,7 +7840,7 @@ public final class HeartbeatOuterClass {
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatResponse_descriptor,
-        new java.lang.String[] { "Header", "MailboxMessage", "RegionLeases", });
+        new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", });
     internal_static_greptime_v1_meta_RegionLease_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_meta_RegionLease_fieldAccessorTable = new

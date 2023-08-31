@@ -675,28 +675,10 @@ class HeartbeatResponse final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRegionLeasesFieldNumber = 3,
     kHeaderFieldNumber = 1,
     kMailboxMessageFieldNumber = 2,
+    kRegionLeaseFieldNumber = 3,
   };
-  // repeated .greptime.v1.meta.RegionLease region_leases = 3;
-  int region_leases_size() const;
-  private:
-  int _internal_region_leases_size() const;
-  public:
-  void clear_region_leases();
-  ::greptime::v1::meta::RegionLease* mutable_region_leases(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionLease >*
-      mutable_region_leases();
-  private:
-  const ::greptime::v1::meta::RegionLease& _internal_region_leases(int index) const;
-  ::greptime::v1::meta::RegionLease* _internal_add_region_leases();
-  public:
-  const ::greptime::v1::meta::RegionLease& region_leases(int index) const;
-  ::greptime::v1::meta::RegionLease* add_region_leases();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionLease >&
-      region_leases() const;
-
   // .greptime.v1.meta.ResponseHeader header = 1;
   bool has_header() const;
   private:
@@ -733,6 +715,24 @@ class HeartbeatResponse final :
       ::greptime::v1::meta::MailboxMessage* mailbox_message);
   ::greptime::v1::meta::MailboxMessage* unsafe_arena_release_mailbox_message();
 
+  // .greptime.v1.meta.RegionLease region_lease = 3;
+  bool has_region_lease() const;
+  private:
+  bool _internal_has_region_lease() const;
+  public:
+  void clear_region_lease();
+  const ::greptime::v1::meta::RegionLease& region_lease() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::RegionLease* release_region_lease();
+  ::greptime::v1::meta::RegionLease* mutable_region_lease();
+  void set_allocated_region_lease(::greptime::v1::meta::RegionLease* region_lease);
+  private:
+  const ::greptime::v1::meta::RegionLease& _internal_region_lease() const;
+  ::greptime::v1::meta::RegionLease* _internal_mutable_region_lease();
+  public:
+  void unsafe_arena_set_allocated_region_lease(
+      ::greptime::v1::meta::RegionLease* region_lease);
+  ::greptime::v1::meta::RegionLease* unsafe_arena_release_region_lease();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.HeartbeatResponse)
  private:
   class _Internal;
@@ -741,9 +741,9 @@ class HeartbeatResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionLease > region_leases_;
     ::greptime::v1::meta::ResponseHeader* header_;
     ::greptime::v1::meta::MailboxMessage* mailbox_message_;
+    ::greptime::v1::meta::RegionLease* region_lease_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2280,44 +2280,94 @@ inline void HeartbeatResponse::set_allocated_mailbox_message(::greptime::v1::met
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatResponse.mailbox_message)
 }
 
-// repeated .greptime.v1.meta.RegionLease region_leases = 3;
-inline int HeartbeatResponse::_internal_region_leases_size() const {
-  return _impl_.region_leases_.size();
+// .greptime.v1.meta.RegionLease region_lease = 3;
+inline bool HeartbeatResponse::_internal_has_region_lease() const {
+  return this != internal_default_instance() && _impl_.region_lease_ != nullptr;
 }
-inline int HeartbeatResponse::region_leases_size() const {
-  return _internal_region_leases_size();
+inline bool HeartbeatResponse::has_region_lease() const {
+  return _internal_has_region_lease();
 }
-inline void HeartbeatResponse::clear_region_leases() {
-  _impl_.region_leases_.Clear();
+inline void HeartbeatResponse::clear_region_lease() {
+  if (GetArenaForAllocation() == nullptr && _impl_.region_lease_ != nullptr) {
+    delete _impl_.region_lease_;
+  }
+  _impl_.region_lease_ = nullptr;
 }
-inline ::greptime::v1::meta::RegionLease* HeartbeatResponse::mutable_region_leases(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatResponse.region_leases)
-  return _impl_.region_leases_.Mutable(index);
+inline const ::greptime::v1::meta::RegionLease& HeartbeatResponse::_internal_region_lease() const {
+  const ::greptime::v1::meta::RegionLease* p = _impl_.region_lease_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::RegionLease&>(
+      ::greptime::v1::meta::_RegionLease_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionLease >*
-HeartbeatResponse::mutable_region_leases() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.HeartbeatResponse.region_leases)
-  return &_impl_.region_leases_;
+inline const ::greptime::v1::meta::RegionLease& HeartbeatResponse::region_lease() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatResponse.region_lease)
+  return _internal_region_lease();
 }
-inline const ::greptime::v1::meta::RegionLease& HeartbeatResponse::_internal_region_leases(int index) const {
-  return _impl_.region_leases_.Get(index);
+inline void HeartbeatResponse::unsafe_arena_set_allocated_region_lease(
+    ::greptime::v1::meta::RegionLease* region_lease) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.region_lease_);
+  }
+  _impl_.region_lease_ = region_lease;
+  if (region_lease) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.HeartbeatResponse.region_lease)
 }
-inline const ::greptime::v1::meta::RegionLease& HeartbeatResponse::region_leases(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatResponse.region_leases)
-  return _internal_region_leases(index);
+inline ::greptime::v1::meta::RegionLease* HeartbeatResponse::release_region_lease() {
+  
+  ::greptime::v1::meta::RegionLease* temp = _impl_.region_lease_;
+  _impl_.region_lease_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline ::greptime::v1::meta::RegionLease* HeartbeatResponse::_internal_add_region_leases() {
-  return _impl_.region_leases_.Add();
+inline ::greptime::v1::meta::RegionLease* HeartbeatResponse::unsafe_arena_release_region_lease() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.HeartbeatResponse.region_lease)
+  
+  ::greptime::v1::meta::RegionLease* temp = _impl_.region_lease_;
+  _impl_.region_lease_ = nullptr;
+  return temp;
 }
-inline ::greptime::v1::meta::RegionLease* HeartbeatResponse::add_region_leases() {
-  ::greptime::v1::meta::RegionLease* _add = _internal_add_region_leases();
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.HeartbeatResponse.region_leases)
-  return _add;
+inline ::greptime::v1::meta::RegionLease* HeartbeatResponse::_internal_mutable_region_lease() {
+  
+  if (_impl_.region_lease_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::RegionLease>(GetArenaForAllocation());
+    _impl_.region_lease_ = p;
+  }
+  return _impl_.region_lease_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionLease >&
-HeartbeatResponse::region_leases() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.HeartbeatResponse.region_leases)
-  return _impl_.region_leases_;
+inline ::greptime::v1::meta::RegionLease* HeartbeatResponse::mutable_region_lease() {
+  ::greptime::v1::meta::RegionLease* _msg = _internal_mutable_region_lease();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatResponse.region_lease)
+  return _msg;
+}
+inline void HeartbeatResponse::set_allocated_region_lease(::greptime::v1::meta::RegionLease* region_lease) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.region_lease_;
+  }
+  if (region_lease) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(region_lease);
+    if (message_arena != submessage_arena) {
+      region_lease = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, region_lease, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.region_lease_ = region_lease;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatResponse.region_lease)
 }
 
 // -------------------------------------------------------------------

@@ -65,7 +65,7 @@ message RegionStat {
 message HeartbeatResponse {
   ResponseHeader header = 1;
   MailboxMessage mailbox_message = 2;
-  repeated RegionLease region_leases = 3;
+  RegionLease region_lease = 3;
 }
 
 message RegionLease {
