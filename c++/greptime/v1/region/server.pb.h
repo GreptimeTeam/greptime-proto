@@ -259,11 +259,7 @@ class RegionRequestHeader final :
     kTraceIdFieldNumber = 1,
     kSpanIdFieldNumber = 2,
   };
-  // optional uint64 trace_id = 1;
-  bool has_trace_id() const;
-  private:
-  bool _internal_has_trace_id() const;
-  public:
+  // uint64 trace_id = 1;
   void clear_trace_id();
   uint64_t trace_id() const;
   void set_trace_id(uint64_t value);
@@ -272,11 +268,7 @@ class RegionRequestHeader final :
   void _internal_set_trace_id(uint64_t value);
   public:
 
-  // optional uint64 span_id = 2;
-  bool has_span_id() const;
-  private:
-  bool _internal_has_span_id() const;
-  public:
+  // uint64 span_id = 2;
   void clear_span_id();
   uint64_t span_id() const;
   void set_span_id(uint64_t value);
@@ -293,10 +285,9 @@ class RegionRequestHeader final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint64_t trace_id_;
     uint64_t span_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
@@ -3173,17 +3164,9 @@ class ColumnDef final :
 #endif  // __GNUC__
 // RegionRequestHeader
 
-// optional uint64 trace_id = 1;
-inline bool RegionRequestHeader::_internal_has_trace_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool RegionRequestHeader::has_trace_id() const {
-  return _internal_has_trace_id();
-}
+// uint64 trace_id = 1;
 inline void RegionRequestHeader::clear_trace_id() {
   _impl_.trace_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint64_t RegionRequestHeader::_internal_trace_id() const {
   return _impl_.trace_id_;
@@ -3193,7 +3176,7 @@ inline uint64_t RegionRequestHeader::trace_id() const {
   return _internal_trace_id();
 }
 inline void RegionRequestHeader::_internal_set_trace_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  
   _impl_.trace_id_ = value;
 }
 inline void RegionRequestHeader::set_trace_id(uint64_t value) {
@@ -3201,17 +3184,9 @@ inline void RegionRequestHeader::set_trace_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.RegionRequestHeader.trace_id)
 }
 
-// optional uint64 span_id = 2;
-inline bool RegionRequestHeader::_internal_has_span_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool RegionRequestHeader::has_span_id() const {
-  return _internal_has_span_id();
-}
+// uint64 span_id = 2;
 inline void RegionRequestHeader::clear_span_id() {
   _impl_.span_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint64_t RegionRequestHeader::_internal_span_id() const {
   return _impl_.span_id_;
@@ -3221,7 +3196,7 @@ inline uint64_t RegionRequestHeader::span_id() const {
   return _internal_span_id();
 }
 inline void RegionRequestHeader::_internal_set_span_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  
   _impl_.span_id_ = value;
 }
 inline void RegionRequestHeader::set_span_id(uint64_t value) {

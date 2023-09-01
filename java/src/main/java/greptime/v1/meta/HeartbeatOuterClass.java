@@ -89,37 +89,10 @@ public final class HeartbeatOuterClass {
 
     /**
      * <pre>
-     * Node stat
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-     * @return Whether the nodeStat field is set.
-     */
-    boolean hasNodeStat();
-    /**
-     * <pre>
-     * Node stat
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-     * @return The nodeStat.
-     */
-    greptime.v1.meta.HeartbeatOuterClass.NodeStat getNodeStat();
-    /**
-     * <pre>
-     * Node stat
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-     */
-    greptime.v1.meta.HeartbeatOuterClass.NodeStatOrBuilder getNodeStatOrBuilder();
-
-    /**
-     * <pre>
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionStat> 
         getRegionStatsList();
@@ -128,7 +101,7 @@ public final class HeartbeatOuterClass {
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     greptime.v1.meta.HeartbeatOuterClass.RegionStat getRegionStats(int index);
     /**
@@ -136,7 +109,7 @@ public final class HeartbeatOuterClass {
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     int getRegionStatsCount();
     /**
@@ -144,7 +117,7 @@ public final class HeartbeatOuterClass {
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.RegionStatOrBuilder> 
         getRegionStatsOrBuilderList();
@@ -153,7 +126,7 @@ public final class HeartbeatOuterClass {
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     greptime.v1.meta.HeartbeatOuterClass.RegionStatOrBuilder getRegionStatsOrBuilder(
         int index);
@@ -163,7 +136,7 @@ public final class HeartbeatOuterClass {
      * Mailbox send message to Metasrv
      * </pre>
      *
-     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
      * @return Whether the mailboxMessage field is set.
      */
     boolean hasMailboxMessage();
@@ -172,7 +145,7 @@ public final class HeartbeatOuterClass {
      * Mailbox send message to Metasrv
      * </pre>
      *
-     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
      * @return The mailboxMessage.
      */
     greptime.v1.meta.HeartbeatOuterClass.MailboxMessage getMailboxMessage();
@@ -181,7 +154,7 @@ public final class HeartbeatOuterClass {
      * Mailbox send message to Metasrv
      * </pre>
      *
-     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
      */
     greptime.v1.meta.HeartbeatOuterClass.MailboxMessageOrBuilder getMailboxMessageOrBuilder();
 
@@ -190,7 +163,7 @@ public final class HeartbeatOuterClass {
      * The duration since the heartbeat task's epoch in milliseconds.
      * </pre>
      *
-     * <code>uint64 duration_since_epoch = 7;</code>
+     * <code>uint64 duration_since_epoch = 6;</code>
      * @return The durationSinceEpoch.
      */
     long getDurationSinceEpoch();
@@ -200,7 +173,7 @@ public final class HeartbeatOuterClass {
      * The node's epoch
      * </pre>
      *
-     * <code>uint64 node_epoch = 8;</code>
+     * <code>uint64 node_epoch = 7;</code>
      * @return The nodeEpoch.
      */
     long getNodeEpoch();
@@ -292,19 +265,6 @@ public final class HeartbeatOuterClass {
               break;
             }
             case 34: {
-              greptime.v1.meta.HeartbeatOuterClass.NodeStat.Builder subBuilder = null;
-              if (nodeStat_ != null) {
-                subBuilder = nodeStat_.toBuilder();
-              }
-              nodeStat_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.NodeStat.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(nodeStat_);
-                nodeStat_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 regionStats_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.RegionStat>();
                 mutable_bitField0_ |= 0x00000001;
@@ -313,7 +273,7 @@ public final class HeartbeatOuterClass {
                   input.readMessage(greptime.v1.meta.HeartbeatOuterClass.RegionStat.parser(), extensionRegistry));
               break;
             }
-            case 50: {
+            case 42: {
               greptime.v1.meta.HeartbeatOuterClass.MailboxMessage.Builder subBuilder = null;
               if (mailboxMessage_ != null) {
                 subBuilder = mailboxMessage_.toBuilder();
@@ -326,12 +286,12 @@ public final class HeartbeatOuterClass {
 
               break;
             }
-            case 56: {
+            case 48: {
 
               durationSinceEpoch_ = input.readUInt64();
               break;
             }
-            case 64: {
+            case 56: {
 
               nodeEpoch_ = input.readUInt64();
               break;
@@ -475,52 +435,14 @@ public final class HeartbeatOuterClass {
       return getReportInterval();
     }
 
-    public static final int NODE_STAT_FIELD_NUMBER = 4;
-    private greptime.v1.meta.HeartbeatOuterClass.NodeStat nodeStat_;
-    /**
-     * <pre>
-     * Node stat
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-     * @return Whether the nodeStat field is set.
-     */
-    @java.lang.Override
-    public boolean hasNodeStat() {
-      return nodeStat_ != null;
-    }
-    /**
-     * <pre>
-     * Node stat
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-     * @return The nodeStat.
-     */
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.NodeStat getNodeStat() {
-      return nodeStat_ == null ? greptime.v1.meta.HeartbeatOuterClass.NodeStat.getDefaultInstance() : nodeStat_;
-    }
-    /**
-     * <pre>
-     * Node stat
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.NodeStatOrBuilder getNodeStatOrBuilder() {
-      return getNodeStat();
-    }
-
-    public static final int REGION_STATS_FIELD_NUMBER = 5;
+    public static final int REGION_STATS_FIELD_NUMBER = 4;
     private java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionStat> regionStats_;
     /**
      * <pre>
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     @java.lang.Override
     public java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionStat> getRegionStatsList() {
@@ -531,7 +453,7 @@ public final class HeartbeatOuterClass {
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     @java.lang.Override
     public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.RegionStatOrBuilder> 
@@ -543,7 +465,7 @@ public final class HeartbeatOuterClass {
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     @java.lang.Override
     public int getRegionStatsCount() {
@@ -554,7 +476,7 @@ public final class HeartbeatOuterClass {
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     @java.lang.Override
     public greptime.v1.meta.HeartbeatOuterClass.RegionStat getRegionStats(int index) {
@@ -565,7 +487,7 @@ public final class HeartbeatOuterClass {
      * Region stats on this node
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+     * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
      */
     @java.lang.Override
     public greptime.v1.meta.HeartbeatOuterClass.RegionStatOrBuilder getRegionStatsOrBuilder(
@@ -573,14 +495,14 @@ public final class HeartbeatOuterClass {
       return regionStats_.get(index);
     }
 
-    public static final int MAILBOX_MESSAGE_FIELD_NUMBER = 6;
+    public static final int MAILBOX_MESSAGE_FIELD_NUMBER = 5;
     private greptime.v1.meta.HeartbeatOuterClass.MailboxMessage mailboxMessage_;
     /**
      * <pre>
      * Mailbox send message to Metasrv
      * </pre>
      *
-     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
      * @return Whether the mailboxMessage field is set.
      */
     @java.lang.Override
@@ -592,7 +514,7 @@ public final class HeartbeatOuterClass {
      * Mailbox send message to Metasrv
      * </pre>
      *
-     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
      * @return The mailboxMessage.
      */
     @java.lang.Override
@@ -604,21 +526,21 @@ public final class HeartbeatOuterClass {
      * Mailbox send message to Metasrv
      * </pre>
      *
-     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+     * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
      */
     @java.lang.Override
     public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageOrBuilder getMailboxMessageOrBuilder() {
       return getMailboxMessage();
     }
 
-    public static final int DURATION_SINCE_EPOCH_FIELD_NUMBER = 7;
+    public static final int DURATION_SINCE_EPOCH_FIELD_NUMBER = 6;
     private long durationSinceEpoch_;
     /**
      * <pre>
      * The duration since the heartbeat task's epoch in milliseconds.
      * </pre>
      *
-     * <code>uint64 duration_since_epoch = 7;</code>
+     * <code>uint64 duration_since_epoch = 6;</code>
      * @return The durationSinceEpoch.
      */
     @java.lang.Override
@@ -626,14 +548,14 @@ public final class HeartbeatOuterClass {
       return durationSinceEpoch_;
     }
 
-    public static final int NODE_EPOCH_FIELD_NUMBER = 8;
+    public static final int NODE_EPOCH_FIELD_NUMBER = 7;
     private long nodeEpoch_;
     /**
      * <pre>
      * The node's epoch
      * </pre>
      *
-     * <code>uint64 node_epoch = 8;</code>
+     * <code>uint64 node_epoch = 7;</code>
      * @return The nodeEpoch.
      */
     @java.lang.Override
@@ -664,20 +586,17 @@ public final class HeartbeatOuterClass {
       if (reportInterval_ != null) {
         output.writeMessage(3, getReportInterval());
       }
-      if (nodeStat_ != null) {
-        output.writeMessage(4, getNodeStat());
-      }
       for (int i = 0; i < regionStats_.size(); i++) {
-        output.writeMessage(5, regionStats_.get(i));
+        output.writeMessage(4, regionStats_.get(i));
       }
       if (mailboxMessage_ != null) {
-        output.writeMessage(6, getMailboxMessage());
+        output.writeMessage(5, getMailboxMessage());
       }
       if (durationSinceEpoch_ != 0L) {
-        output.writeUInt64(7, durationSinceEpoch_);
+        output.writeUInt64(6, durationSinceEpoch_);
       }
       if (nodeEpoch_ != 0L) {
-        output.writeUInt64(8, nodeEpoch_);
+        output.writeUInt64(7, nodeEpoch_);
       }
       unknownFields.writeTo(output);
     }
@@ -700,25 +619,21 @@ public final class HeartbeatOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getReportInterval());
       }
-      if (nodeStat_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getNodeStat());
-      }
       for (int i = 0; i < regionStats_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, regionStats_.get(i));
+          .computeMessageSize(4, regionStats_.get(i));
       }
       if (mailboxMessage_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getMailboxMessage());
+          .computeMessageSize(5, getMailboxMessage());
       }
       if (durationSinceEpoch_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(7, durationSinceEpoch_);
+          .computeUInt64Size(6, durationSinceEpoch_);
       }
       if (nodeEpoch_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(8, nodeEpoch_);
+          .computeUInt64Size(7, nodeEpoch_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -749,11 +664,6 @@ public final class HeartbeatOuterClass {
       if (hasReportInterval()) {
         if (!getReportInterval()
             .equals(other.getReportInterval())) return false;
-      }
-      if (hasNodeStat() != other.hasNodeStat()) return false;
-      if (hasNodeStat()) {
-        if (!getNodeStat()
-            .equals(other.getNodeStat())) return false;
       }
       if (!getRegionStatsList()
           .equals(other.getRegionStatsList())) return false;
@@ -788,10 +698,6 @@ public final class HeartbeatOuterClass {
       if (hasReportInterval()) {
         hash = (37 * hash) + REPORT_INTERVAL_FIELD_NUMBER;
         hash = (53 * hash) + getReportInterval().hashCode();
-      }
-      if (hasNodeStat()) {
-        hash = (37 * hash) + NODE_STAT_FIELD_NUMBER;
-        hash = (53 * hash) + getNodeStat().hashCode();
       }
       if (getRegionStatsCount() > 0) {
         hash = (37 * hash) + REGION_STATS_FIELD_NUMBER;
@@ -959,12 +865,6 @@ public final class HeartbeatOuterClass {
           reportInterval_ = null;
           reportIntervalBuilder_ = null;
         }
-        if (nodeStatBuilder_ == null) {
-          nodeStat_ = null;
-        } else {
-          nodeStat_ = null;
-          nodeStatBuilder_ = null;
-        }
         if (regionStatsBuilder_ == null) {
           regionStats_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -1022,11 +922,6 @@ public final class HeartbeatOuterClass {
           result.reportInterval_ = reportInterval_;
         } else {
           result.reportInterval_ = reportIntervalBuilder_.build();
-        }
-        if (nodeStatBuilder_ == null) {
-          result.nodeStat_ = nodeStat_;
-        } else {
-          result.nodeStat_ = nodeStatBuilder_.build();
         }
         if (regionStatsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -1100,9 +995,6 @@ public final class HeartbeatOuterClass {
         }
         if (other.hasReportInterval()) {
           mergeReportInterval(other.getReportInterval());
-        }
-        if (other.hasNodeStat()) {
-          mergeNodeStat(other.getNodeStat());
         }
         if (regionStatsBuilder_ == null) {
           if (!other.regionStats_.isEmpty()) {
@@ -1598,161 +1490,6 @@ public final class HeartbeatOuterClass {
         return reportIntervalBuilder_;
       }
 
-      private greptime.v1.meta.HeartbeatOuterClass.NodeStat nodeStat_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.HeartbeatOuterClass.NodeStat, greptime.v1.meta.HeartbeatOuterClass.NodeStat.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeStatOrBuilder> nodeStatBuilder_;
-      /**
-       * <pre>
-       * Node stat
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-       * @return Whether the nodeStat field is set.
-       */
-      public boolean hasNodeStat() {
-        return nodeStatBuilder_ != null || nodeStat_ != null;
-      }
-      /**
-       * <pre>
-       * Node stat
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-       * @return The nodeStat.
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.NodeStat getNodeStat() {
-        if (nodeStatBuilder_ == null) {
-          return nodeStat_ == null ? greptime.v1.meta.HeartbeatOuterClass.NodeStat.getDefaultInstance() : nodeStat_;
-        } else {
-          return nodeStatBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * Node stat
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-       */
-      public Builder setNodeStat(greptime.v1.meta.HeartbeatOuterClass.NodeStat value) {
-        if (nodeStatBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          nodeStat_ = value;
-          onChanged();
-        } else {
-          nodeStatBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Node stat
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-       */
-      public Builder setNodeStat(
-          greptime.v1.meta.HeartbeatOuterClass.NodeStat.Builder builderForValue) {
-        if (nodeStatBuilder_ == null) {
-          nodeStat_ = builderForValue.build();
-          onChanged();
-        } else {
-          nodeStatBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Node stat
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-       */
-      public Builder mergeNodeStat(greptime.v1.meta.HeartbeatOuterClass.NodeStat value) {
-        if (nodeStatBuilder_ == null) {
-          if (nodeStat_ != null) {
-            nodeStat_ =
-              greptime.v1.meta.HeartbeatOuterClass.NodeStat.newBuilder(nodeStat_).mergeFrom(value).buildPartial();
-          } else {
-            nodeStat_ = value;
-          }
-          onChanged();
-        } else {
-          nodeStatBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Node stat
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-       */
-      public Builder clearNodeStat() {
-        if (nodeStatBuilder_ == null) {
-          nodeStat_ = null;
-          onChanged();
-        } else {
-          nodeStat_ = null;
-          nodeStatBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Node stat
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.NodeStat.Builder getNodeStatBuilder() {
-        
-        onChanged();
-        return getNodeStatFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * Node stat
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.NodeStatOrBuilder getNodeStatOrBuilder() {
-        if (nodeStatBuilder_ != null) {
-          return nodeStatBuilder_.getMessageOrBuilder();
-        } else {
-          return nodeStat_ == null ?
-              greptime.v1.meta.HeartbeatOuterClass.NodeStat.getDefaultInstance() : nodeStat_;
-        }
-      }
-      /**
-       * <pre>
-       * Node stat
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.NodeStat node_stat = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.HeartbeatOuterClass.NodeStat, greptime.v1.meta.HeartbeatOuterClass.NodeStat.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeStatOrBuilder> 
-          getNodeStatFieldBuilder() {
-        if (nodeStatBuilder_ == null) {
-          nodeStatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              greptime.v1.meta.HeartbeatOuterClass.NodeStat, greptime.v1.meta.HeartbeatOuterClass.NodeStat.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeStatOrBuilder>(
-                  getNodeStat(),
-                  getParentForChildren(),
-                  isClean());
-          nodeStat_ = null;
-        }
-        return nodeStatBuilder_;
-      }
-
       private java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionStat> regionStats_ =
         java.util.Collections.emptyList();
       private void ensureRegionStatsIsMutable() {
@@ -1770,7 +1507,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionStat> getRegionStatsList() {
         if (regionStatsBuilder_ == null) {
@@ -1784,7 +1521,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public int getRegionStatsCount() {
         if (regionStatsBuilder_ == null) {
@@ -1798,7 +1535,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public greptime.v1.meta.HeartbeatOuterClass.RegionStat getRegionStats(int index) {
         if (regionStatsBuilder_ == null) {
@@ -1812,7 +1549,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public Builder setRegionStats(
           int index, greptime.v1.meta.HeartbeatOuterClass.RegionStat value) {
@@ -1833,7 +1570,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public Builder setRegionStats(
           int index, greptime.v1.meta.HeartbeatOuterClass.RegionStat.Builder builderForValue) {
@@ -1851,7 +1588,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public Builder addRegionStats(greptime.v1.meta.HeartbeatOuterClass.RegionStat value) {
         if (regionStatsBuilder_ == null) {
@@ -1871,7 +1608,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public Builder addRegionStats(
           int index, greptime.v1.meta.HeartbeatOuterClass.RegionStat value) {
@@ -1892,7 +1629,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public Builder addRegionStats(
           greptime.v1.meta.HeartbeatOuterClass.RegionStat.Builder builderForValue) {
@@ -1910,7 +1647,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public Builder addRegionStats(
           int index, greptime.v1.meta.HeartbeatOuterClass.RegionStat.Builder builderForValue) {
@@ -1928,7 +1665,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public Builder addAllRegionStats(
           java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.RegionStat> values) {
@@ -1947,7 +1684,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public Builder clearRegionStats() {
         if (regionStatsBuilder_ == null) {
@@ -1964,7 +1701,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public Builder removeRegionStats(int index) {
         if (regionStatsBuilder_ == null) {
@@ -1981,7 +1718,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public greptime.v1.meta.HeartbeatOuterClass.RegionStat.Builder getRegionStatsBuilder(
           int index) {
@@ -1992,7 +1729,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public greptime.v1.meta.HeartbeatOuterClass.RegionStatOrBuilder getRegionStatsOrBuilder(
           int index) {
@@ -2006,7 +1743,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.RegionStatOrBuilder> 
            getRegionStatsOrBuilderList() {
@@ -2021,7 +1758,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public greptime.v1.meta.HeartbeatOuterClass.RegionStat.Builder addRegionStatsBuilder() {
         return getRegionStatsFieldBuilder().addBuilder(
@@ -2032,7 +1769,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public greptime.v1.meta.HeartbeatOuterClass.RegionStat.Builder addRegionStatsBuilder(
           int index) {
@@ -2044,7 +1781,7 @@ public final class HeartbeatOuterClass {
        * Region stats on this node
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 5;</code>
+       * <code>repeated .greptime.v1.meta.RegionStat region_stats = 4;</code>
        */
       public java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionStat.Builder> 
            getRegionStatsBuilderList() {
@@ -2073,7 +1810,7 @@ public final class HeartbeatOuterClass {
        * Mailbox send message to Metasrv
        * </pre>
        *
-       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
        * @return Whether the mailboxMessage field is set.
        */
       public boolean hasMailboxMessage() {
@@ -2084,7 +1821,7 @@ public final class HeartbeatOuterClass {
        * Mailbox send message to Metasrv
        * </pre>
        *
-       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
        * @return The mailboxMessage.
        */
       public greptime.v1.meta.HeartbeatOuterClass.MailboxMessage getMailboxMessage() {
@@ -2099,7 +1836,7 @@ public final class HeartbeatOuterClass {
        * Mailbox send message to Metasrv
        * </pre>
        *
-       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
        */
       public Builder setMailboxMessage(greptime.v1.meta.HeartbeatOuterClass.MailboxMessage value) {
         if (mailboxMessageBuilder_ == null) {
@@ -2119,7 +1856,7 @@ public final class HeartbeatOuterClass {
        * Mailbox send message to Metasrv
        * </pre>
        *
-       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
        */
       public Builder setMailboxMessage(
           greptime.v1.meta.HeartbeatOuterClass.MailboxMessage.Builder builderForValue) {
@@ -2137,7 +1874,7 @@ public final class HeartbeatOuterClass {
        * Mailbox send message to Metasrv
        * </pre>
        *
-       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
        */
       public Builder mergeMailboxMessage(greptime.v1.meta.HeartbeatOuterClass.MailboxMessage value) {
         if (mailboxMessageBuilder_ == null) {
@@ -2159,7 +1896,7 @@ public final class HeartbeatOuterClass {
        * Mailbox send message to Metasrv
        * </pre>
        *
-       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
        */
       public Builder clearMailboxMessage() {
         if (mailboxMessageBuilder_ == null) {
@@ -2177,7 +1914,7 @@ public final class HeartbeatOuterClass {
        * Mailbox send message to Metasrv
        * </pre>
        *
-       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
        */
       public greptime.v1.meta.HeartbeatOuterClass.MailboxMessage.Builder getMailboxMessageBuilder() {
         
@@ -2189,7 +1926,7 @@ public final class HeartbeatOuterClass {
        * Mailbox send message to Metasrv
        * </pre>
        *
-       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
        */
       public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageOrBuilder getMailboxMessageOrBuilder() {
         if (mailboxMessageBuilder_ != null) {
@@ -2204,7 +1941,7 @@ public final class HeartbeatOuterClass {
        * Mailbox send message to Metasrv
        * </pre>
        *
-       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 6;</code>
+       * <code>.greptime.v1.meta.MailboxMessage mailbox_message = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           greptime.v1.meta.HeartbeatOuterClass.MailboxMessage, greptime.v1.meta.HeartbeatOuterClass.MailboxMessage.Builder, greptime.v1.meta.HeartbeatOuterClass.MailboxMessageOrBuilder> 
@@ -2226,7 +1963,7 @@ public final class HeartbeatOuterClass {
        * The duration since the heartbeat task's epoch in milliseconds.
        * </pre>
        *
-       * <code>uint64 duration_since_epoch = 7;</code>
+       * <code>uint64 duration_since_epoch = 6;</code>
        * @return The durationSinceEpoch.
        */
       @java.lang.Override
@@ -2238,7 +1975,7 @@ public final class HeartbeatOuterClass {
        * The duration since the heartbeat task's epoch in milliseconds.
        * </pre>
        *
-       * <code>uint64 duration_since_epoch = 7;</code>
+       * <code>uint64 duration_since_epoch = 6;</code>
        * @param value The durationSinceEpoch to set.
        * @return This builder for chaining.
        */
@@ -2253,7 +1990,7 @@ public final class HeartbeatOuterClass {
        * The duration since the heartbeat task's epoch in milliseconds.
        * </pre>
        *
-       * <code>uint64 duration_since_epoch = 7;</code>
+       * <code>uint64 duration_since_epoch = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearDurationSinceEpoch() {
@@ -2269,7 +2006,7 @@ public final class HeartbeatOuterClass {
        * The node's epoch
        * </pre>
        *
-       * <code>uint64 node_epoch = 8;</code>
+       * <code>uint64 node_epoch = 7;</code>
        * @return The nodeEpoch.
        */
       @java.lang.Override
@@ -2281,7 +2018,7 @@ public final class HeartbeatOuterClass {
        * The node's epoch
        * </pre>
        *
-       * <code>uint64 node_epoch = 8;</code>
+       * <code>uint64 node_epoch = 7;</code>
        * @param value The nodeEpoch to set.
        * @return This builder for chaining.
        */
@@ -2296,7 +2033,7 @@ public final class HeartbeatOuterClass {
        * The node's epoch
        * </pre>
        *
-       * <code>uint64 node_epoch = 8;</code>
+       * <code>uint64 node_epoch = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearNodeEpoch() {
@@ -2358,1179 +2095,6 @@ public final class HeartbeatOuterClass {
 
   }
 
-  public interface NodeStatOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.NodeStat)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * The read capacity units during this period
-     * </pre>
-     *
-     * <code>int64 rcus = 1;</code>
-     * @return The rcus.
-     */
-    long getRcus();
-
-    /**
-     * <pre>
-     * The write capacity units during this period
-     * </pre>
-     *
-     * <code>int64 wcus = 2;</code>
-     * @return The wcus.
-     */
-    long getWcus();
-
-    /**
-     * <pre>
-     * How many tables on this node
-     * </pre>
-     *
-     * <code>int64 table_num = 3;</code>
-     * @return The tableNum.
-     */
-    long getTableNum();
-
-    /**
-     * <pre>
-     * How many regions on this node
-     * </pre>
-     *
-     * <code>int64 region_num = 4;</code>
-     * @return The regionNum.
-     */
-    long getRegionNum();
-
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    int getAttrsCount();
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    boolean containsAttrs(
-        java.lang.String key);
-    /**
-     * Use {@link #getAttrsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getAttrs();
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getAttrsMap();
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-
-    /* nullable */
-java.lang.String getAttrsOrDefault(
-        java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-
-    java.lang.String getAttrsOrThrow(
-        java.lang.String key);
-  }
-  /**
-   * Protobuf type {@code greptime.v1.meta.NodeStat}
-   */
-  public static final class NodeStat extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.meta.NodeStat)
-      NodeStatOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use NodeStat.newBuilder() to construct.
-    private NodeStat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private NodeStat() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new NodeStat();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private NodeStat(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              rcus_ = input.readInt64();
-              break;
-            }
-            case 16: {
-
-              wcus_ = input.readInt64();
-              break;
-            }
-            case 24: {
-
-              tableNum_ = input.readInt64();
-              break;
-            }
-            case 32: {
-
-              regionNum_ = input.readInt64();
-              break;
-            }
-            case 802: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                attrs_ = com.google.protobuf.MapField.newMapField(
-                    AttrsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              attrs__ = input.readMessage(
-                  AttrsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              attrs_.getMutableMap().put(
-                  attrs__.getKey(), attrs__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeStat_descriptor;
-    }
-
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 100:
-          return internalGetAttrs();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeStat_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              greptime.v1.meta.HeartbeatOuterClass.NodeStat.class, greptime.v1.meta.HeartbeatOuterClass.NodeStat.Builder.class);
-    }
-
-    public static final int RCUS_FIELD_NUMBER = 1;
-    private long rcus_;
-    /**
-     * <pre>
-     * The read capacity units during this period
-     * </pre>
-     *
-     * <code>int64 rcus = 1;</code>
-     * @return The rcus.
-     */
-    @java.lang.Override
-    public long getRcus() {
-      return rcus_;
-    }
-
-    public static final int WCUS_FIELD_NUMBER = 2;
-    private long wcus_;
-    /**
-     * <pre>
-     * The write capacity units during this period
-     * </pre>
-     *
-     * <code>int64 wcus = 2;</code>
-     * @return The wcus.
-     */
-    @java.lang.Override
-    public long getWcus() {
-      return wcus_;
-    }
-
-    public static final int TABLE_NUM_FIELD_NUMBER = 3;
-    private long tableNum_;
-    /**
-     * <pre>
-     * How many tables on this node
-     * </pre>
-     *
-     * <code>int64 table_num = 3;</code>
-     * @return The tableNum.
-     */
-    @java.lang.Override
-    public long getTableNum() {
-      return tableNum_;
-    }
-
-    public static final int REGION_NUM_FIELD_NUMBER = 4;
-    private long regionNum_;
-    /**
-     * <pre>
-     * How many regions on this node
-     * </pre>
-     *
-     * <code>int64 region_num = 4;</code>
-     * @return The regionNum.
-     */
-    @java.lang.Override
-    public long getRegionNum() {
-      return regionNum_;
-    }
-
-    public static final int ATTRS_FIELD_NUMBER = 100;
-    private static final class AttrsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeStat_AttrsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> attrs_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetAttrs() {
-      if (attrs_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            AttrsDefaultEntryHolder.defaultEntry);
-      }
-      return attrs_;
-    }
-
-    public int getAttrsCount() {
-      return internalGetAttrs().getMap().size();
-    }
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-
-    @java.lang.Override
-    public boolean containsAttrs(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetAttrs().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getAttrsMap()} instead.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getAttrs() {
-      return getAttrsMap();
-    }
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.String, java.lang.String> getAttrsMap() {
-      return internalGetAttrs().getMap();
-    }
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    @java.lang.Override
-
-    public java.lang.String getAttrsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetAttrs().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    @java.lang.Override
-
-    public java.lang.String getAttrsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetAttrs().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (rcus_ != 0L) {
-        output.writeInt64(1, rcus_);
-      }
-      if (wcus_ != 0L) {
-        output.writeInt64(2, wcus_);
-      }
-      if (tableNum_ != 0L) {
-        output.writeInt64(3, tableNum_);
-      }
-      if (regionNum_ != 0L) {
-        output.writeInt64(4, regionNum_);
-      }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetAttrs(),
-          AttrsDefaultEntryHolder.defaultEntry,
-          100);
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (rcus_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, rcus_);
-      }
-      if (wcus_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, wcus_);
-      }
-      if (tableNum_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, tableNum_);
-      }
-      if (regionNum_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, regionNum_);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetAttrs().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        attrs__ = AttrsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(100, attrs__);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.NodeStat)) {
-        return super.equals(obj);
-      }
-      greptime.v1.meta.HeartbeatOuterClass.NodeStat other = (greptime.v1.meta.HeartbeatOuterClass.NodeStat) obj;
-
-      if (getRcus()
-          != other.getRcus()) return false;
-      if (getWcus()
-          != other.getWcus()) return false;
-      if (getTableNum()
-          != other.getTableNum()) return false;
-      if (getRegionNum()
-          != other.getRegionNum()) return false;
-      if (!internalGetAttrs().equals(
-          other.internalGetAttrs())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + RCUS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getRcus());
-      hash = (37 * hash) + WCUS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getWcus());
-      hash = (37 * hash) + TABLE_NUM_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getTableNum());
-      hash = (37 * hash) + REGION_NUM_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getRegionNum());
-      if (!internalGetAttrs().getMap().isEmpty()) {
-        hash = (37 * hash) + ATTRS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetAttrs().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.NodeStat prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.meta.NodeStat}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.NodeStat)
-        greptime.v1.meta.HeartbeatOuterClass.NodeStatOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeStat_descriptor;
-      }
-
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 100:
-            return internalGetAttrs();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 100:
-            return internalGetMutableAttrs();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeStat_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                greptime.v1.meta.HeartbeatOuterClass.NodeStat.class, greptime.v1.meta.HeartbeatOuterClass.NodeStat.Builder.class);
-      }
-
-      // Construct using greptime.v1.meta.HeartbeatOuterClass.NodeStat.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        rcus_ = 0L;
-
-        wcus_ = 0L;
-
-        tableNum_ = 0L;
-
-        regionNum_ = 0L;
-
-        internalGetMutableAttrs().clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeStat_descriptor;
-      }
-
-      @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.NodeStat getDefaultInstanceForType() {
-        return greptime.v1.meta.HeartbeatOuterClass.NodeStat.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.NodeStat build() {
-        greptime.v1.meta.HeartbeatOuterClass.NodeStat result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.NodeStat buildPartial() {
-        greptime.v1.meta.HeartbeatOuterClass.NodeStat result = new greptime.v1.meta.HeartbeatOuterClass.NodeStat(this);
-        int from_bitField0_ = bitField0_;
-        result.rcus_ = rcus_;
-        result.wcus_ = wcus_;
-        result.tableNum_ = tableNum_;
-        result.regionNum_ = regionNum_;
-        result.attrs_ = internalGetAttrs();
-        result.attrs_.makeImmutable();
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.NodeStat) {
-          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.NodeStat)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.NodeStat other) {
-        if (other == greptime.v1.meta.HeartbeatOuterClass.NodeStat.getDefaultInstance()) return this;
-        if (other.getRcus() != 0L) {
-          setRcus(other.getRcus());
-        }
-        if (other.getWcus() != 0L) {
-          setWcus(other.getWcus());
-        }
-        if (other.getTableNum() != 0L) {
-          setTableNum(other.getTableNum());
-        }
-        if (other.getRegionNum() != 0L) {
-          setRegionNum(other.getRegionNum());
-        }
-        internalGetMutableAttrs().mergeFrom(
-            other.internalGetAttrs());
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        greptime.v1.meta.HeartbeatOuterClass.NodeStat parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.NodeStat) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private long rcus_ ;
-      /**
-       * <pre>
-       * The read capacity units during this period
-       * </pre>
-       *
-       * <code>int64 rcus = 1;</code>
-       * @return The rcus.
-       */
-      @java.lang.Override
-      public long getRcus() {
-        return rcus_;
-      }
-      /**
-       * <pre>
-       * The read capacity units during this period
-       * </pre>
-       *
-       * <code>int64 rcus = 1;</code>
-       * @param value The rcus to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRcus(long value) {
-        
-        rcus_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The read capacity units during this period
-       * </pre>
-       *
-       * <code>int64 rcus = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRcus() {
-        
-        rcus_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long wcus_ ;
-      /**
-       * <pre>
-       * The write capacity units during this period
-       * </pre>
-       *
-       * <code>int64 wcus = 2;</code>
-       * @return The wcus.
-       */
-      @java.lang.Override
-      public long getWcus() {
-        return wcus_;
-      }
-      /**
-       * <pre>
-       * The write capacity units during this period
-       * </pre>
-       *
-       * <code>int64 wcus = 2;</code>
-       * @param value The wcus to set.
-       * @return This builder for chaining.
-       */
-      public Builder setWcus(long value) {
-        
-        wcus_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The write capacity units during this period
-       * </pre>
-       *
-       * <code>int64 wcus = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearWcus() {
-        
-        wcus_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long tableNum_ ;
-      /**
-       * <pre>
-       * How many tables on this node
-       * </pre>
-       *
-       * <code>int64 table_num = 3;</code>
-       * @return The tableNum.
-       */
-      @java.lang.Override
-      public long getTableNum() {
-        return tableNum_;
-      }
-      /**
-       * <pre>
-       * How many tables on this node
-       * </pre>
-       *
-       * <code>int64 table_num = 3;</code>
-       * @param value The tableNum to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTableNum(long value) {
-        
-        tableNum_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * How many tables on this node
-       * </pre>
-       *
-       * <code>int64 table_num = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTableNum() {
-        
-        tableNum_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long regionNum_ ;
-      /**
-       * <pre>
-       * How many regions on this node
-       * </pre>
-       *
-       * <code>int64 region_num = 4;</code>
-       * @return The regionNum.
-       */
-      @java.lang.Override
-      public long getRegionNum() {
-        return regionNum_;
-      }
-      /**
-       * <pre>
-       * How many regions on this node
-       * </pre>
-       *
-       * <code>int64 region_num = 4;</code>
-       * @param value The regionNum to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegionNum(long value) {
-        
-        regionNum_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * How many regions on this node
-       * </pre>
-       *
-       * <code>int64 region_num = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRegionNum() {
-        
-        regionNum_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> attrs_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetAttrs() {
-        if (attrs_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              AttrsDefaultEntryHolder.defaultEntry);
-        }
-        return attrs_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableAttrs() {
-        onChanged();;
-        if (attrs_ == null) {
-          attrs_ = com.google.protobuf.MapField.newMapField(
-              AttrsDefaultEntryHolder.defaultEntry);
-        }
-        if (!attrs_.isMutable()) {
-          attrs_ = attrs_.copy();
-        }
-        return attrs_;
-      }
-
-      public int getAttrsCount() {
-        return internalGetAttrs().getMap().size();
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-
-      @java.lang.Override
-      public boolean containsAttrs(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        return internalGetAttrs().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getAttrsMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getAttrs() {
-        return getAttrsMap();
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-      @java.lang.Override
-
-      public java.util.Map<java.lang.String, java.lang.String> getAttrsMap() {
-        return internalGetAttrs().getMap();
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-      @java.lang.Override
-
-      public java.lang.String getAttrsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetAttrs().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-      @java.lang.Override
-
-      public java.lang.String getAttrsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetAttrs().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearAttrs() {
-        internalGetMutableAttrs().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-
-      public Builder removeAttrs(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        internalGetMutableAttrs().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableAttrs() {
-        return internalGetMutableAttrs().getMutableMap();
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-      public Builder putAttrs(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
-        internalGetMutableAttrs().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-
-      public Builder putAllAttrs(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableAttrs().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.NodeStat)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.meta.NodeStat)
-    private static final greptime.v1.meta.HeartbeatOuterClass.NodeStat DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.NodeStat();
-    }
-
-    public static greptime.v1.meta.HeartbeatOuterClass.NodeStat getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<NodeStat>
-        PARSER = new com.google.protobuf.AbstractParser<NodeStat>() {
-      @java.lang.Override
-      public NodeStat parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NodeStat(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<NodeStat> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<NodeStat> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.NodeStat getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface RegionStatOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.RegionStat)
       com.google.protobuf.MessageOrBuilder {
@@ -3542,26 +2106,11 @@ java.lang.String defaultValue);
     long getRegionId();
 
     /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-     * @return Whether the tableIdent field is set.
-     */
-    boolean hasTableIdent();
-    /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-     * @return The tableIdent.
-     */
-    greptime.v1.meta.Common.TableIdent getTableIdent();
-    /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-     */
-    greptime.v1.meta.Common.TableIdentOrBuilder getTableIdentOrBuilder();
-
-    /**
      * <pre>
      * The read capacity units during this period
      * </pre>
      *
-     * <code>int64 rcus = 3;</code>
+     * <code>int64 rcus = 2;</code>
      * @return The rcus.
      */
     long getRcus();
@@ -3571,7 +2120,7 @@ java.lang.String defaultValue);
      * The write capacity units during this period
      * </pre>
      *
-     * <code>int64 wcus = 4;</code>
+     * <code>int64 wcus = 3;</code>
      * @return The wcus.
      */
     long getWcus();
@@ -3581,7 +2130,7 @@ java.lang.String defaultValue);
      * Approximate bytes of this region
      * </pre>
      *
-     * <code>int64 approximate_bytes = 5;</code>
+     * <code>int64 approximate_bytes = 4;</code>
      * @return The approximateBytes.
      */
     long getApproximateBytes();
@@ -3591,66 +2140,30 @@ java.lang.String defaultValue);
      * Approximate number of rows in this region
      * </pre>
      *
-     * <code>int64 approximate_rows = 6;</code>
+     * <code>int64 approximate_rows = 5;</code>
      * @return The approximateRows.
      */
     long getApproximateRows();
 
     /**
      * <pre>
-     * Others
+     * engine name
      * </pre>
      *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
+     * <code>string engine = 6;</code>
+     * @return The engine.
      */
-    int getAttrsCount();
+    java.lang.String getEngine();
     /**
      * <pre>
-     * Others
+     * engine name
      * </pre>
      *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
+     * <code>string engine = 6;</code>
+     * @return The bytes for engine.
      */
-    boolean containsAttrs(
-        java.lang.String key);
-    /**
-     * Use {@link #getAttrsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getAttrs();
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getAttrsMap();
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-
-    /* nullable */
-java.lang.String getAttrsOrDefault(
-        java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-
-    java.lang.String getAttrsOrThrow(
-        java.lang.String key);
+    com.google.protobuf.ByteString
+        getEngineBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.RegionStat}
@@ -3665,6 +2178,7 @@ java.lang.String defaultValue);
       super(builder);
     }
     private RegionStat() {
+      engine_ = "";
     }
 
     @java.lang.Override
@@ -3687,7 +2201,6 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3703,50 +2216,30 @@ java.lang.String defaultValue);
               regionId_ = input.readUInt64();
               break;
             }
-            case 18: {
-              greptime.v1.meta.Common.TableIdent.Builder subBuilder = null;
-              if (tableIdent_ != null) {
-                subBuilder = tableIdent_.toBuilder();
-              }
-              tableIdent_ = input.readMessage(greptime.v1.meta.Common.TableIdent.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(tableIdent_);
-                tableIdent_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
+            case 16: {
 
               rcus_ = input.readInt64();
               break;
             }
-            case 32: {
+            case 24: {
 
               wcus_ = input.readInt64();
               break;
             }
-            case 40: {
+            case 32: {
 
               approximateBytes_ = input.readInt64();
               break;
             }
-            case 48: {
+            case 40: {
 
               approximateRows_ = input.readInt64();
               break;
             }
-            case 802: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                attrs_ = com.google.protobuf.MapField.newMapField(
-                    AttrsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              attrs__ = input.readMessage(
-                  AttrsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              attrs_.getMutableMap().put(
-                  attrs__.getKey(), attrs__.getValue());
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              engine_ = s;
               break;
             }
             default: {
@@ -3775,18 +2268,6 @@ java.lang.String defaultValue);
       return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_RegionStat_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 100:
-          return internalGetAttrs();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -3806,40 +2287,14 @@ java.lang.String defaultValue);
       return regionId_;
     }
 
-    public static final int TABLE_IDENT_FIELD_NUMBER = 2;
-    private greptime.v1.meta.Common.TableIdent tableIdent_;
-    /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-     * @return Whether the tableIdent field is set.
-     */
-    @java.lang.Override
-    public boolean hasTableIdent() {
-      return tableIdent_ != null;
-    }
-    /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-     * @return The tableIdent.
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Common.TableIdent getTableIdent() {
-      return tableIdent_ == null ? greptime.v1.meta.Common.TableIdent.getDefaultInstance() : tableIdent_;
-    }
-    /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Common.TableIdentOrBuilder getTableIdentOrBuilder() {
-      return getTableIdent();
-    }
-
-    public static final int RCUS_FIELD_NUMBER = 3;
+    public static final int RCUS_FIELD_NUMBER = 2;
     private long rcus_;
     /**
      * <pre>
      * The read capacity units during this period
      * </pre>
      *
-     * <code>int64 rcus = 3;</code>
+     * <code>int64 rcus = 2;</code>
      * @return The rcus.
      */
     @java.lang.Override
@@ -3847,14 +2302,14 @@ java.lang.String defaultValue);
       return rcus_;
     }
 
-    public static final int WCUS_FIELD_NUMBER = 4;
+    public static final int WCUS_FIELD_NUMBER = 3;
     private long wcus_;
     /**
      * <pre>
      * The write capacity units during this period
      * </pre>
      *
-     * <code>int64 wcus = 4;</code>
+     * <code>int64 wcus = 3;</code>
      * @return The wcus.
      */
     @java.lang.Override
@@ -3862,14 +2317,14 @@ java.lang.String defaultValue);
       return wcus_;
     }
 
-    public static final int APPROXIMATE_BYTES_FIELD_NUMBER = 5;
+    public static final int APPROXIMATE_BYTES_FIELD_NUMBER = 4;
     private long approximateBytes_;
     /**
      * <pre>
      * Approximate bytes of this region
      * </pre>
      *
-     * <code>int64 approximate_bytes = 5;</code>
+     * <code>int64 approximate_bytes = 4;</code>
      * @return The approximateBytes.
      */
     @java.lang.Override
@@ -3877,14 +2332,14 @@ java.lang.String defaultValue);
       return approximateBytes_;
     }
 
-    public static final int APPROXIMATE_ROWS_FIELD_NUMBER = 6;
+    public static final int APPROXIMATE_ROWS_FIELD_NUMBER = 5;
     private long approximateRows_;
     /**
      * <pre>
      * Approximate number of rows in this region
      * </pre>
      *
-     * <code>int64 approximate_rows = 6;</code>
+     * <code>int64 approximate_rows = 5;</code>
      * @return The approximateRows.
      */
     @java.lang.Override
@@ -3892,101 +2347,50 @@ java.lang.String defaultValue);
       return approximateRows_;
     }
 
-    public static final int ATTRS_FIELD_NUMBER = 100;
-    private static final class AttrsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_RegionStat_AttrsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> attrs_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetAttrs() {
-      if (attrs_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            AttrsDefaultEntryHolder.defaultEntry);
+    public static final int ENGINE_FIELD_NUMBER = 6;
+    private volatile java.lang.Object engine_;
+    /**
+     * <pre>
+     * engine name
+     * </pre>
+     *
+     * <code>string engine = 6;</code>
+     * @return The engine.
+     */
+    @java.lang.Override
+    public java.lang.String getEngine() {
+      java.lang.Object ref = engine_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        engine_ = s;
+        return s;
       }
-      return attrs_;
-    }
-
-    public int getAttrsCount() {
-      return internalGetAttrs().getMap().size();
     }
     /**
      * <pre>
-     * Others
+     * engine name
      * </pre>
      *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-
-    @java.lang.Override
-    public boolean containsAttrs(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetAttrs().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getAttrsMap()} instead.
+     * <code>string engine = 6;</code>
+     * @return The bytes for engine.
      */
     @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getAttrs() {
-      return getAttrsMap();
-    }
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.String, java.lang.String> getAttrsMap() {
-      return internalGetAttrs().getMap();
-    }
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    @java.lang.Override
-
-    public java.lang.String getAttrsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetAttrs().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * Others
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; attrs = 100;</code>
-     */
-    @java.lang.Override
-
-    public java.lang.String getAttrsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetAttrs().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
+    public com.google.protobuf.ByteString
+        getEngineBytes() {
+      java.lang.Object ref = engine_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        engine_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
       }
-      return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4006,27 +2410,21 @@ java.lang.String defaultValue);
       if (regionId_ != 0L) {
         output.writeUInt64(1, regionId_);
       }
-      if (tableIdent_ != null) {
-        output.writeMessage(2, getTableIdent());
-      }
       if (rcus_ != 0L) {
-        output.writeInt64(3, rcus_);
+        output.writeInt64(2, rcus_);
       }
       if (wcus_ != 0L) {
-        output.writeInt64(4, wcus_);
+        output.writeInt64(3, wcus_);
       }
       if (approximateBytes_ != 0L) {
-        output.writeInt64(5, approximateBytes_);
+        output.writeInt64(4, approximateBytes_);
       }
       if (approximateRows_ != 0L) {
-        output.writeInt64(6, approximateRows_);
+        output.writeInt64(5, approximateRows_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetAttrs(),
-          AttrsDefaultEntryHolder.defaultEntry,
-          100);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, engine_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4040,35 +2438,24 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, regionId_);
       }
-      if (tableIdent_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getTableIdent());
-      }
       if (rcus_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, rcus_);
+          .computeInt64Size(2, rcus_);
       }
       if (wcus_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, wcus_);
+          .computeInt64Size(3, wcus_);
       }
       if (approximateBytes_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, approximateBytes_);
+          .computeInt64Size(4, approximateBytes_);
       }
       if (approximateRows_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(6, approximateRows_);
+          .computeInt64Size(5, approximateRows_);
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetAttrs().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        attrs__ = AttrsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(100, attrs__);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, engine_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4087,11 +2474,6 @@ java.lang.String defaultValue);
 
       if (getRegionId()
           != other.getRegionId()) return false;
-      if (hasTableIdent() != other.hasTableIdent()) return false;
-      if (hasTableIdent()) {
-        if (!getTableIdent()
-            .equals(other.getTableIdent())) return false;
-      }
       if (getRcus()
           != other.getRcus()) return false;
       if (getWcus()
@@ -4100,8 +2482,8 @@ java.lang.String defaultValue);
           != other.getApproximateBytes()) return false;
       if (getApproximateRows()
           != other.getApproximateRows()) return false;
-      if (!internalGetAttrs().equals(
-          other.internalGetAttrs())) return false;
+      if (!getEngine()
+          .equals(other.getEngine())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4116,10 +2498,6 @@ java.lang.String defaultValue);
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
-      if (hasTableIdent()) {
-        hash = (37 * hash) + TABLE_IDENT_FIELD_NUMBER;
-        hash = (53 * hash) + getTableIdent().hashCode();
-      }
       hash = (37 * hash) + RCUS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRcus());
@@ -4132,10 +2510,8 @@ java.lang.String defaultValue);
       hash = (37 * hash) + APPROXIMATE_ROWS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getApproximateRows());
-      if (!internalGetAttrs().getMap().isEmpty()) {
-        hash = (37 * hash) + ATTRS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetAttrs().hashCode();
-      }
+      hash = (37 * hash) + ENGINE_FIELD_NUMBER;
+      hash = (53 * hash) + getEngine().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4243,28 +2619,6 @@ java.lang.String defaultValue);
         return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_RegionStat_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 100:
-            return internalGetAttrs();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 100:
-            return internalGetMutableAttrs();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -4293,12 +2647,6 @@ java.lang.String defaultValue);
         super.clear();
         regionId_ = 0L;
 
-        if (tableIdentBuilder_ == null) {
-          tableIdent_ = null;
-        } else {
-          tableIdent_ = null;
-          tableIdentBuilder_ = null;
-        }
         rcus_ = 0L;
 
         wcus_ = 0L;
@@ -4307,7 +2655,8 @@ java.lang.String defaultValue);
 
         approximateRows_ = 0L;
 
-        internalGetMutableAttrs().clear();
+        engine_ = "";
+
         return this;
       }
 
@@ -4334,19 +2683,12 @@ java.lang.String defaultValue);
       @java.lang.Override
       public greptime.v1.meta.HeartbeatOuterClass.RegionStat buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.RegionStat result = new greptime.v1.meta.HeartbeatOuterClass.RegionStat(this);
-        int from_bitField0_ = bitField0_;
         result.regionId_ = regionId_;
-        if (tableIdentBuilder_ == null) {
-          result.tableIdent_ = tableIdent_;
-        } else {
-          result.tableIdent_ = tableIdentBuilder_.build();
-        }
         result.rcus_ = rcus_;
         result.wcus_ = wcus_;
         result.approximateBytes_ = approximateBytes_;
         result.approximateRows_ = approximateRows_;
-        result.attrs_ = internalGetAttrs();
-        result.attrs_.makeImmutable();
+        result.engine_ = engine_;
         onBuilt();
         return result;
       }
@@ -4398,9 +2740,6 @@ java.lang.String defaultValue);
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
         }
-        if (other.hasTableIdent()) {
-          mergeTableIdent(other.getTableIdent());
-        }
         if (other.getRcus() != 0L) {
           setRcus(other.getRcus());
         }
@@ -4413,8 +2752,10 @@ java.lang.String defaultValue);
         if (other.getApproximateRows() != 0L) {
           setApproximateRows(other.getApproximateRows());
         }
-        internalGetMutableAttrs().mergeFrom(
-            other.internalGetAttrs());
+        if (!other.getEngine().isEmpty()) {
+          engine_ = other.engine_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4443,7 +2784,6 @@ java.lang.String defaultValue);
         }
         return this;
       }
-      private int bitField0_;
 
       private long regionId_ ;
       /**
@@ -4476,132 +2816,13 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private greptime.v1.meta.Common.TableIdent tableIdent_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Common.TableIdent, greptime.v1.meta.Common.TableIdent.Builder, greptime.v1.meta.Common.TableIdentOrBuilder> tableIdentBuilder_;
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-       * @return Whether the tableIdent field is set.
-       */
-      public boolean hasTableIdent() {
-        return tableIdentBuilder_ != null || tableIdent_ != null;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-       * @return The tableIdent.
-       */
-      public greptime.v1.meta.Common.TableIdent getTableIdent() {
-        if (tableIdentBuilder_ == null) {
-          return tableIdent_ == null ? greptime.v1.meta.Common.TableIdent.getDefaultInstance() : tableIdent_;
-        } else {
-          return tableIdentBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-       */
-      public Builder setTableIdent(greptime.v1.meta.Common.TableIdent value) {
-        if (tableIdentBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          tableIdent_ = value;
-          onChanged();
-        } else {
-          tableIdentBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-       */
-      public Builder setTableIdent(
-          greptime.v1.meta.Common.TableIdent.Builder builderForValue) {
-        if (tableIdentBuilder_ == null) {
-          tableIdent_ = builderForValue.build();
-          onChanged();
-        } else {
-          tableIdentBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-       */
-      public Builder mergeTableIdent(greptime.v1.meta.Common.TableIdent value) {
-        if (tableIdentBuilder_ == null) {
-          if (tableIdent_ != null) {
-            tableIdent_ =
-              greptime.v1.meta.Common.TableIdent.newBuilder(tableIdent_).mergeFrom(value).buildPartial();
-          } else {
-            tableIdent_ = value;
-          }
-          onChanged();
-        } else {
-          tableIdentBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-       */
-      public Builder clearTableIdent() {
-        if (tableIdentBuilder_ == null) {
-          tableIdent_ = null;
-          onChanged();
-        } else {
-          tableIdent_ = null;
-          tableIdentBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-       */
-      public greptime.v1.meta.Common.TableIdent.Builder getTableIdentBuilder() {
-        
-        onChanged();
-        return getTableIdentFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-       */
-      public greptime.v1.meta.Common.TableIdentOrBuilder getTableIdentOrBuilder() {
-        if (tableIdentBuilder_ != null) {
-          return tableIdentBuilder_.getMessageOrBuilder();
-        } else {
-          return tableIdent_ == null ?
-              greptime.v1.meta.Common.TableIdent.getDefaultInstance() : tableIdent_;
-        }
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Common.TableIdent, greptime.v1.meta.Common.TableIdent.Builder, greptime.v1.meta.Common.TableIdentOrBuilder> 
-          getTableIdentFieldBuilder() {
-        if (tableIdentBuilder_ == null) {
-          tableIdentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              greptime.v1.meta.Common.TableIdent, greptime.v1.meta.Common.TableIdent.Builder, greptime.v1.meta.Common.TableIdentOrBuilder>(
-                  getTableIdent(),
-                  getParentForChildren(),
-                  isClean());
-          tableIdent_ = null;
-        }
-        return tableIdentBuilder_;
-      }
-
       private long rcus_ ;
       /**
        * <pre>
        * The read capacity units during this period
        * </pre>
        *
-       * <code>int64 rcus = 3;</code>
+       * <code>int64 rcus = 2;</code>
        * @return The rcus.
        */
       @java.lang.Override
@@ -4613,7 +2834,7 @@ java.lang.String defaultValue);
        * The read capacity units during this period
        * </pre>
        *
-       * <code>int64 rcus = 3;</code>
+       * <code>int64 rcus = 2;</code>
        * @param value The rcus to set.
        * @return This builder for chaining.
        */
@@ -4628,7 +2849,7 @@ java.lang.String defaultValue);
        * The read capacity units during this period
        * </pre>
        *
-       * <code>int64 rcus = 3;</code>
+       * <code>int64 rcus = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearRcus() {
@@ -4644,7 +2865,7 @@ java.lang.String defaultValue);
        * The write capacity units during this period
        * </pre>
        *
-       * <code>int64 wcus = 4;</code>
+       * <code>int64 wcus = 3;</code>
        * @return The wcus.
        */
       @java.lang.Override
@@ -4656,7 +2877,7 @@ java.lang.String defaultValue);
        * The write capacity units during this period
        * </pre>
        *
-       * <code>int64 wcus = 4;</code>
+       * <code>int64 wcus = 3;</code>
        * @param value The wcus to set.
        * @return This builder for chaining.
        */
@@ -4671,7 +2892,7 @@ java.lang.String defaultValue);
        * The write capacity units during this period
        * </pre>
        *
-       * <code>int64 wcus = 4;</code>
+       * <code>int64 wcus = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearWcus() {
@@ -4687,7 +2908,7 @@ java.lang.String defaultValue);
        * Approximate bytes of this region
        * </pre>
        *
-       * <code>int64 approximate_bytes = 5;</code>
+       * <code>int64 approximate_bytes = 4;</code>
        * @return The approximateBytes.
        */
       @java.lang.Override
@@ -4699,7 +2920,7 @@ java.lang.String defaultValue);
        * Approximate bytes of this region
        * </pre>
        *
-       * <code>int64 approximate_bytes = 5;</code>
+       * <code>int64 approximate_bytes = 4;</code>
        * @param value The approximateBytes to set.
        * @return This builder for chaining.
        */
@@ -4714,7 +2935,7 @@ java.lang.String defaultValue);
        * Approximate bytes of this region
        * </pre>
        *
-       * <code>int64 approximate_bytes = 5;</code>
+       * <code>int64 approximate_bytes = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearApproximateBytes() {
@@ -4730,7 +2951,7 @@ java.lang.String defaultValue);
        * Approximate number of rows in this region
        * </pre>
        *
-       * <code>int64 approximate_rows = 6;</code>
+       * <code>int64 approximate_rows = 5;</code>
        * @return The approximateRows.
        */
       @java.lang.Override
@@ -4742,7 +2963,7 @@ java.lang.String defaultValue);
        * Approximate number of rows in this region
        * </pre>
        *
-       * <code>int64 approximate_rows = 6;</code>
+       * <code>int64 approximate_rows = 5;</code>
        * @param value The approximateRows to set.
        * @return This builder for chaining.
        */
@@ -4757,7 +2978,7 @@ java.lang.String defaultValue);
        * Approximate number of rows in this region
        * </pre>
        *
-       * <code>int64 approximate_rows = 6;</code>
+       * <code>int64 approximate_rows = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearApproximateRows() {
@@ -4767,162 +2988,99 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> attrs_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetAttrs() {
-        if (attrs_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              AttrsDefaultEntryHolder.defaultEntry);
+      private java.lang.Object engine_ = "";
+      /**
+       * <pre>
+       * engine name
+       * </pre>
+       *
+       * <code>string engine = 6;</code>
+       * @return The engine.
+       */
+      public java.lang.String getEngine() {
+        java.lang.Object ref = engine_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          engine_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
         }
-        return attrs_;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableAttrs() {
-        onChanged();;
-        if (attrs_ == null) {
-          attrs_ = com.google.protobuf.MapField.newMapField(
-              AttrsDefaultEntryHolder.defaultEntry);
+      /**
+       * <pre>
+       * engine name
+       * </pre>
+       *
+       * <code>string engine = 6;</code>
+       * @return The bytes for engine.
+       */
+      public com.google.protobuf.ByteString
+          getEngineBytes() {
+        java.lang.Object ref = engine_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          engine_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
-        if (!attrs_.isMutable()) {
-          attrs_ = attrs_.copy();
-        }
-        return attrs_;
-      }
-
-      public int getAttrsCount() {
-        return internalGetAttrs().getMap().size();
       }
       /**
        * <pre>
-       * Others
+       * engine name
        * </pre>
        *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
+       * <code>string engine = 6;</code>
+       * @param value The engine to set.
+       * @return This builder for chaining.
        */
-
-      @java.lang.Override
-      public boolean containsAttrs(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        return internalGetAttrs().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getAttrsMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getAttrs() {
-        return getAttrsMap();
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-      @java.lang.Override
-
-      public java.util.Map<java.lang.String, java.lang.String> getAttrsMap() {
-        return internalGetAttrs().getMap();
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-      @java.lang.Override
-
-      public java.lang.String getAttrsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetAttrs().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-      @java.lang.Override
-
-      public java.lang.String getAttrsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetAttrs().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearAttrs() {
-        internalGetMutableAttrs().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-
-      public Builder removeAttrs(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        internalGetMutableAttrs().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableAttrs() {
-        return internalGetMutableAttrs().getMutableMap();
-      }
-      /**
-       * <pre>
-       * Others
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
-       */
-      public Builder putAttrs(
-          java.lang.String key,
+      public Builder setEngine(
           java.lang.String value) {
-        if (key == null) { throw new NullPointerException("map key"); }
         if (value == null) {
-  throw new NullPointerException("map value");
-}
-
-        internalGetMutableAttrs().getMutableMap()
-            .put(key, value);
+    throw new NullPointerException();
+  }
+  
+        engine_ = value;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Others
+       * engine name
        * </pre>
        *
-       * <code>map&lt;string, string&gt; attrs = 100;</code>
+       * <code>string engine = 6;</code>
+       * @return This builder for chaining.
        */
-
-      public Builder putAllAttrs(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableAttrs().getMutableMap()
-            .putAll(values);
+      public Builder clearEngine() {
+        
+        engine_ = getDefaultInstance().getEngine();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * engine name
+       * </pre>
+       *
+       * <code>string engine = 6;</code>
+       * @param value The bytes for engine to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEngineBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        engine_ = value;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -5013,28 +3171,19 @@ java.lang.String defaultValue);
     greptime.v1.meta.HeartbeatOuterClass.MailboxMessageOrBuilder getMailboxMessageOrBuilder();
 
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+     * @return Whether the regionLease field is set.
      */
-    java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> 
-        getRegionLeasesList();
+    boolean hasRegionLease();
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+     * @return The regionLease.
      */
-    greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLeases(int index);
+    greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLease();
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
      */
-    int getRegionLeasesCount();
-    /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-     */
-    java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> 
-        getRegionLeasesOrBuilderList();
-    /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-     */
-    greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeasesOrBuilder(
-        int index);
+    greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeaseOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.HeartbeatResponse}
@@ -5049,7 +3198,6 @@ java.lang.String defaultValue);
       super(builder);
     }
     private HeartbeatResponse() {
-      regionLeases_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -5072,7 +3220,6 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -5110,12 +3257,16 @@ java.lang.String defaultValue);
               break;
             }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                regionLeases_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.RegionLease>();
-                mutable_bitField0_ |= 0x00000001;
+              greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder subBuilder = null;
+              if (regionLease_ != null) {
+                subBuilder = regionLease_.toBuilder();
               }
-              regionLeases_.add(
-                  input.readMessage(greptime.v1.meta.HeartbeatOuterClass.RegionLease.parser(), extensionRegistry));
+              regionLease_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.RegionLease.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(regionLease_);
+                regionLease_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -5135,9 +3286,6 @@ java.lang.String defaultValue);
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          regionLeases_ = java.util.Collections.unmodifiableList(regionLeases_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -5207,44 +3355,30 @@ java.lang.String defaultValue);
       return getMailboxMessage();
     }
 
-    public static final int REGION_LEASES_FIELD_NUMBER = 3;
-    private java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> regionLeases_;
+    public static final int REGION_LEASE_FIELD_NUMBER = 3;
+    private greptime.v1.meta.HeartbeatOuterClass.RegionLease regionLease_;
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+     * @return Whether the regionLease field is set.
      */
     @java.lang.Override
-    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> getRegionLeasesList() {
-      return regionLeases_;
+    public boolean hasRegionLease() {
+      return regionLease_ != null;
     }
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+     * @return The regionLease.
      */
     @java.lang.Override
-    public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> 
-        getRegionLeasesOrBuilderList() {
-      return regionLeases_;
+    public greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLease() {
+      return regionLease_ == null ? greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance() : regionLease_;
     }
     /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+     * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
      */
     @java.lang.Override
-    public int getRegionLeasesCount() {
-      return regionLeases_.size();
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLeases(int index) {
-      return regionLeases_.get(index);
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeasesOrBuilder(
-        int index) {
-      return regionLeases_.get(index);
+    public greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeaseOrBuilder() {
+      return getRegionLease();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5267,8 +3401,8 @@ java.lang.String defaultValue);
       if (mailboxMessage_ != null) {
         output.writeMessage(2, getMailboxMessage());
       }
-      for (int i = 0; i < regionLeases_.size(); i++) {
-        output.writeMessage(3, regionLeases_.get(i));
+      if (regionLease_ != null) {
+        output.writeMessage(3, getRegionLease());
       }
       unknownFields.writeTo(output);
     }
@@ -5287,9 +3421,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getMailboxMessage());
       }
-      for (int i = 0; i < regionLeases_.size(); i++) {
+      if (regionLease_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, regionLeases_.get(i));
+          .computeMessageSize(3, getRegionLease());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5316,8 +3450,11 @@ java.lang.String defaultValue);
         if (!getMailboxMessage()
             .equals(other.getMailboxMessage())) return false;
       }
-      if (!getRegionLeasesList()
-          .equals(other.getRegionLeasesList())) return false;
+      if (hasRegionLease() != other.hasRegionLease()) return false;
+      if (hasRegionLease()) {
+        if (!getRegionLease()
+            .equals(other.getRegionLease())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5337,9 +3474,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + MAILBOX_MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + getMailboxMessage().hashCode();
       }
-      if (getRegionLeasesCount() > 0) {
-        hash = (37 * hash) + REGION_LEASES_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionLeasesList().hashCode();
+      if (hasRegionLease()) {
+        hash = (37 * hash) + REGION_LEASE_FIELD_NUMBER;
+        hash = (53 * hash) + getRegionLease().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5469,7 +3606,6 @@ java.lang.String defaultValue);
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getRegionLeasesFieldBuilder();
         }
       }
       @java.lang.Override
@@ -5487,11 +3623,11 @@ java.lang.String defaultValue);
           mailboxMessage_ = null;
           mailboxMessageBuilder_ = null;
         }
-        if (regionLeasesBuilder_ == null) {
-          regionLeases_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (regionLeaseBuilder_ == null) {
+          regionLease_ = null;
         } else {
-          regionLeasesBuilder_.clear();
+          regionLease_ = null;
+          regionLeaseBuilder_ = null;
         }
         return this;
       }
@@ -5519,7 +3655,6 @@ java.lang.String defaultValue);
       @java.lang.Override
       public greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse result = new greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse(this);
-        int from_bitField0_ = bitField0_;
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
@@ -5530,14 +3665,10 @@ java.lang.String defaultValue);
         } else {
           result.mailboxMessage_ = mailboxMessageBuilder_.build();
         }
-        if (regionLeasesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            regionLeases_ = java.util.Collections.unmodifiableList(regionLeases_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.regionLeases_ = regionLeases_;
+        if (regionLeaseBuilder_ == null) {
+          result.regionLease_ = regionLease_;
         } else {
-          result.regionLeases_ = regionLeasesBuilder_.build();
+          result.regionLease_ = regionLeaseBuilder_.build();
         }
         onBuilt();
         return result;
@@ -5593,31 +3724,8 @@ java.lang.String defaultValue);
         if (other.hasMailboxMessage()) {
           mergeMailboxMessage(other.getMailboxMessage());
         }
-        if (regionLeasesBuilder_ == null) {
-          if (!other.regionLeases_.isEmpty()) {
-            if (regionLeases_.isEmpty()) {
-              regionLeases_ = other.regionLeases_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureRegionLeasesIsMutable();
-              regionLeases_.addAll(other.regionLeases_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.regionLeases_.isEmpty()) {
-            if (regionLeasesBuilder_.isEmpty()) {
-              regionLeasesBuilder_.dispose();
-              regionLeasesBuilder_ = null;
-              regionLeases_ = other.regionLeases_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              regionLeasesBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRegionLeasesFieldBuilder() : null;
-            } else {
-              regionLeasesBuilder_.addAllMessages(other.regionLeases_);
-            }
-          }
+        if (other.hasRegionLease()) {
+          mergeRegionLease(other.getRegionLease());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5647,7 +3755,6 @@ java.lang.String defaultValue);
         }
         return this;
       }
-      private int bitField0_;
 
       private greptime.v1.meta.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5887,244 +3994,123 @@ java.lang.String defaultValue);
         return mailboxMessageBuilder_;
       }
 
-      private java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> regionLeases_ =
-        java.util.Collections.emptyList();
-      private void ensureRegionLeasesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          regionLeases_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.RegionLease>(regionLeases_);
-          bitField0_ |= 0x00000001;
-         }
+      private greptime.v1.meta.HeartbeatOuterClass.RegionLease regionLease_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.RegionLease, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder, greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> regionLeaseBuilder_;
+      /**
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+       * @return Whether the regionLease field is set.
+       */
+      public boolean hasRegionLease() {
+        return regionLeaseBuilder_ != null || regionLease_ != null;
       }
+      /**
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+       * @return The regionLease.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLease() {
+        if (regionLeaseBuilder_ == null) {
+          return regionLease_ == null ? greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance() : regionLease_;
+        } else {
+          return regionLeaseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+       */
+      public Builder setRegionLease(greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
+        if (regionLeaseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          regionLease_ = value;
+          onChanged();
+        } else {
+          regionLeaseBuilder_.setMessage(value);
+        }
 
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.HeartbeatOuterClass.RegionLease, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder, greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> regionLeasesBuilder_;
-
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease> getRegionLeasesList() {
-        if (regionLeasesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(regionLeases_);
-        } else {
-          return regionLeasesBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public int getRegionLeasesCount() {
-        if (regionLeasesBuilder_ == null) {
-          return regionLeases_.size();
-        } else {
-          return regionLeasesBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLease getRegionLeases(int index) {
-        if (regionLeasesBuilder_ == null) {
-          return regionLeases_.get(index);
-        } else {
-          return regionLeasesBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder setRegionLeases(
-          int index, greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
-        if (regionLeasesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRegionLeasesIsMutable();
-          regionLeases_.set(index, value);
-          onChanged();
-        } else {
-          regionLeasesBuilder_.setMessage(index, value);
-        }
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public Builder setRegionLeases(
-          int index, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder builderForValue) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          regionLeases_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          regionLeasesBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder addRegionLeases(greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
-        if (regionLeasesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRegionLeasesIsMutable();
-          regionLeases_.add(value);
-          onChanged();
-        } else {
-          regionLeasesBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder addRegionLeases(
-          int index, greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
-        if (regionLeasesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRegionLeasesIsMutable();
-          regionLeases_.add(index, value);
-          onChanged();
-        } else {
-          regionLeasesBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder addRegionLeases(
+      public Builder setRegionLease(
           greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder builderForValue) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          regionLeases_.add(builderForValue.build());
+        if (regionLeaseBuilder_ == null) {
+          regionLease_ = builderForValue.build();
           onChanged();
         } else {
-          regionLeasesBuilder_.addMessage(builderForValue.build());
+          regionLeaseBuilder_.setMessage(builderForValue.build());
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public Builder addRegionLeases(
-          int index, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder builderForValue) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          regionLeases_.add(index, builderForValue.build());
+      public Builder mergeRegionLease(greptime.v1.meta.HeartbeatOuterClass.RegionLease value) {
+        if (regionLeaseBuilder_ == null) {
+          if (regionLease_ != null) {
+            regionLease_ =
+              greptime.v1.meta.HeartbeatOuterClass.RegionLease.newBuilder(regionLease_).mergeFrom(value).buildPartial();
+          } else {
+            regionLease_ = value;
+          }
           onChanged();
         } else {
-          regionLeasesBuilder_.addMessage(index, builderForValue.build());
+          regionLeaseBuilder_.mergeFrom(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public Builder addAllRegionLeases(
-          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.RegionLease> values) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, regionLeases_);
+      public Builder clearRegionLease() {
+        if (regionLeaseBuilder_ == null) {
+          regionLease_ = null;
           onChanged();
         } else {
-          regionLeasesBuilder_.addAllMessages(values);
+          regionLease_ = null;
+          regionLeaseBuilder_ = null;
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public Builder clearRegionLeases() {
-        if (regionLeasesBuilder_ == null) {
-          regionLeases_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
+      public greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder getRegionLeaseBuilder() {
+        
+        onChanged();
+        return getRegionLeaseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeaseOrBuilder() {
+        if (regionLeaseBuilder_ != null) {
+          return regionLeaseBuilder_.getMessageOrBuilder();
         } else {
-          regionLeasesBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public Builder removeRegionLeases(int index) {
-        if (regionLeasesBuilder_ == null) {
-          ensureRegionLeasesIsMutable();
-          regionLeases_.remove(index);
-          onChanged();
-        } else {
-          regionLeasesBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder getRegionLeasesBuilder(
-          int index) {
-        return getRegionLeasesFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeasesOrBuilder(
-          int index) {
-        if (regionLeasesBuilder_ == null) {
-          return regionLeases_.get(index);  } else {
-          return regionLeasesBuilder_.getMessageOrBuilder(index);
+          return regionLease_ == null ?
+              greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance() : regionLease_;
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
+       * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
        */
-      public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> 
-           getRegionLeasesOrBuilderList() {
-        if (regionLeasesBuilder_ != null) {
-          return regionLeasesBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(regionLeases_);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder addRegionLeasesBuilder() {
-        return getRegionLeasesFieldBuilder().addBuilder(
-            greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder addRegionLeasesBuilder(
-          int index) {
-        return getRegionLeasesFieldBuilder().addBuilder(
-            index, greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.RegionLease region_leases = 3;</code>
-       */
-      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder> 
-           getRegionLeasesBuilderList() {
-        return getRegionLeasesFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
+      private com.google.protobuf.SingleFieldBuilderV3<
           greptime.v1.meta.HeartbeatOuterClass.RegionLease, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder, greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder> 
-          getRegionLeasesFieldBuilder() {
-        if (regionLeasesBuilder_ == null) {
-          regionLeasesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          getRegionLeaseFieldBuilder() {
+        if (regionLeaseBuilder_ == null) {
+          regionLeaseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               greptime.v1.meta.HeartbeatOuterClass.RegionLease, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder, greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder>(
-                  regionLeases_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  getRegionLease(),
                   getParentForChildren(),
                   isClean());
-          regionLeases_ = null;
+          regionLease_ = null;
         }
-        return regionLeasesBuilder_;
+        return regionLeaseBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -6184,45 +4170,30 @@ java.lang.String defaultValue);
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-     * @return Whether the tableIdent field is set.
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return A list containing the regionIds.
      */
-    boolean hasTableIdent();
+    java.util.List<java.lang.Long> getRegionIdsList();
     /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-     * @return The tableIdent.
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return The count of regionIds.
      */
-    greptime.v1.meta.Common.TableIdent getTableIdent();
+    int getRegionIdsCount();
     /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-     */
-    greptime.v1.meta.Common.TableIdentOrBuilder getTableIdentOrBuilder();
-
-    /**
-     * <code>repeated uint32 regions = 2;</code>
-     * @return A list containing the regions.
-     */
-    java.util.List<java.lang.Integer> getRegionsList();
-    /**
-     * <code>repeated uint32 regions = 2;</code>
-     * @return The count of regions.
-     */
-    int getRegionsCount();
-    /**
-     * <code>repeated uint32 regions = 2;</code>
+     * <code>repeated uint64 region_ids = 1;</code>
      * @param index The index of the element to return.
-     * @return The regions at the given index.
+     * @return The regionIds at the given index.
      */
-    int getRegions(int index);
+    long getRegionIds(int index);
 
     /**
-     * <code>uint64 duration_since_epoch = 3;</code>
+     * <code>uint64 duration_since_epoch = 2;</code>
      * @return The durationSinceEpoch.
      */
     long getDurationSinceEpoch();
 
     /**
-     * <code>uint64 lease_seconds = 4;</code>
+     * <code>uint64 lease_seconds = 3;</code>
      * @return The leaseSeconds.
      */
     long getLeaseSeconds();
@@ -6240,7 +4211,7 @@ java.lang.String defaultValue);
       super(builder);
     }
     private RegionLease() {
-      regions_ = emptyIntList();
+      regionIds_ = emptyLongList();
     }
 
     @java.lang.Override
@@ -6274,46 +4245,33 @@ java.lang.String defaultValue);
             case 0:
               done = true;
               break;
-            case 10: {
-              greptime.v1.meta.Common.TableIdent.Builder subBuilder = null;
-              if (tableIdent_ != null) {
-                subBuilder = tableIdent_.toBuilder();
-              }
-              tableIdent_ = input.readMessage(greptime.v1.meta.Common.TableIdent.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(tableIdent_);
-                tableIdent_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
+            case 8: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                regions_ = newIntList();
+                regionIds_ = newLongList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              regions_.addInt(input.readUInt32());
+              regionIds_.addLong(input.readUInt64());
               break;
             }
-            case 18: {
+            case 10: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                regions_ = newIntList();
+                regionIds_ = newLongList();
                 mutable_bitField0_ |= 0x00000001;
               }
               while (input.getBytesUntilLimit() > 0) {
-                regions_.addInt(input.readUInt32());
+                regionIds_.addLong(input.readUInt64());
               }
               input.popLimit(limit);
               break;
             }
-            case 24: {
+            case 16: {
 
               durationSinceEpoch_ = input.readUInt64();
               break;
             }
-            case 32: {
+            case 24: {
 
               leaseSeconds_ = input.readUInt64();
               break;
@@ -6336,7 +4294,7 @@ java.lang.String defaultValue);
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          regions_.makeImmutable(); // C
+          regionIds_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -6355,64 +4313,38 @@ java.lang.String defaultValue);
               greptime.v1.meta.HeartbeatOuterClass.RegionLease.class, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder.class);
     }
 
-    public static final int TABLE_IDENT_FIELD_NUMBER = 1;
-    private greptime.v1.meta.Common.TableIdent tableIdent_;
+    public static final int REGION_IDS_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.LongList regionIds_;
     /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-     * @return Whether the tableIdent field is set.
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return A list containing the regionIds.
      */
     @java.lang.Override
-    public boolean hasTableIdent() {
-      return tableIdent_ != null;
+    public java.util.List<java.lang.Long>
+        getRegionIdsList() {
+      return regionIds_;
     }
     /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-     * @return The tableIdent.
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return The count of regionIds.
      */
-    @java.lang.Override
-    public greptime.v1.meta.Common.TableIdent getTableIdent() {
-      return tableIdent_ == null ? greptime.v1.meta.Common.TableIdent.getDefaultInstance() : tableIdent_;
+    public int getRegionIdsCount() {
+      return regionIds_.size();
     }
     /**
-     * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Common.TableIdentOrBuilder getTableIdentOrBuilder() {
-      return getTableIdent();
-    }
-
-    public static final int REGIONS_FIELD_NUMBER = 2;
-    private com.google.protobuf.Internal.IntList regions_;
-    /**
-     * <code>repeated uint32 regions = 2;</code>
-     * @return A list containing the regions.
-     */
-    @java.lang.Override
-    public java.util.List<java.lang.Integer>
-        getRegionsList() {
-      return regions_;
-    }
-    /**
-     * <code>repeated uint32 regions = 2;</code>
-     * @return The count of regions.
-     */
-    public int getRegionsCount() {
-      return regions_.size();
-    }
-    /**
-     * <code>repeated uint32 regions = 2;</code>
+     * <code>repeated uint64 region_ids = 1;</code>
      * @param index The index of the element to return.
-     * @return The regions at the given index.
+     * @return The regionIds at the given index.
      */
-    public int getRegions(int index) {
-      return regions_.getInt(index);
+    public long getRegionIds(int index) {
+      return regionIds_.getLong(index);
     }
-    private int regionsMemoizedSerializedSize = -1;
+    private int regionIdsMemoizedSerializedSize = -1;
 
-    public static final int DURATION_SINCE_EPOCH_FIELD_NUMBER = 3;
+    public static final int DURATION_SINCE_EPOCH_FIELD_NUMBER = 2;
     private long durationSinceEpoch_;
     /**
-     * <code>uint64 duration_since_epoch = 3;</code>
+     * <code>uint64 duration_since_epoch = 2;</code>
      * @return The durationSinceEpoch.
      */
     @java.lang.Override
@@ -6420,10 +4352,10 @@ java.lang.String defaultValue);
       return durationSinceEpoch_;
     }
 
-    public static final int LEASE_SECONDS_FIELD_NUMBER = 4;
+    public static final int LEASE_SECONDS_FIELD_NUMBER = 3;
     private long leaseSeconds_;
     /**
-     * <code>uint64 lease_seconds = 4;</code>
+     * <code>uint64 lease_seconds = 3;</code>
      * @return The leaseSeconds.
      */
     @java.lang.Override
@@ -6446,21 +4378,18 @@ java.lang.String defaultValue);
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (tableIdent_ != null) {
-        output.writeMessage(1, getTableIdent());
+      if (getRegionIdsList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(regionIdsMemoizedSerializedSize);
       }
-      if (getRegionsList().size() > 0) {
-        output.writeUInt32NoTag(18);
-        output.writeUInt32NoTag(regionsMemoizedSerializedSize);
-      }
-      for (int i = 0; i < regions_.size(); i++) {
-        output.writeUInt32NoTag(regions_.getInt(i));
+      for (int i = 0; i < regionIds_.size(); i++) {
+        output.writeUInt64NoTag(regionIds_.getLong(i));
       }
       if (durationSinceEpoch_ != 0L) {
-        output.writeUInt64(3, durationSinceEpoch_);
+        output.writeUInt64(2, durationSinceEpoch_);
       }
       if (leaseSeconds_ != 0L) {
-        output.writeUInt64(4, leaseSeconds_);
+        output.writeUInt64(3, leaseSeconds_);
       }
       unknownFields.writeTo(output);
     }
@@ -6471,31 +4400,27 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (tableIdent_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getTableIdent());
-      }
       {
         int dataSize = 0;
-        for (int i = 0; i < regions_.size(); i++) {
+        for (int i = 0; i < regionIds_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(regions_.getInt(i));
+            .computeUInt64SizeNoTag(regionIds_.getLong(i));
         }
         size += dataSize;
-        if (!getRegionsList().isEmpty()) {
+        if (!getRegionIdsList().isEmpty()) {
           size += 1;
           size += com.google.protobuf.CodedOutputStream
               .computeInt32SizeNoTag(dataSize);
         }
-        regionsMemoizedSerializedSize = dataSize;
+        regionIdsMemoizedSerializedSize = dataSize;
       }
       if (durationSinceEpoch_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(3, durationSinceEpoch_);
+          .computeUInt64Size(2, durationSinceEpoch_);
       }
       if (leaseSeconds_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(4, leaseSeconds_);
+          .computeUInt64Size(3, leaseSeconds_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6512,13 +4437,8 @@ java.lang.String defaultValue);
       }
       greptime.v1.meta.HeartbeatOuterClass.RegionLease other = (greptime.v1.meta.HeartbeatOuterClass.RegionLease) obj;
 
-      if (hasTableIdent() != other.hasTableIdent()) return false;
-      if (hasTableIdent()) {
-        if (!getTableIdent()
-            .equals(other.getTableIdent())) return false;
-      }
-      if (!getRegionsList()
-          .equals(other.getRegionsList())) return false;
+      if (!getRegionIdsList()
+          .equals(other.getRegionIdsList())) return false;
       if (getDurationSinceEpoch()
           != other.getDurationSinceEpoch()) return false;
       if (getLeaseSeconds()
@@ -6534,13 +4454,9 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasTableIdent()) {
-        hash = (37 * hash) + TABLE_IDENT_FIELD_NUMBER;
-        hash = (53 * hash) + getTableIdent().hashCode();
-      }
-      if (getRegionsCount() > 0) {
-        hash = (37 * hash) + REGIONS_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionsList().hashCode();
+      if (getRegionIdsCount() > 0) {
+        hash = (37 * hash) + REGION_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getRegionIdsList().hashCode();
       }
       hash = (37 * hash) + DURATION_SINCE_EPOCH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -6681,13 +4597,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (tableIdentBuilder_ == null) {
-          tableIdent_ = null;
-        } else {
-          tableIdent_ = null;
-          tableIdentBuilder_ = null;
-        }
-        regions_ = emptyIntList();
+        regionIds_ = emptyLongList();
         bitField0_ = (bitField0_ & ~0x00000001);
         durationSinceEpoch_ = 0L;
 
@@ -6720,16 +4630,11 @@ java.lang.String defaultValue);
       public greptime.v1.meta.HeartbeatOuterClass.RegionLease buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.RegionLease result = new greptime.v1.meta.HeartbeatOuterClass.RegionLease(this);
         int from_bitField0_ = bitField0_;
-        if (tableIdentBuilder_ == null) {
-          result.tableIdent_ = tableIdent_;
-        } else {
-          result.tableIdent_ = tableIdentBuilder_.build();
-        }
         if (((bitField0_ & 0x00000001) != 0)) {
-          regions_.makeImmutable();
+          regionIds_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.regions_ = regions_;
+        result.regionIds_ = regionIds_;
         result.durationSinceEpoch_ = durationSinceEpoch_;
         result.leaseSeconds_ = leaseSeconds_;
         onBuilt();
@@ -6780,16 +4685,13 @@ java.lang.String defaultValue);
 
       public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.RegionLease other) {
         if (other == greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance()) return this;
-        if (other.hasTableIdent()) {
-          mergeTableIdent(other.getTableIdent());
-        }
-        if (!other.regions_.isEmpty()) {
-          if (regions_.isEmpty()) {
-            regions_ = other.regions_;
+        if (!other.regionIds_.isEmpty()) {
+          if (regionIds_.isEmpty()) {
+            regionIds_ = other.regionIds_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureRegionsIsMutable();
-            regions_.addAll(other.regions_);
+            ensureRegionIdsIsMutable();
+            regionIds_.addAll(other.regionIds_);
           }
           onChanged();
         }
@@ -6829,199 +4731,80 @@ java.lang.String defaultValue);
       }
       private int bitField0_;
 
-      private greptime.v1.meta.Common.TableIdent tableIdent_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Common.TableIdent, greptime.v1.meta.Common.TableIdent.Builder, greptime.v1.meta.Common.TableIdentOrBuilder> tableIdentBuilder_;
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-       * @return Whether the tableIdent field is set.
-       */
-      public boolean hasTableIdent() {
-        return tableIdentBuilder_ != null || tableIdent_ != null;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-       * @return The tableIdent.
-       */
-      public greptime.v1.meta.Common.TableIdent getTableIdent() {
-        if (tableIdentBuilder_ == null) {
-          return tableIdent_ == null ? greptime.v1.meta.Common.TableIdent.getDefaultInstance() : tableIdent_;
-        } else {
-          return tableIdentBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-       */
-      public Builder setTableIdent(greptime.v1.meta.Common.TableIdent value) {
-        if (tableIdentBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          tableIdent_ = value;
-          onChanged();
-        } else {
-          tableIdentBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-       */
-      public Builder setTableIdent(
-          greptime.v1.meta.Common.TableIdent.Builder builderForValue) {
-        if (tableIdentBuilder_ == null) {
-          tableIdent_ = builderForValue.build();
-          onChanged();
-        } else {
-          tableIdentBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-       */
-      public Builder mergeTableIdent(greptime.v1.meta.Common.TableIdent value) {
-        if (tableIdentBuilder_ == null) {
-          if (tableIdent_ != null) {
-            tableIdent_ =
-              greptime.v1.meta.Common.TableIdent.newBuilder(tableIdent_).mergeFrom(value).buildPartial();
-          } else {
-            tableIdent_ = value;
-          }
-          onChanged();
-        } else {
-          tableIdentBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-       */
-      public Builder clearTableIdent() {
-        if (tableIdentBuilder_ == null) {
-          tableIdent_ = null;
-          onChanged();
-        } else {
-          tableIdent_ = null;
-          tableIdentBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-       */
-      public greptime.v1.meta.Common.TableIdent.Builder getTableIdentBuilder() {
-        
-        onChanged();
-        return getTableIdentFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-       */
-      public greptime.v1.meta.Common.TableIdentOrBuilder getTableIdentOrBuilder() {
-        if (tableIdentBuilder_ != null) {
-          return tableIdentBuilder_.getMessageOrBuilder();
-        } else {
-          return tableIdent_ == null ?
-              greptime.v1.meta.Common.TableIdent.getDefaultInstance() : tableIdent_;
-        }
-      }
-      /**
-       * <code>.greptime.v1.meta.TableIdent table_ident = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Common.TableIdent, greptime.v1.meta.Common.TableIdent.Builder, greptime.v1.meta.Common.TableIdentOrBuilder> 
-          getTableIdentFieldBuilder() {
-        if (tableIdentBuilder_ == null) {
-          tableIdentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              greptime.v1.meta.Common.TableIdent, greptime.v1.meta.Common.TableIdent.Builder, greptime.v1.meta.Common.TableIdentOrBuilder>(
-                  getTableIdent(),
-                  getParentForChildren(),
-                  isClean());
-          tableIdent_ = null;
-        }
-        return tableIdentBuilder_;
-      }
-
-      private com.google.protobuf.Internal.IntList regions_ = emptyIntList();
-      private void ensureRegionsIsMutable() {
+      private com.google.protobuf.Internal.LongList regionIds_ = emptyLongList();
+      private void ensureRegionIdsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          regions_ = mutableCopy(regions_);
+          regionIds_ = mutableCopy(regionIds_);
           bitField0_ |= 0x00000001;
          }
       }
       /**
-       * <code>repeated uint32 regions = 2;</code>
-       * @return A list containing the regions.
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @return A list containing the regionIds.
        */
-      public java.util.List<java.lang.Integer>
-          getRegionsList() {
+      public java.util.List<java.lang.Long>
+          getRegionIdsList() {
         return ((bitField0_ & 0x00000001) != 0) ?
-                 java.util.Collections.unmodifiableList(regions_) : regions_;
+                 java.util.Collections.unmodifiableList(regionIds_) : regionIds_;
       }
       /**
-       * <code>repeated uint32 regions = 2;</code>
-       * @return The count of regions.
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @return The count of regionIds.
        */
-      public int getRegionsCount() {
-        return regions_.size();
+      public int getRegionIdsCount() {
+        return regionIds_.size();
       }
       /**
-       * <code>repeated uint32 regions = 2;</code>
+       * <code>repeated uint64 region_ids = 1;</code>
        * @param index The index of the element to return.
-       * @return The regions at the given index.
+       * @return The regionIds at the given index.
        */
-      public int getRegions(int index) {
-        return regions_.getInt(index);
+      public long getRegionIds(int index) {
+        return regionIds_.getLong(index);
       }
       /**
-       * <code>repeated uint32 regions = 2;</code>
+       * <code>repeated uint64 region_ids = 1;</code>
        * @param index The index to set the value at.
-       * @param value The regions to set.
+       * @param value The regionIds to set.
        * @return This builder for chaining.
        */
-      public Builder setRegions(
-          int index, int value) {
-        ensureRegionsIsMutable();
-        regions_.setInt(index, value);
+      public Builder setRegionIds(
+          int index, long value) {
+        ensureRegionIdsIsMutable();
+        regionIds_.setLong(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 regions = 2;</code>
-       * @param value The regions to add.
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param value The regionIds to add.
        * @return This builder for chaining.
        */
-      public Builder addRegions(int value) {
-        ensureRegionsIsMutable();
-        regions_.addInt(value);
+      public Builder addRegionIds(long value) {
+        ensureRegionIdsIsMutable();
+        regionIds_.addLong(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 regions = 2;</code>
-       * @param values The regions to add.
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param values The regionIds to add.
        * @return This builder for chaining.
        */
-      public Builder addAllRegions(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureRegionsIsMutable();
+      public Builder addAllRegionIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureRegionIdsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, regions_);
+            values, regionIds_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 regions = 2;</code>
+       * <code>repeated uint64 region_ids = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearRegions() {
-        regions_ = emptyIntList();
+      public Builder clearRegionIds() {
+        regionIds_ = emptyLongList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
@@ -7029,7 +4812,7 @@ java.lang.String defaultValue);
 
       private long durationSinceEpoch_ ;
       /**
-       * <code>uint64 duration_since_epoch = 3;</code>
+       * <code>uint64 duration_since_epoch = 2;</code>
        * @return The durationSinceEpoch.
        */
       @java.lang.Override
@@ -7037,7 +4820,7 @@ java.lang.String defaultValue);
         return durationSinceEpoch_;
       }
       /**
-       * <code>uint64 duration_since_epoch = 3;</code>
+       * <code>uint64 duration_since_epoch = 2;</code>
        * @param value The durationSinceEpoch to set.
        * @return This builder for chaining.
        */
@@ -7048,7 +4831,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>uint64 duration_since_epoch = 3;</code>
+       * <code>uint64 duration_since_epoch = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearDurationSinceEpoch() {
@@ -7060,7 +4843,7 @@ java.lang.String defaultValue);
 
       private long leaseSeconds_ ;
       /**
-       * <code>uint64 lease_seconds = 4;</code>
+       * <code>uint64 lease_seconds = 3;</code>
        * @return The leaseSeconds.
        */
       @java.lang.Override
@@ -7068,7 +4851,7 @@ java.lang.String defaultValue);
         return leaseSeconds_;
       }
       /**
-       * <code>uint64 lease_seconds = 4;</code>
+       * <code>uint64 lease_seconds = 3;</code>
        * @param value The leaseSeconds to set.
        * @return This builder for chaining.
        */
@@ -7079,7 +4862,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>uint64 lease_seconds = 4;</code>
+       * <code>uint64 lease_seconds = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearLeaseSeconds() {
@@ -9961,25 +7744,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_HeartbeatRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_NodeStat_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_NodeStat_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_NodeStat_AttrsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_NodeStat_AttrsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_RegionStat_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_RegionStat_AttrsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_RegionStat_AttrsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor;
   private static final 
@@ -10016,49 +7784,39 @@ java.lang.String defaultValue);
     java.lang.String[] descriptorData = {
       "\n greptime/v1/meta/heartbeat.proto\022\020grep" +
       "time.v1.meta\032\035greptime/v1/meta/common.pr" +
-      "oto\"\362\002\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
+      "oto\"\303\002\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
       "2\037.greptime.v1.meta.RequestHeader\022$\n\004pee" +
       "r\030\002 \001(\0132\026.greptime.v1.meta.Peer\0227\n\017repor" +
       "t_interval\030\003 \001(\0132\036.greptime.v1.meta.Time" +
-      "Interval\022-\n\tnode_stat\030\004 \001(\0132\032.greptime.v" +
-      "1.meta.NodeStat\0222\n\014region_stats\030\005 \003(\0132\034." +
-      "greptime.v1.meta.RegionStat\0229\n\017mailbox_m" +
-      "essage\030\006 \001(\0132 .greptime.v1.meta.MailboxM" +
-      "essage\022\034\n\024duration_since_epoch\030\007 \001(\004\022\022\n\n" +
-      "node_epoch\030\010 \001(\004\"\261\001\n\010NodeStat\022\014\n\004rcus\030\001 " +
-      "\001(\003\022\014\n\004wcus\030\002 \001(\003\022\021\n\ttable_num\030\003 \001(\003\022\022\n\n" +
-      "region_num\030\004 \001(\003\0224\n\005attrs\030d \003(\0132%.grepti" +
-      "me.v1.meta.NodeStat.AttrsEntry\032,\n\nAttrsE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\211\002\n" +
-      "\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\0221\n\013table_" +
-      "ident\030\002 \001(\0132\034.greptime.v1.meta.TableIden" +
-      "t\022\014\n\004rcus\030\003 \001(\003\022\014\n\004wcus\030\004 \001(\003\022\031\n\021approxi" +
-      "mate_bytes\030\005 \001(\003\022\030\n\020approximate_rows\030\006 \001" +
-      "(\003\0226\n\005attrs\030d \003(\0132\'.greptime.v1.meta.Reg" +
-      "ionStat.AttrsEntry\032,\n\nAttrsEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\266\001\n\021HeartbeatRe" +
-      "sponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.met" +
-      "a.ResponseHeader\0229\n\017mailbox_message\030\002 \001(" +
-      "\0132 .greptime.v1.meta.MailboxMessage\0224\n\rr" +
-      "egion_leases\030\003 \003(\0132\035.greptime.v1.meta.Re" +
-      "gionLease\"\206\001\n\013RegionLease\0221\n\013table_ident" +
-      "\030\001 \001(\0132\034.greptime.v1.meta.TableIdent\022\017\n\007" +
-      "regions\030\002 \003(\r\022\034\n\024duration_since_epoch\030\003 " +
-      "\001(\004\022\025\n\rlease_seconds\030\004 \001(\004\"C\n\020AskLeaderR" +
-      "equest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.met" +
-      "a.RequestHeader\"m\n\021AskLeaderResponse\0220\n\006" +
-      "header\030\001 \001(\0132 .greptime.v1.meta.Response" +
-      "Header\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.met" +
-      "a.Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007" +
-      "subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022" +
-      "\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH" +
-      "\000B\t\n\007payload2\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022" +
-      "\".greptime.v1.meta.HeartbeatRequest\032#.gr" +
-      "eptime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V" +
-      "\n\tAskLeader\022\".greptime.v1.meta.AskLeader" +
-      "Request\032#.greptime.v1.meta.AskLeaderResp" +
-      "onse\"\000B<Z:github.com/GreptimeTeam/grepti" +
-      "me-proto/go/greptime/v1/metab\006proto3"
+      "Interval\0222\n\014region_stats\030\004 \003(\0132\034.greptim" +
+      "e.v1.meta.RegionStat\0229\n\017mailbox_message\030" +
+      "\005 \001(\0132 .greptime.v1.meta.MailboxMessage\022" +
+      "\034\n\024duration_since_epoch\030\006 \001(\004\022\022\n\nnode_ep" +
+      "och\030\007 \001(\004\"\200\001\n\nRegionStat\022\021\n\tregion_id\030\001 " +
+      "\001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021appro" +
+      "ximate_bytes\030\004 \001(\003\022\030\n\020approximate_rows\030\005" +
+      " \001(\003\022\016\n\006engine\030\006 \001(\t\"\265\001\n\021HeartbeatRespon" +
+      "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re" +
+      "sponseHeader\0229\n\017mailbox_message\030\002 \001(\0132 ." +
+      "greptime.v1.meta.MailboxMessage\0223\n\014regio" +
+      "n_lease\030\003 \001(\0132\035.greptime.v1.meta.RegionL" +
+      "ease\"V\n\013RegionLease\022\022\n\nregion_ids\030\001 \003(\004\022" +
+      "\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_s" +
+      "econds\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006head" +
+      "er\030\001 \001(\0132\037.greptime.v1.meta.RequestHeade" +
+      "r\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(\0132 " +
+      ".greptime.v1.meta.ResponseHeader\022&\n\006lead" +
+      "er\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016Mail" +
+      "boxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022" +
+      "\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_m" +
+      "illis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload2\277" +
+      "\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime.v1." +
+      "meta.HeartbeatRequest\032#.greptime.v1.meta" +
+      ".HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\"." +
+      "greptime.v1.meta.AskLeaderRequest\032#.grep" +
+      "time.v1.meta.AskLeaderResponse\"\000B<Z:gith" +
+      "ub.com/GreptimeTeam/greptime-proto/go/gr" +
+      "eptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10070,57 +7828,39 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_HeartbeatRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatRequest_descriptor,
-        new java.lang.String[] { "Header", "Peer", "ReportInterval", "NodeStat", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", });
-    internal_static_greptime_v1_meta_NodeStat_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_greptime_v1_meta_NodeStat_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_NodeStat_descriptor,
-        new java.lang.String[] { "Rcus", "Wcus", "TableNum", "RegionNum", "Attrs", });
-    internal_static_greptime_v1_meta_NodeStat_AttrsEntry_descriptor =
-      internal_static_greptime_v1_meta_NodeStat_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_meta_NodeStat_AttrsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_NodeStat_AttrsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Header", "Peer", "ReportInterval", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", });
     internal_static_greptime_v1_meta_RegionStat_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_descriptor,
-        new java.lang.String[] { "RegionId", "TableIdent", "Rcus", "Wcus", "ApproximateBytes", "ApproximateRows", "Attrs", });
-    internal_static_greptime_v1_meta_RegionStat_AttrsEntry_descriptor =
-      internal_static_greptime_v1_meta_RegionStat_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_meta_RegionStat_AttrsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_RegionStat_AttrsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "ApproximateRows", "Engine", });
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatResponse_descriptor,
-        new java.lang.String[] { "Header", "MailboxMessage", "RegionLeases", });
+        new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", });
     internal_static_greptime_v1_meta_RegionLease_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_meta_RegionLease_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionLease_descriptor,
-        new java.lang.String[] { "TableIdent", "Regions", "DurationSinceEpoch", "LeaseSeconds", });
+        new java.lang.String[] { "RegionIds", "DurationSinceEpoch", "LeaseSeconds", });
     internal_static_greptime_v1_meta_AskLeaderRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_meta_AskLeaderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderRequest_descriptor,
         new java.lang.String[] { "Header", });
     internal_static_greptime_v1_meta_AskLeaderResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_meta_AskLeaderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderResponse_descriptor,
         new java.lang.String[] { "Header", "Leader", });
     internal_static_greptime_v1_meta_MailboxMessage_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_meta_MailboxMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MailboxMessage_descriptor,

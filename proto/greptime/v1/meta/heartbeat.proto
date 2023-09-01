@@ -34,72 +34,50 @@ service Heartbeat {
 
 message HeartbeatRequest {
   RequestHeader header = 1;
-
   // Self peer
   Peer peer = 2;
   // Actually reported time interval
   TimeInterval report_interval = 3;
-  // Node stat
-  NodeStat node_stat = 4;
   // Region stats on this node
-  repeated RegionStat region_stats = 5;
+  repeated RegionStat region_stats = 4;
   // Mailbox send message to Metasrv
-  MailboxMessage mailbox_message = 6;
+  MailboxMessage mailbox_message = 5;
   // The duration since the heartbeat task's epoch in milliseconds.
-  uint64 duration_since_epoch = 7;
+  uint64 duration_since_epoch = 6;
   // The node's epoch
-  uint64 node_epoch = 8;
-}
-
-message NodeStat {
-  // The read capacity units during this period
-  int64 rcus = 1;
-  // The write capacity units during this period
-  int64 wcus = 2;
-  // How many tables on this node
-  int64 table_num = 3;
-  // How many regions on this node
-  int64 region_num = 4;
-
-  // Others
-  map<string, string> attrs = 100;
+  uint64 node_epoch = 7;
 }
 
 message RegionStat {
   uint64 region_id = 1;
-  TableIdent table_ident = 2;
   // The read capacity units during this period
-  int64 rcus = 3;
+  int64 rcus = 2;
   // The write capacity units during this period
-  int64 wcus = 4;
+  int64 wcus = 3;
   // Approximate bytes of this region
-  int64 approximate_bytes = 5;
+  int64 approximate_bytes = 4;
   // Approximate number of rows in this region
-  int64 approximate_rows = 6;
-
-  // Others
-  map<string, string> attrs = 100;
+  int64 approximate_rows = 5;
+  // engine name
+  string engine = 6;
 }
 
 message HeartbeatResponse {
   ResponseHeader header = 1;
-
   MailboxMessage mailbox_message = 2;
-  repeated RegionLease region_leases = 3;
+  RegionLease region_lease = 3;
 }
 
 message RegionLease {
-  TableIdent table_ident = 1;
-  repeated uint32 regions = 2;
-  uint64 duration_since_epoch = 3;
-  uint64 lease_seconds = 4;
+  repeated uint64 region_ids = 1;
+  uint64 duration_since_epoch = 2;
+  uint64 lease_seconds = 3;
 }
 
 message AskLeaderRequest { RequestHeader header = 1; }
 
 message AskLeaderResponse {
   ResponseHeader header = 1;
-
   Peer leader = 2;
 }
 
@@ -113,7 +91,6 @@ message MailboxMessage {
   string to = 4;
   // The unix timestamp in milliseconds.
   int64 timestamp_millis = 5;
-
   // The message body.
   oneof payload { string json = 6; }
 }

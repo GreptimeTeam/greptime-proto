@@ -23,16 +23,7 @@ public final class Server {
      * TraceID of request
      * </pre>
      *
-     * <code>optional uint64 trace_id = 1;</code>
-     * @return Whether the traceId field is set.
-     */
-    boolean hasTraceId();
-    /**
-     * <pre>
-     * TraceID of request
-     * </pre>
-     *
-     * <code>optional uint64 trace_id = 1;</code>
+     * <code>uint64 trace_id = 1;</code>
      * @return The traceId.
      */
     long getTraceId();
@@ -42,16 +33,7 @@ public final class Server {
      * SpanID of request
      * </pre>
      *
-     * <code>optional uint64 span_id = 2;</code>
-     * @return Whether the spanId field is set.
-     */
-    boolean hasSpanId();
-    /**
-     * <pre>
-     * SpanID of request
-     * </pre>
-     *
-     * <code>optional uint64 span_id = 2;</code>
+     * <code>uint64 span_id = 2;</code>
      * @return The spanId.
      */
     long getSpanId();
@@ -91,7 +73,6 @@ public final class Server {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -103,12 +84,12 @@ public final class Server {
               done = true;
               break;
             case 8: {
-              bitField0_ |= 0x00000001;
+
               traceId_ = input.readUInt64();
               break;
             }
             case 16: {
-              bitField0_ |= 0x00000002;
+
               spanId_ = input.readUInt64();
               break;
             }
@@ -146,7 +127,6 @@ public final class Server {
               io.greptime.v1.region.Server.RegionRequestHeader.class, io.greptime.v1.region.Server.RegionRequestHeader.Builder.class);
     }
 
-    private int bitField0_;
     public static final int TRACE_ID_FIELD_NUMBER = 1;
     private long traceId_;
     /**
@@ -154,19 +134,7 @@ public final class Server {
      * TraceID of request
      * </pre>
      *
-     * <code>optional uint64 trace_id = 1;</code>
-     * @return Whether the traceId field is set.
-     */
-    @java.lang.Override
-    public boolean hasTraceId() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <pre>
-     * TraceID of request
-     * </pre>
-     *
-     * <code>optional uint64 trace_id = 1;</code>
+     * <code>uint64 trace_id = 1;</code>
      * @return The traceId.
      */
     @java.lang.Override
@@ -181,19 +149,7 @@ public final class Server {
      * SpanID of request
      * </pre>
      *
-     * <code>optional uint64 span_id = 2;</code>
-     * @return Whether the spanId field is set.
-     */
-    @java.lang.Override
-    public boolean hasSpanId() {
-      return ((bitField0_ & 0x00000002) != 0);
-    }
-    /**
-     * <pre>
-     * SpanID of request
-     * </pre>
-     *
-     * <code>optional uint64 span_id = 2;</code>
+     * <code>uint64 span_id = 2;</code>
      * @return The spanId.
      */
     @java.lang.Override
@@ -215,10 +171,10 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (traceId_ != 0L) {
         output.writeUInt64(1, traceId_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (spanId_ != 0L) {
         output.writeUInt64(2, spanId_);
       }
       unknownFields.writeTo(output);
@@ -230,11 +186,11 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (traceId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, traceId_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (spanId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, spanId_);
       }
@@ -253,16 +209,10 @@ public final class Server {
       }
       io.greptime.v1.region.Server.RegionRequestHeader other = (io.greptime.v1.region.Server.RegionRequestHeader) obj;
 
-      if (hasTraceId() != other.hasTraceId()) return false;
-      if (hasTraceId()) {
-        if (getTraceId()
-            != other.getTraceId()) return false;
-      }
-      if (hasSpanId() != other.hasSpanId()) return false;
-      if (hasSpanId()) {
-        if (getSpanId()
-            != other.getSpanId()) return false;
-      }
+      if (getTraceId()
+          != other.getTraceId()) return false;
+      if (getSpanId()
+          != other.getSpanId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -274,16 +224,12 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasTraceId()) {
-        hash = (37 * hash) + TRACE_ID_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getTraceId());
-      }
-      if (hasSpanId()) {
-        hash = (37 * hash) + SPAN_ID_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getSpanId());
-      }
+      hash = (37 * hash) + TRACE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTraceId());
+      hash = (37 * hash) + SPAN_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSpanId());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -418,9 +364,9 @@ public final class Server {
       public Builder clear() {
         super.clear();
         traceId_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         spanId_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         return this;
       }
 
@@ -447,17 +393,8 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.RegionRequestHeader buildPartial() {
         io.greptime.v1.region.Server.RegionRequestHeader result = new io.greptime.v1.region.Server.RegionRequestHeader(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.traceId_ = traceId_;
-          to_bitField0_ |= 0x00000001;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.spanId_ = spanId_;
-          to_bitField0_ |= 0x00000002;
-        }
-        result.bitField0_ = to_bitField0_;
+        result.traceId_ = traceId_;
+        result.spanId_ = spanId_;
         onBuilt();
         return result;
       }
@@ -506,10 +443,10 @@ public final class Server {
 
       public Builder mergeFrom(io.greptime.v1.region.Server.RegionRequestHeader other) {
         if (other == io.greptime.v1.region.Server.RegionRequestHeader.getDefaultInstance()) return this;
-        if (other.hasTraceId()) {
+        if (other.getTraceId() != 0L) {
           setTraceId(other.getTraceId());
         }
-        if (other.hasSpanId()) {
+        if (other.getSpanId() != 0L) {
           setSpanId(other.getSpanId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -540,7 +477,6 @@ public final class Server {
         }
         return this;
       }
-      private int bitField0_;
 
       private long traceId_ ;
       /**
@@ -548,19 +484,7 @@ public final class Server {
        * TraceID of request
        * </pre>
        *
-       * <code>optional uint64 trace_id = 1;</code>
-       * @return Whether the traceId field is set.
-       */
-      @java.lang.Override
-      public boolean hasTraceId() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <pre>
-       * TraceID of request
-       * </pre>
-       *
-       * <code>optional uint64 trace_id = 1;</code>
+       * <code>uint64 trace_id = 1;</code>
        * @return The traceId.
        */
       @java.lang.Override
@@ -572,12 +496,12 @@ public final class Server {
        * TraceID of request
        * </pre>
        *
-       * <code>optional uint64 trace_id = 1;</code>
+       * <code>uint64 trace_id = 1;</code>
        * @param value The traceId to set.
        * @return This builder for chaining.
        */
       public Builder setTraceId(long value) {
-        bitField0_ |= 0x00000001;
+        
         traceId_ = value;
         onChanged();
         return this;
@@ -587,11 +511,11 @@ public final class Server {
        * TraceID of request
        * </pre>
        *
-       * <code>optional uint64 trace_id = 1;</code>
+       * <code>uint64 trace_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTraceId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         traceId_ = 0L;
         onChanged();
         return this;
@@ -603,19 +527,7 @@ public final class Server {
        * SpanID of request
        * </pre>
        *
-       * <code>optional uint64 span_id = 2;</code>
-       * @return Whether the spanId field is set.
-       */
-      @java.lang.Override
-      public boolean hasSpanId() {
-        return ((bitField0_ & 0x00000002) != 0);
-      }
-      /**
-       * <pre>
-       * SpanID of request
-       * </pre>
-       *
-       * <code>optional uint64 span_id = 2;</code>
+       * <code>uint64 span_id = 2;</code>
        * @return The spanId.
        */
       @java.lang.Override
@@ -627,12 +539,12 @@ public final class Server {
        * SpanID of request
        * </pre>
        *
-       * <code>optional uint64 span_id = 2;</code>
+       * <code>uint64 span_id = 2;</code>
        * @param value The spanId to set.
        * @return This builder for chaining.
        */
       public Builder setSpanId(long value) {
-        bitField0_ |= 0x00000002;
+        
         spanId_ = value;
         onChanged();
         return this;
@@ -642,11 +554,11 @@ public final class Server {
        * SpanID of request
        * </pre>
        *
-       * <code>optional uint64 span_id = 2;</code>
+       * <code>uint64 span_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearSpanId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         spanId_ = 0L;
         onChanged();
         return this;
@@ -7801,7 +7713,7 @@ public final class Server {
 
     /**
      * <pre>
-     * Columns in the primary key.
+     * Column Id of primary keys.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -7810,7 +7722,7 @@ public final class Server {
     java.util.List<java.lang.Integer> getPrimaryKeyList();
     /**
      * <pre>
-     * Columns in the primary key.
+     * Column Id of primary keys.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -7819,7 +7731,7 @@ public final class Server {
     int getPrimaryKeyCount();
     /**
      * <pre>
-     * Columns in the primary key.
+     * Column Id of primary keys.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -8231,7 +8143,7 @@ java.lang.String defaultValue);
     private com.google.protobuf.Internal.IntList primaryKey_;
     /**
      * <pre>
-     * Columns in the primary key.
+     * Column Id of primary keys.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -8244,7 +8156,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * Columns in the primary key.
+     * Column Id of primary keys.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -8255,7 +8167,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * Columns in the primary key.
+     * Column Id of primary keys.
      * </pre>
      *
      * <code>repeated uint32 primary_key = 4;</code>
@@ -9444,7 +9356,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Column Id of primary keys.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9457,7 +9369,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Column Id of primary keys.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9468,7 +9380,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Column Id of primary keys.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9480,7 +9392,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Column Id of primary keys.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9497,7 +9409,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Column Id of primary keys.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9512,7 +9424,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Column Id of primary keys.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -9529,7 +9441,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * Columns in the primary key.
+       * Column Id of primary keys.
        * </pre>
        *
        * <code>repeated uint32 primary_key = 4;</code>
@@ -15003,60 +14915,59 @@ java.lang.String defaultValue);
     java.lang.String[] descriptorData = {
       "\n\037greptime/v1/region/server.proto\022\022grept" +
       "ime.v1.region\032\030greptime/v1/common.proto\032" +
-      "\025greptime/v1/row.proto\"[\n\023RegionRequestH" +
-      "eader\022\025\n\010trace_id\030\001 \001(\004H\000\210\001\001\022\024\n\007span_id\030" +
-      "\002 \001(\004H\001\210\001\001B\013\n\t_trace_idB\n\n\010_span_id\"\245\004\n\r" +
-      "RegionRequest\0227\n\006header\030\001 \001(\0132\'.greptime" +
-      ".v1.region.RegionRequestHeader\0225\n\007insert" +
-      "s\030\003 \001(\0132\".greptime.v1.region.InsertReque" +
-      "stsH\000\0225\n\007deletes\030\004 \001(\0132\".greptime.v1.reg" +
-      "ion.DeleteRequestsH\000\0223\n\006create\030\005 \001(\0132!.g" +
-      "reptime.v1.region.CreateRequestH\000\022/\n\004dro" +
-      "p\030\006 \001(\0132\037.greptime.v1.region.DropRequest" +
-      "H\000\022/\n\004open\030\007 \001(\0132\037.greptime.v1.region.Op" +
-      "enRequestH\000\0221\n\005close\030\010 \001(\0132 .greptime.v1" +
-      ".region.CloseRequestH\000\0221\n\005alter\030\t \001(\0132 ." +
-      "greptime.v1.region.AlterRequestH\000\0221\n\005flu" +
-      "sh\030\n \001(\0132 .greptime.v1.region.FlushReque" +
-      "stH\000\0225\n\007compact\030\013 \001(\0132\".greptime.v1.regi" +
-      "on.CompactRequestH\000B\006\n\004body\"T\n\016RegionRes" +
-      "ponse\022+\n\006header\030\001 \001(\0132\033.greptime.v1.Resp" +
-      "onseHeader\022\025\n\raffected_rows\030\002 \001(\004\"E\n\016Ins" +
-      "ertRequests\0223\n\010requests\030\001 \003(\0132!.greptime" +
-      ".v1.region.InsertRequest\"E\n\016DeleteReques" +
-      "ts\0223\n\010requests\030\001 \003(\0132!.greptime.v1.regio" +
-      "n.DeleteRequest\"C\n\rInsertRequest\022\021\n\tregi" +
-      "on_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1." +
-      "Rows\"C\n\rDeleteRequest\022\021\n\tregion_id\030\001 \001(\004" +
-      "\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"/\n\014Que" +
-      "ryRequest\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004plan\030\002 \001" +
-      "(\014\"\253\002\n\rCreateRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
-      "\016\n\006engine\030\002 \001(\t\0222\n\013column_defs\030\003 \003(\0132\035.g" +
-      "reptime.v1.region.ColumnDef\022\023\n\013primary_k" +
-      "ey\030\004 \003(\r\022\034\n\024create_if_not_exists\030\005 \001(\010\022\017" +
-      "\n\007catalog\030\006 \001(\t\022\016\n\006schema\030\007 \001(\t\022?\n\007optio" +
-      "ns\030\010 \003(\0132..greptime.v1.region.CreateRequ" +
-      "est.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\013DropRequest\022" +
-      "\021\n\tregion_id\030\001 \001(\004\"\300\001\n\013OpenRequest\022\021\n\tre" +
-      "gion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\017\n\007catalog" +
-      "\030\003 \001(\t\022\016\n\006schema\030\004 \001(\t\022=\n\007options\030\005 \003(\0132" +
-      ",.greptime.v1.region.OpenRequest.Options" +
-      "Entry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_" +
-      "id\030\001 \001(\004\"!\n\014AlterRequest\022\021\n\tregion_id\030\001 " +
-      "\001(\004\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"#" +
-      "\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"\276\001\n\t" +
-      "ColumnDef\022\014\n\004name\030\001 \001(\t\022\021\n\tcolumn_id\030\002 \001" +
-      "(\r\022-\n\010datatype\030\003 \001(\0162\033.greptime.v1.Colum" +
-      "nDataType\022\023\n\013is_nullable\030\004 \001(\010\022\032\n\022defaul" +
-      "t_constraint\030\005 \001(\014\0220\n\rsemantic_type\030\006 \001(" +
-      "\0162\031.greptime.v1.SemanticType2Y\n\006Region\022O" +
-      "\n\006Handle\022!.greptime.v1.region.RegionRequ" +
-      "est\032\".greptime.v1.region.RegionResponseB" +
-      "]\n\025io.greptime.v1.regionB\006ServerZ<github" +
-      ".com/GreptimeTeam/greptime-proto/go/grep" +
-      "time/v1/regionb\006proto3"
+      "\025greptime/v1/row.proto\"8\n\023RegionRequestH" +
+      "eader\022\020\n\010trace_id\030\001 \001(\004\022\017\n\007span_id\030\002 \001(\004" +
+      "\"\245\004\n\rRegionRequest\0227\n\006header\030\001 \001(\0132\'.gre" +
+      "ptime.v1.region.RegionRequestHeader\0225\n\007i" +
+      "nserts\030\003 \001(\0132\".greptime.v1.region.Insert" +
+      "RequestsH\000\0225\n\007deletes\030\004 \001(\0132\".greptime.v" +
+      "1.region.DeleteRequestsH\000\0223\n\006create\030\005 \001(" +
+      "\0132!.greptime.v1.region.CreateRequestH\000\022/" +
+      "\n\004drop\030\006 \001(\0132\037.greptime.v1.region.DropRe" +
+      "questH\000\022/\n\004open\030\007 \001(\0132\037.greptime.v1.regi" +
+      "on.OpenRequestH\000\0221\n\005close\030\010 \001(\0132 .grepti" +
+      "me.v1.region.CloseRequestH\000\0221\n\005alter\030\t \001" +
+      "(\0132 .greptime.v1.region.AlterRequestH\000\0221" +
+      "\n\005flush\030\n \001(\0132 .greptime.v1.region.Flush" +
+      "RequestH\000\0225\n\007compact\030\013 \001(\0132\".greptime.v1" +
+      ".region.CompactRequestH\000B\006\n\004body\"T\n\016Regi" +
+      "onResponse\022+\n\006header\030\001 \001(\0132\033.greptime.v1" +
+      ".ResponseHeader\022\025\n\raffected_rows\030\002 \001(\004\"E" +
+      "\n\016InsertRequests\0223\n\010requests\030\001 \003(\0132!.gre" +
+      "ptime.v1.region.InsertRequest\"E\n\016DeleteR" +
+      "equests\0223\n\010requests\030\001 \003(\0132!.greptime.v1." +
+      "region.DeleteRequest\"C\n\rInsertRequest\022\021\n" +
+      "\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptim" +
+      "e.v1.Rows\"C\n\rDeleteRequest\022\021\n\tregion_id\030" +
+      "\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"/" +
+      "\n\014QueryRequest\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004pla" +
+      "n\030\002 \001(\014\"\253\002\n\rCreateRequest\022\021\n\tregion_id\030\001" +
+      " \001(\004\022\016\n\006engine\030\002 \001(\t\0222\n\013column_defs\030\003 \003(" +
+      "\0132\035.greptime.v1.region.ColumnDef\022\023\n\013prim" +
+      "ary_key\030\004 \003(\r\022\034\n\024create_if_not_exists\030\005 " +
+      "\001(\010\022\017\n\007catalog\030\006 \001(\t\022\016\n\006schema\030\007 \001(\t\022?\n\007" +
+      "options\030\010 \003(\0132..greptime.v1.region.Creat" +
+      "eRequest.OptionsEntry\032.\n\014OptionsEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\013DropReq" +
+      "uest\022\021\n\tregion_id\030\001 \001(\004\"\300\001\n\013OpenRequest\022" +
+      "\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\017\n\007ca" +
+      "talog\030\003 \001(\t\022\016\n\006schema\030\004 \001(\t\022=\n\007options\030\005" +
+      " \003(\0132,.greptime.v1.region.OpenRequest.Op" +
+      "tionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\"!\n\014AlterRequest\022\021\n\tregion_" +
+      "id\030\001 \001(\004\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 " +
+      "\001(\004\"#\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004" +
+      "\"\276\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022\021\n\tcolumn_i" +
+      "d\030\002 \001(\r\022-\n\010datatype\030\003 \001(\0162\033.greptime.v1." +
+      "ColumnDataType\022\023\n\013is_nullable\030\004 \001(\010\022\032\n\022d" +
+      "efault_constraint\030\005 \001(\014\0220\n\rsemantic_type" +
+      "\030\006 \001(\0162\031.greptime.v1.SemanticType2Y\n\006Reg" +
+      "ion\022O\n\006Handle\022!.greptime.v1.region.Regio" +
+      "nRequest\032\".greptime.v1.region.RegionResp" +
+      "onseB]\n\025io.greptime.v1.regionB\006ServerZ<g" +
+      "ithub.com/GreptimeTeam/greptime-proto/go" +
+      "/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15069,7 +14980,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequestHeader_descriptor,
-        new java.lang.String[] { "TraceId", "SpanId", "TraceId", "SpanId", });
+        new java.lang.String[] { "TraceId", "SpanId", });
     internal_static_greptime_v1_region_RegionRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
