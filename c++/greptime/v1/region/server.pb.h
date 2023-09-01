@@ -35,6 +35,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/common.pb.h"
 #include "greptime/v1/row.pb.h"
+#include "greptime/v1/ddl.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_greptime_2fv1_2fregion_2fserver_2eproto
@@ -2541,6 +2542,12 @@ class AlterRequest final :
   static const AlterRequest& default_instance() {
     return *internal_default_instance();
   }
+  enum KindCase {
+    kAddColumns = 2,
+    kDropColumns = 3,
+    KIND_NOT_SET = 0,
+  };
+
   static inline const AlterRequest* internal_default_instance() {
     return reinterpret_cast<const AlterRequest*>(
                &_AlterRequest_default_instance_);
@@ -2620,6 +2627,9 @@ class AlterRequest final :
 
   enum : int {
     kRegionIdFieldNumber = 1,
+    kSchemaVersionFieldNumber = 4,
+    kAddColumnsFieldNumber = 2,
+    kDropColumnsFieldNumber = 3,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -2630,16 +2640,77 @@ class AlterRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // uint64 schema_version = 4;
+  void clear_schema_version();
+  uint64_t schema_version() const;
+  void set_schema_version(uint64_t value);
+  private:
+  uint64_t _internal_schema_version() const;
+  void _internal_set_schema_version(uint64_t value);
+  public:
+
+  // .greptime.v1.AddColumns add_columns = 2;
+  bool has_add_columns() const;
+  private:
+  bool _internal_has_add_columns() const;
+  public:
+  void clear_add_columns();
+  const ::greptime::v1::AddColumns& add_columns() const;
+  PROTOBUF_NODISCARD ::greptime::v1::AddColumns* release_add_columns();
+  ::greptime::v1::AddColumns* mutable_add_columns();
+  void set_allocated_add_columns(::greptime::v1::AddColumns* add_columns);
+  private:
+  const ::greptime::v1::AddColumns& _internal_add_columns() const;
+  ::greptime::v1::AddColumns* _internal_mutable_add_columns();
+  public:
+  void unsafe_arena_set_allocated_add_columns(
+      ::greptime::v1::AddColumns* add_columns);
+  ::greptime::v1::AddColumns* unsafe_arena_release_add_columns();
+
+  // .greptime.v1.DropColumns drop_columns = 3;
+  bool has_drop_columns() const;
+  private:
+  bool _internal_has_drop_columns() const;
+  public:
+  void clear_drop_columns();
+  const ::greptime::v1::DropColumns& drop_columns() const;
+  PROTOBUF_NODISCARD ::greptime::v1::DropColumns* release_drop_columns();
+  ::greptime::v1::DropColumns* mutable_drop_columns();
+  void set_allocated_drop_columns(::greptime::v1::DropColumns* drop_columns);
+  private:
+  const ::greptime::v1::DropColumns& _internal_drop_columns() const;
+  ::greptime::v1::DropColumns* _internal_mutable_drop_columns();
+  public:
+  void unsafe_arena_set_allocated_drop_columns(
+      ::greptime::v1::DropColumns* drop_columns);
+  ::greptime::v1::DropColumns* unsafe_arena_release_drop_columns();
+
+  void clear_kind();
+  KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.AlterRequest)
  private:
   class _Internal;
+  void set_has_add_columns();
+  void set_has_drop_columns();
+
+  inline bool has_kind() const;
+  inline void clear_has_kind();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     uint64_t region_id_;
+    uint64_t schema_version_;
+    union KindUnion {
+      constexpr KindUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::greptime::v1::AddColumns* add_columns_;
+      ::greptime::v1::DropColumns* drop_columns_;
+    } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
@@ -5051,6 +5122,167 @@ inline void AlterRequest::set_region_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.AlterRequest.region_id)
 }
 
+// .greptime.v1.AddColumns add_columns = 2;
+inline bool AlterRequest::_internal_has_add_columns() const {
+  return kind_case() == kAddColumns;
+}
+inline bool AlterRequest::has_add_columns() const {
+  return _internal_has_add_columns();
+}
+inline void AlterRequest::set_has_add_columns() {
+  _impl_._oneof_case_[0] = kAddColumns;
+}
+inline ::greptime::v1::AddColumns* AlterRequest::release_add_columns() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.add_columns)
+  if (_internal_has_add_columns()) {
+    clear_has_kind();
+    ::greptime::v1::AddColumns* temp = _impl_.kind_.add_columns_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.add_columns_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::AddColumns& AlterRequest::_internal_add_columns() const {
+  return _internal_has_add_columns()
+      ? *_impl_.kind_.add_columns_
+      : reinterpret_cast< ::greptime::v1::AddColumns&>(::greptime::v1::_AddColumns_default_instance_);
+}
+inline const ::greptime::v1::AddColumns& AlterRequest::add_columns() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.add_columns)
+  return _internal_add_columns();
+}
+inline ::greptime::v1::AddColumns* AlterRequest::unsafe_arena_release_add_columns() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.add_columns)
+  if (_internal_has_add_columns()) {
+    clear_has_kind();
+    ::greptime::v1::AddColumns* temp = _impl_.kind_.add_columns_;
+    _impl_.kind_.add_columns_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterRequest::unsafe_arena_set_allocated_add_columns(::greptime::v1::AddColumns* add_columns) {
+  clear_kind();
+  if (add_columns) {
+    set_has_add_columns();
+    _impl_.kind_.add_columns_ = add_columns;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.add_columns)
+}
+inline ::greptime::v1::AddColumns* AlterRequest::_internal_mutable_add_columns() {
+  if (!_internal_has_add_columns()) {
+    clear_kind();
+    set_has_add_columns();
+    _impl_.kind_.add_columns_ = CreateMaybeMessage< ::greptime::v1::AddColumns >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.add_columns_;
+}
+inline ::greptime::v1::AddColumns* AlterRequest::mutable_add_columns() {
+  ::greptime::v1::AddColumns* _msg = _internal_mutable_add_columns();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.add_columns)
+  return _msg;
+}
+
+// .greptime.v1.DropColumns drop_columns = 3;
+inline bool AlterRequest::_internal_has_drop_columns() const {
+  return kind_case() == kDropColumns;
+}
+inline bool AlterRequest::has_drop_columns() const {
+  return _internal_has_drop_columns();
+}
+inline void AlterRequest::set_has_drop_columns() {
+  _impl_._oneof_case_[0] = kDropColumns;
+}
+inline ::greptime::v1::DropColumns* AlterRequest::release_drop_columns() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.drop_columns)
+  if (_internal_has_drop_columns()) {
+    clear_has_kind();
+    ::greptime::v1::DropColumns* temp = _impl_.kind_.drop_columns_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.drop_columns_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::DropColumns& AlterRequest::_internal_drop_columns() const {
+  return _internal_has_drop_columns()
+      ? *_impl_.kind_.drop_columns_
+      : reinterpret_cast< ::greptime::v1::DropColumns&>(::greptime::v1::_DropColumns_default_instance_);
+}
+inline const ::greptime::v1::DropColumns& AlterRequest::drop_columns() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.drop_columns)
+  return _internal_drop_columns();
+}
+inline ::greptime::v1::DropColumns* AlterRequest::unsafe_arena_release_drop_columns() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.drop_columns)
+  if (_internal_has_drop_columns()) {
+    clear_has_kind();
+    ::greptime::v1::DropColumns* temp = _impl_.kind_.drop_columns_;
+    _impl_.kind_.drop_columns_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterRequest::unsafe_arena_set_allocated_drop_columns(::greptime::v1::DropColumns* drop_columns) {
+  clear_kind();
+  if (drop_columns) {
+    set_has_drop_columns();
+    _impl_.kind_.drop_columns_ = drop_columns;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.drop_columns)
+}
+inline ::greptime::v1::DropColumns* AlterRequest::_internal_mutable_drop_columns() {
+  if (!_internal_has_drop_columns()) {
+    clear_kind();
+    set_has_drop_columns();
+    _impl_.kind_.drop_columns_ = CreateMaybeMessage< ::greptime::v1::DropColumns >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.drop_columns_;
+}
+inline ::greptime::v1::DropColumns* AlterRequest::mutable_drop_columns() {
+  ::greptime::v1::DropColumns* _msg = _internal_mutable_drop_columns();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.drop_columns)
+  return _msg;
+}
+
+// uint64 schema_version = 4;
+inline void AlterRequest::clear_schema_version() {
+  _impl_.schema_version_ = uint64_t{0u};
+}
+inline uint64_t AlterRequest::_internal_schema_version() const {
+  return _impl_.schema_version_;
+}
+inline uint64_t AlterRequest::schema_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.schema_version)
+  return _internal_schema_version();
+}
+inline void AlterRequest::_internal_set_schema_version(uint64_t value) {
+  
+  _impl_.schema_version_ = value;
+}
+inline void AlterRequest::set_schema_version(uint64_t value) {
+  _internal_set_schema_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.AlterRequest.schema_version)
+}
+
+inline bool AlterRequest::has_kind() const {
+  return kind_case() != KIND_NOT_SET;
+}
+inline void AlterRequest::clear_has_kind() {
+  _impl_._oneof_case_[0] = KIND_NOT_SET;
+}
+inline AlterRequest::KindCase AlterRequest::kind_case() const {
+  return AlterRequest::KindCase(_impl_._oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // FlushRequest

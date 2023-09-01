@@ -22,6 +22,7 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/regio
 
 import "greptime/v1/common.proto";
 import "greptime/v1/row.proto";
+import "greptime/v1/ddl.proto";
 
 service Region { rpc Handle(RegionRequest) returns (RegionResponse); }
 
@@ -110,8 +111,15 @@ message OpenRequest {
 
 message CloseRequest { uint64 region_id = 1; }
 
-// TODO: implement alter request
-message AlterRequest { uint64 region_id = 1; }
+message AlterRequest {
+  uint64 region_id = 1;
+  oneof kind {
+    AddColumns add_columns = 2;
+    DropColumns drop_columns = 3;
+  }
+  // The version of the schema before applying the alteration.
+  uint64 schema_version = 4;
+}
 
 message FlushRequest { uint64 region_id = 1; }
 
