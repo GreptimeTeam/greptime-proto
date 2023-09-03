@@ -94,18 +94,22 @@ message RenameTable { string new_table_name = 1; }
 message AddColumn {
   ColumnDef column_def = 1;
   bool is_key = 2;
-
-  message Location {
-    enum LocationType {
-      FIRST = 0;
-      AFTER = 1;
-    }
-    LocationType location_type = 1;
-    string after_column_name = 2;
-  }
-  Location location = 3;
+  AddColumnLocation location = 3;
 }
 
-message DropColumn { string name = 1; }
+message DropColumn {
+  string name = 1;
+}
 
-message TableId { uint32 id = 1; }
+message TableId {
+  uint32 id = 1;
+}
+
+message AddColumnLocation {
+  enum LocationType {
+    FIRST = 0;
+    AFTER = 1;
+  }
+  LocationType location_type = 1;
+  string after_column_name = 2;
+}

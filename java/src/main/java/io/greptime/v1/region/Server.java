@@ -15063,19 +15063,19 @@ java.lang.String defaultValue);
     boolean getIsKey();
 
     /**
-     * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+     * <code>.greptime.v1.AddColumnLocation location = 3;</code>
      * @return Whether the location field is set.
      */
     boolean hasLocation();
     /**
-     * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+     * <code>.greptime.v1.AddColumnLocation location = 3;</code>
      * @return The location.
      */
-    io.greptime.v1.region.Server.AddColumn.Location getLocation();
+    io.greptime.v1.Ddl.AddColumnLocation getLocation();
     /**
-     * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+     * <code>.greptime.v1.AddColumnLocation location = 3;</code>
      */
-    io.greptime.v1.region.Server.AddColumn.LocationOrBuilder getLocationOrBuilder();
+    io.greptime.v1.Ddl.AddColumnLocationOrBuilder getLocationOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.region.AddColumn}
@@ -15141,11 +15141,11 @@ java.lang.String defaultValue);
               break;
             }
             case 26: {
-              io.greptime.v1.region.Server.AddColumn.Location.Builder subBuilder = null;
+              io.greptime.v1.Ddl.AddColumnLocation.Builder subBuilder = null;
               if (location_ != null) {
                 subBuilder = location_.toBuilder();
               }
-              location_ = input.readMessage(io.greptime.v1.region.Server.AddColumn.Location.parser(), extensionRegistry);
+              location_ = input.readMessage(io.greptime.v1.Ddl.AddColumnLocation.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(location_);
                 location_ = subBuilder.buildPartial();
@@ -15187,791 +15187,6 @@ java.lang.String defaultValue);
               io.greptime.v1.region.Server.AddColumn.class, io.greptime.v1.region.Server.AddColumn.Builder.class);
     }
 
-    public interface LocationOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:greptime.v1.region.AddColumn.Location)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>.greptime.v1.region.AddColumn.Location.LocationType location_type = 1;</code>
-       * @return The enum numeric value on the wire for locationType.
-       */
-      int getLocationTypeValue();
-      /**
-       * <code>.greptime.v1.region.AddColumn.Location.LocationType location_type = 1;</code>
-       * @return The locationType.
-       */
-      io.greptime.v1.region.Server.AddColumn.Location.LocationType getLocationType();
-
-      /**
-       * <code>string after_column_name = 2;</code>
-       * @return The afterColumnName.
-       */
-      java.lang.String getAfterColumnName();
-      /**
-       * <code>string after_column_name = 2;</code>
-       * @return The bytes for afterColumnName.
-       */
-      com.google.protobuf.ByteString
-          getAfterColumnNameBytes();
-    }
-    /**
-     * Protobuf type {@code greptime.v1.region.AddColumn.Location}
-     */
-    public static final class Location extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:greptime.v1.region.AddColumn.Location)
-        LocationOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use Location.newBuilder() to construct.
-      private Location(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private Location() {
-        locationType_ = 0;
-        afterColumnName_ = "";
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new Location();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private Location(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-
-                locationType_ = rawValue;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                afterColumnName_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AddColumn_Location_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AddColumn_Location_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.region.Server.AddColumn.Location.class, io.greptime.v1.region.Server.AddColumn.Location.Builder.class);
-      }
-
-      /**
-       * Protobuf enum {@code greptime.v1.region.AddColumn.Location.LocationType}
-       */
-      public enum LocationType
-          implements com.google.protobuf.ProtocolMessageEnum {
-        /**
-         * <code>FIRST = 0;</code>
-         */
-        FIRST(0),
-        /**
-         * <code>AFTER = 1;</code>
-         */
-        AFTER(1),
-        UNRECOGNIZED(-1),
-        ;
-
-        /**
-         * <code>FIRST = 0;</code>
-         */
-        public static final int FIRST_VALUE = 0;
-        /**
-         * <code>AFTER = 1;</code>
-         */
-        public static final int AFTER_VALUE = 1;
-
-
-        public final int getNumber() {
-          if (this == UNRECOGNIZED) {
-            throw new java.lang.IllegalArgumentException(
-                "Can't get the number of an unknown enum value.");
-          }
-          return value;
-        }
-
-        /**
-         * @param value The numeric wire value of the corresponding enum entry.
-         * @return The enum associated with the given numeric wire value.
-         * @deprecated Use {@link #forNumber(int)} instead.
-         */
-        @java.lang.Deprecated
-        public static LocationType valueOf(int value) {
-          return forNumber(value);
-        }
-
-        /**
-         * @param value The numeric wire value of the corresponding enum entry.
-         * @return The enum associated with the given numeric wire value.
-         */
-        public static LocationType forNumber(int value) {
-          switch (value) {
-            case 0: return FIRST;
-            case 1: return AFTER;
-            default: return null;
-          }
-        }
-
-        public static com.google.protobuf.Internal.EnumLiteMap<LocationType>
-            internalGetValueMap() {
-          return internalValueMap;
-        }
-        private static final com.google.protobuf.Internal.EnumLiteMap<
-            LocationType> internalValueMap =
-              new com.google.protobuf.Internal.EnumLiteMap<LocationType>() {
-                public LocationType findValueByNumber(int number) {
-                  return LocationType.forNumber(number);
-                }
-              };
-
-        public final com.google.protobuf.Descriptors.EnumValueDescriptor
-            getValueDescriptor() {
-          if (this == UNRECOGNIZED) {
-            throw new java.lang.IllegalStateException(
-                "Can't get the descriptor of an unrecognized enum value.");
-          }
-          return getDescriptor().getValues().get(ordinal());
-        }
-        public final com.google.protobuf.Descriptors.EnumDescriptor
-            getDescriptorForType() {
-          return getDescriptor();
-        }
-        public static final com.google.protobuf.Descriptors.EnumDescriptor
-            getDescriptor() {
-          return io.greptime.v1.region.Server.AddColumn.Location.getDescriptor().getEnumTypes().get(0);
-        }
-
-        private static final LocationType[] VALUES = values();
-
-        public static LocationType valueOf(
-            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-          if (desc.getType() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
-              "EnumValueDescriptor is not for this type.");
-          }
-          if (desc.getIndex() == -1) {
-            return UNRECOGNIZED;
-          }
-          return VALUES[desc.getIndex()];
-        }
-
-        private final int value;
-
-        private LocationType(int value) {
-          this.value = value;
-        }
-
-        // @@protoc_insertion_point(enum_scope:greptime.v1.region.AddColumn.Location.LocationType)
-      }
-
-      public static final int LOCATION_TYPE_FIELD_NUMBER = 1;
-      private int locationType_;
-      /**
-       * <code>.greptime.v1.region.AddColumn.Location.LocationType location_type = 1;</code>
-       * @return The enum numeric value on the wire for locationType.
-       */
-      @java.lang.Override public int getLocationTypeValue() {
-        return locationType_;
-      }
-      /**
-       * <code>.greptime.v1.region.AddColumn.Location.LocationType location_type = 1;</code>
-       * @return The locationType.
-       */
-      @java.lang.Override public io.greptime.v1.region.Server.AddColumn.Location.LocationType getLocationType() {
-        @SuppressWarnings("deprecation")
-        io.greptime.v1.region.Server.AddColumn.Location.LocationType result = io.greptime.v1.region.Server.AddColumn.Location.LocationType.valueOf(locationType_);
-        return result == null ? io.greptime.v1.region.Server.AddColumn.Location.LocationType.UNRECOGNIZED : result;
-      }
-
-      public static final int AFTER_COLUMN_NAME_FIELD_NUMBER = 2;
-      private volatile java.lang.Object afterColumnName_;
-      /**
-       * <code>string after_column_name = 2;</code>
-       * @return The afterColumnName.
-       */
-      @java.lang.Override
-      public java.lang.String getAfterColumnName() {
-        java.lang.Object ref = afterColumnName_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          afterColumnName_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string after_column_name = 2;</code>
-       * @return The bytes for afterColumnName.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getAfterColumnNameBytes() {
-        java.lang.Object ref = afterColumnName_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          afterColumnName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (locationType_ != io.greptime.v1.region.Server.AddColumn.Location.LocationType.FIRST.getNumber()) {
-          output.writeEnum(1, locationType_);
-        }
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(afterColumnName_)) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, afterColumnName_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (locationType_ != io.greptime.v1.region.Server.AddColumn.Location.LocationType.FIRST.getNumber()) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeEnumSize(1, locationType_);
-        }
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(afterColumnName_)) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, afterColumnName_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof io.greptime.v1.region.Server.AddColumn.Location)) {
-          return super.equals(obj);
-        }
-        io.greptime.v1.region.Server.AddColumn.Location other = (io.greptime.v1.region.Server.AddColumn.Location) obj;
-
-        if (locationType_ != other.locationType_) return false;
-        if (!getAfterColumnName()
-            .equals(other.getAfterColumnName())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + LOCATION_TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + locationType_;
-        hash = (37 * hash) + AFTER_COLUMN_NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getAfterColumnName().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static io.greptime.v1.region.Server.AddColumn.Location parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(io.greptime.v1.region.Server.AddColumn.Location prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code greptime.v1.region.AddColumn.Location}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:greptime.v1.region.AddColumn.Location)
-          io.greptime.v1.region.Server.AddColumn.LocationOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AddColumn_Location_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AddColumn_Location_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  io.greptime.v1.region.Server.AddColumn.Location.class, io.greptime.v1.region.Server.AddColumn.Location.Builder.class);
-        }
-
-        // Construct using io.greptime.v1.region.Server.AddColumn.Location.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          locationType_ = 0;
-
-          afterColumnName_ = "";
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AddColumn_Location_descriptor;
-        }
-
-        @java.lang.Override
-        public io.greptime.v1.region.Server.AddColumn.Location getDefaultInstanceForType() {
-          return io.greptime.v1.region.Server.AddColumn.Location.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public io.greptime.v1.region.Server.AddColumn.Location build() {
-          io.greptime.v1.region.Server.AddColumn.Location result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public io.greptime.v1.region.Server.AddColumn.Location buildPartial() {
-          io.greptime.v1.region.Server.AddColumn.Location result = new io.greptime.v1.region.Server.AddColumn.Location(this);
-          result.locationType_ = locationType_;
-          result.afterColumnName_ = afterColumnName_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof io.greptime.v1.region.Server.AddColumn.Location) {
-            return mergeFrom((io.greptime.v1.region.Server.AddColumn.Location)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(io.greptime.v1.region.Server.AddColumn.Location other) {
-          if (other == io.greptime.v1.region.Server.AddColumn.Location.getDefaultInstance()) return this;
-          if (other.locationType_ != 0) {
-            setLocationTypeValue(other.getLocationTypeValue());
-          }
-          if (!other.getAfterColumnName().isEmpty()) {
-            afterColumnName_ = other.afterColumnName_;
-            onChanged();
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          io.greptime.v1.region.Server.AddColumn.Location parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.greptime.v1.region.Server.AddColumn.Location) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int locationType_ = 0;
-        /**
-         * <code>.greptime.v1.region.AddColumn.Location.LocationType location_type = 1;</code>
-         * @return The enum numeric value on the wire for locationType.
-         */
-        @java.lang.Override public int getLocationTypeValue() {
-          return locationType_;
-        }
-        /**
-         * <code>.greptime.v1.region.AddColumn.Location.LocationType location_type = 1;</code>
-         * @param value The enum numeric value on the wire for locationType to set.
-         * @return This builder for chaining.
-         */
-        public Builder setLocationTypeValue(int value) {
-          
-          locationType_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>.greptime.v1.region.AddColumn.Location.LocationType location_type = 1;</code>
-         * @return The locationType.
-         */
-        @java.lang.Override
-        public io.greptime.v1.region.Server.AddColumn.Location.LocationType getLocationType() {
-          @SuppressWarnings("deprecation")
-          io.greptime.v1.region.Server.AddColumn.Location.LocationType result = io.greptime.v1.region.Server.AddColumn.Location.LocationType.valueOf(locationType_);
-          return result == null ? io.greptime.v1.region.Server.AddColumn.Location.LocationType.UNRECOGNIZED : result;
-        }
-        /**
-         * <code>.greptime.v1.region.AddColumn.Location.LocationType location_type = 1;</code>
-         * @param value The locationType to set.
-         * @return This builder for chaining.
-         */
-        public Builder setLocationType(io.greptime.v1.region.Server.AddColumn.Location.LocationType value) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          
-          locationType_ = value.getNumber();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>.greptime.v1.region.AddColumn.Location.LocationType location_type = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearLocationType() {
-          
-          locationType_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object afterColumnName_ = "";
-        /**
-         * <code>string after_column_name = 2;</code>
-         * @return The afterColumnName.
-         */
-        public java.lang.String getAfterColumnName() {
-          java.lang.Object ref = afterColumnName_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            afterColumnName_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string after_column_name = 2;</code>
-         * @return The bytes for afterColumnName.
-         */
-        public com.google.protobuf.ByteString
-            getAfterColumnNameBytes() {
-          java.lang.Object ref = afterColumnName_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            afterColumnName_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string after_column_name = 2;</code>
-         * @param value The afterColumnName to set.
-         * @return This builder for chaining.
-         */
-        public Builder setAfterColumnName(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          afterColumnName_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string after_column_name = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearAfterColumnName() {
-          
-          afterColumnName_ = getDefaultInstance().getAfterColumnName();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string after_column_name = 2;</code>
-         * @param value The bytes for afterColumnName to set.
-         * @return This builder for chaining.
-         */
-        public Builder setAfterColumnNameBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          afterColumnName_ = value;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:greptime.v1.region.AddColumn.Location)
-      }
-
-      // @@protoc_insertion_point(class_scope:greptime.v1.region.AddColumn.Location)
-      private static final io.greptime.v1.region.Server.AddColumn.Location DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new io.greptime.v1.region.Server.AddColumn.Location();
-      }
-
-      public static io.greptime.v1.region.Server.AddColumn.Location getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<Location>
-          PARSER = new com.google.protobuf.AbstractParser<Location>() {
-        @java.lang.Override
-        public Location parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Location(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<Location> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Location> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.region.Server.AddColumn.Location getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
     public static final int COLUMN_DEF_FIELD_NUMBER = 1;
     private io.greptime.v1.region.Server.ColumnDef columnDef_;
     /**
@@ -16010,9 +15225,9 @@ java.lang.String defaultValue);
     }
 
     public static final int LOCATION_FIELD_NUMBER = 3;
-    private io.greptime.v1.region.Server.AddColumn.Location location_;
+    private io.greptime.v1.Ddl.AddColumnLocation location_;
     /**
-     * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+     * <code>.greptime.v1.AddColumnLocation location = 3;</code>
      * @return Whether the location field is set.
      */
     @java.lang.Override
@@ -16020,18 +15235,18 @@ java.lang.String defaultValue);
       return location_ != null;
     }
     /**
-     * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+     * <code>.greptime.v1.AddColumnLocation location = 3;</code>
      * @return The location.
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.AddColumn.Location getLocation() {
-      return location_ == null ? io.greptime.v1.region.Server.AddColumn.Location.getDefaultInstance() : location_;
+    public io.greptime.v1.Ddl.AddColumnLocation getLocation() {
+      return location_ == null ? io.greptime.v1.Ddl.AddColumnLocation.getDefaultInstance() : location_;
     }
     /**
-     * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+     * <code>.greptime.v1.AddColumnLocation location = 3;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.AddColumn.LocationOrBuilder getLocationOrBuilder() {
+    public io.greptime.v1.Ddl.AddColumnLocationOrBuilder getLocationOrBuilder() {
       return getLocation();
     }
 
@@ -16548,31 +15763,31 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private io.greptime.v1.region.Server.AddColumn.Location location_;
+      private io.greptime.v1.Ddl.AddColumnLocation location_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.AddColumn.Location, io.greptime.v1.region.Server.AddColumn.Location.Builder, io.greptime.v1.region.Server.AddColumn.LocationOrBuilder> locationBuilder_;
+          io.greptime.v1.Ddl.AddColumnLocation, io.greptime.v1.Ddl.AddColumnLocation.Builder, io.greptime.v1.Ddl.AddColumnLocationOrBuilder> locationBuilder_;
       /**
-       * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+       * <code>.greptime.v1.AddColumnLocation location = 3;</code>
        * @return Whether the location field is set.
        */
       public boolean hasLocation() {
         return locationBuilder_ != null || location_ != null;
       }
       /**
-       * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+       * <code>.greptime.v1.AddColumnLocation location = 3;</code>
        * @return The location.
        */
-      public io.greptime.v1.region.Server.AddColumn.Location getLocation() {
+      public io.greptime.v1.Ddl.AddColumnLocation getLocation() {
         if (locationBuilder_ == null) {
-          return location_ == null ? io.greptime.v1.region.Server.AddColumn.Location.getDefaultInstance() : location_;
+          return location_ == null ? io.greptime.v1.Ddl.AddColumnLocation.getDefaultInstance() : location_;
         } else {
           return locationBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+       * <code>.greptime.v1.AddColumnLocation location = 3;</code>
        */
-      public Builder setLocation(io.greptime.v1.region.Server.AddColumn.Location value) {
+      public Builder setLocation(io.greptime.v1.Ddl.AddColumnLocation value) {
         if (locationBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -16586,10 +15801,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+       * <code>.greptime.v1.AddColumnLocation location = 3;</code>
        */
       public Builder setLocation(
-          io.greptime.v1.region.Server.AddColumn.Location.Builder builderForValue) {
+          io.greptime.v1.Ddl.AddColumnLocation.Builder builderForValue) {
         if (locationBuilder_ == null) {
           location_ = builderForValue.build();
           onChanged();
@@ -16600,13 +15815,13 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+       * <code>.greptime.v1.AddColumnLocation location = 3;</code>
        */
-      public Builder mergeLocation(io.greptime.v1.region.Server.AddColumn.Location value) {
+      public Builder mergeLocation(io.greptime.v1.Ddl.AddColumnLocation value) {
         if (locationBuilder_ == null) {
           if (location_ != null) {
             location_ =
-              io.greptime.v1.region.Server.AddColumn.Location.newBuilder(location_).mergeFrom(value).buildPartial();
+              io.greptime.v1.Ddl.AddColumnLocation.newBuilder(location_).mergeFrom(value).buildPartial();
           } else {
             location_ = value;
           }
@@ -16618,7 +15833,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+       * <code>.greptime.v1.AddColumnLocation location = 3;</code>
        */
       public Builder clearLocation() {
         if (locationBuilder_ == null) {
@@ -16632,33 +15847,33 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+       * <code>.greptime.v1.AddColumnLocation location = 3;</code>
        */
-      public io.greptime.v1.region.Server.AddColumn.Location.Builder getLocationBuilder() {
+      public io.greptime.v1.Ddl.AddColumnLocation.Builder getLocationBuilder() {
         
         onChanged();
         return getLocationFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+       * <code>.greptime.v1.AddColumnLocation location = 3;</code>
        */
-      public io.greptime.v1.region.Server.AddColumn.LocationOrBuilder getLocationOrBuilder() {
+      public io.greptime.v1.Ddl.AddColumnLocationOrBuilder getLocationOrBuilder() {
         if (locationBuilder_ != null) {
           return locationBuilder_.getMessageOrBuilder();
         } else {
           return location_ == null ?
-              io.greptime.v1.region.Server.AddColumn.Location.getDefaultInstance() : location_;
+              io.greptime.v1.Ddl.AddColumnLocation.getDefaultInstance() : location_;
         }
       }
       /**
-       * <code>.greptime.v1.region.AddColumn.Location location = 3;</code>
+       * <code>.greptime.v1.AddColumnLocation location = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.AddColumn.Location, io.greptime.v1.region.Server.AddColumn.Location.Builder, io.greptime.v1.region.Server.AddColumn.LocationOrBuilder> 
+          io.greptime.v1.Ddl.AddColumnLocation, io.greptime.v1.Ddl.AddColumnLocation.Builder, io.greptime.v1.Ddl.AddColumnLocationOrBuilder> 
           getLocationFieldBuilder() {
         if (locationBuilder_ == null) {
           locationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.region.Server.AddColumn.Location, io.greptime.v1.region.Server.AddColumn.Location.Builder, io.greptime.v1.region.Server.AddColumn.LocationOrBuilder>(
+              io.greptime.v1.Ddl.AddColumnLocation, io.greptime.v1.Ddl.AddColumnLocation.Builder, io.greptime.v1.Ddl.AddColumnLocationOrBuilder>(
                   getLocation(),
                   getParentForChildren(),
                   isClean());
@@ -19361,11 +18576,6 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_AddColumn_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_region_AddColumn_Location_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_region_AddColumn_Location_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_DropColumn_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -19396,80 +18606,78 @@ java.lang.String defaultValue);
     java.lang.String[] descriptorData = {
       "\n\037greptime/v1/region/server.proto\022\022grept" +
       "ime.v1.region\032\030greptime/v1/common.proto\032" +
-      "\025greptime/v1/row.proto\"8\n\023RegionRequestH" +
-      "eader\022\020\n\010trace_id\030\001 \001(\004\022\017\n\007span_id\030\002 \001(\004" +
-      "\"\245\004\n\rRegionRequest\0227\n\006header\030\001 \001(\0132\'.gre" +
-      "ptime.v1.region.RegionRequestHeader\0225\n\007i" +
-      "nserts\030\003 \001(\0132\".greptime.v1.region.Insert" +
-      "RequestsH\000\0225\n\007deletes\030\004 \001(\0132\".greptime.v" +
-      "1.region.DeleteRequestsH\000\0223\n\006create\030\005 \001(" +
-      "\0132!.greptime.v1.region.CreateRequestH\000\022/" +
-      "\n\004drop\030\006 \001(\0132\037.greptime.v1.region.DropRe" +
-      "questH\000\022/\n\004open\030\007 \001(\0132\037.greptime.v1.regi" +
-      "on.OpenRequestH\000\0221\n\005close\030\010 \001(\0132 .grepti" +
-      "me.v1.region.CloseRequestH\000\0221\n\005alter\030\t \001" +
-      "(\0132 .greptime.v1.region.AlterRequestH\000\0221" +
-      "\n\005flush\030\n \001(\0132 .greptime.v1.region.Flush" +
-      "RequestH\000\0225\n\007compact\030\013 \001(\0132\".greptime.v1" +
-      ".region.CompactRequestH\000B\006\n\004body\"T\n\016Regi" +
-      "onResponse\022+\n\006header\030\001 \001(\0132\033.greptime.v1" +
-      ".ResponseHeader\022\025\n\raffected_rows\030\002 \001(\004\"E" +
-      "\n\016InsertRequests\0223\n\010requests\030\001 \003(\0132!.gre" +
-      "ptime.v1.region.InsertRequest\"E\n\016DeleteR" +
-      "equests\0223\n\010requests\030\001 \003(\0132!.greptime.v1." +
-      "region.DeleteRequest\"C\n\rInsertRequest\022\021\n" +
-      "\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptim" +
-      "e.v1.Rows\"C\n\rDeleteRequest\022\021\n\tregion_id\030" +
-      "\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"/" +
-      "\n\014QueryRequest\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004pla" +
-      "n\030\002 \001(\014\"\253\002\n\rCreateRequest\022\021\n\tregion_id\030\001" +
-      " \001(\004\022\016\n\006engine\030\002 \001(\t\0222\n\013column_defs\030\003 \003(" +
-      "\0132\035.greptime.v1.region.ColumnDef\022\023\n\013prim" +
-      "ary_key\030\004 \003(\r\022\034\n\024create_if_not_exists\030\005 " +
-      "\001(\010\022\017\n\007catalog\030\006 \001(\t\022\016\n\006schema\030\007 \001(\t\022?\n\007" +
-      "options\030\010 \003(\0132..greptime.v1.region.Creat" +
-      "eRequest.OptionsEntry\032.\n\014OptionsEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\013DropReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\"\300\001\n\013OpenRequest\022" +
-      "\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\017\n\007ca" +
-      "talog\030\003 \001(\t\022\016\n\006schema\030\004 \001(\t\022=\n\007options\030\005" +
-      " \003(\0132,.greptime.v1.region.OpenRequest.Op" +
-      "tionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tre" +
-      "gion_id\030\001 \001(\004\"\261\001\n\014AlterRequest\022\021\n\tregion" +
-      "_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036.greptim" +
-      "e.v1.region.AddColumnsH\000\0227\n\014drop_columns" +
-      "\030\003 \001(\0132\037.greptime.v1.region.DropColumnsH" +
-      "\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAdd" +
-      "Columns\0222\n\013add_columns\030\001 \003(\0132\035.greptime." +
-      "v1.region.AddColumn\"C\n\013DropColumns\0224\n\014dr" +
-      "op_columns\030\001 \003(\0132\036.greptime.v1.region.Dr" +
-      "opColumn\"\242\002\n\tAddColumn\0221\n\ncolumn_def\030\001 \001" +
-      "(\0132\035.greptime.v1.region.ColumnDef\022\016\n\006is_" +
-      "key\030\002 \001(\010\0228\n\010location\030\003 \001(\0132&.greptime.v" +
-      "1.region.AddColumn.Location\032\227\001\n\010Location" +
-      "\022J\n\rlocation_type\030\001 \001(\01623.greptime.v1.re" +
-      "gion.AddColumn.Location.LocationType\022\031\n\021" +
-      "after_column_name\030\002 \001(\t\"$\n\014LocationType\022" +
-      "\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\032\n\nDropColumn\022\014\n\004n" +
-      "ame\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001" +
-      " \001(\004\"#\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(" +
-      "\004\"\276\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022\021\n\tcolumn_" +
-      "id\030\002 \001(\r\022-\n\010datatype\030\003 \001(\0162\033.greptime.v1" +
-      ".ColumnDataType\022\023\n\013is_nullable\030\004 \001(\010\022\032\n\022" +
-      "default_constraint\030\005 \001(\014\0220\n\rsemantic_typ" +
-      "e\030\006 \001(\0162\031.greptime.v1.SemanticType2Y\n\006Re" +
-      "gion\022O\n\006Handle\022!.greptime.v1.region.Regi" +
-      "onRequest\032\".greptime.v1.region.RegionRes" +
-      "ponseB]\n\025io.greptime.v1.regionB\006ServerZ<" +
-      "github.com/GreptimeTeam/greptime-proto/g" +
-      "o/greptime/v1/regionb\006proto3"
+      "\025greptime/v1/row.proto\032\025greptime/v1/ddl." +
+      "proto\"8\n\023RegionRequestHeader\022\020\n\010trace_id" +
+      "\030\001 \001(\004\022\017\n\007span_id\030\002 \001(\004\"\245\004\n\rRegionReques" +
+      "t\0227\n\006header\030\001 \001(\0132\'.greptime.v1.region.R" +
+      "egionRequestHeader\0225\n\007inserts\030\003 \001(\0132\".gr" +
+      "eptime.v1.region.InsertRequestsH\000\0225\n\007del" +
+      "etes\030\004 \001(\0132\".greptime.v1.region.DeleteRe" +
+      "questsH\000\0223\n\006create\030\005 \001(\0132!.greptime.v1.r" +
+      "egion.CreateRequestH\000\022/\n\004drop\030\006 \001(\0132\037.gr" +
+      "eptime.v1.region.DropRequestH\000\022/\n\004open\030\007" +
+      " \001(\0132\037.greptime.v1.region.OpenRequestH\000\022" +
+      "1\n\005close\030\010 \001(\0132 .greptime.v1.region.Clos" +
+      "eRequestH\000\0221\n\005alter\030\t \001(\0132 .greptime.v1." +
+      "region.AlterRequestH\000\0221\n\005flush\030\n \001(\0132 .g" +
+      "reptime.v1.region.FlushRequestH\000\0225\n\007comp" +
+      "act\030\013 \001(\0132\".greptime.v1.region.CompactRe" +
+      "questH\000B\006\n\004body\"T\n\016RegionResponse\022+\n\006hea" +
+      "der\030\001 \001(\0132\033.greptime.v1.ResponseHeader\022\025" +
+      "\n\raffected_rows\030\002 \001(\004\"E\n\016InsertRequests\022" +
+      "3\n\010requests\030\001 \003(\0132!.greptime.v1.region.I" +
+      "nsertRequest\"E\n\016DeleteRequests\0223\n\010reques" +
+      "ts\030\001 \003(\0132!.greptime.v1.region.DeleteRequ" +
+      "est\"C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
+      "\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDele" +
+      "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001" +
+      "(\0132\021.greptime.v1.Rows\"/\n\014QueryRequest\022\021\n" +
+      "\tregion_id\030\001 \001(\004\022\014\n\004plan\030\002 \001(\014\"\253\002\n\rCreat" +
+      "eRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 " +
+      "\001(\t\0222\n\013column_defs\030\003 \003(\0132\035.greptime.v1.r" +
+      "egion.ColumnDef\022\023\n\013primary_key\030\004 \003(\r\022\034\n\024" +
+      "create_if_not_exists\030\005 \001(\010\022\017\n\007catalog\030\006 " +
+      "\001(\t\022\016\n\006schema\030\007 \001(\t\022?\n\007options\030\010 \003(\0132..g" +
+      "reptime.v1.region.CreateRequest.OptionsE" +
+      "ntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\" \n\013DropRequest\022\021\n\tregion_id" +
+      "\030\001 \001(\004\"\300\001\n\013OpenRequest\022\021\n\tregion_id\030\001 \001(" +
+      "\004\022\016\n\006engine\030\002 \001(\t\022\017\n\007catalog\030\003 \001(\t\022\016\n\006sc" +
+      "hema\030\004 \001(\t\022=\n\007options\030\005 \003(\0132,.greptime.v" +
+      "1.region.OpenRequest.OptionsEntry\032.\n\014Opt" +
+      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
+      "\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001(\004\"\261\001\n" +
+      "\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_" +
+      "columns\030\002 \001(\0132\036.greptime.v1.region.AddCo" +
+      "lumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime" +
+      ".v1.region.DropColumnsH\000\022\026\n\016schema_versi" +
+      "on\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_co" +
+      "lumns\030\001 \003(\0132\035.greptime.v1.region.AddColu" +
+      "mn\"C\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132" +
+      "\036.greptime.v1.region.DropColumn\"\200\001\n\tAddC" +
+      "olumn\0221\n\ncolumn_def\030\001 \001(\0132\035.greptime.v1." +
+      "region.ColumnDef\022\016\n\006is_key\030\002 \001(\010\0220\n\010loca" +
+      "tion\030\003 \001(\0132\036.greptime.v1.AddColumnLocati" +
+      "on\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushR" +
+      "equest\022\021\n\tregion_id\030\001 \001(\004\"#\n\016CompactRequ" +
+      "est\022\021\n\tregion_id\030\001 \001(\004\"\276\001\n\tColumnDef\022\014\n\004" +
+      "name\030\001 \001(\t\022\021\n\tcolumn_id\030\002 \001(\r\022-\n\010datatyp" +
+      "e\030\003 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013" +
+      "is_nullable\030\004 \001(\010\022\032\n\022default_constraint\030" +
+      "\005 \001(\014\0220\n\rsemantic_type\030\006 \001(\0162\031.greptime." +
+      "v1.SemanticType2Y\n\006Region\022O\n\006Handle\022!.gr" +
+      "eptime.v1.region.RegionRequest\032\".greptim" +
+      "e.v1.region.RegionResponseB]\n\025io.greptim" +
+      "e.v1.regionB\006ServerZ<github.com/Greptime" +
+      "Team/greptime-proto/go/greptime/v1/regio" +
+      "nb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.greptime.v1.Common.getDescriptor(),
           io.greptime.v1.RowData.getDescriptor(),
+          io.greptime.v1.Ddl.getDescriptor(),
         });
     internal_static_greptime_v1_region_RegionRequestHeader_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -19579,12 +18787,6 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AddColumn_descriptor,
         new java.lang.String[] { "ColumnDef", "IsKey", "Location", });
-    internal_static_greptime_v1_region_AddColumn_Location_descriptor =
-      internal_static_greptime_v1_region_AddColumn_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_region_AddColumn_Location_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_region_AddColumn_Location_descriptor,
-        new java.lang.String[] { "LocationType", "AfterColumnName", });
     internal_static_greptime_v1_region_DropColumn_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_region_DropColumn_fieldAccessorTable = new
@@ -19611,6 +18813,7 @@ java.lang.String defaultValue);
         new java.lang.String[] { "Name", "ColumnId", "Datatype", "IsNullable", "DefaultConstraint", "SemanticType", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
+    io.greptime.v1.Ddl.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

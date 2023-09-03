@@ -54,9 +54,9 @@ namespace v1 {
 class AddColumn;
 struct AddColumnDefaultTypeInternal;
 extern AddColumnDefaultTypeInternal _AddColumn_default_instance_;
-class AddColumn_Location;
-struct AddColumn_LocationDefaultTypeInternal;
-extern AddColumn_LocationDefaultTypeInternal _AddColumn_Location_default_instance_;
+class AddColumnLocation;
+struct AddColumnLocationDefaultTypeInternal;
+extern AddColumnLocationDefaultTypeInternal _AddColumnLocation_default_instance_;
 class AddColumns;
 struct AddColumnsDefaultTypeInternal;
 extern AddColumnsDefaultTypeInternal _AddColumns_default_instance_;
@@ -100,7 +100,7 @@ extern TruncateTableExprDefaultTypeInternal _TruncateTableExpr_default_instance_
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::AddColumn* Arena::CreateMaybeMessage<::greptime::v1::AddColumn>(Arena*);
-template<> ::greptime::v1::AddColumn_Location* Arena::CreateMaybeMessage<::greptime::v1::AddColumn_Location>(Arena*);
+template<> ::greptime::v1::AddColumnLocation* Arena::CreateMaybeMessage<::greptime::v1::AddColumnLocation>(Arena*);
 template<> ::greptime::v1::AddColumns* Arena::CreateMaybeMessage<::greptime::v1::AddColumns>(Arena*);
 template<> ::greptime::v1::AlterExpr* Arena::CreateMaybeMessage<::greptime::v1::AlterExpr>(Arena*);
 template<> ::greptime::v1::CreateDatabaseExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr>(Arena*);
@@ -118,30 +118,30 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
 
-enum AddColumn_Location_LocationType : int {
-  AddColumn_Location_LocationType_FIRST = 0,
-  AddColumn_Location_LocationType_AFTER = 1,
-  AddColumn_Location_LocationType_AddColumn_Location_LocationType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  AddColumn_Location_LocationType_AddColumn_Location_LocationType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+enum AddColumnLocation_LocationType : int {
+  AddColumnLocation_LocationType_FIRST = 0,
+  AddColumnLocation_LocationType_AFTER = 1,
+  AddColumnLocation_LocationType_AddColumnLocation_LocationType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  AddColumnLocation_LocationType_AddColumnLocation_LocationType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
-bool AddColumn_Location_LocationType_IsValid(int value);
-constexpr AddColumn_Location_LocationType AddColumn_Location_LocationType_LocationType_MIN = AddColumn_Location_LocationType_FIRST;
-constexpr AddColumn_Location_LocationType AddColumn_Location_LocationType_LocationType_MAX = AddColumn_Location_LocationType_AFTER;
-constexpr int AddColumn_Location_LocationType_LocationType_ARRAYSIZE = AddColumn_Location_LocationType_LocationType_MAX + 1;
+bool AddColumnLocation_LocationType_IsValid(int value);
+constexpr AddColumnLocation_LocationType AddColumnLocation_LocationType_LocationType_MIN = AddColumnLocation_LocationType_FIRST;
+constexpr AddColumnLocation_LocationType AddColumnLocation_LocationType_LocationType_MAX = AddColumnLocation_LocationType_AFTER;
+constexpr int AddColumnLocation_LocationType_LocationType_ARRAYSIZE = AddColumnLocation_LocationType_LocationType_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AddColumn_Location_LocationType_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AddColumnLocation_LocationType_descriptor();
 template<typename T>
-inline const std::string& AddColumn_Location_LocationType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, AddColumn_Location_LocationType>::value ||
+inline const std::string& AddColumnLocation_LocationType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, AddColumnLocation_LocationType>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function AddColumn_Location_LocationType_Name.");
+    "Incorrect type passed to function AddColumnLocation_LocationType_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    AddColumn_Location_LocationType_descriptor(), enum_t_value);
+    AddColumnLocation_LocationType_descriptor(), enum_t_value);
 }
-inline bool AddColumn_Location_LocationType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, AddColumn_Location_LocationType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<AddColumn_Location_LocationType>(
-    AddColumn_Location_LocationType_descriptor(), name, value);
+inline bool AddColumnLocation_LocationType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, AddColumnLocation_LocationType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<AddColumnLocation_LocationType>(
+    AddColumnLocation_LocationType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -2188,200 +2188,6 @@ class RenameTable final :
 };
 // -------------------------------------------------------------------
 
-class AddColumn_Location final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.AddColumn.Location) */ {
- public:
-  inline AddColumn_Location() : AddColumn_Location(nullptr) {}
-  ~AddColumn_Location() override;
-  explicit PROTOBUF_CONSTEXPR AddColumn_Location(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  AddColumn_Location(const AddColumn_Location& from);
-  AddColumn_Location(AddColumn_Location&& from) noexcept
-    : AddColumn_Location() {
-    *this = ::std::move(from);
-  }
-
-  inline AddColumn_Location& operator=(const AddColumn_Location& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline AddColumn_Location& operator=(AddColumn_Location&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const AddColumn_Location& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const AddColumn_Location* internal_default_instance() {
-    return reinterpret_cast<const AddColumn_Location*>(
-               &_AddColumn_Location_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    11;
-
-  friend void swap(AddColumn_Location& a, AddColumn_Location& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(AddColumn_Location* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(AddColumn_Location* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  AddColumn_Location* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<AddColumn_Location>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const AddColumn_Location& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const AddColumn_Location& from) {
-    AddColumn_Location::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(AddColumn_Location* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.AddColumn.Location";
-  }
-  protected:
-  explicit AddColumn_Location(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef AddColumn_Location_LocationType LocationType;
-  static constexpr LocationType FIRST =
-    AddColumn_Location_LocationType_FIRST;
-  static constexpr LocationType AFTER =
-    AddColumn_Location_LocationType_AFTER;
-  static inline bool LocationType_IsValid(int value) {
-    return AddColumn_Location_LocationType_IsValid(value);
-  }
-  static constexpr LocationType LocationType_MIN =
-    AddColumn_Location_LocationType_LocationType_MIN;
-  static constexpr LocationType LocationType_MAX =
-    AddColumn_Location_LocationType_LocationType_MAX;
-  static constexpr int LocationType_ARRAYSIZE =
-    AddColumn_Location_LocationType_LocationType_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  LocationType_descriptor() {
-    return AddColumn_Location_LocationType_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& LocationType_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, LocationType>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function LocationType_Name.");
-    return AddColumn_Location_LocationType_Name(enum_t_value);
-  }
-  static inline bool LocationType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      LocationType* value) {
-    return AddColumn_Location_LocationType_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kAfterColumnNameFieldNumber = 2,
-    kLocationTypeFieldNumber = 1,
-  };
-  // string after_column_name = 2;
-  void clear_after_column_name();
-  const std::string& after_column_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_after_column_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_after_column_name();
-  PROTOBUF_NODISCARD std::string* release_after_column_name();
-  void set_allocated_after_column_name(std::string* after_column_name);
-  private:
-  const std::string& _internal_after_column_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_after_column_name(const std::string& value);
-  std::string* _internal_mutable_after_column_name();
-  public:
-
-  // .greptime.v1.AddColumn.Location.LocationType location_type = 1;
-  void clear_location_type();
-  ::greptime::v1::AddColumn_Location_LocationType location_type() const;
-  void set_location_type(::greptime::v1::AddColumn_Location_LocationType value);
-  private:
-  ::greptime::v1::AddColumn_Location_LocationType _internal_location_type() const;
-  void _internal_set_location_type(::greptime::v1::AddColumn_Location_LocationType value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.AddColumn.Location)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr after_column_name_;
-    int location_type_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
-};
-// -------------------------------------------------------------------
-
 class AddColumn final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.AddColumn) */ {
  public:
@@ -2430,7 +2236,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    11;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -2500,8 +2306,6 @@ class AddColumn final :
 
   // nested types ----------------------------------------------------
 
-  typedef AddColumn_Location Location;
-
   // accessors -------------------------------------------------------
 
   enum : int {
@@ -2527,23 +2331,23 @@ class AddColumn final :
       ::greptime::v1::ColumnDef* column_def);
   ::greptime::v1::ColumnDef* unsafe_arena_release_column_def();
 
-  // .greptime.v1.AddColumn.Location location = 3;
+  // .greptime.v1.AddColumnLocation location = 3;
   bool has_location() const;
   private:
   bool _internal_has_location() const;
   public:
   void clear_location();
-  const ::greptime::v1::AddColumn_Location& location() const;
-  PROTOBUF_NODISCARD ::greptime::v1::AddColumn_Location* release_location();
-  ::greptime::v1::AddColumn_Location* mutable_location();
-  void set_allocated_location(::greptime::v1::AddColumn_Location* location);
+  const ::greptime::v1::AddColumnLocation& location() const;
+  PROTOBUF_NODISCARD ::greptime::v1::AddColumnLocation* release_location();
+  ::greptime::v1::AddColumnLocation* mutable_location();
+  void set_allocated_location(::greptime::v1::AddColumnLocation* location);
   private:
-  const ::greptime::v1::AddColumn_Location& _internal_location() const;
-  ::greptime::v1::AddColumn_Location* _internal_mutable_location();
+  const ::greptime::v1::AddColumnLocation& _internal_location() const;
+  ::greptime::v1::AddColumnLocation* _internal_mutable_location();
   public:
   void unsafe_arena_set_allocated_location(
-      ::greptime::v1::AddColumn_Location* location);
-  ::greptime::v1::AddColumn_Location* unsafe_arena_release_location();
+      ::greptime::v1::AddColumnLocation* location);
+  ::greptime::v1::AddColumnLocation* unsafe_arena_release_location();
 
   // bool is_key = 2;
   void clear_is_key();
@@ -2563,7 +2367,7 @@ class AddColumn final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::ColumnDef* column_def_;
-    ::greptime::v1::AddColumn_Location* location_;
+    ::greptime::v1::AddColumnLocation* location_;
     bool is_key_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2620,7 +2424,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    12;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -2773,7 +2577,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    13;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -2866,6 +2670,200 @@ class TableId final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     uint32_t id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class AddColumnLocation final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.AddColumnLocation) */ {
+ public:
+  inline AddColumnLocation() : AddColumnLocation(nullptr) {}
+  ~AddColumnLocation() override;
+  explicit PROTOBUF_CONSTEXPR AddColumnLocation(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  AddColumnLocation(const AddColumnLocation& from);
+  AddColumnLocation(AddColumnLocation&& from) noexcept
+    : AddColumnLocation() {
+    *this = ::std::move(from);
+  }
+
+  inline AddColumnLocation& operator=(const AddColumnLocation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AddColumnLocation& operator=(AddColumnLocation&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AddColumnLocation& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const AddColumnLocation* internal_default_instance() {
+    return reinterpret_cast<const AddColumnLocation*>(
+               &_AddColumnLocation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(AddColumnLocation* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AddColumnLocation* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AddColumnLocation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<AddColumnLocation>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const AddColumnLocation& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const AddColumnLocation& from) {
+    AddColumnLocation::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AddColumnLocation* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.AddColumnLocation";
+  }
+  protected:
+  explicit AddColumnLocation(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef AddColumnLocation_LocationType LocationType;
+  static constexpr LocationType FIRST =
+    AddColumnLocation_LocationType_FIRST;
+  static constexpr LocationType AFTER =
+    AddColumnLocation_LocationType_AFTER;
+  static inline bool LocationType_IsValid(int value) {
+    return AddColumnLocation_LocationType_IsValid(value);
+  }
+  static constexpr LocationType LocationType_MIN =
+    AddColumnLocation_LocationType_LocationType_MIN;
+  static constexpr LocationType LocationType_MAX =
+    AddColumnLocation_LocationType_LocationType_MAX;
+  static constexpr int LocationType_ARRAYSIZE =
+    AddColumnLocation_LocationType_LocationType_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  LocationType_descriptor() {
+    return AddColumnLocation_LocationType_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& LocationType_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, LocationType>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function LocationType_Name.");
+    return AddColumnLocation_LocationType_Name(enum_t_value);
+  }
+  static inline bool LocationType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      LocationType* value) {
+    return AddColumnLocation_LocationType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAfterColumnNameFieldNumber = 2,
+    kLocationTypeFieldNumber = 1,
+  };
+  // string after_column_name = 2;
+  void clear_after_column_name();
+  const std::string& after_column_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_after_column_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_after_column_name();
+  PROTOBUF_NODISCARD std::string* release_after_column_name();
+  void set_allocated_after_column_name(std::string* after_column_name);
+  private:
+  const std::string& _internal_after_column_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_after_column_name(const std::string& value);
+  std::string* _internal_mutable_after_column_name();
+  public:
+
+  // .greptime.v1.AddColumnLocation.LocationType location_type = 1;
+  void clear_location_type();
+  ::greptime::v1::AddColumnLocation_LocationType location_type() const;
+  void set_location_type(::greptime::v1::AddColumnLocation_LocationType value);
+  private:
+  ::greptime::v1::AddColumnLocation_LocationType _internal_location_type() const;
+  void _internal_set_location_type(::greptime::v1::AddColumnLocation_LocationType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.AddColumnLocation)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr after_column_name_;
+    int location_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5097,80 +5095,6 @@ inline void RenameTable::set_allocated_new_table_name(std::string* new_table_nam
 
 // -------------------------------------------------------------------
 
-// AddColumn_Location
-
-// .greptime.v1.AddColumn.Location.LocationType location_type = 1;
-inline void AddColumn_Location::clear_location_type() {
-  _impl_.location_type_ = 0;
-}
-inline ::greptime::v1::AddColumn_Location_LocationType AddColumn_Location::_internal_location_type() const {
-  return static_cast< ::greptime::v1::AddColumn_Location_LocationType >(_impl_.location_type_);
-}
-inline ::greptime::v1::AddColumn_Location_LocationType AddColumn_Location::location_type() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.AddColumn.Location.location_type)
-  return _internal_location_type();
-}
-inline void AddColumn_Location::_internal_set_location_type(::greptime::v1::AddColumn_Location_LocationType value) {
-  
-  _impl_.location_type_ = value;
-}
-inline void AddColumn_Location::set_location_type(::greptime::v1::AddColumn_Location_LocationType value) {
-  _internal_set_location_type(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.AddColumn.Location.location_type)
-}
-
-// string after_column_name = 2;
-inline void AddColumn_Location::clear_after_column_name() {
-  _impl_.after_column_name_.ClearToEmpty();
-}
-inline const std::string& AddColumn_Location::after_column_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.AddColumn.Location.after_column_name)
-  return _internal_after_column_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void AddColumn_Location::set_after_column_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.after_column_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.AddColumn.Location.after_column_name)
-}
-inline std::string* AddColumn_Location::mutable_after_column_name() {
-  std::string* _s = _internal_mutable_after_column_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.AddColumn.Location.after_column_name)
-  return _s;
-}
-inline const std::string& AddColumn_Location::_internal_after_column_name() const {
-  return _impl_.after_column_name_.Get();
-}
-inline void AddColumn_Location::_internal_set_after_column_name(const std::string& value) {
-  
-  _impl_.after_column_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* AddColumn_Location::_internal_mutable_after_column_name() {
-  
-  return _impl_.after_column_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* AddColumn_Location::release_after_column_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.AddColumn.Location.after_column_name)
-  return _impl_.after_column_name_.Release();
-}
-inline void AddColumn_Location::set_allocated_after_column_name(std::string* after_column_name) {
-  if (after_column_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.after_column_name_.SetAllocated(after_column_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.after_column_name_.IsDefault()) {
-    _impl_.after_column_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.AddColumn.Location.after_column_name)
-}
-
-// -------------------------------------------------------------------
-
 // AddColumn
 
 // .greptime.v1.ColumnDef column_def = 1;
@@ -5278,7 +5202,7 @@ inline void AddColumn::set_is_key(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.AddColumn.is_key)
 }
 
-// .greptime.v1.AddColumn.Location location = 3;
+// .greptime.v1.AddColumnLocation location = 3;
 inline bool AddColumn::_internal_has_location() const {
   return this != internal_default_instance() && _impl_.location_ != nullptr;
 }
@@ -5291,17 +5215,17 @@ inline void AddColumn::clear_location() {
   }
   _impl_.location_ = nullptr;
 }
-inline const ::greptime::v1::AddColumn_Location& AddColumn::_internal_location() const {
-  const ::greptime::v1::AddColumn_Location* p = _impl_.location_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::AddColumn_Location&>(
-      ::greptime::v1::_AddColumn_Location_default_instance_);
+inline const ::greptime::v1::AddColumnLocation& AddColumn::_internal_location() const {
+  const ::greptime::v1::AddColumnLocation* p = _impl_.location_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::AddColumnLocation&>(
+      ::greptime::v1::_AddColumnLocation_default_instance_);
 }
-inline const ::greptime::v1::AddColumn_Location& AddColumn::location() const {
+inline const ::greptime::v1::AddColumnLocation& AddColumn::location() const {
   // @@protoc_insertion_point(field_get:greptime.v1.AddColumn.location)
   return _internal_location();
 }
 inline void AddColumn::unsafe_arena_set_allocated_location(
-    ::greptime::v1::AddColumn_Location* location) {
+    ::greptime::v1::AddColumnLocation* location) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.location_);
   }
@@ -5313,9 +5237,9 @@ inline void AddColumn::unsafe_arena_set_allocated_location(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.AddColumn.location)
 }
-inline ::greptime::v1::AddColumn_Location* AddColumn::release_location() {
+inline ::greptime::v1::AddColumnLocation* AddColumn::release_location() {
   
-  ::greptime::v1::AddColumn_Location* temp = _impl_.location_;
+  ::greptime::v1::AddColumnLocation* temp = _impl_.location_;
   _impl_.location_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -5328,27 +5252,27 @@ inline ::greptime::v1::AddColumn_Location* AddColumn::release_location() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::AddColumn_Location* AddColumn::unsafe_arena_release_location() {
+inline ::greptime::v1::AddColumnLocation* AddColumn::unsafe_arena_release_location() {
   // @@protoc_insertion_point(field_release:greptime.v1.AddColumn.location)
   
-  ::greptime::v1::AddColumn_Location* temp = _impl_.location_;
+  ::greptime::v1::AddColumnLocation* temp = _impl_.location_;
   _impl_.location_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::AddColumn_Location* AddColumn::_internal_mutable_location() {
+inline ::greptime::v1::AddColumnLocation* AddColumn::_internal_mutable_location() {
   
   if (_impl_.location_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::AddColumn_Location>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::greptime::v1::AddColumnLocation>(GetArenaForAllocation());
     _impl_.location_ = p;
   }
   return _impl_.location_;
 }
-inline ::greptime::v1::AddColumn_Location* AddColumn::mutable_location() {
-  ::greptime::v1::AddColumn_Location* _msg = _internal_mutable_location();
+inline ::greptime::v1::AddColumnLocation* AddColumn::mutable_location() {
+  ::greptime::v1::AddColumnLocation* _msg = _internal_mutable_location();
   // @@protoc_insertion_point(field_mutable:greptime.v1.AddColumn.location)
   return _msg;
 }
-inline void AddColumn::set_allocated_location(::greptime::v1::AddColumn_Location* location) {
+inline void AddColumn::set_allocated_location(::greptime::v1::AddColumnLocation* location) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.location_;
@@ -5446,6 +5370,80 @@ inline void TableId::set_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.TableId.id)
 }
 
+// -------------------------------------------------------------------
+
+// AddColumnLocation
+
+// .greptime.v1.AddColumnLocation.LocationType location_type = 1;
+inline void AddColumnLocation::clear_location_type() {
+  _impl_.location_type_ = 0;
+}
+inline ::greptime::v1::AddColumnLocation_LocationType AddColumnLocation::_internal_location_type() const {
+  return static_cast< ::greptime::v1::AddColumnLocation_LocationType >(_impl_.location_type_);
+}
+inline ::greptime::v1::AddColumnLocation_LocationType AddColumnLocation::location_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AddColumnLocation.location_type)
+  return _internal_location_type();
+}
+inline void AddColumnLocation::_internal_set_location_type(::greptime::v1::AddColumnLocation_LocationType value) {
+  
+  _impl_.location_type_ = value;
+}
+inline void AddColumnLocation::set_location_type(::greptime::v1::AddColumnLocation_LocationType value) {
+  _internal_set_location_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.AddColumnLocation.location_type)
+}
+
+// string after_column_name = 2;
+inline void AddColumnLocation::clear_after_column_name() {
+  _impl_.after_column_name_.ClearToEmpty();
+}
+inline const std::string& AddColumnLocation::after_column_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AddColumnLocation.after_column_name)
+  return _internal_after_column_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void AddColumnLocation::set_after_column_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.after_column_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.AddColumnLocation.after_column_name)
+}
+inline std::string* AddColumnLocation::mutable_after_column_name() {
+  std::string* _s = _internal_mutable_after_column_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.AddColumnLocation.after_column_name)
+  return _s;
+}
+inline const std::string& AddColumnLocation::_internal_after_column_name() const {
+  return _impl_.after_column_name_.Get();
+}
+inline void AddColumnLocation::_internal_set_after_column_name(const std::string& value) {
+  
+  _impl_.after_column_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* AddColumnLocation::_internal_mutable_after_column_name() {
+  
+  return _impl_.after_column_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* AddColumnLocation::release_after_column_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.AddColumnLocation.after_column_name)
+  return _impl_.after_column_name_.Release();
+}
+inline void AddColumnLocation::set_allocated_after_column_name(std::string* after_column_name) {
+  if (after_column_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.after_column_name_.SetAllocated(after_column_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.after_column_name_.IsDefault()) {
+    _impl_.after_column_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.AddColumnLocation.after_column_name)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -5485,10 +5483,10 @@ inline void TableId::set_id(uint32_t value) {
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::greptime::v1::AddColumn_Location_LocationType> : ::std::true_type {};
+template <> struct is_proto_enum< ::greptime::v1::AddColumnLocation_LocationType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::AddColumn_Location_LocationType>() {
-  return ::greptime::v1::AddColumn_Location_LocationType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::AddColumnLocation_LocationType>() {
+  return ::greptime::v1::AddColumnLocation_LocationType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
