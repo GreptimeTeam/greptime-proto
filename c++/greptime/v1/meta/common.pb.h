@@ -66,9 +66,6 @@ extern ResponseHeaderDefaultTypeInternal _ResponseHeader_default_instance_;
 class TableId;
 struct TableIdDefaultTypeInternal;
 extern TableIdDefaultTypeInternal _TableId_default_instance_;
-class TableIdent;
-struct TableIdentDefaultTypeInternal;
-extern TableIdentDefaultTypeInternal _TableIdent_default_instance_;
 class TableName;
 struct TableNameDefaultTypeInternal;
 extern TableNameDefaultTypeInternal _TableName_default_instance_;
@@ -85,7 +82,6 @@ template<> ::greptime::v1::meta::Peer* Arena::CreateMaybeMessage<::greptime::v1:
 template<> ::greptime::v1::meta::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::RequestHeader>(Arena*);
 template<> ::greptime::v1::meta::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::ResponseHeader>(Arena*);
 template<> ::greptime::v1::meta::TableId* Arena::CreateMaybeMessage<::greptime::v1::meta::TableId>(Arena*);
-template<> ::greptime::v1::meta::TableIdent* Arena::CreateMaybeMessage<::greptime::v1::meta::TableIdent>(Arena*);
 template<> ::greptime::v1::meta::TableName* Arena::CreateMaybeMessage<::greptime::v1::meta::TableName>(Arena*);
 template<> ::greptime::v1::meta::TimeInterval* Arena::CreateMaybeMessage<::greptime::v1::meta::TimeInterval>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -1141,190 +1137,6 @@ class TableName final :
 };
 // -------------------------------------------------------------------
 
-class TableIdent final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.TableIdent) */ {
- public:
-  inline TableIdent() : TableIdent(nullptr) {}
-  ~TableIdent() override;
-  explicit PROTOBUF_CONSTEXPR TableIdent(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  TableIdent(const TableIdent& from);
-  TableIdent(TableIdent&& from) noexcept
-    : TableIdent() {
-    *this = ::std::move(from);
-  }
-
-  inline TableIdent& operator=(const TableIdent& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline TableIdent& operator=(TableIdent&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const TableIdent& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const TableIdent* internal_default_instance() {
-    return reinterpret_cast<const TableIdent*>(
-               &_TableIdent_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    6;
-
-  friend void swap(TableIdent& a, TableIdent& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(TableIdent* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(TableIdent* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  TableIdent* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<TableIdent>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const TableIdent& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const TableIdent& from) {
-    TableIdent::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(TableIdent* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.meta.TableIdent";
-  }
-  protected:
-  explicit TableIdent(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kEngineFieldNumber = 3,
-    kTableNameFieldNumber = 2,
-    kTableIdFieldNumber = 1,
-  };
-  // string engine = 3;
-  void clear_engine();
-  const std::string& engine() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_engine(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_engine();
-  PROTOBUF_NODISCARD std::string* release_engine();
-  void set_allocated_engine(std::string* engine);
-  private:
-  const std::string& _internal_engine() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_engine(const std::string& value);
-  std::string* _internal_mutable_engine();
-  public:
-
-  // .greptime.v1.meta.TableName table_name = 2;
-  bool has_table_name() const;
-  private:
-  bool _internal_has_table_name() const;
-  public:
-  void clear_table_name();
-  const ::greptime::v1::meta::TableName& table_name() const;
-  PROTOBUF_NODISCARD ::greptime::v1::meta::TableName* release_table_name();
-  ::greptime::v1::meta::TableName* mutable_table_name();
-  void set_allocated_table_name(::greptime::v1::meta::TableName* table_name);
-  private:
-  const ::greptime::v1::meta::TableName& _internal_table_name() const;
-  ::greptime::v1::meta::TableName* _internal_mutable_table_name();
-  public:
-  void unsafe_arena_set_allocated_table_name(
-      ::greptime::v1::meta::TableName* table_name);
-  ::greptime::v1::meta::TableName* unsafe_arena_release_table_name();
-
-  // uint32 table_id = 1;
-  void clear_table_id();
-  uint32_t table_id() const;
-  void set_table_id(uint32_t value);
-  private:
-  uint32_t _internal_table_id() const;
-  void _internal_set_table_id(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.meta.TableIdent)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
-    ::greptime::v1::meta::TableName* table_name_;
-    uint32_t table_id_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto;
-};
-// -------------------------------------------------------------------
-
 class TimeInterval final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.TimeInterval) */ {
  public:
@@ -1373,7 +1185,7 @@ class TimeInterval final :
                &_TimeInterval_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    6;
 
   friend void swap(TimeInterval& a, TimeInterval& b) {
     a.Swap(&b);
@@ -1532,7 +1344,7 @@ class KeyValue final :
                &_KeyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    7;
 
   friend void swap(KeyValue& a, KeyValue& b) {
     a.Swap(&b);
@@ -2204,170 +2016,6 @@ inline void TableName::set_allocated_table_name(std::string* table_name) {
 
 // -------------------------------------------------------------------
 
-// TableIdent
-
-// uint32 table_id = 1;
-inline void TableIdent::clear_table_id() {
-  _impl_.table_id_ = 0u;
-}
-inline uint32_t TableIdent::_internal_table_id() const {
-  return _impl_.table_id_;
-}
-inline uint32_t TableIdent::table_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.TableIdent.table_id)
-  return _internal_table_id();
-}
-inline void TableIdent::_internal_set_table_id(uint32_t value) {
-  
-  _impl_.table_id_ = value;
-}
-inline void TableIdent::set_table_id(uint32_t value) {
-  _internal_set_table_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.TableIdent.table_id)
-}
-
-// .greptime.v1.meta.TableName table_name = 2;
-inline bool TableIdent::_internal_has_table_name() const {
-  return this != internal_default_instance() && _impl_.table_name_ != nullptr;
-}
-inline bool TableIdent::has_table_name() const {
-  return _internal_has_table_name();
-}
-inline void TableIdent::clear_table_name() {
-  if (GetArenaForAllocation() == nullptr && _impl_.table_name_ != nullptr) {
-    delete _impl_.table_name_;
-  }
-  _impl_.table_name_ = nullptr;
-}
-inline const ::greptime::v1::meta::TableName& TableIdent::_internal_table_name() const {
-  const ::greptime::v1::meta::TableName* p = _impl_.table_name_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::TableName&>(
-      ::greptime::v1::meta::_TableName_default_instance_);
-}
-inline const ::greptime::v1::meta::TableName& TableIdent::table_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.TableIdent.table_name)
-  return _internal_table_name();
-}
-inline void TableIdent::unsafe_arena_set_allocated_table_name(
-    ::greptime::v1::meta::TableName* table_name) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_name_);
-  }
-  _impl_.table_name_ = table_name;
-  if (table_name) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.TableIdent.table_name)
-}
-inline ::greptime::v1::meta::TableName* TableIdent::release_table_name() {
-  
-  ::greptime::v1::meta::TableName* temp = _impl_.table_name_;
-  _impl_.table_name_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::meta::TableName* TableIdent::unsafe_arena_release_table_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.TableIdent.table_name)
-  
-  ::greptime::v1::meta::TableName* temp = _impl_.table_name_;
-  _impl_.table_name_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::meta::TableName* TableIdent::_internal_mutable_table_name() {
-  
-  if (_impl_.table_name_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::meta::TableName>(GetArenaForAllocation());
-    _impl_.table_name_ = p;
-  }
-  return _impl_.table_name_;
-}
-inline ::greptime::v1::meta::TableName* TableIdent::mutable_table_name() {
-  ::greptime::v1::meta::TableName* _msg = _internal_mutable_table_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.TableIdent.table_name)
-  return _msg;
-}
-inline void TableIdent::set_allocated_table_name(::greptime::v1::meta::TableName* table_name) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.table_name_;
-  }
-  if (table_name) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(table_name);
-    if (message_arena != submessage_arena) {
-      table_name = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, table_name, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.table_name_ = table_name;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.TableIdent.table_name)
-}
-
-// string engine = 3;
-inline void TableIdent::clear_engine() {
-  _impl_.engine_.ClearToEmpty();
-}
-inline const std::string& TableIdent::engine() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.TableIdent.engine)
-  return _internal_engine();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void TableIdent::set_engine(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.engine_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.TableIdent.engine)
-}
-inline std::string* TableIdent::mutable_engine() {
-  std::string* _s = _internal_mutable_engine();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.TableIdent.engine)
-  return _s;
-}
-inline const std::string& TableIdent::_internal_engine() const {
-  return _impl_.engine_.Get();
-}
-inline void TableIdent::_internal_set_engine(const std::string& value) {
-  
-  _impl_.engine_.Set(value, GetArenaForAllocation());
-}
-inline std::string* TableIdent::_internal_mutable_engine() {
-  
-  return _impl_.engine_.Mutable(GetArenaForAllocation());
-}
-inline std::string* TableIdent::release_engine() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.TableIdent.engine)
-  return _impl_.engine_.Release();
-}
-inline void TableIdent::set_allocated_engine(std::string* engine) {
-  if (engine != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.engine_.SetAllocated(engine, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.engine_.IsDefault()) {
-    _impl_.engine_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.TableIdent.engine)
-}
-
-// -------------------------------------------------------------------
-
 // TimeInterval
 
 // int64 start_timestamp_millis = 1;
@@ -2517,8 +2165,6 @@ inline void KeyValue::set_allocated_value(std::string* value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
