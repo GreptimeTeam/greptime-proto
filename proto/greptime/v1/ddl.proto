@@ -99,7 +99,7 @@ message TableId { uint32 id = 1; }
 
 message ColumnDef {
   string name = 1;
-  ColumnDataType datatype = 2;
+  ColumnDataType data_type = 2;
   bool is_nullable = 3;
   bytes default_constraint = 4;
   SemanticType semantic_type = 5;

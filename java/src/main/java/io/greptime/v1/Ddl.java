@@ -13177,15 +13177,15 @@ java.lang.String defaultValue);
         getNameBytes();
 
     /**
-     * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
-     * @return The enum numeric value on the wire for datatype.
+     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+     * @return The enum numeric value on the wire for dataType.
      */
-    int getDatatypeValue();
+    int getDataTypeValue();
     /**
-     * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
-     * @return The datatype.
+     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+     * @return The dataType.
      */
-    io.greptime.v1.Common.ColumnDataType getDatatype();
+    io.greptime.v1.Common.ColumnDataType getDataType();
 
     /**
      * <code>bool is_nullable = 3;</code>
@@ -13224,7 +13224,7 @@ java.lang.String defaultValue);
     }
     private ColumnDef() {
       name_ = "";
-      datatype_ = 0;
+      dataType_ = 0;
       defaultConstraint_ = com.google.protobuf.ByteString.EMPTY;
       semanticType_ = 0;
     }
@@ -13268,7 +13268,7 @@ java.lang.String defaultValue);
             case 16: {
               int rawValue = input.readEnum();
 
-              datatype_ = rawValue;
+              dataType_ = rawValue;
               break;
             }
             case 24: {
@@ -13359,22 +13359,22 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int DATATYPE_FIELD_NUMBER = 2;
-    private int datatype_;
+    public static final int DATA_TYPE_FIELD_NUMBER = 2;
+    private int dataType_;
     /**
-     * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
-     * @return The enum numeric value on the wire for datatype.
+     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+     * @return The enum numeric value on the wire for dataType.
      */
-    @java.lang.Override public int getDatatypeValue() {
-      return datatype_;
+    @java.lang.Override public int getDataTypeValue() {
+      return dataType_;
     }
     /**
-     * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
-     * @return The datatype.
+     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+     * @return The dataType.
      */
-    @java.lang.Override public io.greptime.v1.Common.ColumnDataType getDatatype() {
+    @java.lang.Override public io.greptime.v1.Common.ColumnDataType getDataType() {
       @SuppressWarnings("deprecation")
-      io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(datatype_);
+      io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(dataType_);
       return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
     }
 
@@ -13436,8 +13436,8 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
-        output.writeEnum(2, datatype_);
+      if (dataType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
+        output.writeEnum(2, dataType_);
       }
       if (isNullable_ != false) {
         output.writeBool(3, isNullable_);
@@ -13460,9 +13460,9 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
+      if (dataType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, datatype_);
+          .computeEnumSize(2, dataType_);
       }
       if (isNullable_ != false) {
         size += com.google.protobuf.CodedOutputStream
@@ -13493,7 +13493,7 @@ java.lang.String defaultValue);
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (datatype_ != other.datatype_) return false;
+      if (dataType_ != other.dataType_) return false;
       if (getIsNullable()
           != other.getIsNullable()) return false;
       if (!getDefaultConstraint()
@@ -13512,8 +13512,8 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + DATATYPE_FIELD_NUMBER;
-      hash = (53 * hash) + datatype_;
+      hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + dataType_;
       hash = (37 * hash) + IS_NULLABLE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsNullable());
@@ -13656,7 +13656,7 @@ java.lang.String defaultValue);
         super.clear();
         name_ = "";
 
-        datatype_ = 0;
+        dataType_ = 0;
 
         isNullable_ = false;
 
@@ -13691,7 +13691,7 @@ java.lang.String defaultValue);
       public io.greptime.v1.Ddl.ColumnDef buildPartial() {
         io.greptime.v1.Ddl.ColumnDef result = new io.greptime.v1.Ddl.ColumnDef(this);
         result.name_ = name_;
-        result.datatype_ = datatype_;
+        result.dataType_ = dataType_;
         result.isNullable_ = isNullable_;
         result.defaultConstraint_ = defaultConstraint_;
         result.semanticType_ = semanticType_;
@@ -13747,8 +13747,8 @@ java.lang.String defaultValue);
           name_ = other.name_;
           onChanged();
         }
-        if (other.datatype_ != 0) {
-          setDatatypeValue(other.getDatatypeValue());
+        if (other.dataType_ != 0) {
+          setDataTypeValue(other.getDataTypeValue());
         }
         if (other.getIsNullable() != false) {
           setIsNullable(other.getIsNullable());
@@ -13864,56 +13864,56 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private int datatype_ = 0;
+      private int dataType_ = 0;
       /**
-       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
-       * @return The enum numeric value on the wire for datatype.
+       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+       * @return The enum numeric value on the wire for dataType.
        */
-      @java.lang.Override public int getDatatypeValue() {
-        return datatype_;
+      @java.lang.Override public int getDataTypeValue() {
+        return dataType_;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
-       * @param value The enum numeric value on the wire for datatype to set.
+       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+       * @param value The enum numeric value on the wire for dataType to set.
        * @return This builder for chaining.
        */
-      public Builder setDatatypeValue(int value) {
+      public Builder setDataTypeValue(int value) {
         
-        datatype_ = value;
+        dataType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
-       * @return The datatype.
+       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+       * @return The dataType.
        */
       @java.lang.Override
-      public io.greptime.v1.Common.ColumnDataType getDatatype() {
+      public io.greptime.v1.Common.ColumnDataType getDataType() {
         @SuppressWarnings("deprecation")
-        io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(datatype_);
+        io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(dataType_);
         return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
-       * @param value The datatype to set.
+       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+       * @param value The dataType to set.
        * @return This builder for chaining.
        */
-      public Builder setDatatype(io.greptime.v1.Common.ColumnDataType value) {
+      public Builder setDataType(io.greptime.v1.Common.ColumnDataType value) {
         if (value == null) {
           throw new NullPointerException();
         }
         
-        datatype_ = value.getNumber();
+        dataType_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
+       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearDatatype() {
+      public Builder clearDataType() {
         
-        datatype_ = 0;
+        dataType_ = 0;
         onChanged();
         return this;
       }
@@ -15006,18 +15006,18 @@ java.lang.String defaultValue);
       "umn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Co" +
       "lumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1." +
       "AddColumnLocation\"\032\n\nDropColumn\022\014\n\004name\030" +
-      "\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\253\001\n\tColumnD" +
-      "ef\022\014\n\004name\030\001 \001(\t\022-\n\010datatype\030\002 \001(\0162\033.gre" +
-      "ptime.v1.ColumnDataType\022\023\n\013is_nullable\030\003" +
-      " \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsema" +
-      "ntic_type\030\005 \001(\0162\031.greptime.v1.SemanticTy" +
-      "pe\"\230\001\n\021AddColumnLocation\022B\n\rlocation_typ" +
-      "e\030\001 \001(\0162+.greptime.v1.AddColumnLocation." +
-      "LocationType\022\031\n\021after_column_name\030\002 \001(\t\"" +
-      "$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n" +
-      "\016io.greptime.v1B\003DdlZ5github.com/Greptim" +
-      "eTeam/greptime-proto/go/greptime/v1b\006pro" +
-      "to3"
+      "\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\254\001\n\tColumnD" +
+      "ef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.gr" +
+      "eptime.v1.ColumnDataType\022\023\n\013is_nullable\030" +
+      "\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsem" +
+      "antic_type\030\005 \001(\0162\031.greptime.v1.SemanticT" +
+      "ype\"\230\001\n\021AddColumnLocation\022B\n\rlocation_ty" +
+      "pe\030\001 \001(\0162+.greptime.v1.AddColumnLocation" +
+      ".LocationType\022\031\n\021after_column_name\030\002 \001(\t" +
+      "\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL" +
+      "\n\016io.greptime.v1B\003DdlZ5github.com/Grepti" +
+      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15113,7 +15113,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
-        new java.lang.String[] { "Name", "Datatype", "IsNullable", "DefaultConstraint", "SemanticType", });
+        new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
