@@ -67,14 +67,6 @@ enum SemanticType {
   TIMESTAMP = 2;
 }
 
-// TODO: deprecate this, and use the `ColumnDef` in region_server.proto instead
-message ColumnDef {
-  string name = 1;
-  ColumnDataType datatype = 2;
-  bool is_nullable = 3;
-  bytes default_constraint = 4;
-}
-
 enum ColumnDataType {
   BOOLEAN = 0;
   INT8 = 1;

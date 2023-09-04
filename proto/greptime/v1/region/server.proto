@@ -22,6 +22,7 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/regio
 
 import "greptime/v1/common.proto";
 import "greptime/v1/row.proto";
+import "greptime/v1/ddl.proto";
 
 service Region { rpc Handle(RegionRequest) returns (RegionResponse); }
 
@@ -78,7 +79,7 @@ message CreateRequest {
   // Region engine name
   string engine = 2;
   // Columns in this region.
-  repeated ColumnDef column_defs = 3;
+  repeated RegionColumnDef column_defs = 3;
   // Column Id of primary keys.
   repeated uint32 primary_key = 4;
   // Create region if not exists.
@@ -110,18 +111,41 @@ message OpenRequest {
 
 message CloseRequest { uint64 region_id = 1; }
 
-// TODO: implement alter request
-message AlterRequest { uint64 region_id = 1; }
+message AlterRequest {
+  uint64 region_id = 1;
+  oneof kind {
+    AddColumns add_columns = 2;
+    DropColumns drop_columns = 3;
+  }
+  // The version of the schema before applying the alteration.
+  uint64 schema_version = 4;
+}
+
+message AddColumns {
+  repeated AddColumn add_columns = 1;
+}
+
+message DropColumns {
+  repeated DropColumn drop_columns = 1;
+}
+
+message AddColumn {
+  RegionColumnDef column_def = 1;
+  AddColumnLocation location = 3;
+}
+
+message DropColumn {
+  string name = 1;
+}
 
 message FlushRequest { uint64 region_id = 1; }
 
 message CompactRequest { uint64 region_id = 1; }
 
-message ColumnDef {
-  string name = 1;
+// The column definition of a region. Unlike the message `ColumnDef` in `ddl.proto` which is for clients outside
+// GreptimeDB, this `RegionColumnDef` is for region requests use only. So it carries an extra field `column_id` that
+// is known internally.
+message RegionColumnDef {
+  ColumnDef column_def = 1;
   uint32 column_id = 2;
-  ColumnDataType datatype = 3;
-  bool is_nullable = 4;
-  bytes default_constraint = 5;
-  SemanticType semantic_type = 6;
 }

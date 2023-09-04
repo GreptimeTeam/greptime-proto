@@ -77,8 +77,6 @@ PROTOBUF_CONSTEXPR AlterExpr::AlterExpr(
     /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.schema_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.table_id_)*/nullptr
-  , /*decltype(_impl_.table_version_)*/uint64_t{0u}
   , /*decltype(_impl_.kind_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_._oneof_case_)*/{}} {}
@@ -188,25 +186,10 @@ struct RenameTableDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RenameTableDefaultTypeInternal _RenameTable_default_instance_;
-PROTOBUF_CONSTEXPR AddColumn_Location::AddColumn_Location(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.after_column_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.location_type_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct AddColumn_LocationDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR AddColumn_LocationDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~AddColumn_LocationDefaultTypeInternal() {}
-  union {
-    AddColumn_Location _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddColumn_LocationDefaultTypeInternal _AddColumn_Location_default_instance_;
 PROTOBUF_CONSTEXPR AddColumn::AddColumn(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.column_def_)*/nullptr
   , /*decltype(_impl_.location_)*/nullptr
-  , /*decltype(_impl_.is_key_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct AddColumnDefaultTypeInternal {
   PROTOBUF_CONSTEXPR AddColumnDefaultTypeInternal()
@@ -243,9 +226,40 @@ struct TableIdDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TableIdDefaultTypeInternal _TableId_default_instance_;
+PROTOBUF_CONSTEXPR ColumnDef::ColumnDef(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.default_constraint_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.data_type_)*/0
+  , /*decltype(_impl_.is_nullable_)*/false
+  , /*decltype(_impl_.semantic_type_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ColumnDefDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ColumnDefDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ColumnDefDefaultTypeInternal() {}
+  union {
+    ColumnDef _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ColumnDefDefaultTypeInternal _ColumnDef_default_instance_;
+PROTOBUF_CONSTEXPR AddColumnLocation::AddColumnLocation(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.after_column_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.location_type_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct AddColumnLocationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AddColumnLocationDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AddColumnLocationDefaultTypeInternal() {}
+  union {
+    AddColumnLocation _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddColumnLocationDefaultTypeInternal _AddColumnLocation_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fddl_2eproto[15];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fddl_2eproto[16];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fddl_2eproto = nullptr;
 
@@ -302,8 +316,6 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::AlterExpr, _impl_.table_id_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::AlterExpr, _impl_.table_version_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::AlterExpr, _impl_.kind_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTableExpr, _internal_metadata_),
@@ -366,21 +378,12 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RenameTable, _impl_.new_table_name_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn_Location, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn_Location, _impl_.location_type_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn_Location, _impl_.after_column_name_),
-  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn, _impl_.column_def_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn, _impl_.is_key_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn, _impl_.location_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DropColumn, _internal_metadata_),
@@ -396,23 +399,43 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::TableId, _impl_.id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDef, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDef, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDef, _impl_.data_type_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDef, _impl_.is_nullable_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDef, _impl_.default_constraint_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDef, _impl_.semantic_type_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumnLocation, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumnLocation, _impl_.location_type_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumnLocation, _impl_.after_column_name_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::DdlRequest)},
   { 12, 20, -1, sizeof(::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse)},
   { 22, -1, -1, sizeof(::greptime::v1::CreateTableExpr)},
   { 40, -1, -1, sizeof(::greptime::v1::AlterExpr)},
-  { 55, -1, -1, sizeof(::greptime::v1::DropTableExpr)},
-  { 65, 73, -1, sizeof(::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse)},
-  { 75, -1, -1, sizeof(::greptime::v1::CreateDatabaseExpr)},
-  { 84, -1, -1, sizeof(::greptime::v1::TruncateTableExpr)},
-  { 94, -1, -1, sizeof(::greptime::v1::AddColumns)},
-  { 101, -1, -1, sizeof(::greptime::v1::DropColumns)},
-  { 108, -1, -1, sizeof(::greptime::v1::RenameTable)},
-  { 115, -1, -1, sizeof(::greptime::v1::AddColumn_Location)},
-  { 123, -1, -1, sizeof(::greptime::v1::AddColumn)},
-  { 132, -1, -1, sizeof(::greptime::v1::DropColumn)},
-  { 139, -1, -1, sizeof(::greptime::v1::TableId)},
+  { 53, -1, -1, sizeof(::greptime::v1::DropTableExpr)},
+  { 63, 71, -1, sizeof(::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse)},
+  { 73, -1, -1, sizeof(::greptime::v1::CreateDatabaseExpr)},
+  { 82, -1, -1, sizeof(::greptime::v1::TruncateTableExpr)},
+  { 92, -1, -1, sizeof(::greptime::v1::AddColumns)},
+  { 99, -1, -1, sizeof(::greptime::v1::DropColumns)},
+  { 106, -1, -1, sizeof(::greptime::v1::RenameTable)},
+  { 113, -1, -1, sizeof(::greptime::v1::AddColumn)},
+  { 121, -1, -1, sizeof(::greptime::v1::DropColumn)},
+  { 128, -1, -1, sizeof(::greptime::v1::TableId)},
+  { 135, -1, -1, sizeof(::greptime::v1::ColumnDef)},
+  { 146, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -427,10 +450,11 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_AddColumns_default_instance_._instance,
   &::greptime::v1::_DropColumns_default_instance_._instance,
   &::greptime::v1::_RenameTable_default_instance_._instance,
-  &::greptime::v1::_AddColumn_Location_default_instance_._instance,
   &::greptime::v1::_AddColumn_default_instance_._instance,
   &::greptime::v1::_DropColumn_default_instance_._instance,
   &::greptime::v1::_TableId_default_instance_._instance,
+  &::greptime::v1::_ColumnDef_default_instance_._instance,
+  &::greptime::v1::_AddColumnLocation_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -453,48 +477,51 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "le_id\030\n \001(\0132\024.greptime.v1.TableId\022\026\n\016reg"
   "ion_numbers\030\013 \003(\r\022\016\n\006engine\030\014 \001(\t\0323\n\021Tab"
   "leOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001"
-  "(\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001"
+  "(\t:\0028\001\"\346\001\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001"
   "(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 "
   "\001(\t\022.\n\013add_columns\030\004 \001(\0132\027.greptime.v1.A"
   "ddColumnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.grep"
   "time.v1.DropColumnsH\000\0220\n\014rename_table\030\006 "
-  "\001(\0132\030.greptime.v1.RenameTableH\000\022&\n\010table"
-  "_id\030\007 \001(\0132\024.greptime.v1.TableId\022\025\n\rtable"
-  "_version\030\010 \001(\004B\006\n\004kind\"v\n\rDropTableExpr\022"
-  "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001"
-  "(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\013"
-  "2\024.greptime.v1.TableId\"\270\001\n\022CreateDatabas"
-  "eExpr\022\025\n\rdatabase_name\030\001 \001(\t\022\034\n\024create_i"
-  "f_not_exists\030\002 \001(\010\022=\n\007options\030\003 \003(\0132,.gr"
-  "eptime.v1.CreateDatabaseExpr.OptionsEntr"
-  "y\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
-  "\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalo"
-  "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntab"
-  "le_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grepti"
-  "me.v1.TableId\"9\n\nAddColumns\022+\n\013add_colum"
-  "ns\030\001 \003(\0132\026.greptime.v1.AddColumn\"<\n\013Drop"
-  "Columns\022-\n\014drop_columns\030\001 \003(\0132\027.greptime"
-  ".v1.DropColumn\"%\n\013RenameTable\022\026\n\016new_tab"
-  "le_name\030\001 \001(\t\"\215\002\n\tAddColumn\022*\n\ncolumn_de"
-  "f\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\016\n\006is_ke"
-  "y\030\002 \001(\010\0221\n\010location\030\003 \001(\0132\037.greptime.v1."
-  "AddColumn.Location\032\220\001\n\010Location\022C\n\rlocat"
-  "ion_type\030\001 \001(\0162,.greptime.v1.AddColumn.L"
-  "ocation.LocationType\022\031\n\021after_column_nam"
-  "e\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AF"
-  "TER\020\001\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007Tab"
-  "leId\022\n\n\002id\030\001 \001(\rBL\n\016io.greptime.v1B\003DdlZ"
-  "5github.com/GreptimeTeam/greptime-proto/"
-  "go/greptime/v1b\006proto3"
+  "\001(\0132\030.greptime.v1.RenameTableH\000B\006\n\004kind\""
+  "v\n\rDropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023"
+  "\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022"
+  "&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableId\""
+  "\270\001\n\022CreateDatabaseExpr\022\025\n\rdatabase_name\030"
+  "\001 \001(\t\022\034\n\024create_if_not_exists\030\002 \001(\010\022=\n\007o"
+  "ptions\030\003 \003(\0132,.greptime.v1.CreateDatabas"
+  "eExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke"
+  "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTa"
+  "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_"
+  "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_"
+  "id\030\004 \001(\0132\024.greptime.v1.TableId\"9\n\nAddCol"
+  "umns\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1."
+  "AddColumn\"<\n\013DropColumns\022-\n\014drop_columns"
+  "\030\001 \003(\0132\027.greptime.v1.DropColumn\"%\n\013Renam"
+  "eTable\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddCol"
+  "umn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Co"
+  "lumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1."
+  "AddColumnLocation\"\032\n\nDropColumn\022\014\n\004name\030"
+  "\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\254\001\n\tColumnD"
+  "ef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.gr"
+  "eptime.v1.ColumnDataType\022\023\n\013is_nullable\030"
+  "\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsem"
+  "antic_type\030\005 \001(\0162\031.greptime.v1.SemanticT"
+  "ype\"\230\001\n\021AddColumnLocation\022B\n\rlocation_ty"
+  "pe\030\001 \001(\0162+.greptime.v1.AddColumnLocation"
+  ".LocationType\022\031\n\021after_column_name\030\002 \001(\t"
+  "\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL"
+  "\n\016io.greptime.v1B\003DdlZ5github.com/Grepti"
+  "meTeam/greptime-proto/go/greptime/v1b\006pr"
+  "oto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 2062, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 2164, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
-    &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 15,
+    &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 16,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fddl_2eproto, file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fddl_2eproto,
@@ -507,11 +534,11 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_greptime
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_greptime_2fv1_2fddl_2eproto(&descriptor_table_greptime_2fv1_2fddl_2eproto);
 namespace greptime {
 namespace v1 {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AddColumn_Location_LocationType_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AddColumnLocation_LocationType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fddl_2eproto);
   return file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto[0];
 }
-bool AddColumn_Location_LocationType_IsValid(int value) {
+bool AddColumnLocation_LocationType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -522,11 +549,11 @@ bool AddColumn_Location_LocationType_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr AddColumn_Location_LocationType AddColumn_Location::FIRST;
-constexpr AddColumn_Location_LocationType AddColumn_Location::AFTER;
-constexpr AddColumn_Location_LocationType AddColumn_Location::LocationType_MIN;
-constexpr AddColumn_Location_LocationType AddColumn_Location::LocationType_MAX;
-constexpr int AddColumn_Location::LocationType_ARRAYSIZE;
+constexpr AddColumnLocation_LocationType AddColumnLocation::FIRST;
+constexpr AddColumnLocation_LocationType AddColumnLocation::AFTER;
+constexpr AddColumnLocation_LocationType AddColumnLocation::LocationType_MIN;
+constexpr AddColumnLocation_LocationType AddColumnLocation::LocationType_MAX;
+constexpr int AddColumnLocation::LocationType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 
 // ===================================================================
@@ -1032,9 +1059,6 @@ class CreateTableExpr::_Internal {
 const ::greptime::v1::TableId&
 CreateTableExpr::_Internal::table_id(const CreateTableExpr* msg) {
   return *msg->_impl_.table_id_;
-}
-void CreateTableExpr::clear_column_defs() {
-  _impl_.column_defs_.Clear();
 }
 CreateTableExpr::CreateTableExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1741,7 +1765,6 @@ class AlterExpr::_Internal {
   static const ::greptime::v1::AddColumns& add_columns(const AlterExpr* msg);
   static const ::greptime::v1::DropColumns& drop_columns(const AlterExpr* msg);
   static const ::greptime::v1::RenameTable& rename_table(const AlterExpr* msg);
-  static const ::greptime::v1::TableId& table_id(const AlterExpr* msg);
 };
 
 const ::greptime::v1::AddColumns&
@@ -1755,10 +1778,6 @@ AlterExpr::_Internal::drop_columns(const AlterExpr* msg) {
 const ::greptime::v1::RenameTable&
 AlterExpr::_Internal::rename_table(const AlterExpr* msg) {
   return *msg->_impl_.kind_.rename_table_;
-}
-const ::greptime::v1::TableId&
-AlterExpr::_Internal::table_id(const AlterExpr* msg) {
-  return *msg->_impl_.table_id_;
 }
 void AlterExpr::set_allocated_add_columns(::greptime::v1::AddColumns* add_columns) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -1818,8 +1837,6 @@ AlterExpr::AlterExpr(const AlterExpr& from)
       decltype(_impl_.catalog_name_){}
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
-    , decltype(_impl_.table_id_){nullptr}
-    , decltype(_impl_.table_version_){}
     , decltype(_impl_.kind_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , /*decltype(_impl_._oneof_case_)*/{}};
@@ -1849,10 +1866,6 @@ AlterExpr::AlterExpr(const AlterExpr& from)
     _this->_impl_.table_name_.Set(from._internal_table_name(), 
       _this->GetArenaForAllocation());
   }
-  if (from._internal_has_table_id()) {
-    _this->_impl_.table_id_ = new ::greptime::v1::TableId(*from._impl_.table_id_);
-  }
-  _this->_impl_.table_version_ = from._impl_.table_version_;
   clear_has_kind();
   switch (from.kind_case()) {
     case kAddColumns: {
@@ -1885,8 +1898,6 @@ inline void AlterExpr::SharedCtor(
       decltype(_impl_.catalog_name_){}
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
-    , decltype(_impl_.table_id_){nullptr}
-    , decltype(_impl_.table_version_){uint64_t{0u}}
     , decltype(_impl_.kind_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , /*decltype(_impl_._oneof_case_)*/{}
@@ -1920,7 +1931,6 @@ inline void AlterExpr::SharedDtor() {
   _impl_.catalog_name_.Destroy();
   _impl_.schema_name_.Destroy();
   _impl_.table_name_.Destroy();
-  if (this != internal_default_instance()) delete _impl_.table_id_;
   if (has_kind()) {
     clear_kind();
   }
@@ -1968,11 +1978,6 @@ void AlterExpr::Clear() {
   _impl_.catalog_name_.ClearToEmpty();
   _impl_.schema_name_.ClearToEmpty();
   _impl_.table_name_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && _impl_.table_id_ != nullptr) {
-    delete _impl_.table_id_;
-  }
-  _impl_.table_id_ = nullptr;
-  _impl_.table_version_ = uint64_t{0u};
   clear_kind();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2033,22 +2038,6 @@ const char* AlterExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_rename_table(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .greptime.v1.TableId table_id = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
-          ptr = ctx->ParseMessage(_internal_mutable_table_id(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint64 table_version = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
-          _impl_.table_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2133,19 +2122,6 @@ uint8_t* AlterExpr::_InternalSerialize(
         _Internal::rename_table(this).GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.TableId table_id = 7;
-  if (this->_internal_has_table_id()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(7, _Internal::table_id(this),
-        _Internal::table_id(this).GetCachedSize(), target, stream);
-  }
-
-  // uint64 table_version = 8;
-  if (this->_internal_table_version() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(8, this->_internal_table_version(), target);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2181,18 +2157,6 @@ size_t AlterExpr::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_table_name());
-  }
-
-  // .greptime.v1.TableId table_id = 7;
-  if (this->_internal_has_table_id()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.table_id_);
-  }
-
-  // uint64 table_version = 8;
-  if (this->_internal_table_version() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_table_version());
   }
 
   switch (kind_case()) {
@@ -2248,13 +2212,6 @@ void AlterExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
   if (!from._internal_table_name().empty()) {
     _this->_internal_set_table_name(from._internal_table_name());
   }
-  if (from._internal_has_table_id()) {
-    _this->_internal_mutable_table_id()->::greptime::v1::TableId::MergeFrom(
-        from._internal_table_id());
-  }
-  if (from._internal_table_version() != 0) {
-    _this->_internal_set_table_version(from._internal_table_version());
-  }
   switch (from.kind_case()) {
     case kAddColumns: {
       _this->_internal_mutable_add_columns()->::greptime::v1::AddColumns::MergeFrom(
@@ -2306,12 +2263,6 @@ void AlterExpr::InternalSwap(AlterExpr* other) {
       &_impl_.table_name_, lhs_arena,
       &other->_impl_.table_name_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(AlterExpr, _impl_.table_version_)
-      + sizeof(AlterExpr::_impl_.table_version_)
-      - PROTOBUF_FIELD_OFFSET(AlterExpr, _impl_.table_id_)>(
-          reinterpret_cast<char*>(&_impl_.table_id_),
-          reinterpret_cast<char*>(&other->_impl_.table_id_));
   swap(_impl_.kind_, other->_impl_.kind_);
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
@@ -3899,258 +3850,19 @@ void RenameTable::InternalSwap(RenameTable* other) {
 
 // ===================================================================
 
-class AddColumn_Location::_Internal {
- public:
-};
-
-AddColumn_Location::AddColumn_Location(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:greptime.v1.AddColumn.Location)
-}
-AddColumn_Location::AddColumn_Location(const AddColumn_Location& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  AddColumn_Location* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.after_column_name_){}
-    , decltype(_impl_.location_type_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.after_column_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.after_column_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_after_column_name().empty()) {
-    _this->_impl_.after_column_name_.Set(from._internal_after_column_name(), 
-      _this->GetArenaForAllocation());
-  }
-  _this->_impl_.location_type_ = from._impl_.location_type_;
-  // @@protoc_insertion_point(copy_constructor:greptime.v1.AddColumn.Location)
-}
-
-inline void AddColumn_Location::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.after_column_name_){}
-    , decltype(_impl_.location_type_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-  _impl_.after_column_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.after_column_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-}
-
-AddColumn_Location::~AddColumn_Location() {
-  // @@protoc_insertion_point(destructor:greptime.v1.AddColumn.Location)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void AddColumn_Location::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.after_column_name_.Destroy();
-}
-
-void AddColumn_Location::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void AddColumn_Location::Clear() {
-// @@protoc_insertion_point(message_clear_start:greptime.v1.AddColumn.Location)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.after_column_name_.ClearToEmpty();
-  _impl_.location_type_ = 0;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* AddColumn_Location::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // .greptime.v1.AddColumn.Location.LocationType location_type = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          _internal_set_location_type(static_cast<::greptime::v1::AddColumn_Location_LocationType>(val));
-        } else
-          goto handle_unusual;
-        continue;
-      // string after_column_name = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_after_column_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.AddColumn.Location.after_column_name"));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* AddColumn_Location::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.AddColumn.Location)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .greptime.v1.AddColumn.Location.LocationType location_type = 1;
-  if (this->_internal_location_type() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_location_type(), target);
-  }
-
-  // string after_column_name = 2;
-  if (!this->_internal_after_column_name().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_after_column_name().data(), static_cast<int>(this->_internal_after_column_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "greptime.v1.AddColumn.Location.after_column_name");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_after_column_name(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.AddColumn.Location)
-  return target;
-}
-
-size_t AddColumn_Location::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:greptime.v1.AddColumn.Location)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string after_column_name = 2;
-  if (!this->_internal_after_column_name().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_after_column_name());
-  }
-
-  // .greptime.v1.AddColumn.Location.LocationType location_type = 1;
-  if (this->_internal_location_type() != 0) {
-    total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_location_type());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData AddColumn_Location::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    AddColumn_Location::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*AddColumn_Location::GetClassData() const { return &_class_data_; }
-
-
-void AddColumn_Location::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<AddColumn_Location*>(&to_msg);
-  auto& from = static_cast<const AddColumn_Location&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.AddColumn.Location)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_after_column_name().empty()) {
-    _this->_internal_set_after_column_name(from._internal_after_column_name());
-  }
-  if (from._internal_location_type() != 0) {
-    _this->_internal_set_location_type(from._internal_location_type());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void AddColumn_Location::CopyFrom(const AddColumn_Location& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.AddColumn.Location)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool AddColumn_Location::IsInitialized() const {
-  return true;
-}
-
-void AddColumn_Location::InternalSwap(AddColumn_Location* other) {
-  using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.after_column_name_, lhs_arena,
-      &other->_impl_.after_column_name_, rhs_arena
-  );
-  swap(_impl_.location_type_, other->_impl_.location_type_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata AddColumn_Location::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[11]);
-}
-
-// ===================================================================
-
 class AddColumn::_Internal {
  public:
   static const ::greptime::v1::ColumnDef& column_def(const AddColumn* msg);
-  static const ::greptime::v1::AddColumn_Location& location(const AddColumn* msg);
+  static const ::greptime::v1::AddColumnLocation& location(const AddColumn* msg);
 };
 
 const ::greptime::v1::ColumnDef&
 AddColumn::_Internal::column_def(const AddColumn* msg) {
   return *msg->_impl_.column_def_;
 }
-const ::greptime::v1::AddColumn_Location&
+const ::greptime::v1::AddColumnLocation&
 AddColumn::_Internal::location(const AddColumn* msg) {
   return *msg->_impl_.location_;
-}
-void AddColumn::clear_column_def() {
-  if (GetArenaForAllocation() == nullptr && _impl_.column_def_ != nullptr) {
-    delete _impl_.column_def_;
-  }
-  _impl_.column_def_ = nullptr;
 }
 AddColumn::AddColumn(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -4164,7 +3876,6 @@ AddColumn::AddColumn(const AddColumn& from)
   new (&_impl_) Impl_{
       decltype(_impl_.column_def_){nullptr}
     , decltype(_impl_.location_){nullptr}
-    , decltype(_impl_.is_key_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -4172,9 +3883,8 @@ AddColumn::AddColumn(const AddColumn& from)
     _this->_impl_.column_def_ = new ::greptime::v1::ColumnDef(*from._impl_.column_def_);
   }
   if (from._internal_has_location()) {
-    _this->_impl_.location_ = new ::greptime::v1::AddColumn_Location(*from._impl_.location_);
+    _this->_impl_.location_ = new ::greptime::v1::AddColumnLocation(*from._impl_.location_);
   }
-  _this->_impl_.is_key_ = from._impl_.is_key_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.AddColumn)
 }
 
@@ -4185,7 +3895,6 @@ inline void AddColumn::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.column_def_){nullptr}
     , decltype(_impl_.location_){nullptr}
-    , decltype(_impl_.is_key_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -4223,7 +3932,6 @@ void AddColumn::Clear() {
     delete _impl_.location_;
   }
   _impl_.location_ = nullptr;
-  _impl_.is_key_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4241,15 +3949,7 @@ const char* AddColumn::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         } else
           goto handle_unusual;
         continue;
-      // bool is_key = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.is_key_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .greptime.v1.AddColumn.Location location = 3;
+      // .greptime.v1.AddColumnLocation location = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_location(), ptr);
@@ -4293,13 +3993,7 @@ uint8_t* AddColumn::_InternalSerialize(
         _Internal::column_def(this).GetCachedSize(), target, stream);
   }
 
-  // bool is_key = 2;
-  if (this->_internal_is_key() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_is_key(), target);
-  }
-
-  // .greptime.v1.AddColumn.Location location = 3;
+  // .greptime.v1.AddColumnLocation location = 3;
   if (this->_internal_has_location()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(3, _Internal::location(this),
@@ -4329,16 +4023,11 @@ size_t AddColumn::ByteSizeLong() const {
         *_impl_.column_def_);
   }
 
-  // .greptime.v1.AddColumn.Location location = 3;
+  // .greptime.v1.AddColumnLocation location = 3;
   if (this->_internal_has_location()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.location_);
-  }
-
-  // bool is_key = 2;
-  if (this->_internal_is_key() != 0) {
-    total_size += 1 + 1;
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -4364,11 +4053,8 @@ void AddColumn::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
         from._internal_column_def());
   }
   if (from._internal_has_location()) {
-    _this->_internal_mutable_location()->::greptime::v1::AddColumn_Location::MergeFrom(
+    _this->_internal_mutable_location()->::greptime::v1::AddColumnLocation::MergeFrom(
         from._internal_location());
-  }
-  if (from._internal_is_key() != 0) {
-    _this->_internal_set_is_key(from._internal_is_key());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4388,8 +4074,8 @@ void AddColumn::InternalSwap(AddColumn* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(AddColumn, _impl_.is_key_)
-      + sizeof(AddColumn::_impl_.is_key_)
+      PROTOBUF_FIELD_OFFSET(AddColumn, _impl_.location_)
+      + sizeof(AddColumn::_impl_.location_)
       - PROTOBUF_FIELD_OFFSET(AddColumn, _impl_.column_def_)>(
           reinterpret_cast<char*>(&_impl_.column_def_),
           reinterpret_cast<char*>(&other->_impl_.column_def_));
@@ -4398,7 +4084,7 @@ void AddColumn::InternalSwap(AddColumn* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AddColumn::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[12]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[11]);
 }
 
 // ===================================================================
@@ -4601,7 +4287,7 @@ void DropColumn::InternalSwap(DropColumn* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DropColumn::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[13]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[12]);
 }
 
 // ===================================================================
@@ -4779,7 +4465,578 @@ void TableId::InternalSwap(TableId* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata TableId::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[13]);
+}
+
+// ===================================================================
+
+class ColumnDef::_Internal {
+ public:
+};
+
+ColumnDef::ColumnDef(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.ColumnDef)
+}
+ColumnDef::ColumnDef(const ColumnDef& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ColumnDef* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.default_constraint_){}
+    , decltype(_impl_.data_type_){}
+    , decltype(_impl_.is_nullable_){}
+    , decltype(_impl_.semantic_type_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_name().empty()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.default_constraint_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.default_constraint_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_default_constraint().empty()) {
+    _this->_impl_.default_constraint_.Set(from._internal_default_constraint(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.data_type_, &from._impl_.data_type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.semantic_type_) -
+    reinterpret_cast<char*>(&_impl_.data_type_)) + sizeof(_impl_.semantic_type_));
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.ColumnDef)
+}
+
+inline void ColumnDef::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.default_constraint_){}
+    , decltype(_impl_.data_type_){0}
+    , decltype(_impl_.is_nullable_){false}
+    , decltype(_impl_.semantic_type_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.default_constraint_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.default_constraint_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ColumnDef::~ColumnDef() {
+  // @@protoc_insertion_point(destructor:greptime.v1.ColumnDef)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ColumnDef::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.default_constraint_.Destroy();
+}
+
+void ColumnDef::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ColumnDef::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.ColumnDef)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.name_.ClearToEmpty();
+  _impl_.default_constraint_.ClearToEmpty();
+  ::memset(&_impl_.data_type_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.semantic_type_) -
+      reinterpret_cast<char*>(&_impl_.data_type_)) + sizeof(_impl_.semantic_type_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ColumnDef::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.ColumnDef.name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.ColumnDataType data_type = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_data_type(static_cast<::greptime::v1::ColumnDataType>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // bool is_nullable = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.is_nullable_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes default_constraint = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_default_constraint();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.SemanticType semantic_type = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_semantic_type(static_cast<::greptime::v1::SemanticType>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ColumnDef::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.ColumnDef)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.ColumnDef.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // .greptime.v1.ColumnDataType data_type = 2;
+  if (this->_internal_data_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_data_type(), target);
+  }
+
+  // bool is_nullable = 3;
+  if (this->_internal_is_nullable() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_is_nullable(), target);
+  }
+
+  // bytes default_constraint = 4;
+  if (!this->_internal_default_constraint().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        4, this->_internal_default_constraint(), target);
+  }
+
+  // .greptime.v1.SemanticType semantic_type = 5;
+  if (this->_internal_semantic_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      5, this->_internal_semantic_type(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.ColumnDef)
+  return target;
+}
+
+size_t ColumnDef::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.ColumnDef)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // bytes default_constraint = 4;
+  if (!this->_internal_default_constraint().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_default_constraint());
+  }
+
+  // .greptime.v1.ColumnDataType data_type = 2;
+  if (this->_internal_data_type() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_data_type());
+  }
+
+  // bool is_nullable = 3;
+  if (this->_internal_is_nullable() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // .greptime.v1.SemanticType semantic_type = 5;
+  if (this->_internal_semantic_type() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_semantic_type());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ColumnDef::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ColumnDef::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ColumnDef::GetClassData() const { return &_class_data_; }
+
+
+void ColumnDef::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ColumnDef*>(&to_msg);
+  auto& from = static_cast<const ColumnDef&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.ColumnDef)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
+  }
+  if (!from._internal_default_constraint().empty()) {
+    _this->_internal_set_default_constraint(from._internal_default_constraint());
+  }
+  if (from._internal_data_type() != 0) {
+    _this->_internal_set_data_type(from._internal_data_type());
+  }
+  if (from._internal_is_nullable() != 0) {
+    _this->_internal_set_is_nullable(from._internal_is_nullable());
+  }
+  if (from._internal_semantic_type() != 0) {
+    _this->_internal_set_semantic_type(from._internal_semantic_type());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ColumnDef::CopyFrom(const ColumnDef& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.ColumnDef)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ColumnDef::IsInitialized() const {
+  return true;
+}
+
+void ColumnDef::InternalSwap(ColumnDef* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.default_constraint_, lhs_arena,
+      &other->_impl_.default_constraint_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ColumnDef, _impl_.semantic_type_)
+      + sizeof(ColumnDef::_impl_.semantic_type_)
+      - PROTOBUF_FIELD_OFFSET(ColumnDef, _impl_.data_type_)>(
+          reinterpret_cast<char*>(&_impl_.data_type_),
+          reinterpret_cast<char*>(&other->_impl_.data_type_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ColumnDef::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
       file_level_metadata_greptime_2fv1_2fddl_2eproto[14]);
+}
+
+// ===================================================================
+
+class AddColumnLocation::_Internal {
+ public:
+};
+
+AddColumnLocation::AddColumnLocation(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.AddColumnLocation)
+}
+AddColumnLocation::AddColumnLocation(const AddColumnLocation& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  AddColumnLocation* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.after_column_name_){}
+    , decltype(_impl_.location_type_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.after_column_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.after_column_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_after_column_name().empty()) {
+    _this->_impl_.after_column_name_.Set(from._internal_after_column_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.location_type_ = from._impl_.location_type_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.AddColumnLocation)
+}
+
+inline void AddColumnLocation::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.after_column_name_){}
+    , decltype(_impl_.location_type_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.after_column_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.after_column_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+AddColumnLocation::~AddColumnLocation() {
+  // @@protoc_insertion_point(destructor:greptime.v1.AddColumnLocation)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void AddColumnLocation::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.after_column_name_.Destroy();
+}
+
+void AddColumnLocation::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void AddColumnLocation::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.AddColumnLocation)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.after_column_name_.ClearToEmpty();
+  _impl_.location_type_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* AddColumnLocation::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.AddColumnLocation.LocationType location_type = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_location_type(static_cast<::greptime::v1::AddColumnLocation_LocationType>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // string after_column_name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_after_column_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.AddColumnLocation.after_column_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* AddColumnLocation::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.AddColumnLocation)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.AddColumnLocation.LocationType location_type = 1;
+  if (this->_internal_location_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_location_type(), target);
+  }
+
+  // string after_column_name = 2;
+  if (!this->_internal_after_column_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_after_column_name().data(), static_cast<int>(this->_internal_after_column_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.AddColumnLocation.after_column_name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_after_column_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.AddColumnLocation)
+  return target;
+}
+
+size_t AddColumnLocation::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.AddColumnLocation)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string after_column_name = 2;
+  if (!this->_internal_after_column_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_after_column_name());
+  }
+
+  // .greptime.v1.AddColumnLocation.LocationType location_type = 1;
+  if (this->_internal_location_type() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_location_type());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData AddColumnLocation::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    AddColumnLocation::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*AddColumnLocation::GetClassData() const { return &_class_data_; }
+
+
+void AddColumnLocation::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<AddColumnLocation*>(&to_msg);
+  auto& from = static_cast<const AddColumnLocation&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.AddColumnLocation)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_after_column_name().empty()) {
+    _this->_internal_set_after_column_name(from._internal_after_column_name());
+  }
+  if (from._internal_location_type() != 0) {
+    _this->_internal_set_location_type(from._internal_location_type());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void AddColumnLocation::CopyFrom(const AddColumnLocation& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.AddColumnLocation)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool AddColumnLocation::IsInitialized() const {
+  return true;
+}
+
+void AddColumnLocation::InternalSwap(AddColumnLocation* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.after_column_name_, lhs_arena,
+      &other->_impl_.after_column_name_, rhs_arena
+  );
+  swap(_impl_.location_type_, other->_impl_.location_type_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata AddColumnLocation::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[15]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -4830,10 +5087,6 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::RenameTable*
 Arena::CreateMaybeMessage< ::greptime::v1::RenameTable >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::RenameTable >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::AddColumn_Location*
-Arena::CreateMaybeMessage< ::greptime::v1::AddColumn_Location >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::AddColumn_Location >(arena);
-}
 template<> PROTOBUF_NOINLINE ::greptime::v1::AddColumn*
 Arena::CreateMaybeMessage< ::greptime::v1::AddColumn >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::AddColumn >(arena);
@@ -4845,6 +5098,14 @@ Arena::CreateMaybeMessage< ::greptime::v1::DropColumn >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::TableId*
 Arena::CreateMaybeMessage< ::greptime::v1::TableId >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::TableId >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::ColumnDef*
+Arena::CreateMaybeMessage< ::greptime::v1::ColumnDef >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::ColumnDef >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::AddColumnLocation*
+Arena::CreateMaybeMessage< ::greptime::v1::AddColumnLocation >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::AddColumnLocation >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
