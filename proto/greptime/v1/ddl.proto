@@ -93,13 +93,9 @@ message AddColumn {
   AddColumnLocation location = 3;
 }
 
-message DropColumn {
-  string name = 1;
-}
+message DropColumn { string name = 1; }
 
-message TableId {
-  uint32 id = 1;
-}
+message TableId { uint32 id = 1; }
 
 message ColumnDef {
   string name = 1;
