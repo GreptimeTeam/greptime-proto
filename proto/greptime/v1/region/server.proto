@@ -79,7 +79,7 @@ message CreateRequest {
   // Region engine name
   string engine = 2;
   // Columns in this region.
-  repeated ColumnDef column_defs = 3;
+  repeated RegionColumnDef column_defs = 3;
   // Column Id of primary keys.
   repeated uint32 primary_key = 4;
   // Create region if not exists.
@@ -130,8 +130,7 @@ message DropColumns {
 }
 
 message AddColumn {
-  ColumnDef column_def = 1;
-  bool is_key = 2;
+  RegionColumnDef column_def = 1;
   AddColumnLocation location = 3;
 }
 
@@ -143,11 +142,10 @@ message FlushRequest { uint64 region_id = 1; }
 
 message CompactRequest { uint64 region_id = 1; }
 
-message ColumnDef {
-  string name = 1;
+// The column definition of a region. Unlike the message `ColumnDef` in `ddl.proto` which is for clients outside
+// GreptimeDB, this `RegionColumnDef` is for region requests use only. So it carries an extra field `column_id` that
+// is known internally.
+message RegionColumnDef {
+  ColumnDef column_def = 1;
   uint32 column_id = 2;
-  ColumnDataType datatype = 3;
-  bool is_nullable = 4;
-  bytes default_constraint = 5;
-  SemanticType semantic_type = 6;
 }

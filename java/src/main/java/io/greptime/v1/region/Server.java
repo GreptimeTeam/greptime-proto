@@ -7672,24 +7672,24 @@ public final class Server {
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
-    java.util.List<io.greptime.v1.region.Server.ColumnDef> 
+    java.util.List<io.greptime.v1.region.Server.RegionColumnDef> 
         getColumnDefsList();
     /**
      * <pre>
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
-    io.greptime.v1.region.Server.ColumnDef getColumnDefs(int index);
+    io.greptime.v1.region.Server.RegionColumnDef getColumnDefs(int index);
     /**
      * <pre>
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
     int getColumnDefsCount();
     /**
@@ -7697,18 +7697,18 @@ public final class Server {
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
-    java.util.List<? extends io.greptime.v1.region.Server.ColumnDefOrBuilder> 
+    java.util.List<? extends io.greptime.v1.region.Server.RegionColumnDefOrBuilder> 
         getColumnDefsOrBuilderList();
     /**
      * <pre>
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
-    io.greptime.v1.region.Server.ColumnDefOrBuilder getColumnDefsOrBuilder(
+    io.greptime.v1.region.Server.RegionColumnDefOrBuilder getColumnDefsOrBuilder(
         int index);
 
     /**
@@ -7912,11 +7912,11 @@ java.lang.String defaultValue);
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                columnDefs_ = new java.util.ArrayList<io.greptime.v1.region.Server.ColumnDef>();
+                columnDefs_ = new java.util.ArrayList<io.greptime.v1.region.Server.RegionColumnDef>();
                 mutable_bitField0_ |= 0x00000001;
               }
               columnDefs_.add(
-                  input.readMessage(io.greptime.v1.region.Server.ColumnDef.parser(), extensionRegistry));
+                  input.readMessage(io.greptime.v1.region.Server.RegionColumnDef.parser(), extensionRegistry));
               break;
             }
             case 32: {
@@ -8080,16 +8080,16 @@ java.lang.String defaultValue);
     }
 
     public static final int COLUMN_DEFS_FIELD_NUMBER = 3;
-    private java.util.List<io.greptime.v1.region.Server.ColumnDef> columnDefs_;
+    private java.util.List<io.greptime.v1.region.Server.RegionColumnDef> columnDefs_;
     /**
      * <pre>
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
     @java.lang.Override
-    public java.util.List<io.greptime.v1.region.Server.ColumnDef> getColumnDefsList() {
+    public java.util.List<io.greptime.v1.region.Server.RegionColumnDef> getColumnDefsList() {
       return columnDefs_;
     }
     /**
@@ -8097,10 +8097,10 @@ java.lang.String defaultValue);
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.region.Server.ColumnDefOrBuilder> 
+    public java.util.List<? extends io.greptime.v1.region.Server.RegionColumnDefOrBuilder> 
         getColumnDefsOrBuilderList() {
       return columnDefs_;
     }
@@ -8109,7 +8109,7 @@ java.lang.String defaultValue);
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
     @java.lang.Override
     public int getColumnDefsCount() {
@@ -8120,10 +8120,10 @@ java.lang.String defaultValue);
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.ColumnDef getColumnDefs(int index) {
+    public io.greptime.v1.region.Server.RegionColumnDef getColumnDefs(int index) {
       return columnDefs_.get(index);
     }
     /**
@@ -8131,10 +8131,10 @@ java.lang.String defaultValue);
      * Columns in this region.
      * </pre>
      *
-     * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.ColumnDefOrBuilder getColumnDefsOrBuilder(
+    public io.greptime.v1.region.Server.RegionColumnDefOrBuilder getColumnDefsOrBuilder(
         int index) {
       return columnDefs_.get(index);
     }
@@ -9035,26 +9035,26 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.util.List<io.greptime.v1.region.Server.ColumnDef> columnDefs_ =
+      private java.util.List<io.greptime.v1.region.Server.RegionColumnDef> columnDefs_ =
         java.util.Collections.emptyList();
       private void ensureColumnDefsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          columnDefs_ = new java.util.ArrayList<io.greptime.v1.region.Server.ColumnDef>(columnDefs_);
+          columnDefs_ = new java.util.ArrayList<io.greptime.v1.region.Server.RegionColumnDef>(columnDefs_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.region.Server.ColumnDef, io.greptime.v1.region.Server.ColumnDef.Builder, io.greptime.v1.region.Server.ColumnDefOrBuilder> columnDefsBuilder_;
+          io.greptime.v1.region.Server.RegionColumnDef, io.greptime.v1.region.Server.RegionColumnDef.Builder, io.greptime.v1.region.Server.RegionColumnDefOrBuilder> columnDefsBuilder_;
 
       /**
        * <pre>
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
-      public java.util.List<io.greptime.v1.region.Server.ColumnDef> getColumnDefsList() {
+      public java.util.List<io.greptime.v1.region.Server.RegionColumnDef> getColumnDefsList() {
         if (columnDefsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(columnDefs_);
         } else {
@@ -9066,7 +9066,7 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
       public int getColumnDefsCount() {
         if (columnDefsBuilder_ == null) {
@@ -9080,9 +9080,9 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
-      public io.greptime.v1.region.Server.ColumnDef getColumnDefs(int index) {
+      public io.greptime.v1.region.Server.RegionColumnDef getColumnDefs(int index) {
         if (columnDefsBuilder_ == null) {
           return columnDefs_.get(index);
         } else {
@@ -9094,10 +9094,10 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
       public Builder setColumnDefs(
-          int index, io.greptime.v1.region.Server.ColumnDef value) {
+          int index, io.greptime.v1.region.Server.RegionColumnDef value) {
         if (columnDefsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9115,10 +9115,10 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
       public Builder setColumnDefs(
-          int index, io.greptime.v1.region.Server.ColumnDef.Builder builderForValue) {
+          int index, io.greptime.v1.region.Server.RegionColumnDef.Builder builderForValue) {
         if (columnDefsBuilder_ == null) {
           ensureColumnDefsIsMutable();
           columnDefs_.set(index, builderForValue.build());
@@ -9133,9 +9133,9 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
-      public Builder addColumnDefs(io.greptime.v1.region.Server.ColumnDef value) {
+      public Builder addColumnDefs(io.greptime.v1.region.Server.RegionColumnDef value) {
         if (columnDefsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9153,10 +9153,10 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
       public Builder addColumnDefs(
-          int index, io.greptime.v1.region.Server.ColumnDef value) {
+          int index, io.greptime.v1.region.Server.RegionColumnDef value) {
         if (columnDefsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9174,10 +9174,10 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
       public Builder addColumnDefs(
-          io.greptime.v1.region.Server.ColumnDef.Builder builderForValue) {
+          io.greptime.v1.region.Server.RegionColumnDef.Builder builderForValue) {
         if (columnDefsBuilder_ == null) {
           ensureColumnDefsIsMutable();
           columnDefs_.add(builderForValue.build());
@@ -9192,10 +9192,10 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
       public Builder addColumnDefs(
-          int index, io.greptime.v1.region.Server.ColumnDef.Builder builderForValue) {
+          int index, io.greptime.v1.region.Server.RegionColumnDef.Builder builderForValue) {
         if (columnDefsBuilder_ == null) {
           ensureColumnDefsIsMutable();
           columnDefs_.add(index, builderForValue.build());
@@ -9210,10 +9210,10 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
       public Builder addAllColumnDefs(
-          java.lang.Iterable<? extends io.greptime.v1.region.Server.ColumnDef> values) {
+          java.lang.Iterable<? extends io.greptime.v1.region.Server.RegionColumnDef> values) {
         if (columnDefsBuilder_ == null) {
           ensureColumnDefsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -9229,7 +9229,7 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
       public Builder clearColumnDefs() {
         if (columnDefsBuilder_ == null) {
@@ -9246,7 +9246,7 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
       public Builder removeColumnDefs(int index) {
         if (columnDefsBuilder_ == null) {
@@ -9263,9 +9263,9 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
-      public io.greptime.v1.region.Server.ColumnDef.Builder getColumnDefsBuilder(
+      public io.greptime.v1.region.Server.RegionColumnDef.Builder getColumnDefsBuilder(
           int index) {
         return getColumnDefsFieldBuilder().getBuilder(index);
       }
@@ -9274,9 +9274,9 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
-      public io.greptime.v1.region.Server.ColumnDefOrBuilder getColumnDefsOrBuilder(
+      public io.greptime.v1.region.Server.RegionColumnDefOrBuilder getColumnDefsOrBuilder(
           int index) {
         if (columnDefsBuilder_ == null) {
           return columnDefs_.get(index);  } else {
@@ -9288,9 +9288,9 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
-      public java.util.List<? extends io.greptime.v1.region.Server.ColumnDefOrBuilder> 
+      public java.util.List<? extends io.greptime.v1.region.Server.RegionColumnDefOrBuilder> 
            getColumnDefsOrBuilderList() {
         if (columnDefsBuilder_ != null) {
           return columnDefsBuilder_.getMessageOrBuilderList();
@@ -9303,41 +9303,41 @@ java.lang.String defaultValue);
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
-      public io.greptime.v1.region.Server.ColumnDef.Builder addColumnDefsBuilder() {
+      public io.greptime.v1.region.Server.RegionColumnDef.Builder addColumnDefsBuilder() {
         return getColumnDefsFieldBuilder().addBuilder(
-            io.greptime.v1.region.Server.ColumnDef.getDefaultInstance());
+            io.greptime.v1.region.Server.RegionColumnDef.getDefaultInstance());
       }
       /**
        * <pre>
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
-      public io.greptime.v1.region.Server.ColumnDef.Builder addColumnDefsBuilder(
+      public io.greptime.v1.region.Server.RegionColumnDef.Builder addColumnDefsBuilder(
           int index) {
         return getColumnDefsFieldBuilder().addBuilder(
-            index, io.greptime.v1.region.Server.ColumnDef.getDefaultInstance());
+            index, io.greptime.v1.region.Server.RegionColumnDef.getDefaultInstance());
       }
       /**
        * <pre>
        * Columns in this region.
        * </pre>
        *
-       * <code>repeated .greptime.v1.region.ColumnDef column_defs = 3;</code>
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 3;</code>
        */
-      public java.util.List<io.greptime.v1.region.Server.ColumnDef.Builder> 
+      public java.util.List<io.greptime.v1.region.Server.RegionColumnDef.Builder> 
            getColumnDefsBuilderList() {
         return getColumnDefsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.region.Server.ColumnDef, io.greptime.v1.region.Server.ColumnDef.Builder, io.greptime.v1.region.Server.ColumnDefOrBuilder> 
+          io.greptime.v1.region.Server.RegionColumnDef, io.greptime.v1.region.Server.RegionColumnDef.Builder, io.greptime.v1.region.Server.RegionColumnDefOrBuilder> 
           getColumnDefsFieldBuilder() {
         if (columnDefsBuilder_ == null) {
           columnDefsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.greptime.v1.region.Server.ColumnDef, io.greptime.v1.region.Server.ColumnDef.Builder, io.greptime.v1.region.Server.ColumnDefOrBuilder>(
+              io.greptime.v1.region.Server.RegionColumnDef, io.greptime.v1.region.Server.RegionColumnDef.Builder, io.greptime.v1.region.Server.RegionColumnDefOrBuilder>(
                   columnDefs_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -15042,25 +15042,19 @@ java.lang.String defaultValue);
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+     * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
      * @return Whether the columnDef field is set.
      */
     boolean hasColumnDef();
     /**
-     * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+     * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
      * @return The columnDef.
      */
-    io.greptime.v1.region.Server.ColumnDef getColumnDef();
+    io.greptime.v1.region.Server.RegionColumnDef getColumnDef();
     /**
-     * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+     * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
      */
-    io.greptime.v1.region.Server.ColumnDefOrBuilder getColumnDefOrBuilder();
-
-    /**
-     * <code>bool is_key = 2;</code>
-     * @return The isKey.
-     */
-    boolean getIsKey();
+    io.greptime.v1.region.Server.RegionColumnDefOrBuilder getColumnDefOrBuilder();
 
     /**
      * <code>.greptime.v1.AddColumnLocation location = 3;</code>
@@ -15123,21 +15117,16 @@ java.lang.String defaultValue);
               done = true;
               break;
             case 10: {
-              io.greptime.v1.region.Server.ColumnDef.Builder subBuilder = null;
+              io.greptime.v1.region.Server.RegionColumnDef.Builder subBuilder = null;
               if (columnDef_ != null) {
                 subBuilder = columnDef_.toBuilder();
               }
-              columnDef_ = input.readMessage(io.greptime.v1.region.Server.ColumnDef.parser(), extensionRegistry);
+              columnDef_ = input.readMessage(io.greptime.v1.region.Server.RegionColumnDef.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(columnDef_);
                 columnDef_ = subBuilder.buildPartial();
               }
 
-              break;
-            }
-            case 16: {
-
-              isKey_ = input.readBool();
               break;
             }
             case 26: {
@@ -15188,9 +15177,9 @@ java.lang.String defaultValue);
     }
 
     public static final int COLUMN_DEF_FIELD_NUMBER = 1;
-    private io.greptime.v1.region.Server.ColumnDef columnDef_;
+    private io.greptime.v1.region.Server.RegionColumnDef columnDef_;
     /**
-     * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+     * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
      * @return Whether the columnDef field is set.
      */
     @java.lang.Override
@@ -15198,30 +15187,19 @@ java.lang.String defaultValue);
       return columnDef_ != null;
     }
     /**
-     * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+     * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
      * @return The columnDef.
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.ColumnDef getColumnDef() {
-      return columnDef_ == null ? io.greptime.v1.region.Server.ColumnDef.getDefaultInstance() : columnDef_;
+    public io.greptime.v1.region.Server.RegionColumnDef getColumnDef() {
+      return columnDef_ == null ? io.greptime.v1.region.Server.RegionColumnDef.getDefaultInstance() : columnDef_;
     }
     /**
-     * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+     * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.ColumnDefOrBuilder getColumnDefOrBuilder() {
+    public io.greptime.v1.region.Server.RegionColumnDefOrBuilder getColumnDefOrBuilder() {
       return getColumnDef();
-    }
-
-    public static final int IS_KEY_FIELD_NUMBER = 2;
-    private boolean isKey_;
-    /**
-     * <code>bool is_key = 2;</code>
-     * @return The isKey.
-     */
-    @java.lang.Override
-    public boolean getIsKey() {
-      return isKey_;
     }
 
     public static final int LOCATION_FIELD_NUMBER = 3;
@@ -15267,9 +15245,6 @@ java.lang.String defaultValue);
       if (columnDef_ != null) {
         output.writeMessage(1, getColumnDef());
       }
-      if (isKey_ != false) {
-        output.writeBool(2, isKey_);
-      }
       if (location_ != null) {
         output.writeMessage(3, getLocation());
       }
@@ -15285,10 +15260,6 @@ java.lang.String defaultValue);
       if (columnDef_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getColumnDef());
-      }
-      if (isKey_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, isKey_);
       }
       if (location_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -15314,8 +15285,6 @@ java.lang.String defaultValue);
         if (!getColumnDef()
             .equals(other.getColumnDef())) return false;
       }
-      if (getIsKey()
-          != other.getIsKey()) return false;
       if (hasLocation() != other.hasLocation()) return false;
       if (hasLocation()) {
         if (!getLocation()
@@ -15336,9 +15305,6 @@ java.lang.String defaultValue);
         hash = (37 * hash) + COLUMN_DEF_FIELD_NUMBER;
         hash = (53 * hash) + getColumnDef().hashCode();
       }
-      hash = (37 * hash) + IS_KEY_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsKey());
       if (hasLocation()) {
         hash = (37 * hash) + LOCATION_FIELD_NUMBER;
         hash = (53 * hash) + getLocation().hashCode();
@@ -15482,8 +15448,6 @@ java.lang.String defaultValue);
           columnDef_ = null;
           columnDefBuilder_ = null;
         }
-        isKey_ = false;
-
         if (locationBuilder_ == null) {
           location_ = null;
         } else {
@@ -15521,7 +15485,6 @@ java.lang.String defaultValue);
         } else {
           result.columnDef_ = columnDefBuilder_.build();
         }
-        result.isKey_ = isKey_;
         if (locationBuilder_ == null) {
           result.location_ = location_;
         } else {
@@ -15578,9 +15541,6 @@ java.lang.String defaultValue);
         if (other.hasColumnDef()) {
           mergeColumnDef(other.getColumnDef());
         }
-        if (other.getIsKey() != false) {
-          setIsKey(other.getIsKey());
-        }
         if (other.hasLocation()) {
           mergeLocation(other.getLocation());
         }
@@ -15613,31 +15573,31 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private io.greptime.v1.region.Server.ColumnDef columnDef_;
+      private io.greptime.v1.region.Server.RegionColumnDef columnDef_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.ColumnDef, io.greptime.v1.region.Server.ColumnDef.Builder, io.greptime.v1.region.Server.ColumnDefOrBuilder> columnDefBuilder_;
+          io.greptime.v1.region.Server.RegionColumnDef, io.greptime.v1.region.Server.RegionColumnDef.Builder, io.greptime.v1.region.Server.RegionColumnDefOrBuilder> columnDefBuilder_;
       /**
-       * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+       * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
        * @return Whether the columnDef field is set.
        */
       public boolean hasColumnDef() {
         return columnDefBuilder_ != null || columnDef_ != null;
       }
       /**
-       * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+       * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
        * @return The columnDef.
        */
-      public io.greptime.v1.region.Server.ColumnDef getColumnDef() {
+      public io.greptime.v1.region.Server.RegionColumnDef getColumnDef() {
         if (columnDefBuilder_ == null) {
-          return columnDef_ == null ? io.greptime.v1.region.Server.ColumnDef.getDefaultInstance() : columnDef_;
+          return columnDef_ == null ? io.greptime.v1.region.Server.RegionColumnDef.getDefaultInstance() : columnDef_;
         } else {
           return columnDefBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+       * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
        */
-      public Builder setColumnDef(io.greptime.v1.region.Server.ColumnDef value) {
+      public Builder setColumnDef(io.greptime.v1.region.Server.RegionColumnDef value) {
         if (columnDefBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15651,10 +15611,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+       * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
        */
       public Builder setColumnDef(
-          io.greptime.v1.region.Server.ColumnDef.Builder builderForValue) {
+          io.greptime.v1.region.Server.RegionColumnDef.Builder builderForValue) {
         if (columnDefBuilder_ == null) {
           columnDef_ = builderForValue.build();
           onChanged();
@@ -15665,13 +15625,13 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+       * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
        */
-      public Builder mergeColumnDef(io.greptime.v1.region.Server.ColumnDef value) {
+      public Builder mergeColumnDef(io.greptime.v1.region.Server.RegionColumnDef value) {
         if (columnDefBuilder_ == null) {
           if (columnDef_ != null) {
             columnDef_ =
-              io.greptime.v1.region.Server.ColumnDef.newBuilder(columnDef_).mergeFrom(value).buildPartial();
+              io.greptime.v1.region.Server.RegionColumnDef.newBuilder(columnDef_).mergeFrom(value).buildPartial();
           } else {
             columnDef_ = value;
           }
@@ -15683,7 +15643,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+       * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
        */
       public Builder clearColumnDef() {
         if (columnDefBuilder_ == null) {
@@ -15697,70 +15657,39 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+       * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
        */
-      public io.greptime.v1.region.Server.ColumnDef.Builder getColumnDefBuilder() {
+      public io.greptime.v1.region.Server.RegionColumnDef.Builder getColumnDefBuilder() {
         
         onChanged();
         return getColumnDefFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+       * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
        */
-      public io.greptime.v1.region.Server.ColumnDefOrBuilder getColumnDefOrBuilder() {
+      public io.greptime.v1.region.Server.RegionColumnDefOrBuilder getColumnDefOrBuilder() {
         if (columnDefBuilder_ != null) {
           return columnDefBuilder_.getMessageOrBuilder();
         } else {
           return columnDef_ == null ?
-              io.greptime.v1.region.Server.ColumnDef.getDefaultInstance() : columnDef_;
+              io.greptime.v1.region.Server.RegionColumnDef.getDefaultInstance() : columnDef_;
         }
       }
       /**
-       * <code>.greptime.v1.region.ColumnDef column_def = 1;</code>
+       * <code>.greptime.v1.region.RegionColumnDef column_def = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.ColumnDef, io.greptime.v1.region.Server.ColumnDef.Builder, io.greptime.v1.region.Server.ColumnDefOrBuilder> 
+          io.greptime.v1.region.Server.RegionColumnDef, io.greptime.v1.region.Server.RegionColumnDef.Builder, io.greptime.v1.region.Server.RegionColumnDefOrBuilder> 
           getColumnDefFieldBuilder() {
         if (columnDefBuilder_ == null) {
           columnDefBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.region.Server.ColumnDef, io.greptime.v1.region.Server.ColumnDef.Builder, io.greptime.v1.region.Server.ColumnDefOrBuilder>(
+              io.greptime.v1.region.Server.RegionColumnDef, io.greptime.v1.region.Server.RegionColumnDef.Builder, io.greptime.v1.region.Server.RegionColumnDefOrBuilder>(
                   getColumnDef(),
                   getParentForChildren(),
                   isClean());
           columnDef_ = null;
         }
         return columnDefBuilder_;
-      }
-
-      private boolean isKey_ ;
-      /**
-       * <code>bool is_key = 2;</code>
-       * @return The isKey.
-       */
-      @java.lang.Override
-      public boolean getIsKey() {
-        return isKey_;
-      }
-      /**
-       * <code>bool is_key = 2;</code>
-       * @param value The isKey to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIsKey(boolean value) {
-        
-        isKey_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool is_key = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIsKey() {
-        
-        isKey_ = false;
-        onChanged();
-        return this;
       }
 
       private io.greptime.v1.Ddl.AddColumnLocation location_;
@@ -17486,86 +17415,57 @@ java.lang.String defaultValue);
 
   }
 
-  public interface ColumnDefOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.region.ColumnDef)
+  public interface RegionColumnDefOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.RegionColumnDef)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
-     * @return The name.
+     * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+     * @return Whether the columnDef field is set.
      */
-    java.lang.String getName();
+    boolean hasColumnDef();
     /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
+     * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+     * @return The columnDef.
      */
-    com.google.protobuf.ByteString
-        getNameBytes();
+    io.greptime.v1.Ddl.ColumnDef getColumnDef();
+    /**
+     * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+     */
+    io.greptime.v1.Ddl.ColumnDefOrBuilder getColumnDefOrBuilder();
 
     /**
      * <code>uint32 column_id = 2;</code>
      * @return The columnId.
      */
     int getColumnId();
-
-    /**
-     * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
-     * @return The enum numeric value on the wire for datatype.
-     */
-    int getDatatypeValue();
-    /**
-     * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
-     * @return The datatype.
-     */
-    io.greptime.v1.Common.ColumnDataType getDatatype();
-
-    /**
-     * <code>bool is_nullable = 4;</code>
-     * @return The isNullable.
-     */
-    boolean getIsNullable();
-
-    /**
-     * <code>bytes default_constraint = 5;</code>
-     * @return The defaultConstraint.
-     */
-    com.google.protobuf.ByteString getDefaultConstraint();
-
-    /**
-     * <code>.greptime.v1.SemanticType semantic_type = 6;</code>
-     * @return The enum numeric value on the wire for semanticType.
-     */
-    int getSemanticTypeValue();
-    /**
-     * <code>.greptime.v1.SemanticType semantic_type = 6;</code>
-     * @return The semanticType.
-     */
-    io.greptime.v1.Common.SemanticType getSemanticType();
   }
   /**
-   * Protobuf type {@code greptime.v1.region.ColumnDef}
+   * <pre>
+   * The column definition of a region. Unlike the message `ColumnDef` in `ddl.proto` which is for clients outside
+   * GreptimeDB, this `RegionColumnDef` is for region requests use only. So it carries an extra field `column_id` that
+   * is known internally.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.RegionColumnDef}
    */
-  public static final class ColumnDef extends
+  public static final class RegionColumnDef extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.region.ColumnDef)
-      ColumnDefOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.RegionColumnDef)
+      RegionColumnDefOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ColumnDef.newBuilder() to construct.
-    private ColumnDef(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use RegionColumnDef.newBuilder() to construct.
+    private RegionColumnDef(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ColumnDef() {
-      name_ = "";
-      datatype_ = 0;
-      defaultConstraint_ = com.google.protobuf.ByteString.EMPTY;
-      semanticType_ = 0;
+    private RegionColumnDef() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ColumnDef();
+      return new RegionColumnDef();
     }
 
     @java.lang.Override
@@ -17573,7 +17473,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ColumnDef(
+    private RegionColumnDef(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -17592,36 +17492,21 @@ java.lang.String defaultValue);
               done = true;
               break;
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+              io.greptime.v1.Ddl.ColumnDef.Builder subBuilder = null;
+              if (columnDef_ != null) {
+                subBuilder = columnDef_.toBuilder();
+              }
+              columnDef_ = input.readMessage(io.greptime.v1.Ddl.ColumnDef.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(columnDef_);
+                columnDef_ = subBuilder.buildPartial();
+              }
 
-              name_ = s;
               break;
             }
             case 16: {
 
               columnId_ = input.readUInt32();
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              datatype_ = rawValue;
-              break;
-            }
-            case 32: {
-
-              isNullable_ = input.readBool();
-              break;
-            }
-            case 42: {
-
-              defaultConstraint_ = input.readBytes();
-              break;
-            }
-            case 48: {
-              int rawValue = input.readEnum();
-
-              semanticType_ = rawValue;
               break;
             }
             default: {
@@ -17647,53 +17532,41 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ColumnDef_descriptor;
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RegionColumnDef_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ColumnDef_fieldAccessorTable
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RegionColumnDef_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.region.Server.ColumnDef.class, io.greptime.v1.region.Server.ColumnDef.Builder.class);
+              io.greptime.v1.region.Server.RegionColumnDef.class, io.greptime.v1.region.Server.RegionColumnDef.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    public static final int COLUMN_DEF_FIELD_NUMBER = 1;
+    private io.greptime.v1.Ddl.ColumnDef columnDef_;
     /**
-     * <code>string name = 1;</code>
-     * @return The name.
+     * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+     * @return Whether the columnDef field is set.
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
+    public boolean hasColumnDef() {
+      return columnDef_ != null;
     }
     /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
+     * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+     * @return The columnDef.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public io.greptime.v1.Ddl.ColumnDef getColumnDef() {
+      return columnDef_ == null ? io.greptime.v1.Ddl.ColumnDef.getDefaultInstance() : columnDef_;
+    }
+    /**
+     * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.ColumnDefOrBuilder getColumnDefOrBuilder() {
+      return getColumnDef();
     }
 
     public static final int COLUMN_ID_FIELD_NUMBER = 2;
@@ -17705,66 +17578,6 @@ java.lang.String defaultValue);
     @java.lang.Override
     public int getColumnId() {
       return columnId_;
-    }
-
-    public static final int DATATYPE_FIELD_NUMBER = 3;
-    private int datatype_;
-    /**
-     * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
-     * @return The enum numeric value on the wire for datatype.
-     */
-    @java.lang.Override public int getDatatypeValue() {
-      return datatype_;
-    }
-    /**
-     * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
-     * @return The datatype.
-     */
-    @java.lang.Override public io.greptime.v1.Common.ColumnDataType getDatatype() {
-      @SuppressWarnings("deprecation")
-      io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(datatype_);
-      return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
-    }
-
-    public static final int IS_NULLABLE_FIELD_NUMBER = 4;
-    private boolean isNullable_;
-    /**
-     * <code>bool is_nullable = 4;</code>
-     * @return The isNullable.
-     */
-    @java.lang.Override
-    public boolean getIsNullable() {
-      return isNullable_;
-    }
-
-    public static final int DEFAULT_CONSTRAINT_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString defaultConstraint_;
-    /**
-     * <code>bytes default_constraint = 5;</code>
-     * @return The defaultConstraint.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getDefaultConstraint() {
-      return defaultConstraint_;
-    }
-
-    public static final int SEMANTIC_TYPE_FIELD_NUMBER = 6;
-    private int semanticType_;
-    /**
-     * <code>.greptime.v1.SemanticType semantic_type = 6;</code>
-     * @return The enum numeric value on the wire for semanticType.
-     */
-    @java.lang.Override public int getSemanticTypeValue() {
-      return semanticType_;
-    }
-    /**
-     * <code>.greptime.v1.SemanticType semantic_type = 6;</code>
-     * @return The semanticType.
-     */
-    @java.lang.Override public io.greptime.v1.Common.SemanticType getSemanticType() {
-      @SuppressWarnings("deprecation")
-      io.greptime.v1.Common.SemanticType result = io.greptime.v1.Common.SemanticType.valueOf(semanticType_);
-      return result == null ? io.greptime.v1.Common.SemanticType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -17781,23 +17594,11 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      if (columnDef_ != null) {
+        output.writeMessage(1, getColumnDef());
       }
       if (columnId_ != 0) {
         output.writeUInt32(2, columnId_);
-      }
-      if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
-        output.writeEnum(3, datatype_);
-      }
-      if (isNullable_ != false) {
-        output.writeBool(4, isNullable_);
-      }
-      if (!defaultConstraint_.isEmpty()) {
-        output.writeBytes(5, defaultConstraint_);
-      }
-      if (semanticType_ != io.greptime.v1.Common.SemanticType.TAG.getNumber()) {
-        output.writeEnum(6, semanticType_);
       }
       unknownFields.writeTo(output);
     }
@@ -17808,28 +17609,13 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      if (columnDef_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getColumnDef());
       }
       if (columnId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, columnId_);
-      }
-      if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, datatype_);
-      }
-      if (isNullable_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, isNullable_);
-      }
-      if (!defaultConstraint_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, defaultConstraint_);
-      }
-      if (semanticType_ != io.greptime.v1.Common.SemanticType.TAG.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(6, semanticType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17841,21 +17627,18 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.region.Server.ColumnDef)) {
+      if (!(obj instanceof io.greptime.v1.region.Server.RegionColumnDef)) {
         return super.equals(obj);
       }
-      io.greptime.v1.region.Server.ColumnDef other = (io.greptime.v1.region.Server.ColumnDef) obj;
+      io.greptime.v1.region.Server.RegionColumnDef other = (io.greptime.v1.region.Server.RegionColumnDef) obj;
 
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (hasColumnDef() != other.hasColumnDef()) return false;
+      if (hasColumnDef()) {
+        if (!getColumnDef()
+            .equals(other.getColumnDef())) return false;
+      }
       if (getColumnId()
           != other.getColumnId()) return false;
-      if (datatype_ != other.datatype_) return false;
-      if (getIsNullable()
-          != other.getIsNullable()) return false;
-      if (!getDefaultConstraint()
-          .equals(other.getDefaultConstraint())) return false;
-      if (semanticType_ != other.semanticType_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -17867,87 +17650,80 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      if (hasColumnDef()) {
+        hash = (37 * hash) + COLUMN_DEF_FIELD_NUMBER;
+        hash = (53 * hash) + getColumnDef().hashCode();
+      }
       hash = (37 * hash) + COLUMN_ID_FIELD_NUMBER;
       hash = (53 * hash) + getColumnId();
-      hash = (37 * hash) + DATATYPE_FIELD_NUMBER;
-      hash = (53 * hash) + datatype_;
-      hash = (37 * hash) + IS_NULLABLE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsNullable());
-      hash = (37 * hash) + DEFAULT_CONSTRAINT_FIELD_NUMBER;
-      hash = (53 * hash) + getDefaultConstraint().hashCode();
-      hash = (37 * hash) + SEMANTIC_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + semanticType_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(byte[] data)
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.region.Server.RegionColumnDef parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseDelimitedFrom(
+    public static io.greptime.v1.region.Server.RegionColumnDef parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.region.Server.ColumnDef parseFrom(
+    public static io.greptime.v1.region.Server.RegionColumnDef parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -17960,7 +17736,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.region.Server.ColumnDef prototype) {
+    public static Builder newBuilder(io.greptime.v1.region.Server.RegionColumnDef prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -17976,26 +17752,32 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.region.ColumnDef}
+     * <pre>
+     * The column definition of a region. Unlike the message `ColumnDef` in `ddl.proto` which is for clients outside
+     * GreptimeDB, this `RegionColumnDef` is for region requests use only. So it carries an extra field `column_id` that
+     * is known internally.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.RegionColumnDef}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.region.ColumnDef)
-        io.greptime.v1.region.Server.ColumnDefOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.RegionColumnDef)
+        io.greptime.v1.region.Server.RegionColumnDefOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ColumnDef_descriptor;
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RegionColumnDef_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ColumnDef_fieldAccessorTable
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RegionColumnDef_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.region.Server.ColumnDef.class, io.greptime.v1.region.Server.ColumnDef.Builder.class);
+                io.greptime.v1.region.Server.RegionColumnDef.class, io.greptime.v1.region.Server.RegionColumnDef.Builder.class);
       }
 
-      // Construct using io.greptime.v1.region.Server.ColumnDef.newBuilder()
+      // Construct using io.greptime.v1.region.Server.RegionColumnDef.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -18013,17 +17795,13 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        name_ = "";
-
+        if (columnDefBuilder_ == null) {
+          columnDef_ = null;
+        } else {
+          columnDef_ = null;
+          columnDefBuilder_ = null;
+        }
         columnId_ = 0;
-
-        datatype_ = 0;
-
-        isNullable_ = false;
-
-        defaultConstraint_ = com.google.protobuf.ByteString.EMPTY;
-
-        semanticType_ = 0;
 
         return this;
       }
@@ -18031,17 +17809,17 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ColumnDef_descriptor;
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RegionColumnDef_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.region.Server.ColumnDef getDefaultInstanceForType() {
-        return io.greptime.v1.region.Server.ColumnDef.getDefaultInstance();
+      public io.greptime.v1.region.Server.RegionColumnDef getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.RegionColumnDef.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.region.Server.ColumnDef build() {
-        io.greptime.v1.region.Server.ColumnDef result = buildPartial();
+      public io.greptime.v1.region.Server.RegionColumnDef build() {
+        io.greptime.v1.region.Server.RegionColumnDef result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -18049,14 +17827,14 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.region.Server.ColumnDef buildPartial() {
-        io.greptime.v1.region.Server.ColumnDef result = new io.greptime.v1.region.Server.ColumnDef(this);
-        result.name_ = name_;
+      public io.greptime.v1.region.Server.RegionColumnDef buildPartial() {
+        io.greptime.v1.region.Server.RegionColumnDef result = new io.greptime.v1.region.Server.RegionColumnDef(this);
+        if (columnDefBuilder_ == null) {
+          result.columnDef_ = columnDef_;
+        } else {
+          result.columnDef_ = columnDefBuilder_.build();
+        }
         result.columnId_ = columnId_;
-        result.datatype_ = datatype_;
-        result.isNullable_ = isNullable_;
-        result.defaultConstraint_ = defaultConstraint_;
-        result.semanticType_ = semanticType_;
         onBuilt();
         return result;
       }
@@ -18095,34 +17873,21 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.region.Server.ColumnDef) {
-          return mergeFrom((io.greptime.v1.region.Server.ColumnDef)other);
+        if (other instanceof io.greptime.v1.region.Server.RegionColumnDef) {
+          return mergeFrom((io.greptime.v1.region.Server.RegionColumnDef)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.region.Server.ColumnDef other) {
-        if (other == io.greptime.v1.region.Server.ColumnDef.getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
+      public Builder mergeFrom(io.greptime.v1.region.Server.RegionColumnDef other) {
+        if (other == io.greptime.v1.region.Server.RegionColumnDef.getDefaultInstance()) return this;
+        if (other.hasColumnDef()) {
+          mergeColumnDef(other.getColumnDef());
         }
         if (other.getColumnId() != 0) {
           setColumnId(other.getColumnId());
-        }
-        if (other.datatype_ != 0) {
-          setDatatypeValue(other.getDatatypeValue());
-        }
-        if (other.getIsNullable() != false) {
-          setIsNullable(other.getIsNullable());
-        }
-        if (other.getDefaultConstraint() != com.google.protobuf.ByteString.EMPTY) {
-          setDefaultConstraint(other.getDefaultConstraint());
-        }
-        if (other.semanticType_ != 0) {
-          setSemanticTypeValue(other.getSemanticTypeValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -18139,11 +17904,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.region.Server.ColumnDef parsedMessage = null;
+        io.greptime.v1.region.Server.RegionColumnDef parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.region.Server.ColumnDef) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.region.Server.RegionColumnDef) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -18153,80 +17918,123 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private io.greptime.v1.Ddl.ColumnDef columnDef_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.ColumnDef, io.greptime.v1.Ddl.ColumnDef.Builder, io.greptime.v1.Ddl.ColumnDefOrBuilder> columnDefBuilder_;
       /**
-       * <code>string name = 1;</code>
-       * @return The name.
+       * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+       * @return Whether the columnDef field is set.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
+      public boolean hasColumnDef() {
+        return columnDefBuilder_ != null || columnDef_ != null;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+       * @return The columnDef.
+       */
+      public io.greptime.v1.Ddl.ColumnDef getColumnDef() {
+        if (columnDefBuilder_ == null) {
+          return columnDef_ == null ? io.greptime.v1.Ddl.ColumnDef.getDefaultInstance() : columnDef_;
         } else {
-          return (java.lang.String) ref;
+          return columnDefBuilder_.getMessage();
         }
       }
       /**
-       * <code>string name = 1;</code>
-       * @return The bytes for name.
+       * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
+      public Builder setColumnDef(io.greptime.v1.Ddl.ColumnDef value) {
+        if (columnDefBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          columnDef_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          columnDefBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+       */
+      public Builder setColumnDef(
+          io.greptime.v1.Ddl.ColumnDef.Builder builderForValue) {
+        if (columnDefBuilder_ == null) {
+          columnDef_ = builderForValue.build();
+          onChanged();
+        } else {
+          columnDefBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+       */
+      public Builder mergeColumnDef(io.greptime.v1.Ddl.ColumnDef value) {
+        if (columnDefBuilder_ == null) {
+          if (columnDef_ != null) {
+            columnDef_ =
+              io.greptime.v1.Ddl.ColumnDef.newBuilder(columnDef_).mergeFrom(value).buildPartial();
+          } else {
+            columnDef_ = value;
+          }
+          onChanged();
+        } else {
+          columnDefBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+       */
+      public Builder clearColumnDef() {
+        if (columnDefBuilder_ == null) {
+          columnDef_ = null;
+          onChanged();
+        } else {
+          columnDef_ = null;
+          columnDefBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+       */
+      public io.greptime.v1.Ddl.ColumnDef.Builder getColumnDefBuilder() {
+        
+        onChanged();
+        return getColumnDefFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.ColumnDef column_def = 1;</code>
+       */
+      public io.greptime.v1.Ddl.ColumnDefOrBuilder getColumnDefOrBuilder() {
+        if (columnDefBuilder_ != null) {
+          return columnDefBuilder_.getMessageOrBuilder();
+        } else {
+          return columnDef_ == null ?
+              io.greptime.v1.Ddl.ColumnDef.getDefaultInstance() : columnDef_;
         }
       }
       /**
-       * <code>string name = 1;</code>
-       * @param value The name to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.ColumnDef column_def = 1;</code>
        */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearName() {
-        
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @param value The bytes for name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
-        onChanged();
-        return this;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.ColumnDef, io.greptime.v1.Ddl.ColumnDef.Builder, io.greptime.v1.Ddl.ColumnDefOrBuilder> 
+          getColumnDefFieldBuilder() {
+        if (columnDefBuilder_ == null) {
+          columnDefBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.ColumnDef, io.greptime.v1.Ddl.ColumnDef.Builder, io.greptime.v1.Ddl.ColumnDefOrBuilder>(
+                  getColumnDef(),
+                  getParentForChildren(),
+                  isClean());
+          columnDef_ = null;
+        }
+        return columnDefBuilder_;
       }
 
       private int columnId_ ;
@@ -18259,179 +18067,6 @@ java.lang.String defaultValue);
         onChanged();
         return this;
       }
-
-      private int datatype_ = 0;
-      /**
-       * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
-       * @return The enum numeric value on the wire for datatype.
-       */
-      @java.lang.Override public int getDatatypeValue() {
-        return datatype_;
-      }
-      /**
-       * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
-       * @param value The enum numeric value on the wire for datatype to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDatatypeValue(int value) {
-        
-        datatype_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
-       * @return The datatype.
-       */
-      @java.lang.Override
-      public io.greptime.v1.Common.ColumnDataType getDatatype() {
-        @SuppressWarnings("deprecation")
-        io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(datatype_);
-        return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
-       * @param value The datatype to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDatatype(io.greptime.v1.Common.ColumnDataType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        datatype_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.ColumnDataType datatype = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDatatype() {
-        
-        datatype_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private boolean isNullable_ ;
-      /**
-       * <code>bool is_nullable = 4;</code>
-       * @return The isNullable.
-       */
-      @java.lang.Override
-      public boolean getIsNullable() {
-        return isNullable_;
-      }
-      /**
-       * <code>bool is_nullable = 4;</code>
-       * @param value The isNullable to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIsNullable(boolean value) {
-        
-        isNullable_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool is_nullable = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIsNullable() {
-        
-        isNullable_ = false;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString defaultConstraint_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes default_constraint = 5;</code>
-       * @return The defaultConstraint.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getDefaultConstraint() {
-        return defaultConstraint_;
-      }
-      /**
-       * <code>bytes default_constraint = 5;</code>
-       * @param value The defaultConstraint to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDefaultConstraint(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        defaultConstraint_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes default_constraint = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDefaultConstraint() {
-        
-        defaultConstraint_ = getDefaultInstance().getDefaultConstraint();
-        onChanged();
-        return this;
-      }
-
-      private int semanticType_ = 0;
-      /**
-       * <code>.greptime.v1.SemanticType semantic_type = 6;</code>
-       * @return The enum numeric value on the wire for semanticType.
-       */
-      @java.lang.Override public int getSemanticTypeValue() {
-        return semanticType_;
-      }
-      /**
-       * <code>.greptime.v1.SemanticType semantic_type = 6;</code>
-       * @param value The enum numeric value on the wire for semanticType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSemanticTypeValue(int value) {
-        
-        semanticType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.SemanticType semantic_type = 6;</code>
-       * @return The semanticType.
-       */
-      @java.lang.Override
-      public io.greptime.v1.Common.SemanticType getSemanticType() {
-        @SuppressWarnings("deprecation")
-        io.greptime.v1.Common.SemanticType result = io.greptime.v1.Common.SemanticType.valueOf(semanticType_);
-        return result == null ? io.greptime.v1.Common.SemanticType.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.greptime.v1.SemanticType semantic_type = 6;</code>
-       * @param value The semanticType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSemanticType(io.greptime.v1.Common.SemanticType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        semanticType_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.SemanticType semantic_type = 6;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSemanticType() {
-        
-        semanticType_ = 0;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -18445,41 +18080,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.region.ColumnDef)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.RegionColumnDef)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.region.ColumnDef)
-    private static final io.greptime.v1.region.Server.ColumnDef DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionColumnDef)
+    private static final io.greptime.v1.region.Server.RegionColumnDef DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.ColumnDef();
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.RegionColumnDef();
     }
 
-    public static io.greptime.v1.region.Server.ColumnDef getDefaultInstance() {
+    public static io.greptime.v1.region.Server.RegionColumnDef getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ColumnDef>
-        PARSER = new com.google.protobuf.AbstractParser<ColumnDef>() {
+    private static final com.google.protobuf.Parser<RegionColumnDef>
+        PARSER = new com.google.protobuf.AbstractParser<RegionColumnDef>() {
       @java.lang.Override
-      public ColumnDef parsePartialFrom(
+      public RegionColumnDef parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ColumnDef(input, extensionRegistry);
+        return new RegionColumnDef(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ColumnDef> parser() {
+    public static com.google.protobuf.Parser<RegionColumnDef> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ColumnDef> getParserForType() {
+    public com.google.protobuf.Parser<RegionColumnDef> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.region.Server.ColumnDef getDefaultInstanceForType() {
+    public io.greptime.v1.region.Server.RegionColumnDef getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18591,10 +18226,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_CompactRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_region_ColumnDef_descriptor;
+    internal_static_greptime_v1_region_RegionColumnDef_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_region_ColumnDef_fieldAccessorTable;
+      internal_static_greptime_v1_region_RegionColumnDef_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -18632,45 +18267,42 @@ java.lang.String defaultValue);
       "\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDele" +
       "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001" +
       "(\0132\021.greptime.v1.Rows\"/\n\014QueryRequest\022\021\n" +
-      "\tregion_id\030\001 \001(\004\022\014\n\004plan\030\002 \001(\014\"\253\002\n\rCreat" +
+      "\tregion_id\030\001 \001(\004\022\014\n\004plan\030\002 \001(\014\"\261\002\n\rCreat" +
       "eRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 " +
-      "\001(\t\0222\n\013column_defs\030\003 \003(\0132\035.greptime.v1.r" +
-      "egion.ColumnDef\022\023\n\013primary_key\030\004 \003(\r\022\034\n\024" +
-      "create_if_not_exists\030\005 \001(\010\022\017\n\007catalog\030\006 " +
-      "\001(\t\022\016\n\006schema\030\007 \001(\t\022?\n\007options\030\010 \003(\0132..g" +
-      "reptime.v1.region.CreateRequest.OptionsE" +
-      "ntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t:\0028\001\" \n\013DropRequest\022\021\n\tregion_id" +
-      "\030\001 \001(\004\"\300\001\n\013OpenRequest\022\021\n\tregion_id\030\001 \001(" +
-      "\004\022\016\n\006engine\030\002 \001(\t\022\017\n\007catalog\030\003 \001(\t\022\016\n\006sc" +
-      "hema\030\004 \001(\t\022=\n\007options\030\005 \003(\0132,.greptime.v" +
-      "1.region.OpenRequest.OptionsEntry\032.\n\014Opt" +
-      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001(\004\"\261\001\n" +
-      "\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_" +
-      "columns\030\002 \001(\0132\036.greptime.v1.region.AddCo" +
-      "lumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime" +
-      ".v1.region.DropColumnsH\000\022\026\n\016schema_versi" +
-      "on\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_co" +
-      "lumns\030\001 \003(\0132\035.greptime.v1.region.AddColu" +
-      "mn\"C\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132" +
-      "\036.greptime.v1.region.DropColumn\"\200\001\n\tAddC" +
-      "olumn\0221\n\ncolumn_def\030\001 \001(\0132\035.greptime.v1." +
-      "region.ColumnDef\022\016\n\006is_key\030\002 \001(\010\0220\n\010loca" +
-      "tion\030\003 \001(\0132\036.greptime.v1.AddColumnLocati" +
-      "on\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushR" +
-      "equest\022\021\n\tregion_id\030\001 \001(\004\"#\n\016CompactRequ" +
-      "est\022\021\n\tregion_id\030\001 \001(\004\"\276\001\n\tColumnDef\022\014\n\004" +
-      "name\030\001 \001(\t\022\021\n\tcolumn_id\030\002 \001(\r\022-\n\010datatyp" +
-      "e\030\003 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013" +
-      "is_nullable\030\004 \001(\010\022\032\n\022default_constraint\030" +
-      "\005 \001(\014\0220\n\rsemantic_type\030\006 \001(\0162\031.greptime." +
-      "v1.SemanticType2Y\n\006Region\022O\n\006Handle\022!.gr" +
-      "eptime.v1.region.RegionRequest\032\".greptim" +
-      "e.v1.region.RegionResponseB]\n\025io.greptim" +
-      "e.v1.regionB\006ServerZ<github.com/Greptime" +
-      "Team/greptime-proto/go/greptime/v1/regio" +
-      "nb\006proto3"
+      "\001(\t\0228\n\013column_defs\030\003 \003(\0132#.greptime.v1.r" +
+      "egion.RegionColumnDef\022\023\n\013primary_key\030\004 \003" +
+      "(\r\022\034\n\024create_if_not_exists\030\005 \001(\010\022\017\n\007cata" +
+      "log\030\006 \001(\t\022\016\n\006schema\030\007 \001(\t\022?\n\007options\030\010 \003" +
+      "(\0132..greptime.v1.region.CreateRequest.Op" +
+      "tionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001\" \n\013DropRequest\022\021\n\treg" +
+      "ion_id\030\001 \001(\004\"\300\001\n\013OpenRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\017\n\007catalog\030\003 \001(\t" +
+      "\022\016\n\006schema\030\004 \001(\t\022=\n\007options\030\005 \003(\0132,.grep" +
+      "time.v1.region.OpenRequest.OptionsEntry\032" +
+      ".\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001" +
+      "(\004\"\261\001\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225" +
+      "\n\013add_columns\030\002 \001(\0132\036.greptime.v1.region" +
+      ".AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.gr" +
+      "eptime.v1.region.DropColumnsH\000\022\026\n\016schema" +
+      "_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013" +
+      "add_columns\030\001 \003(\0132\035.greptime.v1.region.A" +
+      "ddColumn\"C\n\013DropColumns\0224\n\014drop_columns\030" +
+      "\001 \003(\0132\036.greptime.v1.region.DropColumn\"v\n" +
+      "\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#.greptim" +
+      "e.v1.region.RegionColumnDef\0220\n\010location\030" +
+      "\003 \001(\0132\036.greptime.v1.AddColumnLocation\"\032\n" +
+      "\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushReques" +
+      "t\022\021\n\tregion_id\030\001 \001(\004\"#\n\016CompactRequest\022\021" +
+      "\n\tregion_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\n" +
+      "column_def\030\001 \001(\0132\026.greptime.v1.ColumnDef" +
+      "\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022" +
+      "!.greptime.v1.region.RegionRequest\032\".gre" +
+      "ptime.v1.region.RegionResponseB]\n\025io.gre" +
+      "ptime.v1.regionB\006ServerZ<github.com/Grep" +
+      "timeTeam/greptime-proto/go/greptime/v1/r" +
+      "egionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18786,7 +18418,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_AddColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AddColumn_descriptor,
-        new java.lang.String[] { "ColumnDef", "IsKey", "Location", });
+        new java.lang.String[] { "ColumnDef", "Location", });
     internal_static_greptime_v1_region_DropColumn_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_region_DropColumn_fieldAccessorTable = new
@@ -18805,12 +18437,12 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_CompactRequest_descriptor,
         new java.lang.String[] { "RegionId", });
-    internal_static_greptime_v1_region_ColumnDef_descriptor =
+    internal_static_greptime_v1_region_RegionColumnDef_descriptor =
       getDescriptor().getMessageTypes().get(19);
-    internal_static_greptime_v1_region_ColumnDef_fieldAccessorTable = new
+    internal_static_greptime_v1_region_RegionColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_region_ColumnDef_descriptor,
-        new java.lang.String[] { "Name", "ColumnId", "Datatype", "IsNullable", "DefaultConstraint", "SemanticType", });
+        internal_static_greptime_v1_region_RegionColumnDef_descriptor,
+        new java.lang.String[] { "ColumnDef", "ColumnId", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();

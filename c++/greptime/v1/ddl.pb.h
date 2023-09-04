@@ -63,6 +63,9 @@ extern AddColumnsDefaultTypeInternal _AddColumns_default_instance_;
 class AlterExpr;
 struct AlterExprDefaultTypeInternal;
 extern AlterExprDefaultTypeInternal _AlterExpr_default_instance_;
+class ColumnDef;
+struct ColumnDefDefaultTypeInternal;
+extern ColumnDefDefaultTypeInternal _ColumnDef_default_instance_;
 class CreateDatabaseExpr;
 struct CreateDatabaseExprDefaultTypeInternal;
 extern CreateDatabaseExprDefaultTypeInternal _CreateDatabaseExpr_default_instance_;
@@ -103,6 +106,7 @@ template<> ::greptime::v1::AddColumn* Arena::CreateMaybeMessage<::greptime::v1::
 template<> ::greptime::v1::AddColumnLocation* Arena::CreateMaybeMessage<::greptime::v1::AddColumnLocation>(Arena*);
 template<> ::greptime::v1::AddColumns* Arena::CreateMaybeMessage<::greptime::v1::AddColumns>(Arena*);
 template<> ::greptime::v1::AlterExpr* Arena::CreateMaybeMessage<::greptime::v1::AlterExpr>(Arena*);
+template<> ::greptime::v1::ColumnDef* Arena::CreateMaybeMessage<::greptime::v1::ColumnDef>(Arena*);
 template<> ::greptime::v1::CreateDatabaseExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr>(Arena*);
 template<> ::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::CreateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr>(Arena*);
@@ -927,8 +931,6 @@ class AlterExpr final :
     kCatalogNameFieldNumber = 1,
     kSchemaNameFieldNumber = 2,
     kTableNameFieldNumber = 3,
-    kTableIdFieldNumber = 7,
-    kTableVersionFieldNumber = 8,
     kAddColumnsFieldNumber = 4,
     kDropColumnsFieldNumber = 5,
     kRenameTableFieldNumber = 6,
@@ -973,33 +975,6 @@ class AlterExpr final :
   const std::string& _internal_table_name() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_name(const std::string& value);
   std::string* _internal_mutable_table_name();
-  public:
-
-  // .greptime.v1.TableId table_id = 7;
-  bool has_table_id() const;
-  private:
-  bool _internal_has_table_id() const;
-  public:
-  void clear_table_id();
-  const ::greptime::v1::TableId& table_id() const;
-  PROTOBUF_NODISCARD ::greptime::v1::TableId* release_table_id();
-  ::greptime::v1::TableId* mutable_table_id();
-  void set_allocated_table_id(::greptime::v1::TableId* table_id);
-  private:
-  const ::greptime::v1::TableId& _internal_table_id() const;
-  ::greptime::v1::TableId* _internal_mutable_table_id();
-  public:
-  void unsafe_arena_set_allocated_table_id(
-      ::greptime::v1::TableId* table_id);
-  ::greptime::v1::TableId* unsafe_arena_release_table_id();
-
-  // uint64 table_version = 8;
-  void clear_table_version();
-  uint64_t table_version() const;
-  void set_table_version(uint64_t value);
-  private:
-  uint64_t _internal_table_version() const;
-  void _internal_set_table_version(uint64_t value);
   public:
 
   // .greptime.v1.AddColumns add_columns = 4;
@@ -1075,8 +1050,6 @@ class AlterExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
-    ::greptime::v1::TableId* table_id_;
-    uint64_t table_version_;
     union KindUnion {
       constexpr KindUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -2311,7 +2284,6 @@ class AddColumn final :
   enum : int {
     kColumnDefFieldNumber = 1,
     kLocationFieldNumber = 3,
-    kIsKeyFieldNumber = 2,
   };
   // .greptime.v1.ColumnDef column_def = 1;
   bool has_column_def() const;
@@ -2349,15 +2321,6 @@ class AddColumn final :
       ::greptime::v1::AddColumnLocation* location);
   ::greptime::v1::AddColumnLocation* unsafe_arena_release_location();
 
-  // bool is_key = 2;
-  void clear_is_key();
-  bool is_key() const;
-  void set_is_key(bool value);
-  private:
-  bool _internal_is_key() const;
-  void _internal_set_is_key(bool value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.AddColumn)
  private:
   class _Internal;
@@ -2368,7 +2331,6 @@ class AddColumn final :
   struct Impl_ {
     ::greptime::v1::ColumnDef* column_def_;
     ::greptime::v1::AddColumnLocation* location_;
-    bool is_key_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2677,6 +2639,208 @@ class TableId final :
 };
 // -------------------------------------------------------------------
 
+class ColumnDef final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ColumnDef) */ {
+ public:
+  inline ColumnDef() : ColumnDef(nullptr) {}
+  ~ColumnDef() override;
+  explicit PROTOBUF_CONSTEXPR ColumnDef(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ColumnDef(const ColumnDef& from);
+  ColumnDef(ColumnDef&& from) noexcept
+    : ColumnDef() {
+    *this = ::std::move(from);
+  }
+
+  inline ColumnDef& operator=(const ColumnDef& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ColumnDef& operator=(ColumnDef&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ColumnDef& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ColumnDef* internal_default_instance() {
+    return reinterpret_cast<const ColumnDef*>(
+               &_ColumnDef_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(ColumnDef& a, ColumnDef& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ColumnDef* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ColumnDef* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ColumnDef* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ColumnDef>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ColumnDef& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ColumnDef& from) {
+    ColumnDef::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ColumnDef* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.ColumnDef";
+  }
+  protected:
+  explicit ColumnDef(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+    kDefaultConstraintFieldNumber = 4,
+    kDatatypeFieldNumber = 2,
+    kIsNullableFieldNumber = 3,
+    kSemanticTypeFieldNumber = 5,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // bytes default_constraint = 4;
+  void clear_default_constraint();
+  const std::string& default_constraint() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_default_constraint(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_default_constraint();
+  PROTOBUF_NODISCARD std::string* release_default_constraint();
+  void set_allocated_default_constraint(std::string* default_constraint);
+  private:
+  const std::string& _internal_default_constraint() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_default_constraint(const std::string& value);
+  std::string* _internal_mutable_default_constraint();
+  public:
+
+  // .greptime.v1.ColumnDataType datatype = 2;
+  void clear_datatype();
+  ::greptime::v1::ColumnDataType datatype() const;
+  void set_datatype(::greptime::v1::ColumnDataType value);
+  private:
+  ::greptime::v1::ColumnDataType _internal_datatype() const;
+  void _internal_set_datatype(::greptime::v1::ColumnDataType value);
+  public:
+
+  // bool is_nullable = 3;
+  void clear_is_nullable();
+  bool is_nullable() const;
+  void set_is_nullable(bool value);
+  private:
+  bool _internal_is_nullable() const;
+  void _internal_set_is_nullable(bool value);
+  public:
+
+  // .greptime.v1.SemanticType semantic_type = 5;
+  void clear_semantic_type();
+  ::greptime::v1::SemanticType semantic_type() const;
+  void set_semantic_type(::greptime::v1::SemanticType value);
+  private:
+  ::greptime::v1::SemanticType _internal_semantic_type() const;
+  void _internal_set_semantic_type(::greptime::v1::SemanticType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.ColumnDef)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr default_constraint_;
+    int datatype_;
+    bool is_nullable_;
+    int semantic_type_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class AddColumnLocation final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.AddColumnLocation) */ {
  public:
@@ -2725,7 +2889,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -3471,6 +3635,9 @@ inline int CreateTableExpr::_internal_column_defs_size() const {
 }
 inline int CreateTableExpr::column_defs_size() const {
   return _internal_column_defs_size();
+}
+inline void CreateTableExpr::clear_column_defs() {
+  _impl_.column_defs_.Clear();
 }
 inline ::greptime::v1::ColumnDef* CreateTableExpr::mutable_column_defs(int index) {
   // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTableExpr.column_defs)
@@ -4239,116 +4406,6 @@ inline ::greptime::v1::RenameTable* AlterExpr::mutable_rename_table() {
   return _msg;
 }
 
-// .greptime.v1.TableId table_id = 7;
-inline bool AlterExpr::_internal_has_table_id() const {
-  return this != internal_default_instance() && _impl_.table_id_ != nullptr;
-}
-inline bool AlterExpr::has_table_id() const {
-  return _internal_has_table_id();
-}
-inline void AlterExpr::clear_table_id() {
-  if (GetArenaForAllocation() == nullptr && _impl_.table_id_ != nullptr) {
-    delete _impl_.table_id_;
-  }
-  _impl_.table_id_ = nullptr;
-}
-inline const ::greptime::v1::TableId& AlterExpr::_internal_table_id() const {
-  const ::greptime::v1::TableId* p = _impl_.table_id_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableId&>(
-      ::greptime::v1::_TableId_default_instance_);
-}
-inline const ::greptime::v1::TableId& AlterExpr::table_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.AlterExpr.table_id)
-  return _internal_table_id();
-}
-inline void AlterExpr::unsafe_arena_set_allocated_table_id(
-    ::greptime::v1::TableId* table_id) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_id_);
-  }
-  _impl_.table_id_ = table_id;
-  if (table_id) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.AlterExpr.table_id)
-}
-inline ::greptime::v1::TableId* AlterExpr::release_table_id() {
-  
-  ::greptime::v1::TableId* temp = _impl_.table_id_;
-  _impl_.table_id_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::TableId* AlterExpr::unsafe_arena_release_table_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.AlterExpr.table_id)
-  
-  ::greptime::v1::TableId* temp = _impl_.table_id_;
-  _impl_.table_id_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::TableId* AlterExpr::_internal_mutable_table_id() {
-  
-  if (_impl_.table_id_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::TableId>(GetArenaForAllocation());
-    _impl_.table_id_ = p;
-  }
-  return _impl_.table_id_;
-}
-inline ::greptime::v1::TableId* AlterExpr::mutable_table_id() {
-  ::greptime::v1::TableId* _msg = _internal_mutable_table_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.AlterExpr.table_id)
-  return _msg;
-}
-inline void AlterExpr::set_allocated_table_id(::greptime::v1::TableId* table_id) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.table_id_;
-  }
-  if (table_id) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(table_id);
-    if (message_arena != submessage_arena) {
-      table_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, table_id, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.table_id_ = table_id;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.AlterExpr.table_id)
-}
-
-// uint64 table_version = 8;
-inline void AlterExpr::clear_table_version() {
-  _impl_.table_version_ = uint64_t{0u};
-}
-inline uint64_t AlterExpr::_internal_table_version() const {
-  return _impl_.table_version_;
-}
-inline uint64_t AlterExpr::table_version() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.AlterExpr.table_version)
-  return _internal_table_version();
-}
-inline void AlterExpr::_internal_set_table_version(uint64_t value) {
-  
-  _impl_.table_version_ = value;
-}
-inline void AlterExpr::set_table_version(uint64_t value) {
-  _internal_set_table_version(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.AlterExpr.table_version)
-}
-
 inline bool AlterExpr::has_kind() const {
   return kind_case() != KIND_NOT_SET;
 }
@@ -5104,6 +5161,12 @@ inline bool AddColumn::_internal_has_column_def() const {
 inline bool AddColumn::has_column_def() const {
   return _internal_has_column_def();
 }
+inline void AddColumn::clear_column_def() {
+  if (GetArenaForAllocation() == nullptr && _impl_.column_def_ != nullptr) {
+    delete _impl_.column_def_;
+  }
+  _impl_.column_def_ = nullptr;
+}
 inline const ::greptime::v1::ColumnDef& AddColumn::_internal_column_def() const {
   const ::greptime::v1::ColumnDef* p = _impl_.column_def_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ColumnDef&>(
@@ -5164,12 +5227,11 @@ inline ::greptime::v1::ColumnDef* AddColumn::mutable_column_def() {
 inline void AddColumn::set_allocated_column_def(::greptime::v1::ColumnDef* column_def) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.column_def_);
+    delete _impl_.column_def_;
   }
   if (column_def) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(column_def));
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(column_def);
     if (message_arena != submessage_arena) {
       column_def = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, column_def, submessage_arena);
@@ -5180,26 +5242,6 @@ inline void AddColumn::set_allocated_column_def(::greptime::v1::ColumnDef* colum
   }
   _impl_.column_def_ = column_def;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.AddColumn.column_def)
-}
-
-// bool is_key = 2;
-inline void AddColumn::clear_is_key() {
-  _impl_.is_key_ = false;
-}
-inline bool AddColumn::_internal_is_key() const {
-  return _impl_.is_key_;
-}
-inline bool AddColumn::is_key() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.AddColumn.is_key)
-  return _internal_is_key();
-}
-inline void AddColumn::_internal_set_is_key(bool value) {
-  
-  _impl_.is_key_ = value;
-}
-inline void AddColumn::set_is_key(bool value) {
-  _internal_set_is_key(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.AddColumn.is_key)
 }
 
 // .greptime.v1.AddColumnLocation location = 3;
@@ -5372,6 +5414,170 @@ inline void TableId::set_id(uint32_t value) {
 
 // -------------------------------------------------------------------
 
+// ColumnDef
+
+// string name = 1;
+inline void ColumnDef::clear_name() {
+  _impl_.name_.ClearToEmpty();
+}
+inline const std::string& ColumnDef::name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ColumnDef::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.name)
+}
+inline std::string* ColumnDef::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnDef.name)
+  return _s;
+}
+inline const std::string& ColumnDef::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void ColumnDef::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ColumnDef::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ColumnDef::release_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ColumnDef.name)
+  return _impl_.name_.Release();
+}
+inline void ColumnDef::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDef.name)
+}
+
+// .greptime.v1.ColumnDataType datatype = 2;
+inline void ColumnDef::clear_datatype() {
+  _impl_.datatype_ = 0;
+}
+inline ::greptime::v1::ColumnDataType ColumnDef::_internal_datatype() const {
+  return static_cast< ::greptime::v1::ColumnDataType >(_impl_.datatype_);
+}
+inline ::greptime::v1::ColumnDataType ColumnDef::datatype() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.datatype)
+  return _internal_datatype();
+}
+inline void ColumnDef::_internal_set_datatype(::greptime::v1::ColumnDataType value) {
+  
+  _impl_.datatype_ = value;
+}
+inline void ColumnDef::set_datatype(::greptime::v1::ColumnDataType value) {
+  _internal_set_datatype(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.datatype)
+}
+
+// bool is_nullable = 3;
+inline void ColumnDef::clear_is_nullable() {
+  _impl_.is_nullable_ = false;
+}
+inline bool ColumnDef::_internal_is_nullable() const {
+  return _impl_.is_nullable_;
+}
+inline bool ColumnDef::is_nullable() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.is_nullable)
+  return _internal_is_nullable();
+}
+inline void ColumnDef::_internal_set_is_nullable(bool value) {
+  
+  _impl_.is_nullable_ = value;
+}
+inline void ColumnDef::set_is_nullable(bool value) {
+  _internal_set_is_nullable(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.is_nullable)
+}
+
+// bytes default_constraint = 4;
+inline void ColumnDef::clear_default_constraint() {
+  _impl_.default_constraint_.ClearToEmpty();
+}
+inline const std::string& ColumnDef::default_constraint() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.default_constraint)
+  return _internal_default_constraint();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ColumnDef::set_default_constraint(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.default_constraint_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.default_constraint)
+}
+inline std::string* ColumnDef::mutable_default_constraint() {
+  std::string* _s = _internal_mutable_default_constraint();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnDef.default_constraint)
+  return _s;
+}
+inline const std::string& ColumnDef::_internal_default_constraint() const {
+  return _impl_.default_constraint_.Get();
+}
+inline void ColumnDef::_internal_set_default_constraint(const std::string& value) {
+  
+  _impl_.default_constraint_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ColumnDef::_internal_mutable_default_constraint() {
+  
+  return _impl_.default_constraint_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ColumnDef::release_default_constraint() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ColumnDef.default_constraint)
+  return _impl_.default_constraint_.Release();
+}
+inline void ColumnDef::set_allocated_default_constraint(std::string* default_constraint) {
+  if (default_constraint != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.default_constraint_.SetAllocated(default_constraint, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.default_constraint_.IsDefault()) {
+    _impl_.default_constraint_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDef.default_constraint)
+}
+
+// .greptime.v1.SemanticType semantic_type = 5;
+inline void ColumnDef::clear_semantic_type() {
+  _impl_.semantic_type_ = 0;
+}
+inline ::greptime::v1::SemanticType ColumnDef::_internal_semantic_type() const {
+  return static_cast< ::greptime::v1::SemanticType >(_impl_.semantic_type_);
+}
+inline ::greptime::v1::SemanticType ColumnDef::semantic_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.semantic_type)
+  return _internal_semantic_type();
+}
+inline void ColumnDef::_internal_set_semantic_type(::greptime::v1::SemanticType value) {
+  
+  _impl_.semantic_type_ = value;
+}
+inline void ColumnDef::set_semantic_type(::greptime::v1::SemanticType value) {
+  _internal_set_semantic_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.semantic_type)
+}
+
+// -------------------------------------------------------------------
+
 // AddColumnLocation
 
 // .greptime.v1.AddColumnLocation.LocationType location_type = 1;
@@ -5447,6 +5653,8 @@ inline void AddColumnLocation::set_allocated_after_column_name(std::string* afte
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
