@@ -507,21 +507,21 @@ public final class Columns {
       long getDatetimeValues(int index);
 
       /**
-       * <code>repeated int64 ts_second_values = 16;</code>
-       * @return A list containing the tsSecondValues.
+       * <code>repeated int64 timestamp_second_values = 16;</code>
+       * @return A list containing the timestampSecondValues.
        */
-      java.util.List<java.lang.Long> getTsSecondValuesList();
+      java.util.List<java.lang.Long> getTimestampSecondValuesList();
       /**
-       * <code>repeated int64 ts_second_values = 16;</code>
-       * @return The count of tsSecondValues.
+       * <code>repeated int64 timestamp_second_values = 16;</code>
+       * @return The count of timestampSecondValues.
        */
-      int getTsSecondValuesCount();
+      int getTimestampSecondValuesCount();
       /**
-       * <code>repeated int64 ts_second_values = 16;</code>
+       * <code>repeated int64 timestamp_second_values = 16;</code>
        * @param index The index of the element to return.
-       * @return The tsSecondValues at the given index.
+       * @return The timestampSecondValues at the given index.
        */
-      long getTsSecondValues(int index);
+      long getTimestampSecondValues(int index);
 
       /**
        * <code>repeated int64 timestamp_millisecond_values = 17;</code>
@@ -728,7 +728,7 @@ public final class Columns {
         stringValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         dateValues_ = emptyIntList();
         datetimeValues_ = emptyLongList();
-        tsSecondValues_ = emptyLongList();
+        timestampSecondValues_ = emptyLongList();
         timestampMillisecondValues_ = emptyLongList();
         timestampMicrosecondValues_ = emptyLongList();
         timestampNanosecondValues_ = emptyLongList();
@@ -1064,21 +1064,21 @@ public final class Columns {
               }
               case 128: {
                 if (!((mutable_bitField0_ & 0x00008000) != 0)) {
-                  tsSecondValues_ = newLongList();
+                  timestampSecondValues_ = newLongList();
                   mutable_bitField0_ |= 0x00008000;
                 }
-                tsSecondValues_.addLong(input.readInt64());
+                timestampSecondValues_.addLong(input.readInt64());
                 break;
               }
               case 130: {
                 int length = input.readRawVarint32();
                 int limit = input.pushLimit(length);
                 if (!((mutable_bitField0_ & 0x00008000) != 0) && input.getBytesUntilLimit() > 0) {
-                  tsSecondValues_ = newLongList();
+                  timestampSecondValues_ = newLongList();
                   mutable_bitField0_ |= 0x00008000;
                 }
                 while (input.getBytesUntilLimit() > 0) {
-                  tsSecondValues_.addLong(input.readInt64());
+                  timestampSecondValues_.addLong(input.readInt64());
                 }
                 input.popLimit(limit);
                 break;
@@ -1344,7 +1344,7 @@ public final class Columns {
             datetimeValues_.makeImmutable(); // C
           }
           if (((mutable_bitField0_ & 0x00008000) != 0)) {
-            tsSecondValues_.makeImmutable(); // C
+            timestampSecondValues_.makeImmutable(); // C
           }
           if (((mutable_bitField0_ & 0x00010000) != 0)) {
             timestampMillisecondValues_.makeImmutable(); // C
@@ -1819,33 +1819,33 @@ public final class Columns {
       }
       private int datetimeValuesMemoizedSerializedSize = -1;
 
-      public static final int TS_SECOND_VALUES_FIELD_NUMBER = 16;
-      private com.google.protobuf.Internal.LongList tsSecondValues_;
+      public static final int TIMESTAMP_SECOND_VALUES_FIELD_NUMBER = 16;
+      private com.google.protobuf.Internal.LongList timestampSecondValues_;
       /**
-       * <code>repeated int64 ts_second_values = 16;</code>
-       * @return A list containing the tsSecondValues.
+       * <code>repeated int64 timestamp_second_values = 16;</code>
+       * @return A list containing the timestampSecondValues.
        */
       @java.lang.Override
       public java.util.List<java.lang.Long>
-          getTsSecondValuesList() {
-        return tsSecondValues_;
+          getTimestampSecondValuesList() {
+        return timestampSecondValues_;
       }
       /**
-       * <code>repeated int64 ts_second_values = 16;</code>
-       * @return The count of tsSecondValues.
+       * <code>repeated int64 timestamp_second_values = 16;</code>
+       * @return The count of timestampSecondValues.
        */
-      public int getTsSecondValuesCount() {
-        return tsSecondValues_.size();
+      public int getTimestampSecondValuesCount() {
+        return timestampSecondValues_.size();
       }
       /**
-       * <code>repeated int64 ts_second_values = 16;</code>
+       * <code>repeated int64 timestamp_second_values = 16;</code>
        * @param index The index of the element to return.
-       * @return The tsSecondValues at the given index.
+       * @return The timestampSecondValues at the given index.
        */
-      public long getTsSecondValues(int index) {
-        return tsSecondValues_.getLong(index);
+      public long getTimestampSecondValues(int index) {
+        return timestampSecondValues_.getLong(index);
       }
-      private int tsSecondValuesMemoizedSerializedSize = -1;
+      private int timestampSecondValuesMemoizedSerializedSize = -1;
 
       public static final int TIMESTAMP_MILLISECOND_VALUES_FIELD_NUMBER = 17;
       private com.google.protobuf.Internal.LongList timestampMillisecondValues_;
@@ -2251,12 +2251,12 @@ public final class Columns {
         for (int i = 0; i < datetimeValues_.size(); i++) {
           output.writeInt64NoTag(datetimeValues_.getLong(i));
         }
-        if (getTsSecondValuesList().size() > 0) {
+        if (getTimestampSecondValuesList().size() > 0) {
           output.writeUInt32NoTag(130);
-          output.writeUInt32NoTag(tsSecondValuesMemoizedSerializedSize);
+          output.writeUInt32NoTag(timestampSecondValuesMemoizedSerializedSize);
         }
-        for (int i = 0; i < tsSecondValues_.size(); i++) {
-          output.writeInt64NoTag(tsSecondValues_.getLong(i));
+        for (int i = 0; i < timestampSecondValues_.size(); i++) {
+          output.writeInt64NoTag(timestampSecondValues_.getLong(i));
         }
         if (getTimestampMillisecondValuesList().size() > 0) {
           output.writeUInt32NoTag(138);
@@ -2525,17 +2525,17 @@ public final class Columns {
         }
         {
           int dataSize = 0;
-          for (int i = 0; i < tsSecondValues_.size(); i++) {
+          for (int i = 0; i < timestampSecondValues_.size(); i++) {
             dataSize += com.google.protobuf.CodedOutputStream
-              .computeInt64SizeNoTag(tsSecondValues_.getLong(i));
+              .computeInt64SizeNoTag(timestampSecondValues_.getLong(i));
           }
           size += dataSize;
-          if (!getTsSecondValuesList().isEmpty()) {
+          if (!getTimestampSecondValuesList().isEmpty()) {
             size += 2;
             size += com.google.protobuf.CodedOutputStream
                 .computeInt32SizeNoTag(dataSize);
           }
-          tsSecondValuesMemoizedSerializedSize = dataSize;
+          timestampSecondValuesMemoizedSerializedSize = dataSize;
         }
         {
           int dataSize = 0;
@@ -2712,8 +2712,8 @@ public final class Columns {
             .equals(other.getDateValuesList())) return false;
         if (!getDatetimeValuesList()
             .equals(other.getDatetimeValuesList())) return false;
-        if (!getTsSecondValuesList()
-            .equals(other.getTsSecondValuesList())) return false;
+        if (!getTimestampSecondValuesList()
+            .equals(other.getTimestampSecondValuesList())) return false;
         if (!getTimestampMillisecondValuesList()
             .equals(other.getTimestampMillisecondValuesList())) return false;
         if (!getTimestampMicrosecondValuesList()
@@ -2805,9 +2805,9 @@ public final class Columns {
           hash = (37 * hash) + DATETIME_VALUES_FIELD_NUMBER;
           hash = (53 * hash) + getDatetimeValuesList().hashCode();
         }
-        if (getTsSecondValuesCount() > 0) {
-          hash = (37 * hash) + TS_SECOND_VALUES_FIELD_NUMBER;
-          hash = (53 * hash) + getTsSecondValuesList().hashCode();
+        if (getTimestampSecondValuesCount() > 0) {
+          hash = (37 * hash) + TIMESTAMP_SECOND_VALUES_FIELD_NUMBER;
+          hash = (53 * hash) + getTimestampSecondValuesList().hashCode();
         }
         if (getTimestampMillisecondValuesCount() > 0) {
           hash = (37 * hash) + TIMESTAMP_MILLISECOND_VALUES_FIELD_NUMBER;
@@ -3013,7 +3013,7 @@ public final class Columns {
           bitField0_ = (bitField0_ & ~0x00002000);
           datetimeValues_ = emptyLongList();
           bitField0_ = (bitField0_ & ~0x00004000);
-          tsSecondValues_ = emptyLongList();
+          timestampSecondValues_ = emptyLongList();
           bitField0_ = (bitField0_ & ~0x00008000);
           timestampMillisecondValues_ = emptyLongList();
           bitField0_ = (bitField0_ & ~0x00010000);
@@ -3142,10 +3142,10 @@ public final class Columns {
           }
           result.datetimeValues_ = datetimeValues_;
           if (((bitField0_ & 0x00008000) != 0)) {
-            tsSecondValues_.makeImmutable();
+            timestampSecondValues_.makeImmutable();
             bitField0_ = (bitField0_ & ~0x00008000);
           }
-          result.tsSecondValues_ = tsSecondValues_;
+          result.timestampSecondValues_ = timestampSecondValues_;
           if (((bitField0_ & 0x00010000) != 0)) {
             timestampMillisecondValues_.makeImmutable();
             bitField0_ = (bitField0_ & ~0x00010000);
@@ -3398,13 +3398,13 @@ public final class Columns {
             }
             onChanged();
           }
-          if (!other.tsSecondValues_.isEmpty()) {
-            if (tsSecondValues_.isEmpty()) {
-              tsSecondValues_ = other.tsSecondValues_;
+          if (!other.timestampSecondValues_.isEmpty()) {
+            if (timestampSecondValues_.isEmpty()) {
+              timestampSecondValues_ = other.timestampSecondValues_;
               bitField0_ = (bitField0_ & ~0x00008000);
             } else {
-              ensureTsSecondValuesIsMutable();
-              tsSecondValues_.addAll(other.tsSecondValues_);
+              ensureTimestampSecondValuesIsMutable();
+              timestampSecondValues_.addAll(other.timestampSecondValues_);
             }
             onChanged();
           }
@@ -4776,80 +4776,80 @@ public final class Columns {
           return this;
         }
 
-        private com.google.protobuf.Internal.LongList tsSecondValues_ = emptyLongList();
-        private void ensureTsSecondValuesIsMutable() {
+        private com.google.protobuf.Internal.LongList timestampSecondValues_ = emptyLongList();
+        private void ensureTimestampSecondValuesIsMutable() {
           if (!((bitField0_ & 0x00008000) != 0)) {
-            tsSecondValues_ = mutableCopy(tsSecondValues_);
+            timestampSecondValues_ = mutableCopy(timestampSecondValues_);
             bitField0_ |= 0x00008000;
            }
         }
         /**
-         * <code>repeated int64 ts_second_values = 16;</code>
-         * @return A list containing the tsSecondValues.
+         * <code>repeated int64 timestamp_second_values = 16;</code>
+         * @return A list containing the timestampSecondValues.
          */
         public java.util.List<java.lang.Long>
-            getTsSecondValuesList() {
+            getTimestampSecondValuesList() {
           return ((bitField0_ & 0x00008000) != 0) ?
-                   java.util.Collections.unmodifiableList(tsSecondValues_) : tsSecondValues_;
+                   java.util.Collections.unmodifiableList(timestampSecondValues_) : timestampSecondValues_;
         }
         /**
-         * <code>repeated int64 ts_second_values = 16;</code>
-         * @return The count of tsSecondValues.
+         * <code>repeated int64 timestamp_second_values = 16;</code>
+         * @return The count of timestampSecondValues.
          */
-        public int getTsSecondValuesCount() {
-          return tsSecondValues_.size();
+        public int getTimestampSecondValuesCount() {
+          return timestampSecondValues_.size();
         }
         /**
-         * <code>repeated int64 ts_second_values = 16;</code>
+         * <code>repeated int64 timestamp_second_values = 16;</code>
          * @param index The index of the element to return.
-         * @return The tsSecondValues at the given index.
+         * @return The timestampSecondValues at the given index.
          */
-        public long getTsSecondValues(int index) {
-          return tsSecondValues_.getLong(index);
+        public long getTimestampSecondValues(int index) {
+          return timestampSecondValues_.getLong(index);
         }
         /**
-         * <code>repeated int64 ts_second_values = 16;</code>
+         * <code>repeated int64 timestamp_second_values = 16;</code>
          * @param index The index to set the value at.
-         * @param value The tsSecondValues to set.
+         * @param value The timestampSecondValues to set.
          * @return This builder for chaining.
          */
-        public Builder setTsSecondValues(
+        public Builder setTimestampSecondValues(
             int index, long value) {
-          ensureTsSecondValuesIsMutable();
-          tsSecondValues_.setLong(index, value);
+          ensureTimestampSecondValuesIsMutable();
+          timestampSecondValues_.setLong(index, value);
           onChanged();
           return this;
         }
         /**
-         * <code>repeated int64 ts_second_values = 16;</code>
-         * @param value The tsSecondValues to add.
+         * <code>repeated int64 timestamp_second_values = 16;</code>
+         * @param value The timestampSecondValues to add.
          * @return This builder for chaining.
          */
-        public Builder addTsSecondValues(long value) {
-          ensureTsSecondValuesIsMutable();
-          tsSecondValues_.addLong(value);
+        public Builder addTimestampSecondValues(long value) {
+          ensureTimestampSecondValuesIsMutable();
+          timestampSecondValues_.addLong(value);
           onChanged();
           return this;
         }
         /**
-         * <code>repeated int64 ts_second_values = 16;</code>
-         * @param values The tsSecondValues to add.
+         * <code>repeated int64 timestamp_second_values = 16;</code>
+         * @param values The timestampSecondValues to add.
          * @return This builder for chaining.
          */
-        public Builder addAllTsSecondValues(
+        public Builder addAllTimestampSecondValues(
             java.lang.Iterable<? extends java.lang.Long> values) {
-          ensureTsSecondValuesIsMutable();
+          ensureTimestampSecondValuesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, tsSecondValues_);
+              values, timestampSecondValues_);
           onChanged();
           return this;
         }
         /**
-         * <code>repeated int64 ts_second_values = 16;</code>
+         * <code>repeated int64 timestamp_second_values = 16;</code>
          * @return This builder for chaining.
          */
-        public Builder clearTsSecondValues() {
-          tsSecondValues_ = emptyLongList();
+        public Builder clearTimestampSecondValues() {
+          timestampSecondValues_ = emptyLongList();
           bitField0_ = (bitField0_ & ~0x00008000);
           onChanged();
           return this;
@@ -6945,12 +6945,12 @@ public final class Columns {
   static {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/column.proto\022\013greptime.v1\032" +
-      "\030greptime/v1/common.proto\"\231\007\n\006Column\022\023\n\013" +
+      "\030greptime/v1/common.proto\"\240\007\n\006Column\022\023\n\013" +
       "column_name\030\001 \001(\t\0220\n\rsemantic_type\030\002 \001(\016" +
       "2\031.greptime.v1.SemanticType\022*\n\006values\030\003 " +
       "\001(\0132\032.greptime.v1.Column.Values\022\021\n\tnull_" +
       "mask\030\004 \001(\014\022-\n\010datatype\030\005 \001(\0162\033.greptime." +
-      "v1.ColumnDataType\032\331\005\n\006Values\022\021\n\ti8_value" +
+      "v1.ColumnDataType\032\340\005\n\006Values\022\021\n\ti8_value" +
       "s\030\001 \003(\005\022\022\n\ni16_values\030\002 \003(\005\022\022\n\ni32_value" +
       "s\030\003 \003(\005\022\022\n\ni64_values\030\004 \003(\003\022\021\n\tu8_values" +
       "\030\005 \003(\r\022\022\n\nu16_values\030\006 \003(\r\022\022\n\nu32_values" +
@@ -6958,19 +6958,20 @@ public final class Columns {
       "\030\t \003(\002\022\022\n\nf64_values\030\n \003(\001\022\023\n\013bool_value" +
       "s\030\013 \003(\010\022\025\n\rbinary_values\030\014 \003(\014\022\025\n\rstring" +
       "_values\030\r \003(\t\022\023\n\013date_values\030\016 \003(\005\022\027\n\017da" +
-      "tetime_values\030\017 \003(\003\022\030\n\020ts_second_values\030" +
-      "\020 \003(\003\022$\n\034timestamp_millisecond_values\030\021 " +
-      "\003(\003\022$\n\034timestamp_microsecond_values\030\022 \003(" +
-      "\003\022#\n\033timestamp_nanosecond_values\030\023 \003(\003\022\032" +
-      "\n\022time_second_values\030\024 \003(\003\022\037\n\027time_milli" +
-      "second_values\030\025 \003(\003\022\037\n\027time_microsecond_" +
-      "values\030\026 \003(\003\022\036\n\026time_nanosecond_values\030\027" +
-      " \003(\003\022\"\n\032interval_year_month_values\030\030 \003(\005" +
-      "\022 \n\030interval_day_time_values\030\031 \003(\003\022I\n\036in" +
-      "terval_month_day_nano_values\030\032 \003(\0132!.gre" +
-      "ptime.v1.IntervalMonthDayNanoBP\n\016io.grep" +
-      "time.v1B\007ColumnsZ5github.com/GreptimeTea" +
-      "m/greptime-proto/go/greptime/v1b\006proto3"
+      "tetime_values\030\017 \003(\003\022\037\n\027timestamp_second_" +
+      "values\030\020 \003(\003\022$\n\034timestamp_millisecond_va" +
+      "lues\030\021 \003(\003\022$\n\034timestamp_microsecond_valu" +
+      "es\030\022 \003(\003\022#\n\033timestamp_nanosecond_values\030" +
+      "\023 \003(\003\022\032\n\022time_second_values\030\024 \003(\003\022\037\n\027tim" +
+      "e_millisecond_values\030\025 \003(\003\022\037\n\027time_micro" +
+      "second_values\030\026 \003(\003\022\036\n\026time_nanosecond_v" +
+      "alues\030\027 \003(\003\022\"\n\032interval_year_month_value" +
+      "s\030\030 \003(\005\022 \n\030interval_day_time_values\030\031 \003(" +
+      "\003\022I\n\036interval_month_day_nano_values\030\032 \003(" +
+      "\0132!.greptime.v1.IntervalMonthDayNanoBP\n\016" +
+      "io.greptime.v1B\007ColumnsZ5github.com/Grep" +
+      "timeTeam/greptime-proto/go/greptime/v1b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6988,7 +6989,7 @@ public final class Columns {
     internal_static_greptime_v1_Column_Values_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Column_Values_descriptor,
-        new java.lang.String[] { "I8Values", "I16Values", "I32Values", "I64Values", "U8Values", "U16Values", "U32Values", "U64Values", "F32Values", "F64Values", "BoolValues", "BinaryValues", "StringValues", "DateValues", "DatetimeValues", "TsSecondValues", "TimestampMillisecondValues", "TimestampMicrosecondValues", "TimestampNanosecondValues", "TimeSecondValues", "TimeMillisecondValues", "TimeMicrosecondValues", "TimeNanosecondValues", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", });
+        new java.lang.String[] { "I8Values", "I16Values", "I32Values", "I64Values", "U8Values", "U16Values", "U32Values", "U64Values", "F32Values", "F64Values", "BoolValues", "BinaryValues", "StringValues", "DateValues", "DatetimeValues", "TimestampSecondValues", "TimestampMillisecondValues", "TimestampMicrosecondValues", "TimestampNanosecondValues", "TimeSecondValues", "TimeMillisecondValues", "TimeMicrosecondValues", "TimeNanosecondValues", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", });
     io.greptime.v1.Common.getDescriptor();
   }
 

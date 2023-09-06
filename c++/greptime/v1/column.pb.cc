@@ -49,8 +49,8 @@ PROTOBUF_CONSTEXPR Column_Values::Column_Values(
   , /*decltype(_impl_._date_values_cached_byte_size_)*/{0}
   , /*decltype(_impl_.datetime_values_)*/{}
   , /*decltype(_impl_._datetime_values_cached_byte_size_)*/{0}
-  , /*decltype(_impl_.ts_second_values_)*/{}
-  , /*decltype(_impl_._ts_second_values_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.timestamp_second_values_)*/{}
+  , /*decltype(_impl_._timestamp_second_values_cached_byte_size_)*/{0}
   , /*decltype(_impl_.timestamp_millisecond_values_)*/{}
   , /*decltype(_impl_._timestamp_millisecond_values_cached_byte_size_)*/{0}
   , /*decltype(_impl_.timestamp_microsecond_values_)*/{}
@@ -125,7 +125,7 @@ const uint32_t TableStruct_greptime_2fv1_2fcolumn_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.string_values_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.date_values_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.datetime_values_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.ts_second_values_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.timestamp_second_values_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.timestamp_millisecond_values_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.timestamp_microsecond_values_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column_Values, _impl_.timestamp_nanosecond_values_),
@@ -160,12 +160,12 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030greptime/v1/column.proto\022\013greptime.v1\032"
-  "\030greptime/v1/common.proto\"\231\007\n\006Column\022\023\n\013"
+  "\030greptime/v1/common.proto\"\240\007\n\006Column\022\023\n\013"
   "column_name\030\001 \001(\t\0220\n\rsemantic_type\030\002 \001(\016"
   "2\031.greptime.v1.SemanticType\022*\n\006values\030\003 "
   "\001(\0132\032.greptime.v1.Column.Values\022\021\n\tnull_"
   "mask\030\004 \001(\014\022-\n\010datatype\030\005 \001(\0162\033.greptime."
-  "v1.ColumnDataType\032\331\005\n\006Values\022\021\n\ti8_value"
+  "v1.ColumnDataType\032\340\005\n\006Values\022\021\n\ti8_value"
   "s\030\001 \003(\005\022\022\n\ni16_values\030\002 \003(\005\022\022\n\ni32_value"
   "s\030\003 \003(\005\022\022\n\ni64_values\030\004 \003(\003\022\021\n\tu8_values"
   "\030\005 \003(\r\022\022\n\nu16_values\030\006 \003(\r\022\022\n\nu32_values"
@@ -173,26 +173,27 @@ const char descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto[] PROTOBUF_S
   "\030\t \003(\002\022\022\n\nf64_values\030\n \003(\001\022\023\n\013bool_value"
   "s\030\013 \003(\010\022\025\n\rbinary_values\030\014 \003(\014\022\025\n\rstring"
   "_values\030\r \003(\t\022\023\n\013date_values\030\016 \003(\005\022\027\n\017da"
-  "tetime_values\030\017 \003(\003\022\030\n\020ts_second_values\030"
-  "\020 \003(\003\022$\n\034timestamp_millisecond_values\030\021 "
-  "\003(\003\022$\n\034timestamp_microsecond_values\030\022 \003("
-  "\003\022#\n\033timestamp_nanosecond_values\030\023 \003(\003\022\032"
-  "\n\022time_second_values\030\024 \003(\003\022\037\n\027time_milli"
-  "second_values\030\025 \003(\003\022\037\n\027time_microsecond_"
-  "values\030\026 \003(\003\022\036\n\026time_nanosecond_values\030\027"
-  " \003(\003\022\"\n\032interval_year_month_values\030\030 \003(\005"
-  "\022 \n\030interval_day_time_values\030\031 \003(\003\022I\n\036in"
-  "terval_month_day_nano_values\030\032 \003(\0132!.gre"
-  "ptime.v1.IntervalMonthDayNanoBP\n\016io.grep"
-  "time.v1B\007ColumnsZ5github.com/GreptimeTea"
-  "m/greptime-proto/go/greptime/v1b\006proto3"
+  "tetime_values\030\017 \003(\003\022\037\n\027timestamp_second_"
+  "values\030\020 \003(\003\022$\n\034timestamp_millisecond_va"
+  "lues\030\021 \003(\003\022$\n\034timestamp_microsecond_valu"
+  "es\030\022 \003(\003\022#\n\033timestamp_nanosecond_values\030"
+  "\023 \003(\003\022\032\n\022time_second_values\030\024 \003(\003\022\037\n\027tim"
+  "e_millisecond_values\030\025 \003(\003\022\037\n\027time_micro"
+  "second_values\030\026 \003(\003\022\036\n\026time_nanosecond_v"
+  "alues\030\027 \003(\003\022\"\n\032interval_year_month_value"
+  "s\030\030 \003(\005\022 \n\030interval_day_time_values\030\031 \003("
+  "\003\022I\n\036interval_month_day_nano_values\030\032 \003("
+  "\0132!.greptime.v1.IntervalMonthDayNanoBP\n\016"
+  "io.greptime.v1B\007ColumnsZ5github.com/Grep"
+  "timeTeam/greptime-proto/go/greptime/v1b\006"
+  "proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fcolumn_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcolumn_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcolumn_2eproto = {
-    false, false, 1079, descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto,
+    false, false, 1086, descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto,
     "greptime/v1/column.proto",
     &descriptor_table_greptime_2fv1_2fcolumn_2eproto_once, descriptor_table_greptime_2fv1_2fcolumn_2eproto_deps, 1, 2,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcolumn_2eproto::offsets,
@@ -252,8 +253,8 @@ Column_Values::Column_Values(const Column_Values& from)
     , /*decltype(_impl_._date_values_cached_byte_size_)*/{0}
     , decltype(_impl_.datetime_values_){from._impl_.datetime_values_}
     , /*decltype(_impl_._datetime_values_cached_byte_size_)*/{0}
-    , decltype(_impl_.ts_second_values_){from._impl_.ts_second_values_}
-    , /*decltype(_impl_._ts_second_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.timestamp_second_values_){from._impl_.timestamp_second_values_}
+    , /*decltype(_impl_._timestamp_second_values_cached_byte_size_)*/{0}
     , decltype(_impl_.timestamp_millisecond_values_){from._impl_.timestamp_millisecond_values_}
     , /*decltype(_impl_._timestamp_millisecond_values_cached_byte_size_)*/{0}
     , decltype(_impl_.timestamp_microsecond_values_){from._impl_.timestamp_microsecond_values_}
@@ -309,8 +310,8 @@ inline void Column_Values::SharedCtor(
     , /*decltype(_impl_._date_values_cached_byte_size_)*/{0}
     , decltype(_impl_.datetime_values_){arena}
     , /*decltype(_impl_._datetime_values_cached_byte_size_)*/{0}
-    , decltype(_impl_.ts_second_values_){arena}
-    , /*decltype(_impl_._ts_second_values_cached_byte_size_)*/{0}
+    , decltype(_impl_.timestamp_second_values_){arena}
+    , /*decltype(_impl_._timestamp_second_values_cached_byte_size_)*/{0}
     , decltype(_impl_.timestamp_millisecond_values_){arena}
     , /*decltype(_impl_._timestamp_millisecond_values_cached_byte_size_)*/{0}
     , decltype(_impl_.timestamp_microsecond_values_){arena}
@@ -360,7 +361,7 @@ inline void Column_Values::SharedDtor() {
   _impl_.string_values_.~RepeatedPtrField();
   _impl_.date_values_.~RepeatedField();
   _impl_.datetime_values_.~RepeatedField();
-  _impl_.ts_second_values_.~RepeatedField();
+  _impl_.timestamp_second_values_.~RepeatedField();
   _impl_.timestamp_millisecond_values_.~RepeatedField();
   _impl_.timestamp_microsecond_values_.~RepeatedField();
   _impl_.timestamp_nanosecond_values_.~RepeatedField();
@@ -398,7 +399,7 @@ void Column_Values::Clear() {
   _impl_.string_values_.Clear();
   _impl_.date_values_.Clear();
   _impl_.datetime_values_.Clear();
-  _impl_.ts_second_values_.Clear();
+  _impl_.timestamp_second_values_.Clear();
   _impl_.timestamp_millisecond_values_.Clear();
   _impl_.timestamp_microsecond_values_.Clear();
   _impl_.timestamp_nanosecond_values_.Clear();
@@ -590,13 +591,13 @@ const char* Column_Values::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // repeated int64 ts_second_values = 16;
+      // repeated int64 timestamp_second_values = 16;
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 130)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_ts_second_values(), ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_timestamp_second_values(), ptr, ctx);
           CHK_(ptr);
         } else if (static_cast<uint8_t>(tag) == 128) {
-          _internal_add_ts_second_values(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          _internal_add_timestamp_second_values(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -863,12 +864,12 @@ uint8_t* Column_Values::_InternalSerialize(
     }
   }
 
-  // repeated int64 ts_second_values = 16;
+  // repeated int64 timestamp_second_values = 16;
   {
-    int byte_size = _impl_._ts_second_values_cached_byte_size_.load(std::memory_order_relaxed);
+    int byte_size = _impl_._timestamp_second_values_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteInt64Packed(
-          16, _internal_ts_second_values(), byte_size, target);
+          16, _internal_timestamp_second_values(), byte_size, target);
     }
   }
 
@@ -1166,16 +1167,16 @@ size_t Column_Values::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // repeated int64 ts_second_values = 16;
+  // repeated int64 timestamp_second_values = 16;
   {
     size_t data_size = ::_pbi::WireFormatLite::
-      Int64Size(this->_impl_.ts_second_values_);
+      Int64Size(this->_impl_.timestamp_second_values_);
     if (data_size > 0) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     int cached_size = ::_pbi::ToCachedSize(data_size);
-    _impl_._ts_second_values_cached_byte_size_.store(cached_size,
+    _impl_._timestamp_second_values_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
@@ -1346,7 +1347,7 @@ void Column_Values::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   _this->_impl_.string_values_.MergeFrom(from._impl_.string_values_);
   _this->_impl_.date_values_.MergeFrom(from._impl_.date_values_);
   _this->_impl_.datetime_values_.MergeFrom(from._impl_.datetime_values_);
-  _this->_impl_.ts_second_values_.MergeFrom(from._impl_.ts_second_values_);
+  _this->_impl_.timestamp_second_values_.MergeFrom(from._impl_.timestamp_second_values_);
   _this->_impl_.timestamp_millisecond_values_.MergeFrom(from._impl_.timestamp_millisecond_values_);
   _this->_impl_.timestamp_microsecond_values_.MergeFrom(from._impl_.timestamp_microsecond_values_);
   _this->_impl_.timestamp_nanosecond_values_.MergeFrom(from._impl_.timestamp_nanosecond_values_);
@@ -1389,7 +1390,7 @@ void Column_Values::InternalSwap(Column_Values* other) {
   _impl_.string_values_.InternalSwap(&other->_impl_.string_values_);
   _impl_.date_values_.InternalSwap(&other->_impl_.date_values_);
   _impl_.datetime_values_.InternalSwap(&other->_impl_.datetime_values_);
-  _impl_.ts_second_values_.InternalSwap(&other->_impl_.ts_second_values_);
+  _impl_.timestamp_second_values_.InternalSwap(&other->_impl_.timestamp_second_values_);
   _impl_.timestamp_millisecond_values_.InternalSwap(&other->_impl_.timestamp_millisecond_values_);
   _impl_.timestamp_microsecond_values_.InternalSwap(&other->_impl_.timestamp_microsecond_values_);
   _impl_.timestamp_nanosecond_values_.InternalSwap(&other->_impl_.timestamp_nanosecond_values_);

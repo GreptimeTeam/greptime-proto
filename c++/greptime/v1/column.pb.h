@@ -200,7 +200,7 @@ class Column_Values final :
     kStringValuesFieldNumber = 13,
     kDateValuesFieldNumber = 14,
     kDatetimeValuesFieldNumber = 15,
-    kTsSecondValuesFieldNumber = 16,
+    kTimestampSecondValuesFieldNumber = 16,
     kTimestampMillisecondValuesFieldNumber = 17,
     kTimestampMicrosecondValuesFieldNumber = 18,
     kTimestampNanosecondValuesFieldNumber = 19,
@@ -546,27 +546,27 @@ class Column_Values final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
       mutable_datetime_values();
 
-  // repeated int64 ts_second_values = 16;
-  int ts_second_values_size() const;
+  // repeated int64 timestamp_second_values = 16;
+  int timestamp_second_values_size() const;
   private:
-  int _internal_ts_second_values_size() const;
+  int _internal_timestamp_second_values_size() const;
   public:
-  void clear_ts_second_values();
+  void clear_timestamp_second_values();
   private:
-  int64_t _internal_ts_second_values(int index) const;
+  int64_t _internal_timestamp_second_values(int index) const;
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
-      _internal_ts_second_values() const;
-  void _internal_add_ts_second_values(int64_t value);
+      _internal_timestamp_second_values() const;
+  void _internal_add_timestamp_second_values(int64_t value);
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
-      _internal_mutable_ts_second_values();
+      _internal_mutable_timestamp_second_values();
   public:
-  int64_t ts_second_values(int index) const;
-  void set_ts_second_values(int index, int64_t value);
-  void add_ts_second_values(int64_t value);
+  int64_t timestamp_second_values(int index) const;
+  void set_timestamp_second_values(int index, int64_t value);
+  void add_timestamp_second_values(int64_t value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
-      ts_second_values() const;
+      timestamp_second_values() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
-      mutable_ts_second_values();
+      mutable_timestamp_second_values();
 
   // repeated int64 timestamp_millisecond_values = 17;
   int timestamp_millisecond_values_size() const;
@@ -817,8 +817,8 @@ class Column_Values final :
     mutable std::atomic<int> _date_values_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > datetime_values_;
     mutable std::atomic<int> _datetime_values_cached_byte_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > ts_second_values_;
-    mutable std::atomic<int> _ts_second_values_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > timestamp_second_values_;
+    mutable std::atomic<int> _timestamp_second_values_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > timestamp_millisecond_values_;
     mutable std::atomic<int> _timestamp_millisecond_values_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > timestamp_microsecond_values_;
@@ -1828,51 +1828,51 @@ Column_Values::mutable_datetime_values() {
   return _internal_mutable_datetime_values();
 }
 
-// repeated int64 ts_second_values = 16;
-inline int Column_Values::_internal_ts_second_values_size() const {
-  return _impl_.ts_second_values_.size();
+// repeated int64 timestamp_second_values = 16;
+inline int Column_Values::_internal_timestamp_second_values_size() const {
+  return _impl_.timestamp_second_values_.size();
 }
-inline int Column_Values::ts_second_values_size() const {
-  return _internal_ts_second_values_size();
+inline int Column_Values::timestamp_second_values_size() const {
+  return _internal_timestamp_second_values_size();
 }
-inline void Column_Values::clear_ts_second_values() {
-  _impl_.ts_second_values_.Clear();
+inline void Column_Values::clear_timestamp_second_values() {
+  _impl_.timestamp_second_values_.Clear();
 }
-inline int64_t Column_Values::_internal_ts_second_values(int index) const {
-  return _impl_.ts_second_values_.Get(index);
+inline int64_t Column_Values::_internal_timestamp_second_values(int index) const {
+  return _impl_.timestamp_second_values_.Get(index);
 }
-inline int64_t Column_Values::ts_second_values(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.ts_second_values)
-  return _internal_ts_second_values(index);
+inline int64_t Column_Values::timestamp_second_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.timestamp_second_values)
+  return _internal_timestamp_second_values(index);
 }
-inline void Column_Values::set_ts_second_values(int index, int64_t value) {
-  _impl_.ts_second_values_.Set(index, value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.ts_second_values)
+inline void Column_Values::set_timestamp_second_values(int index, int64_t value) {
+  _impl_.timestamp_second_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Column.Values.timestamp_second_values)
 }
-inline void Column_Values::_internal_add_ts_second_values(int64_t value) {
-  _impl_.ts_second_values_.Add(value);
+inline void Column_Values::_internal_add_timestamp_second_values(int64_t value) {
+  _impl_.timestamp_second_values_.Add(value);
 }
-inline void Column_Values::add_ts_second_values(int64_t value) {
-  _internal_add_ts_second_values(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.ts_second_values)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
-Column_Values::_internal_ts_second_values() const {
-  return _impl_.ts_second_values_;
+inline void Column_Values::add_timestamp_second_values(int64_t value) {
+  _internal_add_timestamp_second_values(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.timestamp_second_values)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
-Column_Values::ts_second_values() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.ts_second_values)
-  return _internal_ts_second_values();
+Column_Values::_internal_timestamp_second_values() const {
+  return _impl_.timestamp_second_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Column_Values::timestamp_second_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.timestamp_second_values)
+  return _internal_timestamp_second_values();
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
-Column_Values::_internal_mutable_ts_second_values() {
-  return &_impl_.ts_second_values_;
+Column_Values::_internal_mutable_timestamp_second_values() {
+  return &_impl_.timestamp_second_values_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
-Column_Values::mutable_ts_second_values() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.ts_second_values)
-  return _internal_mutable_ts_second_values();
+Column_Values::mutable_timestamp_second_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.timestamp_second_values)
+  return _internal_mutable_timestamp_second_values();
 }
 
 // repeated int64 timestamp_millisecond_values = 17;
