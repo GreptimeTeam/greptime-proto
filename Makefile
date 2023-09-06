@@ -19,8 +19,3 @@ java:
 	docker run -t -w /greptime-proto \
 		--entrypoint ./scripts/generate-java.sh \
 		-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
-
-cpp:
-	docker run -t -w /greptime-proto \
-		--entrypoint ./scripts/generate-cpp.sh \
-		-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
