@@ -47,9 +47,9 @@ message Column {
     repeated int32 date_values = 14;
     repeated int64 datetime_values = 15;
     repeated int64 ts_second_values = 16;
-    repeated int64 ts_millisecond_values = 17;
-    repeated int64 ts_microsecond_values = 18;
-    repeated int64 ts_nanosecond_values = 19;
+    repeated int64 timestamp_millisecond_values = 17;
+    repeated int64 timestamp_microsecond_values = 18;
+    repeated int64 timestamp_nanosecond_values = 19;
     repeated int64 time_second_values = 20;
     repeated int64 time_millisecond_values = 21;
     repeated int64 time_microsecond_values = 22;

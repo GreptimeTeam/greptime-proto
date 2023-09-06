@@ -57,9 +57,7 @@ message QueryRequest {
   }
 }
 
-message InsertRequests {
-  repeated InsertRequest inserts = 1;
-}
+message InsertRequests { repeated InsertRequest inserts = 1; }
 
 message InsertRequest {
   string table_name = 1;
@@ -71,22 +69,14 @@ message InsertRequest {
   //
   // Note: the row_count of all columns in a InsertRequest must be same.
   uint32 row_count = 4;
-
-  // The region number of current insert request.
-  uint32 region_number = 5;
 }
 
-message DeleteRequests {
-  repeated DeleteRequest deletes = 1;
-}
+message DeleteRequests { repeated DeleteRequest deletes = 1; }
 
 message DeleteRequest {
   // The table name to delete from. Catalog name and schema name are in the
   // `RequestHeader`.
   string table_name = 1;
-
-  // The region number of current delete request.
-  uint32 region_number = 2;
 
   // The data to delete, indexed by key columns.
   repeated Column key_columns = 3;
@@ -95,23 +85,16 @@ message DeleteRequest {
   uint32 row_count = 4;
 }
 
-message RowInsertRequests {
-  repeated RowInsertRequest inserts = 1;
-}
+message RowInsertRequests { repeated RowInsertRequest inserts = 1; }
 
 message RowInsertRequest {
   string table_name = 1;
 
   // Data is represented here.
   Rows rows = 2;
-
-  // The region number of current insert request.
-  uint32 region_number = 3;
 }
 
-message RowDeleteRequests {
-  repeated RowDeleteRequest deletes = 1;
-}
+message RowDeleteRequests { repeated RowDeleteRequest deletes = 1; }
 
 message RowDeleteRequest {
   // The table name to delete from. Catalog name and schema name are in the
@@ -120,7 +103,4 @@ message RowDeleteRequest {
 
   // The data to delete.
   Rows rows = 2;
-
-  // The region number of current delete request.
-  uint32 region_number = 3;
 }
