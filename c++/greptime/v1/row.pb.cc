@@ -166,7 +166,7 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\0162\033.greptime.v1.ColumnDataType\0220\n\rsemant"
   "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType"
   "\")\n\003Row\022\"\n\006values\030\001 \003(\0132\022.greptime.v1.Va"
-  "lue\"\356\005\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16"
+  "lue\"\212\006\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16"
   "_value\030\002 \001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti"
   "64_value\030\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\t"
   "u16_value\030\006 \001(\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023"
@@ -174,27 +174,27 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\022\023\n\tf64_value\030\n \001(\001H\000\022\024\n\nbool_value\030\013 \001("
   "\010H\000\022\026\n\014binary_value\030\014 \001(\014H\000\022\026\n\014string_va"
   "lue\030\r \001(\tH\000\022\024\n\ndate_value\030\016 \001(\005H\000\022\030\n\016dat"
-  "etime_value\030\017 \001(\003H\000\022\031\n\017ts_second_value\030\020"
-  " \001(\003H\000\022\036\n\024ts_millisecond_value\030\021 \001(\003H\000\022\036"
-  "\n\024ts_microsecond_value\030\022 \001(\003H\000\022\035\n\023ts_nan"
-  "osecond_value\030\023 \001(\003H\000\022\033\n\021time_second_val"
-  "ue\030\024 \001(\003H\000\022 \n\026time_millisecond_value\030\025 \001"
-  "(\003H\000\022 \n\026time_microsecond_value\030\026 \001(\003H\000\022\037"
-  "\n\025time_nanosecond_value\030\027 \001(\003H\000\022$\n\032inter"
-  "val_year_month_values\030\030 \001(\005H\000\022\"\n\030interva"
-  "l_day_time_values\030\031 \001(\003H\000\022K\n\036interval_mo"
-  "nth_day_nano_values\030\032 \001(\0132!.greptime.v1."
-  "IntervalMonthDayNanoH\000B\014\n\nvalue_dataBP\n\016"
-  "io.greptime.v1B\007RowDataZ5github.com/Grep"
-  "timeTeam/greptime-proto/go/greptime/v1b\006"
-  "proto3"
+  "etime_value\030\017 \001(\003H\000\022 \n\026timestamp_second_"
+  "value\030\020 \001(\003H\000\022%\n\033timestamp_millisecond_v"
+  "alue\030\021 \001(\003H\000\022%\n\033timestamp_microsecond_va"
+  "lue\030\022 \001(\003H\000\022$\n\032timestamp_nanosecond_valu"
+  "e\030\023 \001(\003H\000\022\033\n\021time_second_value\030\024 \001(\003H\000\022 "
+  "\n\026time_millisecond_value\030\025 \001(\003H\000\022 \n\026time"
+  "_microsecond_value\030\026 \001(\003H\000\022\037\n\025time_nanos"
+  "econd_value\030\027 \001(\003H\000\022$\n\032interval_year_mon"
+  "th_values\030\030 \001(\005H\000\022\"\n\030interval_day_time_v"
+  "alues\030\031 \001(\003H\000\022K\n\036interval_month_day_nano"
+  "_values\030\032 \001(\0132!.greptime.v1.IntervalMont"
+  "hDayNanoH\000B\014\n\nvalue_dataBP\n\016io.greptime."
+  "v1B\007RowDataZ5github.com/GreptimeTeam/gre"
+  "ptime-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1166, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1194, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
     &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
@@ -995,20 +995,20 @@ Value::Value(const Value& from)
       _this->_internal_set_datetime_value(from._internal_datetime_value());
       break;
     }
-    case kTsSecondValue: {
-      _this->_internal_set_ts_second_value(from._internal_ts_second_value());
+    case kTimestampSecondValue: {
+      _this->_internal_set_timestamp_second_value(from._internal_timestamp_second_value());
       break;
     }
-    case kTsMillisecondValue: {
-      _this->_internal_set_ts_millisecond_value(from._internal_ts_millisecond_value());
+    case kTimestampMillisecondValue: {
+      _this->_internal_set_timestamp_millisecond_value(from._internal_timestamp_millisecond_value());
       break;
     }
-    case kTsMicrosecondValue: {
-      _this->_internal_set_ts_microsecond_value(from._internal_ts_microsecond_value());
+    case kTimestampMicrosecondValue: {
+      _this->_internal_set_timestamp_microsecond_value(from._internal_timestamp_microsecond_value());
       break;
     }
-    case kTsNanosecondValue: {
-      _this->_internal_set_ts_nanosecond_value(from._internal_ts_nanosecond_value());
+    case kTimestampNanosecondValue: {
+      _this->_internal_set_timestamp_nanosecond_value(from._internal_timestamp_nanosecond_value());
       break;
     }
     case kTimeSecondValue: {
@@ -1142,19 +1142,19 @@ void Value::clear_value_data() {
       // No need to clear
       break;
     }
-    case kTsSecondValue: {
+    case kTimestampSecondValue: {
       // No need to clear
       break;
     }
-    case kTsMillisecondValue: {
+    case kTimestampMillisecondValue: {
       // No need to clear
       break;
     }
-    case kTsMicrosecondValue: {
+    case kTimestampMicrosecondValue: {
       // No need to clear
       break;
     }
-    case kTsNanosecondValue: {
+    case kTimestampNanosecondValue: {
       // No need to clear
       break;
     }
@@ -1335,34 +1335,34 @@ const char* Value::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // int64 ts_second_value = 16;
+      // int64 timestamp_second_value = 16;
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 128)) {
-          _internal_set_ts_second_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          _internal_set_timestamp_second_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 ts_millisecond_value = 17;
+      // int64 timestamp_millisecond_value = 17;
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 136)) {
-          _internal_set_ts_millisecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          _internal_set_timestamp_millisecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 ts_microsecond_value = 18;
+      // int64 timestamp_microsecond_value = 18;
       case 18:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 144)) {
-          _internal_set_ts_microsecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          _internal_set_timestamp_microsecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int64 ts_nanosecond_value = 19;
+      // int64 timestamp_nanosecond_value = 19;
       case 19:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 152)) {
-          _internal_set_ts_nanosecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          _internal_set_timestamp_nanosecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1546,28 +1546,28 @@ uint8_t* Value::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(15, this->_internal_datetime_value(), target);
   }
 
-  // int64 ts_second_value = 16;
-  if (_internal_has_ts_second_value()) {
+  // int64 timestamp_second_value = 16;
+  if (_internal_has_timestamp_second_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(16, this->_internal_ts_second_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(16, this->_internal_timestamp_second_value(), target);
   }
 
-  // int64 ts_millisecond_value = 17;
-  if (_internal_has_ts_millisecond_value()) {
+  // int64 timestamp_millisecond_value = 17;
+  if (_internal_has_timestamp_millisecond_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(17, this->_internal_ts_millisecond_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(17, this->_internal_timestamp_millisecond_value(), target);
   }
 
-  // int64 ts_microsecond_value = 18;
-  if (_internal_has_ts_microsecond_value()) {
+  // int64 timestamp_microsecond_value = 18;
+  if (_internal_has_timestamp_microsecond_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(18, this->_internal_ts_microsecond_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(18, this->_internal_timestamp_microsecond_value(), target);
   }
 
-  // int64 ts_nanosecond_value = 19;
-  if (_internal_has_ts_nanosecond_value()) {
+  // int64 timestamp_nanosecond_value = 19;
+  if (_internal_has_timestamp_nanosecond_value()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(19, this->_internal_ts_nanosecond_value(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(19, this->_internal_timestamp_nanosecond_value(), target);
   }
 
   // int64 time_second_value = 20;
@@ -1709,32 +1709,32 @@ size_t Value::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_datetime_value());
       break;
     }
-    // int64 ts_second_value = 16;
-    case kTsSecondValue: {
+    // int64 timestamp_second_value = 16;
+    case kTimestampSecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
-          this->_internal_ts_second_value());
+          this->_internal_timestamp_second_value());
       break;
     }
-    // int64 ts_millisecond_value = 17;
-    case kTsMillisecondValue: {
+    // int64 timestamp_millisecond_value = 17;
+    case kTimestampMillisecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
-          this->_internal_ts_millisecond_value());
+          this->_internal_timestamp_millisecond_value());
       break;
     }
-    // int64 ts_microsecond_value = 18;
-    case kTsMicrosecondValue: {
+    // int64 timestamp_microsecond_value = 18;
+    case kTimestampMicrosecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
-          this->_internal_ts_microsecond_value());
+          this->_internal_timestamp_microsecond_value());
       break;
     }
-    // int64 ts_nanosecond_value = 19;
-    case kTsNanosecondValue: {
+    // int64 timestamp_nanosecond_value = 19;
+    case kTimestampNanosecondValue: {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
-          this->_internal_ts_nanosecond_value());
+          this->_internal_timestamp_nanosecond_value());
       break;
     }
     // int64 time_second_value = 20;
@@ -1869,20 +1869,20 @@ void Value::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
       _this->_internal_set_datetime_value(from._internal_datetime_value());
       break;
     }
-    case kTsSecondValue: {
-      _this->_internal_set_ts_second_value(from._internal_ts_second_value());
+    case kTimestampSecondValue: {
+      _this->_internal_set_timestamp_second_value(from._internal_timestamp_second_value());
       break;
     }
-    case kTsMillisecondValue: {
-      _this->_internal_set_ts_millisecond_value(from._internal_ts_millisecond_value());
+    case kTimestampMillisecondValue: {
+      _this->_internal_set_timestamp_millisecond_value(from._internal_timestamp_millisecond_value());
       break;
     }
-    case kTsMicrosecondValue: {
-      _this->_internal_set_ts_microsecond_value(from._internal_ts_microsecond_value());
+    case kTimestampMicrosecondValue: {
+      _this->_internal_set_timestamp_microsecond_value(from._internal_timestamp_microsecond_value());
       break;
     }
-    case kTsNanosecondValue: {
-      _this->_internal_set_ts_nanosecond_value(from._internal_ts_nanosecond_value());
+    case kTimestampNanosecondValue: {
+      _this->_internal_set_timestamp_nanosecond_value(from._internal_timestamp_nanosecond_value());
       break;
     }
     case kTimeSecondValue: {

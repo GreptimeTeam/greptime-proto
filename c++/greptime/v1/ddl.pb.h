@@ -566,7 +566,6 @@ class CreateTableExpr final :
     kColumnDefsFieldNumber = 5,
     kPrimaryKeysFieldNumber = 7,
     kTableOptionsFieldNumber = 9,
-    kRegionNumbersFieldNumber = 11,
     kCatalogNameFieldNumber = 1,
     kSchemaNameFieldNumber = 2,
     kTableNameFieldNumber = 3,
@@ -634,28 +633,6 @@ class CreateTableExpr final :
       table_options() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
       mutable_table_options();
-
-  // repeated uint32 region_numbers = 11;
-  int region_numbers_size() const;
-  private:
-  int _internal_region_numbers_size() const;
-  public:
-  void clear_region_numbers();
-  private:
-  uint32_t _internal_region_numbers(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_region_numbers() const;
-  void _internal_add_region_numbers(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_region_numbers();
-  public:
-  uint32_t region_numbers(int index) const;
-  void set_region_numbers(int index, uint32_t value);
-  void add_region_numbers(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      region_numbers() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_region_numbers();
 
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -783,8 +760,6 @@ class CreateTableExpr final :
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> table_options_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > region_numbers_;
-    mutable std::atomic<int> _region_numbers_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
@@ -3931,53 +3906,6 @@ inline void CreateTableExpr::set_allocated_table_id(::greptime::v1::TableId* tab
   }
   _impl_.table_id_ = table_id;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTableExpr.table_id)
-}
-
-// repeated uint32 region_numbers = 11;
-inline int CreateTableExpr::_internal_region_numbers_size() const {
-  return _impl_.region_numbers_.size();
-}
-inline int CreateTableExpr::region_numbers_size() const {
-  return _internal_region_numbers_size();
-}
-inline void CreateTableExpr::clear_region_numbers() {
-  _impl_.region_numbers_.Clear();
-}
-inline uint32_t CreateTableExpr::_internal_region_numbers(int index) const {
-  return _impl_.region_numbers_.Get(index);
-}
-inline uint32_t CreateTableExpr::region_numbers(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CreateTableExpr.region_numbers)
-  return _internal_region_numbers(index);
-}
-inline void CreateTableExpr::set_region_numbers(int index, uint32_t value) {
-  _impl_.region_numbers_.Set(index, value);
-  // @@protoc_insertion_point(field_set:greptime.v1.CreateTableExpr.region_numbers)
-}
-inline void CreateTableExpr::_internal_add_region_numbers(uint32_t value) {
-  _impl_.region_numbers_.Add(value);
-}
-inline void CreateTableExpr::add_region_numbers(uint32_t value) {
-  _internal_add_region_numbers(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.CreateTableExpr.region_numbers)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CreateTableExpr::_internal_region_numbers() const {
-  return _impl_.region_numbers_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CreateTableExpr::region_numbers() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.CreateTableExpr.region_numbers)
-  return _internal_region_numbers();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CreateTableExpr::_internal_mutable_region_numbers() {
-  return &_impl_.region_numbers_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CreateTableExpr::mutable_region_numbers() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.CreateTableExpr.region_numbers)
-  return _internal_mutable_region_numbers();
 }
 
 // string engine = 12;

@@ -1840,23 +1840,6 @@ java.lang.String defaultValue);
     io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
 
     /**
-     * <code>repeated uint32 region_numbers = 11;</code>
-     * @return A list containing the regionNumbers.
-     */
-    java.util.List<java.lang.Integer> getRegionNumbersList();
-    /**
-     * <code>repeated uint32 region_numbers = 11;</code>
-     * @return The count of regionNumbers.
-     */
-    int getRegionNumbersCount();
-    /**
-     * <code>repeated uint32 region_numbers = 11;</code>
-     * @param index The index of the element to return.
-     * @return The regionNumbers at the given index.
-     */
-    int getRegionNumbers(int index);
-
-    /**
      * <code>string engine = 12;</code>
      * @return The engine.
      */
@@ -1888,7 +1871,6 @@ java.lang.String defaultValue);
       columnDefs_ = java.util.Collections.emptyList();
       timeIndex_ = "";
       primaryKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      regionNumbers_ = emptyIntList();
       engine_ = "";
     }
 
@@ -2002,27 +1984,6 @@ java.lang.String defaultValue);
 
               break;
             }
-            case 88: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                regionNumbers_ = newIntList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              regionNumbers_.addInt(input.readUInt32());
-              break;
-            }
-            case 90: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000008) != 0) && input.getBytesUntilLimit() > 0) {
-                regionNumbers_ = newIntList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                regionNumbers_.addInt(input.readUInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
             case 98: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -2051,9 +2012,6 @@ java.lang.String defaultValue);
         }
         if (((mutable_bitField0_ & 0x00000002) != 0)) {
           primaryKeys_ = primaryKeys_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          regionNumbers_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2467,34 +2425,6 @@ java.lang.String defaultValue);
       return getTableId();
     }
 
-    public static final int REGION_NUMBERS_FIELD_NUMBER = 11;
-    private com.google.protobuf.Internal.IntList regionNumbers_;
-    /**
-     * <code>repeated uint32 region_numbers = 11;</code>
-     * @return A list containing the regionNumbers.
-     */
-    @java.lang.Override
-    public java.util.List<java.lang.Integer>
-        getRegionNumbersList() {
-      return regionNumbers_;
-    }
-    /**
-     * <code>repeated uint32 region_numbers = 11;</code>
-     * @return The count of regionNumbers.
-     */
-    public int getRegionNumbersCount() {
-      return regionNumbers_.size();
-    }
-    /**
-     * <code>repeated uint32 region_numbers = 11;</code>
-     * @param index The index of the element to return.
-     * @return The regionNumbers at the given index.
-     */
-    public int getRegionNumbers(int index) {
-      return regionNumbers_.getInt(index);
-    }
-    private int regionNumbersMemoizedSerializedSize = -1;
-
     public static final int ENGINE_FIELD_NUMBER = 12;
     private volatile java.lang.Object engine_;
     /**
@@ -2547,7 +2477,6 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
       }
@@ -2580,13 +2509,6 @@ java.lang.String defaultValue);
           9);
       if (tableId_ != null) {
         output.writeMessage(10, getTableId());
-      }
-      if (getRegionNumbersList().size() > 0) {
-        output.writeUInt32NoTag(90);
-        output.writeUInt32NoTag(regionNumbersMemoizedSerializedSize);
-      }
-      for (int i = 0; i < regionNumbers_.size(); i++) {
-        output.writeUInt32NoTag(regionNumbers_.getInt(i));
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, engine_);
@@ -2645,20 +2567,6 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, getTableId());
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < regionNumbers_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(regionNumbers_.getInt(i));
-        }
-        size += dataSize;
-        if (!getRegionNumbersList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        regionNumbersMemoizedSerializedSize = dataSize;
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, engine_);
       }
@@ -2700,8 +2608,6 @@ java.lang.String defaultValue);
         if (!getTableId()
             .equals(other.getTableId())) return false;
       }
-      if (!getRegionNumbersList()
-          .equals(other.getRegionNumbersList())) return false;
       if (!getEngine()
           .equals(other.getEngine())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -2743,10 +2649,6 @@ java.lang.String defaultValue);
       if (hasTableId()) {
         hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
         hash = (53 * hash) + getTableId().hashCode();
-      }
-      if (getRegionNumbersCount() > 0) {
-        hash = (37 * hash) + REGION_NUMBERS_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionNumbersList().hashCode();
       }
       hash = (37 * hash) + ENGINE_FIELD_NUMBER;
       hash = (53 * hash) + getEngine().hashCode();
@@ -2933,8 +2835,6 @@ java.lang.String defaultValue);
           tableId_ = null;
           tableIdBuilder_ = null;
         }
-        regionNumbers_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000008);
         engine_ = "";
 
         return this;
@@ -2991,11 +2891,6 @@ java.lang.String defaultValue);
         } else {
           result.tableId_ = tableIdBuilder_.build();
         }
-        if (((bitField0_ & 0x00000008) != 0)) {
-          regionNumbers_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.regionNumbers_ = regionNumbers_;
         result.engine_ = engine_;
         onBuilt();
         return result;
@@ -3108,16 +3003,6 @@ java.lang.String defaultValue);
             other.internalGetTableOptions());
         if (other.hasTableId()) {
           mergeTableId(other.getTableId());
-        }
-        if (!other.regionNumbers_.isEmpty()) {
-          if (regionNumbers_.isEmpty()) {
-            regionNumbers_ = other.regionNumbers_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureRegionNumbersIsMutable();
-            regionNumbers_.addAll(other.regionNumbers_);
-          }
-          onChanged();
         }
         if (!other.getEngine().isEmpty()) {
           engine_ = other.engine_;
@@ -4162,85 +4047,6 @@ java.lang.String defaultValue);
           tableId_ = null;
         }
         return tableIdBuilder_;
-      }
-
-      private com.google.protobuf.Internal.IntList regionNumbers_ = emptyIntList();
-      private void ensureRegionNumbersIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
-          regionNumbers_ = mutableCopy(regionNumbers_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-      /**
-       * <code>repeated uint32 region_numbers = 11;</code>
-       * @return A list containing the regionNumbers.
-       */
-      public java.util.List<java.lang.Integer>
-          getRegionNumbersList() {
-        return ((bitField0_ & 0x00000008) != 0) ?
-                 java.util.Collections.unmodifiableList(regionNumbers_) : regionNumbers_;
-      }
-      /**
-       * <code>repeated uint32 region_numbers = 11;</code>
-       * @return The count of regionNumbers.
-       */
-      public int getRegionNumbersCount() {
-        return regionNumbers_.size();
-      }
-      /**
-       * <code>repeated uint32 region_numbers = 11;</code>
-       * @param index The index of the element to return.
-       * @return The regionNumbers at the given index.
-       */
-      public int getRegionNumbers(int index) {
-        return regionNumbers_.getInt(index);
-      }
-      /**
-       * <code>repeated uint32 region_numbers = 11;</code>
-       * @param index The index to set the value at.
-       * @param value The regionNumbers to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegionNumbers(
-          int index, int value) {
-        ensureRegionNumbersIsMutable();
-        regionNumbers_.setInt(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated uint32 region_numbers = 11;</code>
-       * @param value The regionNumbers to add.
-       * @return This builder for chaining.
-       */
-      public Builder addRegionNumbers(int value) {
-        ensureRegionNumbersIsMutable();
-        regionNumbers_.addInt(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated uint32 region_numbers = 11;</code>
-       * @param values The regionNumbers to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllRegionNumbers(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureRegionNumbersIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, regionNumbers_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated uint32 region_numbers = 11;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRegionNumbers() {
-        regionNumbers_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
       }
 
       private java.lang.Object engine_ = "";
@@ -14971,7 +14777,7 @@ java.lang.String defaultValue);
       "\030\003 \001(\0132\026.greptime.v1.AlterExprH\000\0220\n\ndrop" +
       "_table\030\004 \001(\0132\032.greptime.v1.DropTableExpr" +
       "H\000\0228\n\016truncate_table\030\007 \001(\0132\036.greptime.v1" +
-      ".TruncateTableExprH\000B\006\n\004expr\"\237\003\n\017CreateT" +
+      ".TruncateTableExprH\000B\006\n\004expr\"\207\003\n\017CreateT" +
       "ableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema" +
       "_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030" +
       "\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v1" +
@@ -14979,45 +14785,44 @@ java.lang.String defaultValue);
       "y_keys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001" +
       "(\010\022E\n\rtable_options\030\t \003(\0132..greptime.v1." +
       "CreateTableExpr.TableOptionsEntry\022&\n\010tab" +
-      "le_id\030\n \001(\0132\024.greptime.v1.TableId\022\026\n\016reg" +
-      "ion_numbers\030\013 \003(\r\022\016\n\006engine\030\014 \001(\t\0323\n\021Tab" +
-      "leOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
-      "(\t:\0028\001\"\346\001\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001" +
-      "(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 " +
-      "\001(\t\022.\n\013add_columns\030\004 \001(\0132\027.greptime.v1.A" +
-      "ddColumnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.grep" +
-      "time.v1.DropColumnsH\000\0220\n\014rename_table\030\006 " +
-      "\001(\0132\030.greptime.v1.RenameTableH\000B\006\n\004kind\"" +
-      "v\n\rDropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023" +
-      "\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022" +
-      "&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableId\"" +
-      "\270\001\n\022CreateDatabaseExpr\022\025\n\rdatabase_name\030" +
-      "\001 \001(\t\022\034\n\024create_if_not_exists\030\002 \001(\010\022=\n\007o" +
-      "ptions\030\003 \003(\0132,.greptime.v1.CreateDatabas" +
-      "eExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTa" +
-      "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
-      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_" +
-      "id\030\004 \001(\0132\024.greptime.v1.TableId\"9\n\nAddCol" +
-      "umns\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1." +
-      "AddColumn\"<\n\013DropColumns\022-\n\014drop_columns" +
-      "\030\001 \003(\0132\027.greptime.v1.DropColumn\"%\n\013Renam" +
-      "eTable\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddCol" +
-      "umn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Co" +
-      "lumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1." +
-      "AddColumnLocation\"\032\n\nDropColumn\022\014\n\004name\030" +
-      "\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\254\001\n\tColumnD" +
-      "ef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.gr" +
-      "eptime.v1.ColumnDataType\022\023\n\013is_nullable\030" +
-      "\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsem" +
-      "antic_type\030\005 \001(\0162\031.greptime.v1.SemanticT" +
-      "ype\"\230\001\n\021AddColumnLocation\022B\n\rlocation_ty" +
-      "pe\030\001 \001(\0162+.greptime.v1.AddColumnLocation" +
-      ".LocationType\022\031\n\021after_column_name\030\002 \001(\t" +
-      "\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL" +
-      "\n\016io.greptime.v1B\003DdlZ5github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
-      "oto3"
+      "le_id\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006eng" +
+      "ine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\346\001\n\tAlterExpr\022\024\n\014" +
+      "catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022" +
+      "\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\013" +
+      "2\027.greptime.v1.AddColumnsH\000\0220\n\014drop_colu" +
+      "mns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220\n" +
+      "\014rename_table\030\006 \001(\0132\030.greptime.v1.Rename" +
+      "TableH\000B\006\n\004kind\"v\n\rDropTableExpr\022\024\n\014cata" +
+      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nt" +
+      "able_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grep" +
+      "time.v1.TableId\"\270\001\n\022CreateDatabaseExpr\022\025" +
+      "\n\rdatabase_name\030\001 \001(\t\022\034\n\024create_if_not_e" +
+      "xists\030\002 \001(\010\022=\n\007options\030\003 \003(\0132,.greptime." +
+      "v1.CreateDatabaseExpr.OptionsEntry\032.\n\014Op" +
+      "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
+      "8\001\"z\n\021TruncateTableExpr\022\024\n\014catalog_name\030" +
+      "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name" +
+      "\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.T" +
+      "ableId\"9\n\nAddColumns\022+\n\013add_columns\030\001 \003(" +
+      "\0132\026.greptime.v1.AddColumn\"<\n\013DropColumns" +
+      "\022-\n\014drop_columns\030\001 \003(\0132\027.greptime.v1.Dro" +
+      "pColumn\"%\n\013RenameTable\022\026\n\016new_table_name" +
+      "\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132" +
+      "\026.greptime.v1.ColumnDef\0220\n\010location\030\003 \001(" +
+      "\0132\036.greptime.v1.AddColumnLocation\"\032\n\nDro" +
+      "pColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001" +
+      " \001(\r\"\254\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata" +
+      "_type\030\002 \001(\0162\033.greptime.v1.ColumnDataType" +
+      "\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constra" +
+      "int\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.grept" +
+      "ime.v1.SemanticType\"\230\001\n\021AddColumnLocatio" +
+      "n\022B\n\rlocation_type\030\001 \001(\0162+.greptime.v1.A" +
+      "ddColumnLocation.LocationType\022\031\n\021after_c" +
+      "olumn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRS" +
+      "T\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003DdlZ5g" +
+      "ithub.com/GreptimeTeam/greptime-proto/go" +
+      "/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15035,7 +14840,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "Desc", "ColumnDefs", "TimeIndex", "PrimaryKeys", "CreateIfNotExists", "TableOptions", "TableId", "RegionNumbers", "Engine", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "Desc", "ColumnDefs", "TimeIndex", "PrimaryKeys", "CreateIfNotExists", "TableOptions", "TableId", "Engine", });
     internal_static_greptime_v1_CreateTableExpr_TableOptionsEntry_descriptor =
       internal_static_greptime_v1_CreateTableExpr_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_CreateTableExpr_TableOptionsEntry_fieldAccessorTable = new

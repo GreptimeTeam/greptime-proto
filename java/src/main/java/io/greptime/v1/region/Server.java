@@ -7057,7 +7057,22 @@ public final class Server {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint64 region_id = 1;</code>
+     * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    boolean hasHeader();
+    /**
+     * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+     * @return The header.
+     */
+    io.greptime.v1.region.Server.RegionRequestHeader getHeader();
+    /**
+     * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+     */
+    io.greptime.v1.region.Server.RegionRequestHeaderOrBuilder getHeaderOrBuilder();
+
+    /**
+     * <code>uint64 region_id = 2;</code>
      * @return The regionId.
      */
     long getRegionId();
@@ -7067,7 +7082,7 @@ public final class Server {
      * substrait plan to query
      * </pre>
      *
-     * <code>bytes plan = 2;</code>
+     * <code>bytes plan = 3;</code>
      * @return The plan.
      */
     com.google.protobuf.ByteString getPlan();
@@ -7118,12 +7133,25 @@ public final class Server {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              io.greptime.v1.region.Server.RegionRequestHeader.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(io.greptime.v1.region.Server.RegionRequestHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
 
               regionId_ = input.readUInt64();
               break;
             }
-            case 18: {
+            case 26: {
 
               plan_ = input.readBytes();
               break;
@@ -7162,10 +7190,36 @@ public final class Server {
               io.greptime.v1.region.Server.QueryRequest.class, io.greptime.v1.region.Server.QueryRequest.Builder.class);
     }
 
-    public static final int REGION_ID_FIELD_NUMBER = 1;
+    public static final int HEADER_FIELD_NUMBER = 1;
+    private io.greptime.v1.region.Server.RegionRequestHeader header_;
+    /**
+     * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeader() {
+      return header_ != null;
+    }
+    /**
+     * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+     * @return The header.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RegionRequestHeader getHeader() {
+      return header_ == null ? io.greptime.v1.region.Server.RegionRequestHeader.getDefaultInstance() : header_;
+    }
+    /**
+     * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RegionRequestHeaderOrBuilder getHeaderOrBuilder() {
+      return getHeader();
+    }
+
+    public static final int REGION_ID_FIELD_NUMBER = 2;
     private long regionId_;
     /**
-     * <code>uint64 region_id = 1;</code>
+     * <code>uint64 region_id = 2;</code>
      * @return The regionId.
      */
     @java.lang.Override
@@ -7173,14 +7227,14 @@ public final class Server {
       return regionId_;
     }
 
-    public static final int PLAN_FIELD_NUMBER = 2;
+    public static final int PLAN_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString plan_;
     /**
      * <pre>
      * substrait plan to query
      * </pre>
      *
-     * <code>bytes plan = 2;</code>
+     * <code>bytes plan = 3;</code>
      * @return The plan.
      */
     @java.lang.Override
@@ -7202,11 +7256,14 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (header_ != null) {
+        output.writeMessage(1, getHeader());
+      }
       if (regionId_ != 0L) {
-        output.writeUInt64(1, regionId_);
+        output.writeUInt64(2, regionId_);
       }
       if (!plan_.isEmpty()) {
-        output.writeBytes(2, plan_);
+        output.writeBytes(3, plan_);
       }
       unknownFields.writeTo(output);
     }
@@ -7217,13 +7274,17 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
+      if (header_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getHeader());
+      }
       if (regionId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, regionId_);
+          .computeUInt64Size(2, regionId_);
       }
       if (!plan_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, plan_);
+          .computeBytesSize(3, plan_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7240,6 +7301,11 @@ public final class Server {
       }
       io.greptime.v1.region.Server.QueryRequest other = (io.greptime.v1.region.Server.QueryRequest) obj;
 
+      if (hasHeader() != other.hasHeader()) return false;
+      if (hasHeader()) {
+        if (!getHeader()
+            .equals(other.getHeader())) return false;
+      }
       if (getRegionId()
           != other.getRegionId()) return false;
       if (!getPlan()
@@ -7255,6 +7321,10 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasHeader()) {
+        hash = (37 * hash) + HEADER_FIELD_NUMBER;
+        hash = (53 * hash) + getHeader().hashCode();
+      }
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
@@ -7393,6 +7463,12 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
         regionId_ = 0L;
 
         plan_ = com.google.protobuf.ByteString.EMPTY;
@@ -7423,6 +7499,11 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.region.Server.QueryRequest buildPartial() {
         io.greptime.v1.region.Server.QueryRequest result = new io.greptime.v1.region.Server.QueryRequest(this);
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
         result.regionId_ = regionId_;
         result.plan_ = plan_;
         onBuilt();
@@ -7473,6 +7554,9 @@ public final class Server {
 
       public Builder mergeFrom(io.greptime.v1.region.Server.QueryRequest other) {
         if (other == io.greptime.v1.region.Server.QueryRequest.getDefaultInstance()) return this;
+        if (other.hasHeader()) {
+          mergeHeader(other.getHeader());
+        }
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
         }
@@ -7508,9 +7592,128 @@ public final class Server {
         return this;
       }
 
+      private io.greptime.v1.region.Server.RegionRequestHeader header_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.RegionRequestHeader, io.greptime.v1.region.Server.RegionRequestHeader.Builder, io.greptime.v1.region.Server.RegionRequestHeaderOrBuilder> headerBuilder_;
+      /**
+       * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+       * @return Whether the header field is set.
+       */
+      public boolean hasHeader() {
+        return headerBuilder_ != null || header_ != null;
+      }
+      /**
+       * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+       * @return The header.
+       */
+      public io.greptime.v1.region.Server.RegionRequestHeader getHeader() {
+        if (headerBuilder_ == null) {
+          return header_ == null ? io.greptime.v1.region.Server.RegionRequestHeader.getDefaultInstance() : header_;
+        } else {
+          return headerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+       */
+      public Builder setHeader(io.greptime.v1.region.Server.RegionRequestHeader value) {
+        if (headerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          header_ = value;
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+       */
+      public Builder setHeader(
+          io.greptime.v1.region.Server.RegionRequestHeader.Builder builderForValue) {
+        if (headerBuilder_ == null) {
+          header_ = builderForValue.build();
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+       */
+      public Builder mergeHeader(io.greptime.v1.region.Server.RegionRequestHeader value) {
+        if (headerBuilder_ == null) {
+          if (header_ != null) {
+            header_ =
+              io.greptime.v1.region.Server.RegionRequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+          } else {
+            header_ = value;
+          }
+          onChanged();
+        } else {
+          headerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+       */
+      public Builder clearHeader() {
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+       */
+      public io.greptime.v1.region.Server.RegionRequestHeader.Builder getHeaderBuilder() {
+        
+        onChanged();
+        return getHeaderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+       */
+      public io.greptime.v1.region.Server.RegionRequestHeaderOrBuilder getHeaderOrBuilder() {
+        if (headerBuilder_ != null) {
+          return headerBuilder_.getMessageOrBuilder();
+        } else {
+          return header_ == null ?
+              io.greptime.v1.region.Server.RegionRequestHeader.getDefaultInstance() : header_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.RegionRequestHeader header = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.RegionRequestHeader, io.greptime.v1.region.Server.RegionRequestHeader.Builder, io.greptime.v1.region.Server.RegionRequestHeaderOrBuilder> 
+          getHeaderFieldBuilder() {
+        if (headerBuilder_ == null) {
+          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.RegionRequestHeader, io.greptime.v1.region.Server.RegionRequestHeader.Builder, io.greptime.v1.region.Server.RegionRequestHeaderOrBuilder>(
+                  getHeader(),
+                  getParentForChildren(),
+                  isClean());
+          header_ = null;
+        }
+        return headerBuilder_;
+      }
+
       private long regionId_ ;
       /**
-       * <code>uint64 region_id = 1;</code>
+       * <code>uint64 region_id = 2;</code>
        * @return The regionId.
        */
       @java.lang.Override
@@ -7518,7 +7721,7 @@ public final class Server {
         return regionId_;
       }
       /**
-       * <code>uint64 region_id = 1;</code>
+       * <code>uint64 region_id = 2;</code>
        * @param value The regionId to set.
        * @return This builder for chaining.
        */
@@ -7529,7 +7732,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>uint64 region_id = 1;</code>
+       * <code>uint64 region_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearRegionId() {
@@ -7545,7 +7748,7 @@ public final class Server {
        * substrait plan to query
        * </pre>
        *
-       * <code>bytes plan = 2;</code>
+       * <code>bytes plan = 3;</code>
        * @return The plan.
        */
       @java.lang.Override
@@ -7557,7 +7760,7 @@ public final class Server {
        * substrait plan to query
        * </pre>
        *
-       * <code>bytes plan = 2;</code>
+       * <code>bytes plan = 3;</code>
        * @param value The plan to set.
        * @return This builder for chaining.
        */
@@ -7575,7 +7778,7 @@ public final class Server {
        * substrait plan to query
        * </pre>
        *
-       * <code>bytes plan = 2;</code>
+       * <code>bytes plan = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPlan() {
@@ -17442,9 +17645,10 @@ java.lang.String defaultValue);
   }
   /**
    * <pre>
-   * The column definition of a region. Unlike the message `ColumnDef` in `ddl.proto` which is for clients outside
-   * GreptimeDB, this `RegionColumnDef` is for region requests use only. So it carries an extra field `column_id` that
-   * is known internally.
+   * The column definition of a region. Unlike the message `ColumnDef` in
+   * `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
+   * is for region requests use only. So it carries an extra field `column_id`
+   * that is known internally.
    * </pre>
    *
    * Protobuf type {@code greptime.v1.region.RegionColumnDef}
@@ -17753,9 +17957,10 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * The column definition of a region. Unlike the message `ColumnDef` in `ddl.proto` which is for clients outside
-     * GreptimeDB, this `RegionColumnDef` is for region requests use only. So it carries an extra field `column_id` that
-     * is known internally.
+     * The column definition of a region. Unlike the message `ColumnDef` in
+     * `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
+     * is for region requests use only. So it carries an extra field `column_id`
+     * that is known internally.
      * </pre>
      *
      * Protobuf type {@code greptime.v1.region.RegionColumnDef}
@@ -18266,43 +18471,44 @@ java.lang.String defaultValue);
       "est\"C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
       "\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDele" +
       "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001" +
-      "(\0132\021.greptime.v1.Rows\"/\n\014QueryRequest\022\021\n" +
-      "\tregion_id\030\001 \001(\004\022\014\n\004plan\030\002 \001(\014\"\261\002\n\rCreat" +
-      "eRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 " +
-      "\001(\t\0228\n\013column_defs\030\003 \003(\0132#.greptime.v1.r" +
-      "egion.RegionColumnDef\022\023\n\013primary_key\030\004 \003" +
-      "(\r\022\034\n\024create_if_not_exists\030\005 \001(\010\022\017\n\007cata" +
-      "log\030\006 \001(\t\022\016\n\006schema\030\007 \001(\t\022?\n\007options\030\010 \003" +
-      "(\0132..greptime.v1.region.CreateRequest.Op" +
-      "tionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001\" \n\013DropRequest\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\"\300\001\n\013OpenRequest\022\021\n\tregion_i" +
-      "d\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\017\n\007catalog\030\003 \001(\t" +
-      "\022\016\n\006schema\030\004 \001(\t\022=\n\007options\030\005 \003(\0132,.grep" +
-      "time.v1.region.OpenRequest.OptionsEntry\032" +
-      ".\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001" +
-      "(\004\"\261\001\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225" +
-      "\n\013add_columns\030\002 \001(\0132\036.greptime.v1.region" +
-      ".AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.gr" +
-      "eptime.v1.region.DropColumnsH\000\022\026\n\016schema" +
-      "_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013" +
-      "add_columns\030\001 \003(\0132\035.greptime.v1.region.A" +
-      "ddColumn\"C\n\013DropColumns\0224\n\014drop_columns\030" +
-      "\001 \003(\0132\036.greptime.v1.region.DropColumn\"v\n" +
-      "\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#.greptim" +
-      "e.v1.region.RegionColumnDef\0220\n\010location\030" +
-      "\003 \001(\0132\036.greptime.v1.AddColumnLocation\"\032\n" +
-      "\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushReques" +
-      "t\022\021\n\tregion_id\030\001 \001(\004\"#\n\016CompactRequest\022\021" +
-      "\n\tregion_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\n" +
-      "column_def\030\001 \001(\0132\026.greptime.v1.ColumnDef" +
-      "\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022" +
-      "!.greptime.v1.region.RegionRequest\032\".gre" +
-      "ptime.v1.region.RegionResponseB]\n\025io.gre" +
-      "ptime.v1.regionB\006ServerZ<github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1/r" +
-      "egionb\006proto3"
+      "(\0132\021.greptime.v1.Rows\"h\n\014QueryRequest\0227\n" +
+      "\006header\030\001 \001(\0132\'.greptime.v1.region.Regio" +
+      "nRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004pla" +
+      "n\030\003 \001(\014\"\261\002\n\rCreateRequest\022\021\n\tregion_id\030\001" +
+      " \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(" +
+      "\0132#.greptime.v1.region.RegionColumnDef\022\023" +
+      "\n\013primary_key\030\004 \003(\r\022\034\n\024create_if_not_exi" +
+      "sts\030\005 \001(\010\022\017\n\007catalog\030\006 \001(\t\022\016\n\006schema\030\007 \001" +
+      "(\t\022?\n\007options\030\010 \003(\0132..greptime.v1.region" +
+      ".CreateRequest.OptionsEntry\032.\n\014OptionsEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\013D" +
+      "ropRequest\022\021\n\tregion_id\030\001 \001(\004\"\300\001\n\013OpenRe" +
+      "quest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t" +
+      "\022\017\n\007catalog\030\003 \001(\t\022\016\n\006schema\030\004 \001(\t\022=\n\007opt" +
+      "ions\030\005 \003(\0132,.greptime.v1.region.OpenRequ" +
+      "est.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest" +
+      "\022\021\n\tregion_id\030\001 \001(\004\"\261\001\n\014AlterRequest\022\021\n\t" +
+      "region_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036.g" +
+      "reptime.v1.region.AddColumnsH\000\0227\n\014drop_c" +
+      "olumns\030\003 \001(\0132\037.greptime.v1.region.DropCo" +
+      "lumnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"" +
+      "@\n\nAddColumns\0222\n\013add_columns\030\001 \003(\0132\035.gre" +
+      "ptime.v1.region.AddColumn\"C\n\013DropColumns" +
+      "\0224\n\014drop_columns\030\001 \003(\0132\036.greptime.v1.reg" +
+      "ion.DropColumn\"v\n\tAddColumn\0227\n\ncolumn_de" +
+      "f\030\001 \001(\0132#.greptime.v1.region.RegionColum" +
+      "nDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.Add" +
+      "ColumnLocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001" +
+      "(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"#\n" +
+      "\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Re" +
+      "gionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.grep" +
+      "time.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006" +
+      "Region\022O\n\006Handle\022!.greptime.v1.region.Re" +
+      "gionRequest\032\".greptime.v1.region.RegionR" +
+      "esponseB]\n\025io.greptime.v1.regionB\006Server" +
+      "Z<github.com/GreptimeTeam/greptime-proto" +
+      "/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18358,7 +18564,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_QueryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_QueryRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Plan", });
+        new java.lang.String[] { "Header", "RegionId", "Plan", });
     internal_static_greptime_v1_region_CreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_region_CreateRequest_fieldAccessorTable = new

@@ -69,9 +69,10 @@ message DeleteRequest {
 }
 
 message QueryRequest {
-  uint64 region_id = 1;
+  RegionRequestHeader header = 1;
+  uint64 region_id = 2;
   // substrait plan to query
-  bytes plan = 2;
+  bytes plan = 3;
 }
 
 message CreateRequest {
@@ -121,30 +122,25 @@ message AlterRequest {
   uint64 schema_version = 4;
 }
 
-message AddColumns {
-  repeated AddColumn add_columns = 1;
-}
+message AddColumns { repeated AddColumn add_columns = 1; }
 
-message DropColumns {
-  repeated DropColumn drop_columns = 1;
-}
+message DropColumns { repeated DropColumn drop_columns = 1; }
 
 message AddColumn {
   RegionColumnDef column_def = 1;
   AddColumnLocation location = 3;
 }
 
-message DropColumn {
-  string name = 1;
-}
+message DropColumn { string name = 1; }
 
 message FlushRequest { uint64 region_id = 1; }
 
 message CompactRequest { uint64 region_id = 1; }
 
-// The column definition of a region. Unlike the message `ColumnDef` in `ddl.proto` which is for clients outside
-// GreptimeDB, this `RegionColumnDef` is for region requests use only. So it carries an extra field `column_id` that
-// is known internally.
+// The column definition of a region. Unlike the message `ColumnDef` in
+// `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
+// is for region requests use only. So it carries an extra field `column_id`
+// that is known internally.
 message RegionColumnDef {
   ColumnDef column_def = 1;
   uint32 column_id = 2;

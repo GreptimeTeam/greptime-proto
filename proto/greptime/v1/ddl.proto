@@ -47,7 +47,6 @@ message CreateTableExpr {
   bool create_if_not_exists = 8;
   map<string, string> table_options = 9;
   TableId table_id = 10;
-  repeated uint32 region_numbers = 11;
   string engine = 12;
 }
 

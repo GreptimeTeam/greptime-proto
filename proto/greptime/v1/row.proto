@@ -33,9 +33,7 @@ message ColumnSchema {
   SemanticType semantic_type = 3;
 }
 
-message Row {
-  repeated Value values = 1;
-}
+message Row { repeated Value values = 1; }
 
 message Value {
   oneof value_data {
@@ -58,10 +56,10 @@ message Value {
 
     int32 date_value = 14;
     int64 datetime_value = 15;
-    int64 ts_second_value = 16;
-    int64 ts_millisecond_value = 17;
-    int64 ts_microsecond_value = 18;
-    int64 ts_nanosecond_value = 19;
+    int64 timestamp_second_value = 16;
+    int64 timestamp_millisecond_value = 17;
+    int64 timestamp_microsecond_value = 18;
+    int64 timestamp_nanosecond_value = 19;
     int64 time_second_value = 20;
     int64 time_millisecond_value = 21;
     int64 time_microsecond_value = 22;

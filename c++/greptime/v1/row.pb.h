@@ -640,10 +640,10 @@ class Value final :
     kStringValue = 13,
     kDateValue = 14,
     kDatetimeValue = 15,
-    kTsSecondValue = 16,
-    kTsMillisecondValue = 17,
-    kTsMicrosecondValue = 18,
-    kTsNanosecondValue = 19,
+    kTimestampSecondValue = 16,
+    kTimestampMillisecondValue = 17,
+    kTimestampMicrosecondValue = 18,
+    kTimestampNanosecondValue = 19,
     kTimeSecondValue = 20,
     kTimeMillisecondValue = 21,
     kTimeMicrosecondValue = 22,
@@ -747,10 +747,10 @@ class Value final :
     kStringValueFieldNumber = 13,
     kDateValueFieldNumber = 14,
     kDatetimeValueFieldNumber = 15,
-    kTsSecondValueFieldNumber = 16,
-    kTsMillisecondValueFieldNumber = 17,
-    kTsMicrosecondValueFieldNumber = 18,
-    kTsNanosecondValueFieldNumber = 19,
+    kTimestampSecondValueFieldNumber = 16,
+    kTimestampMillisecondValueFieldNumber = 17,
+    kTimestampMicrosecondValueFieldNumber = 18,
+    kTimestampNanosecondValueFieldNumber = 19,
     kTimeSecondValueFieldNumber = 20,
     kTimeMillisecondValueFieldNumber = 21,
     kTimeMicrosecondValueFieldNumber = 22,
@@ -964,56 +964,56 @@ class Value final :
   void _internal_set_datetime_value(int64_t value);
   public:
 
-  // int64 ts_second_value = 16;
-  bool has_ts_second_value() const;
+  // int64 timestamp_second_value = 16;
+  bool has_timestamp_second_value() const;
   private:
-  bool _internal_has_ts_second_value() const;
+  bool _internal_has_timestamp_second_value() const;
   public:
-  void clear_ts_second_value();
-  int64_t ts_second_value() const;
-  void set_ts_second_value(int64_t value);
+  void clear_timestamp_second_value();
+  int64_t timestamp_second_value() const;
+  void set_timestamp_second_value(int64_t value);
   private:
-  int64_t _internal_ts_second_value() const;
-  void _internal_set_ts_second_value(int64_t value);
-  public:
-
-  // int64 ts_millisecond_value = 17;
-  bool has_ts_millisecond_value() const;
-  private:
-  bool _internal_has_ts_millisecond_value() const;
-  public:
-  void clear_ts_millisecond_value();
-  int64_t ts_millisecond_value() const;
-  void set_ts_millisecond_value(int64_t value);
-  private:
-  int64_t _internal_ts_millisecond_value() const;
-  void _internal_set_ts_millisecond_value(int64_t value);
+  int64_t _internal_timestamp_second_value() const;
+  void _internal_set_timestamp_second_value(int64_t value);
   public:
 
-  // int64 ts_microsecond_value = 18;
-  bool has_ts_microsecond_value() const;
+  // int64 timestamp_millisecond_value = 17;
+  bool has_timestamp_millisecond_value() const;
   private:
-  bool _internal_has_ts_microsecond_value() const;
+  bool _internal_has_timestamp_millisecond_value() const;
   public:
-  void clear_ts_microsecond_value();
-  int64_t ts_microsecond_value() const;
-  void set_ts_microsecond_value(int64_t value);
+  void clear_timestamp_millisecond_value();
+  int64_t timestamp_millisecond_value() const;
+  void set_timestamp_millisecond_value(int64_t value);
   private:
-  int64_t _internal_ts_microsecond_value() const;
-  void _internal_set_ts_microsecond_value(int64_t value);
+  int64_t _internal_timestamp_millisecond_value() const;
+  void _internal_set_timestamp_millisecond_value(int64_t value);
   public:
 
-  // int64 ts_nanosecond_value = 19;
-  bool has_ts_nanosecond_value() const;
+  // int64 timestamp_microsecond_value = 18;
+  bool has_timestamp_microsecond_value() const;
   private:
-  bool _internal_has_ts_nanosecond_value() const;
+  bool _internal_has_timestamp_microsecond_value() const;
   public:
-  void clear_ts_nanosecond_value();
-  int64_t ts_nanosecond_value() const;
-  void set_ts_nanosecond_value(int64_t value);
+  void clear_timestamp_microsecond_value();
+  int64_t timestamp_microsecond_value() const;
+  void set_timestamp_microsecond_value(int64_t value);
   private:
-  int64_t _internal_ts_nanosecond_value() const;
-  void _internal_set_ts_nanosecond_value(int64_t value);
+  int64_t _internal_timestamp_microsecond_value() const;
+  void _internal_set_timestamp_microsecond_value(int64_t value);
+  public:
+
+  // int64 timestamp_nanosecond_value = 19;
+  bool has_timestamp_nanosecond_value() const;
+  private:
+  bool _internal_has_timestamp_nanosecond_value() const;
+  public:
+  void clear_timestamp_nanosecond_value();
+  int64_t timestamp_nanosecond_value() const;
+  void set_timestamp_nanosecond_value(int64_t value);
+  private:
+  int64_t _internal_timestamp_nanosecond_value() const;
+  void _internal_set_timestamp_nanosecond_value(int64_t value);
   public:
 
   // int64 time_second_value = 20;
@@ -1132,10 +1132,10 @@ class Value final :
   void set_has_string_value();
   void set_has_date_value();
   void set_has_datetime_value();
-  void set_has_ts_second_value();
-  void set_has_ts_millisecond_value();
-  void set_has_ts_microsecond_value();
-  void set_has_ts_nanosecond_value();
+  void set_has_timestamp_second_value();
+  void set_has_timestamp_millisecond_value();
+  void set_has_timestamp_microsecond_value();
+  void set_has_timestamp_nanosecond_value();
   void set_has_time_second_value();
   void set_has_time_millisecond_value();
   void set_has_time_microsecond_value();
@@ -1169,10 +1169,10 @@ class Value final :
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr string_value_;
       int32_t date_value_;
       int64_t datetime_value_;
-      int64_t ts_second_value_;
-      int64_t ts_millisecond_value_;
-      int64_t ts_microsecond_value_;
-      int64_t ts_nanosecond_value_;
+      int64_t timestamp_second_value_;
+      int64_t timestamp_millisecond_value_;
+      int64_t timestamp_microsecond_value_;
+      int64_t timestamp_nanosecond_value_;
       int64_t time_second_value_;
       int64_t time_millisecond_value_;
       int64_t time_microsecond_value_;
@@ -2069,156 +2069,156 @@ inline void Value::set_datetime_value(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Value.datetime_value)
 }
 
-// int64 ts_second_value = 16;
-inline bool Value::_internal_has_ts_second_value() const {
-  return value_data_case() == kTsSecondValue;
+// int64 timestamp_second_value = 16;
+inline bool Value::_internal_has_timestamp_second_value() const {
+  return value_data_case() == kTimestampSecondValue;
 }
-inline bool Value::has_ts_second_value() const {
-  return _internal_has_ts_second_value();
+inline bool Value::has_timestamp_second_value() const {
+  return _internal_has_timestamp_second_value();
 }
-inline void Value::set_has_ts_second_value() {
-  _impl_._oneof_case_[0] = kTsSecondValue;
+inline void Value::set_has_timestamp_second_value() {
+  _impl_._oneof_case_[0] = kTimestampSecondValue;
 }
-inline void Value::clear_ts_second_value() {
-  if (_internal_has_ts_second_value()) {
-    _impl_.value_data_.ts_second_value_ = int64_t{0};
+inline void Value::clear_timestamp_second_value() {
+  if (_internal_has_timestamp_second_value()) {
+    _impl_.value_data_.timestamp_second_value_ = int64_t{0};
     clear_has_value_data();
   }
 }
-inline int64_t Value::_internal_ts_second_value() const {
-  if (_internal_has_ts_second_value()) {
-    return _impl_.value_data_.ts_second_value_;
+inline int64_t Value::_internal_timestamp_second_value() const {
+  if (_internal_has_timestamp_second_value()) {
+    return _impl_.value_data_.timestamp_second_value_;
   }
   return int64_t{0};
 }
-inline void Value::_internal_set_ts_second_value(int64_t value) {
-  if (!_internal_has_ts_second_value()) {
+inline void Value::_internal_set_timestamp_second_value(int64_t value) {
+  if (!_internal_has_timestamp_second_value()) {
     clear_value_data();
-    set_has_ts_second_value();
+    set_has_timestamp_second_value();
   }
-  _impl_.value_data_.ts_second_value_ = value;
+  _impl_.value_data_.timestamp_second_value_ = value;
 }
-inline int64_t Value::ts_second_value() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.ts_second_value)
-  return _internal_ts_second_value();
+inline int64_t Value::timestamp_second_value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.timestamp_second_value)
+  return _internal_timestamp_second_value();
 }
-inline void Value::set_ts_second_value(int64_t value) {
-  _internal_set_ts_second_value(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Value.ts_second_value)
+inline void Value::set_timestamp_second_value(int64_t value) {
+  _internal_set_timestamp_second_value(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Value.timestamp_second_value)
 }
 
-// int64 ts_millisecond_value = 17;
-inline bool Value::_internal_has_ts_millisecond_value() const {
-  return value_data_case() == kTsMillisecondValue;
+// int64 timestamp_millisecond_value = 17;
+inline bool Value::_internal_has_timestamp_millisecond_value() const {
+  return value_data_case() == kTimestampMillisecondValue;
 }
-inline bool Value::has_ts_millisecond_value() const {
-  return _internal_has_ts_millisecond_value();
+inline bool Value::has_timestamp_millisecond_value() const {
+  return _internal_has_timestamp_millisecond_value();
 }
-inline void Value::set_has_ts_millisecond_value() {
-  _impl_._oneof_case_[0] = kTsMillisecondValue;
+inline void Value::set_has_timestamp_millisecond_value() {
+  _impl_._oneof_case_[0] = kTimestampMillisecondValue;
 }
-inline void Value::clear_ts_millisecond_value() {
-  if (_internal_has_ts_millisecond_value()) {
-    _impl_.value_data_.ts_millisecond_value_ = int64_t{0};
+inline void Value::clear_timestamp_millisecond_value() {
+  if (_internal_has_timestamp_millisecond_value()) {
+    _impl_.value_data_.timestamp_millisecond_value_ = int64_t{0};
     clear_has_value_data();
   }
 }
-inline int64_t Value::_internal_ts_millisecond_value() const {
-  if (_internal_has_ts_millisecond_value()) {
-    return _impl_.value_data_.ts_millisecond_value_;
+inline int64_t Value::_internal_timestamp_millisecond_value() const {
+  if (_internal_has_timestamp_millisecond_value()) {
+    return _impl_.value_data_.timestamp_millisecond_value_;
   }
   return int64_t{0};
 }
-inline void Value::_internal_set_ts_millisecond_value(int64_t value) {
-  if (!_internal_has_ts_millisecond_value()) {
+inline void Value::_internal_set_timestamp_millisecond_value(int64_t value) {
+  if (!_internal_has_timestamp_millisecond_value()) {
     clear_value_data();
-    set_has_ts_millisecond_value();
+    set_has_timestamp_millisecond_value();
   }
-  _impl_.value_data_.ts_millisecond_value_ = value;
+  _impl_.value_data_.timestamp_millisecond_value_ = value;
 }
-inline int64_t Value::ts_millisecond_value() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.ts_millisecond_value)
-  return _internal_ts_millisecond_value();
+inline int64_t Value::timestamp_millisecond_value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.timestamp_millisecond_value)
+  return _internal_timestamp_millisecond_value();
 }
-inline void Value::set_ts_millisecond_value(int64_t value) {
-  _internal_set_ts_millisecond_value(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Value.ts_millisecond_value)
+inline void Value::set_timestamp_millisecond_value(int64_t value) {
+  _internal_set_timestamp_millisecond_value(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Value.timestamp_millisecond_value)
 }
 
-// int64 ts_microsecond_value = 18;
-inline bool Value::_internal_has_ts_microsecond_value() const {
-  return value_data_case() == kTsMicrosecondValue;
+// int64 timestamp_microsecond_value = 18;
+inline bool Value::_internal_has_timestamp_microsecond_value() const {
+  return value_data_case() == kTimestampMicrosecondValue;
 }
-inline bool Value::has_ts_microsecond_value() const {
-  return _internal_has_ts_microsecond_value();
+inline bool Value::has_timestamp_microsecond_value() const {
+  return _internal_has_timestamp_microsecond_value();
 }
-inline void Value::set_has_ts_microsecond_value() {
-  _impl_._oneof_case_[0] = kTsMicrosecondValue;
+inline void Value::set_has_timestamp_microsecond_value() {
+  _impl_._oneof_case_[0] = kTimestampMicrosecondValue;
 }
-inline void Value::clear_ts_microsecond_value() {
-  if (_internal_has_ts_microsecond_value()) {
-    _impl_.value_data_.ts_microsecond_value_ = int64_t{0};
+inline void Value::clear_timestamp_microsecond_value() {
+  if (_internal_has_timestamp_microsecond_value()) {
+    _impl_.value_data_.timestamp_microsecond_value_ = int64_t{0};
     clear_has_value_data();
   }
 }
-inline int64_t Value::_internal_ts_microsecond_value() const {
-  if (_internal_has_ts_microsecond_value()) {
-    return _impl_.value_data_.ts_microsecond_value_;
+inline int64_t Value::_internal_timestamp_microsecond_value() const {
+  if (_internal_has_timestamp_microsecond_value()) {
+    return _impl_.value_data_.timestamp_microsecond_value_;
   }
   return int64_t{0};
 }
-inline void Value::_internal_set_ts_microsecond_value(int64_t value) {
-  if (!_internal_has_ts_microsecond_value()) {
+inline void Value::_internal_set_timestamp_microsecond_value(int64_t value) {
+  if (!_internal_has_timestamp_microsecond_value()) {
     clear_value_data();
-    set_has_ts_microsecond_value();
+    set_has_timestamp_microsecond_value();
   }
-  _impl_.value_data_.ts_microsecond_value_ = value;
+  _impl_.value_data_.timestamp_microsecond_value_ = value;
 }
-inline int64_t Value::ts_microsecond_value() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.ts_microsecond_value)
-  return _internal_ts_microsecond_value();
+inline int64_t Value::timestamp_microsecond_value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.timestamp_microsecond_value)
+  return _internal_timestamp_microsecond_value();
 }
-inline void Value::set_ts_microsecond_value(int64_t value) {
-  _internal_set_ts_microsecond_value(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Value.ts_microsecond_value)
+inline void Value::set_timestamp_microsecond_value(int64_t value) {
+  _internal_set_timestamp_microsecond_value(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Value.timestamp_microsecond_value)
 }
 
-// int64 ts_nanosecond_value = 19;
-inline bool Value::_internal_has_ts_nanosecond_value() const {
-  return value_data_case() == kTsNanosecondValue;
+// int64 timestamp_nanosecond_value = 19;
+inline bool Value::_internal_has_timestamp_nanosecond_value() const {
+  return value_data_case() == kTimestampNanosecondValue;
 }
-inline bool Value::has_ts_nanosecond_value() const {
-  return _internal_has_ts_nanosecond_value();
+inline bool Value::has_timestamp_nanosecond_value() const {
+  return _internal_has_timestamp_nanosecond_value();
 }
-inline void Value::set_has_ts_nanosecond_value() {
-  _impl_._oneof_case_[0] = kTsNanosecondValue;
+inline void Value::set_has_timestamp_nanosecond_value() {
+  _impl_._oneof_case_[0] = kTimestampNanosecondValue;
 }
-inline void Value::clear_ts_nanosecond_value() {
-  if (_internal_has_ts_nanosecond_value()) {
-    _impl_.value_data_.ts_nanosecond_value_ = int64_t{0};
+inline void Value::clear_timestamp_nanosecond_value() {
+  if (_internal_has_timestamp_nanosecond_value()) {
+    _impl_.value_data_.timestamp_nanosecond_value_ = int64_t{0};
     clear_has_value_data();
   }
 }
-inline int64_t Value::_internal_ts_nanosecond_value() const {
-  if (_internal_has_ts_nanosecond_value()) {
-    return _impl_.value_data_.ts_nanosecond_value_;
+inline int64_t Value::_internal_timestamp_nanosecond_value() const {
+  if (_internal_has_timestamp_nanosecond_value()) {
+    return _impl_.value_data_.timestamp_nanosecond_value_;
   }
   return int64_t{0};
 }
-inline void Value::_internal_set_ts_nanosecond_value(int64_t value) {
-  if (!_internal_has_ts_nanosecond_value()) {
+inline void Value::_internal_set_timestamp_nanosecond_value(int64_t value) {
+  if (!_internal_has_timestamp_nanosecond_value()) {
     clear_value_data();
-    set_has_ts_nanosecond_value();
+    set_has_timestamp_nanosecond_value();
   }
-  _impl_.value_data_.ts_nanosecond_value_ = value;
+  _impl_.value_data_.timestamp_nanosecond_value_ = value;
 }
-inline int64_t Value::ts_nanosecond_value() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.ts_nanosecond_value)
-  return _internal_ts_nanosecond_value();
+inline int64_t Value::timestamp_nanosecond_value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.timestamp_nanosecond_value)
+  return _internal_timestamp_nanosecond_value();
 }
-inline void Value::set_ts_nanosecond_value(int64_t value) {
-  _internal_set_ts_nanosecond_value(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Value.ts_nanosecond_value)
+inline void Value::set_timestamp_nanosecond_value(int64_t value) {
+  _internal_set_timestamp_nanosecond_value(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Value.timestamp_nanosecond_value)
 }
 
 // int64 time_second_value = 20;
