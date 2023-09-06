@@ -1620,10 +1620,11 @@ class QueryRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlanFieldNumber = 2,
-    kRegionIdFieldNumber = 1,
+    kPlanFieldNumber = 3,
+    kHeaderFieldNumber = 1,
+    kRegionIdFieldNumber = 2,
   };
-  // bytes plan = 2;
+  // bytes plan = 3;
   void clear_plan();
   const std::string& plan() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1637,7 +1638,25 @@ class QueryRequest final :
   std::string* _internal_mutable_plan();
   public:
 
-  // uint64 region_id = 1;
+  // .greptime.v1.region.RegionRequestHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::region::RegionRequestHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::RegionRequestHeader* release_header();
+  ::greptime::v1::region::RegionRequestHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::region::RegionRequestHeader* header);
+  private:
+  const ::greptime::v1::region::RegionRequestHeader& _internal_header() const;
+  ::greptime::v1::region::RegionRequestHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::region::RegionRequestHeader* header);
+  ::greptime::v1::region::RegionRequestHeader* unsafe_arena_release_header();
+
+  // uint64 region_id = 2;
   void clear_region_id();
   uint64_t region_id() const;
   void set_region_id(uint64_t value);
@@ -1655,6 +1674,7 @@ class QueryRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr plan_;
+    ::greptime::v1::region::RegionRequestHeader* header_;
     uint64_t region_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -5078,7 +5098,97 @@ inline void DeleteRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
 
 // QueryRequest
 
-// uint64 region_id = 1;
+// .greptime.v1.region.RegionRequestHeader header = 1;
+inline bool QueryRequest::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool QueryRequest::has_header() const {
+  return _internal_has_header();
+}
+inline void QueryRequest::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+inline const ::greptime::v1::region::RegionRequestHeader& QueryRequest::_internal_header() const {
+  const ::greptime::v1::region::RegionRequestHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::RegionRequestHeader&>(
+      ::greptime::v1::region::_RegionRequestHeader_default_instance_);
+}
+inline const ::greptime::v1::region::RegionRequestHeader& QueryRequest::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.QueryRequest.header)
+  return _internal_header();
+}
+inline void QueryRequest::unsafe_arena_set_allocated_header(
+    ::greptime::v1::region::RegionRequestHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.QueryRequest.header)
+}
+inline ::greptime::v1::region::RegionRequestHeader* QueryRequest::release_header() {
+  
+  ::greptime::v1::region::RegionRequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::region::RegionRequestHeader* QueryRequest::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.QueryRequest.header)
+  
+  ::greptime::v1::region::RegionRequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::region::RegionRequestHeader* QueryRequest::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::region::RegionRequestHeader* QueryRequest::mutable_header() {
+  ::greptime::v1::region::RegionRequestHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.QueryRequest.header)
+  return _msg;
+}
+inline void QueryRequest::set_allocated_header(::greptime::v1::region::RegionRequestHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.header_;
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(header);
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.QueryRequest.header)
+}
+
+// uint64 region_id = 2;
 inline void QueryRequest::clear_region_id() {
   _impl_.region_id_ = uint64_t{0u};
 }
@@ -5098,7 +5208,7 @@ inline void QueryRequest::set_region_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.QueryRequest.region_id)
 }
 
-// bytes plan = 2;
+// bytes plan = 3;
 inline void QueryRequest::clear_plan() {
   _impl_.plan_.ClearToEmpty();
 }

@@ -1101,7 +1101,6 @@ class InsertRequest final :
     kColumnsFieldNumber = 3,
     kTableNameFieldNumber = 1,
     kRowCountFieldNumber = 4,
-    kRegionNumberFieldNumber = 5,
   };
   // repeated .greptime.v1.Column columns = 3;
   int columns_size() const;
@@ -1144,15 +1143,6 @@ class InsertRequest final :
   void _internal_set_row_count(uint32_t value);
   public:
 
-  // uint32 region_number = 5;
-  void clear_region_number();
-  uint32_t region_number() const;
-  void set_region_number(uint32_t value);
-  private:
-  uint32_t _internal_region_number() const;
-  void _internal_set_region_number(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.InsertRequest)
  private:
   class _Internal;
@@ -1164,7 +1154,6 @@ class InsertRequest final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column > columns_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     uint32_t row_count_;
-    uint32_t region_number_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1452,7 +1441,6 @@ class DeleteRequest final :
   enum : int {
     kKeyColumnsFieldNumber = 3,
     kTableNameFieldNumber = 1,
-    kRegionNumberFieldNumber = 2,
     kRowCountFieldNumber = 4,
   };
   // repeated .greptime.v1.Column key_columns = 3;
@@ -1487,15 +1475,6 @@ class DeleteRequest final :
   std::string* _internal_mutable_table_name();
   public:
 
-  // uint32 region_number = 2;
-  void clear_region_number();
-  uint32_t region_number() const;
-  void set_region_number(uint32_t value);
-  private:
-  uint32_t _internal_region_number() const;
-  void _internal_set_region_number(uint32_t value);
-  public:
-
   // uint32 row_count = 4;
   void clear_row_count();
   uint32_t row_count() const;
@@ -1515,7 +1494,6 @@ class DeleteRequest final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column > key_columns_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
-    uint32_t region_number_;
     uint32_t row_count_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1804,7 +1782,6 @@ class RowInsertRequest final :
   enum : int {
     kTableNameFieldNumber = 1,
     kRowsFieldNumber = 2,
-    kRegionNumberFieldNumber = 3,
   };
   // string table_name = 1;
   void clear_table_name();
@@ -1838,15 +1815,6 @@ class RowInsertRequest final :
       ::greptime::v1::Rows* rows);
   ::greptime::v1::Rows* unsafe_arena_release_rows();
 
-  // uint32 region_number = 3;
-  void clear_region_number();
-  uint32_t region_number() const;
-  void set_region_number(uint32_t value);
-  private:
-  uint32_t _internal_region_number() const;
-  void _internal_set_region_number(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.RowInsertRequest)
  private:
   class _Internal;
@@ -1857,7 +1825,6 @@ class RowInsertRequest final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     ::greptime::v1::Rows* rows_;
-    uint32_t region_number_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2145,7 +2112,6 @@ class RowDeleteRequest final :
   enum : int {
     kTableNameFieldNumber = 1,
     kRowsFieldNumber = 2,
-    kRegionNumberFieldNumber = 3,
   };
   // string table_name = 1;
   void clear_table_name();
@@ -2179,15 +2145,6 @@ class RowDeleteRequest final :
       ::greptime::v1::Rows* rows);
   ::greptime::v1::Rows* unsafe_arena_release_rows();
 
-  // uint32 region_number = 3;
-  void clear_region_number();
-  uint32_t region_number() const;
-  void set_region_number(uint32_t value);
-  private:
-  uint32_t _internal_region_number() const;
-  void _internal_set_region_number(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.RowDeleteRequest)
  private:
   class _Internal;
@@ -2198,7 +2155,6 @@ class RowDeleteRequest final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     ::greptime::v1::Rows* rows_;
-    uint32_t region_number_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3297,26 +3253,6 @@ inline void InsertRequest::set_row_count(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.InsertRequest.row_count)
 }
 
-// uint32 region_number = 5;
-inline void InsertRequest::clear_region_number() {
-  _impl_.region_number_ = 0u;
-}
-inline uint32_t InsertRequest::_internal_region_number() const {
-  return _impl_.region_number_;
-}
-inline uint32_t InsertRequest::region_number() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.InsertRequest.region_number)
-  return _internal_region_number();
-}
-inline void InsertRequest::_internal_set_region_number(uint32_t value) {
-  
-  _impl_.region_number_ = value;
-}
-inline void InsertRequest::set_region_number(uint32_t value) {
-  _internal_set_region_number(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.InsertRequest.region_number)
-}
-
 // -------------------------------------------------------------------
 
 // DeleteRequests
@@ -3413,26 +3349,6 @@ inline void DeleteRequest::set_allocated_table_name(std::string* table_name) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.DeleteRequest.table_name)
-}
-
-// uint32 region_number = 2;
-inline void DeleteRequest::clear_region_number() {
-  _impl_.region_number_ = 0u;
-}
-inline uint32_t DeleteRequest::_internal_region_number() const {
-  return _impl_.region_number_;
-}
-inline uint32_t DeleteRequest::region_number() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.DeleteRequest.region_number)
-  return _internal_region_number();
-}
-inline void DeleteRequest::_internal_set_region_number(uint32_t value) {
-  
-  _impl_.region_number_ = value;
-}
-inline void DeleteRequest::set_region_number(uint32_t value) {
-  _internal_set_region_number(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.DeleteRequest.region_number)
 }
 
 // repeated .greptime.v1.Column key_columns = 3;
@@ -3675,26 +3591,6 @@ inline void RowInsertRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.RowInsertRequest.rows)
 }
 
-// uint32 region_number = 3;
-inline void RowInsertRequest::clear_region_number() {
-  _impl_.region_number_ = 0u;
-}
-inline uint32_t RowInsertRequest::_internal_region_number() const {
-  return _impl_.region_number_;
-}
-inline uint32_t RowInsertRequest::region_number() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.RowInsertRequest.region_number)
-  return _internal_region_number();
-}
-inline void RowInsertRequest::_internal_set_region_number(uint32_t value) {
-  
-  _impl_.region_number_ = value;
-}
-inline void RowInsertRequest::set_region_number(uint32_t value) {
-  _internal_set_region_number(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.RowInsertRequest.region_number)
-}
-
 // -------------------------------------------------------------------
 
 // RowDeleteRequests
@@ -3876,26 +3772,6 @@ inline void RowDeleteRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
   }
   _impl_.rows_ = rows;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.RowDeleteRequest.rows)
-}
-
-// uint32 region_number = 3;
-inline void RowDeleteRequest::clear_region_number() {
-  _impl_.region_number_ = 0u;
-}
-inline uint32_t RowDeleteRequest::_internal_region_number() const {
-  return _impl_.region_number_;
-}
-inline uint32_t RowDeleteRequest::region_number() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.RowDeleteRequest.region_number)
-  return _internal_region_number();
-}
-inline void RowDeleteRequest::_internal_set_region_number(uint32_t value) {
-  
-  _impl_.region_number_ = value;
-}
-inline void RowDeleteRequest::set_region_number(uint32_t value) {
-  _internal_set_region_number(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.RowDeleteRequest.region_number)
 }
 
 #ifdef __GNUC__

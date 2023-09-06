@@ -4902,16 +4902,6 @@ public final class Database {
      * @return The rowCount.
      */
     int getRowCount();
-
-    /**
-     * <pre>
-     * The region number of current insert request.
-     * </pre>
-     *
-     * <code>uint32 region_number = 5;</code>
-     * @return The regionNumber.
-     */
-    int getRegionNumber();
   }
   /**
    * Protobuf type {@code greptime.v1.InsertRequest}
@@ -4979,11 +4969,6 @@ public final class Database {
             case 32: {
 
               rowCount_ = input.readUInt32();
-              break;
-            }
-            case 40: {
-
-              regionNumber_ = input.readUInt32();
               break;
             }
             default: {
@@ -5137,21 +5122,6 @@ public final class Database {
       return rowCount_;
     }
 
-    public static final int REGION_NUMBER_FIELD_NUMBER = 5;
-    private int regionNumber_;
-    /**
-     * <pre>
-     * The region number of current insert request.
-     * </pre>
-     *
-     * <code>uint32 region_number = 5;</code>
-     * @return The regionNumber.
-     */
-    @java.lang.Override
-    public int getRegionNumber() {
-      return regionNumber_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5175,9 +5145,6 @@ public final class Database {
       if (rowCount_ != 0) {
         output.writeUInt32(4, rowCount_);
       }
-      if (regionNumber_ != 0) {
-        output.writeUInt32(5, regionNumber_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -5197,10 +5164,6 @@ public final class Database {
       if (rowCount_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, rowCount_);
-      }
-      if (regionNumber_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, regionNumber_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5223,8 +5186,6 @@ public final class Database {
           .equals(other.getColumnsList())) return false;
       if (getRowCount()
           != other.getRowCount()) return false;
-      if (getRegionNumber()
-          != other.getRegionNumber()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5244,8 +5205,6 @@ public final class Database {
       }
       hash = (37 * hash) + ROW_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + getRowCount();
-      hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + getRegionNumber();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5390,8 +5349,6 @@ public final class Database {
         }
         rowCount_ = 0;
 
-        regionNumber_ = 0;
-
         return this;
       }
 
@@ -5430,7 +5387,6 @@ public final class Database {
           result.columns_ = columnsBuilder_.build();
         }
         result.rowCount_ = rowCount_;
-        result.regionNumber_ = regionNumber_;
         onBuilt();
         return result;
       }
@@ -5511,9 +5467,6 @@ public final class Database {
         }
         if (other.getRowCount() != 0) {
           setRowCount(other.getRowCount());
-        }
-        if (other.getRegionNumber() != 0) {
-          setRegionNumber(other.getRegionNumber());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5975,49 +5928,6 @@ public final class Database {
       public Builder clearRowCount() {
         
         rowCount_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int regionNumber_ ;
-      /**
-       * <pre>
-       * The region number of current insert request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 5;</code>
-       * @return The regionNumber.
-       */
-      @java.lang.Override
-      public int getRegionNumber() {
-        return regionNumber_;
-      }
-      /**
-       * <pre>
-       * The region number of current insert request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 5;</code>
-       * @param value The regionNumber to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegionNumber(int value) {
-        
-        regionNumber_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The region number of current insert request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRegionNumber() {
-        
-        regionNumber_ = 0;
         onChanged();
         return this;
       }
@@ -6897,16 +6807,6 @@ public final class Database {
 
     /**
      * <pre>
-     * The region number of current delete request.
-     * </pre>
-     *
-     * <code>uint32 region_number = 2;</code>
-     * @return The regionNumber.
-     */
-    int getRegionNumber();
-
-    /**
-     * <pre>
      * The data to delete, indexed by key columns.
      * </pre>
      *
@@ -7013,11 +6913,6 @@ public final class Database {
               tableName_ = s;
               break;
             }
-            case 16: {
-
-              regionNumber_ = input.readUInt32();
-              break;
-            }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 keyColumns_ = new java.util.ArrayList<io.greptime.v1.Columns.Column>();
@@ -7117,21 +7012,6 @@ public final class Database {
       }
     }
 
-    public static final int REGION_NUMBER_FIELD_NUMBER = 2;
-    private int regionNumber_;
-    /**
-     * <pre>
-     * The region number of current delete request.
-     * </pre>
-     *
-     * <code>uint32 region_number = 2;</code>
-     * @return The regionNumber.
-     */
-    @java.lang.Override
-    public int getRegionNumber() {
-      return regionNumber_;
-    }
-
     public static final int KEY_COLUMNS_FIELD_NUMBER = 3;
     private java.util.List<io.greptime.v1.Columns.Column> keyColumns_;
     /**
@@ -7224,9 +7104,6 @@ public final class Database {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tableName_);
       }
-      if (regionNumber_ != 0) {
-        output.writeUInt32(2, regionNumber_);
-      }
       for (int i = 0; i < keyColumns_.size(); i++) {
         output.writeMessage(3, keyColumns_.get(i));
       }
@@ -7244,10 +7121,6 @@ public final class Database {
       size = 0;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tableName_);
-      }
-      if (regionNumber_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, regionNumber_);
       }
       for (int i = 0; i < keyColumns_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -7274,8 +7147,6 @@ public final class Database {
 
       if (!getTableName()
           .equals(other.getTableName())) return false;
-      if (getRegionNumber()
-          != other.getRegionNumber()) return false;
       if (!getKeyColumnsList()
           .equals(other.getKeyColumnsList())) return false;
       if (getRowCount()
@@ -7293,8 +7164,6 @@ public final class Database {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getTableName().hashCode();
-      hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + getRegionNumber();
       if (getKeyColumnsCount() > 0) {
         hash = (37 * hash) + KEY_COLUMNS_FIELD_NUMBER;
         hash = (53 * hash) + getKeyColumnsList().hashCode();
@@ -7437,8 +7306,6 @@ public final class Database {
         super.clear();
         tableName_ = "";
 
-        regionNumber_ = 0;
-
         if (keyColumnsBuilder_ == null) {
           keyColumns_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -7475,7 +7342,6 @@ public final class Database {
         io.greptime.v1.Database.DeleteRequest result = new io.greptime.v1.Database.DeleteRequest(this);
         int from_bitField0_ = bitField0_;
         result.tableName_ = tableName_;
-        result.regionNumber_ = regionNumber_;
         if (keyColumnsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             keyColumns_ = java.util.Collections.unmodifiableList(keyColumns_);
@@ -7537,9 +7403,6 @@ public final class Database {
         if (!other.getTableName().isEmpty()) {
           tableName_ = other.tableName_;
           onChanged();
-        }
-        if (other.getRegionNumber() != 0) {
-          setRegionNumber(other.getRegionNumber());
         }
         if (keyColumnsBuilder_ == null) {
           if (!other.keyColumns_.isEmpty()) {
@@ -7697,49 +7560,6 @@ public final class Database {
   checkByteStringIsUtf8(value);
         
         tableName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int regionNumber_ ;
-      /**
-       * <pre>
-       * The region number of current delete request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 2;</code>
-       * @return The regionNumber.
-       */
-      @java.lang.Override
-      public int getRegionNumber() {
-        return regionNumber_;
-      }
-      /**
-       * <pre>
-       * The region number of current delete request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 2;</code>
-       * @param value The regionNumber to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegionNumber(int value) {
-        
-        regionNumber_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The region number of current delete request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRegionNumber() {
-        
-        regionNumber_ = 0;
         onChanged();
         return this;
       }
@@ -8988,16 +8808,6 @@ public final class Database {
      * <code>.greptime.v1.Rows rows = 2;</code>
      */
     io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder();
-
-    /**
-     * <pre>
-     * The region number of current insert request.
-     * </pre>
-     *
-     * <code>uint32 region_number = 3;</code>
-     * @return The regionNumber.
-     */
-    int getRegionNumber();
   }
   /**
    * Protobuf type {@code greptime.v1.RowInsertRequest}
@@ -9062,11 +8872,6 @@ public final class Database {
                 rows_ = subBuilder.buildPartial();
               }
 
-              break;
-            }
-            case 24: {
-
-              regionNumber_ = input.readUInt32();
               break;
             }
             default: {
@@ -9179,21 +8984,6 @@ public final class Database {
       return getRows();
     }
 
-    public static final int REGION_NUMBER_FIELD_NUMBER = 3;
-    private int regionNumber_;
-    /**
-     * <pre>
-     * The region number of current insert request.
-     * </pre>
-     *
-     * <code>uint32 region_number = 3;</code>
-     * @return The regionNumber.
-     */
-    @java.lang.Override
-    public int getRegionNumber() {
-      return regionNumber_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -9214,9 +9004,6 @@ public final class Database {
       if (rows_ != null) {
         output.writeMessage(2, getRows());
       }
-      if (regionNumber_ != 0) {
-        output.writeUInt32(3, regionNumber_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -9232,10 +9019,6 @@ public final class Database {
       if (rows_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRows());
-      }
-      if (regionNumber_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, regionNumber_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9259,8 +9042,6 @@ public final class Database {
         if (!getRows()
             .equals(other.getRows())) return false;
       }
-      if (getRegionNumber()
-          != other.getRegionNumber()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9278,8 +9059,6 @@ public final class Database {
         hash = (37 * hash) + ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getRows().hashCode();
       }
-      hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + getRegionNumber();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9421,8 +9200,6 @@ public final class Database {
           rows_ = null;
           rowsBuilder_ = null;
         }
-        regionNumber_ = 0;
-
         return this;
       }
 
@@ -9455,7 +9232,6 @@ public final class Database {
         } else {
           result.rows_ = rowsBuilder_.build();
         }
-        result.regionNumber_ = regionNumber_;
         onBuilt();
         return result;
       }
@@ -9510,9 +9286,6 @@ public final class Database {
         }
         if (other.hasRows()) {
           mergeRows(other.getRows());
-        }
-        if (other.getRegionNumber() != 0) {
-          setRegionNumber(other.getRegionNumber());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9772,49 +9545,6 @@ public final class Database {
           rows_ = null;
         }
         return rowsBuilder_;
-      }
-
-      private int regionNumber_ ;
-      /**
-       * <pre>
-       * The region number of current insert request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 3;</code>
-       * @return The regionNumber.
-       */
-      @java.lang.Override
-      public int getRegionNumber() {
-        return regionNumber_;
-      }
-      /**
-       * <pre>
-       * The region number of current insert request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 3;</code>
-       * @param value The regionNumber to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegionNumber(int value) {
-        
-        regionNumber_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The region number of current insert request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRegionNumber() {
-        
-        regionNumber_ = 0;
-        onChanged();
-        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -10716,16 +10446,6 @@ public final class Database {
      * <code>.greptime.v1.Rows rows = 2;</code>
      */
     io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder();
-
-    /**
-     * <pre>
-     * The region number of current delete request.
-     * </pre>
-     *
-     * <code>uint32 region_number = 3;</code>
-     * @return The regionNumber.
-     */
-    int getRegionNumber();
   }
   /**
    * Protobuf type {@code greptime.v1.RowDeleteRequest}
@@ -10790,11 +10510,6 @@ public final class Database {
                 rows_ = subBuilder.buildPartial();
               }
 
-              break;
-            }
-            case 24: {
-
-              regionNumber_ = input.readUInt32();
               break;
             }
             default: {
@@ -10917,21 +10632,6 @@ public final class Database {
       return getRows();
     }
 
-    public static final int REGION_NUMBER_FIELD_NUMBER = 3;
-    private int regionNumber_;
-    /**
-     * <pre>
-     * The region number of current delete request.
-     * </pre>
-     *
-     * <code>uint32 region_number = 3;</code>
-     * @return The regionNumber.
-     */
-    @java.lang.Override
-    public int getRegionNumber() {
-      return regionNumber_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -10952,9 +10652,6 @@ public final class Database {
       if (rows_ != null) {
         output.writeMessage(2, getRows());
       }
-      if (regionNumber_ != 0) {
-        output.writeUInt32(3, regionNumber_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -10970,10 +10667,6 @@ public final class Database {
       if (rows_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRows());
-      }
-      if (regionNumber_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, regionNumber_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10997,8 +10690,6 @@ public final class Database {
         if (!getRows()
             .equals(other.getRows())) return false;
       }
-      if (getRegionNumber()
-          != other.getRegionNumber()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -11016,8 +10707,6 @@ public final class Database {
         hash = (37 * hash) + ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getRows().hashCode();
       }
-      hash = (37 * hash) + REGION_NUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + getRegionNumber();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -11159,8 +10848,6 @@ public final class Database {
           rows_ = null;
           rowsBuilder_ = null;
         }
-        regionNumber_ = 0;
-
         return this;
       }
 
@@ -11193,7 +10880,6 @@ public final class Database {
         } else {
           result.rows_ = rowsBuilder_.build();
         }
-        result.regionNumber_ = regionNumber_;
         onBuilt();
         return result;
       }
@@ -11248,9 +10934,6 @@ public final class Database {
         }
         if (other.hasRows()) {
           mergeRows(other.getRows());
-        }
-        if (other.getRegionNumber() != 0) {
-          setRegionNumber(other.getRegionNumber());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -11536,49 +11219,6 @@ public final class Database {
         }
         return rowsBuilder_;
       }
-
-      private int regionNumber_ ;
-      /**
-       * <pre>
-       * The region number of current delete request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 3;</code>
-       * @return The regionNumber.
-       */
-      @java.lang.Override
-      public int getRegionNumber() {
-        return regionNumber_;
-      }
-      /**
-       * <pre>
-       * The region number of current delete request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 3;</code>
-       * @param value The regionNumber to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegionNumber(int value) {
-        
-        regionNumber_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The region number of current delete request.
-       * </pre>
-       *
-       * <code>uint32 region_number = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRegionNumber() {
-        
-        regionNumber_ = 0;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -11717,29 +11357,27 @@ public final class Database {
       "_range_query\030\003 \001(\0132\033.greptime.v1.PromRan" +
       "geQueryH\000B\007\n\005query\"=\n\016InsertRequests\022+\n\007" +
       "inserts\030\001 \003(\0132\032.greptime.v1.InsertReques" +
-      "t\"s\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$" +
+      "t\"\\\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$" +
       "\n\007columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\t" +
-      "row_count\030\004 \001(\r\022\025\n\rregion_number\030\005 \001(\r\"=" +
-      "\n\016DeleteRequests\022+\n\007deletes\030\001 \003(\0132\032.grep" +
-      "time.v1.DeleteRequest\"w\n\rDeleteRequest\022\022" +
-      "\n\ntable_name\030\001 \001(\t\022\025\n\rregion_number\030\002 \001(" +
-      "\r\022(\n\013key_columns\030\003 \003(\0132\023.greptime.v1.Col" +
-      "umn\022\021\n\trow_count\030\004 \001(\r\"C\n\021RowInsertReque" +
-      "sts\022.\n\007inserts\030\001 \003(\0132\035.greptime.v1.RowIn" +
-      "sertRequest\"^\n\020RowInsertRequest\022\022\n\ntable" +
-      "_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1." +
-      "Rows\022\025\n\rregion_number\030\003 \001(\r\"C\n\021RowDelete" +
-      "Requests\022.\n\007deletes\030\001 \003(\0132\035.greptime.v1." +
-      "RowDeleteRequest\"^\n\020RowDeleteRequest\022\022\n\n" +
-      "table_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptim" +
-      "e.v1.Rows\022\025\n\rregion_number\030\003 \001(\r2\252\001\n\020Gre" +
-      "ptimeDatabase\022E\n\006Handle\022\034.greptime.v1.Gr" +
-      "eptimeRequest\032\035.greptime.v1.GreptimeResp" +
-      "onse\022O\n\016HandleRequests\022\034.greptime.v1.Gre" +
-      "ptimeRequest\032\035.greptime.v1.GreptimeRespo" +
-      "nse(\001BQ\n\016io.greptime.v1B\010DatabaseZ5githu" +
-      "b.com/GreptimeTeam/greptime-proto/go/gre" +
-      "ptime/v1b\006proto3"
+      "row_count\030\004 \001(\r\"=\n\016DeleteRequests\022+\n\007del" +
+      "etes\030\001 \003(\0132\032.greptime.v1.DeleteRequest\"`" +
+      "\n\rDeleteRequest\022\022\n\ntable_name\030\001 \001(\t\022(\n\013k" +
+      "ey_columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n" +
+      "\trow_count\030\004 \001(\r\"C\n\021RowInsertRequests\022.\n" +
+      "\007inserts\030\001 \003(\0132\035.greptime.v1.RowInsertRe" +
+      "quest\"G\n\020RowInsertRequest\022\022\n\ntable_name\030" +
+      "\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C" +
+      "\n\021RowDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035.g" +
+      "reptime.v1.RowDeleteRequest\"G\n\020RowDelete" +
+      "Request\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(" +
+      "\0132\021.greptime.v1.Rows2\252\001\n\020GreptimeDatabas" +
+      "e\022E\n\006Handle\022\034.greptime.v1.GreptimeReques" +
+      "t\032\035.greptime.v1.GreptimeResponse\022O\n\016Hand" +
+      "leRequests\022\034.greptime.v1.GreptimeRequest" +
+      "\032\035.greptime.v1.GreptimeResponse(\001BQ\n\016io." +
+      "greptime.v1B\010DatabaseZ5github.com/Grepti" +
+      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11779,7 +11417,7 @@ public final class Database {
     internal_static_greptime_v1_InsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_InsertRequest_descriptor,
-        new java.lang.String[] { "TableName", "Columns", "RowCount", "RegionNumber", });
+        new java.lang.String[] { "TableName", "Columns", "RowCount", });
     internal_static_greptime_v1_DeleteRequests_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_DeleteRequests_fieldAccessorTable = new
@@ -11791,7 +11429,7 @@ public final class Database {
     internal_static_greptime_v1_DeleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DeleteRequest_descriptor,
-        new java.lang.String[] { "TableName", "RegionNumber", "KeyColumns", "RowCount", });
+        new java.lang.String[] { "TableName", "KeyColumns", "RowCount", });
     internal_static_greptime_v1_RowInsertRequests_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_RowInsertRequests_fieldAccessorTable = new
@@ -11803,7 +11441,7 @@ public final class Database {
     internal_static_greptime_v1_RowInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowInsertRequest_descriptor,
-        new java.lang.String[] { "TableName", "Rows", "RegionNumber", });
+        new java.lang.String[] { "TableName", "Rows", });
     internal_static_greptime_v1_RowDeleteRequests_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_RowDeleteRequests_fieldAccessorTable = new
@@ -11815,7 +11453,7 @@ public final class Database {
     internal_static_greptime_v1_RowDeleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowDeleteRequest_descriptor,
-        new java.lang.String[] { "TableName", "Rows", "RegionNumber", });
+        new java.lang.String[] { "TableName", "Rows", });
     io.greptime.v1.Ddl.getDescriptor();
     io.greptime.v1.Columns.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
