@@ -57,6 +57,10 @@ message Column {
     repeated int32 interval_year_month_values = 24;
     repeated int64 interval_day_time_values = 25;
     repeated IntervalMonthDayNano interval_month_day_nano_values = 26;
+    repeated int64 duration_second_values = 27;
+    repeated int64 duration_millisecond_values = 28;
+    repeated int64 duration_microsecond_values = 29;
+    repeated int64 duration_nanosecond_values = 30;
   }
   // The array of non-null values in this column.
   //
