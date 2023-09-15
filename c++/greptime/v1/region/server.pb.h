@@ -1837,10 +1837,9 @@ class CreateRequest final :
   enum : int {
     kColumnDefsFieldNumber = 3,
     kPrimaryKeyFieldNumber = 4,
-    kOptionsFieldNumber = 8,
+    kOptionsFieldNumber = 7,
     kEngineFieldNumber = 2,
-    kCatalogFieldNumber = 6,
-    kSchemaFieldNumber = 7,
+    kPathFieldNumber = 6,
     kRegionIdFieldNumber = 1,
     kCreateIfNotExistsFieldNumber = 5,
   };
@@ -1884,7 +1883,7 @@ class CreateRequest final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_primary_key();
 
-  // map<string, string> options = 8;
+  // map<string, string> options = 7;
   int options_size() const;
   private:
   int _internal_options_size() const;
@@ -1915,32 +1914,18 @@ class CreateRequest final :
   std::string* _internal_mutable_engine();
   public:
 
-  // string catalog = 6;
-  void clear_catalog();
-  const std::string& catalog() const;
+  // string path = 6;
+  void clear_path();
+  const std::string& path() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_catalog(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_catalog();
-  PROTOBUF_NODISCARD std::string* release_catalog();
-  void set_allocated_catalog(std::string* catalog);
+  void set_path(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_path();
+  PROTOBUF_NODISCARD std::string* release_path();
+  void set_allocated_path(std::string* path);
   private:
-  const std::string& _internal_catalog() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog(const std::string& value);
-  std::string* _internal_mutable_catalog();
-  public:
-
-  // string schema = 7;
-  void clear_schema();
-  const std::string& schema() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_schema(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_schema();
-  PROTOBUF_NODISCARD std::string* release_schema();
-  void set_allocated_schema(std::string* schema);
-  private:
-  const std::string& _internal_schema() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema(const std::string& value);
-  std::string* _internal_mutable_schema();
+  const std::string& _internal_path() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_path(const std::string& value);
+  std::string* _internal_mutable_path();
   public:
 
   // uint64 region_id = 1;
@@ -1978,8 +1963,7 @@ class CreateRequest final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr path_;
     uint64_t region_id_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2289,13 +2273,12 @@ class OpenRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOptionsFieldNumber = 5,
+    kOptionsFieldNumber = 4,
     kEngineFieldNumber = 2,
-    kCatalogFieldNumber = 3,
-    kSchemaFieldNumber = 4,
+    kPathFieldNumber = 3,
     kRegionIdFieldNumber = 1,
   };
-  // map<string, string> options = 5;
+  // map<string, string> options = 4;
   int options_size() const;
   private:
   int _internal_options_size() const;
@@ -2326,32 +2309,18 @@ class OpenRequest final :
   std::string* _internal_mutable_engine();
   public:
 
-  // string catalog = 3;
-  void clear_catalog();
-  const std::string& catalog() const;
+  // string path = 3;
+  void clear_path();
+  const std::string& path() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_catalog(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_catalog();
-  PROTOBUF_NODISCARD std::string* release_catalog();
-  void set_allocated_catalog(std::string* catalog);
+  void set_path(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_path();
+  PROTOBUF_NODISCARD std::string* release_path();
+  void set_allocated_path(std::string* path);
   private:
-  const std::string& _internal_catalog() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog(const std::string& value);
-  std::string* _internal_mutable_catalog();
-  public:
-
-  // string schema = 4;
-  void clear_schema();
-  const std::string& schema() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_schema(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_schema();
-  PROTOBUF_NODISCARD std::string* release_schema();
-  void set_allocated_schema(std::string* schema);
-  private:
-  const std::string& _internal_schema() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema(const std::string& value);
-  std::string* _internal_mutable_schema();
+  const std::string& _internal_path() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_path(const std::string& value);
+  std::string* _internal_mutable_path();
   public:
 
   // uint64 region_id = 1;
@@ -2377,8 +2346,7 @@ class OpenRequest final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr path_;
     uint64_t region_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -5441,107 +5409,57 @@ inline void CreateRequest::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.CreateRequest.create_if_not_exists)
 }
 
-// string catalog = 6;
-inline void CreateRequest::clear_catalog() {
-  _impl_.catalog_.ClearToEmpty();
+// string path = 6;
+inline void CreateRequest::clear_path() {
+  _impl_.path_.ClearToEmpty();
 }
-inline const std::string& CreateRequest::catalog() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.CreateRequest.catalog)
-  return _internal_catalog();
+inline const std::string& CreateRequest::path() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CreateRequest.path)
+  return _internal_path();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CreateRequest::set_catalog(ArgT0&& arg0, ArgT... args) {
+void CreateRequest::set_path(ArgT0&& arg0, ArgT... args) {
  
- _impl_.catalog_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.region.CreateRequest.catalog)
+ _impl_.path_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CreateRequest.path)
 }
-inline std::string* CreateRequest::mutable_catalog() {
-  std::string* _s = _internal_mutable_catalog();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CreateRequest.catalog)
+inline std::string* CreateRequest::mutable_path() {
+  std::string* _s = _internal_mutable_path();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CreateRequest.path)
   return _s;
 }
-inline const std::string& CreateRequest::_internal_catalog() const {
-  return _impl_.catalog_.Get();
+inline const std::string& CreateRequest::_internal_path() const {
+  return _impl_.path_.Get();
 }
-inline void CreateRequest::_internal_set_catalog(const std::string& value) {
+inline void CreateRequest::_internal_set_path(const std::string& value) {
   
-  _impl_.catalog_.Set(value, GetArenaForAllocation());
+  _impl_.path_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CreateRequest::_internal_mutable_catalog() {
+inline std::string* CreateRequest::_internal_mutable_path() {
   
-  return _impl_.catalog_.Mutable(GetArenaForAllocation());
+  return _impl_.path_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CreateRequest::release_catalog() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.CreateRequest.catalog)
-  return _impl_.catalog_.Release();
+inline std::string* CreateRequest::release_path() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CreateRequest.path)
+  return _impl_.path_.Release();
 }
-inline void CreateRequest::set_allocated_catalog(std::string* catalog) {
-  if (catalog != nullptr) {
+inline void CreateRequest::set_allocated_path(std::string* path) {
+  if (path != nullptr) {
     
   } else {
     
   }
-  _impl_.catalog_.SetAllocated(catalog, GetArenaForAllocation());
+  _impl_.path_.SetAllocated(path, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.catalog_.IsDefault()) {
-    _impl_.catalog_.Set("", GetArenaForAllocation());
+  if (_impl_.path_.IsDefault()) {
+    _impl_.path_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CreateRequest.catalog)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CreateRequest.path)
 }
 
-// string schema = 7;
-inline void CreateRequest::clear_schema() {
-  _impl_.schema_.ClearToEmpty();
-}
-inline const std::string& CreateRequest::schema() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.CreateRequest.schema)
-  return _internal_schema();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CreateRequest::set_schema(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.schema_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.region.CreateRequest.schema)
-}
-inline std::string* CreateRequest::mutable_schema() {
-  std::string* _s = _internal_mutable_schema();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CreateRequest.schema)
-  return _s;
-}
-inline const std::string& CreateRequest::_internal_schema() const {
-  return _impl_.schema_.Get();
-}
-inline void CreateRequest::_internal_set_schema(const std::string& value) {
-  
-  _impl_.schema_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CreateRequest::_internal_mutable_schema() {
-  
-  return _impl_.schema_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CreateRequest::release_schema() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.CreateRequest.schema)
-  return _impl_.schema_.Release();
-}
-inline void CreateRequest::set_allocated_schema(std::string* schema) {
-  if (schema != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.schema_.SetAllocated(schema, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.schema_.IsDefault()) {
-    _impl_.schema_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CreateRequest.schema)
-}
-
-// map<string, string> options = 8;
+// map<string, string> options = 7;
 inline int CreateRequest::_internal_options_size() const {
   return _impl_.options_.size();
 }
@@ -5670,107 +5588,57 @@ inline void OpenRequest::set_allocated_engine(std::string* engine) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.OpenRequest.engine)
 }
 
-// string catalog = 3;
-inline void OpenRequest::clear_catalog() {
-  _impl_.catalog_.ClearToEmpty();
+// string path = 3;
+inline void OpenRequest::clear_path() {
+  _impl_.path_.ClearToEmpty();
 }
-inline const std::string& OpenRequest::catalog() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.OpenRequest.catalog)
-  return _internal_catalog();
+inline const std::string& OpenRequest::path() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.OpenRequest.path)
+  return _internal_path();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void OpenRequest::set_catalog(ArgT0&& arg0, ArgT... args) {
+void OpenRequest::set_path(ArgT0&& arg0, ArgT... args) {
  
- _impl_.catalog_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.region.OpenRequest.catalog)
+ _impl_.path_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.OpenRequest.path)
 }
-inline std::string* OpenRequest::mutable_catalog() {
-  std::string* _s = _internal_mutable_catalog();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.OpenRequest.catalog)
+inline std::string* OpenRequest::mutable_path() {
+  std::string* _s = _internal_mutable_path();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.OpenRequest.path)
   return _s;
 }
-inline const std::string& OpenRequest::_internal_catalog() const {
-  return _impl_.catalog_.Get();
+inline const std::string& OpenRequest::_internal_path() const {
+  return _impl_.path_.Get();
 }
-inline void OpenRequest::_internal_set_catalog(const std::string& value) {
+inline void OpenRequest::_internal_set_path(const std::string& value) {
   
-  _impl_.catalog_.Set(value, GetArenaForAllocation());
+  _impl_.path_.Set(value, GetArenaForAllocation());
 }
-inline std::string* OpenRequest::_internal_mutable_catalog() {
+inline std::string* OpenRequest::_internal_mutable_path() {
   
-  return _impl_.catalog_.Mutable(GetArenaForAllocation());
+  return _impl_.path_.Mutable(GetArenaForAllocation());
 }
-inline std::string* OpenRequest::release_catalog() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.OpenRequest.catalog)
-  return _impl_.catalog_.Release();
+inline std::string* OpenRequest::release_path() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.OpenRequest.path)
+  return _impl_.path_.Release();
 }
-inline void OpenRequest::set_allocated_catalog(std::string* catalog) {
-  if (catalog != nullptr) {
+inline void OpenRequest::set_allocated_path(std::string* path) {
+  if (path != nullptr) {
     
   } else {
     
   }
-  _impl_.catalog_.SetAllocated(catalog, GetArenaForAllocation());
+  _impl_.path_.SetAllocated(path, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.catalog_.IsDefault()) {
-    _impl_.catalog_.Set("", GetArenaForAllocation());
+  if (_impl_.path_.IsDefault()) {
+    _impl_.path_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.OpenRequest.catalog)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.OpenRequest.path)
 }
 
-// string schema = 4;
-inline void OpenRequest::clear_schema() {
-  _impl_.schema_.ClearToEmpty();
-}
-inline const std::string& OpenRequest::schema() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.OpenRequest.schema)
-  return _internal_schema();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void OpenRequest::set_schema(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.schema_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.region.OpenRequest.schema)
-}
-inline std::string* OpenRequest::mutable_schema() {
-  std::string* _s = _internal_mutable_schema();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.OpenRequest.schema)
-  return _s;
-}
-inline const std::string& OpenRequest::_internal_schema() const {
-  return _impl_.schema_.Get();
-}
-inline void OpenRequest::_internal_set_schema(const std::string& value) {
-  
-  _impl_.schema_.Set(value, GetArenaForAllocation());
-}
-inline std::string* OpenRequest::_internal_mutable_schema() {
-  
-  return _impl_.schema_.Mutable(GetArenaForAllocation());
-}
-inline std::string* OpenRequest::release_schema() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.OpenRequest.schema)
-  return _impl_.schema_.Release();
-}
-inline void OpenRequest::set_allocated_schema(std::string* schema) {
-  if (schema != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.schema_.SetAllocated(schema, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.schema_.IsDefault()) {
-    _impl_.schema_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.OpenRequest.schema)
-}
-
-// map<string, string> options = 5;
+// map<string, string> options = 4;
 inline int OpenRequest::_internal_options_size() const {
   return _impl_.options_.size();
 }
