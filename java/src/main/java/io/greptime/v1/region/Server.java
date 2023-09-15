@@ -7955,52 +7955,30 @@ public final class Server {
 
     /**
      * <pre>
-     * catalog name and schema name is to accomplish storage path
-     * catalog name
+     * Region storage path
      * </pre>
      *
-     * <code>string catalog = 6;</code>
-     * @return The catalog.
+     * <code>string path = 6;</code>
+     * @return The path.
      */
-    java.lang.String getCatalog();
+    java.lang.String getPath();
     /**
      * <pre>
-     * catalog name and schema name is to accomplish storage path
-     * catalog name
+     * Region storage path
      * </pre>
      *
-     * <code>string catalog = 6;</code>
-     * @return The bytes for catalog.
+     * <code>string path = 6;</code>
+     * @return The bytes for path.
      */
     com.google.protobuf.ByteString
-        getCatalogBytes();
-
-    /**
-     * <pre>
-     * schema name
-     * </pre>
-     *
-     * <code>string schema = 7;</code>
-     * @return The schema.
-     */
-    java.lang.String getSchema();
-    /**
-     * <pre>
-     * schema name
-     * </pre>
-     *
-     * <code>string schema = 7;</code>
-     * @return The bytes for schema.
-     */
-    com.google.protobuf.ByteString
-        getSchemaBytes();
+        getPathBytes();
 
     /**
      * <pre>
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 8;</code>
+     * <code>map&lt;string, string&gt; options = 7;</code>
      */
     int getOptionsCount();
     /**
@@ -8008,7 +7986,7 @@ public final class Server {
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 8;</code>
+     * <code>map&lt;string, string&gt; options = 7;</code>
      */
     boolean containsOptions(
         java.lang.String key);
@@ -8023,7 +8001,7 @@ public final class Server {
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 8;</code>
+     * <code>map&lt;string, string&gt; options = 7;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getOptionsMap();
@@ -8032,7 +8010,7 @@ public final class Server {
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 8;</code>
+     * <code>map&lt;string, string&gt; options = 7;</code>
      */
 
     /* nullable */
@@ -8045,7 +8023,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 8;</code>
+     * <code>map&lt;string, string&gt; options = 7;</code>
      */
 
     java.lang.String getOptionsOrThrow(
@@ -8067,8 +8045,7 @@ java.lang.String defaultValue);
       engine_ = "";
       columnDefs_ = java.util.Collections.emptyList();
       primaryKey_ = emptyIntList();
-      catalog_ = "";
-      schema_ = "";
+      path_ = "";
     }
 
     @java.lang.Override
@@ -8151,16 +8128,10 @@ java.lang.String defaultValue);
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              catalog_ = s;
+              path_ = s;
               break;
             }
             case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              schema_ = s;
-              break;
-            }
-            case 66: {
               if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 options_ = com.google.protobuf.MapField.newMapField(
                     OptionsDefaultEntryHolder.defaultEntry);
@@ -8210,7 +8181,7 @@ java.lang.String defaultValue);
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 8:
+        case 7:
           return internalGetOptions();
         default:
           throw new RuntimeException(
@@ -8397,101 +8368,53 @@ java.lang.String defaultValue);
       return createIfNotExists_;
     }
 
-    public static final int CATALOG_FIELD_NUMBER = 6;
-    private volatile java.lang.Object catalog_;
+    public static final int PATH_FIELD_NUMBER = 6;
+    private volatile java.lang.Object path_;
     /**
      * <pre>
-     * catalog name and schema name is to accomplish storage path
-     * catalog name
+     * Region storage path
      * </pre>
      *
-     * <code>string catalog = 6;</code>
-     * @return The catalog.
+     * <code>string path = 6;</code>
+     * @return The path.
      */
     @java.lang.Override
-    public java.lang.String getCatalog() {
-      java.lang.Object ref = catalog_;
+    public java.lang.String getPath() {
+      java.lang.Object ref = path_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        catalog_ = s;
+        path_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * catalog name and schema name is to accomplish storage path
-     * catalog name
+     * Region storage path
      * </pre>
      *
-     * <code>string catalog = 6;</code>
-     * @return The bytes for catalog.
+     * <code>string path = 6;</code>
+     * @return The bytes for path.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getCatalogBytes() {
-      java.lang.Object ref = catalog_;
+        getPathBytes() {
+      java.lang.Object ref = path_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        catalog_ = b;
+        path_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int SCHEMA_FIELD_NUMBER = 7;
-    private volatile java.lang.Object schema_;
-    /**
-     * <pre>
-     * schema name
-     * </pre>
-     *
-     * <code>string schema = 7;</code>
-     * @return The schema.
-     */
-    @java.lang.Override
-    public java.lang.String getSchema() {
-      java.lang.Object ref = schema_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        schema_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * schema name
-     * </pre>
-     *
-     * <code>string schema = 7;</code>
-     * @return The bytes for schema.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSchemaBytes() {
-      java.lang.Object ref = schema_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        schema_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int OPTIONS_FIELD_NUMBER = 8;
+    public static final int OPTIONS_FIELD_NUMBER = 7;
     private static final class OptionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -8522,7 +8445,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 8;</code>
+     * <code>map&lt;string, string&gt; options = 7;</code>
      */
 
     @java.lang.Override
@@ -8544,7 +8467,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 8;</code>
+     * <code>map&lt;string, string&gt; options = 7;</code>
      */
     @java.lang.Override
 
@@ -8556,7 +8479,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 8;</code>
+     * <code>map&lt;string, string&gt; options = 7;</code>
      */
     @java.lang.Override
 
@@ -8573,7 +8496,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 8;</code>
+     * <code>map&lt;string, string&gt; options = 7;</code>
      */
     @java.lang.Override
 
@@ -8622,18 +8545,15 @@ java.lang.String defaultValue);
       if (createIfNotExists_ != false) {
         output.writeBool(5, createIfNotExists_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, catalog_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schema_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, schema_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, path_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetOptions(),
           OptionsDefaultEntryHolder.defaultEntry,
-          8);
+          7);
       unknownFields.writeTo(output);
     }
 
@@ -8672,11 +8592,8 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, createIfNotExists_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, catalog_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schema_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, schema_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, path_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetOptions().getMap().entrySet()) {
@@ -8686,7 +8603,7 @@ java.lang.String defaultValue);
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(8, options__);
+            .computeMessageSize(7, options__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8713,10 +8630,8 @@ java.lang.String defaultValue);
           .equals(other.getPrimaryKeyList())) return false;
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
-      if (!getCatalog()
-          .equals(other.getCatalog())) return false;
-      if (!getSchema()
-          .equals(other.getSchema())) return false;
+      if (!getPath()
+          .equals(other.getPath())) return false;
       if (!internalGetOptions().equals(
           other.internalGetOptions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -8746,10 +8661,8 @@ java.lang.String defaultValue);
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCreateIfNotExists());
-      hash = (37 * hash) + CATALOG_FIELD_NUMBER;
-      hash = (53 * hash) + getCatalog().hashCode();
-      hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
-      hash = (53 * hash) + getSchema().hashCode();
+      hash = (37 * hash) + PATH_FIELD_NUMBER;
+      hash = (53 * hash) + getPath().hashCode();
       if (!internalGetOptions().getMap().isEmpty()) {
         hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetOptions().hashCode();
@@ -8865,7 +8778,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 8:
+          case 7:
             return internalGetOptions();
           default:
             throw new RuntimeException(
@@ -8876,7 +8789,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 8:
+          case 7:
             return internalGetMutableOptions();
           default:
             throw new RuntimeException(
@@ -8924,9 +8837,7 @@ java.lang.String defaultValue);
         bitField0_ = (bitField0_ & ~0x00000002);
         createIfNotExists_ = false;
 
-        catalog_ = "";
-
-        schema_ = "";
+        path_ = "";
 
         internalGetMutableOptions().clear();
         return this;
@@ -8973,8 +8884,7 @@ java.lang.String defaultValue);
         }
         result.primaryKey_ = primaryKey_;
         result.createIfNotExists_ = createIfNotExists_;
-        result.catalog_ = catalog_;
-        result.schema_ = schema_;
+        result.path_ = path_;
         result.options_ = internalGetOptions();
         result.options_.makeImmutable();
         onBuilt();
@@ -9071,12 +8981,8 @@ java.lang.String defaultValue);
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
         }
-        if (!other.getCatalog().isEmpty()) {
-          catalog_ = other.catalog_;
-          onChanged();
-        }
-        if (!other.getSchema().isEmpty()) {
-          schema_ = other.schema_;
+        if (!other.getPath().isEmpty()) {
+          path_ = other.path_;
           onChanged();
         }
         internalGetMutableOptions().mergeFrom(
@@ -9700,23 +9606,22 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.lang.Object catalog_ = "";
+      private java.lang.Object path_ = "";
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 6;</code>
-       * @return The catalog.
+       * <code>string path = 6;</code>
+       * @return The path.
        */
-      public java.lang.String getCatalog() {
-        java.lang.Object ref = catalog_;
+      public java.lang.String getPath() {
+        java.lang.Object ref = path_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          catalog_ = s;
+          path_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -9724,21 +9629,20 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 6;</code>
-       * @return The bytes for catalog.
+       * <code>string path = 6;</code>
+       * @return The bytes for path.
        */
       public com.google.protobuf.ByteString
-          getCatalogBytes() {
-        java.lang.Object ref = catalog_;
+          getPathBytes() {
+        java.lang.Object ref = path_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          catalog_ = b;
+          path_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -9746,153 +9650,54 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 6;</code>
-       * @param value The catalog to set.
+       * <code>string path = 6;</code>
+       * @param value The path to set.
        * @return This builder for chaining.
        */
-      public Builder setCatalog(
+      public Builder setPath(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        catalog_ = value;
+        path_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 6;</code>
+       * <code>string path = 6;</code>
        * @return This builder for chaining.
        */
-      public Builder clearCatalog() {
+      public Builder clearPath() {
         
-        catalog_ = getDefaultInstance().getCatalog();
+        path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 6;</code>
-       * @param value The bytes for catalog to set.
+       * <code>string path = 6;</code>
+       * @param value The bytes for path to set.
        * @return This builder for chaining.
        */
-      public Builder setCatalogBytes(
+      public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        catalog_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object schema_ = "";
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 7;</code>
-       * @return The schema.
-       */
-      public java.lang.String getSchema() {
-        java.lang.Object ref = schema_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          schema_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 7;</code>
-       * @return The bytes for schema.
-       */
-      public com.google.protobuf.ByteString
-          getSchemaBytes() {
-        java.lang.Object ref = schema_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          schema_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 7;</code>
-       * @param value The schema to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchema(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        schema_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSchema() {
-        
-        schema_ = getDefaultInstance().getSchema();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 7;</code>
-       * @param value The bytes for schema to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchemaBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        schema_ = value;
+        path_ = value;
         onChanged();
         return this;
       }
@@ -9928,7 +9733,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 8;</code>
+       * <code>map&lt;string, string&gt; options = 7;</code>
        */
 
       @java.lang.Override
@@ -9950,7 +9755,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 8;</code>
+       * <code>map&lt;string, string&gt; options = 7;</code>
        */
       @java.lang.Override
 
@@ -9962,7 +9767,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 8;</code>
+       * <code>map&lt;string, string&gt; options = 7;</code>
        */
       @java.lang.Override
 
@@ -9979,7 +9784,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 8;</code>
+       * <code>map&lt;string, string&gt; options = 7;</code>
        */
       @java.lang.Override
 
@@ -10004,7 +9809,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 8;</code>
+       * <code>map&lt;string, string&gt; options = 7;</code>
        */
 
       public Builder removeOptions(
@@ -10027,7 +9832,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 8;</code>
+       * <code>map&lt;string, string&gt; options = 7;</code>
        */
       public Builder putOptions(
           java.lang.String key,
@@ -10046,7 +9851,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 8;</code>
+       * <code>map&lt;string, string&gt; options = 7;</code>
        */
 
       public Builder putAllOptions(
@@ -10631,52 +10436,30 @@ java.lang.String defaultValue);
 
     /**
      * <pre>
-     * catalog name and schema name is to accomplish storage path
-     * catalog name
+     * Region storage path
      * </pre>
      *
-     * <code>string catalog = 3;</code>
-     * @return The catalog.
+     * <code>string path = 3;</code>
+     * @return The path.
      */
-    java.lang.String getCatalog();
+    java.lang.String getPath();
     /**
      * <pre>
-     * catalog name and schema name is to accomplish storage path
-     * catalog name
+     * Region storage path
      * </pre>
      *
-     * <code>string catalog = 3;</code>
-     * @return The bytes for catalog.
+     * <code>string path = 3;</code>
+     * @return The bytes for path.
      */
     com.google.protobuf.ByteString
-        getCatalogBytes();
-
-    /**
-     * <pre>
-     * schema name
-     * </pre>
-     *
-     * <code>string schema = 4;</code>
-     * @return The schema.
-     */
-    java.lang.String getSchema();
-    /**
-     * <pre>
-     * schema name
-     * </pre>
-     *
-     * <code>string schema = 4;</code>
-     * @return The bytes for schema.
-     */
-    com.google.protobuf.ByteString
-        getSchemaBytes();
+        getPathBytes();
 
     /**
      * <pre>
      * Options of the opened region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     int getOptionsCount();
     /**
@@ -10684,7 +10467,7 @@ java.lang.String defaultValue);
      * Options of the opened region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     boolean containsOptions(
         java.lang.String key);
@@ -10699,7 +10482,7 @@ java.lang.String defaultValue);
      * Options of the opened region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getOptionsMap();
@@ -10708,7 +10491,7 @@ java.lang.String defaultValue);
      * Options of the opened region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
 
     /* nullable */
@@ -10721,7 +10504,7 @@ java.lang.String defaultValue);
      * Options of the opened region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
 
     java.lang.String getOptionsOrThrow(
@@ -10741,8 +10524,7 @@ java.lang.String defaultValue);
     }
     private OpenRequest() {
       engine_ = "";
-      catalog_ = "";
-      schema_ = "";
+      path_ = "";
     }
 
     @java.lang.Override
@@ -10790,16 +10572,10 @@ java.lang.String defaultValue);
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              catalog_ = s;
+              path_ = s;
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              schema_ = s;
-              break;
-            }
-            case 42: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 options_ = com.google.protobuf.MapField.newMapField(
                     OptionsDefaultEntryHolder.defaultEntry);
@@ -10843,7 +10619,7 @@ java.lang.String defaultValue);
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 5:
+        case 4:
           return internalGetOptions();
         default:
           throw new RuntimeException(
@@ -10915,101 +10691,53 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int CATALOG_FIELD_NUMBER = 3;
-    private volatile java.lang.Object catalog_;
+    public static final int PATH_FIELD_NUMBER = 3;
+    private volatile java.lang.Object path_;
     /**
      * <pre>
-     * catalog name and schema name is to accomplish storage path
-     * catalog name
+     * Region storage path
      * </pre>
      *
-     * <code>string catalog = 3;</code>
-     * @return The catalog.
+     * <code>string path = 3;</code>
+     * @return The path.
      */
     @java.lang.Override
-    public java.lang.String getCatalog() {
-      java.lang.Object ref = catalog_;
+    public java.lang.String getPath() {
+      java.lang.Object ref = path_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        catalog_ = s;
+        path_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * catalog name and schema name is to accomplish storage path
-     * catalog name
+     * Region storage path
      * </pre>
      *
-     * <code>string catalog = 3;</code>
-     * @return The bytes for catalog.
+     * <code>string path = 3;</code>
+     * @return The bytes for path.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getCatalogBytes() {
-      java.lang.Object ref = catalog_;
+        getPathBytes() {
+      java.lang.Object ref = path_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        catalog_ = b;
+        path_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int SCHEMA_FIELD_NUMBER = 4;
-    private volatile java.lang.Object schema_;
-    /**
-     * <pre>
-     * schema name
-     * </pre>
-     *
-     * <code>string schema = 4;</code>
-     * @return The schema.
-     */
-    @java.lang.Override
-    public java.lang.String getSchema() {
-      java.lang.Object ref = schema_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        schema_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * schema name
-     * </pre>
-     *
-     * <code>string schema = 4;</code>
-     * @return The bytes for schema.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSchemaBytes() {
-      java.lang.Object ref = schema_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        schema_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int OPTIONS_FIELD_NUMBER = 5;
+    public static final int OPTIONS_FIELD_NUMBER = 4;
     private static final class OptionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -11040,7 +10768,7 @@ java.lang.String defaultValue);
      * Options of the opened region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
 
     @java.lang.Override
@@ -11062,7 +10790,7 @@ java.lang.String defaultValue);
      * Options of the opened region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     @java.lang.Override
 
@@ -11074,7 +10802,7 @@ java.lang.String defaultValue);
      * Options of the opened region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     @java.lang.Override
 
@@ -11091,7 +10819,7 @@ java.lang.String defaultValue);
      * Options of the opened region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     @java.lang.Override
 
@@ -11126,18 +10854,15 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, engine_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, catalog_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schema_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, schema_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, path_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetOptions(),
           OptionsDefaultEntryHolder.defaultEntry,
-          5);
+          4);
       unknownFields.writeTo(output);
     }
 
@@ -11154,11 +10879,8 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, engine_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, catalog_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schema_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, schema_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, path_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetOptions().getMap().entrySet()) {
@@ -11168,7 +10890,7 @@ java.lang.String defaultValue);
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, options__);
+            .computeMessageSize(4, options__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -11189,10 +10911,8 @@ java.lang.String defaultValue);
           != other.getRegionId()) return false;
       if (!getEngine()
           .equals(other.getEngine())) return false;
-      if (!getCatalog()
-          .equals(other.getCatalog())) return false;
-      if (!getSchema()
-          .equals(other.getSchema())) return false;
+      if (!getPath()
+          .equals(other.getPath())) return false;
       if (!internalGetOptions().equals(
           other.internalGetOptions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -11211,10 +10931,8 @@ java.lang.String defaultValue);
           getRegionId());
       hash = (37 * hash) + ENGINE_FIELD_NUMBER;
       hash = (53 * hash) + getEngine().hashCode();
-      hash = (37 * hash) + CATALOG_FIELD_NUMBER;
-      hash = (53 * hash) + getCatalog().hashCode();
-      hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
-      hash = (53 * hash) + getSchema().hashCode();
+      hash = (37 * hash) + PATH_FIELD_NUMBER;
+      hash = (53 * hash) + getPath().hashCode();
       if (!internalGetOptions().getMap().isEmpty()) {
         hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetOptions().hashCode();
@@ -11330,7 +11048,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 5:
+          case 4:
             return internalGetOptions();
           default:
             throw new RuntimeException(
@@ -11341,7 +11059,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 5:
+          case 4:
             return internalGetMutableOptions();
           default:
             throw new RuntimeException(
@@ -11378,9 +11096,7 @@ java.lang.String defaultValue);
 
         engine_ = "";
 
-        catalog_ = "";
-
-        schema_ = "";
+        path_ = "";
 
         internalGetMutableOptions().clear();
         return this;
@@ -11412,8 +11128,7 @@ java.lang.String defaultValue);
         int from_bitField0_ = bitField0_;
         result.regionId_ = regionId_;
         result.engine_ = engine_;
-        result.catalog_ = catalog_;
-        result.schema_ = schema_;
+        result.path_ = path_;
         result.options_ = internalGetOptions();
         result.options_.makeImmutable();
         onBuilt();
@@ -11471,12 +11186,8 @@ java.lang.String defaultValue);
           engine_ = other.engine_;
           onChanged();
         }
-        if (!other.getCatalog().isEmpty()) {
-          catalog_ = other.catalog_;
-          onChanged();
-        }
-        if (!other.getSchema().isEmpty()) {
-          schema_ = other.schema_;
+        if (!other.getPath().isEmpty()) {
+          path_ = other.path_;
           onChanged();
         }
         internalGetMutableOptions().mergeFrom(
@@ -11638,23 +11349,22 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.lang.Object catalog_ = "";
+      private java.lang.Object path_ = "";
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 3;</code>
-       * @return The catalog.
+       * <code>string path = 3;</code>
+       * @return The path.
        */
-      public java.lang.String getCatalog() {
-        java.lang.Object ref = catalog_;
+      public java.lang.String getPath() {
+        java.lang.Object ref = path_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          catalog_ = s;
+          path_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -11662,21 +11372,20 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 3;</code>
-       * @return The bytes for catalog.
+       * <code>string path = 3;</code>
+       * @return The bytes for path.
        */
       public com.google.protobuf.ByteString
-          getCatalogBytes() {
-        java.lang.Object ref = catalog_;
+          getPathBytes() {
+        java.lang.Object ref = path_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          catalog_ = b;
+          path_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -11684,153 +11393,54 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 3;</code>
-       * @param value The catalog to set.
+       * <code>string path = 3;</code>
+       * @param value The path to set.
        * @return This builder for chaining.
        */
-      public Builder setCatalog(
+      public Builder setPath(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        catalog_ = value;
+        path_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 3;</code>
+       * <code>string path = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearCatalog() {
+      public Builder clearPath() {
         
-        catalog_ = getDefaultInstance().getCatalog();
+        path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * catalog name and schema name is to accomplish storage path
-       * catalog name
+       * Region storage path
        * </pre>
        *
-       * <code>string catalog = 3;</code>
-       * @param value The bytes for catalog to set.
+       * <code>string path = 3;</code>
+       * @param value The bytes for path to set.
        * @return This builder for chaining.
        */
-      public Builder setCatalogBytes(
+      public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        catalog_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object schema_ = "";
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 4;</code>
-       * @return The schema.
-       */
-      public java.lang.String getSchema() {
-        java.lang.Object ref = schema_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          schema_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 4;</code>
-       * @return The bytes for schema.
-       */
-      public com.google.protobuf.ByteString
-          getSchemaBytes() {
-        java.lang.Object ref = schema_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          schema_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 4;</code>
-       * @param value The schema to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchema(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        schema_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSchema() {
-        
-        schema_ = getDefaultInstance().getSchema();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * schema name
-       * </pre>
-       *
-       * <code>string schema = 4;</code>
-       * @param value The bytes for schema to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchemaBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        schema_ = value;
+        path_ = value;
         onChanged();
         return this;
       }
@@ -11866,7 +11476,7 @@ java.lang.String defaultValue);
        * Options of the opened region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
 
       @java.lang.Override
@@ -11888,7 +11498,7 @@ java.lang.String defaultValue);
        * Options of the opened region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
       @java.lang.Override
 
@@ -11900,7 +11510,7 @@ java.lang.String defaultValue);
        * Options of the opened region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
       @java.lang.Override
 
@@ -11917,7 +11527,7 @@ java.lang.String defaultValue);
        * Options of the opened region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
       @java.lang.Override
 
@@ -11942,7 +11552,7 @@ java.lang.String defaultValue);
        * Options of the opened region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
 
       public Builder removeOptions(
@@ -11965,7 +11575,7 @@ java.lang.String defaultValue);
        * Options of the opened region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
       public Builder putOptions(
           java.lang.String key,
@@ -11984,7 +11594,7 @@ java.lang.String defaultValue);
        * Options of the opened region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
 
       public Builder putAllOptions(
@@ -18474,41 +18084,40 @@ java.lang.String defaultValue);
       "(\0132\021.greptime.v1.Rows\"h\n\014QueryRequest\0227\n" +
       "\006header\030\001 \001(\0132\'.greptime.v1.region.Regio" +
       "nRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004pla" +
-      "n\030\003 \001(\014\"\261\002\n\rCreateRequest\022\021\n\tregion_id\030\001" +
+      "n\030\003 \001(\014\"\236\002\n\rCreateRequest\022\021\n\tregion_id\030\001" +
       " \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(" +
       "\0132#.greptime.v1.region.RegionColumnDef\022\023" +
       "\n\013primary_key\030\004 \003(\r\022\034\n\024create_if_not_exi" +
-      "sts\030\005 \001(\010\022\017\n\007catalog\030\006 \001(\t\022\016\n\006schema\030\007 \001" +
-      "(\t\022?\n\007options\030\010 \003(\0132..greptime.v1.region" +
-      ".CreateRequest.OptionsEntry\032.\n\014OptionsEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\013D" +
-      "ropRequest\022\021\n\tregion_id\030\001 \001(\004\"\300\001\n\013OpenRe" +
-      "quest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t" +
-      "\022\017\n\007catalog\030\003 \001(\t\022\016\n\006schema\030\004 \001(\t\022=\n\007opt" +
-      "ions\030\005 \003(\0132,.greptime.v1.region.OpenRequ" +
-      "est.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest" +
-      "\022\021\n\tregion_id\030\001 \001(\004\"\261\001\n\014AlterRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036.g" +
-      "reptime.v1.region.AddColumnsH\000\0227\n\014drop_c" +
-      "olumns\030\003 \001(\0132\037.greptime.v1.region.DropCo" +
-      "lumnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"" +
-      "@\n\nAddColumns\0222\n\013add_columns\030\001 \003(\0132\035.gre" +
-      "ptime.v1.region.AddColumn\"C\n\013DropColumns" +
-      "\0224\n\014drop_columns\030\001 \003(\0132\036.greptime.v1.reg" +
-      "ion.DropColumn\"v\n\tAddColumn\0227\n\ncolumn_de" +
-      "f\030\001 \001(\0132#.greptime.v1.region.RegionColum" +
-      "nDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.Add" +
-      "ColumnLocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001" +
-      "(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"#\n" +
-      "\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Re" +
-      "gionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.grep" +
-      "time.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006" +
-      "Region\022O\n\006Handle\022!.greptime.v1.region.Re" +
-      "gionRequest\032\".greptime.v1.region.RegionR" +
-      "esponseB]\n\025io.greptime.v1.regionB\006Server" +
-      "Z<github.com/GreptimeTeam/greptime-proto" +
-      "/go/greptime/v1/regionb\006proto3"
+      "sts\030\005 \001(\010\022\014\n\004path\030\006 \001(\t\022?\n\007options\030\007 \003(\013" +
+      "2..greptime.v1.region.CreateRequest.Opti" +
+      "onsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\t:\0028\001\" \n\013DropRequest\022\021\n\tregio" +
+      "n_id\030\001 \001(\004\"\255\001\n\013OpenRequest\022\021\n\tregion_id\030" +
+      "\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007o" +
+      "ptions\030\004 \003(\0132,.greptime.v1.region.OpenRe" +
+      "quest.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseReque" +
+      "st\022\021\n\tregion_id\030\001 \001(\004\"\261\001\n\014AlterRequest\022\021" +
+      "\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036" +
+      ".greptime.v1.region.AddColumnsH\000\0227\n\014drop" +
+      "_columns\030\003 \001(\0132\037.greptime.v1.region.Drop" +
+      "ColumnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kin" +
+      "d\"@\n\nAddColumns\0222\n\013add_columns\030\001 \003(\0132\035.g" +
+      "reptime.v1.region.AddColumn\"C\n\013DropColum" +
+      "ns\0224\n\014drop_columns\030\001 \003(\0132\036.greptime.v1.r" +
+      "egion.DropColumn\"v\n\tAddColumn\0227\n\ncolumn_" +
+      "def\030\001 \001(\0132#.greptime.v1.region.RegionCol" +
+      "umnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.A" +
+      "ddColumnLocation\"\032\n\nDropColumn\022\014\n\004name\030\001" +
+      " \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"" +
+      "#\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017" +
+      "RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.gr" +
+      "eptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y" +
+      "\n\006Region\022O\n\006Handle\022!.greptime.v1.region." +
+      "RegionRequest\032\".greptime.v1.region.Regio" +
+      "nResponseB]\n\025io.greptime.v1.regionB\006Serv" +
+      "erZ<github.com/GreptimeTeam/greptime-pro" +
+      "to/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18570,7 +18179,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_CreateRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Engine", "ColumnDefs", "PrimaryKey", "CreateIfNotExists", "Catalog", "Schema", "Options", });
+        new java.lang.String[] { "RegionId", "Engine", "ColumnDefs", "PrimaryKey", "CreateIfNotExists", "Path", "Options", });
     internal_static_greptime_v1_region_CreateRequest_OptionsEntry_descriptor =
       internal_static_greptime_v1_region_CreateRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_region_CreateRequest_OptionsEntry_fieldAccessorTable = new
@@ -18588,7 +18197,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_OpenRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_OpenRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Engine", "Catalog", "Schema", "Options", });
+        new java.lang.String[] { "RegionId", "Engine", "Path", "Options", });
     internal_static_greptime_v1_region_OpenRequest_OptionsEntry_descriptor =
       internal_static_greptime_v1_region_OpenRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_region_OpenRequest_OptionsEntry_fieldAccessorTable = new
