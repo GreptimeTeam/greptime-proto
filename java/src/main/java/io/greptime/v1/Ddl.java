@@ -13015,6 +13015,18 @@ java.lang.String defaultValue);
      * @return The semanticType.
      */
     io.greptime.v1.Common.SemanticType getSemanticType();
+
+    /**
+     * <code>string comment = 6;</code>
+     * @return The comment.
+     */
+    java.lang.String getComment();
+    /**
+     * <code>string comment = 6;</code>
+     * @return The bytes for comment.
+     */
+    com.google.protobuf.ByteString
+        getCommentBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.ColumnDef}
@@ -13033,6 +13045,7 @@ java.lang.String defaultValue);
       dataType_ = 0;
       defaultConstraint_ = com.google.protobuf.ByteString.EMPTY;
       semanticType_ = 0;
+      comment_ = "";
     }
 
     @java.lang.Override
@@ -13091,6 +13104,12 @@ java.lang.String defaultValue);
               int rawValue = input.readEnum();
 
               semanticType_ = rawValue;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              comment_ = s;
               break;
             }
             default: {
@@ -13225,6 +13244,44 @@ java.lang.String defaultValue);
       return result == null ? io.greptime.v1.Common.SemanticType.UNRECOGNIZED : result;
     }
 
+    public static final int COMMENT_FIELD_NUMBER = 6;
+    private volatile java.lang.Object comment_;
+    /**
+     * <code>string comment = 6;</code>
+     * @return The comment.
+     */
+    @java.lang.Override
+    public java.lang.String getComment() {
+      java.lang.Object ref = comment_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        comment_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string comment = 6;</code>
+     * @return The bytes for comment.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCommentBytes() {
+      java.lang.Object ref = comment_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        comment_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13254,6 +13311,9 @@ java.lang.String defaultValue);
       if (semanticType_ != io.greptime.v1.Common.SemanticType.TAG.getNumber()) {
         output.writeEnum(5, semanticType_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, comment_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -13282,6 +13342,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, semanticType_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, comment_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -13305,6 +13368,8 @@ java.lang.String defaultValue);
       if (!getDefaultConstraint()
           .equals(other.getDefaultConstraint())) return false;
       if (semanticType_ != other.semanticType_) return false;
+      if (!getComment()
+          .equals(other.getComment())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -13327,6 +13392,8 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getDefaultConstraint().hashCode();
       hash = (37 * hash) + SEMANTIC_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + semanticType_;
+      hash = (37 * hash) + COMMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getComment().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13470,6 +13537,8 @@ java.lang.String defaultValue);
 
         semanticType_ = 0;
 
+        comment_ = "";
+
         return this;
       }
 
@@ -13501,6 +13570,7 @@ java.lang.String defaultValue);
         result.isNullable_ = isNullable_;
         result.defaultConstraint_ = defaultConstraint_;
         result.semanticType_ = semanticType_;
+        result.comment_ = comment_;
         onBuilt();
         return result;
       }
@@ -13564,6 +13634,10 @@ java.lang.String defaultValue);
         }
         if (other.semanticType_ != 0) {
           setSemanticTypeValue(other.getSemanticTypeValue());
+        }
+        if (!other.getComment().isEmpty()) {
+          comment_ = other.comment_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13839,6 +13913,82 @@ java.lang.String defaultValue);
       public Builder clearSemanticType() {
         
         semanticType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object comment_ = "";
+      /**
+       * <code>string comment = 6;</code>
+       * @return The comment.
+       */
+      public java.lang.String getComment() {
+        java.lang.Object ref = comment_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          comment_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string comment = 6;</code>
+       * @return The bytes for comment.
+       */
+      public com.google.protobuf.ByteString
+          getCommentBytes() {
+        java.lang.Object ref = comment_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          comment_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string comment = 6;</code>
+       * @param value The comment to set.
+       * @return This builder for chaining.
+       */
+      public Builder setComment(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        comment_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string comment = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearComment() {
+        
+        comment_ = getDefaultInstance().getComment();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string comment = 6;</code>
+       * @param value The bytes for comment to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCommentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        comment_ = value;
         onChanged();
         return this;
       }
@@ -14812,17 +14962,17 @@ java.lang.String defaultValue);
       "\026.greptime.v1.ColumnDef\0220\n\010location\030\003 \001(" +
       "\0132\036.greptime.v1.AddColumnLocation\"\032\n\nDro" +
       "pColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001" +
-      " \001(\r\"\254\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata" +
+      " \001(\r\"\275\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata" +
       "_type\030\002 \001(\0162\033.greptime.v1.ColumnDataType" +
       "\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constra" +
       "int\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.grept" +
-      "ime.v1.SemanticType\"\230\001\n\021AddColumnLocatio" +
-      "n\022B\n\rlocation_type\030\001 \001(\0162+.greptime.v1.A" +
-      "ddColumnLocation.LocationType\022\031\n\021after_c" +
-      "olumn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRS" +
-      "T\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003DdlZ5g" +
-      "ithub.com/GreptimeTeam/greptime-proto/go" +
-      "/greptime/v1b\006proto3"
+      "ime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\"\230\001\n" +
+      "\021AddColumnLocation\022B\n\rlocation_type\030\001 \001(" +
+      "\0162+.greptime.v1.AddColumnLocation.Locati" +
+      "onType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Loc" +
+      "ationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.gr" +
+      "eptime.v1B\003DdlZ5github.com/GreptimeTeam/" +
+      "greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14918,7 +15068,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
-        new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", });
+        new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
