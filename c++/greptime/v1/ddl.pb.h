@@ -2737,6 +2737,7 @@ class ColumnDef final :
   enum : int {
     kNameFieldNumber = 1,
     kDefaultConstraintFieldNumber = 4,
+    kCommentFieldNumber = 6,
     kDataTypeFieldNumber = 2,
     kIsNullableFieldNumber = 3,
     kSemanticTypeFieldNumber = 5,
@@ -2767,6 +2768,20 @@ class ColumnDef final :
   const std::string& _internal_default_constraint() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_default_constraint(const std::string& value);
   std::string* _internal_mutable_default_constraint();
+  public:
+
+  // string comment = 6;
+  void clear_comment();
+  const std::string& comment() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_comment(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_comment();
+  PROTOBUF_NODISCARD std::string* release_comment();
+  void set_allocated_comment(std::string* comment);
+  private:
+  const std::string& _internal_comment() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_comment(const std::string& value);
+  std::string* _internal_mutable_comment();
   public:
 
   // .greptime.v1.ColumnDataType data_type = 2;
@@ -2806,6 +2821,7 @@ class ColumnDef final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr default_constraint_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     int data_type_;
     bool is_nullable_;
     int semantic_type_;
@@ -5502,6 +5518,56 @@ inline void ColumnDef::_internal_set_semantic_type(::greptime::v1::SemanticType 
 inline void ColumnDef::set_semantic_type(::greptime::v1::SemanticType value) {
   _internal_set_semantic_type(value);
   // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.semantic_type)
+}
+
+// string comment = 6;
+inline void ColumnDef::clear_comment() {
+  _impl_.comment_.ClearToEmpty();
+}
+inline const std::string& ColumnDef::comment() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.comment)
+  return _internal_comment();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ColumnDef::set_comment(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.comment_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDef.comment)
+}
+inline std::string* ColumnDef::mutable_comment() {
+  std::string* _s = _internal_mutable_comment();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnDef.comment)
+  return _s;
+}
+inline const std::string& ColumnDef::_internal_comment() const {
+  return _impl_.comment_.Get();
+}
+inline void ColumnDef::_internal_set_comment(const std::string& value) {
+  
+  _impl_.comment_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ColumnDef::_internal_mutable_comment() {
+  
+  return _impl_.comment_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ColumnDef::release_comment() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ColumnDef.comment)
+  return _impl_.comment_.Release();
+}
+inline void ColumnDef::set_allocated_comment(std::string* comment) {
+  if (comment != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.comment_.SetAllocated(comment, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.comment_.IsDefault()) {
+    _impl_.comment_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDef.comment)
 }
 
 // -------------------------------------------------------------------

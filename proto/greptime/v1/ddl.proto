@@ -102,6 +102,7 @@ message ColumnDef {
   bool is_nullable = 3;
   bytes default_constraint = 4;
   SemanticType semantic_type = 5;
+  string comment = 6;
 }
 
 message AddColumnLocation {
