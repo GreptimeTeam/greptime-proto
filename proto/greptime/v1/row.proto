@@ -67,5 +67,9 @@ message Value {
     int32 interval_year_month_values = 24;
     int64 interval_day_time_values = 25;
     IntervalMonthDayNano interval_month_day_nano_values = 26;
+    int64 duration_second_value = 27;
+    int64 duration_millisecond_value = 28;
+    int64 duration_microsecond_value = 29;
+    int64 duration_nanosecond_value = 30;
   }
 }

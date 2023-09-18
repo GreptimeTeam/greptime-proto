@@ -273,7 +273,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   "ows\"I\n\024IntervalMonthDayNano\022\016\n\006months\030\001 "
   "\001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003*1"
   "\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTI"
-  "MESTAMP\020\002*\306\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020"
+  "MESTAMP\020\002*\250\004\n\016ColumnDataType\022\013\n\007BOOLEAN\020"
   "\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT"
   "64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022"
   "\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n"
@@ -284,13 +284,16 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   "ND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICRO"
   "SECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVA"
   "L_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n"
-  "\027INTERVAL_MONTH_DAY_NANO\020\031BO\n\016io.greptim"
-  "e.v1B\006CommonZ5github.com/GreptimeTeam/gr"
-  "eptime-proto/go/greptime/v1b\006proto3"
+  "\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION_S"
+  "ECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024DUR"
+  "ATION_MICROSECOND\020\034\022\027\n\023DURATION_NANOSECO"
+  "ND\020\035BO\n\016io.greptime.v1B\006CommonZ5github.c"
+  "om/GreptimeTeam/greptime-proto/go/grepti"
+  "me/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 1235, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 1333, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
     &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 9,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
@@ -352,6 +355,10 @@ bool ColumnDataType_IsValid(int value) {
     case 23:
     case 24:
     case 25:
+    case 26:
+    case 27:
+    case 28:
+    case 29:
       return true;
     default:
       return false;
