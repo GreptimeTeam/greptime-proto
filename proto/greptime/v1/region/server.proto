@@ -83,12 +83,10 @@ message CreateRequest {
   repeated RegionColumnDef column_defs = 3;
   // Column Id of primary keys.
   repeated uint32 primary_key = 4;
-  // Create region if not exists.
-  bool create_if_not_exists = 5;
   // Region storage path
-  string path = 6;
+  string path = 5;
   // Options of the created region.
-  map<string, string> options = 7;
+  map<string, string> options = 6;
   // TODO: add partition def
 }
 

@@ -7945,20 +7945,10 @@ public final class Server {
 
     /**
      * <pre>
-     * Create region if not exists.
-     * </pre>
-     *
-     * <code>bool create_if_not_exists = 5;</code>
-     * @return The createIfNotExists.
-     */
-    boolean getCreateIfNotExists();
-
-    /**
-     * <pre>
      * Region storage path
      * </pre>
      *
-     * <code>string path = 6;</code>
+     * <code>string path = 5;</code>
      * @return The path.
      */
     java.lang.String getPath();
@@ -7967,7 +7957,7 @@ public final class Server {
      * Region storage path
      * </pre>
      *
-     * <code>string path = 6;</code>
+     * <code>string path = 5;</code>
      * @return The bytes for path.
      */
     com.google.protobuf.ByteString
@@ -7978,7 +7968,7 @@ public final class Server {
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 7;</code>
+     * <code>map&lt;string, string&gt; options = 6;</code>
      */
     int getOptionsCount();
     /**
@@ -7986,7 +7976,7 @@ public final class Server {
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 7;</code>
+     * <code>map&lt;string, string&gt; options = 6;</code>
      */
     boolean containsOptions(
         java.lang.String key);
@@ -8001,7 +7991,7 @@ public final class Server {
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 7;</code>
+     * <code>map&lt;string, string&gt; options = 6;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getOptionsMap();
@@ -8010,7 +8000,7 @@ public final class Server {
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 7;</code>
+     * <code>map&lt;string, string&gt; options = 6;</code>
      */
 
     /* nullable */
@@ -8023,7 +8013,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 7;</code>
+     * <code>map&lt;string, string&gt; options = 6;</code>
      */
 
     java.lang.String getOptionsOrThrow(
@@ -8120,18 +8110,13 @@ java.lang.String defaultValue);
               input.popLimit(limit);
               break;
             }
-            case 40: {
-
-              createIfNotExists_ = input.readBool();
-              break;
-            }
-            case 50: {
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
               path_ = s;
               break;
             }
-            case 58: {
+            case 50: {
               if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 options_ = com.google.protobuf.MapField.newMapField(
                     OptionsDefaultEntryHolder.defaultEntry);
@@ -8181,7 +8166,7 @@ java.lang.String defaultValue);
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 7:
+        case 6:
           return internalGetOptions();
         default:
           throw new RuntimeException(
@@ -8353,29 +8338,14 @@ java.lang.String defaultValue);
     }
     private int primaryKeyMemoizedSerializedSize = -1;
 
-    public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 5;
-    private boolean createIfNotExists_;
-    /**
-     * <pre>
-     * Create region if not exists.
-     * </pre>
-     *
-     * <code>bool create_if_not_exists = 5;</code>
-     * @return The createIfNotExists.
-     */
-    @java.lang.Override
-    public boolean getCreateIfNotExists() {
-      return createIfNotExists_;
-    }
-
-    public static final int PATH_FIELD_NUMBER = 6;
+    public static final int PATH_FIELD_NUMBER = 5;
     private volatile java.lang.Object path_;
     /**
      * <pre>
      * Region storage path
      * </pre>
      *
-     * <code>string path = 6;</code>
+     * <code>string path = 5;</code>
      * @return The path.
      */
     @java.lang.Override
@@ -8396,7 +8366,7 @@ java.lang.String defaultValue);
      * Region storage path
      * </pre>
      *
-     * <code>string path = 6;</code>
+     * <code>string path = 5;</code>
      * @return The bytes for path.
      */
     @java.lang.Override
@@ -8414,7 +8384,7 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int OPTIONS_FIELD_NUMBER = 7;
+    public static final int OPTIONS_FIELD_NUMBER = 6;
     private static final class OptionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -8445,7 +8415,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 7;</code>
+     * <code>map&lt;string, string&gt; options = 6;</code>
      */
 
     @java.lang.Override
@@ -8467,7 +8437,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 7;</code>
+     * <code>map&lt;string, string&gt; options = 6;</code>
      */
     @java.lang.Override
 
@@ -8479,7 +8449,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 7;</code>
+     * <code>map&lt;string, string&gt; options = 6;</code>
      */
     @java.lang.Override
 
@@ -8496,7 +8466,7 @@ java.lang.String defaultValue);
      * Options of the created region.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 7;</code>
+     * <code>map&lt;string, string&gt; options = 6;</code>
      */
     @java.lang.Override
 
@@ -8542,18 +8512,15 @@ java.lang.String defaultValue);
       for (int i = 0; i < primaryKey_.size(); i++) {
         output.writeUInt32NoTag(primaryKey_.getInt(i));
       }
-      if (createIfNotExists_ != false) {
-        output.writeBool(5, createIfNotExists_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, path_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, path_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetOptions(),
           OptionsDefaultEntryHolder.defaultEntry,
-          7);
+          6);
       unknownFields.writeTo(output);
     }
 
@@ -8588,12 +8555,8 @@ java.lang.String defaultValue);
         }
         primaryKeyMemoizedSerializedSize = dataSize;
       }
-      if (createIfNotExists_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, createIfNotExists_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, path_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, path_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetOptions().getMap().entrySet()) {
@@ -8603,7 +8566,7 @@ java.lang.String defaultValue);
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(7, options__);
+            .computeMessageSize(6, options__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8628,8 +8591,6 @@ java.lang.String defaultValue);
           .equals(other.getColumnDefsList())) return false;
       if (!getPrimaryKeyList()
           .equals(other.getPrimaryKeyList())) return false;
-      if (getCreateIfNotExists()
-          != other.getCreateIfNotExists()) return false;
       if (!getPath()
           .equals(other.getPath())) return false;
       if (!internalGetOptions().equals(
@@ -8658,9 +8619,6 @@ java.lang.String defaultValue);
         hash = (37 * hash) + PRIMARY_KEY_FIELD_NUMBER;
         hash = (53 * hash) + getPrimaryKeyList().hashCode();
       }
-      hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getCreateIfNotExists());
       hash = (37 * hash) + PATH_FIELD_NUMBER;
       hash = (53 * hash) + getPath().hashCode();
       if (!internalGetOptions().getMap().isEmpty()) {
@@ -8778,7 +8736,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 7:
+          case 6:
             return internalGetOptions();
           default:
             throw new RuntimeException(
@@ -8789,7 +8747,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 7:
+          case 6:
             return internalGetMutableOptions();
           default:
             throw new RuntimeException(
@@ -8835,8 +8793,6 @@ java.lang.String defaultValue);
         }
         primaryKey_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000002);
-        createIfNotExists_ = false;
-
         path_ = "";
 
         internalGetMutableOptions().clear();
@@ -8883,7 +8839,6 @@ java.lang.String defaultValue);
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.primaryKey_ = primaryKey_;
-        result.createIfNotExists_ = createIfNotExists_;
         result.path_ = path_;
         result.options_ = internalGetOptions();
         result.options_.makeImmutable();
@@ -8977,9 +8932,6 @@ java.lang.String defaultValue);
             primaryKey_.addAll(other.primaryKey_);
           }
           onChanged();
-        }
-        if (other.getCreateIfNotExists() != false) {
-          setCreateIfNotExists(other.getCreateIfNotExists());
         }
         if (!other.getPath().isEmpty()) {
           path_ = other.path_;
@@ -9563,56 +9515,13 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private boolean createIfNotExists_ ;
-      /**
-       * <pre>
-       * Create region if not exists.
-       * </pre>
-       *
-       * <code>bool create_if_not_exists = 5;</code>
-       * @return The createIfNotExists.
-       */
-      @java.lang.Override
-      public boolean getCreateIfNotExists() {
-        return createIfNotExists_;
-      }
-      /**
-       * <pre>
-       * Create region if not exists.
-       * </pre>
-       *
-       * <code>bool create_if_not_exists = 5;</code>
-       * @param value The createIfNotExists to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCreateIfNotExists(boolean value) {
-        
-        createIfNotExists_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Create region if not exists.
-       * </pre>
-       *
-       * <code>bool create_if_not_exists = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCreateIfNotExists() {
-        
-        createIfNotExists_ = false;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object path_ = "";
       /**
        * <pre>
        * Region storage path
        * </pre>
        *
-       * <code>string path = 6;</code>
+       * <code>string path = 5;</code>
        * @return The path.
        */
       public java.lang.String getPath() {
@@ -9632,7 +9541,7 @@ java.lang.String defaultValue);
        * Region storage path
        * </pre>
        *
-       * <code>string path = 6;</code>
+       * <code>string path = 5;</code>
        * @return The bytes for path.
        */
       public com.google.protobuf.ByteString
@@ -9653,7 +9562,7 @@ java.lang.String defaultValue);
        * Region storage path
        * </pre>
        *
-       * <code>string path = 6;</code>
+       * <code>string path = 5;</code>
        * @param value The path to set.
        * @return This builder for chaining.
        */
@@ -9672,7 +9581,7 @@ java.lang.String defaultValue);
        * Region storage path
        * </pre>
        *
-       * <code>string path = 6;</code>
+       * <code>string path = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearPath() {
@@ -9686,7 +9595,7 @@ java.lang.String defaultValue);
        * Region storage path
        * </pre>
        *
-       * <code>string path = 6;</code>
+       * <code>string path = 5;</code>
        * @param value The bytes for path to set.
        * @return This builder for chaining.
        */
@@ -9733,7 +9642,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 7;</code>
+       * <code>map&lt;string, string&gt; options = 6;</code>
        */
 
       @java.lang.Override
@@ -9755,7 +9664,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 7;</code>
+       * <code>map&lt;string, string&gt; options = 6;</code>
        */
       @java.lang.Override
 
@@ -9767,7 +9676,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 7;</code>
+       * <code>map&lt;string, string&gt; options = 6;</code>
        */
       @java.lang.Override
 
@@ -9784,7 +9693,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 7;</code>
+       * <code>map&lt;string, string&gt; options = 6;</code>
        */
       @java.lang.Override
 
@@ -9809,7 +9718,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 7;</code>
+       * <code>map&lt;string, string&gt; options = 6;</code>
        */
 
       public Builder removeOptions(
@@ -9832,7 +9741,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 7;</code>
+       * <code>map&lt;string, string&gt; options = 6;</code>
        */
       public Builder putOptions(
           java.lang.String key,
@@ -9851,7 +9760,7 @@ java.lang.String defaultValue);
        * Options of the created region.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 7;</code>
+       * <code>map&lt;string, string&gt; options = 6;</code>
        */
 
       public Builder putAllOptions(
@@ -18084,40 +17993,40 @@ java.lang.String defaultValue);
       "(\0132\021.greptime.v1.Rows\"h\n\014QueryRequest\0227\n" +
       "\006header\030\001 \001(\0132\'.greptime.v1.region.Regio" +
       "nRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004pla" +
-      "n\030\003 \001(\014\"\236\002\n\rCreateRequest\022\021\n\tregion_id\030\001" +
+      "n\030\003 \001(\014\"\200\002\n\rCreateRequest\022\021\n\tregion_id\030\001" +
       " \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(" +
       "\0132#.greptime.v1.region.RegionColumnDef\022\023" +
-      "\n\013primary_key\030\004 \003(\r\022\034\n\024create_if_not_exi" +
-      "sts\030\005 \001(\010\022\014\n\004path\030\006 \001(\t\022?\n\007options\030\007 \003(\013" +
-      "2..greptime.v1.region.CreateRequest.Opti" +
-      "onsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t:\0028\001\" \n\013DropRequest\022\021\n\tregio" +
-      "n_id\030\001 \001(\004\"\255\001\n\013OpenRequest\022\021\n\tregion_id\030" +
-      "\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007o" +
-      "ptions\030\004 \003(\0132,.greptime.v1.region.OpenRe" +
+      "\n\013primary_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007opt" +
+      "ions\030\006 \003(\0132..greptime.v1.region.CreateRe" +
       "quest.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\"\261\001\n\014AlterRequest\022\021" +
-      "\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036" +
-      ".greptime.v1.region.AddColumnsH\000\0227\n\014drop" +
-      "_columns\030\003 \001(\0132\037.greptime.v1.region.Drop" +
-      "ColumnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kin" +
-      "d\"@\n\nAddColumns\0222\n\013add_columns\030\001 \003(\0132\035.g" +
-      "reptime.v1.region.AddColumn\"C\n\013DropColum" +
-      "ns\0224\n\014drop_columns\030\001 \003(\0132\036.greptime.v1.r" +
-      "egion.DropColumn\"v\n\tAddColumn\0227\n\ncolumn_" +
-      "def\030\001 \001(\0132#.greptime.v1.region.RegionCol" +
-      "umnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.A" +
-      "ddColumnLocation\"\032\n\nDropColumn\022\014\n\004name\030\001" +
-      " \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"" +
-      "#\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017" +
-      "RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.gr" +
-      "eptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y" +
-      "\n\006Region\022O\n\006Handle\022!.greptime.v1.region." +
-      "RegionRequest\032\".greptime.v1.region.Regio" +
-      "nResponseB]\n\025io.greptime.v1.regionB\006Serv" +
-      "erZ<github.com/GreptimeTeam/greptime-pro" +
-      "to/go/greptime/v1/regionb\006proto3"
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\013DropReques" +
+      "t\022\021\n\tregion_id\030\001 \001(\004\"\255\001\n\013OpenRequest\022\021\n\t" +
+      "region_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030" +
+      "\003 \001(\t\022=\n\007options\030\004 \003(\0132,.greptime.v1.reg" +
+      "ion.OpenRequest.OptionsEntry\032.\n\014OptionsE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014" +
+      "CloseRequest\022\021\n\tregion_id\030\001 \001(\004\"\261\001\n\014Alte" +
+      "rRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_colum" +
+      "ns\030\002 \001(\0132\036.greptime.v1.region.AddColumns" +
+      "H\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime.v1.r" +
+      "egion.DropColumnsH\000\022\026\n\016schema_version\030\004 " +
+      "\001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_columns" +
+      "\030\001 \003(\0132\035.greptime.v1.region.AddColumn\"C\n" +
+      "\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132\036.gre" +
+      "ptime.v1.region.DropColumn\"v\n\tAddColumn\022" +
+      "7\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.region" +
+      ".RegionColumnDef\0220\n\010location\030\003 \001(\0132\036.gre" +
+      "ptime.v1.AddColumnLocation\"\032\n\nDropColumn" +
+      "\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion" +
+      "_id\030\001 \001(\004\"#\n\016CompactRequest\022\021\n\tregion_id" +
+      "\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_def\030" +
+      "\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcolumn_" +
+      "id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.greptime." +
+      "v1.region.RegionRequest\032\".greptime.v1.re" +
+      "gion.RegionResponseB]\n\025io.greptime.v1.re" +
+      "gionB\006ServerZ<github.com/GreptimeTeam/gr" +
+      "eptime-proto/go/greptime/v1/regionb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18179,7 +18088,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_CreateRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Engine", "ColumnDefs", "PrimaryKey", "CreateIfNotExists", "Path", "Options", });
+        new java.lang.String[] { "RegionId", "Engine", "ColumnDefs", "PrimaryKey", "Path", "Options", });
     internal_static_greptime_v1_region_CreateRequest_OptionsEntry_descriptor =
       internal_static_greptime_v1_region_CreateRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_region_CreateRequest_OptionsEntry_fieldAccessorTable = new

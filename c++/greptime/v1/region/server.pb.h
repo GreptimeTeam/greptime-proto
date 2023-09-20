@@ -1837,11 +1837,10 @@ class CreateRequest final :
   enum : int {
     kColumnDefsFieldNumber = 3,
     kPrimaryKeyFieldNumber = 4,
-    kOptionsFieldNumber = 7,
+    kOptionsFieldNumber = 6,
     kEngineFieldNumber = 2,
-    kPathFieldNumber = 6,
+    kPathFieldNumber = 5,
     kRegionIdFieldNumber = 1,
-    kCreateIfNotExistsFieldNumber = 5,
   };
   // repeated .greptime.v1.region.RegionColumnDef column_defs = 3;
   int column_defs_size() const;
@@ -1883,7 +1882,7 @@ class CreateRequest final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_primary_key();
 
-  // map<string, string> options = 7;
+  // map<string, string> options = 6;
   int options_size() const;
   private:
   int _internal_options_size() const;
@@ -1914,7 +1913,7 @@ class CreateRequest final :
   std::string* _internal_mutable_engine();
   public:
 
-  // string path = 6;
+  // string path = 5;
   void clear_path();
   const std::string& path() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1937,15 +1936,6 @@ class CreateRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
-  // bool create_if_not_exists = 5;
-  void clear_create_if_not_exists();
-  bool create_if_not_exists() const;
-  void set_create_if_not_exists(bool value);
-  private:
-  bool _internal_create_if_not_exists() const;
-  void _internal_set_create_if_not_exists(bool value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.region.CreateRequest)
  private:
   class _Internal;
@@ -1965,7 +1955,6 @@ class CreateRequest final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr path_;
     uint64_t region_id_;
-    bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5389,27 +5378,7 @@ CreateRequest::mutable_primary_key() {
   return _internal_mutable_primary_key();
 }
 
-// bool create_if_not_exists = 5;
-inline void CreateRequest::clear_create_if_not_exists() {
-  _impl_.create_if_not_exists_ = false;
-}
-inline bool CreateRequest::_internal_create_if_not_exists() const {
-  return _impl_.create_if_not_exists_;
-}
-inline bool CreateRequest::create_if_not_exists() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.CreateRequest.create_if_not_exists)
-  return _internal_create_if_not_exists();
-}
-inline void CreateRequest::_internal_set_create_if_not_exists(bool value) {
-  
-  _impl_.create_if_not_exists_ = value;
-}
-inline void CreateRequest::set_create_if_not_exists(bool value) {
-  _internal_set_create_if_not_exists(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.region.CreateRequest.create_if_not_exists)
-}
-
-// string path = 6;
+// string path = 5;
 inline void CreateRequest::clear_path() {
   _impl_.path_.ClearToEmpty();
 }
@@ -5459,7 +5428,7 @@ inline void CreateRequest::set_allocated_path(std::string* path) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CreateRequest.path)
 }
 
-// map<string, string> options = 7;
+// map<string, string> options = 6;
 inline int CreateRequest::_internal_options_size() const {
   return _impl_.options_.size();
 }
