@@ -46,6 +46,7 @@ message RegionRequest {
     AlterRequest alter = 9;
     FlushRequest flush = 10;
     CompactRequest compact = 11;
+    TruncateRequest truncate = 12;
   }
 }
 
@@ -128,6 +129,8 @@ message DropColumn { string name = 1; }
 message FlushRequest { uint64 region_id = 1; }
 
 message CompactRequest { uint64 region_id = 1; }
+
+message TruncateRequest { uint64 region_id = 1; }
 
 // The column definition of a region. Unlike the message `ColumnDef` in
 // `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`

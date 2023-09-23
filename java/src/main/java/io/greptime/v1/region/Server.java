@@ -770,6 +770,21 @@ public final class Server {
      */
     io.greptime.v1.region.Server.CompactRequestOrBuilder getCompactOrBuilder();
 
+    /**
+     * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+     * @return Whether the truncate field is set.
+     */
+    boolean hasTruncate();
+    /**
+     * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+     * @return The truncate.
+     */
+    io.greptime.v1.region.Server.TruncateRequest getTruncate();
+    /**
+     * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+     */
+    io.greptime.v1.region.Server.TruncateRequestOrBuilder getTruncateOrBuilder();
+
     public io.greptime.v1.region.Server.RegionRequest.BodyCase getBodyCase();
   }
   /**
@@ -956,6 +971,20 @@ public final class Server {
               bodyCase_ = 11;
               break;
             }
+            case 98: {
+              io.greptime.v1.region.Server.TruncateRequest.Builder subBuilder = null;
+              if (bodyCase_ == 12) {
+                subBuilder = ((io.greptime.v1.region.Server.TruncateRequest) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(io.greptime.v1.region.Server.TruncateRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.TruncateRequest) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 12;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1004,6 +1033,7 @@ public final class Server {
       ALTER(9),
       FLUSH(10),
       COMPACT(11),
+      TRUNCATE(12),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -1030,6 +1060,7 @@ public final class Server {
           case 9: return ALTER;
           case 10: return FLUSH;
           case 11: return COMPACT;
+          case 12: return TRUNCATE;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -1350,6 +1381,37 @@ public final class Server {
       return io.greptime.v1.region.Server.CompactRequest.getDefaultInstance();
     }
 
+    public static final int TRUNCATE_FIELD_NUMBER = 12;
+    /**
+     * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+     * @return Whether the truncate field is set.
+     */
+    @java.lang.Override
+    public boolean hasTruncate() {
+      return bodyCase_ == 12;
+    }
+    /**
+     * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+     * @return The truncate.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.TruncateRequest getTruncate() {
+      if (bodyCase_ == 12) {
+         return (io.greptime.v1.region.Server.TruncateRequest) body_;
+      }
+      return io.greptime.v1.region.Server.TruncateRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.TruncateRequestOrBuilder getTruncateOrBuilder() {
+      if (bodyCase_ == 12) {
+         return (io.greptime.v1.region.Server.TruncateRequest) body_;
+      }
+      return io.greptime.v1.region.Server.TruncateRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1393,6 +1455,9 @@ public final class Server {
       }
       if (bodyCase_ == 11) {
         output.writeMessage(11, (io.greptime.v1.region.Server.CompactRequest) body_);
+      }
+      if (bodyCase_ == 12) {
+        output.writeMessage(12, (io.greptime.v1.region.Server.TruncateRequest) body_);
       }
       unknownFields.writeTo(output);
     }
@@ -1442,6 +1507,10 @@ public final class Server {
       if (bodyCase_ == 11) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, (io.greptime.v1.region.Server.CompactRequest) body_);
+      }
+      if (bodyCase_ == 12) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, (io.greptime.v1.region.Server.TruncateRequest) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1501,6 +1570,10 @@ public final class Server {
           if (!getCompact()
               .equals(other.getCompact())) return false;
           break;
+        case 12:
+          if (!getTruncate()
+              .equals(other.getTruncate())) return false;
+          break;
         case 0:
         default:
       }
@@ -1555,6 +1628,10 @@ public final class Server {
         case 11:
           hash = (37 * hash) + COMPACT_FIELD_NUMBER;
           hash = (53 * hash) + getCompact().hashCode();
+          break;
+        case 12:
+          hash = (37 * hash) + TRUNCATE_FIELD_NUMBER;
+          hash = (53 * hash) + getTruncate().hashCode();
           break;
         case 0:
         default:
@@ -1794,6 +1871,13 @@ public final class Server {
             result.body_ = compactBuilder_.build();
           }
         }
+        if (bodyCase_ == 12) {
+          if (truncateBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = truncateBuilder_.build();
+          }
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -1881,6 +1965,10 @@ public final class Server {
           }
           case COMPACT: {
             mergeCompact(other.getCompact());
+            break;
+          }
+          case TRUNCATE: {
+            mergeTruncate(other.getTruncate());
             break;
           }
           case BODY_NOT_SET: {
@@ -3326,6 +3414,148 @@ public final class Server {
         bodyCase_ = 11;
         onChanged();;
         return compactBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.TruncateRequest, io.greptime.v1.region.Server.TruncateRequest.Builder, io.greptime.v1.region.Server.TruncateRequestOrBuilder> truncateBuilder_;
+      /**
+       * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+       * @return Whether the truncate field is set.
+       */
+      @java.lang.Override
+      public boolean hasTruncate() {
+        return bodyCase_ == 12;
+      }
+      /**
+       * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+       * @return The truncate.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.TruncateRequest getTruncate() {
+        if (truncateBuilder_ == null) {
+          if (bodyCase_ == 12) {
+            return (io.greptime.v1.region.Server.TruncateRequest) body_;
+          }
+          return io.greptime.v1.region.Server.TruncateRequest.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 12) {
+            return truncateBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.TruncateRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+       */
+      public Builder setTruncate(io.greptime.v1.region.Server.TruncateRequest value) {
+        if (truncateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          truncateBuilder_.setMessage(value);
+        }
+        bodyCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+       */
+      public Builder setTruncate(
+          io.greptime.v1.region.Server.TruncateRequest.Builder builderForValue) {
+        if (truncateBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          truncateBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+       */
+      public Builder mergeTruncate(io.greptime.v1.region.Server.TruncateRequest value) {
+        if (truncateBuilder_ == null) {
+          if (bodyCase_ == 12 &&
+              body_ != io.greptime.v1.region.Server.TruncateRequest.getDefaultInstance()) {
+            body_ = io.greptime.v1.region.Server.TruncateRequest.newBuilder((io.greptime.v1.region.Server.TruncateRequest) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 12) {
+            truncateBuilder_.mergeFrom(value);
+          } else {
+            truncateBuilder_.setMessage(value);
+          }
+        }
+        bodyCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+       */
+      public Builder clearTruncate() {
+        if (truncateBuilder_ == null) {
+          if (bodyCase_ == 12) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 12) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          truncateBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+       */
+      public io.greptime.v1.region.Server.TruncateRequest.Builder getTruncateBuilder() {
+        return getTruncateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.TruncateRequestOrBuilder getTruncateOrBuilder() {
+        if ((bodyCase_ == 12) && (truncateBuilder_ != null)) {
+          return truncateBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 12) {
+            return (io.greptime.v1.region.Server.TruncateRequest) body_;
+          }
+          return io.greptime.v1.region.Server.TruncateRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.TruncateRequest truncate = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.TruncateRequest, io.greptime.v1.region.Server.TruncateRequest.Builder, io.greptime.v1.region.Server.TruncateRequestOrBuilder> 
+          getTruncateFieldBuilder() {
+        if (truncateBuilder_ == null) {
+          if (!(bodyCase_ == 12)) {
+            body_ = io.greptime.v1.region.Server.TruncateRequest.getDefaultInstance();
+          }
+          truncateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.TruncateRequest, io.greptime.v1.region.Server.TruncateRequest.Builder, io.greptime.v1.region.Server.TruncateRequestOrBuilder>(
+                  (io.greptime.v1.region.Server.TruncateRequest) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 12;
+        onChanged();;
+        return truncateBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -17137,6 +17367,497 @@ java.lang.String defaultValue);
 
   }
 
+  public interface TruncateRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.TruncateRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    long getRegionId();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.region.TruncateRequest}
+   */
+  public static final class TruncateRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.TruncateRequest)
+      TruncateRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TruncateRequest.newBuilder() to construct.
+    private TruncateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TruncateRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TruncateRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TruncateRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              regionId_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_TruncateRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_TruncateRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.TruncateRequest.class, io.greptime.v1.region.Server.TruncateRequest.Builder.class);
+    }
+
+    public static final int REGION_ID_FIELD_NUMBER = 1;
+    private long regionId_;
+    /**
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    @java.lang.Override
+    public long getRegionId() {
+      return regionId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (regionId_ != 0L) {
+        output.writeUInt64(1, regionId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (regionId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, regionId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.TruncateRequest)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.TruncateRequest other = (io.greptime.v1.region.Server.TruncateRequest) obj;
+
+      if (getRegionId()
+          != other.getRegionId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegionId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.TruncateRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.TruncateRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.region.TruncateRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.TruncateRequest)
+        io.greptime.v1.region.Server.TruncateRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_TruncateRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_TruncateRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.TruncateRequest.class, io.greptime.v1.region.Server.TruncateRequest.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.TruncateRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        regionId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_TruncateRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.TruncateRequest getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.TruncateRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.TruncateRequest build() {
+        io.greptime.v1.region.Server.TruncateRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.TruncateRequest buildPartial() {
+        io.greptime.v1.region.Server.TruncateRequest result = new io.greptime.v1.region.Server.TruncateRequest(this);
+        result.regionId_ = regionId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.TruncateRequest) {
+          return mergeFrom((io.greptime.v1.region.Server.TruncateRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.TruncateRequest other) {
+        if (other == io.greptime.v1.region.Server.TruncateRequest.getDefaultInstance()) return this;
+        if (other.getRegionId() != 0L) {
+          setRegionId(other.getRegionId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.TruncateRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.TruncateRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long regionId_ ;
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @return The regionId.
+       */
+      @java.lang.Override
+      public long getRegionId() {
+        return regionId_;
+      }
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @param value The regionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionId(long value) {
+        
+        regionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionId() {
+        
+        regionId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.TruncateRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.TruncateRequest)
+    private static final io.greptime.v1.region.Server.TruncateRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.TruncateRequest();
+    }
+
+    public static io.greptime.v1.region.Server.TruncateRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TruncateRequest>
+        PARSER = new com.google.protobuf.AbstractParser<TruncateRequest>() {
+      @java.lang.Override
+      public TruncateRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TruncateRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TruncateRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TruncateRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.TruncateRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface RegionColumnDefOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.region.RegionColumnDef)
       com.google.protobuf.MessageOrBuilder {
@@ -17950,6 +18671,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_CompactRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_TruncateRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_TruncateRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_RegionColumnDef_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17967,7 +18693,7 @@ java.lang.String defaultValue);
       "ime.v1.region\032\030greptime/v1/common.proto\032" +
       "\025greptime/v1/row.proto\032\025greptime/v1/ddl." +
       "proto\"8\n\023RegionRequestHeader\022\020\n\010trace_id" +
-      "\030\001 \001(\004\022\017\n\007span_id\030\002 \001(\004\"\245\004\n\rRegionReques" +
+      "\030\001 \001(\004\022\017\n\007span_id\030\002 \001(\004\"\336\004\n\rRegionReques" +
       "t\0227\n\006header\030\001 \001(\0132\'.greptime.v1.region.R" +
       "egionRequestHeader\0225\n\007inserts\030\003 \001(\0132\".gr" +
       "eptime.v1.region.InsertRequestsH\000\0225\n\007del" +
@@ -17981,52 +18707,54 @@ java.lang.String defaultValue);
       "region.AlterRequestH\000\0221\n\005flush\030\n \001(\0132 .g" +
       "reptime.v1.region.FlushRequestH\000\0225\n\007comp" +
       "act\030\013 \001(\0132\".greptime.v1.region.CompactRe" +
-      "questH\000B\006\n\004body\"T\n\016RegionResponse\022+\n\006hea" +
-      "der\030\001 \001(\0132\033.greptime.v1.ResponseHeader\022\025" +
-      "\n\raffected_rows\030\002 \001(\004\"E\n\016InsertRequests\022" +
-      "3\n\010requests\030\001 \003(\0132!.greptime.v1.region.I" +
-      "nsertRequest\"E\n\016DeleteRequests\0223\n\010reques" +
-      "ts\030\001 \003(\0132!.greptime.v1.region.DeleteRequ" +
-      "est\"C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
-      "\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDele" +
-      "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001" +
-      "(\0132\021.greptime.v1.Rows\"h\n\014QueryRequest\0227\n" +
-      "\006header\030\001 \001(\0132\'.greptime.v1.region.Regio" +
-      "nRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004pla" +
-      "n\030\003 \001(\014\"\200\002\n\rCreateRequest\022\021\n\tregion_id\030\001" +
-      " \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(" +
-      "\0132#.greptime.v1.region.RegionColumnDef\022\023" +
-      "\n\013primary_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007opt" +
-      "ions\030\006 \003(\0132..greptime.v1.region.CreateRe" +
-      "quest.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\013DropReques" +
-      "t\022\021\n\tregion_id\030\001 \001(\004\"\255\001\n\013OpenRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030" +
-      "\003 \001(\t\022=\n\007options\030\004 \003(\0132,.greptime.v1.reg" +
-      "ion.OpenRequest.OptionsEntry\032.\n\014OptionsE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014" +
-      "CloseRequest\022\021\n\tregion_id\030\001 \001(\004\"\261\001\n\014Alte" +
-      "rRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_colum" +
-      "ns\030\002 \001(\0132\036.greptime.v1.region.AddColumns" +
-      "H\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime.v1.r" +
-      "egion.DropColumnsH\000\022\026\n\016schema_version\030\004 " +
-      "\001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_columns" +
-      "\030\001 \003(\0132\035.greptime.v1.region.AddColumn\"C\n" +
-      "\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132\036.gre" +
-      "ptime.v1.region.DropColumn\"v\n\tAddColumn\022" +
-      "7\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.region" +
-      ".RegionColumnDef\0220\n\010location\030\003 \001(\0132\036.gre" +
-      "ptime.v1.AddColumnLocation\"\032\n\nDropColumn" +
-      "\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion" +
-      "_id\030\001 \001(\004\"#\n\016CompactRequest\022\021\n\tregion_id" +
-      "\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_def\030" +
-      "\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcolumn_" +
-      "id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.greptime." +
-      "v1.region.RegionRequest\032\".greptime.v1.re" +
-      "gion.RegionResponseB]\n\025io.greptime.v1.re" +
-      "gionB\006ServerZ<github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1/regionb\006prot" +
-      "o3"
+      "questH\000\0227\n\010truncate\030\014 \001(\0132#.greptime.v1." +
+      "region.TruncateRequestH\000B\006\n\004body\"T\n\016Regi" +
+      "onResponse\022+\n\006header\030\001 \001(\0132\033.greptime.v1" +
+      ".ResponseHeader\022\025\n\raffected_rows\030\002 \001(\004\"E" +
+      "\n\016InsertRequests\0223\n\010requests\030\001 \003(\0132!.gre" +
+      "ptime.v1.region.InsertRequest\"E\n\016DeleteR" +
+      "equests\0223\n\010requests\030\001 \003(\0132!.greptime.v1." +
+      "region.DeleteRequest\"C\n\rInsertRequest\022\021\n" +
+      "\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptim" +
+      "e.v1.Rows\"C\n\rDeleteRequest\022\021\n\tregion_id\030" +
+      "\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"h" +
+      "\n\014QueryRequest\0227\n\006header\030\001 \001(\0132\'.greptim" +
+      "e.v1.region.RegionRequestHeader\022\021\n\tregio" +
+      "n_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"\200\002\n\rCreateReque" +
+      "st\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n" +
+      "\013column_defs\030\003 \003(\0132#.greptime.v1.region." +
+      "RegionColumnDef\022\023\n\013primary_key\030\004 \003(\r\022\014\n\004" +
+      "path\030\005 \001(\t\022?\n\007options\030\006 \003(\0132..greptime.v" +
+      "1.region.CreateRequest.OptionsEntry\032.\n\014O" +
+      "ptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\" \n\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\"\255\001" +
+      "\n\013OpenRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engi" +
+      "ne\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132" +
+      ",.greptime.v1.region.OpenRequest.Options" +
+      "Entry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_" +
+      "id\030\001 \001(\004\"\261\001\n\014AlterRequest\022\021\n\tregion_id\030\001" +
+      " \001(\004\0225\n\013add_columns\030\002 \001(\0132\036.greptime.v1." +
+      "region.AddColumnsH\000\0227\n\014drop_columns\030\003 \001(" +
+      "\0132\037.greptime.v1.region.DropColumnsH\000\022\026\n\016" +
+      "schema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddColum" +
+      "ns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1.re" +
+      "gion.AddColumn\"C\n\013DropColumns\0224\n\014drop_co" +
+      "lumns\030\001 \003(\0132\036.greptime.v1.region.DropCol" +
+      "umn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#.g" +
+      "reptime.v1.region.RegionColumnDef\0220\n\010loc" +
+      "ation\030\003 \001(\0132\036.greptime.v1.AddColumnLocat" +
+      "ion\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Flush" +
+      "Request\022\021\n\tregion_id\030\001 \001(\004\"#\n\016CompactReq" +
+      "uest\022\021\n\tregion_id\030\001 \001(\004\"$\n\017TruncateReque" +
+      "st\022\021\n\tregion_id\030\001 \001(\004\"P\n\017RegionColumnDef" +
+      "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum" +
+      "nDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Han" +
+      "dle\022!.greptime.v1.region.RegionRequest\032\"" +
+      ".greptime.v1.region.RegionResponseB]\n\025io" +
+      ".greptime.v1.regionB\006ServerZ<github.com/" +
+      "GreptimeTeam/greptime-proto/go/greptime/" +
+      "v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18046,7 +18774,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Body", });
+        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Body", });
     internal_static_greptime_v1_region_RegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_region_RegionResponse_fieldAccessorTable = new
@@ -18161,8 +18889,14 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_CompactRequest_descriptor,
         new java.lang.String[] { "RegionId", });
-    internal_static_greptime_v1_region_RegionColumnDef_descriptor =
+    internal_static_greptime_v1_region_TruncateRequest_descriptor =
       getDescriptor().getMessageTypes().get(19);
+    internal_static_greptime_v1_region_TruncateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_TruncateRequest_descriptor,
+        new java.lang.String[] { "RegionId", });
+    internal_static_greptime_v1_region_RegionColumnDef_descriptor =
+      getDescriptor().getMessageTypes().get(20);
     internal_static_greptime_v1_region_RegionColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionColumnDef_descriptor,
