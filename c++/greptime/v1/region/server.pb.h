@@ -119,6 +119,9 @@ extern RegionRequestHeaderDefaultTypeInternal _RegionRequestHeader_default_insta
 class RegionResponse;
 struct RegionResponseDefaultTypeInternal;
 extern RegionResponseDefaultTypeInternal _RegionResponse_default_instance_;
+class TruncateRequest;
+struct TruncateRequestDefaultTypeInternal;
+extern TruncateRequestDefaultTypeInternal _TruncateRequest_default_instance_;
 }  // namespace region
 }  // namespace v1
 }  // namespace greptime
@@ -145,6 +148,7 @@ template<> ::greptime::v1::region::RegionColumnDef* Arena::CreateMaybeMessage<::
 template<> ::greptime::v1::region::RegionRequest* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequest>(Arena*);
 template<> ::greptime::v1::region::RegionRequestHeader* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader>(Arena*);
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
+template<> ::greptime::v1::region::TruncateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::TruncateRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -364,6 +368,7 @@ class RegionRequest final :
     kAlter = 9,
     kFlush = 10,
     kCompact = 11,
+    kTruncate = 12,
     BODY_NOT_SET = 0,
   };
 
@@ -455,6 +460,7 @@ class RegionRequest final :
     kAlterFieldNumber = 9,
     kFlushFieldNumber = 10,
     kCompactFieldNumber = 11,
+    kTruncateFieldNumber = 12,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -636,6 +642,24 @@ class RegionRequest final :
       ::greptime::v1::region::CompactRequest* compact);
   ::greptime::v1::region::CompactRequest* unsafe_arena_release_compact();
 
+  // .greptime.v1.region.TruncateRequest truncate = 12;
+  bool has_truncate() const;
+  private:
+  bool _internal_has_truncate() const;
+  public:
+  void clear_truncate();
+  const ::greptime::v1::region::TruncateRequest& truncate() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::TruncateRequest* release_truncate();
+  ::greptime::v1::region::TruncateRequest* mutable_truncate();
+  void set_allocated_truncate(::greptime::v1::region::TruncateRequest* truncate);
+  private:
+  const ::greptime::v1::region::TruncateRequest& _internal_truncate() const;
+  ::greptime::v1::region::TruncateRequest* _internal_mutable_truncate();
+  public:
+  void unsafe_arena_set_allocated_truncate(
+      ::greptime::v1::region::TruncateRequest* truncate);
+  ::greptime::v1::region::TruncateRequest* unsafe_arena_release_truncate();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -650,6 +674,7 @@ class RegionRequest final :
   void set_has_alter();
   void set_has_flush();
   void set_has_compact();
+  void set_has_truncate();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -671,6 +696,7 @@ class RegionRequest final :
       ::greptime::v1::region::AlterRequest* alter_;
       ::greptime::v1::region::FlushRequest* flush_;
       ::greptime::v1::region::CompactRequest* compact_;
+      ::greptime::v1::region::TruncateRequest* truncate_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -3650,6 +3676,154 @@ class CompactRequest final :
 };
 // -------------------------------------------------------------------
 
+class TruncateRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.TruncateRequest) */ {
+ public:
+  inline TruncateRequest() : TruncateRequest(nullptr) {}
+  ~TruncateRequest() override;
+  explicit PROTOBUF_CONSTEXPR TruncateRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TruncateRequest(const TruncateRequest& from);
+  TruncateRequest(TruncateRequest&& from) noexcept
+    : TruncateRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline TruncateRequest& operator=(const TruncateRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TruncateRequest& operator=(TruncateRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TruncateRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TruncateRequest* internal_default_instance() {
+    return reinterpret_cast<const TruncateRequest*>(
+               &_TruncateRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(TruncateRequest& a, TruncateRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TruncateRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TruncateRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TruncateRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TruncateRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TruncateRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const TruncateRequest& from) {
+    TruncateRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TruncateRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.TruncateRequest";
+  }
+  protected:
+  explicit TruncateRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdFieldNumber = 1,
+  };
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.TruncateRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class RegionColumnDef final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionColumnDef) */ {
  public:
@@ -3698,7 +3872,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -4624,6 +4798,80 @@ inline ::greptime::v1::region::CompactRequest* RegionRequest::_internal_mutable_
 inline ::greptime::v1::region::CompactRequest* RegionRequest::mutable_compact() {
   ::greptime::v1::region::CompactRequest* _msg = _internal_mutable_compact();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.compact)
+  return _msg;
+}
+
+// .greptime.v1.region.TruncateRequest truncate = 12;
+inline bool RegionRequest::_internal_has_truncate() const {
+  return body_case() == kTruncate;
+}
+inline bool RegionRequest::has_truncate() const {
+  return _internal_has_truncate();
+}
+inline void RegionRequest::set_has_truncate() {
+  _impl_._oneof_case_[0] = kTruncate;
+}
+inline void RegionRequest::clear_truncate() {
+  if (_internal_has_truncate()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.truncate_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::TruncateRequest* RegionRequest::release_truncate() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.truncate)
+  if (_internal_has_truncate()) {
+    clear_has_body();
+    ::greptime::v1::region::TruncateRequest* temp = _impl_.body_.truncate_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.truncate_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::TruncateRequest& RegionRequest::_internal_truncate() const {
+  return _internal_has_truncate()
+      ? *_impl_.body_.truncate_
+      : reinterpret_cast< ::greptime::v1::region::TruncateRequest&>(::greptime::v1::region::_TruncateRequest_default_instance_);
+}
+inline const ::greptime::v1::region::TruncateRequest& RegionRequest::truncate() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.truncate)
+  return _internal_truncate();
+}
+inline ::greptime::v1::region::TruncateRequest* RegionRequest::unsafe_arena_release_truncate() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.truncate)
+  if (_internal_has_truncate()) {
+    clear_has_body();
+    ::greptime::v1::region::TruncateRequest* temp = _impl_.body_.truncate_;
+    _impl_.body_.truncate_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_truncate(::greptime::v1::region::TruncateRequest* truncate) {
+  clear_body();
+  if (truncate) {
+    set_has_truncate();
+    _impl_.body_.truncate_ = truncate;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.truncate)
+}
+inline ::greptime::v1::region::TruncateRequest* RegionRequest::_internal_mutable_truncate() {
+  if (!_internal_has_truncate()) {
+    clear_body();
+    set_has_truncate();
+    _impl_.body_.truncate_ = CreateMaybeMessage< ::greptime::v1::region::TruncateRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.truncate_;
+}
+inline ::greptime::v1::region::TruncateRequest* RegionRequest::mutable_truncate() {
+  ::greptime::v1::region::TruncateRequest* _msg = _internal_mutable_truncate();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.truncate)
   return _msg;
 }
 
@@ -6232,6 +6480,30 @@ inline void CompactRequest::set_region_id(uint64_t value) {
 
 // -------------------------------------------------------------------
 
+// TruncateRequest
+
+// uint64 region_id = 1;
+inline void TruncateRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t TruncateRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t TruncateRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.TruncateRequest.region_id)
+  return _internal_region_id();
+}
+inline void TruncateRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void TruncateRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.TruncateRequest.region_id)
+}
+
+// -------------------------------------------------------------------
+
 // RegionColumnDef
 
 // .greptime.v1.ColumnDef column_def = 1;
@@ -6342,6 +6614,8 @@ inline void RegionColumnDef::set_column_id(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
