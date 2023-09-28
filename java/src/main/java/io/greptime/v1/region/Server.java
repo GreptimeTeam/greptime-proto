@@ -37,6 +37,26 @@ public final class Server {
      * @return The spanId.
      */
     long getSpanId();
+
+    /**
+     * <pre>
+     * DB Name of request, tracking only
+     * </pre>
+     *
+     * <code>string dbname = 3;</code>
+     * @return The dbname.
+     */
+    java.lang.String getDbname();
+    /**
+     * <pre>
+     * DB Name of request, tracking only
+     * </pre>
+     *
+     * <code>string dbname = 3;</code>
+     * @return The bytes for dbname.
+     */
+    com.google.protobuf.ByteString
+        getDbnameBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.region.RegionRequestHeader}
@@ -51,6 +71,7 @@ public final class Server {
       super(builder);
     }
     private RegionRequestHeader() {
+      dbname_ = "";
     }
 
     @java.lang.Override
@@ -91,6 +112,12 @@ public final class Server {
             case 16: {
 
               spanId_ = input.readUInt64();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbname_ = s;
               break;
             }
             default: {
@@ -157,6 +184,52 @@ public final class Server {
       return spanId_;
     }
 
+    public static final int DBNAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object dbname_;
+    /**
+     * <pre>
+     * DB Name of request, tracking only
+     * </pre>
+     *
+     * <code>string dbname = 3;</code>
+     * @return The dbname.
+     */
+    @java.lang.Override
+    public java.lang.String getDbname() {
+      java.lang.Object ref = dbname_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbname_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * DB Name of request, tracking only
+     * </pre>
+     *
+     * <code>string dbname = 3;</code>
+     * @return The bytes for dbname.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDbnameBytes() {
+      java.lang.Object ref = dbname_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbname_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -177,6 +250,9 @@ public final class Server {
       if (spanId_ != 0L) {
         output.writeUInt64(2, spanId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, dbname_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -193,6 +269,9 @@ public final class Server {
       if (spanId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, spanId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, dbname_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -213,6 +292,8 @@ public final class Server {
           != other.getTraceId()) return false;
       if (getSpanId()
           != other.getSpanId()) return false;
+      if (!getDbname()
+          .equals(other.getDbname())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -230,6 +311,8 @@ public final class Server {
       hash = (37 * hash) + SPAN_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSpanId());
+      hash = (37 * hash) + DBNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getDbname().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -367,6 +450,8 @@ public final class Server {
 
         spanId_ = 0L;
 
+        dbname_ = "";
+
         return this;
       }
 
@@ -395,6 +480,7 @@ public final class Server {
         io.greptime.v1.region.Server.RegionRequestHeader result = new io.greptime.v1.region.Server.RegionRequestHeader(this);
         result.traceId_ = traceId_;
         result.spanId_ = spanId_;
+        result.dbname_ = dbname_;
         onBuilt();
         return result;
       }
@@ -448,6 +534,10 @@ public final class Server {
         }
         if (other.getSpanId() != 0L) {
           setSpanId(other.getSpanId());
+        }
+        if (!other.getDbname().isEmpty()) {
+          dbname_ = other.dbname_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -560,6 +650,102 @@ public final class Server {
       public Builder clearSpanId() {
         
         spanId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbname_ = "";
+      /**
+       * <pre>
+       * DB Name of request, tracking only
+       * </pre>
+       *
+       * <code>string dbname = 3;</code>
+       * @return The dbname.
+       */
+      public java.lang.String getDbname() {
+        java.lang.Object ref = dbname_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbname_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * DB Name of request, tracking only
+       * </pre>
+       *
+       * <code>string dbname = 3;</code>
+       * @return The bytes for dbname.
+       */
+      public com.google.protobuf.ByteString
+          getDbnameBytes() {
+        java.lang.Object ref = dbname_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbname_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * DB Name of request, tracking only
+       * </pre>
+       *
+       * <code>string dbname = 3;</code>
+       * @param value The dbname to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDbname(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbname_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * DB Name of request, tracking only
+       * </pre>
+       *
+       * <code>string dbname = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDbname() {
+        
+        dbname_ = getDefaultInstance().getDbname();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * DB Name of request, tracking only
+       * </pre>
+       *
+       * <code>string dbname = 3;</code>
+       * @param value The bytes for dbname to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDbnameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbname_ = value;
         onChanged();
         return this;
       }
@@ -18692,69 +18878,69 @@ java.lang.String defaultValue);
       "\n\037greptime/v1/region/server.proto\022\022grept" +
       "ime.v1.region\032\030greptime/v1/common.proto\032" +
       "\025greptime/v1/row.proto\032\025greptime/v1/ddl." +
-      "proto\"8\n\023RegionRequestHeader\022\020\n\010trace_id" +
-      "\030\001 \001(\004\022\017\n\007span_id\030\002 \001(\004\"\336\004\n\rRegionReques" +
-      "t\0227\n\006header\030\001 \001(\0132\'.greptime.v1.region.R" +
-      "egionRequestHeader\0225\n\007inserts\030\003 \001(\0132\".gr" +
-      "eptime.v1.region.InsertRequestsH\000\0225\n\007del" +
-      "etes\030\004 \001(\0132\".greptime.v1.region.DeleteRe" +
-      "questsH\000\0223\n\006create\030\005 \001(\0132!.greptime.v1.r" +
-      "egion.CreateRequestH\000\022/\n\004drop\030\006 \001(\0132\037.gr" +
-      "eptime.v1.region.DropRequestH\000\022/\n\004open\030\007" +
-      " \001(\0132\037.greptime.v1.region.OpenRequestH\000\022" +
-      "1\n\005close\030\010 \001(\0132 .greptime.v1.region.Clos" +
-      "eRequestH\000\0221\n\005alter\030\t \001(\0132 .greptime.v1." +
-      "region.AlterRequestH\000\0221\n\005flush\030\n \001(\0132 .g" +
-      "reptime.v1.region.FlushRequestH\000\0225\n\007comp" +
-      "act\030\013 \001(\0132\".greptime.v1.region.CompactRe" +
-      "questH\000\0227\n\010truncate\030\014 \001(\0132#.greptime.v1." +
-      "region.TruncateRequestH\000B\006\n\004body\"T\n\016Regi" +
-      "onResponse\022+\n\006header\030\001 \001(\0132\033.greptime.v1" +
-      ".ResponseHeader\022\025\n\raffected_rows\030\002 \001(\004\"E" +
-      "\n\016InsertRequests\0223\n\010requests\030\001 \003(\0132!.gre" +
-      "ptime.v1.region.InsertRequest\"E\n\016DeleteR" +
-      "equests\0223\n\010requests\030\001 \003(\0132!.greptime.v1." +
-      "region.DeleteRequest\"C\n\rInsertRequest\022\021\n" +
-      "\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptim" +
-      "e.v1.Rows\"C\n\rDeleteRequest\022\021\n\tregion_id\030" +
-      "\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"h" +
-      "\n\014QueryRequest\0227\n\006header\030\001 \001(\0132\'.greptim" +
-      "e.v1.region.RegionRequestHeader\022\021\n\tregio" +
-      "n_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"\200\002\n\rCreateReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n" +
-      "\013column_defs\030\003 \003(\0132#.greptime.v1.region." +
-      "RegionColumnDef\022\023\n\013primary_key\030\004 \003(\r\022\014\n\004" +
-      "path\030\005 \001(\t\022?\n\007options\030\006 \003(\0132..greptime.v" +
-      "1.region.CreateRequest.OptionsEntry\032.\n\014O" +
-      "ptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\" \n\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\"\255\001" +
-      "\n\013OpenRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engi" +
-      "ne\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132" +
-      ",.greptime.v1.region.OpenRequest.Options" +
-      "Entry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_" +
-      "id\030\001 \001(\004\"\261\001\n\014AlterRequest\022\021\n\tregion_id\030\001" +
-      " \001(\004\0225\n\013add_columns\030\002 \001(\0132\036.greptime.v1." +
-      "region.AddColumnsH\000\0227\n\014drop_columns\030\003 \001(" +
-      "\0132\037.greptime.v1.region.DropColumnsH\000\022\026\n\016" +
-      "schema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddColum" +
-      "ns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1.re" +
-      "gion.AddColumn\"C\n\013DropColumns\0224\n\014drop_co" +
-      "lumns\030\001 \003(\0132\036.greptime.v1.region.DropCol" +
-      "umn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#.g" +
-      "reptime.v1.region.RegionColumnDef\0220\n\010loc" +
-      "ation\030\003 \001(\0132\036.greptime.v1.AddColumnLocat" +
-      "ion\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Flush" +
-      "Request\022\021\n\tregion_id\030\001 \001(\004\"#\n\016CompactReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\"$\n\017TruncateReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\"P\n\017RegionColumnDef" +
-      "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum" +
-      "nDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Han" +
-      "dle\022!.greptime.v1.region.RegionRequest\032\"" +
-      ".greptime.v1.region.RegionResponseB]\n\025io" +
-      ".greptime.v1.regionB\006ServerZ<github.com/" +
-      "GreptimeTeam/greptime-proto/go/greptime/" +
-      "v1/regionb\006proto3"
+      "proto\"H\n\023RegionRequestHeader\022\020\n\010trace_id" +
+      "\030\001 \001(\004\022\017\n\007span_id\030\002 \001(\004\022\016\n\006dbname\030\003 \001(\t\"" +
+      "\336\004\n\rRegionRequest\0227\n\006header\030\001 \001(\0132\'.grep" +
+      "time.v1.region.RegionRequestHeader\0225\n\007in" +
+      "serts\030\003 \001(\0132\".greptime.v1.region.InsertR" +
+      "equestsH\000\0225\n\007deletes\030\004 \001(\0132\".greptime.v1" +
+      ".region.DeleteRequestsH\000\0223\n\006create\030\005 \001(\013" +
+      "2!.greptime.v1.region.CreateRequestH\000\022/\n" +
+      "\004drop\030\006 \001(\0132\037.greptime.v1.region.DropReq" +
+      "uestH\000\022/\n\004open\030\007 \001(\0132\037.greptime.v1.regio" +
+      "n.OpenRequestH\000\0221\n\005close\030\010 \001(\0132 .greptim" +
+      "e.v1.region.CloseRequestH\000\0221\n\005alter\030\t \001(" +
+      "\0132 .greptime.v1.region.AlterRequestH\000\0221\n" +
+      "\005flush\030\n \001(\0132 .greptime.v1.region.FlushR" +
+      "equestH\000\0225\n\007compact\030\013 \001(\0132\".greptime.v1." +
+      "region.CompactRequestH\000\0227\n\010truncate\030\014 \001(" +
+      "\0132#.greptime.v1.region.TruncateRequestH\000" +
+      "B\006\n\004body\"T\n\016RegionResponse\022+\n\006header\030\001 \001" +
+      "(\0132\033.greptime.v1.ResponseHeader\022\025\n\raffec" +
+      "ted_rows\030\002 \001(\004\"E\n\016InsertRequests\0223\n\010requ" +
+      "ests\030\001 \003(\0132!.greptime.v1.region.InsertRe" +
+      "quest\"E\n\016DeleteRequests\0223\n\010requests\030\001 \003(" +
+      "\0132!.greptime.v1.region.DeleteRequest\"C\n\r" +
+      "InsertRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows" +
+      "\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDeleteReque" +
+      "st\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.gr" +
+      "eptime.v1.Rows\"h\n\014QueryRequest\0227\n\006header" +
+      "\030\001 \001(\0132\'.greptime.v1.region.RegionReques" +
+      "tHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014" +
+      "\"\200\002\n\rCreateRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n" +
+      "\006engine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(\0132#.gre" +
+      "ptime.v1.region.RegionColumnDef\022\023\n\013prima" +
+      "ry_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007options\030\006 " +
+      "\003(\0132..greptime.v1.region.CreateRequest.O" +
+      "ptionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\" \n\013DropRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\"\255\001\n\013OpenRequest\022\021\n\tregion_" +
+      "id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=" +
+      "\n\007options\030\004 \003(\0132,.greptime.v1.region.Ope" +
+      "nRequest.OptionsEntry\032.\n\014OptionsEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRe" +
+      "quest\022\021\n\tregion_id\030\001 \001(\004\"\261\001\n\014AlterReques" +
+      "t\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(" +
+      "\0132\036.greptime.v1.region.AddColumnsH\000\0227\n\014d" +
+      "rop_columns\030\003 \001(\0132\037.greptime.v1.region.D" +
+      "ropColumnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004" +
+      "kind\"@\n\nAddColumns\0222\n\013add_columns\030\001 \003(\0132" +
+      "\035.greptime.v1.region.AddColumn\"C\n\013DropCo" +
+      "lumns\0224\n\014drop_columns\030\001 \003(\0132\036.greptime.v" +
+      "1.region.DropColumn\"v\n\tAddColumn\0227\n\ncolu" +
+      "mn_def\030\001 \001(\0132#.greptime.v1.region.Region" +
+      "ColumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v" +
+      "1.AddColumnLocation\"\032\n\nDropColumn\022\014\n\004nam" +
+      "e\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001" +
+      "(\004\"#\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"" +
+      "$\n\017TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n" +
+      "\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.g" +
+      "reptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2" +
+      "Y\n\006Region\022O\n\006Handle\022!.greptime.v1.region" +
+      ".RegionRequest\032\".greptime.v1.region.Regi" +
+      "onResponseB]\n\025io.greptime.v1.regionB\006Ser" +
+      "verZ<github.com/GreptimeTeam/greptime-pr" +
+      "oto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18768,7 +18954,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequestHeader_descriptor,
-        new java.lang.String[] { "TraceId", "SpanId", });
+        new java.lang.String[] { "TraceId", "SpanId", "Dbname", });
     internal_static_greptime_v1_region_RegionRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
