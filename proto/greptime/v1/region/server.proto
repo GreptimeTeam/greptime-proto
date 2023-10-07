@@ -31,6 +31,8 @@ message RegionRequestHeader {
   uint64 trace_id = 1;
   // SpanID of request
   uint64 span_id = 2;
+  // DB Name of request, tracking only
+  string dbname = 3;
 }
 
 message RegionRequest {

@@ -277,9 +277,24 @@ class RegionRequestHeader final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kDbnameFieldNumber = 3,
     kTraceIdFieldNumber = 1,
     kSpanIdFieldNumber = 2,
   };
+  // string dbname = 3;
+  void clear_dbname();
+  const std::string& dbname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_dbname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_dbname();
+  PROTOBUF_NODISCARD std::string* release_dbname();
+  void set_allocated_dbname(std::string* dbname);
+  private:
+  const std::string& _internal_dbname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_dbname(const std::string& value);
+  std::string* _internal_mutable_dbname();
+  public:
+
   // uint64 trace_id = 1;
   void clear_trace_id();
   uint64_t trace_id() const;
@@ -306,6 +321,7 @@ class RegionRequestHeader final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dbname_;
     uint64_t trace_id_;
     uint64_t span_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -4039,6 +4055,56 @@ inline void RegionRequestHeader::_internal_set_span_id(uint64_t value) {
 inline void RegionRequestHeader::set_span_id(uint64_t value) {
   _internal_set_span_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.region.RegionRequestHeader.span_id)
+}
+
+// string dbname = 3;
+inline void RegionRequestHeader::clear_dbname() {
+  _impl_.dbname_.ClearToEmpty();
+}
+inline const std::string& RegionRequestHeader::dbname() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequestHeader.dbname)
+  return _internal_dbname();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RegionRequestHeader::set_dbname(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.dbname_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionRequestHeader.dbname)
+}
+inline std::string* RegionRequestHeader::mutable_dbname() {
+  std::string* _s = _internal_mutable_dbname();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequestHeader.dbname)
+  return _s;
+}
+inline const std::string& RegionRequestHeader::_internal_dbname() const {
+  return _impl_.dbname_.Get();
+}
+inline void RegionRequestHeader::_internal_set_dbname(const std::string& value) {
+  
+  _impl_.dbname_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RegionRequestHeader::_internal_mutable_dbname() {
+  
+  return _impl_.dbname_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RegionRequestHeader::release_dbname() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequestHeader.dbname)
+  return _impl_.dbname_.Release();
+}
+inline void RegionRequestHeader::set_allocated_dbname(std::string* dbname) {
+  if (dbname != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.dbname_.SetAllocated(dbname, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.dbname_.IsDefault()) {
+    _impl_.dbname_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionRequestHeader.dbname)
 }
 
 // -------------------------------------------------------------------
