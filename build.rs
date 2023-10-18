@@ -35,6 +35,7 @@ fn main() {
                 "proto/greptime/v1/meta/cluster.proto",
                 "proto/prometheus/remote/remote.proto",
                 "proto/substrait_extension/promql_plan.proto",
+                "proto/greptime/v1/notify.proto",
             ],
             &["proto"],
         )
