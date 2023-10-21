@@ -110,14 +110,6 @@ class Store final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DeleteRangeResponse>> PrepareAsyncDeleteRange(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DeleteRangeResponse>>(PrepareAsyncDeleteRangeRaw(context, request, cq));
     }
-    // MoveValue atomically renames the key to the given updated key.
-    virtual ::grpc::Status MoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::greptime::v1::meta::MoveValueResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MoveValueResponse>> AsyncMoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MoveValueResponse>>(AsyncMoveValueRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MoveValueResponse>> PrepareAsyncMoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MoveValueResponse>>(PrepareAsyncMoveValueRaw(context, request, cq));
-    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -144,9 +136,6 @@ class Store final {
       // DeleteRange deletes the given range from the key-value store.
       virtual void DeleteRange(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest* request, ::greptime::v1::meta::DeleteRangeResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void DeleteRange(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest* request, ::greptime::v1::meta::DeleteRangeResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // MoveValue atomically renames the key to the given updated key.
-      virtual void MoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest* request, ::greptime::v1::meta::MoveValueResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void MoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest* request, ::greptime::v1::meta::MoveValueResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -166,8 +155,6 @@ class Store final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::CompareAndPutResponse>* PrepareAsyncCompareAndPutRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::CompareAndPutRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DeleteRangeResponse>* AsyncDeleteRangeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DeleteRangeResponse>* PrepareAsyncDeleteRangeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MoveValueResponse>* AsyncMoveValueRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MoveValueResponse>* PrepareAsyncMoveValueRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -221,13 +208,6 @@ class Store final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DeleteRangeResponse>> PrepareAsyncDeleteRange(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DeleteRangeResponse>>(PrepareAsyncDeleteRangeRaw(context, request, cq));
     }
-    ::grpc::Status MoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::greptime::v1::meta::MoveValueResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MoveValueResponse>> AsyncMoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MoveValueResponse>>(AsyncMoveValueRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MoveValueResponse>> PrepareAsyncMoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MoveValueResponse>>(PrepareAsyncMoveValueRaw(context, request, cq));
-    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -245,8 +225,6 @@ class Store final {
       void CompareAndPut(::grpc::ClientContext* context, const ::greptime::v1::meta::CompareAndPutRequest* request, ::greptime::v1::meta::CompareAndPutResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void DeleteRange(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest* request, ::greptime::v1::meta::DeleteRangeResponse* response, std::function<void(::grpc::Status)>) override;
       void DeleteRange(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest* request, ::greptime::v1::meta::DeleteRangeResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void MoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest* request, ::greptime::v1::meta::MoveValueResponse* response, std::function<void(::grpc::Status)>) override;
-      void MoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest* request, ::greptime::v1::meta::MoveValueResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -272,8 +250,6 @@ class Store final {
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::CompareAndPutResponse>* PrepareAsyncCompareAndPutRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::CompareAndPutRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DeleteRangeResponse>* AsyncDeleteRangeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DeleteRangeResponse>* PrepareAsyncDeleteRangeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DeleteRangeRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MoveValueResponse>* AsyncMoveValueRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MoveValueResponse>* PrepareAsyncMoveValueRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Range_;
     const ::grpc::internal::RpcMethod rpcmethod_Put_;
     const ::grpc::internal::RpcMethod rpcmethod_BatchGet_;
@@ -281,7 +257,6 @@ class Store final {
     const ::grpc::internal::RpcMethod rpcmethod_BatchDelete_;
     const ::grpc::internal::RpcMethod rpcmethod_CompareAndPut_;
     const ::grpc::internal::RpcMethod rpcmethod_DeleteRange_;
-    const ::grpc::internal::RpcMethod rpcmethod_MoveValue_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -305,8 +280,6 @@ class Store final {
     virtual ::grpc::Status CompareAndPut(::grpc::ServerContext* context, const ::greptime::v1::meta::CompareAndPutRequest* request, ::greptime::v1::meta::CompareAndPutResponse* response);
     // DeleteRange deletes the given range from the key-value store.
     virtual ::grpc::Status DeleteRange(::grpc::ServerContext* context, const ::greptime::v1::meta::DeleteRangeRequest* request, ::greptime::v1::meta::DeleteRangeResponse* response);
-    // MoveValue atomically renames the key to the given updated key.
-    virtual ::grpc::Status MoveValue(::grpc::ServerContext* context, const ::greptime::v1::meta::MoveValueRequest* request, ::greptime::v1::meta::MoveValueResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_Range : public BaseClass {
@@ -448,27 +421,7 @@ class Store final {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  template <class BaseClass>
-  class WithAsyncMethod_MoveValue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_MoveValue() {
-      ::grpc::Service::MarkMethodAsync(7);
-    }
-    ~WithAsyncMethod_MoveValue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status MoveValue(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MoveValueRequest* /*request*/, ::greptime::v1::meta::MoveValueResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestMoveValue(::grpc::ServerContext* context, ::greptime::v1::meta::MoveValueRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::MoveValueResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_Range<WithAsyncMethod_Put<WithAsyncMethod_BatchGet<WithAsyncMethod_BatchPut<WithAsyncMethod_BatchDelete<WithAsyncMethod_CompareAndPut<WithAsyncMethod_DeleteRange<WithAsyncMethod_MoveValue<Service > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_Range<WithAsyncMethod_Put<WithAsyncMethod_BatchGet<WithAsyncMethod_BatchPut<WithAsyncMethod_BatchDelete<WithAsyncMethod_CompareAndPut<WithAsyncMethod_DeleteRange<Service > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_Range : public BaseClass {
    private:
@@ -658,34 +611,7 @@ class Store final {
     virtual ::grpc::ServerUnaryReactor* DeleteRange(
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::DeleteRangeRequest* /*request*/, ::greptime::v1::meta::DeleteRangeResponse* /*response*/)  { return nullptr; }
   };
-  template <class BaseClass>
-  class WithCallbackMethod_MoveValue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_MoveValue() {
-      ::grpc::Service::MarkMethodCallback(7,
-          new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::MoveValueRequest, ::greptime::v1::meta::MoveValueResponse>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::MoveValueRequest* request, ::greptime::v1::meta::MoveValueResponse* response) { return this->MoveValue(context, request, response); }));}
-    void SetMessageAllocatorFor_MoveValue(
-        ::grpc::MessageAllocator< ::greptime::v1::meta::MoveValueRequest, ::greptime::v1::meta::MoveValueResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::MoveValueRequest, ::greptime::v1::meta::MoveValueResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_MoveValue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status MoveValue(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MoveValueRequest* /*request*/, ::greptime::v1::meta::MoveValueResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* MoveValue(
-      ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::MoveValueRequest* /*request*/, ::greptime::v1::meta::MoveValueResponse* /*response*/)  { return nullptr; }
-  };
-  typedef WithCallbackMethod_Range<WithCallbackMethod_Put<WithCallbackMethod_BatchGet<WithCallbackMethod_BatchPut<WithCallbackMethod_BatchDelete<WithCallbackMethod_CompareAndPut<WithCallbackMethod_DeleteRange<WithCallbackMethod_MoveValue<Service > > > > > > > > CallbackService;
+  typedef WithCallbackMethod_Range<WithCallbackMethod_Put<WithCallbackMethod_BatchGet<WithCallbackMethod_BatchPut<WithCallbackMethod_BatchDelete<WithCallbackMethod_CompareAndPut<WithCallbackMethod_DeleteRange<Service > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Range : public BaseClass {
@@ -802,23 +728,6 @@ class Store final {
     }
     // disable synchronous version of this method
     ::grpc::Status DeleteRange(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DeleteRangeRequest* /*request*/, ::greptime::v1::meta::DeleteRangeResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_MoveValue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_MoveValue() {
-      ::grpc::Service::MarkMethodGeneric(7);
-    }
-    ~WithGenericMethod_MoveValue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status MoveValue(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MoveValueRequest* /*request*/, ::greptime::v1::meta::MoveValueResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -961,26 +870,6 @@ class Store final {
     }
     void RequestDeleteRange(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_MoveValue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_MoveValue() {
-      ::grpc::Service::MarkMethodRaw(7);
-    }
-    ~WithRawMethod_MoveValue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status MoveValue(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MoveValueRequest* /*request*/, ::greptime::v1::meta::MoveValueResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestMoveValue(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1135,28 +1024,6 @@ class Store final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* DeleteRange(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_MoveValue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_MoveValue() {
-      ::grpc::Service::MarkMethodRawCallback(7,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->MoveValue(context, request, response); }));
-    }
-    ~WithRawCallbackMethod_MoveValue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status MoveValue(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MoveValueRequest* /*request*/, ::greptime::v1::meta::MoveValueResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* MoveValue(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -1348,36 +1215,9 @@ class Store final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedDeleteRange(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::DeleteRangeRequest,::greptime::v1::meta::DeleteRangeResponse>* server_unary_streamer) = 0;
   };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_MoveValue : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_MoveValue() {
-      ::grpc::Service::MarkMethodStreamed(7,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::greptime::v1::meta::MoveValueRequest, ::greptime::v1::meta::MoveValueResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::greptime::v1::meta::MoveValueRequest, ::greptime::v1::meta::MoveValueResponse>* streamer) {
-                       return this->StreamedMoveValue(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_MoveValue() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status MoveValue(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MoveValueRequest* /*request*/, ::greptime::v1::meta::MoveValueResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedMoveValue(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::MoveValueRequest,::greptime::v1::meta::MoveValueResponse>* server_unary_streamer) = 0;
-  };
-  typedef WithStreamedUnaryMethod_Range<WithStreamedUnaryMethod_Put<WithStreamedUnaryMethod_BatchGet<WithStreamedUnaryMethod_BatchPut<WithStreamedUnaryMethod_BatchDelete<WithStreamedUnaryMethod_CompareAndPut<WithStreamedUnaryMethod_DeleteRange<WithStreamedUnaryMethod_MoveValue<Service > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_Range<WithStreamedUnaryMethod_Put<WithStreamedUnaryMethod_BatchGet<WithStreamedUnaryMethod_BatchPut<WithStreamedUnaryMethod_BatchDelete<WithStreamedUnaryMethod_CompareAndPut<WithStreamedUnaryMethod_DeleteRange<Service > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Range<WithStreamedUnaryMethod_Put<WithStreamedUnaryMethod_BatchGet<WithStreamedUnaryMethod_BatchPut<WithStreamedUnaryMethod_BatchDelete<WithStreamedUnaryMethod_CompareAndPut<WithStreamedUnaryMethod_DeleteRange<WithStreamedUnaryMethod_MoveValue<Service > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_Range<WithStreamedUnaryMethod_Put<WithStreamedUnaryMethod_BatchGet<WithStreamedUnaryMethod_BatchPut<WithStreamedUnaryMethod_BatchDelete<WithStreamedUnaryMethod_CompareAndPut<WithStreamedUnaryMethod_DeleteRange<Service > > > > > > > StreamedService;
 };
 
 }  // namespace meta

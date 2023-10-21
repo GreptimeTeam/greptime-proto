@@ -31,7 +31,6 @@ static const char* Store_method_names[] = {
   "/greptime.v1.meta.Store/BatchDelete",
   "/greptime.v1.meta.Store/CompareAndPut",
   "/greptime.v1.meta.Store/DeleteRange",
-  "/greptime.v1.meta.Store/MoveValue",
 };
 
 std::unique_ptr< Store::Stub> Store::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -48,7 +47,6 @@ Store::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, con
   , rpcmethod_BatchDelete_(Store_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_CompareAndPut_(Store_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeleteRange_(Store_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_MoveValue_(Store_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Store::Stub::Range(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest& request, ::greptime::v1::meta::RangeResponse* response) {
@@ -212,29 +210,6 @@ void Store::Stub::async::DeleteRange(::grpc::ClientContext* context, const ::gre
   return result;
 }
 
-::grpc::Status Store::Stub::MoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::greptime::v1::meta::MoveValueResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::MoveValueRequest, ::greptime::v1::meta::MoveValueResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_MoveValue_, context, request, response);
-}
-
-void Store::Stub::async::MoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest* request, ::greptime::v1::meta::MoveValueResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::meta::MoveValueRequest, ::greptime::v1::meta::MoveValueResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_MoveValue_, context, request, response, std::move(f));
-}
-
-void Store::Stub::async::MoveValue(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest* request, ::greptime::v1::meta::MoveValueResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_MoveValue_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MoveValueResponse>* Store::Stub::PrepareAsyncMoveValueRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::meta::MoveValueResponse, ::greptime::v1::meta::MoveValueRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_MoveValue_, context, request);
-}
-
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MoveValueResponse>* Store::Stub::AsyncMoveValueRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MoveValueRequest& request, ::grpc::CompletionQueue* cq) {
-  auto* result =
-    this->PrepareAsyncMoveValueRaw(context, request, cq);
-  result->StartCall();
-  return result;
-}
-
 Store::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Store_method_names[0],
@@ -306,16 +281,6 @@ Store::Service::Service() {
              ::greptime::v1::meta::DeleteRangeResponse* resp) {
                return service->DeleteRange(ctx, req, resp);
              }, this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Store_method_names[7],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Store::Service, ::greptime::v1::meta::MoveValueRequest, ::greptime::v1::meta::MoveValueResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](Store::Service* service,
-             ::grpc::ServerContext* ctx,
-             const ::greptime::v1::meta::MoveValueRequest* req,
-             ::greptime::v1::meta::MoveValueResponse* resp) {
-               return service->MoveValue(ctx, req, resp);
-             }, this)));
 }
 
 Store::Service::~Service() {
@@ -364,13 +329,6 @@ Store::Service::~Service() {
 }
 
 ::grpc::Status Store::Service::DeleteRange(::grpc::ServerContext* context, const ::greptime::v1::meta::DeleteRangeRequest* request, ::greptime::v1::meta::DeleteRangeResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status Store::Service::MoveValue(::grpc::ServerContext* context, const ::greptime::v1::meta::MoveValueRequest* request, ::greptime::v1::meta::MoveValueResponse* response) {
   (void) context;
   (void) request;
   (void) response;
