@@ -38,8 +38,6 @@ type StoreClient interface {
 	CompareAndPut(ctx context.Context, in *CompareAndPutRequest, opts ...grpc.CallOption) (*CompareAndPutResponse, error)
 	// DeleteRange deletes the given range from the key-value store.
 	DeleteRange(ctx context.Context, in *DeleteRangeRequest, opts ...grpc.CallOption) (*DeleteRangeResponse, error)
-	// MoveValue atomically renames the key to the given updated key.
-	MoveValue(ctx context.Context, in *MoveValueRequest, opts ...grpc.CallOption) (*MoveValueResponse, error)
 }
 
 type storeClient struct {
@@ -113,15 +111,6 @@ func (c *storeClient) DeleteRange(ctx context.Context, in *DeleteRangeRequest, o
 	return out, nil
 }
 
-func (c *storeClient) MoveValue(ctx context.Context, in *MoveValueRequest, opts ...grpc.CallOption) (*MoveValueResponse, error) {
-	out := new(MoveValueResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Store/MoveValue", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // StoreServer is the server API for Store service.
 // All implementations must embed UnimplementedStoreServer
 // for forward compatibility
@@ -142,8 +131,6 @@ type StoreServer interface {
 	CompareAndPut(context.Context, *CompareAndPutRequest) (*CompareAndPutResponse, error)
 	// DeleteRange deletes the given range from the key-value store.
 	DeleteRange(context.Context, *DeleteRangeRequest) (*DeleteRangeResponse, error)
-	// MoveValue atomically renames the key to the given updated key.
-	MoveValue(context.Context, *MoveValueRequest) (*MoveValueResponse, error)
 	mustEmbedUnimplementedStoreServer()
 }
 
@@ -171,9 +158,6 @@ func (UnimplementedStoreServer) CompareAndPut(context.Context, *CompareAndPutReq
 }
 func (UnimplementedStoreServer) DeleteRange(context.Context, *DeleteRangeRequest) (*DeleteRangeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRange not implemented")
-}
-func (UnimplementedStoreServer) MoveValue(context.Context, *MoveValueRequest) (*MoveValueResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method MoveValue not implemented")
 }
 func (UnimplementedStoreServer) mustEmbedUnimplementedStoreServer() {}
 
@@ -314,24 +298,6 @@ func _Store_DeleteRange_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Store_MoveValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StoreServer).MoveValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/greptime.v1.meta.Store/MoveValue",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServer).MoveValue(ctx, req.(*MoveValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Store_ServiceDesc is the grpc.ServiceDesc for Store service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -366,10 +332,6 @@ var Store_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteRange",
 			Handler:    _Store_DeleteRange_Handler,
-		},
-		{
-			MethodName: "MoveValue",
-			Handler:    _Store_MoveValue_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

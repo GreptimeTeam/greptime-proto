@@ -163,7 +163,6 @@ gen_set_header!(BatchPutRequest);
 gen_set_header!(BatchDeleteRequest);
 gen_set_header!(CompareAndPutRequest);
 gen_set_header!(DeleteRangeRequest);
-gen_set_header!(MoveValueRequest);
 gen_set_header!(LockRequest);
 gen_set_header!(UnlockRequest);
 gen_set_header!(SubmitDdlTaskRequest);
