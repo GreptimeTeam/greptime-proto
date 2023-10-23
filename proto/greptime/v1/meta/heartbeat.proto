@@ -48,6 +48,13 @@ message HeartbeatRequest {
   uint64 node_epoch = 7;
 }
 
+enum RegionRole {
+  // Writable region(mito2), Readonly region(file).
+  Leader = 0;
+  // Readonly region.
+  Follower = 1;
+}
+
 message RegionStat {
   uint64 region_id = 1;
   // The read capacity units during this period
@@ -60,6 +67,8 @@ message RegionStat {
   int64 approximate_rows = 5;
   // engine name
   string engine = 6;
+  // Region role
+  RegionRole role = 7;
 }
 
 message HeartbeatResponse {
