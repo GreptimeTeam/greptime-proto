@@ -48,6 +48,12 @@ message HeartbeatRequest {
   uint64 node_epoch = 7;
 }
 
+enum RegionState {
+    Unknown = 0;
+    Readonly = 1;
+    Writable = 2;
+}
+
 message RegionStat {
   uint64 region_id = 1;
   // The read capacity units during this period
@@ -60,6 +66,8 @@ message RegionStat {
   int64 approximate_rows = 5;
   // engine name
   string engine = 6;
+  // Indicate region's state.
+  RegionState state = 7;
 }
 
 message HeartbeatResponse {

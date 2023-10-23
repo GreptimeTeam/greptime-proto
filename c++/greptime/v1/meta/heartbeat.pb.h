@@ -29,6 +29,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/meta/common.pb.h"
 // @@protoc_insertion_point(includes)
@@ -85,6 +86,32 @@ namespace greptime {
 namespace v1 {
 namespace meta {
 
+enum RegionState : int {
+  Unknown = 0,
+  Readonly = 1,
+  Writable = 2,
+  RegionState_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  RegionState_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool RegionState_IsValid(int value);
+constexpr RegionState RegionState_MIN = Unknown;
+constexpr RegionState RegionState_MAX = Writable;
+constexpr int RegionState_ARRAYSIZE = RegionState_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* RegionState_descriptor();
+template<typename T>
+inline const std::string& RegionState_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, RegionState>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function RegionState_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    RegionState_descriptor(), enum_t_value);
+}
+inline bool RegionState_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, RegionState* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<RegionState>(
+    RegionState_descriptor(), name, value);
+}
 // ===================================================================
 
 class HeartbeatRequest final :
@@ -473,6 +500,7 @@ class RegionStat final :
     kWcusFieldNumber = 3,
     kApproximateBytesFieldNumber = 4,
     kApproximateRowsFieldNumber = 5,
+    kStateFieldNumber = 7,
   };
   // string engine = 6;
   void clear_engine();
@@ -533,6 +561,15 @@ class RegionStat final :
   void _internal_set_approximate_rows(int64_t value);
   public:
 
+  // .greptime.v1.meta.RegionState state = 7;
+  void clear_state();
+  ::greptime::v1::meta::RegionState state() const;
+  void set_state(::greptime::v1::meta::RegionState value);
+  private:
+  ::greptime::v1::meta::RegionState _internal_state() const;
+  void _internal_set_state(::greptime::v1::meta::RegionState value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.RegionStat)
  private:
   class _Internal;
@@ -547,6 +584,7 @@ class RegionStat final :
     int64_t wcus_;
     int64_t approximate_bytes_;
     int64_t approximate_rows_;
+    int state_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2101,6 +2139,26 @@ inline void RegionStat::set_allocated_engine(std::string* engine) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.RegionStat.engine)
 }
 
+// .greptime.v1.meta.RegionState state = 7;
+inline void RegionStat::clear_state() {
+  _impl_.state_ = 0;
+}
+inline ::greptime::v1::meta::RegionState RegionStat::_internal_state() const {
+  return static_cast< ::greptime::v1::meta::RegionState >(_impl_.state_);
+}
+inline ::greptime::v1::meta::RegionState RegionStat::state() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionStat.state)
+  return _internal_state();
+}
+inline void RegionStat::_internal_set_state(::greptime::v1::meta::RegionState value) {
+  
+  _impl_.state_ = value;
+}
+inline void RegionStat::set_state(::greptime::v1::meta::RegionState value) {
+  _internal_set_state(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.state)
+}
+
 // -------------------------------------------------------------------
 
 // HeartbeatResponse
@@ -3025,6 +3083,16 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::greptime::v1::meta::RegionState> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::RegionState>() {
+  return ::greptime::v1::meta::RegionState_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 
