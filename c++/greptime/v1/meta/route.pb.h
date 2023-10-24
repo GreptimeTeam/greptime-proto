@@ -63,12 +63,6 @@ extern RegionRouteDefaultTypeInternal _RegionRoute_default_instance_;
 class Region_AttrsEntry_DoNotUse;
 struct Region_AttrsEntry_DoNotUseDefaultTypeInternal;
 extern Region_AttrsEntry_DoNotUseDefaultTypeInternal _Region_AttrsEntry_DoNotUse_default_instance_;
-class RouteRequest;
-struct RouteRequestDefaultTypeInternal;
-extern RouteRequestDefaultTypeInternal _RouteRequest_default_instance_;
-class RouteResponse;
-struct RouteResponseDefaultTypeInternal;
-extern RouteResponseDefaultTypeInternal _RouteResponse_default_instance_;
 class Table;
 struct TableDefaultTypeInternal;
 extern TableDefaultTypeInternal _Table_default_instance_;
@@ -86,8 +80,6 @@ template<> ::greptime::v1::meta::Partition* Arena::CreateMaybeMessage<::greptime
 template<> ::greptime::v1::meta::Region* Arena::CreateMaybeMessage<::greptime::v1::meta::Region>(Arena*);
 template<> ::greptime::v1::meta::RegionRoute* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionRoute>(Arena*);
 template<> ::greptime::v1::meta::Region_AttrsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::Region_AttrsEntry_DoNotUse>(Arena*);
-template<> ::greptime::v1::meta::RouteRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::RouteRequest>(Arena*);
-template<> ::greptime::v1::meta::RouteResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::RouteResponse>(Arena*);
 template<> ::greptime::v1::meta::Table* Arena::CreateMaybeMessage<::greptime::v1::meta::Table>(Arena*);
 template<> ::greptime::v1::meta::TableRoute* Arena::CreateMaybeMessage<::greptime::v1::meta::TableRoute>(Arena*);
 template<> ::greptime::v1::meta::TableRouteValue* Arena::CreateMaybeMessage<::greptime::v1::meta::TableRouteValue>(Arena*);
@@ -97,380 +89,6 @@ namespace v1 {
 namespace meta {
 
 // ===================================================================
-
-class RouteRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.RouteRequest) */ {
- public:
-  inline RouteRequest() : RouteRequest(nullptr) {}
-  ~RouteRequest() override;
-  explicit PROTOBUF_CONSTEXPR RouteRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  RouteRequest(const RouteRequest& from);
-  RouteRequest(RouteRequest&& from) noexcept
-    : RouteRequest() {
-    *this = ::std::move(from);
-  }
-
-  inline RouteRequest& operator=(const RouteRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline RouteRequest& operator=(RouteRequest&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const RouteRequest& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const RouteRequest* internal_default_instance() {
-    return reinterpret_cast<const RouteRequest*>(
-               &_RouteRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  friend void swap(RouteRequest& a, RouteRequest& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(RouteRequest* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(RouteRequest* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  RouteRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<RouteRequest>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const RouteRequest& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const RouteRequest& from) {
-    RouteRequest::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(RouteRequest* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.meta.RouteRequest";
-  }
-  protected:
-  explicit RouteRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTableIdsFieldNumber = 2,
-    kHeaderFieldNumber = 1,
-  };
-  // repeated .greptime.v1.meta.TableId table_ids = 2;
-  int table_ids_size() const;
-  private:
-  int _internal_table_ids_size() const;
-  public:
-  void clear_table_ids();
-  ::greptime::v1::meta::TableId* mutable_table_ids(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >*
-      mutable_table_ids();
-  private:
-  const ::greptime::v1::meta::TableId& _internal_table_ids(int index) const;
-  ::greptime::v1::meta::TableId* _internal_add_table_ids();
-  public:
-  const ::greptime::v1::meta::TableId& table_ids(int index) const;
-  ::greptime::v1::meta::TableId* add_table_ids();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >&
-      table_ids() const;
-
-  // .greptime.v1.meta.RequestHeader header = 1;
-  bool has_header() const;
-  private:
-  bool _internal_has_header() const;
-  public:
-  void clear_header();
-  const ::greptime::v1::meta::RequestHeader& header() const;
-  PROTOBUF_NODISCARD ::greptime::v1::meta::RequestHeader* release_header();
-  ::greptime::v1::meta::RequestHeader* mutable_header();
-  void set_allocated_header(::greptime::v1::meta::RequestHeader* header);
-  private:
-  const ::greptime::v1::meta::RequestHeader& _internal_header() const;
-  ::greptime::v1::meta::RequestHeader* _internal_mutable_header();
-  public:
-  void unsafe_arena_set_allocated_header(
-      ::greptime::v1::meta::RequestHeader* header);
-  ::greptime::v1::meta::RequestHeader* unsafe_arena_release_header();
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.meta.RouteRequest)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId > table_ids_;
-    ::greptime::v1::meta::RequestHeader* header_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fmeta_2froute_2eproto;
-};
-// -------------------------------------------------------------------
-
-class RouteResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.RouteResponse) */ {
- public:
-  inline RouteResponse() : RouteResponse(nullptr) {}
-  ~RouteResponse() override;
-  explicit PROTOBUF_CONSTEXPR RouteResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  RouteResponse(const RouteResponse& from);
-  RouteResponse(RouteResponse&& from) noexcept
-    : RouteResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline RouteResponse& operator=(const RouteResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline RouteResponse& operator=(RouteResponse&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const RouteResponse& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const RouteResponse* internal_default_instance() {
-    return reinterpret_cast<const RouteResponse*>(
-               &_RouteResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(RouteResponse& a, RouteResponse& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(RouteResponse* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(RouteResponse* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  RouteResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<RouteResponse>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const RouteResponse& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const RouteResponse& from) {
-    RouteResponse::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(RouteResponse* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.meta.RouteResponse";
-  }
-  protected:
-  explicit RouteResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPeersFieldNumber = 2,
-    kTableRoutesFieldNumber = 3,
-    kHeaderFieldNumber = 1,
-  };
-  // repeated .greptime.v1.meta.Peer peers = 2;
-  int peers_size() const;
-  private:
-  int _internal_peers_size() const;
-  public:
-  void clear_peers();
-  ::greptime::v1::meta::Peer* mutable_peers(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer >*
-      mutable_peers();
-  private:
-  const ::greptime::v1::meta::Peer& _internal_peers(int index) const;
-  ::greptime::v1::meta::Peer* _internal_add_peers();
-  public:
-  const ::greptime::v1::meta::Peer& peers(int index) const;
-  ::greptime::v1::meta::Peer* add_peers();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer >&
-      peers() const;
-
-  // repeated .greptime.v1.meta.TableRoute table_routes = 3;
-  int table_routes_size() const;
-  private:
-  int _internal_table_routes_size() const;
-  public:
-  void clear_table_routes();
-  ::greptime::v1::meta::TableRoute* mutable_table_routes(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableRoute >*
-      mutable_table_routes();
-  private:
-  const ::greptime::v1::meta::TableRoute& _internal_table_routes(int index) const;
-  ::greptime::v1::meta::TableRoute* _internal_add_table_routes();
-  public:
-  const ::greptime::v1::meta::TableRoute& table_routes(int index) const;
-  ::greptime::v1::meta::TableRoute* add_table_routes();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableRoute >&
-      table_routes() const;
-
-  // .greptime.v1.meta.ResponseHeader header = 1;
-  bool has_header() const;
-  private:
-  bool _internal_has_header() const;
-  public:
-  void clear_header();
-  const ::greptime::v1::meta::ResponseHeader& header() const;
-  PROTOBUF_NODISCARD ::greptime::v1::meta::ResponseHeader* release_header();
-  ::greptime::v1::meta::ResponseHeader* mutable_header();
-  void set_allocated_header(::greptime::v1::meta::ResponseHeader* header);
-  private:
-  const ::greptime::v1::meta::ResponseHeader& _internal_header() const;
-  ::greptime::v1::meta::ResponseHeader* _internal_mutable_header();
-  public:
-  void unsafe_arena_set_allocated_header(
-      ::greptime::v1::meta::ResponseHeader* header);
-  ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.meta.RouteResponse)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer > peers_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableRoute > table_routes_;
-    ::greptime::v1::meta::ResponseHeader* header_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fmeta_2froute_2eproto;
-};
-// -------------------------------------------------------------------
 
 class TableRoute final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.TableRoute) */ {
@@ -520,7 +138,7 @@ class TableRoute final :
                &_TableRoute_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    0;
 
   friend void swap(TableRoute& a, TableRoute& b) {
     a.Swap(&b);
@@ -697,7 +315,7 @@ class RegionRoute final :
                &_RegionRoute_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    1;
 
   friend void swap(RegionRoute& a, RegionRoute& b) {
     a.Swap(&b);
@@ -890,7 +508,7 @@ class Table final :
                &_Table_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    2;
 
   friend void swap(Table& a, Table& b) {
     a.Swap(&b);
@@ -1102,7 +720,7 @@ class Region final :
                &_Region_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    4;
 
   friend void swap(Region& a, Region& b) {
     a.Swap(&b);
@@ -1312,7 +930,7 @@ class Partition final :
                &_Partition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    5;
 
   friend void swap(Partition& a, Partition& b) {
     a.Swap(&b);
@@ -1501,7 +1119,7 @@ class TableRouteValue final :
                &_TableRouteValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    6;
 
   friend void swap(TableRouteValue& a, TableRouteValue& b) {
     a.Swap(&b);
@@ -1637,298 +1255,6 @@ class TableRouteValue final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// RouteRequest
-
-// .greptime.v1.meta.RequestHeader header = 1;
-inline bool RouteRequest::_internal_has_header() const {
-  return this != internal_default_instance() && _impl_.header_ != nullptr;
-}
-inline bool RouteRequest::has_header() const {
-  return _internal_has_header();
-}
-inline const ::greptime::v1::meta::RequestHeader& RouteRequest::_internal_header() const {
-  const ::greptime::v1::meta::RequestHeader* p = _impl_.header_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::RequestHeader&>(
-      ::greptime::v1::meta::_RequestHeader_default_instance_);
-}
-inline const ::greptime::v1::meta::RequestHeader& RouteRequest::header() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RouteRequest.header)
-  return _internal_header();
-}
-inline void RouteRequest::unsafe_arena_set_allocated_header(
-    ::greptime::v1::meta::RequestHeader* header) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
-  }
-  _impl_.header_ = header;
-  if (header) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.RouteRequest.header)
-}
-inline ::greptime::v1::meta::RequestHeader* RouteRequest::release_header() {
-  
-  ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
-  _impl_.header_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::meta::RequestHeader* RouteRequest::unsafe_arena_release_header() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.RouteRequest.header)
-  
-  ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
-  _impl_.header_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::meta::RequestHeader* RouteRequest::_internal_mutable_header() {
-  
-  if (_impl_.header_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::meta::RequestHeader>(GetArenaForAllocation());
-    _impl_.header_ = p;
-  }
-  return _impl_.header_;
-}
-inline ::greptime::v1::meta::RequestHeader* RouteRequest::mutable_header() {
-  ::greptime::v1::meta::RequestHeader* _msg = _internal_mutable_header();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RouteRequest.header)
-  return _msg;
-}
-inline void RouteRequest::set_allocated_header(::greptime::v1::meta::RequestHeader* header) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
-  }
-  if (header) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
-    if (message_arena != submessage_arena) {
-      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, header, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.header_ = header;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.RouteRequest.header)
-}
-
-// repeated .greptime.v1.meta.TableId table_ids = 2;
-inline int RouteRequest::_internal_table_ids_size() const {
-  return _impl_.table_ids_.size();
-}
-inline int RouteRequest::table_ids_size() const {
-  return _internal_table_ids_size();
-}
-inline ::greptime::v1::meta::TableId* RouteRequest::mutable_table_ids(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RouteRequest.table_ids)
-  return _impl_.table_ids_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >*
-RouteRequest::mutable_table_ids() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RouteRequest.table_ids)
-  return &_impl_.table_ids_;
-}
-inline const ::greptime::v1::meta::TableId& RouteRequest::_internal_table_ids(int index) const {
-  return _impl_.table_ids_.Get(index);
-}
-inline const ::greptime::v1::meta::TableId& RouteRequest::table_ids(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RouteRequest.table_ids)
-  return _internal_table_ids(index);
-}
-inline ::greptime::v1::meta::TableId* RouteRequest::_internal_add_table_ids() {
-  return _impl_.table_ids_.Add();
-}
-inline ::greptime::v1::meta::TableId* RouteRequest::add_table_ids() {
-  ::greptime::v1::meta::TableId* _add = _internal_add_table_ids();
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.RouteRequest.table_ids)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >&
-RouteRequest::table_ids() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.RouteRequest.table_ids)
-  return _impl_.table_ids_;
-}
-
-// -------------------------------------------------------------------
-
-// RouteResponse
-
-// .greptime.v1.meta.ResponseHeader header = 1;
-inline bool RouteResponse::_internal_has_header() const {
-  return this != internal_default_instance() && _impl_.header_ != nullptr;
-}
-inline bool RouteResponse::has_header() const {
-  return _internal_has_header();
-}
-inline const ::greptime::v1::meta::ResponseHeader& RouteResponse::_internal_header() const {
-  const ::greptime::v1::meta::ResponseHeader* p = _impl_.header_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ResponseHeader&>(
-      ::greptime::v1::meta::_ResponseHeader_default_instance_);
-}
-inline const ::greptime::v1::meta::ResponseHeader& RouteResponse::header() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RouteResponse.header)
-  return _internal_header();
-}
-inline void RouteResponse::unsafe_arena_set_allocated_header(
-    ::greptime::v1::meta::ResponseHeader* header) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
-  }
-  _impl_.header_ = header;
-  if (header) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.RouteResponse.header)
-}
-inline ::greptime::v1::meta::ResponseHeader* RouteResponse::release_header() {
-  
-  ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
-  _impl_.header_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::meta::ResponseHeader* RouteResponse::unsafe_arena_release_header() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.RouteResponse.header)
-  
-  ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
-  _impl_.header_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::meta::ResponseHeader* RouteResponse::_internal_mutable_header() {
-  
-  if (_impl_.header_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::meta::ResponseHeader>(GetArenaForAllocation());
-    _impl_.header_ = p;
-  }
-  return _impl_.header_;
-}
-inline ::greptime::v1::meta::ResponseHeader* RouteResponse::mutable_header() {
-  ::greptime::v1::meta::ResponseHeader* _msg = _internal_mutable_header();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RouteResponse.header)
-  return _msg;
-}
-inline void RouteResponse::set_allocated_header(::greptime::v1::meta::ResponseHeader* header) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
-  }
-  if (header) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
-    if (message_arena != submessage_arena) {
-      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, header, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.header_ = header;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.RouteResponse.header)
-}
-
-// repeated .greptime.v1.meta.Peer peers = 2;
-inline int RouteResponse::_internal_peers_size() const {
-  return _impl_.peers_.size();
-}
-inline int RouteResponse::peers_size() const {
-  return _internal_peers_size();
-}
-inline ::greptime::v1::meta::Peer* RouteResponse::mutable_peers(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RouteResponse.peers)
-  return _impl_.peers_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer >*
-RouteResponse::mutable_peers() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RouteResponse.peers)
-  return &_impl_.peers_;
-}
-inline const ::greptime::v1::meta::Peer& RouteResponse::_internal_peers(int index) const {
-  return _impl_.peers_.Get(index);
-}
-inline const ::greptime::v1::meta::Peer& RouteResponse::peers(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RouteResponse.peers)
-  return _internal_peers(index);
-}
-inline ::greptime::v1::meta::Peer* RouteResponse::_internal_add_peers() {
-  return _impl_.peers_.Add();
-}
-inline ::greptime::v1::meta::Peer* RouteResponse::add_peers() {
-  ::greptime::v1::meta::Peer* _add = _internal_add_peers();
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.RouteResponse.peers)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer >&
-RouteResponse::peers() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.RouteResponse.peers)
-  return _impl_.peers_;
-}
-
-// repeated .greptime.v1.meta.TableRoute table_routes = 3;
-inline int RouteResponse::_internal_table_routes_size() const {
-  return _impl_.table_routes_.size();
-}
-inline int RouteResponse::table_routes_size() const {
-  return _internal_table_routes_size();
-}
-inline void RouteResponse::clear_table_routes() {
-  _impl_.table_routes_.Clear();
-}
-inline ::greptime::v1::meta::TableRoute* RouteResponse::mutable_table_routes(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RouteResponse.table_routes)
-  return _impl_.table_routes_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableRoute >*
-RouteResponse::mutable_table_routes() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RouteResponse.table_routes)
-  return &_impl_.table_routes_;
-}
-inline const ::greptime::v1::meta::TableRoute& RouteResponse::_internal_table_routes(int index) const {
-  return _impl_.table_routes_.Get(index);
-}
-inline const ::greptime::v1::meta::TableRoute& RouteResponse::table_routes(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RouteResponse.table_routes)
-  return _internal_table_routes(index);
-}
-inline ::greptime::v1::meta::TableRoute* RouteResponse::_internal_add_table_routes() {
-  return _impl_.table_routes_.Add();
-}
-inline ::greptime::v1::meta::TableRoute* RouteResponse::add_table_routes() {
-  ::greptime::v1::meta::TableRoute* _add = _internal_add_table_routes();
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.RouteResponse.table_routes)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableRoute >&
-RouteResponse::table_routes() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.RouteResponse.table_routes)
-  return _impl_.table_routes_;
-}
-
-// -------------------------------------------------------------------
-
 // TableRoute
 
 // .greptime.v1.meta.Table table = 1;
@@ -2864,10 +2190,6 @@ inline void TableRouteValue::set_allocated_table_route(::greptime::v1::meta::Tab
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

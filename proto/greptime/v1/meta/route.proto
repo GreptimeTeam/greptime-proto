@@ -20,41 +20,6 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta"
 
 import "greptime/v1/meta/common.proto";
 
-service Router {
-  // Fetch routing information for tables. The smallest unit is the complete
-  // routing information(all regions) of a table.
-  //
-  // ```text
-  // table_1
-  //    table_name
-  //    table_schema
-  //    regions
-  //      region_1
-  //        leader_peer
-  //        follower_peer_1, follower_peer_2
-  //      region_2
-  //        leader_peer
-  //        follower_peer_1, follower_peer_2, follower_peer_3
-  //      region_xxx
-  // table_2
-  //    ...
-  // ```
-  //
-  rpc Route(RouteRequest) returns (RouteResponse) {}
-}
-
-message RouteRequest {
-  RequestHeader header = 1;
-  repeated TableId table_ids = 2;
-}
-
-message RouteResponse {
-  ResponseHeader header = 1;
-
-  repeated Peer peers = 2;
-  repeated TableRoute table_routes = 3;
-}
-
 message TableRoute {
   Table table = 1;
   repeated RegionRoute region_routes = 2;
@@ -90,6 +55,7 @@ message Partition {
 }
 
 // This message is only for saving into store.
+// TODO(weny): Remove it, Now, the upgrade tool is still dependent on it.
 message TableRouteValue {
   repeated Peer peers = 1;
   TableRoute table_route = 2;
