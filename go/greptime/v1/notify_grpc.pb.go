@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ShmClient interface {
-	Notify(ctx context.Context, in *NotificationRequest, opts ...grpc.CallOption) (*NotificationResponse, error)
+	Notify(ctx context.Context, in *NotificationRequests, opts ...grpc.CallOption) (*NotificationResponse, error)
 }
 
 type shmClient struct {
@@ -33,7 +33,7 @@ func NewShmClient(cc grpc.ClientConnInterface) ShmClient {
 	return &shmClient{cc}
 }
 
-func (c *shmClient) Notify(ctx context.Context, in *NotificationRequest, opts ...grpc.CallOption) (*NotificationResponse, error) {
+func (c *shmClient) Notify(ctx context.Context, in *NotificationRequests, opts ...grpc.CallOption) (*NotificationResponse, error) {
 	out := new(NotificationResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.Shm/notify", in, out, opts...)
 	if err != nil {
@@ -46,7 +46,7 @@ func (c *shmClient) Notify(ctx context.Context, in *NotificationRequest, opts ..
 // All implementations must embed UnimplementedShmServer
 // for forward compatibility
 type ShmServer interface {
-	Notify(context.Context, *NotificationRequest) (*NotificationResponse, error)
+	Notify(context.Context, *NotificationRequests) (*NotificationResponse, error)
 	mustEmbedUnimplementedShmServer()
 }
 
@@ -54,7 +54,7 @@ type ShmServer interface {
 type UnimplementedShmServer struct {
 }
 
-func (UnimplementedShmServer) Notify(context.Context, *NotificationRequest) (*NotificationResponse, error) {
+func (UnimplementedShmServer) Notify(context.Context, *NotificationRequests) (*NotificationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Notify not implemented")
 }
 func (UnimplementedShmServer) mustEmbedUnimplementedShmServer() {}
@@ -71,7 +71,7 @@ func RegisterShmServer(s grpc.ServiceRegistrar, srv ShmServer) {
 }
 
 func _Shm_Notify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotificationRequest)
+	in := new(NotificationRequests)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -83,7 +83,7 @@ func _Shm_Notify_Handler(srv interface{}, ctx context.Context, dec func(interfac
 		FullMethod: "/greptime.v1.Shm/notify",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShmServer).Notify(ctx, req.(*NotificationRequest))
+		return srv.(ShmServer).Notify(ctx, req.(*NotificationRequests))
 	}
 	return interceptor(ctx, in, info, handler)
 }

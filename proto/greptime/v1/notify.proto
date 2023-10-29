@@ -18,6 +18,10 @@ package greptime.v1;
 
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
+message NotificationRequests {
+    repeated NotificationRequest requests = 1;
+}
+
 message NotificationRequest {
 	string catalog_name = 1;
 	string schema_name = 2;
@@ -28,10 +32,10 @@ message NotificationRequest {
 	uint32 check_sum = 7;
 }
   
-message NotificationResponse{
+message NotificationResponse {
 	bool success = 1;
 }
   
 service Shm {
-	rpc notify(NotificationRequest) returns (NotificationResponse){}
+	rpc notify(NotificationRequests) returns (NotificationResponse){}
 }
