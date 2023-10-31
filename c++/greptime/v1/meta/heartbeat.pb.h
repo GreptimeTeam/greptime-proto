@@ -29,6 +29,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/meta/common.pb.h"
 // @@protoc_insertion_point(includes)
@@ -85,6 +86,31 @@ namespace greptime {
 namespace v1 {
 namespace meta {
 
+enum RegionRole : int {
+  Leader = 0,
+  Follower = 1,
+  RegionRole_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  RegionRole_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool RegionRole_IsValid(int value);
+constexpr RegionRole RegionRole_MIN = Leader;
+constexpr RegionRole RegionRole_MAX = Follower;
+constexpr int RegionRole_ARRAYSIZE = RegionRole_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* RegionRole_descriptor();
+template<typename T>
+inline const std::string& RegionRole_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, RegionRole>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function RegionRole_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    RegionRole_descriptor(), enum_t_value);
+}
+inline bool RegionRole_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, RegionRole* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<RegionRole>(
+    RegionRole_descriptor(), name, value);
+}
 // ===================================================================
 
 class HeartbeatRequest final :
@@ -473,6 +499,7 @@ class RegionStat final :
     kWcusFieldNumber = 3,
     kApproximateBytesFieldNumber = 4,
     kApproximateRowsFieldNumber = 5,
+    kRoleFieldNumber = 7,
   };
   // string engine = 6;
   void clear_engine();
@@ -533,6 +560,15 @@ class RegionStat final :
   void _internal_set_approximate_rows(int64_t value);
   public:
 
+  // .greptime.v1.meta.RegionRole role = 7;
+  void clear_role();
+  ::greptime::v1::meta::RegionRole role() const;
+  void set_role(::greptime::v1::meta::RegionRole value);
+  private:
+  ::greptime::v1::meta::RegionRole _internal_role() const;
+  void _internal_set_role(::greptime::v1::meta::RegionRole value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.RegionStat)
  private:
   class _Internal;
@@ -547,6 +583,7 @@ class RegionStat final :
     int64_t wcus_;
     int64_t approximate_bytes_;
     int64_t approximate_rows_;
+    int role_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2101,6 +2138,26 @@ inline void RegionStat::set_allocated_engine(std::string* engine) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.RegionStat.engine)
 }
 
+// .greptime.v1.meta.RegionRole role = 7;
+inline void RegionStat::clear_role() {
+  _impl_.role_ = 0;
+}
+inline ::greptime::v1::meta::RegionRole RegionStat::_internal_role() const {
+  return static_cast< ::greptime::v1::meta::RegionRole >(_impl_.role_);
+}
+inline ::greptime::v1::meta::RegionRole RegionStat::role() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionStat.role)
+  return _internal_role();
+}
+inline void RegionStat::_internal_set_role(::greptime::v1::meta::RegionRole value) {
+  
+  _impl_.role_ = value;
+}
+inline void RegionStat::set_role(::greptime::v1::meta::RegionRole value) {
+  _internal_set_role(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.role)
+}
+
 // -------------------------------------------------------------------
 
 // HeartbeatResponse
@@ -3025,6 +3082,16 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::greptime::v1::meta::RegionRole> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::RegionRole>() {
+  return ::greptime::v1::meta::RegionRole_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

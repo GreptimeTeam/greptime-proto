@@ -14,6 +14,130 @@ public final class HeartbeatOuterClass {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * Protobuf enum {@code greptime.v1.meta.RegionRole}
+   */
+  public enum RegionRole
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * Writable region(mito2), Readonly region(file).
+     * </pre>
+     *
+     * <code>Leader = 0;</code>
+     */
+    Leader(0),
+    /**
+     * <pre>
+     * Readonly region.
+     * </pre>
+     *
+     * <code>Follower = 1;</code>
+     */
+    Follower(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * Writable region(mito2), Readonly region(file).
+     * </pre>
+     *
+     * <code>Leader = 0;</code>
+     */
+    public static final int Leader_VALUE = 0;
+    /**
+     * <pre>
+     * Readonly region.
+     * </pre>
+     *
+     * <code>Follower = 1;</code>
+     */
+    public static final int Follower_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static RegionRole valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static RegionRole forNumber(int value) {
+      switch (value) {
+        case 0: return Leader;
+        case 1: return Follower;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<RegionRole>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        RegionRole> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<RegionRole>() {
+            public RegionRole findValueByNumber(int number) {
+              return RegionRole.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final RegionRole[] VALUES = values();
+
+    public static RegionRole valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private RegionRole(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.RegionRole)
+  }
+
   public interface HeartbeatRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.HeartbeatRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -2164,6 +2288,25 @@ public final class HeartbeatOuterClass {
      */
     com.google.protobuf.ByteString
         getEngineBytes();
+
+    /**
+     * <pre>
+     * Region role
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.RegionRole role = 7;</code>
+     * @return The enum numeric value on the wire for role.
+     */
+    int getRoleValue();
+    /**
+     * <pre>
+     * Region role
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.RegionRole role = 7;</code>
+     * @return The role.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.RegionStat}
@@ -2179,6 +2322,7 @@ public final class HeartbeatOuterClass {
     }
     private RegionStat() {
       engine_ = "";
+      role_ = 0;
     }
 
     @java.lang.Override
@@ -2240,6 +2384,12 @@ public final class HeartbeatOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               engine_ = s;
+              break;
+            }
+            case 56: {
+              int rawValue = input.readEnum();
+
+              role_ = rawValue;
               break;
             }
             default: {
@@ -2393,6 +2543,33 @@ public final class HeartbeatOuterClass {
       }
     }
 
+    public static final int ROLE_FIELD_NUMBER = 7;
+    private int role_;
+    /**
+     * <pre>
+     * Region role
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.RegionRole role = 7;</code>
+     * @return The enum numeric value on the wire for role.
+     */
+    @java.lang.Override public int getRoleValue() {
+      return role_;
+    }
+    /**
+     * <pre>
+     * Region role
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.RegionRole role = 7;</code>
+     * @return The role.
+     */
+    @java.lang.Override public greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.meta.HeartbeatOuterClass.RegionRole result = greptime.v1.meta.HeartbeatOuterClass.RegionRole.valueOf(role_);
+      return result == null ? greptime.v1.meta.HeartbeatOuterClass.RegionRole.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2424,6 +2601,9 @@ public final class HeartbeatOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, engine_);
+      }
+      if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
+        output.writeEnum(7, role_);
       }
       unknownFields.writeTo(output);
     }
@@ -2457,6 +2637,10 @@ public final class HeartbeatOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, engine_);
       }
+      if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(7, role_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2484,6 +2668,7 @@ public final class HeartbeatOuterClass {
           != other.getApproximateRows()) return false;
       if (!getEngine()
           .equals(other.getEngine())) return false;
+      if (role_ != other.role_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2512,6 +2697,8 @@ public final class HeartbeatOuterClass {
           getApproximateRows());
       hash = (37 * hash) + ENGINE_FIELD_NUMBER;
       hash = (53 * hash) + getEngine().hashCode();
+      hash = (37 * hash) + ROLE_FIELD_NUMBER;
+      hash = (53 * hash) + role_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2657,6 +2844,8 @@ public final class HeartbeatOuterClass {
 
         engine_ = "";
 
+        role_ = 0;
+
         return this;
       }
 
@@ -2689,6 +2878,7 @@ public final class HeartbeatOuterClass {
         result.approximateBytes_ = approximateBytes_;
         result.approximateRows_ = approximateRows_;
         result.engine_ = engine_;
+        result.role_ = role_;
         onBuilt();
         return result;
       }
@@ -2755,6 +2945,9 @@ public final class HeartbeatOuterClass {
         if (!other.getEngine().isEmpty()) {
           engine_ = other.engine_;
           onChanged();
+        }
+        if (other.role_ != 0) {
+          setRoleValue(other.getRoleValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3080,6 +3273,80 @@ public final class HeartbeatOuterClass {
   checkByteStringIsUtf8(value);
         
         engine_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int role_ = 0;
+      /**
+       * <pre>
+       * Region role
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.RegionRole role = 7;</code>
+       * @return The enum numeric value on the wire for role.
+       */
+      @java.lang.Override public int getRoleValue() {
+        return role_;
+      }
+      /**
+       * <pre>
+       * Region role
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.RegionRole role = 7;</code>
+       * @param value The enum numeric value on the wire for role to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoleValue(int value) {
+        
+        role_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Region role
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.RegionRole role = 7;</code>
+       * @return The role.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.meta.HeartbeatOuterClass.RegionRole result = greptime.v1.meta.HeartbeatOuterClass.RegionRole.valueOf(role_);
+        return result == null ? greptime.v1.meta.HeartbeatOuterClass.RegionRole.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Region role
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.RegionRole role = 7;</code>
+       * @param value The role to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRole(greptime.v1.meta.HeartbeatOuterClass.RegionRole value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        role_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Region role
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.RegionRole role = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRole() {
+        
+        role_ = 0;
         onChanged();
         return this;
       }
@@ -7792,31 +8059,33 @@ public final class HeartbeatOuterClass {
       "e.v1.meta.RegionStat\0229\n\017mailbox_message\030" +
       "\005 \001(\0132 .greptime.v1.meta.MailboxMessage\022" +
       "\034\n\024duration_since_epoch\030\006 \001(\004\022\022\n\nnode_ep" +
-      "och\030\007 \001(\004\"\200\001\n\nRegionStat\022\021\n\tregion_id\030\001 " +
+      "och\030\007 \001(\004\"\254\001\n\nRegionStat\022\021\n\tregion_id\030\001 " +
       "\001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021appro" +
       "ximate_bytes\030\004 \001(\003\022\030\n\020approximate_rows\030\005" +
-      " \001(\003\022\016\n\006engine\030\006 \001(\t\"\265\001\n\021HeartbeatRespon" +
-      "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re" +
-      "sponseHeader\0229\n\017mailbox_message\030\002 \001(\0132 ." +
-      "greptime.v1.meta.MailboxMessage\0223\n\014regio" +
-      "n_lease\030\003 \001(\0132\035.greptime.v1.meta.RegionL" +
-      "ease\"V\n\013RegionLease\022\022\n\nregion_ids\030\001 \003(\004\022" +
-      "\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_s" +
-      "econds\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006head" +
-      "er\030\001 \001(\0132\037.greptime.v1.meta.RequestHeade" +
-      "r\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(\0132 " +
-      ".greptime.v1.meta.ResponseHeader\022&\n\006lead" +
-      "er\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016Mail" +
-      "boxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022" +
-      "\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_m" +
-      "illis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload2\277" +
-      "\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime.v1." +
-      "meta.HeartbeatRequest\032#.greptime.v1.meta" +
-      ".HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\"." +
-      "greptime.v1.meta.AskLeaderRequest\032#.grep" +
-      "time.v1.meta.AskLeaderResponse\"\000B<Z:gith" +
-      "ub.com/GreptimeTeam/greptime-proto/go/gr" +
-      "eptime/v1/metab\006proto3"
+      " \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.gre" +
+      "ptime.v1.meta.RegionRole\"\265\001\n\021HeartbeatRe" +
+      "sponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.met" +
+      "a.ResponseHeader\0229\n\017mailbox_message\030\002 \001(" +
+      "\0132 .greptime.v1.meta.MailboxMessage\0223\n\014r" +
+      "egion_lease\030\003 \001(\0132\035.greptime.v1.meta.Reg" +
+      "ionLease\"V\n\013RegionLease\022\022\n\nregion_ids\030\001 " +
+      "\003(\004\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlea" +
+      "se_seconds\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006" +
+      "header\030\001 \001(\0132\037.greptime.v1.meta.RequestH" +
+      "eader\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001" +
+      "(\0132 .greptime.v1.meta.ResponseHeader\022&\n\006" +
+      "leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016" +
+      "MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 " +
+      "\001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timesta" +
+      "mp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007paylo" +
+      "ad*&\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follower" +
+      "\020\0012\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime" +
+      ".v1.meta.HeartbeatRequest\032#.greptime.v1." +
+      "meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeade" +
+      "r\022\".greptime.v1.meta.AskLeaderRequest\032#." +
+      "greptime.v1.meta.AskLeaderResponse\"\000B<Z:" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7834,7 +8103,7 @@ public final class HeartbeatOuterClass {
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_descriptor,
-        new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "ApproximateRows", "Engine", });
+        new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "ApproximateRows", "Engine", "Role", });
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new

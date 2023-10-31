@@ -50,6 +50,7 @@ PROTOBUF_CONSTEXPR RegionStat::RegionStat(
   , /*decltype(_impl_.wcus_)*/int64_t{0}
   , /*decltype(_impl_.approximate_bytes_)*/int64_t{0}
   , /*decltype(_impl_.approximate_rows_)*/int64_t{0}
+  , /*decltype(_impl_.role_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RegionStatDefaultTypeInternal {
   PROTOBUF_CONSTEXPR RegionStatDefaultTypeInternal()
@@ -141,7 +142,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace v1
 }  // namespace greptime
 static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[7];
-static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto = nullptr;
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto = nullptr;
 
 const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -170,6 +171,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat, _impl_.approximate_bytes_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat, _impl_.approximate_rows_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat, _impl_.engine_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat, _impl_.role_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -220,11 +222,11 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::HeartbeatRequest)},
   { 13, -1, -1, sizeof(::greptime::v1::meta::RegionStat)},
-  { 25, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
-  { 34, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
-  { 43, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
-  { 50, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
-  { 58, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
+  { 26, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
+  { 35, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
+  { 44, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
+  { 51, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
+  { 59, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -248,38 +250,40 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "e.v1.meta.RegionStat\0229\n\017mailbox_message\030"
   "\005 \001(\0132 .greptime.v1.meta.MailboxMessage\022"
   "\034\n\024duration_since_epoch\030\006 \001(\004\022\022\n\nnode_ep"
-  "och\030\007 \001(\004\"\200\001\n\nRegionStat\022\021\n\tregion_id\030\001 "
+  "och\030\007 \001(\004\"\254\001\n\nRegionStat\022\021\n\tregion_id\030\001 "
   "\001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021appro"
   "ximate_bytes\030\004 \001(\003\022\030\n\020approximate_rows\030\005"
-  " \001(\003\022\016\n\006engine\030\006 \001(\t\"\265\001\n\021HeartbeatRespon"
-  "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re"
-  "sponseHeader\0229\n\017mailbox_message\030\002 \001(\0132 ."
-  "greptime.v1.meta.MailboxMessage\0223\n\014regio"
-  "n_lease\030\003 \001(\0132\035.greptime.v1.meta.RegionL"
-  "ease\"V\n\013RegionLease\022\022\n\nregion_ids\030\001 \003(\004\022"
-  "\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_s"
-  "econds\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006head"
-  "er\030\001 \001(\0132\037.greptime.v1.meta.RequestHeade"
-  "r\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(\0132 "
-  ".greptime.v1.meta.ResponseHeader\022&\n\006lead"
-  "er\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016Mail"
-  "boxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022"
-  "\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_m"
-  "illis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload2\277"
-  "\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime.v1."
-  "meta.HeartbeatRequest\032#.greptime.v1.meta"
-  ".HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\"."
-  "greptime.v1.meta.AskLeaderRequest\032#.grep"
-  "time.v1.meta.AskLeaderResponse\"\000B<Z:gith"
-  "ub.com/GreptimeTeam/greptime-proto/go/gr"
-  "eptime/v1/metab\006proto3"
+  " \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.gre"
+  "ptime.v1.meta.RegionRole\"\265\001\n\021HeartbeatRe"
+  "sponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.met"
+  "a.ResponseHeader\0229\n\017mailbox_message\030\002 \001("
+  "\0132 .greptime.v1.meta.MailboxMessage\0223\n\014r"
+  "egion_lease\030\003 \001(\0132\035.greptime.v1.meta.Reg"
+  "ionLease\"V\n\013RegionLease\022\022\n\nregion_ids\030\001 "
+  "\003(\004\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlea"
+  "se_seconds\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006"
+  "header\030\001 \001(\0132\037.greptime.v1.meta.RequestH"
+  "eader\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001"
+  "(\0132 .greptime.v1.meta.ResponseHeader\022&\n\006"
+  "leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016"
+  "MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 "
+  "\001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timesta"
+  "mp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007paylo"
+  "ad*&\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follower"
+  "\020\0012\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime"
+  ".v1.meta.HeartbeatRequest\032#.greptime.v1."
+  "meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeade"
+  "r\022\".greptime.v1.meta.AskLeaderRequest\032#."
+  "greptime.v1.meta.AskLeaderResponse\"\000B<Z:"
+  "github.com/GreptimeTeam/greptime-proto/g"
+  "o/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 1382, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 1466, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 7,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
@@ -295,6 +299,20 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_in
 namespace greptime {
 namespace v1 {
 namespace meta {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* RegionRole_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto);
+  return file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[0];
+}
+bool RegionRole_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -745,6 +763,7 @@ RegionStat::RegionStat(const RegionStat& from)
     , decltype(_impl_.wcus_){}
     , decltype(_impl_.approximate_bytes_){}
     , decltype(_impl_.approximate_rows_){}
+    , decltype(_impl_.role_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -757,8 +776,8 @@ RegionStat::RegionStat(const RegionStat& from)
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.region_id_, &from._impl_.region_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.approximate_rows_) -
-    reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.approximate_rows_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.role_) -
+    reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.role_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.RegionStat)
 }
 
@@ -773,6 +792,7 @@ inline void RegionStat::SharedCtor(
     , decltype(_impl_.wcus_){int64_t{0}}
     , decltype(_impl_.approximate_bytes_){int64_t{0}}
     , decltype(_impl_.approximate_rows_){int64_t{0}}
+    , decltype(_impl_.role_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.engine_.InitDefault();
@@ -807,8 +827,8 @@ void RegionStat::Clear() {
 
   _impl_.engine_.ClearToEmpty();
   ::memset(&_impl_.region_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.approximate_rows_) -
-      reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.approximate_rows_));
+      reinterpret_cast<char*>(&_impl_.role_) -
+      reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.role_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -865,6 +885,15 @@ const char* RegionStat::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.RegionStat.engine"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.RegionRole role = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_role(static_cast<::greptime::v1::meta::RegionRole>(val));
         } else
           goto handle_unusual;
         continue;
@@ -937,6 +966,13 @@ uint8_t* RegionStat::_InternalSerialize(
         6, this->_internal_engine(), target);
   }
 
+  // .greptime.v1.meta.RegionRole role = 7;
+  if (this->_internal_role() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      7, this->_internal_role(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -985,6 +1021,12 @@ size_t RegionStat::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_approximate_rows());
   }
 
+  // .greptime.v1.meta.RegionRole role = 7;
+  if (this->_internal_role() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_role());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1021,6 +1063,9 @@ void RegionStat::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PRO
   if (from._internal_approximate_rows() != 0) {
     _this->_internal_set_approximate_rows(from._internal_approximate_rows());
   }
+  if (from._internal_role() != 0) {
+    _this->_internal_set_role(from._internal_role());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1045,8 +1090,8 @@ void RegionStat::InternalSwap(RegionStat* other) {
       &other->_impl_.engine_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RegionStat, _impl_.approximate_rows_)
-      + sizeof(RegionStat::_impl_.approximate_rows_)
+      PROTOBUF_FIELD_OFFSET(RegionStat, _impl_.role_)
+      + sizeof(RegionStat::_impl_.role_)
       - PROTOBUF_FIELD_OFFSET(RegionStat, _impl_.region_id_)>(
           reinterpret_cast<char*>(&_impl_.region_id_),
           reinterpret_cast<char*>(&other->_impl_.region_id_));
