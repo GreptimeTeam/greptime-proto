@@ -23,67 +23,6 @@ namespace greptime {
 namespace v1 {
 namespace meta {
 
-static const char* Router_method_names[] = {
-  "/greptime.v1.meta.Router/Route",
-};
-
-std::unique_ptr< Router::Stub> Router::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
-  (void)options;
-  std::unique_ptr< Router::Stub> stub(new Router::Stub(channel, options));
-  return stub;
-}
-
-Router::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_Route_(Router_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  {}
-
-::grpc::Status Router::Stub::Route(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::greptime::v1::meta::RouteResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::RouteRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Route_, context, request, response);
-}
-
-void Router::Stub::async::Route(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::meta::RouteRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Route_, context, request, response, std::move(f));
-}
-
-void Router::Stub::async::Route(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Route_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* Router::Stub::PrepareAsyncRouteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::meta::RouteResponse, ::greptime::v1::meta::RouteRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Route_, context, request);
-}
-
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RouteResponse>* Router::Stub::AsyncRouteRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RouteRequest& request, ::grpc::CompletionQueue* cq) {
-  auto* result =
-    this->PrepareAsyncRouteRaw(context, request, cq);
-  result->StartCall();
-  return result;
-}
-
-Router::Service::Service() {
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Router_method_names[0],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Router::Service, ::greptime::v1::meta::RouteRequest, ::greptime::v1::meta::RouteResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](Router::Service* service,
-             ::grpc::ServerContext* ctx,
-             const ::greptime::v1::meta::RouteRequest* req,
-             ::greptime::v1::meta::RouteResponse* resp) {
-               return service->Route(ctx, req, resp);
-             }, this)));
-}
-
-Router::Service::~Service() {
-}
-
-::grpc::Status Router::Service::Route(::grpc::ServerContext* context, const ::greptime::v1::meta::RouteRequest* request, ::greptime::v1::meta::RouteResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-
 }  // namespace greptime
 }  // namespace v1
 }  // namespace meta
