@@ -55,6 +55,9 @@ extern AskLeaderRequestDefaultTypeInternal _AskLeaderRequest_default_instance_;
 class AskLeaderResponse;
 struct AskLeaderResponseDefaultTypeInternal;
 extern AskLeaderResponseDefaultTypeInternal _AskLeaderResponse_default_instance_;
+class GrantedRegion;
+struct GrantedRegionDefaultTypeInternal;
+extern GrantedRegionDefaultTypeInternal _GrantedRegion_default_instance_;
 class HeartbeatRequest;
 struct HeartbeatRequestDefaultTypeInternal;
 extern HeartbeatRequestDefaultTypeInternal _HeartbeatRequest_default_instance_;
@@ -76,6 +79,7 @@ extern RegionStatDefaultTypeInternal _RegionStat_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::meta::AskLeaderRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::AskLeaderRequest>(Arena*);
 template<> ::greptime::v1::meta::AskLeaderResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::AskLeaderResponse>(Arena*);
+template<> ::greptime::v1::meta::GrantedRegion* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatResponse>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessage>(Arena*);
@@ -788,6 +792,165 @@ class HeartbeatResponse final :
 };
 // -------------------------------------------------------------------
 
+class GrantedRegion final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.GrantedRegion) */ {
+ public:
+  inline GrantedRegion() : GrantedRegion(nullptr) {}
+  ~GrantedRegion() override;
+  explicit PROTOBUF_CONSTEXPR GrantedRegion(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GrantedRegion(const GrantedRegion& from);
+  GrantedRegion(GrantedRegion&& from) noexcept
+    : GrantedRegion() {
+    *this = ::std::move(from);
+  }
+
+  inline GrantedRegion& operator=(const GrantedRegion& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GrantedRegion& operator=(GrantedRegion&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GrantedRegion& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GrantedRegion* internal_default_instance() {
+    return reinterpret_cast<const GrantedRegion*>(
+               &_GrantedRegion_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(GrantedRegion& a, GrantedRegion& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GrantedRegion* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GrantedRegion* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GrantedRegion* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GrantedRegion>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GrantedRegion& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const GrantedRegion& from) {
+    GrantedRegion::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GrantedRegion* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.GrantedRegion";
+  }
+  protected:
+  explicit GrantedRegion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdFieldNumber = 1,
+    kRoleFieldNumber = 2,
+  };
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // .greptime.v1.meta.RegionRole role = 2;
+  void clear_role();
+  ::greptime::v1::meta::RegionRole role() const;
+  void set_role(::greptime::v1::meta::RegionRole value);
+  private:
+  ::greptime::v1::meta::RegionRole _internal_role() const;
+  void _internal_set_role(::greptime::v1::meta::RegionRole value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.GrantedRegion)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t region_id_;
+    int role_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
 class RegionLease final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.RegionLease) */ {
  public:
@@ -836,7 +999,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -909,31 +1072,27 @@ class RegionLease final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRegionIdsFieldNumber = 1,
+    kRegionsFieldNumber = 1,
     kDurationSinceEpochFieldNumber = 2,
     kLeaseSecondsFieldNumber = 3,
   };
-  // repeated uint64 region_ids = 1;
-  int region_ids_size() const;
+  // repeated .greptime.v1.meta.GrantedRegion regions = 1;
+  int regions_size() const;
   private:
-  int _internal_region_ids_size() const;
+  int _internal_regions_size() const;
   public:
-  void clear_region_ids();
+  void clear_regions();
+  ::greptime::v1::meta::GrantedRegion* mutable_regions(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::GrantedRegion >*
+      mutable_regions();
   private:
-  uint64_t _internal_region_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-      _internal_region_ids() const;
-  void _internal_add_region_ids(uint64_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-      _internal_mutable_region_ids();
+  const ::greptime::v1::meta::GrantedRegion& _internal_regions(int index) const;
+  ::greptime::v1::meta::GrantedRegion* _internal_add_regions();
   public:
-  uint64_t region_ids(int index) const;
-  void set_region_ids(int index, uint64_t value);
-  void add_region_ids(uint64_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-      region_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-      mutable_region_ids();
+  const ::greptime::v1::meta::GrantedRegion& regions(int index) const;
+  ::greptime::v1::meta::GrantedRegion* add_regions();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::GrantedRegion >&
+      regions() const;
 
   // uint64 duration_since_epoch = 2;
   void clear_duration_since_epoch();
@@ -961,8 +1120,7 @@ class RegionLease final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > region_ids_;
-    mutable std::atomic<int> _region_ids_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::GrantedRegion > regions_;
     uint64_t duration_since_epoch_;
     uint64_t lease_seconds_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1020,7 +1178,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -1177,7 +1335,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -1359,7 +1517,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -2429,53 +2587,90 @@ inline void HeartbeatResponse::set_allocated_region_lease(::greptime::v1::meta::
 
 // -------------------------------------------------------------------
 
+// GrantedRegion
+
+// uint64 region_id = 1;
+inline void GrantedRegion::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t GrantedRegion::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t GrantedRegion::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GrantedRegion.region_id)
+  return _internal_region_id();
+}
+inline void GrantedRegion::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void GrantedRegion::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.GrantedRegion.region_id)
+}
+
+// .greptime.v1.meta.RegionRole role = 2;
+inline void GrantedRegion::clear_role() {
+  _impl_.role_ = 0;
+}
+inline ::greptime::v1::meta::RegionRole GrantedRegion::_internal_role() const {
+  return static_cast< ::greptime::v1::meta::RegionRole >(_impl_.role_);
+}
+inline ::greptime::v1::meta::RegionRole GrantedRegion::role() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GrantedRegion.role)
+  return _internal_role();
+}
+inline void GrantedRegion::_internal_set_role(::greptime::v1::meta::RegionRole value) {
+  
+  _impl_.role_ = value;
+}
+inline void GrantedRegion::set_role(::greptime::v1::meta::RegionRole value) {
+  _internal_set_role(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.GrantedRegion.role)
+}
+
+// -------------------------------------------------------------------
+
 // RegionLease
 
-// repeated uint64 region_ids = 1;
-inline int RegionLease::_internal_region_ids_size() const {
-  return _impl_.region_ids_.size();
+// repeated .greptime.v1.meta.GrantedRegion regions = 1;
+inline int RegionLease::_internal_regions_size() const {
+  return _impl_.regions_.size();
 }
-inline int RegionLease::region_ids_size() const {
-  return _internal_region_ids_size();
+inline int RegionLease::regions_size() const {
+  return _internal_regions_size();
 }
-inline void RegionLease::clear_region_ids() {
-  _impl_.region_ids_.Clear();
+inline void RegionLease::clear_regions() {
+  _impl_.regions_.Clear();
 }
-inline uint64_t RegionLease::_internal_region_ids(int index) const {
-  return _impl_.region_ids_.Get(index);
+inline ::greptime::v1::meta::GrantedRegion* RegionLease::mutable_regions(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.RegionLease.regions)
+  return _impl_.regions_.Mutable(index);
 }
-inline uint64_t RegionLease::region_ids(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionLease.region_ids)
-  return _internal_region_ids(index);
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::GrantedRegion >*
+RegionLease::mutable_regions() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RegionLease.regions)
+  return &_impl_.regions_;
 }
-inline void RegionLease::set_region_ids(int index, uint64_t value) {
-  _impl_.region_ids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionLease.region_ids)
+inline const ::greptime::v1::meta::GrantedRegion& RegionLease::_internal_regions(int index) const {
+  return _impl_.regions_.Get(index);
 }
-inline void RegionLease::_internal_add_region_ids(uint64_t value) {
-  _impl_.region_ids_.Add(value);
+inline const ::greptime::v1::meta::GrantedRegion& RegionLease::regions(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionLease.regions)
+  return _internal_regions(index);
 }
-inline void RegionLease::add_region_ids(uint64_t value) {
-  _internal_add_region_ids(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.RegionLease.region_ids)
+inline ::greptime::v1::meta::GrantedRegion* RegionLease::_internal_add_regions() {
+  return _impl_.regions_.Add();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-RegionLease::_internal_region_ids() const {
-  return _impl_.region_ids_;
+inline ::greptime::v1::meta::GrantedRegion* RegionLease::add_regions() {
+  ::greptime::v1::meta::GrantedRegion* _add = _internal_add_regions();
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.RegionLease.regions)
+  return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-RegionLease::region_ids() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.RegionLease.region_ids)
-  return _internal_region_ids();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-RegionLease::_internal_mutable_region_ids() {
-  return &_impl_.region_ids_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-RegionLease::mutable_region_ids() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RegionLease.region_ids)
-  return _internal_mutable_region_ids();
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::GrantedRegion >&
+RegionLease::regions() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.RegionLease.regions)
+  return _impl_.regions_;
 }
 
 // uint64 duration_since_epoch = 2;
@@ -3064,6 +3259,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
