@@ -4432,26 +4432,631 @@ public final class HeartbeatOuterClass {
 
   }
 
+  public interface GrantedRegionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.GrantedRegion)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    long getRegionId();
+
+    /**
+     * <code>.greptime.v1.meta.RegionRole role = 2;</code>
+     * @return The enum numeric value on the wire for role.
+     */
+    int getRoleValue();
+    /**
+     * <code>.greptime.v1.meta.RegionRole role = 2;</code>
+     * @return The role.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.GrantedRegion}
+   */
+  public static final class GrantedRegion extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.GrantedRegion)
+      GrantedRegionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GrantedRegion.newBuilder() to construct.
+    private GrantedRegion(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GrantedRegion() {
+      role_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GrantedRegion();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GrantedRegion(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              regionId_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              role_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_GrantedRegion_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.class, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder.class);
+    }
+
+    public static final int REGION_ID_FIELD_NUMBER = 1;
+    private long regionId_;
+    /**
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    @java.lang.Override
+    public long getRegionId() {
+      return regionId_;
+    }
+
+    public static final int ROLE_FIELD_NUMBER = 2;
+    private int role_;
+    /**
+     * <code>.greptime.v1.meta.RegionRole role = 2;</code>
+     * @return The enum numeric value on the wire for role.
+     */
+    @java.lang.Override public int getRoleValue() {
+      return role_;
+    }
+    /**
+     * <code>.greptime.v1.meta.RegionRole role = 2;</code>
+     * @return The role.
+     */
+    @java.lang.Override public greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.meta.HeartbeatOuterClass.RegionRole result = greptime.v1.meta.HeartbeatOuterClass.RegionRole.valueOf(role_);
+      return result == null ? greptime.v1.meta.HeartbeatOuterClass.RegionRole.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (regionId_ != 0L) {
+        output.writeUInt64(1, regionId_);
+      }
+      if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
+        output.writeEnum(2, role_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (regionId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, regionId_);
+      }
+      if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, role_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.GrantedRegion)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.HeartbeatOuterClass.GrantedRegion other = (greptime.v1.meta.HeartbeatOuterClass.GrantedRegion) obj;
+
+      if (getRegionId()
+          != other.getRegionId()) return false;
+      if (role_ != other.role_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegionId());
+      hash = (37 * hash) + ROLE_FIELD_NUMBER;
+      hash = (53 * hash) + role_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.GrantedRegion prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.GrantedRegion}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.GrantedRegion)
+        greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_GrantedRegion_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.class, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        regionId_ = 0L;
+
+        role_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_GrantedRegion_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion build() {
+        greptime.v1.meta.HeartbeatOuterClass.GrantedRegion result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.GrantedRegion result = new greptime.v1.meta.HeartbeatOuterClass.GrantedRegion(this);
+        result.regionId_ = regionId_;
+        result.role_ = role_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.GrantedRegion) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.GrantedRegion)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.GrantedRegion other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.getDefaultInstance()) return this;
+        if (other.getRegionId() != 0L) {
+          setRegionId(other.getRegionId());
+        }
+        if (other.role_ != 0) {
+          setRoleValue(other.getRoleValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.HeartbeatOuterClass.GrantedRegion parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.GrantedRegion) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long regionId_ ;
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @return The regionId.
+       */
+      @java.lang.Override
+      public long getRegionId() {
+        return regionId_;
+      }
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @param value The regionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionId(long value) {
+        
+        regionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionId() {
+        
+        regionId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int role_ = 0;
+      /**
+       * <code>.greptime.v1.meta.RegionRole role = 2;</code>
+       * @return The enum numeric value on the wire for role.
+       */
+      @java.lang.Override public int getRoleValue() {
+        return role_;
+      }
+      /**
+       * <code>.greptime.v1.meta.RegionRole role = 2;</code>
+       * @param value The enum numeric value on the wire for role to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoleValue(int value) {
+        
+        role_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RegionRole role = 2;</code>
+       * @return The role.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.meta.HeartbeatOuterClass.RegionRole result = greptime.v1.meta.HeartbeatOuterClass.RegionRole.valueOf(role_);
+        return result == null ? greptime.v1.meta.HeartbeatOuterClass.RegionRole.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.meta.RegionRole role = 2;</code>
+       * @param value The role to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRole(greptime.v1.meta.HeartbeatOuterClass.RegionRole value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        role_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RegionRole role = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRole() {
+        
+        role_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.GrantedRegion)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.GrantedRegion)
+    private static final greptime.v1.meta.HeartbeatOuterClass.GrantedRegion DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.GrantedRegion();
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.GrantedRegion getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GrantedRegion>
+        PARSER = new com.google.protobuf.AbstractParser<GrantedRegion>() {
+      @java.lang.Override
+      public GrantedRegion parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GrantedRegion(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GrantedRegion> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GrantedRegion> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface RegionLeaseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.RegionLease)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated uint64 region_ids = 1;</code>
-     * @return A list containing the regionIds.
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
      */
-    java.util.List<java.lang.Long> getRegionIdsList();
+    java.util.List<greptime.v1.meta.HeartbeatOuterClass.GrantedRegion> 
+        getRegionsList();
     /**
-     * <code>repeated uint64 region_ids = 1;</code>
-     * @return The count of regionIds.
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
      */
-    int getRegionIdsCount();
+    greptime.v1.meta.HeartbeatOuterClass.GrantedRegion getRegions(int index);
     /**
-     * <code>repeated uint64 region_ids = 1;</code>
-     * @param index The index of the element to return.
-     * @return The regionIds at the given index.
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
      */
-    long getRegionIds(int index);
+    int getRegionsCount();
+    /**
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+     */
+    java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder> 
+        getRegionsOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+     */
+    greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder getRegionsOrBuilder(
+        int index);
 
     /**
      * <code>uint64 duration_since_epoch = 2;</code>
@@ -4478,7 +5083,7 @@ public final class HeartbeatOuterClass {
       super(builder);
     }
     private RegionLease() {
-      regionIds_ = emptyLongList();
+      regions_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -4512,25 +5117,13 @@ public final class HeartbeatOuterClass {
             case 0:
               done = true;
               break;
-            case 8: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                regionIds_ = newLongList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              regionIds_.addLong(input.readUInt64());
-              break;
-            }
             case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                regionIds_ = newLongList();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                regions_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.GrantedRegion>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              while (input.getBytesUntilLimit() > 0) {
-                regionIds_.addLong(input.readUInt64());
-              }
-              input.popLimit(limit);
+              regions_.add(
+                  input.readMessage(greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.parser(), extensionRegistry));
               break;
             }
             case 16: {
@@ -4561,7 +5154,7 @@ public final class HeartbeatOuterClass {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          regionIds_.makeImmutable(); // C
+          regions_ = java.util.Collections.unmodifiableList(regions_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -4580,33 +5173,45 @@ public final class HeartbeatOuterClass {
               greptime.v1.meta.HeartbeatOuterClass.RegionLease.class, greptime.v1.meta.HeartbeatOuterClass.RegionLease.Builder.class);
     }
 
-    public static final int REGION_IDS_FIELD_NUMBER = 1;
-    private com.google.protobuf.Internal.LongList regionIds_;
+    public static final int REGIONS_FIELD_NUMBER = 1;
+    private java.util.List<greptime.v1.meta.HeartbeatOuterClass.GrantedRegion> regions_;
     /**
-     * <code>repeated uint64 region_ids = 1;</code>
-     * @return A list containing the regionIds.
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<java.lang.Long>
-        getRegionIdsList() {
-      return regionIds_;
+    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.GrantedRegion> getRegionsList() {
+      return regions_;
     }
     /**
-     * <code>repeated uint64 region_ids = 1;</code>
-     * @return The count of regionIds.
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
      */
-    public int getRegionIdsCount() {
-      return regionIds_.size();
+    @java.lang.Override
+    public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder> 
+        getRegionsOrBuilderList() {
+      return regions_;
     }
     /**
-     * <code>repeated uint64 region_ids = 1;</code>
-     * @param index The index of the element to return.
-     * @return The regionIds at the given index.
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
      */
-    public long getRegionIds(int index) {
-      return regionIds_.getLong(index);
+    @java.lang.Override
+    public int getRegionsCount() {
+      return regions_.size();
     }
-    private int regionIdsMemoizedSerializedSize = -1;
+    /**
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion getRegions(int index) {
+      return regions_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder getRegionsOrBuilder(
+        int index) {
+      return regions_.get(index);
+    }
 
     public static final int DURATION_SINCE_EPOCH_FIELD_NUMBER = 2;
     private long durationSinceEpoch_;
@@ -4644,13 +5249,8 @@ public final class HeartbeatOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (getRegionIdsList().size() > 0) {
-        output.writeUInt32NoTag(10);
-        output.writeUInt32NoTag(regionIdsMemoizedSerializedSize);
-      }
-      for (int i = 0; i < regionIds_.size(); i++) {
-        output.writeUInt64NoTag(regionIds_.getLong(i));
+      for (int i = 0; i < regions_.size(); i++) {
+        output.writeMessage(1, regions_.get(i));
       }
       if (durationSinceEpoch_ != 0L) {
         output.writeUInt64(2, durationSinceEpoch_);
@@ -4667,19 +5267,9 @@ public final class HeartbeatOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < regionIds_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt64SizeNoTag(regionIds_.getLong(i));
-        }
-        size += dataSize;
-        if (!getRegionIdsList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        regionIdsMemoizedSerializedSize = dataSize;
+      for (int i = 0; i < regions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, regions_.get(i));
       }
       if (durationSinceEpoch_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -4704,8 +5294,8 @@ public final class HeartbeatOuterClass {
       }
       greptime.v1.meta.HeartbeatOuterClass.RegionLease other = (greptime.v1.meta.HeartbeatOuterClass.RegionLease) obj;
 
-      if (!getRegionIdsList()
-          .equals(other.getRegionIdsList())) return false;
+      if (!getRegionsList()
+          .equals(other.getRegionsList())) return false;
       if (getDurationSinceEpoch()
           != other.getDurationSinceEpoch()) return false;
       if (getLeaseSeconds()
@@ -4721,9 +5311,9 @@ public final class HeartbeatOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getRegionIdsCount() > 0) {
-        hash = (37 * hash) + REGION_IDS_FIELD_NUMBER;
-        hash = (53 * hash) + getRegionIdsList().hashCode();
+      if (getRegionsCount() > 0) {
+        hash = (37 * hash) + REGIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getRegionsList().hashCode();
       }
       hash = (37 * hash) + DURATION_SINCE_EPOCH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -4859,13 +5449,18 @@ public final class HeartbeatOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getRegionsFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        regionIds_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        if (regionsBuilder_ == null) {
+          regions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          regionsBuilder_.clear();
+        }
         durationSinceEpoch_ = 0L;
 
         leaseSeconds_ = 0L;
@@ -4897,11 +5492,15 @@ public final class HeartbeatOuterClass {
       public greptime.v1.meta.HeartbeatOuterClass.RegionLease buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.RegionLease result = new greptime.v1.meta.HeartbeatOuterClass.RegionLease(this);
         int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          regionIds_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (regionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            regions_ = java.util.Collections.unmodifiableList(regions_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.regions_ = regions_;
+        } else {
+          result.regions_ = regionsBuilder_.build();
         }
-        result.regionIds_ = regionIds_;
         result.durationSinceEpoch_ = durationSinceEpoch_;
         result.leaseSeconds_ = leaseSeconds_;
         onBuilt();
@@ -4952,15 +5551,31 @@ public final class HeartbeatOuterClass {
 
       public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.RegionLease other) {
         if (other == greptime.v1.meta.HeartbeatOuterClass.RegionLease.getDefaultInstance()) return this;
-        if (!other.regionIds_.isEmpty()) {
-          if (regionIds_.isEmpty()) {
-            regionIds_ = other.regionIds_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureRegionIdsIsMutable();
-            regionIds_.addAll(other.regionIds_);
+        if (regionsBuilder_ == null) {
+          if (!other.regions_.isEmpty()) {
+            if (regions_.isEmpty()) {
+              regions_ = other.regions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureRegionsIsMutable();
+              regions_.addAll(other.regions_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.regions_.isEmpty()) {
+            if (regionsBuilder_.isEmpty()) {
+              regionsBuilder_.dispose();
+              regionsBuilder_ = null;
+              regions_ = other.regions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              regionsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRegionsFieldBuilder() : null;
+            } else {
+              regionsBuilder_.addAllMessages(other.regions_);
+            }
+          }
         }
         if (other.getDurationSinceEpoch() != 0L) {
           setDurationSinceEpoch(other.getDurationSinceEpoch());
@@ -4998,83 +5613,244 @@ public final class HeartbeatOuterClass {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.LongList regionIds_ = emptyLongList();
-      private void ensureRegionIdsIsMutable() {
+      private java.util.List<greptime.v1.meta.HeartbeatOuterClass.GrantedRegion> regions_ =
+        java.util.Collections.emptyList();
+      private void ensureRegionsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          regionIds_ = mutableCopy(regionIds_);
+          regions_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.GrantedRegion>(regions_);
           bitField0_ |= 0x00000001;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.GrantedRegion, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder, greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder> regionsBuilder_;
+
       /**
-       * <code>repeated uint64 region_ids = 1;</code>
-       * @return A list containing the regionIds.
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
        */
-      public java.util.List<java.lang.Long>
-          getRegionIdsList() {
-        return ((bitField0_ & 0x00000001) != 0) ?
-                 java.util.Collections.unmodifiableList(regionIds_) : regionIds_;
+      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.GrantedRegion> getRegionsList() {
+        if (regionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(regions_);
+        } else {
+          return regionsBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>repeated uint64 region_ids = 1;</code>
-       * @return The count of regionIds.
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
        */
-      public int getRegionIdsCount() {
-        return regionIds_.size();
+      public int getRegionsCount() {
+        if (regionsBuilder_ == null) {
+          return regions_.size();
+        } else {
+          return regionsBuilder_.getCount();
+        }
       }
       /**
-       * <code>repeated uint64 region_ids = 1;</code>
-       * @param index The index of the element to return.
-       * @return The regionIds at the given index.
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
        */
-      public long getRegionIds(int index) {
-        return regionIds_.getLong(index);
+      public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion getRegions(int index) {
+        if (regionsBuilder_ == null) {
+          return regions_.get(index);
+        } else {
+          return regionsBuilder_.getMessage(index);
+        }
       }
       /**
-       * <code>repeated uint64 region_ids = 1;</code>
-       * @param index The index to set the value at.
-       * @param value The regionIds to set.
-       * @return This builder for chaining.
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
        */
-      public Builder setRegionIds(
-          int index, long value) {
-        ensureRegionIdsIsMutable();
-        regionIds_.setLong(index, value);
-        onChanged();
+      public Builder setRegions(
+          int index, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion value) {
+        if (regionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRegionsIsMutable();
+          regions_.set(index, value);
+          onChanged();
+        } else {
+          regionsBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>repeated uint64 region_ids = 1;</code>
-       * @param value The regionIds to add.
-       * @return This builder for chaining.
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
        */
-      public Builder addRegionIds(long value) {
-        ensureRegionIdsIsMutable();
-        regionIds_.addLong(value);
-        onChanged();
+      public Builder setRegions(
+          int index, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder builderForValue) {
+        if (regionsBuilder_ == null) {
+          ensureRegionsIsMutable();
+          regions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          regionsBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>repeated uint64 region_ids = 1;</code>
-       * @param values The regionIds to add.
-       * @return This builder for chaining.
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
        */
-      public Builder addAllRegionIds(
-          java.lang.Iterable<? extends java.lang.Long> values) {
-        ensureRegionIdsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, regionIds_);
-        onChanged();
+      public Builder addRegions(greptime.v1.meta.HeartbeatOuterClass.GrantedRegion value) {
+        if (regionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRegionsIsMutable();
+          regions_.add(value);
+          onChanged();
+        } else {
+          regionsBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
-       * <code>repeated uint64 region_ids = 1;</code>
-       * @return This builder for chaining.
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
        */
-      public Builder clearRegionIds() {
-        regionIds_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
+      public Builder addRegions(
+          int index, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion value) {
+        if (regionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRegionsIsMutable();
+          regions_.add(index, value);
+          onChanged();
+        } else {
+          regionsBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public Builder addRegions(
+          greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder builderForValue) {
+        if (regionsBuilder_ == null) {
+          ensureRegionsIsMutable();
+          regions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          regionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public Builder addRegions(
+          int index, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder builderForValue) {
+        if (regionsBuilder_ == null) {
+          ensureRegionsIsMutable();
+          regions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          regionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public Builder addAllRegions(
+          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.GrantedRegion> values) {
+        if (regionsBuilder_ == null) {
+          ensureRegionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, regions_);
+          onChanged();
+        } else {
+          regionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public Builder clearRegions() {
+        if (regionsBuilder_ == null) {
+          regions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          regionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public Builder removeRegions(int index) {
+        if (regionsBuilder_ == null) {
+          ensureRegionsIsMutable();
+          regions_.remove(index);
+          onChanged();
+        } else {
+          regionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder getRegionsBuilder(
+          int index) {
+        return getRegionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder getRegionsOrBuilder(
+          int index) {
+        if (regionsBuilder_ == null) {
+          return regions_.get(index);  } else {
+          return regionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder> 
+           getRegionsOrBuilderList() {
+        if (regionsBuilder_ != null) {
+          return regionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(regions_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder addRegionsBuilder() {
+        return getRegionsFieldBuilder().addBuilder(
+            greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder addRegionsBuilder(
+          int index) {
+        return getRegionsFieldBuilder().addBuilder(
+            index, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.GrantedRegion regions = 1;</code>
+       */
+      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder> 
+           getRegionsBuilderList() {
+        return getRegionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.GrantedRegion, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder, greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder> 
+          getRegionsFieldBuilder() {
+        if (regionsBuilder_ == null) {
+          regionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.GrantedRegion, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder, greptime.v1.meta.HeartbeatOuterClass.GrantedRegionOrBuilder>(
+                  regions_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          regions_ = null;
+        }
+        return regionsBuilder_;
       }
 
       private long durationSinceEpoch_ ;
@@ -8021,6 +8797,11 @@ public final class HeartbeatOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_GrantedRegion_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_RegionLease_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -8068,24 +8849,27 @@ public final class HeartbeatOuterClass {
       "a.ResponseHeader\0229\n\017mailbox_message\030\002 \001(" +
       "\0132 .greptime.v1.meta.MailboxMessage\0223\n\014r" +
       "egion_lease\030\003 \001(\0132\035.greptime.v1.meta.Reg" +
-      "ionLease\"V\n\013RegionLease\022\022\n\nregion_ids\030\001 " +
-      "\003(\004\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlea" +
-      "se_seconds\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006" +
-      "header\030\001 \001(\0132\037.greptime.v1.meta.RequestH" +
-      "eader\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001" +
-      "(\0132 .greptime.v1.meta.ResponseHeader\022&\n\006" +
-      "leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016" +
-      "MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 " +
-      "\001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timesta" +
-      "mp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007paylo" +
-      "ad*&\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follower" +
-      "\020\0012\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime" +
-      ".v1.meta.HeartbeatRequest\032#.greptime.v1." +
-      "meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeade" +
-      "r\022\".greptime.v1.meta.AskLeaderRequest\032#." +
-      "greptime.v1.meta.AskLeaderResponse\"\000B<Z:" +
-      "github.com/GreptimeTeam/greptime-proto/g" +
-      "o/greptime/v1/metab\006proto3"
+      "ionLease\"N\n\rGrantedRegion\022\021\n\tregion_id\030\001" +
+      " \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.Re" +
+      "gionRole\"t\n\013RegionLease\0220\n\007regions\030\001 \003(\013" +
+      "2\037.greptime.v1.meta.GrantedRegion\022\034\n\024dur" +
+      "ation_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds" +
+      "\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001" +
+      "(\0132\037.greptime.v1.meta.RequestHeader\"m\n\021A" +
+      "skLeaderResponse\0220\n\006header\030\001 \001(\0132 .grept" +
+      "ime.v1.meta.ResponseHeader\022&\n\006leader\030\002 \001" +
+      "(\0132\026.greptime.v1.meta.Peer\"|\n\016MailboxMes" +
+      "sage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004fro" +
+      "m\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030" +
+      "\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegi" +
+      "onRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHea" +
+      "rtbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta.H" +
+      "eartbeatRequest\032#.greptime.v1.meta.Heart" +
+      "beatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".grepti" +
+      "me.v1.meta.AskLeaderRequest\032#.greptime.v" +
+      "1.meta.AskLeaderResponse\"\000B<Z:github.com" +
+      "/GreptimeTeam/greptime-proto/go/greptime" +
+      "/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8110,26 +8894,32 @@ public final class HeartbeatOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatResponse_descriptor,
         new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", });
-    internal_static_greptime_v1_meta_RegionLease_descriptor =
+    internal_static_greptime_v1_meta_GrantedRegion_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_GrantedRegion_descriptor,
+        new java.lang.String[] { "RegionId", "Role", });
+    internal_static_greptime_v1_meta_RegionLease_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_meta_RegionLease_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionLease_descriptor,
-        new java.lang.String[] { "RegionIds", "DurationSinceEpoch", "LeaseSeconds", });
+        new java.lang.String[] { "Regions", "DurationSinceEpoch", "LeaseSeconds", });
     internal_static_greptime_v1_meta_AskLeaderRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_meta_AskLeaderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderRequest_descriptor,
         new java.lang.String[] { "Header", });
     internal_static_greptime_v1_meta_AskLeaderResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_meta_AskLeaderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderResponse_descriptor,
         new java.lang.String[] { "Header", "Leader", });
     internal_static_greptime_v1_meta_MailboxMessage_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_MailboxMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MailboxMessage_descriptor,

@@ -77,8 +77,13 @@ message HeartbeatResponse {
   RegionLease region_lease = 3;
 }
 
+message GrantedRegion {
+  uint64 region_id = 1;
+  RegionRole role = 2;
+}
+
 message RegionLease {
-  repeated uint64 region_ids = 1;
+  repeated GrantedRegion regions = 1;
   uint64 duration_since_epoch = 2;
   uint64 lease_seconds = 3;
 }
