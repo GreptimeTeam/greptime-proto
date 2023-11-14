@@ -27,10 +27,8 @@ import "greptime/v1/ddl.proto";
 service Region { rpc Handle(RegionRequest) returns (RegionResponse); }
 
 message RegionRequestHeader {
-  // TraceID of request
-  uint64 trace_id = 1;
-  // SpanID of request
-  uint64 span_id = 2;
+  // Encoded trace_id & span_id, follow the w3c Trace Context https://www.w3.org/TR/trace-context/#header-name
+  map<string, string> tracing_context = 5;
   // DB Name of request, tracking only
   string dbname = 3;
 }

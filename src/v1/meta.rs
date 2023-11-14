@@ -59,12 +59,17 @@ impl Eq for Peer {}
 
 impl RequestHeader {
     #[inline]
-    pub fn new((cluster_id, member_id): (u64, u64), role: Role) -> Self {
+    pub fn new(
+        (cluster_id, member_id): (u64, u64),
+        role: Role,
+        tracing_context: HashMap<String, String>,
+    ) -> Self {
         Self {
             protocol_version: PROTOCOL_VERSION,
             cluster_id,
             member_id,
             role: role.into(),
+            tracing_context,
         }
     }
 }
@@ -138,15 +143,25 @@ macro_rules! gen_set_header {
     ($req: ty) => {
         impl $req {
             #[inline]
-            pub fn set_header(&mut self, (cluster_id, member_id): (u64, u64), role: Role) {
+            pub fn set_header(
+                &mut self,
+                (cluster_id, member_id): (u64, u64),
+                role: Role,
+                tracing_context: HashMap<String, String>,
+            ) {
                 match self.header.as_mut() {
                     Some(header) => {
                         header.cluster_id = cluster_id;
                         header.member_id = member_id;
                         header.role = role.into();
+                        header.tracing_context = tracing_context;
                     }
                     None => {
-                        self.header = Some(RequestHeader::new((cluster_id, member_id), role));
+                        self.header = Some(RequestHeader::new(
+                            (cluster_id, member_id),
+                            role,
+                            tracing_context,
+                        ));
                     }
                 }
             }
