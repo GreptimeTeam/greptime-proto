@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
@@ -60,6 +63,9 @@ extern PeerDefaultTypeInternal _Peer_default_instance_;
 class RequestHeader;
 struct RequestHeaderDefaultTypeInternal;
 extern RequestHeaderDefaultTypeInternal _RequestHeader_default_instance_;
+class RequestHeader_TracingContextEntry_DoNotUse;
+struct RequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal;
+extern RequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _RequestHeader_TracingContextEntry_DoNotUse_default_instance_;
 class ResponseHeader;
 struct ResponseHeaderDefaultTypeInternal;
 extern ResponseHeaderDefaultTypeInternal _ResponseHeader_default_instance_;
@@ -80,6 +86,7 @@ template<> ::greptime::v1::meta::Error* Arena::CreateMaybeMessage<::greptime::v1
 template<> ::greptime::v1::meta::KeyValue* Arena::CreateMaybeMessage<::greptime::v1::meta::KeyValue>(Arena*);
 template<> ::greptime::v1::meta::Peer* Arena::CreateMaybeMessage<::greptime::v1::meta::Peer>(Arena*);
 template<> ::greptime::v1::meta::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::RequestHeader>(Arena*);
+template<> ::greptime::v1::meta::RequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::ResponseHeader>(Arena*);
 template<> ::greptime::v1::meta::TableId* Arena::CreateMaybeMessage<::greptime::v1::meta::TableId>(Arena*);
 template<> ::greptime::v1::meta::TableName* Arena::CreateMaybeMessage<::greptime::v1::meta::TableName>(Arena*);
@@ -115,6 +122,34 @@ inline bool Role_Parse(
     Role_descriptor(), name, value);
 }
 // ===================================================================
+
+class RequestHeader_TracingContextEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RequestHeader_TracingContextEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RequestHeader_TracingContextEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  RequestHeader_TracingContextEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR RequestHeader_TracingContextEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit RequestHeader_TracingContextEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const RequestHeader_TracingContextEntry_DoNotUse& other);
+  static const RequestHeader_TracingContextEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const RequestHeader_TracingContextEntry_DoNotUse*>(&_RequestHeader_TracingContextEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.RequestHeader.TracingContextEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.RequestHeader.TracingContextEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto;
+};
+
+// -------------------------------------------------------------------
 
 class RequestHeader final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.RequestHeader) */ {
@@ -164,7 +199,7 @@ class RequestHeader final :
                &_RequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(RequestHeader& a, RequestHeader& b) {
     a.Swap(&b);
@@ -225,6 +260,8 @@ class RequestHeader final :
   protected:
   explicit RequestHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -234,14 +271,33 @@ class RequestHeader final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTracingContextFieldNumber = 5,
     kProtocolVersionFieldNumber = 1,
     kClusterIdFieldNumber = 2,
     kMemberIdFieldNumber = 3,
     kRoleFieldNumber = 4,
   };
+  // map<string, string> tracing_context = 5;
+  int tracing_context_size() const;
+  private:
+  int _internal_tracing_context_size() const;
+  public:
+  void clear_tracing_context();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_tracing_context() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_tracing_context();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      tracing_context() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_tracing_context();
+
   // uint64 protocol_version = 1;
   void clear_protocol_version();
   uint64_t protocol_version() const;
@@ -286,6 +342,11 @@ class RequestHeader final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        RequestHeader_TracingContextEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> tracing_context_;
     uint64_t protocol_version_;
     uint64_t cluster_id_;
     uint64_t member_id_;
@@ -345,7 +406,7 @@ class ResponseHeader final :
                &_ResponseHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(ResponseHeader& a, ResponseHeader& b) {
     a.Swap(&b);
@@ -524,7 +585,7 @@ class Error final :
                &_Error_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(Error& a, Error& b) {
     a.Swap(&b);
@@ -688,7 +749,7 @@ class Peer final :
                &_Peer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Peer& a, Peer& b) {
     a.Swap(&b);
@@ -852,7 +913,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -1000,7 +1061,7 @@ class TableName final :
                &_TableName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(TableName& a, TableName& b) {
     a.Swap(&b);
@@ -1185,7 +1246,7 @@ class TimeInterval final :
                &_TimeInterval_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(TimeInterval& a, TimeInterval& b) {
     a.Swap(&b);
@@ -1344,7 +1405,7 @@ class KeyValue final :
                &_KeyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(KeyValue& a, KeyValue& b) {
     a.Swap(&b);
@@ -1472,6 +1533,8 @@ class KeyValue final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // RequestHeader
 
 // uint64 protocol_version = 1;
@@ -1552,6 +1615,35 @@ inline void RequestHeader::_internal_set_role(::greptime::v1::meta::Role value) 
 inline void RequestHeader::set_role(::greptime::v1::meta::Role value) {
   _internal_set_role(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RequestHeader.role)
+}
+
+// map<string, string> tracing_context = 5;
+inline int RequestHeader::_internal_tracing_context_size() const {
+  return _impl_.tracing_context_.size();
+}
+inline int RequestHeader::tracing_context_size() const {
+  return _internal_tracing_context_size();
+}
+inline void RequestHeader::clear_tracing_context() {
+  _impl_.tracing_context_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+RequestHeader::_internal_tracing_context() const {
+  return _impl_.tracing_context_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+RequestHeader::tracing_context() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.meta.RequestHeader.tracing_context)
+  return _internal_tracing_context();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+RequestHeader::_internal_mutable_tracing_context() {
+  return _impl_.tracing_context_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+RequestHeader::mutable_tracing_context() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.RequestHeader.tracing_context)
+  return _internal_mutable_tracing_context();
 }
 
 // -------------------------------------------------------------------
@@ -2165,6 +2257,8 @@ inline void KeyValue::set_allocated_value(std::string* value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
