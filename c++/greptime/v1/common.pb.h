@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
@@ -65,6 +68,9 @@ extern IntervalMonthDayNanoDefaultTypeInternal _IntervalMonthDayNano_default_ins
 class RequestHeader;
 struct RequestHeaderDefaultTypeInternal;
 extern RequestHeaderDefaultTypeInternal _RequestHeader_default_instance_;
+class RequestHeader_TracingContextEntry_DoNotUse;
+struct RequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal;
+extern RequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _RequestHeader_TracingContextEntry_DoNotUse_default_instance_;
 class ResponseHeader;
 struct ResponseHeaderDefaultTypeInternal;
 extern ResponseHeaderDefaultTypeInternal _ResponseHeader_default_instance_;
@@ -83,6 +89,7 @@ template<> ::greptime::v1::Basic* Arena::CreateMaybeMessage<::greptime::v1::Basi
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
 template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::greptime::v1::IntervalMonthDayNano>(Arena*);
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
+template<> ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::ResponseHeader>(Arena*);
 template<> ::greptime::v1::Status* Arena::CreateMaybeMessage<::greptime::v1::Status>(Arena*);
 template<> ::greptime::v1::Token* Arena::CreateMaybeMessage<::greptime::v1::Token>(Arena*);
@@ -171,6 +178,34 @@ inline bool ColumnDataType_Parse(
 }
 // ===================================================================
 
+class RequestHeader_TracingContextEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RequestHeader_TracingContextEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RequestHeader_TracingContextEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  RequestHeader_TracingContextEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR RequestHeader_TracingContextEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit RequestHeader_TracingContextEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const RequestHeader_TracingContextEntry_DoNotUse& other);
+  static const RequestHeader_TracingContextEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const RequestHeader_TracingContextEntry_DoNotUse*>(&_RequestHeader_TracingContextEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.RequestHeader.TracingContextEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.RequestHeader.TracingContextEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class RequestHeader final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.RequestHeader) */ {
  public:
@@ -219,7 +254,7 @@ class RequestHeader final :
                &_RequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(RequestHeader& a, RequestHeader& b) {
     a.Swap(&b);
@@ -280,6 +315,8 @@ class RequestHeader final :
   protected:
   explicit RequestHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -289,16 +326,33 @@ class RequestHeader final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTracingContextFieldNumber = 5,
     kCatalogFieldNumber = 1,
     kSchemaFieldNumber = 2,
     kDbnameFieldNumber = 4,
     kAuthorizationFieldNumber = 3,
-    kTraceIdFieldNumber = 5,
-    kSpanIdFieldNumber = 6,
   };
+  // map<string, string> tracing_context = 5;
+  int tracing_context_size() const;
+  private:
+  int _internal_tracing_context_size() const;
+  public:
+  void clear_tracing_context();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_tracing_context() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_tracing_context();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      tracing_context() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_tracing_context();
+
   // string catalog = 1;
   void clear_catalog();
   const std::string& catalog() const;
@@ -359,24 +413,6 @@ class RequestHeader final :
       ::greptime::v1::AuthHeader* authorization);
   ::greptime::v1::AuthHeader* unsafe_arena_release_authorization();
 
-  // uint64 trace_id = 5;
-  void clear_trace_id();
-  uint64_t trace_id() const;
-  void set_trace_id(uint64_t value);
-  private:
-  uint64_t _internal_trace_id() const;
-  void _internal_set_trace_id(uint64_t value);
-  public:
-
-  // uint64 span_id = 6;
-  void clear_span_id();
-  uint64_t span_id() const;
-  void set_span_id(uint64_t value);
-  private:
-  uint64_t _internal_span_id() const;
-  void _internal_set_span_id(uint64_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.RequestHeader)
  private:
   class _Internal;
@@ -385,12 +421,15 @@ class RequestHeader final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        RequestHeader_TracingContextEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> tracing_context_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dbname_;
     ::greptime::v1::AuthHeader* authorization_;
-    uint64_t trace_id_;
-    uint64_t span_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -446,7 +485,7 @@ class ResponseHeader final :
                &_ResponseHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(ResponseHeader& a, ResponseHeader& b) {
     a.Swap(&b);
@@ -603,7 +642,7 @@ class Status final :
                &_Status_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(Status& a, Status& b) {
     a.Swap(&b);
@@ -773,7 +812,7 @@ class AuthHeader final :
                &_AuthHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(AuthHeader& a, AuthHeader& b) {
     a.Swap(&b);
@@ -963,7 +1002,7 @@ class Basic final :
                &_Basic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(Basic& a, Basic& b) {
     a.Swap(&b);
@@ -1132,7 +1171,7 @@ class Token final :
                &_Token_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(Token& a, Token& b) {
     a.Swap(&b);
@@ -1285,7 +1324,7 @@ class AffectedRows final :
                &_AffectedRows_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(AffectedRows& a, AffectedRows& b) {
     a.Swap(&b);
@@ -1433,7 +1472,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -1590,7 +1629,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -1719,6 +1758,8 @@ class IntervalMonthDayNano final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // RequestHeader
 
 // string catalog = 1;
@@ -1961,44 +2002,33 @@ inline void RequestHeader::set_allocated_dbname(std::string* dbname) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.RequestHeader.dbname)
 }
 
-// uint64 trace_id = 5;
-inline void RequestHeader::clear_trace_id() {
-  _impl_.trace_id_ = uint64_t{0u};
+// map<string, string> tracing_context = 5;
+inline int RequestHeader::_internal_tracing_context_size() const {
+  return _impl_.tracing_context_.size();
 }
-inline uint64_t RequestHeader::_internal_trace_id() const {
-  return _impl_.trace_id_;
+inline int RequestHeader::tracing_context_size() const {
+  return _internal_tracing_context_size();
 }
-inline uint64_t RequestHeader::trace_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.RequestHeader.trace_id)
-  return _internal_trace_id();
+inline void RequestHeader::clear_tracing_context() {
+  _impl_.tracing_context_.Clear();
 }
-inline void RequestHeader::_internal_set_trace_id(uint64_t value) {
-  
-  _impl_.trace_id_ = value;
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+RequestHeader::_internal_tracing_context() const {
+  return _impl_.tracing_context_.GetMap();
 }
-inline void RequestHeader::set_trace_id(uint64_t value) {
-  _internal_set_trace_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.RequestHeader.trace_id)
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+RequestHeader::tracing_context() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.RequestHeader.tracing_context)
+  return _internal_tracing_context();
 }
-
-// uint64 span_id = 6;
-inline void RequestHeader::clear_span_id() {
-  _impl_.span_id_ = uint64_t{0u};
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+RequestHeader::_internal_mutable_tracing_context() {
+  return _impl_.tracing_context_.MutableMap();
 }
-inline uint64_t RequestHeader::_internal_span_id() const {
-  return _impl_.span_id_;
-}
-inline uint64_t RequestHeader::span_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.RequestHeader.span_id)
-  return _internal_span_id();
-}
-inline void RequestHeader::_internal_set_span_id(uint64_t value) {
-  
-  _impl_.span_id_ = value;
-}
-inline void RequestHeader::set_span_id(uint64_t value) {
-  _internal_set_span_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.RequestHeader.span_id)
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+RequestHeader::mutable_tracing_context() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.RequestHeader.tracing_context)
+  return _internal_mutable_tracing_context();
 }
 
 // -------------------------------------------------------------------
@@ -2673,6 +2703,8 @@ inline void IntervalMonthDayNano::set_nanoseconds(int64_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

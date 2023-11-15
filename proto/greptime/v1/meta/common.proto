@@ -25,6 +25,9 @@ message RequestHeader {
   // member_id is the ID of the sender server.
   uint64 member_id = 3;
   Role role = 4;
+  // Encoded trace_id & span_id, follow the w3c Trace Context
+  // https://www.w3.org/TR/trace-context/#header-name
+  map<string, string> tracing_context = 5;
 }
 
 enum Role {
@@ -49,9 +52,7 @@ message Peer {
   string addr = 2;
 }
 
-message TableId {
-  uint32 id = 1;
-}
+message TableId { uint32 id = 1; }
 
 message TableName {
   string catalog_name = 1;

@@ -584,23 +584,64 @@ public final class Common {
 
     /**
      * <pre>
-     * TraceID of request
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
      * </pre>
      *
-     * <code>uint64 trace_id = 5;</code>
-     * @return The traceId.
+     * <code>map&lt;string, string&gt; tracing_context = 5;</code>
      */
-    long getTraceId();
-
+    int getTracingContextCount();
     /**
      * <pre>
-     * SpanID of request
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
      * </pre>
      *
-     * <code>uint64 span_id = 6;</code>
-     * @return The spanId.
+     * <code>map&lt;string, string&gt; tracing_context = 5;</code>
      */
-    long getSpanId();
+    boolean containsTracingContext(
+        java.lang.String key);
+    /**
+     * Use {@link #getTracingContextMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getTracingContext();
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getTracingContextMap();
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+     */
+
+    /* nullable */
+java.lang.String getTracingContextOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+     */
+
+    java.lang.String getTracingContextOrThrow(
+        java.lang.String key);
   }
   /**
    * Protobuf type {@code greptime.v1.RequestHeader}
@@ -640,6 +681,7 @@ public final class Common {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -681,14 +723,17 @@ public final class Common {
               dbname_ = s;
               break;
             }
-            case 40: {
-
-              traceId_ = input.readUInt64();
-              break;
-            }
-            case 48: {
-
-              spanId_ = input.readUInt64();
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tracingContext_ = com.google.protobuf.MapField.newMapField(
+                    TracingContextDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              tracingContext__ = input.readMessage(
+                  TracingContextDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              tracingContext_.getMutableMap().put(
+                  tracingContext__.getKey(), tracingContext__.getValue());
               break;
             }
             default: {
@@ -717,6 +762,18 @@ public final class Common {
       return io.greptime.v1.Common.internal_static_greptime_v1_RequestHeader_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetTracingContext();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -901,34 +958,105 @@ public final class Common {
       }
     }
 
-    public static final int TRACE_ID_FIELD_NUMBER = 5;
-    private long traceId_;
-    /**
-     * <pre>
-     * TraceID of request
-     * </pre>
-     *
-     * <code>uint64 trace_id = 5;</code>
-     * @return The traceId.
-     */
-    @java.lang.Override
-    public long getTraceId() {
-      return traceId_;
+    public static final int TRACING_CONTEXT_FIELD_NUMBER = 5;
+    private static final class TracingContextDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  io.greptime.v1.Common.internal_static_greptime_v1_RequestHeader_TracingContextEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> tracingContext_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetTracingContext() {
+      if (tracingContext_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            TracingContextDefaultEntryHolder.defaultEntry);
+      }
+      return tracingContext_;
     }
 
-    public static final int SPAN_ID_FIELD_NUMBER = 6;
-    private long spanId_;
+    public int getTracingContextCount() {
+      return internalGetTracingContext().getMap().size();
+    }
     /**
      * <pre>
-     * SpanID of request
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
      * </pre>
      *
-     * <code>uint64 span_id = 6;</code>
-     * @return The spanId.
+     * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsTracingContext(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetTracingContext().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getTracingContextMap()} instead.
      */
     @java.lang.Override
-    public long getSpanId() {
-      return spanId_;
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getTracingContext() {
+      return getTracingContextMap();
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getTracingContextMap() {
+      return internalGetTracingContext().getMap();
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getTracingContextOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetTracingContext().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getTracingContextOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetTracingContext().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -957,12 +1085,12 @@ public final class Common {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, dbname_);
       }
-      if (traceId_ != 0L) {
-        output.writeUInt64(5, traceId_);
-      }
-      if (spanId_ != 0L) {
-        output.writeUInt64(6, spanId_);
-      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetTracingContext(),
+          TracingContextDefaultEntryHolder.defaultEntry,
+          5);
       unknownFields.writeTo(output);
     }
 
@@ -985,13 +1113,15 @@ public final class Common {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, dbname_);
       }
-      if (traceId_ != 0L) {
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetTracingContext().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        tracingContext__ = TracingContextDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(5, traceId_);
-      }
-      if (spanId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(6, spanId_);
+            .computeMessageSize(5, tracingContext__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1019,10 +1149,8 @@ public final class Common {
       }
       if (!getDbname()
           .equals(other.getDbname())) return false;
-      if (getTraceId()
-          != other.getTraceId()) return false;
-      if (getSpanId()
-          != other.getSpanId()) return false;
+      if (!internalGetTracingContext().equals(
+          other.internalGetTracingContext())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1044,12 +1172,10 @@ public final class Common {
       }
       hash = (37 * hash) + DBNAME_FIELD_NUMBER;
       hash = (53 * hash) + getDbname().hashCode();
-      hash = (37 * hash) + TRACE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getTraceId());
-      hash = (37 * hash) + SPAN_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getSpanId());
+      if (!internalGetTracingContext().getMap().isEmpty()) {
+        hash = (37 * hash) + TRACING_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetTracingContext().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1157,6 +1283,28 @@ public final class Common {
         return io.greptime.v1.Common.internal_static_greptime_v1_RequestHeader_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetTracingContext();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetMutableTracingContext();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -1195,10 +1343,7 @@ public final class Common {
         }
         dbname_ = "";
 
-        traceId_ = 0L;
-
-        spanId_ = 0L;
-
+        internalGetMutableTracingContext().clear();
         return this;
       }
 
@@ -1225,6 +1370,7 @@ public final class Common {
       @java.lang.Override
       public io.greptime.v1.Common.RequestHeader buildPartial() {
         io.greptime.v1.Common.RequestHeader result = new io.greptime.v1.Common.RequestHeader(this);
+        int from_bitField0_ = bitField0_;
         result.catalog_ = catalog_;
         result.schema_ = schema_;
         if (authorizationBuilder_ == null) {
@@ -1233,8 +1379,8 @@ public final class Common {
           result.authorization_ = authorizationBuilder_.build();
         }
         result.dbname_ = dbname_;
-        result.traceId_ = traceId_;
-        result.spanId_ = spanId_;
+        result.tracingContext_ = internalGetTracingContext();
+        result.tracingContext_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -1298,12 +1444,8 @@ public final class Common {
           dbname_ = other.dbname_;
           onChanged();
         }
-        if (other.getTraceId() != 0L) {
-          setTraceId(other.getTraceId());
-        }
-        if (other.getSpanId() != 0L) {
-          setSpanId(other.getSpanId());
-        }
+        internalGetMutableTracingContext().mergeFrom(
+            other.internalGetTracingContext());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1332,6 +1474,7 @@ public final class Common {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object catalog_ = "";
       /**
@@ -1776,89 +1919,169 @@ public final class Common {
         return this;
       }
 
-      private long traceId_ ;
-      /**
-       * <pre>
-       * TraceID of request
-       * </pre>
-       *
-       * <code>uint64 trace_id = 5;</code>
-       * @return The traceId.
-       */
-      @java.lang.Override
-      public long getTraceId() {
-        return traceId_;
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> tracingContext_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetTracingContext() {
+        if (tracingContext_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              TracingContextDefaultEntryHolder.defaultEntry);
+        }
+        return tracingContext_;
       }
-      /**
-       * <pre>
-       * TraceID of request
-       * </pre>
-       *
-       * <code>uint64 trace_id = 5;</code>
-       * @param value The traceId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTraceId(long value) {
-        
-        traceId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * TraceID of request
-       * </pre>
-       *
-       * <code>uint64 trace_id = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTraceId() {
-        
-        traceId_ = 0L;
-        onChanged();
-        return this;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableTracingContext() {
+        onChanged();;
+        if (tracingContext_ == null) {
+          tracingContext_ = com.google.protobuf.MapField.newMapField(
+              TracingContextDefaultEntryHolder.defaultEntry);
+        }
+        if (!tracingContext_.isMutable()) {
+          tracingContext_ = tracingContext_.copy();
+        }
+        return tracingContext_;
       }
 
-      private long spanId_ ;
-      /**
-       * <pre>
-       * SpanID of request
-       * </pre>
-       *
-       * <code>uint64 span_id = 6;</code>
-       * @return The spanId.
-       */
-      @java.lang.Override
-      public long getSpanId() {
-        return spanId_;
+      public int getTracingContextCount() {
+        return internalGetTracingContext().getMap().size();
       }
       /**
        * <pre>
-       * SpanID of request
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
        * </pre>
        *
-       * <code>uint64 span_id = 6;</code>
-       * @param value The spanId to set.
-       * @return This builder for chaining.
+       * <code>map&lt;string, string&gt; tracing_context = 5;</code>
        */
-      public Builder setSpanId(long value) {
-        
-        spanId_ = value;
-        onChanged();
+
+      @java.lang.Override
+      public boolean containsTracingContext(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetTracingContext().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getTracingContextMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getTracingContext() {
+        return getTracingContextMap();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getTracingContextMap() {
+        return internalGetTracingContext().getMap();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getTracingContextOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetTracingContext().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getTracingContextOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetTracingContext().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearTracingContext() {
+        internalGetMutableTracingContext().getMutableMap()
+            .clear();
         return this;
       }
       /**
        * <pre>
-       * SpanID of request
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
        * </pre>
        *
-       * <code>uint64 span_id = 6;</code>
-       * @return This builder for chaining.
+       * <code>map&lt;string, string&gt; tracing_context = 5;</code>
        */
-      public Builder clearSpanId() {
-        
-        spanId_ = 0L;
-        onChanged();
+
+      public Builder removeTracingContext(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableTracingContext().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableTracingContext() {
+        return internalGetMutableTracingContext().getMutableMap();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+       */
+      public Builder putTracingContext(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableTracingContext().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 5;</code>
+       */
+
+      public Builder putAllTracingContext(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableTracingContext().getMutableMap()
+            .putAll(values);
         return this;
       }
       @java.lang.Override
@@ -7188,6 +7411,11 @@ public final class Common {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_RequestHeader_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_RequestHeader_TracingContextEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_RequestHeader_TracingContextEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_ResponseHeader_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -7237,39 +7465,41 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/common.proto\022\013greptime.v1\"" +
-      "\223\001\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc" +
+      "\360\001\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc" +
       "hema\030\002 \001(\t\022.\n\rauthorization\030\003 \001(\0132\027.grep" +
-      "time.v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022\020\n\010tr" +
-      "ace_id\030\005 \001(\004\022\017\n\007span_id\030\006 \001(\004\"5\n\016Respons" +
-      "eHeader\022#\n\006status\030\001 \001(\0132\023.greptime.v1.St" +
-      "atus\".\n\006Status\022\023\n\013status_code\030\001 \001(\r\022\017\n\007e" +
-      "rr_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basic\030\001 \001(" +
-      "\0132\022.greptime.v1.BasicH\000\022#\n\005token\030\002 \001(\0132\022" +
-      ".greptime.v1.TokenH\000B\r\n\013auth_scheme\"+\n\005B" +
-      "asic\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t" +
-      "\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"\035\n\014AffectedRows" +
-      "\022\r\n\005value\030\001 \001(\r\"B\n\016FlightMetadata\0220\n\raff" +
-      "ected_rows\030\001 \001(\0132\031.greptime.v1.AffectedR" +
-      "ows\"I\n\024IntervalMonthDayNano\022\016\n\006months\030\001 " +
-      "\001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003*1" +
-      "\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTI" +
-      "MESTAMP\020\002*\250\004\n\016ColumnDataType\022\013\n\007BOOLEAN\020" +
-      "\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT" +
-      "64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022" +
-      "\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n" +
-      "\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATET" +
-      "IME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP" +
-      "_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020" +
-      "\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECO" +
-      "ND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICRO" +
-      "SECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVA" +
-      "L_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n" +
-      "\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION_S" +
-      "ECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024DUR" +
-      "ATION_MICROSECOND\020\034\022\027\n\023DURATION_NANOSECO" +
-      "ND\020\035BO\n\016io.greptime.v1B\006CommonZ5github.c" +
-      "om/GreptimeTeam/greptime-proto/go/grepti" +
-      "me/v1b\006proto3"
+      "time.v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022G\n\017tr" +
+      "acing_context\030\005 \003(\0132..greptime.v1.Reques" +
+      "tHeader.TracingContextEntry\0325\n\023TracingCo" +
+      "ntextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
+      "8\001\"5\n\016ResponseHeader\022#\n\006status\030\001 \001(\0132\023.g" +
+      "reptime.v1.Status\".\n\006Status\022\023\n\013status_co" +
+      "de\030\001 \001(\r\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022" +
+      "#\n\005basic\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005" +
+      "token\030\002 \001(\0132\022.greptime.v1.TokenH\000B\r\n\013aut" +
+      "h_scheme\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010p" +
+      "assword\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"\035\n" +
+      "\014AffectedRows\022\r\n\005value\030\001 \001(\r\"B\n\016FlightMe" +
+      "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime" +
+      ".v1.AffectedRows\"I\n\024IntervalMonthDayNano" +
+      "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose" +
+      "conds\030\003 \001(\003*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005" +
+      "FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\250\004\n\016ColumnDataTyp" +
+      "e\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005I" +
+      "NT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006" +
+      "\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n" +
+      "\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DA" +
+      "TE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017" +
+      "\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP" +
+      "_MICROSECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022" +
+      "\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022" +
+      "\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND" +
+      "\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_" +
+      "DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022" +
+      "\023\n\017DURATION_SECOND\020\032\022\030\n\024DURATION_MILLISE" +
+      "COND\020\033\022\030\n\024DURATION_MICROSECOND\020\034\022\027\n\023DURA" +
+      "TION_NANOSECOND\020\035BO\n\016io.greptime.v1B\006Com" +
+      "monZ5github.com/GreptimeTeam/greptime-pr" +
+      "oto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7280,7 +7510,13 @@ public final class Common {
     internal_static_greptime_v1_RequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RequestHeader_descriptor,
-        new java.lang.String[] { "Catalog", "Schema", "Authorization", "Dbname", "TraceId", "SpanId", });
+        new java.lang.String[] { "Catalog", "Schema", "Authorization", "Dbname", "TracingContext", });
+    internal_static_greptime_v1_RequestHeader_TracingContextEntry_descriptor =
+      internal_static_greptime_v1_RequestHeader_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_RequestHeader_TracingContextEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_RequestHeader_TracingContextEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_ResponseHeader_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_ResponseHeader_fieldAccessorTable = new
