@@ -2738,6 +2738,7 @@ class ColumnDef final :
     kNameFieldNumber = 1,
     kDefaultConstraintFieldNumber = 4,
     kCommentFieldNumber = 6,
+    kDatatypeExtensionFieldNumber = 7,
     kDataTypeFieldNumber = 2,
     kIsNullableFieldNumber = 3,
     kSemanticTypeFieldNumber = 5,
@@ -2784,6 +2785,24 @@ class ColumnDef final :
   std::string* _internal_mutable_comment();
   public:
 
+  // .greptime.v1.ColumnDataTypeExtension datatype_extension = 7;
+  bool has_datatype_extension() const;
+  private:
+  bool _internal_has_datatype_extension() const;
+  public:
+  void clear_datatype_extension();
+  const ::greptime::v1::ColumnDataTypeExtension& datatype_extension() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ColumnDataTypeExtension* release_datatype_extension();
+  ::greptime::v1::ColumnDataTypeExtension* mutable_datatype_extension();
+  void set_allocated_datatype_extension(::greptime::v1::ColumnDataTypeExtension* datatype_extension);
+  private:
+  const ::greptime::v1::ColumnDataTypeExtension& _internal_datatype_extension() const;
+  ::greptime::v1::ColumnDataTypeExtension* _internal_mutable_datatype_extension();
+  public:
+  void unsafe_arena_set_allocated_datatype_extension(
+      ::greptime::v1::ColumnDataTypeExtension* datatype_extension);
+  ::greptime::v1::ColumnDataTypeExtension* unsafe_arena_release_datatype_extension();
+
   // .greptime.v1.ColumnDataType data_type = 2;
   void clear_data_type();
   ::greptime::v1::ColumnDataType data_type() const;
@@ -2822,6 +2841,7 @@ class ColumnDef final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr default_constraint_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
+    ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
     int data_type_;
     bool is_nullable_;
     int semantic_type_;
@@ -5568,6 +5588,91 @@ inline void ColumnDef::set_allocated_comment(std::string* comment) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDef.comment)
+}
+
+// .greptime.v1.ColumnDataTypeExtension datatype_extension = 7;
+inline bool ColumnDef::_internal_has_datatype_extension() const {
+  return this != internal_default_instance() && _impl_.datatype_extension_ != nullptr;
+}
+inline bool ColumnDef::has_datatype_extension() const {
+  return _internal_has_datatype_extension();
+}
+inline const ::greptime::v1::ColumnDataTypeExtension& ColumnDef::_internal_datatype_extension() const {
+  const ::greptime::v1::ColumnDataTypeExtension* p = _impl_.datatype_extension_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ColumnDataTypeExtension&>(
+      ::greptime::v1::_ColumnDataTypeExtension_default_instance_);
+}
+inline const ::greptime::v1::ColumnDataTypeExtension& ColumnDef::datatype_extension() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDef.datatype_extension)
+  return _internal_datatype_extension();
+}
+inline void ColumnDef::unsafe_arena_set_allocated_datatype_extension(
+    ::greptime::v1::ColumnDataTypeExtension* datatype_extension) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.datatype_extension_);
+  }
+  _impl_.datatype_extension_ = datatype_extension;
+  if (datatype_extension) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ColumnDef.datatype_extension)
+}
+inline ::greptime::v1::ColumnDataTypeExtension* ColumnDef::release_datatype_extension() {
+  
+  ::greptime::v1::ColumnDataTypeExtension* temp = _impl_.datatype_extension_;
+  _impl_.datatype_extension_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ColumnDataTypeExtension* ColumnDef::unsafe_arena_release_datatype_extension() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ColumnDef.datatype_extension)
+  
+  ::greptime::v1::ColumnDataTypeExtension* temp = _impl_.datatype_extension_;
+  _impl_.datatype_extension_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ColumnDataTypeExtension* ColumnDef::_internal_mutable_datatype_extension() {
+  
+  if (_impl_.datatype_extension_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ColumnDataTypeExtension>(GetArenaForAllocation());
+    _impl_.datatype_extension_ = p;
+  }
+  return _impl_.datatype_extension_;
+}
+inline ::greptime::v1::ColumnDataTypeExtension* ColumnDef::mutable_datatype_extension() {
+  ::greptime::v1::ColumnDataTypeExtension* _msg = _internal_mutable_datatype_extension();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnDef.datatype_extension)
+  return _msg;
+}
+inline void ColumnDef::set_allocated_datatype_extension(::greptime::v1::ColumnDataTypeExtension* datatype_extension) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.datatype_extension_);
+  }
+  if (datatype_extension) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(datatype_extension));
+    if (message_arena != submessage_arena) {
+      datatype_extension = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, datatype_extension, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.datatype_extension_ = datatype_extension;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDef.datatype_extension)
 }
 
 // -------------------------------------------------------------------

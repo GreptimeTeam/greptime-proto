@@ -159,9 +159,53 @@ struct IntervalMonthDayNanoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 IntervalMonthDayNanoDefaultTypeInternal _IntervalMonthDayNano_default_instance_;
+PROTOBUF_CONSTEXPR Decimal128::Decimal128(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.hi_)*/int64_t{0}
+  , /*decltype(_impl_.lo_)*/int64_t{0}
+  , /*decltype(_impl_.precision_)*/0
+  , /*decltype(_impl_.scale_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct Decimal128DefaultTypeInternal {
+  PROTOBUF_CONSTEXPR Decimal128DefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~Decimal128DefaultTypeInternal() {}
+  union {
+    Decimal128 _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Decimal128DefaultTypeInternal _Decimal128_default_instance_;
+PROTOBUF_CONSTEXPR ColumnDataTypeExtension::ColumnDataTypeExtension(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.ext_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
+struct ColumnDataTypeExtensionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ColumnDataTypeExtensionDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ColumnDataTypeExtensionDefaultTypeInternal() {}
+  union {
+    ColumnDataTypeExtension _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ColumnDataTypeExtensionDefaultTypeInternal _ColumnDataTypeExtension_default_instance_;
+PROTOBUF_CONSTEXPR DecimalTypeExtension::DecimalTypeExtension(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.precision_)*/0
+  , /*decltype(_impl_.scale_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct DecimalTypeExtensionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DecimalTypeExtensionDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DecimalTypeExtensionDefaultTypeInternal() {}
+  union {
+    DecimalTypeExtension _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DecimalTypeExtensionDefaultTypeInternal _DecimalTypeExtension_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fcommon_2eproto[10];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fcommon_2eproto[13];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fcommon_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fcommon_2eproto = nullptr;
 
@@ -249,6 +293,32 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::IntervalMonthDayNano, _impl_.months_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::IntervalMonthDayNano, _impl_.days_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::IntervalMonthDayNano, _impl_.nanoseconds_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Decimal128, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Decimal128, _impl_.hi_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Decimal128, _impl_.lo_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Decimal128, _impl_.precision_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Decimal128, _impl_.scale_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDataTypeExtension, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDataTypeExtension, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDataTypeExtension, _impl_.ext_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::DecimalTypeExtension, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::DecimalTypeExtension, _impl_.precision_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::DecimalTypeExtension, _impl_.scale_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse)},
@@ -261,6 +331,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 60, -1, -1, sizeof(::greptime::v1::AffectedRows)},
   { 67, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
   { 74, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
+  { 83, -1, -1, sizeof(::greptime::v1::Decimal128)},
+  { 93, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
+  { 101, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -274,6 +347,9 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_AffectedRows_default_instance_._instance,
   &::greptime::v1::_FlightMetadata_default_instance_._instance,
   &::greptime::v1::_IntervalMonthDayNano_default_instance_._instance,
+  &::greptime::v1::_Decimal128_default_instance_._instance,
+  &::greptime::v1::_ColumnDataTypeExtension_default_instance_._instance,
+  &::greptime::v1::_DecimalTypeExtension_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -295,30 +371,36 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime"
   ".v1.AffectedRows\"I\n\024IntervalMonthDayNano"
   "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose"
-  "conds\030\003 \001(\003*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005"
-  "FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\250\004\n\016ColumnDataTyp"
-  "e\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005I"
-  "NT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006"
-  "\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n"
-  "\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DA"
-  "TE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017"
-  "\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP"
-  "_MICROSECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022"
-  "\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022"
-  "\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND"
-  "\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_"
-  "DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022"
-  "\023\n\017DURATION_SECOND\020\032\022\030\n\024DURATION_MILLISE"
-  "COND\020\033\022\030\n\024DURATION_MICROSECOND\020\034\022\027\n\023DURA"
-  "TION_NANOSECOND\020\035BO\n\016io.greptime.v1B\006Com"
+  "conds\030\003 \001(\003\"F\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n"
+  "\002lo\030\002 \001(\003\022\021\n\tprecision\030\003 \001(\005\022\r\n\005scale\030\004 "
+  "\001(\005\"[\n\027ColumnDataTypeExtension\0229\n\014decima"
+  "l_type\030\001 \001(\0132!.greptime.v1.DecimalTypeEx"
+  "tensionH\000B\005\n\003ext\"8\n\024DecimalTypeExtension"
+  "\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005*1\n\014Se"
+  "manticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMEST"
+  "AMP\020\002*\271\004\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n"
+  "\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004"
+  "\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006U"
+  "INT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BIN"
+  "ARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020"
+  "\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MIL"
+  "LISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n"
+  "\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023"
+  "\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROSECO"
+  "ND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_YE"
+  "AR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INT"
+  "ERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION_SECON"
+  "D\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024DURATIO"
+  "N_MICROSECOND\020\034\022\027\n\023DURATION_NANOSECOND\020\035"
+  "\022\017\n\013DECIMAL_128\020\036BO\n\016io.greptime.v1B\006Com"
   "monZ5github.com/GreptimeTeam/greptime-pr"
   "oto/go/greptime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 1426, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 1666, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
-    &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 10,
+    &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 13,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fcommon_2eproto, file_level_enum_descriptors_greptime_2fv1_2fcommon_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fcommon_2eproto,
@@ -382,6 +464,7 @@ bool ColumnDataType_IsValid(int value) {
     case 27:
     case 28:
     case 29:
+    case 30:
       return true;
     default:
       return false;
@@ -2606,6 +2689,723 @@ void IntervalMonthDayNano::InternalSwap(IntervalMonthDayNano* other) {
       file_level_metadata_greptime_2fv1_2fcommon_2eproto[9]);
 }
 
+// ===================================================================
+
+class Decimal128::_Internal {
+ public:
+};
+
+Decimal128::Decimal128(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.Decimal128)
+}
+Decimal128::Decimal128(const Decimal128& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Decimal128* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.hi_){}
+    , decltype(_impl_.lo_){}
+    , decltype(_impl_.precision_){}
+    , decltype(_impl_.scale_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.hi_, &from._impl_.hi_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.scale_) -
+    reinterpret_cast<char*>(&_impl_.hi_)) + sizeof(_impl_.scale_));
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.Decimal128)
+}
+
+inline void Decimal128::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.hi_){int64_t{0}}
+    , decltype(_impl_.lo_){int64_t{0}}
+    , decltype(_impl_.precision_){0}
+    , decltype(_impl_.scale_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+Decimal128::~Decimal128() {
+  // @@protoc_insertion_point(destructor:greptime.v1.Decimal128)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void Decimal128::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void Decimal128::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void Decimal128::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.Decimal128)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.hi_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.scale_) -
+      reinterpret_cast<char*>(&_impl_.hi_)) + sizeof(_impl_.scale_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Decimal128::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 hi = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.hi_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 lo = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.lo_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 precision = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.precision_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 scale = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.scale_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Decimal128::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.Decimal128)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 hi = 1;
+  if (this->_internal_hi() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_hi(), target);
+  }
+
+  // int64 lo = 2;
+  if (this->_internal_lo() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_lo(), target);
+  }
+
+  // int32 precision = 3;
+  if (this->_internal_precision() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_precision(), target);
+  }
+
+  // int32 scale = 4;
+  if (this->_internal_scale() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_scale(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.Decimal128)
+  return target;
+}
+
+size_t Decimal128::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.Decimal128)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 hi = 1;
+  if (this->_internal_hi() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_hi());
+  }
+
+  // int64 lo = 2;
+  if (this->_internal_lo() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_lo());
+  }
+
+  // int32 precision = 3;
+  if (this->_internal_precision() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_precision());
+  }
+
+  // int32 scale = 4;
+  if (this->_internal_scale() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_scale());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Decimal128::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Decimal128::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Decimal128::GetClassData() const { return &_class_data_; }
+
+
+void Decimal128::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Decimal128*>(&to_msg);
+  auto& from = static_cast<const Decimal128&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.Decimal128)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_hi() != 0) {
+    _this->_internal_set_hi(from._internal_hi());
+  }
+  if (from._internal_lo() != 0) {
+    _this->_internal_set_lo(from._internal_lo());
+  }
+  if (from._internal_precision() != 0) {
+    _this->_internal_set_precision(from._internal_precision());
+  }
+  if (from._internal_scale() != 0) {
+    _this->_internal_set_scale(from._internal_scale());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Decimal128::CopyFrom(const Decimal128& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.Decimal128)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Decimal128::IsInitialized() const {
+  return true;
+}
+
+void Decimal128::InternalSwap(Decimal128* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Decimal128, _impl_.scale_)
+      + sizeof(Decimal128::_impl_.scale_)
+      - PROTOBUF_FIELD_OFFSET(Decimal128, _impl_.hi_)>(
+          reinterpret_cast<char*>(&_impl_.hi_),
+          reinterpret_cast<char*>(&other->_impl_.hi_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Decimal128::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[10]);
+}
+
+// ===================================================================
+
+class ColumnDataTypeExtension::_Internal {
+ public:
+  static const ::greptime::v1::DecimalTypeExtension& decimal_type(const ColumnDataTypeExtension* msg);
+};
+
+const ::greptime::v1::DecimalTypeExtension&
+ColumnDataTypeExtension::_Internal::decimal_type(const ColumnDataTypeExtension* msg) {
+  return *msg->_impl_.ext_.decimal_type_;
+}
+void ColumnDataTypeExtension::set_allocated_decimal_type(::greptime::v1::DecimalTypeExtension* decimal_type) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_ext();
+  if (decimal_type) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(decimal_type);
+    if (message_arena != submessage_arena) {
+      decimal_type = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, decimal_type, submessage_arena);
+    }
+    set_has_decimal_type();
+    _impl_.ext_.decimal_type_ = decimal_type;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDataTypeExtension.decimal_type)
+}
+ColumnDataTypeExtension::ColumnDataTypeExtension(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.ColumnDataTypeExtension)
+}
+ColumnDataTypeExtension::ColumnDataTypeExtension(const ColumnDataTypeExtension& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ColumnDataTypeExtension* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.ext_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  clear_has_ext();
+  switch (from.ext_case()) {
+    case kDecimalType: {
+      _this->_internal_mutable_decimal_type()->::greptime::v1::DecimalTypeExtension::MergeFrom(
+          from._internal_decimal_type());
+      break;
+    }
+    case EXT_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.ColumnDataTypeExtension)
+}
+
+inline void ColumnDataTypeExtension::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.ext_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  clear_has_ext();
+}
+
+ColumnDataTypeExtension::~ColumnDataTypeExtension() {
+  // @@protoc_insertion_point(destructor:greptime.v1.ColumnDataTypeExtension)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ColumnDataTypeExtension::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (has_ext()) {
+    clear_ext();
+  }
+}
+
+void ColumnDataTypeExtension::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ColumnDataTypeExtension::clear_ext() {
+// @@protoc_insertion_point(one_of_clear_start:greptime.v1.ColumnDataTypeExtension)
+  switch (ext_case()) {
+    case kDecimalType: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.ext_.decimal_type_;
+      }
+      break;
+    }
+    case EXT_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = EXT_NOT_SET;
+}
+
+
+void ColumnDataTypeExtension::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.ColumnDataTypeExtension)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_ext();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ColumnDataTypeExtension::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.DecimalTypeExtension decimal_type = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_decimal_type(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ColumnDataTypeExtension::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.ColumnDataTypeExtension)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.DecimalTypeExtension decimal_type = 1;
+  if (_internal_has_decimal_type()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::decimal_type(this),
+        _Internal::decimal_type(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.ColumnDataTypeExtension)
+  return target;
+}
+
+size_t ColumnDataTypeExtension::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.ColumnDataTypeExtension)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (ext_case()) {
+    // .greptime.v1.DecimalTypeExtension decimal_type = 1;
+    case kDecimalType: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.ext_.decimal_type_);
+      break;
+    }
+    case EXT_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ColumnDataTypeExtension::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ColumnDataTypeExtension::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ColumnDataTypeExtension::GetClassData() const { return &_class_data_; }
+
+
+void ColumnDataTypeExtension::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ColumnDataTypeExtension*>(&to_msg);
+  auto& from = static_cast<const ColumnDataTypeExtension&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.ColumnDataTypeExtension)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.ext_case()) {
+    case kDecimalType: {
+      _this->_internal_mutable_decimal_type()->::greptime::v1::DecimalTypeExtension::MergeFrom(
+          from._internal_decimal_type());
+      break;
+    }
+    case EXT_NOT_SET: {
+      break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ColumnDataTypeExtension::CopyFrom(const ColumnDataTypeExtension& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.ColumnDataTypeExtension)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ColumnDataTypeExtension::IsInitialized() const {
+  return true;
+}
+
+void ColumnDataTypeExtension::InternalSwap(ColumnDataTypeExtension* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.ext_, other->_impl_.ext_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ColumnDataTypeExtension::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[11]);
+}
+
+// ===================================================================
+
+class DecimalTypeExtension::_Internal {
+ public:
+};
+
+DecimalTypeExtension::DecimalTypeExtension(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.DecimalTypeExtension)
+}
+DecimalTypeExtension::DecimalTypeExtension(const DecimalTypeExtension& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  DecimalTypeExtension* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.precision_){}
+    , decltype(_impl_.scale_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.precision_, &from._impl_.precision_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.scale_) -
+    reinterpret_cast<char*>(&_impl_.precision_)) + sizeof(_impl_.scale_));
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.DecimalTypeExtension)
+}
+
+inline void DecimalTypeExtension::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.precision_){0}
+    , decltype(_impl_.scale_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+DecimalTypeExtension::~DecimalTypeExtension() {
+  // @@protoc_insertion_point(destructor:greptime.v1.DecimalTypeExtension)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void DecimalTypeExtension::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void DecimalTypeExtension::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void DecimalTypeExtension::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.DecimalTypeExtension)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.precision_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.scale_) -
+      reinterpret_cast<char*>(&_impl_.precision_)) + sizeof(_impl_.scale_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DecimalTypeExtension::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 precision = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.precision_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 scale = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.scale_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DecimalTypeExtension::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.DecimalTypeExtension)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 precision = 1;
+  if (this->_internal_precision() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_precision(), target);
+  }
+
+  // int32 scale = 2;
+  if (this->_internal_scale() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_scale(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.DecimalTypeExtension)
+  return target;
+}
+
+size_t DecimalTypeExtension::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.DecimalTypeExtension)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 precision = 1;
+  if (this->_internal_precision() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_precision());
+  }
+
+  // int32 scale = 2;
+  if (this->_internal_scale() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_scale());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DecimalTypeExtension::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    DecimalTypeExtension::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DecimalTypeExtension::GetClassData() const { return &_class_data_; }
+
+
+void DecimalTypeExtension::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<DecimalTypeExtension*>(&to_msg);
+  auto& from = static_cast<const DecimalTypeExtension&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.DecimalTypeExtension)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_precision() != 0) {
+    _this->_internal_set_precision(from._internal_precision());
+  }
+  if (from._internal_scale() != 0) {
+    _this->_internal_set_scale(from._internal_scale());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DecimalTypeExtension::CopyFrom(const DecimalTypeExtension& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.DecimalTypeExtension)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DecimalTypeExtension::IsInitialized() const {
+  return true;
+}
+
+void DecimalTypeExtension::InternalSwap(DecimalTypeExtension* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DecimalTypeExtension, _impl_.scale_)
+      + sizeof(DecimalTypeExtension::_impl_.scale_)
+      - PROTOBUF_FIELD_OFFSET(DecimalTypeExtension, _impl_.precision_)>(
+          reinterpret_cast<char*>(&_impl_.precision_),
+          reinterpret_cast<char*>(&other->_impl_.precision_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DecimalTypeExtension::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[12]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1
 }  // namespace greptime
@@ -2649,6 +3449,18 @@ Arena::CreateMaybeMessage< ::greptime::v1::FlightMetadata >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::IntervalMonthDayNano*
 Arena::CreateMaybeMessage< ::greptime::v1::IntervalMonthDayNano >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::IntervalMonthDayNano >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::Decimal128*
+Arena::CreateMaybeMessage< ::greptime::v1::Decimal128 >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::Decimal128 >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::ColumnDataTypeExtension*
+Arena::CreateMaybeMessage< ::greptime::v1::ColumnDataTypeExtension >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::ColumnDataTypeExtension >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::DecimalTypeExtension*
+Arena::CreateMaybeMessage< ::greptime::v1::DecimalTypeExtension >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::DecimalTypeExtension >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
