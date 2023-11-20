@@ -97,10 +97,32 @@ enum ColumnDataType {
   DURATION_MILLISECOND = 27;
   DURATION_MICROSECOND = 28;
   DURATION_NANOSECOND = 29;
+  DECIMAL_128 = 30;
 }
 
 message IntervalMonthDayNano {
   int32 months = 1;
   int32 days = 2;
   int64 nanoseconds = 3;
+}
+
+// (hi: high 64 bits, lo: low 64 bits, precision, scale) are used to
+// construct the decimal128 value.
+message Decimal128 {
+  int64 hi = 1;
+  int64 lo = 2;
+  int32 precision = 3;
+  int32 scale = 4;
+}
+
+// Type extension for some complex types
+message ColumnDataTypeExtension{
+  oneof ext {
+    DecimalTypeExtension decimal_type = 1;
+  }
+}
+
+message DecimalTypeExtension {
+  int32 precision = 1;
+  int32 scale = 2;
 }
