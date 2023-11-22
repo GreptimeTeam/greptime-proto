@@ -22,9 +22,9 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/index
 // InvertedIndexFooter defines the metadata for an inverted index
 // within an SST file.
 message InvertedIndexFooter {
-    // A list of metadata entries, each corresponding to an individual
+    // A map of tag names to their respective metadata corresponding to an individual
     // inverted index within the SST file.
-    repeated InvertedIndexMeta metas = 1;
+    map<string, InvertedIndexMeta> metas = 1;
 }
 
 // InvertedIndexMeta contains the metadata for a specific tag's inverted index.

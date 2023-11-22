@@ -20,52 +20,64 @@ public final class InvertedIndex {
 
     /**
      * <pre>
-     * A list of metadata entries, each corresponding to an individual
+     * A map of tag names to their respective metadata corresponding to an individual
      * inverted index within the SST file.
      * </pre>
      *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-     */
-    java.util.List<io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> 
-        getMetasList();
-    /**
-     * <pre>
-     * A list of metadata entries, each corresponding to an individual
-     * inverted index within the SST file.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-     */
-    io.greptime.v1.index.InvertedIndex.InvertedIndexMeta getMetas(int index);
-    /**
-     * <pre>
-     * A list of metadata entries, each corresponding to an individual
-     * inverted index within the SST file.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+     * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
      */
     int getMetasCount();
     /**
      * <pre>
-     * A list of metadata entries, each corresponding to an individual
+     * A map of tag names to their respective metadata corresponding to an individual
      * inverted index within the SST file.
      * </pre>
      *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+     * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
      */
-    java.util.List<? extends io.greptime.v1.index.InvertedIndex.InvertedIndexMetaOrBuilder> 
-        getMetasOrBuilderList();
+    boolean containsMetas(
+        java.lang.String key);
+    /**
+     * Use {@link #getMetasMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>
+    getMetas();
     /**
      * <pre>
-     * A list of metadata entries, each corresponding to an individual
+     * A map of tag names to their respective metadata corresponding to an individual
      * inverted index within the SST file.
      * </pre>
      *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+     * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
      */
-    io.greptime.v1.index.InvertedIndex.InvertedIndexMetaOrBuilder getMetasOrBuilder(
-        int index);
+    java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>
+    getMetasMap();
+    /**
+     * <pre>
+     * A map of tag names to their respective metadata corresponding to an individual
+     * inverted index within the SST file.
+     * </pre>
+     *
+     * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
+     */
+
+    /* nullable */
+io.greptime.v1.index.InvertedIndex.InvertedIndexMeta getMetasOrDefault(
+        java.lang.String key,
+        /* nullable */
+io.greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
+    /**
+     * <pre>
+     * A map of tag names to their respective metadata corresponding to an individual
+     * inverted index within the SST file.
+     * </pre>
+     *
+     * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
+     */
+
+    io.greptime.v1.index.InvertedIndex.InvertedIndexMeta getMetasOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -85,7 +97,6 @@ public final class InvertedIndex {
       super(builder);
     }
     private InvertedIndexFooter() {
-      metas_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -121,11 +132,15 @@ public final class InvertedIndex {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                metas_ = new java.util.ArrayList<io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>();
+                metas_ = com.google.protobuf.MapField.newMapField(
+                    MetasDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000001;
               }
-              metas_.add(
-                  input.readMessage(io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.parser(), extensionRegistry));
+              com.google.protobuf.MapEntry<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>
+              metas__ = input.readMessage(
+                  MetasDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              metas_.getMutableMap().put(
+                  metas__.getKey(), metas__.getValue());
               break;
             }
             default: {
@@ -145,9 +160,6 @@ public final class InvertedIndex {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          metas_ = java.util.Collections.unmodifiableList(metas_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -157,6 +169,18 @@ public final class InvertedIndex {
       return io.greptime.v1.index.InvertedIndex.internal_static_greptime_v1_index_InvertedIndexFooter_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 1:
+          return internalGetMetas();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -166,68 +190,104 @@ public final class InvertedIndex {
     }
 
     public static final int METAS_FIELD_NUMBER = 1;
-    private java.util.List<io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> metas_;
-    /**
-     * <pre>
-     * A list of metadata entries, each corresponding to an individual
-     * inverted index within the SST file.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-     */
-    @java.lang.Override
-    public java.util.List<io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> getMetasList() {
+    private static final class MetasDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>newDefaultInstance(
+                  io.greptime.v1.index.InvertedIndex.internal_static_greptime_v1_index_InvertedIndexFooter_MetasEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.getDefaultInstance());
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> metas_;
+    private com.google.protobuf.MapField<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>
+    internalGetMetas() {
+      if (metas_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            MetasDefaultEntryHolder.defaultEntry);
+      }
       return metas_;
     }
-    /**
-     * <pre>
-     * A list of metadata entries, each corresponding to an individual
-     * inverted index within the SST file.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.index.InvertedIndex.InvertedIndexMetaOrBuilder> 
-        getMetasOrBuilderList() {
-      return metas_;
-    }
-    /**
-     * <pre>
-     * A list of metadata entries, each corresponding to an individual
-     * inverted index within the SST file.
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-     */
-    @java.lang.Override
+
     public int getMetasCount() {
-      return metas_.size();
+      return internalGetMetas().getMap().size();
     }
     /**
      * <pre>
-     * A list of metadata entries, each corresponding to an individual
+     * A map of tag names to their respective metadata corresponding to an individual
      * inverted index within the SST file.
      * </pre>
      *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+     * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsMetas(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetMetas().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getMetasMap()} instead.
      */
     @java.lang.Override
-    public io.greptime.v1.index.InvertedIndex.InvertedIndexMeta getMetas(int index) {
-      return metas_.get(index);
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> getMetas() {
+      return getMetasMap();
     }
     /**
      * <pre>
-     * A list of metadata entries, each corresponding to an individual
+     * A map of tag names to their respective metadata corresponding to an individual
      * inverted index within the SST file.
      * </pre>
      *
-     * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+     * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.index.InvertedIndex.InvertedIndexMetaOrBuilder getMetasOrBuilder(
-        int index) {
-      return metas_.get(index);
+
+    public java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> getMetasMap() {
+      return internalGetMetas().getMap();
+    }
+    /**
+     * <pre>
+     * A map of tag names to their respective metadata corresponding to an individual
+     * inverted index within the SST file.
+     * </pre>
+     *
+     * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
+     */
+    @java.lang.Override
+
+    public io.greptime.v1.index.InvertedIndex.InvertedIndexMeta getMetasOrDefault(
+        java.lang.String key,
+        io.greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> map =
+          internalGetMetas().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * A map of tag names to their respective metadata corresponding to an individual
+     * inverted index within the SST file.
+     * </pre>
+     *
+     * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
+     */
+    @java.lang.Override
+
+    public io.greptime.v1.index.InvertedIndex.InvertedIndexMeta getMetasOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> map =
+          internalGetMetas().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -244,9 +304,12 @@ public final class InvertedIndex {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < metas_.size(); i++) {
-        output.writeMessage(1, metas_.get(i));
-      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetMetas(),
+          MetasDefaultEntryHolder.defaultEntry,
+          1);
       unknownFields.writeTo(output);
     }
 
@@ -256,9 +319,15 @@ public final class InvertedIndex {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < metas_.size(); i++) {
+      for (java.util.Map.Entry<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> entry
+           : internalGetMetas().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>
+        metas__ = MetasDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, metas_.get(i));
+            .computeMessageSize(1, metas__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -275,8 +344,8 @@ public final class InvertedIndex {
       }
       io.greptime.v1.index.InvertedIndex.InvertedIndexFooter other = (io.greptime.v1.index.InvertedIndex.InvertedIndexFooter) obj;
 
-      if (!getMetasList()
-          .equals(other.getMetasList())) return false;
+      if (!internalGetMetas().equals(
+          other.internalGetMetas())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -288,9 +357,9 @@ public final class InvertedIndex {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getMetasCount() > 0) {
+      if (!internalGetMetas().getMap().isEmpty()) {
         hash = (37 * hash) + METAS_FIELD_NUMBER;
-        hash = (53 * hash) + getMetasList().hashCode();
+        hash = (53 * hash) + internalGetMetas().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -404,6 +473,28 @@ public final class InvertedIndex {
         return io.greptime.v1.index.InvertedIndex.internal_static_greptime_v1_index_InvertedIndexFooter_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMetas();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMutableMetas();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -425,18 +516,12 @@ public final class InvertedIndex {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getMetasFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (metasBuilder_ == null) {
-          metas_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          metasBuilder_.clear();
-        }
+        internalGetMutableMetas().clear();
         return this;
       }
 
@@ -464,15 +549,8 @@ public final class InvertedIndex {
       public io.greptime.v1.index.InvertedIndex.InvertedIndexFooter buildPartial() {
         io.greptime.v1.index.InvertedIndex.InvertedIndexFooter result = new io.greptime.v1.index.InvertedIndex.InvertedIndexFooter(this);
         int from_bitField0_ = bitField0_;
-        if (metasBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            metas_ = java.util.Collections.unmodifiableList(metas_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.metas_ = metas_;
-        } else {
-          result.metas_ = metasBuilder_.build();
-        }
+        result.metas_ = internalGetMetas();
+        result.metas_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -521,32 +599,8 @@ public final class InvertedIndex {
 
       public Builder mergeFrom(io.greptime.v1.index.InvertedIndex.InvertedIndexFooter other) {
         if (other == io.greptime.v1.index.InvertedIndex.InvertedIndexFooter.getDefaultInstance()) return this;
-        if (metasBuilder_ == null) {
-          if (!other.metas_.isEmpty()) {
-            if (metas_.isEmpty()) {
-              metas_ = other.metas_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureMetasIsMutable();
-              metas_.addAll(other.metas_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.metas_.isEmpty()) {
-            if (metasBuilder_.isEmpty()) {
-              metasBuilder_.dispose();
-              metasBuilder_ = null;
-              metas_ = other.metas_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              metasBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getMetasFieldBuilder() : null;
-            } else {
-              metasBuilder_.addAllMessages(other.metas_);
-            }
-          }
-        }
+        internalGetMutableMetas().mergeFrom(
+            other.internalGetMetas());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -577,334 +631,170 @@ public final class InvertedIndex {
       }
       private int bitField0_;
 
-      private java.util.List<io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> metas_ =
-        java.util.Collections.emptyList();
-      private void ensureMetasIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          metas_ = new java.util.ArrayList<io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>(metas_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.index.InvertedIndex.InvertedIndexMeta, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder, io.greptime.v1.index.InvertedIndex.InvertedIndexMetaOrBuilder> metasBuilder_;
-
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public java.util.List<io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> getMetasList() {
-        if (metasBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(metas_);
-        } else {
-          return metasBuilder_.getMessageList();
+      private com.google.protobuf.MapField<
+          java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> metas_;
+      private com.google.protobuf.MapField<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>
+      internalGetMetas() {
+        if (metas_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              MetasDefaultEntryHolder.defaultEntry);
         }
+        return metas_;
       }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
+      private com.google.protobuf.MapField<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>
+      internalGetMutableMetas() {
+        onChanged();;
+        if (metas_ == null) {
+          metas_ = com.google.protobuf.MapField.newMapField(
+              MetasDefaultEntryHolder.defaultEntry);
+        }
+        if (!metas_.isMutable()) {
+          metas_ = metas_.copy();
+        }
+        return metas_;
+      }
+
       public int getMetasCount() {
-        if (metasBuilder_ == null) {
-          return metas_.size();
-        } else {
-          return metasBuilder_.getCount();
-        }
+        return internalGetMetas().getMap().size();
       }
       /**
        * <pre>
-       * A list of metadata entries, each corresponding to an individual
+       * A map of tag names to their respective metadata corresponding to an individual
        * inverted index within the SST file.
        * </pre>
        *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+       * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
        */
-      public io.greptime.v1.index.InvertedIndex.InvertedIndexMeta getMetas(int index) {
-        if (metasBuilder_ == null) {
-          return metas_.get(index);
-        } else {
-          return metasBuilder_.getMessage(index);
-        }
+
+      @java.lang.Override
+      public boolean containsMetas(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetMetas().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getMetasMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> getMetas() {
+        return getMetasMap();
       }
       /**
        * <pre>
-       * A list of metadata entries, each corresponding to an individual
+       * A map of tag names to their respective metadata corresponding to an individual
        * inverted index within the SST file.
        * </pre>
        *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+       * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
        */
-      public Builder setMetas(
-          int index, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta value) {
-        if (metasBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureMetasIsMutable();
-          metas_.set(index, value);
-          onChanged();
-        } else {
-          metasBuilder_.setMessage(index, value);
-        }
-        return this;
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> getMetasMap() {
+        return internalGetMetas().getMap();
       }
       /**
        * <pre>
-       * A list of metadata entries, each corresponding to an individual
+       * A map of tag names to their respective metadata corresponding to an individual
        * inverted index within the SST file.
        * </pre>
        *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+       * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
        */
-      public Builder setMetas(
-          int index, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder builderForValue) {
-        if (metasBuilder_ == null) {
-          ensureMetasIsMutable();
-          metas_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          metasBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
+      @java.lang.Override
+
+      public io.greptime.v1.index.InvertedIndex.InvertedIndexMeta getMetasOrDefault(
+          java.lang.String key,
+          io.greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> map =
+            internalGetMetas().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
        * <pre>
-       * A list of metadata entries, each corresponding to an individual
+       * A map of tag names to their respective metadata corresponding to an individual
        * inverted index within the SST file.
        * </pre>
        *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+       * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
        */
-      public Builder addMetas(io.greptime.v1.index.InvertedIndex.InvertedIndexMeta value) {
-        if (metasBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureMetasIsMutable();
-          metas_.add(value);
-          onChanged();
-        } else {
-          metasBuilder_.addMessage(value);
+      @java.lang.Override
+
+      public io.greptime.v1.index.InvertedIndex.InvertedIndexMeta getMetasOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> map =
+            internalGetMetas().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
         }
-        return this;
+        return map.get(key);
       }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public Builder addMetas(
-          int index, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta value) {
-        if (metasBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureMetasIsMutable();
-          metas_.add(index, value);
-          onChanged();
-        } else {
-          metasBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public Builder addMetas(
-          io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder builderForValue) {
-        if (metasBuilder_ == null) {
-          ensureMetasIsMutable();
-          metas_.add(builderForValue.build());
-          onChanged();
-        } else {
-          metasBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public Builder addMetas(
-          int index, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder builderForValue) {
-        if (metasBuilder_ == null) {
-          ensureMetasIsMutable();
-          metas_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          metasBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public Builder addAllMetas(
-          java.lang.Iterable<? extends io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> values) {
-        if (metasBuilder_ == null) {
-          ensureMetasIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, metas_);
-          onChanged();
-        } else {
-          metasBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
+
       public Builder clearMetas() {
-        if (metasBuilder_ == null) {
-          metas_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          metasBuilder_.clear();
-        }
+        internalGetMutableMetas().getMutableMap()
+            .clear();
         return this;
       }
       /**
        * <pre>
-       * A list of metadata entries, each corresponding to an individual
+       * A map of tag names to their respective metadata corresponding to an individual
        * inverted index within the SST file.
        * </pre>
        *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+       * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
        */
-      public Builder removeMetas(int index) {
-        if (metasBuilder_ == null) {
-          ensureMetasIsMutable();
-          metas_.remove(index);
-          onChanged();
-        } else {
-          metasBuilder_.remove(index);
-        }
+
+      public Builder removeMetas(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableMetas().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta>
+      getMutableMetas() {
+        return internalGetMutableMetas().getMutableMap();
+      }
+      /**
+       * <pre>
+       * A map of tag names to their respective metadata corresponding to an individual
+       * inverted index within the SST file.
+       * </pre>
+       *
+       * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
+       */
+      public Builder putMetas(
+          java.lang.String key,
+          io.greptime.v1.index.InvertedIndex.InvertedIndexMeta value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableMetas().getMutableMap()
+            .put(key, value);
         return this;
       }
       /**
        * <pre>
-       * A list of metadata entries, each corresponding to an individual
+       * A map of tag names to their respective metadata corresponding to an individual
        * inverted index within the SST file.
        * </pre>
        *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
+       * <code>map&lt;string, .greptime.v1.index.InvertedIndexMeta&gt; metas = 1;</code>
        */
-      public io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder getMetasBuilder(
-          int index) {
-        return getMetasFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public io.greptime.v1.index.InvertedIndex.InvertedIndexMetaOrBuilder getMetasOrBuilder(
-          int index) {
-        if (metasBuilder_ == null) {
-          return metas_.get(index);  } else {
-          return metasBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public java.util.List<? extends io.greptime.v1.index.InvertedIndex.InvertedIndexMetaOrBuilder> 
-           getMetasOrBuilderList() {
-        if (metasBuilder_ != null) {
-          return metasBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(metas_);
-        }
-      }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder addMetasBuilder() {
-        return getMetasFieldBuilder().addBuilder(
-            io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder addMetasBuilder(
-          int index) {
-        return getMetasFieldBuilder().addBuilder(
-            index, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * A list of metadata entries, each corresponding to an individual
-       * inverted index within the SST file.
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.index.InvertedIndexMeta metas = 1;</code>
-       */
-      public java.util.List<io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder> 
-           getMetasBuilderList() {
-        return getMetasFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.index.InvertedIndex.InvertedIndexMeta, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder, io.greptime.v1.index.InvertedIndex.InvertedIndexMetaOrBuilder> 
-          getMetasFieldBuilder() {
-        if (metasBuilder_ == null) {
-          metasBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.greptime.v1.index.InvertedIndex.InvertedIndexMeta, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta.Builder, io.greptime.v1.index.InvertedIndex.InvertedIndexMetaOrBuilder>(
-                  metas_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          metas_ = null;
-        }
-        return metasBuilder_;
+
+      public Builder putAllMetas(
+          java.util.Map<java.lang.String, io.greptime.v1.index.InvertedIndex.InvertedIndexMeta> values) {
+        internalGetMutableMetas().getMutableMap()
+            .putAll(values);
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3125,6 +3015,11 @@ public final class InvertedIndex {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_index_InvertedIndexFooter_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_index_InvertedIndexFooter_MetasEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_index_InvertedIndexFooter_MetasEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_index_InvertedIndexMeta_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -3144,19 +3039,21 @@ public final class InvertedIndex {
   static {
     java.lang.String[] descriptorData = {
       "\n&greptime/v1/index/inverted_index.proto" +
-      "\022\021greptime.v1.index\"J\n\023InvertedIndexFoot" +
-      "er\0223\n\005metas\030\001 \003(\0132$.greptime.v1.index.In" +
-      "vertedIndexMeta\"\317\001\n\021InvertedIndexMeta\022\014\n" +
-      "\004name\030\001 \001(\t\022\032\n\022row_count_in_group\030\002 \001(\004\022" +
-      "\022\n\nfst_offset\030\003 \001(\004\022\020\n\010fst_size\030\004 \001(\004\022\032\n" +
-      "\022null_bitmap_offset\030\005 \001(\004\022\030\n\020null_bitmap" +
-      "_size\030\006 \001(\004\0224\n\005stats\030\007 \001(\0132%.greptime.v1" +
-      ".index.InvertedIndexStats\"f\n\022InvertedInd" +
-      "exStats\022\022\n\nnull_count\030\001 \001(\004\022\026\n\016distinct_" +
-      "count\030\002 \001(\004\022\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax_va" +
-      "lue\030\004 \001(\014BS\n\024io.greptime.v1.indexZ;githu" +
-      "b.com/GreptimeTeam/greptime-proto/go/gre" +
-      "ptime/v1/indexb\006proto3"
+      "\022\021greptime.v1.index\"\253\001\n\023InvertedIndexFoo" +
+      "ter\022@\n\005metas\030\001 \003(\01321.greptime.v1.index.I" +
+      "nvertedIndexFooter.MetasEntry\032R\n\nMetasEn" +
+      "try\022\013\n\003key\030\001 \001(\t\0223\n\005value\030\002 \001(\0132$.grepti" +
+      "me.v1.index.InvertedIndexMeta:\0028\001\"\317\001\n\021In" +
+      "vertedIndexMeta\022\014\n\004name\030\001 \001(\t\022\032\n\022row_cou" +
+      "nt_in_group\030\002 \001(\004\022\022\n\nfst_offset\030\003 \001(\004\022\020\n" +
+      "\010fst_size\030\004 \001(\004\022\032\n\022null_bitmap_offset\030\005 " +
+      "\001(\004\022\030\n\020null_bitmap_size\030\006 \001(\004\0224\n\005stats\030\007" +
+      " \001(\0132%.greptime.v1.index.InvertedIndexSt" +
+      "ats\"f\n\022InvertedIndexStats\022\022\n\nnull_count\030" +
+      "\001 \001(\004\022\026\n\016distinct_count\030\002 \001(\004\022\021\n\tmin_val" +
+      "ue\030\003 \001(\014\022\021\n\tmax_value\030\004 \001(\014BS\n\024io.grepti" +
+      "me.v1.indexZ;github.com/GreptimeTeam/gre" +
+      "ptime-proto/go/greptime/v1/indexb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3168,6 +3065,12 @@ public final class InvertedIndex {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_index_InvertedIndexFooter_descriptor,
         new java.lang.String[] { "Metas", });
+    internal_static_greptime_v1_index_InvertedIndexFooter_MetasEntry_descriptor =
+      internal_static_greptime_v1_index_InvertedIndexFooter_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_index_InvertedIndexFooter_MetasEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_index_InvertedIndexFooter_MetasEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_index_InvertedIndexMeta_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_index_InvertedIndexMeta_fieldAccessorTable = new

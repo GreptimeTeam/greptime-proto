@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -50,6 +53,9 @@ namespace index {
 class InvertedIndexFooter;
 struct InvertedIndexFooterDefaultTypeInternal;
 extern InvertedIndexFooterDefaultTypeInternal _InvertedIndexFooter_default_instance_;
+class InvertedIndexFooter_MetasEntry_DoNotUse;
+struct InvertedIndexFooter_MetasEntry_DoNotUseDefaultTypeInternal;
+extern InvertedIndexFooter_MetasEntry_DoNotUseDefaultTypeInternal _InvertedIndexFooter_MetasEntry_DoNotUse_default_instance_;
 class InvertedIndexMeta;
 struct InvertedIndexMetaDefaultTypeInternal;
 extern InvertedIndexMetaDefaultTypeInternal _InvertedIndexMeta_default_instance_;
@@ -61,6 +67,7 @@ extern InvertedIndexStatsDefaultTypeInternal _InvertedIndexStats_default_instanc
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::index::InvertedIndexFooter* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexFooter>(Arena*);
+template<> ::greptime::v1::index::InvertedIndexFooter_MetasEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexFooter_MetasEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::index::InvertedIndexMeta* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexMeta>(Arena*);
 template<> ::greptime::v1::index::InvertedIndexStats* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexStats>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -69,6 +76,32 @@ namespace v1 {
 namespace index {
 
 // ===================================================================
+
+class InvertedIndexFooter_MetasEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexFooter_MetasEntry_DoNotUse, 
+    std::string, ::greptime::v1::index::InvertedIndexMeta,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexFooter_MetasEntry_DoNotUse, 
+    std::string, ::greptime::v1::index::InvertedIndexMeta,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
+  InvertedIndexFooter_MetasEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR InvertedIndexFooter_MetasEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit InvertedIndexFooter_MetasEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const InvertedIndexFooter_MetasEntry_DoNotUse& other);
+  static const InvertedIndexFooter_MetasEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const InvertedIndexFooter_MetasEntry_DoNotUse*>(&_InvertedIndexFooter_MetasEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.index.InvertedIndexFooter.MetasEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2findex_2finverted_5findex_2eproto;
+};
+
+// -------------------------------------------------------------------
 
 class InvertedIndexFooter final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.index.InvertedIndexFooter) */ {
@@ -118,7 +151,7 @@ class InvertedIndexFooter final :
                &_InvertedIndexFooter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(InvertedIndexFooter& a, InvertedIndexFooter& b) {
     a.Swap(&b);
@@ -179,6 +212,8 @@ class InvertedIndexFooter final :
   protected:
   explicit InvertedIndexFooter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -188,28 +223,28 @@ class InvertedIndexFooter final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kMetasFieldNumber = 1,
   };
-  // repeated .greptime.v1.index.InvertedIndexMeta metas = 1;
+  // map<string, .greptime.v1.index.InvertedIndexMeta> metas = 1;
   int metas_size() const;
   private:
   int _internal_metas_size() const;
   public:
   void clear_metas();
-  ::greptime::v1::index::InvertedIndexMeta* mutable_metas(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::index::InvertedIndexMeta >*
-      mutable_metas();
   private:
-  const ::greptime::v1::index::InvertedIndexMeta& _internal_metas(int index) const;
-  ::greptime::v1::index::InvertedIndexMeta* _internal_add_metas();
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >&
+      _internal_metas() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
+      _internal_mutable_metas();
   public:
-  const ::greptime::v1::index::InvertedIndexMeta& metas(int index) const;
-  ::greptime::v1::index::InvertedIndexMeta* add_metas();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::index::InvertedIndexMeta >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >&
       metas() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
+      mutable_metas();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexFooter)
  private:
@@ -219,7 +254,11 @@ class InvertedIndexFooter final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::index::InvertedIndexMeta > metas_;
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        InvertedIndexFooter_MetasEntry_DoNotUse,
+        std::string, ::greptime::v1::index::InvertedIndexMeta,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> metas_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -275,7 +314,7 @@ class InvertedIndexMeta final :
                &_InvertedIndexMeta_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(InvertedIndexMeta& a, InvertedIndexMeta& b) {
     a.Swap(&b);
@@ -503,7 +542,7 @@ class InvertedIndexStats final :
                &_InvertedIndexStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(InvertedIndexStats& a, InvertedIndexStats& b) {
     a.Swap(&b);
@@ -653,9 +692,11 @@ class InvertedIndexStats final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // InvertedIndexFooter
 
-// repeated .greptime.v1.index.InvertedIndexMeta metas = 1;
+// map<string, .greptime.v1.index.InvertedIndexMeta> metas = 1;
 inline int InvertedIndexFooter::_internal_metas_size() const {
   return _impl_.metas_.size();
 }
@@ -665,34 +706,23 @@ inline int InvertedIndexFooter::metas_size() const {
 inline void InvertedIndexFooter::clear_metas() {
   _impl_.metas_.Clear();
 }
-inline ::greptime::v1::index::InvertedIndexMeta* InvertedIndexFooter::mutable_metas(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.index.InvertedIndexFooter.metas)
-  return _impl_.metas_.Mutable(index);
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >&
+InvertedIndexFooter::_internal_metas() const {
+  return _impl_.metas_.GetMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::index::InvertedIndexMeta >*
-InvertedIndexFooter::mutable_metas() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.index.InvertedIndexFooter.metas)
-  return &_impl_.metas_;
-}
-inline const ::greptime::v1::index::InvertedIndexMeta& InvertedIndexFooter::_internal_metas(int index) const {
-  return _impl_.metas_.Get(index);
-}
-inline const ::greptime::v1::index::InvertedIndexMeta& InvertedIndexFooter::metas(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexFooter.metas)
-  return _internal_metas(index);
-}
-inline ::greptime::v1::index::InvertedIndexMeta* InvertedIndexFooter::_internal_add_metas() {
-  return _impl_.metas_.Add();
-}
-inline ::greptime::v1::index::InvertedIndexMeta* InvertedIndexFooter::add_metas() {
-  ::greptime::v1::index::InvertedIndexMeta* _add = _internal_add_metas();
-  // @@protoc_insertion_point(field_add:greptime.v1.index.InvertedIndexFooter.metas)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::index::InvertedIndexMeta >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >&
 InvertedIndexFooter::metas() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.index.InvertedIndexFooter.metas)
-  return _impl_.metas_;
+  // @@protoc_insertion_point(field_map:greptime.v1.index.InvertedIndexFooter.metas)
+  return _internal_metas();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
+InvertedIndexFooter::_internal_mutable_metas() {
+  return _impl_.metas_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
+InvertedIndexFooter::mutable_metas() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.index.InvertedIndexFooter.metas)
+  return _internal_mutable_metas();
 }
 
 // -------------------------------------------------------------------
@@ -1086,6 +1116,8 @@ inline void InvertedIndexStats::set_allocated_max_value(std::string* max_value) 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
