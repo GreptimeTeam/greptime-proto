@@ -7429,23 +7429,10 @@ java.lang.String defaultValue);
      * @return The lo.
      */
     long getLo();
-
-    /**
-     * <code>int32 precision = 3;</code>
-     * @return The precision.
-     */
-    int getPrecision();
-
-    /**
-     * <code>int32 scale = 4;</code>
-     * @return The scale.
-     */
-    int getScale();
   }
   /**
    * <pre>
-   * (hi: high 64 bits, lo: low 64 bits, precision, scale) are used to
-   * construct the decimal128 value.
+   * (hi: high 64 bits, lo: low 64 bits) are used to keep the decimal128 value.
    * </pre>
    *
    * Protobuf type {@code greptime.v1.Decimal128}
@@ -7500,16 +7487,6 @@ java.lang.String defaultValue);
             case 16: {
 
               lo_ = input.readInt64();
-              break;
-            }
-            case 24: {
-
-              precision_ = input.readInt32();
-              break;
-            }
-            case 32: {
-
-              scale_ = input.readInt32();
               break;
             }
             default: {
@@ -7568,28 +7545,6 @@ java.lang.String defaultValue);
       return lo_;
     }
 
-    public static final int PRECISION_FIELD_NUMBER = 3;
-    private int precision_;
-    /**
-     * <code>int32 precision = 3;</code>
-     * @return The precision.
-     */
-    @java.lang.Override
-    public int getPrecision() {
-      return precision_;
-    }
-
-    public static final int SCALE_FIELD_NUMBER = 4;
-    private int scale_;
-    /**
-     * <code>int32 scale = 4;</code>
-     * @return The scale.
-     */
-    @java.lang.Override
-    public int getScale() {
-      return scale_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7610,12 +7565,6 @@ java.lang.String defaultValue);
       if (lo_ != 0L) {
         output.writeInt64(2, lo_);
       }
-      if (precision_ != 0) {
-        output.writeInt32(3, precision_);
-      }
-      if (scale_ != 0) {
-        output.writeInt32(4, scale_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -7632,14 +7581,6 @@ java.lang.String defaultValue);
       if (lo_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, lo_);
-      }
-      if (precision_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, precision_);
-      }
-      if (scale_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, scale_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7660,10 +7601,6 @@ java.lang.String defaultValue);
           != other.getHi()) return false;
       if (getLo()
           != other.getLo()) return false;
-      if (getPrecision()
-          != other.getPrecision()) return false;
-      if (getScale()
-          != other.getScale()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7681,10 +7618,6 @@ java.lang.String defaultValue);
       hash = (37 * hash) + LO_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLo());
-      hash = (37 * hash) + PRECISION_FIELD_NUMBER;
-      hash = (53 * hash) + getPrecision();
-      hash = (37 * hash) + SCALE_FIELD_NUMBER;
-      hash = (53 * hash) + getScale();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7782,8 +7715,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * (hi: high 64 bits, lo: low 64 bits, precision, scale) are used to
-     * construct the decimal128 value.
+     * (hi: high 64 bits, lo: low 64 bits) are used to keep the decimal128 value.
      * </pre>
      *
      * Protobuf type {@code greptime.v1.Decimal128}
@@ -7827,10 +7759,6 @@ java.lang.String defaultValue);
 
         lo_ = 0L;
 
-        precision_ = 0;
-
-        scale_ = 0;
-
         return this;
       }
 
@@ -7859,8 +7787,6 @@ java.lang.String defaultValue);
         io.greptime.v1.Common.Decimal128 result = new io.greptime.v1.Common.Decimal128(this);
         result.hi_ = hi_;
         result.lo_ = lo_;
-        result.precision_ = precision_;
-        result.scale_ = scale_;
         onBuilt();
         return result;
       }
@@ -7914,12 +7840,6 @@ java.lang.String defaultValue);
         }
         if (other.getLo() != 0L) {
           setLo(other.getLo());
-        }
-        if (other.getPrecision() != 0) {
-          setPrecision(other.getPrecision());
-        }
-        if (other.getScale() != 0) {
-          setScale(other.getScale());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -8008,68 +7928,6 @@ java.lang.String defaultValue);
       public Builder clearLo() {
         
         lo_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private int precision_ ;
-      /**
-       * <code>int32 precision = 3;</code>
-       * @return The precision.
-       */
-      @java.lang.Override
-      public int getPrecision() {
-        return precision_;
-      }
-      /**
-       * <code>int32 precision = 3;</code>
-       * @param value The precision to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPrecision(int value) {
-        
-        precision_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 precision = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPrecision() {
-        
-        precision_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int scale_ ;
-      /**
-       * <code>int32 scale = 4;</code>
-       * @return The scale.
-       */
-      @java.lang.Override
-      public int getScale() {
-        return scale_;
-      }
-      /**
-       * <code>int32 scale = 4;</code>
-       * @param value The scale to set.
-       * @return This builder for chaining.
-       */
-      public Builder setScale(int value) {
-        
-        scale_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 scale = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearScale() {
-        
-        scale_ = 0;
         onChanged();
         return this;
       }
@@ -9507,30 +9365,29 @@ java.lang.String defaultValue);
       "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime" +
       ".v1.AffectedRows\"I\n\024IntervalMonthDayNano" +
       "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose" +
-      "conds\030\003 \001(\003\"F\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n" +
-      "\002lo\030\002 \001(\003\022\021\n\tprecision\030\003 \001(\005\022\r\n\005scale\030\004 " +
-      "\001(\005\"[\n\027ColumnDataTypeExtension\0229\n\014decima" +
-      "l_type\030\001 \001(\0132!.greptime.v1.DecimalTypeEx" +
-      "tensionH\000B\005\n\003ext\"8\n\024DecimalTypeExtension" +
-      "\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005*1\n\014Se" +
-      "manticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMEST" +
-      "AMP\020\002*\271\004\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n" +
-      "\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004" +
-      "\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006U" +
-      "INT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BIN" +
-      "ARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020" +
-      "\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MIL" +
-      "LISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n" +
-      "\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023" +
-      "\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROSECO" +
-      "ND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_YE" +
-      "AR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INT" +
-      "ERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION_SECON" +
-      "D\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024DURATIO" +
-      "N_MICROSECOND\020\034\022\027\n\023DURATION_NANOSECOND\020\035" +
-      "\022\017\n\013DECIMAL_128\020\036BO\n\016io.greptime.v1B\006Com" +
-      "monZ5github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1b\006proto3"
+      "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n" +
+      "\002lo\030\002 \001(\003\"[\n\027ColumnDataTypeExtension\0229\n\014" +
+      "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal" +
+      "TypeExtensionH\000B\005\n\003ext\"8\n\024DecimalTypeExt" +
+      "ension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005" +
+      "*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\t" +
+      "TIMESTAMP\020\002*\271\004\n\016ColumnDataType\022\013\n\007BOOLEA" +
+      "N\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005I" +
+      "NT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020" +
+      "\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022" +
+      "\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DAT" +
+      "ETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTA" +
+      "MP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECON" +
+      "D\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SE" +
+      "COND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MIC" +
+      "ROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTER" +
+      "VAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022" +
+      "\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION" +
+      "_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024D" +
+      "URATION_MICROSECOND\020\034\022\027\n\023DURATION_NANOSE" +
+      "COND\020\035\022\017\n\013DECIMAL_128\020\036BO\n\016io.greptime.v" +
+      "1B\006CommonZ5github.com/GreptimeTeam/grept" +
+      "ime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9601,7 +9458,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_Decimal128_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Decimal128_descriptor,
-        new java.lang.String[] { "Hi", "Lo", "Precision", "Scale", });
+        new java.lang.String[] { "Hi", "Lo", });
     internal_static_greptime_v1_ColumnDataTypeExtension_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_ColumnDataTypeExtension_fieldAccessorTable = new

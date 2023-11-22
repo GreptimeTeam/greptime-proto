@@ -1887,8 +1887,6 @@ class Decimal128 final :
   enum : int {
     kHiFieldNumber = 1,
     kLoFieldNumber = 2,
-    kPrecisionFieldNumber = 3,
-    kScaleFieldNumber = 4,
   };
   // int64 hi = 1;
   void clear_hi();
@@ -1908,24 +1906,6 @@ class Decimal128 final :
   void _internal_set_lo(int64_t value);
   public:
 
-  // int32 precision = 3;
-  void clear_precision();
-  int32_t precision() const;
-  void set_precision(int32_t value);
-  private:
-  int32_t _internal_precision() const;
-  void _internal_set_precision(int32_t value);
-  public:
-
-  // int32 scale = 4;
-  void clear_scale();
-  int32_t scale() const;
-  void set_scale(int32_t value);
-  private:
-  int32_t _internal_scale() const;
-  void _internal_set_scale(int32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.Decimal128)
  private:
   class _Internal;
@@ -1936,8 +1916,6 @@ class Decimal128 final :
   struct Impl_ {
     int64_t hi_;
     int64_t lo_;
-    int32_t precision_;
-    int32_t scale_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3269,46 +3247,6 @@ inline void Decimal128::_internal_set_lo(int64_t value) {
 inline void Decimal128::set_lo(int64_t value) {
   _internal_set_lo(value);
   // @@protoc_insertion_point(field_set:greptime.v1.Decimal128.lo)
-}
-
-// int32 precision = 3;
-inline void Decimal128::clear_precision() {
-  _impl_.precision_ = 0;
-}
-inline int32_t Decimal128::_internal_precision() const {
-  return _impl_.precision_;
-}
-inline int32_t Decimal128::precision() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Decimal128.precision)
-  return _internal_precision();
-}
-inline void Decimal128::_internal_set_precision(int32_t value) {
-  
-  _impl_.precision_ = value;
-}
-inline void Decimal128::set_precision(int32_t value) {
-  _internal_set_precision(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Decimal128.precision)
-}
-
-// int32 scale = 4;
-inline void Decimal128::clear_scale() {
-  _impl_.scale_ = 0;
-}
-inline int32_t Decimal128::_internal_scale() const {
-  return _impl_.scale_;
-}
-inline int32_t Decimal128::scale() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Decimal128.scale)
-  return _internal_scale();
-}
-inline void Decimal128::_internal_set_scale(int32_t value) {
-  
-  _impl_.scale_ = value;
-}
-inline void Decimal128::set_scale(int32_t value) {
-  _internal_set_scale(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Decimal128.scale)
 }
 
 // -------------------------------------------------------------------

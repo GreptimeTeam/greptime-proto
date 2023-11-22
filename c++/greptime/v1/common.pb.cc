@@ -163,8 +163,6 @@ PROTOBUF_CONSTEXPR Decimal128::Decimal128(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.hi_)*/int64_t{0}
   , /*decltype(_impl_.lo_)*/int64_t{0}
-  , /*decltype(_impl_.precision_)*/0
-  , /*decltype(_impl_.scale_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Decimal128DefaultTypeInternal {
   PROTOBUF_CONSTEXPR Decimal128DefaultTypeInternal()
@@ -301,8 +299,6 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Decimal128, _impl_.hi_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Decimal128, _impl_.lo_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Decimal128, _impl_.precision_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Decimal128, _impl_.scale_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDataTypeExtension, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -332,8 +328,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 67, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
   { 74, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
   { 83, -1, -1, sizeof(::greptime::v1::Decimal128)},
-  { 93, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
-  { 101, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
+  { 91, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
+  { 99, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -371,34 +367,33 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime"
   ".v1.AffectedRows\"I\n\024IntervalMonthDayNano"
   "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose"
-  "conds\030\003 \001(\003\"F\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n"
-  "\002lo\030\002 \001(\003\022\021\n\tprecision\030\003 \001(\005\022\r\n\005scale\030\004 "
-  "\001(\005\"[\n\027ColumnDataTypeExtension\0229\n\014decima"
-  "l_type\030\001 \001(\0132!.greptime.v1.DecimalTypeEx"
-  "tensionH\000B\005\n\003ext\"8\n\024DecimalTypeExtension"
-  "\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005*1\n\014Se"
-  "manticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMEST"
-  "AMP\020\002*\271\004\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n"
-  "\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004"
-  "\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006U"
-  "INT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BIN"
-  "ARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020"
-  "\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MIL"
-  "LISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n"
-  "\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023"
-  "\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROSECO"
-  "ND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_YE"
-  "AR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INT"
-  "ERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION_SECON"
-  "D\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024DURATIO"
-  "N_MICROSECOND\020\034\022\027\n\023DURATION_NANOSECOND\020\035"
-  "\022\017\n\013DECIMAL_128\020\036BO\n\016io.greptime.v1B\006Com"
-  "monZ5github.com/GreptimeTeam/greptime-pr"
-  "oto/go/greptime/v1b\006proto3"
+  "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n"
+  "\002lo\030\002 \001(\003\"[\n\027ColumnDataTypeExtension\0229\n\014"
+  "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal"
+  "TypeExtensionH\000B\005\n\003ext\"8\n\024DecimalTypeExt"
+  "ension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005"
+  "*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\t"
+  "TIMESTAMP\020\002*\271\004\n\016ColumnDataType\022\013\n\007BOOLEA"
+  "N\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005I"
+  "NT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020"
+  "\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022"
+  "\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DAT"
+  "ETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTA"
+  "MP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECON"
+  "D\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SE"
+  "COND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MIC"
+  "ROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTER"
+  "VAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022"
+  "\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION"
+  "_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024D"
+  "URATION_MICROSECOND\020\034\022\027\n\023DURATION_NANOSE"
+  "COND\020\035\022\017\n\013DECIMAL_128\020\036BO\n\016io.greptime.v"
+  "1B\006CommonZ5github.com/GreptimeTeam/grept"
+  "ime-proto/go/greptime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 1666, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 1632, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
     &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 13,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
@@ -2707,14 +2702,12 @@ Decimal128::Decimal128(const Decimal128& from)
   new (&_impl_) Impl_{
       decltype(_impl_.hi_){}
     , decltype(_impl_.lo_){}
-    , decltype(_impl_.precision_){}
-    , decltype(_impl_.scale_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.hi_, &from._impl_.hi_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.scale_) -
-    reinterpret_cast<char*>(&_impl_.hi_)) + sizeof(_impl_.scale_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.lo_) -
+    reinterpret_cast<char*>(&_impl_.hi_)) + sizeof(_impl_.lo_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.Decimal128)
 }
 
@@ -2725,8 +2718,6 @@ inline void Decimal128::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.hi_){int64_t{0}}
     , decltype(_impl_.lo_){int64_t{0}}
-    , decltype(_impl_.precision_){0}
-    , decltype(_impl_.scale_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -2755,8 +2746,8 @@ void Decimal128::Clear() {
   (void) cached_has_bits;
 
   ::memset(&_impl_.hi_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.scale_) -
-      reinterpret_cast<char*>(&_impl_.hi_)) + sizeof(_impl_.scale_));
+      reinterpret_cast<char*>(&_impl_.lo_) -
+      reinterpret_cast<char*>(&_impl_.hi_)) + sizeof(_impl_.lo_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2778,22 +2769,6 @@ const char* Decimal128::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _impl_.lo_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // int32 precision = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.precision_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // int32 scale = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _impl_.scale_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2839,18 +2814,6 @@ uint8_t* Decimal128::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_lo(), target);
   }
 
-  // int32 precision = 3;
-  if (this->_internal_precision() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_precision(), target);
-  }
-
-  // int32 scale = 4;
-  if (this->_internal_scale() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_scale(), target);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2877,16 +2840,6 @@ size_t Decimal128::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_lo());
   }
 
-  // int32 precision = 3;
-  if (this->_internal_precision() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_precision());
-  }
-
-  // int32 scale = 4;
-  if (this->_internal_scale() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_scale());
-  }
-
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -2911,12 +2864,6 @@ void Decimal128::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PRO
   if (from._internal_lo() != 0) {
     _this->_internal_set_lo(from._internal_lo());
   }
-  if (from._internal_precision() != 0) {
-    _this->_internal_set_precision(from._internal_precision());
-  }
-  if (from._internal_scale() != 0) {
-    _this->_internal_set_scale(from._internal_scale());
-  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -2935,8 +2882,8 @@ void Decimal128::InternalSwap(Decimal128* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Decimal128, _impl_.scale_)
-      + sizeof(Decimal128::_impl_.scale_)
+      PROTOBUF_FIELD_OFFSET(Decimal128, _impl_.lo_)
+      + sizeof(Decimal128::_impl_.lo_)
       - PROTOBUF_FIELD_OFFSET(Decimal128, _impl_.hi_)>(
           reinterpret_cast<char*>(&_impl_.hi_),
           reinterpret_cast<char*>(&other->_impl_.hi_));
