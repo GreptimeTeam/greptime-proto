@@ -19,9 +19,9 @@ package greptime.v1.index;
 option java_package = "io.greptime.v1.index";
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/index";
 
-// InvertedIndexFooter defines the metadata for an inverted index
+// InvertedIndexMetas defines the metadata for an inverted index
 // within an SST file.
-message InvertedIndexFooter {
+message InvertedIndexMetas {
     // A map of tag names to their respective metadata corresponding to an individual
     // inverted index within the SST file.
     map<string, InvertedIndexMeta> metas = 1;
