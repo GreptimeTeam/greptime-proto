@@ -166,13 +166,13 @@ enum ColumnDataType : int {
   DURATION_MILLISECOND = 27,
   DURATION_MICROSECOND = 28,
   DURATION_NANOSECOND = 29,
-  DECIMAL_128 = 30,
+  DECIMAL128 = 30,
   ColumnDataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ColumnDataType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool ColumnDataType_IsValid(int value);
 constexpr ColumnDataType ColumnDataType_MIN = BOOLEAN;
-constexpr ColumnDataType ColumnDataType_MAX = DECIMAL_128;
+constexpr ColumnDataType ColumnDataType_MAX = DECIMAL128;
 constexpr int ColumnDataType_ARRAYSIZE = ColumnDataType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ColumnDataType_descriptor();
@@ -1966,9 +1966,9 @@ class ColumnDataTypeExtension final :
   static const ColumnDataTypeExtension& default_instance() {
     return *internal_default_instance();
   }
-  enum ExtCase {
+  enum TypeExtCase {
     kDecimalType = 1,
-    EXT_NOT_SET = 0,
+    TYPE_EXT_NOT_SET = 0,
   };
 
   static inline const ColumnDataTypeExtension* internal_default_instance() {
@@ -2069,25 +2069,25 @@ class ColumnDataTypeExtension final :
       ::greptime::v1::DecimalTypeExtension* decimal_type);
   ::greptime::v1::DecimalTypeExtension* unsafe_arena_release_decimal_type();
 
-  void clear_ext();
-  ExtCase ext_case() const;
+  void clear_type_ext();
+  TypeExtCase type_ext_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.ColumnDataTypeExtension)
  private:
   class _Internal;
   void set_has_decimal_type();
 
-  inline bool has_ext() const;
-  inline void clear_has_ext();
+  inline bool has_type_ext() const;
+  inline void clear_has_type_ext();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    union ExtUnion {
-      constexpr ExtUnion() : _constinit_{} {}
+    union TypeExtUnion {
+      constexpr TypeExtUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::DecimalTypeExtension* decimal_type_;
-    } ext_;
+    } type_ext_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
 
@@ -3255,7 +3255,7 @@ inline void Decimal128::set_lo(int64_t value) {
 
 // .greptime.v1.DecimalTypeExtension decimal_type = 1;
 inline bool ColumnDataTypeExtension::_internal_has_decimal_type() const {
-  return ext_case() == kDecimalType;
+  return type_ext_case() == kDecimalType;
 }
 inline bool ColumnDataTypeExtension::has_decimal_type() const {
   return _internal_has_decimal_type();
@@ -3266,20 +3266,20 @@ inline void ColumnDataTypeExtension::set_has_decimal_type() {
 inline void ColumnDataTypeExtension::clear_decimal_type() {
   if (_internal_has_decimal_type()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.ext_.decimal_type_;
+      delete _impl_.type_ext_.decimal_type_;
     }
-    clear_has_ext();
+    clear_has_type_ext();
   }
 }
 inline ::greptime::v1::DecimalTypeExtension* ColumnDataTypeExtension::release_decimal_type() {
   // @@protoc_insertion_point(field_release:greptime.v1.ColumnDataTypeExtension.decimal_type)
   if (_internal_has_decimal_type()) {
-    clear_has_ext();
-    ::greptime::v1::DecimalTypeExtension* temp = _impl_.ext_.decimal_type_;
+    clear_has_type_ext();
+    ::greptime::v1::DecimalTypeExtension* temp = _impl_.type_ext_.decimal_type_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.ext_.decimal_type_ = nullptr;
+    _impl_.type_ext_.decimal_type_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3287,7 +3287,7 @@ inline ::greptime::v1::DecimalTypeExtension* ColumnDataTypeExtension::release_de
 }
 inline const ::greptime::v1::DecimalTypeExtension& ColumnDataTypeExtension::_internal_decimal_type() const {
   return _internal_has_decimal_type()
-      ? *_impl_.ext_.decimal_type_
+      ? *_impl_.type_ext_.decimal_type_
       : reinterpret_cast< ::greptime::v1::DecimalTypeExtension&>(::greptime::v1::_DecimalTypeExtension_default_instance_);
 }
 inline const ::greptime::v1::DecimalTypeExtension& ColumnDataTypeExtension::decimal_type() const {
@@ -3297,29 +3297,29 @@ inline const ::greptime::v1::DecimalTypeExtension& ColumnDataTypeExtension::deci
 inline ::greptime::v1::DecimalTypeExtension* ColumnDataTypeExtension::unsafe_arena_release_decimal_type() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.ColumnDataTypeExtension.decimal_type)
   if (_internal_has_decimal_type()) {
-    clear_has_ext();
-    ::greptime::v1::DecimalTypeExtension* temp = _impl_.ext_.decimal_type_;
-    _impl_.ext_.decimal_type_ = nullptr;
+    clear_has_type_ext();
+    ::greptime::v1::DecimalTypeExtension* temp = _impl_.type_ext_.decimal_type_;
+    _impl_.type_ext_.decimal_type_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void ColumnDataTypeExtension::unsafe_arena_set_allocated_decimal_type(::greptime::v1::DecimalTypeExtension* decimal_type) {
-  clear_ext();
+  clear_type_ext();
   if (decimal_type) {
     set_has_decimal_type();
-    _impl_.ext_.decimal_type_ = decimal_type;
+    _impl_.type_ext_.decimal_type_ = decimal_type;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ColumnDataTypeExtension.decimal_type)
 }
 inline ::greptime::v1::DecimalTypeExtension* ColumnDataTypeExtension::_internal_mutable_decimal_type() {
   if (!_internal_has_decimal_type()) {
-    clear_ext();
+    clear_type_ext();
     set_has_decimal_type();
-    _impl_.ext_.decimal_type_ = CreateMaybeMessage< ::greptime::v1::DecimalTypeExtension >(GetArenaForAllocation());
+    _impl_.type_ext_.decimal_type_ = CreateMaybeMessage< ::greptime::v1::DecimalTypeExtension >(GetArenaForAllocation());
   }
-  return _impl_.ext_.decimal_type_;
+  return _impl_.type_ext_.decimal_type_;
 }
 inline ::greptime::v1::DecimalTypeExtension* ColumnDataTypeExtension::mutable_decimal_type() {
   ::greptime::v1::DecimalTypeExtension* _msg = _internal_mutable_decimal_type();
@@ -3327,14 +3327,14 @@ inline ::greptime::v1::DecimalTypeExtension* ColumnDataTypeExtension::mutable_de
   return _msg;
 }
 
-inline bool ColumnDataTypeExtension::has_ext() const {
-  return ext_case() != EXT_NOT_SET;
+inline bool ColumnDataTypeExtension::has_type_ext() const {
+  return type_ext_case() != TYPE_EXT_NOT_SET;
 }
-inline void ColumnDataTypeExtension::clear_has_ext() {
-  _impl_._oneof_case_[0] = EXT_NOT_SET;
+inline void ColumnDataTypeExtension::clear_has_type_ext() {
+  _impl_._oneof_case_[0] = TYPE_EXT_NOT_SET;
 }
-inline ColumnDataTypeExtension::ExtCase ColumnDataTypeExtension::ext_case() const {
-  return ColumnDataTypeExtension::ExtCase(_impl_._oneof_case_[0]);
+inline ColumnDataTypeExtension::TypeExtCase ColumnDataTypeExtension::type_ext_case() const {
+  return ColumnDataTypeExtension::TypeExtCase(_impl_._oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 

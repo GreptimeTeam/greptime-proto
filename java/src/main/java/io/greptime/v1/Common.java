@@ -257,9 +257,9 @@ public final class Common {
      */
     DURATION_NANOSECOND(29),
     /**
-     * <code>DECIMAL_128 = 30;</code>
+     * <code>DECIMAL128 = 30;</code>
      */
-    DECIMAL_128(30),
+    DECIMAL128(30),
     UNRECOGNIZED(-1),
     ;
 
@@ -384,9 +384,9 @@ public final class Common {
      */
     public static final int DURATION_NANOSECOND_VALUE = 29;
     /**
-     * <code>DECIMAL_128 = 30;</code>
+     * <code>DECIMAL128 = 30;</code>
      */
-    public static final int DECIMAL_128_VALUE = 30;
+    public static final int DECIMAL128_VALUE = 30;
 
 
     public final int getNumber() {
@@ -443,7 +443,7 @@ public final class Common {
         case 27: return DURATION_MILLISECOND;
         case 28: return DURATION_MICROSECOND;
         case 29: return DURATION_NANOSECOND;
-        case 30: return DECIMAL_128;
+        case 30: return DECIMAL128;
         default: return null;
       }
     }
@@ -8003,7 +8003,7 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Common.DecimalTypeExtensionOrBuilder getDecimalTypeOrBuilder();
 
-    public io.greptime.v1.Common.ColumnDataTypeExtension.ExtCase getExtCase();
+    public io.greptime.v1.Common.ColumnDataTypeExtension.TypeExtCase getTypeExtCase();
   }
   /**
    * <pre>
@@ -8056,16 +8056,16 @@ java.lang.String defaultValue);
               break;
             case 10: {
               io.greptime.v1.Common.DecimalTypeExtension.Builder subBuilder = null;
-              if (extCase_ == 1) {
-                subBuilder = ((io.greptime.v1.Common.DecimalTypeExtension) ext_).toBuilder();
+              if (typeExtCase_ == 1) {
+                subBuilder = ((io.greptime.v1.Common.DecimalTypeExtension) typeExt_).toBuilder();
               }
-              ext_ =
+              typeExt_ =
                   input.readMessage(io.greptime.v1.Common.DecimalTypeExtension.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Common.DecimalTypeExtension) ext_);
-                ext_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((io.greptime.v1.Common.DecimalTypeExtension) typeExt_);
+                typeExt_ = subBuilder.buildPartial();
               }
-              extCase_ = 1;
+              typeExtCase_ = 1;
               break;
             }
             default: {
@@ -8102,15 +8102,15 @@ java.lang.String defaultValue);
               io.greptime.v1.Common.ColumnDataTypeExtension.class, io.greptime.v1.Common.ColumnDataTypeExtension.Builder.class);
     }
 
-    private int extCase_ = 0;
-    private java.lang.Object ext_;
-    public enum ExtCase
+    private int typeExtCase_ = 0;
+    private java.lang.Object typeExt_;
+    public enum TypeExtCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       DECIMAL_TYPE(1),
-      EXT_NOT_SET(0);
+      TYPEEXT_NOT_SET(0);
       private final int value;
-      private ExtCase(int value) {
+      private TypeExtCase(int value) {
         this.value = value;
       }
       /**
@@ -8119,14 +8119,14 @@ java.lang.String defaultValue);
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static ExtCase valueOf(int value) {
+      public static TypeExtCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static ExtCase forNumber(int value) {
+      public static TypeExtCase forNumber(int value) {
         switch (value) {
           case 1: return DECIMAL_TYPE;
-          case 0: return EXT_NOT_SET;
+          case 0: return TYPEEXT_NOT_SET;
           default: return null;
         }
       }
@@ -8135,10 +8135,10 @@ java.lang.String defaultValue);
       }
     };
 
-    public ExtCase
-    getExtCase() {
-      return ExtCase.forNumber(
-          extCase_);
+    public TypeExtCase
+    getTypeExtCase() {
+      return TypeExtCase.forNumber(
+          typeExtCase_);
     }
 
     public static final int DECIMAL_TYPE_FIELD_NUMBER = 1;
@@ -8148,7 +8148,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public boolean hasDecimalType() {
-      return extCase_ == 1;
+      return typeExtCase_ == 1;
     }
     /**
      * <code>.greptime.v1.DecimalTypeExtension decimal_type = 1;</code>
@@ -8156,8 +8156,8 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public io.greptime.v1.Common.DecimalTypeExtension getDecimalType() {
-      if (extCase_ == 1) {
-         return (io.greptime.v1.Common.DecimalTypeExtension) ext_;
+      if (typeExtCase_ == 1) {
+         return (io.greptime.v1.Common.DecimalTypeExtension) typeExt_;
       }
       return io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance();
     }
@@ -8166,8 +8166,8 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public io.greptime.v1.Common.DecimalTypeExtensionOrBuilder getDecimalTypeOrBuilder() {
-      if (extCase_ == 1) {
-         return (io.greptime.v1.Common.DecimalTypeExtension) ext_;
+      if (typeExtCase_ == 1) {
+         return (io.greptime.v1.Common.DecimalTypeExtension) typeExt_;
       }
       return io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance();
     }
@@ -8186,8 +8186,8 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (extCase_ == 1) {
-        output.writeMessage(1, (io.greptime.v1.Common.DecimalTypeExtension) ext_);
+      if (typeExtCase_ == 1) {
+        output.writeMessage(1, (io.greptime.v1.Common.DecimalTypeExtension) typeExt_);
       }
       unknownFields.writeTo(output);
     }
@@ -8198,9 +8198,9 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (extCase_ == 1) {
+      if (typeExtCase_ == 1) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, (io.greptime.v1.Common.DecimalTypeExtension) ext_);
+          .computeMessageSize(1, (io.greptime.v1.Common.DecimalTypeExtension) typeExt_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8217,8 +8217,8 @@ java.lang.String defaultValue);
       }
       io.greptime.v1.Common.ColumnDataTypeExtension other = (io.greptime.v1.Common.ColumnDataTypeExtension) obj;
 
-      if (!getExtCase().equals(other.getExtCase())) return false;
-      switch (extCase_) {
+      if (!getTypeExtCase().equals(other.getTypeExtCase())) return false;
+      switch (typeExtCase_) {
         case 1:
           if (!getDecimalType()
               .equals(other.getDecimalType())) return false;
@@ -8237,7 +8237,7 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      switch (extCase_) {
+      switch (typeExtCase_) {
         case 1:
           hash = (37 * hash) + DECIMAL_TYPE_FIELD_NUMBER;
           hash = (53 * hash) + getDecimalType().hashCode();
@@ -8382,8 +8382,8 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        extCase_ = 0;
-        ext_ = null;
+        typeExtCase_ = 0;
+        typeExt_ = null;
         return this;
       }
 
@@ -8410,14 +8410,14 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Common.ColumnDataTypeExtension buildPartial() {
         io.greptime.v1.Common.ColumnDataTypeExtension result = new io.greptime.v1.Common.ColumnDataTypeExtension(this);
-        if (extCase_ == 1) {
+        if (typeExtCase_ == 1) {
           if (decimalTypeBuilder_ == null) {
-            result.ext_ = ext_;
+            result.typeExt_ = typeExt_;
           } else {
-            result.ext_ = decimalTypeBuilder_.build();
+            result.typeExt_ = decimalTypeBuilder_.build();
           }
         }
-        result.extCase_ = extCase_;
+        result.typeExtCase_ = typeExtCase_;
         onBuilt();
         return result;
       }
@@ -8466,12 +8466,12 @@ java.lang.String defaultValue);
 
       public Builder mergeFrom(io.greptime.v1.Common.ColumnDataTypeExtension other) {
         if (other == io.greptime.v1.Common.ColumnDataTypeExtension.getDefaultInstance()) return this;
-        switch (other.getExtCase()) {
+        switch (other.getTypeExtCase()) {
           case DECIMAL_TYPE: {
             mergeDecimalType(other.getDecimalType());
             break;
           }
-          case EXT_NOT_SET: {
+          case TYPEEXT_NOT_SET: {
             break;
           }
         }
@@ -8503,17 +8503,17 @@ java.lang.String defaultValue);
         }
         return this;
       }
-      private int extCase_ = 0;
-      private java.lang.Object ext_;
-      public ExtCase
-          getExtCase() {
-        return ExtCase.forNumber(
-            extCase_);
+      private int typeExtCase_ = 0;
+      private java.lang.Object typeExt_;
+      public TypeExtCase
+          getTypeExtCase() {
+        return TypeExtCase.forNumber(
+            typeExtCase_);
       }
 
-      public Builder clearExt() {
-        extCase_ = 0;
-        ext_ = null;
+      public Builder clearTypeExt() {
+        typeExtCase_ = 0;
+        typeExt_ = null;
         onChanged();
         return this;
       }
@@ -8527,7 +8527,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public boolean hasDecimalType() {
-        return extCase_ == 1;
+        return typeExtCase_ == 1;
       }
       /**
        * <code>.greptime.v1.DecimalTypeExtension decimal_type = 1;</code>
@@ -8536,12 +8536,12 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Common.DecimalTypeExtension getDecimalType() {
         if (decimalTypeBuilder_ == null) {
-          if (extCase_ == 1) {
-            return (io.greptime.v1.Common.DecimalTypeExtension) ext_;
+          if (typeExtCase_ == 1) {
+            return (io.greptime.v1.Common.DecimalTypeExtension) typeExt_;
           }
           return io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance();
         } else {
-          if (extCase_ == 1) {
+          if (typeExtCase_ == 1) {
             return decimalTypeBuilder_.getMessage();
           }
           return io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance();
@@ -8555,12 +8555,12 @@ java.lang.String defaultValue);
           if (value == null) {
             throw new NullPointerException();
           }
-          ext_ = value;
+          typeExt_ = value;
           onChanged();
         } else {
           decimalTypeBuilder_.setMessage(value);
         }
-        extCase_ = 1;
+        typeExtCase_ = 1;
         return this;
       }
       /**
@@ -8569,12 +8569,12 @@ java.lang.String defaultValue);
       public Builder setDecimalType(
           io.greptime.v1.Common.DecimalTypeExtension.Builder builderForValue) {
         if (decimalTypeBuilder_ == null) {
-          ext_ = builderForValue.build();
+          typeExt_ = builderForValue.build();
           onChanged();
         } else {
           decimalTypeBuilder_.setMessage(builderForValue.build());
         }
-        extCase_ = 1;
+        typeExtCase_ = 1;
         return this;
       }
       /**
@@ -8582,22 +8582,22 @@ java.lang.String defaultValue);
        */
       public Builder mergeDecimalType(io.greptime.v1.Common.DecimalTypeExtension value) {
         if (decimalTypeBuilder_ == null) {
-          if (extCase_ == 1 &&
-              ext_ != io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance()) {
-            ext_ = io.greptime.v1.Common.DecimalTypeExtension.newBuilder((io.greptime.v1.Common.DecimalTypeExtension) ext_)
+          if (typeExtCase_ == 1 &&
+              typeExt_ != io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance()) {
+            typeExt_ = io.greptime.v1.Common.DecimalTypeExtension.newBuilder((io.greptime.v1.Common.DecimalTypeExtension) typeExt_)
                 .mergeFrom(value).buildPartial();
           } else {
-            ext_ = value;
+            typeExt_ = value;
           }
           onChanged();
         } else {
-          if (extCase_ == 1) {
+          if (typeExtCase_ == 1) {
             decimalTypeBuilder_.mergeFrom(value);
           } else {
             decimalTypeBuilder_.setMessage(value);
           }
         }
-        extCase_ = 1;
+        typeExtCase_ = 1;
         return this;
       }
       /**
@@ -8605,15 +8605,15 @@ java.lang.String defaultValue);
        */
       public Builder clearDecimalType() {
         if (decimalTypeBuilder_ == null) {
-          if (extCase_ == 1) {
-            extCase_ = 0;
-            ext_ = null;
+          if (typeExtCase_ == 1) {
+            typeExtCase_ = 0;
+            typeExt_ = null;
             onChanged();
           }
         } else {
-          if (extCase_ == 1) {
-            extCase_ = 0;
-            ext_ = null;
+          if (typeExtCase_ == 1) {
+            typeExtCase_ = 0;
+            typeExt_ = null;
           }
           decimalTypeBuilder_.clear();
         }
@@ -8630,11 +8630,11 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public io.greptime.v1.Common.DecimalTypeExtensionOrBuilder getDecimalTypeOrBuilder() {
-        if ((extCase_ == 1) && (decimalTypeBuilder_ != null)) {
+        if ((typeExtCase_ == 1) && (decimalTypeBuilder_ != null)) {
           return decimalTypeBuilder_.getMessageOrBuilder();
         } else {
-          if (extCase_ == 1) {
-            return (io.greptime.v1.Common.DecimalTypeExtension) ext_;
+          if (typeExtCase_ == 1) {
+            return (io.greptime.v1.Common.DecimalTypeExtension) typeExt_;
           }
           return io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance();
         }
@@ -8646,17 +8646,17 @@ java.lang.String defaultValue);
           io.greptime.v1.Common.DecimalTypeExtension, io.greptime.v1.Common.DecimalTypeExtension.Builder, io.greptime.v1.Common.DecimalTypeExtensionOrBuilder> 
           getDecimalTypeFieldBuilder() {
         if (decimalTypeBuilder_ == null) {
-          if (!(extCase_ == 1)) {
-            ext_ = io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance();
+          if (!(typeExtCase_ == 1)) {
+            typeExt_ = io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance();
           }
           decimalTypeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.Common.DecimalTypeExtension, io.greptime.v1.Common.DecimalTypeExtension.Builder, io.greptime.v1.Common.DecimalTypeExtensionOrBuilder>(
-                  (io.greptime.v1.Common.DecimalTypeExtension) ext_,
+                  (io.greptime.v1.Common.DecimalTypeExtension) typeExt_,
                   getParentForChildren(),
                   isClean());
-          ext_ = null;
+          typeExt_ = null;
         }
-        extCase_ = 1;
+        typeExtCase_ = 1;
         onChanged();;
         return decimalTypeBuilder_;
       }
@@ -9366,28 +9366,28 @@ java.lang.String defaultValue);
       ".v1.AffectedRows\"I\n\024IntervalMonthDayNano" +
       "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose" +
       "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n" +
-      "\002lo\030\002 \001(\003\"[\n\027ColumnDataTypeExtension\0229\n\014" +
+      "\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014" +
       "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal" +
-      "TypeExtensionH\000B\005\n\003ext\"8\n\024DecimalTypeExt" +
-      "ension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005" +
-      "*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\t" +
-      "TIMESTAMP\020\002*\271\004\n\016ColumnDataType\022\013\n\007BOOLEA" +
-      "N\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005I" +
-      "NT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020" +
-      "\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022" +
-      "\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DAT" +
-      "ETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTA" +
-      "MP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECON" +
-      "D\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SE" +
-      "COND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MIC" +
-      "ROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTER" +
-      "VAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022" +
-      "\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION" +
-      "_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024D" +
-      "URATION_MICROSECOND\020\034\022\027\n\023DURATION_NANOSE" +
-      "COND\020\035\022\017\n\013DECIMAL_128\020\036BO\n\016io.greptime.v" +
-      "1B\006CommonZ5github.com/GreptimeTeam/grept" +
-      "ime-proto/go/greptime/v1b\006proto3"
+      "TypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTy" +
+      "peExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030" +
+      "\002 \001(\005*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020" +
+      "\001\022\r\n\tTIMESTAMP\020\002*\270\004\n\016ColumnDataType\022\013\n\007B" +
+      "OOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003" +
+      "\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UI" +
+      "NT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT" +
+      "64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014" +
+      "\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TI" +
+      "MESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICRO" +
+      "SECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TI" +
+      "ME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIM" +
+      "E_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023" +
+      "INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TI" +
+      "ME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DUR" +
+      "ATION_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033" +
+      "\022\030\n\024DURATION_MICROSECOND\020\034\022\027\n\023DURATION_N" +
+      "ANOSECOND\020\035\022\016\n\nDECIMAL128\020\036BO\n\016io.grepti" +
+      "me.v1B\006CommonZ5github.com/GreptimeTeam/g" +
+      "reptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9464,7 +9464,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_ColumnDataTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDataTypeExtension_descriptor,
-        new java.lang.String[] { "DecimalType", "Ext", });
+        new java.lang.String[] { "DecimalType", "TypeExt", });
     internal_static_greptime_v1_DecimalTypeExtension_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_DecimalTypeExtension_fieldAccessorTable = new

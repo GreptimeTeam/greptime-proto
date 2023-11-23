@@ -175,7 +175,7 @@ struct Decimal128DefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Decimal128DefaultTypeInternal _Decimal128_default_instance_;
 PROTOBUF_CONSTEXPR ColumnDataTypeExtension::ColumnDataTypeExtension(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.ext_)*/{}
+    /*decltype(_impl_.type_ext_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_._oneof_case_)*/{}} {}
 struct ColumnDataTypeExtensionDefaultTypeInternal {
@@ -306,7 +306,7 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   ::_pbi::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDataTypeExtension, _impl_.ext_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDataTypeExtension, _impl_.type_ext_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DecimalTypeExtension, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -368,32 +368,32 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   ".v1.AffectedRows\"I\n\024IntervalMonthDayNano"
   "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose"
   "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n"
-  "\002lo\030\002 \001(\003\"[\n\027ColumnDataTypeExtension\0229\n\014"
+  "\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014"
   "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal"
-  "TypeExtensionH\000B\005\n\003ext\"8\n\024DecimalTypeExt"
-  "ension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005"
-  "*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\t"
-  "TIMESTAMP\020\002*\271\004\n\016ColumnDataType\022\013\n\007BOOLEA"
-  "N\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005I"
-  "NT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020"
-  "\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022"
-  "\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DAT"
-  "ETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTA"
-  "MP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECON"
-  "D\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SE"
-  "COND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MIC"
-  "ROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTER"
-  "VAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022"
-  "\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION"
-  "_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024D"
-  "URATION_MICROSECOND\020\034\022\027\n\023DURATION_NANOSE"
-  "COND\020\035\022\017\n\013DECIMAL_128\020\036BO\n\016io.greptime.v"
-  "1B\006CommonZ5github.com/GreptimeTeam/grept"
-  "ime-proto/go/greptime/v1b\006proto3"
+  "TypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTy"
+  "peExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030"
+  "\002 \001(\005*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020"
+  "\001\022\r\n\tTIMESTAMP\020\002*\270\004\n\016ColumnDataType\022\013\n\007B"
+  "OOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003"
+  "\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UI"
+  "NT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT"
+  "64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014"
+  "\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TI"
+  "MESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICRO"
+  "SECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TI"
+  "ME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIM"
+  "E_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023"
+  "INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TI"
+  "ME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DUR"
+  "ATION_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033"
+  "\022\030\n\024DURATION_MICROSECOND\020\034\022\027\n\023DURATION_N"
+  "ANOSECOND\020\035\022\016\n\nDECIMAL128\020\036BO\n\016io.grepti"
+  "me.v1B\006CommonZ5github.com/GreptimeTeam/g"
+  "reptime-proto/go/greptime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 1632, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 1636, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
     &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 13,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
@@ -2904,11 +2904,11 @@ class ColumnDataTypeExtension::_Internal {
 
 const ::greptime::v1::DecimalTypeExtension&
 ColumnDataTypeExtension::_Internal::decimal_type(const ColumnDataTypeExtension* msg) {
-  return *msg->_impl_.ext_.decimal_type_;
+  return *msg->_impl_.type_ext_.decimal_type_;
 }
 void ColumnDataTypeExtension::set_allocated_decimal_type(::greptime::v1::DecimalTypeExtension* decimal_type) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_ext();
+  clear_type_ext();
   if (decimal_type) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
       ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(decimal_type);
@@ -2917,7 +2917,7 @@ void ColumnDataTypeExtension::set_allocated_decimal_type(::greptime::v1::Decimal
           message_arena, decimal_type, submessage_arena);
     }
     set_has_decimal_type();
-    _impl_.ext_.decimal_type_ = decimal_type;
+    _impl_.type_ext_.decimal_type_ = decimal_type;
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDataTypeExtension.decimal_type)
 }
@@ -2931,19 +2931,19 @@ ColumnDataTypeExtension::ColumnDataTypeExtension(const ColumnDataTypeExtension& 
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   ColumnDataTypeExtension* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.ext_){}
+      decltype(_impl_.type_ext_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , /*decltype(_impl_._oneof_case_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  clear_has_ext();
-  switch (from.ext_case()) {
+  clear_has_type_ext();
+  switch (from.type_ext_case()) {
     case kDecimalType: {
       _this->_internal_mutable_decimal_type()->::greptime::v1::DecimalTypeExtension::MergeFrom(
           from._internal_decimal_type());
       break;
     }
-    case EXT_NOT_SET: {
+    case TYPE_EXT_NOT_SET: {
       break;
     }
   }
@@ -2955,11 +2955,11 @@ inline void ColumnDataTypeExtension::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.ext_){}
+      decltype(_impl_.type_ext_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , /*decltype(_impl_._oneof_case_)*/{}
   };
-  clear_has_ext();
+  clear_has_type_ext();
 }
 
 ColumnDataTypeExtension::~ColumnDataTypeExtension() {
@@ -2973,8 +2973,8 @@ ColumnDataTypeExtension::~ColumnDataTypeExtension() {
 
 inline void ColumnDataTypeExtension::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (has_ext()) {
-    clear_ext();
+  if (has_type_ext()) {
+    clear_type_ext();
   }
 }
 
@@ -2982,20 +2982,20 @@ void ColumnDataTypeExtension::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void ColumnDataTypeExtension::clear_ext() {
+void ColumnDataTypeExtension::clear_type_ext() {
 // @@protoc_insertion_point(one_of_clear_start:greptime.v1.ColumnDataTypeExtension)
-  switch (ext_case()) {
+  switch (type_ext_case()) {
     case kDecimalType: {
       if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.ext_.decimal_type_;
+        delete _impl_.type_ext_.decimal_type_;
       }
       break;
     }
-    case EXT_NOT_SET: {
+    case TYPE_EXT_NOT_SET: {
       break;
     }
   }
-  _impl_._oneof_case_[0] = EXT_NOT_SET;
+  _impl_._oneof_case_[0] = TYPE_EXT_NOT_SET;
 }
 
 
@@ -3005,7 +3005,7 @@ void ColumnDataTypeExtension::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  clear_ext();
+  clear_type_ext();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3075,15 +3075,15 @@ size_t ColumnDataTypeExtension::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  switch (ext_case()) {
+  switch (type_ext_case()) {
     // .greptime.v1.DecimalTypeExtension decimal_type = 1;
     case kDecimalType: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.ext_.decimal_type_);
+          *_impl_.type_ext_.decimal_type_);
       break;
     }
-    case EXT_NOT_SET: {
+    case TYPE_EXT_NOT_SET: {
       break;
     }
   }
@@ -3105,13 +3105,13 @@ void ColumnDataTypeExtension::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  switch (from.ext_case()) {
+  switch (from.type_ext_case()) {
     case kDecimalType: {
       _this->_internal_mutable_decimal_type()->::greptime::v1::DecimalTypeExtension::MergeFrom(
           from._internal_decimal_type());
       break;
     }
-    case EXT_NOT_SET: {
+    case TYPE_EXT_NOT_SET: {
       break;
     }
   }
@@ -3132,7 +3132,7 @@ bool ColumnDataTypeExtension::IsInitialized() const {
 void ColumnDataTypeExtension::InternalSwap(ColumnDataTypeExtension* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.ext_, other->_impl_.ext_);
+  swap(_impl_.type_ext_, other->_impl_.type_ext_);
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
