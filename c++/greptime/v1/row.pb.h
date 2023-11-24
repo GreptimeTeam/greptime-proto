@@ -371,6 +371,7 @@ class ColumnSchema final :
 
   enum : int {
     kColumnNameFieldNumber = 1,
+    kDatatypeExtensionFieldNumber = 4,
     kDatatypeFieldNumber = 2,
     kSemanticTypeFieldNumber = 3,
   };
@@ -387,6 +388,24 @@ class ColumnSchema final :
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_column_name(const std::string& value);
   std::string* _internal_mutable_column_name();
   public:
+
+  // .greptime.v1.ColumnDataTypeExtension datatype_extension = 4;
+  bool has_datatype_extension() const;
+  private:
+  bool _internal_has_datatype_extension() const;
+  public:
+  void clear_datatype_extension();
+  const ::greptime::v1::ColumnDataTypeExtension& datatype_extension() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ColumnDataTypeExtension* release_datatype_extension();
+  ::greptime::v1::ColumnDataTypeExtension* mutable_datatype_extension();
+  void set_allocated_datatype_extension(::greptime::v1::ColumnDataTypeExtension* datatype_extension);
+  private:
+  const ::greptime::v1::ColumnDataTypeExtension& _internal_datatype_extension() const;
+  ::greptime::v1::ColumnDataTypeExtension* _internal_mutable_datatype_extension();
+  public:
+  void unsafe_arena_set_allocated_datatype_extension(
+      ::greptime::v1::ColumnDataTypeExtension* datatype_extension);
+  ::greptime::v1::ColumnDataTypeExtension* unsafe_arena_release_datatype_extension();
 
   // .greptime.v1.ColumnDataType datatype = 2;
   void clear_datatype();
@@ -415,6 +434,7 @@ class ColumnSchema final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
+    ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
     int datatype_;
     int semantic_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -655,6 +675,7 @@ class Value final :
     kDurationMillisecondValue = 28,
     kDurationMicrosecondValue = 29,
     kDurationNanosecondValue = 30,
+    kDecimal128Value = 31,
     VALUE_DATA_NOT_SET = 0,
   };
 
@@ -766,6 +787,7 @@ class Value final :
     kDurationMillisecondValueFieldNumber = 28,
     kDurationMicrosecondValueFieldNumber = 29,
     kDurationNanosecondValueFieldNumber = 30,
+    kDecimal128ValueFieldNumber = 31,
   };
   // int32 i8_value = 1;
   bool has_i8_value() const;
@@ -1172,6 +1194,24 @@ class Value final :
   void _internal_set_duration_nanosecond_value(int64_t value);
   public:
 
+  // .greptime.v1.Decimal128 decimal128_value = 31;
+  bool has_decimal128_value() const;
+  private:
+  bool _internal_has_decimal128_value() const;
+  public:
+  void clear_decimal128_value();
+  const ::greptime::v1::Decimal128& decimal128_value() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Decimal128* release_decimal128_value();
+  ::greptime::v1::Decimal128* mutable_decimal128_value();
+  void set_allocated_decimal128_value(::greptime::v1::Decimal128* decimal128_value);
+  private:
+  const ::greptime::v1::Decimal128& _internal_decimal128_value() const;
+  ::greptime::v1::Decimal128* _internal_mutable_decimal128_value();
+  public:
+  void unsafe_arena_set_allocated_decimal128_value(
+      ::greptime::v1::Decimal128* decimal128_value);
+  ::greptime::v1::Decimal128* unsafe_arena_release_decimal128_value();
+
   void clear_value_data();
   ValueDataCase value_data_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.Value)
@@ -1207,6 +1247,7 @@ class Value final :
   void set_has_duration_millisecond_value();
   void set_has_duration_microsecond_value();
   void set_has_duration_nanosecond_value();
+  void set_has_decimal128_value();
 
   inline bool has_value_data() const;
   inline void clear_has_value_data();
@@ -1248,6 +1289,7 @@ class Value final :
       int64_t duration_millisecond_value_;
       int64_t duration_microsecond_value_;
       int64_t duration_nanosecond_value_;
+      ::greptime::v1::Decimal128* decimal128_value_;
     } value_data_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -1439,6 +1481,91 @@ inline void ColumnSchema::_internal_set_semantic_type(::greptime::v1::SemanticTy
 inline void ColumnSchema::set_semantic_type(::greptime::v1::SemanticType value) {
   _internal_set_semantic_type(value);
   // @@protoc_insertion_point(field_set:greptime.v1.ColumnSchema.semantic_type)
+}
+
+// .greptime.v1.ColumnDataTypeExtension datatype_extension = 4;
+inline bool ColumnSchema::_internal_has_datatype_extension() const {
+  return this != internal_default_instance() && _impl_.datatype_extension_ != nullptr;
+}
+inline bool ColumnSchema::has_datatype_extension() const {
+  return _internal_has_datatype_extension();
+}
+inline const ::greptime::v1::ColumnDataTypeExtension& ColumnSchema::_internal_datatype_extension() const {
+  const ::greptime::v1::ColumnDataTypeExtension* p = _impl_.datatype_extension_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ColumnDataTypeExtension&>(
+      ::greptime::v1::_ColumnDataTypeExtension_default_instance_);
+}
+inline const ::greptime::v1::ColumnDataTypeExtension& ColumnSchema::datatype_extension() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnSchema.datatype_extension)
+  return _internal_datatype_extension();
+}
+inline void ColumnSchema::unsafe_arena_set_allocated_datatype_extension(
+    ::greptime::v1::ColumnDataTypeExtension* datatype_extension) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.datatype_extension_);
+  }
+  _impl_.datatype_extension_ = datatype_extension;
+  if (datatype_extension) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ColumnSchema.datatype_extension)
+}
+inline ::greptime::v1::ColumnDataTypeExtension* ColumnSchema::release_datatype_extension() {
+  
+  ::greptime::v1::ColumnDataTypeExtension* temp = _impl_.datatype_extension_;
+  _impl_.datatype_extension_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ColumnDataTypeExtension* ColumnSchema::unsafe_arena_release_datatype_extension() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ColumnSchema.datatype_extension)
+  
+  ::greptime::v1::ColumnDataTypeExtension* temp = _impl_.datatype_extension_;
+  _impl_.datatype_extension_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ColumnDataTypeExtension* ColumnSchema::_internal_mutable_datatype_extension() {
+  
+  if (_impl_.datatype_extension_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ColumnDataTypeExtension>(GetArenaForAllocation());
+    _impl_.datatype_extension_ = p;
+  }
+  return _impl_.datatype_extension_;
+}
+inline ::greptime::v1::ColumnDataTypeExtension* ColumnSchema::mutable_datatype_extension() {
+  ::greptime::v1::ColumnDataTypeExtension* _msg = _internal_mutable_datatype_extension();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnSchema.datatype_extension)
+  return _msg;
+}
+inline void ColumnSchema::set_allocated_datatype_extension(::greptime::v1::ColumnDataTypeExtension* datatype_extension) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.datatype_extension_);
+  }
+  if (datatype_extension) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(datatype_extension));
+    if (message_arena != submessage_arena) {
+      datatype_extension = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, datatype_extension, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.datatype_extension_ = datatype_extension;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnSchema.datatype_extension)
 }
 
 // -------------------------------------------------------------------
@@ -2733,6 +2860,72 @@ inline int64_t Value::duration_nanosecond_value() const {
 inline void Value::set_duration_nanosecond_value(int64_t value) {
   _internal_set_duration_nanosecond_value(value);
   // @@protoc_insertion_point(field_set:greptime.v1.Value.duration_nanosecond_value)
+}
+
+// .greptime.v1.Decimal128 decimal128_value = 31;
+inline bool Value::_internal_has_decimal128_value() const {
+  return value_data_case() == kDecimal128Value;
+}
+inline bool Value::has_decimal128_value() const {
+  return _internal_has_decimal128_value();
+}
+inline void Value::set_has_decimal128_value() {
+  _impl_._oneof_case_[0] = kDecimal128Value;
+}
+inline ::greptime::v1::Decimal128* Value::release_decimal128_value() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Value.decimal128_value)
+  if (_internal_has_decimal128_value()) {
+    clear_has_value_data();
+    ::greptime::v1::Decimal128* temp = _impl_.value_data_.decimal128_value_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.value_data_.decimal128_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::Decimal128& Value::_internal_decimal128_value() const {
+  return _internal_has_decimal128_value()
+      ? *_impl_.value_data_.decimal128_value_
+      : reinterpret_cast< ::greptime::v1::Decimal128&>(::greptime::v1::_Decimal128_default_instance_);
+}
+inline const ::greptime::v1::Decimal128& Value::decimal128_value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.decimal128_value)
+  return _internal_decimal128_value();
+}
+inline ::greptime::v1::Decimal128* Value::unsafe_arena_release_decimal128_value() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.Value.decimal128_value)
+  if (_internal_has_decimal128_value()) {
+    clear_has_value_data();
+    ::greptime::v1::Decimal128* temp = _impl_.value_data_.decimal128_value_;
+    _impl_.value_data_.decimal128_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Value::unsafe_arena_set_allocated_decimal128_value(::greptime::v1::Decimal128* decimal128_value) {
+  clear_value_data();
+  if (decimal128_value) {
+    set_has_decimal128_value();
+    _impl_.value_data_.decimal128_value_ = decimal128_value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.Value.decimal128_value)
+}
+inline ::greptime::v1::Decimal128* Value::_internal_mutable_decimal128_value() {
+  if (!_internal_has_decimal128_value()) {
+    clear_value_data();
+    set_has_decimal128_value();
+    _impl_.value_data_.decimal128_value_ = CreateMaybeMessage< ::greptime::v1::Decimal128 >(GetArenaForAllocation());
+  }
+  return _impl_.value_data_.decimal128_value_;
+}
+inline ::greptime::v1::Decimal128* Value::mutable_decimal128_value() {
+  ::greptime::v1::Decimal128* _msg = _internal_mutable_decimal128_value();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.decimal128_value)
+  return _msg;
 }
 
 inline bool Value::has_value_data() const {

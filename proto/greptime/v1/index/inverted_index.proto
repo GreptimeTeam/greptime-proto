@@ -21,10 +21,10 @@ option java_outer_classname = "Index";
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/index";
 
 // InvertedIndexMetas defines the metadata for an inverted index
-// within an SST file.
+// within an inverted index blob.
 message InvertedIndexMetas {
     // A map of tag names to their respective metadata corresponding to an individual
-    // inverted index within the SST file.
+    // inverted index within the inverted index blob.
     map<string, InvertedIndexMeta> metas = 1;
 }
 
@@ -33,29 +33,34 @@ message InvertedIndexMeta {
     // Name of the tag associated with the inverted index.
     string name = 1;
 
-    // Defines the number of rows per group for bitmap indexing. It determines how rows
-    // are batched for indexing, with each batch corresponding to a segment in the bitmap.
-    // The groups are usually of uniform size, with the exception of the final group which
-    // may contain fewer rows if the total row count is not a multiple of 'row_count_in_group'.
-    // Segmenting allows indexed values in the tag column to be quickly located within
-    // their respective groups during a query, reducing the search space and improving
-    // retrieval efficiency.
-    uint64 row_count_in_group = 2;
+    // The base byte offset for this tag's inverted index data within the blob.
+    // Other offsets in this message are relative to this base offset.
+    uint64 base_offset = 2;
 
-    // The byte offset of the Finite State Transducer (FST) within the SST file.
-    uint64 fst_offset = 3;
+    // The total size in bytes of this tag's inverted index data, including bitmaps,
+    // FST data.
+    uint64 inverted_index_size = 3;
+
+    // The byte offset of the Finite State Transducer (FST) data relative to the `base_offset`.
+    uint32 relative_fst_offset = 4;
 
     // The size in bytes of the FST data.
-    uint64 fst_size = 4;
+    uint32 fst_size = 5;
 
-    // The byte offset where the null bitmap for this tag starts.
-    uint64 null_bitmap_offset = 5;
+    // The byte offset relative to the `base_offset` where the null bitmap for this tag
+    // starts.
+    uint32 relative_null_bitmap_offset = 6;
 
     // The size in bytes of the null bitmap.
-    uint64 null_bitmap_size = 6;
+    uint32 null_bitmap_size = 7;
 
     // Statistical information about the tag's inverted index.
-    InvertedIndexStats stats = 7;
+    InvertedIndexStats stats = 8;
+
+    // The number of rows per group for bitmap indexing which determines how rows are
+    // batched for indexing. Each batch corresponds to a segment in the bitmap and allows
+    // for efficient retrieval during queries by reducing the search space.
+    uint64 segment_row_count = 9;
 }
 
 // InvertedIndexStats provides statistical data on a tag's inverted index.

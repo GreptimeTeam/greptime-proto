@@ -39,6 +39,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR ColumnSchema::ColumnSchema(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.column_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.datatype_extension_)*/nullptr
   , /*decltype(_impl_.datatype_)*/0
   , /*decltype(_impl_.semantic_type_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -102,6 +103,7 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnSchema, _impl_.column_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnSchema, _impl_.datatype_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnSchema, _impl_.semantic_type_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnSchema, _impl_.datatype_extension_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Row, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -145,13 +147,14 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Value, _impl_.value_data_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::Rows)},
   { 8, -1, -1, sizeof(::greptime::v1::ColumnSchema)},
-  { 17, -1, -1, sizeof(::greptime::v1::Row)},
-  { 24, -1, -1, sizeof(::greptime::v1::Value)},
+  { 18, -1, -1, sizeof(::greptime::v1::Row)},
+  { 25, -1, -1, sizeof(::greptime::v1::Value)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -165,44 +168,47 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\n\025greptime/v1/row.proto\022\013greptime.v1\032\030gr"
   "eptime/v1/common.proto\"Q\n\004Rows\022)\n\006schema"
   "\030\001 \003(\0132\031.greptime.v1.ColumnSchema\022\036\n\004row"
-  "s\030\002 \003(\0132\020.greptime.v1.Row\"\204\001\n\014ColumnSche"
+  "s\030\002 \003(\0132\020.greptime.v1.Row\"\306\001\n\014ColumnSche"
   "ma\022\023\n\013column_name\030\001 \001(\t\022-\n\010datatype\030\002 \001("
   "\0162\033.greptime.v1.ColumnDataType\0220\n\rsemant"
   "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType"
-  "\")\n\003Row\022\"\n\006values\030\001 \003(\0132\022.greptime.v1.Va"
-  "lue\"\234\007\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16"
-  "_value\030\002 \001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti"
-  "64_value\030\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\t"
-  "u16_value\030\006 \001(\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023"
-  "\n\tu64_value\030\010 \001(\004H\000\022\023\n\tf32_value\030\t \001(\002H\000"
-  "\022\023\n\tf64_value\030\n \001(\001H\000\022\024\n\nbool_value\030\013 \001("
-  "\010H\000\022\026\n\014binary_value\030\014 \001(\014H\000\022\026\n\014string_va"
-  "lue\030\r \001(\tH\000\022\024\n\ndate_value\030\016 \001(\005H\000\022\030\n\016dat"
-  "etime_value\030\017 \001(\003H\000\022 \n\026timestamp_second_"
-  "value\030\020 \001(\003H\000\022%\n\033timestamp_millisecond_v"
-  "alue\030\021 \001(\003H\000\022%\n\033timestamp_microsecond_va"
-  "lue\030\022 \001(\003H\000\022$\n\032timestamp_nanosecond_valu"
-  "e\030\023 \001(\003H\000\022\033\n\021time_second_value\030\024 \001(\003H\000\022 "
-  "\n\026time_millisecond_value\030\025 \001(\003H\000\022 \n\026time"
-  "_microsecond_value\030\026 \001(\003H\000\022\037\n\025time_nanos"
-  "econd_value\030\027 \001(\003H\000\022$\n\032interval_year_mon"
-  "th_values\030\030 \001(\005H\000\022\"\n\030interval_day_time_v"
-  "alues\030\031 \001(\003H\000\022K\n\036interval_month_day_nano"
-  "_values\030\032 \001(\0132!.greptime.v1.IntervalMont"
-  "hDayNanoH\000\022\037\n\025duration_second_value\030\033 \001("
-  "\003H\000\022$\n\032duration_millisecond_value\030\034 \001(\003H"
-  "\000\022$\n\032duration_microsecond_value\030\035 \001(\003H\000\022"
-  "#\n\031duration_nanosecond_value\030\036 \001(\003H\000B\014\n\n"
-  "value_dataBP\n\016io.greptime.v1B\007RowDataZ5g"
-  "ithub.com/GreptimeTeam/greptime-proto/go"
-  "/greptime/v1b\006proto3"
+  "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime."
+  "v1.ColumnDataTypeExtension\")\n\003Row\022\"\n\006val"
+  "ues\030\001 \003(\0132\022.greptime.v1.Value\"\321\007\n\005Value\022"
+  "\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 \001(\005H\000"
+  "\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030\004 \001(\003"
+  "H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value\030\006 \001("
+  "\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023\n\tu64_value\030\010 "
+  "\001(\004H\000\022\023\n\tf32_value\030\t \001(\002H\000\022\023\n\tf64_value\030"
+  "\n \001(\001H\000\022\024\n\nbool_value\030\013 \001(\010H\000\022\026\n\014binary_"
+  "value\030\014 \001(\014H\000\022\026\n\014string_value\030\r \001(\tH\000\022\024\n"
+  "\ndate_value\030\016 \001(\005H\000\022\030\n\016datetime_value\030\017 "
+  "\001(\003H\000\022 \n\026timestamp_second_value\030\020 \001(\003H\000\022"
+  "%\n\033timestamp_millisecond_value\030\021 \001(\003H\000\022%"
+  "\n\033timestamp_microsecond_value\030\022 \001(\003H\000\022$\n"
+  "\032timestamp_nanosecond_value\030\023 \001(\003H\000\022\033\n\021t"
+  "ime_second_value\030\024 \001(\003H\000\022 \n\026time_millise"
+  "cond_value\030\025 \001(\003H\000\022 \n\026time_microsecond_v"
+  "alue\030\026 \001(\003H\000\022\037\n\025time_nanosecond_value\030\027 "
+  "\001(\003H\000\022$\n\032interval_year_month_values\030\030 \001("
+  "\005H\000\022\"\n\030interval_day_time_values\030\031 \001(\003H\000\022"
+  "K\n\036interval_month_day_nano_values\030\032 \001(\0132"
+  "!.greptime.v1.IntervalMonthDayNanoH\000\022\037\n\025"
+  "duration_second_value\030\033 \001(\003H\000\022$\n\032duratio"
+  "n_millisecond_value\030\034 \001(\003H\000\022$\n\032duration_"
+  "microsecond_value\030\035 \001(\003H\000\022#\n\031duration_na"
+  "nosecond_value\030\036 \001(\003H\000\0223\n\020decimal128_val"
+  "ue\030\037 \001(\0132\027.greptime.v1.Decimal128H\000B\014\n\nv"
+  "alue_dataBP\n\016io.greptime.v1B\007RowDataZ5gi"
+  "thub.com/GreptimeTeam/greptime-proto/go/"
+  "greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1340, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1459, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
     &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
@@ -441,8 +447,19 @@ void Rows::InternalSwap(Rows* other) {
 
 class ColumnSchema::_Internal {
  public:
+  static const ::greptime::v1::ColumnDataTypeExtension& datatype_extension(const ColumnSchema* msg);
 };
 
+const ::greptime::v1::ColumnDataTypeExtension&
+ColumnSchema::_Internal::datatype_extension(const ColumnSchema* msg) {
+  return *msg->_impl_.datatype_extension_;
+}
+void ColumnSchema::clear_datatype_extension() {
+  if (GetArenaForAllocation() == nullptr && _impl_.datatype_extension_ != nullptr) {
+    delete _impl_.datatype_extension_;
+  }
+  _impl_.datatype_extension_ = nullptr;
+}
 ColumnSchema::ColumnSchema(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -454,6 +471,7 @@ ColumnSchema::ColumnSchema(const ColumnSchema& from)
   ColumnSchema* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.column_name_){}
+    , decltype(_impl_.datatype_extension_){nullptr}
     , decltype(_impl_.datatype_){}
     , decltype(_impl_.semantic_type_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -467,6 +485,9 @@ ColumnSchema::ColumnSchema(const ColumnSchema& from)
     _this->_impl_.column_name_.Set(from._internal_column_name(), 
       _this->GetArenaForAllocation());
   }
+  if (from._internal_has_datatype_extension()) {
+    _this->_impl_.datatype_extension_ = new ::greptime::v1::ColumnDataTypeExtension(*from._impl_.datatype_extension_);
+  }
   ::memcpy(&_impl_.datatype_, &from._impl_.datatype_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.semantic_type_) -
     reinterpret_cast<char*>(&_impl_.datatype_)) + sizeof(_impl_.semantic_type_));
@@ -479,6 +500,7 @@ inline void ColumnSchema::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.column_name_){}
+    , decltype(_impl_.datatype_extension_){nullptr}
     , decltype(_impl_.datatype_){0}
     , decltype(_impl_.semantic_type_){0}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -501,6 +523,7 @@ ColumnSchema::~ColumnSchema() {
 inline void ColumnSchema::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.column_name_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.datatype_extension_;
 }
 
 void ColumnSchema::SetCachedSize(int size) const {
@@ -514,6 +537,10 @@ void ColumnSchema::Clear() {
   (void) cached_has_bits;
 
   _impl_.column_name_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.datatype_extension_ != nullptr) {
+    delete _impl_.datatype_extension_;
+  }
+  _impl_.datatype_extension_ = nullptr;
   ::memset(&_impl_.datatype_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.semantic_type_) -
       reinterpret_cast<char*>(&_impl_.datatype_)) + sizeof(_impl_.semantic_type_));
@@ -551,6 +578,14 @@ const char* ColumnSchema::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_semantic_type(static_cast<::greptime::v1::SemanticType>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.ColumnDataTypeExtension datatype_extension = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_datatype_extension(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -607,6 +642,13 @@ uint8_t* ColumnSchema::_InternalSerialize(
       3, this->_internal_semantic_type(), target);
   }
 
+  // .greptime.v1.ColumnDataTypeExtension datatype_extension = 4;
+  if (this->_internal_has_datatype_extension()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::datatype_extension(this),
+        _Internal::datatype_extension(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -628,6 +670,13 @@ size_t ColumnSchema::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_column_name());
+  }
+
+  // .greptime.v1.ColumnDataTypeExtension datatype_extension = 4;
+  if (this->_internal_has_datatype_extension()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.datatype_extension_);
   }
 
   // .greptime.v1.ColumnDataType datatype = 2;
@@ -663,6 +712,10 @@ void ColumnSchema::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   if (!from._internal_column_name().empty()) {
     _this->_internal_set_column_name(from._internal_column_name());
   }
+  if (from._internal_has_datatype_extension()) {
+    _this->_internal_mutable_datatype_extension()->::greptime::v1::ColumnDataTypeExtension::MergeFrom(
+        from._internal_datatype_extension());
+  }
   if (from._internal_datatype() != 0) {
     _this->_internal_set_datatype(from._internal_datatype());
   }
@@ -695,9 +748,9 @@ void ColumnSchema::InternalSwap(ColumnSchema* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ColumnSchema, _impl_.semantic_type_)
       + sizeof(ColumnSchema::_impl_.semantic_type_)
-      - PROTOBUF_FIELD_OFFSET(ColumnSchema, _impl_.datatype_)>(
-          reinterpret_cast<char*>(&_impl_.datatype_),
-          reinterpret_cast<char*>(&other->_impl_.datatype_));
+      - PROTOBUF_FIELD_OFFSET(ColumnSchema, _impl_.datatype_extension_)>(
+          reinterpret_cast<char*>(&_impl_.datatype_extension_),
+          reinterpret_cast<char*>(&other->_impl_.datatype_extension_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnSchema::GetMetadata() const {
@@ -896,11 +949,16 @@ void Row::InternalSwap(Row* other) {
 class Value::_Internal {
  public:
   static const ::greptime::v1::IntervalMonthDayNano& interval_month_day_nano_values(const Value* msg);
+  static const ::greptime::v1::Decimal128& decimal128_value(const Value* msg);
 };
 
 const ::greptime::v1::IntervalMonthDayNano&
 Value::_Internal::interval_month_day_nano_values(const Value* msg) {
   return *msg->_impl_.value_data_.interval_month_day_nano_values_;
+}
+const ::greptime::v1::Decimal128&
+Value::_Internal::decimal128_value(const Value* msg) {
+  return *msg->_impl_.value_data_.decimal128_value_;
 }
 void Value::set_allocated_interval_month_day_nano_values(::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_values) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -922,6 +980,30 @@ void Value::clear_interval_month_day_nano_values() {
   if (_internal_has_interval_month_day_nano_values()) {
     if (GetArenaForAllocation() == nullptr) {
       delete _impl_.value_data_.interval_month_day_nano_values_;
+    }
+    clear_has_value_data();
+  }
+}
+void Value::set_allocated_decimal128_value(::greptime::v1::Decimal128* decimal128_value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_value_data();
+  if (decimal128_value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(decimal128_value));
+    if (message_arena != submessage_arena) {
+      decimal128_value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, decimal128_value, submessage_arena);
+    }
+    set_has_decimal128_value();
+    _impl_.value_data_.decimal128_value_ = decimal128_value;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.decimal128_value)
+}
+void Value::clear_decimal128_value() {
+  if (_internal_has_decimal128_value()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.value_data_.decimal128_value_;
     }
     clear_has_value_data();
   }
@@ -1062,6 +1144,11 @@ Value::Value(const Value& from)
     }
     case kDurationNanosecondValue: {
       _this->_internal_set_duration_nanosecond_value(from._internal_duration_nanosecond_value());
+      break;
+    }
+    case kDecimal128Value: {
+      _this->_internal_mutable_decimal128_value()->::greptime::v1::Decimal128::MergeFrom(
+          from._internal_decimal128_value());
       break;
     }
     case VALUE_DATA_NOT_SET: {
@@ -1226,6 +1313,12 @@ void Value::clear_value_data() {
     }
     case kDurationNanosecondValue: {
       // No need to clear
+      break;
+    }
+    case kDecimal128Value: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.value_data_.decimal128_value_;
+      }
       break;
     }
     case VALUE_DATA_NOT_SET: {
@@ -1495,6 +1588,14 @@ const char* Value::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
+      // .greptime.v1.Decimal128 decimal128_value = 31;
+      case 31:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 250)) {
+          ptr = ctx->ParseMessage(_internal_mutable_decimal128_value(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -1709,6 +1810,13 @@ uint8_t* Value::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(30, this->_internal_duration_nanosecond_value(), target);
   }
 
+  // .greptime.v1.Decimal128 decimal128_value = 31;
+  if (_internal_has_decimal128_value()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(31, _Internal::decimal128_value(this),
+        _Internal::decimal128_value(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1910,6 +2018,13 @@ size_t Value::ByteSizeLong() const {
           this->_internal_duration_nanosecond_value());
       break;
     }
+    // .greptime.v1.Decimal128 decimal128_value = 31;
+    case kDecimal128Value: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.value_data_.decimal128_value_);
+      break;
+    }
     case VALUE_DATA_NOT_SET: {
       break;
     }
@@ -2052,6 +2167,11 @@ void Value::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
     }
     case kDurationNanosecondValue: {
       _this->_internal_set_duration_nanosecond_value(from._internal_duration_nanosecond_value());
+      break;
+    }
+    case kDecimal128Value: {
+      _this->_internal_mutable_decimal128_value()->::greptime::v1::Decimal128::MergeFrom(
+          from._internal_decimal128_value());
       break;
     }
     case VALUE_DATA_NOT_SET: {

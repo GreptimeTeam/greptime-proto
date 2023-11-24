@@ -388,12 +388,14 @@ class InvertedIndexMeta final :
 
   enum : int {
     kNameFieldNumber = 1,
-    kStatsFieldNumber = 7,
-    kRowCountInGroupFieldNumber = 2,
-    kFstOffsetFieldNumber = 3,
-    kFstSizeFieldNumber = 4,
-    kNullBitmapOffsetFieldNumber = 5,
-    kNullBitmapSizeFieldNumber = 6,
+    kStatsFieldNumber = 8,
+    kBaseOffsetFieldNumber = 2,
+    kInvertedIndexSizeFieldNumber = 3,
+    kRelativeFstOffsetFieldNumber = 4,
+    kFstSizeFieldNumber = 5,
+    kRelativeNullBitmapOffsetFieldNumber = 6,
+    kNullBitmapSizeFieldNumber = 7,
+    kSegmentRowCountFieldNumber = 9,
   };
   // string name = 1;
   void clear_name();
@@ -409,7 +411,7 @@ class InvertedIndexMeta final :
   std::string* _internal_mutable_name();
   public:
 
-  // .greptime.v1.index.InvertedIndexStats stats = 7;
+  // .greptime.v1.index.InvertedIndexStats stats = 8;
   bool has_stats() const;
   private:
   bool _internal_has_stats() const;
@@ -427,49 +429,67 @@ class InvertedIndexMeta final :
       ::greptime::v1::index::InvertedIndexStats* stats);
   ::greptime::v1::index::InvertedIndexStats* unsafe_arena_release_stats();
 
-  // uint64 row_count_in_group = 2;
-  void clear_row_count_in_group();
-  uint64_t row_count_in_group() const;
-  void set_row_count_in_group(uint64_t value);
+  // uint64 base_offset = 2;
+  void clear_base_offset();
+  uint64_t base_offset() const;
+  void set_base_offset(uint64_t value);
   private:
-  uint64_t _internal_row_count_in_group() const;
-  void _internal_set_row_count_in_group(uint64_t value);
+  uint64_t _internal_base_offset() const;
+  void _internal_set_base_offset(uint64_t value);
   public:
 
-  // uint64 fst_offset = 3;
-  void clear_fst_offset();
-  uint64_t fst_offset() const;
-  void set_fst_offset(uint64_t value);
+  // uint64 inverted_index_size = 3;
+  void clear_inverted_index_size();
+  uint64_t inverted_index_size() const;
+  void set_inverted_index_size(uint64_t value);
   private:
-  uint64_t _internal_fst_offset() const;
-  void _internal_set_fst_offset(uint64_t value);
+  uint64_t _internal_inverted_index_size() const;
+  void _internal_set_inverted_index_size(uint64_t value);
   public:
 
-  // uint64 fst_size = 4;
+  // uint32 relative_fst_offset = 4;
+  void clear_relative_fst_offset();
+  uint32_t relative_fst_offset() const;
+  void set_relative_fst_offset(uint32_t value);
+  private:
+  uint32_t _internal_relative_fst_offset() const;
+  void _internal_set_relative_fst_offset(uint32_t value);
+  public:
+
+  // uint32 fst_size = 5;
   void clear_fst_size();
-  uint64_t fst_size() const;
-  void set_fst_size(uint64_t value);
+  uint32_t fst_size() const;
+  void set_fst_size(uint32_t value);
   private:
-  uint64_t _internal_fst_size() const;
-  void _internal_set_fst_size(uint64_t value);
+  uint32_t _internal_fst_size() const;
+  void _internal_set_fst_size(uint32_t value);
   public:
 
-  // uint64 null_bitmap_offset = 5;
-  void clear_null_bitmap_offset();
-  uint64_t null_bitmap_offset() const;
-  void set_null_bitmap_offset(uint64_t value);
+  // uint32 relative_null_bitmap_offset = 6;
+  void clear_relative_null_bitmap_offset();
+  uint32_t relative_null_bitmap_offset() const;
+  void set_relative_null_bitmap_offset(uint32_t value);
   private:
-  uint64_t _internal_null_bitmap_offset() const;
-  void _internal_set_null_bitmap_offset(uint64_t value);
+  uint32_t _internal_relative_null_bitmap_offset() const;
+  void _internal_set_relative_null_bitmap_offset(uint32_t value);
   public:
 
-  // uint64 null_bitmap_size = 6;
+  // uint32 null_bitmap_size = 7;
   void clear_null_bitmap_size();
-  uint64_t null_bitmap_size() const;
-  void set_null_bitmap_size(uint64_t value);
+  uint32_t null_bitmap_size() const;
+  void set_null_bitmap_size(uint32_t value);
   private:
-  uint64_t _internal_null_bitmap_size() const;
-  void _internal_set_null_bitmap_size(uint64_t value);
+  uint32_t _internal_null_bitmap_size() const;
+  void _internal_set_null_bitmap_size(uint32_t value);
+  public:
+
+  // uint64 segment_row_count = 9;
+  void clear_segment_row_count();
+  uint64_t segment_row_count() const;
+  void set_segment_row_count(uint64_t value);
+  private:
+  uint64_t _internal_segment_row_count() const;
+  void _internal_set_segment_row_count(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexMeta)
@@ -482,11 +502,13 @@ class InvertedIndexMeta final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::greptime::v1::index::InvertedIndexStats* stats_;
-    uint64_t row_count_in_group_;
-    uint64_t fst_offset_;
-    uint64_t fst_size_;
-    uint64_t null_bitmap_offset_;
-    uint64_t null_bitmap_size_;
+    uint64_t base_offset_;
+    uint64_t inverted_index_size_;
+    uint32_t relative_fst_offset_;
+    uint32_t fst_size_;
+    uint32_t relative_null_bitmap_offset_;
+    uint32_t null_bitmap_size_;
+    uint64_t segment_row_count_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -779,107 +801,127 @@ inline void InvertedIndexMeta::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.index.InvertedIndexMeta.name)
 }
 
-// uint64 row_count_in_group = 2;
-inline void InvertedIndexMeta::clear_row_count_in_group() {
-  _impl_.row_count_in_group_ = uint64_t{0u};
+// uint64 base_offset = 2;
+inline void InvertedIndexMeta::clear_base_offset() {
+  _impl_.base_offset_ = uint64_t{0u};
 }
-inline uint64_t InvertedIndexMeta::_internal_row_count_in_group() const {
-  return _impl_.row_count_in_group_;
+inline uint64_t InvertedIndexMeta::_internal_base_offset() const {
+  return _impl_.base_offset_;
 }
-inline uint64_t InvertedIndexMeta::row_count_in_group() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.row_count_in_group)
-  return _internal_row_count_in_group();
+inline uint64_t InvertedIndexMeta::base_offset() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.base_offset)
+  return _internal_base_offset();
 }
-inline void InvertedIndexMeta::_internal_set_row_count_in_group(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_base_offset(uint64_t value) {
   
-  _impl_.row_count_in_group_ = value;
+  _impl_.base_offset_ = value;
 }
-inline void InvertedIndexMeta::set_row_count_in_group(uint64_t value) {
-  _internal_set_row_count_in_group(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.row_count_in_group)
+inline void InvertedIndexMeta::set_base_offset(uint64_t value) {
+  _internal_set_base_offset(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.base_offset)
 }
 
-// uint64 fst_offset = 3;
-inline void InvertedIndexMeta::clear_fst_offset() {
-  _impl_.fst_offset_ = uint64_t{0u};
+// uint64 inverted_index_size = 3;
+inline void InvertedIndexMeta::clear_inverted_index_size() {
+  _impl_.inverted_index_size_ = uint64_t{0u};
 }
-inline uint64_t InvertedIndexMeta::_internal_fst_offset() const {
-  return _impl_.fst_offset_;
+inline uint64_t InvertedIndexMeta::_internal_inverted_index_size() const {
+  return _impl_.inverted_index_size_;
 }
-inline uint64_t InvertedIndexMeta::fst_offset() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.fst_offset)
-  return _internal_fst_offset();
+inline uint64_t InvertedIndexMeta::inverted_index_size() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.inverted_index_size)
+  return _internal_inverted_index_size();
 }
-inline void InvertedIndexMeta::_internal_set_fst_offset(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_inverted_index_size(uint64_t value) {
   
-  _impl_.fst_offset_ = value;
+  _impl_.inverted_index_size_ = value;
 }
-inline void InvertedIndexMeta::set_fst_offset(uint64_t value) {
-  _internal_set_fst_offset(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.fst_offset)
+inline void InvertedIndexMeta::set_inverted_index_size(uint64_t value) {
+  _internal_set_inverted_index_size(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.inverted_index_size)
 }
 
-// uint64 fst_size = 4;
+// uint32 relative_fst_offset = 4;
+inline void InvertedIndexMeta::clear_relative_fst_offset() {
+  _impl_.relative_fst_offset_ = 0u;
+}
+inline uint32_t InvertedIndexMeta::_internal_relative_fst_offset() const {
+  return _impl_.relative_fst_offset_;
+}
+inline uint32_t InvertedIndexMeta::relative_fst_offset() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.relative_fst_offset)
+  return _internal_relative_fst_offset();
+}
+inline void InvertedIndexMeta::_internal_set_relative_fst_offset(uint32_t value) {
+  
+  _impl_.relative_fst_offset_ = value;
+}
+inline void InvertedIndexMeta::set_relative_fst_offset(uint32_t value) {
+  _internal_set_relative_fst_offset(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.relative_fst_offset)
+}
+
+// uint32 fst_size = 5;
 inline void InvertedIndexMeta::clear_fst_size() {
-  _impl_.fst_size_ = uint64_t{0u};
+  _impl_.fst_size_ = 0u;
 }
-inline uint64_t InvertedIndexMeta::_internal_fst_size() const {
+inline uint32_t InvertedIndexMeta::_internal_fst_size() const {
   return _impl_.fst_size_;
 }
-inline uint64_t InvertedIndexMeta::fst_size() const {
+inline uint32_t InvertedIndexMeta::fst_size() const {
   // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.fst_size)
   return _internal_fst_size();
 }
-inline void InvertedIndexMeta::_internal_set_fst_size(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_fst_size(uint32_t value) {
   
   _impl_.fst_size_ = value;
 }
-inline void InvertedIndexMeta::set_fst_size(uint64_t value) {
+inline void InvertedIndexMeta::set_fst_size(uint32_t value) {
   _internal_set_fst_size(value);
   // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.fst_size)
 }
 
-// uint64 null_bitmap_offset = 5;
-inline void InvertedIndexMeta::clear_null_bitmap_offset() {
-  _impl_.null_bitmap_offset_ = uint64_t{0u};
+// uint32 relative_null_bitmap_offset = 6;
+inline void InvertedIndexMeta::clear_relative_null_bitmap_offset() {
+  _impl_.relative_null_bitmap_offset_ = 0u;
 }
-inline uint64_t InvertedIndexMeta::_internal_null_bitmap_offset() const {
-  return _impl_.null_bitmap_offset_;
+inline uint32_t InvertedIndexMeta::_internal_relative_null_bitmap_offset() const {
+  return _impl_.relative_null_bitmap_offset_;
 }
-inline uint64_t InvertedIndexMeta::null_bitmap_offset() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.null_bitmap_offset)
-  return _internal_null_bitmap_offset();
+inline uint32_t InvertedIndexMeta::relative_null_bitmap_offset() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.relative_null_bitmap_offset)
+  return _internal_relative_null_bitmap_offset();
 }
-inline void InvertedIndexMeta::_internal_set_null_bitmap_offset(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_relative_null_bitmap_offset(uint32_t value) {
   
-  _impl_.null_bitmap_offset_ = value;
+  _impl_.relative_null_bitmap_offset_ = value;
 }
-inline void InvertedIndexMeta::set_null_bitmap_offset(uint64_t value) {
-  _internal_set_null_bitmap_offset(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.null_bitmap_offset)
+inline void InvertedIndexMeta::set_relative_null_bitmap_offset(uint32_t value) {
+  _internal_set_relative_null_bitmap_offset(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.relative_null_bitmap_offset)
 }
 
-// uint64 null_bitmap_size = 6;
+// uint32 null_bitmap_size = 7;
 inline void InvertedIndexMeta::clear_null_bitmap_size() {
-  _impl_.null_bitmap_size_ = uint64_t{0u};
+  _impl_.null_bitmap_size_ = 0u;
 }
-inline uint64_t InvertedIndexMeta::_internal_null_bitmap_size() const {
+inline uint32_t InvertedIndexMeta::_internal_null_bitmap_size() const {
   return _impl_.null_bitmap_size_;
 }
-inline uint64_t InvertedIndexMeta::null_bitmap_size() const {
+inline uint32_t InvertedIndexMeta::null_bitmap_size() const {
   // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.null_bitmap_size)
   return _internal_null_bitmap_size();
 }
-inline void InvertedIndexMeta::_internal_set_null_bitmap_size(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_null_bitmap_size(uint32_t value) {
   
   _impl_.null_bitmap_size_ = value;
 }
-inline void InvertedIndexMeta::set_null_bitmap_size(uint64_t value) {
+inline void InvertedIndexMeta::set_null_bitmap_size(uint32_t value) {
   _internal_set_null_bitmap_size(value);
   // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.null_bitmap_size)
 }
 
-// .greptime.v1.index.InvertedIndexStats stats = 7;
+// .greptime.v1.index.InvertedIndexStats stats = 8;
 inline bool InvertedIndexMeta::_internal_has_stats() const {
   return this != internal_default_instance() && _impl_.stats_ != nullptr;
 }
@@ -967,6 +1009,26 @@ inline void InvertedIndexMeta::set_allocated_stats(::greptime::v1::index::Invert
   }
   _impl_.stats_ = stats;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.index.InvertedIndexMeta.stats)
+}
+
+// uint64 segment_row_count = 9;
+inline void InvertedIndexMeta::clear_segment_row_count() {
+  _impl_.segment_row_count_ = uint64_t{0u};
+}
+inline uint64_t InvertedIndexMeta::_internal_segment_row_count() const {
+  return _impl_.segment_row_count_;
+}
+inline uint64_t InvertedIndexMeta::segment_row_count() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.segment_row_count)
+  return _internal_segment_row_count();
+}
+inline void InvertedIndexMeta::_internal_set_segment_row_count(uint64_t value) {
+  
+  _impl_.segment_row_count_ = value;
+}
+inline void InvertedIndexMeta::set_segment_row_count(uint64_t value) {
+  _internal_set_segment_row_count(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.segment_row_count)
 }
 
 // -------------------------------------------------------------------

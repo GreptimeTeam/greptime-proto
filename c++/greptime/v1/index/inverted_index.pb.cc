@@ -51,11 +51,13 @@ PROTOBUF_CONSTEXPR InvertedIndexMeta::InvertedIndexMeta(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.stats_)*/nullptr
-  , /*decltype(_impl_.row_count_in_group_)*/uint64_t{0u}
-  , /*decltype(_impl_.fst_offset_)*/uint64_t{0u}
-  , /*decltype(_impl_.fst_size_)*/uint64_t{0u}
-  , /*decltype(_impl_.null_bitmap_offset_)*/uint64_t{0u}
-  , /*decltype(_impl_.null_bitmap_size_)*/uint64_t{0u}
+  , /*decltype(_impl_.base_offset_)*/uint64_t{0u}
+  , /*decltype(_impl_.inverted_index_size_)*/uint64_t{0u}
+  , /*decltype(_impl_.relative_fst_offset_)*/0u
+  , /*decltype(_impl_.fst_size_)*/0u
+  , /*decltype(_impl_.relative_null_bitmap_offset_)*/0u
+  , /*decltype(_impl_.null_bitmap_size_)*/0u
+  , /*decltype(_impl_.segment_row_count_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct InvertedIndexMetaDefaultTypeInternal {
   PROTOBUF_CONSTEXPR InvertedIndexMetaDefaultTypeInternal()
@@ -114,12 +116,14 @@ const uint32_t TableStruct_greptime_2fv1_2findex_2finverted_5findex_2eproto::off
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.name_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.row_count_in_group_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.fst_offset_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.base_offset_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.inverted_index_size_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.relative_fst_offset_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.fst_size_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.null_bitmap_offset_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.relative_null_bitmap_offset_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.null_bitmap_size_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.stats_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.segment_row_count_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexStats, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -135,7 +139,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 0, 8, -1, sizeof(::greptime::v1::index::InvertedIndexMetas_MetasEntry_DoNotUse)},
   { 10, -1, -1, sizeof(::greptime::v1::index::InvertedIndexMetas)},
   { 17, -1, -1, sizeof(::greptime::v1::index::InvertedIndexMeta)},
-  { 30, -1, -1, sizeof(::greptime::v1::index::InvertedIndexStats)},
+  { 32, -1, -1, sizeof(::greptime::v1::index::InvertedIndexStats)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -151,22 +155,23 @@ const char descriptor_table_protodef_greptime_2fv1_2findex_2finverted_5findex_2e
   "as\022\?\n\005metas\030\001 \003(\01320.greptime.v1.index.In"
   "vertedIndexMetas.MetasEntry\032R\n\nMetasEntr"
   "y\022\013\n\003key\030\001 \001(\t\0223\n\005value\030\002 \001(\0132$.greptime"
-  ".v1.index.InvertedIndexMeta:\0028\001\"\317\001\n\021Inve"
-  "rtedIndexMeta\022\014\n\004name\030\001 \001(\t\022\032\n\022row_count"
-  "_in_group\030\002 \001(\004\022\022\n\nfst_offset\030\003 \001(\004\022\020\n\010f"
-  "st_size\030\004 \001(\004\022\032\n\022null_bitmap_offset\030\005 \001("
-  "\004\022\030\n\020null_bitmap_size\030\006 \001(\004\0224\n\005stats\030\007 \001"
+  ".v1.index.InvertedIndexMeta:\0028\001\"\222\002\n\021Inve"
+  "rtedIndexMeta\022\014\n\004name\030\001 \001(\t\022\023\n\013base_offs"
+  "et\030\002 \001(\004\022\033\n\023inverted_index_size\030\003 \001(\004\022\033\n"
+  "\023relative_fst_offset\030\004 \001(\r\022\020\n\010fst_size\030\005"
+  " \001(\r\022#\n\033relative_null_bitmap_offset\030\006 \001("
+  "\r\022\030\n\020null_bitmap_size\030\007 \001(\r\0224\n\005stats\030\010 \001"
   "(\0132%.greptime.v1.index.InvertedIndexStat"
-  "s\"f\n\022InvertedIndexStats\022\022\n\nnull_count\030\001 "
-  "\001(\004\022\026\n\016distinct_count\030\002 \001(\004\022\021\n\tmin_value"
-  "\030\003 \001(\014\022\021\n\tmax_value\030\004 \001(\014BZ\n\024io.greptime"
-  ".v1.indexB\005IndexZ;github.com/GreptimeTea"
-  "m/greptime-proto/go/greptime/v1/indexb\006p"
-  "roto3"
+  "s\022\031\n\021segment_row_count\030\t \001(\004\"f\n\022Inverted"
+  "IndexStats\022\022\n\nnull_count\030\001 \001(\004\022\026\n\016distin"
+  "ct_count\030\002 \001(\004\022\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax"
+  "_value\030\004 \001(\014BZ\n\024io.greptime.v1.indexB\005In"
+  "dexZ;github.com/GreptimeTeam/greptime-pr"
+  "oto/go/greptime/v1/indexb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto = {
-    false, false, 645, descriptor_table_protodef_greptime_2fv1_2findex_2finverted_5findex_2eproto,
+    false, false, 712, descriptor_table_protodef_greptime_2fv1_2findex_2finverted_5findex_2eproto,
     "greptime/v1/index/inverted_index.proto",
     &descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto_once, nullptr, 0, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2findex_2finverted_5findex_2eproto::offsets,
@@ -435,11 +440,13 @@ InvertedIndexMeta::InvertedIndexMeta(const InvertedIndexMeta& from)
   new (&_impl_) Impl_{
       decltype(_impl_.name_){}
     , decltype(_impl_.stats_){nullptr}
-    , decltype(_impl_.row_count_in_group_){}
-    , decltype(_impl_.fst_offset_){}
+    , decltype(_impl_.base_offset_){}
+    , decltype(_impl_.inverted_index_size_){}
+    , decltype(_impl_.relative_fst_offset_){}
     , decltype(_impl_.fst_size_){}
-    , decltype(_impl_.null_bitmap_offset_){}
+    , decltype(_impl_.relative_null_bitmap_offset_){}
     , decltype(_impl_.null_bitmap_size_){}
+    , decltype(_impl_.segment_row_count_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -454,9 +461,9 @@ InvertedIndexMeta::InvertedIndexMeta(const InvertedIndexMeta& from)
   if (from._internal_has_stats()) {
     _this->_impl_.stats_ = new ::greptime::v1::index::InvertedIndexStats(*from._impl_.stats_);
   }
-  ::memcpy(&_impl_.row_count_in_group_, &from._impl_.row_count_in_group_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.null_bitmap_size_) -
-    reinterpret_cast<char*>(&_impl_.row_count_in_group_)) + sizeof(_impl_.null_bitmap_size_));
+  ::memcpy(&_impl_.base_offset_, &from._impl_.base_offset_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.segment_row_count_) -
+    reinterpret_cast<char*>(&_impl_.base_offset_)) + sizeof(_impl_.segment_row_count_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.index.InvertedIndexMeta)
 }
 
@@ -467,11 +474,13 @@ inline void InvertedIndexMeta::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.name_){}
     , decltype(_impl_.stats_){nullptr}
-    , decltype(_impl_.row_count_in_group_){uint64_t{0u}}
-    , decltype(_impl_.fst_offset_){uint64_t{0u}}
-    , decltype(_impl_.fst_size_){uint64_t{0u}}
-    , decltype(_impl_.null_bitmap_offset_){uint64_t{0u}}
-    , decltype(_impl_.null_bitmap_size_){uint64_t{0u}}
+    , decltype(_impl_.base_offset_){uint64_t{0u}}
+    , decltype(_impl_.inverted_index_size_){uint64_t{0u}}
+    , decltype(_impl_.relative_fst_offset_){0u}
+    , decltype(_impl_.fst_size_){0u}
+    , decltype(_impl_.relative_null_bitmap_offset_){0u}
+    , decltype(_impl_.null_bitmap_size_){0u}
+    , decltype(_impl_.segment_row_count_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.name_.InitDefault();
@@ -510,9 +519,9 @@ void InvertedIndexMeta::Clear() {
     delete _impl_.stats_;
   }
   _impl_.stats_ = nullptr;
-  ::memset(&_impl_.row_count_in_group_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.null_bitmap_size_) -
-      reinterpret_cast<char*>(&_impl_.row_count_in_group_)) + sizeof(_impl_.null_bitmap_size_));
+  ::memset(&_impl_.base_offset_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.segment_row_count_) -
+      reinterpret_cast<char*>(&_impl_.base_offset_)) + sizeof(_impl_.segment_row_count_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -532,50 +541,66 @@ const char* InvertedIndexMeta::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // uint64 row_count_in_group = 2;
+      // uint64 base_offset = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.row_count_in_group_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.base_offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint64 fst_offset = 3;
+      // uint64 inverted_index_size = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.fst_offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.inverted_index_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint64 fst_size = 4;
+      // uint32 relative_fst_offset = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _impl_.fst_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.relative_fst_offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint64 null_bitmap_offset = 5;
+      // uint32 fst_size = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          _impl_.null_bitmap_offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.fst_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint64 null_bitmap_size = 6;
+      // uint32 relative_null_bitmap_offset = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          _impl_.null_bitmap_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.relative_null_bitmap_offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.index.InvertedIndexStats stats = 7;
+      // uint32 null_bitmap_size = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.null_bitmap_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.index.InvertedIndexStats stats = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr = ctx->ParseMessage(_internal_mutable_stats(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 segment_row_count = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          _impl_.segment_row_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -619,41 +644,53 @@ uint8_t* InvertedIndexMeta::_InternalSerialize(
         1, this->_internal_name(), target);
   }
 
-  // uint64 row_count_in_group = 2;
-  if (this->_internal_row_count_in_group() != 0) {
+  // uint64 base_offset = 2;
+  if (this->_internal_base_offset() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_row_count_in_group(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_base_offset(), target);
   }
 
-  // uint64 fst_offset = 3;
-  if (this->_internal_fst_offset() != 0) {
+  // uint64 inverted_index_size = 3;
+  if (this->_internal_inverted_index_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_fst_offset(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_inverted_index_size(), target);
   }
 
-  // uint64 fst_size = 4;
+  // uint32 relative_fst_offset = 4;
+  if (this->_internal_relative_fst_offset() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_relative_fst_offset(), target);
+  }
+
+  // uint32 fst_size = 5;
   if (this->_internal_fst_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_fst_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_fst_size(), target);
   }
 
-  // uint64 null_bitmap_offset = 5;
-  if (this->_internal_null_bitmap_offset() != 0) {
+  // uint32 relative_null_bitmap_offset = 6;
+  if (this->_internal_relative_null_bitmap_offset() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_null_bitmap_offset(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_relative_null_bitmap_offset(), target);
   }
 
-  // uint64 null_bitmap_size = 6;
+  // uint32 null_bitmap_size = 7;
   if (this->_internal_null_bitmap_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(6, this->_internal_null_bitmap_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_null_bitmap_size(), target);
   }
 
-  // .greptime.v1.index.InvertedIndexStats stats = 7;
+  // .greptime.v1.index.InvertedIndexStats stats = 8;
   if (this->_internal_has_stats()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(7, _Internal::stats(this),
+      InternalWriteMessage(8, _Internal::stats(this),
         _Internal::stats(this).GetCachedSize(), target, stream);
+  }
+
+  // uint64 segment_row_count = 9;
+  if (this->_internal_segment_row_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(9, this->_internal_segment_row_count(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -679,36 +716,46 @@ size_t InvertedIndexMeta::ByteSizeLong() const {
         this->_internal_name());
   }
 
-  // .greptime.v1.index.InvertedIndexStats stats = 7;
+  // .greptime.v1.index.InvertedIndexStats stats = 8;
   if (this->_internal_has_stats()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.stats_);
   }
 
-  // uint64 row_count_in_group = 2;
-  if (this->_internal_row_count_in_group() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_row_count_in_group());
+  // uint64 base_offset = 2;
+  if (this->_internal_base_offset() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_base_offset());
   }
 
-  // uint64 fst_offset = 3;
-  if (this->_internal_fst_offset() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_fst_offset());
+  // uint64 inverted_index_size = 3;
+  if (this->_internal_inverted_index_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_inverted_index_size());
   }
 
-  // uint64 fst_size = 4;
+  // uint32 relative_fst_offset = 4;
+  if (this->_internal_relative_fst_offset() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_relative_fst_offset());
+  }
+
+  // uint32 fst_size = 5;
   if (this->_internal_fst_size() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_fst_size());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fst_size());
   }
 
-  // uint64 null_bitmap_offset = 5;
-  if (this->_internal_null_bitmap_offset() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_null_bitmap_offset());
+  // uint32 relative_null_bitmap_offset = 6;
+  if (this->_internal_relative_null_bitmap_offset() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_relative_null_bitmap_offset());
   }
 
-  // uint64 null_bitmap_size = 6;
+  // uint32 null_bitmap_size = 7;
   if (this->_internal_null_bitmap_size() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_null_bitmap_size());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_null_bitmap_size());
+  }
+
+  // uint64 segment_row_count = 9;
+  if (this->_internal_segment_row_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_segment_row_count());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -736,20 +783,26 @@ void InvertedIndexMeta::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
     _this->_internal_mutable_stats()->::greptime::v1::index::InvertedIndexStats::MergeFrom(
         from._internal_stats());
   }
-  if (from._internal_row_count_in_group() != 0) {
-    _this->_internal_set_row_count_in_group(from._internal_row_count_in_group());
+  if (from._internal_base_offset() != 0) {
+    _this->_internal_set_base_offset(from._internal_base_offset());
   }
-  if (from._internal_fst_offset() != 0) {
-    _this->_internal_set_fst_offset(from._internal_fst_offset());
+  if (from._internal_inverted_index_size() != 0) {
+    _this->_internal_set_inverted_index_size(from._internal_inverted_index_size());
+  }
+  if (from._internal_relative_fst_offset() != 0) {
+    _this->_internal_set_relative_fst_offset(from._internal_relative_fst_offset());
   }
   if (from._internal_fst_size() != 0) {
     _this->_internal_set_fst_size(from._internal_fst_size());
   }
-  if (from._internal_null_bitmap_offset() != 0) {
-    _this->_internal_set_null_bitmap_offset(from._internal_null_bitmap_offset());
+  if (from._internal_relative_null_bitmap_offset() != 0) {
+    _this->_internal_set_relative_null_bitmap_offset(from._internal_relative_null_bitmap_offset());
   }
   if (from._internal_null_bitmap_size() != 0) {
     _this->_internal_set_null_bitmap_size(from._internal_null_bitmap_size());
+  }
+  if (from._internal_segment_row_count() != 0) {
+    _this->_internal_set_segment_row_count(from._internal_segment_row_count());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -775,8 +828,8 @@ void InvertedIndexMeta::InternalSwap(InvertedIndexMeta* other) {
       &other->_impl_.name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(InvertedIndexMeta, _impl_.null_bitmap_size_)
-      + sizeof(InvertedIndexMeta::_impl_.null_bitmap_size_)
+      PROTOBUF_FIELD_OFFSET(InvertedIndexMeta, _impl_.segment_row_count_)
+      + sizeof(InvertedIndexMeta::_impl_.segment_row_count_)
       - PROTOBUF_FIELD_OFFSET(InvertedIndexMeta, _impl_.stats_)>(
           reinterpret_cast<char*>(&_impl_.stats_),
           reinterpret_cast<char*>(&other->_impl_.stats_));
