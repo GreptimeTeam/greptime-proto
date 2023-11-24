@@ -50,15 +50,15 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 namespace greptime {
 namespace v1 {
 namespace index {
-class InvertedIndexFooter;
-struct InvertedIndexFooterDefaultTypeInternal;
-extern InvertedIndexFooterDefaultTypeInternal _InvertedIndexFooter_default_instance_;
-class InvertedIndexFooter_MetasEntry_DoNotUse;
-struct InvertedIndexFooter_MetasEntry_DoNotUseDefaultTypeInternal;
-extern InvertedIndexFooter_MetasEntry_DoNotUseDefaultTypeInternal _InvertedIndexFooter_MetasEntry_DoNotUse_default_instance_;
 class InvertedIndexMeta;
 struct InvertedIndexMetaDefaultTypeInternal;
 extern InvertedIndexMetaDefaultTypeInternal _InvertedIndexMeta_default_instance_;
+class InvertedIndexMetas;
+struct InvertedIndexMetasDefaultTypeInternal;
+extern InvertedIndexMetasDefaultTypeInternal _InvertedIndexMetas_default_instance_;
+class InvertedIndexMetas_MetasEntry_DoNotUse;
+struct InvertedIndexMetas_MetasEntry_DoNotUseDefaultTypeInternal;
+extern InvertedIndexMetas_MetasEntry_DoNotUseDefaultTypeInternal _InvertedIndexMetas_MetasEntry_DoNotUse_default_instance_;
 class InvertedIndexStats;
 struct InvertedIndexStatsDefaultTypeInternal;
 extern InvertedIndexStatsDefaultTypeInternal _InvertedIndexStats_default_instance_;
@@ -66,9 +66,9 @@ extern InvertedIndexStatsDefaultTypeInternal _InvertedIndexStats_default_instanc
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
-template<> ::greptime::v1::index::InvertedIndexFooter* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexFooter>(Arena*);
-template<> ::greptime::v1::index::InvertedIndexFooter_MetasEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexFooter_MetasEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::index::InvertedIndexMeta* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexMeta>(Arena*);
+template<> ::greptime::v1::index::InvertedIndexMetas* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexMetas>(Arena*);
+template<> ::greptime::v1::index::InvertedIndexMetas_MetasEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexMetas_MetasEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::index::InvertedIndexStats* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexStats>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -77,23 +77,23 @@ namespace index {
 
 // ===================================================================
 
-class InvertedIndexFooter_MetasEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexFooter_MetasEntry_DoNotUse, 
+class InvertedIndexMetas_MetasEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexMetas_MetasEntry_DoNotUse, 
     std::string, ::greptime::v1::index::InvertedIndexMeta,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexFooter_MetasEntry_DoNotUse, 
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexMetas_MetasEntry_DoNotUse, 
     std::string, ::greptime::v1::index::InvertedIndexMeta,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
-  InvertedIndexFooter_MetasEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR InvertedIndexFooter_MetasEntry_DoNotUse(
+  InvertedIndexMetas_MetasEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR InvertedIndexMetas_MetasEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit InvertedIndexFooter_MetasEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const InvertedIndexFooter_MetasEntry_DoNotUse& other);
-  static const InvertedIndexFooter_MetasEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const InvertedIndexFooter_MetasEntry_DoNotUse*>(&_InvertedIndexFooter_MetasEntry_DoNotUse_default_instance_); }
+  explicit InvertedIndexMetas_MetasEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const InvertedIndexMetas_MetasEntry_DoNotUse& other);
+  static const InvertedIndexMetas_MetasEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const InvertedIndexMetas_MetasEntry_DoNotUse*>(&_InvertedIndexMetas_MetasEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.index.InvertedIndexFooter.MetasEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.index.InvertedIndexMetas.MetasEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
@@ -103,24 +103,24 @@ public:
 
 // -------------------------------------------------------------------
 
-class InvertedIndexFooter final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.index.InvertedIndexFooter) */ {
+class InvertedIndexMetas final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.index.InvertedIndexMetas) */ {
  public:
-  inline InvertedIndexFooter() : InvertedIndexFooter(nullptr) {}
-  ~InvertedIndexFooter() override;
-  explicit PROTOBUF_CONSTEXPR InvertedIndexFooter(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline InvertedIndexMetas() : InvertedIndexMetas(nullptr) {}
+  ~InvertedIndexMetas() override;
+  explicit PROTOBUF_CONSTEXPR InvertedIndexMetas(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  InvertedIndexFooter(const InvertedIndexFooter& from);
-  InvertedIndexFooter(InvertedIndexFooter&& from) noexcept
-    : InvertedIndexFooter() {
+  InvertedIndexMetas(const InvertedIndexMetas& from);
+  InvertedIndexMetas(InvertedIndexMetas&& from) noexcept
+    : InvertedIndexMetas() {
     *this = ::std::move(from);
   }
 
-  inline InvertedIndexFooter& operator=(const InvertedIndexFooter& from) {
+  inline InvertedIndexMetas& operator=(const InvertedIndexMetas& from) {
     CopyFrom(from);
     return *this;
   }
-  inline InvertedIndexFooter& operator=(InvertedIndexFooter&& from) noexcept {
+  inline InvertedIndexMetas& operator=(InvertedIndexMetas&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -143,20 +143,20 @@ class InvertedIndexFooter final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const InvertedIndexFooter& default_instance() {
+  static const InvertedIndexMetas& default_instance() {
     return *internal_default_instance();
   }
-  static inline const InvertedIndexFooter* internal_default_instance() {
-    return reinterpret_cast<const InvertedIndexFooter*>(
-               &_InvertedIndexFooter_default_instance_);
+  static inline const InvertedIndexMetas* internal_default_instance() {
+    return reinterpret_cast<const InvertedIndexMetas*>(
+               &_InvertedIndexMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(InvertedIndexFooter& a, InvertedIndexFooter& b) {
+  friend void swap(InvertedIndexMetas& a, InvertedIndexMetas& b) {
     a.Swap(&b);
   }
-  inline void Swap(InvertedIndexFooter* other) {
+  inline void Swap(InvertedIndexMetas* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -169,7 +169,7 @@ class InvertedIndexFooter final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(InvertedIndexFooter* other) {
+  void UnsafeArenaSwap(InvertedIndexMetas* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -177,14 +177,14 @@ class InvertedIndexFooter final :
 
   // implements Message ----------------------------------------------
 
-  InvertedIndexFooter* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<InvertedIndexFooter>(arena);
+  InvertedIndexMetas* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<InvertedIndexMetas>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const InvertedIndexFooter& from);
+  void CopyFrom(const InvertedIndexMetas& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const InvertedIndexFooter& from) {
-    InvertedIndexFooter::MergeImpl(*this, from);
+  void MergeFrom( const InvertedIndexMetas& from) {
+    InvertedIndexMetas::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -202,15 +202,15 @@ class InvertedIndexFooter final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(InvertedIndexFooter* other);
+  void InternalSwap(InvertedIndexMetas* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.index.InvertedIndexFooter";
+    return "greptime.v1.index.InvertedIndexMetas";
   }
   protected:
-  explicit InvertedIndexFooter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit InvertedIndexMetas(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -246,7 +246,7 @@ class InvertedIndexFooter final :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
       mutable_metas();
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexFooter)
+  // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexMetas)
  private:
   class _Internal;
 
@@ -255,7 +255,7 @@ class InvertedIndexFooter final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        InvertedIndexFooter_MetasEntry_DoNotUse,
+        InvertedIndexMetas_MetasEntry_DoNotUse,
         std::string, ::greptime::v1::index::InvertedIndexMeta,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> metas_;
@@ -388,12 +388,14 @@ class InvertedIndexMeta final :
 
   enum : int {
     kNameFieldNumber = 1,
-    kStatsFieldNumber = 7,
-    kRowCountInGroupFieldNumber = 2,
-    kFstOffsetFieldNumber = 3,
-    kFstSizeFieldNumber = 4,
-    kNullBitmapOffsetFieldNumber = 5,
-    kNullBitmapSizeFieldNumber = 6,
+    kStatsFieldNumber = 8,
+    kBaseOffsetFieldNumber = 2,
+    kInvertedIndexSizeFieldNumber = 3,
+    kRelativeFstOffsetFieldNumber = 4,
+    kFstSizeFieldNumber = 5,
+    kRelativeNullBitmapOffsetFieldNumber = 6,
+    kNullBitmapSizeFieldNumber = 7,
+    kSegmentRowCountFieldNumber = 9,
   };
   // string name = 1;
   void clear_name();
@@ -409,7 +411,7 @@ class InvertedIndexMeta final :
   std::string* _internal_mutable_name();
   public:
 
-  // .greptime.v1.index.InvertedIndexStats stats = 7;
+  // .greptime.v1.index.InvertedIndexStats stats = 8;
   bool has_stats() const;
   private:
   bool _internal_has_stats() const;
@@ -427,49 +429,67 @@ class InvertedIndexMeta final :
       ::greptime::v1::index::InvertedIndexStats* stats);
   ::greptime::v1::index::InvertedIndexStats* unsafe_arena_release_stats();
 
-  // uint64 row_count_in_group = 2;
-  void clear_row_count_in_group();
-  uint64_t row_count_in_group() const;
-  void set_row_count_in_group(uint64_t value);
+  // uint64 base_offset = 2;
+  void clear_base_offset();
+  uint64_t base_offset() const;
+  void set_base_offset(uint64_t value);
   private:
-  uint64_t _internal_row_count_in_group() const;
-  void _internal_set_row_count_in_group(uint64_t value);
+  uint64_t _internal_base_offset() const;
+  void _internal_set_base_offset(uint64_t value);
   public:
 
-  // uint64 fst_offset = 3;
-  void clear_fst_offset();
-  uint64_t fst_offset() const;
-  void set_fst_offset(uint64_t value);
+  // uint64 inverted_index_size = 3;
+  void clear_inverted_index_size();
+  uint64_t inverted_index_size() const;
+  void set_inverted_index_size(uint64_t value);
   private:
-  uint64_t _internal_fst_offset() const;
-  void _internal_set_fst_offset(uint64_t value);
+  uint64_t _internal_inverted_index_size() const;
+  void _internal_set_inverted_index_size(uint64_t value);
   public:
 
-  // uint64 fst_size = 4;
+  // uint32 relative_fst_offset = 4;
+  void clear_relative_fst_offset();
+  uint32_t relative_fst_offset() const;
+  void set_relative_fst_offset(uint32_t value);
+  private:
+  uint32_t _internal_relative_fst_offset() const;
+  void _internal_set_relative_fst_offset(uint32_t value);
+  public:
+
+  // uint32 fst_size = 5;
   void clear_fst_size();
-  uint64_t fst_size() const;
-  void set_fst_size(uint64_t value);
+  uint32_t fst_size() const;
+  void set_fst_size(uint32_t value);
   private:
-  uint64_t _internal_fst_size() const;
-  void _internal_set_fst_size(uint64_t value);
+  uint32_t _internal_fst_size() const;
+  void _internal_set_fst_size(uint32_t value);
   public:
 
-  // uint64 null_bitmap_offset = 5;
-  void clear_null_bitmap_offset();
-  uint64_t null_bitmap_offset() const;
-  void set_null_bitmap_offset(uint64_t value);
+  // uint32 relative_null_bitmap_offset = 6;
+  void clear_relative_null_bitmap_offset();
+  uint32_t relative_null_bitmap_offset() const;
+  void set_relative_null_bitmap_offset(uint32_t value);
   private:
-  uint64_t _internal_null_bitmap_offset() const;
-  void _internal_set_null_bitmap_offset(uint64_t value);
+  uint32_t _internal_relative_null_bitmap_offset() const;
+  void _internal_set_relative_null_bitmap_offset(uint32_t value);
   public:
 
-  // uint64 null_bitmap_size = 6;
+  // uint32 null_bitmap_size = 7;
   void clear_null_bitmap_size();
-  uint64_t null_bitmap_size() const;
-  void set_null_bitmap_size(uint64_t value);
+  uint32_t null_bitmap_size() const;
+  void set_null_bitmap_size(uint32_t value);
   private:
-  uint64_t _internal_null_bitmap_size() const;
-  void _internal_set_null_bitmap_size(uint64_t value);
+  uint32_t _internal_null_bitmap_size() const;
+  void _internal_set_null_bitmap_size(uint32_t value);
+  public:
+
+  // uint64 segment_row_count = 9;
+  void clear_segment_row_count();
+  uint64_t segment_row_count() const;
+  void set_segment_row_count(uint64_t value);
+  private:
+  uint64_t _internal_segment_row_count() const;
+  void _internal_set_segment_row_count(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexMeta)
@@ -482,11 +502,13 @@ class InvertedIndexMeta final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::greptime::v1::index::InvertedIndexStats* stats_;
-    uint64_t row_count_in_group_;
-    uint64_t fst_offset_;
-    uint64_t fst_size_;
-    uint64_t null_bitmap_offset_;
-    uint64_t null_bitmap_size_;
+    uint64_t base_offset_;
+    uint64_t inverted_index_size_;
+    uint32_t relative_fst_offset_;
+    uint32_t fst_size_;
+    uint32_t relative_null_bitmap_offset_;
+    uint32_t null_bitmap_size_;
+    uint64_t segment_row_count_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -694,34 +716,34 @@ class InvertedIndexStats final :
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
-// InvertedIndexFooter
+// InvertedIndexMetas
 
 // map<string, .greptime.v1.index.InvertedIndexMeta> metas = 1;
-inline int InvertedIndexFooter::_internal_metas_size() const {
+inline int InvertedIndexMetas::_internal_metas_size() const {
   return _impl_.metas_.size();
 }
-inline int InvertedIndexFooter::metas_size() const {
+inline int InvertedIndexMetas::metas_size() const {
   return _internal_metas_size();
 }
-inline void InvertedIndexFooter::clear_metas() {
+inline void InvertedIndexMetas::clear_metas() {
   _impl_.metas_.Clear();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >&
-InvertedIndexFooter::_internal_metas() const {
+InvertedIndexMetas::_internal_metas() const {
   return _impl_.metas_.GetMap();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >&
-InvertedIndexFooter::metas() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.index.InvertedIndexFooter.metas)
+InvertedIndexMetas::metas() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.index.InvertedIndexMetas.metas)
   return _internal_metas();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
-InvertedIndexFooter::_internal_mutable_metas() {
+InvertedIndexMetas::_internal_mutable_metas() {
   return _impl_.metas_.MutableMap();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
-InvertedIndexFooter::mutable_metas() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.index.InvertedIndexFooter.metas)
+InvertedIndexMetas::mutable_metas() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.index.InvertedIndexMetas.metas)
   return _internal_mutable_metas();
 }
 
@@ -779,107 +801,127 @@ inline void InvertedIndexMeta::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.index.InvertedIndexMeta.name)
 }
 
-// uint64 row_count_in_group = 2;
-inline void InvertedIndexMeta::clear_row_count_in_group() {
-  _impl_.row_count_in_group_ = uint64_t{0u};
+// uint64 base_offset = 2;
+inline void InvertedIndexMeta::clear_base_offset() {
+  _impl_.base_offset_ = uint64_t{0u};
 }
-inline uint64_t InvertedIndexMeta::_internal_row_count_in_group() const {
-  return _impl_.row_count_in_group_;
+inline uint64_t InvertedIndexMeta::_internal_base_offset() const {
+  return _impl_.base_offset_;
 }
-inline uint64_t InvertedIndexMeta::row_count_in_group() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.row_count_in_group)
-  return _internal_row_count_in_group();
+inline uint64_t InvertedIndexMeta::base_offset() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.base_offset)
+  return _internal_base_offset();
 }
-inline void InvertedIndexMeta::_internal_set_row_count_in_group(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_base_offset(uint64_t value) {
   
-  _impl_.row_count_in_group_ = value;
+  _impl_.base_offset_ = value;
 }
-inline void InvertedIndexMeta::set_row_count_in_group(uint64_t value) {
-  _internal_set_row_count_in_group(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.row_count_in_group)
+inline void InvertedIndexMeta::set_base_offset(uint64_t value) {
+  _internal_set_base_offset(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.base_offset)
 }
 
-// uint64 fst_offset = 3;
-inline void InvertedIndexMeta::clear_fst_offset() {
-  _impl_.fst_offset_ = uint64_t{0u};
+// uint64 inverted_index_size = 3;
+inline void InvertedIndexMeta::clear_inverted_index_size() {
+  _impl_.inverted_index_size_ = uint64_t{0u};
 }
-inline uint64_t InvertedIndexMeta::_internal_fst_offset() const {
-  return _impl_.fst_offset_;
+inline uint64_t InvertedIndexMeta::_internal_inverted_index_size() const {
+  return _impl_.inverted_index_size_;
 }
-inline uint64_t InvertedIndexMeta::fst_offset() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.fst_offset)
-  return _internal_fst_offset();
+inline uint64_t InvertedIndexMeta::inverted_index_size() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.inverted_index_size)
+  return _internal_inverted_index_size();
 }
-inline void InvertedIndexMeta::_internal_set_fst_offset(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_inverted_index_size(uint64_t value) {
   
-  _impl_.fst_offset_ = value;
+  _impl_.inverted_index_size_ = value;
 }
-inline void InvertedIndexMeta::set_fst_offset(uint64_t value) {
-  _internal_set_fst_offset(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.fst_offset)
+inline void InvertedIndexMeta::set_inverted_index_size(uint64_t value) {
+  _internal_set_inverted_index_size(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.inverted_index_size)
 }
 
-// uint64 fst_size = 4;
+// uint32 relative_fst_offset = 4;
+inline void InvertedIndexMeta::clear_relative_fst_offset() {
+  _impl_.relative_fst_offset_ = 0u;
+}
+inline uint32_t InvertedIndexMeta::_internal_relative_fst_offset() const {
+  return _impl_.relative_fst_offset_;
+}
+inline uint32_t InvertedIndexMeta::relative_fst_offset() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.relative_fst_offset)
+  return _internal_relative_fst_offset();
+}
+inline void InvertedIndexMeta::_internal_set_relative_fst_offset(uint32_t value) {
+  
+  _impl_.relative_fst_offset_ = value;
+}
+inline void InvertedIndexMeta::set_relative_fst_offset(uint32_t value) {
+  _internal_set_relative_fst_offset(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.relative_fst_offset)
+}
+
+// uint32 fst_size = 5;
 inline void InvertedIndexMeta::clear_fst_size() {
-  _impl_.fst_size_ = uint64_t{0u};
+  _impl_.fst_size_ = 0u;
 }
-inline uint64_t InvertedIndexMeta::_internal_fst_size() const {
+inline uint32_t InvertedIndexMeta::_internal_fst_size() const {
   return _impl_.fst_size_;
 }
-inline uint64_t InvertedIndexMeta::fst_size() const {
+inline uint32_t InvertedIndexMeta::fst_size() const {
   // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.fst_size)
   return _internal_fst_size();
 }
-inline void InvertedIndexMeta::_internal_set_fst_size(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_fst_size(uint32_t value) {
   
   _impl_.fst_size_ = value;
 }
-inline void InvertedIndexMeta::set_fst_size(uint64_t value) {
+inline void InvertedIndexMeta::set_fst_size(uint32_t value) {
   _internal_set_fst_size(value);
   // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.fst_size)
 }
 
-// uint64 null_bitmap_offset = 5;
-inline void InvertedIndexMeta::clear_null_bitmap_offset() {
-  _impl_.null_bitmap_offset_ = uint64_t{0u};
+// uint32 relative_null_bitmap_offset = 6;
+inline void InvertedIndexMeta::clear_relative_null_bitmap_offset() {
+  _impl_.relative_null_bitmap_offset_ = 0u;
 }
-inline uint64_t InvertedIndexMeta::_internal_null_bitmap_offset() const {
-  return _impl_.null_bitmap_offset_;
+inline uint32_t InvertedIndexMeta::_internal_relative_null_bitmap_offset() const {
+  return _impl_.relative_null_bitmap_offset_;
 }
-inline uint64_t InvertedIndexMeta::null_bitmap_offset() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.null_bitmap_offset)
-  return _internal_null_bitmap_offset();
+inline uint32_t InvertedIndexMeta::relative_null_bitmap_offset() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.relative_null_bitmap_offset)
+  return _internal_relative_null_bitmap_offset();
 }
-inline void InvertedIndexMeta::_internal_set_null_bitmap_offset(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_relative_null_bitmap_offset(uint32_t value) {
   
-  _impl_.null_bitmap_offset_ = value;
+  _impl_.relative_null_bitmap_offset_ = value;
 }
-inline void InvertedIndexMeta::set_null_bitmap_offset(uint64_t value) {
-  _internal_set_null_bitmap_offset(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.null_bitmap_offset)
+inline void InvertedIndexMeta::set_relative_null_bitmap_offset(uint32_t value) {
+  _internal_set_relative_null_bitmap_offset(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.relative_null_bitmap_offset)
 }
 
-// uint64 null_bitmap_size = 6;
+// uint32 null_bitmap_size = 7;
 inline void InvertedIndexMeta::clear_null_bitmap_size() {
-  _impl_.null_bitmap_size_ = uint64_t{0u};
+  _impl_.null_bitmap_size_ = 0u;
 }
-inline uint64_t InvertedIndexMeta::_internal_null_bitmap_size() const {
+inline uint32_t InvertedIndexMeta::_internal_null_bitmap_size() const {
   return _impl_.null_bitmap_size_;
 }
-inline uint64_t InvertedIndexMeta::null_bitmap_size() const {
+inline uint32_t InvertedIndexMeta::null_bitmap_size() const {
   // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.null_bitmap_size)
   return _internal_null_bitmap_size();
 }
-inline void InvertedIndexMeta::_internal_set_null_bitmap_size(uint64_t value) {
+inline void InvertedIndexMeta::_internal_set_null_bitmap_size(uint32_t value) {
   
   _impl_.null_bitmap_size_ = value;
 }
-inline void InvertedIndexMeta::set_null_bitmap_size(uint64_t value) {
+inline void InvertedIndexMeta::set_null_bitmap_size(uint32_t value) {
   _internal_set_null_bitmap_size(value);
   // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.null_bitmap_size)
 }
 
-// .greptime.v1.index.InvertedIndexStats stats = 7;
+// .greptime.v1.index.InvertedIndexStats stats = 8;
 inline bool InvertedIndexMeta::_internal_has_stats() const {
   return this != internal_default_instance() && _impl_.stats_ != nullptr;
 }
@@ -967,6 +1009,26 @@ inline void InvertedIndexMeta::set_allocated_stats(::greptime::v1::index::Invert
   }
   _impl_.stats_ = stats;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.index.InvertedIndexMeta.stats)
+}
+
+// uint64 segment_row_count = 9;
+inline void InvertedIndexMeta::clear_segment_row_count() {
+  _impl_.segment_row_count_ = uint64_t{0u};
+}
+inline uint64_t InvertedIndexMeta::_internal_segment_row_count() const {
+  return _impl_.segment_row_count_;
+}
+inline uint64_t InvertedIndexMeta::segment_row_count() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.segment_row_count)
+  return _internal_segment_row_count();
+}
+inline void InvertedIndexMeta::_internal_set_segment_row_count(uint64_t value) {
+  
+  _impl_.segment_row_count_ = value;
+}
+inline void InvertedIndexMeta::set_segment_row_count(uint64_t value) {
+  _internal_set_segment_row_count(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.segment_row_count)
 }
 
 // -------------------------------------------------------------------
