@@ -82,7 +82,7 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
   /**
    * <pre>
    * InvertedIndexMetas defines the metadata for an inverted index
-   * within a inverted index blob.
+   * within an inverted index blob.
    * </pre>
    *
    * Protobuf type {@code greptime.v1.index.InvertedIndexMetas}
@@ -459,7 +459,7 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
     /**
      * <pre>
      * InvertedIndexMetas defines the metadata for an inverted index
-     * within a inverted index blob.
+     * within an inverted index blob.
      * </pre>
      *
      * Protobuf type {@code greptime.v1.index.InvertedIndexMetas}

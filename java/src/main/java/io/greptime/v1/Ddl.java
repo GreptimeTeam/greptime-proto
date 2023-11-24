@@ -5862,6 +5862,12 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.TableId table_id = 4;</code>
      */
     io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
+
+    /**
+     * <code>bool drop_if_exists = 5;</code>
+     * @return The dropIfExists.
+     */
+    boolean getDropIfExists();
   }
   /**
    * Protobuf type {@code greptime.v1.DropTableExpr}
@@ -5940,6 +5946,11 @@ java.lang.String defaultValue);
                 tableId_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 40: {
+
+              dropIfExists_ = input.readBool();
               break;
             }
             default: {
@@ -6116,6 +6127,17 @@ java.lang.String defaultValue);
       return getTableId();
     }
 
+    public static final int DROP_IF_EXISTS_FIELD_NUMBER = 5;
+    private boolean dropIfExists_;
+    /**
+     * <code>bool drop_if_exists = 5;</code>
+     * @return The dropIfExists.
+     */
+    @java.lang.Override
+    public boolean getDropIfExists() {
+      return dropIfExists_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6142,6 +6164,9 @@ java.lang.String defaultValue);
       if (tableId_ != null) {
         output.writeMessage(4, getTableId());
       }
+      if (dropIfExists_ != false) {
+        output.writeBool(5, dropIfExists_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6163,6 +6188,10 @@ java.lang.String defaultValue);
       if (tableId_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getTableId());
+      }
+      if (dropIfExists_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, dropIfExists_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6190,6 +6219,8 @@ java.lang.String defaultValue);
         if (!getTableId()
             .equals(other.getTableId())) return false;
       }
+      if (getDropIfExists()
+          != other.getDropIfExists()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6211,6 +6242,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
         hash = (53 * hash) + getTableId().hashCode();
       }
+      hash = (37 * hash) + DROP_IF_EXISTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getDropIfExists());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6356,6 +6390,8 @@ java.lang.String defaultValue);
           tableId_ = null;
           tableIdBuilder_ = null;
         }
+        dropIfExists_ = false;
+
         return this;
       }
 
@@ -6390,6 +6426,7 @@ java.lang.String defaultValue);
         } else {
           result.tableId_ = tableIdBuilder_.build();
         }
+        result.dropIfExists_ = dropIfExists_;
         onBuilt();
         return result;
       }
@@ -6452,6 +6489,9 @@ java.lang.String defaultValue);
         }
         if (other.hasTableId()) {
           mergeTableId(other.getTableId());
+        }
+        if (other.getDropIfExists() != false) {
+          setDropIfExists(other.getDropIfExists());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6827,6 +6867,37 @@ java.lang.String defaultValue);
           tableId_ = null;
         }
         return tableIdBuilder_;
+      }
+
+      private boolean dropIfExists_ ;
+      /**
+       * <code>bool drop_if_exists = 5;</code>
+       * @return The dropIfExists.
+       */
+      @java.lang.Override
+      public boolean getDropIfExists() {
+        return dropIfExists_;
+      }
+      /**
+       * <code>bool drop_if_exists = 5;</code>
+       * @param value The dropIfExists to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDropIfExists(boolean value) {
+        
+        dropIfExists_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool drop_if_exists = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDropIfExists() {
+        
+        dropIfExists_ = false;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -15206,38 +15277,39 @@ java.lang.String defaultValue);
       "2\027.greptime.v1.AddColumnsH\000\0220\n\014drop_colu" +
       "mns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220\n" +
       "\014rename_table\030\006 \001(\0132\030.greptime.v1.Rename" +
-      "TableH\000B\006\n\004kind\"v\n\rDropTableExpr\022\024\n\014cata" +
-      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nt" +
-      "able_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grep" +
-      "time.v1.TableId\"\270\001\n\022CreateDatabaseExpr\022\025" +
-      "\n\rdatabase_name\030\001 \001(\t\022\034\n\024create_if_not_e" +
-      "xists\030\002 \001(\010\022=\n\007options\030\003 \003(\0132,.greptime." +
-      "v1.CreateDatabaseExpr.OptionsEntry\032.\n\014Op" +
-      "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\"z\n\021TruncateTableExpr\022\024\n\014catalog_name\030" +
-      "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name" +
-      "\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.T" +
-      "ableId\"9\n\nAddColumns\022+\n\013add_columns\030\001 \003(" +
-      "\0132\026.greptime.v1.AddColumn\"<\n\013DropColumns" +
-      "\022-\n\014drop_columns\030\001 \003(\0132\027.greptime.v1.Dro" +
-      "pColumn\"%\n\013RenameTable\022\026\n\016new_table_name" +
-      "\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132" +
-      "\026.greptime.v1.ColumnDef\0220\n\010location\030\003 \001(" +
-      "\0132\036.greptime.v1.AddColumnLocation\"\032\n\nDro" +
-      "pColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001" +
-      " \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata" +
-      "_type\030\002 \001(\0162\033.greptime.v1.ColumnDataType" +
-      "\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constra" +
-      "int\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.grept" +
-      "ime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022" +
-      "datatype_extension\030\007 \001(\0132$.greptime.v1.C" +
-      "olumnDataTypeExtension\"\230\001\n\021AddColumnLoca" +
-      "tion\022B\n\rlocation_type\030\001 \001(\0162+.greptime.v" +
-      "1.AddColumnLocation.LocationType\022\031\n\021afte" +
-      "r_column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005F" +
-      "IRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003Ddl" +
-      "Z5github.com/GreptimeTeam/greptime-proto" +
-      "/go/greptime/v1b\006proto3"
+      "TableH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014cat" +
+      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\n" +
+      "table_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gre" +
+      "ptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010" +
+      "\"\270\001\n\022CreateDatabaseExpr\022\025\n\rdatabase_name" +
+      "\030\001 \001(\t\022\034\n\024create_if_not_exists\030\002 \001(\010\022=\n\007" +
+      "options\030\003 \003(\0132,.greptime.v1.CreateDataba" +
+      "seExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateT" +
+      "ableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema" +
+      "_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table" +
+      "_id\030\004 \001(\0132\024.greptime.v1.TableId\"9\n\nAddCo" +
+      "lumns\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1" +
+      ".AddColumn\"<\n\013DropColumns\022-\n\014drop_column" +
+      "s\030\001 \003(\0132\027.greptime.v1.DropColumn\"%\n\013Rena" +
+      "meTable\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddCo" +
+      "lumn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.C" +
+      "olumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1" +
+      ".AddColumnLocation\"\032\n\nDropColumn\022\014\n\004name" +
+      "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumn" +
+      "Def\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.g" +
+      "reptime.v1.ColumnDataType\022\023\n\013is_nullable" +
+      "\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rse" +
+      "mantic_type\030\005 \001(\0162\031.greptime.v1.Semantic" +
+      "Type\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extens" +
+      "ion\030\007 \001(\0132$.greptime.v1.ColumnDataTypeEx" +
+      "tension\"\230\001\n\021AddColumnLocation\022B\n\rlocatio" +
+      "n_type\030\001 \001(\0162+.greptime.v1.AddColumnLoca" +
+      "tion.LocationType\022\031\n\021after_column_name\030\002" +
+      " \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER" +
+      "\020\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gr" +
+      "eptimeTeam/greptime-proto/go/greptime/v1" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15273,7 +15345,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_DropTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", "DropIfExists", });
     internal_static_greptime_v1_CreateDatabaseExpr_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_CreateDatabaseExpr_fieldAccessorTable = new

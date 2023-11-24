@@ -1166,6 +1166,7 @@ class DropTableExpr final :
     kSchemaNameFieldNumber = 2,
     kTableNameFieldNumber = 3,
     kTableIdFieldNumber = 4,
+    kDropIfExistsFieldNumber = 5,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -1227,6 +1228,15 @@ class DropTableExpr final :
       ::greptime::v1::TableId* table_id);
   ::greptime::v1::TableId* unsafe_arena_release_table_id();
 
+  // bool drop_if_exists = 5;
+  void clear_drop_if_exists();
+  bool drop_if_exists() const;
+  void set_drop_if_exists(bool value);
+  private:
+  bool _internal_drop_if_exists() const;
+  void _internal_set_drop_if_exists(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.DropTableExpr)
  private:
   class _Internal;
@@ -1239,6 +1249,7 @@ class DropTableExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     ::greptime::v1::TableId* table_id_;
+    bool drop_if_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -4621,6 +4632,26 @@ inline void DropTableExpr::set_allocated_table_id(::greptime::v1::TableId* table
   }
   _impl_.table_id_ = table_id;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.DropTableExpr.table_id)
+}
+
+// bool drop_if_exists = 5;
+inline void DropTableExpr::clear_drop_if_exists() {
+  _impl_.drop_if_exists_ = false;
+}
+inline bool DropTableExpr::_internal_drop_if_exists() const {
+  return _impl_.drop_if_exists_;
+}
+inline bool DropTableExpr::drop_if_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropTableExpr.drop_if_exists)
+  return _internal_drop_if_exists();
+}
+inline void DropTableExpr::_internal_set_drop_if_exists(bool value) {
+  
+  _impl_.drop_if_exists_ = value;
+}
+inline void DropTableExpr::set_drop_if_exists(bool value) {
+  _internal_set_drop_if_exists(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.DropTableExpr.drop_if_exists)
 }
 
 // -------------------------------------------------------------------
