@@ -1218,6 +1218,33 @@ public final class RowData {
      * @return The semanticType.
      */
     io.greptime.v1.Common.SemanticType getSemanticType();
+
+    /**
+     * <pre>
+     * Extension for ColumnDataType.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+     * @return Whether the datatypeExtension field is set.
+     */
+    boolean hasDatatypeExtension();
+    /**
+     * <pre>
+     * Extension for ColumnDataType.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+     * @return The datatypeExtension.
+     */
+    io.greptime.v1.Common.ColumnDataTypeExtension getDatatypeExtension();
+    /**
+     * <pre>
+     * Extension for ColumnDataType.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+     */
+    io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder getDatatypeExtensionOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.ColumnSchema}
@@ -1283,6 +1310,19 @@ public final class RowData {
               int rawValue = input.readEnum();
 
               semanticType_ = rawValue;
+              break;
+            }
+            case 34: {
+              io.greptime.v1.Common.ColumnDataTypeExtension.Builder subBuilder = null;
+              if (datatypeExtension_ != null) {
+                subBuilder = datatypeExtension_.toBuilder();
+              }
+              datatypeExtension_ = input.readMessage(io.greptime.v1.Common.ColumnDataTypeExtension.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(datatypeExtension_);
+                datatypeExtension_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -1395,6 +1435,44 @@ public final class RowData {
       return result == null ? io.greptime.v1.Common.SemanticType.UNRECOGNIZED : result;
     }
 
+    public static final int DATATYPE_EXTENSION_FIELD_NUMBER = 4;
+    private io.greptime.v1.Common.ColumnDataTypeExtension datatypeExtension_;
+    /**
+     * <pre>
+     * Extension for ColumnDataType.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+     * @return Whether the datatypeExtension field is set.
+     */
+    @java.lang.Override
+    public boolean hasDatatypeExtension() {
+      return datatypeExtension_ != null;
+    }
+    /**
+     * <pre>
+     * Extension for ColumnDataType.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+     * @return The datatypeExtension.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ColumnDataTypeExtension getDatatypeExtension() {
+      return datatypeExtension_ == null ? io.greptime.v1.Common.ColumnDataTypeExtension.getDefaultInstance() : datatypeExtension_;
+    }
+    /**
+     * <pre>
+     * Extension for ColumnDataType.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder getDatatypeExtensionOrBuilder() {
+      return getDatatypeExtension();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1418,6 +1496,9 @@ public final class RowData {
       if (semanticType_ != io.greptime.v1.Common.SemanticType.TAG.getNumber()) {
         output.writeEnum(3, semanticType_);
       }
+      if (datatypeExtension_ != null) {
+        output.writeMessage(4, getDatatypeExtension());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1438,6 +1519,10 @@ public final class RowData {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, semanticType_);
       }
+      if (datatypeExtension_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getDatatypeExtension());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1457,6 +1542,11 @@ public final class RowData {
           .equals(other.getColumnName())) return false;
       if (datatype_ != other.datatype_) return false;
       if (semanticType_ != other.semanticType_) return false;
+      if (hasDatatypeExtension() != other.hasDatatypeExtension()) return false;
+      if (hasDatatypeExtension()) {
+        if (!getDatatypeExtension()
+            .equals(other.getDatatypeExtension())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1474,6 +1564,10 @@ public final class RowData {
       hash = (53 * hash) + datatype_;
       hash = (37 * hash) + SEMANTIC_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + semanticType_;
+      if (hasDatatypeExtension()) {
+        hash = (37 * hash) + DATATYPE_EXTENSION_FIELD_NUMBER;
+        hash = (53 * hash) + getDatatypeExtension().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1613,6 +1707,12 @@ public final class RowData {
 
         semanticType_ = 0;
 
+        if (datatypeExtensionBuilder_ == null) {
+          datatypeExtension_ = null;
+        } else {
+          datatypeExtension_ = null;
+          datatypeExtensionBuilder_ = null;
+        }
         return this;
       }
 
@@ -1642,6 +1742,11 @@ public final class RowData {
         result.columnName_ = columnName_;
         result.datatype_ = datatype_;
         result.semanticType_ = semanticType_;
+        if (datatypeExtensionBuilder_ == null) {
+          result.datatypeExtension_ = datatypeExtension_;
+        } else {
+          result.datatypeExtension_ = datatypeExtensionBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -1699,6 +1804,9 @@ public final class RowData {
         }
         if (other.semanticType_ != 0) {
           setSemanticTypeValue(other.getSemanticTypeValue());
+        }
+        if (other.hasDatatypeExtension()) {
+          mergeDatatypeExtension(other.getDatatypeExtension());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1911,6 +2019,161 @@ public final class RowData {
         semanticType_ = 0;
         onChanged();
         return this;
+      }
+
+      private io.greptime.v1.Common.ColumnDataTypeExtension datatypeExtension_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnDataTypeExtension, io.greptime.v1.Common.ColumnDataTypeExtension.Builder, io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder> datatypeExtensionBuilder_;
+      /**
+       * <pre>
+       * Extension for ColumnDataType.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+       * @return Whether the datatypeExtension field is set.
+       */
+      public boolean hasDatatypeExtension() {
+        return datatypeExtensionBuilder_ != null || datatypeExtension_ != null;
+      }
+      /**
+       * <pre>
+       * Extension for ColumnDataType.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+       * @return The datatypeExtension.
+       */
+      public io.greptime.v1.Common.ColumnDataTypeExtension getDatatypeExtension() {
+        if (datatypeExtensionBuilder_ == null) {
+          return datatypeExtension_ == null ? io.greptime.v1.Common.ColumnDataTypeExtension.getDefaultInstance() : datatypeExtension_;
+        } else {
+          return datatypeExtensionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Extension for ColumnDataType.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+       */
+      public Builder setDatatypeExtension(io.greptime.v1.Common.ColumnDataTypeExtension value) {
+        if (datatypeExtensionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          datatypeExtension_ = value;
+          onChanged();
+        } else {
+          datatypeExtensionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Extension for ColumnDataType.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+       */
+      public Builder setDatatypeExtension(
+          io.greptime.v1.Common.ColumnDataTypeExtension.Builder builderForValue) {
+        if (datatypeExtensionBuilder_ == null) {
+          datatypeExtension_ = builderForValue.build();
+          onChanged();
+        } else {
+          datatypeExtensionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Extension for ColumnDataType.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+       */
+      public Builder mergeDatatypeExtension(io.greptime.v1.Common.ColumnDataTypeExtension value) {
+        if (datatypeExtensionBuilder_ == null) {
+          if (datatypeExtension_ != null) {
+            datatypeExtension_ =
+              io.greptime.v1.Common.ColumnDataTypeExtension.newBuilder(datatypeExtension_).mergeFrom(value).buildPartial();
+          } else {
+            datatypeExtension_ = value;
+          }
+          onChanged();
+        } else {
+          datatypeExtensionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Extension for ColumnDataType.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+       */
+      public Builder clearDatatypeExtension() {
+        if (datatypeExtensionBuilder_ == null) {
+          datatypeExtension_ = null;
+          onChanged();
+        } else {
+          datatypeExtension_ = null;
+          datatypeExtensionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Extension for ColumnDataType.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+       */
+      public io.greptime.v1.Common.ColumnDataTypeExtension.Builder getDatatypeExtensionBuilder() {
+        
+        onChanged();
+        return getDatatypeExtensionFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Extension for ColumnDataType.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+       */
+      public io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder getDatatypeExtensionOrBuilder() {
+        if (datatypeExtensionBuilder_ != null) {
+          return datatypeExtensionBuilder_.getMessageOrBuilder();
+        } else {
+          return datatypeExtension_ == null ?
+              io.greptime.v1.Common.ColumnDataTypeExtension.getDefaultInstance() : datatypeExtension_;
+        }
+      }
+      /**
+       * <pre>
+       * Extension for ColumnDataType.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnDataTypeExtension, io.greptime.v1.Common.ColumnDataTypeExtension.Builder, io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder> 
+          getDatatypeExtensionFieldBuilder() {
+        if (datatypeExtensionBuilder_ == null) {
+          datatypeExtensionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.ColumnDataTypeExtension, io.greptime.v1.Common.ColumnDataTypeExtension.Builder, io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder>(
+                  getDatatypeExtension(),
+                  getParentForChildren(),
+                  isClean());
+          datatypeExtension_ = null;
+        }
+        return datatypeExtensionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3104,6 +3367,21 @@ public final class RowData {
      */
     long getDurationNanosecondValue();
 
+    /**
+     * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+     * @return Whether the decimal128Value field is set.
+     */
+    boolean hasDecimal128Value();
+    /**
+     * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+     * @return The decimal128Value.
+     */
+    io.greptime.v1.Common.Decimal128 getDecimal128Value();
+    /**
+     * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+     */
+    io.greptime.v1.Common.Decimal128OrBuilder getDecimal128ValueOrBuilder();
+
     public io.greptime.v1.RowData.Value.ValueDataCase getValueDataCase();
   }
   /**
@@ -3311,6 +3589,20 @@ public final class RowData {
               valueDataCase_ = 30;
               break;
             }
+            case 250: {
+              io.greptime.v1.Common.Decimal128.Builder subBuilder = null;
+              if (valueDataCase_ == 31) {
+                subBuilder = ((io.greptime.v1.Common.Decimal128) valueData_).toBuilder();
+              }
+              valueData_ =
+                  input.readMessage(io.greptime.v1.Common.Decimal128.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Common.Decimal128) valueData_);
+                valueData_ = subBuilder.buildPartial();
+              }
+              valueDataCase_ = 31;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3380,6 +3672,7 @@ public final class RowData {
       DURATION_MILLISECOND_VALUE(28),
       DURATION_MICROSECOND_VALUE(29),
       DURATION_NANOSECOND_VALUE(30),
+      DECIMAL128_VALUE(31),
       VALUEDATA_NOT_SET(0);
       private final int value;
       private ValueDataCase(int value) {
@@ -3427,6 +3720,7 @@ public final class RowData {
           case 28: return DURATION_MILLISECOND_VALUE;
           case 29: return DURATION_MICROSECOND_VALUE;
           case 30: return DURATION_NANOSECOND_VALUE;
+          case 31: return DECIMAL128_VALUE;
           case 0: return VALUEDATA_NOT_SET;
           default: return null;
         }
@@ -4113,6 +4407,37 @@ public final class RowData {
       return 0L;
     }
 
+    public static final int DECIMAL128_VALUE_FIELD_NUMBER = 31;
+    /**
+     * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+     * @return Whether the decimal128Value field is set.
+     */
+    @java.lang.Override
+    public boolean hasDecimal128Value() {
+      return valueDataCase_ == 31;
+    }
+    /**
+     * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+     * @return The decimal128Value.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.Decimal128 getDecimal128Value() {
+      if (valueDataCase_ == 31) {
+         return (io.greptime.v1.Common.Decimal128) valueData_;
+      }
+      return io.greptime.v1.Common.Decimal128.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.Decimal128OrBuilder getDecimal128ValueOrBuilder() {
+      if (valueDataCase_ == 31) {
+         return (io.greptime.v1.Common.Decimal128) valueData_;
+      }
+      return io.greptime.v1.Common.Decimal128.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4244,6 +4569,9 @@ public final class RowData {
       if (valueDataCase_ == 30) {
         output.writeInt64(
             30, (long)((java.lang.Long) valueData_));
+      }
+      if (valueDataCase_ == 31) {
+        output.writeMessage(31, (io.greptime.v1.Common.Decimal128) valueData_);
       }
       unknownFields.writeTo(output);
     }
@@ -4401,6 +4729,10 @@ public final class RowData {
           .computeInt64Size(
               30, (long)((java.lang.Long) valueData_));
       }
+      if (valueDataCase_ == 31) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(31, (io.greptime.v1.Common.Decimal128) valueData_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4539,6 +4871,10 @@ public final class RowData {
         case 30:
           if (getDurationNanosecondValue()
               != other.getDurationNanosecondValue()) return false;
+          break;
+        case 31:
+          if (!getDecimal128Value()
+              .equals(other.getDecimal128Value())) return false;
           break;
         case 0:
         default:
@@ -4693,6 +5029,10 @@ public final class RowData {
           hash = (37 * hash) + DURATION_NANOSECOND_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getDurationNanosecondValue());
+          break;
+        case 31:
+          hash = (37 * hash) + DECIMAL128_VALUE_FIELD_NUMBER;
+          hash = (53 * hash) + getDecimal128Value().hashCode();
           break;
         case 0:
         default:
@@ -4952,6 +5292,13 @@ public final class RowData {
         if (valueDataCase_ == 30) {
           result.valueData_ = valueData_;
         }
+        if (valueDataCase_ == 31) {
+          if (decimal128ValueBuilder_ == null) {
+            result.valueData_ = valueData_;
+          } else {
+            result.valueData_ = decimal128ValueBuilder_.build();
+          }
+        }
         result.valueDataCase_ = valueDataCase_;
         onBuilt();
         return result;
@@ -5122,6 +5469,10 @@ public final class RowData {
           }
           case DURATION_NANOSECOND_VALUE: {
             setDurationNanosecondValue(other.getDurationNanosecondValue());
+            break;
+          }
+          case DECIMAL128_VALUE: {
+            mergeDecimal128Value(other.getDecimal128Value());
             break;
           }
           case VALUEDATA_NOT_SET: {
@@ -6561,6 +6912,148 @@ public final class RowData {
         }
         return this;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.Decimal128, io.greptime.v1.Common.Decimal128.Builder, io.greptime.v1.Common.Decimal128OrBuilder> decimal128ValueBuilder_;
+      /**
+       * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+       * @return Whether the decimal128Value field is set.
+       */
+      @java.lang.Override
+      public boolean hasDecimal128Value() {
+        return valueDataCase_ == 31;
+      }
+      /**
+       * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+       * @return The decimal128Value.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.Decimal128 getDecimal128Value() {
+        if (decimal128ValueBuilder_ == null) {
+          if (valueDataCase_ == 31) {
+            return (io.greptime.v1.Common.Decimal128) valueData_;
+          }
+          return io.greptime.v1.Common.Decimal128.getDefaultInstance();
+        } else {
+          if (valueDataCase_ == 31) {
+            return decimal128ValueBuilder_.getMessage();
+          }
+          return io.greptime.v1.Common.Decimal128.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+       */
+      public Builder setDecimal128Value(io.greptime.v1.Common.Decimal128 value) {
+        if (decimal128ValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          valueData_ = value;
+          onChanged();
+        } else {
+          decimal128ValueBuilder_.setMessage(value);
+        }
+        valueDataCase_ = 31;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+       */
+      public Builder setDecimal128Value(
+          io.greptime.v1.Common.Decimal128.Builder builderForValue) {
+        if (decimal128ValueBuilder_ == null) {
+          valueData_ = builderForValue.build();
+          onChanged();
+        } else {
+          decimal128ValueBuilder_.setMessage(builderForValue.build());
+        }
+        valueDataCase_ = 31;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+       */
+      public Builder mergeDecimal128Value(io.greptime.v1.Common.Decimal128 value) {
+        if (decimal128ValueBuilder_ == null) {
+          if (valueDataCase_ == 31 &&
+              valueData_ != io.greptime.v1.Common.Decimal128.getDefaultInstance()) {
+            valueData_ = io.greptime.v1.Common.Decimal128.newBuilder((io.greptime.v1.Common.Decimal128) valueData_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            valueData_ = value;
+          }
+          onChanged();
+        } else {
+          if (valueDataCase_ == 31) {
+            decimal128ValueBuilder_.mergeFrom(value);
+          } else {
+            decimal128ValueBuilder_.setMessage(value);
+          }
+        }
+        valueDataCase_ = 31;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+       */
+      public Builder clearDecimal128Value() {
+        if (decimal128ValueBuilder_ == null) {
+          if (valueDataCase_ == 31) {
+            valueDataCase_ = 0;
+            valueData_ = null;
+            onChanged();
+          }
+        } else {
+          if (valueDataCase_ == 31) {
+            valueDataCase_ = 0;
+            valueData_ = null;
+          }
+          decimal128ValueBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+       */
+      public io.greptime.v1.Common.Decimal128.Builder getDecimal128ValueBuilder() {
+        return getDecimal128ValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.Decimal128OrBuilder getDecimal128ValueOrBuilder() {
+        if ((valueDataCase_ == 31) && (decimal128ValueBuilder_ != null)) {
+          return decimal128ValueBuilder_.getMessageOrBuilder();
+        } else {
+          if (valueDataCase_ == 31) {
+            return (io.greptime.v1.Common.Decimal128) valueData_;
+          }
+          return io.greptime.v1.Common.Decimal128.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.Decimal128 decimal128_value = 31;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.Decimal128, io.greptime.v1.Common.Decimal128.Builder, io.greptime.v1.Common.Decimal128OrBuilder> 
+          getDecimal128ValueFieldBuilder() {
+        if (decimal128ValueBuilder_ == null) {
+          if (!(valueDataCase_ == 31)) {
+            valueData_ = io.greptime.v1.Common.Decimal128.getDefaultInstance();
+          }
+          decimal128ValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.Decimal128, io.greptime.v1.Common.Decimal128.Builder, io.greptime.v1.Common.Decimal128OrBuilder>(
+                  (io.greptime.v1.Common.Decimal128) valueData_,
+                  getParentForChildren(),
+                  isClean());
+          valueData_ = null;
+        }
+        valueDataCase_ = 31;
+        onChanged();;
+        return decimal128ValueBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6646,37 +7139,40 @@ public final class RowData {
       "\n\025greptime/v1/row.proto\022\013greptime.v1\032\030gr" +
       "eptime/v1/common.proto\"Q\n\004Rows\022)\n\006schema" +
       "\030\001 \003(\0132\031.greptime.v1.ColumnSchema\022\036\n\004row" +
-      "s\030\002 \003(\0132\020.greptime.v1.Row\"\204\001\n\014ColumnSche" +
+      "s\030\002 \003(\0132\020.greptime.v1.Row\"\306\001\n\014ColumnSche" +
       "ma\022\023\n\013column_name\030\001 \001(\t\022-\n\010datatype\030\002 \001(" +
       "\0162\033.greptime.v1.ColumnDataType\0220\n\rsemant" +
       "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType" +
-      "\")\n\003Row\022\"\n\006values\030\001 \003(\0132\022.greptime.v1.Va" +
-      "lue\"\234\007\n\005Value\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16" +
-      "_value\030\002 \001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti" +
-      "64_value\030\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\t" +
-      "u16_value\030\006 \001(\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023" +
-      "\n\tu64_value\030\010 \001(\004H\000\022\023\n\tf32_value\030\t \001(\002H\000" +
-      "\022\023\n\tf64_value\030\n \001(\001H\000\022\024\n\nbool_value\030\013 \001(" +
-      "\010H\000\022\026\n\014binary_value\030\014 \001(\014H\000\022\026\n\014string_va" +
-      "lue\030\r \001(\tH\000\022\024\n\ndate_value\030\016 \001(\005H\000\022\030\n\016dat" +
-      "etime_value\030\017 \001(\003H\000\022 \n\026timestamp_second_" +
-      "value\030\020 \001(\003H\000\022%\n\033timestamp_millisecond_v" +
-      "alue\030\021 \001(\003H\000\022%\n\033timestamp_microsecond_va" +
-      "lue\030\022 \001(\003H\000\022$\n\032timestamp_nanosecond_valu" +
-      "e\030\023 \001(\003H\000\022\033\n\021time_second_value\030\024 \001(\003H\000\022 " +
-      "\n\026time_millisecond_value\030\025 \001(\003H\000\022 \n\026time" +
-      "_microsecond_value\030\026 \001(\003H\000\022\037\n\025time_nanos" +
-      "econd_value\030\027 \001(\003H\000\022$\n\032interval_year_mon" +
-      "th_values\030\030 \001(\005H\000\022\"\n\030interval_day_time_v" +
-      "alues\030\031 \001(\003H\000\022K\n\036interval_month_day_nano" +
-      "_values\030\032 \001(\0132!.greptime.v1.IntervalMont" +
-      "hDayNanoH\000\022\037\n\025duration_second_value\030\033 \001(" +
-      "\003H\000\022$\n\032duration_millisecond_value\030\034 \001(\003H" +
-      "\000\022$\n\032duration_microsecond_value\030\035 \001(\003H\000\022" +
-      "#\n\031duration_nanosecond_value\030\036 \001(\003H\000B\014\n\n" +
-      "value_dataBP\n\016io.greptime.v1B\007RowDataZ5g" +
-      "ithub.com/GreptimeTeam/greptime-proto/go" +
-      "/greptime/v1b\006proto3"
+      "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime." +
+      "v1.ColumnDataTypeExtension\")\n\003Row\022\"\n\006val" +
+      "ues\030\001 \003(\0132\022.greptime.v1.Value\"\321\007\n\005Value\022" +
+      "\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 \001(\005H\000" +
+      "\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030\004 \001(\003" +
+      "H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value\030\006 \001(" +
+      "\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023\n\tu64_value\030\010 " +
+      "\001(\004H\000\022\023\n\tf32_value\030\t \001(\002H\000\022\023\n\tf64_value\030" +
+      "\n \001(\001H\000\022\024\n\nbool_value\030\013 \001(\010H\000\022\026\n\014binary_" +
+      "value\030\014 \001(\014H\000\022\026\n\014string_value\030\r \001(\tH\000\022\024\n" +
+      "\ndate_value\030\016 \001(\005H\000\022\030\n\016datetime_value\030\017 " +
+      "\001(\003H\000\022 \n\026timestamp_second_value\030\020 \001(\003H\000\022" +
+      "%\n\033timestamp_millisecond_value\030\021 \001(\003H\000\022%" +
+      "\n\033timestamp_microsecond_value\030\022 \001(\003H\000\022$\n" +
+      "\032timestamp_nanosecond_value\030\023 \001(\003H\000\022\033\n\021t" +
+      "ime_second_value\030\024 \001(\003H\000\022 \n\026time_millise" +
+      "cond_value\030\025 \001(\003H\000\022 \n\026time_microsecond_v" +
+      "alue\030\026 \001(\003H\000\022\037\n\025time_nanosecond_value\030\027 " +
+      "\001(\003H\000\022$\n\032interval_year_month_values\030\030 \001(" +
+      "\005H\000\022\"\n\030interval_day_time_values\030\031 \001(\003H\000\022" +
+      "K\n\036interval_month_day_nano_values\030\032 \001(\0132" +
+      "!.greptime.v1.IntervalMonthDayNanoH\000\022\037\n\025" +
+      "duration_second_value\030\033 \001(\003H\000\022$\n\032duratio" +
+      "n_millisecond_value\030\034 \001(\003H\000\022$\n\032duration_" +
+      "microsecond_value\030\035 \001(\003H\000\022#\n\031duration_na" +
+      "nosecond_value\030\036 \001(\003H\000\0223\n\020decimal128_val" +
+      "ue\030\037 \001(\0132\027.greptime.v1.Decimal128H\000B\014\n\nv" +
+      "alue_dataBP\n\016io.greptime.v1B\007RowDataZ5gi" +
+      "thub.com/GreptimeTeam/greptime-proto/go/" +
+      "greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6694,7 +7190,7 @@ public final class RowData {
     internal_static_greptime_v1_ColumnSchema_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnSchema_descriptor,
-        new java.lang.String[] { "ColumnName", "Datatype", "SemanticType", });
+        new java.lang.String[] { "ColumnName", "Datatype", "SemanticType", "DatatypeExtension", });
     internal_static_greptime_v1_Row_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_Row_fieldAccessorTable = new
@@ -6706,7 +7202,7 @@ public final class RowData {
     internal_static_greptime_v1_Value_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Value_descriptor,
-        new java.lang.String[] { "I8Value", "I16Value", "I32Value", "I64Value", "U8Value", "U16Value", "U32Value", "U64Value", "F32Value", "F64Value", "BoolValue", "BinaryValue", "StringValue", "DateValue", "DatetimeValue", "TimestampSecondValue", "TimestampMillisecondValue", "TimestampMicrosecondValue", "TimestampNanosecondValue", "TimeSecondValue", "TimeMillisecondValue", "TimeMicrosecondValue", "TimeNanosecondValue", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", "DurationSecondValue", "DurationMillisecondValue", "DurationMicrosecondValue", "DurationNanosecondValue", "ValueData", });
+        new java.lang.String[] { "I8Value", "I16Value", "I32Value", "I64Value", "U8Value", "U16Value", "U32Value", "U64Value", "F32Value", "F64Value", "BoolValue", "BinaryValue", "StringValue", "DateValue", "DatetimeValue", "TimestampSecondValue", "TimestampMillisecondValue", "TimestampMicrosecondValue", "TimestampNanosecondValue", "TimeSecondValue", "TimeMillisecondValue", "TimeMicrosecondValue", "TimeNanosecondValue", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", "DurationSecondValue", "DurationMillisecondValue", "DurationMicrosecondValue", "DurationNanosecondValue", "Decimal128Value", "ValueData", });
     io.greptime.v1.Common.getDescriptor();
   }
 

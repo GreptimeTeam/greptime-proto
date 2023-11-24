@@ -61,6 +61,7 @@ message Column {
     repeated int64 duration_millisecond_values = 28;
     repeated int64 duration_microsecond_values = 29;
     repeated int64 duration_nanosecond_values = 30;
+    repeated Decimal128 decimal128_values = 31;
   }
   // The array of non-null values in this column.
   //
@@ -80,4 +81,7 @@ message Column {
 
   // Helpful in creating vector from column.
   ColumnDataType datatype = 5;
+
+  // Extension for ColumnDataType.
+  ColumnDataTypeExtension datatype_extension = 6;
 }

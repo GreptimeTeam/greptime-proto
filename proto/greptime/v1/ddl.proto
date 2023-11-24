@@ -103,6 +103,8 @@ message ColumnDef {
   bytes default_constraint = 4;
   SemanticType semantic_type = 5;
   string comment = 6;
+  // Extension for ColumnDataType.
+  ColumnDataTypeExtension datatype_extension = 7;
 }
 
 message AddColumnLocation {
