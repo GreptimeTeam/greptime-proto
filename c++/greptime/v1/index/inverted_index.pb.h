@@ -50,15 +50,15 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 namespace greptime {
 namespace v1 {
 namespace index {
-class InvertedIndexFooter;
-struct InvertedIndexFooterDefaultTypeInternal;
-extern InvertedIndexFooterDefaultTypeInternal _InvertedIndexFooter_default_instance_;
-class InvertedIndexFooter_MetasEntry_DoNotUse;
-struct InvertedIndexFooter_MetasEntry_DoNotUseDefaultTypeInternal;
-extern InvertedIndexFooter_MetasEntry_DoNotUseDefaultTypeInternal _InvertedIndexFooter_MetasEntry_DoNotUse_default_instance_;
 class InvertedIndexMeta;
 struct InvertedIndexMetaDefaultTypeInternal;
 extern InvertedIndexMetaDefaultTypeInternal _InvertedIndexMeta_default_instance_;
+class InvertedIndexMetas;
+struct InvertedIndexMetasDefaultTypeInternal;
+extern InvertedIndexMetasDefaultTypeInternal _InvertedIndexMetas_default_instance_;
+class InvertedIndexMetas_MetasEntry_DoNotUse;
+struct InvertedIndexMetas_MetasEntry_DoNotUseDefaultTypeInternal;
+extern InvertedIndexMetas_MetasEntry_DoNotUseDefaultTypeInternal _InvertedIndexMetas_MetasEntry_DoNotUse_default_instance_;
 class InvertedIndexStats;
 struct InvertedIndexStatsDefaultTypeInternal;
 extern InvertedIndexStatsDefaultTypeInternal _InvertedIndexStats_default_instance_;
@@ -66,9 +66,9 @@ extern InvertedIndexStatsDefaultTypeInternal _InvertedIndexStats_default_instanc
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
-template<> ::greptime::v1::index::InvertedIndexFooter* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexFooter>(Arena*);
-template<> ::greptime::v1::index::InvertedIndexFooter_MetasEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexFooter_MetasEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::index::InvertedIndexMeta* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexMeta>(Arena*);
+template<> ::greptime::v1::index::InvertedIndexMetas* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexMetas>(Arena*);
+template<> ::greptime::v1::index::InvertedIndexMetas_MetasEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexMetas_MetasEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::index::InvertedIndexStats* Arena::CreateMaybeMessage<::greptime::v1::index::InvertedIndexStats>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -77,23 +77,23 @@ namespace index {
 
 // ===================================================================
 
-class InvertedIndexFooter_MetasEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexFooter_MetasEntry_DoNotUse, 
+class InvertedIndexMetas_MetasEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexMetas_MetasEntry_DoNotUse, 
     std::string, ::greptime::v1::index::InvertedIndexMeta,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexFooter_MetasEntry_DoNotUse, 
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexMetas_MetasEntry_DoNotUse, 
     std::string, ::greptime::v1::index::InvertedIndexMeta,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
-  InvertedIndexFooter_MetasEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR InvertedIndexFooter_MetasEntry_DoNotUse(
+  InvertedIndexMetas_MetasEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR InvertedIndexMetas_MetasEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit InvertedIndexFooter_MetasEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const InvertedIndexFooter_MetasEntry_DoNotUse& other);
-  static const InvertedIndexFooter_MetasEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const InvertedIndexFooter_MetasEntry_DoNotUse*>(&_InvertedIndexFooter_MetasEntry_DoNotUse_default_instance_); }
+  explicit InvertedIndexMetas_MetasEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const InvertedIndexMetas_MetasEntry_DoNotUse& other);
+  static const InvertedIndexMetas_MetasEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const InvertedIndexMetas_MetasEntry_DoNotUse*>(&_InvertedIndexMetas_MetasEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.index.InvertedIndexFooter.MetasEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.index.InvertedIndexMetas.MetasEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
@@ -103,24 +103,24 @@ public:
 
 // -------------------------------------------------------------------
 
-class InvertedIndexFooter final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.index.InvertedIndexFooter) */ {
+class InvertedIndexMetas final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.index.InvertedIndexMetas) */ {
  public:
-  inline InvertedIndexFooter() : InvertedIndexFooter(nullptr) {}
-  ~InvertedIndexFooter() override;
-  explicit PROTOBUF_CONSTEXPR InvertedIndexFooter(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline InvertedIndexMetas() : InvertedIndexMetas(nullptr) {}
+  ~InvertedIndexMetas() override;
+  explicit PROTOBUF_CONSTEXPR InvertedIndexMetas(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  InvertedIndexFooter(const InvertedIndexFooter& from);
-  InvertedIndexFooter(InvertedIndexFooter&& from) noexcept
-    : InvertedIndexFooter() {
+  InvertedIndexMetas(const InvertedIndexMetas& from);
+  InvertedIndexMetas(InvertedIndexMetas&& from) noexcept
+    : InvertedIndexMetas() {
     *this = ::std::move(from);
   }
 
-  inline InvertedIndexFooter& operator=(const InvertedIndexFooter& from) {
+  inline InvertedIndexMetas& operator=(const InvertedIndexMetas& from) {
     CopyFrom(from);
     return *this;
   }
-  inline InvertedIndexFooter& operator=(InvertedIndexFooter&& from) noexcept {
+  inline InvertedIndexMetas& operator=(InvertedIndexMetas&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -143,20 +143,20 @@ class InvertedIndexFooter final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const InvertedIndexFooter& default_instance() {
+  static const InvertedIndexMetas& default_instance() {
     return *internal_default_instance();
   }
-  static inline const InvertedIndexFooter* internal_default_instance() {
-    return reinterpret_cast<const InvertedIndexFooter*>(
-               &_InvertedIndexFooter_default_instance_);
+  static inline const InvertedIndexMetas* internal_default_instance() {
+    return reinterpret_cast<const InvertedIndexMetas*>(
+               &_InvertedIndexMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(InvertedIndexFooter& a, InvertedIndexFooter& b) {
+  friend void swap(InvertedIndexMetas& a, InvertedIndexMetas& b) {
     a.Swap(&b);
   }
-  inline void Swap(InvertedIndexFooter* other) {
+  inline void Swap(InvertedIndexMetas* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -169,7 +169,7 @@ class InvertedIndexFooter final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(InvertedIndexFooter* other) {
+  void UnsafeArenaSwap(InvertedIndexMetas* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -177,14 +177,14 @@ class InvertedIndexFooter final :
 
   // implements Message ----------------------------------------------
 
-  InvertedIndexFooter* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<InvertedIndexFooter>(arena);
+  InvertedIndexMetas* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<InvertedIndexMetas>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const InvertedIndexFooter& from);
+  void CopyFrom(const InvertedIndexMetas& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const InvertedIndexFooter& from) {
-    InvertedIndexFooter::MergeImpl(*this, from);
+  void MergeFrom( const InvertedIndexMetas& from) {
+    InvertedIndexMetas::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -202,15 +202,15 @@ class InvertedIndexFooter final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(InvertedIndexFooter* other);
+  void InternalSwap(InvertedIndexMetas* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.index.InvertedIndexFooter";
+    return "greptime.v1.index.InvertedIndexMetas";
   }
   protected:
-  explicit InvertedIndexFooter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit InvertedIndexMetas(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -246,7 +246,7 @@ class InvertedIndexFooter final :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
       mutable_metas();
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexFooter)
+  // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexMetas)
  private:
   class _Internal;
 
@@ -255,7 +255,7 @@ class InvertedIndexFooter final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        InvertedIndexFooter_MetasEntry_DoNotUse,
+        InvertedIndexMetas_MetasEntry_DoNotUse,
         std::string, ::greptime::v1::index::InvertedIndexMeta,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> metas_;
@@ -694,34 +694,34 @@ class InvertedIndexStats final :
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
-// InvertedIndexFooter
+// InvertedIndexMetas
 
 // map<string, .greptime.v1.index.InvertedIndexMeta> metas = 1;
-inline int InvertedIndexFooter::_internal_metas_size() const {
+inline int InvertedIndexMetas::_internal_metas_size() const {
   return _impl_.metas_.size();
 }
-inline int InvertedIndexFooter::metas_size() const {
+inline int InvertedIndexMetas::metas_size() const {
   return _internal_metas_size();
 }
-inline void InvertedIndexFooter::clear_metas() {
+inline void InvertedIndexMetas::clear_metas() {
   _impl_.metas_.Clear();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >&
-InvertedIndexFooter::_internal_metas() const {
+InvertedIndexMetas::_internal_metas() const {
   return _impl_.metas_.GetMap();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >&
-InvertedIndexFooter::metas() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.index.InvertedIndexFooter.metas)
+InvertedIndexMetas::metas() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.index.InvertedIndexMetas.metas)
   return _internal_metas();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
-InvertedIndexFooter::_internal_mutable_metas() {
+InvertedIndexMetas::_internal_mutable_metas() {
   return _impl_.metas_.MutableMap();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
-InvertedIndexFooter::mutable_metas() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.index.InvertedIndexFooter.metas)
+InvertedIndexMetas::mutable_metas() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.index.InvertedIndexMetas.metas)
   return _internal_mutable_metas();
 }
 
