@@ -78,11 +78,34 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
 
     io.greptime.v1.index.Index.InvertedIndexMeta getMetasOrThrow(
         java.lang.String key);
+
+    /**
+     * <pre>
+     * The total count of rows within the inverted index blob.
+     * This is used to determine the number of segments within the bitmap.
+     * </pre>
+     *
+     * <code>uint64 total_row_count = 2;</code>
+     * @return The totalRowCount.
+     */
+    long getTotalRowCount();
+
+    /**
+     * <pre>
+     * The number of rows per group for bitmap indexing which determines how rows are
+     * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
+     * for efficient retrieval during queries by reducing the search space.
+     * </pre>
+     *
+     * <code>uint64 segment_row_count = 3;</code>
+     * @return The segmentRowCount.
+     */
+    long getSegmentRowCount();
   }
   /**
    * <pre>
    * InvertedIndexMetas defines the metadata for an inverted index
-   * within a inverted index blob.
+   * within an inverted index blob.
    * </pre>
    *
    * Protobuf type {@code greptime.v1.index.InvertedIndexMetas}
@@ -141,6 +164,16 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
                   MetasDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               metas_.getMutableMap().put(
                   metas__.getKey(), metas__.getValue());
+              break;
+            }
+            case 16: {
+
+              totalRowCount_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              segmentRowCount_ = input.readUInt64();
               break;
             }
             default: {
@@ -290,6 +323,39 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
       return map.get(key);
     }
 
+    public static final int TOTAL_ROW_COUNT_FIELD_NUMBER = 2;
+    private long totalRowCount_;
+    /**
+     * <pre>
+     * The total count of rows within the inverted index blob.
+     * This is used to determine the number of segments within the bitmap.
+     * </pre>
+     *
+     * <code>uint64 total_row_count = 2;</code>
+     * @return The totalRowCount.
+     */
+    @java.lang.Override
+    public long getTotalRowCount() {
+      return totalRowCount_;
+    }
+
+    public static final int SEGMENT_ROW_COUNT_FIELD_NUMBER = 3;
+    private long segmentRowCount_;
+    /**
+     * <pre>
+     * The number of rows per group for bitmap indexing which determines how rows are
+     * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
+     * for efficient retrieval during queries by reducing the search space.
+     * </pre>
+     *
+     * <code>uint64 segment_row_count = 3;</code>
+     * @return The segmentRowCount.
+     */
+    @java.lang.Override
+    public long getSegmentRowCount() {
+      return segmentRowCount_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -310,6 +376,12 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
           internalGetMetas(),
           MetasDefaultEntryHolder.defaultEntry,
           1);
+      if (totalRowCount_ != 0L) {
+        output.writeUInt64(2, totalRowCount_);
+      }
+      if (segmentRowCount_ != 0L) {
+        output.writeUInt64(3, segmentRowCount_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -329,6 +401,14 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, metas__);
       }
+      if (totalRowCount_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, totalRowCount_);
+      }
+      if (segmentRowCount_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, segmentRowCount_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -346,6 +426,10 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
 
       if (!internalGetMetas().equals(
           other.internalGetMetas())) return false;
+      if (getTotalRowCount()
+          != other.getTotalRowCount()) return false;
+      if (getSegmentRowCount()
+          != other.getSegmentRowCount()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -361,6 +445,12 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
         hash = (37 * hash) + METAS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMetas().hashCode();
       }
+      hash = (37 * hash) + TOTAL_ROW_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTotalRowCount());
+      hash = (37 * hash) + SEGMENT_ROW_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSegmentRowCount());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -459,7 +549,7 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
     /**
      * <pre>
      * InvertedIndexMetas defines the metadata for an inverted index
-     * within a inverted index blob.
+     * within an inverted index blob.
      * </pre>
      *
      * Protobuf type {@code greptime.v1.index.InvertedIndexMetas}
@@ -522,6 +612,10 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
       public Builder clear() {
         super.clear();
         internalGetMutableMetas().clear();
+        totalRowCount_ = 0L;
+
+        segmentRowCount_ = 0L;
+
         return this;
       }
 
@@ -551,6 +645,8 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
         int from_bitField0_ = bitField0_;
         result.metas_ = internalGetMetas();
         result.metas_.makeImmutable();
+        result.totalRowCount_ = totalRowCount_;
+        result.segmentRowCount_ = segmentRowCount_;
         onBuilt();
         return result;
       }
@@ -601,6 +697,12 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
         if (other == io.greptime.v1.index.Index.InvertedIndexMetas.getDefaultInstance()) return this;
         internalGetMutableMetas().mergeFrom(
             other.internalGetMetas());
+        if (other.getTotalRowCount() != 0L) {
+          setTotalRowCount(other.getTotalRowCount());
+        }
+        if (other.getSegmentRowCount() != 0L) {
+          setSegmentRowCount(other.getSegmentRowCount());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -796,6 +898,101 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
             .putAll(values);
         return this;
       }
+
+      private long totalRowCount_ ;
+      /**
+       * <pre>
+       * The total count of rows within the inverted index blob.
+       * This is used to determine the number of segments within the bitmap.
+       * </pre>
+       *
+       * <code>uint64 total_row_count = 2;</code>
+       * @return The totalRowCount.
+       */
+      @java.lang.Override
+      public long getTotalRowCount() {
+        return totalRowCount_;
+      }
+      /**
+       * <pre>
+       * The total count of rows within the inverted index blob.
+       * This is used to determine the number of segments within the bitmap.
+       * </pre>
+       *
+       * <code>uint64 total_row_count = 2;</code>
+       * @param value The totalRowCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTotalRowCount(long value) {
+        
+        totalRowCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The total count of rows within the inverted index blob.
+       * This is used to determine the number of segments within the bitmap.
+       * </pre>
+       *
+       * <code>uint64 total_row_count = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTotalRowCount() {
+        
+        totalRowCount_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long segmentRowCount_ ;
+      /**
+       * <pre>
+       * The number of rows per group for bitmap indexing which determines how rows are
+       * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
+       * for efficient retrieval during queries by reducing the search space.
+       * </pre>
+       *
+       * <code>uint64 segment_row_count = 3;</code>
+       * @return The segmentRowCount.
+       */
+      @java.lang.Override
+      public long getSegmentRowCount() {
+        return segmentRowCount_;
+      }
+      /**
+       * <pre>
+       * The number of rows per group for bitmap indexing which determines how rows are
+       * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
+       * for efficient retrieval during queries by reducing the search space.
+       * </pre>
+       *
+       * <code>uint64 segment_row_count = 3;</code>
+       * @param value The segmentRowCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSegmentRowCount(long value) {
+        
+        segmentRowCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The number of rows per group for bitmap indexing which determines how rows are
+       * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
+       * for efficient retrieval during queries by reducing the search space.
+       * </pre>
+       *
+       * <code>uint64 segment_row_count = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSegmentRowCount() {
+        
+        segmentRowCount_ = 0L;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -962,18 +1159,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
      * <code>.greptime.v1.index.InvertedIndexStats stats = 8;</code>
      */
     io.greptime.v1.index.Index.InvertedIndexStatsOrBuilder getStatsOrBuilder();
-
-    /**
-     * <pre>
-     * The number of rows per group for bitmap indexing which determines how rows are
-     * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
-     * for efficient retrieval during queries by reducing the search space.
-     * </pre>
-     *
-     * <code>uint64 segment_row_count = 9;</code>
-     * @return The segmentRowCount.
-     */
-    long getSegmentRowCount();
   }
   /**
    * <pre>
@@ -1072,11 +1257,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
                 stats_ = subBuilder.buildPartial();
               }
 
-              break;
-            }
-            case 72: {
-
-              segmentRowCount_ = input.readUInt64();
               break;
             }
             default: {
@@ -1290,23 +1470,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
       return getStats();
     }
 
-    public static final int SEGMENT_ROW_COUNT_FIELD_NUMBER = 9;
-    private long segmentRowCount_;
-    /**
-     * <pre>
-     * The number of rows per group for bitmap indexing which determines how rows are
-     * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
-     * for efficient retrieval during queries by reducing the search space.
-     * </pre>
-     *
-     * <code>uint64 segment_row_count = 9;</code>
-     * @return The segmentRowCount.
-     */
-    @java.lang.Override
-    public long getSegmentRowCount() {
-      return segmentRowCount_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1344,9 +1507,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
       }
       if (stats_ != null) {
         output.writeMessage(8, getStats());
-      }
-      if (segmentRowCount_ != 0L) {
-        output.writeUInt64(9, segmentRowCount_);
       }
       unknownFields.writeTo(output);
     }
@@ -1388,10 +1548,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getStats());
       }
-      if (segmentRowCount_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(9, segmentRowCount_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1426,8 +1582,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
         if (!getStats()
             .equals(other.getStats())) return false;
       }
-      if (getSegmentRowCount()
-          != other.getSegmentRowCount()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1459,9 +1613,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
         hash = (37 * hash) + STATS_FIELD_NUMBER;
         hash = (53 * hash) + getStats().hashCode();
       }
-      hash = (37 * hash) + SEGMENT_ROW_COUNT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getSegmentRowCount());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1619,8 +1770,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
           stats_ = null;
           statsBuilder_ = null;
         }
-        segmentRowCount_ = 0L;
-
         return this;
       }
 
@@ -1659,7 +1808,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
         } else {
           result.stats_ = statsBuilder_.build();
         }
-        result.segmentRowCount_ = segmentRowCount_;
         onBuilt();
         return result;
       }
@@ -1732,9 +1880,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
         }
         if (other.hasStats()) {
           mergeStats(other.getStats());
-        }
-        if (other.getSegmentRowCount() != 0L) {
-          setSegmentRowCount(other.getSegmentRowCount());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2281,55 +2426,6 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
           stats_ = null;
         }
         return statsBuilder_;
-      }
-
-      private long segmentRowCount_ ;
-      /**
-       * <pre>
-       * The number of rows per group for bitmap indexing which determines how rows are
-       * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
-       * for efficient retrieval during queries by reducing the search space.
-       * </pre>
-       *
-       * <code>uint64 segment_row_count = 9;</code>
-       * @return The segmentRowCount.
-       */
-      @java.lang.Override
-      public long getSegmentRowCount() {
-        return segmentRowCount_;
-      }
-      /**
-       * <pre>
-       * The number of rows per group for bitmap indexing which determines how rows are
-       * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
-       * for efficient retrieval during queries by reducing the search space.
-       * </pre>
-       *
-       * <code>uint64 segment_row_count = 9;</code>
-       * @param value The segmentRowCount to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSegmentRowCount(long value) {
-        
-        segmentRowCount_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The number of rows per group for bitmap indexing which determines how rows are
-       * batched for indexing. Each batch corresponds to a segment in the bitmap and allows
-       * for efficient retrieval during queries by reducing the search space.
-       * </pre>
-       *
-       * <code>uint64 segment_row_count = 9;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSegmentRowCount() {
-        
-        segmentRowCount_ = 0L;
-        onChanged();
-        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3212,23 +3308,24 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n&greptime/v1/index/inverted_index.proto" +
-      "\022\021greptime.v1.index\"\251\001\n\022InvertedIndexMet" +
+      "\022\021greptime.v1.index\"\335\001\n\022InvertedIndexMet" +
       "as\022?\n\005metas\030\001 \003(\01320.greptime.v1.index.In" +
-      "vertedIndexMetas.MetasEntry\032R\n\nMetasEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\0223\n\005value\030\002 \001(\0132$.greptime" +
-      ".v1.index.InvertedIndexMeta:\0028\001\"\222\002\n\021Inve" +
-      "rtedIndexMeta\022\014\n\004name\030\001 \001(\t\022\023\n\013base_offs" +
-      "et\030\002 \001(\004\022\033\n\023inverted_index_size\030\003 \001(\004\022\033\n" +
-      "\023relative_fst_offset\030\004 \001(\r\022\020\n\010fst_size\030\005" +
-      " \001(\r\022#\n\033relative_null_bitmap_offset\030\006 \001(" +
-      "\r\022\030\n\020null_bitmap_size\030\007 \001(\r\0224\n\005stats\030\010 \001" +
-      "(\0132%.greptime.v1.index.InvertedIndexStat" +
-      "s\022\031\n\021segment_row_count\030\t \001(\004\"f\n\022Inverted" +
-      "IndexStats\022\022\n\nnull_count\030\001 \001(\004\022\026\n\016distin" +
-      "ct_count\030\002 \001(\004\022\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax" +
-      "_value\030\004 \001(\014BZ\n\024io.greptime.v1.indexB\005In" +
-      "dexZ;github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1/indexb\006proto3"
+      "vertedIndexMetas.MetasEntry\022\027\n\017total_row" +
+      "_count\030\002 \001(\004\022\031\n\021segment_row_count\030\003 \001(\004\032" +
+      "R\n\nMetasEntry\022\013\n\003key\030\001 \001(\t\0223\n\005value\030\002 \001(" +
+      "\0132$.greptime.v1.index.InvertedIndexMeta:" +
+      "\0028\001\"\367\001\n\021InvertedIndexMeta\022\014\n\004name\030\001 \001(\t\022" +
+      "\023\n\013base_offset\030\002 \001(\004\022\033\n\023inverted_index_s" +
+      "ize\030\003 \001(\004\022\033\n\023relative_fst_offset\030\004 \001(\r\022\020" +
+      "\n\010fst_size\030\005 \001(\r\022#\n\033relative_null_bitmap" +
+      "_offset\030\006 \001(\r\022\030\n\020null_bitmap_size\030\007 \001(\r\022" +
+      "4\n\005stats\030\010 \001(\0132%.greptime.v1.index.Inver" +
+      "tedIndexStats\"f\n\022InvertedIndexStats\022\022\n\nn" +
+      "ull_count\030\001 \001(\004\022\026\n\016distinct_count\030\002 \001(\004\022" +
+      "\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax_value\030\004 \001(\014BZ\n" +
+      "\024io.greptime.v1.indexB\005IndexZ;github.com" +
+      "/GreptimeTeam/greptime-proto/go/greptime" +
+      "/v1/indexb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3239,7 +3336,7 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
     internal_static_greptime_v1_index_InvertedIndexMetas_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_index_InvertedIndexMetas_descriptor,
-        new java.lang.String[] { "Metas", });
+        new java.lang.String[] { "Metas", "TotalRowCount", "SegmentRowCount", });
     internal_static_greptime_v1_index_InvertedIndexMetas_MetasEntry_descriptor =
       internal_static_greptime_v1_index_InvertedIndexMetas_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_index_InvertedIndexMetas_MetasEntry_fieldAccessorTable = new
@@ -3251,7 +3348,7 @@ io.greptime.v1.index.Index.InvertedIndexMeta defaultValue);
     internal_static_greptime_v1_index_InvertedIndexMeta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_index_InvertedIndexMeta_descriptor,
-        new java.lang.String[] { "Name", "BaseOffset", "InvertedIndexSize", "RelativeFstOffset", "FstSize", "RelativeNullBitmapOffset", "NullBitmapSize", "Stats", "SegmentRowCount", });
+        new java.lang.String[] { "Name", "BaseOffset", "InvertedIndexSize", "RelativeFstOffset", "FstSize", "RelativeNullBitmapOffset", "NullBitmapSize", "Stats", });
     internal_static_greptime_v1_index_InvertedIndexStats_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_index_InvertedIndexStats_fieldAccessorTable = new
