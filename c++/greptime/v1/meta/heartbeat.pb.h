@@ -1073,9 +1073,9 @@ class RegionLease final :
 
   enum : int {
     kRegionsFieldNumber = 1,
+    kCloseableRegionIdsFieldNumber = 4,
     kDurationSinceEpochFieldNumber = 2,
     kLeaseSecondsFieldNumber = 3,
-    kCloseableRegionIdsFieldNumber = 4,
   };
   // repeated .greptime.v1.meta.GrantedRegion regions = 1;
   int regions_size() const;
@@ -1095,6 +1095,28 @@ class RegionLease final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::GrantedRegion >&
       regions() const;
 
+  // repeated uint64 closeable_region_ids = 4;
+  int closeable_region_ids_size() const;
+  private:
+  int _internal_closeable_region_ids_size() const;
+  public:
+  void clear_closeable_region_ids();
+  private:
+  uint64_t _internal_closeable_region_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_closeable_region_ids() const;
+  void _internal_add_closeable_region_ids(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_closeable_region_ids();
+  public:
+  uint64_t closeable_region_ids(int index) const;
+  void set_closeable_region_ids(int index, uint64_t value);
+  void add_closeable_region_ids(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      closeable_region_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_closeable_region_ids();
+
   // uint64 duration_since_epoch = 2;
   void clear_duration_since_epoch();
   uint64_t duration_since_epoch() const;
@@ -1113,15 +1135,6 @@ class RegionLease final :
   void _internal_set_lease_seconds(uint64_t value);
   public:
 
-  // uint64 closeable_region_ids = 4;
-  void clear_closeable_region_ids();
-  uint64_t closeable_region_ids() const;
-  void set_closeable_region_ids(uint64_t value);
-  private:
-  uint64_t _internal_closeable_region_ids() const;
-  void _internal_set_closeable_region_ids(uint64_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.RegionLease)
  private:
   class _Internal;
@@ -1131,9 +1144,10 @@ class RegionLease final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::GrantedRegion > regions_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > closeable_region_ids_;
+    mutable std::atomic<int> _closeable_region_ids_cached_byte_size_;
     uint64_t duration_since_epoch_;
     uint64_t lease_seconds_;
-    uint64_t closeable_region_ids_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2724,24 +2738,51 @@ inline void RegionLease::set_lease_seconds(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionLease.lease_seconds)
 }
 
-// uint64 closeable_region_ids = 4;
-inline void RegionLease::clear_closeable_region_ids() {
-  _impl_.closeable_region_ids_ = uint64_t{0u};
+// repeated uint64 closeable_region_ids = 4;
+inline int RegionLease::_internal_closeable_region_ids_size() const {
+  return _impl_.closeable_region_ids_.size();
 }
-inline uint64_t RegionLease::_internal_closeable_region_ids() const {
+inline int RegionLease::closeable_region_ids_size() const {
+  return _internal_closeable_region_ids_size();
+}
+inline void RegionLease::clear_closeable_region_ids() {
+  _impl_.closeable_region_ids_.Clear();
+}
+inline uint64_t RegionLease::_internal_closeable_region_ids(int index) const {
+  return _impl_.closeable_region_ids_.Get(index);
+}
+inline uint64_t RegionLease::closeable_region_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionLease.closeable_region_ids)
+  return _internal_closeable_region_ids(index);
+}
+inline void RegionLease::set_closeable_region_ids(int index, uint64_t value) {
+  _impl_.closeable_region_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionLease.closeable_region_ids)
+}
+inline void RegionLease::_internal_add_closeable_region_ids(uint64_t value) {
+  _impl_.closeable_region_ids_.Add(value);
+}
+inline void RegionLease::add_closeable_region_ids(uint64_t value) {
+  _internal_add_closeable_region_ids(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.RegionLease.closeable_region_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+RegionLease::_internal_closeable_region_ids() const {
   return _impl_.closeable_region_ids_;
 }
-inline uint64_t RegionLease::closeable_region_ids() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionLease.closeable_region_ids)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+RegionLease::closeable_region_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.RegionLease.closeable_region_ids)
   return _internal_closeable_region_ids();
 }
-inline void RegionLease::_internal_set_closeable_region_ids(uint64_t value) {
-  
-  _impl_.closeable_region_ids_ = value;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+RegionLease::_internal_mutable_closeable_region_ids() {
+  return &_impl_.closeable_region_ids_;
 }
-inline void RegionLease::set_closeable_region_ids(uint64_t value) {
-  _internal_set_closeable_region_ids(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionLease.closeable_region_ids)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+RegionLease::mutable_closeable_region_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.RegionLease.closeable_region_ids)
+  return _internal_mutable_closeable_region_ids();
 }
 
 // -------------------------------------------------------------------

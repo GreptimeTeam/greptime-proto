@@ -86,7 +86,7 @@ message RegionLease {
   repeated GrantedRegion regions = 1;
   uint64 duration_since_epoch = 2;
   uint64 lease_seconds = 3;
-  uint64 closeable_region_ids = 4;
+  repeated uint64 closeable_region_ids = 4;
 }
 
 message AskLeaderRequest { RequestHeader header = 1; }

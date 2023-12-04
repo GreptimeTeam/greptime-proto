@@ -93,9 +93,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR RegionLease::RegionLease(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.regions_)*/{}
+  , /*decltype(_impl_.closeable_region_ids_)*/{}
+  , /*decltype(_impl_._closeable_region_ids_cached_byte_size_)*/{0}
   , /*decltype(_impl_.duration_since_epoch_)*/uint64_t{0u}
   , /*decltype(_impl_.lease_seconds_)*/uint64_t{0u}
-  , /*decltype(_impl_.closeable_region_ids_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RegionLeaseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR RegionLeaseDefaultTypeInternal()
@@ -289,7 +290,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "gionRole\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003("
   "\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024du"
   "ration_since_epoch\030\002 \001(\004\022\025\n\rlease_second"
-  "s\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \001(\004\"C\n"
+  "s\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n"
   "\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.grep"
   "time.v1.meta.RequestHeader\"m\n\021AskLeaderR"
   "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me"
@@ -1649,15 +1650,16 @@ RegionLease::RegionLease(const RegionLease& from)
   RegionLease* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.regions_){from._impl_.regions_}
+    , decltype(_impl_.closeable_region_ids_){from._impl_.closeable_region_ids_}
+    , /*decltype(_impl_._closeable_region_ids_cached_byte_size_)*/{0}
     , decltype(_impl_.duration_since_epoch_){}
     , decltype(_impl_.lease_seconds_){}
-    , decltype(_impl_.closeable_region_ids_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.duration_since_epoch_, &from._impl_.duration_since_epoch_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.closeable_region_ids_) -
-    reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.closeable_region_ids_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.lease_seconds_) -
+    reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.lease_seconds_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.RegionLease)
 }
 
@@ -1667,9 +1669,10 @@ inline void RegionLease::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.regions_){arena}
+    , decltype(_impl_.closeable_region_ids_){arena}
+    , /*decltype(_impl_._closeable_region_ids_cached_byte_size_)*/{0}
     , decltype(_impl_.duration_since_epoch_){uint64_t{0u}}
     , decltype(_impl_.lease_seconds_){uint64_t{0u}}
-    , decltype(_impl_.closeable_region_ids_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -1686,6 +1689,7 @@ RegionLease::~RegionLease() {
 inline void RegionLease::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.regions_.~RepeatedPtrField();
+  _impl_.closeable_region_ids_.~RepeatedField();
 }
 
 void RegionLease::SetCachedSize(int size) const {
@@ -1699,9 +1703,10 @@ void RegionLease::Clear() {
   (void) cached_has_bits;
 
   _impl_.regions_.Clear();
+  _impl_.closeable_region_ids_.Clear();
   ::memset(&_impl_.duration_since_epoch_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.closeable_region_ids_) -
-      reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.closeable_region_ids_));
+      reinterpret_cast<char*>(&_impl_.lease_seconds_) -
+      reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.lease_seconds_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1740,10 +1745,13 @@ const char* RegionLease::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
         } else
           goto handle_unusual;
         continue;
-      // uint64 closeable_region_ids = 4;
+      // repeated uint64 closeable_region_ids = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _impl_.closeable_region_ids_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_closeable_region_ids(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 32) {
+          _internal_add_closeable_region_ids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1797,10 +1805,13 @@ uint8_t* RegionLease::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_lease_seconds(), target);
   }
 
-  // uint64 closeable_region_ids = 4;
-  if (this->_internal_closeable_region_ids() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_closeable_region_ids(), target);
+  // repeated uint64 closeable_region_ids = 4;
+  {
+    int byte_size = _impl_._closeable_region_ids_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt64Packed(
+          4, _internal_closeable_region_ids(), byte_size, target);
+    }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1826,6 +1837,20 @@ size_t RegionLease::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // repeated uint64 closeable_region_ids = 4;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt64Size(this->_impl_.closeable_region_ids_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._closeable_region_ids_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
   // uint64 duration_since_epoch = 2;
   if (this->_internal_duration_since_epoch() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_duration_since_epoch());
@@ -1834,11 +1859,6 @@ size_t RegionLease::ByteSizeLong() const {
   // uint64 lease_seconds = 3;
   if (this->_internal_lease_seconds() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_lease_seconds());
-  }
-
-  // uint64 closeable_region_ids = 4;
-  if (this->_internal_closeable_region_ids() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_closeable_region_ids());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -1860,14 +1880,12 @@ void RegionLease::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
   (void) cached_has_bits;
 
   _this->_impl_.regions_.MergeFrom(from._impl_.regions_);
+  _this->_impl_.closeable_region_ids_.MergeFrom(from._impl_.closeable_region_ids_);
   if (from._internal_duration_since_epoch() != 0) {
     _this->_internal_set_duration_since_epoch(from._internal_duration_since_epoch());
   }
   if (from._internal_lease_seconds() != 0) {
     _this->_internal_set_lease_seconds(from._internal_lease_seconds());
-  }
-  if (from._internal_closeable_region_ids() != 0) {
-    _this->_internal_set_closeable_region_ids(from._internal_closeable_region_ids());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1887,9 +1905,10 @@ void RegionLease::InternalSwap(RegionLease* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.regions_.InternalSwap(&other->_impl_.regions_);
+  _impl_.closeable_region_ids_.InternalSwap(&other->_impl_.closeable_region_ids_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RegionLease, _impl_.closeable_region_ids_)
-      + sizeof(RegionLease::_impl_.closeable_region_ids_)
+      PROTOBUF_FIELD_OFFSET(RegionLease, _impl_.lease_seconds_)
+      + sizeof(RegionLease::_impl_.lease_seconds_)
       - PROTOBUF_FIELD_OFFSET(RegionLease, _impl_.duration_since_epoch_)>(
           reinterpret_cast<char*>(&_impl_.duration_since_epoch_),
           reinterpret_cast<char*>(&other->_impl_.duration_since_epoch_));
