@@ -93,6 +93,7 @@ PROTOBUF_CONSTEXPR DropTableExpr::DropTableExpr(
   , /*decltype(_impl_.schema_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.table_id_)*/nullptr
+  , /*decltype(_impl_.drop_if_exists_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct DropTableExprDefaultTypeInternal {
   PROTOBUF_CONSTEXPR DropTableExprDefaultTypeInternal()
@@ -326,6 +327,7 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTableExpr, _impl_.schema_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTableExpr, _impl_.table_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTableExpr, _impl_.table_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTableExpr, _impl_.drop_if_exists_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -426,17 +428,17 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 22, -1, -1, sizeof(::greptime::v1::CreateTableExpr)},
   { 39, -1, -1, sizeof(::greptime::v1::AlterExpr)},
   { 52, -1, -1, sizeof(::greptime::v1::DropTableExpr)},
-  { 62, 70, -1, sizeof(::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse)},
-  { 72, -1, -1, sizeof(::greptime::v1::CreateDatabaseExpr)},
-  { 81, -1, -1, sizeof(::greptime::v1::TruncateTableExpr)},
-  { 91, -1, -1, sizeof(::greptime::v1::AddColumns)},
-  { 98, -1, -1, sizeof(::greptime::v1::DropColumns)},
-  { 105, -1, -1, sizeof(::greptime::v1::RenameTable)},
-  { 112, -1, -1, sizeof(::greptime::v1::AddColumn)},
-  { 120, -1, -1, sizeof(::greptime::v1::DropColumn)},
-  { 127, -1, -1, sizeof(::greptime::v1::TableId)},
-  { 134, -1, -1, sizeof(::greptime::v1::ColumnDef)},
-  { 147, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
+  { 63, 71, -1, sizeof(::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse)},
+  { 73, -1, -1, sizeof(::greptime::v1::CreateDatabaseExpr)},
+  { 82, -1, -1, sizeof(::greptime::v1::TruncateTableExpr)},
+  { 92, -1, -1, sizeof(::greptime::v1::AddColumns)},
+  { 99, -1, -1, sizeof(::greptime::v1::DropColumns)},
+  { 106, -1, -1, sizeof(::greptime::v1::RenameTable)},
+  { 113, -1, -1, sizeof(::greptime::v1::AddColumn)},
+  { 121, -1, -1, sizeof(::greptime::v1::DropColumn)},
+  { 128, -1, -1, sizeof(::greptime::v1::TableId)},
+  { 135, -1, -1, sizeof(::greptime::v1::ColumnDef)},
+  { 148, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -483,45 +485,46 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "2\027.greptime.v1.AddColumnsH\000\0220\n\014drop_colu"
   "mns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220\n"
   "\014rename_table\030\006 \001(\0132\030.greptime.v1.Rename"
-  "TableH\000B\006\n\004kind\"v\n\rDropTableExpr\022\024\n\014cata"
-  "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nt"
-  "able_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grep"
-  "time.v1.TableId\"\270\001\n\022CreateDatabaseExpr\022\025"
-  "\n\rdatabase_name\030\001 \001(\t\022\034\n\024create_if_not_e"
-  "xists\030\002 \001(\010\022=\n\007options\030\003 \003(\0132,.greptime."
-  "v1.CreateDatabaseExpr.OptionsEntry\032.\n\014Op"
-  "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002"
-  "8\001\"z\n\021TruncateTableExpr\022\024\n\014catalog_name\030"
-  "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name"
-  "\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.T"
-  "ableId\"9\n\nAddColumns\022+\n\013add_columns\030\001 \003("
-  "\0132\026.greptime.v1.AddColumn\"<\n\013DropColumns"
-  "\022-\n\014drop_columns\030\001 \003(\0132\027.greptime.v1.Dro"
-  "pColumn\"%\n\013RenameTable\022\026\n\016new_table_name"
-  "\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132"
-  "\026.greptime.v1.ColumnDef\0220\n\010location\030\003 \001("
-  "\0132\036.greptime.v1.AddColumnLocation\"\032\n\nDro"
-  "pColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001"
-  " \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata"
-  "_type\030\002 \001(\0162\033.greptime.v1.ColumnDataType"
-  "\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constra"
-  "int\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.grept"
-  "ime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022"
-  "datatype_extension\030\007 \001(\0132$.greptime.v1.C"
-  "olumnDataTypeExtension\"\230\001\n\021AddColumnLoca"
-  "tion\022B\n\rlocation_type\030\001 \001(\0162+.greptime.v"
-  "1.AddColumnLocation.LocationType\022\031\n\021afte"
-  "r_column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005F"
-  "IRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003Ddl"
-  "Z5github.com/GreptimeTeam/greptime-proto"
-  "/go/greptime/v1b\006proto3"
+  "TableH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014cat"
+  "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\n"
+  "table_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gre"
+  "ptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010"
+  "\"\270\001\n\022CreateDatabaseExpr\022\025\n\rdatabase_name"
+  "\030\001 \001(\t\022\034\n\024create_if_not_exists\030\002 \001(\010\022=\n\007"
+  "options\030\003 \003(\0132,.greptime.v1.CreateDataba"
+  "seExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003k"
+  "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateT"
+  "ableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema"
+  "_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table"
+  "_id\030\004 \001(\0132\024.greptime.v1.TableId\"9\n\nAddCo"
+  "lumns\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1"
+  ".AddColumn\"<\n\013DropColumns\022-\n\014drop_column"
+  "s\030\001 \003(\0132\027.greptime.v1.DropColumn\"%\n\013Rena"
+  "meTable\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddCo"
+  "lumn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.C"
+  "olumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1"
+  ".AddColumnLocation\"\032\n\nDropColumn\022\014\n\004name"
+  "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumn"
+  "Def\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.g"
+  "reptime.v1.ColumnDataType\022\023\n\013is_nullable"
+  "\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rse"
+  "mantic_type\030\005 \001(\0162\031.greptime.v1.Semantic"
+  "Type\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extens"
+  "ion\030\007 \001(\0132$.greptime.v1.ColumnDataTypeEx"
+  "tension\"\230\001\n\021AddColumnLocation\022B\n\rlocatio"
+  "n_type\030\001 \001(\0162+.greptime.v1.AddColumnLoca"
+  "tion.LocationType\022\031\n\021after_column_name\030\002"
+  " \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER"
+  "\020\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gr"
+  "eptimeTeam/greptime-proto/go/greptime/v1"
+  "b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 2223, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 2248, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
     &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 16,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
@@ -2258,6 +2261,7 @@ DropTableExpr::DropTableExpr(const DropTableExpr& from)
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
     , decltype(_impl_.table_id_){nullptr}
+    , decltype(_impl_.drop_if_exists_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2288,6 +2292,7 @@ DropTableExpr::DropTableExpr(const DropTableExpr& from)
   if (from._internal_has_table_id()) {
     _this->_impl_.table_id_ = new ::greptime::v1::TableId(*from._impl_.table_id_);
   }
+  _this->_impl_.drop_if_exists_ = from._impl_.drop_if_exists_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.DropTableExpr)
 }
 
@@ -2300,6 +2305,7 @@ inline void DropTableExpr::SharedCtor(
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
     , decltype(_impl_.table_id_){nullptr}
+    , decltype(_impl_.drop_if_exists_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.catalog_name_.InitDefault();
@@ -2350,6 +2356,7 @@ void DropTableExpr::Clear() {
     delete _impl_.table_id_;
   }
   _impl_.table_id_ = nullptr;
+  _impl_.drop_if_exists_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2393,6 +2400,14 @@ const char* DropTableExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext*
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_table_id(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool drop_if_exists = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.drop_if_exists_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2463,6 +2478,12 @@ uint8_t* DropTableExpr::_InternalSerialize(
         _Internal::table_id(this).GetCachedSize(), target, stream);
   }
 
+  // bool drop_if_exists = 5;
+  if (this->_internal_drop_if_exists() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_drop_if_exists(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2507,6 +2528,11 @@ size_t DropTableExpr::ByteSizeLong() const {
         *_impl_.table_id_);
   }
 
+  // bool drop_if_exists = 5;
+  if (this->_internal_drop_if_exists() != 0) {
+    total_size += 1 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -2537,6 +2563,9 @@ void DropTableExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   if (from._internal_has_table_id()) {
     _this->_internal_mutable_table_id()->::greptime::v1::TableId::MergeFrom(
         from._internal_table_id());
+  }
+  if (from._internal_drop_if_exists() != 0) {
+    _this->_internal_set_drop_if_exists(from._internal_drop_if_exists());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2569,7 +2598,12 @@ void DropTableExpr::InternalSwap(DropTableExpr* other) {
       &_impl_.table_name_, lhs_arena,
       &other->_impl_.table_name_, rhs_arena
   );
-  swap(_impl_.table_id_, other->_impl_.table_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DropTableExpr, _impl_.drop_if_exists_)
+      + sizeof(DropTableExpr::_impl_.drop_if_exists_)
+      - PROTOBUF_FIELD_OFFSET(DropTableExpr, _impl_.table_id_)>(
+          reinterpret_cast<char*>(&_impl_.table_id_),
+          reinterpret_cast<char*>(&other->_impl_.table_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DropTableExpr::GetMetadata() const {

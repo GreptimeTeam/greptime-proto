@@ -66,6 +66,7 @@ message DropTableExpr {
   string schema_name = 2;
   string table_name = 3;
   TableId table_id = 4;
+  bool drop_if_exists = 5;
 }
 
 message CreateDatabaseExpr {
