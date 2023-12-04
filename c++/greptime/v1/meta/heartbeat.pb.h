@@ -1075,6 +1075,7 @@ class RegionLease final :
     kRegionsFieldNumber = 1,
     kDurationSinceEpochFieldNumber = 2,
     kLeaseSecondsFieldNumber = 3,
+    kCloseableRegionIdsFieldNumber = 4,
   };
   // repeated .greptime.v1.meta.GrantedRegion regions = 1;
   int regions_size() const;
@@ -1112,6 +1113,15 @@ class RegionLease final :
   void _internal_set_lease_seconds(uint64_t value);
   public:
 
+  // uint64 closeable_region_ids = 4;
+  void clear_closeable_region_ids();
+  uint64_t closeable_region_ids() const;
+  void set_closeable_region_ids(uint64_t value);
+  private:
+  uint64_t _internal_closeable_region_ids() const;
+  void _internal_set_closeable_region_ids(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.RegionLease)
  private:
   class _Internal;
@@ -1123,6 +1133,7 @@ class RegionLease final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::GrantedRegion > regions_;
     uint64_t duration_since_epoch_;
     uint64_t lease_seconds_;
+    uint64_t closeable_region_ids_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2711,6 +2722,26 @@ inline void RegionLease::_internal_set_lease_seconds(uint64_t value) {
 inline void RegionLease::set_lease_seconds(uint64_t value) {
   _internal_set_lease_seconds(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionLease.lease_seconds)
+}
+
+// uint64 closeable_region_ids = 4;
+inline void RegionLease::clear_closeable_region_ids() {
+  _impl_.closeable_region_ids_ = uint64_t{0u};
+}
+inline uint64_t RegionLease::_internal_closeable_region_ids() const {
+  return _impl_.closeable_region_ids_;
+}
+inline uint64_t RegionLease::closeable_region_ids() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionLease.closeable_region_ids)
+  return _internal_closeable_region_ids();
+}
+inline void RegionLease::_internal_set_closeable_region_ids(uint64_t value) {
+  
+  _impl_.closeable_region_ids_ = value;
+}
+inline void RegionLease::set_closeable_region_ids(uint64_t value) {
+  _internal_set_closeable_region_ids(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionLease.closeable_region_ids)
 }
 
 // -------------------------------------------------------------------

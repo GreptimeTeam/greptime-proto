@@ -95,6 +95,7 @@ PROTOBUF_CONSTEXPR RegionLease::RegionLease(
     /*decltype(_impl_.regions_)*/{}
   , /*decltype(_impl_.duration_since_epoch_)*/uint64_t{0u}
   , /*decltype(_impl_.lease_seconds_)*/uint64_t{0u}
+  , /*decltype(_impl_.closeable_region_ids_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RegionLeaseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR RegionLeaseDefaultTypeInternal()
@@ -211,6 +212,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionLease, _impl_.regions_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionLease, _impl_.duration_since_epoch_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionLease, _impl_.lease_seconds_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionLease, _impl_.closeable_region_ids_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::AskLeaderRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -246,9 +248,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 26, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
   { 35, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
   { 43, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
-  { 52, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
-  { 59, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
-  { 67, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
+  { 53, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
+  { 60, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
+  { 68, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -284,32 +286,33 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "egion_lease\030\003 \001(\0132\035.greptime.v1.meta.Reg"
   "ionLease\"N\n\rGrantedRegion\022\021\n\tregion_id\030\001"
   " \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.Re"
-  "gionRole\"t\n\013RegionLease\0220\n\007regions\030\001 \003(\013"
-  "2\037.greptime.v1.meta.GrantedRegion\022\034\n\024dur"
-  "ation_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds"
-  "\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001"
-  "(\0132\037.greptime.v1.meta.RequestHeader\"m\n\021A"
-  "skLeaderResponse\0220\n\006header\030\001 \001(\0132 .grept"
-  "ime.v1.meta.ResponseHeader\022&\n\006leader\030\002 \001"
-  "(\0132\026.greptime.v1.meta.Peer\"|\n\016MailboxMes"
-  "sage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004fro"
-  "m\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030"
-  "\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegi"
-  "onRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHea"
-  "rtbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta.H"
-  "eartbeatRequest\032#.greptime.v1.meta.Heart"
-  "beatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".grepti"
-  "me.v1.meta.AskLeaderRequest\032#.greptime.v"
-  "1.meta.AskLeaderResponse\"\000B<Z:github.com"
-  "/GreptimeTeam/greptime-proto/go/greptime"
-  "/v1/metab\006proto3"
+  "gionRole\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003("
+  "\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024du"
+  "ration_since_epoch\030\002 \001(\004\022\025\n\rlease_second"
+  "s\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \001(\004\"C\n"
+  "\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.grep"
+  "time.v1.meta.RequestHeader\"m\n\021AskLeaderR"
+  "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me"
+  "ta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.grep"
+  "time.v1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002i"
+  "d\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n"
+  "\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004"
+  "json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegionRole\022\n\n"
+  "\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHeartbeat\022Z\n"
+  "\tHeartbeat\022\".greptime.v1.meta.HeartbeatR"
+  "equest\032#.greptime.v1.meta.HeartbeatRespo"
+  "nse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.met"
+  "a.AskLeaderRequest\032#.greptime.v1.meta.As"
+  "kLeaderResponse\"\000B<Z:github.com/Greptime"
+  "Team/greptime-proto/go/greptime/v1/metab"
+  "\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 1576, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 1607, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 8,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
@@ -1648,12 +1651,13 @@ RegionLease::RegionLease(const RegionLease& from)
       decltype(_impl_.regions_){from._impl_.regions_}
     , decltype(_impl_.duration_since_epoch_){}
     , decltype(_impl_.lease_seconds_){}
+    , decltype(_impl_.closeable_region_ids_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.duration_since_epoch_, &from._impl_.duration_since_epoch_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.lease_seconds_) -
-    reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.lease_seconds_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.closeable_region_ids_) -
+    reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.closeable_region_ids_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.RegionLease)
 }
 
@@ -1665,6 +1669,7 @@ inline void RegionLease::SharedCtor(
       decltype(_impl_.regions_){arena}
     , decltype(_impl_.duration_since_epoch_){uint64_t{0u}}
     , decltype(_impl_.lease_seconds_){uint64_t{0u}}
+    , decltype(_impl_.closeable_region_ids_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -1695,8 +1700,8 @@ void RegionLease::Clear() {
 
   _impl_.regions_.Clear();
   ::memset(&_impl_.duration_since_epoch_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.lease_seconds_) -
-      reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.lease_seconds_));
+      reinterpret_cast<char*>(&_impl_.closeable_region_ids_) -
+      reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.closeable_region_ids_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1731,6 +1736,14 @@ const char* RegionLease::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _impl_.lease_seconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 closeable_region_ids = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.closeable_region_ids_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1784,6 +1797,12 @@ uint8_t* RegionLease::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_lease_seconds(), target);
   }
 
+  // uint64 closeable_region_ids = 4;
+  if (this->_internal_closeable_region_ids() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_closeable_region_ids(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1817,6 +1836,11 @@ size_t RegionLease::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_lease_seconds());
   }
 
+  // uint64 closeable_region_ids = 4;
+  if (this->_internal_closeable_region_ids() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_closeable_region_ids());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1842,6 +1866,9 @@ void RegionLease::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
   if (from._internal_lease_seconds() != 0) {
     _this->_internal_set_lease_seconds(from._internal_lease_seconds());
   }
+  if (from._internal_closeable_region_ids() != 0) {
+    _this->_internal_set_closeable_region_ids(from._internal_closeable_region_ids());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1861,8 +1888,8 @@ void RegionLease::InternalSwap(RegionLease* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.regions_.InternalSwap(&other->_impl_.regions_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RegionLease, _impl_.lease_seconds_)
-      + sizeof(RegionLease::_impl_.lease_seconds_)
+      PROTOBUF_FIELD_OFFSET(RegionLease, _impl_.closeable_region_ids_)
+      + sizeof(RegionLease::_impl_.closeable_region_ids_)
       - PROTOBUF_FIELD_OFFSET(RegionLease, _impl_.duration_since_epoch_)>(
           reinterpret_cast<char*>(&_impl_.duration_since_epoch_),
           reinterpret_cast<char*>(&other->_impl_.duration_since_epoch_));
