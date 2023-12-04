@@ -2271,7 +2271,7 @@ public final class HeartbeatOuterClass {
 
     /**
      * <pre>
-     * engine name
+     * Engine name
      * </pre>
      *
      * <code>string engine = 6;</code>
@@ -2280,7 +2280,7 @@ public final class HeartbeatOuterClass {
     java.lang.String getEngine();
     /**
      * <pre>
-     * engine name
+     * Engine name
      * </pre>
      *
      * <code>string engine = 6;</code>
@@ -2501,7 +2501,7 @@ public final class HeartbeatOuterClass {
     private volatile java.lang.Object engine_;
     /**
      * <pre>
-     * engine name
+     * Engine name
      * </pre>
      *
      * <code>string engine = 6;</code>
@@ -2522,7 +2522,7 @@ public final class HeartbeatOuterClass {
     }
     /**
      * <pre>
-     * engine name
+     * Engine name
      * </pre>
      *
      * <code>string engine = 6;</code>
@@ -3184,7 +3184,7 @@ public final class HeartbeatOuterClass {
       private java.lang.Object engine_ = "";
       /**
        * <pre>
-       * engine name
+       * Engine name
        * </pre>
        *
        * <code>string engine = 6;</code>
@@ -3204,7 +3204,7 @@ public final class HeartbeatOuterClass {
       }
       /**
        * <pre>
-       * engine name
+       * Engine name
        * </pre>
        *
        * <code>string engine = 6;</code>
@@ -3225,7 +3225,7 @@ public final class HeartbeatOuterClass {
       }
       /**
        * <pre>
-       * engine name
+       * Engine name
        * </pre>
        *
        * <code>string engine = 6;</code>
@@ -3244,7 +3244,7 @@ public final class HeartbeatOuterClass {
       }
       /**
        * <pre>
-       * engine name
+       * Engine name
        * </pre>
        *
        * <code>string engine = 6;</code>
@@ -3258,7 +3258,7 @@ public final class HeartbeatOuterClass {
       }
       /**
        * <pre>
-       * engine name
+       * Engine name
        * </pre>
        *
        * <code>string engine = 6;</code>
@@ -5069,6 +5069,23 @@ public final class HeartbeatOuterClass {
      * @return The leaseSeconds.
      */
     long getLeaseSeconds();
+
+    /**
+     * <code>repeated uint64 closeable_region_ids = 4;</code>
+     * @return A list containing the closeableRegionIds.
+     */
+    java.util.List<java.lang.Long> getCloseableRegionIdsList();
+    /**
+     * <code>repeated uint64 closeable_region_ids = 4;</code>
+     * @return The count of closeableRegionIds.
+     */
+    int getCloseableRegionIdsCount();
+    /**
+     * <code>repeated uint64 closeable_region_ids = 4;</code>
+     * @param index The index of the element to return.
+     * @return The closeableRegionIds at the given index.
+     */
+    long getCloseableRegionIds(int index);
   }
   /**
    * Protobuf type {@code greptime.v1.meta.RegionLease}
@@ -5084,6 +5101,7 @@ public final class HeartbeatOuterClass {
     }
     private RegionLease() {
       regions_ = java.util.Collections.emptyList();
+      closeableRegionIds_ = emptyLongList();
     }
 
     @java.lang.Override
@@ -5136,6 +5154,27 @@ public final class HeartbeatOuterClass {
               leaseSeconds_ = input.readUInt64();
               break;
             }
+            case 32: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                closeableRegionIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              closeableRegionIds_.addLong(input.readUInt64());
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                closeableRegionIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                closeableRegionIds_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -5155,6 +5194,9 @@ public final class HeartbeatOuterClass {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           regions_ = java.util.Collections.unmodifiableList(regions_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          closeableRegionIds_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -5235,6 +5277,34 @@ public final class HeartbeatOuterClass {
       return leaseSeconds_;
     }
 
+    public static final int CLOSEABLE_REGION_IDS_FIELD_NUMBER = 4;
+    private com.google.protobuf.Internal.LongList closeableRegionIds_;
+    /**
+     * <code>repeated uint64 closeable_region_ids = 4;</code>
+     * @return A list containing the closeableRegionIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getCloseableRegionIdsList() {
+      return closeableRegionIds_;
+    }
+    /**
+     * <code>repeated uint64 closeable_region_ids = 4;</code>
+     * @return The count of closeableRegionIds.
+     */
+    public int getCloseableRegionIdsCount() {
+      return closeableRegionIds_.size();
+    }
+    /**
+     * <code>repeated uint64 closeable_region_ids = 4;</code>
+     * @param index The index of the element to return.
+     * @return The closeableRegionIds at the given index.
+     */
+    public long getCloseableRegionIds(int index) {
+      return closeableRegionIds_.getLong(index);
+    }
+    private int closeableRegionIdsMemoizedSerializedSize = -1;
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5249,6 +5319,7 @@ public final class HeartbeatOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       for (int i = 0; i < regions_.size(); i++) {
         output.writeMessage(1, regions_.get(i));
       }
@@ -5257,6 +5328,13 @@ public final class HeartbeatOuterClass {
       }
       if (leaseSeconds_ != 0L) {
         output.writeUInt64(3, leaseSeconds_);
+      }
+      if (getCloseableRegionIdsList().size() > 0) {
+        output.writeUInt32NoTag(34);
+        output.writeUInt32NoTag(closeableRegionIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < closeableRegionIds_.size(); i++) {
+        output.writeUInt64NoTag(closeableRegionIds_.getLong(i));
       }
       unknownFields.writeTo(output);
     }
@@ -5279,6 +5357,20 @@ public final class HeartbeatOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, leaseSeconds_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < closeableRegionIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(closeableRegionIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getCloseableRegionIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        closeableRegionIdsMemoizedSerializedSize = dataSize;
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5300,6 +5392,8 @@ public final class HeartbeatOuterClass {
           != other.getDurationSinceEpoch()) return false;
       if (getLeaseSeconds()
           != other.getLeaseSeconds()) return false;
+      if (!getCloseableRegionIdsList()
+          .equals(other.getCloseableRegionIdsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5321,6 +5415,10 @@ public final class HeartbeatOuterClass {
       hash = (37 * hash) + LEASE_SECONDS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLeaseSeconds());
+      if (getCloseableRegionIdsCount() > 0) {
+        hash = (37 * hash) + CLOSEABLE_REGION_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getCloseableRegionIdsList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5465,6 +5563,8 @@ public final class HeartbeatOuterClass {
 
         leaseSeconds_ = 0L;
 
+        closeableRegionIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -5503,6 +5603,11 @@ public final class HeartbeatOuterClass {
         }
         result.durationSinceEpoch_ = durationSinceEpoch_;
         result.leaseSeconds_ = leaseSeconds_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          closeableRegionIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.closeableRegionIds_ = closeableRegionIds_;
         onBuilt();
         return result;
       }
@@ -5582,6 +5687,16 @@ public final class HeartbeatOuterClass {
         }
         if (other.getLeaseSeconds() != 0L) {
           setLeaseSeconds(other.getLeaseSeconds());
+        }
+        if (!other.closeableRegionIds_.isEmpty()) {
+          if (closeableRegionIds_.isEmpty()) {
+            closeableRegionIds_ = other.closeableRegionIds_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureCloseableRegionIdsIsMutable();
+            closeableRegionIds_.addAll(other.closeableRegionIds_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5911,6 +6026,85 @@ public final class HeartbeatOuterClass {
       public Builder clearLeaseSeconds() {
         
         leaseSeconds_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList closeableRegionIds_ = emptyLongList();
+      private void ensureCloseableRegionIdsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          closeableRegionIds_ = mutableCopy(closeableRegionIds_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated uint64 closeable_region_ids = 4;</code>
+       * @return A list containing the closeableRegionIds.
+       */
+      public java.util.List<java.lang.Long>
+          getCloseableRegionIdsList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(closeableRegionIds_) : closeableRegionIds_;
+      }
+      /**
+       * <code>repeated uint64 closeable_region_ids = 4;</code>
+       * @return The count of closeableRegionIds.
+       */
+      public int getCloseableRegionIdsCount() {
+        return closeableRegionIds_.size();
+      }
+      /**
+       * <code>repeated uint64 closeable_region_ids = 4;</code>
+       * @param index The index of the element to return.
+       * @return The closeableRegionIds at the given index.
+       */
+      public long getCloseableRegionIds(int index) {
+        return closeableRegionIds_.getLong(index);
+      }
+      /**
+       * <code>repeated uint64 closeable_region_ids = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The closeableRegionIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCloseableRegionIds(
+          int index, long value) {
+        ensureCloseableRegionIdsIsMutable();
+        closeableRegionIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint64 closeable_region_ids = 4;</code>
+       * @param value The closeableRegionIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCloseableRegionIds(long value) {
+        ensureCloseableRegionIdsIsMutable();
+        closeableRegionIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint64 closeable_region_ids = 4;</code>
+       * @param values The closeableRegionIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllCloseableRegionIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureCloseableRegionIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, closeableRegionIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint64 closeable_region_ids = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCloseableRegionIds() {
+        closeableRegionIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -8851,25 +9045,26 @@ public final class HeartbeatOuterClass {
       "egion_lease\030\003 \001(\0132\035.greptime.v1.meta.Reg" +
       "ionLease\"N\n\rGrantedRegion\022\021\n\tregion_id\030\001" +
       " \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.Re" +
-      "gionRole\"t\n\013RegionLease\0220\n\007regions\030\001 \003(\013" +
-      "2\037.greptime.v1.meta.GrantedRegion\022\034\n\024dur" +
-      "ation_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds" +
-      "\030\003 \001(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001" +
-      "(\0132\037.greptime.v1.meta.RequestHeader\"m\n\021A" +
-      "skLeaderResponse\0220\n\006header\030\001 \001(\0132 .grept" +
-      "ime.v1.meta.ResponseHeader\022&\n\006leader\030\002 \001" +
-      "(\0132\026.greptime.v1.meta.Peer\"|\n\016MailboxMes" +
-      "sage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004fro" +
-      "m\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030" +
-      "\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegi" +
-      "onRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHea" +
-      "rtbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta.H" +
-      "eartbeatRequest\032#.greptime.v1.meta.Heart" +
-      "beatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".grepti" +
-      "me.v1.meta.AskLeaderRequest\032#.greptime.v" +
-      "1.meta.AskLeaderResponse\"\000B<Z:github.com" +
-      "/GreptimeTeam/greptime-proto/go/greptime" +
-      "/v1/metab\006proto3"
+      "gionRole\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(" +
+      "\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024du" +
+      "ration_since_epoch\030\002 \001(\004\022\025\n\rlease_second" +
+      "s\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n" +
+      "\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.grep" +
+      "time.v1.meta.RequestHeader\"m\n\021AskLeaderR" +
+      "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me" +
+      "ta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.grep" +
+      "time.v1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002i" +
+      "d\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n" +
+      "\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004" +
+      "json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegionRole\022\n\n" +
+      "\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHeartbeat\022Z\n" +
+      "\tHeartbeat\022\".greptime.v1.meta.HeartbeatR" +
+      "equest\032#.greptime.v1.meta.HeartbeatRespo" +
+      "nse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.met" +
+      "a.AskLeaderRequest\032#.greptime.v1.meta.As" +
+      "kLeaderResponse\"\000B<Z:github.com/Greptime" +
+      "Team/greptime-proto/go/greptime/v1/metab" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8905,7 +9100,7 @@ public final class HeartbeatOuterClass {
     internal_static_greptime_v1_meta_RegionLease_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionLease_descriptor,
-        new java.lang.String[] { "Regions", "DurationSinceEpoch", "LeaseSeconds", });
+        new java.lang.String[] { "Regions", "DurationSinceEpoch", "LeaseSeconds", "CloseableRegionIds", });
     internal_static_greptime_v1_meta_AskLeaderRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_meta_AskLeaderRequest_fieldAccessorTable = new
