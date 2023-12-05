@@ -228,6 +228,8 @@ class InvertedIndexMetas final :
 
   enum : int {
     kMetasFieldNumber = 1,
+    kTotalRowCountFieldNumber = 2,
+    kSegmentRowCountFieldNumber = 3,
   };
   // map<string, .greptime.v1.index.InvertedIndexMeta> metas = 1;
   int metas_size() const;
@@ -246,6 +248,24 @@ class InvertedIndexMetas final :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::InvertedIndexMeta >*
       mutable_metas();
 
+  // uint64 total_row_count = 2;
+  void clear_total_row_count();
+  uint64_t total_row_count() const;
+  void set_total_row_count(uint64_t value);
+  private:
+  uint64_t _internal_total_row_count() const;
+  void _internal_set_total_row_count(uint64_t value);
+  public:
+
+  // uint64 segment_row_count = 3;
+  void clear_segment_row_count();
+  uint64_t segment_row_count() const;
+  void set_segment_row_count(uint64_t value);
+  private:
+  uint64_t _internal_segment_row_count() const;
+  void _internal_set_segment_row_count(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexMetas)
  private:
   class _Internal;
@@ -259,6 +279,8 @@ class InvertedIndexMetas final :
         std::string, ::greptime::v1::index::InvertedIndexMeta,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> metas_;
+    uint64_t total_row_count_;
+    uint64_t segment_row_count_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -395,7 +417,6 @@ class InvertedIndexMeta final :
     kFstSizeFieldNumber = 5,
     kRelativeNullBitmapOffsetFieldNumber = 6,
     kNullBitmapSizeFieldNumber = 7,
-    kSegmentRowCountFieldNumber = 9,
   };
   // string name = 1;
   void clear_name();
@@ -483,15 +504,6 @@ class InvertedIndexMeta final :
   void _internal_set_null_bitmap_size(uint32_t value);
   public:
 
-  // uint64 segment_row_count = 9;
-  void clear_segment_row_count();
-  uint64_t segment_row_count() const;
-  void set_segment_row_count(uint64_t value);
-  private:
-  uint64_t _internal_segment_row_count() const;
-  void _internal_set_segment_row_count(uint64_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexMeta)
  private:
   class _Internal;
@@ -508,7 +520,6 @@ class InvertedIndexMeta final :
     uint32_t fst_size_;
     uint32_t relative_null_bitmap_offset_;
     uint32_t null_bitmap_size_;
-    uint64_t segment_row_count_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -745,6 +756,46 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::greptime::v1::index::Inverte
 InvertedIndexMetas::mutable_metas() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.index.InvertedIndexMetas.metas)
   return _internal_mutable_metas();
+}
+
+// uint64 total_row_count = 2;
+inline void InvertedIndexMetas::clear_total_row_count() {
+  _impl_.total_row_count_ = uint64_t{0u};
+}
+inline uint64_t InvertedIndexMetas::_internal_total_row_count() const {
+  return _impl_.total_row_count_;
+}
+inline uint64_t InvertedIndexMetas::total_row_count() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMetas.total_row_count)
+  return _internal_total_row_count();
+}
+inline void InvertedIndexMetas::_internal_set_total_row_count(uint64_t value) {
+  
+  _impl_.total_row_count_ = value;
+}
+inline void InvertedIndexMetas::set_total_row_count(uint64_t value) {
+  _internal_set_total_row_count(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMetas.total_row_count)
+}
+
+// uint64 segment_row_count = 3;
+inline void InvertedIndexMetas::clear_segment_row_count() {
+  _impl_.segment_row_count_ = uint64_t{0u};
+}
+inline uint64_t InvertedIndexMetas::_internal_segment_row_count() const {
+  return _impl_.segment_row_count_;
+}
+inline uint64_t InvertedIndexMetas::segment_row_count() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMetas.segment_row_count)
+  return _internal_segment_row_count();
+}
+inline void InvertedIndexMetas::_internal_set_segment_row_count(uint64_t value) {
+  
+  _impl_.segment_row_count_ = value;
+}
+inline void InvertedIndexMetas::set_segment_row_count(uint64_t value) {
+  _internal_set_segment_row_count(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMetas.segment_row_count)
 }
 
 // -------------------------------------------------------------------
@@ -1009,26 +1060,6 @@ inline void InvertedIndexMeta::set_allocated_stats(::greptime::v1::index::Invert
   }
   _impl_.stats_ = stats;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.index.InvertedIndexMeta.stats)
-}
-
-// uint64 segment_row_count = 9;
-inline void InvertedIndexMeta::clear_segment_row_count() {
-  _impl_.segment_row_count_ = uint64_t{0u};
-}
-inline uint64_t InvertedIndexMeta::_internal_segment_row_count() const {
-  return _impl_.segment_row_count_;
-}
-inline uint64_t InvertedIndexMeta::segment_row_count() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.segment_row_count)
-  return _internal_segment_row_count();
-}
-inline void InvertedIndexMeta::_internal_set_segment_row_count(uint64_t value) {
-  
-  _impl_.segment_row_count_ = value;
-}
-inline void InvertedIndexMeta::set_segment_row_count(uint64_t value) {
-  _internal_set_segment_row_count(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.segment_row_count)
 }
 
 // -------------------------------------------------------------------
