@@ -89,6 +89,8 @@ message CreateRequest {
   // Options of the created region.
   map<string, string> options = 6;
   // TODO: add partition def
+  // Wal Options of the created region.
+  map<string, string> wal_options = 7;
 }
 
 message DropRequest { uint64 region_id = 1; }
@@ -101,6 +103,8 @@ message OpenRequest {
   string path = 3;
   // Options of the opened region.
   map<string, string> options = 4;
+  // Wal Options of the opened region.
+  map<string, string> wal_options = 5;
 }
 
 message CloseRequest { uint64 region_id = 1; }
