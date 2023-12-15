@@ -131,9 +131,21 @@ struct AffectedRowsDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AffectedRowsDefaultTypeInternal _AffectedRows_default_instance_;
+PROTOBUF_CONSTEXPR FlightMetadata_ExtensionEntry_DoNotUse::FlightMetadata_ExtensionEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
+struct FlightMetadata_ExtensionEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR FlightMetadata_ExtensionEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~FlightMetadata_ExtensionEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    FlightMetadata_ExtensionEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlightMetadata_ExtensionEntry_DoNotUseDefaultTypeInternal _FlightMetadata_ExtensionEntry_DoNotUse_default_instance_;
 PROTOBUF_CONSTEXPR FlightMetadata::FlightMetadata(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.affected_rows_)*/nullptr
+    /*decltype(_impl_.extension_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.affected_rows_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct FlightMetadataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FlightMetadataDefaultTypeInternal()
@@ -203,7 +215,7 @@ struct DecimalTypeExtensionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DecimalTypeExtensionDefaultTypeInternal _DecimalTypeExtension_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fcommon_2eproto[13];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fcommon_2eproto[14];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fcommon_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fcommon_2eproto = nullptr;
 
@@ -275,6 +287,16 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::AffectedRows, _impl_.value_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse, value_),
+  0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::FlightMetadata, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -282,6 +304,7 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::FlightMetadata, _impl_.affected_rows_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::FlightMetadata, _impl_.extension_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::IntervalMonthDayNano, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -325,11 +348,12 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 45, -1, -1, sizeof(::greptime::v1::Basic)},
   { 53, -1, -1, sizeof(::greptime::v1::Token)},
   { 60, -1, -1, sizeof(::greptime::v1::AffectedRows)},
-  { 67, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
-  { 74, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
-  { 83, -1, -1, sizeof(::greptime::v1::Decimal128)},
-  { 91, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
-  { 99, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
+  { 67, 75, -1, sizeof(::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse)},
+  { 77, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
+  { 85, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
+  { 94, -1, -1, sizeof(::greptime::v1::Decimal128)},
+  { 102, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
+  { 110, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -341,6 +365,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_Basic_default_instance_._instance,
   &::greptime::v1::_Token_default_instance_._instance,
   &::greptime::v1::_AffectedRows_default_instance_._instance,
+  &::greptime::v1::_FlightMetadata_ExtensionEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::_FlightMetadata_default_instance_._instance,
   &::greptime::v1::_IntervalMonthDayNano_default_instance_._instance,
   &::greptime::v1::_Decimal128_default_instance_._instance,
@@ -363,39 +388,42 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   "token\030\002 \001(\0132\022.greptime.v1.TokenH\000B\r\n\013aut"
   "h_scheme\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010p"
   "assword\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"\035\n"
-  "\014AffectedRows\022\r\n\005value\030\001 \001(\r\"B\n\016FlightMe"
-  "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime"
-  ".v1.AffectedRows\"I\n\024IntervalMonthDayNano"
-  "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose"
-  "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n"
-  "\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014"
-  "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal"
-  "TypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTy"
-  "peExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030"
-  "\002 \001(\005*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020"
-  "\001\022\r\n\tTIMESTAMP\020\002*\270\004\n\016ColumnDataType\022\013\n\007B"
-  "OOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003"
-  "\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UI"
-  "NT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT"
-  "64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014"
-  "\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TI"
-  "MESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICRO"
-  "SECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TI"
-  "ME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIM"
-  "E_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023"
-  "INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TI"
-  "ME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DUR"
-  "ATION_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033"
-  "\022\030\n\024DURATION_MICROSECOND\020\034\022\027\n\023DURATION_N"
-  "ANOSECOND\020\035\022\016\n\nDECIMAL128\020\036BO\n\016io.grepti"
-  "me.v1B\006CommonZ5github.com/GreptimeTeam/g"
-  "reptime-proto/go/greptime/v1b\006proto3"
+  "\014AffectedRows\022\r\n\005value\030\001 \001(\r\"\263\001\n\016FlightM"
+  "etadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptim"
+  "e.v1.AffectedRows\022=\n\textension\030\002 \003(\0132*.g"
+  "reptime.v1.FlightMetadata.ExtensionEntry"
+  "\0320\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value"
+  "\030\002 \001(\t:\0028\001\"I\n\024IntervalMonthDayNano\022\016\n\006mo"
+  "nths\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030"
+  "\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n\002lo\030\002 "
+  "\001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014decima"
+  "l_type\030\001 \001(\0132!.greptime.v1.DecimalTypeEx"
+  "tensionH\000B\n\n\010type_ext\"8\n\024DecimalTypeExte"
+  "nsion\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005*"
+  "1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tT"
+  "IMESTAMP\020\002*\270\004\n\016ColumnDataType\022\013\n\007BOOLEAN"
+  "\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005IN"
+  "T64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007"
+  "\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n"
+  "\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATE"
+  "TIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAM"
+  "P_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND"
+  "\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SEC"
+  "OND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICR"
+  "OSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERV"
+  "AL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033"
+  "\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION_"
+  "SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024DU"
+  "RATION_MICROSECOND\020\034\022\027\n\023DURATION_NANOSEC"
+  "OND\020\035\022\016\n\nDECIMAL128\020\036BO\n\016io.greptime.v1B"
+  "\006CommonZ5github.com/GreptimeTeam/greptim"
+  "e-proto/go/greptime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 1636, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 1750, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
-    &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 13,
+    &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 14,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fcommon_2eproto, file_level_enum_descriptors_greptime_2fv1_2fcommon_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fcommon_2eproto,
@@ -2258,6 +2286,20 @@ void AffectedRows::InternalSwap(AffectedRows* other) {
 
 // ===================================================================
 
+FlightMetadata_ExtensionEntry_DoNotUse::FlightMetadata_ExtensionEntry_DoNotUse() {}
+FlightMetadata_ExtensionEntry_DoNotUse::FlightMetadata_ExtensionEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void FlightMetadata_ExtensionEntry_DoNotUse::MergeFrom(const FlightMetadata_ExtensionEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata FlightMetadata_ExtensionEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[8]);
+}
+
+// ===================================================================
+
 class FlightMetadata::_Internal {
  public:
   static const ::greptime::v1::AffectedRows& affected_rows(const FlightMetadata* msg);
@@ -2271,16 +2313,21 @@ FlightMetadata::FlightMetadata(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &FlightMetadata::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:greptime.v1.FlightMetadata)
 }
 FlightMetadata::FlightMetadata(const FlightMetadata& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   FlightMetadata* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.affected_rows_){nullptr}
+      /*decltype(_impl_.extension_)*/{}
+    , decltype(_impl_.affected_rows_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.extension_.MergeFrom(from._impl_.extension_);
   if (from._internal_has_affected_rows()) {
     _this->_impl_.affected_rows_ = new ::greptime::v1::AffectedRows(*from._impl_.affected_rows_);
   }
@@ -2292,7 +2339,8 @@ inline void FlightMetadata::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.affected_rows_){nullptr}
+      /*decltype(_impl_.extension_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.affected_rows_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -2301,6 +2349,7 @@ FlightMetadata::~FlightMetadata() {
   // @@protoc_insertion_point(destructor:greptime.v1.FlightMetadata)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
+    ArenaDtor(this);
     return;
   }
   SharedDtor();
@@ -2308,9 +2357,15 @@ FlightMetadata::~FlightMetadata() {
 
 inline void FlightMetadata::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.extension_.Destruct();
+  _impl_.extension_.~MapField();
   if (this != internal_default_instance()) delete _impl_.affected_rows_;
 }
 
+void FlightMetadata::ArenaDtor(void* object) {
+  FlightMetadata* _this = reinterpret_cast< FlightMetadata* >(object);
+  _this->_impl_.extension_.Destruct();
+}
 void FlightMetadata::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
@@ -2321,6 +2376,7 @@ void FlightMetadata::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.extension_.Clear();
   if (GetArenaForAllocation() == nullptr && _impl_.affected_rows_ != nullptr) {
     delete _impl_.affected_rows_;
   }
@@ -2339,6 +2395,19 @@ const char* FlightMetadata::_InternalParse(const char* ptr, ::_pbi::ParseContext
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_affected_rows(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, string> extension = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&_impl_.extension_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -2378,6 +2447,36 @@ uint8_t* FlightMetadata::_InternalSerialize(
         _Internal::affected_rows(this).GetCachedSize(), target, stream);
   }
 
+  // map<string, string> extension = 2;
+  if (!this->_internal_extension().empty()) {
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = FlightMetadata_ExtensionEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_extension();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.FlightMetadata.ExtensionEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.FlightMetadata.ExtensionEntry.value");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2393,6 +2492,15 @@ size_t FlightMetadata::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // map<string, string> extension = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_extension_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+      it = this->_internal_extension().begin();
+      it != this->_internal_extension().end(); ++it) {
+    total_size += FlightMetadata_ExtensionEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
 
   // .greptime.v1.AffectedRows affected_rows = 1;
   if (this->_internal_has_affected_rows()) {
@@ -2419,6 +2527,7 @@ void FlightMetadata::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.extension_.MergeFrom(from._impl_.extension_);
   if (from._internal_has_affected_rows()) {
     _this->_internal_mutable_affected_rows()->::greptime::v1::AffectedRows::MergeFrom(
         from._internal_affected_rows());
@@ -2440,13 +2549,14 @@ bool FlightMetadata::IsInitialized() const {
 void FlightMetadata::InternalSwap(FlightMetadata* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.extension_.InternalSwap(&other->_impl_.extension_);
   swap(_impl_.affected_rows_, other->_impl_.affected_rows_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata FlightMetadata::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[8]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[9]);
 }
 
 // ===================================================================
@@ -2681,7 +2791,7 @@ void IntervalMonthDayNano::InternalSwap(IntervalMonthDayNano* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata IntervalMonthDayNano::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[9]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[10]);
 }
 
 // ===================================================================
@@ -2892,7 +3002,7 @@ void Decimal128::InternalSwap(Decimal128* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Decimal128::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[10]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[11]);
 }
 
 // ===================================================================
@@ -3139,7 +3249,7 @@ void ColumnDataTypeExtension::InternalSwap(ColumnDataTypeExtension* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnDataTypeExtension::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[11]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[12]);
 }
 
 // ===================================================================
@@ -3350,7 +3460,7 @@ void DecimalTypeExtension::InternalSwap(DecimalTypeExtension* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DecimalTypeExtension::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[12]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[13]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -3388,6 +3498,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::Token >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::AffectedRows*
 Arena::CreateMaybeMessage< ::greptime::v1::AffectedRows >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::AffectedRows >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::FlightMetadata*
 Arena::CreateMaybeMessage< ::greptime::v1::FlightMetadata >(Arena* arena) {

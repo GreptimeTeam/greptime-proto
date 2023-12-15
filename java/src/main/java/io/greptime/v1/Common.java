@@ -6178,6 +6178,42 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.AffectedRows affected_rows = 1;</code>
      */
     io.greptime.v1.Common.AffectedRowsOrBuilder getAffectedRowsOrBuilder();
+
+    /**
+     * <code>map&lt;string, string&gt; extension = 2;</code>
+     */
+    int getExtensionCount();
+    /**
+     * <code>map&lt;string, string&gt; extension = 2;</code>
+     */
+    boolean containsExtension(
+        java.lang.String key);
+    /**
+     * Use {@link #getExtensionMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getExtension();
+    /**
+     * <code>map&lt;string, string&gt; extension = 2;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getExtensionMap();
+    /**
+     * <code>map&lt;string, string&gt; extension = 2;</code>
+     */
+
+    /* nullable */
+java.lang.String getExtensionOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; extension = 2;</code>
+     */
+
+    java.lang.String getExtensionOrThrow(
+        java.lang.String key);
   }
   /**
    * Protobuf type {@code greptime.v1.FlightMetadata}
@@ -6214,6 +6250,7 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -6235,6 +6272,19 @@ java.lang.String defaultValue);
                 affectedRows_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                extension_ = com.google.protobuf.MapField.newMapField(
+                    ExtensionDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              extension__ = input.readMessage(
+                  ExtensionDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extension_.getMutableMap().put(
+                  extension__.getKey(), extension__.getValue());
               break;
             }
             default: {
@@ -6263,6 +6313,18 @@ java.lang.String defaultValue);
       return io.greptime.v1.Common.internal_static_greptime_v1_FlightMetadata_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 2:
+          return internalGetExtension();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -6297,6 +6359,87 @@ java.lang.String defaultValue);
       return getAffectedRows();
     }
 
+    public static final int EXTENSION_FIELD_NUMBER = 2;
+    private static final class ExtensionDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  io.greptime.v1.Common.internal_static_greptime_v1_FlightMetadata_ExtensionEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> extension_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetExtension() {
+      if (extension_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ExtensionDefaultEntryHolder.defaultEntry);
+      }
+      return extension_;
+    }
+
+    public int getExtensionCount() {
+      return internalGetExtension().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; extension = 2;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsExtension(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetExtension().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getExtensionMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getExtension() {
+      return getExtensionMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; extension = 2;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getExtensionMap() {
+      return internalGetExtension().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; extension = 2;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getExtensionOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetExtension().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; extension = 2;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getExtensionOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetExtension().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6314,6 +6457,12 @@ java.lang.String defaultValue);
       if (affectedRows_ != null) {
         output.writeMessage(1, getAffectedRows());
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetExtension(),
+          ExtensionDefaultEntryHolder.defaultEntry,
+          2);
       unknownFields.writeTo(output);
     }
 
@@ -6326,6 +6475,16 @@ java.lang.String defaultValue);
       if (affectedRows_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getAffectedRows());
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetExtension().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        extension__ = ExtensionDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, extension__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6347,6 +6506,8 @@ java.lang.String defaultValue);
         if (!getAffectedRows()
             .equals(other.getAffectedRows())) return false;
       }
+      if (!internalGetExtension().equals(
+          other.internalGetExtension())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6361,6 +6522,10 @@ java.lang.String defaultValue);
       if (hasAffectedRows()) {
         hash = (37 * hash) + AFFECTED_ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getAffectedRows().hashCode();
+      }
+      if (!internalGetExtension().getMap().isEmpty()) {
+        hash = (37 * hash) + EXTENSION_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetExtension().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6469,6 +6634,28 @@ java.lang.String defaultValue);
         return io.greptime.v1.Common.internal_static_greptime_v1_FlightMetadata_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetExtension();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetMutableExtension();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -6501,6 +6688,7 @@ java.lang.String defaultValue);
           affectedRows_ = null;
           affectedRowsBuilder_ = null;
         }
+        internalGetMutableExtension().clear();
         return this;
       }
 
@@ -6527,11 +6715,14 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Common.FlightMetadata buildPartial() {
         io.greptime.v1.Common.FlightMetadata result = new io.greptime.v1.Common.FlightMetadata(this);
+        int from_bitField0_ = bitField0_;
         if (affectedRowsBuilder_ == null) {
           result.affectedRows_ = affectedRows_;
         } else {
           result.affectedRows_ = affectedRowsBuilder_.build();
         }
+        result.extension_ = internalGetExtension();
+        result.extension_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -6583,6 +6774,8 @@ java.lang.String defaultValue);
         if (other.hasAffectedRows()) {
           mergeAffectedRows(other.getAffectedRows());
         }
+        internalGetMutableExtension().mergeFrom(
+            other.internalGetExtension());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6611,6 +6804,7 @@ java.lang.String defaultValue);
         }
         return this;
       }
+      private int bitField0_;
 
       private io.greptime.v1.Common.AffectedRows affectedRows_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6729,6 +6923,137 @@ java.lang.String defaultValue);
           affectedRows_ = null;
         }
         return affectedRowsBuilder_;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> extension_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetExtension() {
+        if (extension_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ExtensionDefaultEntryHolder.defaultEntry);
+        }
+        return extension_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableExtension() {
+        onChanged();;
+        if (extension_ == null) {
+          extension_ = com.google.protobuf.MapField.newMapField(
+              ExtensionDefaultEntryHolder.defaultEntry);
+        }
+        if (!extension_.isMutable()) {
+          extension_ = extension_.copy();
+        }
+        return extension_;
+      }
+
+      public int getExtensionCount() {
+        return internalGetExtension().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; extension = 2;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsExtension(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetExtension().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getExtensionMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getExtension() {
+        return getExtensionMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; extension = 2;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getExtensionMap() {
+        return internalGetExtension().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; extension = 2;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getExtensionOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetExtension().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; extension = 2;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getExtensionOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetExtension().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearExtension() {
+        internalGetMutableExtension().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; extension = 2;</code>
+       */
+
+      public Builder removeExtension(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableExtension().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableExtension() {
+        return internalGetMutableExtension().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; extension = 2;</code>
+       */
+      public Builder putExtension(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableExtension().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; extension = 2;</code>
+       */
+
+      public Builder putAllExtension(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableExtension().getMutableMap()
+            .putAll(values);
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -9319,6 +9644,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_FlightMetadata_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_FlightMetadata_ExtensionEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_FlightMetadata_ExtensionEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_IntervalMonthDayNano_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -9361,33 +9691,36 @@ java.lang.String defaultValue);
       "token\030\002 \001(\0132\022.greptime.v1.TokenH\000B\r\n\013aut" +
       "h_scheme\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010p" +
       "assword\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"\035\n" +
-      "\014AffectedRows\022\r\n\005value\030\001 \001(\r\"B\n\016FlightMe" +
-      "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime" +
-      ".v1.AffectedRows\"I\n\024IntervalMonthDayNano" +
-      "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose" +
-      "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n" +
-      "\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014" +
-      "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal" +
-      "TypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTy" +
-      "peExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030" +
-      "\002 \001(\005*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020" +
-      "\001\022\r\n\tTIMESTAMP\020\002*\270\004\n\016ColumnDataType\022\013\n\007B" +
-      "OOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003" +
-      "\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UI" +
-      "NT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT" +
-      "64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014" +
-      "\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TI" +
-      "MESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICRO" +
-      "SECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TI" +
-      "ME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIM" +
-      "E_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023" +
-      "INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TI" +
-      "ME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DUR" +
-      "ATION_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033" +
-      "\022\030\n\024DURATION_MICROSECOND\020\034\022\027\n\023DURATION_N" +
-      "ANOSECOND\020\035\022\016\n\nDECIMAL128\020\036BO\n\016io.grepti" +
-      "me.v1B\006CommonZ5github.com/GreptimeTeam/g" +
-      "reptime-proto/go/greptime/v1b\006proto3"
+      "\014AffectedRows\022\r\n\005value\030\001 \001(\r\"\263\001\n\016FlightM" +
+      "etadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptim" +
+      "e.v1.AffectedRows\022=\n\textension\030\002 \003(\0132*.g" +
+      "reptime.v1.FlightMetadata.ExtensionEntry" +
+      "\0320\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001\"I\n\024IntervalMonthDayNano\022\016\n\006mo" +
+      "nths\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030" +
+      "\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n\002lo\030\002 " +
+      "\001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014decima" +
+      "l_type\030\001 \001(\0132!.greptime.v1.DecimalTypeEx" +
+      "tensionH\000B\n\n\010type_ext\"8\n\024DecimalTypeExte" +
+      "nsion\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005*" +
+      "1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tT" +
+      "IMESTAMP\020\002*\270\004\n\016ColumnDataType\022\013\n\007BOOLEAN" +
+      "\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005IN" +
+      "T64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007" +
+      "\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n" +
+      "\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATE" +
+      "TIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAM" +
+      "P_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND" +
+      "\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SEC" +
+      "OND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICR" +
+      "OSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERV" +
+      "AL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033" +
+      "\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DURATION_" +
+      "SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033\022\030\n\024DU" +
+      "RATION_MICROSECOND\020\034\022\027\n\023DURATION_NANOSEC" +
+      "OND\020\035\022\016\n\nDECIMAL128\020\036BO\n\016io.greptime.v1B" +
+      "\006CommonZ5github.com/GreptimeTeam/greptim" +
+      "e-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9446,7 +9779,13 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_FlightMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlightMetadata_descriptor,
-        new java.lang.String[] { "AffectedRows", });
+        new java.lang.String[] { "AffectedRows", "Extension", });
+    internal_static_greptime_v1_FlightMetadata_ExtensionEntry_descriptor =
+      internal_static_greptime_v1_FlightMetadata_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_FlightMetadata_ExtensionEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_FlightMetadata_ExtensionEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_IntervalMonthDayNano_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable = new

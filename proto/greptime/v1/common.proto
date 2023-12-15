@@ -58,7 +58,10 @@ message Token { string token = 1; }
 
 message AffectedRows { uint32 value = 1; }
 
-message FlightMetadata { AffectedRows affected_rows = 1; }
+message FlightMetadata {
+  AffectedRows affected_rows = 1;
+  map<string, string> extension = 2;
+}
 
 enum SemanticType {
   TAG = 0;
@@ -114,9 +117,7 @@ message Decimal128 {
 
 // Type extension for some complex types
 message ColumnDataTypeExtension {
-  oneof type_ext {
-    DecimalTypeExtension decimal_type = 1;
-  }
+  oneof type_ext { DecimalTypeExtension decimal_type = 1; }
 }
 
 message DecimalTypeExtension {
