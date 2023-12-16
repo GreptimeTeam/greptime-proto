@@ -162,7 +162,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR Decimal128::Decimal128(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.hi_)*/int64_t{0}
-  , /*decltype(_impl_.lo_)*/int64_t{0}
+  , /*decltype(_impl_.lo_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Decimal128DefaultTypeInternal {
   PROTOBUF_CONSTEXPR Decimal128DefaultTypeInternal()
@@ -368,7 +368,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   ".v1.AffectedRows\"I\n\024IntervalMonthDayNano"
   "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose"
   "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n"
-  "\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014"
+  "\002lo\030\002 \001(\004\"`\n\027ColumnDataTypeExtension\0229\n\014"
   "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal"
   "TypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTy"
   "peExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030"
@@ -2717,7 +2717,7 @@ inline void Decimal128::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.hi_){int64_t{0}}
-    , decltype(_impl_.lo_){int64_t{0}}
+    , decltype(_impl_.lo_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -2765,7 +2765,7 @@ const char* Decimal128::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
         } else
           goto handle_unusual;
         continue;
-      // int64 lo = 2;
+      // uint64 lo = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _impl_.lo_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2808,10 +2808,10 @@ uint8_t* Decimal128::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_hi(), target);
   }
 
-  // int64 lo = 2;
+  // uint64 lo = 2;
   if (this->_internal_lo() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_lo(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_lo(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2835,9 +2835,9 @@ size_t Decimal128::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_hi());
   }
 
-  // int64 lo = 2;
+  // uint64 lo = 2;
   if (this->_internal_lo() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_lo());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_lo());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);

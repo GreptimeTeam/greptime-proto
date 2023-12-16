@@ -1897,13 +1897,13 @@ class Decimal128 final :
   void _internal_set_hi(int64_t value);
   public:
 
-  // int64 lo = 2;
+  // uint64 lo = 2;
   void clear_lo();
-  int64_t lo() const;
-  void set_lo(int64_t value);
+  uint64_t lo() const;
+  void set_lo(uint64_t value);
   private:
-  int64_t _internal_lo() const;
-  void _internal_set_lo(int64_t value);
+  uint64_t _internal_lo() const;
+  void _internal_set_lo(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.Decimal128)
@@ -1915,7 +1915,7 @@ class Decimal128 final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     int64_t hi_;
-    int64_t lo_;
+    uint64_t lo_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3229,22 +3229,22 @@ inline void Decimal128::set_hi(int64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Decimal128.hi)
 }
 
-// int64 lo = 2;
+// uint64 lo = 2;
 inline void Decimal128::clear_lo() {
-  _impl_.lo_ = int64_t{0};
+  _impl_.lo_ = uint64_t{0u};
 }
-inline int64_t Decimal128::_internal_lo() const {
+inline uint64_t Decimal128::_internal_lo() const {
   return _impl_.lo_;
 }
-inline int64_t Decimal128::lo() const {
+inline uint64_t Decimal128::lo() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Decimal128.lo)
   return _internal_lo();
 }
-inline void Decimal128::_internal_set_lo(int64_t value) {
+inline void Decimal128::_internal_set_lo(uint64_t value) {
   
   _impl_.lo_ = value;
 }
-inline void Decimal128::set_lo(int64_t value) {
+inline void Decimal128::set_lo(uint64_t value) {
   _internal_set_lo(value);
   // @@protoc_insertion_point(field_set:greptime.v1.Decimal128.lo)
 }

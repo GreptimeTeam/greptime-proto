@@ -7425,7 +7425,7 @@ java.lang.String defaultValue);
     long getHi();
 
     /**
-     * <code>int64 lo = 2;</code>
+     * <code>uint64 lo = 2;</code>
      * @return The lo.
      */
     long getLo();
@@ -7486,7 +7486,7 @@ java.lang.String defaultValue);
             }
             case 16: {
 
-              lo_ = input.readInt64();
+              lo_ = input.readUInt64();
               break;
             }
             default: {
@@ -7537,7 +7537,7 @@ java.lang.String defaultValue);
     public static final int LO_FIELD_NUMBER = 2;
     private long lo_;
     /**
-     * <code>int64 lo = 2;</code>
+     * <code>uint64 lo = 2;</code>
      * @return The lo.
      */
     @java.lang.Override
@@ -7563,7 +7563,7 @@ java.lang.String defaultValue);
         output.writeInt64(1, hi_);
       }
       if (lo_ != 0L) {
-        output.writeInt64(2, lo_);
+        output.writeUInt64(2, lo_);
       }
       unknownFields.writeTo(output);
     }
@@ -7580,7 +7580,7 @@ java.lang.String defaultValue);
       }
       if (lo_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, lo_);
+          .computeUInt64Size(2, lo_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7903,7 +7903,7 @@ java.lang.String defaultValue);
 
       private long lo_ ;
       /**
-       * <code>int64 lo = 2;</code>
+       * <code>uint64 lo = 2;</code>
        * @return The lo.
        */
       @java.lang.Override
@@ -7911,7 +7911,7 @@ java.lang.String defaultValue);
         return lo_;
       }
       /**
-       * <code>int64 lo = 2;</code>
+       * <code>uint64 lo = 2;</code>
        * @param value The lo to set.
        * @return This builder for chaining.
        */
@@ -7922,7 +7922,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>int64 lo = 2;</code>
+       * <code>uint64 lo = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearLo() {
@@ -9366,7 +9366,7 @@ java.lang.String defaultValue);
       ".v1.AffectedRows\"I\n\024IntervalMonthDayNano" +
       "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose" +
       "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n" +
-      "\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014" +
+      "\002lo\030\002 \001(\004\"`\n\027ColumnDataTypeExtension\0229\n\014" +
       "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal" +
       "TypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTy" +
       "peExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030" +
