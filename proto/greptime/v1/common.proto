@@ -109,14 +109,12 @@ message IntervalMonthDayNano {
 // (hi: high 64 bits, lo: low 64 bits) are used to keep the decimal128 value.
 message Decimal128 {
   int64 hi = 1;
-  int64 lo = 2;
+  uint64 lo = 2;
 }
 
 // Type extension for some complex types
 message ColumnDataTypeExtension {
-  oneof type_ext {
-    DecimalTypeExtension decimal_type = 1;
-  }
+  oneof type_ext { DecimalTypeExtension decimal_type = 1; }
 }
 
 message DecimalTypeExtension {
