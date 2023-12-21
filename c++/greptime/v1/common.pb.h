@@ -1574,8 +1574,23 @@ class FlightMetadata final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kMetricsFieldNumber = 2,
     kAffectedRowsFieldNumber = 1,
   };
+  // string metrics = 2;
+  void clear_metrics();
+  const std::string& metrics() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_metrics(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_metrics();
+  PROTOBUF_NODISCARD std::string* release_metrics();
+  void set_allocated_metrics(std::string* metrics);
+  private:
+  const std::string& _internal_metrics() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_metrics(const std::string& value);
+  std::string* _internal_mutable_metrics();
+  public:
+
   // .greptime.v1.AffectedRows affected_rows = 1;
   bool has_affected_rows() const;
   private:
@@ -1602,6 +1617,7 @@ class FlightMetadata final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr metrics_;
     ::greptime::v1::AffectedRows* affected_rows_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -3205,6 +3221,56 @@ inline void FlightMetadata::set_allocated_affected_rows(::greptime::v1::Affected
   }
   _impl_.affected_rows_ = affected_rows;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlightMetadata.affected_rows)
+}
+
+// string metrics = 2;
+inline void FlightMetadata::clear_metrics() {
+  _impl_.metrics_.ClearToEmpty();
+}
+inline const std::string& FlightMetadata::metrics() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.FlightMetadata.metrics)
+  return _internal_metrics();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FlightMetadata::set_metrics(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.metrics_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.FlightMetadata.metrics)
+}
+inline std::string* FlightMetadata::mutable_metrics() {
+  std::string* _s = _internal_mutable_metrics();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.FlightMetadata.metrics)
+  return _s;
+}
+inline const std::string& FlightMetadata::_internal_metrics() const {
+  return _impl_.metrics_.Get();
+}
+inline void FlightMetadata::_internal_set_metrics(const std::string& value) {
+  
+  _impl_.metrics_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FlightMetadata::_internal_mutable_metrics() {
+  
+  return _impl_.metrics_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FlightMetadata::release_metrics() {
+  // @@protoc_insertion_point(field_release:greptime.v1.FlightMetadata.metrics)
+  return _impl_.metrics_.Release();
+}
+inline void FlightMetadata::set_allocated_metrics(std::string* metrics) {
+  if (metrics != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.metrics_.SetAllocated(metrics, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.metrics_.IsDefault()) {
+    _impl_.metrics_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlightMetadata.metrics)
 }
 
 // -------------------------------------------------------------------
