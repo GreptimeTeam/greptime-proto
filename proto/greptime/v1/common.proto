@@ -60,9 +60,13 @@ message Token { string token = 1; }
 
 message AffectedRows { uint32 value = 1; }
 
+message Metrics {
+  string metrics = 1;
+}
+
 message FlightMetadata { 
   AffectedRows affected_rows = 1; 
-  string metrics = 2;
+  Metrics metrics = 2;
 }
 
 enum SemanticType {
