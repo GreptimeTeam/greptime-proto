@@ -61,7 +61,7 @@ message Token { string token = 1; }
 message AffectedRows { uint32 value = 1; }
 
 message Metrics {
-  string metrics = 1;
+  bytes metrics = 1;
 }
 
 message FlightMetadata { 

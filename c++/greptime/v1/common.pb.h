@@ -1580,7 +1580,7 @@ class Metrics final :
   enum : int {
     kMetricsFieldNumber = 1,
   };
-  // string metrics = 1;
+  // bytes metrics = 1;
   void clear_metrics();
   const std::string& metrics() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -3294,7 +3294,7 @@ inline void AffectedRows::set_value(uint32_t value) {
 
 // Metrics
 
-// string metrics = 1;
+// bytes metrics = 1;
 inline void Metrics::clear_metrics() {
   _impl_.metrics_.ClearToEmpty();
 }
@@ -3306,7 +3306,7 @@ template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void Metrics::set_metrics(ArgT0&& arg0, ArgT... args) {
  
- _impl_.metrics_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+ _impl_.metrics_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:greptime.v1.Metrics.metrics)
 }
 inline std::string* Metrics::mutable_metrics() {
