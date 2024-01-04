@@ -39,6 +39,7 @@ PROTOBUF_CONSTEXPR RequestHeader::RequestHeader(
   , /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.schema_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.dbname_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.timezone_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.authorization_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RequestHeaderDefaultTypeInternal {
@@ -229,6 +230,7 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader, _impl_.authorization_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader, _impl_.dbname_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader, _impl_.tracing_context_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader, _impl_.timezone_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ResponseHeader, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -319,17 +321,17 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse)},
   { 10, -1, -1, sizeof(::greptime::v1::RequestHeader)},
-  { 21, -1, -1, sizeof(::greptime::v1::ResponseHeader)},
-  { 28, -1, -1, sizeof(::greptime::v1::Status)},
-  { 36, -1, -1, sizeof(::greptime::v1::AuthHeader)},
-  { 45, -1, -1, sizeof(::greptime::v1::Basic)},
-  { 53, -1, -1, sizeof(::greptime::v1::Token)},
-  { 60, -1, -1, sizeof(::greptime::v1::AffectedRows)},
-  { 67, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
-  { 74, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
-  { 83, -1, -1, sizeof(::greptime::v1::Decimal128)},
-  { 91, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
-  { 99, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
+  { 22, -1, -1, sizeof(::greptime::v1::ResponseHeader)},
+  { 29, -1, -1, sizeof(::greptime::v1::Status)},
+  { 37, -1, -1, sizeof(::greptime::v1::AuthHeader)},
+  { 46, -1, -1, sizeof(::greptime::v1::Basic)},
+  { 54, -1, -1, sizeof(::greptime::v1::Token)},
+  { 61, -1, -1, sizeof(::greptime::v1::AffectedRows)},
+  { 68, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
+  { 75, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
+  { 84, -1, -1, sizeof(::greptime::v1::Decimal128)},
+  { 92, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
+  { 100, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -350,50 +352,51 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030greptime/v1/common.proto\022\013greptime.v1\""
-  "\360\001\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc"
+  "\202\002\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc"
   "hema\030\002 \001(\t\022.\n\rauthorization\030\003 \001(\0132\027.grep"
   "time.v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022G\n\017tr"
   "acing_context\030\005 \003(\0132..greptime.v1.Reques"
-  "tHeader.TracingContextEntry\0325\n\023TracingCo"
-  "ntextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002"
-  "8\001\"5\n\016ResponseHeader\022#\n\006status\030\001 \001(\0132\023.g"
-  "reptime.v1.Status\".\n\006Status\022\023\n\013status_co"
-  "de\030\001 \001(\r\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022"
-  "#\n\005basic\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005"
-  "token\030\002 \001(\0132\022.greptime.v1.TokenH\000B\r\n\013aut"
-  "h_scheme\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010p"
-  "assword\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"\035\n"
-  "\014AffectedRows\022\r\n\005value\030\001 \001(\r\"B\n\016FlightMe"
-  "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime"
-  ".v1.AffectedRows\"I\n\024IntervalMonthDayNano"
-  "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose"
-  "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n"
-  "\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014"
-  "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal"
-  "TypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTy"
-  "peExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030"
-  "\002 \001(\005*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020"
-  "\001\022\r\n\tTIMESTAMP\020\002*\270\004\n\016ColumnDataType\022\013\n\007B"
-  "OOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003"
-  "\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UI"
-  "NT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT"
-  "64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014"
-  "\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TI"
-  "MESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICRO"
-  "SECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TI"
-  "ME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIM"
-  "E_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023"
-  "INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TI"
-  "ME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DUR"
-  "ATION_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033"
-  "\022\030\n\024DURATION_MICROSECOND\020\034\022\027\n\023DURATION_N"
-  "ANOSECOND\020\035\022\016\n\nDECIMAL128\020\036BO\n\016io.grepti"
-  "me.v1B\006CommonZ5github.com/GreptimeTeam/g"
-  "reptime-proto/go/greptime/v1b\006proto3"
+  "tHeader.TracingContextEntry\022\020\n\010timezone\030"
+  "\006 \001(\t\0325\n\023TracingContextEntry\022\013\n\003key\030\001 \001("
+  "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"5\n\016ResponseHeader\022#"
+  "\n\006status\030\001 \001(\0132\023.greptime.v1.Status\".\n\006S"
+  "tatus\022\023\n\013status_code\030\001 \001(\r\022\017\n\007err_msg\030\002 "
+  "\001(\t\"e\n\nAuthHeader\022#\n\005basic\030\001 \001(\0132\022.grept"
+  "ime.v1.BasicH\000\022#\n\005token\030\002 \001(\0132\022.greptime"
+  ".v1.TokenH\000B\r\n\013auth_scheme\"+\n\005Basic\022\020\n\010u"
+  "sername\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\026\n\005Token"
+  "\022\r\n\005token\030\001 \001(\t\"\035\n\014AffectedRows\022\r\n\005value"
+  "\030\001 \001(\r\"B\n\016FlightMetadata\0220\n\raffected_row"
+  "s\030\001 \001(\0132\031.greptime.v1.AffectedRows\"I\n\024In"
+  "tervalMonthDayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004da"
+  "ys\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003\"$\n\nDecimal"
+  "128\022\n\n\002hi\030\001 \001(\003\022\n\n\002lo\030\002 \001(\003\"`\n\027ColumnDat"
+  "aTypeExtension\0229\n\014decimal_type\030\001 \001(\0132!.g"
+  "reptime.v1.DecimalTypeExtensionH\000B\n\n\010typ"
+  "e_ext\"8\n\024DecimalTypeExtension\022\021\n\tprecisi"
+  "on\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005*1\n\014SemanticType\022"
+  "\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\270\004\n\016C"
+  "olumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005"
+  "INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005"
+  "\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007"
+  "FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006ST"
+  "RING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMEST"
+  "AMP_SECOND\020\017\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022"
+  "\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n\024TIMESTAMP_"
+  "NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MI"
+  "LLISECOND\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIM"
+  "E_NANOSECOND\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022"
+  "\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH"
+  "_DAY_NANO\020\031\022\023\n\017DURATION_SECOND\020\032\022\030\n\024DURA"
+  "TION_MILLISECOND\020\033\022\030\n\024DURATION_MICROSECO"
+  "ND\020\034\022\027\n\023DURATION_NANOSECOND\020\035\022\016\n\nDECIMAL"
+  "128\020\036BO\n\016io.greptime.v1B\006CommonZ5github."
+  "com/GreptimeTeam/greptime-proto/go/grept"
+  "ime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 1636, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 1654, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
     &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 13,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
@@ -509,6 +512,7 @@ RequestHeader::RequestHeader(const RequestHeader& from)
     , decltype(_impl_.catalog_){}
     , decltype(_impl_.schema_){}
     , decltype(_impl_.dbname_){}
+    , decltype(_impl_.timezone_){}
     , decltype(_impl_.authorization_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -538,6 +542,14 @@ RequestHeader::RequestHeader(const RequestHeader& from)
     _this->_impl_.dbname_.Set(from._internal_dbname(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.timezone_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.timezone_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_timezone().empty()) {
+    _this->_impl_.timezone_.Set(from._internal_timezone(), 
+      _this->GetArenaForAllocation());
+  }
   if (from._internal_has_authorization()) {
     _this->_impl_.authorization_ = new ::greptime::v1::AuthHeader(*from._impl_.authorization_);
   }
@@ -553,6 +565,7 @@ inline void RequestHeader::SharedCtor(
     , decltype(_impl_.catalog_){}
     , decltype(_impl_.schema_){}
     , decltype(_impl_.dbname_){}
+    , decltype(_impl_.timezone_){}
     , decltype(_impl_.authorization_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -567,6 +580,10 @@ inline void RequestHeader::SharedCtor(
   _impl_.dbname_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.dbname_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.timezone_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.timezone_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -587,6 +604,7 @@ inline void RequestHeader::SharedDtor() {
   _impl_.catalog_.Destroy();
   _impl_.schema_.Destroy();
   _impl_.dbname_.Destroy();
+  _impl_.timezone_.Destroy();
   if (this != internal_default_instance()) delete _impl_.authorization_;
 }
 
@@ -608,6 +626,7 @@ void RequestHeader::Clear() {
   _impl_.catalog_.ClearToEmpty();
   _impl_.schema_.ClearToEmpty();
   _impl_.dbname_.ClearToEmpty();
+  _impl_.timezone_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.authorization_ != nullptr) {
     delete _impl_.authorization_;
   }
@@ -669,6 +688,16 @@ const char* RequestHeader::_InternalParse(const char* ptr, ::_pbi::ParseContext*
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string timezone = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          auto str = _internal_mutable_timezone();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.RequestHeader.timezone"));
         } else
           goto handle_unusual;
         continue;
@@ -768,6 +797,16 @@ uint8_t* RequestHeader::_InternalSerialize(
     }
   }
 
+  // string timezone = 6;
+  if (!this->_internal_timezone().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_timezone().data(), static_cast<int>(this->_internal_timezone().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.RequestHeader.timezone");
+    target = stream->WriteStringMaybeAliased(
+        6, this->_internal_timezone(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -814,6 +853,13 @@ size_t RequestHeader::ByteSizeLong() const {
         this->_internal_dbname());
   }
 
+  // string timezone = 6;
+  if (!this->_internal_timezone().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_timezone());
+  }
+
   // .greptime.v1.AuthHeader authorization = 3;
   if (this->_internal_has_authorization()) {
     total_size += 1 +
@@ -848,6 +894,9 @@ void RequestHeader::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   }
   if (!from._internal_dbname().empty()) {
     _this->_internal_set_dbname(from._internal_dbname());
+  }
+  if (!from._internal_timezone().empty()) {
+    _this->_internal_set_timezone(from._internal_timezone());
   }
   if (from._internal_has_authorization()) {
     _this->_internal_mutable_authorization()->::greptime::v1::AuthHeader::MergeFrom(
@@ -884,6 +933,10 @@ void RequestHeader::InternalSwap(RequestHeader* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.dbname_, lhs_arena,
       &other->_impl_.dbname_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.timezone_, lhs_arena,
+      &other->_impl_.timezone_, rhs_arena
   );
   swap(_impl_.authorization_, other->_impl_.authorization_);
 }
