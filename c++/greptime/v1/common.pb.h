@@ -71,6 +71,9 @@ extern DecimalTypeExtensionDefaultTypeInternal _DecimalTypeExtension_default_ins
 class FlightMetadata;
 struct FlightMetadataDefaultTypeInternal;
 extern FlightMetadataDefaultTypeInternal _FlightMetadata_default_instance_;
+class FlightMetadata_ExtensionEntry_DoNotUse;
+struct FlightMetadata_ExtensionEntry_DoNotUseDefaultTypeInternal;
+extern FlightMetadata_ExtensionEntry_DoNotUseDefaultTypeInternal _FlightMetadata_ExtensionEntry_DoNotUse_default_instance_;
 class IntervalMonthDayNano;
 struct IntervalMonthDayNanoDefaultTypeInternal;
 extern IntervalMonthDayNanoDefaultTypeInternal _IntervalMonthDayNano_default_instance_;
@@ -99,6 +102,7 @@ template<> ::greptime::v1::ColumnDataTypeExtension* Arena::CreateMaybeMessage<::
 template<> ::greptime::v1::Decimal128* Arena::CreateMaybeMessage<::greptime::v1::Decimal128>(Arena*);
 template<> ::greptime::v1::DecimalTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::DecimalTypeExtension>(Arena*);
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
+template<> ::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata_ExtensionEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::greptime::v1::IntervalMonthDayNano>(Arena*);
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
 template<> ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse>(Arena*);
@@ -1437,6 +1441,34 @@ class AffectedRows final :
 };
 // -------------------------------------------------------------------
 
+class FlightMetadata_ExtensionEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlightMetadata_ExtensionEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlightMetadata_ExtensionEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  FlightMetadata_ExtensionEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR FlightMetadata_ExtensionEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit FlightMetadata_ExtensionEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const FlightMetadata_ExtensionEntry_DoNotUse& other);
+  static const FlightMetadata_ExtensionEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const FlightMetadata_ExtensionEntry_DoNotUse*>(&_FlightMetadata_ExtensionEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.FlightMetadata.ExtensionEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.FlightMetadata.ExtensionEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class FlightMetadata final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.FlightMetadata) */ {
  public:
@@ -1485,7 +1517,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -1546,6 +1578,8 @@ class FlightMetadata final :
   protected:
   explicit FlightMetadata(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -1555,11 +1589,30 @@ class FlightMetadata final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kExtensionFieldNumber = 2,
     kAffectedRowsFieldNumber = 1,
   };
+  // map<string, string> extension = 2;
+  int extension_size() const;
+  private:
+  int _internal_extension_size() const;
+  public:
+  void clear_extension();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_extension() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_extension();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      extension() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_extension();
+
   // .greptime.v1.AffectedRows affected_rows = 1;
   bool has_affected_rows() const;
   private:
@@ -1586,6 +1639,11 @@ class FlightMetadata final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        FlightMetadata_ExtensionEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> extension_;
     ::greptime::v1::AffectedRows* affected_rows_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1642,7 +1700,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -1812,7 +1870,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -1976,7 +2034,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -2145,7 +2203,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -3049,6 +3107,8 @@ inline void AffectedRows::set_value(uint32_t value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // FlightMetadata
 
 // .greptime.v1.AffectedRows affected_rows = 1;
@@ -3139,6 +3199,35 @@ inline void FlightMetadata::set_allocated_affected_rows(::greptime::v1::Affected
   }
   _impl_.affected_rows_ = affected_rows;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlightMetadata.affected_rows)
+}
+
+// map<string, string> extension = 2;
+inline int FlightMetadata::_internal_extension_size() const {
+  return _impl_.extension_.size();
+}
+inline int FlightMetadata::extension_size() const {
+  return _internal_extension_size();
+}
+inline void FlightMetadata::clear_extension() {
+  _impl_.extension_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+FlightMetadata::_internal_extension() const {
+  return _impl_.extension_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+FlightMetadata::extension() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.FlightMetadata.extension)
+  return _internal_extension();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+FlightMetadata::_internal_mutable_extension() {
+  return _impl_.extension_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+FlightMetadata::mutable_extension() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.FlightMetadata.extension)
+  return _internal_mutable_extension();
 }
 
 // -------------------------------------------------------------------
@@ -3383,6 +3472,8 @@ inline void DecimalTypeExtension::set_scale(int32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
