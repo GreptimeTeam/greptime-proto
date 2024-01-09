@@ -32,6 +32,8 @@ message RequestHeader {
   // Encoded trace_id & span_id, follow the w3c Trace Context
   // https://www.w3.org/TR/trace-context/#header-name
   map<string, string> tracing_context = 5;
+  // The `timezone` for the request
+  string timezone = 6;
 }
 
 message ResponseHeader { Status status = 1; }
@@ -114,9 +116,7 @@ message Decimal128 {
 
 // Type extension for some complex types
 message ColumnDataTypeExtension {
-  oneof type_ext {
-    DecimalTypeExtension decimal_type = 1;
-  }
+  oneof type_ext { DecimalTypeExtension decimal_type = 1; }
 }
 
 message DecimalTypeExtension {

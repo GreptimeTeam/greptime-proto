@@ -651,6 +651,26 @@ java.lang.String defaultValue);
 
     java.lang.String getTracingContextOrThrow(
         java.lang.String key);
+
+    /**
+     * <pre>
+     * The `timezone` for the request
+     * </pre>
+     *
+     * <code>string timezone = 6;</code>
+     * @return The timezone.
+     */
+    java.lang.String getTimezone();
+    /**
+     * <pre>
+     * The `timezone` for the request
+     * </pre>
+     *
+     * <code>string timezone = 6;</code>
+     * @return The bytes for timezone.
+     */
+    com.google.protobuf.ByteString
+        getTimezoneBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.RequestHeader}
@@ -668,6 +688,7 @@ java.lang.String defaultValue);
       catalog_ = "";
       schema_ = "";
       dbname_ = "";
+      timezone_ = "";
     }
 
     @java.lang.Override
@@ -743,6 +764,12 @@ java.lang.String defaultValue);
                   TracingContextDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               tracingContext_.getMutableMap().put(
                   tracingContext__.getKey(), tracingContext__.getValue());
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timezone_ = s;
               break;
             }
             default: {
@@ -1068,6 +1095,52 @@ java.lang.String defaultValue);
       return map.get(key);
     }
 
+    public static final int TIMEZONE_FIELD_NUMBER = 6;
+    private volatile java.lang.Object timezone_;
+    /**
+     * <pre>
+     * The `timezone` for the request
+     * </pre>
+     *
+     * <code>string timezone = 6;</code>
+     * @return The timezone.
+     */
+    @java.lang.Override
+    public java.lang.String getTimezone() {
+      java.lang.Object ref = timezone_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timezone_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The `timezone` for the request
+     * </pre>
+     *
+     * <code>string timezone = 6;</code>
+     * @return The bytes for timezone.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTimezoneBytes() {
+      java.lang.Object ref = timezone_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timezone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1100,6 +1173,9 @@ java.lang.String defaultValue);
           internalGetTracingContext(),
           TracingContextDefaultEntryHolder.defaultEntry,
           5);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timezone_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, timezone_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1132,6 +1208,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(5, tracingContext__);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timezone_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, timezone_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1160,6 +1239,8 @@ java.lang.String defaultValue);
           .equals(other.getDbname())) return false;
       if (!internalGetTracingContext().equals(
           other.internalGetTracingContext())) return false;
+      if (!getTimezone()
+          .equals(other.getTimezone())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1185,6 +1266,8 @@ java.lang.String defaultValue);
         hash = (37 * hash) + TRACING_CONTEXT_FIELD_NUMBER;
         hash = (53 * hash) + internalGetTracingContext().hashCode();
       }
+      hash = (37 * hash) + TIMEZONE_FIELD_NUMBER;
+      hash = (53 * hash) + getTimezone().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1353,6 +1436,8 @@ java.lang.String defaultValue);
         dbname_ = "";
 
         internalGetMutableTracingContext().clear();
+        timezone_ = "";
+
         return this;
       }
 
@@ -1390,6 +1475,7 @@ java.lang.String defaultValue);
         result.dbname_ = dbname_;
         result.tracingContext_ = internalGetTracingContext();
         result.tracingContext_.makeImmutable();
+        result.timezone_ = timezone_;
         onBuilt();
         return result;
       }
@@ -1455,6 +1541,10 @@ java.lang.String defaultValue);
         }
         internalGetMutableTracingContext().mergeFrom(
             other.internalGetTracingContext());
+        if (!other.getTimezone().isEmpty()) {
+          timezone_ = other.timezone_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2091,6 +2181,102 @@ java.lang.String defaultValue);
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableTracingContext().getMutableMap()
             .putAll(values);
+        return this;
+      }
+
+      private java.lang.Object timezone_ = "";
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 6;</code>
+       * @return The timezone.
+       */
+      public java.lang.String getTimezone() {
+        java.lang.Object ref = timezone_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timezone_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 6;</code>
+       * @return The bytes for timezone.
+       */
+      public com.google.protobuf.ByteString
+          getTimezoneBytes() {
+        java.lang.Object ref = timezone_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timezone_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 6;</code>
+       * @param value The timezone to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimezone(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timezone_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimezone() {
+        
+        timezone_ = getDefaultInstance().getTimezone();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 6;</code>
+       * @param value The bytes for timezone to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimezoneBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timezone_ = value;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -9348,46 +9534,47 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/common.proto\022\013greptime.v1\"" +
-      "\360\001\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc" +
+      "\202\002\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sc" +
       "hema\030\002 \001(\t\022.\n\rauthorization\030\003 \001(\0132\027.grep" +
       "time.v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022G\n\017tr" +
       "acing_context\030\005 \003(\0132..greptime.v1.Reques" +
-      "tHeader.TracingContextEntry\0325\n\023TracingCo" +
-      "ntextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\"5\n\016ResponseHeader\022#\n\006status\030\001 \001(\0132\023.g" +
-      "reptime.v1.Status\".\n\006Status\022\023\n\013status_co" +
-      "de\030\001 \001(\r\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022" +
-      "#\n\005basic\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005" +
-      "token\030\002 \001(\0132\022.greptime.v1.TokenH\000B\r\n\013aut" +
-      "h_scheme\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010p" +
-      "assword\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"\035\n" +
-      "\014AffectedRows\022\r\n\005value\030\001 \001(\r\"B\n\016FlightMe" +
-      "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime" +
-      ".v1.AffectedRows\"I\n\024IntervalMonthDayNano" +
-      "\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanose" +
-      "conds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n" +
-      "\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014" +
-      "decimal_type\030\001 \001(\0132!.greptime.v1.Decimal" +
-      "TypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTy" +
-      "peExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030" +
-      "\002 \001(\005*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020" +
-      "\001\022\r\n\tTIMESTAMP\020\002*\270\004\n\016ColumnDataType\022\013\n\007B" +
-      "OOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003" +
-      "\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UI" +
-      "NT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT" +
-      "64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014" +
-      "\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TI" +
-      "MESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICRO" +
-      "SECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TI" +
-      "ME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIM" +
-      "E_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023" +
-      "INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TI" +
-      "ME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DUR" +
-      "ATION_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020\033" +
-      "\022\030\n\024DURATION_MICROSECOND\020\034\022\027\n\023DURATION_N" +
-      "ANOSECOND\020\035\022\016\n\nDECIMAL128\020\036BO\n\016io.grepti" +
-      "me.v1B\006CommonZ5github.com/GreptimeTeam/g" +
-      "reptime-proto/go/greptime/v1b\006proto3"
+      "tHeader.TracingContextEntry\022\020\n\010timezone\030" +
+      "\006 \001(\t\0325\n\023TracingContextEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"5\n\016ResponseHeader\022#" +
+      "\n\006status\030\001 \001(\0132\023.greptime.v1.Status\".\n\006S" +
+      "tatus\022\023\n\013status_code\030\001 \001(\r\022\017\n\007err_msg\030\002 " +
+      "\001(\t\"e\n\nAuthHeader\022#\n\005basic\030\001 \001(\0132\022.grept" +
+      "ime.v1.BasicH\000\022#\n\005token\030\002 \001(\0132\022.greptime" +
+      ".v1.TokenH\000B\r\n\013auth_scheme\"+\n\005Basic\022\020\n\010u" +
+      "sername\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\026\n\005Token" +
+      "\022\r\n\005token\030\001 \001(\t\"\035\n\014AffectedRows\022\r\n\005value" +
+      "\030\001 \001(\r\"B\n\016FlightMetadata\0220\n\raffected_row" +
+      "s\030\001 \001(\0132\031.greptime.v1.AffectedRows\"I\n\024In" +
+      "tervalMonthDayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004da" +
+      "ys\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003\"$\n\nDecimal" +
+      "128\022\n\n\002hi\030\001 \001(\003\022\n\n\002lo\030\002 \001(\003\"`\n\027ColumnDat" +
+      "aTypeExtension\0229\n\014decimal_type\030\001 \001(\0132!.g" +
+      "reptime.v1.DecimalTypeExtensionH\000B\n\n\010typ" +
+      "e_ext\"8\n\024DecimalTypeExtension\022\021\n\tprecisi" +
+      "on\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005*1\n\014SemanticType\022" +
+      "\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\270\004\n\016C" +
+      "olumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005" +
+      "INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005" +
+      "\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007" +
+      "FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006ST" +
+      "RING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMEST" +
+      "AMP_SECOND\020\017\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022" +
+      "\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n\024TIMESTAMP_" +
+      "NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MI" +
+      "LLISECOND\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIM" +
+      "E_NANOSECOND\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022" +
+      "\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH" +
+      "_DAY_NANO\020\031\022\023\n\017DURATION_SECOND\020\032\022\030\n\024DURA" +
+      "TION_MILLISECOND\020\033\022\030\n\024DURATION_MICROSECO" +
+      "ND\020\034\022\027\n\023DURATION_NANOSECOND\020\035\022\016\n\nDECIMAL" +
+      "128\020\036BO\n\016io.greptime.v1B\006CommonZ5github." +
+      "com/GreptimeTeam/greptime-proto/go/grept" +
+      "ime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9398,7 +9585,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_RequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RequestHeader_descriptor,
-        new java.lang.String[] { "Catalog", "Schema", "Authorization", "Dbname", "TracingContext", });
+        new java.lang.String[] { "Catalog", "Schema", "Authorization", "Dbname", "TracingContext", "Timezone", });
     internal_static_greptime_v1_RequestHeader_TracingContextEntry_descriptor =
       internal_static_greptime_v1_RequestHeader_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_RequestHeader_TracingContextEntry_fieldAccessorTable = new
