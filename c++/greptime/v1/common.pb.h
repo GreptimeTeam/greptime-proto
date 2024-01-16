@@ -74,6 +74,9 @@ extern FlightMetadataDefaultTypeInternal _FlightMetadata_default_instance_;
 class IntervalMonthDayNano;
 struct IntervalMonthDayNanoDefaultTypeInternal;
 extern IntervalMonthDayNanoDefaultTypeInternal _IntervalMonthDayNano_default_instance_;
+class Metrics;
+struct MetricsDefaultTypeInternal;
+extern MetricsDefaultTypeInternal _Metrics_default_instance_;
 class RequestHeader;
 struct RequestHeaderDefaultTypeInternal;
 extern RequestHeaderDefaultTypeInternal _RequestHeader_default_instance_;
@@ -100,6 +103,7 @@ template<> ::greptime::v1::Decimal128* Arena::CreateMaybeMessage<::greptime::v1:
 template<> ::greptime::v1::DecimalTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::DecimalTypeExtension>(Arena*);
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
 template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::greptime::v1::IntervalMonthDayNano>(Arena*);
+template<> ::greptime::v1::Metrics* Arena::CreateMaybeMessage<::greptime::v1::Metrics>(Arena*);
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
 template<> ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::ResponseHeader>(Arena*);
@@ -1453,6 +1457,159 @@ class AffectedRows final :
 };
 // -------------------------------------------------------------------
 
+class Metrics final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Metrics) */ {
+ public:
+  inline Metrics() : Metrics(nullptr) {}
+  ~Metrics() override;
+  explicit PROTOBUF_CONSTEXPR Metrics(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Metrics(const Metrics& from);
+  Metrics(Metrics&& from) noexcept
+    : Metrics() {
+    *this = ::std::move(from);
+  }
+
+  inline Metrics& operator=(const Metrics& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Metrics& operator=(Metrics&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Metrics& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Metrics* internal_default_instance() {
+    return reinterpret_cast<const Metrics*>(
+               &_Metrics_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(Metrics& a, Metrics& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Metrics* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Metrics* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Metrics* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Metrics>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Metrics& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Metrics& from) {
+    Metrics::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Metrics* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.Metrics";
+  }
+  protected:
+  explicit Metrics(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMetricsFieldNumber = 1,
+  };
+  // bytes metrics = 1;
+  void clear_metrics();
+  const std::string& metrics() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_metrics(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_metrics();
+  PROTOBUF_NODISCARD std::string* release_metrics();
+  void set_allocated_metrics(std::string* metrics);
+  private:
+  const std::string& _internal_metrics() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_metrics(const std::string& value);
+  std::string* _internal_mutable_metrics();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.Metrics)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr metrics_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class FlightMetadata final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.FlightMetadata) */ {
  public:
@@ -1501,7 +1658,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -1575,6 +1732,7 @@ class FlightMetadata final :
 
   enum : int {
     kAffectedRowsFieldNumber = 1,
+    kMetricsFieldNumber = 2,
   };
   // .greptime.v1.AffectedRows affected_rows = 1;
   bool has_affected_rows() const;
@@ -1594,6 +1752,24 @@ class FlightMetadata final :
       ::greptime::v1::AffectedRows* affected_rows);
   ::greptime::v1::AffectedRows* unsafe_arena_release_affected_rows();
 
+  // .greptime.v1.Metrics metrics = 2;
+  bool has_metrics() const;
+  private:
+  bool _internal_has_metrics() const;
+  public:
+  void clear_metrics();
+  const ::greptime::v1::Metrics& metrics() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Metrics* release_metrics();
+  ::greptime::v1::Metrics* mutable_metrics();
+  void set_allocated_metrics(::greptime::v1::Metrics* metrics);
+  private:
+  const ::greptime::v1::Metrics& _internal_metrics() const;
+  ::greptime::v1::Metrics* _internal_mutable_metrics();
+  public:
+  void unsafe_arena_set_allocated_metrics(
+      ::greptime::v1::Metrics* metrics);
+  ::greptime::v1::Metrics* unsafe_arena_release_metrics();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.FlightMetadata)
  private:
   class _Internal;
@@ -1603,6 +1779,7 @@ class FlightMetadata final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::AffectedRows* affected_rows_;
+    ::greptime::v1::Metrics* metrics_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1658,7 +1835,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -1828,7 +2005,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -1992,7 +2169,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -2161,7 +2338,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -3115,6 +3292,60 @@ inline void AffectedRows::set_value(uint32_t value) {
 
 // -------------------------------------------------------------------
 
+// Metrics
+
+// bytes metrics = 1;
+inline void Metrics::clear_metrics() {
+  _impl_.metrics_.ClearToEmpty();
+}
+inline const std::string& Metrics::metrics() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Metrics.metrics)
+  return _internal_metrics();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Metrics::set_metrics(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.metrics_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.Metrics.metrics)
+}
+inline std::string* Metrics::mutable_metrics() {
+  std::string* _s = _internal_mutable_metrics();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Metrics.metrics)
+  return _s;
+}
+inline const std::string& Metrics::_internal_metrics() const {
+  return _impl_.metrics_.Get();
+}
+inline void Metrics::_internal_set_metrics(const std::string& value) {
+  
+  _impl_.metrics_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Metrics::_internal_mutable_metrics() {
+  
+  return _impl_.metrics_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Metrics::release_metrics() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Metrics.metrics)
+  return _impl_.metrics_.Release();
+}
+inline void Metrics::set_allocated_metrics(std::string* metrics) {
+  if (metrics != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.metrics_.SetAllocated(metrics, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.metrics_.IsDefault()) {
+    _impl_.metrics_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Metrics.metrics)
+}
+
+// -------------------------------------------------------------------
+
 // FlightMetadata
 
 // .greptime.v1.AffectedRows affected_rows = 1;
@@ -3205,6 +3436,96 @@ inline void FlightMetadata::set_allocated_affected_rows(::greptime::v1::Affected
   }
   _impl_.affected_rows_ = affected_rows;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlightMetadata.affected_rows)
+}
+
+// .greptime.v1.Metrics metrics = 2;
+inline bool FlightMetadata::_internal_has_metrics() const {
+  return this != internal_default_instance() && _impl_.metrics_ != nullptr;
+}
+inline bool FlightMetadata::has_metrics() const {
+  return _internal_has_metrics();
+}
+inline void FlightMetadata::clear_metrics() {
+  if (GetArenaForAllocation() == nullptr && _impl_.metrics_ != nullptr) {
+    delete _impl_.metrics_;
+  }
+  _impl_.metrics_ = nullptr;
+}
+inline const ::greptime::v1::Metrics& FlightMetadata::_internal_metrics() const {
+  const ::greptime::v1::Metrics* p = _impl_.metrics_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::Metrics&>(
+      ::greptime::v1::_Metrics_default_instance_);
+}
+inline const ::greptime::v1::Metrics& FlightMetadata::metrics() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.FlightMetadata.metrics)
+  return _internal_metrics();
+}
+inline void FlightMetadata::unsafe_arena_set_allocated_metrics(
+    ::greptime::v1::Metrics* metrics) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.metrics_);
+  }
+  _impl_.metrics_ = metrics;
+  if (metrics) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.FlightMetadata.metrics)
+}
+inline ::greptime::v1::Metrics* FlightMetadata::release_metrics() {
+  
+  ::greptime::v1::Metrics* temp = _impl_.metrics_;
+  _impl_.metrics_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::Metrics* FlightMetadata::unsafe_arena_release_metrics() {
+  // @@protoc_insertion_point(field_release:greptime.v1.FlightMetadata.metrics)
+  
+  ::greptime::v1::Metrics* temp = _impl_.metrics_;
+  _impl_.metrics_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::Metrics* FlightMetadata::_internal_mutable_metrics() {
+  
+  if (_impl_.metrics_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::Metrics>(GetArenaForAllocation());
+    _impl_.metrics_ = p;
+  }
+  return _impl_.metrics_;
+}
+inline ::greptime::v1::Metrics* FlightMetadata::mutable_metrics() {
+  ::greptime::v1::Metrics* _msg = _internal_mutable_metrics();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.FlightMetadata.metrics)
+  return _msg;
+}
+inline void FlightMetadata::set_allocated_metrics(::greptime::v1::Metrics* metrics) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.metrics_;
+  }
+  if (metrics) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(metrics);
+    if (message_arena != submessage_arena) {
+      metrics = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, metrics, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.metrics_ = metrics;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.FlightMetadata.metrics)
 }
 
 // -------------------------------------------------------------------
@@ -3449,6 +3770,8 @@ inline void DecimalTypeExtension::set_scale(int32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
