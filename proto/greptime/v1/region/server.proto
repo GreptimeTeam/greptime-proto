@@ -47,6 +47,7 @@ message RegionRequest {
     FlushRequest flush = 10;
     CompactRequest compact = 11;
     TruncateRequest truncate = 12;
+    CreateRequests creates = 13;
   }
 }
 
@@ -140,3 +141,8 @@ message RegionColumnDef {
   ColumnDef column_def = 1;
   uint32 column_id = 2;
 }
+
+// Create a batch of tables at once, usually used to create multiple logical tables
+// at once. Different engines can choose whether to support this request.
+// Metric Engine needs it.
+message CreateRequests { repeated CreateRequest requests = 1; }
