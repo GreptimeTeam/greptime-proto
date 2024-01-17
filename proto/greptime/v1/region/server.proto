@@ -48,6 +48,8 @@ message RegionRequest {
     CompactRequest compact = 11;
     TruncateRequest truncate = 12;
     CreateRequests creates = 13;
+    DropRequests drops = 14;
+    AlterRequests alters = 15;
   }
 }
 
@@ -77,6 +79,11 @@ message QueryRequest {
   bytes plan = 3;
 }
 
+// Create a batch of regions at once, usually used to create multiple logical regions
+// at once. Different engines can choose whether to support this request.
+// Metric Engine needs it.
+message CreateRequests { repeated CreateRequest requests = 1; }
+
 message CreateRequest {
   uint64 region_id = 1;
   // Region engine name
@@ -92,6 +99,9 @@ message CreateRequest {
   // TODO: add partition def
 }
 
+// Same as CreateRequests, but for dropping regions.
+message DropRequests { repeated DropRequest requests = 1; }
+
 message DropRequest { uint64 region_id = 1; }
 
 message OpenRequest {
@@ -105,6 +115,8 @@ message OpenRequest {
 }
 
 message CloseRequest { uint64 region_id = 1; }
+
+message AlterRequests { repeated AlterRequest requests = 1; }
 
 message AlterRequest {
   uint64 region_id = 1;
@@ -141,8 +153,3 @@ message RegionColumnDef {
   ColumnDef column_def = 1;
   uint32 column_id = 2;
 }
-
-// Create a batch of tables at once, usually used to create multiple logical tables
-// at once. Different engines can choose whether to support this request.
-// Metric Engine needs it.
-message CreateRequests { repeated CreateRequest requests = 1; }

@@ -62,6 +62,9 @@ extern AddColumnsDefaultTypeInternal _AddColumns_default_instance_;
 class AlterRequest;
 struct AlterRequestDefaultTypeInternal;
 extern AlterRequestDefaultTypeInternal _AlterRequest_default_instance_;
+class AlterRequests;
+struct AlterRequestsDefaultTypeInternal;
+extern AlterRequestsDefaultTypeInternal _AlterRequests_default_instance_;
 class CloseRequest;
 struct CloseRequestDefaultTypeInternal;
 extern CloseRequestDefaultTypeInternal _CloseRequest_default_instance_;
@@ -92,6 +95,9 @@ extern DropColumnsDefaultTypeInternal _DropColumns_default_instance_;
 class DropRequest;
 struct DropRequestDefaultTypeInternal;
 extern DropRequestDefaultTypeInternal _DropRequest_default_instance_;
+class DropRequests;
+struct DropRequestsDefaultTypeInternal;
+extern DropRequestsDefaultTypeInternal _DropRequests_default_instance_;
 class FlushRequest;
 struct FlushRequestDefaultTypeInternal;
 extern FlushRequestDefaultTypeInternal _FlushRequest_default_instance_;
@@ -135,6 +141,7 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::region::AddColumn* Arena::CreateMaybeMessage<::greptime::v1::region::AddColumn>(Arena*);
 template<> ::greptime::v1::region::AddColumns* Arena::CreateMaybeMessage<::greptime::v1::region::AddColumns>(Arena*);
 template<> ::greptime::v1::region::AlterRequest* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequest>(Arena*);
+template<> ::greptime::v1::region::AlterRequests* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequests>(Arena*);
 template<> ::greptime::v1::region::CloseRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CloseRequest>(Arena*);
 template<> ::greptime::v1::region::CompactRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CompactRequest>(Arena*);
 template<> ::greptime::v1::region::CreateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CreateRequest>(Arena*);
@@ -145,6 +152,7 @@ template<> ::greptime::v1::region::DeleteRequests* Arena::CreateMaybeMessage<::g
 template<> ::greptime::v1::region::DropColumn* Arena::CreateMaybeMessage<::greptime::v1::region::DropColumn>(Arena*);
 template<> ::greptime::v1::region::DropColumns* Arena::CreateMaybeMessage<::greptime::v1::region::DropColumns>(Arena*);
 template<> ::greptime::v1::region::DropRequest* Arena::CreateMaybeMessage<::greptime::v1::region::DropRequest>(Arena*);
+template<> ::greptime::v1::region::DropRequests* Arena::CreateMaybeMessage<::greptime::v1::region::DropRequests>(Arena*);
 template<> ::greptime::v1::region::FlushRequest* Arena::CreateMaybeMessage<::greptime::v1::region::FlushRequest>(Arena*);
 template<> ::greptime::v1::region::InsertRequest* Arena::CreateMaybeMessage<::greptime::v1::region::InsertRequest>(Arena*);
 template<> ::greptime::v1::region::InsertRequests* Arena::CreateMaybeMessage<::greptime::v1::region::InsertRequests>(Arena*);
@@ -426,6 +434,8 @@ class RegionRequest final :
     kCompact = 11,
     kTruncate = 12,
     kCreates = 13,
+    kDrops = 14,
+    kAlters = 15,
     BODY_NOT_SET = 0,
   };
 
@@ -519,6 +529,8 @@ class RegionRequest final :
     kCompactFieldNumber = 11,
     kTruncateFieldNumber = 12,
     kCreatesFieldNumber = 13,
+    kDropsFieldNumber = 14,
+    kAltersFieldNumber = 15,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -736,6 +748,42 @@ class RegionRequest final :
       ::greptime::v1::region::CreateRequests* creates);
   ::greptime::v1::region::CreateRequests* unsafe_arena_release_creates();
 
+  // .greptime.v1.region.DropRequests drops = 14;
+  bool has_drops() const;
+  private:
+  bool _internal_has_drops() const;
+  public:
+  void clear_drops();
+  const ::greptime::v1::region::DropRequests& drops() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::DropRequests* release_drops();
+  ::greptime::v1::region::DropRequests* mutable_drops();
+  void set_allocated_drops(::greptime::v1::region::DropRequests* drops);
+  private:
+  const ::greptime::v1::region::DropRequests& _internal_drops() const;
+  ::greptime::v1::region::DropRequests* _internal_mutable_drops();
+  public:
+  void unsafe_arena_set_allocated_drops(
+      ::greptime::v1::region::DropRequests* drops);
+  ::greptime::v1::region::DropRequests* unsafe_arena_release_drops();
+
+  // .greptime.v1.region.AlterRequests alters = 15;
+  bool has_alters() const;
+  private:
+  bool _internal_has_alters() const;
+  public:
+  void clear_alters();
+  const ::greptime::v1::region::AlterRequests& alters() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::AlterRequests* release_alters();
+  ::greptime::v1::region::AlterRequests* mutable_alters();
+  void set_allocated_alters(::greptime::v1::region::AlterRequests* alters);
+  private:
+  const ::greptime::v1::region::AlterRequests& _internal_alters() const;
+  ::greptime::v1::region::AlterRequests* _internal_mutable_alters();
+  public:
+  void unsafe_arena_set_allocated_alters(
+      ::greptime::v1::region::AlterRequests* alters);
+  ::greptime::v1::region::AlterRequests* unsafe_arena_release_alters();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -752,6 +800,8 @@ class RegionRequest final :
   void set_has_compact();
   void set_has_truncate();
   void set_has_creates();
+  void set_has_drops();
+  void set_has_alters();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -775,6 +825,8 @@ class RegionRequest final :
       ::greptime::v1::region::CompactRequest* compact_;
       ::greptime::v1::region::TruncateRequest* truncate_;
       ::greptime::v1::region::CreateRequests* creates_;
+      ::greptime::v1::region::DropRequests* drops_;
+      ::greptime::v1::region::AlterRequests* alters_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -1787,6 +1839,163 @@ class QueryRequest final :
 };
 // -------------------------------------------------------------------
 
+class CreateRequests final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CreateRequests) */ {
+ public:
+  inline CreateRequests() : CreateRequests(nullptr) {}
+  ~CreateRequests() override;
+  explicit PROTOBUF_CONSTEXPR CreateRequests(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CreateRequests(const CreateRequests& from);
+  CreateRequests(CreateRequests&& from) noexcept
+    : CreateRequests() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateRequests& operator=(const CreateRequests& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CreateRequests& operator=(CreateRequests&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CreateRequests& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CreateRequests* internal_default_instance() {
+    return reinterpret_cast<const CreateRequests*>(
+               &_CreateRequests_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(CreateRequests& a, CreateRequests& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CreateRequests* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CreateRequests* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CreateRequests* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CreateRequests>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CreateRequests& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CreateRequests& from) {
+    CreateRequests::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateRequests* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.CreateRequests";
+  }
+  protected:
+  explicit CreateRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRequestsFieldNumber = 1,
+  };
+  // repeated .greptime.v1.region.CreateRequest requests = 1;
+  int requests_size() const;
+  private:
+  int _internal_requests_size() const;
+  public:
+  void clear_requests();
+  ::greptime::v1::region::CreateRequest* mutable_requests(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest >*
+      mutable_requests();
+  private:
+  const ::greptime::v1::region::CreateRequest& _internal_requests(int index) const;
+  ::greptime::v1::region::CreateRequest* _internal_add_requests();
+  public:
+  const ::greptime::v1::region::CreateRequest& requests(int index) const;
+  ::greptime::v1::region::CreateRequest* add_requests();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest >&
+      requests() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.CreateRequests)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest > requests_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CreateRequest_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateRequest_OptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
@@ -1863,7 +2072,7 @@ class CreateRequest final :
                &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(CreateRequest& a, CreateRequest& b) {
     a.Swap(&b);
@@ -2066,6 +2275,163 @@ class CreateRequest final :
 };
 // -------------------------------------------------------------------
 
+class DropRequests final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.DropRequests) */ {
+ public:
+  inline DropRequests() : DropRequests(nullptr) {}
+  ~DropRequests() override;
+  explicit PROTOBUF_CONSTEXPR DropRequests(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DropRequests(const DropRequests& from);
+  DropRequests(DropRequests&& from) noexcept
+    : DropRequests() {
+    *this = ::std::move(from);
+  }
+
+  inline DropRequests& operator=(const DropRequests& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DropRequests& operator=(DropRequests&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DropRequests& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DropRequests* internal_default_instance() {
+    return reinterpret_cast<const DropRequests*>(
+               &_DropRequests_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(DropRequests& a, DropRequests& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DropRequests* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DropRequests* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DropRequests* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DropRequests>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DropRequests& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const DropRequests& from) {
+    DropRequests::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DropRequests* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.DropRequests";
+  }
+  protected:
+  explicit DropRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRequestsFieldNumber = 1,
+  };
+  // repeated .greptime.v1.region.DropRequest requests = 1;
+  int requests_size() const;
+  private:
+  int _internal_requests_size() const;
+  public:
+  void clear_requests();
+  ::greptime::v1::region::DropRequest* mutable_requests(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::DropRequest >*
+      mutable_requests();
+  private:
+  const ::greptime::v1::region::DropRequest& _internal_requests(int index) const;
+  ::greptime::v1::region::DropRequest* _internal_add_requests();
+  public:
+  const ::greptime::v1::region::DropRequest& requests(int index) const;
+  ::greptime::v1::region::DropRequest* add_requests();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::DropRequest >&
+      requests() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.DropRequests)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::DropRequest > requests_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DropRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.DropRequest) */ {
  public:
@@ -2114,7 +2480,7 @@ class DropRequest final :
                &_DropRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(DropRequest& a, DropRequest& b) {
     a.Swap(&b);
@@ -2290,7 +2656,7 @@ class OpenRequest final :
                &_OpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(OpenRequest& a, OpenRequest& b) {
     a.Swap(&b);
@@ -2496,7 +2862,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -2596,6 +2962,163 @@ class CloseRequest final :
 };
 // -------------------------------------------------------------------
 
+class AlterRequests final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.AlterRequests) */ {
+ public:
+  inline AlterRequests() : AlterRequests(nullptr) {}
+  ~AlterRequests() override;
+  explicit PROTOBUF_CONSTEXPR AlterRequests(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  AlterRequests(const AlterRequests& from);
+  AlterRequests(AlterRequests&& from) noexcept
+    : AlterRequests() {
+    *this = ::std::move(from);
+  }
+
+  inline AlterRequests& operator=(const AlterRequests& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AlterRequests& operator=(AlterRequests&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AlterRequests& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const AlterRequests* internal_default_instance() {
+    return reinterpret_cast<const AlterRequests*>(
+               &_AlterRequests_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(AlterRequests& a, AlterRequests& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(AlterRequests* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AlterRequests* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AlterRequests* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<AlterRequests>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const AlterRequests& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const AlterRequests& from) {
+    AlterRequests::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AlterRequests* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.AlterRequests";
+  }
+  protected:
+  explicit AlterRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRequestsFieldNumber = 1,
+  };
+  // repeated .greptime.v1.region.AlterRequest requests = 1;
+  int requests_size() const;
+  private:
+  int _internal_requests_size() const;
+  public:
+  void clear_requests();
+  ::greptime::v1::region::AlterRequest* mutable_requests(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::AlterRequest >*
+      mutable_requests();
+  private:
+  const ::greptime::v1::region::AlterRequest& _internal_requests(int index) const;
+  ::greptime::v1::region::AlterRequest* _internal_add_requests();
+  public:
+  const ::greptime::v1::region::AlterRequest& requests(int index) const;
+  ::greptime::v1::region::AlterRequest* add_requests();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::AlterRequest >&
+      requests() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.AlterRequests)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::AlterRequest > requests_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class AlterRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.AlterRequest) */ {
  public:
@@ -2650,7 +3173,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    18;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -2862,7 +3385,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    19;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -3019,7 +3542,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    20;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -3176,7 +3699,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    21;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -3353,7 +3876,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    22;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -3506,7 +4029,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    23;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -3654,7 +4177,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    24;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -3802,7 +4325,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    25;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -3950,7 +4473,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    26;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -4063,163 +4586,6 @@ class RegionColumnDef final :
   struct Impl_ {
     ::greptime::v1::ColumnDef* column_def_;
     uint32_t column_id_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CreateRequests final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CreateRequests) */ {
- public:
-  inline CreateRequests() : CreateRequests(nullptr) {}
-  ~CreateRequests() override;
-  explicit PROTOBUF_CONSTEXPR CreateRequests(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CreateRequests(const CreateRequests& from);
-  CreateRequests(CreateRequests&& from) noexcept
-    : CreateRequests() {
-    *this = ::std::move(from);
-  }
-
-  inline CreateRequests& operator=(const CreateRequests& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CreateRequests& operator=(CreateRequests&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CreateRequests& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CreateRequests* internal_default_instance() {
-    return reinterpret_cast<const CreateRequests*>(
-               &_CreateRequests_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    24;
-
-  friend void swap(CreateRequests& a, CreateRequests& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CreateRequests* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CreateRequests* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CreateRequests* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CreateRequests>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CreateRequests& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CreateRequests& from) {
-    CreateRequests::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CreateRequests* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.region.CreateRequests";
-  }
-  protected:
-  explicit CreateRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kRequestsFieldNumber = 1,
-  };
-  // repeated .greptime.v1.region.CreateRequest requests = 1;
-  int requests_size() const;
-  private:
-  int _internal_requests_size() const;
-  public:
-  void clear_requests();
-  ::greptime::v1::region::CreateRequest* mutable_requests(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest >*
-      mutable_requests();
-  private:
-  const ::greptime::v1::region::CreateRequest& _internal_requests(int index) const;
-  ::greptime::v1::region::CreateRequest* _internal_add_requests();
-  public:
-  const ::greptime::v1::region::CreateRequest& requests(int index) const;
-  ::greptime::v1::region::CreateRequest* add_requests();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest >&
-      requests() const;
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.region.CreateRequests)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest > requests_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5225,6 +5591,154 @@ inline ::greptime::v1::region::CreateRequests* RegionRequest::mutable_creates() 
   return _msg;
 }
 
+// .greptime.v1.region.DropRequests drops = 14;
+inline bool RegionRequest::_internal_has_drops() const {
+  return body_case() == kDrops;
+}
+inline bool RegionRequest::has_drops() const {
+  return _internal_has_drops();
+}
+inline void RegionRequest::set_has_drops() {
+  _impl_._oneof_case_[0] = kDrops;
+}
+inline void RegionRequest::clear_drops() {
+  if (_internal_has_drops()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.drops_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::DropRequests* RegionRequest::release_drops() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.drops)
+  if (_internal_has_drops()) {
+    clear_has_body();
+    ::greptime::v1::region::DropRequests* temp = _impl_.body_.drops_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.drops_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::DropRequests& RegionRequest::_internal_drops() const {
+  return _internal_has_drops()
+      ? *_impl_.body_.drops_
+      : reinterpret_cast< ::greptime::v1::region::DropRequests&>(::greptime::v1::region::_DropRequests_default_instance_);
+}
+inline const ::greptime::v1::region::DropRequests& RegionRequest::drops() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.drops)
+  return _internal_drops();
+}
+inline ::greptime::v1::region::DropRequests* RegionRequest::unsafe_arena_release_drops() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.drops)
+  if (_internal_has_drops()) {
+    clear_has_body();
+    ::greptime::v1::region::DropRequests* temp = _impl_.body_.drops_;
+    _impl_.body_.drops_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_drops(::greptime::v1::region::DropRequests* drops) {
+  clear_body();
+  if (drops) {
+    set_has_drops();
+    _impl_.body_.drops_ = drops;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.drops)
+}
+inline ::greptime::v1::region::DropRequests* RegionRequest::_internal_mutable_drops() {
+  if (!_internal_has_drops()) {
+    clear_body();
+    set_has_drops();
+    _impl_.body_.drops_ = CreateMaybeMessage< ::greptime::v1::region::DropRequests >(GetArenaForAllocation());
+  }
+  return _impl_.body_.drops_;
+}
+inline ::greptime::v1::region::DropRequests* RegionRequest::mutable_drops() {
+  ::greptime::v1::region::DropRequests* _msg = _internal_mutable_drops();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.drops)
+  return _msg;
+}
+
+// .greptime.v1.region.AlterRequests alters = 15;
+inline bool RegionRequest::_internal_has_alters() const {
+  return body_case() == kAlters;
+}
+inline bool RegionRequest::has_alters() const {
+  return _internal_has_alters();
+}
+inline void RegionRequest::set_has_alters() {
+  _impl_._oneof_case_[0] = kAlters;
+}
+inline void RegionRequest::clear_alters() {
+  if (_internal_has_alters()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.alters_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::AlterRequests* RegionRequest::release_alters() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.alters)
+  if (_internal_has_alters()) {
+    clear_has_body();
+    ::greptime::v1::region::AlterRequests* temp = _impl_.body_.alters_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.alters_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::AlterRequests& RegionRequest::_internal_alters() const {
+  return _internal_has_alters()
+      ? *_impl_.body_.alters_
+      : reinterpret_cast< ::greptime::v1::region::AlterRequests&>(::greptime::v1::region::_AlterRequests_default_instance_);
+}
+inline const ::greptime::v1::region::AlterRequests& RegionRequest::alters() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.alters)
+  return _internal_alters();
+}
+inline ::greptime::v1::region::AlterRequests* RegionRequest::unsafe_arena_release_alters() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.alters)
+  if (_internal_has_alters()) {
+    clear_has_body();
+    ::greptime::v1::region::AlterRequests* temp = _impl_.body_.alters_;
+    _impl_.body_.alters_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_alters(::greptime::v1::region::AlterRequests* alters) {
+  clear_body();
+  if (alters) {
+    set_has_alters();
+    _impl_.body_.alters_ = alters;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.alters)
+}
+inline ::greptime::v1::region::AlterRequests* RegionRequest::_internal_mutable_alters() {
+  if (!_internal_has_alters()) {
+    clear_body();
+    set_has_alters();
+    _impl_.body_.alters_ = CreateMaybeMessage< ::greptime::v1::region::AlterRequests >(GetArenaForAllocation());
+  }
+  return _impl_.body_.alters_;
+}
+inline ::greptime::v1::region::AlterRequests* RegionRequest::mutable_alters() {
+  ::greptime::v1::region::AlterRequests* _msg = _internal_mutable_alters();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.alters)
+  return _msg;
+}
+
 inline bool RegionRequest::has_body() const {
   return body_case() != BODY_NOT_SET;
 }
@@ -5815,6 +6329,50 @@ inline void QueryRequest::set_allocated_plan(std::string* plan) {
 
 // -------------------------------------------------------------------
 
+// CreateRequests
+
+// repeated .greptime.v1.region.CreateRequest requests = 1;
+inline int CreateRequests::_internal_requests_size() const {
+  return _impl_.requests_.size();
+}
+inline int CreateRequests::requests_size() const {
+  return _internal_requests_size();
+}
+inline void CreateRequests::clear_requests() {
+  _impl_.requests_.Clear();
+}
+inline ::greptime::v1::region::CreateRequest* CreateRequests::mutable_requests(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CreateRequests.requests)
+  return _impl_.requests_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest >*
+CreateRequests::mutable_requests() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.CreateRequests.requests)
+  return &_impl_.requests_;
+}
+inline const ::greptime::v1::region::CreateRequest& CreateRequests::_internal_requests(int index) const {
+  return _impl_.requests_.Get(index);
+}
+inline const ::greptime::v1::region::CreateRequest& CreateRequests::requests(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CreateRequests.requests)
+  return _internal_requests(index);
+}
+inline ::greptime::v1::region::CreateRequest* CreateRequests::_internal_add_requests() {
+  return _impl_.requests_.Add();
+}
+inline ::greptime::v1::region::CreateRequest* CreateRequests::add_requests() {
+  ::greptime::v1::region::CreateRequest* _add = _internal_add_requests();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.CreateRequests.requests)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest >&
+CreateRequests::requests() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.CreateRequests.requests)
+  return _impl_.requests_;
+}
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // CreateRequest
@@ -6057,6 +6615,50 @@ CreateRequest::mutable_options() {
 
 // -------------------------------------------------------------------
 
+// DropRequests
+
+// repeated .greptime.v1.region.DropRequest requests = 1;
+inline int DropRequests::_internal_requests_size() const {
+  return _impl_.requests_.size();
+}
+inline int DropRequests::requests_size() const {
+  return _internal_requests_size();
+}
+inline void DropRequests::clear_requests() {
+  _impl_.requests_.Clear();
+}
+inline ::greptime::v1::region::DropRequest* DropRequests::mutable_requests(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.DropRequests.requests)
+  return _impl_.requests_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::DropRequest >*
+DropRequests::mutable_requests() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.DropRequests.requests)
+  return &_impl_.requests_;
+}
+inline const ::greptime::v1::region::DropRequest& DropRequests::_internal_requests(int index) const {
+  return _impl_.requests_.Get(index);
+}
+inline const ::greptime::v1::region::DropRequest& DropRequests::requests(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.DropRequests.requests)
+  return _internal_requests(index);
+}
+inline ::greptime::v1::region::DropRequest* DropRequests::_internal_add_requests() {
+  return _impl_.requests_.Add();
+}
+inline ::greptime::v1::region::DropRequest* DropRequests::add_requests() {
+  ::greptime::v1::region::DropRequest* _add = _internal_add_requests();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.DropRequests.requests)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::DropRequest >&
+DropRequests::requests() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.DropRequests.requests)
+  return _impl_.requests_;
+}
+
+// -------------------------------------------------------------------
+
 // DropRequest
 
 // uint64 region_id = 1;
@@ -6256,6 +6858,50 @@ inline void CloseRequest::_internal_set_region_id(uint64_t value) {
 inline void CloseRequest::set_region_id(uint64_t value) {
   _internal_set_region_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.region.CloseRequest.region_id)
+}
+
+// -------------------------------------------------------------------
+
+// AlterRequests
+
+// repeated .greptime.v1.region.AlterRequest requests = 1;
+inline int AlterRequests::_internal_requests_size() const {
+  return _impl_.requests_.size();
+}
+inline int AlterRequests::requests_size() const {
+  return _internal_requests_size();
+}
+inline void AlterRequests::clear_requests() {
+  _impl_.requests_.Clear();
+}
+inline ::greptime::v1::region::AlterRequest* AlterRequests::mutable_requests(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequests.requests)
+  return _impl_.requests_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::AlterRequest >*
+AlterRequests::mutable_requests() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.AlterRequests.requests)
+  return &_impl_.requests_;
+}
+inline const ::greptime::v1::region::AlterRequest& AlterRequests::_internal_requests(int index) const {
+  return _impl_.requests_.Get(index);
+}
+inline const ::greptime::v1::region::AlterRequest& AlterRequests::requests(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequests.requests)
+  return _internal_requests(index);
+}
+inline ::greptime::v1::region::AlterRequest* AlterRequests::_internal_add_requests() {
+  return _impl_.requests_.Add();
+}
+inline ::greptime::v1::region::AlterRequest* AlterRequests::add_requests() {
+  ::greptime::v1::region::AlterRequest* _add = _internal_add_requests();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.AlterRequests.requests)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::AlterRequest >&
+AlterRequests::requests() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.AlterRequests.requests)
+  return _impl_.requests_;
 }
 
 // -------------------------------------------------------------------
@@ -6961,53 +7607,13 @@ inline void RegionColumnDef::set_column_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.RegionColumnDef.column_id)
 }
 
-// -------------------------------------------------------------------
-
-// CreateRequests
-
-// repeated .greptime.v1.region.CreateRequest requests = 1;
-inline int CreateRequests::_internal_requests_size() const {
-  return _impl_.requests_.size();
-}
-inline int CreateRequests::requests_size() const {
-  return _internal_requests_size();
-}
-inline void CreateRequests::clear_requests() {
-  _impl_.requests_.Clear();
-}
-inline ::greptime::v1::region::CreateRequest* CreateRequests::mutable_requests(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CreateRequests.requests)
-  return _impl_.requests_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest >*
-CreateRequests::mutable_requests() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.CreateRequests.requests)
-  return &_impl_.requests_;
-}
-inline const ::greptime::v1::region::CreateRequest& CreateRequests::_internal_requests(int index) const {
-  return _impl_.requests_.Get(index);
-}
-inline const ::greptime::v1::region::CreateRequest& CreateRequests::requests(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.CreateRequests.requests)
-  return _internal_requests(index);
-}
-inline ::greptime::v1::region::CreateRequest* CreateRequests::_internal_add_requests() {
-  return _impl_.requests_.Add();
-}
-inline ::greptime::v1::region::CreateRequest* CreateRequests::add_requests() {
-  ::greptime::v1::region::CreateRequest* _add = _internal_add_requests();
-  // @@protoc_insertion_point(field_add:greptime.v1.region.CreateRequests.requests)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::CreateRequest >&
-CreateRequests::requests() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.region.CreateRequests.requests)
-  return _impl_.requests_;
-}
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
