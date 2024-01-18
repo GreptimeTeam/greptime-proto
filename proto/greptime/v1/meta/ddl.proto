@@ -39,13 +39,19 @@ message CreateTableTask {
     bytes table_info = 3;
 }
 
+message CreateTableTasks { repeated CreateTableTask tasks = 1; }
+
 message DropTableTask{
     DropTableExpr drop_table = 1;
 }
 
+message DropTableTasks { repeated DropTableTask tasks = 1; }
+
 message AlterTableTask{
     AlterExpr alter_table = 1;
 }
+
+message AlterTableTasks { repeated AlterTableTask tasks = 1; }
 
 message TruncateTableTask {
     TruncateTableExpr truncate_table = 1;
@@ -59,6 +65,9 @@ message SubmitDdlTaskRequest {
         DropTableTask drop_table_task = 3;
         AlterTableTask alter_table_task = 4;
         TruncateTableTask truncate_table_task = 5;
+        CreateTableTasks create_table_tasks = 6;
+        DropTableTasks drop_table_tasks = 7;
+        AlterTableTasks alter_table_tasks = 8;
      }
 }
 
