@@ -133,7 +133,8 @@ struct SubmitDdlTaskRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SubmitDdlTaskRequestDefaultTypeInternal _SubmitDdlTaskRequest_default_instance_;
 PROTOBUF_CONSTEXPR SubmitDdlTaskResponse::SubmitDdlTaskResponse(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.key_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.table_ids_)*/{}
+  , /*decltype(_impl_.key_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.table_id_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -229,6 +230,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::SubmitDdlTaskResponse, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::SubmitDdlTaskResponse, _impl_.key_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::SubmitDdlTaskResponse, _impl_.table_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::SubmitDdlTaskResponse, _impl_.table_ids_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::CreateTableTask)},
@@ -285,15 +287,17 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto[] PROTOB
   "op_table_tasks\030\007 \001(\0132 .greptime.v1.meta."
   "DropTableTasksH\000\022>\n\021alter_table_tasks\030\010 "
   "\001(\0132!.greptime.v1.meta.AlterTableTasksH\000"
-  "B\006\n\004task\"\203\001\n\025SubmitDdlTaskResponse\0220\n\006he"
+  "B\006\n\004task\"\261\001\n\025SubmitDdlTaskResponse\0220\n\006he"
   "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe"
   "ader\022\013\n\003key\030\002 \001(\014\022+\n\010table_id\030\004 \001(\0132\031.gr"
-  "eptime.v1.meta.TableId*#\n\013DdlTaskType\022\n\n"
-  "\006Create\020\000\022\010\n\004Drop\020\0012k\n\007DdlTask\022`\n\rSubmit"
-  "DdlTask\022&.greptime.v1.meta.SubmitDdlTask"
-  "Request\032\'.greptime.v1.meta.SubmitDdlTask"
-  "ResponseB<Z:github.com/GreptimeTeam/grep"
-  "time-proto/go/greptime/v1/metab\006proto3"
+  "eptime.v1.meta.TableId\022,\n\ttable_ids\030\005 \003("
+  "\0132\031.greptime.v1.meta.TableId*#\n\013DdlTaskT"
+  "ype\022\n\n\006Create\020\000\022\010\n\004Drop\020\0012k\n\007DdlTask\022`\n\r"
+  "SubmitDdlTask\022&.greptime.v1.meta.SubmitD"
+  "dlTaskRequest\032\'.greptime.v1.meta.SubmitD"
+  "dlTaskResponseB<Z:github.com/GreptimeTea"
+  "m/greptime-proto/go/greptime/v1/metab\006pr"
+  "oto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fddl_2eproto,
@@ -302,7 +306,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto = {
-    false, false, 1558, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
+    false, false, 1604, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
     "greptime/v1/meta/ddl.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps, 3, 9,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets,
@@ -2439,6 +2443,9 @@ void SubmitDdlTaskResponse::clear_table_id() {
   }
   _impl_.table_id_ = nullptr;
 }
+void SubmitDdlTaskResponse::clear_table_ids() {
+  _impl_.table_ids_.Clear();
+}
 SubmitDdlTaskResponse::SubmitDdlTaskResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -2449,7 +2456,8 @@ SubmitDdlTaskResponse::SubmitDdlTaskResponse(const SubmitDdlTaskResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   SubmitDdlTaskResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.key_){}
+      decltype(_impl_.table_ids_){from._impl_.table_ids_}
+    , decltype(_impl_.key_){}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.table_id_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -2477,7 +2485,8 @@ inline void SubmitDdlTaskResponse::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.key_){}
+      decltype(_impl_.table_ids_){arena}
+    , decltype(_impl_.key_){}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.table_id_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -2499,6 +2508,7 @@ SubmitDdlTaskResponse::~SubmitDdlTaskResponse() {
 
 inline void SubmitDdlTaskResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.table_ids_.~RepeatedPtrField();
   _impl_.key_.Destroy();
   if (this != internal_default_instance()) delete _impl_.header_;
   if (this != internal_default_instance()) delete _impl_.table_id_;
@@ -2514,6 +2524,7 @@ void SubmitDdlTaskResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.table_ids_.Clear();
   _impl_.key_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
@@ -2554,6 +2565,19 @@ const char* SubmitDdlTaskResponse::_InternalParse(const char* ptr, ::_pbi::Parse
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_table_id(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .greptime.v1.meta.TableId table_ids = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_table_ids(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -2606,6 +2630,14 @@ uint8_t* SubmitDdlTaskResponse::_InternalSerialize(
         _Internal::table_id(this).GetCachedSize(), target, stream);
   }
 
+  // repeated .greptime.v1.meta.TableId table_ids = 5;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_table_ids_size()); i < n; i++) {
+    const auto& repfield = this->_internal_table_ids(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2621,6 +2653,13 @@ size_t SubmitDdlTaskResponse::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated .greptime.v1.meta.TableId table_ids = 5;
+  total_size += 1UL * this->_internal_table_ids_size();
+  for (const auto& msg : this->_impl_.table_ids_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
 
   // bytes key = 2;
   if (!this->_internal_key().empty()) {
@@ -2661,6 +2700,7 @@ void SubmitDdlTaskResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.table_ids_.MergeFrom(from._impl_.table_ids_);
   if (!from._internal_key().empty()) {
     _this->_internal_set_key(from._internal_key());
   }
@@ -2691,6 +2731,7 @@ void SubmitDdlTaskResponse::InternalSwap(SubmitDdlTaskResponse* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.table_ids_.InternalSwap(&other->_impl_.table_ids_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.key_, lhs_arena,
       &other->_impl_.key_, rhs_arena

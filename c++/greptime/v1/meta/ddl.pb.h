@@ -1705,10 +1705,29 @@ class SubmitDdlTaskResponse final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTableIdsFieldNumber = 5,
     kKeyFieldNumber = 2,
     kHeaderFieldNumber = 1,
     kTableIdFieldNumber = 4,
   };
+  // repeated .greptime.v1.meta.TableId table_ids = 5;
+  int table_ids_size() const;
+  private:
+  int _internal_table_ids_size() const;
+  public:
+  void clear_table_ids();
+  ::greptime::v1::meta::TableId* mutable_table_ids(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >*
+      mutable_table_ids();
+  private:
+  const ::greptime::v1::meta::TableId& _internal_table_ids(int index) const;
+  ::greptime::v1::meta::TableId* _internal_add_table_ids();
+  public:
+  const ::greptime::v1::meta::TableId& table_ids(int index) const;
+  ::greptime::v1::meta::TableId* add_table_ids();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >&
+      table_ids() const;
+
   // bytes key = 2;
   void clear_key();
   const std::string& key() const;
@@ -1767,6 +1786,7 @@ class SubmitDdlTaskResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId > table_ids_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
     ::greptime::v1::meta::ResponseHeader* header_;
     ::greptime::v1::meta::TableId* table_id_;
@@ -3195,6 +3215,43 @@ inline void SubmitDdlTaskResponse::set_allocated_table_id(::greptime::v1::meta::
   }
   _impl_.table_id_ = table_id;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.SubmitDdlTaskResponse.table_id)
+}
+
+// repeated .greptime.v1.meta.TableId table_ids = 5;
+inline int SubmitDdlTaskResponse::_internal_table_ids_size() const {
+  return _impl_.table_ids_.size();
+}
+inline int SubmitDdlTaskResponse::table_ids_size() const {
+  return _internal_table_ids_size();
+}
+inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::mutable_table_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+  return _impl_.table_ids_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >*
+SubmitDdlTaskResponse::mutable_table_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+  return &_impl_.table_ids_;
+}
+inline const ::greptime::v1::meta::TableId& SubmitDdlTaskResponse::_internal_table_ids(int index) const {
+  return _impl_.table_ids_.Get(index);
+}
+inline const ::greptime::v1::meta::TableId& SubmitDdlTaskResponse::table_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+  return _internal_table_ids(index);
+}
+inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::_internal_add_table_ids() {
+  return _impl_.table_ids_.Add();
+}
+inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::add_table_ids() {
+  ::greptime::v1::meta::TableId* _add = _internal_add_table_ids();
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >&
+SubmitDdlTaskResponse::table_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+  return _impl_.table_ids_;
 }
 
 #ifdef __GNUC__

@@ -7784,6 +7784,7 @@ public final class Ddl {
     /**
      * <pre>
      * Returns if table created.
+     * TODO(jeremy): remove it?
      * </pre>
      *
      * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -7793,6 +7794,7 @@ public final class Ddl {
     /**
      * <pre>
      * Returns if table created.
+     * TODO(jeremy): remove it?
      * </pre>
      *
      * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -7802,11 +7804,56 @@ public final class Ddl {
     /**
      * <pre>
      * Returns if table created.
+     * TODO(jeremy): remove it?
      * </pre>
      *
      * <code>.greptime.v1.meta.TableId table_id = 4;</code>
      */
     greptime.v1.meta.Common.TableIdOrBuilder getTableIdOrBuilder();
+
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    java.util.List<greptime.v1.meta.Common.TableId> 
+        getTableIdsList();
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    greptime.v1.meta.Common.TableId getTableIds(int index);
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    int getTableIdsCount();
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    java.util.List<? extends greptime.v1.meta.Common.TableIdOrBuilder> 
+        getTableIdsOrBuilderList();
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    greptime.v1.meta.Common.TableIdOrBuilder getTableIdsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code greptime.v1.meta.SubmitDdlTaskResponse}
@@ -7822,6 +7869,7 @@ public final class Ddl {
     }
     private SubmitDdlTaskResponse() {
       key_ = com.google.protobuf.ByteString.EMPTY;
+      tableIds_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -7844,6 +7892,7 @@ public final class Ddl {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -7885,6 +7934,15 @@ public final class Ddl {
 
               break;
             }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tableIds_ = new java.util.ArrayList<greptime.v1.meta.Common.TableId>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tableIds_.add(
+                  input.readMessage(greptime.v1.meta.Common.TableId.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -7902,6 +7960,9 @@ public final class Ddl {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          tableIds_ = java.util.Collections.unmodifiableList(tableIds_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -7965,6 +8026,7 @@ public final class Ddl {
     /**
      * <pre>
      * Returns if table created.
+     * TODO(jeremy): remove it?
      * </pre>
      *
      * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -7977,6 +8039,7 @@ public final class Ddl {
     /**
      * <pre>
      * Returns if table created.
+     * TODO(jeremy): remove it?
      * </pre>
      *
      * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -7989,6 +8052,7 @@ public final class Ddl {
     /**
      * <pre>
      * Returns if table created.
+     * TODO(jeremy): remove it?
      * </pre>
      *
      * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -7996,6 +8060,66 @@ public final class Ddl {
     @java.lang.Override
     public greptime.v1.meta.Common.TableIdOrBuilder getTableIdOrBuilder() {
       return getTableId();
+    }
+
+    public static final int TABLE_IDS_FIELD_NUMBER = 5;
+    private java.util.List<greptime.v1.meta.Common.TableId> tableIds_;
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<greptime.v1.meta.Common.TableId> getTableIdsList() {
+      return tableIds_;
+    }
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends greptime.v1.meta.Common.TableIdOrBuilder> 
+        getTableIdsOrBuilderList() {
+      return tableIds_;
+    }
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    @java.lang.Override
+    public int getTableIdsCount() {
+      return tableIds_.size();
+    }
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.TableId getTableIds(int index) {
+      return tableIds_.get(index);
+    }
+    /**
+     * <pre>
+     * Returns if the tables created.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.TableIdOrBuilder getTableIdsOrBuilder(
+        int index) {
+      return tableIds_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8021,6 +8145,9 @@ public final class Ddl {
       if (tableId_ != null) {
         output.writeMessage(4, getTableId());
       }
+      for (int i = 0; i < tableIds_.size(); i++) {
+        output.writeMessage(5, tableIds_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -8041,6 +8168,10 @@ public final class Ddl {
       if (tableId_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getTableId());
+      }
+      for (int i = 0; i < tableIds_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, tableIds_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8069,6 +8200,8 @@ public final class Ddl {
         if (!getTableId()
             .equals(other.getTableId())) return false;
       }
+      if (!getTableIdsList()
+          .equals(other.getTableIdsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -8089,6 +8222,10 @@ public final class Ddl {
       if (hasTableId()) {
         hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
         hash = (53 * hash) + getTableId().hashCode();
+      }
+      if (getTableIdsCount() > 0) {
+        hash = (37 * hash) + TABLE_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getTableIdsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -8218,6 +8355,7 @@ public final class Ddl {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getTableIdsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -8236,6 +8374,12 @@ public final class Ddl {
         } else {
           tableId_ = null;
           tableIdBuilder_ = null;
+        }
+        if (tableIdsBuilder_ == null) {
+          tableIds_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          tableIdsBuilder_.clear();
         }
         return this;
       }
@@ -8263,6 +8407,7 @@ public final class Ddl {
       @java.lang.Override
       public greptime.v1.meta.Ddl.SubmitDdlTaskResponse buildPartial() {
         greptime.v1.meta.Ddl.SubmitDdlTaskResponse result = new greptime.v1.meta.Ddl.SubmitDdlTaskResponse(this);
+        int from_bitField0_ = bitField0_;
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
@@ -8273,6 +8418,15 @@ public final class Ddl {
           result.tableId_ = tableId_;
         } else {
           result.tableId_ = tableIdBuilder_.build();
+        }
+        if (tableIdsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            tableIds_ = java.util.Collections.unmodifiableList(tableIds_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.tableIds_ = tableIds_;
+        } else {
+          result.tableIds_ = tableIdsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -8331,6 +8485,32 @@ public final class Ddl {
         if (other.hasTableId()) {
           mergeTableId(other.getTableId());
         }
+        if (tableIdsBuilder_ == null) {
+          if (!other.tableIds_.isEmpty()) {
+            if (tableIds_.isEmpty()) {
+              tableIds_ = other.tableIds_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureTableIdsIsMutable();
+              tableIds_.addAll(other.tableIds_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.tableIds_.isEmpty()) {
+            if (tableIdsBuilder_.isEmpty()) {
+              tableIdsBuilder_.dispose();
+              tableIdsBuilder_ = null;
+              tableIds_ = other.tableIds_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              tableIdsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTableIdsFieldBuilder() : null;
+            } else {
+              tableIdsBuilder_.addAllMessages(other.tableIds_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -8359,6 +8539,7 @@ public final class Ddl {
         }
         return this;
       }
+      private int bitField0_;
 
       private greptime.v1.meta.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -8531,6 +8712,7 @@ public final class Ddl {
       /**
        * <pre>
        * Returns if table created.
+       * TODO(jeremy): remove it?
        * </pre>
        *
        * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -8542,6 +8724,7 @@ public final class Ddl {
       /**
        * <pre>
        * Returns if table created.
+       * TODO(jeremy): remove it?
        * </pre>
        *
        * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -8557,6 +8740,7 @@ public final class Ddl {
       /**
        * <pre>
        * Returns if table created.
+       * TODO(jeremy): remove it?
        * </pre>
        *
        * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -8577,6 +8761,7 @@ public final class Ddl {
       /**
        * <pre>
        * Returns if table created.
+       * TODO(jeremy): remove it?
        * </pre>
        *
        * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -8595,6 +8780,7 @@ public final class Ddl {
       /**
        * <pre>
        * Returns if table created.
+       * TODO(jeremy): remove it?
        * </pre>
        *
        * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -8617,6 +8803,7 @@ public final class Ddl {
       /**
        * <pre>
        * Returns if table created.
+       * TODO(jeremy): remove it?
        * </pre>
        *
        * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -8635,6 +8822,7 @@ public final class Ddl {
       /**
        * <pre>
        * Returns if table created.
+       * TODO(jeremy): remove it?
        * </pre>
        *
        * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -8647,6 +8835,7 @@ public final class Ddl {
       /**
        * <pre>
        * Returns if table created.
+       * TODO(jeremy): remove it?
        * </pre>
        *
        * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -8662,6 +8851,7 @@ public final class Ddl {
       /**
        * <pre>
        * Returns if table created.
+       * TODO(jeremy): remove it?
        * </pre>
        *
        * <code>.greptime.v1.meta.TableId table_id = 4;</code>
@@ -8678,6 +8868,318 @@ public final class Ddl {
           tableId_ = null;
         }
         return tableIdBuilder_;
+      }
+
+      private java.util.List<greptime.v1.meta.Common.TableId> tableIds_ =
+        java.util.Collections.emptyList();
+      private void ensureTableIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          tableIds_ = new java.util.ArrayList<greptime.v1.meta.Common.TableId>(tableIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          greptime.v1.meta.Common.TableId, greptime.v1.meta.Common.TableId.Builder, greptime.v1.meta.Common.TableIdOrBuilder> tableIdsBuilder_;
+
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public java.util.List<greptime.v1.meta.Common.TableId> getTableIdsList() {
+        if (tableIdsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tableIds_);
+        } else {
+          return tableIdsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public int getTableIdsCount() {
+        if (tableIdsBuilder_ == null) {
+          return tableIds_.size();
+        } else {
+          return tableIdsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public greptime.v1.meta.Common.TableId getTableIds(int index) {
+        if (tableIdsBuilder_ == null) {
+          return tableIds_.get(index);
+        } else {
+          return tableIdsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public Builder setTableIds(
+          int index, greptime.v1.meta.Common.TableId value) {
+        if (tableIdsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTableIdsIsMutable();
+          tableIds_.set(index, value);
+          onChanged();
+        } else {
+          tableIdsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public Builder setTableIds(
+          int index, greptime.v1.meta.Common.TableId.Builder builderForValue) {
+        if (tableIdsBuilder_ == null) {
+          ensureTableIdsIsMutable();
+          tableIds_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tableIdsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public Builder addTableIds(greptime.v1.meta.Common.TableId value) {
+        if (tableIdsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTableIdsIsMutable();
+          tableIds_.add(value);
+          onChanged();
+        } else {
+          tableIdsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public Builder addTableIds(
+          int index, greptime.v1.meta.Common.TableId value) {
+        if (tableIdsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTableIdsIsMutable();
+          tableIds_.add(index, value);
+          onChanged();
+        } else {
+          tableIdsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public Builder addTableIds(
+          greptime.v1.meta.Common.TableId.Builder builderForValue) {
+        if (tableIdsBuilder_ == null) {
+          ensureTableIdsIsMutable();
+          tableIds_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tableIdsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public Builder addTableIds(
+          int index, greptime.v1.meta.Common.TableId.Builder builderForValue) {
+        if (tableIdsBuilder_ == null) {
+          ensureTableIdsIsMutable();
+          tableIds_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tableIdsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public Builder addAllTableIds(
+          java.lang.Iterable<? extends greptime.v1.meta.Common.TableId> values) {
+        if (tableIdsBuilder_ == null) {
+          ensureTableIdsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tableIds_);
+          onChanged();
+        } else {
+          tableIdsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public Builder clearTableIds() {
+        if (tableIdsBuilder_ == null) {
+          tableIds_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          tableIdsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public Builder removeTableIds(int index) {
+        if (tableIdsBuilder_ == null) {
+          ensureTableIdsIsMutable();
+          tableIds_.remove(index);
+          onChanged();
+        } else {
+          tableIdsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public greptime.v1.meta.Common.TableId.Builder getTableIdsBuilder(
+          int index) {
+        return getTableIdsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public greptime.v1.meta.Common.TableIdOrBuilder getTableIdsOrBuilder(
+          int index) {
+        if (tableIdsBuilder_ == null) {
+          return tableIds_.get(index);  } else {
+          return tableIdsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public java.util.List<? extends greptime.v1.meta.Common.TableIdOrBuilder> 
+           getTableIdsOrBuilderList() {
+        if (tableIdsBuilder_ != null) {
+          return tableIdsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tableIds_);
+        }
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public greptime.v1.meta.Common.TableId.Builder addTableIdsBuilder() {
+        return getTableIdsFieldBuilder().addBuilder(
+            greptime.v1.meta.Common.TableId.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public greptime.v1.meta.Common.TableId.Builder addTableIdsBuilder(
+          int index) {
+        return getTableIdsFieldBuilder().addBuilder(
+            index, greptime.v1.meta.Common.TableId.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Returns if the tables created.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.meta.TableId table_ids = 5;</code>
+       */
+      public java.util.List<greptime.v1.meta.Common.TableId.Builder> 
+           getTableIdsBuilderList() {
+        return getTableIdsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          greptime.v1.meta.Common.TableId, greptime.v1.meta.Common.TableId.Builder, greptime.v1.meta.Common.TableIdOrBuilder> 
+          getTableIdsFieldBuilder() {
+        if (tableIdsBuilder_ == null) {
+          tableIdsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              greptime.v1.meta.Common.TableId, greptime.v1.meta.Common.TableId.Builder, greptime.v1.meta.Common.TableIdOrBuilder>(
+                  tableIds_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          tableIds_ = null;
+        }
+        return tableIdsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -8816,15 +9318,17 @@ public final class Ddl {
       "op_table_tasks\030\007 \001(\0132 .greptime.v1.meta." +
       "DropTableTasksH\000\022>\n\021alter_table_tasks\030\010 " +
       "\001(\0132!.greptime.v1.meta.AlterTableTasksH\000" +
-      "B\006\n\004task\"\203\001\n\025SubmitDdlTaskResponse\0220\n\006he" +
+      "B\006\n\004task\"\261\001\n\025SubmitDdlTaskResponse\0220\n\006he" +
       "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
       "ader\022\013\n\003key\030\002 \001(\014\022+\n\010table_id\030\004 \001(\0132\031.gr" +
-      "eptime.v1.meta.TableId*#\n\013DdlTaskType\022\n\n" +
-      "\006Create\020\000\022\010\n\004Drop\020\0012k\n\007DdlTask\022`\n\rSubmit" +
-      "DdlTask\022&.greptime.v1.meta.SubmitDdlTask" +
-      "Request\032\'.greptime.v1.meta.SubmitDdlTask" +
-      "ResponseB<Z:github.com/GreptimeTeam/grep" +
-      "time-proto/go/greptime/v1/metab\006proto3"
+      "eptime.v1.meta.TableId\022,\n\ttable_ids\030\005 \003(" +
+      "\0132\031.greptime.v1.meta.TableId*#\n\013DdlTaskT" +
+      "ype\022\n\n\006Create\020\000\022\010\n\004Drop\020\0012k\n\007DdlTask\022`\n\r" +
+      "SubmitDdlTask\022&.greptime.v1.meta.SubmitD" +
+      "dlTaskRequest\032\'.greptime.v1.meta.SubmitD" +
+      "dlTaskResponseB<Z:github.com/GreptimeTea" +
+      "m/greptime-proto/go/greptime/v1/metab\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8886,7 +9390,7 @@ public final class Ddl {
     internal_static_greptime_v1_meta_SubmitDdlTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_SubmitDdlTaskResponse_descriptor,
-        new java.lang.String[] { "Header", "Key", "TableId", });
+        new java.lang.String[] { "Header", "Key", "TableId", "TableIds", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
