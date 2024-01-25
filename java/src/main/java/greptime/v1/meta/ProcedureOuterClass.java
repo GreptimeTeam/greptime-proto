@@ -145,17 +145,32 @@ public final class ProcedureOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    boolean hasHeader();
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     * @return The header.
+     */
+    greptime.v1.meta.Common.RequestHeader getHeader();
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     */
+    greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
      * @return Whether the pid field is set.
      */
     boolean hasPid();
     /**
-     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
      * @return The pid.
      */
     greptime.v1.meta.Common.ProcedureId getPid();
     /**
-     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
      */
     greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder();
   }
@@ -205,6 +220,19 @@ public final class ProcedureOuterClass {
               done = true;
               break;
             case 10: {
+              greptime.v1.meta.Common.RequestHeader.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(greptime.v1.meta.Common.RequestHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
               greptime.v1.meta.Common.ProcedureId.Builder subBuilder = null;
               if (pid_ != null) {
                 subBuilder = pid_.toBuilder();
@@ -251,10 +279,36 @@ public final class ProcedureOuterClass {
               greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.class, greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.Builder.class);
     }
 
-    public static final int PID_FIELD_NUMBER = 1;
+    public static final int HEADER_FIELD_NUMBER = 1;
+    private greptime.v1.meta.Common.RequestHeader header_;
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeader() {
+      return header_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     * @return The header.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.RequestHeader getHeader() {
+      return header_ == null ? greptime.v1.meta.Common.RequestHeader.getDefaultInstance() : header_;
+    }
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder() {
+      return getHeader();
+    }
+
+    public static final int PID_FIELD_NUMBER = 2;
     private greptime.v1.meta.Common.ProcedureId pid_;
     /**
-     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
      * @return Whether the pid field is set.
      */
     @java.lang.Override
@@ -262,7 +316,7 @@ public final class ProcedureOuterClass {
       return pid_ != null;
     }
     /**
-     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
      * @return The pid.
      */
     @java.lang.Override
@@ -270,7 +324,7 @@ public final class ProcedureOuterClass {
       return pid_ == null ? greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
     }
     /**
-     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
      */
     @java.lang.Override
     public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
@@ -291,8 +345,11 @@ public final class ProcedureOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (header_ != null) {
+        output.writeMessage(1, getHeader());
+      }
       if (pid_ != null) {
-        output.writeMessage(1, getPid());
+        output.writeMessage(2, getPid());
       }
       unknownFields.writeTo(output);
     }
@@ -303,9 +360,13 @@ public final class ProcedureOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (header_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getHeader());
+      }
       if (pid_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getPid());
+          .computeMessageSize(2, getPid());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -322,6 +383,11 @@ public final class ProcedureOuterClass {
       }
       greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest other = (greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest) obj;
 
+      if (hasHeader() != other.hasHeader()) return false;
+      if (hasHeader()) {
+        if (!getHeader()
+            .equals(other.getHeader())) return false;
+      }
       if (hasPid() != other.hasPid()) return false;
       if (hasPid()) {
         if (!getPid()
@@ -338,6 +404,10 @@ public final class ProcedureOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasHeader()) {
+        hash = (37 * hash) + HEADER_FIELD_NUMBER;
+        hash = (53 * hash) + getHeader().hashCode();
+      }
       if (hasPid()) {
         hash = (37 * hash) + PID_FIELD_NUMBER;
         hash = (53 * hash) + getPid().hashCode();
@@ -475,6 +545,12 @@ public final class ProcedureOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
         if (pidBuilder_ == null) {
           pid_ = null;
         } else {
@@ -507,6 +583,11 @@ public final class ProcedureOuterClass {
       @java.lang.Override
       public greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest buildPartial() {
         greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest result = new greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest(this);
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
         if (pidBuilder_ == null) {
           result.pid_ = pid_;
         } else {
@@ -560,6 +641,9 @@ public final class ProcedureOuterClass {
 
       public Builder mergeFrom(greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest other) {
         if (other == greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.getDefaultInstance()) return this;
+        if (other.hasHeader()) {
+          mergeHeader(other.getHeader());
+        }
         if (other.hasPid()) {
           mergePid(other.getPid());
         }
@@ -592,18 +676,137 @@ public final class ProcedureOuterClass {
         return this;
       }
 
+      private greptime.v1.meta.Common.RequestHeader header_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.RequestHeader, greptime.v1.meta.Common.RequestHeader.Builder, greptime.v1.meta.Common.RequestHeaderOrBuilder> headerBuilder_;
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       * @return Whether the header field is set.
+       */
+      public boolean hasHeader() {
+        return headerBuilder_ != null || header_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       * @return The header.
+       */
+      public greptime.v1.meta.Common.RequestHeader getHeader() {
+        if (headerBuilder_ == null) {
+          return header_ == null ? greptime.v1.meta.Common.RequestHeader.getDefaultInstance() : header_;
+        } else {
+          return headerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public Builder setHeader(greptime.v1.meta.Common.RequestHeader value) {
+        if (headerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          header_ = value;
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public Builder setHeader(
+          greptime.v1.meta.Common.RequestHeader.Builder builderForValue) {
+        if (headerBuilder_ == null) {
+          header_ = builderForValue.build();
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public Builder mergeHeader(greptime.v1.meta.Common.RequestHeader value) {
+        if (headerBuilder_ == null) {
+          if (header_ != null) {
+            header_ =
+              greptime.v1.meta.Common.RequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+          } else {
+            header_ = value;
+          }
+          onChanged();
+        } else {
+          headerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public Builder clearHeader() {
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public greptime.v1.meta.Common.RequestHeader.Builder getHeaderBuilder() {
+        
+        onChanged();
+        return getHeaderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder() {
+        if (headerBuilder_ != null) {
+          return headerBuilder_.getMessageOrBuilder();
+        } else {
+          return header_ == null ?
+              greptime.v1.meta.Common.RequestHeader.getDefaultInstance() : header_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.RequestHeader, greptime.v1.meta.Common.RequestHeader.Builder, greptime.v1.meta.Common.RequestHeaderOrBuilder> 
+          getHeaderFieldBuilder() {
+        if (headerBuilder_ == null) {
+          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.RequestHeader, greptime.v1.meta.Common.RequestHeader.Builder, greptime.v1.meta.Common.RequestHeaderOrBuilder>(
+                  getHeader(),
+                  getParentForChildren(),
+                  isClean());
+          header_ = null;
+        }
+        return headerBuilder_;
+      }
+
       private greptime.v1.meta.Common.ProcedureId pid_;
       private com.google.protobuf.SingleFieldBuilderV3<
           greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> pidBuilder_;
       /**
-       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        * @return Whether the pid field is set.
        */
       public boolean hasPid() {
         return pidBuilder_ != null || pid_ != null;
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        * @return The pid.
        */
       public greptime.v1.meta.Common.ProcedureId getPid() {
@@ -614,7 +817,7 @@ public final class ProcedureOuterClass {
         }
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        */
       public Builder setPid(greptime.v1.meta.Common.ProcedureId value) {
         if (pidBuilder_ == null) {
@@ -630,7 +833,7 @@ public final class ProcedureOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        */
       public Builder setPid(
           greptime.v1.meta.Common.ProcedureId.Builder builderForValue) {
@@ -644,7 +847,7 @@ public final class ProcedureOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        */
       public Builder mergePid(greptime.v1.meta.Common.ProcedureId value) {
         if (pidBuilder_ == null) {
@@ -662,7 +865,7 @@ public final class ProcedureOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        */
       public Builder clearPid() {
         if (pidBuilder_ == null) {
@@ -676,7 +879,7 @@ public final class ProcedureOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        */
       public greptime.v1.meta.Common.ProcedureId.Builder getPidBuilder() {
         
@@ -684,7 +887,7 @@ public final class ProcedureOuterClass {
         return getPidFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        */
       public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
         if (pidBuilder_ != null) {
@@ -695,7 +898,7 @@ public final class ProcedureOuterClass {
         }
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> 
@@ -768,23 +971,38 @@ public final class ProcedureOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.greptime.v1.meta.ProcedureStatus status = 1;</code>
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    boolean hasHeader();
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     * @return The header.
+     */
+    greptime.v1.meta.Common.ResponseHeader getHeader();
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     */
+    greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.ProcedureStatus status = 2;</code>
      * @return The enum numeric value on the wire for status.
      */
     int getStatusValue();
     /**
-     * <code>.greptime.v1.meta.ProcedureStatus status = 1;</code>
+     * <code>.greptime.v1.meta.ProcedureStatus status = 2;</code>
      * @return The status.
      */
     greptime.v1.meta.ProcedureOuterClass.ProcedureStatus getStatus();
 
     /**
-     * <code>string error = 2;</code>
+     * <code>string error = 3;</code>
      * @return The error.
      */
     java.lang.String getError();
     /**
-     * <code>string error = 2;</code>
+     * <code>string error = 3;</code>
      * @return The bytes for error.
      */
     com.google.protobuf.ByteString
@@ -837,13 +1055,26 @@ public final class ProcedureOuterClass {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              greptime.v1.meta.Common.ResponseHeader.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(greptime.v1.meta.Common.ResponseHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
               int rawValue = input.readEnum();
 
               status_ = rawValue;
               break;
             }
-            case 18: {
+            case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
               error_ = s;
@@ -883,17 +1114,43 @@ public final class ProcedureOuterClass {
               greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.class, greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.Builder.class);
     }
 
-    public static final int STATUS_FIELD_NUMBER = 1;
+    public static final int HEADER_FIELD_NUMBER = 1;
+    private greptime.v1.meta.Common.ResponseHeader header_;
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeader() {
+      return header_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     * @return The header.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ResponseHeader getHeader() {
+      return header_ == null ? greptime.v1.meta.Common.ResponseHeader.getDefaultInstance() : header_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder() {
+      return getHeader();
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 2;
     private int status_;
     /**
-     * <code>.greptime.v1.meta.ProcedureStatus status = 1;</code>
+     * <code>.greptime.v1.meta.ProcedureStatus status = 2;</code>
      * @return The enum numeric value on the wire for status.
      */
     @java.lang.Override public int getStatusValue() {
       return status_;
     }
     /**
-     * <code>.greptime.v1.meta.ProcedureStatus status = 1;</code>
+     * <code>.greptime.v1.meta.ProcedureStatus status = 2;</code>
      * @return The status.
      */
     @java.lang.Override public greptime.v1.meta.ProcedureOuterClass.ProcedureStatus getStatus() {
@@ -902,10 +1159,10 @@ public final class ProcedureOuterClass {
       return result == null ? greptime.v1.meta.ProcedureOuterClass.ProcedureStatus.UNRECOGNIZED : result;
     }
 
-    public static final int ERROR_FIELD_NUMBER = 2;
+    public static final int ERROR_FIELD_NUMBER = 3;
     private volatile java.lang.Object error_;
     /**
-     * <code>string error = 2;</code>
+     * <code>string error = 3;</code>
      * @return The error.
      */
     @java.lang.Override
@@ -922,7 +1179,7 @@ public final class ProcedureOuterClass {
       }
     }
     /**
-     * <code>string error = 2;</code>
+     * <code>string error = 3;</code>
      * @return The bytes for error.
      */
     @java.lang.Override
@@ -954,11 +1211,14 @@ public final class ProcedureOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (header_ != null) {
+        output.writeMessage(1, getHeader());
+      }
       if (status_ != greptime.v1.meta.ProcedureOuterClass.ProcedureStatus.Running.getNumber()) {
-        output.writeEnum(1, status_);
+        output.writeEnum(2, status_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, error_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, error_);
       }
       unknownFields.writeTo(output);
     }
@@ -969,12 +1229,16 @@ public final class ProcedureOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (header_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getHeader());
+      }
       if (status_ != greptime.v1.meta.ProcedureOuterClass.ProcedureStatus.Running.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, status_);
+          .computeEnumSize(2, status_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, error_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, error_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -991,6 +1255,11 @@ public final class ProcedureOuterClass {
       }
       greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse other = (greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse) obj;
 
+      if (hasHeader() != other.hasHeader()) return false;
+      if (hasHeader()) {
+        if (!getHeader()
+            .equals(other.getHeader())) return false;
+      }
       if (status_ != other.status_) return false;
       if (!getError()
           .equals(other.getError())) return false;
@@ -1005,6 +1274,10 @@ public final class ProcedureOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasHeader()) {
+        hash = (37 * hash) + HEADER_FIELD_NUMBER;
+        hash = (53 * hash) + getHeader().hashCode();
+      }
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + status_;
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
@@ -1142,6 +1415,12 @@ public final class ProcedureOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
         status_ = 0;
 
         error_ = "";
@@ -1172,6 +1451,11 @@ public final class ProcedureOuterClass {
       @java.lang.Override
       public greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse buildPartial() {
         greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse result = new greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse(this);
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
         result.status_ = status_;
         result.error_ = error_;
         onBuilt();
@@ -1222,6 +1506,9 @@ public final class ProcedureOuterClass {
 
       public Builder mergeFrom(greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse other) {
         if (other == greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.getDefaultInstance()) return this;
+        if (other.hasHeader()) {
+          mergeHeader(other.getHeader());
+        }
         if (other.status_ != 0) {
           setStatusValue(other.getStatusValue());
         }
@@ -1258,16 +1545,135 @@ public final class ProcedureOuterClass {
         return this;
       }
 
+      private greptime.v1.meta.Common.ResponseHeader header_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ResponseHeader, greptime.v1.meta.Common.ResponseHeader.Builder, greptime.v1.meta.Common.ResponseHeaderOrBuilder> headerBuilder_;
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       * @return Whether the header field is set.
+       */
+      public boolean hasHeader() {
+        return headerBuilder_ != null || header_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       * @return The header.
+       */
+      public greptime.v1.meta.Common.ResponseHeader getHeader() {
+        if (headerBuilder_ == null) {
+          return header_ == null ? greptime.v1.meta.Common.ResponseHeader.getDefaultInstance() : header_;
+        } else {
+          return headerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public Builder setHeader(greptime.v1.meta.Common.ResponseHeader value) {
+        if (headerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          header_ = value;
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public Builder setHeader(
+          greptime.v1.meta.Common.ResponseHeader.Builder builderForValue) {
+        if (headerBuilder_ == null) {
+          header_ = builderForValue.build();
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public Builder mergeHeader(greptime.v1.meta.Common.ResponseHeader value) {
+        if (headerBuilder_ == null) {
+          if (header_ != null) {
+            header_ =
+              greptime.v1.meta.Common.ResponseHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+          } else {
+            header_ = value;
+          }
+          onChanged();
+        } else {
+          headerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public Builder clearHeader() {
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public greptime.v1.meta.Common.ResponseHeader.Builder getHeaderBuilder() {
+        
+        onChanged();
+        return getHeaderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder() {
+        if (headerBuilder_ != null) {
+          return headerBuilder_.getMessageOrBuilder();
+        } else {
+          return header_ == null ?
+              greptime.v1.meta.Common.ResponseHeader.getDefaultInstance() : header_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ResponseHeader, greptime.v1.meta.Common.ResponseHeader.Builder, greptime.v1.meta.Common.ResponseHeaderOrBuilder> 
+          getHeaderFieldBuilder() {
+        if (headerBuilder_ == null) {
+          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ResponseHeader, greptime.v1.meta.Common.ResponseHeader.Builder, greptime.v1.meta.Common.ResponseHeaderOrBuilder>(
+                  getHeader(),
+                  getParentForChildren(),
+                  isClean());
+          header_ = null;
+        }
+        return headerBuilder_;
+      }
+
       private int status_ = 0;
       /**
-       * <code>.greptime.v1.meta.ProcedureStatus status = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureStatus status = 2;</code>
        * @return The enum numeric value on the wire for status.
        */
       @java.lang.Override public int getStatusValue() {
         return status_;
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureStatus status = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureStatus status = 2;</code>
        * @param value The enum numeric value on the wire for status to set.
        * @return This builder for chaining.
        */
@@ -1278,7 +1684,7 @@ public final class ProcedureOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureStatus status = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureStatus status = 2;</code>
        * @return The status.
        */
       @java.lang.Override
@@ -1288,7 +1694,7 @@ public final class ProcedureOuterClass {
         return result == null ? greptime.v1.meta.ProcedureOuterClass.ProcedureStatus.UNRECOGNIZED : result;
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureStatus status = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureStatus status = 2;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
@@ -1302,7 +1708,7 @@ public final class ProcedureOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.ProcedureStatus status = 1;</code>
+       * <code>.greptime.v1.meta.ProcedureStatus status = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
@@ -1314,7 +1720,7 @@ public final class ProcedureOuterClass {
 
       private java.lang.Object error_ = "";
       /**
-       * <code>string error = 2;</code>
+       * <code>string error = 3;</code>
        * @return The error.
        */
       public java.lang.String getError() {
@@ -1330,7 +1736,7 @@ public final class ProcedureOuterClass {
         }
       }
       /**
-       * <code>string error = 2;</code>
+       * <code>string error = 3;</code>
        * @return The bytes for error.
        */
       public com.google.protobuf.ByteString
@@ -1347,7 +1753,7 @@ public final class ProcedureOuterClass {
         }
       }
       /**
-       * <code>string error = 2;</code>
+       * <code>string error = 3;</code>
        * @param value The error to set.
        * @return This builder for chaining.
        */
@@ -1362,7 +1768,7 @@ public final class ProcedureOuterClass {
         return this;
       }
       /**
-       * <code>string error = 2;</code>
+       * <code>string error = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearError() {
@@ -1372,7 +1778,7 @@ public final class ProcedureOuterClass {
         return this;
       }
       /**
-       * <code>string error = 2;</code>
+       * <code>string error = 3;</code>
        * @param value The bytes for error to set.
        * @return This builder for chaining.
        */
@@ -1462,21 +1868,24 @@ public final class ProcedureOuterClass {
       "\n greptime/v1/meta/procedure.proto\022\020grep" +
       "time.v1.meta\032\035greptime/v1/meta/common.pr" +
       "oto\032\032greptime/v1/meta/ddl.proto\032\035greptim" +
-      "e/v1/meta/region.proto\"C\n\025QueryProcedure" +
-      "Request\022*\n\003pid\030\001 \001(\0132\035.greptime.v1.meta." +
-      "ProcedureId\"Z\n\026ProcedureStateResponse\0221\n" +
-      "\006status\030\001 \001(\0162!.greptime.v1.meta.Procedu" +
-      "reStatus\022\r\n\005error\030\002 \001(\t*B\n\017ProcedureStat" +
-      "us\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022" +
-      "\n\n\006Failed\020\0032\217\002\n\tProcedure\022Z\n\005query\022\'.gre" +
-      "ptime.v1.meta.QueryProcedureRequest\032(.gr" +
-      "eptime.v1.meta.ProcedureStateResponse\022J\n" +
-      "\003ddl\022 .greptime.v1.meta.DdlTaskRequest\032!" +
-      ".greptime.v1.meta.DdlTaskResponse\022Z\n\007mig" +
-      "rate\022&.greptime.v1.meta.MigrateRegionReq" +
-      "uest\032\'.greptime.v1.meta.MigrateRegionRes" +
-      "ponseB<Z:github.com/GreptimeTeam/greptim" +
-      "e-proto/go/greptime/v1/metab\006proto3"
+      "e/v1/meta/region.proto\"t\n\025QueryProcedure" +
+      "Request\022/\n\006header\030\001 \001(\0132\037.greptime.v1.me" +
+      "ta.RequestHeader\022*\n\003pid\030\002 \001(\0132\035.greptime" +
+      ".v1.meta.ProcedureId\"\214\001\n\026ProcedureStateR" +
+      "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me" +
+      "ta.ResponseHeader\0221\n\006status\030\002 \001(\0162!.grep" +
+      "time.v1.meta.ProcedureStatus\022\r\n\005error\030\003 " +
+      "\001(\t*B\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004D" +
+      "one\020\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\0032\217\002\n\tProc" +
+      "edure\022Z\n\005query\022\'.greptime.v1.meta.QueryP" +
+      "rocedureRequest\032(.greptime.v1.meta.Proce" +
+      "dureStateResponse\022J\n\003ddl\022 .greptime.v1.m" +
+      "eta.DdlTaskRequest\032!.greptime.v1.meta.Dd" +
+      "lTaskResponse\022Z\n\007migrate\022&.greptime.v1.m" +
+      "eta.MigrateRegionRequest\032\'.greptime.v1.m" +
+      "eta.MigrateRegionResponseB<Z:github.com/" +
+      "GreptimeTeam/greptime-proto/go/greptime/" +
+      "v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1490,13 +1899,13 @@ public final class ProcedureOuterClass {
     internal_static_greptime_v1_meta_QueryProcedureRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_QueryProcedureRequest_descriptor,
-        new java.lang.String[] { "Pid", });
+        new java.lang.String[] { "Header", "Pid", });
     internal_static_greptime_v1_meta_ProcedureStateResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_meta_ProcedureStateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ProcedureStateResponse_descriptor,
-        new java.lang.String[] { "Status", "Error", });
+        new java.lang.String[] { "Header", "Status", "Error", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Ddl.getDescriptor();
     greptime.v1.meta.Region.getDescriptor();

@@ -20,12 +20,14 @@ enum ProcedureStatus {
 }
 
 message QueryProcedureRequest {
-    ProcedureId pid = 1;
+    RequestHeader header = 1;
+    ProcedureId pid = 2;
 }
 
 message ProcedureStateResponse {
-    ProcedureStatus status = 1;
-    string error = 2;
+    ResponseHeader header = 1;
+    ProcedureStatus status = 2;
+    string error = 3;
 }
 
 service Procedure {
