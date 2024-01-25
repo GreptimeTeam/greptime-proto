@@ -20,19 +20,12 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta"
 
 import "greptime/v1/meta/common.proto";
 
-
-service RegionService {
-    // Migrate a region
-    rpc migrate(MigrateRegionRequest) returns (MigrateRegionResponse);
-}
-
 message MigrateRegionRequest {
     RequestHeader header = 1;
-    uint64 region_id = 1;
+    uint64 region_id = 2;
 }
 
 message MigrateRegionResponse {
     ResponseHeader header = 1;
-    // Key is the identifier for the migrate region task.
-    bytes key = 2;
+    ProcedureId pid = 2;
 }

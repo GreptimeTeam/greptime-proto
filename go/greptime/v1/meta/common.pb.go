@@ -561,6 +561,54 @@ func (x *KeyValue) GetValue() []byte {
 	return nil
 }
 
+// Procedure identifer
+type ProcedureId struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Key []byte `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+}
+
+func (x *ProcedureId) Reset() {
+	*x = ProcedureId{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_greptime_v1_meta_common_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ProcedureId) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProcedureId) ProtoMessage() {}
+
+func (x *ProcedureId) ProtoReflect() protoreflect.Message {
+	mi := &file_greptime_v1_meta_common_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProcedureId.ProtoReflect.Descriptor instead.
+func (*ProcedureId) Descriptor() ([]byte, []int) {
+	return file_greptime_v1_meta_common_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *ProcedureId) GetKey() []byte {
+	if x != nil {
+		return x.Key
+	}
+	return nil
+}
+
 var File_greptime_v1_meta_common_proto protoreflect.FileDescriptor
 
 var file_greptime_v1_meta_common_proto_rawDesc = []byte{
@@ -621,14 +669,16 @@ var file_greptime_v1_meta_common_proto_rawDesc = []byte{
 	0x6d, 0x70, 0x4d, 0x69, 0x6c, 0x6c, 0x69, 0x73, 0x22, 0x32, 0x0a, 0x08, 0x4b, 0x65, 0x79, 0x56,
 	0x61, 0x6c, 0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x2a, 0x22, 0x0a, 0x04,
-	0x52, 0x6f, 0x6c, 0x65, 0x12, 0x0c, 0x0a, 0x08, 0x44, 0x41, 0x54, 0x41, 0x4e, 0x4f, 0x44, 0x45,
-	0x10, 0x00, 0x12, 0x0c, 0x0a, 0x08, 0x46, 0x52, 0x4f, 0x4e, 0x54, 0x45, 0x4e, 0x44, 0x10, 0x01,
-	0x42, 0x3c, 0x5a, 0x3a, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47,
-	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70,
-	0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72,
-	0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x65, 0x74, 0x61, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x1f, 0x0a, 0x0b,
+	0x50, 0x72, 0x6f, 0x63, 0x65, 0x64, 0x75, 0x72, 0x65, 0x49, 0x64, 0x12, 0x10, 0x0a, 0x03, 0x6b,
+	0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x2a, 0x22, 0x0a,
+	0x04, 0x52, 0x6f, 0x6c, 0x65, 0x12, 0x0c, 0x0a, 0x08, 0x44, 0x41, 0x54, 0x41, 0x4e, 0x4f, 0x44,
+	0x45, 0x10, 0x00, 0x12, 0x0c, 0x0a, 0x08, 0x46, 0x52, 0x4f, 0x4e, 0x54, 0x45, 0x4e, 0x44, 0x10,
+	0x01, 0x42, 0x3c, 0x5a, 0x3a, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65,
+	0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67,
+	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x65, 0x74, 0x61, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -644,7 +694,7 @@ func file_greptime_v1_meta_common_proto_rawDescGZIP() []byte {
 }
 
 var file_greptime_v1_meta_common_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_greptime_v1_meta_common_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_greptime_v1_meta_common_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_greptime_v1_meta_common_proto_goTypes = []interface{}{
 	(Role)(0),              // 0: greptime.v1.meta.Role
 	(*RequestHeader)(nil),  // 1: greptime.v1.meta.RequestHeader
@@ -655,17 +705,18 @@ var file_greptime_v1_meta_common_proto_goTypes = []interface{}{
 	(*TableName)(nil),      // 6: greptime.v1.meta.TableName
 	(*TimeInterval)(nil),   // 7: greptime.v1.meta.TimeInterval
 	(*KeyValue)(nil),       // 8: greptime.v1.meta.KeyValue
-	nil,                    // 9: greptime.v1.meta.RequestHeader.TracingContextEntry
+	(*ProcedureId)(nil),    // 9: greptime.v1.meta.ProcedureId
+	nil,                    // 10: greptime.v1.meta.RequestHeader.TracingContextEntry
 }
 var file_greptime_v1_meta_common_proto_depIdxs = []int32{
-	0, // 0: greptime.v1.meta.RequestHeader.role:type_name -> greptime.v1.meta.Role
-	9, // 1: greptime.v1.meta.RequestHeader.tracing_context:type_name -> greptime.v1.meta.RequestHeader.TracingContextEntry
-	3, // 2: greptime.v1.meta.ResponseHeader.error:type_name -> greptime.v1.meta.Error
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	0,  // 0: greptime.v1.meta.RequestHeader.role:type_name -> greptime.v1.meta.Role
+	10, // 1: greptime.v1.meta.RequestHeader.tracing_context:type_name -> greptime.v1.meta.RequestHeader.TracingContextEntry
+	3,  // 2: greptime.v1.meta.ResponseHeader.error:type_name -> greptime.v1.meta.Error
+	3,  // [3:3] is the sub-list for method output_type
+	3,  // [3:3] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_greptime_v1_meta_common_proto_init() }
@@ -770,6 +821,18 @@ func file_greptime_v1_meta_common_proto_init() {
 				return nil
 			}
 		}
+		file_greptime_v1_meta_common_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ProcedureId); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -777,7 +840,7 @@ func file_greptime_v1_meta_common_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greptime_v1_meta_common_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   9,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -9,15 +9,26 @@ package greptime.v1.meta;
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
 import "greptime/v1/meta/common.proto";
-
-service ProcedureService {
-    // Returns a started procedure status
-    rpc status(ProcedureId) returns (ProcedureStatus);
-}
-
+import "greptime/v1/meta/ddl.proto";
+import "greptime/v1/meta/region.proto";
 
 enum ProcedureStatus {
     Executing = 0;
     Suspended = 1;
     Done = 2;
+}
+
+message ProcedureState {
+    ProcedureStatus status = 1;
+}
+
+service Procedure {
+    // Query a submitted procedure state
+    rpc query(ProcedureId) returns (ProcedureState);
+
+    // Submits a DDL task
+    rpc ddl(DdlTaskRequest) returns (DdlTaskResponse);
+
+    // Submits a region migration task
+    rpc migrate(MigrateRegionRequest) returns (MigrateRegionResponse);
 }
