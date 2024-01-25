@@ -69,15 +69,16 @@ namespace v1 {
 namespace meta {
 
 enum ProcedureStatus : int {
-  Executing = 0,
-  Suspended = 1,
-  Done = 2,
+  Running = 0,
+  Done = 1,
+  Retrying = 2,
+  Failed = 3,
   ProcedureStatus_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ProcedureStatus_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool ProcedureStatus_IsValid(int value);
-constexpr ProcedureStatus ProcedureStatus_MIN = Executing;
-constexpr ProcedureStatus ProcedureStatus_MAX = Done;
+constexpr ProcedureStatus ProcedureStatus_MIN = Running;
+constexpr ProcedureStatus ProcedureStatus_MAX = Failed;
 constexpr int ProcedureStatus_ARRAYSIZE = ProcedureStatus_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ProcedureStatus_descriptor();
@@ -374,8 +375,23 @@ class ProcedureStateResponse final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kErrorFieldNumber = 2,
     kStatusFieldNumber = 1,
   };
+  // string error = 2;
+  void clear_error();
+  const std::string& error() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_error(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_error();
+  PROTOBUF_NODISCARD std::string* release_error();
+  void set_allocated_error(std::string* error);
+  private:
+  const std::string& _internal_error() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_error(const std::string& value);
+  std::string* _internal_mutable_error();
+  public:
+
   // .greptime.v1.meta.ProcedureStatus status = 1;
   void clear_status();
   ::greptime::v1::meta::ProcedureStatus status() const;
@@ -393,6 +409,7 @@ class ProcedureStateResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr error_;
     int status_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -517,6 +534,56 @@ inline void ProcedureStateResponse::_internal_set_status(::greptime::v1::meta::P
 inline void ProcedureStateResponse::set_status(::greptime::v1::meta::ProcedureStatus value) {
   _internal_set_status(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureStateResponse.status)
+}
+
+// string error = 2;
+inline void ProcedureStateResponse::clear_error() {
+  _impl_.error_.ClearToEmpty();
+}
+inline const std::string& ProcedureStateResponse::error() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ProcedureStateResponse.error)
+  return _internal_error();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ProcedureStateResponse::set_error(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.error_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureStateResponse.error)
+}
+inline std::string* ProcedureStateResponse::mutable_error() {
+  std::string* _s = _internal_mutable_error();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ProcedureStateResponse.error)
+  return _s;
+}
+inline const std::string& ProcedureStateResponse::_internal_error() const {
+  return _impl_.error_.Get();
+}
+inline void ProcedureStateResponse::_internal_set_error(const std::string& value) {
+  
+  _impl_.error_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ProcedureStateResponse::_internal_mutable_error() {
+  
+  return _impl_.error_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ProcedureStateResponse::release_error() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ProcedureStateResponse.error)
+  return _impl_.error_.Release();
+}
+inline void ProcedureStateResponse::set_allocated_error(std::string* error) {
+  if (error != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.error_.SetAllocated(error, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.error_.IsDefault()) {
+    _impl_.error_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ProcedureStateResponse.error)
 }
 
 #ifdef __GNUC__

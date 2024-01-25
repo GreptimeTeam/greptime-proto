@@ -20,32 +20,40 @@ public final class ProcedureOuterClass {
   public enum ProcedureStatus
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>Executing = 0;</code>
+     * <code>Running = 0;</code>
      */
-    Executing(0),
+    Running(0),
     /**
-     * <code>Suspended = 1;</code>
+     * <code>Done = 1;</code>
      */
-    Suspended(1),
+    Done(1),
     /**
-     * <code>Done = 2;</code>
+     * <code>Retrying = 2;</code>
      */
-    Done(2),
+    Retrying(2),
+    /**
+     * <code>Failed = 3;</code>
+     */
+    Failed(3),
     UNRECOGNIZED(-1),
     ;
 
     /**
-     * <code>Executing = 0;</code>
+     * <code>Running = 0;</code>
      */
-    public static final int Executing_VALUE = 0;
+    public static final int Running_VALUE = 0;
     /**
-     * <code>Suspended = 1;</code>
+     * <code>Done = 1;</code>
      */
-    public static final int Suspended_VALUE = 1;
+    public static final int Done_VALUE = 1;
     /**
-     * <code>Done = 2;</code>
+     * <code>Retrying = 2;</code>
      */
-    public static final int Done_VALUE = 2;
+    public static final int Retrying_VALUE = 2;
+    /**
+     * <code>Failed = 3;</code>
+     */
+    public static final int Failed_VALUE = 3;
 
 
     public final int getNumber() {
@@ -72,9 +80,10 @@ public final class ProcedureOuterClass {
      */
     public static ProcedureStatus forNumber(int value) {
       switch (value) {
-        case 0: return Executing;
-        case 1: return Suspended;
-        case 2: return Done;
+        case 0: return Running;
+        case 1: return Done;
+        case 2: return Retrying;
+        case 3: return Failed;
         default: return null;
       }
     }
@@ -768,6 +777,18 @@ public final class ProcedureOuterClass {
      * @return The status.
      */
     greptime.v1.meta.ProcedureOuterClass.ProcedureStatus getStatus();
+
+    /**
+     * <code>string error = 2;</code>
+     * @return The error.
+     */
+    java.lang.String getError();
+    /**
+     * <code>string error = 2;</code>
+     * @return The bytes for error.
+     */
+    com.google.protobuf.ByteString
+        getErrorBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.ProcedureStateResponse}
@@ -783,6 +804,7 @@ public final class ProcedureOuterClass {
     }
     private ProcedureStateResponse() {
       status_ = 0;
+      error_ = "";
     }
 
     @java.lang.Override
@@ -819,6 +841,12 @@ public final class ProcedureOuterClass {
               int rawValue = input.readEnum();
 
               status_ = rawValue;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              error_ = s;
               break;
             }
             default: {
@@ -874,6 +902,44 @@ public final class ProcedureOuterClass {
       return result == null ? greptime.v1.meta.ProcedureOuterClass.ProcedureStatus.UNRECOGNIZED : result;
     }
 
+    public static final int ERROR_FIELD_NUMBER = 2;
+    private volatile java.lang.Object error_;
+    /**
+     * <code>string error = 2;</code>
+     * @return The error.
+     */
+    @java.lang.Override
+    public java.lang.String getError() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        error_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string error = 2;</code>
+     * @return The bytes for error.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getErrorBytes() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        error_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -888,8 +954,11 @@ public final class ProcedureOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (status_ != greptime.v1.meta.ProcedureOuterClass.ProcedureStatus.Executing.getNumber()) {
+      if (status_ != greptime.v1.meta.ProcedureOuterClass.ProcedureStatus.Running.getNumber()) {
         output.writeEnum(1, status_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, error_);
       }
       unknownFields.writeTo(output);
     }
@@ -900,9 +969,12 @@ public final class ProcedureOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (status_ != greptime.v1.meta.ProcedureOuterClass.ProcedureStatus.Executing.getNumber()) {
+      if (status_ != greptime.v1.meta.ProcedureOuterClass.ProcedureStatus.Running.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, status_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, error_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -920,6 +992,8 @@ public final class ProcedureOuterClass {
       greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse other = (greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse) obj;
 
       if (status_ != other.status_) return false;
+      if (!getError()
+          .equals(other.getError())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -933,6 +1007,8 @@ public final class ProcedureOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + status_;
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1068,6 +1144,8 @@ public final class ProcedureOuterClass {
         super.clear();
         status_ = 0;
 
+        error_ = "";
+
         return this;
       }
 
@@ -1095,6 +1173,7 @@ public final class ProcedureOuterClass {
       public greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse buildPartial() {
         greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse result = new greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse(this);
         result.status_ = status_;
+        result.error_ = error_;
         onBuilt();
         return result;
       }
@@ -1145,6 +1224,10 @@ public final class ProcedureOuterClass {
         if (other == greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.getDefaultInstance()) return this;
         if (other.status_ != 0) {
           setStatusValue(other.getStatusValue());
+        }
+        if (!other.getError().isEmpty()) {
+          error_ = other.error_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1228,6 +1311,82 @@ public final class ProcedureOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object error_ = "";
+      /**
+       * <code>string error = 2;</code>
+       * @return The error.
+       */
+      public java.lang.String getError() {
+        java.lang.Object ref = error_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          error_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string error = 2;</code>
+       * @return The bytes for error.
+       */
+      public com.google.protobuf.ByteString
+          getErrorBytes() {
+        java.lang.Object ref = error_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          error_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string error = 2;</code>
+       * @param value The error to set.
+       * @return This builder for chaining.
+       */
+      public Builder setError(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        error_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string error = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearError() {
+        
+        error_ = getDefaultInstance().getError();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string error = 2;</code>
+       * @param value The bytes for error to set.
+       * @return This builder for chaining.
+       */
+      public Builder setErrorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        error_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1305,19 +1464,19 @@ public final class ProcedureOuterClass {
       "oto\032\032greptime/v1/meta/ddl.proto\032\035greptim" +
       "e/v1/meta/region.proto\"C\n\025QueryProcedure" +
       "Request\022*\n\003pid\030\001 \001(\0132\035.greptime.v1.meta." +
-      "ProcedureId\"K\n\026ProcedureStateResponse\0221\n" +
+      "ProcedureId\"Z\n\026ProcedureStateResponse\0221\n" +
       "\006status\030\001 \001(\0162!.greptime.v1.meta.Procedu" +
-      "reStatus*9\n\017ProcedureStatus\022\r\n\tExecuting" +
-      "\020\000\022\r\n\tSuspended\020\001\022\010\n\004Done\020\0022\217\002\n\tProcedur" +
-      "e\022Z\n\005query\022\'.greptime.v1.meta.QueryProce" +
-      "dureRequest\032(.greptime.v1.meta.Procedure" +
-      "StateResponse\022J\n\003ddl\022 .greptime.v1.meta." +
-      "DdlTaskRequest\032!.greptime.v1.meta.DdlTas" +
-      "kResponse\022Z\n\007migrate\022&.greptime.v1.meta." +
-      "MigrateRegionRequest\032\'.greptime.v1.meta." +
-      "MigrateRegionResponseB<Z:github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1/m" +
-      "etab\006proto3"
+      "reStatus\022\r\n\005error\030\002 \001(\t*B\n\017ProcedureStat" +
+      "us\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022" +
+      "\n\n\006Failed\020\0032\217\002\n\tProcedure\022Z\n\005query\022\'.gre" +
+      "ptime.v1.meta.QueryProcedureRequest\032(.gr" +
+      "eptime.v1.meta.ProcedureStateResponse\022J\n" +
+      "\003ddl\022 .greptime.v1.meta.DdlTaskRequest\032!" +
+      ".greptime.v1.meta.DdlTaskResponse\022Z\n\007mig" +
+      "rate\022&.greptime.v1.meta.MigrateRegionReq" +
+      "uest\032\'.greptime.v1.meta.MigrateRegionRes" +
+      "ponseB<Z:github.com/GreptimeTeam/greptim" +
+      "e-proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1337,7 +1496,7 @@ public final class ProcedureOuterClass {
     internal_static_greptime_v1_meta_ProcedureStateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ProcedureStateResponse_descriptor,
-        new java.lang.String[] { "Status", });
+        new java.lang.String[] { "Status", "Error", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Ddl.getDescriptor();
     greptime.v1.meta.Region.getDescriptor();

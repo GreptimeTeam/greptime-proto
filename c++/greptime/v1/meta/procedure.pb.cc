@@ -38,7 +38,8 @@ struct QueryProcedureRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QueryProcedureRequestDefaultTypeInternal _QueryProcedureRequest_default_instance_;
 PROTOBUF_CONSTEXPR ProcedureStateResponse::ProcedureStateResponse(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.status_)*/0
+    /*decltype(_impl_.error_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.status_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ProcedureStateResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ProcedureStateResponseDefaultTypeInternal()
@@ -71,6 +72,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureStateResponse, _impl_.status_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureStateResponse, _impl_.error_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::QueryProcedureRequest)},
@@ -88,19 +90,19 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "oto\032\032greptime/v1/meta/ddl.proto\032\035greptim"
   "e/v1/meta/region.proto\"C\n\025QueryProcedure"
   "Request\022*\n\003pid\030\001 \001(\0132\035.greptime.v1.meta."
-  "ProcedureId\"K\n\026ProcedureStateResponse\0221\n"
+  "ProcedureId\"Z\n\026ProcedureStateResponse\0221\n"
   "\006status\030\001 \001(\0162!.greptime.v1.meta.Procedu"
-  "reStatus*9\n\017ProcedureStatus\022\r\n\tExecuting"
-  "\020\000\022\r\n\tSuspended\020\001\022\010\n\004Done\020\0022\217\002\n\tProcedur"
-  "e\022Z\n\005query\022\'.greptime.v1.meta.QueryProce"
-  "dureRequest\032(.greptime.v1.meta.Procedure"
-  "StateResponse\022J\n\003ddl\022 .greptime.v1.meta."
-  "DdlTaskRequest\032!.greptime.v1.meta.DdlTas"
-  "kResponse\022Z\n\007migrate\022&.greptime.v1.meta."
-  "MigrateRegionRequest\032\'.greptime.v1.meta."
-  "MigrateRegionResponseB<Z:github.com/Grep"
-  "timeTeam/greptime-proto/go/greptime/v1/m"
-  "etab\006proto3"
+  "reStatus\022\r\n\005error\030\002 \001(\t*B\n\017ProcedureStat"
+  "us\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022"
+  "\n\n\006Failed\020\0032\217\002\n\tProcedure\022Z\n\005query\022\'.gre"
+  "ptime.v1.meta.QueryProcedureRequest\032(.gr"
+  "eptime.v1.meta.ProcedureStateResponse\022J\n"
+  "\003ddl\022 .greptime.v1.meta.DdlTaskRequest\032!"
+  ".greptime.v1.meta.DdlTaskResponse\022Z\n\007mig"
+  "rate\022&.greptime.v1.meta.MigrateRegionReq"
+  "uest\032\'.greptime.v1.meta.MigrateRegionRes"
+  "ponseB<Z:github.com/GreptimeTeam/greptim"
+  "e-proto/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
@@ -109,7 +111,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto = {
-    false, false, 691, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
+    false, false, 715, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     "greptime/v1/meta/procedure.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 2,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets,
@@ -134,6 +136,7 @@ bool ProcedureStatus_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -356,10 +359,19 @@ ProcedureStateResponse::ProcedureStateResponse(const ProcedureStateResponse& fro
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   ProcedureStateResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.status_){}
+      decltype(_impl_.error_){}
+    , decltype(_impl_.status_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.error_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.error_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_error().empty()) {
+    _this->_impl_.error_.Set(from._internal_error(), 
+      _this->GetArenaForAllocation());
+  }
   _this->_impl_.status_ = from._impl_.status_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ProcedureStateResponse)
 }
@@ -369,9 +381,14 @@ inline void ProcedureStateResponse::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.status_){0}
+      decltype(_impl_.error_){}
+    , decltype(_impl_.status_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.error_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.error_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ProcedureStateResponse::~ProcedureStateResponse() {
@@ -385,6 +402,7 @@ ProcedureStateResponse::~ProcedureStateResponse() {
 
 inline void ProcedureStateResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.error_.Destroy();
 }
 
 void ProcedureStateResponse::SetCachedSize(int size) const {
@@ -397,6 +415,7 @@ void ProcedureStateResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.error_.ClearToEmpty();
   _impl_.status_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -413,6 +432,16 @@ const char* ProcedureStateResponse::_InternalParse(const char* ptr, ::_pbi::Pars
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_status(static_cast<::greptime::v1::meta::ProcedureStatus>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // string error = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_error();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ProcedureStateResponse.error"));
         } else
           goto handle_unusual;
         continue;
@@ -452,6 +481,16 @@ uint8_t* ProcedureStateResponse::_InternalSerialize(
       1, this->_internal_status(), target);
   }
 
+  // string error = 2;
+  if (!this->_internal_error().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_error().data(), static_cast<int>(this->_internal_error().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ProcedureStateResponse.error");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_error(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -467,6 +506,13 @@ size_t ProcedureStateResponse::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string error = 2;
+  if (!this->_internal_error().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_error());
+  }
 
   // .greptime.v1.meta.ProcedureStatus status = 1;
   if (this->_internal_status() != 0) {
@@ -492,6 +538,9 @@ void ProcedureStateResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg,
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_error().empty()) {
+    _this->_internal_set_error(from._internal_error());
+  }
   if (from._internal_status() != 0) {
     _this->_internal_set_status(from._internal_status());
   }
@@ -511,7 +560,13 @@ bool ProcedureStateResponse::IsInitialized() const {
 
 void ProcedureStateResponse::InternalSwap(ProcedureStateResponse* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.error_, lhs_arena,
+      &other->_impl_.error_, rhs_arena
+  );
   swap(_impl_.status_, other->_impl_.status_);
 }
 

@@ -13,9 +13,10 @@ import "greptime/v1/meta/ddl.proto";
 import "greptime/v1/meta/region.proto";
 
 enum ProcedureStatus {
-    Executing = 0;
-    Suspended = 1;
-    Done = 2;
+    Running = 0;
+    Done = 1;
+    Retrying = 2;
+    Failed = 3;
 }
 
 message QueryProcedureRequest {
@@ -24,6 +25,7 @@ message QueryProcedureRequest {
 
 message ProcedureStateResponse {
     ProcedureStatus status = 1;
+    string error = 2;
 }
 
 service Procedure {
