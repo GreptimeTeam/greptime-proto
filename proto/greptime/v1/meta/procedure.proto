@@ -18,13 +18,17 @@ enum ProcedureStatus {
     Done = 2;
 }
 
-message ProcedureState {
+message QueryProcedureRequest {
+    ProcedureId pid = 1;
+}
+
+message ProcedureStateResponse {
     ProcedureStatus status = 1;
 }
 
 service Procedure {
     // Query a submitted procedure state
-    rpc query(ProcedureId) returns (ProcedureState);
+    rpc query(QueryProcedureRequest) returns (ProcedureStateResponse);
 
     // Submits a DDL task
     rpc ddl(DdlTaskRequest) returns (DdlTaskResponse);

@@ -51,14 +51,18 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 namespace greptime {
 namespace v1 {
 namespace meta {
-class ProcedureState;
-struct ProcedureStateDefaultTypeInternal;
-extern ProcedureStateDefaultTypeInternal _ProcedureState_default_instance_;
+class ProcedureStateResponse;
+struct ProcedureStateResponseDefaultTypeInternal;
+extern ProcedureStateResponseDefaultTypeInternal _ProcedureStateResponse_default_instance_;
+class QueryProcedureRequest;
+struct QueryProcedureRequestDefaultTypeInternal;
+extern QueryProcedureRequestDefaultTypeInternal _QueryProcedureRequest_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
-template<> ::greptime::v1::meta::ProcedureState* Arena::CreateMaybeMessage<::greptime::v1::meta::ProcedureState>(Arena*);
+template<> ::greptime::v1::meta::ProcedureStateResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::ProcedureStateResponse>(Arena*);
+template<> ::greptime::v1::meta::QueryProcedureRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::QueryProcedureRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -92,24 +96,24 @@ inline bool ProcedureStatus_Parse(
 }
 // ===================================================================
 
-class ProcedureState final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.ProcedureState) */ {
+class QueryProcedureRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.QueryProcedureRequest) */ {
  public:
-  inline ProcedureState() : ProcedureState(nullptr) {}
-  ~ProcedureState() override;
-  explicit PROTOBUF_CONSTEXPR ProcedureState(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline QueryProcedureRequest() : QueryProcedureRequest(nullptr) {}
+  ~QueryProcedureRequest() override;
+  explicit PROTOBUF_CONSTEXPR QueryProcedureRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  ProcedureState(const ProcedureState& from);
-  ProcedureState(ProcedureState&& from) noexcept
-    : ProcedureState() {
+  QueryProcedureRequest(const QueryProcedureRequest& from);
+  QueryProcedureRequest(QueryProcedureRequest&& from) noexcept
+    : QueryProcedureRequest() {
     *this = ::std::move(from);
   }
 
-  inline ProcedureState& operator=(const ProcedureState& from) {
+  inline QueryProcedureRequest& operator=(const QueryProcedureRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline ProcedureState& operator=(ProcedureState&& from) noexcept {
+  inline QueryProcedureRequest& operator=(QueryProcedureRequest&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -132,20 +136,20 @@ class ProcedureState final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const ProcedureState& default_instance() {
+  static const QueryProcedureRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const ProcedureState* internal_default_instance() {
-    return reinterpret_cast<const ProcedureState*>(
-               &_ProcedureState_default_instance_);
+  static inline const QueryProcedureRequest* internal_default_instance() {
+    return reinterpret_cast<const QueryProcedureRequest*>(
+               &_QueryProcedureRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(ProcedureState& a, ProcedureState& b) {
+  friend void swap(QueryProcedureRequest& a, QueryProcedureRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(ProcedureState* other) {
+  inline void Swap(QueryProcedureRequest* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -158,7 +162,7 @@ class ProcedureState final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(ProcedureState* other) {
+  void UnsafeArenaSwap(QueryProcedureRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -166,14 +170,14 @@ class ProcedureState final :
 
   // implements Message ----------------------------------------------
 
-  ProcedureState* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<ProcedureState>(arena);
+  QueryProcedureRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<QueryProcedureRequest>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const ProcedureState& from);
+  void CopyFrom(const QueryProcedureRequest& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const ProcedureState& from) {
-    ProcedureState::MergeImpl(*this, from);
+  void MergeFrom( const QueryProcedureRequest& from) {
+    QueryProcedureRequest::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -191,15 +195,172 @@ class ProcedureState final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(ProcedureState* other);
+  void InternalSwap(QueryProcedureRequest* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.meta.ProcedureState";
+    return "greptime.v1.meta.QueryProcedureRequest";
   }
   protected:
-  explicit ProcedureState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit QueryProcedureRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPidFieldNumber = 1,
+  };
+  // .greptime.v1.meta.ProcedureId pid = 1;
+  bool has_pid() const;
+  private:
+  bool _internal_has_pid() const;
+  public:
+  void clear_pid();
+  const ::greptime::v1::meta::ProcedureId& pid() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureId* release_pid();
+  ::greptime::v1::meta::ProcedureId* mutable_pid();
+  void set_allocated_pid(::greptime::v1::meta::ProcedureId* pid);
+  private:
+  const ::greptime::v1::meta::ProcedureId& _internal_pid() const;
+  ::greptime::v1::meta::ProcedureId* _internal_mutable_pid();
+  public:
+  void unsafe_arena_set_allocated_pid(
+      ::greptime::v1::meta::ProcedureId* pid);
+  ::greptime::v1::meta::ProcedureId* unsafe_arena_release_pid();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.QueryProcedureRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::meta::ProcedureId* pid_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ProcedureStateResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.ProcedureStateResponse) */ {
+ public:
+  inline ProcedureStateResponse() : ProcedureStateResponse(nullptr) {}
+  ~ProcedureStateResponse() override;
+  explicit PROTOBUF_CONSTEXPR ProcedureStateResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ProcedureStateResponse(const ProcedureStateResponse& from);
+  ProcedureStateResponse(ProcedureStateResponse&& from) noexcept
+    : ProcedureStateResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline ProcedureStateResponse& operator=(const ProcedureStateResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ProcedureStateResponse& operator=(ProcedureStateResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ProcedureStateResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ProcedureStateResponse* internal_default_instance() {
+    return reinterpret_cast<const ProcedureStateResponse*>(
+               &_ProcedureStateResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(ProcedureStateResponse& a, ProcedureStateResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ProcedureStateResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ProcedureStateResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ProcedureStateResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ProcedureStateResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ProcedureStateResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ProcedureStateResponse& from) {
+    ProcedureStateResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ProcedureStateResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.ProcedureStateResponse";
+  }
+  protected:
+  explicit ProcedureStateResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -224,7 +385,7 @@ class ProcedureState final :
   void _internal_set_status(::greptime::v1::meta::ProcedureStatus value);
   public:
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.meta.ProcedureState)
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.ProcedureStateResponse)
  private:
   class _Internal;
 
@@ -247,31 +408,122 @@ class ProcedureState final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// ProcedureState
+// QueryProcedureRequest
+
+// .greptime.v1.meta.ProcedureId pid = 1;
+inline bool QueryProcedureRequest::_internal_has_pid() const {
+  return this != internal_default_instance() && _impl_.pid_ != nullptr;
+}
+inline bool QueryProcedureRequest::has_pid() const {
+  return _internal_has_pid();
+}
+inline const ::greptime::v1::meta::ProcedureId& QueryProcedureRequest::_internal_pid() const {
+  const ::greptime::v1::meta::ProcedureId* p = _impl_.pid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureId&>(
+      ::greptime::v1::meta::_ProcedureId_default_instance_);
+}
+inline const ::greptime::v1::meta::ProcedureId& QueryProcedureRequest::pid() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.QueryProcedureRequest.pid)
+  return _internal_pid();
+}
+inline void QueryProcedureRequest::unsafe_arena_set_allocated_pid(
+    ::greptime::v1::meta::ProcedureId* pid) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.pid_);
+  }
+  _impl_.pid_ = pid;
+  if (pid) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.QueryProcedureRequest.pid)
+}
+inline ::greptime::v1::meta::ProcedureId* QueryProcedureRequest::release_pid() {
+  
+  ::greptime::v1::meta::ProcedureId* temp = _impl_.pid_;
+  _impl_.pid_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureId* QueryProcedureRequest::unsafe_arena_release_pid() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.QueryProcedureRequest.pid)
+  
+  ::greptime::v1::meta::ProcedureId* temp = _impl_.pid_;
+  _impl_.pid_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureId* QueryProcedureRequest::_internal_mutable_pid() {
+  
+  if (_impl_.pid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureId>(GetArenaForAllocation());
+    _impl_.pid_ = p;
+  }
+  return _impl_.pid_;
+}
+inline ::greptime::v1::meta::ProcedureId* QueryProcedureRequest::mutable_pid() {
+  ::greptime::v1::meta::ProcedureId* _msg = _internal_mutable_pid();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.QueryProcedureRequest.pid)
+  return _msg;
+}
+inline void QueryProcedureRequest::set_allocated_pid(::greptime::v1::meta::ProcedureId* pid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.pid_);
+  }
+  if (pid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pid));
+    if (message_arena != submessage_arena) {
+      pid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, pid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.pid_ = pid;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.QueryProcedureRequest.pid)
+}
+
+// -------------------------------------------------------------------
+
+// ProcedureStateResponse
 
 // .greptime.v1.meta.ProcedureStatus status = 1;
-inline void ProcedureState::clear_status() {
+inline void ProcedureStateResponse::clear_status() {
   _impl_.status_ = 0;
 }
-inline ::greptime::v1::meta::ProcedureStatus ProcedureState::_internal_status() const {
+inline ::greptime::v1::meta::ProcedureStatus ProcedureStateResponse::_internal_status() const {
   return static_cast< ::greptime::v1::meta::ProcedureStatus >(_impl_.status_);
 }
-inline ::greptime::v1::meta::ProcedureStatus ProcedureState::status() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.ProcedureState.status)
+inline ::greptime::v1::meta::ProcedureStatus ProcedureStateResponse::status() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ProcedureStateResponse.status)
   return _internal_status();
 }
-inline void ProcedureState::_internal_set_status(::greptime::v1::meta::ProcedureStatus value) {
+inline void ProcedureStateResponse::_internal_set_status(::greptime::v1::meta::ProcedureStatus value) {
   
   _impl_.status_ = value;
 }
-inline void ProcedureState::set_status(::greptime::v1::meta::ProcedureStatus value) {
+inline void ProcedureStateResponse::set_status(::greptime::v1::meta::ProcedureStatus value) {
   _internal_set_status(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureState.status)
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureStateResponse.status)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 

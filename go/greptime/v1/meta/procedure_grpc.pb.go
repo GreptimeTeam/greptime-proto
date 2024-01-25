@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProcedureClient interface {
 	// Query a submitted procedure state
-	Query(ctx context.Context, in *ProcedureId, opts ...grpc.CallOption) (*ProcedureState, error)
+	Query(ctx context.Context, in *QueryProcedureRequest, opts ...grpc.CallOption) (*ProcedureStateResponse, error)
 	// Submits a DDL task
 	Ddl(ctx context.Context, in *DdlTaskRequest, opts ...grpc.CallOption) (*DdlTaskResponse, error)
 	// Submits a region migration task
@@ -38,8 +38,8 @@ func NewProcedureClient(cc grpc.ClientConnInterface) ProcedureClient {
 	return &procedureClient{cc}
 }
 
-func (c *procedureClient) Query(ctx context.Context, in *ProcedureId, opts ...grpc.CallOption) (*ProcedureState, error) {
-	out := new(ProcedureState)
+func (c *procedureClient) Query(ctx context.Context, in *QueryProcedureRequest, opts ...grpc.CallOption) (*ProcedureStateResponse, error) {
+	out := new(ProcedureStateResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Procedure/query", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -70,7 +70,7 @@ func (c *procedureClient) Migrate(ctx context.Context, in *MigrateRegionRequest,
 // for forward compatibility
 type ProcedureServer interface {
 	// Query a submitted procedure state
-	Query(context.Context, *ProcedureId) (*ProcedureState, error)
+	Query(context.Context, *QueryProcedureRequest) (*ProcedureStateResponse, error)
 	// Submits a DDL task
 	Ddl(context.Context, *DdlTaskRequest) (*DdlTaskResponse, error)
 	// Submits a region migration task
@@ -82,7 +82,7 @@ type ProcedureServer interface {
 type UnimplementedProcedureServer struct {
 }
 
-func (UnimplementedProcedureServer) Query(context.Context, *ProcedureId) (*ProcedureState, error) {
+func (UnimplementedProcedureServer) Query(context.Context, *QueryProcedureRequest) (*ProcedureStateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Query not implemented")
 }
 func (UnimplementedProcedureServer) Ddl(context.Context, *DdlTaskRequest) (*DdlTaskResponse, error) {
@@ -105,7 +105,7 @@ func RegisterProcedureServer(s grpc.ServiceRegistrar, srv ProcedureServer) {
 }
 
 func _Procedure_Query_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProcedureId)
+	in := new(QueryProcedureRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -117,7 +117,7 @@ func _Procedure_Query_Handler(srv interface{}, ctx context.Context, dec func(int
 		FullMethod: "/greptime.v1.meta.Procedure/query",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProcedureServer).Query(ctx, req.(*ProcedureId))
+		return srv.(ProcedureServer).Query(ctx, req.(*QueryProcedureRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -131,8 +131,631 @@ public final class ProcedureOuterClass {
     // @@protoc_insertion_point(enum_scope:greptime.v1.meta.ProcedureStatus)
   }
 
-  public interface ProcedureStateOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.ProcedureState)
+  public interface QueryProcedureRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.QueryProcedureRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * @return Whether the pid field is set.
+     */
+    boolean hasPid();
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * @return The pid.
+     */
+    greptime.v1.meta.Common.ProcedureId getPid();
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     */
+    greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.QueryProcedureRequest}
+   */
+  public static final class QueryProcedureRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.QueryProcedureRequest)
+      QueryProcedureRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use QueryProcedureRequest.newBuilder() to construct.
+    private QueryProcedureRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private QueryProcedureRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new QueryProcedureRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private QueryProcedureRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              greptime.v1.meta.Common.ProcedureId.Builder subBuilder = null;
+              if (pid_ != null) {
+                subBuilder = pid_.toBuilder();
+              }
+              pid_ = input.readMessage(greptime.v1.meta.Common.ProcedureId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pid_);
+                pid_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_QueryProcedureRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_QueryProcedureRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.class, greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.Builder.class);
+    }
+
+    public static final int PID_FIELD_NUMBER = 1;
+    private greptime.v1.meta.Common.ProcedureId pid_;
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * @return Whether the pid field is set.
+     */
+    @java.lang.Override
+    public boolean hasPid() {
+      return pid_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     * @return The pid.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureId getPid() {
+      return pid_ == null ? greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
+      return getPid();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (pid_ != null) {
+        output.writeMessage(1, getPid());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (pid_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPid());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest other = (greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest) obj;
+
+      if (hasPid() != other.hasPid()) return false;
+      if (hasPid()) {
+        if (!getPid()
+            .equals(other.getPid())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPid()) {
+        hash = (37 * hash) + PID_FIELD_NUMBER;
+        hash = (53 * hash) + getPid().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.QueryProcedureRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.QueryProcedureRequest)
+        greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_QueryProcedureRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_QueryProcedureRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.class, greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (pidBuilder_ == null) {
+          pid_ = null;
+        } else {
+          pid_ = null;
+          pidBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_QueryProcedureRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest getDefaultInstanceForType() {
+        return greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest build() {
+        greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest buildPartial() {
+        greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest result = new greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest(this);
+        if (pidBuilder_ == null) {
+          result.pid_ = pid_;
+        } else {
+          result.pid_ = pidBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest) {
+          return mergeFrom((greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest other) {
+        if (other == greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest.getDefaultInstance()) return this;
+        if (other.hasPid()) {
+          mergePid(other.getPid());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private greptime.v1.meta.Common.ProcedureId pid_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> pidBuilder_;
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * @return Whether the pid field is set.
+       */
+      public boolean hasPid() {
+        return pidBuilder_ != null || pid_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       * @return The pid.
+       */
+      public greptime.v1.meta.Common.ProcedureId getPid() {
+        if (pidBuilder_ == null) {
+          return pid_ == null ? greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+        } else {
+          return pidBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       */
+      public Builder setPid(greptime.v1.meta.Common.ProcedureId value) {
+        if (pidBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          pid_ = value;
+          onChanged();
+        } else {
+          pidBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       */
+      public Builder setPid(
+          greptime.v1.meta.Common.ProcedureId.Builder builderForValue) {
+        if (pidBuilder_ == null) {
+          pid_ = builderForValue.build();
+          onChanged();
+        } else {
+          pidBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       */
+      public Builder mergePid(greptime.v1.meta.Common.ProcedureId value) {
+        if (pidBuilder_ == null) {
+          if (pid_ != null) {
+            pid_ =
+              greptime.v1.meta.Common.ProcedureId.newBuilder(pid_).mergeFrom(value).buildPartial();
+          } else {
+            pid_ = value;
+          }
+          onChanged();
+        } else {
+          pidBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       */
+      public Builder clearPid() {
+        if (pidBuilder_ == null) {
+          pid_ = null;
+          onChanged();
+        } else {
+          pid_ = null;
+          pidBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureId.Builder getPidBuilder() {
+        
+        onChanged();
+        return getPidFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
+        if (pidBuilder_ != null) {
+          return pidBuilder_.getMessageOrBuilder();
+        } else {
+          return pid_ == null ?
+              greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> 
+          getPidFieldBuilder() {
+        if (pidBuilder_ == null) {
+          pidBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder>(
+                  getPid(),
+                  getParentForChildren(),
+                  isClean());
+          pid_ = null;
+        }
+        return pidBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.QueryProcedureRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.QueryProcedureRequest)
+    private static final greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest();
+    }
+
+    public static greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<QueryProcedureRequest>
+        PARSER = new com.google.protobuf.AbstractParser<QueryProcedureRequest>() {
+      @java.lang.Override
+      public QueryProcedureRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new QueryProcedureRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<QueryProcedureRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<QueryProcedureRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.ProcedureOuterClass.QueryProcedureRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ProcedureStateResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.ProcedureStateResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -147,18 +770,18 @@ public final class ProcedureOuterClass {
     greptime.v1.meta.ProcedureOuterClass.ProcedureStatus getStatus();
   }
   /**
-   * Protobuf type {@code greptime.v1.meta.ProcedureState}
+   * Protobuf type {@code greptime.v1.meta.ProcedureStateResponse}
    */
-  public static final class ProcedureState extends
+  public static final class ProcedureStateResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.meta.ProcedureState)
-      ProcedureStateOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.ProcedureStateResponse)
+      ProcedureStateResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ProcedureState.newBuilder() to construct.
-    private ProcedureState(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ProcedureStateResponse.newBuilder() to construct.
+    private ProcedureStateResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ProcedureState() {
+    private ProcedureStateResponse() {
       status_ = 0;
     }
 
@@ -166,7 +789,7 @@ public final class ProcedureOuterClass {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ProcedureState();
+      return new ProcedureStateResponse();
     }
 
     @java.lang.Override
@@ -174,7 +797,7 @@ public final class ProcedureOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ProcedureState(
+    private ProcedureStateResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -221,15 +844,15 @@ public final class ProcedureOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureState_descriptor;
+      return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureStateResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureState_fieldAccessorTable
+      return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureStateResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              greptime.v1.meta.ProcedureOuterClass.ProcedureState.class, greptime.v1.meta.ProcedureOuterClass.ProcedureState.Builder.class);
+              greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.class, greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.Builder.class);
     }
 
     public static final int STATUS_FIELD_NUMBER = 1;
@@ -291,10 +914,10 @@ public final class ProcedureOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof greptime.v1.meta.ProcedureOuterClass.ProcedureState)) {
+      if (!(obj instanceof greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse)) {
         return super.equals(obj);
       }
-      greptime.v1.meta.ProcedureOuterClass.ProcedureState other = (greptime.v1.meta.ProcedureOuterClass.ProcedureState) obj;
+      greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse other = (greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse) obj;
 
       if (status_ != other.status_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -315,69 +938,69 @@ public final class ProcedureOuterClass {
       return hash;
     }
 
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(byte[] data)
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(java.io.InputStream input)
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseDelimitedFrom(java.io.InputStream input)
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseDelimitedFrom(
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState parseFrom(
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -390,7 +1013,7 @@ public final class ProcedureOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(greptime.v1.meta.ProcedureOuterClass.ProcedureState prototype) {
+    public static Builder newBuilder(greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -406,26 +1029,26 @@ public final class ProcedureOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.meta.ProcedureState}
+     * Protobuf type {@code greptime.v1.meta.ProcedureStateResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.ProcedureState)
-        greptime.v1.meta.ProcedureOuterClass.ProcedureStateOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.ProcedureStateResponse)
+        greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureState_descriptor;
+        return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureStateResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureState_fieldAccessorTable
+        return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureStateResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                greptime.v1.meta.ProcedureOuterClass.ProcedureState.class, greptime.v1.meta.ProcedureOuterClass.ProcedureState.Builder.class);
+                greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.class, greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.Builder.class);
       }
 
-      // Construct using greptime.v1.meta.ProcedureOuterClass.ProcedureState.newBuilder()
+      // Construct using greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -451,17 +1074,17 @@ public final class ProcedureOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureState_descriptor;
+        return greptime.v1.meta.ProcedureOuterClass.internal_static_greptime_v1_meta_ProcedureStateResponse_descriptor;
       }
 
       @java.lang.Override
-      public greptime.v1.meta.ProcedureOuterClass.ProcedureState getDefaultInstanceForType() {
-        return greptime.v1.meta.ProcedureOuterClass.ProcedureState.getDefaultInstance();
+      public greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse getDefaultInstanceForType() {
+        return greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public greptime.v1.meta.ProcedureOuterClass.ProcedureState build() {
-        greptime.v1.meta.ProcedureOuterClass.ProcedureState result = buildPartial();
+      public greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse build() {
+        greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -469,8 +1092,8 @@ public final class ProcedureOuterClass {
       }
 
       @java.lang.Override
-      public greptime.v1.meta.ProcedureOuterClass.ProcedureState buildPartial() {
-        greptime.v1.meta.ProcedureOuterClass.ProcedureState result = new greptime.v1.meta.ProcedureOuterClass.ProcedureState(this);
+      public greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse buildPartial() {
+        greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse result = new greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse(this);
         result.status_ = status_;
         onBuilt();
         return result;
@@ -510,16 +1133,16 @@ public final class ProcedureOuterClass {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.meta.ProcedureOuterClass.ProcedureState) {
-          return mergeFrom((greptime.v1.meta.ProcedureOuterClass.ProcedureState)other);
+        if (other instanceof greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse) {
+          return mergeFrom((greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(greptime.v1.meta.ProcedureOuterClass.ProcedureState other) {
-        if (other == greptime.v1.meta.ProcedureOuterClass.ProcedureState.getDefaultInstance()) return this;
+      public Builder mergeFrom(greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse other) {
+        if (other == greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse.getDefaultInstance()) return this;
         if (other.status_ != 0) {
           setStatusValue(other.getStatusValue());
         }
@@ -538,11 +1161,11 @@ public final class ProcedureOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        greptime.v1.meta.ProcedureOuterClass.ProcedureState parsedMessage = null;
+        greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.meta.ProcedureOuterClass.ProcedureState) e.getUnfinishedMessage();
+          parsedMessage = (greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -618,51 +1241,56 @@ public final class ProcedureOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.ProcedureState)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.ProcedureStateResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.meta.ProcedureState)
-    private static final greptime.v1.meta.ProcedureOuterClass.ProcedureState DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.ProcedureStateResponse)
+    private static final greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new greptime.v1.meta.ProcedureOuterClass.ProcedureState();
+      DEFAULT_INSTANCE = new greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse();
     }
 
-    public static greptime.v1.meta.ProcedureOuterClass.ProcedureState getDefaultInstance() {
+    public static greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ProcedureState>
-        PARSER = new com.google.protobuf.AbstractParser<ProcedureState>() {
+    private static final com.google.protobuf.Parser<ProcedureStateResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ProcedureStateResponse>() {
       @java.lang.Override
-      public ProcedureState parsePartialFrom(
+      public ProcedureStateResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProcedureState(input, extensionRegistry);
+        return new ProcedureStateResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ProcedureState> parser() {
+    public static com.google.protobuf.Parser<ProcedureStateResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ProcedureState> getParserForType() {
+    public com.google.protobuf.Parser<ProcedureStateResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public greptime.v1.meta.ProcedureOuterClass.ProcedureState getDefaultInstanceForType() {
+    public greptime.v1.meta.ProcedureOuterClass.ProcedureStateResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_ProcedureState_descriptor;
+    internal_static_greptime_v1_meta_QueryProcedureRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_ProcedureState_fieldAccessorTable;
+      internal_static_greptime_v1_meta_QueryProcedureRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_ProcedureStateResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_ProcedureStateResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -675,18 +1303,21 @@ public final class ProcedureOuterClass {
       "\n greptime/v1/meta/procedure.proto\022\020grep" +
       "time.v1.meta\032\035greptime/v1/meta/common.pr" +
       "oto\032\032greptime/v1/meta/ddl.proto\032\035greptim" +
-      "e/v1/meta/region.proto\"C\n\016ProcedureState" +
-      "\0221\n\006status\030\001 \001(\0162!.greptime.v1.meta.Proc" +
-      "edureStatus*9\n\017ProcedureStatus\022\r\n\tExecut" +
-      "ing\020\000\022\r\n\tSuspended\020\001\022\010\n\004Done\020\0022\375\001\n\tProce" +
-      "dure\022H\n\005query\022\035.greptime.v1.meta.Procedu" +
-      "reId\032 .greptime.v1.meta.ProcedureState\022J" +
-      "\n\003ddl\022 .greptime.v1.meta.DdlTaskRequest\032" +
-      "!.greptime.v1.meta.DdlTaskResponse\022Z\n\007mi" +
-      "grate\022&.greptime.v1.meta.MigrateRegionRe" +
-      "quest\032\'.greptime.v1.meta.MigrateRegionRe" +
-      "sponseB<Z:github.com/GreptimeTeam/grepti" +
-      "me-proto/go/greptime/v1/metab\006proto3"
+      "e/v1/meta/region.proto\"C\n\025QueryProcedure" +
+      "Request\022*\n\003pid\030\001 \001(\0132\035.greptime.v1.meta." +
+      "ProcedureId\"K\n\026ProcedureStateResponse\0221\n" +
+      "\006status\030\001 \001(\0162!.greptime.v1.meta.Procedu" +
+      "reStatus*9\n\017ProcedureStatus\022\r\n\tExecuting" +
+      "\020\000\022\r\n\tSuspended\020\001\022\010\n\004Done\020\0022\217\002\n\tProcedur" +
+      "e\022Z\n\005query\022\'.greptime.v1.meta.QueryProce" +
+      "dureRequest\032(.greptime.v1.meta.Procedure" +
+      "StateResponse\022J\n\003ddl\022 .greptime.v1.meta." +
+      "DdlTaskRequest\032!.greptime.v1.meta.DdlTas" +
+      "kResponse\022Z\n\007migrate\022&.greptime.v1.meta." +
+      "MigrateRegionRequest\032\'.greptime.v1.meta." +
+      "MigrateRegionResponseB<Z:github.com/Grep" +
+      "timeTeam/greptime-proto/go/greptime/v1/m" +
+      "etab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -695,11 +1326,17 @@ public final class ProcedureOuterClass {
           greptime.v1.meta.Ddl.getDescriptor(),
           greptime.v1.meta.Region.getDescriptor(),
         });
-    internal_static_greptime_v1_meta_ProcedureState_descriptor =
+    internal_static_greptime_v1_meta_QueryProcedureRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_greptime_v1_meta_ProcedureState_fieldAccessorTable = new
+    internal_static_greptime_v1_meta_QueryProcedureRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_ProcedureState_descriptor,
+        internal_static_greptime_v1_meta_QueryProcedureRequest_descriptor,
+        new java.lang.String[] { "Pid", });
+    internal_static_greptime_v1_meta_ProcedureStateResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_greptime_v1_meta_ProcedureStateResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_ProcedureStateResponse_descriptor,
         new java.lang.String[] { "Status", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Ddl.getDescriptor();

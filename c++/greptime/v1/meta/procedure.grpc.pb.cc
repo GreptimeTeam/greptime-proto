@@ -41,23 +41,23 @@ Procedure::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel,
   , rpcmethod_migrate_(Procedure_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Procedure::Stub::query(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureId& request, ::greptime::v1::meta::ProcedureState* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::ProcedureId, ::greptime::v1::meta::ProcedureState, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_query_, context, request, response);
+::grpc::Status Procedure::Stub::query(::grpc::ClientContext* context, const ::greptime::v1::meta::QueryProcedureRequest& request, ::greptime::v1::meta::ProcedureStateResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::QueryProcedureRequest, ::greptime::v1::meta::ProcedureStateResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_query_, context, request, response);
 }
 
-void Procedure::Stub::async::query(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureId* request, ::greptime::v1::meta::ProcedureState* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::meta::ProcedureId, ::greptime::v1::meta::ProcedureState, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_query_, context, request, response, std::move(f));
+void Procedure::Stub::async::query(::grpc::ClientContext* context, const ::greptime::v1::meta::QueryProcedureRequest* request, ::greptime::v1::meta::ProcedureStateResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::meta::QueryProcedureRequest, ::greptime::v1::meta::ProcedureStateResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_query_, context, request, response, std::move(f));
 }
 
-void Procedure::Stub::async::query(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureId* request, ::greptime::v1::meta::ProcedureState* response, ::grpc::ClientUnaryReactor* reactor) {
+void Procedure::Stub::async::query(::grpc::ClientContext* context, const ::greptime::v1::meta::QueryProcedureRequest* request, ::greptime::v1::meta::ProcedureStateResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_query_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::ProcedureState>* Procedure::Stub::PrepareAsyncqueryRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureId& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::meta::ProcedureState, ::greptime::v1::meta::ProcedureId, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_query_, context, request);
+::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::ProcedureStateResponse>* Procedure::Stub::PrepareAsyncqueryRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::QueryProcedureRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::meta::ProcedureStateResponse, ::greptime::v1::meta::QueryProcedureRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_query_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::ProcedureState>* Procedure::Stub::AsyncqueryRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureId& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::ProcedureStateResponse>* Procedure::Stub::AsyncqueryRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::QueryProcedureRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncqueryRaw(context, request, cq);
   result->StartCall();
@@ -114,11 +114,11 @@ Procedure::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Procedure_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Procedure::Service, ::greptime::v1::meta::ProcedureId, ::greptime::v1::meta::ProcedureState, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Procedure::Service, ::greptime::v1::meta::QueryProcedureRequest, ::greptime::v1::meta::ProcedureStateResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Procedure::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::greptime::v1::meta::ProcedureId* req,
-             ::greptime::v1::meta::ProcedureState* resp) {
+             const ::greptime::v1::meta::QueryProcedureRequest* req,
+             ::greptime::v1::meta::ProcedureStateResponse* resp) {
                return service->query(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
@@ -146,7 +146,7 @@ Procedure::Service::Service() {
 Procedure::Service::~Service() {
 }
 
-::grpc::Status Procedure::Service::query(::grpc::ServerContext* context, const ::greptime::v1::meta::ProcedureId* request, ::greptime::v1::meta::ProcedureState* response) {
+::grpc::Status Procedure::Service::query(::grpc::ServerContext* context, const ::greptime::v1::meta::QueryProcedureRequest* request, ::greptime::v1::meta::ProcedureStateResponse* response) {
   (void) context;
   (void) request;
   (void) response;
