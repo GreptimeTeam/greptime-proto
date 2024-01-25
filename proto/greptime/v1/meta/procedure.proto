@@ -1,0 +1,23 @@
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package greptime.v1.meta;
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
+
+import "greptime/v1/meta/common.proto";
+
+service ProcedureService {
+    // Returns a started procedure status
+    rpc status(ProcedureId) returns (ProcedureStatus);
+}
+
+
+enum ProcedureStatus {
+    Executing = 0;
+    Suspended = 1;
+    Done = 2;
+}
