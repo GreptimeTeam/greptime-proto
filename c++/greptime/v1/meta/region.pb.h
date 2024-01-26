@@ -189,7 +189,6 @@ class MigrateRegionRequest final :
 
   enum : int {
     kHeaderFieldNumber = 1,
-    kClusterIdFieldNumber = 2,
     kRegionIdFieldNumber = 3,
     kFromPeerIdFieldNumber = 4,
     kToPeerIdFieldNumber = 5,
@@ -212,15 +211,6 @@ class MigrateRegionRequest final :
   void unsafe_arena_set_allocated_header(
       ::greptime::v1::meta::RequestHeader* header);
   ::greptime::v1::meta::RequestHeader* unsafe_arena_release_header();
-
-  // uint64 cluster_id = 2;
-  void clear_cluster_id();
-  uint64_t cluster_id() const;
-  void set_cluster_id(uint64_t value);
-  private:
-  uint64_t _internal_cluster_id() const;
-  void _internal_set_cluster_id(uint64_t value);
-  public:
 
   // uint64 region_id = 3;
   void clear_region_id();
@@ -267,7 +257,6 @@ class MigrateRegionRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::meta::RequestHeader* header_;
-    uint64_t cluster_id_;
     uint64_t region_id_;
     uint64_t from_peer_id_;
     uint64_t to_peer_id_;
@@ -548,26 +537,6 @@ inline void MigrateRegionRequest::set_allocated_header(::greptime::v1::meta::Req
   }
   _impl_.header_ = header;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MigrateRegionRequest.header)
-}
-
-// uint64 cluster_id = 2;
-inline void MigrateRegionRequest::clear_cluster_id() {
-  _impl_.cluster_id_ = uint64_t{0u};
-}
-inline uint64_t MigrateRegionRequest::_internal_cluster_id() const {
-  return _impl_.cluster_id_;
-}
-inline uint64_t MigrateRegionRequest::cluster_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.MigrateRegionRequest.cluster_id)
-  return _internal_cluster_id();
-}
-inline void MigrateRegionRequest::_internal_set_cluster_id(uint64_t value) {
-  
-  _impl_.cluster_id_ = value;
-}
-inline void MigrateRegionRequest::set_cluster_id(uint64_t value) {
-  _internal_set_cluster_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.cluster_id)
 }
 
 // uint64 region_id = 3;

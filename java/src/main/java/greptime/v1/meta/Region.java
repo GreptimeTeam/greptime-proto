@@ -34,12 +34,6 @@ public final class Region {
     greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <code>uint64 cluster_id = 2;</code>
-     * @return The clusterId.
-     */
-    long getClusterId();
-
-    /**
      * <code>uint64 region_id = 3;</code>
      * @return The regionId.
      */
@@ -119,11 +113,6 @@ public final class Region {
                 header_ = subBuilder.buildPartial();
               }
 
-              break;
-            }
-            case 16: {
-
-              clusterId_ = input.readUInt64();
               break;
             }
             case 24: {
@@ -206,17 +195,6 @@ public final class Region {
       return getHeader();
     }
 
-    public static final int CLUSTER_ID_FIELD_NUMBER = 2;
-    private long clusterId_;
-    /**
-     * <code>uint64 cluster_id = 2;</code>
-     * @return The clusterId.
-     */
-    @java.lang.Override
-    public long getClusterId() {
-      return clusterId_;
-    }
-
     public static final int REGION_ID_FIELD_NUMBER = 3;
     private long regionId_;
     /**
@@ -278,9 +256,6 @@ public final class Region {
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      if (clusterId_ != 0L) {
-        output.writeUInt64(2, clusterId_);
-      }
       if (regionId_ != 0L) {
         output.writeUInt64(3, regionId_);
       }
@@ -305,10 +280,6 @@ public final class Region {
       if (header_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
-      }
-      if (clusterId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, clusterId_);
       }
       if (regionId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -346,8 +317,6 @@ public final class Region {
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
-      if (getClusterId()
-          != other.getClusterId()) return false;
       if (getRegionId()
           != other.getRegionId()) return false;
       if (getFromPeerId()
@@ -371,9 +340,6 @@ public final class Region {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
       }
-      hash = (37 * hash) + CLUSTER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getClusterId());
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
@@ -524,8 +490,6 @@ public final class Region {
           header_ = null;
           headerBuilder_ = null;
         }
-        clusterId_ = 0L;
-
         regionId_ = 0L;
 
         fromPeerId_ = 0L;
@@ -565,7 +529,6 @@ public final class Region {
         } else {
           result.header_ = headerBuilder_.build();
         }
-        result.clusterId_ = clusterId_;
         result.regionId_ = regionId_;
         result.fromPeerId_ = fromPeerId_;
         result.toPeerId_ = toPeerId_;
@@ -620,9 +583,6 @@ public final class Region {
         if (other == greptime.v1.meta.Region.MigrateRegionRequest.getDefaultInstance()) return this;
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
-        }
-        if (other.getClusterId() != 0L) {
-          setClusterId(other.getClusterId());
         }
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
@@ -782,37 +742,6 @@ public final class Region {
           header_ = null;
         }
         return headerBuilder_;
-      }
-
-      private long clusterId_ ;
-      /**
-       * <code>uint64 cluster_id = 2;</code>
-       * @return The clusterId.
-       */
-      @java.lang.Override
-      public long getClusterId() {
-        return clusterId_;
-      }
-      /**
-       * <code>uint64 cluster_id = 2;</code>
-       * @param value The clusterId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setClusterId(long value) {
-        
-        clusterId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint64 cluster_id = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearClusterId() {
-        
-        clusterId_ = 0L;
-        onChanged();
-        return this;
       }
 
       private long regionId_ ;
@@ -1838,16 +1767,15 @@ public final class Region {
     java.lang.String[] descriptorData = {
       "\n\035greptime/v1/meta/region.proto\022\020greptim" +
       "e.v1.meta\032\035greptime/v1/meta/common.proto" +
-      "\"\265\001\n\024MigrateRegionRequest\022/\n\006header\030\001 \001(" +
-      "\0132\037.greptime.v1.meta.RequestHeader\022\022\n\ncl" +
-      "uster_id\030\002 \001(\004\022\021\n\tregion_id\030\003 \001(\004\022\024\n\014fro" +
-      "m_peer_id\030\004 \001(\004\022\022\n\nto_peer_id\030\005 \001(\004\022\033\n\023r" +
-      "eplay_timeout_secs\030\006 \001(\r\"u\n\025MigrateRegio" +
-      "nResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1." +
-      "meta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grept" +
-      "ime.v1.meta.ProcedureIdB<Z:github.com/Gr" +
-      "eptimeTeam/greptime-proto/go/greptime/v1" +
-      "/metab\006proto3"
+      "\"\241\001\n\024MigrateRegionRequest\022/\n\006header\030\001 \001(" +
+      "\0132\037.greptime.v1.meta.RequestHeader\022\021\n\tre" +
+      "gion_id\030\003 \001(\004\022\024\n\014from_peer_id\030\004 \001(\004\022\022\n\nt" +
+      "o_peer_id\030\005 \001(\004\022\033\n\023replay_timeout_secs\030\006" +
+      " \001(\r\"u\n\025MigrateRegionResponse\0220\n\006header\030" +
+      "\001 \001(\0132 .greptime.v1.meta.ResponseHeader\022" +
+      "*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.Procedur" +
+      "eIdB<Z:github.com/GreptimeTeam/greptime-" +
+      "proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1859,7 +1787,7 @@ public final class Region {
     internal_static_greptime_v1_meta_MigrateRegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MigrateRegionRequest_descriptor,
-        new java.lang.String[] { "Header", "ClusterId", "RegionId", "FromPeerId", "ToPeerId", "ReplayTimeoutSecs", });
+        new java.lang.String[] { "Header", "RegionId", "FromPeerId", "ToPeerId", "ReplayTimeoutSecs", });
     internal_static_greptime_v1_meta_MigrateRegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_meta_MigrateRegionResponse_fieldAccessorTable = new

@@ -22,7 +22,6 @@ import "greptime/v1/meta/common.proto";
 
 message MigrateRegionRequest {
     RequestHeader header = 1;
-    uint64 cluster_id = 2;
     uint64 region_id = 3;
     uint64 from_peer_id = 4;
     uint64 to_peer_id = 5;
