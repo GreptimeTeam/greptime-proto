@@ -40,16 +40,16 @@ public final class Region {
     long getRegionId();
 
     /**
-     * <code>uint64 from_peer_id = 4;</code>
-     * @return The fromPeerId.
+     * <code>uint64 from_peer = 4;</code>
+     * @return The fromPeer.
      */
-    long getFromPeerId();
+    long getFromPeer();
 
     /**
-     * <code>uint64 to_peer_id = 5;</code>
-     * @return The toPeerId.
+     * <code>uint64 to_peer = 5;</code>
+     * @return The toPeer.
      */
-    long getToPeerId();
+    long getToPeer();
 
     /**
      * <code>uint32 replay_timeout_secs = 6;</code>
@@ -122,12 +122,12 @@ public final class Region {
             }
             case 32: {
 
-              fromPeerId_ = input.readUInt64();
+              fromPeer_ = input.readUInt64();
               break;
             }
             case 40: {
 
-              toPeerId_ = input.readUInt64();
+              toPeer_ = input.readUInt64();
               break;
             }
             case 48: {
@@ -206,26 +206,26 @@ public final class Region {
       return regionId_;
     }
 
-    public static final int FROM_PEER_ID_FIELD_NUMBER = 4;
-    private long fromPeerId_;
+    public static final int FROM_PEER_FIELD_NUMBER = 4;
+    private long fromPeer_;
     /**
-     * <code>uint64 from_peer_id = 4;</code>
-     * @return The fromPeerId.
+     * <code>uint64 from_peer = 4;</code>
+     * @return The fromPeer.
      */
     @java.lang.Override
-    public long getFromPeerId() {
-      return fromPeerId_;
+    public long getFromPeer() {
+      return fromPeer_;
     }
 
-    public static final int TO_PEER_ID_FIELD_NUMBER = 5;
-    private long toPeerId_;
+    public static final int TO_PEER_FIELD_NUMBER = 5;
+    private long toPeer_;
     /**
-     * <code>uint64 to_peer_id = 5;</code>
-     * @return The toPeerId.
+     * <code>uint64 to_peer = 5;</code>
+     * @return The toPeer.
      */
     @java.lang.Override
-    public long getToPeerId() {
-      return toPeerId_;
+    public long getToPeer() {
+      return toPeer_;
     }
 
     public static final int REPLAY_TIMEOUT_SECS_FIELD_NUMBER = 6;
@@ -259,11 +259,11 @@ public final class Region {
       if (regionId_ != 0L) {
         output.writeUInt64(3, regionId_);
       }
-      if (fromPeerId_ != 0L) {
-        output.writeUInt64(4, fromPeerId_);
+      if (fromPeer_ != 0L) {
+        output.writeUInt64(4, fromPeer_);
       }
-      if (toPeerId_ != 0L) {
-        output.writeUInt64(5, toPeerId_);
+      if (toPeer_ != 0L) {
+        output.writeUInt64(5, toPeer_);
       }
       if (replayTimeoutSecs_ != 0) {
         output.writeUInt32(6, replayTimeoutSecs_);
@@ -285,13 +285,13 @@ public final class Region {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, regionId_);
       }
-      if (fromPeerId_ != 0L) {
+      if (fromPeer_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(4, fromPeerId_);
+          .computeUInt64Size(4, fromPeer_);
       }
-      if (toPeerId_ != 0L) {
+      if (toPeer_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(5, toPeerId_);
+          .computeUInt64Size(5, toPeer_);
       }
       if (replayTimeoutSecs_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -319,10 +319,10 @@ public final class Region {
       }
       if (getRegionId()
           != other.getRegionId()) return false;
-      if (getFromPeerId()
-          != other.getFromPeerId()) return false;
-      if (getToPeerId()
-          != other.getToPeerId()) return false;
+      if (getFromPeer()
+          != other.getFromPeer()) return false;
+      if (getToPeer()
+          != other.getToPeer()) return false;
       if (getReplayTimeoutSecs()
           != other.getReplayTimeoutSecs()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -343,12 +343,12 @@ public final class Region {
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
-      hash = (37 * hash) + FROM_PEER_ID_FIELD_NUMBER;
+      hash = (37 * hash) + FROM_PEER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getFromPeerId());
-      hash = (37 * hash) + TO_PEER_ID_FIELD_NUMBER;
+          getFromPeer());
+      hash = (37 * hash) + TO_PEER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getToPeerId());
+          getToPeer());
       hash = (37 * hash) + REPLAY_TIMEOUT_SECS_FIELD_NUMBER;
       hash = (53 * hash) + getReplayTimeoutSecs();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -492,9 +492,9 @@ public final class Region {
         }
         regionId_ = 0L;
 
-        fromPeerId_ = 0L;
+        fromPeer_ = 0L;
 
-        toPeerId_ = 0L;
+        toPeer_ = 0L;
 
         replayTimeoutSecs_ = 0;
 
@@ -530,8 +530,8 @@ public final class Region {
           result.header_ = headerBuilder_.build();
         }
         result.regionId_ = regionId_;
-        result.fromPeerId_ = fromPeerId_;
-        result.toPeerId_ = toPeerId_;
+        result.fromPeer_ = fromPeer_;
+        result.toPeer_ = toPeer_;
         result.replayTimeoutSecs_ = replayTimeoutSecs_;
         onBuilt();
         return result;
@@ -587,11 +587,11 @@ public final class Region {
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
         }
-        if (other.getFromPeerId() != 0L) {
-          setFromPeerId(other.getFromPeerId());
+        if (other.getFromPeer() != 0L) {
+          setFromPeer(other.getFromPeer());
         }
-        if (other.getToPeerId() != 0L) {
-          setToPeerId(other.getToPeerId());
+        if (other.getToPeer() != 0L) {
+          setToPeer(other.getToPeer());
         }
         if (other.getReplayTimeoutSecs() != 0) {
           setReplayTimeoutSecs(other.getReplayTimeoutSecs());
@@ -775,64 +775,64 @@ public final class Region {
         return this;
       }
 
-      private long fromPeerId_ ;
+      private long fromPeer_ ;
       /**
-       * <code>uint64 from_peer_id = 4;</code>
-       * @return The fromPeerId.
+       * <code>uint64 from_peer = 4;</code>
+       * @return The fromPeer.
        */
       @java.lang.Override
-      public long getFromPeerId() {
-        return fromPeerId_;
+      public long getFromPeer() {
+        return fromPeer_;
       }
       /**
-       * <code>uint64 from_peer_id = 4;</code>
-       * @param value The fromPeerId to set.
+       * <code>uint64 from_peer = 4;</code>
+       * @param value The fromPeer to set.
        * @return This builder for chaining.
        */
-      public Builder setFromPeerId(long value) {
+      public Builder setFromPeer(long value) {
         
-        fromPeerId_ = value;
+        fromPeer_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint64 from_peer_id = 4;</code>
+       * <code>uint64 from_peer = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearFromPeerId() {
+      public Builder clearFromPeer() {
         
-        fromPeerId_ = 0L;
+        fromPeer_ = 0L;
         onChanged();
         return this;
       }
 
-      private long toPeerId_ ;
+      private long toPeer_ ;
       /**
-       * <code>uint64 to_peer_id = 5;</code>
-       * @return The toPeerId.
+       * <code>uint64 to_peer = 5;</code>
+       * @return The toPeer.
        */
       @java.lang.Override
-      public long getToPeerId() {
-        return toPeerId_;
+      public long getToPeer() {
+        return toPeer_;
       }
       /**
-       * <code>uint64 to_peer_id = 5;</code>
-       * @param value The toPeerId to set.
+       * <code>uint64 to_peer = 5;</code>
+       * @param value The toPeer to set.
        * @return This builder for chaining.
        */
-      public Builder setToPeerId(long value) {
+      public Builder setToPeer(long value) {
         
-        toPeerId_ = value;
+        toPeer_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint64 to_peer_id = 5;</code>
+       * <code>uint64 to_peer = 5;</code>
        * @return This builder for chaining.
        */
-      public Builder clearToPeerId() {
+      public Builder clearToPeer() {
         
-        toPeerId_ = 0L;
+        toPeer_ = 0L;
         onChanged();
         return this;
       }
@@ -1767,15 +1767,15 @@ public final class Region {
     java.lang.String[] descriptorData = {
       "\n\035greptime/v1/meta/region.proto\022\020greptim" +
       "e.v1.meta\032\035greptime/v1/meta/common.proto" +
-      "\"\241\001\n\024MigrateRegionRequest\022/\n\006header\030\001 \001(" +
+      "\"\233\001\n\024MigrateRegionRequest\022/\n\006header\030\001 \001(" +
       "\0132\037.greptime.v1.meta.RequestHeader\022\021\n\tre" +
-      "gion_id\030\003 \001(\004\022\024\n\014from_peer_id\030\004 \001(\004\022\022\n\nt" +
-      "o_peer_id\030\005 \001(\004\022\033\n\023replay_timeout_secs\030\006" +
-      " \001(\r\"u\n\025MigrateRegionResponse\0220\n\006header\030" +
-      "\001 \001(\0132 .greptime.v1.meta.ResponseHeader\022" +
-      "*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.Procedur" +
-      "eIdB<Z:github.com/GreptimeTeam/greptime-" +
-      "proto/go/greptime/v1/metab\006proto3"
+      "gion_id\030\003 \001(\004\022\021\n\tfrom_peer\030\004 \001(\004\022\017\n\007to_p" +
+      "eer\030\005 \001(\004\022\033\n\023replay_timeout_secs\030\006 \001(\r\"u" +
+      "\n\025MigrateRegionResponse\0220\n\006header\030\001 \001(\0132" +
+      " .greptime.v1.meta.ResponseHeader\022*\n\003pid" +
+      "\030\002 \001(\0132\035.greptime.v1.meta.ProcedureIdB<Z" +
+      ":github.com/GreptimeTeam/greptime-proto/" +
+      "go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1787,7 +1787,7 @@ public final class Region {
     internal_static_greptime_v1_meta_MigrateRegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MigrateRegionRequest_descriptor,
-        new java.lang.String[] { "Header", "RegionId", "FromPeerId", "ToPeerId", "ReplayTimeoutSecs", });
+        new java.lang.String[] { "Header", "RegionId", "FromPeer", "ToPeer", "ReplayTimeoutSecs", });
     internal_static_greptime_v1_meta_MigrateRegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_meta_MigrateRegionResponse_fieldAccessorTable = new

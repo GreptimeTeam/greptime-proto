@@ -27,8 +27,8 @@ PROTOBUF_CONSTEXPR MigrateRegionRequest::MigrateRegionRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.region_id_)*/uint64_t{0u}
-  , /*decltype(_impl_.from_peer_id_)*/uint64_t{0u}
-  , /*decltype(_impl_.to_peer_id_)*/uint64_t{0u}
+  , /*decltype(_impl_.from_peer_)*/uint64_t{0u}
+  , /*decltype(_impl_.to_peer_)*/uint64_t{0u}
   , /*decltype(_impl_.replay_timeout_secs_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MigrateRegionRequestDefaultTypeInternal {
@@ -70,8 +70,8 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fregion_2eproto::offsets[] PROT
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.region_id_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.from_peer_id_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.to_peer_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.from_peer_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.to_peer_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.replay_timeout_secs_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionResponse, _internal_metadata_),
@@ -95,22 +95,22 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fregion_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\035greptime/v1/meta/region.proto\022\020greptim"
   "e.v1.meta\032\035greptime/v1/meta/common.proto"
-  "\"\241\001\n\024MigrateRegionRequest\022/\n\006header\030\001 \001("
+  "\"\233\001\n\024MigrateRegionRequest\022/\n\006header\030\001 \001("
   "\0132\037.greptime.v1.meta.RequestHeader\022\021\n\tre"
-  "gion_id\030\003 \001(\004\022\024\n\014from_peer_id\030\004 \001(\004\022\022\n\nt"
-  "o_peer_id\030\005 \001(\004\022\033\n\023replay_timeout_secs\030\006"
-  " \001(\r\"u\n\025MigrateRegionResponse\0220\n\006header\030"
-  "\001 \001(\0132 .greptime.v1.meta.ResponseHeader\022"
-  "*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.Procedur"
-  "eIdB<Z:github.com/GreptimeTeam/greptime-"
-  "proto/go/greptime/v1/metab\006proto3"
+  "gion_id\030\003 \001(\004\022\021\n\tfrom_peer\030\004 \001(\004\022\017\n\007to_p"
+  "eer\030\005 \001(\004\022\033\n\023replay_timeout_secs\030\006 \001(\r\"u"
+  "\n\025MigrateRegionResponse\0220\n\006header\030\001 \001(\0132"
+  " .greptime.v1.meta.ResponseHeader\022*\n\003pid"
+  "\030\002 \001(\0132\035.greptime.v1.meta.ProcedureIdB<Z"
+  ":github.com/GreptimeTeam/greptime-proto/"
+  "go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto = {
-    false, false, 433, descriptor_table_protodef_greptime_2fv1_2fmeta_2fregion_2eproto,
+    false, false, 427, descriptor_table_protodef_greptime_2fv1_2fmeta_2fregion_2eproto,
     "greptime/v1/meta/region.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto_deps, 1, 2,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fregion_2eproto::offsets,
@@ -156,8 +156,8 @@ MigrateRegionRequest::MigrateRegionRequest(const MigrateRegionRequest& from)
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
     , decltype(_impl_.region_id_){}
-    , decltype(_impl_.from_peer_id_){}
-    , decltype(_impl_.to_peer_id_){}
+    , decltype(_impl_.from_peer_){}
+    , decltype(_impl_.to_peer_){}
     , decltype(_impl_.replay_timeout_secs_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -178,8 +178,8 @@ inline void MigrateRegionRequest::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
     , decltype(_impl_.region_id_){uint64_t{0u}}
-    , decltype(_impl_.from_peer_id_){uint64_t{0u}}
-    , decltype(_impl_.to_peer_id_){uint64_t{0u}}
+    , decltype(_impl_.from_peer_){uint64_t{0u}}
+    , decltype(_impl_.to_peer_){uint64_t{0u}}
     , decltype(_impl_.replay_timeout_secs_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -241,18 +241,18 @@ const char* MigrateRegionRequest::_InternalParse(const char* ptr, ::_pbi::ParseC
         } else
           goto handle_unusual;
         continue;
-      // uint64 from_peer_id = 4;
+      // uint64 from_peer = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _impl_.from_peer_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.from_peer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint64 to_peer_id = 5;
+      // uint64 to_peer = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          _impl_.to_peer_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.to_peer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -307,16 +307,16 @@ uint8_t* MigrateRegionRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_region_id(), target);
   }
 
-  // uint64 from_peer_id = 4;
-  if (this->_internal_from_peer_id() != 0) {
+  // uint64 from_peer = 4;
+  if (this->_internal_from_peer() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_from_peer_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_from_peer(), target);
   }
 
-  // uint64 to_peer_id = 5;
-  if (this->_internal_to_peer_id() != 0) {
+  // uint64 to_peer = 5;
+  if (this->_internal_to_peer() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_to_peer_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_to_peer(), target);
   }
 
   // uint32 replay_timeout_secs = 6;
@@ -353,14 +353,14 @@ size_t MigrateRegionRequest::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_region_id());
   }
 
-  // uint64 from_peer_id = 4;
-  if (this->_internal_from_peer_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_from_peer_id());
+  // uint64 from_peer = 4;
+  if (this->_internal_from_peer() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_from_peer());
   }
 
-  // uint64 to_peer_id = 5;
-  if (this->_internal_to_peer_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_to_peer_id());
+  // uint64 to_peer = 5;
+  if (this->_internal_to_peer() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_to_peer());
   }
 
   // uint32 replay_timeout_secs = 6;
@@ -393,11 +393,11 @@ void MigrateRegionRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
   if (from._internal_region_id() != 0) {
     _this->_internal_set_region_id(from._internal_region_id());
   }
-  if (from._internal_from_peer_id() != 0) {
-    _this->_internal_set_from_peer_id(from._internal_from_peer_id());
+  if (from._internal_from_peer() != 0) {
+    _this->_internal_set_from_peer(from._internal_from_peer());
   }
-  if (from._internal_to_peer_id() != 0) {
-    _this->_internal_set_to_peer_id(from._internal_to_peer_id());
+  if (from._internal_to_peer() != 0) {
+    _this->_internal_set_to_peer(from._internal_to_peer());
   }
   if (from._internal_replay_timeout_secs() != 0) {
     _this->_internal_set_replay_timeout_secs(from._internal_replay_timeout_secs());

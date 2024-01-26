@@ -190,8 +190,8 @@ class MigrateRegionRequest final :
   enum : int {
     kHeaderFieldNumber = 1,
     kRegionIdFieldNumber = 3,
-    kFromPeerIdFieldNumber = 4,
-    kToPeerIdFieldNumber = 5,
+    kFromPeerFieldNumber = 4,
+    kToPeerFieldNumber = 5,
     kReplayTimeoutSecsFieldNumber = 6,
   };
   // .greptime.v1.meta.RequestHeader header = 1;
@@ -221,22 +221,22 @@ class MigrateRegionRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
-  // uint64 from_peer_id = 4;
-  void clear_from_peer_id();
-  uint64_t from_peer_id() const;
-  void set_from_peer_id(uint64_t value);
+  // uint64 from_peer = 4;
+  void clear_from_peer();
+  uint64_t from_peer() const;
+  void set_from_peer(uint64_t value);
   private:
-  uint64_t _internal_from_peer_id() const;
-  void _internal_set_from_peer_id(uint64_t value);
+  uint64_t _internal_from_peer() const;
+  void _internal_set_from_peer(uint64_t value);
   public:
 
-  // uint64 to_peer_id = 5;
-  void clear_to_peer_id();
-  uint64_t to_peer_id() const;
-  void set_to_peer_id(uint64_t value);
+  // uint64 to_peer = 5;
+  void clear_to_peer();
+  uint64_t to_peer() const;
+  void set_to_peer(uint64_t value);
   private:
-  uint64_t _internal_to_peer_id() const;
-  void _internal_set_to_peer_id(uint64_t value);
+  uint64_t _internal_to_peer() const;
+  void _internal_set_to_peer(uint64_t value);
   public:
 
   // uint32 replay_timeout_secs = 6;
@@ -258,8 +258,8 @@ class MigrateRegionRequest final :
   struct Impl_ {
     ::greptime::v1::meta::RequestHeader* header_;
     uint64_t region_id_;
-    uint64_t from_peer_id_;
-    uint64_t to_peer_id_;
+    uint64_t from_peer_;
+    uint64_t to_peer_;
     uint32_t replay_timeout_secs_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -559,44 +559,44 @@ inline void MigrateRegionRequest::set_region_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.region_id)
 }
 
-// uint64 from_peer_id = 4;
-inline void MigrateRegionRequest::clear_from_peer_id() {
-  _impl_.from_peer_id_ = uint64_t{0u};
+// uint64 from_peer = 4;
+inline void MigrateRegionRequest::clear_from_peer() {
+  _impl_.from_peer_ = uint64_t{0u};
 }
-inline uint64_t MigrateRegionRequest::_internal_from_peer_id() const {
-  return _impl_.from_peer_id_;
+inline uint64_t MigrateRegionRequest::_internal_from_peer() const {
+  return _impl_.from_peer_;
 }
-inline uint64_t MigrateRegionRequest::from_peer_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.MigrateRegionRequest.from_peer_id)
-  return _internal_from_peer_id();
+inline uint64_t MigrateRegionRequest::from_peer() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MigrateRegionRequest.from_peer)
+  return _internal_from_peer();
 }
-inline void MigrateRegionRequest::_internal_set_from_peer_id(uint64_t value) {
+inline void MigrateRegionRequest::_internal_set_from_peer(uint64_t value) {
   
-  _impl_.from_peer_id_ = value;
+  _impl_.from_peer_ = value;
 }
-inline void MigrateRegionRequest::set_from_peer_id(uint64_t value) {
-  _internal_set_from_peer_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.from_peer_id)
+inline void MigrateRegionRequest::set_from_peer(uint64_t value) {
+  _internal_set_from_peer(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.from_peer)
 }
 
-// uint64 to_peer_id = 5;
-inline void MigrateRegionRequest::clear_to_peer_id() {
-  _impl_.to_peer_id_ = uint64_t{0u};
+// uint64 to_peer = 5;
+inline void MigrateRegionRequest::clear_to_peer() {
+  _impl_.to_peer_ = uint64_t{0u};
 }
-inline uint64_t MigrateRegionRequest::_internal_to_peer_id() const {
-  return _impl_.to_peer_id_;
+inline uint64_t MigrateRegionRequest::_internal_to_peer() const {
+  return _impl_.to_peer_;
 }
-inline uint64_t MigrateRegionRequest::to_peer_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.MigrateRegionRequest.to_peer_id)
-  return _internal_to_peer_id();
+inline uint64_t MigrateRegionRequest::to_peer() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MigrateRegionRequest.to_peer)
+  return _internal_to_peer();
 }
-inline void MigrateRegionRequest::_internal_set_to_peer_id(uint64_t value) {
+inline void MigrateRegionRequest::_internal_set_to_peer(uint64_t value) {
   
-  _impl_.to_peer_id_ = value;
+  _impl_.to_peer_ = value;
 }
-inline void MigrateRegionRequest::set_to_peer_id(uint64_t value) {
-  _internal_set_to_peer_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.to_peer_id)
+inline void MigrateRegionRequest::set_to_peer(uint64_t value) {
+  _internal_set_to_peer(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.to_peer)
 }
 
 // uint32 replay_timeout_secs = 6;
