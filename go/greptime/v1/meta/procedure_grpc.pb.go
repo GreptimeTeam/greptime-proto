@@ -18,10 +18,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// ProcedureClient is the client API for Procedure service.
+// ProcedureServiceClient is the client API for ProcedureService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ProcedureClient interface {
+type ProcedureServiceClient interface {
 	// Query a submitted procedure state
 	Query(ctx context.Context, in *QueryProcedureRequest, opts ...grpc.CallOption) (*ProcedureStateResponse, error)
 	// Submits a DDL task
@@ -30,152 +30,152 @@ type ProcedureClient interface {
 	Migrate(ctx context.Context, in *MigrateRegionRequest, opts ...grpc.CallOption) (*MigrateRegionResponse, error)
 }
 
-type procedureClient struct {
+type procedureServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewProcedureClient(cc grpc.ClientConnInterface) ProcedureClient {
-	return &procedureClient{cc}
+func NewProcedureServiceClient(cc grpc.ClientConnInterface) ProcedureServiceClient {
+	return &procedureServiceClient{cc}
 }
 
-func (c *procedureClient) Query(ctx context.Context, in *QueryProcedureRequest, opts ...grpc.CallOption) (*ProcedureStateResponse, error) {
+func (c *procedureServiceClient) Query(ctx context.Context, in *QueryProcedureRequest, opts ...grpc.CallOption) (*ProcedureStateResponse, error) {
 	out := new(ProcedureStateResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Procedure/query", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/query", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *procedureClient) Ddl(ctx context.Context, in *DdlTaskRequest, opts ...grpc.CallOption) (*DdlTaskResponse, error) {
+func (c *procedureServiceClient) Ddl(ctx context.Context, in *DdlTaskRequest, opts ...grpc.CallOption) (*DdlTaskResponse, error) {
 	out := new(DdlTaskResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Procedure/ddl", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/ddl", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *procedureClient) Migrate(ctx context.Context, in *MigrateRegionRequest, opts ...grpc.CallOption) (*MigrateRegionResponse, error) {
+func (c *procedureServiceClient) Migrate(ctx context.Context, in *MigrateRegionRequest, opts ...grpc.CallOption) (*MigrateRegionResponse, error) {
 	out := new(MigrateRegionResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Procedure/migrate", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/migrate", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ProcedureServer is the server API for Procedure service.
-// All implementations must embed UnimplementedProcedureServer
+// ProcedureServiceServer is the server API for ProcedureService service.
+// All implementations must embed UnimplementedProcedureServiceServer
 // for forward compatibility
-type ProcedureServer interface {
+type ProcedureServiceServer interface {
 	// Query a submitted procedure state
 	Query(context.Context, *QueryProcedureRequest) (*ProcedureStateResponse, error)
 	// Submits a DDL task
 	Ddl(context.Context, *DdlTaskRequest) (*DdlTaskResponse, error)
 	// Submits a region migration task
 	Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error)
-	mustEmbedUnimplementedProcedureServer()
+	mustEmbedUnimplementedProcedureServiceServer()
 }
 
-// UnimplementedProcedureServer must be embedded to have forward compatible implementations.
-type UnimplementedProcedureServer struct {
+// UnimplementedProcedureServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedProcedureServiceServer struct {
 }
 
-func (UnimplementedProcedureServer) Query(context.Context, *QueryProcedureRequest) (*ProcedureStateResponse, error) {
+func (UnimplementedProcedureServiceServer) Query(context.Context, *QueryProcedureRequest) (*ProcedureStateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Query not implemented")
 }
-func (UnimplementedProcedureServer) Ddl(context.Context, *DdlTaskRequest) (*DdlTaskResponse, error) {
+func (UnimplementedProcedureServiceServer) Ddl(context.Context, *DdlTaskRequest) (*DdlTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ddl not implemented")
 }
-func (UnimplementedProcedureServer) Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error) {
+func (UnimplementedProcedureServiceServer) Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Migrate not implemented")
 }
-func (UnimplementedProcedureServer) mustEmbedUnimplementedProcedureServer() {}
+func (UnimplementedProcedureServiceServer) mustEmbedUnimplementedProcedureServiceServer() {}
 
-// UnsafeProcedureServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ProcedureServer will
+// UnsafeProcedureServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProcedureServiceServer will
 // result in compilation errors.
-type UnsafeProcedureServer interface {
-	mustEmbedUnimplementedProcedureServer()
+type UnsafeProcedureServiceServer interface {
+	mustEmbedUnimplementedProcedureServiceServer()
 }
 
-func RegisterProcedureServer(s grpc.ServiceRegistrar, srv ProcedureServer) {
-	s.RegisterService(&Procedure_ServiceDesc, srv)
+func RegisterProcedureServiceServer(s grpc.ServiceRegistrar, srv ProcedureServiceServer) {
+	s.RegisterService(&ProcedureService_ServiceDesc, srv)
 }
 
-func _Procedure_Query_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProcedureService_Query_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(QueryProcedureRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProcedureServer).Query(ctx, in)
+		return srv.(ProcedureServiceServer).Query(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/greptime.v1.meta.Procedure/query",
+		FullMethod: "/greptime.v1.meta.ProcedureService/query",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProcedureServer).Query(ctx, req.(*QueryProcedureRequest))
+		return srv.(ProcedureServiceServer).Query(ctx, req.(*QueryProcedureRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Procedure_Ddl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProcedureService_Ddl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DdlTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProcedureServer).Ddl(ctx, in)
+		return srv.(ProcedureServiceServer).Ddl(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/greptime.v1.meta.Procedure/ddl",
+		FullMethod: "/greptime.v1.meta.ProcedureService/ddl",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProcedureServer).Ddl(ctx, req.(*DdlTaskRequest))
+		return srv.(ProcedureServiceServer).Ddl(ctx, req.(*DdlTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Procedure_Migrate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProcedureService_Migrate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MigrateRegionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProcedureServer).Migrate(ctx, in)
+		return srv.(ProcedureServiceServer).Migrate(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/greptime.v1.meta.Procedure/migrate",
+		FullMethod: "/greptime.v1.meta.ProcedureService/migrate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProcedureServer).Migrate(ctx, req.(*MigrateRegionRequest))
+		return srv.(ProcedureServiceServer).Migrate(ctx, req.(*MigrateRegionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Procedure_ServiceDesc is the grpc.ServiceDesc for Procedure service.
+// ProcedureService_ServiceDesc is the grpc.ServiceDesc for ProcedureService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Procedure_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "greptime.v1.meta.Procedure",
-	HandlerType: (*ProcedureServer)(nil),
+var ProcedureService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "greptime.v1.meta.ProcedureService",
+	HandlerType: (*ProcedureServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "query",
-			Handler:    _Procedure_Query_Handler,
+			Handler:    _ProcedureService_Query_Handler,
 		},
 		{
 			MethodName: "ddl",
-			Handler:    _Procedure_Ddl_Handler,
+			Handler:    _ProcedureService_Ddl_Handler,
 		},
 		{
 			MethodName: "migrate",
-			Handler:    _Procedure_Migrate_Handler,
+			Handler:    _ProcedureService_Migrate_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

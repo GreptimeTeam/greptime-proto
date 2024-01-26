@@ -34,10 +34,10 @@ namespace greptime {
 namespace v1 {
 namespace meta {
 
-class Procedure final {
+class ProcedureService final {
  public:
   static constexpr char const* service_full_name() {
-    return "greptime.v1.meta.Procedure";
+    return "greptime.v1.meta.ProcedureService";
   }
   class StubInterface {
    public:

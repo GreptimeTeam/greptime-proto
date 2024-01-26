@@ -30,7 +30,7 @@ message ProcedureStateResponse {
     string error = 3;
 }
 
-service Procedure {
+service ProcedureService {
     // Query a submitted procedure state
     rpc query(QueryProcedureRequest) returns (ProcedureStateResponse);
 
