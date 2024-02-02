@@ -63,18 +63,18 @@ extern CreateTableTaskDefaultTypeInternal _CreateTableTask_default_instance_;
 class CreateTableTasks;
 struct CreateTableTasksDefaultTypeInternal;
 extern CreateTableTasksDefaultTypeInternal _CreateTableTasks_default_instance_;
+class DdlTaskRequest;
+struct DdlTaskRequestDefaultTypeInternal;
+extern DdlTaskRequestDefaultTypeInternal _DdlTaskRequest_default_instance_;
+class DdlTaskResponse;
+struct DdlTaskResponseDefaultTypeInternal;
+extern DdlTaskResponseDefaultTypeInternal _DdlTaskResponse_default_instance_;
 class DropTableTask;
 struct DropTableTaskDefaultTypeInternal;
 extern DropTableTaskDefaultTypeInternal _DropTableTask_default_instance_;
 class DropTableTasks;
 struct DropTableTasksDefaultTypeInternal;
 extern DropTableTasksDefaultTypeInternal _DropTableTasks_default_instance_;
-class SubmitDdlTaskRequest;
-struct SubmitDdlTaskRequestDefaultTypeInternal;
-extern SubmitDdlTaskRequestDefaultTypeInternal _SubmitDdlTaskRequest_default_instance_;
-class SubmitDdlTaskResponse;
-struct SubmitDdlTaskResponseDefaultTypeInternal;
-extern SubmitDdlTaskResponseDefaultTypeInternal _SubmitDdlTaskResponse_default_instance_;
 class TruncateTableTask;
 struct TruncateTableTaskDefaultTypeInternal;
 extern TruncateTableTaskDefaultTypeInternal _TruncateTableTask_default_instance_;
@@ -86,10 +86,10 @@ template<> ::greptime::v1::meta::AlterTableTask* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::meta::AlterTableTasks* Arena::CreateMaybeMessage<::greptime::v1::meta::AlterTableTasks>(Arena*);
 template<> ::greptime::v1::meta::CreateTableTask* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateTableTask>(Arena*);
 template<> ::greptime::v1::meta::CreateTableTasks* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateTableTasks>(Arena*);
+template<> ::greptime::v1::meta::DdlTaskRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::DdlTaskRequest>(Arena*);
+template<> ::greptime::v1::meta::DdlTaskResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::DdlTaskResponse>(Arena*);
 template<> ::greptime::v1::meta::DropTableTask* Arena::CreateMaybeMessage<::greptime::v1::meta::DropTableTask>(Arena*);
 template<> ::greptime::v1::meta::DropTableTasks* Arena::CreateMaybeMessage<::greptime::v1::meta::DropTableTasks>(Arena*);
-template<> ::greptime::v1::meta::SubmitDdlTaskRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::SubmitDdlTaskRequest>(Arena*);
-template<> ::greptime::v1::meta::SubmitDdlTaskResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::SubmitDdlTaskResponse>(Arena*);
 template<> ::greptime::v1::meta::TruncateTableTask* Arena::CreateMaybeMessage<::greptime::v1::meta::TruncateTableTask>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -1258,24 +1258,24 @@ class TruncateTableTask final :
 };
 // -------------------------------------------------------------------
 
-class SubmitDdlTaskRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.SubmitDdlTaskRequest) */ {
+class DdlTaskRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.DdlTaskRequest) */ {
  public:
-  inline SubmitDdlTaskRequest() : SubmitDdlTaskRequest(nullptr) {}
-  ~SubmitDdlTaskRequest() override;
-  explicit PROTOBUF_CONSTEXPR SubmitDdlTaskRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline DdlTaskRequest() : DdlTaskRequest(nullptr) {}
+  ~DdlTaskRequest() override;
+  explicit PROTOBUF_CONSTEXPR DdlTaskRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SubmitDdlTaskRequest(const SubmitDdlTaskRequest& from);
-  SubmitDdlTaskRequest(SubmitDdlTaskRequest&& from) noexcept
-    : SubmitDdlTaskRequest() {
+  DdlTaskRequest(const DdlTaskRequest& from);
+  DdlTaskRequest(DdlTaskRequest&& from) noexcept
+    : DdlTaskRequest() {
     *this = ::std::move(from);
   }
 
-  inline SubmitDdlTaskRequest& operator=(const SubmitDdlTaskRequest& from) {
+  inline DdlTaskRequest& operator=(const DdlTaskRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SubmitDdlTaskRequest& operator=(SubmitDdlTaskRequest&& from) noexcept {
+  inline DdlTaskRequest& operator=(DdlTaskRequest&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1298,7 +1298,7 @@ class SubmitDdlTaskRequest final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SubmitDdlTaskRequest& default_instance() {
+  static const DdlTaskRequest& default_instance() {
     return *internal_default_instance();
   }
   enum TaskCase {
@@ -1312,17 +1312,17 @@ class SubmitDdlTaskRequest final :
     TASK_NOT_SET = 0,
   };
 
-  static inline const SubmitDdlTaskRequest* internal_default_instance() {
-    return reinterpret_cast<const SubmitDdlTaskRequest*>(
-               &_SubmitDdlTaskRequest_default_instance_);
+  static inline const DdlTaskRequest* internal_default_instance() {
+    return reinterpret_cast<const DdlTaskRequest*>(
+               &_DdlTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     7;
 
-  friend void swap(SubmitDdlTaskRequest& a, SubmitDdlTaskRequest& b) {
+  friend void swap(DdlTaskRequest& a, DdlTaskRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(SubmitDdlTaskRequest* other) {
+  inline void Swap(DdlTaskRequest* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1335,7 +1335,7 @@ class SubmitDdlTaskRequest final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SubmitDdlTaskRequest* other) {
+  void UnsafeArenaSwap(DdlTaskRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1343,14 +1343,14 @@ class SubmitDdlTaskRequest final :
 
   // implements Message ----------------------------------------------
 
-  SubmitDdlTaskRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SubmitDdlTaskRequest>(arena);
+  DdlTaskRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DdlTaskRequest>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SubmitDdlTaskRequest& from);
+  void CopyFrom(const DdlTaskRequest& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const SubmitDdlTaskRequest& from) {
-    SubmitDdlTaskRequest::MergeImpl(*this, from);
+  void MergeFrom( const DdlTaskRequest& from) {
+    DdlTaskRequest::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -1368,15 +1368,15 @@ class SubmitDdlTaskRequest final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SubmitDdlTaskRequest* other);
+  void InternalSwap(DdlTaskRequest* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.meta.SubmitDdlTaskRequest";
+    return "greptime.v1.meta.DdlTaskRequest";
   }
   protected:
-  explicit SubmitDdlTaskRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit DdlTaskRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -1545,7 +1545,7 @@ class SubmitDdlTaskRequest final :
 
   void clear_task();
   TaskCase task_case() const;
-  // @@protoc_insertion_point(class_scope:greptime.v1.meta.SubmitDdlTaskRequest)
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.DdlTaskRequest)
  private:
   class _Internal;
   void set_has_create_table_task();
@@ -1584,24 +1584,24 @@ class SubmitDdlTaskRequest final :
 };
 // -------------------------------------------------------------------
 
-class SubmitDdlTaskResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.SubmitDdlTaskResponse) */ {
+class DdlTaskResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.DdlTaskResponse) */ {
  public:
-  inline SubmitDdlTaskResponse() : SubmitDdlTaskResponse(nullptr) {}
-  ~SubmitDdlTaskResponse() override;
-  explicit PROTOBUF_CONSTEXPR SubmitDdlTaskResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline DdlTaskResponse() : DdlTaskResponse(nullptr) {}
+  ~DdlTaskResponse() override;
+  explicit PROTOBUF_CONSTEXPR DdlTaskResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SubmitDdlTaskResponse(const SubmitDdlTaskResponse& from);
-  SubmitDdlTaskResponse(SubmitDdlTaskResponse&& from) noexcept
-    : SubmitDdlTaskResponse() {
+  DdlTaskResponse(const DdlTaskResponse& from);
+  DdlTaskResponse(DdlTaskResponse&& from) noexcept
+    : DdlTaskResponse() {
     *this = ::std::move(from);
   }
 
-  inline SubmitDdlTaskResponse& operator=(const SubmitDdlTaskResponse& from) {
+  inline DdlTaskResponse& operator=(const DdlTaskResponse& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SubmitDdlTaskResponse& operator=(SubmitDdlTaskResponse&& from) noexcept {
+  inline DdlTaskResponse& operator=(DdlTaskResponse&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1624,20 +1624,20 @@ class SubmitDdlTaskResponse final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SubmitDdlTaskResponse& default_instance() {
+  static const DdlTaskResponse& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SubmitDdlTaskResponse* internal_default_instance() {
-    return reinterpret_cast<const SubmitDdlTaskResponse*>(
-               &_SubmitDdlTaskResponse_default_instance_);
+  static inline const DdlTaskResponse* internal_default_instance() {
+    return reinterpret_cast<const DdlTaskResponse*>(
+               &_DdlTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     8;
 
-  friend void swap(SubmitDdlTaskResponse& a, SubmitDdlTaskResponse& b) {
+  friend void swap(DdlTaskResponse& a, DdlTaskResponse& b) {
     a.Swap(&b);
   }
-  inline void Swap(SubmitDdlTaskResponse* other) {
+  inline void Swap(DdlTaskResponse* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1650,7 +1650,7 @@ class SubmitDdlTaskResponse final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SubmitDdlTaskResponse* other) {
+  void UnsafeArenaSwap(DdlTaskResponse* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1658,14 +1658,14 @@ class SubmitDdlTaskResponse final :
 
   // implements Message ----------------------------------------------
 
-  SubmitDdlTaskResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SubmitDdlTaskResponse>(arena);
+  DdlTaskResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DdlTaskResponse>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SubmitDdlTaskResponse& from);
+  void CopyFrom(const DdlTaskResponse& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const SubmitDdlTaskResponse& from) {
-    SubmitDdlTaskResponse::MergeImpl(*this, from);
+  void MergeFrom( const DdlTaskResponse& from) {
+    DdlTaskResponse::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -1683,15 +1683,15 @@ class SubmitDdlTaskResponse final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SubmitDdlTaskResponse* other);
+  void InternalSwap(DdlTaskResponse* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.meta.SubmitDdlTaskResponse";
+    return "greptime.v1.meta.DdlTaskResponse";
   }
   protected:
-  explicit SubmitDdlTaskResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit DdlTaskResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -1706,8 +1706,8 @@ class SubmitDdlTaskResponse final :
 
   enum : int {
     kTableIdsFieldNumber = 5,
-    kKeyFieldNumber = 2,
     kHeaderFieldNumber = 1,
+    kPidFieldNumber = 2,
     kTableIdFieldNumber = 4,
   };
   // repeated .greptime.v1.meta.TableId table_ids = 5;
@@ -1728,20 +1728,6 @@ class SubmitDdlTaskResponse final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >&
       table_ids() const;
 
-  // bytes key = 2;
-  void clear_key();
-  const std::string& key() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_key(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_key();
-  PROTOBUF_NODISCARD std::string* release_key();
-  void set_allocated_key(std::string* key);
-  private:
-  const std::string& _internal_key() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
-  std::string* _internal_mutable_key();
-  public:
-
   // .greptime.v1.meta.ResponseHeader header = 1;
   bool has_header() const;
   private:
@@ -1759,6 +1745,24 @@ class SubmitDdlTaskResponse final :
   void unsafe_arena_set_allocated_header(
       ::greptime::v1::meta::ResponseHeader* header);
   ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
+
+  // .greptime.v1.meta.ProcedureId pid = 2;
+  bool has_pid() const;
+  private:
+  bool _internal_has_pid() const;
+  public:
+  void clear_pid();
+  const ::greptime::v1::meta::ProcedureId& pid() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureId* release_pid();
+  ::greptime::v1::meta::ProcedureId* mutable_pid();
+  void set_allocated_pid(::greptime::v1::meta::ProcedureId* pid);
+  private:
+  const ::greptime::v1::meta::ProcedureId& _internal_pid() const;
+  ::greptime::v1::meta::ProcedureId* _internal_mutable_pid();
+  public:
+  void unsafe_arena_set_allocated_pid(
+      ::greptime::v1::meta::ProcedureId* pid);
+  ::greptime::v1::meta::ProcedureId* unsafe_arena_release_pid();
 
   // .greptime.v1.meta.TableId table_id = 4;
   bool has_table_id() const;
@@ -1778,7 +1782,7 @@ class SubmitDdlTaskResponse final :
       ::greptime::v1::meta::TableId* table_id);
   ::greptime::v1::meta::TableId* unsafe_arena_release_table_id();
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.meta.SubmitDdlTaskResponse)
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.DdlTaskResponse)
  private:
   class _Internal;
 
@@ -1787,8 +1791,8 @@ class SubmitDdlTaskResponse final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId > table_ids_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
     ::greptime::v1::meta::ResponseHeader* header_;
+    ::greptime::v1::meta::ProcedureId* pid_;
     ::greptime::v1::meta::TableId* table_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2379,25 +2383,25 @@ inline void TruncateTableTask::set_allocated_truncate_table(::greptime::v1::Trun
 
 // -------------------------------------------------------------------
 
-// SubmitDdlTaskRequest
+// DdlTaskRequest
 
 // .greptime.v1.meta.RequestHeader header = 1;
-inline bool SubmitDdlTaskRequest::_internal_has_header() const {
+inline bool DdlTaskRequest::_internal_has_header() const {
   return this != internal_default_instance() && _impl_.header_ != nullptr;
 }
-inline bool SubmitDdlTaskRequest::has_header() const {
+inline bool DdlTaskRequest::has_header() const {
   return _internal_has_header();
 }
-inline const ::greptime::v1::meta::RequestHeader& SubmitDdlTaskRequest::_internal_header() const {
+inline const ::greptime::v1::meta::RequestHeader& DdlTaskRequest::_internal_header() const {
   const ::greptime::v1::meta::RequestHeader* p = _impl_.header_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::RequestHeader&>(
       ::greptime::v1::meta::_RequestHeader_default_instance_);
 }
-inline const ::greptime::v1::meta::RequestHeader& SubmitDdlTaskRequest::header() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskRequest.header)
+inline const ::greptime::v1::meta::RequestHeader& DdlTaskRequest::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.header)
   return _internal_header();
 }
-inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_header(
+inline void DdlTaskRequest::unsafe_arena_set_allocated_header(
     ::greptime::v1::meta::RequestHeader* header) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
@@ -2408,9 +2412,9 @@ inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_header(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.header)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.header)
 }
-inline ::greptime::v1::meta::RequestHeader* SubmitDdlTaskRequest::release_header() {
+inline ::greptime::v1::meta::RequestHeader* DdlTaskRequest::release_header() {
   
   ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
@@ -2425,14 +2429,14 @@ inline ::greptime::v1::meta::RequestHeader* SubmitDdlTaskRequest::release_header
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::meta::RequestHeader* SubmitDdlTaskRequest::unsafe_arena_release_header() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskRequest.header)
+inline ::greptime::v1::meta::RequestHeader* DdlTaskRequest::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.header)
   
   ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::meta::RequestHeader* SubmitDdlTaskRequest::_internal_mutable_header() {
+inline ::greptime::v1::meta::RequestHeader* DdlTaskRequest::_internal_mutable_header() {
   
   if (_impl_.header_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::meta::RequestHeader>(GetArenaForAllocation());
@@ -2440,12 +2444,12 @@ inline ::greptime::v1::meta::RequestHeader* SubmitDdlTaskRequest::_internal_muta
   }
   return _impl_.header_;
 }
-inline ::greptime::v1::meta::RequestHeader* SubmitDdlTaskRequest::mutable_header() {
+inline ::greptime::v1::meta::RequestHeader* DdlTaskRequest::mutable_header() {
   ::greptime::v1::meta::RequestHeader* _msg = _internal_mutable_header();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskRequest.header)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.header)
   return _msg;
 }
-inline void SubmitDdlTaskRequest::set_allocated_header(::greptime::v1::meta::RequestHeader* header) {
+inline void DdlTaskRequest::set_allocated_header(::greptime::v1::meta::RequestHeader* header) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
@@ -2463,20 +2467,20 @@ inline void SubmitDdlTaskRequest::set_allocated_header(::greptime::v1::meta::Req
     
   }
   _impl_.header_ = header;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.header)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskRequest.header)
 }
 
 // .greptime.v1.meta.CreateTableTask create_table_task = 2;
-inline bool SubmitDdlTaskRequest::_internal_has_create_table_task() const {
+inline bool DdlTaskRequest::_internal_has_create_table_task() const {
   return task_case() == kCreateTableTask;
 }
-inline bool SubmitDdlTaskRequest::has_create_table_task() const {
+inline bool DdlTaskRequest::has_create_table_task() const {
   return _internal_has_create_table_task();
 }
-inline void SubmitDdlTaskRequest::set_has_create_table_task() {
+inline void DdlTaskRequest::set_has_create_table_task() {
   _impl_._oneof_case_[0] = kCreateTableTask;
 }
-inline void SubmitDdlTaskRequest::clear_create_table_task() {
+inline void DdlTaskRequest::clear_create_table_task() {
   if (_internal_has_create_table_task()) {
     if (GetArenaForAllocation() == nullptr) {
       delete _impl_.task_.create_table_task_;
@@ -2484,8 +2488,8 @@ inline void SubmitDdlTaskRequest::clear_create_table_task() {
     clear_has_task();
   }
 }
-inline ::greptime::v1::meta::CreateTableTask* SubmitDdlTaskRequest::release_create_table_task() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskRequest.create_table_task)
+inline ::greptime::v1::meta::CreateTableTask* DdlTaskRequest::release_create_table_task() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.create_table_task)
   if (_internal_has_create_table_task()) {
     clear_has_task();
     ::greptime::v1::meta::CreateTableTask* temp = _impl_.task_.create_table_task_;
@@ -2498,17 +2502,17 @@ inline ::greptime::v1::meta::CreateTableTask* SubmitDdlTaskRequest::release_crea
     return nullptr;
   }
 }
-inline const ::greptime::v1::meta::CreateTableTask& SubmitDdlTaskRequest::_internal_create_table_task() const {
+inline const ::greptime::v1::meta::CreateTableTask& DdlTaskRequest::_internal_create_table_task() const {
   return _internal_has_create_table_task()
       ? *_impl_.task_.create_table_task_
       : reinterpret_cast< ::greptime::v1::meta::CreateTableTask&>(::greptime::v1::meta::_CreateTableTask_default_instance_);
 }
-inline const ::greptime::v1::meta::CreateTableTask& SubmitDdlTaskRequest::create_table_task() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskRequest.create_table_task)
+inline const ::greptime::v1::meta::CreateTableTask& DdlTaskRequest::create_table_task() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.create_table_task)
   return _internal_create_table_task();
 }
-inline ::greptime::v1::meta::CreateTableTask* SubmitDdlTaskRequest::unsafe_arena_release_create_table_task() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.SubmitDdlTaskRequest.create_table_task)
+inline ::greptime::v1::meta::CreateTableTask* DdlTaskRequest::unsafe_arena_release_create_table_task() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.DdlTaskRequest.create_table_task)
   if (_internal_has_create_table_task()) {
     clear_has_task();
     ::greptime::v1::meta::CreateTableTask* temp = _impl_.task_.create_table_task_;
@@ -2518,15 +2522,15 @@ inline ::greptime::v1::meta::CreateTableTask* SubmitDdlTaskRequest::unsafe_arena
     return nullptr;
   }
 }
-inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_create_table_task(::greptime::v1::meta::CreateTableTask* create_table_task) {
+inline void DdlTaskRequest::unsafe_arena_set_allocated_create_table_task(::greptime::v1::meta::CreateTableTask* create_table_task) {
   clear_task();
   if (create_table_task) {
     set_has_create_table_task();
     _impl_.task_.create_table_task_ = create_table_task;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.create_table_task)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.create_table_task)
 }
-inline ::greptime::v1::meta::CreateTableTask* SubmitDdlTaskRequest::_internal_mutable_create_table_task() {
+inline ::greptime::v1::meta::CreateTableTask* DdlTaskRequest::_internal_mutable_create_table_task() {
   if (!_internal_has_create_table_task()) {
     clear_task();
     set_has_create_table_task();
@@ -2534,23 +2538,23 @@ inline ::greptime::v1::meta::CreateTableTask* SubmitDdlTaskRequest::_internal_mu
   }
   return _impl_.task_.create_table_task_;
 }
-inline ::greptime::v1::meta::CreateTableTask* SubmitDdlTaskRequest::mutable_create_table_task() {
+inline ::greptime::v1::meta::CreateTableTask* DdlTaskRequest::mutable_create_table_task() {
   ::greptime::v1::meta::CreateTableTask* _msg = _internal_mutable_create_table_task();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskRequest.create_table_task)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.create_table_task)
   return _msg;
 }
 
 // .greptime.v1.meta.DropTableTask drop_table_task = 3;
-inline bool SubmitDdlTaskRequest::_internal_has_drop_table_task() const {
+inline bool DdlTaskRequest::_internal_has_drop_table_task() const {
   return task_case() == kDropTableTask;
 }
-inline bool SubmitDdlTaskRequest::has_drop_table_task() const {
+inline bool DdlTaskRequest::has_drop_table_task() const {
   return _internal_has_drop_table_task();
 }
-inline void SubmitDdlTaskRequest::set_has_drop_table_task() {
+inline void DdlTaskRequest::set_has_drop_table_task() {
   _impl_._oneof_case_[0] = kDropTableTask;
 }
-inline void SubmitDdlTaskRequest::clear_drop_table_task() {
+inline void DdlTaskRequest::clear_drop_table_task() {
   if (_internal_has_drop_table_task()) {
     if (GetArenaForAllocation() == nullptr) {
       delete _impl_.task_.drop_table_task_;
@@ -2558,8 +2562,8 @@ inline void SubmitDdlTaskRequest::clear_drop_table_task() {
     clear_has_task();
   }
 }
-inline ::greptime::v1::meta::DropTableTask* SubmitDdlTaskRequest::release_drop_table_task() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_task)
+inline ::greptime::v1::meta::DropTableTask* DdlTaskRequest::release_drop_table_task() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.drop_table_task)
   if (_internal_has_drop_table_task()) {
     clear_has_task();
     ::greptime::v1::meta::DropTableTask* temp = _impl_.task_.drop_table_task_;
@@ -2572,17 +2576,17 @@ inline ::greptime::v1::meta::DropTableTask* SubmitDdlTaskRequest::release_drop_t
     return nullptr;
   }
 }
-inline const ::greptime::v1::meta::DropTableTask& SubmitDdlTaskRequest::_internal_drop_table_task() const {
+inline const ::greptime::v1::meta::DropTableTask& DdlTaskRequest::_internal_drop_table_task() const {
   return _internal_has_drop_table_task()
       ? *_impl_.task_.drop_table_task_
       : reinterpret_cast< ::greptime::v1::meta::DropTableTask&>(::greptime::v1::meta::_DropTableTask_default_instance_);
 }
-inline const ::greptime::v1::meta::DropTableTask& SubmitDdlTaskRequest::drop_table_task() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_task)
+inline const ::greptime::v1::meta::DropTableTask& DdlTaskRequest::drop_table_task() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.drop_table_task)
   return _internal_drop_table_task();
 }
-inline ::greptime::v1::meta::DropTableTask* SubmitDdlTaskRequest::unsafe_arena_release_drop_table_task() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_task)
+inline ::greptime::v1::meta::DropTableTask* DdlTaskRequest::unsafe_arena_release_drop_table_task() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.DdlTaskRequest.drop_table_task)
   if (_internal_has_drop_table_task()) {
     clear_has_task();
     ::greptime::v1::meta::DropTableTask* temp = _impl_.task_.drop_table_task_;
@@ -2592,15 +2596,15 @@ inline ::greptime::v1::meta::DropTableTask* SubmitDdlTaskRequest::unsafe_arena_r
     return nullptr;
   }
 }
-inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_drop_table_task(::greptime::v1::meta::DropTableTask* drop_table_task) {
+inline void DdlTaskRequest::unsafe_arena_set_allocated_drop_table_task(::greptime::v1::meta::DropTableTask* drop_table_task) {
   clear_task();
   if (drop_table_task) {
     set_has_drop_table_task();
     _impl_.task_.drop_table_task_ = drop_table_task;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_task)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.drop_table_task)
 }
-inline ::greptime::v1::meta::DropTableTask* SubmitDdlTaskRequest::_internal_mutable_drop_table_task() {
+inline ::greptime::v1::meta::DropTableTask* DdlTaskRequest::_internal_mutable_drop_table_task() {
   if (!_internal_has_drop_table_task()) {
     clear_task();
     set_has_drop_table_task();
@@ -2608,23 +2612,23 @@ inline ::greptime::v1::meta::DropTableTask* SubmitDdlTaskRequest::_internal_muta
   }
   return _impl_.task_.drop_table_task_;
 }
-inline ::greptime::v1::meta::DropTableTask* SubmitDdlTaskRequest::mutable_drop_table_task() {
+inline ::greptime::v1::meta::DropTableTask* DdlTaskRequest::mutable_drop_table_task() {
   ::greptime::v1::meta::DropTableTask* _msg = _internal_mutable_drop_table_task();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_task)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.drop_table_task)
   return _msg;
 }
 
 // .greptime.v1.meta.AlterTableTask alter_table_task = 4;
-inline bool SubmitDdlTaskRequest::_internal_has_alter_table_task() const {
+inline bool DdlTaskRequest::_internal_has_alter_table_task() const {
   return task_case() == kAlterTableTask;
 }
-inline bool SubmitDdlTaskRequest::has_alter_table_task() const {
+inline bool DdlTaskRequest::has_alter_table_task() const {
   return _internal_has_alter_table_task();
 }
-inline void SubmitDdlTaskRequest::set_has_alter_table_task() {
+inline void DdlTaskRequest::set_has_alter_table_task() {
   _impl_._oneof_case_[0] = kAlterTableTask;
 }
-inline void SubmitDdlTaskRequest::clear_alter_table_task() {
+inline void DdlTaskRequest::clear_alter_table_task() {
   if (_internal_has_alter_table_task()) {
     if (GetArenaForAllocation() == nullptr) {
       delete _impl_.task_.alter_table_task_;
@@ -2632,8 +2636,8 @@ inline void SubmitDdlTaskRequest::clear_alter_table_task() {
     clear_has_task();
   }
 }
-inline ::greptime::v1::meta::AlterTableTask* SubmitDdlTaskRequest::release_alter_table_task() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_task)
+inline ::greptime::v1::meta::AlterTableTask* DdlTaskRequest::release_alter_table_task() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.alter_table_task)
   if (_internal_has_alter_table_task()) {
     clear_has_task();
     ::greptime::v1::meta::AlterTableTask* temp = _impl_.task_.alter_table_task_;
@@ -2646,17 +2650,17 @@ inline ::greptime::v1::meta::AlterTableTask* SubmitDdlTaskRequest::release_alter
     return nullptr;
   }
 }
-inline const ::greptime::v1::meta::AlterTableTask& SubmitDdlTaskRequest::_internal_alter_table_task() const {
+inline const ::greptime::v1::meta::AlterTableTask& DdlTaskRequest::_internal_alter_table_task() const {
   return _internal_has_alter_table_task()
       ? *_impl_.task_.alter_table_task_
       : reinterpret_cast< ::greptime::v1::meta::AlterTableTask&>(::greptime::v1::meta::_AlterTableTask_default_instance_);
 }
-inline const ::greptime::v1::meta::AlterTableTask& SubmitDdlTaskRequest::alter_table_task() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_task)
+inline const ::greptime::v1::meta::AlterTableTask& DdlTaskRequest::alter_table_task() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.alter_table_task)
   return _internal_alter_table_task();
 }
-inline ::greptime::v1::meta::AlterTableTask* SubmitDdlTaskRequest::unsafe_arena_release_alter_table_task() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_task)
+inline ::greptime::v1::meta::AlterTableTask* DdlTaskRequest::unsafe_arena_release_alter_table_task() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.DdlTaskRequest.alter_table_task)
   if (_internal_has_alter_table_task()) {
     clear_has_task();
     ::greptime::v1::meta::AlterTableTask* temp = _impl_.task_.alter_table_task_;
@@ -2666,15 +2670,15 @@ inline ::greptime::v1::meta::AlterTableTask* SubmitDdlTaskRequest::unsafe_arena_
     return nullptr;
   }
 }
-inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_alter_table_task(::greptime::v1::meta::AlterTableTask* alter_table_task) {
+inline void DdlTaskRequest::unsafe_arena_set_allocated_alter_table_task(::greptime::v1::meta::AlterTableTask* alter_table_task) {
   clear_task();
   if (alter_table_task) {
     set_has_alter_table_task();
     _impl_.task_.alter_table_task_ = alter_table_task;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_task)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.alter_table_task)
 }
-inline ::greptime::v1::meta::AlterTableTask* SubmitDdlTaskRequest::_internal_mutable_alter_table_task() {
+inline ::greptime::v1::meta::AlterTableTask* DdlTaskRequest::_internal_mutable_alter_table_task() {
   if (!_internal_has_alter_table_task()) {
     clear_task();
     set_has_alter_table_task();
@@ -2682,23 +2686,23 @@ inline ::greptime::v1::meta::AlterTableTask* SubmitDdlTaskRequest::_internal_mut
   }
   return _impl_.task_.alter_table_task_;
 }
-inline ::greptime::v1::meta::AlterTableTask* SubmitDdlTaskRequest::mutable_alter_table_task() {
+inline ::greptime::v1::meta::AlterTableTask* DdlTaskRequest::mutable_alter_table_task() {
   ::greptime::v1::meta::AlterTableTask* _msg = _internal_mutable_alter_table_task();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_task)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.alter_table_task)
   return _msg;
 }
 
 // .greptime.v1.meta.TruncateTableTask truncate_table_task = 5;
-inline bool SubmitDdlTaskRequest::_internal_has_truncate_table_task() const {
+inline bool DdlTaskRequest::_internal_has_truncate_table_task() const {
   return task_case() == kTruncateTableTask;
 }
-inline bool SubmitDdlTaskRequest::has_truncate_table_task() const {
+inline bool DdlTaskRequest::has_truncate_table_task() const {
   return _internal_has_truncate_table_task();
 }
-inline void SubmitDdlTaskRequest::set_has_truncate_table_task() {
+inline void DdlTaskRequest::set_has_truncate_table_task() {
   _impl_._oneof_case_[0] = kTruncateTableTask;
 }
-inline void SubmitDdlTaskRequest::clear_truncate_table_task() {
+inline void DdlTaskRequest::clear_truncate_table_task() {
   if (_internal_has_truncate_table_task()) {
     if (GetArenaForAllocation() == nullptr) {
       delete _impl_.task_.truncate_table_task_;
@@ -2706,8 +2710,8 @@ inline void SubmitDdlTaskRequest::clear_truncate_table_task() {
     clear_has_task();
   }
 }
-inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::release_truncate_table_task() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+inline ::greptime::v1::meta::TruncateTableTask* DdlTaskRequest::release_truncate_table_task() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.truncate_table_task)
   if (_internal_has_truncate_table_task()) {
     clear_has_task();
     ::greptime::v1::meta::TruncateTableTask* temp = _impl_.task_.truncate_table_task_;
@@ -2720,17 +2724,17 @@ inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::release_tr
     return nullptr;
   }
 }
-inline const ::greptime::v1::meta::TruncateTableTask& SubmitDdlTaskRequest::_internal_truncate_table_task() const {
+inline const ::greptime::v1::meta::TruncateTableTask& DdlTaskRequest::_internal_truncate_table_task() const {
   return _internal_has_truncate_table_task()
       ? *_impl_.task_.truncate_table_task_
       : reinterpret_cast< ::greptime::v1::meta::TruncateTableTask&>(::greptime::v1::meta::_TruncateTableTask_default_instance_);
 }
-inline const ::greptime::v1::meta::TruncateTableTask& SubmitDdlTaskRequest::truncate_table_task() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+inline const ::greptime::v1::meta::TruncateTableTask& DdlTaskRequest::truncate_table_task() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.truncate_table_task)
   return _internal_truncate_table_task();
 }
-inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::unsafe_arena_release_truncate_table_task() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+inline ::greptime::v1::meta::TruncateTableTask* DdlTaskRequest::unsafe_arena_release_truncate_table_task() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.DdlTaskRequest.truncate_table_task)
   if (_internal_has_truncate_table_task()) {
     clear_has_task();
     ::greptime::v1::meta::TruncateTableTask* temp = _impl_.task_.truncate_table_task_;
@@ -2740,15 +2744,15 @@ inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::unsafe_are
     return nullptr;
   }
 }
-inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_truncate_table_task(::greptime::v1::meta::TruncateTableTask* truncate_table_task) {
+inline void DdlTaskRequest::unsafe_arena_set_allocated_truncate_table_task(::greptime::v1::meta::TruncateTableTask* truncate_table_task) {
   clear_task();
   if (truncate_table_task) {
     set_has_truncate_table_task();
     _impl_.task_.truncate_table_task_ = truncate_table_task;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.truncate_table_task)
 }
-inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::_internal_mutable_truncate_table_task() {
+inline ::greptime::v1::meta::TruncateTableTask* DdlTaskRequest::_internal_mutable_truncate_table_task() {
   if (!_internal_has_truncate_table_task()) {
     clear_task();
     set_has_truncate_table_task();
@@ -2756,23 +2760,23 @@ inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::_internal_
   }
   return _impl_.task_.truncate_table_task_;
 }
-inline ::greptime::v1::meta::TruncateTableTask* SubmitDdlTaskRequest::mutable_truncate_table_task() {
+inline ::greptime::v1::meta::TruncateTableTask* DdlTaskRequest::mutable_truncate_table_task() {
   ::greptime::v1::meta::TruncateTableTask* _msg = _internal_mutable_truncate_table_task();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskRequest.truncate_table_task)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.truncate_table_task)
   return _msg;
 }
 
 // .greptime.v1.meta.CreateTableTasks create_table_tasks = 6;
-inline bool SubmitDdlTaskRequest::_internal_has_create_table_tasks() const {
+inline bool DdlTaskRequest::_internal_has_create_table_tasks() const {
   return task_case() == kCreateTableTasks;
 }
-inline bool SubmitDdlTaskRequest::has_create_table_tasks() const {
+inline bool DdlTaskRequest::has_create_table_tasks() const {
   return _internal_has_create_table_tasks();
 }
-inline void SubmitDdlTaskRequest::set_has_create_table_tasks() {
+inline void DdlTaskRequest::set_has_create_table_tasks() {
   _impl_._oneof_case_[0] = kCreateTableTasks;
 }
-inline void SubmitDdlTaskRequest::clear_create_table_tasks() {
+inline void DdlTaskRequest::clear_create_table_tasks() {
   if (_internal_has_create_table_tasks()) {
     if (GetArenaForAllocation() == nullptr) {
       delete _impl_.task_.create_table_tasks_;
@@ -2780,8 +2784,8 @@ inline void SubmitDdlTaskRequest::clear_create_table_tasks() {
     clear_has_task();
   }
 }
-inline ::greptime::v1::meta::CreateTableTasks* SubmitDdlTaskRequest::release_create_table_tasks() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskRequest.create_table_tasks)
+inline ::greptime::v1::meta::CreateTableTasks* DdlTaskRequest::release_create_table_tasks() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.create_table_tasks)
   if (_internal_has_create_table_tasks()) {
     clear_has_task();
     ::greptime::v1::meta::CreateTableTasks* temp = _impl_.task_.create_table_tasks_;
@@ -2794,17 +2798,17 @@ inline ::greptime::v1::meta::CreateTableTasks* SubmitDdlTaskRequest::release_cre
     return nullptr;
   }
 }
-inline const ::greptime::v1::meta::CreateTableTasks& SubmitDdlTaskRequest::_internal_create_table_tasks() const {
+inline const ::greptime::v1::meta::CreateTableTasks& DdlTaskRequest::_internal_create_table_tasks() const {
   return _internal_has_create_table_tasks()
       ? *_impl_.task_.create_table_tasks_
       : reinterpret_cast< ::greptime::v1::meta::CreateTableTasks&>(::greptime::v1::meta::_CreateTableTasks_default_instance_);
 }
-inline const ::greptime::v1::meta::CreateTableTasks& SubmitDdlTaskRequest::create_table_tasks() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskRequest.create_table_tasks)
+inline const ::greptime::v1::meta::CreateTableTasks& DdlTaskRequest::create_table_tasks() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.create_table_tasks)
   return _internal_create_table_tasks();
 }
-inline ::greptime::v1::meta::CreateTableTasks* SubmitDdlTaskRequest::unsafe_arena_release_create_table_tasks() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.SubmitDdlTaskRequest.create_table_tasks)
+inline ::greptime::v1::meta::CreateTableTasks* DdlTaskRequest::unsafe_arena_release_create_table_tasks() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.DdlTaskRequest.create_table_tasks)
   if (_internal_has_create_table_tasks()) {
     clear_has_task();
     ::greptime::v1::meta::CreateTableTasks* temp = _impl_.task_.create_table_tasks_;
@@ -2814,15 +2818,15 @@ inline ::greptime::v1::meta::CreateTableTasks* SubmitDdlTaskRequest::unsafe_aren
     return nullptr;
   }
 }
-inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_create_table_tasks(::greptime::v1::meta::CreateTableTasks* create_table_tasks) {
+inline void DdlTaskRequest::unsafe_arena_set_allocated_create_table_tasks(::greptime::v1::meta::CreateTableTasks* create_table_tasks) {
   clear_task();
   if (create_table_tasks) {
     set_has_create_table_tasks();
     _impl_.task_.create_table_tasks_ = create_table_tasks;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.create_table_tasks)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.create_table_tasks)
 }
-inline ::greptime::v1::meta::CreateTableTasks* SubmitDdlTaskRequest::_internal_mutable_create_table_tasks() {
+inline ::greptime::v1::meta::CreateTableTasks* DdlTaskRequest::_internal_mutable_create_table_tasks() {
   if (!_internal_has_create_table_tasks()) {
     clear_task();
     set_has_create_table_tasks();
@@ -2830,23 +2834,23 @@ inline ::greptime::v1::meta::CreateTableTasks* SubmitDdlTaskRequest::_internal_m
   }
   return _impl_.task_.create_table_tasks_;
 }
-inline ::greptime::v1::meta::CreateTableTasks* SubmitDdlTaskRequest::mutable_create_table_tasks() {
+inline ::greptime::v1::meta::CreateTableTasks* DdlTaskRequest::mutable_create_table_tasks() {
   ::greptime::v1::meta::CreateTableTasks* _msg = _internal_mutable_create_table_tasks();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskRequest.create_table_tasks)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.create_table_tasks)
   return _msg;
 }
 
 // .greptime.v1.meta.DropTableTasks drop_table_tasks = 7;
-inline bool SubmitDdlTaskRequest::_internal_has_drop_table_tasks() const {
+inline bool DdlTaskRequest::_internal_has_drop_table_tasks() const {
   return task_case() == kDropTableTasks;
 }
-inline bool SubmitDdlTaskRequest::has_drop_table_tasks() const {
+inline bool DdlTaskRequest::has_drop_table_tasks() const {
   return _internal_has_drop_table_tasks();
 }
-inline void SubmitDdlTaskRequest::set_has_drop_table_tasks() {
+inline void DdlTaskRequest::set_has_drop_table_tasks() {
   _impl_._oneof_case_[0] = kDropTableTasks;
 }
-inline void SubmitDdlTaskRequest::clear_drop_table_tasks() {
+inline void DdlTaskRequest::clear_drop_table_tasks() {
   if (_internal_has_drop_table_tasks()) {
     if (GetArenaForAllocation() == nullptr) {
       delete _impl_.task_.drop_table_tasks_;
@@ -2854,8 +2858,8 @@ inline void SubmitDdlTaskRequest::clear_drop_table_tasks() {
     clear_has_task();
   }
 }
-inline ::greptime::v1::meta::DropTableTasks* SubmitDdlTaskRequest::release_drop_table_tasks() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_tasks)
+inline ::greptime::v1::meta::DropTableTasks* DdlTaskRequest::release_drop_table_tasks() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.drop_table_tasks)
   if (_internal_has_drop_table_tasks()) {
     clear_has_task();
     ::greptime::v1::meta::DropTableTasks* temp = _impl_.task_.drop_table_tasks_;
@@ -2868,17 +2872,17 @@ inline ::greptime::v1::meta::DropTableTasks* SubmitDdlTaskRequest::release_drop_
     return nullptr;
   }
 }
-inline const ::greptime::v1::meta::DropTableTasks& SubmitDdlTaskRequest::_internal_drop_table_tasks() const {
+inline const ::greptime::v1::meta::DropTableTasks& DdlTaskRequest::_internal_drop_table_tasks() const {
   return _internal_has_drop_table_tasks()
       ? *_impl_.task_.drop_table_tasks_
       : reinterpret_cast< ::greptime::v1::meta::DropTableTasks&>(::greptime::v1::meta::_DropTableTasks_default_instance_);
 }
-inline const ::greptime::v1::meta::DropTableTasks& SubmitDdlTaskRequest::drop_table_tasks() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_tasks)
+inline const ::greptime::v1::meta::DropTableTasks& DdlTaskRequest::drop_table_tasks() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.drop_table_tasks)
   return _internal_drop_table_tasks();
 }
-inline ::greptime::v1::meta::DropTableTasks* SubmitDdlTaskRequest::unsafe_arena_release_drop_table_tasks() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_tasks)
+inline ::greptime::v1::meta::DropTableTasks* DdlTaskRequest::unsafe_arena_release_drop_table_tasks() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.DdlTaskRequest.drop_table_tasks)
   if (_internal_has_drop_table_tasks()) {
     clear_has_task();
     ::greptime::v1::meta::DropTableTasks* temp = _impl_.task_.drop_table_tasks_;
@@ -2888,15 +2892,15 @@ inline ::greptime::v1::meta::DropTableTasks* SubmitDdlTaskRequest::unsafe_arena_
     return nullptr;
   }
 }
-inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_drop_table_tasks(::greptime::v1::meta::DropTableTasks* drop_table_tasks) {
+inline void DdlTaskRequest::unsafe_arena_set_allocated_drop_table_tasks(::greptime::v1::meta::DropTableTasks* drop_table_tasks) {
   clear_task();
   if (drop_table_tasks) {
     set_has_drop_table_tasks();
     _impl_.task_.drop_table_tasks_ = drop_table_tasks;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_tasks)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.drop_table_tasks)
 }
-inline ::greptime::v1::meta::DropTableTasks* SubmitDdlTaskRequest::_internal_mutable_drop_table_tasks() {
+inline ::greptime::v1::meta::DropTableTasks* DdlTaskRequest::_internal_mutable_drop_table_tasks() {
   if (!_internal_has_drop_table_tasks()) {
     clear_task();
     set_has_drop_table_tasks();
@@ -2904,23 +2908,23 @@ inline ::greptime::v1::meta::DropTableTasks* SubmitDdlTaskRequest::_internal_mut
   }
   return _impl_.task_.drop_table_tasks_;
 }
-inline ::greptime::v1::meta::DropTableTasks* SubmitDdlTaskRequest::mutable_drop_table_tasks() {
+inline ::greptime::v1::meta::DropTableTasks* DdlTaskRequest::mutable_drop_table_tasks() {
   ::greptime::v1::meta::DropTableTasks* _msg = _internal_mutable_drop_table_tasks();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskRequest.drop_table_tasks)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.drop_table_tasks)
   return _msg;
 }
 
 // .greptime.v1.meta.AlterTableTasks alter_table_tasks = 8;
-inline bool SubmitDdlTaskRequest::_internal_has_alter_table_tasks() const {
+inline bool DdlTaskRequest::_internal_has_alter_table_tasks() const {
   return task_case() == kAlterTableTasks;
 }
-inline bool SubmitDdlTaskRequest::has_alter_table_tasks() const {
+inline bool DdlTaskRequest::has_alter_table_tasks() const {
   return _internal_has_alter_table_tasks();
 }
-inline void SubmitDdlTaskRequest::set_has_alter_table_tasks() {
+inline void DdlTaskRequest::set_has_alter_table_tasks() {
   _impl_._oneof_case_[0] = kAlterTableTasks;
 }
-inline void SubmitDdlTaskRequest::clear_alter_table_tasks() {
+inline void DdlTaskRequest::clear_alter_table_tasks() {
   if (_internal_has_alter_table_tasks()) {
     if (GetArenaForAllocation() == nullptr) {
       delete _impl_.task_.alter_table_tasks_;
@@ -2928,8 +2932,8 @@ inline void SubmitDdlTaskRequest::clear_alter_table_tasks() {
     clear_has_task();
   }
 }
-inline ::greptime::v1::meta::AlterTableTasks* SubmitDdlTaskRequest::release_alter_table_tasks() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_tasks)
+inline ::greptime::v1::meta::AlterTableTasks* DdlTaskRequest::release_alter_table_tasks() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.alter_table_tasks)
   if (_internal_has_alter_table_tasks()) {
     clear_has_task();
     ::greptime::v1::meta::AlterTableTasks* temp = _impl_.task_.alter_table_tasks_;
@@ -2942,17 +2946,17 @@ inline ::greptime::v1::meta::AlterTableTasks* SubmitDdlTaskRequest::release_alte
     return nullptr;
   }
 }
-inline const ::greptime::v1::meta::AlterTableTasks& SubmitDdlTaskRequest::_internal_alter_table_tasks() const {
+inline const ::greptime::v1::meta::AlterTableTasks& DdlTaskRequest::_internal_alter_table_tasks() const {
   return _internal_has_alter_table_tasks()
       ? *_impl_.task_.alter_table_tasks_
       : reinterpret_cast< ::greptime::v1::meta::AlterTableTasks&>(::greptime::v1::meta::_AlterTableTasks_default_instance_);
 }
-inline const ::greptime::v1::meta::AlterTableTasks& SubmitDdlTaskRequest::alter_table_tasks() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_tasks)
+inline const ::greptime::v1::meta::AlterTableTasks& DdlTaskRequest::alter_table_tasks() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.alter_table_tasks)
   return _internal_alter_table_tasks();
 }
-inline ::greptime::v1::meta::AlterTableTasks* SubmitDdlTaskRequest::unsafe_arena_release_alter_table_tasks() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_tasks)
+inline ::greptime::v1::meta::AlterTableTasks* DdlTaskRequest::unsafe_arena_release_alter_table_tasks() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.DdlTaskRequest.alter_table_tasks)
   if (_internal_has_alter_table_tasks()) {
     clear_has_task();
     ::greptime::v1::meta::AlterTableTasks* temp = _impl_.task_.alter_table_tasks_;
@@ -2962,15 +2966,15 @@ inline ::greptime::v1::meta::AlterTableTasks* SubmitDdlTaskRequest::unsafe_arena
     return nullptr;
   }
 }
-inline void SubmitDdlTaskRequest::unsafe_arena_set_allocated_alter_table_tasks(::greptime::v1::meta::AlterTableTasks* alter_table_tasks) {
+inline void DdlTaskRequest::unsafe_arena_set_allocated_alter_table_tasks(::greptime::v1::meta::AlterTableTasks* alter_table_tasks) {
   clear_task();
   if (alter_table_tasks) {
     set_has_alter_table_tasks();
     _impl_.task_.alter_table_tasks_ = alter_table_tasks;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_tasks)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.alter_table_tasks)
 }
-inline ::greptime::v1::meta::AlterTableTasks* SubmitDdlTaskRequest::_internal_mutable_alter_table_tasks() {
+inline ::greptime::v1::meta::AlterTableTasks* DdlTaskRequest::_internal_mutable_alter_table_tasks() {
   if (!_internal_has_alter_table_tasks()) {
     clear_task();
     set_has_alter_table_tasks();
@@ -2978,42 +2982,42 @@ inline ::greptime::v1::meta::AlterTableTasks* SubmitDdlTaskRequest::_internal_mu
   }
   return _impl_.task_.alter_table_tasks_;
 }
-inline ::greptime::v1::meta::AlterTableTasks* SubmitDdlTaskRequest::mutable_alter_table_tasks() {
+inline ::greptime::v1::meta::AlterTableTasks* DdlTaskRequest::mutable_alter_table_tasks() {
   ::greptime::v1::meta::AlterTableTasks* _msg = _internal_mutable_alter_table_tasks();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskRequest.alter_table_tasks)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.alter_table_tasks)
   return _msg;
 }
 
-inline bool SubmitDdlTaskRequest::has_task() const {
+inline bool DdlTaskRequest::has_task() const {
   return task_case() != TASK_NOT_SET;
 }
-inline void SubmitDdlTaskRequest::clear_has_task() {
+inline void DdlTaskRequest::clear_has_task() {
   _impl_._oneof_case_[0] = TASK_NOT_SET;
 }
-inline SubmitDdlTaskRequest::TaskCase SubmitDdlTaskRequest::task_case() const {
-  return SubmitDdlTaskRequest::TaskCase(_impl_._oneof_case_[0]);
+inline DdlTaskRequest::TaskCase DdlTaskRequest::task_case() const {
+  return DdlTaskRequest::TaskCase(_impl_._oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 
-// SubmitDdlTaskResponse
+// DdlTaskResponse
 
 // .greptime.v1.meta.ResponseHeader header = 1;
-inline bool SubmitDdlTaskResponse::_internal_has_header() const {
+inline bool DdlTaskResponse::_internal_has_header() const {
   return this != internal_default_instance() && _impl_.header_ != nullptr;
 }
-inline bool SubmitDdlTaskResponse::has_header() const {
+inline bool DdlTaskResponse::has_header() const {
   return _internal_has_header();
 }
-inline const ::greptime::v1::meta::ResponseHeader& SubmitDdlTaskResponse::_internal_header() const {
+inline const ::greptime::v1::meta::ResponseHeader& DdlTaskResponse::_internal_header() const {
   const ::greptime::v1::meta::ResponseHeader* p = _impl_.header_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ResponseHeader&>(
       ::greptime::v1::meta::_ResponseHeader_default_instance_);
 }
-inline const ::greptime::v1::meta::ResponseHeader& SubmitDdlTaskResponse::header() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskResponse.header)
+inline const ::greptime::v1::meta::ResponseHeader& DdlTaskResponse::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskResponse.header)
   return _internal_header();
 }
-inline void SubmitDdlTaskResponse::unsafe_arena_set_allocated_header(
+inline void DdlTaskResponse::unsafe_arena_set_allocated_header(
     ::greptime::v1::meta::ResponseHeader* header) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
@@ -3024,9 +3028,9 @@ inline void SubmitDdlTaskResponse::unsafe_arena_set_allocated_header(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskResponse.header)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskResponse.header)
 }
-inline ::greptime::v1::meta::ResponseHeader* SubmitDdlTaskResponse::release_header() {
+inline ::greptime::v1::meta::ResponseHeader* DdlTaskResponse::release_header() {
   
   ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
@@ -3041,14 +3045,14 @@ inline ::greptime::v1::meta::ResponseHeader* SubmitDdlTaskResponse::release_head
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::meta::ResponseHeader* SubmitDdlTaskResponse::unsafe_arena_release_header() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskResponse.header)
+inline ::greptime::v1::meta::ResponseHeader* DdlTaskResponse::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskResponse.header)
   
   ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::meta::ResponseHeader* SubmitDdlTaskResponse::_internal_mutable_header() {
+inline ::greptime::v1::meta::ResponseHeader* DdlTaskResponse::_internal_mutable_header() {
   
   if (_impl_.header_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::meta::ResponseHeader>(GetArenaForAllocation());
@@ -3056,12 +3060,12 @@ inline ::greptime::v1::meta::ResponseHeader* SubmitDdlTaskResponse::_internal_mu
   }
   return _impl_.header_;
 }
-inline ::greptime::v1::meta::ResponseHeader* SubmitDdlTaskResponse::mutable_header() {
+inline ::greptime::v1::meta::ResponseHeader* DdlTaskResponse::mutable_header() {
   ::greptime::v1::meta::ResponseHeader* _msg = _internal_mutable_header();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskResponse.header)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskResponse.header)
   return _msg;
 }
-inline void SubmitDdlTaskResponse::set_allocated_header(::greptime::v1::meta::ResponseHeader* header) {
+inline void DdlTaskResponse::set_allocated_header(::greptime::v1::meta::ResponseHeader* header) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
@@ -3079,76 +3083,111 @@ inline void SubmitDdlTaskResponse::set_allocated_header(::greptime::v1::meta::Re
     
   }
   _impl_.header_ = header;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.SubmitDdlTaskResponse.header)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskResponse.header)
 }
 
-// bytes key = 2;
-inline void SubmitDdlTaskResponse::clear_key() {
-  _impl_.key_.ClearToEmpty();
+// .greptime.v1.meta.ProcedureId pid = 2;
+inline bool DdlTaskResponse::_internal_has_pid() const {
+  return this != internal_default_instance() && _impl_.pid_ != nullptr;
 }
-inline const std::string& SubmitDdlTaskResponse::key() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskResponse.key)
-  return _internal_key();
+inline bool DdlTaskResponse::has_pid() const {
+  return _internal_has_pid();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SubmitDdlTaskResponse::set_key(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.key_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.SubmitDdlTaskResponse.key)
+inline const ::greptime::v1::meta::ProcedureId& DdlTaskResponse::_internal_pid() const {
+  const ::greptime::v1::meta::ProcedureId* p = _impl_.pid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureId&>(
+      ::greptime::v1::meta::_ProcedureId_default_instance_);
 }
-inline std::string* SubmitDdlTaskResponse::mutable_key() {
-  std::string* _s = _internal_mutable_key();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskResponse.key)
-  return _s;
+inline const ::greptime::v1::meta::ProcedureId& DdlTaskResponse::pid() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskResponse.pid)
+  return _internal_pid();
 }
-inline const std::string& SubmitDdlTaskResponse::_internal_key() const {
-  return _impl_.key_.Get();
-}
-inline void SubmitDdlTaskResponse::_internal_set_key(const std::string& value) {
-  
-  _impl_.key_.Set(value, GetArenaForAllocation());
-}
-inline std::string* SubmitDdlTaskResponse::_internal_mutable_key() {
-  
-  return _impl_.key_.Mutable(GetArenaForAllocation());
-}
-inline std::string* SubmitDdlTaskResponse::release_key() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskResponse.key)
-  return _impl_.key_.Release();
-}
-inline void SubmitDdlTaskResponse::set_allocated_key(std::string* key) {
-  if (key != nullptr) {
+inline void DdlTaskResponse::unsafe_arena_set_allocated_pid(
+    ::greptime::v1::meta::ProcedureId* pid) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.pid_);
+  }
+  _impl_.pid_ = pid;
+  if (pid) {
     
   } else {
     
   }
-  _impl_.key_.SetAllocated(key, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.key_.IsDefault()) {
-    _impl_.key_.Set("", GetArenaForAllocation());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskResponse.pid)
+}
+inline ::greptime::v1::meta::ProcedureId* DdlTaskResponse::release_pid() {
+  
+  ::greptime::v1::meta::ProcedureId* temp = _impl_.pid_;
+  _impl_.pid_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.SubmitDdlTaskResponse.key)
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureId* DdlTaskResponse::unsafe_arena_release_pid() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskResponse.pid)
+  
+  ::greptime::v1::meta::ProcedureId* temp = _impl_.pid_;
+  _impl_.pid_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureId* DdlTaskResponse::_internal_mutable_pid() {
+  
+  if (_impl_.pid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureId>(GetArenaForAllocation());
+    _impl_.pid_ = p;
+  }
+  return _impl_.pid_;
+}
+inline ::greptime::v1::meta::ProcedureId* DdlTaskResponse::mutable_pid() {
+  ::greptime::v1::meta::ProcedureId* _msg = _internal_mutable_pid();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskResponse.pid)
+  return _msg;
+}
+inline void DdlTaskResponse::set_allocated_pid(::greptime::v1::meta::ProcedureId* pid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.pid_);
+  }
+  if (pid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pid));
+    if (message_arena != submessage_arena) {
+      pid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, pid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.pid_ = pid;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskResponse.pid)
 }
 
 // .greptime.v1.meta.TableId table_id = 4;
-inline bool SubmitDdlTaskResponse::_internal_has_table_id() const {
+inline bool DdlTaskResponse::_internal_has_table_id() const {
   return this != internal_default_instance() && _impl_.table_id_ != nullptr;
 }
-inline bool SubmitDdlTaskResponse::has_table_id() const {
+inline bool DdlTaskResponse::has_table_id() const {
   return _internal_has_table_id();
 }
-inline const ::greptime::v1::meta::TableId& SubmitDdlTaskResponse::_internal_table_id() const {
+inline const ::greptime::v1::meta::TableId& DdlTaskResponse::_internal_table_id() const {
   const ::greptime::v1::meta::TableId* p = _impl_.table_id_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::TableId&>(
       ::greptime::v1::meta::_TableId_default_instance_);
 }
-inline const ::greptime::v1::meta::TableId& SubmitDdlTaskResponse::table_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskResponse.table_id)
+inline const ::greptime::v1::meta::TableId& DdlTaskResponse::table_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskResponse.table_id)
   return _internal_table_id();
 }
-inline void SubmitDdlTaskResponse::unsafe_arena_set_allocated_table_id(
+inline void DdlTaskResponse::unsafe_arena_set_allocated_table_id(
     ::greptime::v1::meta::TableId* table_id) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_id_);
@@ -3159,9 +3198,9 @@ inline void SubmitDdlTaskResponse::unsafe_arena_set_allocated_table_id(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.SubmitDdlTaskResponse.table_id)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskResponse.table_id)
 }
-inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::release_table_id() {
+inline ::greptime::v1::meta::TableId* DdlTaskResponse::release_table_id() {
   
   ::greptime::v1::meta::TableId* temp = _impl_.table_id_;
   _impl_.table_id_ = nullptr;
@@ -3176,14 +3215,14 @@ inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::release_table_id() 
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::unsafe_arena_release_table_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.SubmitDdlTaskResponse.table_id)
+inline ::greptime::v1::meta::TableId* DdlTaskResponse::unsafe_arena_release_table_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskResponse.table_id)
   
   ::greptime::v1::meta::TableId* temp = _impl_.table_id_;
   _impl_.table_id_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::_internal_mutable_table_id() {
+inline ::greptime::v1::meta::TableId* DdlTaskResponse::_internal_mutable_table_id() {
   
   if (_impl_.table_id_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::meta::TableId>(GetArenaForAllocation());
@@ -3191,12 +3230,12 @@ inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::_internal_mutable_t
   }
   return _impl_.table_id_;
 }
-inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::mutable_table_id() {
+inline ::greptime::v1::meta::TableId* DdlTaskResponse::mutable_table_id() {
   ::greptime::v1::meta::TableId* _msg = _internal_mutable_table_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskResponse.table_id)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskResponse.table_id)
   return _msg;
 }
-inline void SubmitDdlTaskResponse::set_allocated_table_id(::greptime::v1::meta::TableId* table_id) {
+inline void DdlTaskResponse::set_allocated_table_id(::greptime::v1::meta::TableId* table_id) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_id_);
@@ -3214,43 +3253,43 @@ inline void SubmitDdlTaskResponse::set_allocated_table_id(::greptime::v1::meta::
     
   }
   _impl_.table_id_ = table_id;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.SubmitDdlTaskResponse.table_id)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskResponse.table_id)
 }
 
 // repeated .greptime.v1.meta.TableId table_ids = 5;
-inline int SubmitDdlTaskResponse::_internal_table_ids_size() const {
+inline int DdlTaskResponse::_internal_table_ids_size() const {
   return _impl_.table_ids_.size();
 }
-inline int SubmitDdlTaskResponse::table_ids_size() const {
+inline int DdlTaskResponse::table_ids_size() const {
   return _internal_table_ids_size();
 }
-inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::mutable_table_ids(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+inline ::greptime::v1::meta::TableId* DdlTaskResponse::mutable_table_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskResponse.table_ids)
   return _impl_.table_ids_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >*
-SubmitDdlTaskResponse::mutable_table_ids() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+DdlTaskResponse::mutable_table_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.DdlTaskResponse.table_ids)
   return &_impl_.table_ids_;
 }
-inline const ::greptime::v1::meta::TableId& SubmitDdlTaskResponse::_internal_table_ids(int index) const {
+inline const ::greptime::v1::meta::TableId& DdlTaskResponse::_internal_table_ids(int index) const {
   return _impl_.table_ids_.Get(index);
 }
-inline const ::greptime::v1::meta::TableId& SubmitDdlTaskResponse::table_ids(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+inline const ::greptime::v1::meta::TableId& DdlTaskResponse::table_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskResponse.table_ids)
   return _internal_table_ids(index);
 }
-inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::_internal_add_table_ids() {
+inline ::greptime::v1::meta::TableId* DdlTaskResponse::_internal_add_table_ids() {
   return _impl_.table_ids_.Add();
 }
-inline ::greptime::v1::meta::TableId* SubmitDdlTaskResponse::add_table_ids() {
+inline ::greptime::v1::meta::TableId* DdlTaskResponse::add_table_ids() {
   ::greptime::v1::meta::TableId* _add = _internal_add_table_ids();
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.DdlTaskResponse.table_ids)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TableId >&
-SubmitDdlTaskResponse::table_ids() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.SubmitDdlTaskResponse.table_ids)
+DdlTaskResponse::table_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.DdlTaskResponse.table_ids)
   return _impl_.table_ids_;
 }
 

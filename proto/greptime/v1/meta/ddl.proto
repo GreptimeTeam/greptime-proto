@@ -22,12 +22,6 @@ import "greptime/v1/meta/common.proto";
 import "greptime/v1/meta/route.proto";
 import "greptime/v1/ddl.proto";
 
-
-service DdlTask {
-    // Submits a DDL task to meta.
-    rpc SubmitDdlTask(SubmitDdlTaskRequest) returns (SubmitDdlTaskResponse);
-}
-
 enum DdlTaskType {
     Create = 0;
     Drop = 1;
@@ -57,7 +51,7 @@ message TruncateTableTask {
     TruncateTableExpr truncate_table = 1;
 }
 
-message SubmitDdlTaskRequest {
+message DdlTaskRequest {
     RequestHeader header = 1;
 
     oneof task {
@@ -71,10 +65,9 @@ message SubmitDdlTaskRequest {
      }
 }
 
-message SubmitDdlTaskResponse {
+message DdlTaskResponse {
     ResponseHeader header = 1;
-    // Key is the identifier for the ddl task.
-    bytes key = 2;
+    ProcedureId pid = 2;
 
     // Returns if table created.
     // TODO(jeremy): remove it?

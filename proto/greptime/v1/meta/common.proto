@@ -73,3 +73,8 @@ message KeyValue {
   // value is the value held by the key, in bytes.
   bytes value = 2;
 }
+
+// Procedure identifer
+message ProcedureId {
+  bytes key = 1;
+}

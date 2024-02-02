@@ -1,0 +1,42 @@
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package greptime.v1.meta;
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
+
+import "greptime/v1/meta/common.proto";
+import "greptime/v1/meta/ddl.proto";
+import "greptime/v1/meta/region.proto";
+
+enum ProcedureStatus {
+    Running = 0;
+    Done = 1;
+    Retrying = 2;
+    Failed = 3;
+}
+
+message QueryProcedureRequest {
+    RequestHeader header = 1;
+    ProcedureId pid = 2;
+}
+
+message ProcedureStateResponse {
+    ResponseHeader header = 1;
+    ProcedureStatus status = 2;
+    string error = 3;
+}
+
+service ProcedureService {
+    // Query a submitted procedure state
+    rpc query(QueryProcedureRequest) returns (ProcedureStateResponse);
+
+    // Submits a DDL task
+    rpc ddl(DdlTaskRequest) returns (DdlTaskResponse);
+
+    // Submits a region migration task
+    rpc migrate(MigrateRegionRequest) returns (MigrateRegionResponse);
+}

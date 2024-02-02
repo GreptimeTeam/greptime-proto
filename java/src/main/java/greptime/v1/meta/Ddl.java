@@ -5448,8 +5448,8 @@ public final class Ddl {
 
   }
 
-  public interface SubmitDdlTaskRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.SubmitDdlTaskRequest)
+  public interface DdlTaskRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.DdlTaskRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -5572,28 +5572,28 @@ public final class Ddl {
      */
     greptime.v1.meta.Ddl.AlterTableTasksOrBuilder getAlterTableTasksOrBuilder();
 
-    public greptime.v1.meta.Ddl.SubmitDdlTaskRequest.TaskCase getTaskCase();
+    public greptime.v1.meta.Ddl.DdlTaskRequest.TaskCase getTaskCase();
   }
   /**
-   * Protobuf type {@code greptime.v1.meta.SubmitDdlTaskRequest}
+   * Protobuf type {@code greptime.v1.meta.DdlTaskRequest}
    */
-  public static final class SubmitDdlTaskRequest extends
+  public static final class DdlTaskRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.meta.SubmitDdlTaskRequest)
-      SubmitDdlTaskRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.DdlTaskRequest)
+      DdlTaskRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use SubmitDdlTaskRequest.newBuilder() to construct.
-    private SubmitDdlTaskRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use DdlTaskRequest.newBuilder() to construct.
+    private DdlTaskRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private SubmitDdlTaskRequest() {
+    private DdlTaskRequest() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new SubmitDdlTaskRequest();
+      return new DdlTaskRequest();
     }
 
     @java.lang.Override
@@ -5601,7 +5601,7 @@ public final class Ddl {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SubmitDdlTaskRequest(
+    private DdlTaskRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5753,15 +5753,15 @@ public final class Ddl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskRequest_descriptor;
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskRequest_fieldAccessorTable
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              greptime.v1.meta.Ddl.SubmitDdlTaskRequest.class, greptime.v1.meta.Ddl.SubmitDdlTaskRequest.Builder.class);
+              greptime.v1.meta.Ddl.DdlTaskRequest.class, greptime.v1.meta.Ddl.DdlTaskRequest.Builder.class);
     }
 
     private int taskCase_ = 0;
@@ -6147,10 +6147,10 @@ public final class Ddl {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof greptime.v1.meta.Ddl.SubmitDdlTaskRequest)) {
+      if (!(obj instanceof greptime.v1.meta.Ddl.DdlTaskRequest)) {
         return super.equals(obj);
       }
-      greptime.v1.meta.Ddl.SubmitDdlTaskRequest other = (greptime.v1.meta.Ddl.SubmitDdlTaskRequest) obj;
+      greptime.v1.meta.Ddl.DdlTaskRequest other = (greptime.v1.meta.Ddl.DdlTaskRequest) obj;
 
       if (hasHeader() != other.hasHeader()) return false;
       if (hasHeader()) {
@@ -6242,69 +6242,69 @@ public final class Ddl {
       return hash;
     }
 
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(byte[] data)
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(java.io.InputStream input)
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseDelimitedFrom(java.io.InputStream input)
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseDelimitedFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6317,7 +6317,7 @@ public final class Ddl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(greptime.v1.meta.Ddl.SubmitDdlTaskRequest prototype) {
+    public static Builder newBuilder(greptime.v1.meta.Ddl.DdlTaskRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -6333,26 +6333,26 @@ public final class Ddl {
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.meta.SubmitDdlTaskRequest}
+     * Protobuf type {@code greptime.v1.meta.DdlTaskRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.SubmitDdlTaskRequest)
-        greptime.v1.meta.Ddl.SubmitDdlTaskRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.DdlTaskRequest)
+        greptime.v1.meta.Ddl.DdlTaskRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskRequest_descriptor;
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskRequest_fieldAccessorTable
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                greptime.v1.meta.Ddl.SubmitDdlTaskRequest.class, greptime.v1.meta.Ddl.SubmitDdlTaskRequest.Builder.class);
+                greptime.v1.meta.Ddl.DdlTaskRequest.class, greptime.v1.meta.Ddl.DdlTaskRequest.Builder.class);
       }
 
-      // Construct using greptime.v1.meta.Ddl.SubmitDdlTaskRequest.newBuilder()
+      // Construct using greptime.v1.meta.Ddl.DdlTaskRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6384,17 +6384,17 @@ public final class Ddl {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskRequest_descriptor;
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskRequest_descriptor;
       }
 
       @java.lang.Override
-      public greptime.v1.meta.Ddl.SubmitDdlTaskRequest getDefaultInstanceForType() {
-        return greptime.v1.meta.Ddl.SubmitDdlTaskRequest.getDefaultInstance();
+      public greptime.v1.meta.Ddl.DdlTaskRequest getDefaultInstanceForType() {
+        return greptime.v1.meta.Ddl.DdlTaskRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public greptime.v1.meta.Ddl.SubmitDdlTaskRequest build() {
-        greptime.v1.meta.Ddl.SubmitDdlTaskRequest result = buildPartial();
+      public greptime.v1.meta.Ddl.DdlTaskRequest build() {
+        greptime.v1.meta.Ddl.DdlTaskRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -6402,8 +6402,8 @@ public final class Ddl {
       }
 
       @java.lang.Override
-      public greptime.v1.meta.Ddl.SubmitDdlTaskRequest buildPartial() {
-        greptime.v1.meta.Ddl.SubmitDdlTaskRequest result = new greptime.v1.meta.Ddl.SubmitDdlTaskRequest(this);
+      public greptime.v1.meta.Ddl.DdlTaskRequest buildPartial() {
+        greptime.v1.meta.Ddl.DdlTaskRequest result = new greptime.v1.meta.Ddl.DdlTaskRequest(this);
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
@@ -6497,16 +6497,16 @@ public final class Ddl {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.meta.Ddl.SubmitDdlTaskRequest) {
-          return mergeFrom((greptime.v1.meta.Ddl.SubmitDdlTaskRequest)other);
+        if (other instanceof greptime.v1.meta.Ddl.DdlTaskRequest) {
+          return mergeFrom((greptime.v1.meta.Ddl.DdlTaskRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(greptime.v1.meta.Ddl.SubmitDdlTaskRequest other) {
-        if (other == greptime.v1.meta.Ddl.SubmitDdlTaskRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(greptime.v1.meta.Ddl.DdlTaskRequest other) {
+        if (other == greptime.v1.meta.Ddl.DdlTaskRequest.getDefaultInstance()) return this;
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
@@ -6558,11 +6558,11 @@ public final class Ddl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        greptime.v1.meta.Ddl.SubmitDdlTaskRequest parsedMessage = null;
+        greptime.v1.meta.Ddl.DdlTaskRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.meta.Ddl.SubmitDdlTaskRequest) e.getUnfinishedMessage();
+          parsedMessage = (greptime.v1.meta.Ddl.DdlTaskRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -7712,48 +7712,48 @@ public final class Ddl {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.SubmitDdlTaskRequest)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.DdlTaskRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.meta.SubmitDdlTaskRequest)
-    private static final greptime.v1.meta.Ddl.SubmitDdlTaskRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.DdlTaskRequest)
+    private static final greptime.v1.meta.Ddl.DdlTaskRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.SubmitDdlTaskRequest();
+      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.DdlTaskRequest();
     }
 
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskRequest getDefaultInstance() {
+    public static greptime.v1.meta.Ddl.DdlTaskRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<SubmitDdlTaskRequest>
-        PARSER = new com.google.protobuf.AbstractParser<SubmitDdlTaskRequest>() {
+    private static final com.google.protobuf.Parser<DdlTaskRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DdlTaskRequest>() {
       @java.lang.Override
-      public SubmitDdlTaskRequest parsePartialFrom(
+      public DdlTaskRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SubmitDdlTaskRequest(input, extensionRegistry);
+        return new DdlTaskRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<SubmitDdlTaskRequest> parser() {
+    public static com.google.protobuf.Parser<DdlTaskRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<SubmitDdlTaskRequest> getParserForType() {
+    public com.google.protobuf.Parser<DdlTaskRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public greptime.v1.meta.Ddl.SubmitDdlTaskRequest getDefaultInstanceForType() {
+    public greptime.v1.meta.Ddl.DdlTaskRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface SubmitDdlTaskResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.SubmitDdlTaskResponse)
+  public interface DdlTaskResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.DdlTaskResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -7772,14 +7772,19 @@ public final class Ddl {
     greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <pre>
-     * Key is the identifier for the ddl task.
-     * </pre>
-     *
-     * <code>bytes key = 2;</code>
-     * @return The key.
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return Whether the pid field is set.
      */
-    com.google.protobuf.ByteString getKey();
+    boolean hasPid();
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return The pid.
+     */
+    greptime.v1.meta.Common.ProcedureId getPid();
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     */
+    greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder();
 
     /**
      * <pre>
@@ -7856,19 +7861,18 @@ public final class Ddl {
         int index);
   }
   /**
-   * Protobuf type {@code greptime.v1.meta.SubmitDdlTaskResponse}
+   * Protobuf type {@code greptime.v1.meta.DdlTaskResponse}
    */
-  public static final class SubmitDdlTaskResponse extends
+  public static final class DdlTaskResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.meta.SubmitDdlTaskResponse)
-      SubmitDdlTaskResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.DdlTaskResponse)
+      DdlTaskResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use SubmitDdlTaskResponse.newBuilder() to construct.
-    private SubmitDdlTaskResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use DdlTaskResponse.newBuilder() to construct.
+    private DdlTaskResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private SubmitDdlTaskResponse() {
-      key_ = com.google.protobuf.ByteString.EMPTY;
+    private DdlTaskResponse() {
       tableIds_ = java.util.Collections.emptyList();
     }
 
@@ -7876,7 +7880,7 @@ public final class Ddl {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new SubmitDdlTaskResponse();
+      return new DdlTaskResponse();
     }
 
     @java.lang.Override
@@ -7884,7 +7888,7 @@ public final class Ddl {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SubmitDdlTaskResponse(
+    private DdlTaskResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7917,8 +7921,16 @@ public final class Ddl {
               break;
             }
             case 18: {
+              greptime.v1.meta.Common.ProcedureId.Builder subBuilder = null;
+              if (pid_ != null) {
+                subBuilder = pid_.toBuilder();
+              }
+              pid_ = input.readMessage(greptime.v1.meta.Common.ProcedureId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pid_);
+                pid_ = subBuilder.buildPartial();
+              }
 
-              key_ = input.readBytes();
               break;
             }
             case 34: {
@@ -7969,15 +7981,15 @@ public final class Ddl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskResponse_descriptor;
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskResponse_fieldAccessorTable
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              greptime.v1.meta.Ddl.SubmitDdlTaskResponse.class, greptime.v1.meta.Ddl.SubmitDdlTaskResponse.Builder.class);
+              greptime.v1.meta.Ddl.DdlTaskResponse.class, greptime.v1.meta.Ddl.DdlTaskResponse.Builder.class);
     }
 
     public static final int HEADER_FIELD_NUMBER = 1;
@@ -8006,19 +8018,30 @@ public final class Ddl {
       return getHeader();
     }
 
-    public static final int KEY_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString key_;
+    public static final int PID_FIELD_NUMBER = 2;
+    private greptime.v1.meta.Common.ProcedureId pid_;
     /**
-     * <pre>
-     * Key is the identifier for the ddl task.
-     * </pre>
-     *
-     * <code>bytes key = 2;</code>
-     * @return The key.
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return Whether the pid field is set.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getKey() {
-      return key_;
+    public boolean hasPid() {
+      return pid_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return The pid.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureId getPid() {
+      return pid_ == null ? greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
+      return getPid();
     }
 
     public static final int TABLE_ID_FIELD_NUMBER = 4;
@@ -8139,8 +8162,8 @@ public final class Ddl {
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      if (!key_.isEmpty()) {
-        output.writeBytes(2, key_);
+      if (pid_ != null) {
+        output.writeMessage(2, getPid());
       }
       if (tableId_ != null) {
         output.writeMessage(4, getTableId());
@@ -8161,9 +8184,9 @@ public final class Ddl {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
-      if (!key_.isEmpty()) {
+      if (pid_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, key_);
+          .computeMessageSize(2, getPid());
       }
       if (tableId_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -8183,18 +8206,21 @@ public final class Ddl {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof greptime.v1.meta.Ddl.SubmitDdlTaskResponse)) {
+      if (!(obj instanceof greptime.v1.meta.Ddl.DdlTaskResponse)) {
         return super.equals(obj);
       }
-      greptime.v1.meta.Ddl.SubmitDdlTaskResponse other = (greptime.v1.meta.Ddl.SubmitDdlTaskResponse) obj;
+      greptime.v1.meta.Ddl.DdlTaskResponse other = (greptime.v1.meta.Ddl.DdlTaskResponse) obj;
 
       if (hasHeader() != other.hasHeader()) return false;
       if (hasHeader()) {
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
-      if (!getKey()
-          .equals(other.getKey())) return false;
+      if (hasPid() != other.hasPid()) return false;
+      if (hasPid()) {
+        if (!getPid()
+            .equals(other.getPid())) return false;
+      }
       if (hasTableId() != other.hasTableId()) return false;
       if (hasTableId()) {
         if (!getTableId()
@@ -8217,8 +8243,10 @@ public final class Ddl {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
       }
-      hash = (37 * hash) + KEY_FIELD_NUMBER;
-      hash = (53 * hash) + getKey().hashCode();
+      if (hasPid()) {
+        hash = (37 * hash) + PID_FIELD_NUMBER;
+        hash = (53 * hash) + getPid().hashCode();
+      }
       if (hasTableId()) {
         hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
         hash = (53 * hash) + getTableId().hashCode();
@@ -8232,69 +8260,69 @@ public final class Ddl {
       return hash;
     }
 
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(byte[] data)
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(java.io.InputStream input)
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseDelimitedFrom(java.io.InputStream input)
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseDelimitedFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse parseFrom(
+    public static greptime.v1.meta.Ddl.DdlTaskResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8307,7 +8335,7 @@ public final class Ddl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(greptime.v1.meta.Ddl.SubmitDdlTaskResponse prototype) {
+    public static Builder newBuilder(greptime.v1.meta.Ddl.DdlTaskResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -8323,26 +8351,26 @@ public final class Ddl {
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.meta.SubmitDdlTaskResponse}
+     * Protobuf type {@code greptime.v1.meta.DdlTaskResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.SubmitDdlTaskResponse)
-        greptime.v1.meta.Ddl.SubmitDdlTaskResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.DdlTaskResponse)
+        greptime.v1.meta.Ddl.DdlTaskResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskResponse_descriptor;
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskResponse_fieldAccessorTable
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                greptime.v1.meta.Ddl.SubmitDdlTaskResponse.class, greptime.v1.meta.Ddl.SubmitDdlTaskResponse.Builder.class);
+                greptime.v1.meta.Ddl.DdlTaskResponse.class, greptime.v1.meta.Ddl.DdlTaskResponse.Builder.class);
       }
 
-      // Construct using greptime.v1.meta.Ddl.SubmitDdlTaskResponse.newBuilder()
+      // Construct using greptime.v1.meta.Ddl.DdlTaskResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8367,8 +8395,12 @@ public final class Ddl {
           header_ = null;
           headerBuilder_ = null;
         }
-        key_ = com.google.protobuf.ByteString.EMPTY;
-
+        if (pidBuilder_ == null) {
+          pid_ = null;
+        } else {
+          pid_ = null;
+          pidBuilder_ = null;
+        }
         if (tableIdBuilder_ == null) {
           tableId_ = null;
         } else {
@@ -8387,17 +8419,17 @@ public final class Ddl {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_SubmitDdlTaskResponse_descriptor;
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DdlTaskResponse_descriptor;
       }
 
       @java.lang.Override
-      public greptime.v1.meta.Ddl.SubmitDdlTaskResponse getDefaultInstanceForType() {
-        return greptime.v1.meta.Ddl.SubmitDdlTaskResponse.getDefaultInstance();
+      public greptime.v1.meta.Ddl.DdlTaskResponse getDefaultInstanceForType() {
+        return greptime.v1.meta.Ddl.DdlTaskResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public greptime.v1.meta.Ddl.SubmitDdlTaskResponse build() {
-        greptime.v1.meta.Ddl.SubmitDdlTaskResponse result = buildPartial();
+      public greptime.v1.meta.Ddl.DdlTaskResponse build() {
+        greptime.v1.meta.Ddl.DdlTaskResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -8405,15 +8437,19 @@ public final class Ddl {
       }
 
       @java.lang.Override
-      public greptime.v1.meta.Ddl.SubmitDdlTaskResponse buildPartial() {
-        greptime.v1.meta.Ddl.SubmitDdlTaskResponse result = new greptime.v1.meta.Ddl.SubmitDdlTaskResponse(this);
+      public greptime.v1.meta.Ddl.DdlTaskResponse buildPartial() {
+        greptime.v1.meta.Ddl.DdlTaskResponse result = new greptime.v1.meta.Ddl.DdlTaskResponse(this);
         int from_bitField0_ = bitField0_;
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
           result.header_ = headerBuilder_.build();
         }
-        result.key_ = key_;
+        if (pidBuilder_ == null) {
+          result.pid_ = pid_;
+        } else {
+          result.pid_ = pidBuilder_.build();
+        }
         if (tableIdBuilder_ == null) {
           result.tableId_ = tableId_;
         } else {
@@ -8466,21 +8502,21 @@ public final class Ddl {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.meta.Ddl.SubmitDdlTaskResponse) {
-          return mergeFrom((greptime.v1.meta.Ddl.SubmitDdlTaskResponse)other);
+        if (other instanceof greptime.v1.meta.Ddl.DdlTaskResponse) {
+          return mergeFrom((greptime.v1.meta.Ddl.DdlTaskResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(greptime.v1.meta.Ddl.SubmitDdlTaskResponse other) {
-        if (other == greptime.v1.meta.Ddl.SubmitDdlTaskResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(greptime.v1.meta.Ddl.DdlTaskResponse other) {
+        if (other == greptime.v1.meta.Ddl.DdlTaskResponse.getDefaultInstance()) return this;
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
-          setKey(other.getKey());
+        if (other.hasPid()) {
+          mergePid(other.getPid());
         }
         if (other.hasTableId()) {
           mergeTableId(other.getTableId());
@@ -8526,11 +8562,11 @@ public final class Ddl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        greptime.v1.meta.Ddl.SubmitDdlTaskResponse parsedMessage = null;
+        greptime.v1.meta.Ddl.DdlTaskResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.meta.Ddl.SubmitDdlTaskResponse) e.getUnfinishedMessage();
+          parsedMessage = (greptime.v1.meta.Ddl.DdlTaskResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -8660,50 +8696,123 @@ public final class Ddl {
         return headerBuilder_;
       }
 
-      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+      private greptime.v1.meta.Common.ProcedureId pid_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> pidBuilder_;
       /**
-       * <pre>
-       * Key is the identifier for the ddl task.
-       * </pre>
-       *
-       * <code>bytes key = 2;</code>
-       * @return The key.
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       * @return Whether the pid field is set.
        */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getKey() {
-        return key_;
+      public boolean hasPid() {
+        return pidBuilder_ != null || pid_ != null;
       }
       /**
-       * <pre>
-       * Key is the identifier for the ddl task.
-       * </pre>
-       *
-       * <code>bytes key = 2;</code>
-       * @param value The key to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       * @return The pid.
        */
-      public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        key_ = value;
-        onChanged();
+      public greptime.v1.meta.Common.ProcedureId getPid() {
+        if (pidBuilder_ == null) {
+          return pid_ == null ? greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+        } else {
+          return pidBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder setPid(greptime.v1.meta.Common.ProcedureId value) {
+        if (pidBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          pid_ = value;
+          onChanged();
+        } else {
+          pidBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <pre>
-       * Key is the identifier for the ddl task.
-       * </pre>
-       *
-       * <code>bytes key = 2;</code>
-       * @return This builder for chaining.
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
        */
-      public Builder clearKey() {
+      public Builder setPid(
+          greptime.v1.meta.Common.ProcedureId.Builder builderForValue) {
+        if (pidBuilder_ == null) {
+          pid_ = builderForValue.build();
+          onChanged();
+        } else {
+          pidBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder mergePid(greptime.v1.meta.Common.ProcedureId value) {
+        if (pidBuilder_ == null) {
+          if (pid_ != null) {
+            pid_ =
+              greptime.v1.meta.Common.ProcedureId.newBuilder(pid_).mergeFrom(value).buildPartial();
+          } else {
+            pid_ = value;
+          }
+          onChanged();
+        } else {
+          pidBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder clearPid() {
+        if (pidBuilder_ == null) {
+          pid_ = null;
+          onChanged();
+        } else {
+          pid_ = null;
+          pidBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureId.Builder getPidBuilder() {
         
-        key_ = getDefaultInstance().getKey();
         onChanged();
-        return this;
+        return getPidFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
+        if (pidBuilder_ != null) {
+          return pidBuilder_.getMessageOrBuilder();
+        } else {
+          return pid_ == null ?
+              greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> 
+          getPidFieldBuilder() {
+        if (pidBuilder_ == null) {
+          pidBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder>(
+                  getPid(),
+                  getParentForChildren(),
+                  isClean());
+          pid_ = null;
+        }
+        return pidBuilder_;
       }
 
       private greptime.v1.meta.Common.TableId tableId_;
@@ -9194,41 +9303,41 @@ public final class Ddl {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.SubmitDdlTaskResponse)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.DdlTaskResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.meta.SubmitDdlTaskResponse)
-    private static final greptime.v1.meta.Ddl.SubmitDdlTaskResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.DdlTaskResponse)
+    private static final greptime.v1.meta.Ddl.DdlTaskResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.SubmitDdlTaskResponse();
+      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.DdlTaskResponse();
     }
 
-    public static greptime.v1.meta.Ddl.SubmitDdlTaskResponse getDefaultInstance() {
+    public static greptime.v1.meta.Ddl.DdlTaskResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<SubmitDdlTaskResponse>
-        PARSER = new com.google.protobuf.AbstractParser<SubmitDdlTaskResponse>() {
+    private static final com.google.protobuf.Parser<DdlTaskResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DdlTaskResponse>() {
       @java.lang.Override
-      public SubmitDdlTaskResponse parsePartialFrom(
+      public DdlTaskResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SubmitDdlTaskResponse(input, extensionRegistry);
+        return new DdlTaskResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<SubmitDdlTaskResponse> parser() {
+    public static com.google.protobuf.Parser<DdlTaskResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<SubmitDdlTaskResponse> getParserForType() {
+    public com.google.protobuf.Parser<DdlTaskResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public greptime.v1.meta.Ddl.SubmitDdlTaskResponse getDefaultInstanceForType() {
+    public greptime.v1.meta.Ddl.DdlTaskResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9270,15 +9379,15 @@ public final class Ddl {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_TruncateTableTask_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_SubmitDdlTaskRequest_descriptor;
+    internal_static_greptime_v1_meta_DdlTaskRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_SubmitDdlTaskRequest_fieldAccessorTable;
+      internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_SubmitDdlTaskResponse_descriptor;
+    internal_static_greptime_v1_meta_DdlTaskResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_SubmitDdlTaskResponse_fieldAccessorTable;
+      internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9305,30 +9414,27 @@ public final class Ddl {
       "sks\030\001 \003(\0132 .greptime.v1.meta.AlterTableT" +
       "ask\"K\n\021TruncateTableTask\0226\n\016truncate_tab" +
       "le\030\001 \001(\0132\036.greptime.v1.TruncateTableExpr" +
-      "\"\215\004\n\024SubmitDdlTaskRequest\022/\n\006header\030\001 \001(" +
-      "\0132\037.greptime.v1.meta.RequestHeader\022>\n\021cr" +
-      "eate_table_task\030\002 \001(\0132!.greptime.v1.meta" +
-      ".CreateTableTaskH\000\022:\n\017drop_table_task\030\003 " +
-      "\001(\0132\037.greptime.v1.meta.DropTableTaskH\000\022<" +
-      "\n\020alter_table_task\030\004 \001(\0132 .greptime.v1.m" +
-      "eta.AlterTableTaskH\000\022B\n\023truncate_table_t" +
-      "ask\030\005 \001(\0132#.greptime.v1.meta.TruncateTab" +
-      "leTaskH\000\022@\n\022create_table_tasks\030\006 \001(\0132\".g" +
-      "reptime.v1.meta.CreateTableTasksH\000\022<\n\020dr" +
-      "op_table_tasks\030\007 \001(\0132 .greptime.v1.meta." +
-      "DropTableTasksH\000\022>\n\021alter_table_tasks\030\010 " +
-      "\001(\0132!.greptime.v1.meta.AlterTableTasksH\000" +
-      "B\006\n\004task\"\261\001\n\025SubmitDdlTaskResponse\0220\n\006he" +
-      "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
-      "ader\022\013\n\003key\030\002 \001(\014\022+\n\010table_id\030\004 \001(\0132\031.gr" +
-      "eptime.v1.meta.TableId\022,\n\ttable_ids\030\005 \003(" +
-      "\0132\031.greptime.v1.meta.TableId*#\n\013DdlTaskT" +
-      "ype\022\n\n\006Create\020\000\022\010\n\004Drop\020\0012k\n\007DdlTask\022`\n\r" +
-      "SubmitDdlTask\022&.greptime.v1.meta.SubmitD" +
-      "dlTaskRequest\032\'.greptime.v1.meta.SubmitD" +
-      "dlTaskResponseB<Z:github.com/GreptimeTea" +
-      "m/greptime-proto/go/greptime/v1/metab\006pr" +
-      "oto3"
+      "\"\207\004\n\016DdlTaskRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
+      "eptime.v1.meta.RequestHeader\022>\n\021create_t" +
+      "able_task\030\002 \001(\0132!.greptime.v1.meta.Creat" +
+      "eTableTaskH\000\022:\n\017drop_table_task\030\003 \001(\0132\037." +
+      "greptime.v1.meta.DropTableTaskH\000\022<\n\020alte" +
+      "r_table_task\030\004 \001(\0132 .greptime.v1.meta.Al" +
+      "terTableTaskH\000\022B\n\023truncate_table_task\030\005 " +
+      "\001(\0132#.greptime.v1.meta.TruncateTableTask" +
+      "H\000\022@\n\022create_table_tasks\030\006 \001(\0132\".greptim" +
+      "e.v1.meta.CreateTableTasksH\000\022<\n\020drop_tab" +
+      "le_tasks\030\007 \001(\0132 .greptime.v1.meta.DropTa" +
+      "bleTasksH\000\022>\n\021alter_table_tasks\030\010 \001(\0132!." +
+      "greptime.v1.meta.AlterTableTasksH\000B\006\n\004ta" +
+      "sk\"\312\001\n\017DdlTaskResponse\0220\n\006header\030\001 \001(\0132 " +
+      ".greptime.v1.meta.ResponseHeader\022*\n\003pid\030" +
+      "\002 \001(\0132\035.greptime.v1.meta.ProcedureId\022+\n\010" +
+      "table_id\030\004 \001(\0132\031.greptime.v1.meta.TableI" +
+      "d\022,\n\ttable_ids\030\005 \003(\0132\031.greptime.v1.meta." +
+      "TableId*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Dr" +
+      "op\020\001B<Z:github.com/GreptimeTeam/greptime" +
+      "-proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9379,18 +9485,18 @@ public final class Ddl {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_TruncateTableTask_descriptor,
         new java.lang.String[] { "TruncateTable", });
-    internal_static_greptime_v1_meta_SubmitDdlTaskRequest_descriptor =
+    internal_static_greptime_v1_meta_DdlTaskRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_greptime_v1_meta_SubmitDdlTaskRequest_fieldAccessorTable = new
+    internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_SubmitDdlTaskRequest_descriptor,
+        internal_static_greptime_v1_meta_DdlTaskRequest_descriptor,
         new java.lang.String[] { "Header", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "Task", });
-    internal_static_greptime_v1_meta_SubmitDdlTaskResponse_descriptor =
+    internal_static_greptime_v1_meta_DdlTaskResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_greptime_v1_meta_SubmitDdlTaskResponse_fieldAccessorTable = new
+    internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_SubmitDdlTaskResponse_descriptor,
-        new java.lang.String[] { "Header", "Key", "TableId", "TableIds", });
+        internal_static_greptime_v1_meta_DdlTaskResponse_descriptor,
+        new java.lang.String[] { "Header", "Pid", "TableId", "TableIds", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
