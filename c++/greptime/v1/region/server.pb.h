@@ -131,6 +131,9 @@ extern RegionRequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _Regi
 class RegionResponse;
 struct RegionResponseDefaultTypeInternal;
 extern RegionResponseDefaultTypeInternal _RegionResponse_default_instance_;
+class RegionResponse_ExtensionEntry_DoNotUse;
+struct RegionResponse_ExtensionEntry_DoNotUseDefaultTypeInternal;
+extern RegionResponse_ExtensionEntry_DoNotUseDefaultTypeInternal _RegionResponse_ExtensionEntry_DoNotUse_default_instance_;
 class TruncateRequest;
 struct TruncateRequestDefaultTypeInternal;
 extern TruncateRequestDefaultTypeInternal _TruncateRequest_default_instance_;
@@ -164,6 +167,7 @@ template<> ::greptime::v1::region::RegionRequest* Arena::CreateMaybeMessage<::gr
 template<> ::greptime::v1::region::RegionRequestHeader* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader>(Arena*);
 template<> ::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
+template<> ::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::TruncateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::TruncateRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -837,6 +841,32 @@ class RegionRequest final :
 };
 // -------------------------------------------------------------------
 
+class RegionResponse_ExtensionEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionResponse_ExtensionEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionResponse_ExtensionEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> SuperType;
+  RegionResponse_ExtensionEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR RegionResponse_ExtensionEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit RegionResponse_ExtensionEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const RegionResponse_ExtensionEntry_DoNotUse& other);
+  static const RegionResponse_ExtensionEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const RegionResponse_ExtensionEntry_DoNotUse*>(&_RegionResponse_ExtensionEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.region.RegionResponse.ExtensionEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class RegionResponse final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionResponse) */ {
  public:
@@ -885,7 +915,7 @@ class RegionResponse final :
                &_RegionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(RegionResponse& a, RegionResponse& b) {
     a.Swap(&b);
@@ -946,6 +976,8 @@ class RegionResponse final :
   protected:
   explicit RegionResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -955,12 +987,31 @@ class RegionResponse final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kExtensionFieldNumber = 3,
     kHeaderFieldNumber = 1,
     kAffectedRowsFieldNumber = 2,
   };
+  // map<string, bytes> extension = 3;
+  int extension_size() const;
+  private:
+  int _internal_extension_size() const;
+  public:
+  void clear_extension();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_extension() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_extension();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      extension() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_extension();
+
   // .greptime.v1.ResponseHeader header = 1;
   bool has_header() const;
   private:
@@ -996,6 +1047,11 @@ class RegionResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        RegionResponse_ExtensionEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extension_;
     ::greptime::v1::ResponseHeader* header_;
     uint64_t affected_rows_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1053,7 +1109,7 @@ class InsertRequests final :
                &_InsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(InsertRequests& a, InsertRequests& b) {
     a.Swap(&b);
@@ -1210,7 +1266,7 @@ class DeleteRequests final :
                &_DeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(DeleteRequests& a, DeleteRequests& b) {
     a.Swap(&b);
@@ -1367,7 +1423,7 @@ class InsertRequest final :
                &_InsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(InsertRequest& a, InsertRequest& b) {
     a.Swap(&b);
@@ -1535,7 +1591,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
     a.Swap(&b);
@@ -1703,7 +1759,7 @@ class QueryRequest final :
                &_QueryRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(QueryRequest& a, QueryRequest& b) {
     a.Swap(&b);
@@ -1887,7 +1943,7 @@ class CreateRequests final :
                &_CreateRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(CreateRequests& a, CreateRequests& b) {
     a.Swap(&b);
@@ -2072,7 +2128,7 @@ class CreateRequest final :
                &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(CreateRequest& a, CreateRequest& b) {
     a.Swap(&b);
@@ -2323,7 +2379,7 @@ class DropRequests final :
                &_DropRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(DropRequests& a, DropRequests& b) {
     a.Swap(&b);
@@ -2480,7 +2536,7 @@ class DropRequest final :
                &_DropRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(DropRequest& a, DropRequest& b) {
     a.Swap(&b);
@@ -2656,7 +2712,7 @@ class OpenRequest final :
                &_OpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(OpenRequest& a, OpenRequest& b) {
     a.Swap(&b);
@@ -2862,7 +2918,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -3010,7 +3066,7 @@ class AlterRequests final :
                &_AlterRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(AlterRequests& a, AlterRequests& b) {
     a.Swap(&b);
@@ -3173,7 +3229,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -3385,7 +3441,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -3542,7 +3598,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -3699,7 +3755,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -3876,7 +3932,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -4029,7 +4085,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -4177,7 +4233,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -4325,7 +4381,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -4473,7 +4529,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -5750,6 +5806,8 @@ inline RegionRequest::BodyCase RegionRequest::body_case() const {
 }
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // RegionResponse
 
 // .greptime.v1.ResponseHeader header = 1;
@@ -5855,6 +5913,35 @@ inline void RegionResponse::_internal_set_affected_rows(uint64_t value) {
 inline void RegionResponse::set_affected_rows(uint64_t value) {
   _internal_set_affected_rows(value);
   // @@protoc_insertion_point(field_set:greptime.v1.region.RegionResponse.affected_rows)
+}
+
+// map<string, bytes> extension = 3;
+inline int RegionResponse::_internal_extension_size() const {
+  return _impl_.extension_.size();
+}
+inline int RegionResponse::extension_size() const {
+  return _internal_extension_size();
+}
+inline void RegionResponse::clear_extension() {
+  _impl_.extension_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+RegionResponse::_internal_extension() const {
+  return _impl_.extension_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+RegionResponse::extension() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.region.RegionResponse.extension)
+  return _internal_extension();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+RegionResponse::_internal_mutable_extension() {
+  return _impl_.extension_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+RegionResponse::mutable_extension() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.region.RegionResponse.extension)
+  return _internal_mutable_extension();
 }
 
 // -------------------------------------------------------------------
@@ -7610,6 +7697,8 @@ inline void RegionColumnDef::set_column_id(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
