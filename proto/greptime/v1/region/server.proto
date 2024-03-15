@@ -27,7 +27,8 @@ import "greptime/v1/ddl.proto";
 service Region { rpc Handle(RegionRequest) returns (RegionResponse); }
 
 message RegionRequestHeader {
-  // Encoded trace_id & span_id, follow the w3c Trace Context https://www.w3.org/TR/trace-context/#header-name
+  // Encoded trace_id & span_id, follow the w3c Trace Context
+  // https://www.w3.org/TR/trace-context/#header-name
   map<string, string> tracing_context = 5;
   // DB Name of request, tracking only
   string dbname = 3;
@@ -56,6 +57,7 @@ message RegionRequest {
 message RegionResponse {
   ResponseHeader header = 1;
   uint64 affected_rows = 2;
+  map<string, bytes> extension = 3;
 }
 
 message InsertRequests { repeated InsertRequest requests = 1; }
@@ -79,9 +81,9 @@ message QueryRequest {
   bytes plan = 3;
 }
 
-// Create a batch of regions at once, usually used to create multiple logical regions
-// at once. Different engines can choose whether to support this request.
-// Metric Engine needs it.
+// Create a batch of regions at once, usually used to create multiple logical
+// regions at once. Different engines can choose whether to support this
+// request. Metric Engine needs it.
 message CreateRequests { repeated CreateRequest requests = 1; }
 
 message CreateRequest {
