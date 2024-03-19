@@ -82,6 +82,12 @@ message TruncateTableExpr {
   TableId table_id = 4;
 }
 
+message DropDatabaseExpr {
+  string catalog_name = 1;
+  string schema_name = 2;
+  bool drop_if_exists = 3;
+}
+
 message AddColumns { repeated AddColumn add_columns = 1; }
 
 message DropColumns { repeated DropColumn drop_columns = 1; }
