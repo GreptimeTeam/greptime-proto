@@ -51,6 +51,10 @@ message TruncateTableTask {
     TruncateTableExpr truncate_table = 1;
 }
 
+message DropDatabaseTask {
+    DropDatabaseExpr drop_database = 1;
+}
+
 message DdlTaskRequest {
     RequestHeader header = 1;
 
@@ -62,6 +66,7 @@ message DdlTaskRequest {
         CreateTableTasks create_table_tasks = 6;
         DropTableTasks drop_table_tasks = 7;
         AlterTableTasks alter_table_tasks = 8;
+        DropDatabaseTask drop_database_task = 9;
      }
 }
 
