@@ -48,6 +48,7 @@ fn main() {
                 "proto/greptime/v1/index/inverted_index.proto",
                 "proto/prometheus/remote/remote.proto",
                 "proto/substrait_extension/promql_plan.proto",
+                "proto/greptime/v1/notify.proto",
             ],
             &["proto"],
         )
