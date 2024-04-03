@@ -99,17 +99,18 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me"
   "ta.ResponseHeader\0221\n\006status\030\002 \001(\0162!.grep"
   "time.v1.meta.ProcedureStatus\022\r\n\005error\030\003 "
-  "\001(\t*B\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004D"
-  "one\020\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\0032\226\002\n\020Proc"
-  "edureService\022Z\n\005query\022\'.greptime.v1.meta"
-  ".QueryProcedureRequest\032(.greptime.v1.met"
-  "a.ProcedureStateResponse\022J\n\003ddl\022 .grepti"
-  "me.v1.meta.DdlTaskRequest\032!.greptime.v1."
-  "meta.DdlTaskResponse\022Z\n\007migrate\022&.grepti"
-  "me.v1.meta.MigrateRegionRequest\032\'.grepti"
-  "me.v1.meta.MigrateRegionResponseB<Z:gith"
-  "ub.com/GreptimeTeam/greptime-proto/go/gr"
-  "eptime/v1/metab\006proto3"
+  "\001(\t*g\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004D"
+  "one\020\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\022\n\016Commi"
+  "tRollback\020\004\022\017\n\013RollingBack\020\0052\226\002\n\020Procedu"
+  "reService\022Z\n\005query\022\'.greptime.v1.meta.Qu"
+  "eryProcedureRequest\032(.greptime.v1.meta.P"
+  "rocedureStateResponse\022J\n\003ddl\022 .greptime."
+  "v1.meta.DdlTaskRequest\032!.greptime.v1.met"
+  "a.DdlTaskResponse\022Z\n\007migrate\022&.greptime."
+  "v1.meta.MigrateRegionRequest\032\'.greptime."
+  "v1.meta.MigrateRegionResponseB<Z:github."
+  "com/GreptimeTeam/greptime-proto/go/grept"
+  "ime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
@@ -118,7 +119,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto = {
-    false, false, 822, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
+    false, false, 859, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     "greptime/v1/meta/procedure.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 2,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets,
@@ -144,6 +145,8 @@ bool ProcedureStatus_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+    case 4:
+    case 5:
       return true;
     default:
       return false;
