@@ -73,7 +73,7 @@ enum ProcedureStatus : int {
   Done = 1,
   Retrying = 2,
   Failed = 3,
-  CommitRollback = 4,
+  PrepareRollback = 4,
   RollingBack = 5,
   ProcedureStatus_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ProcedureStatus_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()

@@ -36,9 +36,9 @@ public final class Procedure {
      */
     Failed(3),
     /**
-     * <code>CommitRollback = 4;</code>
+     * <code>PrepareRollback = 4;</code>
      */
-    CommitRollback(4),
+    PrepareRollback(4),
     /**
      * <code>RollingBack = 5;</code>
      */
@@ -63,9 +63,9 @@ public final class Procedure {
      */
     public static final int Failed_VALUE = 3;
     /**
-     * <code>CommitRollback = 4;</code>
+     * <code>PrepareRollback = 4;</code>
      */
-    public static final int CommitRollback_VALUE = 4;
+    public static final int PrepareRollback_VALUE = 4;
     /**
      * <code>RollingBack = 5;</code>
      */
@@ -100,7 +100,7 @@ public final class Procedure {
         case 1: return Done;
         case 2: return Retrying;
         case 3: return Failed;
-        case 4: return CommitRollback;
+        case 4: return PrepareRollback;
         case 5: return RollingBack;
         default: return null;
       }
@@ -1893,18 +1893,18 @@ public final class Procedure {
       "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me" +
       "ta.ResponseHeader\0221\n\006status\030\002 \001(\0162!.grep" +
       "time.v1.meta.ProcedureStatus\022\r\n\005error\030\003 " +
-      "\001(\t*g\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004D" +
-      "one\020\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\022\n\016Commi" +
-      "tRollback\020\004\022\017\n\013RollingBack\020\0052\226\002\n\020Procedu" +
-      "reService\022Z\n\005query\022\'.greptime.v1.meta.Qu" +
-      "eryProcedureRequest\032(.greptime.v1.meta.P" +
-      "rocedureStateResponse\022J\n\003ddl\022 .greptime." +
-      "v1.meta.DdlTaskRequest\032!.greptime.v1.met" +
-      "a.DdlTaskResponse\022Z\n\007migrate\022&.greptime." +
-      "v1.meta.MigrateRegionRequest\032\'.greptime." +
-      "v1.meta.MigrateRegionResponseB<Z:github." +
-      "com/GreptimeTeam/greptime-proto/go/grept" +
-      "ime/v1/metab\006proto3"
+      "\001(\t*h\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004D" +
+      "one\020\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017Prepa" +
+      "reRollback\020\004\022\017\n\013RollingBack\020\0052\226\002\n\020Proced" +
+      "ureService\022Z\n\005query\022\'.greptime.v1.meta.Q" +
+      "ueryProcedureRequest\032(.greptime.v1.meta." +
+      "ProcedureStateResponse\022J\n\003ddl\022 .greptime" +
+      ".v1.meta.DdlTaskRequest\032!.greptime.v1.me" +
+      "ta.DdlTaskResponse\022Z\n\007migrate\022&.greptime" +
+      ".v1.meta.MigrateRegionRequest\032\'.greptime" +
+      ".v1.meta.MigrateRegionResponseB<Z:github" +
+      ".com/GreptimeTeam/greptime-proto/go/grep" +
+      "time/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

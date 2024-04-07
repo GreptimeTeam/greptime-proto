@@ -17,7 +17,7 @@ enum ProcedureStatus {
     Done = 1;
     Retrying = 2;
     Failed = 3;
-    CommitRollback = 4;
+    PrepareRollback = 4;
     RollingBack = 5;
 }
 
