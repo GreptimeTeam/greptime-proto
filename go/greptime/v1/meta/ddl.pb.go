@@ -81,6 +81,53 @@ func (DdlTaskType) EnumDescriptor() ([]byte, []int) {
 	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{0}
 }
 
+type CreateDatabaseTask struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CreateDatabase *v1.CreateDatabaseExpr `protobuf:"bytes,1,opt,name=create_database,json=createDatabase,proto3" json:"create_database,omitempty"`
+}
+
+func (x *CreateDatabaseTask) Reset() {
+	*x = CreateDatabaseTask{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateDatabaseTask) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateDatabaseTask) ProtoMessage() {}
+
+func (x *CreateDatabaseTask) ProtoReflect() protoreflect.Message {
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateDatabaseTask.ProtoReflect.Descriptor instead.
+func (*CreateDatabaseTask) Descriptor() ([]byte, []int) {
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *CreateDatabaseTask) GetCreateDatabase() *v1.CreateDatabaseExpr {
+	if x != nil {
+		return x.CreateDatabase
+	}
+	return nil
+}
+
 type CreateTableTask struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -94,7 +141,7 @@ type CreateTableTask struct {
 func (x *CreateTableTask) Reset() {
 	*x = CreateTableTask{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[0]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -107,7 +154,7 @@ func (x *CreateTableTask) String() string {
 func (*CreateTableTask) ProtoMessage() {}
 
 func (x *CreateTableTask) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[0]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -120,7 +167,7 @@ func (x *CreateTableTask) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTableTask.ProtoReflect.Descriptor instead.
 func (*CreateTableTask) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{0}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateTableTask) GetCreateTable() *v1.CreateTableExpr {
@@ -155,7 +202,7 @@ type CreateTableTasks struct {
 func (x *CreateTableTasks) Reset() {
 	*x = CreateTableTasks{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[1]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -168,7 +215,7 @@ func (x *CreateTableTasks) String() string {
 func (*CreateTableTasks) ProtoMessage() {}
 
 func (x *CreateTableTasks) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[1]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +228,7 @@ func (x *CreateTableTasks) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTableTasks.ProtoReflect.Descriptor instead.
 func (*CreateTableTasks) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{1}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateTableTasks) GetTasks() []*CreateTableTask {
@@ -202,7 +249,7 @@ type DropTableTask struct {
 func (x *DropTableTask) Reset() {
 	*x = DropTableTask{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[2]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -215,7 +262,7 @@ func (x *DropTableTask) String() string {
 func (*DropTableTask) ProtoMessage() {}
 
 func (x *DropTableTask) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[2]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -228,7 +275,7 @@ func (x *DropTableTask) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropTableTask.ProtoReflect.Descriptor instead.
 func (*DropTableTask) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{2}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *DropTableTask) GetDropTable() *v1.DropTableExpr {
@@ -249,7 +296,7 @@ type DropTableTasks struct {
 func (x *DropTableTasks) Reset() {
 	*x = DropTableTasks{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[3]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -262,7 +309,7 @@ func (x *DropTableTasks) String() string {
 func (*DropTableTasks) ProtoMessage() {}
 
 func (x *DropTableTasks) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[3]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -275,7 +322,7 @@ func (x *DropTableTasks) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropTableTasks.ProtoReflect.Descriptor instead.
 func (*DropTableTasks) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{3}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *DropTableTasks) GetTasks() []*DropTableTask {
@@ -296,7 +343,7 @@ type AlterTableTask struct {
 func (x *AlterTableTask) Reset() {
 	*x = AlterTableTask{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[4]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -309,7 +356,7 @@ func (x *AlterTableTask) String() string {
 func (*AlterTableTask) ProtoMessage() {}
 
 func (x *AlterTableTask) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[4]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -322,7 +369,7 @@ func (x *AlterTableTask) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlterTableTask.ProtoReflect.Descriptor instead.
 func (*AlterTableTask) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{4}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AlterTableTask) GetAlterTable() *v1.AlterExpr {
@@ -343,7 +390,7 @@ type AlterTableTasks struct {
 func (x *AlterTableTasks) Reset() {
 	*x = AlterTableTasks{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[5]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -356,7 +403,7 @@ func (x *AlterTableTasks) String() string {
 func (*AlterTableTasks) ProtoMessage() {}
 
 func (x *AlterTableTasks) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[5]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -369,7 +416,7 @@ func (x *AlterTableTasks) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlterTableTasks.ProtoReflect.Descriptor instead.
 func (*AlterTableTasks) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{5}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *AlterTableTasks) GetTasks() []*AlterTableTask {
@@ -390,7 +437,7 @@ type TruncateTableTask struct {
 func (x *TruncateTableTask) Reset() {
 	*x = TruncateTableTask{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[6]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -403,7 +450,7 @@ func (x *TruncateTableTask) String() string {
 func (*TruncateTableTask) ProtoMessage() {}
 
 func (x *TruncateTableTask) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[6]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -416,7 +463,7 @@ func (x *TruncateTableTask) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TruncateTableTask.ProtoReflect.Descriptor instead.
 func (*TruncateTableTask) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{6}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *TruncateTableTask) GetTruncateTable() *v1.TruncateTableExpr {
@@ -437,7 +484,7 @@ type DropDatabaseTask struct {
 func (x *DropDatabaseTask) Reset() {
 	*x = DropDatabaseTask{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[7]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -450,7 +497,7 @@ func (x *DropDatabaseTask) String() string {
 func (*DropDatabaseTask) ProtoMessage() {}
 
 func (x *DropDatabaseTask) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[7]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -463,7 +510,7 @@ func (x *DropDatabaseTask) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropDatabaseTask.ProtoReflect.Descriptor instead.
 func (*DropDatabaseTask) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{7}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *DropDatabaseTask) GetDropDatabase() *v1.DropDatabaseExpr {
@@ -489,13 +536,14 @@ type DdlTaskRequest struct {
 	//	*DdlTaskRequest_DropTableTasks
 	//	*DdlTaskRequest_AlterTableTasks
 	//	*DdlTaskRequest_DropDatabaseTask
+	//	*DdlTaskRequest_CreateDatabaseTask
 	Task isDdlTaskRequest_Task `protobuf_oneof:"task"`
 }
 
 func (x *DdlTaskRequest) Reset() {
 	*x = DdlTaskRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[8]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -508,7 +556,7 @@ func (x *DdlTaskRequest) String() string {
 func (*DdlTaskRequest) ProtoMessage() {}
 
 func (x *DdlTaskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[8]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -521,7 +569,7 @@ func (x *DdlTaskRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DdlTaskRequest.ProtoReflect.Descriptor instead.
 func (*DdlTaskRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{8}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *DdlTaskRequest) GetHeader() *RequestHeader {
@@ -594,6 +642,13 @@ func (x *DdlTaskRequest) GetDropDatabaseTask() *DropDatabaseTask {
 	return nil
 }
 
+func (x *DdlTaskRequest) GetCreateDatabaseTask() *CreateDatabaseTask {
+	if x, ok := x.GetTask().(*DdlTaskRequest_CreateDatabaseTask); ok {
+		return x.CreateDatabaseTask
+	}
+	return nil
+}
+
 type isDdlTaskRequest_Task interface {
 	isDdlTaskRequest_Task()
 }
@@ -630,6 +685,10 @@ type DdlTaskRequest_DropDatabaseTask struct {
 	DropDatabaseTask *DropDatabaseTask `protobuf:"bytes,9,opt,name=drop_database_task,json=dropDatabaseTask,proto3,oneof"`
 }
 
+type DdlTaskRequest_CreateDatabaseTask struct {
+	CreateDatabaseTask *CreateDatabaseTask `protobuf:"bytes,10,opt,name=create_database_task,json=createDatabaseTask,proto3,oneof"`
+}
+
 func (*DdlTaskRequest_CreateTableTask) isDdlTaskRequest_Task() {}
 
 func (*DdlTaskRequest_DropTableTask) isDdlTaskRequest_Task() {}
@@ -645,6 +704,8 @@ func (*DdlTaskRequest_DropTableTasks) isDdlTaskRequest_Task() {}
 func (*DdlTaskRequest_AlterTableTasks) isDdlTaskRequest_Task() {}
 
 func (*DdlTaskRequest_DropDatabaseTask) isDdlTaskRequest_Task() {}
+
+func (*DdlTaskRequest_CreateDatabaseTask) isDdlTaskRequest_Task() {}
 
 type DdlTaskResponse struct {
 	state         protoimpl.MessageState
@@ -663,7 +724,7 @@ type DdlTaskResponse struct {
 func (x *DdlTaskResponse) Reset() {
 	*x = DdlTaskResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[9]
+		mi := &file_greptime_v1_meta_ddl_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -676,7 +737,7 @@ func (x *DdlTaskResponse) String() string {
 func (*DdlTaskResponse) ProtoMessage() {}
 
 func (x *DdlTaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[9]
+	mi := &file_greptime_v1_meta_ddl_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -689,7 +750,7 @@ func (x *DdlTaskResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DdlTaskResponse.ProtoReflect.Descriptor instead.
 func (*DdlTaskResponse) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{9}
+	return file_greptime_v1_meta_ddl_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DdlTaskResponse) GetHeader() *ResponseHeader {
@@ -731,7 +792,13 @@ var file_greptime_v1_meta_ddl_proto_rawDesc = []byte{
 	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x65, 0x74, 0x61, 0x2f,
 	0x72, 0x6f, 0x75, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x15, 0x67, 0x72, 0x65,
 	0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x2f, 0x64, 0x64, 0x6c, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x22, 0xae, 0x01, 0x0a, 0x0f, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x54, 0x61, 0x62,
+	0x74, 0x6f, 0x22, 0x5e, 0x0a, 0x12, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61,
+	0x62, 0x61, 0x73, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x12, 0x48, 0x0a, 0x0f, 0x63, 0x72, 0x65, 0x61,
+	0x74, 0x65, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x1f, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e,
+	0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x45, 0x78,
+	0x70, 0x72, 0x52, 0x0e, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61,
+	0x73, 0x65, 0x22, 0xae, 0x01, 0x0a, 0x0f, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x54, 0x61, 0x62,
 	0x6c, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x12, 0x3f, 0x0a, 0x0c, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65,
 	0x5f, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67,
 	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74,
@@ -777,7 +844,7 @@ var file_greptime_v1_meta_ddl_proto_rawDesc = []byte{
 	0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31,
 	0x2e, 0x44, 0x72, 0x6f, 0x70, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x45, 0x78, 0x70,
 	0x72, 0x52, 0x0c, 0x64, 0x72, 0x6f, 0x70, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x22,
-	0xd9, 0x05, 0x0a, 0x0e, 0x44, 0x64, 0x6c, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0xb3, 0x06, 0x0a, 0x0e, 0x44, 0x64, 0x6c, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65,
 	0x73, 0x74, 0x12, 0x37, 0x0a, 0x06, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01,
 	0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31,
 	0x2e, 0x6d, 0x65, 0x74, 0x61, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x65, 0x61,
@@ -822,29 +889,34 @@ var file_greptime_v1_meta_ddl_proto_rawDesc = []byte{
 	0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x65, 0x74, 0x61, 0x2e, 0x44,
 	0x72, 0x6f, 0x70, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x48,
 	0x00, 0x52, 0x10, 0x64, 0x72, 0x6f, 0x70, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x54,
-	0x61, 0x73, 0x6b, 0x42, 0x06, 0x0a, 0x04, 0x74, 0x61, 0x73, 0x6b, 0x22, 0xea, 0x01, 0x0a, 0x0f,
-	0x44, 0x64, 0x6c, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x38, 0x0a, 0x06, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x20, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x65,
-	0x74, 0x61, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x48, 0x65, 0x61, 0x64, 0x65,
-	0x72, 0x52, 0x06, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x12, 0x2f, 0x0a, 0x03, 0x70, 0x69, 0x64,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
-	0x65, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x65, 0x74, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x63, 0x65, 0x64,
-	0x75, 0x72, 0x65, 0x49, 0x64, 0x52, 0x03, 0x70, 0x69, 0x64, 0x12, 0x34, 0x0a, 0x08, 0x74, 0x61,
-	0x62, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x67,
-	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x65, 0x74, 0x61, 0x2e,
-	0x54, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64, 0x52, 0x07, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64,
-	0x12, 0x36, 0x0a, 0x09, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x73, 0x18, 0x05, 0x20,
-	0x03, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76,
-	0x31, 0x2e, 0x6d, 0x65, 0x74, 0x61, 0x2e, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64, 0x52, 0x08,
-	0x74, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64, 0x73, 0x2a, 0x23, 0x0a, 0x0b, 0x44, 0x64, 0x6c, 0x54,
-	0x61, 0x73, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x12, 0x0a, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x10, 0x00, 0x12, 0x08, 0x0a, 0x04, 0x44, 0x72, 0x6f, 0x70, 0x10, 0x01, 0x42, 0x3c, 0x5a,
-	0x3a, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70,
-	0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
-	0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74,
-	0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x65, 0x74, 0x61, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x61, 0x73, 0x6b, 0x12, 0x58, 0x0a, 0x14, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x5f, 0x64, 0x61,
+	0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x5f, 0x74, 0x61, 0x73, 0x6b, 0x18, 0x0a, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x24, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e,
+	0x6d, 0x65, 0x74, 0x61, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x62,
+	0x61, 0x73, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x48, 0x00, 0x52, 0x12, 0x63, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x42, 0x06, 0x0a,
+	0x04, 0x74, 0x61, 0x73, 0x6b, 0x22, 0xea, 0x01, 0x0a, 0x0f, 0x44, 0x64, 0x6c, 0x54, 0x61, 0x73,
+	0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x38, 0x0a, 0x06, 0x68, 0x65, 0x61,
+	0x64, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x67, 0x72, 0x65, 0x70,
+	0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x65, 0x74, 0x61, 0x2e, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x48, 0x65, 0x61, 0x64, 0x65, 0x72, 0x52, 0x06, 0x68, 0x65, 0x61,
+	0x64, 0x65, 0x72, 0x12, 0x2f, 0x0a, 0x03, 0x70, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x1d, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x6d,
+	0x65, 0x74, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x63, 0x65, 0x64, 0x75, 0x72, 0x65, 0x49, 0x64, 0x52,
+	0x03, 0x70, 0x69, 0x64, 0x12, 0x34, 0x0a, 0x08, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x69, 0x64,
+	0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
+	0x65, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x65, 0x74, 0x61, 0x2e, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x49,
+	0x64, 0x52, 0x07, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64, 0x12, 0x36, 0x0a, 0x09, 0x74, 0x61,
+	0x62, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x73, 0x18, 0x05, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x19, 0x2e,
+	0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x6d, 0x65, 0x74, 0x61,
+	0x2e, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64, 0x52, 0x08, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x49,
+	0x64, 0x73, 0x2a, 0x23, 0x0a, 0x0b, 0x44, 0x64, 0x6c, 0x54, 0x61, 0x73, 0x6b, 0x54, 0x79, 0x70,
+	0x65, 0x12, 0x0a, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x10, 0x00, 0x12, 0x08, 0x0a,
+	0x04, 0x44, 0x72, 0x6f, 0x70, 0x10, 0x01, 0x42, 0x3c, 0x5a, 0x3a, 0x67, 0x69, 0x74, 0x68, 0x75,
+	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65,
+	0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31,
+	0x2f, 0x6d, 0x65, 0x74, 0x61, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -860,58 +932,62 @@ func file_greptime_v1_meta_ddl_proto_rawDescGZIP() []byte {
 }
 
 var file_greptime_v1_meta_ddl_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_greptime_v1_meta_ddl_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_greptime_v1_meta_ddl_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_greptime_v1_meta_ddl_proto_goTypes = []interface{}{
-	(DdlTaskType)(0),             // 0: greptime.v1.meta.DdlTaskType
-	(*CreateTableTask)(nil),      // 1: greptime.v1.meta.CreateTableTask
-	(*CreateTableTasks)(nil),     // 2: greptime.v1.meta.CreateTableTasks
-	(*DropTableTask)(nil),        // 3: greptime.v1.meta.DropTableTask
-	(*DropTableTasks)(nil),       // 4: greptime.v1.meta.DropTableTasks
-	(*AlterTableTask)(nil),       // 5: greptime.v1.meta.AlterTableTask
-	(*AlterTableTasks)(nil),      // 6: greptime.v1.meta.AlterTableTasks
-	(*TruncateTableTask)(nil),    // 7: greptime.v1.meta.TruncateTableTask
-	(*DropDatabaseTask)(nil),     // 8: greptime.v1.meta.DropDatabaseTask
-	(*DdlTaskRequest)(nil),       // 9: greptime.v1.meta.DdlTaskRequest
-	(*DdlTaskResponse)(nil),      // 10: greptime.v1.meta.DdlTaskResponse
-	(*v1.CreateTableExpr)(nil),   // 11: greptime.v1.CreateTableExpr
-	(*Partition)(nil),            // 12: greptime.v1.meta.Partition
-	(*v1.DropTableExpr)(nil),     // 13: greptime.v1.DropTableExpr
-	(*v1.AlterExpr)(nil),         // 14: greptime.v1.AlterExpr
-	(*v1.TruncateTableExpr)(nil), // 15: greptime.v1.TruncateTableExpr
-	(*v1.DropDatabaseExpr)(nil),  // 16: greptime.v1.DropDatabaseExpr
-	(*RequestHeader)(nil),        // 17: greptime.v1.meta.RequestHeader
-	(*ResponseHeader)(nil),       // 18: greptime.v1.meta.ResponseHeader
-	(*ProcedureId)(nil),          // 19: greptime.v1.meta.ProcedureId
-	(*TableId)(nil),              // 20: greptime.v1.meta.TableId
+	(DdlTaskType)(0),              // 0: greptime.v1.meta.DdlTaskType
+	(*CreateDatabaseTask)(nil),    // 1: greptime.v1.meta.CreateDatabaseTask
+	(*CreateTableTask)(nil),       // 2: greptime.v1.meta.CreateTableTask
+	(*CreateTableTasks)(nil),      // 3: greptime.v1.meta.CreateTableTasks
+	(*DropTableTask)(nil),         // 4: greptime.v1.meta.DropTableTask
+	(*DropTableTasks)(nil),        // 5: greptime.v1.meta.DropTableTasks
+	(*AlterTableTask)(nil),        // 6: greptime.v1.meta.AlterTableTask
+	(*AlterTableTasks)(nil),       // 7: greptime.v1.meta.AlterTableTasks
+	(*TruncateTableTask)(nil),     // 8: greptime.v1.meta.TruncateTableTask
+	(*DropDatabaseTask)(nil),      // 9: greptime.v1.meta.DropDatabaseTask
+	(*DdlTaskRequest)(nil),        // 10: greptime.v1.meta.DdlTaskRequest
+	(*DdlTaskResponse)(nil),       // 11: greptime.v1.meta.DdlTaskResponse
+	(*v1.CreateDatabaseExpr)(nil), // 12: greptime.v1.CreateDatabaseExpr
+	(*v1.CreateTableExpr)(nil),    // 13: greptime.v1.CreateTableExpr
+	(*Partition)(nil),             // 14: greptime.v1.meta.Partition
+	(*v1.DropTableExpr)(nil),      // 15: greptime.v1.DropTableExpr
+	(*v1.AlterExpr)(nil),          // 16: greptime.v1.AlterExpr
+	(*v1.TruncateTableExpr)(nil),  // 17: greptime.v1.TruncateTableExpr
+	(*v1.DropDatabaseExpr)(nil),   // 18: greptime.v1.DropDatabaseExpr
+	(*RequestHeader)(nil),         // 19: greptime.v1.meta.RequestHeader
+	(*ResponseHeader)(nil),        // 20: greptime.v1.meta.ResponseHeader
+	(*ProcedureId)(nil),           // 21: greptime.v1.meta.ProcedureId
+	(*TableId)(nil),               // 22: greptime.v1.meta.TableId
 }
 var file_greptime_v1_meta_ddl_proto_depIdxs = []int32{
-	11, // 0: greptime.v1.meta.CreateTableTask.create_table:type_name -> greptime.v1.CreateTableExpr
-	12, // 1: greptime.v1.meta.CreateTableTask.partitions:type_name -> greptime.v1.meta.Partition
-	1,  // 2: greptime.v1.meta.CreateTableTasks.tasks:type_name -> greptime.v1.meta.CreateTableTask
-	13, // 3: greptime.v1.meta.DropTableTask.drop_table:type_name -> greptime.v1.DropTableExpr
-	3,  // 4: greptime.v1.meta.DropTableTasks.tasks:type_name -> greptime.v1.meta.DropTableTask
-	14, // 5: greptime.v1.meta.AlterTableTask.alter_table:type_name -> greptime.v1.AlterExpr
-	5,  // 6: greptime.v1.meta.AlterTableTasks.tasks:type_name -> greptime.v1.meta.AlterTableTask
-	15, // 7: greptime.v1.meta.TruncateTableTask.truncate_table:type_name -> greptime.v1.TruncateTableExpr
-	16, // 8: greptime.v1.meta.DropDatabaseTask.drop_database:type_name -> greptime.v1.DropDatabaseExpr
-	17, // 9: greptime.v1.meta.DdlTaskRequest.header:type_name -> greptime.v1.meta.RequestHeader
-	1,  // 10: greptime.v1.meta.DdlTaskRequest.create_table_task:type_name -> greptime.v1.meta.CreateTableTask
-	3,  // 11: greptime.v1.meta.DdlTaskRequest.drop_table_task:type_name -> greptime.v1.meta.DropTableTask
-	5,  // 12: greptime.v1.meta.DdlTaskRequest.alter_table_task:type_name -> greptime.v1.meta.AlterTableTask
-	7,  // 13: greptime.v1.meta.DdlTaskRequest.truncate_table_task:type_name -> greptime.v1.meta.TruncateTableTask
-	2,  // 14: greptime.v1.meta.DdlTaskRequest.create_table_tasks:type_name -> greptime.v1.meta.CreateTableTasks
-	4,  // 15: greptime.v1.meta.DdlTaskRequest.drop_table_tasks:type_name -> greptime.v1.meta.DropTableTasks
-	6,  // 16: greptime.v1.meta.DdlTaskRequest.alter_table_tasks:type_name -> greptime.v1.meta.AlterTableTasks
-	8,  // 17: greptime.v1.meta.DdlTaskRequest.drop_database_task:type_name -> greptime.v1.meta.DropDatabaseTask
-	18, // 18: greptime.v1.meta.DdlTaskResponse.header:type_name -> greptime.v1.meta.ResponseHeader
-	19, // 19: greptime.v1.meta.DdlTaskResponse.pid:type_name -> greptime.v1.meta.ProcedureId
-	20, // 20: greptime.v1.meta.DdlTaskResponse.table_id:type_name -> greptime.v1.meta.TableId
-	20, // 21: greptime.v1.meta.DdlTaskResponse.table_ids:type_name -> greptime.v1.meta.TableId
-	22, // [22:22] is the sub-list for method output_type
-	22, // [22:22] is the sub-list for method input_type
-	22, // [22:22] is the sub-list for extension type_name
-	22, // [22:22] is the sub-list for extension extendee
-	0,  // [0:22] is the sub-list for field type_name
+	12, // 0: greptime.v1.meta.CreateDatabaseTask.create_database:type_name -> greptime.v1.CreateDatabaseExpr
+	13, // 1: greptime.v1.meta.CreateTableTask.create_table:type_name -> greptime.v1.CreateTableExpr
+	14, // 2: greptime.v1.meta.CreateTableTask.partitions:type_name -> greptime.v1.meta.Partition
+	2,  // 3: greptime.v1.meta.CreateTableTasks.tasks:type_name -> greptime.v1.meta.CreateTableTask
+	15, // 4: greptime.v1.meta.DropTableTask.drop_table:type_name -> greptime.v1.DropTableExpr
+	4,  // 5: greptime.v1.meta.DropTableTasks.tasks:type_name -> greptime.v1.meta.DropTableTask
+	16, // 6: greptime.v1.meta.AlterTableTask.alter_table:type_name -> greptime.v1.AlterExpr
+	6,  // 7: greptime.v1.meta.AlterTableTasks.tasks:type_name -> greptime.v1.meta.AlterTableTask
+	17, // 8: greptime.v1.meta.TruncateTableTask.truncate_table:type_name -> greptime.v1.TruncateTableExpr
+	18, // 9: greptime.v1.meta.DropDatabaseTask.drop_database:type_name -> greptime.v1.DropDatabaseExpr
+	19, // 10: greptime.v1.meta.DdlTaskRequest.header:type_name -> greptime.v1.meta.RequestHeader
+	2,  // 11: greptime.v1.meta.DdlTaskRequest.create_table_task:type_name -> greptime.v1.meta.CreateTableTask
+	4,  // 12: greptime.v1.meta.DdlTaskRequest.drop_table_task:type_name -> greptime.v1.meta.DropTableTask
+	6,  // 13: greptime.v1.meta.DdlTaskRequest.alter_table_task:type_name -> greptime.v1.meta.AlterTableTask
+	8,  // 14: greptime.v1.meta.DdlTaskRequest.truncate_table_task:type_name -> greptime.v1.meta.TruncateTableTask
+	3,  // 15: greptime.v1.meta.DdlTaskRequest.create_table_tasks:type_name -> greptime.v1.meta.CreateTableTasks
+	5,  // 16: greptime.v1.meta.DdlTaskRequest.drop_table_tasks:type_name -> greptime.v1.meta.DropTableTasks
+	7,  // 17: greptime.v1.meta.DdlTaskRequest.alter_table_tasks:type_name -> greptime.v1.meta.AlterTableTasks
+	9,  // 18: greptime.v1.meta.DdlTaskRequest.drop_database_task:type_name -> greptime.v1.meta.DropDatabaseTask
+	1,  // 19: greptime.v1.meta.DdlTaskRequest.create_database_task:type_name -> greptime.v1.meta.CreateDatabaseTask
+	20, // 20: greptime.v1.meta.DdlTaskResponse.header:type_name -> greptime.v1.meta.ResponseHeader
+	21, // 21: greptime.v1.meta.DdlTaskResponse.pid:type_name -> greptime.v1.meta.ProcedureId
+	22, // 22: greptime.v1.meta.DdlTaskResponse.table_id:type_name -> greptime.v1.meta.TableId
+	22, // 23: greptime.v1.meta.DdlTaskResponse.table_ids:type_name -> greptime.v1.meta.TableId
+	24, // [24:24] is the sub-list for method output_type
+	24, // [24:24] is the sub-list for method input_type
+	24, // [24:24] is the sub-list for extension type_name
+	24, // [24:24] is the sub-list for extension extendee
+	0,  // [0:24] is the sub-list for field type_name
 }
 
 func init() { file_greptime_v1_meta_ddl_proto_init() }
@@ -923,7 +999,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 	file_greptime_v1_meta_route_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_greptime_v1_meta_ddl_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateTableTask); i {
+			switch v := v.(*CreateDatabaseTask); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -935,7 +1011,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_meta_ddl_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateTableTasks); i {
+			switch v := v.(*CreateTableTask); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -947,7 +1023,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_meta_ddl_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropTableTask); i {
+			switch v := v.(*CreateTableTasks); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -959,7 +1035,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_meta_ddl_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropTableTasks); i {
+			switch v := v.(*DropTableTask); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -971,7 +1047,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_meta_ddl_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AlterTableTask); i {
+			switch v := v.(*DropTableTasks); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -983,7 +1059,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_meta_ddl_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AlterTableTasks); i {
+			switch v := v.(*AlterTableTask); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -995,7 +1071,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_meta_ddl_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*TruncateTableTask); i {
+			switch v := v.(*AlterTableTasks); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1007,7 +1083,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_meta_ddl_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropDatabaseTask); i {
+			switch v := v.(*TruncateTableTask); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1019,7 +1095,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_meta_ddl_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DdlTaskRequest); i {
+			switch v := v.(*DropDatabaseTask); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1031,6 +1107,18 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_meta_ddl_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DdlTaskRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_greptime_v1_meta_ddl_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DdlTaskResponse); i {
 			case 0:
 				return &v.state
@@ -1043,7 +1131,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			}
 		}
 	}
-	file_greptime_v1_meta_ddl_proto_msgTypes[8].OneofWrappers = []interface{}{
+	file_greptime_v1_meta_ddl_proto_msgTypes[9].OneofWrappers = []interface{}{
 		(*DdlTaskRequest_CreateTableTask)(nil),
 		(*DdlTaskRequest_DropTableTask)(nil),
 		(*DdlTaskRequest_AlterTableTask)(nil),
@@ -1052,6 +1140,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 		(*DdlTaskRequest_DropTableTasks)(nil),
 		(*DdlTaskRequest_AlterTableTasks)(nil),
 		(*DdlTaskRequest_DropDatabaseTask)(nil),
+		(*DdlTaskRequest_CreateDatabaseTask)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -1059,7 +1148,7 @@ func file_greptime_v1_meta_ddl_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greptime_v1_meta_ddl_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   10,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

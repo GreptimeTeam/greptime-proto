@@ -1413,11 +1413,12 @@ class CreateDatabaseExpr final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOptionsFieldNumber = 3,
-    kDatabaseNameFieldNumber = 1,
-    kCreateIfNotExistsFieldNumber = 2,
+    kOptionsFieldNumber = 4,
+    kCatalogNameFieldNumber = 1,
+    kDatabaseNameFieldNumber = 2,
+    kCreateIfNotExistsFieldNumber = 3,
   };
-  // map<string, string> options = 3;
+  // map<string, string> options = 4;
   int options_size() const;
   private:
   int _internal_options_size() const;
@@ -1434,7 +1435,21 @@ class CreateDatabaseExpr final :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
       mutable_options();
 
-  // string database_name = 1;
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // string database_name = 2;
   void clear_database_name();
   const std::string& database_name() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1448,7 +1463,7 @@ class CreateDatabaseExpr final :
   std::string* _internal_mutable_database_name();
   public:
 
-  // bool create_if_not_exists = 2;
+  // bool create_if_not_exists = 3;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
   void set_create_if_not_exists(bool value);
@@ -1470,6 +1485,7 @@ class CreateDatabaseExpr final :
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr database_name_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -4844,7 +4860,57 @@ inline void DropTableExpr::set_drop_if_exists(bool value) {
 
 // CreateDatabaseExpr
 
-// string database_name = 1;
+// string catalog_name = 1;
+inline void CreateDatabaseExpr::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& CreateDatabaseExpr::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateDatabaseExpr.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateDatabaseExpr::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateDatabaseExpr.catalog_name)
+}
+inline std::string* CreateDatabaseExpr::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateDatabaseExpr.catalog_name)
+  return _s;
+}
+inline const std::string& CreateDatabaseExpr::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void CreateDatabaseExpr::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateDatabaseExpr::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateDatabaseExpr::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateDatabaseExpr.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void CreateDatabaseExpr::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateDatabaseExpr.catalog_name)
+}
+
+// string database_name = 2;
 inline void CreateDatabaseExpr::clear_database_name() {
   _impl_.database_name_.ClearToEmpty();
 }
@@ -4894,7 +4960,7 @@ inline void CreateDatabaseExpr::set_allocated_database_name(std::string* databas
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateDatabaseExpr.database_name)
 }
 
-// bool create_if_not_exists = 2;
+// bool create_if_not_exists = 3;
 inline void CreateDatabaseExpr::clear_create_if_not_exists() {
   _impl_.create_if_not_exists_ = false;
 }
@@ -4914,7 +4980,7 @@ inline void CreateDatabaseExpr::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.CreateDatabaseExpr.create_if_not_exists)
 }
 
-// map<string, string> options = 3;
+// map<string, string> options = 4;
 inline int CreateDatabaseExpr::_internal_options_size() const {
   return _impl_.options_.size();
 }

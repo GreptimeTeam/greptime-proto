@@ -6957,29 +6957,41 @@ java.lang.String defaultValue);
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string database_name = 1;</code>
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    java.lang.String getCatalogName();
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    com.google.protobuf.ByteString
+        getCatalogNameBytes();
+
+    /**
+     * <code>string database_name = 2;</code>
      * @return The databaseName.
      */
     java.lang.String getDatabaseName();
     /**
-     * <code>string database_name = 1;</code>
+     * <code>string database_name = 2;</code>
      * @return The bytes for databaseName.
      */
     com.google.protobuf.ByteString
         getDatabaseNameBytes();
 
     /**
-     * <code>bool create_if_not_exists = 2;</code>
+     * <code>bool create_if_not_exists = 3;</code>
      * @return The createIfNotExists.
      */
     boolean getCreateIfNotExists();
 
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     int getOptionsCount();
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     boolean containsOptions(
         java.lang.String key);
@@ -6990,12 +7002,12 @@ java.lang.String defaultValue);
     java.util.Map<java.lang.String, java.lang.String>
     getOptions();
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getOptionsMap();
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
 
     /* nullable */
@@ -7004,7 +7016,7 @@ java.lang.String getOptionsOrDefault(
         /* nullable */
 java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
 
     java.lang.String getOptionsOrThrow(
@@ -7023,6 +7035,7 @@ java.lang.String defaultValue);
       super(builder);
     }
     private CreateDatabaseExpr() {
+      catalogName_ = "";
       databaseName_ = "";
     }
 
@@ -7060,15 +7073,21 @@ java.lang.String defaultValue);
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
+              catalogName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
               databaseName_ = s;
               break;
             }
-            case 16: {
+            case 24: {
 
               createIfNotExists_ = input.readBool();
               break;
             }
-            case 26: {
+            case 34: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 options_ = com.google.protobuf.MapField.newMapField(
                     OptionsDefaultEntryHolder.defaultEntry);
@@ -7112,7 +7131,7 @@ java.lang.String defaultValue);
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 3:
+        case 4:
           return internalGetOptions();
         default:
           throw new RuntimeException(
@@ -7127,10 +7146,48 @@ java.lang.String defaultValue);
               io.greptime.v1.Ddl.CreateDatabaseExpr.class, io.greptime.v1.Ddl.CreateDatabaseExpr.Builder.class);
     }
 
-    public static final int DATABASE_NAME_FIELD_NUMBER = 1;
+    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalogName_;
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalogName() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalogName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogNameBytes() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalogName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DATABASE_NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object databaseName_;
     /**
-     * <code>string database_name = 1;</code>
+     * <code>string database_name = 2;</code>
      * @return The databaseName.
      */
     @java.lang.Override
@@ -7147,7 +7204,7 @@ java.lang.String defaultValue);
       }
     }
     /**
-     * <code>string database_name = 1;</code>
+     * <code>string database_name = 2;</code>
      * @return The bytes for databaseName.
      */
     @java.lang.Override
@@ -7165,10 +7222,10 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 2;
+    public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 3;
     private boolean createIfNotExists_;
     /**
-     * <code>bool create_if_not_exists = 2;</code>
+     * <code>bool create_if_not_exists = 3;</code>
      * @return The createIfNotExists.
      */
     @java.lang.Override
@@ -7176,7 +7233,7 @@ java.lang.String defaultValue);
       return createIfNotExists_;
     }
 
-    public static final int OPTIONS_FIELD_NUMBER = 3;
+    public static final int OPTIONS_FIELD_NUMBER = 4;
     private static final class OptionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -7203,7 +7260,7 @@ java.lang.String defaultValue);
       return internalGetOptions().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
 
     @java.lang.Override
@@ -7221,7 +7278,7 @@ java.lang.String defaultValue);
       return getOptionsMap();
     }
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     @java.lang.Override
 
@@ -7229,7 +7286,7 @@ java.lang.String defaultValue);
       return internalGetOptions().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     @java.lang.Override
 
@@ -7242,7 +7299,7 @@ java.lang.String defaultValue);
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
+     * <code>map&lt;string, string&gt; options = 4;</code>
      */
     @java.lang.Override
 
@@ -7271,18 +7328,21 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, databaseName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, databaseName_);
       }
       if (createIfNotExists_ != false) {
-        output.writeBool(2, createIfNotExists_);
+        output.writeBool(3, createIfNotExists_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetOptions(),
           OptionsDefaultEntryHolder.defaultEntry,
-          3);
+          4);
       unknownFields.writeTo(output);
     }
 
@@ -7292,12 +7352,15 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, databaseName_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, databaseName_);
       }
       if (createIfNotExists_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, createIfNotExists_);
+          .computeBoolSize(3, createIfNotExists_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetOptions().getMap().entrySet()) {
@@ -7307,7 +7370,7 @@ java.lang.String defaultValue);
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(3, options__);
+            .computeMessageSize(4, options__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7324,6 +7387,8 @@ java.lang.String defaultValue);
       }
       io.greptime.v1.Ddl.CreateDatabaseExpr other = (io.greptime.v1.Ddl.CreateDatabaseExpr) obj;
 
+      if (!getCatalogName()
+          .equals(other.getCatalogName())) return false;
       if (!getDatabaseName()
           .equals(other.getDatabaseName())) return false;
       if (getCreateIfNotExists()
@@ -7341,6 +7406,8 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalogName().hashCode();
       hash = (37 * hash) + DATABASE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDatabaseName().hashCode();
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
@@ -7461,7 +7528,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 3:
+          case 4:
             return internalGetOptions();
           default:
             throw new RuntimeException(
@@ -7472,7 +7539,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 3:
+          case 4:
             return internalGetMutableOptions();
           default:
             throw new RuntimeException(
@@ -7505,6 +7572,8 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        catalogName_ = "";
+
         databaseName_ = "";
 
         createIfNotExists_ = false;
@@ -7537,6 +7606,7 @@ java.lang.String defaultValue);
       public io.greptime.v1.Ddl.CreateDatabaseExpr buildPartial() {
         io.greptime.v1.Ddl.CreateDatabaseExpr result = new io.greptime.v1.Ddl.CreateDatabaseExpr(this);
         int from_bitField0_ = bitField0_;
+        result.catalogName_ = catalogName_;
         result.databaseName_ = databaseName_;
         result.createIfNotExists_ = createIfNotExists_;
         result.options_ = internalGetOptions();
@@ -7589,6 +7659,10 @@ java.lang.String defaultValue);
 
       public Builder mergeFrom(io.greptime.v1.Ddl.CreateDatabaseExpr other) {
         if (other == io.greptime.v1.Ddl.CreateDatabaseExpr.getDefaultInstance()) return this;
+        if (!other.getCatalogName().isEmpty()) {
+          catalogName_ = other.catalogName_;
+          onChanged();
+        }
         if (!other.getDatabaseName().isEmpty()) {
           databaseName_ = other.databaseName_;
           onChanged();
@@ -7628,9 +7702,85 @@ java.lang.String defaultValue);
       }
       private int bitField0_;
 
+      private java.lang.Object catalogName_ = "";
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The catalogName.
+       */
+      public java.lang.String getCatalogName() {
+        java.lang.Object ref = catalogName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalogName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The bytes for catalogName.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogNameBytes() {
+        java.lang.Object ref = catalogName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalogName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalogName() {
+        
+        catalogName_ = getDefaultInstance().getCatalogName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The bytes for catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object databaseName_ = "";
       /**
-       * <code>string database_name = 1;</code>
+       * <code>string database_name = 2;</code>
        * @return The databaseName.
        */
       public java.lang.String getDatabaseName() {
@@ -7646,7 +7796,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string database_name = 1;</code>
+       * <code>string database_name = 2;</code>
        * @return The bytes for databaseName.
        */
       public com.google.protobuf.ByteString
@@ -7663,7 +7813,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string database_name = 1;</code>
+       * <code>string database_name = 2;</code>
        * @param value The databaseName to set.
        * @return This builder for chaining.
        */
@@ -7678,7 +7828,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string database_name = 1;</code>
+       * <code>string database_name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearDatabaseName() {
@@ -7688,7 +7838,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string database_name = 1;</code>
+       * <code>string database_name = 2;</code>
        * @param value The bytes for databaseName to set.
        * @return This builder for chaining.
        */
@@ -7706,7 +7856,7 @@ java.lang.String defaultValue);
 
       private boolean createIfNotExists_ ;
       /**
-       * <code>bool create_if_not_exists = 2;</code>
+       * <code>bool create_if_not_exists = 3;</code>
        * @return The createIfNotExists.
        */
       @java.lang.Override
@@ -7714,7 +7864,7 @@ java.lang.String defaultValue);
         return createIfNotExists_;
       }
       /**
-       * <code>bool create_if_not_exists = 2;</code>
+       * <code>bool create_if_not_exists = 3;</code>
        * @param value The createIfNotExists to set.
        * @return This builder for chaining.
        */
@@ -7725,7 +7875,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>bool create_if_not_exists = 2;</code>
+       * <code>bool create_if_not_exists = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearCreateIfNotExists() {
@@ -7762,7 +7912,7 @@ java.lang.String defaultValue);
         return internalGetOptions().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
 
       @java.lang.Override
@@ -7780,7 +7930,7 @@ java.lang.String defaultValue);
         return getOptionsMap();
       }
       /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
       @java.lang.Override
 
@@ -7788,7 +7938,7 @@ java.lang.String defaultValue);
         return internalGetOptions().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
       @java.lang.Override
 
@@ -7801,7 +7951,7 @@ java.lang.String defaultValue);
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
       @java.lang.Override
 
@@ -7822,7 +7972,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
 
       public Builder removeOptions(
@@ -7841,7 +7991,7 @@ java.lang.String defaultValue);
         return internalGetMutableOptions().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
       public Builder putOptions(
           java.lang.String key,
@@ -7856,7 +8006,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
+       * <code>map&lt;string, string&gt; options = 4;</code>
        */
 
       public Builder putAllOptions(
@@ -16077,37 +16227,37 @@ java.lang.String defaultValue);
       "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\n" +
       "table_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gre" +
       "ptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010" +
-      "\"\270\001\n\022CreateDatabaseExpr\022\025\n\rdatabase_name" +
-      "\030\001 \001(\t\022\034\n\024create_if_not_exists\030\002 \001(\010\022=\n\007" +
-      "options\030\003 \003(\0132,.greptime.v1.CreateDataba" +
-      "seExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateT" +
-      "ableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema" +
-      "_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table" +
-      "_id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n\020DropD" +
-      "atabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
-      "ema_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9" +
-      "\n\nAddColumns\022+\n\013add_columns\030\001 \003(\0132\026.grep" +
-      "time.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop" +
-      "_columns\030\001 \003(\0132\027.greptime.v1.DropColumn\"" +
-      "%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"i" +
-      "\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.grepti" +
-      "me.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.grep" +
-      "time.v1.AddColumnLocation\"\032\n\nDropColumn\022" +
-      "\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n" +
-      "\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 " +
-      "\001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_n" +
-      "ullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(" +
-      "\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime.v1.S" +
-      "emanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype" +
-      "_extension\030\007 \001(\0132$.greptime.v1.ColumnDat" +
-      "aTypeExtension\"\230\001\n\021AddColumnLocation\022B\n\r" +
-      "location_type\030\001 \001(\0162+.greptime.v1.AddCol" +
-      "umnLocation.LocationType\022\031\n\021after_column" +
-      "_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t" +
-      "\n\005AFTER\020\001BL\n\016io.greptime.v1B\003DdlZ5github" +
-      ".com/GreptimeTeam/greptime-proto/go/grep" +
-      "time/v1b\006proto3"
+      "\"\316\001\n\022CreateDatabaseExpr\022\024\n\014catalog_name\030" +
+      "\001 \001(\t\022\025\n\rdatabase_name\030\002 \001(\t\022\034\n\024create_i" +
+      "f_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.gr" +
+      "eptime.v1.CreateDatabaseExpr.OptionsEntr" +
+      "y\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalo" +
+      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntab" +
+      "le_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grepti" +
+      "me.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014cat" +
+      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016" +
+      "drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013ad" +
+      "d_columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"" +
+      "<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.g" +
+      "reptime.v1.DropColumn\"%\n\013RenameTable\022\026\n\016" +
+      "new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncol" +
+      "umn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n" +
+      "\010location\030\003 \001(\0132\036.greptime.v1.AddColumnL" +
+      "ocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007T" +
+      "ableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name" +
+      "\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1." +
+      "ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022d" +
+      "efault_constraint\030\004 \001(\014\0220\n\rsemantic_type" +
+      "\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007com" +
+      "ment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$" +
+      ".greptime.v1.ColumnDataTypeExtension\"\230\001\n" +
+      "\021AddColumnLocation\022B\n\rlocation_type\030\001 \001(" +
+      "\0162+.greptime.v1.AddColumnLocation.Locati" +
+      "onType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Loc" +
+      "ationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.gr" +
+      "eptime.v1B\003DdlZ5github.com/GreptimeTeam/" +
+      "greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -16149,7 +16299,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateDatabaseExpr_descriptor,
-        new java.lang.String[] { "DatabaseName", "CreateIfNotExists", "Options", });
+        new java.lang.String[] { "CatalogName", "DatabaseName", "CreateIfNotExists", "Options", });
     internal_static_greptime_v1_CreateDatabaseExpr_OptionsEntry_descriptor =
       internal_static_greptime_v1_CreateDatabaseExpr_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_CreateDatabaseExpr_OptionsEntry_fieldAccessorTable = new
