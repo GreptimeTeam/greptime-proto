@@ -1415,7 +1415,7 @@ class CreateDatabaseExpr final :
   enum : int {
     kOptionsFieldNumber = 4,
     kCatalogNameFieldNumber = 1,
-    kDatabaseNameFieldNumber = 2,
+    kSchemaNameFieldNumber = 2,
     kCreateIfNotExistsFieldNumber = 3,
   };
   // map<string, string> options = 4;
@@ -1449,18 +1449,18 @@ class CreateDatabaseExpr final :
   std::string* _internal_mutable_catalog_name();
   public:
 
-  // string database_name = 2;
-  void clear_database_name();
-  const std::string& database_name() const;
+  // string schema_name = 2;
+  void clear_schema_name();
+  const std::string& schema_name() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_database_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_database_name();
-  PROTOBUF_NODISCARD std::string* release_database_name();
-  void set_allocated_database_name(std::string* database_name);
+  void set_schema_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_schema_name();
+  PROTOBUF_NODISCARD std::string* release_schema_name();
+  void set_allocated_schema_name(std::string* schema_name);
   private:
-  const std::string& _internal_database_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_database_name(const std::string& value);
-  std::string* _internal_mutable_database_name();
+  const std::string& _internal_schema_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema_name(const std::string& value);
+  std::string* _internal_mutable_schema_name();
   public:
 
   // bool create_if_not_exists = 3;
@@ -1486,7 +1486,7 @@ class CreateDatabaseExpr final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr database_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -4910,54 +4910,54 @@ inline void CreateDatabaseExpr::set_allocated_catalog_name(std::string* catalog_
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateDatabaseExpr.catalog_name)
 }
 
-// string database_name = 2;
-inline void CreateDatabaseExpr::clear_database_name() {
-  _impl_.database_name_.ClearToEmpty();
+// string schema_name = 2;
+inline void CreateDatabaseExpr::clear_schema_name() {
+  _impl_.schema_name_.ClearToEmpty();
 }
-inline const std::string& CreateDatabaseExpr::database_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CreateDatabaseExpr.database_name)
-  return _internal_database_name();
+inline const std::string& CreateDatabaseExpr::schema_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateDatabaseExpr.schema_name)
+  return _internal_schema_name();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CreateDatabaseExpr::set_database_name(ArgT0&& arg0, ArgT... args) {
+void CreateDatabaseExpr::set_schema_name(ArgT0&& arg0, ArgT... args) {
  
- _impl_.database_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.CreateDatabaseExpr.database_name)
+ _impl_.schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateDatabaseExpr.schema_name)
 }
-inline std::string* CreateDatabaseExpr::mutable_database_name() {
-  std::string* _s = _internal_mutable_database_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateDatabaseExpr.database_name)
+inline std::string* CreateDatabaseExpr::mutable_schema_name() {
+  std::string* _s = _internal_mutable_schema_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateDatabaseExpr.schema_name)
   return _s;
 }
-inline const std::string& CreateDatabaseExpr::_internal_database_name() const {
-  return _impl_.database_name_.Get();
+inline const std::string& CreateDatabaseExpr::_internal_schema_name() const {
+  return _impl_.schema_name_.Get();
 }
-inline void CreateDatabaseExpr::_internal_set_database_name(const std::string& value) {
+inline void CreateDatabaseExpr::_internal_set_schema_name(const std::string& value) {
   
-  _impl_.database_name_.Set(value, GetArenaForAllocation());
+  _impl_.schema_name_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CreateDatabaseExpr::_internal_mutable_database_name() {
+inline std::string* CreateDatabaseExpr::_internal_mutable_schema_name() {
   
-  return _impl_.database_name_.Mutable(GetArenaForAllocation());
+  return _impl_.schema_name_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CreateDatabaseExpr::release_database_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.CreateDatabaseExpr.database_name)
-  return _impl_.database_name_.Release();
+inline std::string* CreateDatabaseExpr::release_schema_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateDatabaseExpr.schema_name)
+  return _impl_.schema_name_.Release();
 }
-inline void CreateDatabaseExpr::set_allocated_database_name(std::string* database_name) {
-  if (database_name != nullptr) {
+inline void CreateDatabaseExpr::set_allocated_schema_name(std::string* schema_name) {
+  if (schema_name != nullptr) {
     
   } else {
     
   }
-  _impl_.database_name_.SetAllocated(database_name, GetArenaForAllocation());
+  _impl_.schema_name_.SetAllocated(schema_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.database_name_.IsDefault()) {
-    _impl_.database_name_.Set("", GetArenaForAllocation());
+  if (_impl_.schema_name_.IsDefault()) {
+    _impl_.schema_name_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateDatabaseExpr.database_name)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateDatabaseExpr.schema_name)
 }
 
 // bool create_if_not_exists = 3;

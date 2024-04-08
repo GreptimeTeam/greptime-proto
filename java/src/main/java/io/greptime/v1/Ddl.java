@@ -6969,16 +6969,16 @@ java.lang.String defaultValue);
         getCatalogNameBytes();
 
     /**
-     * <code>string database_name = 2;</code>
-     * @return The databaseName.
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
      */
-    java.lang.String getDatabaseName();
+    java.lang.String getSchemaName();
     /**
-     * <code>string database_name = 2;</code>
-     * @return The bytes for databaseName.
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
      */
     com.google.protobuf.ByteString
-        getDatabaseNameBytes();
+        getSchemaNameBytes();
 
     /**
      * <code>bool create_if_not_exists = 3;</code>
@@ -7036,7 +7036,7 @@ java.lang.String defaultValue);
     }
     private CreateDatabaseExpr() {
       catalogName_ = "";
-      databaseName_ = "";
+      schemaName_ = "";
     }
 
     @java.lang.Override
@@ -7079,7 +7079,7 @@ java.lang.String defaultValue);
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              databaseName_ = s;
+              schemaName_ = s;
               break;
             }
             case 24: {
@@ -7184,38 +7184,38 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int DATABASE_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object databaseName_;
+    public static final int SCHEMA_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object schemaName_;
     /**
-     * <code>string database_name = 2;</code>
-     * @return The databaseName.
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
      */
     @java.lang.Override
-    public java.lang.String getDatabaseName() {
-      java.lang.Object ref = databaseName_;
+    public java.lang.String getSchemaName() {
+      java.lang.Object ref = schemaName_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        databaseName_ = s;
+        schemaName_ = s;
         return s;
       }
     }
     /**
-     * <code>string database_name = 2;</code>
-     * @return The bytes for databaseName.
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getDatabaseNameBytes() {
-      java.lang.Object ref = databaseName_;
+        getSchemaNameBytes() {
+      java.lang.Object ref = schemaName_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        databaseName_ = b;
+        schemaName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -7331,8 +7331,8 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, databaseName_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
       }
       if (createIfNotExists_ != false) {
         output.writeBool(3, createIfNotExists_);
@@ -7355,8 +7355,8 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, databaseName_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
       }
       if (createIfNotExists_ != false) {
         size += com.google.protobuf.CodedOutputStream
@@ -7389,8 +7389,8 @@ java.lang.String defaultValue);
 
       if (!getCatalogName()
           .equals(other.getCatalogName())) return false;
-      if (!getDatabaseName()
-          .equals(other.getDatabaseName())) return false;
+      if (!getSchemaName()
+          .equals(other.getSchemaName())) return false;
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
       if (!internalGetOptions().equals(
@@ -7408,8 +7408,8 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getCatalogName().hashCode();
-      hash = (37 * hash) + DATABASE_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getDatabaseName().hashCode();
+      hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getSchemaName().hashCode();
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCreateIfNotExists());
@@ -7574,7 +7574,7 @@ java.lang.String defaultValue);
         super.clear();
         catalogName_ = "";
 
-        databaseName_ = "";
+        schemaName_ = "";
 
         createIfNotExists_ = false;
 
@@ -7607,7 +7607,7 @@ java.lang.String defaultValue);
         io.greptime.v1.Ddl.CreateDatabaseExpr result = new io.greptime.v1.Ddl.CreateDatabaseExpr(this);
         int from_bitField0_ = bitField0_;
         result.catalogName_ = catalogName_;
-        result.databaseName_ = databaseName_;
+        result.schemaName_ = schemaName_;
         result.createIfNotExists_ = createIfNotExists_;
         result.options_ = internalGetOptions();
         result.options_.makeImmutable();
@@ -7663,8 +7663,8 @@ java.lang.String defaultValue);
           catalogName_ = other.catalogName_;
           onChanged();
         }
-        if (!other.getDatabaseName().isEmpty()) {
-          databaseName_ = other.databaseName_;
+        if (!other.getSchemaName().isEmpty()) {
+          schemaName_ = other.schemaName_;
           onChanged();
         }
         if (other.getCreateIfNotExists() != false) {
@@ -7778,78 +7778,78 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.lang.Object databaseName_ = "";
+      private java.lang.Object schemaName_ = "";
       /**
-       * <code>string database_name = 2;</code>
-       * @return The databaseName.
+       * <code>string schema_name = 2;</code>
+       * @return The schemaName.
        */
-      public java.lang.String getDatabaseName() {
-        java.lang.Object ref = databaseName_;
+      public java.lang.String getSchemaName() {
+        java.lang.Object ref = schemaName_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          databaseName_ = s;
+          schemaName_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string database_name = 2;</code>
-       * @return The bytes for databaseName.
+       * <code>string schema_name = 2;</code>
+       * @return The bytes for schemaName.
        */
       public com.google.protobuf.ByteString
-          getDatabaseNameBytes() {
-        java.lang.Object ref = databaseName_;
+          getSchemaNameBytes() {
+        java.lang.Object ref = schemaName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          databaseName_ = b;
+          schemaName_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string database_name = 2;</code>
-       * @param value The databaseName to set.
+       * <code>string schema_name = 2;</code>
+       * @param value The schemaName to set.
        * @return This builder for chaining.
        */
-      public Builder setDatabaseName(
+      public Builder setSchemaName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        databaseName_ = value;
+        schemaName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string database_name = 2;</code>
+       * <code>string schema_name = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearDatabaseName() {
+      public Builder clearSchemaName() {
         
-        databaseName_ = getDefaultInstance().getDatabaseName();
+        schemaName_ = getDefaultInstance().getSchemaName();
         onChanged();
         return this;
       }
       /**
-       * <code>string database_name = 2;</code>
-       * @param value The bytes for databaseName to set.
+       * <code>string schema_name = 2;</code>
+       * @param value The bytes for schemaName to set.
        * @return This builder for chaining.
        */
-      public Builder setDatabaseNameBytes(
+      public Builder setSchemaNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        databaseName_ = value;
+        schemaName_ = value;
         onChanged();
         return this;
       }
@@ -16227,37 +16227,37 @@ java.lang.String defaultValue);
       "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\n" +
       "table_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gre" +
       "ptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010" +
-      "\"\316\001\n\022CreateDatabaseExpr\022\024\n\014catalog_name\030" +
-      "\001 \001(\t\022\025\n\rdatabase_name\030\002 \001(\t\022\034\n\024create_i" +
-      "f_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.gr" +
-      "eptime.v1.CreateDatabaseExpr.OptionsEntr" +
-      "y\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalo" +
-      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntab" +
-      "le_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grepti" +
-      "me.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014cat" +
-      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016" +
-      "drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013ad" +
-      "d_columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"" +
-      "<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.g" +
-      "reptime.v1.DropColumn\"%\n\013RenameTable\022\026\n\016" +
-      "new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncol" +
-      "umn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n" +
-      "\010location\030\003 \001(\0132\036.greptime.v1.AddColumnL" +
-      "ocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007T" +
-      "ableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name" +
-      "\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1." +
-      "ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022d" +
-      "efault_constraint\030\004 \001(\014\0220\n\rsemantic_type" +
-      "\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007com" +
-      "ment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$" +
-      ".greptime.v1.ColumnDataTypeExtension\"\230\001\n" +
-      "\021AddColumnLocation\022B\n\rlocation_type\030\001 \001(" +
-      "\0162+.greptime.v1.AddColumnLocation.Locati" +
-      "onType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Loc" +
-      "ationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.gr" +
-      "eptime.v1B\003DdlZ5github.com/GreptimeTeam/" +
-      "greptime-proto/go/greptime/v1b\006proto3"
+      "\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_name\030" +
+      "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_if_" +
+      "not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.grep" +
+      "time.v1.CreateDatabaseExpr.OptionsEntry\032" +
+      ".\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalog_" +
+      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable" +
+      "_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime" +
+      ".v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014catal" +
+      "og_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016dr" +
+      "op_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_" +
+      "columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"<\n" +
+      "\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.gre" +
+      "ptime.v1.DropColumn\"%\n\013RenameTable\022\026\n\016ne" +
+      "w_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolum" +
+      "n_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010l" +
+      "ocation\030\003 \001(\0132\036.greptime.v1.AddColumnLoc" +
+      "ation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007Tab" +
+      "leId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001" +
+      " \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1.Co" +
+      "lumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022def" +
+      "ault_constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005" +
+      " \001(\0162\031.greptime.v1.SemanticType\022\017\n\007comme" +
+      "nt\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.g" +
+      "reptime.v1.ColumnDataTypeExtension\"\230\001\n\021A" +
+      "ddColumnLocation\022B\n\rlocation_type\030\001 \001(\0162" +
+      "+.greptime.v1.AddColumnLocation.Location" +
+      "Type\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Locat" +
+      "ionType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.grep" +
+      "time.v1B\003DdlZ5github.com/GreptimeTeam/gr" +
+      "eptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -16299,7 +16299,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateDatabaseExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "DatabaseName", "CreateIfNotExists", "Options", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "CreateIfNotExists", "Options", });
     internal_static_greptime_v1_CreateDatabaseExpr_OptionsEntry_descriptor =
       internal_static_greptime_v1_CreateDatabaseExpr_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_CreateDatabaseExpr_OptionsEntry_fieldAccessorTable = new
