@@ -69,6 +69,14 @@ class Cluster final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RangeResponse>> PrepareAsyncRange(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RangeResponse>>(PrepareAsyncRangeRaw(context, request, cq));
     }
+    // Returns all the peers of metasrv.
+    virtual ::grpc::Status MetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::greptime::v1::meta::MetasrvPeersResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MetasrvPeersResponse>> AsyncMetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MetasrvPeersResponse>>(AsyncMetasrvPeersRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MetasrvPeersResponse>> PrepareAsyncMetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MetasrvPeersResponse>>(PrepareAsyncMetasrvPeersRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -78,6 +86,9 @@ class Cluster final {
       // Range get the kvs from leader's in_memory kv store.
       virtual void Range(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest* request, ::greptime::v1::meta::RangeResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Range(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest* request, ::greptime::v1::meta::RangeResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Returns all the peers of metasrv.
+      virtual void MetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest* request, ::greptime::v1::meta::MetasrvPeersResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void MetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest* request, ::greptime::v1::meta::MetasrvPeersResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -87,6 +98,8 @@ class Cluster final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::BatchGetResponse>* PrepareAsyncBatchGetRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::BatchGetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RangeResponse>* AsyncRangeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::RangeResponse>* PrepareAsyncRangeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MetasrvPeersResponse>* AsyncMetasrvPeersRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MetasrvPeersResponse>* PrepareAsyncMetasrvPeersRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -105,6 +118,13 @@ class Cluster final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RangeResponse>> PrepareAsyncRange(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RangeResponse>>(PrepareAsyncRangeRaw(context, request, cq));
     }
+    ::grpc::Status MetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::greptime::v1::meta::MetasrvPeersResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MetasrvPeersResponse>> AsyncMetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MetasrvPeersResponse>>(AsyncMetasrvPeersRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MetasrvPeersResponse>> PrepareAsyncMetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MetasrvPeersResponse>>(PrepareAsyncMetasrvPeersRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -112,6 +132,8 @@ class Cluster final {
       void BatchGet(::grpc::ClientContext* context, const ::greptime::v1::meta::BatchGetRequest* request, ::greptime::v1::meta::BatchGetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void Range(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest* request, ::greptime::v1::meta::RangeResponse* response, std::function<void(::grpc::Status)>) override;
       void Range(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest* request, ::greptime::v1::meta::RangeResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void MetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest* request, ::greptime::v1::meta::MetasrvPeersResponse* response, std::function<void(::grpc::Status)>) override;
+      void MetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest* request, ::greptime::v1::meta::MetasrvPeersResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -127,8 +149,11 @@ class Cluster final {
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::BatchGetResponse>* PrepareAsyncBatchGetRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::BatchGetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RangeResponse>* AsyncRangeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::RangeResponse>* PrepareAsyncRangeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::RangeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MetasrvPeersResponse>* AsyncMetasrvPeersRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MetasrvPeersResponse>* PrepareAsyncMetasrvPeersRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_BatchGet_;
     const ::grpc::internal::RpcMethod rpcmethod_Range_;
+    const ::grpc::internal::RpcMethod rpcmethod_MetasrvPeers_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -140,6 +165,8 @@ class Cluster final {
     virtual ::grpc::Status BatchGet(::grpc::ServerContext* context, const ::greptime::v1::meta::BatchGetRequest* request, ::greptime::v1::meta::BatchGetResponse* response);
     // Range get the kvs from leader's in_memory kv store.
     virtual ::grpc::Status Range(::grpc::ServerContext* context, const ::greptime::v1::meta::RangeRequest* request, ::greptime::v1::meta::RangeResponse* response);
+    // Returns all the peers of metasrv.
+    virtual ::grpc::Status MetasrvPeers(::grpc::ServerContext* context, const ::greptime::v1::meta::MetasrvPeersRequest* request, ::greptime::v1::meta::MetasrvPeersResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_BatchGet : public BaseClass {
@@ -181,7 +208,27 @@ class Cluster final {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_BatchGet<WithAsyncMethod_Range<Service > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_MetasrvPeers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_MetasrvPeers() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_MetasrvPeers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MetasrvPeers(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MetasrvPeersRequest* /*request*/, ::greptime::v1::meta::MetasrvPeersResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMetasrvPeers(::grpc::ServerContext* context, ::greptime::v1::meta::MetasrvPeersRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::MetasrvPeersResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_BatchGet<WithAsyncMethod_Range<WithAsyncMethod_MetasrvPeers<Service > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_BatchGet : public BaseClass {
    private:
@@ -236,7 +283,34 @@ class Cluster final {
     virtual ::grpc::ServerUnaryReactor* Range(
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::RangeRequest* /*request*/, ::greptime::v1::meta::RangeResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_BatchGet<WithCallbackMethod_Range<Service > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_MetasrvPeers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_MetasrvPeers() {
+      ::grpc::Service::MarkMethodCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::MetasrvPeersRequest, ::greptime::v1::meta::MetasrvPeersResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::MetasrvPeersRequest* request, ::greptime::v1::meta::MetasrvPeersResponse* response) { return this->MetasrvPeers(context, request, response); }));}
+    void SetMessageAllocatorFor_MetasrvPeers(
+        ::grpc::MessageAllocator< ::greptime::v1::meta::MetasrvPeersRequest, ::greptime::v1::meta::MetasrvPeersResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::MetasrvPeersRequest, ::greptime::v1::meta::MetasrvPeersResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_MetasrvPeers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MetasrvPeers(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MetasrvPeersRequest* /*request*/, ::greptime::v1::meta::MetasrvPeersResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* MetasrvPeers(
+      ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::MetasrvPeersRequest* /*request*/, ::greptime::v1::meta::MetasrvPeersResponse* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_BatchGet<WithCallbackMethod_Range<WithCallbackMethod_MetasrvPeers<Service > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_BatchGet : public BaseClass {
@@ -268,6 +342,23 @@ class Cluster final {
     }
     // disable synchronous version of this method
     ::grpc::Status Range(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::RangeRequest* /*request*/, ::greptime::v1::meta::RangeResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_MetasrvPeers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_MetasrvPeers() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_MetasrvPeers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MetasrvPeers(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MetasrvPeersRequest* /*request*/, ::greptime::v1::meta::MetasrvPeersResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -313,6 +404,26 @@ class Cluster final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_MetasrvPeers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_MetasrvPeers() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_MetasrvPeers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MetasrvPeers(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MetasrvPeersRequest* /*request*/, ::greptime::v1::meta::MetasrvPeersResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMetasrvPeers(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_BatchGet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -354,6 +465,28 @@ class Cluster final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* Range(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_MetasrvPeers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_MetasrvPeers() {
+      ::grpc::Service::MarkMethodRawCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->MetasrvPeers(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_MetasrvPeers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MetasrvPeers(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MetasrvPeersRequest* /*request*/, ::greptime::v1::meta::MetasrvPeersResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* MetasrvPeers(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -410,9 +543,36 @@ class Cluster final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedRange(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::RangeRequest,::greptime::v1::meta::RangeResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_BatchGet<WithStreamedUnaryMethod_Range<Service > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_MetasrvPeers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_MetasrvPeers() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::greptime::v1::meta::MetasrvPeersRequest, ::greptime::v1::meta::MetasrvPeersResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::greptime::v1::meta::MetasrvPeersRequest, ::greptime::v1::meta::MetasrvPeersResponse>* streamer) {
+                       return this->StreamedMetasrvPeers(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_MetasrvPeers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status MetasrvPeers(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::MetasrvPeersRequest* /*request*/, ::greptime::v1::meta::MetasrvPeersResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedMetasrvPeers(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::MetasrvPeersRequest,::greptime::v1::meta::MetasrvPeersResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_BatchGet<WithStreamedUnaryMethod_Range<WithStreamedUnaryMethod_MetasrvPeers<Service > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_BatchGet<WithStreamedUnaryMethod_Range<Service > > StreamedService;
+  typedef WithStreamedUnaryMethod_BatchGet<WithStreamedUnaryMethod_Range<WithStreamedUnaryMethod_MetasrvPeers<Service > > > StreamedService;
 };
 
 }  // namespace meta

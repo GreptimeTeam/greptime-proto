@@ -26,6 +26,8 @@ type ClusterClient interface {
 	BatchGet(ctx context.Context, in *BatchGetRequest, opts ...grpc.CallOption) (*BatchGetResponse, error)
 	// Range get the kvs from leader's in_memory kv store.
 	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
+	// Returns all the peers of metasrv.
+	MetasrvPeers(ctx context.Context, in *MetasrvPeersRequest, opts ...grpc.CallOption) (*MetasrvPeersResponse, error)
 }
 
 type clusterClient struct {
@@ -54,6 +56,15 @@ func (c *clusterClient) Range(ctx context.Context, in *RangeRequest, opts ...grp
 	return out, nil
 }
 
+func (c *clusterClient) MetasrvPeers(ctx context.Context, in *MetasrvPeersRequest, opts ...grpc.CallOption) (*MetasrvPeersResponse, error) {
+	out := new(MetasrvPeersResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Cluster/MetasrvPeers", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ClusterServer is the server API for Cluster service.
 // All implementations must embed UnimplementedClusterServer
 // for forward compatibility
@@ -62,6 +73,8 @@ type ClusterServer interface {
 	BatchGet(context.Context, *BatchGetRequest) (*BatchGetResponse, error)
 	// Range get the kvs from leader's in_memory kv store.
 	Range(context.Context, *RangeRequest) (*RangeResponse, error)
+	// Returns all the peers of metasrv.
+	MetasrvPeers(context.Context, *MetasrvPeersRequest) (*MetasrvPeersResponse, error)
 	mustEmbedUnimplementedClusterServer()
 }
 
@@ -74,6 +87,9 @@ func (UnimplementedClusterServer) BatchGet(context.Context, *BatchGetRequest) (*
 }
 func (UnimplementedClusterServer) Range(context.Context, *RangeRequest) (*RangeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Range not implemented")
+}
+func (UnimplementedClusterServer) MetasrvPeers(context.Context, *MetasrvPeersRequest) (*MetasrvPeersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MetasrvPeers not implemented")
 }
 func (UnimplementedClusterServer) mustEmbedUnimplementedClusterServer() {}
 
@@ -124,6 +140,24 @@ func _Cluster_Range_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Cluster_MetasrvPeers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MetasrvPeersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClusterServer).MetasrvPeers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.meta.Cluster/MetasrvPeers",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClusterServer).MetasrvPeers(ctx, req.(*MetasrvPeersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Cluster_ServiceDesc is the grpc.ServiceDesc for Cluster service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -138,6 +172,10 @@ var Cluster_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Range",
 			Handler:    _Cluster_Range_Handler,
+		},
+		{
+			MethodName: "MetasrvPeers",
+			Handler:    _Cluster_MetasrvPeers_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
