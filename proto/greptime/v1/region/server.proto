@@ -125,6 +125,7 @@ message AlterRequest {
   oneof kind {
     AddColumns add_columns = 2;
     DropColumns drop_columns = 3;
+    ModifyColumns modify_columns = 5;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;
@@ -134,9 +135,16 @@ message AddColumns { repeated AddColumn add_columns = 1; }
 
 message DropColumns { repeated DropColumn drop_columns = 1; }
 
+message ModifyColumns { repeated ModifyColumn modify_columns = 1; }
+
 message AddColumn {
   RegionColumnDef column_def = 1;
   AddColumnLocation location = 3;
+}
+
+message ModifyColumn {
+    ColumnDef column_def = 1;
+    ColumnDataType data_type = 2;
 }
 
 message DropColumn { string name = 1; }
