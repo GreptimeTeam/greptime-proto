@@ -26,6 +26,7 @@ namespace meta {
 static const char* Cluster_method_names[] = {
   "/greptime.v1.meta.Cluster/BatchGet",
   "/greptime.v1.meta.Cluster/Range",
+  "/greptime.v1.meta.Cluster/MetasrvPeers",
 };
 
 std::unique_ptr< Cluster::Stub> Cluster::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -37,6 +38,7 @@ std::unique_ptr< Cluster::Stub> Cluster::NewStub(const std::shared_ptr< ::grpc::
 Cluster::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_BatchGet_(Cluster_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_Range_(Cluster_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_MetasrvPeers_(Cluster_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Cluster::Stub::BatchGet(::grpc::ClientContext* context, const ::greptime::v1::meta::BatchGetRequest& request, ::greptime::v1::meta::BatchGetResponse* response) {
@@ -85,6 +87,29 @@ void Cluster::Stub::async::Range(::grpc::ClientContext* context, const ::greptim
   return result;
 }
 
+::grpc::Status Cluster::Stub::MetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::greptime::v1::meta::MetasrvPeersResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::MetasrvPeersRequest, ::greptime::v1::meta::MetasrvPeersResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_MetasrvPeers_, context, request, response);
+}
+
+void Cluster::Stub::async::MetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest* request, ::greptime::v1::meta::MetasrvPeersResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::meta::MetasrvPeersRequest, ::greptime::v1::meta::MetasrvPeersResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_MetasrvPeers_, context, request, response, std::move(f));
+}
+
+void Cluster::Stub::async::MetasrvPeers(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest* request, ::greptime::v1::meta::MetasrvPeersResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_MetasrvPeers_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MetasrvPeersResponse>* Cluster::Stub::PrepareAsyncMetasrvPeersRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::meta::MetasrvPeersResponse, ::greptime::v1::meta::MetasrvPeersRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_MetasrvPeers_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MetasrvPeersResponse>* Cluster::Stub::AsyncMetasrvPeersRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MetasrvPeersRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncMetasrvPeersRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 Cluster::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Cluster_method_names[0],
@@ -106,6 +131,16 @@ Cluster::Service::Service() {
              ::greptime::v1::meta::RangeResponse* resp) {
                return service->Range(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Cluster_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Cluster::Service, ::greptime::v1::meta::MetasrvPeersRequest, ::greptime::v1::meta::MetasrvPeersResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Cluster::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::greptime::v1::meta::MetasrvPeersRequest* req,
+             ::greptime::v1::meta::MetasrvPeersResponse* resp) {
+               return service->MetasrvPeers(ctx, req, resp);
+             }, this)));
 }
 
 Cluster::Service::~Service() {
@@ -119,6 +154,13 @@ Cluster::Service::~Service() {
 }
 
 ::grpc::Status Cluster::Service::Range(::grpc::ServerContext* context, const ::greptime::v1::meta::RangeRequest* request, ::greptime::v1::meta::RangeResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Cluster::Service::MetasrvPeers(::grpc::ServerContext* context, const ::greptime::v1::meta::MetasrvPeersRequest* request, ::greptime::v1::meta::MetasrvPeersResponse* response) {
   (void) context;
   (void) request;
   (void) response;

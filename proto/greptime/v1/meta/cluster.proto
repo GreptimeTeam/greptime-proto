@@ -18,6 +18,7 @@ package greptime.v1.meta;
 
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
+import "greptime/v1/meta/common.proto";
 import "greptime/v1/meta/store.proto";
 
 // Cluster service is used for communication between meta nodes.
@@ -27,4 +28,16 @@ service Cluster {
 
   // Range get the kvs from leader's in_memory kv store.
   rpc Range(RangeRequest) returns (RangeResponse);
+
+  // Returns all the peers of metasrv.
+  rpc MetasrvPeers(MetasrvPeersRequest) returns (MetasrvPeersResponse);
+}
+
+message MetasrvPeersRequest { RequestHeader header = 1; }
+
+message MetasrvPeersResponse {
+  ResponseHeader header = 1;
+
+  Peer leader = 2;
+  repeated Peer followers = 3;
 }

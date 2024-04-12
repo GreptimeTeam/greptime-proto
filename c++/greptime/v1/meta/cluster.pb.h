@@ -26,8 +26,11 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
+#include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/unknown_field_set.h>
+#include "greptime/v1/meta/common.pb.h"
 #include "greptime/v1/meta/store.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -43,7 +46,21 @@ struct TableStruct_greptime_2fv1_2fmeta_2fcluster_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto;
+namespace greptime {
+namespace v1 {
+namespace meta {
+class MetasrvPeersRequest;
+struct MetasrvPeersRequestDefaultTypeInternal;
+extern MetasrvPeersRequestDefaultTypeInternal _MetasrvPeersRequest_default_instance_;
+class MetasrvPeersResponse;
+struct MetasrvPeersResponseDefaultTypeInternal;
+extern MetasrvPeersResponseDefaultTypeInternal _MetasrvPeersResponse_default_instance_;
+}  // namespace meta
+}  // namespace v1
+}  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
+template<> ::greptime::v1::meta::MetasrvPeersRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::MetasrvPeersRequest>(Arena*);
+template<> ::greptime::v1::meta::MetasrvPeersResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::MetasrvPeersResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -51,7 +68,358 @@ namespace meta {
 
 // ===================================================================
 
+class MetasrvPeersRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.MetasrvPeersRequest) */ {
+ public:
+  inline MetasrvPeersRequest() : MetasrvPeersRequest(nullptr) {}
+  ~MetasrvPeersRequest() override;
+  explicit PROTOBUF_CONSTEXPR MetasrvPeersRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
+  MetasrvPeersRequest(const MetasrvPeersRequest& from);
+  MetasrvPeersRequest(MetasrvPeersRequest&& from) noexcept
+    : MetasrvPeersRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline MetasrvPeersRequest& operator=(const MetasrvPeersRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MetasrvPeersRequest& operator=(MetasrvPeersRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const MetasrvPeersRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const MetasrvPeersRequest* internal_default_instance() {
+    return reinterpret_cast<const MetasrvPeersRequest*>(
+               &_MetasrvPeersRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(MetasrvPeersRequest& a, MetasrvPeersRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(MetasrvPeersRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MetasrvPeersRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  MetasrvPeersRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<MetasrvPeersRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const MetasrvPeersRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const MetasrvPeersRequest& from) {
+    MetasrvPeersRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MetasrvPeersRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.MetasrvPeersRequest";
+  }
+  protected:
+  explicit MetasrvPeersRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHeaderFieldNumber = 1,
+  };
+  // .greptime.v1.meta.RequestHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::meta::RequestHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::RequestHeader* release_header();
+  ::greptime::v1::meta::RequestHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::meta::RequestHeader* header);
+  private:
+  const ::greptime::v1::meta::RequestHeader& _internal_header() const;
+  ::greptime::v1::meta::RequestHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::meta::RequestHeader* header);
+  ::greptime::v1::meta::RequestHeader* unsafe_arena_release_header();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.MetasrvPeersRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::meta::RequestHeader* header_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fcluster_2eproto;
+};
+// -------------------------------------------------------------------
+
+class MetasrvPeersResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.MetasrvPeersResponse) */ {
+ public:
+  inline MetasrvPeersResponse() : MetasrvPeersResponse(nullptr) {}
+  ~MetasrvPeersResponse() override;
+  explicit PROTOBUF_CONSTEXPR MetasrvPeersResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  MetasrvPeersResponse(const MetasrvPeersResponse& from);
+  MetasrvPeersResponse(MetasrvPeersResponse&& from) noexcept
+    : MetasrvPeersResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline MetasrvPeersResponse& operator=(const MetasrvPeersResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MetasrvPeersResponse& operator=(MetasrvPeersResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const MetasrvPeersResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const MetasrvPeersResponse* internal_default_instance() {
+    return reinterpret_cast<const MetasrvPeersResponse*>(
+               &_MetasrvPeersResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(MetasrvPeersResponse& a, MetasrvPeersResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(MetasrvPeersResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MetasrvPeersResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  MetasrvPeersResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<MetasrvPeersResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const MetasrvPeersResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const MetasrvPeersResponse& from) {
+    MetasrvPeersResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MetasrvPeersResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.MetasrvPeersResponse";
+  }
+  protected:
+  explicit MetasrvPeersResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFollowersFieldNumber = 3,
+    kHeaderFieldNumber = 1,
+    kLeaderFieldNumber = 2,
+  };
+  // repeated .greptime.v1.meta.Peer followers = 3;
+  int followers_size() const;
+  private:
+  int _internal_followers_size() const;
+  public:
+  void clear_followers();
+  ::greptime::v1::meta::Peer* mutable_followers(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer >*
+      mutable_followers();
+  private:
+  const ::greptime::v1::meta::Peer& _internal_followers(int index) const;
+  ::greptime::v1::meta::Peer* _internal_add_followers();
+  public:
+  const ::greptime::v1::meta::Peer& followers(int index) const;
+  ::greptime::v1::meta::Peer* add_followers();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer >&
+      followers() const;
+
+  // .greptime.v1.meta.ResponseHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::meta::ResponseHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ResponseHeader* release_header();
+  ::greptime::v1::meta::ResponseHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::meta::ResponseHeader* header);
+  private:
+  const ::greptime::v1::meta::ResponseHeader& _internal_header() const;
+  ::greptime::v1::meta::ResponseHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::meta::ResponseHeader* header);
+  ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
+
+  // .greptime.v1.meta.Peer leader = 2;
+  bool has_leader() const;
+  private:
+  bool _internal_has_leader() const;
+  public:
+  void clear_leader();
+  const ::greptime::v1::meta::Peer& leader() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::Peer* release_leader();
+  ::greptime::v1::meta::Peer* mutable_leader();
+  void set_allocated_leader(::greptime::v1::meta::Peer* leader);
+  private:
+  const ::greptime::v1::meta::Peer& _internal_leader() const;
+  ::greptime::v1::meta::Peer* _internal_mutable_leader();
+  public:
+  void unsafe_arena_set_allocated_leader(
+      ::greptime::v1::meta::Peer* leader);
+  ::greptime::v1::meta::Peer* unsafe_arena_release_leader();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.MetasrvPeersResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer > followers_;
+    ::greptime::v1::meta::ResponseHeader* header_;
+    ::greptime::v1::meta::Peer* leader_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fcluster_2eproto;
+};
 // ===================================================================
 
 
@@ -61,9 +429,309 @@ namespace meta {
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// MetasrvPeersRequest
+
+// .greptime.v1.meta.RequestHeader header = 1;
+inline bool MetasrvPeersRequest::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool MetasrvPeersRequest::has_header() const {
+  return _internal_has_header();
+}
+inline const ::greptime::v1::meta::RequestHeader& MetasrvPeersRequest::_internal_header() const {
+  const ::greptime::v1::meta::RequestHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::RequestHeader&>(
+      ::greptime::v1::meta::_RequestHeader_default_instance_);
+}
+inline const ::greptime::v1::meta::RequestHeader& MetasrvPeersRequest::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvPeersRequest.header)
+  return _internal_header();
+}
+inline void MetasrvPeersRequest::unsafe_arena_set_allocated_header(
+    ::greptime::v1::meta::RequestHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.MetasrvPeersRequest.header)
+}
+inline ::greptime::v1::meta::RequestHeader* MetasrvPeersRequest::release_header() {
+  
+  ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::RequestHeader* MetasrvPeersRequest::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.MetasrvPeersRequest.header)
+  
+  ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::RequestHeader* MetasrvPeersRequest::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::RequestHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::meta::RequestHeader* MetasrvPeersRequest::mutable_header() {
+  ::greptime::v1::meta::RequestHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.MetasrvPeersRequest.header)
+  return _msg;
+}
+inline void MetasrvPeersRequest::set_allocated_header(::greptime::v1::meta::RequestHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvPeersRequest.header)
+}
+
+// -------------------------------------------------------------------
+
+// MetasrvPeersResponse
+
+// .greptime.v1.meta.ResponseHeader header = 1;
+inline bool MetasrvPeersResponse::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool MetasrvPeersResponse::has_header() const {
+  return _internal_has_header();
+}
+inline const ::greptime::v1::meta::ResponseHeader& MetasrvPeersResponse::_internal_header() const {
+  const ::greptime::v1::meta::ResponseHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ResponseHeader&>(
+      ::greptime::v1::meta::_ResponseHeader_default_instance_);
+}
+inline const ::greptime::v1::meta::ResponseHeader& MetasrvPeersResponse::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvPeersResponse.header)
+  return _internal_header();
+}
+inline void MetasrvPeersResponse::unsafe_arena_set_allocated_header(
+    ::greptime::v1::meta::ResponseHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.MetasrvPeersResponse.header)
+}
+inline ::greptime::v1::meta::ResponseHeader* MetasrvPeersResponse::release_header() {
+  
+  ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ResponseHeader* MetasrvPeersResponse::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.MetasrvPeersResponse.header)
+  
+  ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ResponseHeader* MetasrvPeersResponse::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ResponseHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::meta::ResponseHeader* MetasrvPeersResponse::mutable_header() {
+  ::greptime::v1::meta::ResponseHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.MetasrvPeersResponse.header)
+  return _msg;
+}
+inline void MetasrvPeersResponse::set_allocated_header(::greptime::v1::meta::ResponseHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvPeersResponse.header)
+}
+
+// .greptime.v1.meta.Peer leader = 2;
+inline bool MetasrvPeersResponse::_internal_has_leader() const {
+  return this != internal_default_instance() && _impl_.leader_ != nullptr;
+}
+inline bool MetasrvPeersResponse::has_leader() const {
+  return _internal_has_leader();
+}
+inline const ::greptime::v1::meta::Peer& MetasrvPeersResponse::_internal_leader() const {
+  const ::greptime::v1::meta::Peer* p = _impl_.leader_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::Peer&>(
+      ::greptime::v1::meta::_Peer_default_instance_);
+}
+inline const ::greptime::v1::meta::Peer& MetasrvPeersResponse::leader() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvPeersResponse.leader)
+  return _internal_leader();
+}
+inline void MetasrvPeersResponse::unsafe_arena_set_allocated_leader(
+    ::greptime::v1::meta::Peer* leader) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.leader_);
+  }
+  _impl_.leader_ = leader;
+  if (leader) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.MetasrvPeersResponse.leader)
+}
+inline ::greptime::v1::meta::Peer* MetasrvPeersResponse::release_leader() {
+  
+  ::greptime::v1::meta::Peer* temp = _impl_.leader_;
+  _impl_.leader_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::Peer* MetasrvPeersResponse::unsafe_arena_release_leader() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.MetasrvPeersResponse.leader)
+  
+  ::greptime::v1::meta::Peer* temp = _impl_.leader_;
+  _impl_.leader_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::Peer* MetasrvPeersResponse::_internal_mutable_leader() {
+  
+  if (_impl_.leader_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::Peer>(GetArenaForAllocation());
+    _impl_.leader_ = p;
+  }
+  return _impl_.leader_;
+}
+inline ::greptime::v1::meta::Peer* MetasrvPeersResponse::mutable_leader() {
+  ::greptime::v1::meta::Peer* _msg = _internal_mutable_leader();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.MetasrvPeersResponse.leader)
+  return _msg;
+}
+inline void MetasrvPeersResponse::set_allocated_leader(::greptime::v1::meta::Peer* leader) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.leader_);
+  }
+  if (leader) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(leader));
+    if (message_arena != submessage_arena) {
+      leader = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, leader, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.leader_ = leader;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvPeersResponse.leader)
+}
+
+// repeated .greptime.v1.meta.Peer followers = 3;
+inline int MetasrvPeersResponse::_internal_followers_size() const {
+  return _impl_.followers_.size();
+}
+inline int MetasrvPeersResponse::followers_size() const {
+  return _internal_followers_size();
+}
+inline ::greptime::v1::meta::Peer* MetasrvPeersResponse::mutable_followers(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.MetasrvPeersResponse.followers)
+  return _impl_.followers_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer >*
+MetasrvPeersResponse::mutable_followers() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.MetasrvPeersResponse.followers)
+  return &_impl_.followers_;
+}
+inline const ::greptime::v1::meta::Peer& MetasrvPeersResponse::_internal_followers(int index) const {
+  return _impl_.followers_.Get(index);
+}
+inline const ::greptime::v1::meta::Peer& MetasrvPeersResponse::followers(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvPeersResponse.followers)
+  return _internal_followers(index);
+}
+inline ::greptime::v1::meta::Peer* MetasrvPeersResponse::_internal_add_followers() {
+  return _impl_.followers_.Add();
+}
+inline ::greptime::v1::meta::Peer* MetasrvPeersResponse::add_followers() {
+  ::greptime::v1::meta::Peer* _add = _internal_add_followers();
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.MetasrvPeersResponse.followers)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::Peer >&
+MetasrvPeersResponse::followers() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.MetasrvPeersResponse.followers)
+  return _impl_.followers_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
