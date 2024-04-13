@@ -2656,6 +2656,18 @@ public final class Prometheus {
      */
     com.google.protobuf.ByteString
         getStepBytes();
+
+    /**
+     * <code>string lookback = 5;</code>
+     * @return The lookback.
+     */
+    java.lang.String getLookback();
+    /**
+     * <code>string lookback = 5;</code>
+     * @return The bytes for lookback.
+     */
+    com.google.protobuf.ByteString
+        getLookbackBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.PromRangeQuery}
@@ -2674,6 +2686,7 @@ public final class Prometheus {
       start_ = "";
       end_ = "";
       step_ = "";
+      lookback_ = "";
     }
 
     @java.lang.Override
@@ -2728,6 +2741,12 @@ public final class Prometheus {
               java.lang.String s = input.readStringRequireUtf8();
 
               step_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              lookback_ = s;
               break;
             }
             default: {
@@ -2916,6 +2935,44 @@ public final class Prometheus {
       }
     }
 
+    public static final int LOOKBACK_FIELD_NUMBER = 5;
+    private volatile java.lang.Object lookback_;
+    /**
+     * <code>string lookback = 5;</code>
+     * @return The lookback.
+     */
+    @java.lang.Override
+    public java.lang.String getLookback() {
+      java.lang.Object ref = lookback_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        lookback_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string lookback = 5;</code>
+     * @return The bytes for lookback.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getLookbackBytes() {
+      java.lang.Object ref = lookback_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        lookback_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2942,6 +2999,9 @@ public final class Prometheus {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(step_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, step_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lookback_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, lookback_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2962,6 +3022,9 @@ public final class Prometheus {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(step_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, step_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lookback_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, lookback_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2986,6 +3049,8 @@ public final class Prometheus {
           .equals(other.getEnd())) return false;
       if (!getStep()
           .equals(other.getStep())) return false;
+      if (!getLookback()
+          .equals(other.getLookback())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3005,6 +3070,8 @@ public final class Prometheus {
       hash = (53 * hash) + getEnd().hashCode();
       hash = (37 * hash) + STEP_FIELD_NUMBER;
       hash = (53 * hash) + getStep().hashCode();
+      hash = (37 * hash) + LOOKBACK_FIELD_NUMBER;
+      hash = (53 * hash) + getLookback().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3146,6 +3213,8 @@ public final class Prometheus {
 
         step_ = "";
 
+        lookback_ = "";
+
         return this;
       }
 
@@ -3176,6 +3245,7 @@ public final class Prometheus {
         result.start_ = start_;
         result.end_ = end_;
         result.step_ = step_;
+        result.lookback_ = lookback_;
         onBuilt();
         return result;
       }
@@ -3238,6 +3308,10 @@ public final class Prometheus {
         }
         if (!other.getStep().isEmpty()) {
           step_ = other.step_;
+          onChanged();
+        }
+        if (!other.getLookback().isEmpty()) {
+          lookback_ = other.lookback_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -3572,6 +3646,82 @@ public final class Prometheus {
         onChanged();
         return this;
       }
+
+      private java.lang.Object lookback_ = "";
+      /**
+       * <code>string lookback = 5;</code>
+       * @return The lookback.
+       */
+      public java.lang.String getLookback() {
+        java.lang.Object ref = lookback_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          lookback_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string lookback = 5;</code>
+       * @return The bytes for lookback.
+       */
+      public com.google.protobuf.ByteString
+          getLookbackBytes() {
+        java.lang.Object ref = lookback_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          lookback_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string lookback = 5;</code>
+       * @param value The lookback to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLookback(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        lookback_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string lookback = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLookback() {
+        
+        lookback_ = getDefaultInstance().getLookback();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string lookback = 5;</code>
+       * @param value The bytes for lookback to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLookbackBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        lookback_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3663,13 +3813,14 @@ public final class Prometheus {
       "mql\"K\n\016PromqlResponse\022+\n\006header\030\001 \001(\0132\033." +
       "greptime.v1.ResponseHeader\022\014\n\004body\030\002 \001(\014" +
       "\"/\n\020PromInstantQuery\022\r\n\005query\030\001 \001(\t\022\014\n\004t" +
-      "ime\030\002 \001(\t\"I\n\016PromRangeQuery\022\r\n\005query\030\001 \001" +
+      "ime\030\002 \001(\t\"[\n\016PromRangeQuery\022\r\n\005query\030\001 \001" +
       "(\t\022\r\n\005start\030\002 \001(\t\022\013\n\003end\030\003 \001(\t\022\014\n\004step\030\004" +
-      " \001(\t2V\n\021PrometheusGateway\022A\n\006Handle\022\032.gr" +
-      "eptime.v1.PromqlRequest\032\033.greptime.v1.Pr" +
-      "omqlResponseBS\n\016io.greptime.v1B\nPromethe" +
-      "usZ5github.com/GreptimeTeam/greptime-pro" +
-      "to/go/greptime/v1b\006proto3"
+      " \001(\t\022\020\n\010lookback\030\005 \001(\t2V\n\021PrometheusGate" +
+      "way\022A\n\006Handle\022\032.greptime.v1.PromqlReques" +
+      "t\032\033.greptime.v1.PromqlResponseBS\n\016io.gre" +
+      "ptime.v1B\nPrometheusZ5github.com/Greptim" +
+      "eTeam/greptime-proto/go/greptime/v1b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3699,7 +3850,7 @@ public final class Prometheus {
     internal_static_greptime_v1_PromRangeQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_PromRangeQuery_descriptor,
-        new java.lang.String[] { "Query", "Start", "End", "Step", });
+        new java.lang.String[] { "Query", "Start", "End", "Step", "Lookback", });
     io.greptime.v1.Common.getDescriptor();
   }
 
