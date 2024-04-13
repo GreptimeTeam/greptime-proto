@@ -584,6 +584,7 @@ class PromInstantQuery final :
   enum : int {
     kQueryFieldNumber = 1,
     kTimeFieldNumber = 2,
+    kLookbackFieldNumber = 3,
   };
   // string query = 1;
   void clear_query();
@@ -613,6 +614,20 @@ class PromInstantQuery final :
   std::string* _internal_mutable_time();
   public:
 
+  // string lookback = 3;
+  void clear_lookback();
+  const std::string& lookback() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_lookback(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_lookback();
+  PROTOBUF_NODISCARD std::string* release_lookback();
+  void set_allocated_lookback(std::string* lookback);
+  private:
+  const std::string& _internal_lookback() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_lookback(const std::string& value);
+  std::string* _internal_mutable_lookback();
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.PromInstantQuery)
  private:
   class _Internal;
@@ -623,6 +638,7 @@ class PromInstantQuery final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr lookback_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1339,6 +1355,56 @@ inline void PromInstantQuery::set_allocated_time(std::string* time) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.PromInstantQuery.time)
+}
+
+// string lookback = 3;
+inline void PromInstantQuery::clear_lookback() {
+  _impl_.lookback_.ClearToEmpty();
+}
+inline const std::string& PromInstantQuery::lookback() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.PromInstantQuery.lookback)
+  return _internal_lookback();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void PromInstantQuery::set_lookback(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.lookback_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.PromInstantQuery.lookback)
+}
+inline std::string* PromInstantQuery::mutable_lookback() {
+  std::string* _s = _internal_mutable_lookback();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.PromInstantQuery.lookback)
+  return _s;
+}
+inline const std::string& PromInstantQuery::_internal_lookback() const {
+  return _impl_.lookback_.Get();
+}
+inline void PromInstantQuery::_internal_set_lookback(const std::string& value) {
+  
+  _impl_.lookback_.Set(value, GetArenaForAllocation());
+}
+inline std::string* PromInstantQuery::_internal_mutable_lookback() {
+  
+  return _impl_.lookback_.Mutable(GetArenaForAllocation());
+}
+inline std::string* PromInstantQuery::release_lookback() {
+  // @@protoc_insertion_point(field_release:greptime.v1.PromInstantQuery.lookback)
+  return _impl_.lookback_.Release();
+}
+inline void PromInstantQuery::set_allocated_lookback(std::string* lookback) {
+  if (lookback != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.lookback_.SetAllocated(lookback, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.lookback_.IsDefault()) {
+    _impl_.lookback_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.PromInstantQuery.lookback)
 }
 
 // -------------------------------------------------------------------

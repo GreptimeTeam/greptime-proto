@@ -55,6 +55,7 @@ PROTOBUF_CONSTEXPR PromInstantQuery::PromInstantQuery(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.query_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.time_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.lookback_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct PromInstantQueryDefaultTypeInternal {
   PROTOBUF_CONSTEXPR PromInstantQueryDefaultTypeInternal()
@@ -115,6 +116,7 @@ const uint32_t TableStruct_greptime_2fv1_2fprom_2eproto::offsets[] PROTOBUF_SECT
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::PromInstantQuery, _impl_.query_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::PromInstantQuery, _impl_.time_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::PromInstantQuery, _impl_.lookback_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::PromRangeQuery, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -131,7 +133,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 0, -1, -1, sizeof(::greptime::v1::PromqlRequest)},
   { 10, -1, -1, sizeof(::greptime::v1::PromqlResponse)},
   { 18, -1, -1, sizeof(::greptime::v1::PromInstantQuery)},
-  { 26, -1, -1, sizeof(::greptime::v1::PromRangeQuery)},
+  { 27, -1, -1, sizeof(::greptime::v1::PromRangeQuery)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -150,22 +152,22 @@ const char descriptor_table_protodef_greptime_2fv1_2fprom_2eproto[] PROTOBUF_SEC
   "(\0132\033.greptime.v1.PromRangeQueryH\000B\010\n\006pro"
   "mql\"K\n\016PromqlResponse\022+\n\006header\030\001 \001(\0132\033."
   "greptime.v1.ResponseHeader\022\014\n\004body\030\002 \001(\014"
-  "\"/\n\020PromInstantQuery\022\r\n\005query\030\001 \001(\t\022\014\n\004t"
-  "ime\030\002 \001(\t\"[\n\016PromRangeQuery\022\r\n\005query\030\001 \001"
-  "(\t\022\r\n\005start\030\002 \001(\t\022\013\n\003end\030\003 \001(\t\022\014\n\004step\030\004"
-  " \001(\t\022\020\n\010lookback\030\005 \001(\t2V\n\021PrometheusGate"
-  "way\022A\n\006Handle\022\032.greptime.v1.PromqlReques"
-  "t\032\033.greptime.v1.PromqlResponseBS\n\016io.gre"
-  "ptime.v1B\nPrometheusZ5github.com/Greptim"
-  "eTeam/greptime-proto/go/greptime/v1b\006pro"
-  "to3"
+  "\"A\n\020PromInstantQuery\022\r\n\005query\030\001 \001(\t\022\014\n\004t"
+  "ime\030\002 \001(\t\022\020\n\010lookback\030\003 \001(\t\"[\n\016PromRange"
+  "Query\022\r\n\005query\030\001 \001(\t\022\r\n\005start\030\002 \001(\t\022\013\n\003e"
+  "nd\030\003 \001(\t\022\014\n\004step\030\004 \001(\t\022\020\n\010lookback\030\005 \001(\t"
+  "2V\n\021PrometheusGateway\022A\n\006Handle\022\032.grepti"
+  "me.v1.PromqlRequest\032\033.greptime.v1.Promql"
+  "ResponseBS\n\016io.greptime.v1B\nPrometheusZ5"
+  "github.com/GreptimeTeam/greptime-proto/g"
+  "o/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fprom_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fprom_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fprom_2eproto = {
-    false, false, 643, descriptor_table_protodef_greptime_2fv1_2fprom_2eproto,
+    false, false, 661, descriptor_table_protodef_greptime_2fv1_2fprom_2eproto,
     "greptime/v1/prom.proto",
     &descriptor_table_greptime_2fv1_2fprom_2eproto_once, descriptor_table_greptime_2fv1_2fprom_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fprom_2eproto::offsets,
@@ -798,6 +800,7 @@ PromInstantQuery::PromInstantQuery(const PromInstantQuery& from)
   new (&_impl_) Impl_{
       decltype(_impl_.query_){}
     , decltype(_impl_.time_){}
+    , decltype(_impl_.lookback_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -817,6 +820,14 @@ PromInstantQuery::PromInstantQuery(const PromInstantQuery& from)
     _this->_impl_.time_.Set(from._internal_time(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.lookback_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.lookback_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_lookback().empty()) {
+    _this->_impl_.lookback_.Set(from._internal_lookback(), 
+      _this->GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.PromInstantQuery)
 }
 
@@ -827,6 +838,7 @@ inline void PromInstantQuery::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.query_){}
     , decltype(_impl_.time_){}
+    , decltype(_impl_.lookback_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.query_.InitDefault();
@@ -836,6 +848,10 @@ inline void PromInstantQuery::SharedCtor(
   _impl_.time_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.time_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.lookback_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.lookback_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -852,6 +868,7 @@ inline void PromInstantQuery::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.query_.Destroy();
   _impl_.time_.Destroy();
+  _impl_.lookback_.Destroy();
 }
 
 void PromInstantQuery::SetCachedSize(int size) const {
@@ -866,6 +883,7 @@ void PromInstantQuery::Clear() {
 
   _impl_.query_.ClearToEmpty();
   _impl_.time_.ClearToEmpty();
+  _impl_.lookback_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -892,6 +910,16 @@ const char* PromInstantQuery::_InternalParse(const char* ptr, ::_pbi::ParseConte
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.PromInstantQuery.time"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string lookback = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_lookback();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.PromInstantQuery.lookback"));
         } else
           goto handle_unusual;
         continue;
@@ -944,6 +972,16 @@ uint8_t* PromInstantQuery::_InternalSerialize(
         2, this->_internal_time(), target);
   }
 
+  // string lookback = 3;
+  if (!this->_internal_lookback().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_lookback().data(), static_cast<int>(this->_internal_lookback().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.PromInstantQuery.lookback");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_lookback(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -974,6 +1012,13 @@ size_t PromInstantQuery::ByteSizeLong() const {
         this->_internal_time());
   }
 
+  // string lookback = 3;
+  if (!this->_internal_lookback().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_lookback());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -997,6 +1042,9 @@ void PromInstantQuery::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
   }
   if (!from._internal_time().empty()) {
     _this->_internal_set_time(from._internal_time());
+  }
+  if (!from._internal_lookback().empty()) {
+    _this->_internal_set_lookback(from._internal_lookback());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1024,6 +1072,10 @@ void PromInstantQuery::InternalSwap(PromInstantQuery* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.time_, lhs_arena,
       &other->_impl_.time_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.lookback_, lhs_arena,
+      &other->_impl_.lookback_, rhs_arena
   );
 }
 

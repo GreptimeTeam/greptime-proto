@@ -43,6 +43,7 @@ message PromqlResponse {
 message PromInstantQuery {
   string query = 1;
   string time = 2;
+  string lookback = 3;
 }
 
 message PromRangeQuery {
