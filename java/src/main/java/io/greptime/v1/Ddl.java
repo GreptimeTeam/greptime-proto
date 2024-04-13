@@ -13963,15 +13963,30 @@ java.lang.String defaultValue);
     io.greptime.v1.Ddl.ColumnDefOrBuilder getColumnDefOrBuilder();
 
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-     * @return The enum numeric value on the wire for dataType.
+     * <code>.greptime.v1.ColumnDataType target_type = 2;</code>
+     * @return The enum numeric value on the wire for targetType.
      */
-    int getDataTypeValue();
+    int getTargetTypeValue();
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-     * @return The dataType.
+     * <code>.greptime.v1.ColumnDataType target_type = 2;</code>
+     * @return The targetType.
      */
-    io.greptime.v1.Common.ColumnDataType getDataType();
+    io.greptime.v1.Common.ColumnDataType getTargetType();
+
+    /**
+     * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+     * @return Whether the targetTypeExtension field is set.
+     */
+    boolean hasTargetTypeExtension();
+    /**
+     * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+     * @return The targetTypeExtension.
+     */
+    io.greptime.v1.Common.ColumnDataTypeExtension getTargetTypeExtension();
+    /**
+     * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+     */
+    io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder getTargetTypeExtensionOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.ModifyColumn}
@@ -13986,7 +14001,7 @@ java.lang.String defaultValue);
       super(builder);
     }
     private ModifyColumn() {
-      dataType_ = 0;
+      targetType_ = 0;
     }
 
     @java.lang.Override
@@ -14035,7 +14050,20 @@ java.lang.String defaultValue);
             case 16: {
               int rawValue = input.readEnum();
 
-              dataType_ = rawValue;
+              targetType_ = rawValue;
+              break;
+            }
+            case 26: {
+              io.greptime.v1.Common.ColumnDataTypeExtension.Builder subBuilder = null;
+              if (targetTypeExtension_ != null) {
+                subBuilder = targetTypeExtension_.toBuilder();
+              }
+              targetTypeExtension_ = input.readMessage(io.greptime.v1.Common.ColumnDataTypeExtension.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(targetTypeExtension_);
+                targetTypeExtension_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -14098,23 +14126,49 @@ java.lang.String defaultValue);
       return getColumnDef();
     }
 
-    public static final int DATA_TYPE_FIELD_NUMBER = 2;
-    private int dataType_;
+    public static final int TARGET_TYPE_FIELD_NUMBER = 2;
+    private int targetType_;
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-     * @return The enum numeric value on the wire for dataType.
+     * <code>.greptime.v1.ColumnDataType target_type = 2;</code>
+     * @return The enum numeric value on the wire for targetType.
      */
-    @java.lang.Override public int getDataTypeValue() {
-      return dataType_;
+    @java.lang.Override public int getTargetTypeValue() {
+      return targetType_;
     }
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-     * @return The dataType.
+     * <code>.greptime.v1.ColumnDataType target_type = 2;</code>
+     * @return The targetType.
      */
-    @java.lang.Override public io.greptime.v1.Common.ColumnDataType getDataType() {
+    @java.lang.Override public io.greptime.v1.Common.ColumnDataType getTargetType() {
       @SuppressWarnings("deprecation")
-      io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(dataType_);
+      io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(targetType_);
       return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
+    }
+
+    public static final int TARGET_TYPE_EXTENSION_FIELD_NUMBER = 3;
+    private io.greptime.v1.Common.ColumnDataTypeExtension targetTypeExtension_;
+    /**
+     * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+     * @return Whether the targetTypeExtension field is set.
+     */
+    @java.lang.Override
+    public boolean hasTargetTypeExtension() {
+      return targetTypeExtension_ != null;
+    }
+    /**
+     * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+     * @return The targetTypeExtension.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ColumnDataTypeExtension getTargetTypeExtension() {
+      return targetTypeExtension_ == null ? io.greptime.v1.Common.ColumnDataTypeExtension.getDefaultInstance() : targetTypeExtension_;
+    }
+    /**
+     * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder getTargetTypeExtensionOrBuilder() {
+      return getTargetTypeExtension();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14134,8 +14188,11 @@ java.lang.String defaultValue);
       if (columnDef_ != null) {
         output.writeMessage(1, getColumnDef());
       }
-      if (dataType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
-        output.writeEnum(2, dataType_);
+      if (targetType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
+        output.writeEnum(2, targetType_);
+      }
+      if (targetTypeExtension_ != null) {
+        output.writeMessage(3, getTargetTypeExtension());
       }
       unknownFields.writeTo(output);
     }
@@ -14150,9 +14207,13 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getColumnDef());
       }
-      if (dataType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
+      if (targetType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, dataType_);
+          .computeEnumSize(2, targetType_);
+      }
+      if (targetTypeExtension_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getTargetTypeExtension());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14174,7 +14235,12 @@ java.lang.String defaultValue);
         if (!getColumnDef()
             .equals(other.getColumnDef())) return false;
       }
-      if (dataType_ != other.dataType_) return false;
+      if (targetType_ != other.targetType_) return false;
+      if (hasTargetTypeExtension() != other.hasTargetTypeExtension()) return false;
+      if (hasTargetTypeExtension()) {
+        if (!getTargetTypeExtension()
+            .equals(other.getTargetTypeExtension())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -14190,8 +14256,12 @@ java.lang.String defaultValue);
         hash = (37 * hash) + COLUMN_DEF_FIELD_NUMBER;
         hash = (53 * hash) + getColumnDef().hashCode();
       }
-      hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + dataType_;
+      hash = (37 * hash) + TARGET_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + targetType_;
+      if (hasTargetTypeExtension()) {
+        hash = (37 * hash) + TARGET_TYPE_EXTENSION_FIELD_NUMBER;
+        hash = (53 * hash) + getTargetTypeExtension().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14331,8 +14401,14 @@ java.lang.String defaultValue);
           columnDef_ = null;
           columnDefBuilder_ = null;
         }
-        dataType_ = 0;
+        targetType_ = 0;
 
+        if (targetTypeExtensionBuilder_ == null) {
+          targetTypeExtension_ = null;
+        } else {
+          targetTypeExtension_ = null;
+          targetTypeExtensionBuilder_ = null;
+        }
         return this;
       }
 
@@ -14364,7 +14440,12 @@ java.lang.String defaultValue);
         } else {
           result.columnDef_ = columnDefBuilder_.build();
         }
-        result.dataType_ = dataType_;
+        result.targetType_ = targetType_;
+        if (targetTypeExtensionBuilder_ == null) {
+          result.targetTypeExtension_ = targetTypeExtension_;
+        } else {
+          result.targetTypeExtension_ = targetTypeExtensionBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -14416,8 +14497,11 @@ java.lang.String defaultValue);
         if (other.hasColumnDef()) {
           mergeColumnDef(other.getColumnDef());
         }
-        if (other.dataType_ != 0) {
-          setDataTypeValue(other.getDataTypeValue());
+        if (other.targetType_ != 0) {
+          setTargetTypeValue(other.getTargetTypeValue());
+        }
+        if (other.hasTargetTypeExtension()) {
+          mergeTargetTypeExtension(other.getTargetTypeExtension());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -14567,58 +14651,177 @@ java.lang.String defaultValue);
         return columnDefBuilder_;
       }
 
-      private int dataType_ = 0;
+      private int targetType_ = 0;
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-       * @return The enum numeric value on the wire for dataType.
+       * <code>.greptime.v1.ColumnDataType target_type = 2;</code>
+       * @return The enum numeric value on the wire for targetType.
        */
-      @java.lang.Override public int getDataTypeValue() {
-        return dataType_;
+      @java.lang.Override public int getTargetTypeValue() {
+        return targetType_;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-       * @param value The enum numeric value on the wire for dataType to set.
+       * <code>.greptime.v1.ColumnDataType target_type = 2;</code>
+       * @param value The enum numeric value on the wire for targetType to set.
        * @return This builder for chaining.
        */
-      public Builder setDataTypeValue(int value) {
+      public Builder setTargetTypeValue(int value) {
         
-        dataType_ = value;
+        targetType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-       * @return The dataType.
+       * <code>.greptime.v1.ColumnDataType target_type = 2;</code>
+       * @return The targetType.
        */
       @java.lang.Override
-      public io.greptime.v1.Common.ColumnDataType getDataType() {
+      public io.greptime.v1.Common.ColumnDataType getTargetType() {
         @SuppressWarnings("deprecation")
-        io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(dataType_);
+        io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(targetType_);
         return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-       * @param value The dataType to set.
+       * <code>.greptime.v1.ColumnDataType target_type = 2;</code>
+       * @param value The targetType to set.
        * @return This builder for chaining.
        */
-      public Builder setDataType(io.greptime.v1.Common.ColumnDataType value) {
+      public Builder setTargetType(io.greptime.v1.Common.ColumnDataType value) {
         if (value == null) {
           throw new NullPointerException();
         }
         
-        dataType_ = value.getNumber();
+        targetType_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+       * <code>.greptime.v1.ColumnDataType target_type = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearDataType() {
+      public Builder clearTargetType() {
         
-        dataType_ = 0;
+        targetType_ = 0;
         onChanged();
         return this;
+      }
+
+      private io.greptime.v1.Common.ColumnDataTypeExtension targetTypeExtension_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnDataTypeExtension, io.greptime.v1.Common.ColumnDataTypeExtension.Builder, io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder> targetTypeExtensionBuilder_;
+      /**
+       * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+       * @return Whether the targetTypeExtension field is set.
+       */
+      public boolean hasTargetTypeExtension() {
+        return targetTypeExtensionBuilder_ != null || targetTypeExtension_ != null;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+       * @return The targetTypeExtension.
+       */
+      public io.greptime.v1.Common.ColumnDataTypeExtension getTargetTypeExtension() {
+        if (targetTypeExtensionBuilder_ == null) {
+          return targetTypeExtension_ == null ? io.greptime.v1.Common.ColumnDataTypeExtension.getDefaultInstance() : targetTypeExtension_;
+        } else {
+          return targetTypeExtensionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+       */
+      public Builder setTargetTypeExtension(io.greptime.v1.Common.ColumnDataTypeExtension value) {
+        if (targetTypeExtensionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          targetTypeExtension_ = value;
+          onChanged();
+        } else {
+          targetTypeExtensionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+       */
+      public Builder setTargetTypeExtension(
+          io.greptime.v1.Common.ColumnDataTypeExtension.Builder builderForValue) {
+        if (targetTypeExtensionBuilder_ == null) {
+          targetTypeExtension_ = builderForValue.build();
+          onChanged();
+        } else {
+          targetTypeExtensionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+       */
+      public Builder mergeTargetTypeExtension(io.greptime.v1.Common.ColumnDataTypeExtension value) {
+        if (targetTypeExtensionBuilder_ == null) {
+          if (targetTypeExtension_ != null) {
+            targetTypeExtension_ =
+              io.greptime.v1.Common.ColumnDataTypeExtension.newBuilder(targetTypeExtension_).mergeFrom(value).buildPartial();
+          } else {
+            targetTypeExtension_ = value;
+          }
+          onChanged();
+        } else {
+          targetTypeExtensionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+       */
+      public Builder clearTargetTypeExtension() {
+        if (targetTypeExtensionBuilder_ == null) {
+          targetTypeExtension_ = null;
+          onChanged();
+        } else {
+          targetTypeExtension_ = null;
+          targetTypeExtensionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+       */
+      public io.greptime.v1.Common.ColumnDataTypeExtension.Builder getTargetTypeExtensionBuilder() {
+        
+        onChanged();
+        return getTargetTypeExtensionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+       */
+      public io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder getTargetTypeExtensionOrBuilder() {
+        if (targetTypeExtensionBuilder_ != null) {
+          return targetTypeExtensionBuilder_.getMessageOrBuilder();
+        } else {
+          return targetTypeExtension_ == null ?
+              io.greptime.v1.Common.ColumnDataTypeExtension.getDefaultInstance() : targetTypeExtension_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.ColumnDataTypeExtension target_type_extension = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnDataTypeExtension, io.greptime.v1.Common.ColumnDataTypeExtension.Builder, io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder> 
+          getTargetTypeExtensionFieldBuilder() {
+        if (targetTypeExtensionBuilder_ == null) {
+          targetTypeExtensionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.ColumnDataTypeExtension, io.greptime.v1.Common.ColumnDataTypeExtension.Builder, io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder>(
+                  getTargetTypeExtension(),
+                  getParentForChildren(),
+                  isClean());
+          targetTypeExtension_ = null;
+        }
+        return targetTypeExtensionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -18012,23 +18215,25 @@ java.lang.String defaultValue);
       "new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncol" +
       "umn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n" +
       "\010location\030\003 \001(\0132\036.greptime.v1.AddColumnL" +
-      "ocation\"j\n\014ModifyColumn\022*\n\ncolumn_def\030\001 " +
-      "\001(\0132\026.greptime.v1.ColumnDef\022.\n\tdata_type" +
-      "\030\002 \001(\0162\033.greptime.v1.ColumnDataType\"\032\n\nD" +
-      "ropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id" +
-      "\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tda" +
-      "ta_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy" +
-      "pe\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_const" +
-      "raint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gre" +
-      "ptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@" +
-      "\n\022datatype_extension\030\007 \001(\0132$.greptime.v1" +
-      ".ColumnDataTypeExtension\"\230\001\n\021AddColumnLo" +
-      "cation\022B\n\rlocation_type\030\001 \001(\0162+.greptime" +
-      ".v1.AddColumnLocation.LocationType\022\031\n\021af" +
-      "ter_column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n" +
-      "\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003D" +
-      "dlZ5github.com/GreptimeTeam/greptime-pro" +
-      "to/go/greptime/v1b\006proto3"
+      "ocation\"\261\001\n\014ModifyColumn\022*\n\ncolumn_def\030\001" +
+      " \001(\0132\026.greptime.v1.ColumnDef\0220\n\013target_t" +
+      "ype\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022C" +
+      "\n\025target_type_extension\030\003 \001(\0132$.greptime" +
+      ".v1.ColumnDataTypeExtension\"\032\n\nDropColum" +
+      "n\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\377" +
+      "\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030" +
+      "\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is" +
+      "_nullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 " +
+      "\001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime.v1" +
+      ".SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022dataty" +
+      "pe_extension\030\007 \001(\0132$.greptime.v1.ColumnD" +
+      "ataTypeExtension\"\230\001\n\021AddColumnLocation\022B" +
+      "\n\rlocation_type\030\001 \001(\0162+.greptime.v1.AddC" +
+      "olumnLocation.LocationType\022\031\n\021after_colu" +
+      "mn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000" +
+      "\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003DdlZ5gith" +
+      "ub.com/GreptimeTeam/greptime-proto/go/gr" +
+      "eptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18124,7 +18329,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_ModifyColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ModifyColumn_descriptor,
-        new java.lang.String[] { "ColumnDef", "DataType", });
+        new java.lang.String[] { "ColumnDef", "TargetType", "TargetTypeExtension", });
     internal_static_greptime_v1_DropColumn_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_DropColumn_fieldAccessorTable = new

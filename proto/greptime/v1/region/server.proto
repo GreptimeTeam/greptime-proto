@@ -144,7 +144,8 @@ message AddColumn {
 
 message ModifyColumn {
     ColumnDef column_def = 1;
-    ColumnDataType data_type = 2;
+    ColumnDataType target_type = 2;
+    ColumnDataTypeExtension target_type_extension = 3;
 }
 
 message DropColumn { string name = 1; }
