@@ -4192,27 +4192,23 @@ class ModifyColumn final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kColumnDefFieldNumber = 1,
+    kColumnNameFieldNumber = 1,
     kTargetTypeExtensionFieldNumber = 3,
     kTargetTypeFieldNumber = 2,
   };
-  // .greptime.v1.ColumnDef column_def = 1;
-  bool has_column_def() const;
+  // string column_name = 1;
+  void clear_column_name();
+  const std::string& column_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_column_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_column_name();
+  PROTOBUF_NODISCARD std::string* release_column_name();
+  void set_allocated_column_name(std::string* column_name);
   private:
-  bool _internal_has_column_def() const;
+  const std::string& _internal_column_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_column_name(const std::string& value);
+  std::string* _internal_mutable_column_name();
   public:
-  void clear_column_def();
-  const ::greptime::v1::ColumnDef& column_def() const;
-  PROTOBUF_NODISCARD ::greptime::v1::ColumnDef* release_column_def();
-  ::greptime::v1::ColumnDef* mutable_column_def();
-  void set_allocated_column_def(::greptime::v1::ColumnDef* column_def);
-  private:
-  const ::greptime::v1::ColumnDef& _internal_column_def() const;
-  ::greptime::v1::ColumnDef* _internal_mutable_column_def();
-  public:
-  void unsafe_arena_set_allocated_column_def(
-      ::greptime::v1::ColumnDef* column_def);
-  ::greptime::v1::ColumnDef* unsafe_arena_release_column_def();
 
   // .greptime.v1.ColumnDataTypeExtension target_type_extension = 3;
   bool has_target_type_extension() const;
@@ -4249,7 +4245,7 @@ class ModifyColumn final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::greptime::v1::ColumnDef* column_def_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
     ::greptime::v1::ColumnDataTypeExtension* target_type_extension_;
     int target_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -7956,89 +7952,54 @@ inline void AddColumn::set_allocated_location(::greptime::v1::AddColumnLocation*
 
 // ModifyColumn
 
-// .greptime.v1.ColumnDef column_def = 1;
-inline bool ModifyColumn::_internal_has_column_def() const {
-  return this != internal_default_instance() && _impl_.column_def_ != nullptr;
+// string column_name = 1;
+inline void ModifyColumn::clear_column_name() {
+  _impl_.column_name_.ClearToEmpty();
 }
-inline bool ModifyColumn::has_column_def() const {
-  return _internal_has_column_def();
+inline const std::string& ModifyColumn::column_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ModifyColumn.column_name)
+  return _internal_column_name();
 }
-inline const ::greptime::v1::ColumnDef& ModifyColumn::_internal_column_def() const {
-  const ::greptime::v1::ColumnDef* p = _impl_.column_def_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ColumnDef&>(
-      ::greptime::v1::_ColumnDef_default_instance_);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ModifyColumn::set_column_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.column_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ModifyColumn.column_name)
 }
-inline const ::greptime::v1::ColumnDef& ModifyColumn::column_def() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.ModifyColumn.column_def)
-  return _internal_column_def();
+inline std::string* ModifyColumn::mutable_column_name() {
+  std::string* _s = _internal_mutable_column_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.ModifyColumn.column_name)
+  return _s;
 }
-inline void ModifyColumn::unsafe_arena_set_allocated_column_def(
-    ::greptime::v1::ColumnDef* column_def) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.column_def_);
-  }
-  _impl_.column_def_ = column_def;
-  if (column_def) {
+inline const std::string& ModifyColumn::_internal_column_name() const {
+  return _impl_.column_name_.Get();
+}
+inline void ModifyColumn::_internal_set_column_name(const std::string& value) {
+  
+  _impl_.column_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ModifyColumn::_internal_mutable_column_name() {
+  
+  return _impl_.column_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ModifyColumn::release_column_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.ModifyColumn.column_name)
+  return _impl_.column_name_.Release();
+}
+inline void ModifyColumn::set_allocated_column_name(std::string* column_name) {
+  if (column_name != nullptr) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.ModifyColumn.column_def)
-}
-inline ::greptime::v1::ColumnDef* ModifyColumn::release_column_def() {
-  
-  ::greptime::v1::ColumnDef* temp = _impl_.column_def_;
-  _impl_.column_def_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  _impl_.column_name_.SetAllocated(column_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.column_name_.IsDefault()) {
+    _impl_.column_name_.Set("", GetArenaForAllocation());
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::ColumnDef* ModifyColumn::unsafe_arena_release_column_def() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.ModifyColumn.column_def)
-  
-  ::greptime::v1::ColumnDef* temp = _impl_.column_def_;
-  _impl_.column_def_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::ColumnDef* ModifyColumn::_internal_mutable_column_def() {
-  
-  if (_impl_.column_def_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::ColumnDef>(GetArenaForAllocation());
-    _impl_.column_def_ = p;
-  }
-  return _impl_.column_def_;
-}
-inline ::greptime::v1::ColumnDef* ModifyColumn::mutable_column_def() {
-  ::greptime::v1::ColumnDef* _msg = _internal_mutable_column_def();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.ModifyColumn.column_def)
-  return _msg;
-}
-inline void ModifyColumn::set_allocated_column_def(::greptime::v1::ColumnDef* column_def) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.column_def_);
-  }
-  if (column_def) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(column_def));
-    if (message_arena != submessage_arena) {
-      column_def = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, column_def, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.column_def_ = column_def;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ModifyColumn.column_def)
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ModifyColumn.column_name)
 }
 
 // .greptime.v1.ColumnDataType target_type = 2;
