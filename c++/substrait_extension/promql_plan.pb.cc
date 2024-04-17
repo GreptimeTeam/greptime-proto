@@ -100,8 +100,26 @@ struct RangeManipulateDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RangeManipulateDefaultTypeInternal _RangeManipulate_default_instance_;
+PROTOBUF_CONSTEXPR ScalarCalculate::ScalarCalculate(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.tag_columns_)*/{}
+  , /*decltype(_impl_.time_index_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.field_column_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.start_)*/int64_t{0}
+  , /*decltype(_impl_.end_)*/int64_t{0}
+  , /*decltype(_impl_.interval_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ScalarCalculateDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ScalarCalculateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ScalarCalculateDefaultTypeInternal() {}
+  union {
+    ScalarCalculate _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ScalarCalculateDefaultTypeInternal _ScalarCalculate_default_instance_;
 }  // namespace substrait_extension
-static ::_pb::Metadata file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto[5];
+static ::_pb::Metadata file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto[6];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_substrait_5fextension_2fpromql_5fplan_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_substrait_5fextension_2fpromql_5fplan_2eproto = nullptr;
 
@@ -155,6 +173,18 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _impl_.range_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _impl_.time_index_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _impl_.tag_columns_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.start_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.end_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.interval_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.time_index_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.tag_columns_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.field_column_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::substrait_extension::EmptyMetric)},
@@ -162,6 +192,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 21, -1, -1, sizeof(::substrait_extension::SeriesNormalize)},
   { 30, -1, -1, sizeof(::substrait_extension::SeriesDivide)},
   { 37, -1, -1, sizeof(::substrait_extension::RangeManipulate)},
+  { 49, -1, -1, sizeof(::substrait_extension::ScalarCalculate)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -170,6 +201,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::substrait_extension::_SeriesNormalize_default_instance_._instance,
   &::substrait_extension::_SeriesDivide_default_instance_._instance,
   &::substrait_extension::_RangeManipulate_default_instance_._instance,
+  &::substrait_extension::_ScalarCalculate_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -185,14 +217,18 @@ const char descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2epro
   "\030\001 \003(\t\"w\n\017RangeManipulate\022\r\n\005start\030\001 \001(\003"
   "\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\r\n\005range"
   "\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag_column"
-  "s\030\006 \003(\tB\?Z=github.com/GreptimeTeam/grept"
-  "ime-proto/go/substrait_extensionb\006proto3"
+  "s\030\006 \003(\t\"~\n\017ScalarCalculate\022\r\n\005start\030\001 \001("
+  "\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\022\n\ntime"
+  "_index\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(\t\022\024\n\014fie"
+  "ld_column\030\007 \001(\tB\?Z=github.com/GreptimeTe"
+  "am/greptime-proto/go/substrait_extension"
+  "b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto = {
-    false, false, 560, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
+    false, false, 688, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
     "substrait_extension/promql_plan.proto",
-    &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once, nullptr, 0, 5,
+    &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once, nullptr, 0, 6,
     schemas, file_default_instances, TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offsets,
     file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto, file_level_enum_descriptors_substrait_5fextension_2fpromql_5fplan_2eproto,
     file_level_service_descriptors_substrait_5fextension_2fpromql_5fplan_2eproto,
@@ -1604,6 +1640,382 @@ void RangeManipulate::InternalSwap(RangeManipulate* other) {
       file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto[4]);
 }
 
+// ===================================================================
+
+class ScalarCalculate::_Internal {
+ public:
+};
+
+ScalarCalculate::ScalarCalculate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:substrait_extension.ScalarCalculate)
+}
+ScalarCalculate::ScalarCalculate(const ScalarCalculate& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ScalarCalculate* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.tag_columns_){from._impl_.tag_columns_}
+    , decltype(_impl_.time_index_){}
+    , decltype(_impl_.field_column_){}
+    , decltype(_impl_.start_){}
+    , decltype(_impl_.end_){}
+    , decltype(_impl_.interval_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.time_index_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.time_index_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_time_index().empty()) {
+    _this->_impl_.time_index_.Set(from._internal_time_index(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.field_column_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.field_column_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_field_column().empty()) {
+    _this->_impl_.field_column_.Set(from._internal_field_column(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.start_, &from._impl_.start_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.interval_) -
+    reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.interval_));
+  // @@protoc_insertion_point(copy_constructor:substrait_extension.ScalarCalculate)
+}
+
+inline void ScalarCalculate::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.tag_columns_){arena}
+    , decltype(_impl_.time_index_){}
+    , decltype(_impl_.field_column_){}
+    , decltype(_impl_.start_){int64_t{0}}
+    , decltype(_impl_.end_){int64_t{0}}
+    , decltype(_impl_.interval_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.time_index_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.time_index_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.field_column_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.field_column_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ScalarCalculate::~ScalarCalculate() {
+  // @@protoc_insertion_point(destructor:substrait_extension.ScalarCalculate)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ScalarCalculate::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.tag_columns_.~RepeatedPtrField();
+  _impl_.time_index_.Destroy();
+  _impl_.field_column_.Destroy();
+}
+
+void ScalarCalculate::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ScalarCalculate::Clear() {
+// @@protoc_insertion_point(message_clear_start:substrait_extension.ScalarCalculate)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.tag_columns_.Clear();
+  _impl_.time_index_.ClearToEmpty();
+  _impl_.field_column_.ClearToEmpty();
+  ::memset(&_impl_.start_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.interval_) -
+      reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.interval_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ScalarCalculate::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 start = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.start_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 end = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.end_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 interval = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.interval_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string time_index = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_time_index();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.ScalarCalculate.time_index"));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string tag_columns = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_tag_columns();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.ScalarCalculate.tag_columns"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string field_column = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          auto str = _internal_mutable_field_column();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.ScalarCalculate.field_column"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ScalarCalculate::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:substrait_extension.ScalarCalculate)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 start = 1;
+  if (this->_internal_start() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_start(), target);
+  }
+
+  // int64 end = 2;
+  if (this->_internal_end() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_end(), target);
+  }
+
+  // int64 interval = 3;
+  if (this->_internal_interval() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_interval(), target);
+  }
+
+  // string time_index = 5;
+  if (!this->_internal_time_index().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_time_index().data(), static_cast<int>(this->_internal_time_index().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "substrait_extension.ScalarCalculate.time_index");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_time_index(), target);
+  }
+
+  // repeated string tag_columns = 6;
+  for (int i = 0, n = this->_internal_tag_columns_size(); i < n; i++) {
+    const auto& s = this->_internal_tag_columns(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "substrait_extension.ScalarCalculate.tag_columns");
+    target = stream->WriteString(6, s, target);
+  }
+
+  // string field_column = 7;
+  if (!this->_internal_field_column().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_field_column().data(), static_cast<int>(this->_internal_field_column().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "substrait_extension.ScalarCalculate.field_column");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_field_column(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:substrait_extension.ScalarCalculate)
+  return target;
+}
+
+size_t ScalarCalculate::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:substrait_extension.ScalarCalculate)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string tag_columns = 6;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.tag_columns_.size());
+  for (int i = 0, n = _impl_.tag_columns_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.tag_columns_.Get(i));
+  }
+
+  // string time_index = 5;
+  if (!this->_internal_time_index().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_time_index());
+  }
+
+  // string field_column = 7;
+  if (!this->_internal_field_column().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_field_column());
+  }
+
+  // int64 start = 1;
+  if (this->_internal_start() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_start());
+  }
+
+  // int64 end = 2;
+  if (this->_internal_end() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_end());
+  }
+
+  // int64 interval = 3;
+  if (this->_internal_interval() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_interval());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ScalarCalculate::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ScalarCalculate::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ScalarCalculate::GetClassData() const { return &_class_data_; }
+
+
+void ScalarCalculate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ScalarCalculate*>(&to_msg);
+  auto& from = static_cast<const ScalarCalculate&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:substrait_extension.ScalarCalculate)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.tag_columns_.MergeFrom(from._impl_.tag_columns_);
+  if (!from._internal_time_index().empty()) {
+    _this->_internal_set_time_index(from._internal_time_index());
+  }
+  if (!from._internal_field_column().empty()) {
+    _this->_internal_set_field_column(from._internal_field_column());
+  }
+  if (from._internal_start() != 0) {
+    _this->_internal_set_start(from._internal_start());
+  }
+  if (from._internal_end() != 0) {
+    _this->_internal_set_end(from._internal_end());
+  }
+  if (from._internal_interval() != 0) {
+    _this->_internal_set_interval(from._internal_interval());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ScalarCalculate::CopyFrom(const ScalarCalculate& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:substrait_extension.ScalarCalculate)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ScalarCalculate::IsInitialized() const {
+  return true;
+}
+
+void ScalarCalculate::InternalSwap(ScalarCalculate* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.tag_columns_.InternalSwap(&other->_impl_.tag_columns_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.time_index_, lhs_arena,
+      &other->_impl_.time_index_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.field_column_, lhs_arena,
+      &other->_impl_.field_column_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ScalarCalculate, _impl_.interval_)
+      + sizeof(ScalarCalculate::_impl_.interval_)
+      - PROTOBUF_FIELD_OFFSET(ScalarCalculate, _impl_.start_)>(
+          reinterpret_cast<char*>(&_impl_.start_),
+          reinterpret_cast<char*>(&other->_impl_.start_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ScalarCalculate::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_getter, &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once,
+      file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto[5]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace substrait_extension
 PROTOBUF_NAMESPACE_OPEN
@@ -1626,6 +2038,10 @@ Arena::CreateMaybeMessage< ::substrait_extension::SeriesDivide >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::substrait_extension::RangeManipulate*
 Arena::CreateMaybeMessage< ::substrait_extension::RangeManipulate >(Arena* arena) {
   return Arena::CreateMessageInternal< ::substrait_extension::RangeManipulate >(arena);
+}
+template<> PROTOBUF_NOINLINE ::substrait_extension::ScalarCalculate*
+Arena::CreateMaybeMessage< ::substrait_extension::ScalarCalculate >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::substrait_extension::ScalarCalculate >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

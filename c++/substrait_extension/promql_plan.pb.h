@@ -54,6 +54,9 @@ extern InstantManipulateDefaultTypeInternal _InstantManipulate_default_instance_
 class RangeManipulate;
 struct RangeManipulateDefaultTypeInternal;
 extern RangeManipulateDefaultTypeInternal _RangeManipulate_default_instance_;
+class ScalarCalculate;
+struct ScalarCalculateDefaultTypeInternal;
+extern ScalarCalculateDefaultTypeInternal _ScalarCalculate_default_instance_;
 class SeriesDivide;
 struct SeriesDivideDefaultTypeInternal;
 extern SeriesDivideDefaultTypeInternal _SeriesDivide_default_instance_;
@@ -65,6 +68,7 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::substrait_extension::EmptyMetric* Arena::CreateMaybeMessage<::substrait_extension::EmptyMetric>(Arena*);
 template<> ::substrait_extension::InstantManipulate* Arena::CreateMaybeMessage<::substrait_extension::InstantManipulate>(Arena*);
 template<> ::substrait_extension::RangeManipulate* Arena::CreateMaybeMessage<::substrait_extension::RangeManipulate>(Arena*);
+template<> ::substrait_extension::ScalarCalculate* Arena::CreateMaybeMessage<::substrait_extension::ScalarCalculate>(Arena*);
 template<> ::substrait_extension::SeriesDivide* Arena::CreateMaybeMessage<::substrait_extension::SeriesDivide>(Arena*);
 template<> ::substrait_extension::SeriesNormalize* Arena::CreateMaybeMessage<::substrait_extension::SeriesNormalize>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -1014,6 +1018,234 @@ class RangeManipulate final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ScalarCalculate final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.ScalarCalculate) */ {
+ public:
+  inline ScalarCalculate() : ScalarCalculate(nullptr) {}
+  ~ScalarCalculate() override;
+  explicit PROTOBUF_CONSTEXPR ScalarCalculate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ScalarCalculate(const ScalarCalculate& from);
+  ScalarCalculate(ScalarCalculate&& from) noexcept
+    : ScalarCalculate() {
+    *this = ::std::move(from);
+  }
+
+  inline ScalarCalculate& operator=(const ScalarCalculate& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ScalarCalculate& operator=(ScalarCalculate&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ScalarCalculate& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ScalarCalculate* internal_default_instance() {
+    return reinterpret_cast<const ScalarCalculate*>(
+               &_ScalarCalculate_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(ScalarCalculate& a, ScalarCalculate& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ScalarCalculate* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ScalarCalculate* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ScalarCalculate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ScalarCalculate>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ScalarCalculate& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ScalarCalculate& from) {
+    ScalarCalculate::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ScalarCalculate* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.ScalarCalculate";
+  }
+  protected:
+  explicit ScalarCalculate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagColumnsFieldNumber = 6,
+    kTimeIndexFieldNumber = 5,
+    kFieldColumnFieldNumber = 7,
+    kStartFieldNumber = 1,
+    kEndFieldNumber = 2,
+    kIntervalFieldNumber = 3,
+  };
+  // repeated string tag_columns = 6;
+  int tag_columns_size() const;
+  private:
+  int _internal_tag_columns_size() const;
+  public:
+  void clear_tag_columns();
+  const std::string& tag_columns(int index) const;
+  std::string* mutable_tag_columns(int index);
+  void set_tag_columns(int index, const std::string& value);
+  void set_tag_columns(int index, std::string&& value);
+  void set_tag_columns(int index, const char* value);
+  void set_tag_columns(int index, const char* value, size_t size);
+  std::string* add_tag_columns();
+  void add_tag_columns(const std::string& value);
+  void add_tag_columns(std::string&& value);
+  void add_tag_columns(const char* value);
+  void add_tag_columns(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
+  private:
+  const std::string& _internal_tag_columns(int index) const;
+  std::string* _internal_add_tag_columns();
+  public:
+
+  // string time_index = 5;
+  void clear_time_index();
+  const std::string& time_index() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_time_index(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_time_index();
+  PROTOBUF_NODISCARD std::string* release_time_index();
+  void set_allocated_time_index(std::string* time_index);
+  private:
+  const std::string& _internal_time_index() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_index(const std::string& value);
+  std::string* _internal_mutable_time_index();
+  public:
+
+  // string field_column = 7;
+  void clear_field_column();
+  const std::string& field_column() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_field_column(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_field_column();
+  PROTOBUF_NODISCARD std::string* release_field_column();
+  void set_allocated_field_column(std::string* field_column);
+  private:
+  const std::string& _internal_field_column() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_field_column(const std::string& value);
+  std::string* _internal_mutable_field_column();
+  public:
+
+  // int64 start = 1;
+  void clear_start();
+  int64_t start() const;
+  void set_start(int64_t value);
+  private:
+  int64_t _internal_start() const;
+  void _internal_set_start(int64_t value);
+  public:
+
+  // int64 end = 2;
+  void clear_end();
+  int64_t end() const;
+  void set_end(int64_t value);
+  private:
+  int64_t _internal_end() const;
+  void _internal_set_end(int64_t value);
+  public:
+
+  // int64 interval = 3;
+  void clear_interval();
+  int64_t interval() const;
+  void set_interval(int64_t value);
+  private:
+  int64_t _internal_interval() const;
+  void _internal_set_interval(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.ScalarCalculate)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> tag_columns_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_index_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr field_column_;
+    int64_t start_;
+    int64_t end_;
+    int64_t interval_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
+};
 // ===================================================================
 
 
@@ -1651,9 +1883,250 @@ RangeManipulate::mutable_tag_columns() {
   return &_impl_.tag_columns_;
 }
 
+// -------------------------------------------------------------------
+
+// ScalarCalculate
+
+// int64 start = 1;
+inline void ScalarCalculate::clear_start() {
+  _impl_.start_ = int64_t{0};
+}
+inline int64_t ScalarCalculate::_internal_start() const {
+  return _impl_.start_;
+}
+inline int64_t ScalarCalculate::start() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.ScalarCalculate.start)
+  return _internal_start();
+}
+inline void ScalarCalculate::_internal_set_start(int64_t value) {
+  
+  _impl_.start_ = value;
+}
+inline void ScalarCalculate::set_start(int64_t value) {
+  _internal_set_start(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.start)
+}
+
+// int64 end = 2;
+inline void ScalarCalculate::clear_end() {
+  _impl_.end_ = int64_t{0};
+}
+inline int64_t ScalarCalculate::_internal_end() const {
+  return _impl_.end_;
+}
+inline int64_t ScalarCalculate::end() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.ScalarCalculate.end)
+  return _internal_end();
+}
+inline void ScalarCalculate::_internal_set_end(int64_t value) {
+  
+  _impl_.end_ = value;
+}
+inline void ScalarCalculate::set_end(int64_t value) {
+  _internal_set_end(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.end)
+}
+
+// int64 interval = 3;
+inline void ScalarCalculate::clear_interval() {
+  _impl_.interval_ = int64_t{0};
+}
+inline int64_t ScalarCalculate::_internal_interval() const {
+  return _impl_.interval_;
+}
+inline int64_t ScalarCalculate::interval() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.ScalarCalculate.interval)
+  return _internal_interval();
+}
+inline void ScalarCalculate::_internal_set_interval(int64_t value) {
+  
+  _impl_.interval_ = value;
+}
+inline void ScalarCalculate::set_interval(int64_t value) {
+  _internal_set_interval(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.interval)
+}
+
+// string time_index = 5;
+inline void ScalarCalculate::clear_time_index() {
+  _impl_.time_index_.ClearToEmpty();
+}
+inline const std::string& ScalarCalculate::time_index() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.ScalarCalculate.time_index)
+  return _internal_time_index();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ScalarCalculate::set_time_index(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.time_index_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.time_index)
+}
+inline std::string* ScalarCalculate::mutable_time_index() {
+  std::string* _s = _internal_mutable_time_index();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.ScalarCalculate.time_index)
+  return _s;
+}
+inline const std::string& ScalarCalculate::_internal_time_index() const {
+  return _impl_.time_index_.Get();
+}
+inline void ScalarCalculate::_internal_set_time_index(const std::string& value) {
+  
+  _impl_.time_index_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ScalarCalculate::_internal_mutable_time_index() {
+  
+  return _impl_.time_index_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ScalarCalculate::release_time_index() {
+  // @@protoc_insertion_point(field_release:substrait_extension.ScalarCalculate.time_index)
+  return _impl_.time_index_.Release();
+}
+inline void ScalarCalculate::set_allocated_time_index(std::string* time_index) {
+  if (time_index != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.time_index_.SetAllocated(time_index, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.time_index_.IsDefault()) {
+    _impl_.time_index_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.ScalarCalculate.time_index)
+}
+
+// repeated string tag_columns = 6;
+inline int ScalarCalculate::_internal_tag_columns_size() const {
+  return _impl_.tag_columns_.size();
+}
+inline int ScalarCalculate::tag_columns_size() const {
+  return _internal_tag_columns_size();
+}
+inline void ScalarCalculate::clear_tag_columns() {
+  _impl_.tag_columns_.Clear();
+}
+inline std::string* ScalarCalculate::add_tag_columns() {
+  std::string* _s = _internal_add_tag_columns();
+  // @@protoc_insertion_point(field_add_mutable:substrait_extension.ScalarCalculate.tag_columns)
+  return _s;
+}
+inline const std::string& ScalarCalculate::_internal_tag_columns(int index) const {
+  return _impl_.tag_columns_.Get(index);
+}
+inline const std::string& ScalarCalculate::tag_columns(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.ScalarCalculate.tag_columns)
+  return _internal_tag_columns(index);
+}
+inline std::string* ScalarCalculate::mutable_tag_columns(int index) {
+  // @@protoc_insertion_point(field_mutable:substrait_extension.ScalarCalculate.tag_columns)
+  return _impl_.tag_columns_.Mutable(index);
+}
+inline void ScalarCalculate::set_tag_columns(int index, const std::string& value) {
+  _impl_.tag_columns_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.tag_columns)
+}
+inline void ScalarCalculate::set_tag_columns(int index, std::string&& value) {
+  _impl_.tag_columns_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.tag_columns)
+}
+inline void ScalarCalculate::set_tag_columns(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.tag_columns_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:substrait_extension.ScalarCalculate.tag_columns)
+}
+inline void ScalarCalculate::set_tag_columns(int index, const char* value, size_t size) {
+  _impl_.tag_columns_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:substrait_extension.ScalarCalculate.tag_columns)
+}
+inline std::string* ScalarCalculate::_internal_add_tag_columns() {
+  return _impl_.tag_columns_.Add();
+}
+inline void ScalarCalculate::add_tag_columns(const std::string& value) {
+  _impl_.tag_columns_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.ScalarCalculate.tag_columns)
+}
+inline void ScalarCalculate::add_tag_columns(std::string&& value) {
+  _impl_.tag_columns_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:substrait_extension.ScalarCalculate.tag_columns)
+}
+inline void ScalarCalculate::add_tag_columns(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.tag_columns_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:substrait_extension.ScalarCalculate.tag_columns)
+}
+inline void ScalarCalculate::add_tag_columns(const char* value, size_t size) {
+  _impl_.tag_columns_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:substrait_extension.ScalarCalculate.tag_columns)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+ScalarCalculate::tag_columns() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.ScalarCalculate.tag_columns)
+  return _impl_.tag_columns_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+ScalarCalculate::mutable_tag_columns() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.ScalarCalculate.tag_columns)
+  return &_impl_.tag_columns_;
+}
+
+// string field_column = 7;
+inline void ScalarCalculate::clear_field_column() {
+  _impl_.field_column_.ClearToEmpty();
+}
+inline const std::string& ScalarCalculate::field_column() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.ScalarCalculate.field_column)
+  return _internal_field_column();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ScalarCalculate::set_field_column(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.field_column_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.field_column)
+}
+inline std::string* ScalarCalculate::mutable_field_column() {
+  std::string* _s = _internal_mutable_field_column();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.ScalarCalculate.field_column)
+  return _s;
+}
+inline const std::string& ScalarCalculate::_internal_field_column() const {
+  return _impl_.field_column_.Get();
+}
+inline void ScalarCalculate::_internal_set_field_column(const std::string& value) {
+  
+  _impl_.field_column_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ScalarCalculate::_internal_mutable_field_column() {
+  
+  return _impl_.field_column_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ScalarCalculate::release_field_column() {
+  // @@protoc_insertion_point(field_release:substrait_extension.ScalarCalculate.field_column)
+  return _impl_.field_column_.Release();
+}
+inline void ScalarCalculate::set_allocated_field_column(std::string* field_column) {
+  if (field_column != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.field_column_.SetAllocated(field_column, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.field_column_.IsDefault()) {
+    _impl_.field_column_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.ScalarCalculate.field_column)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
