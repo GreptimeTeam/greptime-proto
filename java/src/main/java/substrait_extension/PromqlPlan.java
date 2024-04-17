@@ -4617,6 +4617,1359 @@ public final class PromqlPlan {
 
   }
 
+  public interface ScalarCalculateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.ScalarCalculate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Start timestamp in millisecond
+     * </pre>
+     *
+     * <code>int64 start = 1;</code>
+     * @return The start.
+     */
+    long getStart();
+
+    /**
+     * <pre>
+     * End timestamp in millisecond
+     * </pre>
+     *
+     * <code>int64 end = 2;</code>
+     * @return The end.
+     */
+    long getEnd();
+
+    /**
+     * <pre>
+     * Interval in millisecond
+     * </pre>
+     *
+     * <code>int64 interval = 3;</code>
+     * @return The interval.
+     */
+    long getInterval();
+
+    /**
+     * <pre>
+     * Column name of time index column
+     * </pre>
+     *
+     * <code>string time_index = 5;</code>
+     * @return The timeIndex.
+     */
+    java.lang.String getTimeIndex();
+    /**
+     * <pre>
+     * Column name of time index column
+     * </pre>
+     *
+     * <code>string time_index = 5;</code>
+     * @return The bytes for timeIndex.
+     */
+    com.google.protobuf.ByteString
+        getTimeIndexBytes();
+
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 6;</code>
+     * @return A list containing the tagColumns.
+     */
+    java.util.List<java.lang.String>
+        getTagColumnsList();
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 6;</code>
+     * @return The count of tagColumns.
+     */
+    int getTagColumnsCount();
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 6;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumns at the given index.
+     */
+    java.lang.String getTagColumns(int index);
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tagColumns at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTagColumnsBytes(int index);
+
+    /**
+     * <pre>
+     * Column name of field column
+     * </pre>
+     *
+     * <code>string field_column = 7;</code>
+     * @return The fieldColumn.
+     */
+    java.lang.String getFieldColumn();
+    /**
+     * <pre>
+     * Column name of field column
+     * </pre>
+     *
+     * <code>string field_column = 7;</code>
+     * @return The bytes for fieldColumn.
+     */
+    com.google.protobuf.ByteString
+        getFieldColumnBytes();
+  }
+  /**
+   * Protobuf type {@code substrait_extension.ScalarCalculate}
+   */
+  public static final class ScalarCalculate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.ScalarCalculate)
+      ScalarCalculateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ScalarCalculate.newBuilder() to construct.
+    private ScalarCalculate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ScalarCalculate() {
+      timeIndex_ = "";
+      tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      fieldColumn_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ScalarCalculate();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ScalarCalculate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              start_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              end_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              interval_ = input.readInt64();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timeIndex_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tagColumns_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tagColumns_.add(s);
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              fieldColumn_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          tagColumns_ = tagColumns_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_ScalarCalculate_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_ScalarCalculate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.PromqlPlan.ScalarCalculate.class, substrait_extension.PromqlPlan.ScalarCalculate.Builder.class);
+    }
+
+    public static final int START_FIELD_NUMBER = 1;
+    private long start_;
+    /**
+     * <pre>
+     * Start timestamp in millisecond
+     * </pre>
+     *
+     * <code>int64 start = 1;</code>
+     * @return The start.
+     */
+    @java.lang.Override
+    public long getStart() {
+      return start_;
+    }
+
+    public static final int END_FIELD_NUMBER = 2;
+    private long end_;
+    /**
+     * <pre>
+     * End timestamp in millisecond
+     * </pre>
+     *
+     * <code>int64 end = 2;</code>
+     * @return The end.
+     */
+    @java.lang.Override
+    public long getEnd() {
+      return end_;
+    }
+
+    public static final int INTERVAL_FIELD_NUMBER = 3;
+    private long interval_;
+    /**
+     * <pre>
+     * Interval in millisecond
+     * </pre>
+     *
+     * <code>int64 interval = 3;</code>
+     * @return The interval.
+     */
+    @java.lang.Override
+    public long getInterval() {
+      return interval_;
+    }
+
+    public static final int TIME_INDEX_FIELD_NUMBER = 5;
+    private volatile java.lang.Object timeIndex_;
+    /**
+     * <pre>
+     * Column name of time index column
+     * </pre>
+     *
+     * <code>string time_index = 5;</code>
+     * @return The timeIndex.
+     */
+    @java.lang.Override
+    public java.lang.String getTimeIndex() {
+      java.lang.Object ref = timeIndex_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timeIndex_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Column name of time index column
+     * </pre>
+     *
+     * <code>string time_index = 5;</code>
+     * @return The bytes for timeIndex.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTimeIndexBytes() {
+      java.lang.Object ref = timeIndex_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timeIndex_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TAG_COLUMNS_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList tagColumns_;
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 6;</code>
+     * @return A list containing the tagColumns.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTagColumnsList() {
+      return tagColumns_;
+    }
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 6;</code>
+     * @return The count of tagColumns.
+     */
+    public int getTagColumnsCount() {
+      return tagColumns_.size();
+    }
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 6;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumns at the given index.
+     */
+    public java.lang.String getTagColumns(int index) {
+      return tagColumns_.get(index);
+    }
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tagColumns at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTagColumnsBytes(int index) {
+      return tagColumns_.getByteString(index);
+    }
+
+    public static final int FIELD_COLUMN_FIELD_NUMBER = 7;
+    private volatile java.lang.Object fieldColumn_;
+    /**
+     * <pre>
+     * Column name of field column
+     * </pre>
+     *
+     * <code>string field_column = 7;</code>
+     * @return The fieldColumn.
+     */
+    @java.lang.Override
+    public java.lang.String getFieldColumn() {
+      java.lang.Object ref = fieldColumn_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fieldColumn_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Column name of field column
+     * </pre>
+     *
+     * <code>string field_column = 7;</code>
+     * @return The bytes for fieldColumn.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFieldColumnBytes() {
+      java.lang.Object ref = fieldColumn_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fieldColumn_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (start_ != 0L) {
+        output.writeInt64(1, start_);
+      }
+      if (end_ != 0L) {
+        output.writeInt64(2, end_);
+      }
+      if (interval_ != 0L) {
+        output.writeInt64(3, interval_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndex_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, timeIndex_);
+      }
+      for (int i = 0; i < tagColumns_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tagColumns_.getRaw(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fieldColumn_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, fieldColumn_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (start_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, start_);
+      }
+      if (end_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, end_);
+      }
+      if (interval_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, interval_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndex_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, timeIndex_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tagColumns_.size(); i++) {
+          dataSize += computeStringSizeNoTag(tagColumns_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTagColumnsList().size();
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fieldColumn_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, fieldColumn_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.PromqlPlan.ScalarCalculate)) {
+        return super.equals(obj);
+      }
+      substrait_extension.PromqlPlan.ScalarCalculate other = (substrait_extension.PromqlPlan.ScalarCalculate) obj;
+
+      if (getStart()
+          != other.getStart()) return false;
+      if (getEnd()
+          != other.getEnd()) return false;
+      if (getInterval()
+          != other.getInterval()) return false;
+      if (!getTimeIndex()
+          .equals(other.getTimeIndex())) return false;
+      if (!getTagColumnsList()
+          .equals(other.getTagColumnsList())) return false;
+      if (!getFieldColumn()
+          .equals(other.getFieldColumn())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + START_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStart());
+      hash = (37 * hash) + END_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEnd());
+      hash = (37 * hash) + INTERVAL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getInterval());
+      hash = (37 * hash) + TIME_INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getTimeIndex().hashCode();
+      if (getTagColumnsCount() > 0) {
+        hash = (37 * hash) + TAG_COLUMNS_FIELD_NUMBER;
+        hash = (53 * hash) + getTagColumnsList().hashCode();
+      }
+      hash = (37 * hash) + FIELD_COLUMN_FIELD_NUMBER;
+      hash = (53 * hash) + getFieldColumn().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.ScalarCalculate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.PromqlPlan.ScalarCalculate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code substrait_extension.ScalarCalculate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.ScalarCalculate)
+        substrait_extension.PromqlPlan.ScalarCalculateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_ScalarCalculate_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_ScalarCalculate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.PromqlPlan.ScalarCalculate.class, substrait_extension.PromqlPlan.ScalarCalculate.Builder.class);
+      }
+
+      // Construct using substrait_extension.PromqlPlan.ScalarCalculate.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        start_ = 0L;
+
+        end_ = 0L;
+
+        interval_ = 0L;
+
+        timeIndex_ = "";
+
+        tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        fieldColumn_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_ScalarCalculate_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.ScalarCalculate getDefaultInstanceForType() {
+        return substrait_extension.PromqlPlan.ScalarCalculate.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.ScalarCalculate build() {
+        substrait_extension.PromqlPlan.ScalarCalculate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.ScalarCalculate buildPartial() {
+        substrait_extension.PromqlPlan.ScalarCalculate result = new substrait_extension.PromqlPlan.ScalarCalculate(this);
+        int from_bitField0_ = bitField0_;
+        result.start_ = start_;
+        result.end_ = end_;
+        result.interval_ = interval_;
+        result.timeIndex_ = timeIndex_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          tagColumns_ = tagColumns_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.tagColumns_ = tagColumns_;
+        result.fieldColumn_ = fieldColumn_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.PromqlPlan.ScalarCalculate) {
+          return mergeFrom((substrait_extension.PromqlPlan.ScalarCalculate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.PromqlPlan.ScalarCalculate other) {
+        if (other == substrait_extension.PromqlPlan.ScalarCalculate.getDefaultInstance()) return this;
+        if (other.getStart() != 0L) {
+          setStart(other.getStart());
+        }
+        if (other.getEnd() != 0L) {
+          setEnd(other.getEnd());
+        }
+        if (other.getInterval() != 0L) {
+          setInterval(other.getInterval());
+        }
+        if (!other.getTimeIndex().isEmpty()) {
+          timeIndex_ = other.timeIndex_;
+          onChanged();
+        }
+        if (!other.tagColumns_.isEmpty()) {
+          if (tagColumns_.isEmpty()) {
+            tagColumns_ = other.tagColumns_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTagColumnsIsMutable();
+            tagColumns_.addAll(other.tagColumns_);
+          }
+          onChanged();
+        }
+        if (!other.getFieldColumn().isEmpty()) {
+          fieldColumn_ = other.fieldColumn_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.PromqlPlan.ScalarCalculate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.PromqlPlan.ScalarCalculate) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long start_ ;
+      /**
+       * <pre>
+       * Start timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 start = 1;</code>
+       * @return The start.
+       */
+      @java.lang.Override
+      public long getStart() {
+        return start_;
+      }
+      /**
+       * <pre>
+       * Start timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 start = 1;</code>
+       * @param value The start to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStart(long value) {
+        
+        start_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Start timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 start = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStart() {
+        
+        start_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long end_ ;
+      /**
+       * <pre>
+       * End timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 end = 2;</code>
+       * @return The end.
+       */
+      @java.lang.Override
+      public long getEnd() {
+        return end_;
+      }
+      /**
+       * <pre>
+       * End timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 end = 2;</code>
+       * @param value The end to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnd(long value) {
+        
+        end_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * End timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 end = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEnd() {
+        
+        end_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long interval_ ;
+      /**
+       * <pre>
+       * Interval in millisecond
+       * </pre>
+       *
+       * <code>int64 interval = 3;</code>
+       * @return The interval.
+       */
+      @java.lang.Override
+      public long getInterval() {
+        return interval_;
+      }
+      /**
+       * <pre>
+       * Interval in millisecond
+       * </pre>
+       *
+       * <code>int64 interval = 3;</code>
+       * @param value The interval to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInterval(long value) {
+        
+        interval_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Interval in millisecond
+       * </pre>
+       *
+       * <code>int64 interval = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInterval() {
+        
+        interval_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timeIndex_ = "";
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index = 5;</code>
+       * @return The timeIndex.
+       */
+      public java.lang.String getTimeIndex() {
+        java.lang.Object ref = timeIndex_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timeIndex_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index = 5;</code>
+       * @return The bytes for timeIndex.
+       */
+      public com.google.protobuf.ByteString
+          getTimeIndexBytes() {
+        java.lang.Object ref = timeIndex_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timeIndex_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index = 5;</code>
+       * @param value The timeIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndex(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timeIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeIndex() {
+        
+        timeIndex_ = getDefaultInstance().getTimeIndex();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index = 5;</code>
+       * @param value The bytes for timeIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timeIndex_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTagColumnsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          tagColumns_ = new com.google.protobuf.LazyStringArrayList(tagColumns_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 6;</code>
+       * @return A list containing the tagColumns.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTagColumnsList() {
+        return tagColumns_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 6;</code>
+       * @return The count of tagColumns.
+       */
+      public int getTagColumnsCount() {
+        return tagColumns_.size();
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 6;</code>
+       * @param index The index of the element to return.
+       * @return The tagColumns at the given index.
+       */
+      public java.lang.String getTagColumns(int index) {
+        return tagColumns_.get(index);
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 6;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the tagColumns at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getTagColumnsBytes(int index) {
+        return tagColumns_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 6;</code>
+       * @param index The index to set the value at.
+       * @param value The tagColumns to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTagColumns(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagColumnsIsMutable();
+        tagColumns_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 6;</code>
+       * @param value The tagColumns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagColumns(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagColumnsIsMutable();
+        tagColumns_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 6;</code>
+       * @param values The tagColumns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTagColumns(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTagColumnsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tagColumns_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTagColumns() {
+        tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 6;</code>
+       * @param value The bytes of the tagColumns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagColumnsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTagColumnsIsMutable();
+        tagColumns_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fieldColumn_ = "";
+      /**
+       * <pre>
+       * Column name of field column
+       * </pre>
+       *
+       * <code>string field_column = 7;</code>
+       * @return The fieldColumn.
+       */
+      public java.lang.String getFieldColumn() {
+        java.lang.Object ref = fieldColumn_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fieldColumn_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name of field column
+       * </pre>
+       *
+       * <code>string field_column = 7;</code>
+       * @return The bytes for fieldColumn.
+       */
+      public com.google.protobuf.ByteString
+          getFieldColumnBytes() {
+        java.lang.Object ref = fieldColumn_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fieldColumn_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name of field column
+       * </pre>
+       *
+       * <code>string field_column = 7;</code>
+       * @param value The fieldColumn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFieldColumn(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fieldColumn_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name of field column
+       * </pre>
+       *
+       * <code>string field_column = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFieldColumn() {
+        
+        fieldColumn_ = getDefaultInstance().getFieldColumn();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name of field column
+       * </pre>
+       *
+       * <code>string field_column = 7;</code>
+       * @param value The bytes for fieldColumn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFieldColumnBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        fieldColumn_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.ScalarCalculate)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.ScalarCalculate)
+    private static final substrait_extension.PromqlPlan.ScalarCalculate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.PromqlPlan.ScalarCalculate();
+    }
+
+    public static substrait_extension.PromqlPlan.ScalarCalculate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ScalarCalculate>
+        PARSER = new com.google.protobuf.AbstractParser<ScalarCalculate>() {
+      @java.lang.Override
+      public ScalarCalculate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ScalarCalculate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ScalarCalculate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ScalarCalculate> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.PromqlPlan.ScalarCalculate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_substrait_extension_EmptyMetric_descriptor;
   private static final 
@@ -4642,6 +5995,11 @@ public final class PromqlPlan {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_substrait_extension_RangeManipulate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_ScalarCalculate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_ScalarCalculate_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4663,8 +6021,12 @@ public final class PromqlPlan {
       "\030\001 \003(\t\"w\n\017RangeManipulate\022\r\n\005start\030\001 \001(\003" +
       "\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\r\n\005range" +
       "\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag_column" +
-      "s\030\006 \003(\tB?Z=github.com/GreptimeTeam/grept" +
-      "ime-proto/go/substrait_extensionb\006proto3"
+      "s\030\006 \003(\t\"~\n\017ScalarCalculate\022\r\n\005start\030\001 \001(" +
+      "\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\022\n\ntime" +
+      "_index\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(\t\022\024\n\014fie" +
+      "ld_column\030\007 \001(\tB?Z=github.com/GreptimeTe" +
+      "am/greptime-proto/go/substrait_extension" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4700,6 +6062,12 @@ public final class PromqlPlan {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_RangeManipulate_descriptor,
         new java.lang.String[] { "Start", "End", "Interval", "Range", "TimeIndex", "TagColumns", });
+    internal_static_substrait_extension_ScalarCalculate_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_substrait_extension_ScalarCalculate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_ScalarCalculate_descriptor,
+        new java.lang.String[] { "Start", "End", "Interval", "TimeIndex", "TagColumns", "FieldColumn", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

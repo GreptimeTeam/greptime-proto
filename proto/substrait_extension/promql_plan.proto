@@ -70,3 +70,18 @@ message RangeManipulate {
   // Names of tag columns
   repeated string tag_columns = 6;
 }
+
+message ScalarCalculate {
+  // Start timestamp in millisecond
+  int64 start = 1;
+  // End timestamp in millisecond
+  int64 end = 2;
+  // Interval in millisecond
+  int64 interval = 3;
+  // Column name of time index column
+  string time_index = 5;
+  // Names of tag columns
+  repeated string tag_columns = 6;
+  // Column name of field column
+  string field_column = 7;
+}
