@@ -32,6 +32,8 @@ message RegionRequestHeader {
   map<string, string> tracing_context = 5;
   // DB Name of request, tracking only
   string dbname = 3;
+  // The `timezone` for the request
+  string timezone = 4;
 }
 
 message RegionRequest {
