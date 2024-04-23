@@ -50,7 +50,7 @@ message CreateTaskExpr {
 
 message RemoveTaskExpr {
   string catalog_name = 1;
-  string task_name = 1;
+  string task_name = 2;
 }
 
 message CreateTableExpr {

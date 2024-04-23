@@ -330,6 +330,7 @@ class RegionRequestHeader final :
   enum : int {
     kTracingContextFieldNumber = 5,
     kDbnameFieldNumber = 3,
+    kTimezoneFieldNumber = 4,
   };
   // map<string, string> tracing_context = 5;
   int tracing_context_size() const;
@@ -362,6 +363,20 @@ class RegionRequestHeader final :
   std::string* _internal_mutable_dbname();
   public:
 
+  // string timezone = 4;
+  void clear_timezone();
+  const std::string& timezone() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_timezone(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_timezone();
+  PROTOBUF_NODISCARD std::string* release_timezone();
+  void set_allocated_timezone(std::string* timezone);
+  private:
+  const std::string& _internal_timezone() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_timezone(const std::string& value);
+  std::string* _internal_mutable_timezone();
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequestHeader)
  private:
   class _Internal;
@@ -376,6 +391,7 @@ class RegionRequestHeader final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> tracing_context_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dbname_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr timezone_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -4737,6 +4753,56 @@ inline void RegionRequestHeader::set_allocated_dbname(std::string* dbname) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionRequestHeader.dbname)
+}
+
+// string timezone = 4;
+inline void RegionRequestHeader::clear_timezone() {
+  _impl_.timezone_.ClearToEmpty();
+}
+inline const std::string& RegionRequestHeader::timezone() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequestHeader.timezone)
+  return _internal_timezone();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RegionRequestHeader::set_timezone(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.timezone_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionRequestHeader.timezone)
+}
+inline std::string* RegionRequestHeader::mutable_timezone() {
+  std::string* _s = _internal_mutable_timezone();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequestHeader.timezone)
+  return _s;
+}
+inline const std::string& RegionRequestHeader::_internal_timezone() const {
+  return _impl_.timezone_.Get();
+}
+inline void RegionRequestHeader::_internal_set_timezone(const std::string& value) {
+  
+  _impl_.timezone_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RegionRequestHeader::_internal_mutable_timezone() {
+  
+  return _impl_.timezone_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RegionRequestHeader::release_timezone() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequestHeader.timezone)
+  return _impl_.timezone_.Release();
+}
+inline void RegionRequestHeader::set_allocated_timezone(std::string* timezone) {
+  if (timezone != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.timezone_.SetAllocated(timezone, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.timezone_.IsDefault()) {
+    _impl_.timezone_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionRequestHeader.timezone)
 }
 
 // -------------------------------------------------------------------
