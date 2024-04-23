@@ -33,7 +33,24 @@ message DdlRequest {
     AlterExpr alter = 3;
     DropTableExpr drop_table = 4;
     TruncateTableExpr truncate_table = 7;
+    CreateTaskExpr create_task = 8;
+    RemoveTaskExpr remove_task = 9;
   }
+}
+
+message CreateTaskExpr {
+  string catalog_name = 1;
+  string task_name = 2;
+  bool create_if_not_exists = 3;
+  string expire_when = 4;
+  string comment = 5;
+  string sql = 6;
+  map<string, string> task_options = 7;
+}
+
+message RemoveTaskExpr {
+  string catalog_name = 1;
+  string task_name = 1;
 }
 
 message CreateTableExpr {
