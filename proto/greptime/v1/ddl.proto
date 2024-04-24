@@ -116,7 +116,7 @@ message AddColumns { repeated AddColumn add_columns = 1; }
 
 message DropColumns { repeated DropColumn drop_columns = 1; }
 
-message ChangeColumnTypes { repeated ChangeColumnType modify_columns = 1; }
+message ChangeColumnTypes { repeated ChangeColumnType change_column_types = 1; }
 
 message RenameTable { string new_table_name = 1; }
 
