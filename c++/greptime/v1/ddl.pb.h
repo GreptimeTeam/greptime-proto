@@ -623,15 +623,17 @@ class CreateTaskExpr final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTaskOptionsFieldNumber = 7,
+    kTaskOptionsFieldNumber = 9,
     kCatalogNameFieldNumber = 1,
     kTaskNameFieldNumber = 2,
-    kExpireWhenFieldNumber = 4,
-    kCommentFieldNumber = 5,
-    kSqlFieldNumber = 6,
-    kCreateIfNotExistsFieldNumber = 3,
+    kOutputSchemaNameFieldNumber = 3,
+    kOutputTableNameFieldNumber = 4,
+    kExpireWhenFieldNumber = 6,
+    kCommentFieldNumber = 7,
+    kSqlFieldNumber = 8,
+    kCreateIfNotExistsFieldNumber = 5,
   };
-  // map<string, string> task_options = 7;
+  // map<string, string> task_options = 9;
   int task_options_size() const;
   private:
   int _internal_task_options_size() const;
@@ -676,7 +678,35 @@ class CreateTaskExpr final :
   std::string* _internal_mutable_task_name();
   public:
 
-  // string expire_when = 4;
+  // string output_schema_name = 3;
+  void clear_output_schema_name();
+  const std::string& output_schema_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_output_schema_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_output_schema_name();
+  PROTOBUF_NODISCARD std::string* release_output_schema_name();
+  void set_allocated_output_schema_name(std::string* output_schema_name);
+  private:
+  const std::string& _internal_output_schema_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_output_schema_name(const std::string& value);
+  std::string* _internal_mutable_output_schema_name();
+  public:
+
+  // string output_table_name = 4;
+  void clear_output_table_name();
+  const std::string& output_table_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_output_table_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_output_table_name();
+  PROTOBUF_NODISCARD std::string* release_output_table_name();
+  void set_allocated_output_table_name(std::string* output_table_name);
+  private:
+  const std::string& _internal_output_table_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_output_table_name(const std::string& value);
+  std::string* _internal_mutable_output_table_name();
+  public:
+
+  // string expire_when = 6;
   void clear_expire_when();
   const std::string& expire_when() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -690,7 +720,7 @@ class CreateTaskExpr final :
   std::string* _internal_mutable_expire_when();
   public:
 
-  // string comment = 5;
+  // string comment = 7;
   void clear_comment();
   const std::string& comment() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -704,7 +734,7 @@ class CreateTaskExpr final :
   std::string* _internal_mutable_comment();
   public:
 
-  // string sql = 6;
+  // string sql = 8;
   void clear_sql();
   const std::string& sql() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -718,7 +748,7 @@ class CreateTaskExpr final :
   std::string* _internal_mutable_sql();
   public:
 
-  // bool create_if_not_exists = 3;
+  // bool create_if_not_exists = 5;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
   void set_create_if_not_exists(bool value);
@@ -742,6 +772,8 @@ class CreateTaskExpr final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> task_options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr output_schema_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr output_table_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_when_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
@@ -4406,7 +4438,107 @@ inline void CreateTaskExpr::set_allocated_task_name(std::string* task_name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.task_name)
 }
 
-// bool create_if_not_exists = 3;
+// string output_schema_name = 3;
+inline void CreateTaskExpr::clear_output_schema_name() {
+  _impl_.output_schema_name_.ClearToEmpty();
+}
+inline const std::string& CreateTaskExpr::output_schema_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.output_schema_name)
+  return _internal_output_schema_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTaskExpr::set_output_schema_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.output_schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.output_schema_name)
+}
+inline std::string* CreateTaskExpr::mutable_output_schema_name() {
+  std::string* _s = _internal_mutable_output_schema_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTaskExpr.output_schema_name)
+  return _s;
+}
+inline const std::string& CreateTaskExpr::_internal_output_schema_name() const {
+  return _impl_.output_schema_name_.Get();
+}
+inline void CreateTaskExpr::_internal_set_output_schema_name(const std::string& value) {
+  
+  _impl_.output_schema_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::_internal_mutable_output_schema_name() {
+  
+  return _impl_.output_schema_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::release_output_schema_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTaskExpr.output_schema_name)
+  return _impl_.output_schema_name_.Release();
+}
+inline void CreateTaskExpr::set_allocated_output_schema_name(std::string* output_schema_name) {
+  if (output_schema_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.output_schema_name_.SetAllocated(output_schema_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.output_schema_name_.IsDefault()) {
+    _impl_.output_schema_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.output_schema_name)
+}
+
+// string output_table_name = 4;
+inline void CreateTaskExpr::clear_output_table_name() {
+  _impl_.output_table_name_.ClearToEmpty();
+}
+inline const std::string& CreateTaskExpr::output_table_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.output_table_name)
+  return _internal_output_table_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTaskExpr::set_output_table_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.output_table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.output_table_name)
+}
+inline std::string* CreateTaskExpr::mutable_output_table_name() {
+  std::string* _s = _internal_mutable_output_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTaskExpr.output_table_name)
+  return _s;
+}
+inline const std::string& CreateTaskExpr::_internal_output_table_name() const {
+  return _impl_.output_table_name_.Get();
+}
+inline void CreateTaskExpr::_internal_set_output_table_name(const std::string& value) {
+  
+  _impl_.output_table_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::_internal_mutable_output_table_name() {
+  
+  return _impl_.output_table_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::release_output_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTaskExpr.output_table_name)
+  return _impl_.output_table_name_.Release();
+}
+inline void CreateTaskExpr::set_allocated_output_table_name(std::string* output_table_name) {
+  if (output_table_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.output_table_name_.SetAllocated(output_table_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.output_table_name_.IsDefault()) {
+    _impl_.output_table_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.output_table_name)
+}
+
+// bool create_if_not_exists = 5;
 inline void CreateTaskExpr::clear_create_if_not_exists() {
   _impl_.create_if_not_exists_ = false;
 }
@@ -4426,7 +4558,7 @@ inline void CreateTaskExpr::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.create_if_not_exists)
 }
 
-// string expire_when = 4;
+// string expire_when = 6;
 inline void CreateTaskExpr::clear_expire_when() {
   _impl_.expire_when_.ClearToEmpty();
 }
@@ -4476,7 +4608,7 @@ inline void CreateTaskExpr::set_allocated_expire_when(std::string* expire_when) 
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.expire_when)
 }
 
-// string comment = 5;
+// string comment = 7;
 inline void CreateTaskExpr::clear_comment() {
   _impl_.comment_.ClearToEmpty();
 }
@@ -4526,7 +4658,7 @@ inline void CreateTaskExpr::set_allocated_comment(std::string* comment) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.comment)
 }
 
-// string sql = 6;
+// string sql = 8;
 inline void CreateTaskExpr::clear_sql() {
   _impl_.sql_.ClearToEmpty();
 }
@@ -4576,7 +4708,7 @@ inline void CreateTaskExpr::set_allocated_sql(std::string* sql) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.sql)
 }
 
-// map<string, string> task_options = 7;
+// map<string, string> task_options = 9;
 inline int CreateTaskExpr::_internal_task_options_size() const {
   return _impl_.task_options_.size();
 }

@@ -1,0 +1,68 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package greptime.v1.flow;
+
+option java_package = "io.greptime.v1.flow";
+option java_outer_classname = "Server";
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/flow";
+
+import "greptime/v1/common.proto";
+import "greptime/v1/ddl.proto";
+import "greptime/v1/row.proto";
+
+service Flow {
+  // Handle the control plane request for creating or removing a flow.
+  rpc HandleCreateRemove(FlowRequest) returns (FlowResponse);
+  // Handle the data plane request for inserting or deleting rows
+  // only expect `RegionRequest` to be one of `InsertRequests` or
+  // `DeleteRequests` other types of `RegionRequest` will be ignored
+  rpc HandleMirrorRequest(InsertRequests) returns (FlowResponse);
+}
+
+message InsertRequests { repeated InsertRequest requests = 1; }
+
+message InsertRequest {
+  uint64 region_id = 1;
+  Rows rows = 2;
+}
+
+message FlowRequest {
+  oneof body {
+    FlowCreateRequest create = 1;
+    FlowRemoveRequest remove = 2;
+  }
+}
+
+message FlowResponse {
+  ResponseHeader header = 1;
+  map<string, bytes> extension = 2;
+}
+
+// very similiar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
+message FlowCreateRequest {
+  TaskId task_id = 1;
+  TableId output_table_id = 2;
+  bool create_if_not_exists = 3;
+  string expire_when = 4;
+  string comment = 5;
+  string sql = 6;
+  map<string, string> task_options = 7;
+}
+
+message FlowRemoveRequest { TaskId task_id = 1; }
+
+message TaskId { uint64 id = 1; }
