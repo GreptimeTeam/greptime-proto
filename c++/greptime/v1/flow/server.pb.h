@@ -771,10 +771,12 @@ class FlowResponse final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kExtensionFieldNumber = 2,
+    kExtensionFieldNumber = 3,
+    kAffectedTasksFieldNumber = 4,
     kHeaderFieldNumber = 1,
+    kAffectedRowsFieldNumber = 2,
   };
-  // map<string, bytes> extension = 2;
+  // map<string, bytes> extension = 3;
   int extension_size() const;
   private:
   int _internal_extension_size() const;
@@ -790,6 +792,24 @@ class FlowResponse final :
       extension() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
       mutable_extension();
+
+  // repeated .greptime.v1.flow.TaskId affected_tasks = 4;
+  int affected_tasks_size() const;
+  private:
+  int _internal_affected_tasks_size() const;
+  public:
+  void clear_affected_tasks();
+  ::greptime::v1::flow::TaskId* mutable_affected_tasks(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TaskId >*
+      mutable_affected_tasks();
+  private:
+  const ::greptime::v1::flow::TaskId& _internal_affected_tasks(int index) const;
+  ::greptime::v1::flow::TaskId* _internal_add_affected_tasks();
+  public:
+  const ::greptime::v1::flow::TaskId& affected_tasks(int index) const;
+  ::greptime::v1::flow::TaskId* add_affected_tasks();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TaskId >&
+      affected_tasks() const;
 
   // .greptime.v1.ResponseHeader header = 1;
   bool has_header() const;
@@ -809,6 +829,15 @@ class FlowResponse final :
       ::greptime::v1::ResponseHeader* header);
   ::greptime::v1::ResponseHeader* unsafe_arena_release_header();
 
+  // uint64 affected_rows = 2;
+  void clear_affected_rows();
+  uint64_t affected_rows() const;
+  void set_affected_rows(uint64_t value);
+  private:
+  uint64_t _internal_affected_rows() const;
+  void _internal_set_affected_rows(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.flow.FlowResponse)
  private:
   class _Internal;
@@ -822,7 +851,9 @@ class FlowResponse final :
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extension_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TaskId > affected_tasks_;
     ::greptime::v1::ResponseHeader* header_;
+    uint64_t affected_rows_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1835,7 +1866,27 @@ inline void FlowResponse::set_allocated_header(::greptime::v1::ResponseHeader* h
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowResponse.header)
 }
 
-// map<string, bytes> extension = 2;
+// uint64 affected_rows = 2;
+inline void FlowResponse::clear_affected_rows() {
+  _impl_.affected_rows_ = uint64_t{0u};
+}
+inline uint64_t FlowResponse::_internal_affected_rows() const {
+  return _impl_.affected_rows_;
+}
+inline uint64_t FlowResponse::affected_rows() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowResponse.affected_rows)
+  return _internal_affected_rows();
+}
+inline void FlowResponse::_internal_set_affected_rows(uint64_t value) {
+  
+  _impl_.affected_rows_ = value;
+}
+inline void FlowResponse::set_affected_rows(uint64_t value) {
+  _internal_set_affected_rows(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.FlowResponse.affected_rows)
+}
+
+// map<string, bytes> extension = 3;
 inline int FlowResponse::_internal_extension_size() const {
   return _impl_.extension_.size();
 }
@@ -1862,6 +1913,46 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
 FlowResponse::mutable_extension() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.flow.FlowResponse.extension)
   return _internal_mutable_extension();
+}
+
+// repeated .greptime.v1.flow.TaskId affected_tasks = 4;
+inline int FlowResponse::_internal_affected_tasks_size() const {
+  return _impl_.affected_tasks_.size();
+}
+inline int FlowResponse::affected_tasks_size() const {
+  return _internal_affected_tasks_size();
+}
+inline void FlowResponse::clear_affected_tasks() {
+  _impl_.affected_tasks_.Clear();
+}
+inline ::greptime::v1::flow::TaskId* FlowResponse::mutable_affected_tasks(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowResponse.affected_tasks)
+  return _impl_.affected_tasks_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TaskId >*
+FlowResponse::mutable_affected_tasks() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.flow.FlowResponse.affected_tasks)
+  return &_impl_.affected_tasks_;
+}
+inline const ::greptime::v1::flow::TaskId& FlowResponse::_internal_affected_tasks(int index) const {
+  return _impl_.affected_tasks_.Get(index);
+}
+inline const ::greptime::v1::flow::TaskId& FlowResponse::affected_tasks(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowResponse.affected_tasks)
+  return _internal_affected_tasks(index);
+}
+inline ::greptime::v1::flow::TaskId* FlowResponse::_internal_add_affected_tasks() {
+  return _impl_.affected_tasks_.Add();
+}
+inline ::greptime::v1::flow::TaskId* FlowResponse::add_affected_tasks() {
+  ::greptime::v1::flow::TaskId* _add = _internal_add_affected_tasks();
+  // @@protoc_insertion_point(field_add:greptime.v1.flow.FlowResponse.affected_tasks)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TaskId >&
+FlowResponse::affected_tasks() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.flow.FlowResponse.affected_tasks)
+  return _impl_.affected_tasks_;
 }
 
 // -------------------------------------------------------------------

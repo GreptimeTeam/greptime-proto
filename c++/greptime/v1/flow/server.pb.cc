@@ -78,7 +78,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR FlowResponse::FlowResponse(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.extension_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.affected_tasks_)*/{}
   , /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.affected_rows_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct FlowResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FlowResponseDefaultTypeInternal()
@@ -194,7 +196,9 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.affected_rows_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.extension_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.affected_tasks_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowCreateRequest_TaskOptionsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowCreateRequest_TaskOptionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -239,10 +243,10 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 15, -1, -1, sizeof(::greptime::v1::flow::FlowRequest)},
   { 24, 32, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse)},
   { 34, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
-  { 42, 50, -1, sizeof(::greptime::v1::flow::FlowCreateRequest_TaskOptionsEntry_DoNotUse)},
-  { 52, -1, -1, sizeof(::greptime::v1::flow::FlowCreateRequest)},
-  { 65, -1, -1, sizeof(::greptime::v1::flow::FlowRemoveRequest)},
-  { 72, -1, -1, sizeof(::greptime::v1::flow::TaskId)},
+  { 44, 52, -1, sizeof(::greptime::v1::flow::FlowCreateRequest_TaskOptionsEntry_DoNotUse)},
+  { 54, -1, -1, sizeof(::greptime::v1::flow::FlowCreateRequest)},
+  { 67, -1, -1, sizeof(::greptime::v1::flow::FlowRemoveRequest)},
+  { 74, -1, -1, sizeof(::greptime::v1::flow::TaskId)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -267,29 +271,31 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "2\021.greptime.v1.Rows\"\203\001\n\013FlowRequest\0225\n\006c"
   "reate\030\001 \001(\0132#.greptime.v1.flow.FlowCreat"
   "eRequestH\000\0225\n\006remove\030\002 \001(\0132#.greptime.v1"
-  ".flow.FlowRemoveRequestH\000B\006\n\004body\"\257\001\n\014Fl"
+  ".flow.FlowRemoveRequestH\000B\006\n\004body\"\370\001\n\014Fl"
   "owResponse\022+\n\006header\030\001 \001(\0132\033.greptime.v1"
-  ".ResponseHeader\022@\n\textension\030\002 \003(\0132-.gre"
-  "ptime.v1.flow.FlowResponse.ExtensionEntr"
-  "y\0320\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu"
-  "e\030\002 \001(\014:\0028\001\"\276\002\n\021FlowCreateRequest\022)\n\007tas"
-  "k_id\030\001 \001(\0132\030.greptime.v1.flow.TaskId\022-\n\017"
-  "output_table_id\030\002 \001(\0132\024.greptime.v1.Tabl"
-  "eId\022\034\n\024create_if_not_exists\030\003 \001(\010\022\023\n\013exp"
-  "ire_when\030\004 \001(\t\022\017\n\007comment\030\005 \001(\t\022\013\n\003sql\030\006"
-  " \001(\t\022J\n\014task_options\030\007 \003(\01324.greptime.v1"
-  ".flow.FlowCreateRequest.TaskOptionsEntry"
-  "\0322\n\020TaskOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val"
-  "ue\030\002 \001(\t:\0028\001\">\n\021FlowRemoveRequest\022)\n\007tas"
-  "k_id\030\001 \001(\0132\030.greptime.v1.flow.TaskId\"\024\n\006"
-  "TaskId\022\n\n\002id\030\001 \001(\0042\264\001\n\004Flow\022S\n\022HandleCre"
-  "ateRemove\022\035.greptime.v1.flow.FlowRequest"
-  "\032\036.greptime.v1.flow.FlowResponse\022W\n\023Hand"
-  "leMirrorRequest\022 .greptime.v1.flow.Inser"
-  "tRequests\032\036.greptime.v1.flow.FlowRespons"
-  "eBY\n\023io.greptime.v1.flowB\006ServerZ:github"
-  ".com/GreptimeTeam/greptime-proto/go/grep"
-  "time/v1/flowb\006proto3"
+  ".ResponseHeader\022\025\n\raffected_rows\030\002 \001(\004\022@"
+  "\n\textension\030\003 \003(\0132-.greptime.v1.flow.Flo"
+  "wResponse.ExtensionEntry\0220\n\016affected_tas"
+  "ks\030\004 \003(\0132\030.greptime.v1.flow.TaskId\0320\n\016Ex"
+  "tensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014"
+  ":\0028\001\"\276\002\n\021FlowCreateRequest\022)\n\007task_id\030\001 "
+  "\001(\0132\030.greptime.v1.flow.TaskId\022-\n\017output_"
+  "table_id\030\002 \001(\0132\024.greptime.v1.TableId\022\034\n\024"
+  "create_if_not_exists\030\003 \001(\010\022\023\n\013expire_whe"
+  "n\030\004 \001(\t\022\017\n\007comment\030\005 \001(\t\022\013\n\003sql\030\006 \001(\t\022J\n"
+  "\014task_options\030\007 \003(\01324.greptime.v1.flow.F"
+  "lowCreateRequest.TaskOptionsEntry\0322\n\020Tas"
+  "kOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001("
+  "\t:\0028\001\">\n\021FlowRemoveRequest\022)\n\007task_id\030\001 "
+  "\001(\0132\030.greptime.v1.flow.TaskId\"\024\n\006TaskId\022"
+  "\n\n\002id\030\001 \001(\0042\264\001\n\004Flow\022S\n\022HandleCreateRemo"
+  "ve\022\035.greptime.v1.flow.FlowRequest\032\036.grep"
+  "time.v1.flow.FlowResponse\022W\n\023HandleMirro"
+  "rRequest\022 .greptime.v1.flow.InsertReques"
+  "ts\032\036.greptime.v1.flow.FlowResponseBY\n\023io"
+  ".greptime.v1.flowB\006ServerZ:github.com/Gr"
+  "eptimeTeam/greptime-proto/go/greptime/v1"
+  "/flowb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -298,7 +304,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 1260, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 1333, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
     &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 9,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
@@ -1080,7 +1086,9 @@ FlowResponse::FlowResponse(const FlowResponse& from)
   FlowResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       /*decltype(_impl_.extension_)*/{}
+    , decltype(_impl_.affected_tasks_){from._impl_.affected_tasks_}
     , decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.affected_rows_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1088,6 +1096,7 @@ FlowResponse::FlowResponse(const FlowResponse& from)
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::ResponseHeader(*from._impl_.header_);
   }
+  _this->_impl_.affected_rows_ = from._impl_.affected_rows_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.flow.FlowResponse)
 }
 
@@ -1097,7 +1106,9 @@ inline void FlowResponse::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       /*decltype(_impl_.extension_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.affected_tasks_){arena}
     , decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.affected_rows_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -1116,6 +1127,7 @@ inline void FlowResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.extension_.Destruct();
   _impl_.extension_.~MapField();
+  _impl_.affected_tasks_.~RepeatedPtrField();
   if (this != internal_default_instance()) delete _impl_.header_;
 }
 
@@ -1134,10 +1146,12 @@ void FlowResponse::Clear() {
   (void) cached_has_bits;
 
   _impl_.extension_.Clear();
+  _impl_.affected_tasks_.Clear();
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
+  _impl_.affected_rows_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1155,16 +1169,37 @@ const char* FlowResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // map<string, bytes> extension = 2;
+      // uint64 affected_rows = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.affected_rows_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, bytes> extension = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(&_impl_.extension_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .greptime.v1.flow.TaskId affected_tasks = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_affected_tasks(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -1204,7 +1239,13 @@ uint8_t* FlowResponse::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // map<string, bytes> extension = 2;
+  // uint64 affected_rows = 2;
+  if (this->_internal_affected_rows() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_affected_rows(), target);
+  }
+
+  // map<string, bytes> extension = 3;
   if (!this->_internal_extension().empty()) {
     using MapType = ::_pb::Map<std::string, std::string>;
     using WireHelper = FlowResponse_ExtensionEntry_DoNotUse::Funcs;
@@ -1219,15 +1260,23 @@ uint8_t* FlowResponse::_InternalSerialize(
 
     if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
       for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
-        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
         check_utf8(entry);
       }
     } else {
       for (const auto& entry : map_field) {
-        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
         check_utf8(entry);
       }
     }
+  }
+
+  // repeated .greptime.v1.flow.TaskId affected_tasks = 4;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_affected_tasks_size()); i < n; i++) {
+    const auto& repfield = this->_internal_affected_tasks(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1246,7 +1295,7 @@ size_t FlowResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<string, bytes> extension = 2;
+  // map<string, bytes> extension = 3;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_extension_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
@@ -1255,11 +1304,23 @@ size_t FlowResponse::ByteSizeLong() const {
     total_size += FlowResponse_ExtensionEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
+  // repeated .greptime.v1.flow.TaskId affected_tasks = 4;
+  total_size += 1UL * this->_internal_affected_tasks_size();
+  for (const auto& msg : this->_impl_.affected_tasks_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
   // .greptime.v1.ResponseHeader header = 1;
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.header_);
+  }
+
+  // uint64 affected_rows = 2;
+  if (this->_internal_affected_rows() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_affected_rows());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -1281,9 +1342,13 @@ void FlowResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   (void) cached_has_bits;
 
   _this->_impl_.extension_.MergeFrom(from._impl_.extension_);
+  _this->_impl_.affected_tasks_.MergeFrom(from._impl_.affected_tasks_);
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::ResponseHeader::MergeFrom(
         from._internal_header());
+  }
+  if (from._internal_affected_rows() != 0) {
+    _this->_internal_set_affected_rows(from._internal_affected_rows());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1303,7 +1368,13 @@ void FlowResponse::InternalSwap(FlowResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.extension_.InternalSwap(&other->_impl_.extension_);
-  swap(_impl_.header_, other->_impl_.header_);
+  _impl_.affected_tasks_.InternalSwap(&other->_impl_.affected_tasks_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(FlowResponse, _impl_.affected_rows_)
+      + sizeof(FlowResponse::_impl_.affected_rows_)
+      - PROTOBUF_FIELD_OFFSET(FlowResponse, _impl_.header_)>(
+          reinterpret_cast<char*>(&_impl_.header_),
+          reinterpret_cast<char*>(&other->_impl_.header_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowResponse::GetMetadata() const {
