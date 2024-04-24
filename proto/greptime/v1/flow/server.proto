@@ -55,7 +55,7 @@ message FlowResponse {
   repeated TaskId affected_tasks = 4;
 }
 
-// very similiar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
+// very similar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
 message FlowCreateRequest {
   TaskId task_id = 1;
   TableId output_table_id = 2;

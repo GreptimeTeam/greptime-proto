@@ -4071,7 +4071,7 @@ java.lang.String defaultValue);
   }
   /**
    * <pre>
-   * very similiar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
+   * very similar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
    * </pre>
    *
    * Protobuf type {@code greptime.v1.flow.FlowCreateRequest}
@@ -4730,7 +4730,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * very similiar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
+     * very similar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
      * </pre>
      *
      * Protobuf type {@code greptime.v1.flow.FlowCreateRequest}
