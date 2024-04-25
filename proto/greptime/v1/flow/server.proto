@@ -68,4 +68,4 @@ message FlowCreateRequest {
 
 message FlowRemoveRequest { TaskId task_id = 1; }
 
-message TaskId { uint64 id = 1; }
+message TaskId { uint32 id = 1; }
