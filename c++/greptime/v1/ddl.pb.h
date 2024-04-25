@@ -78,6 +78,12 @@ extern CreateTableExprDefaultTypeInternal _CreateTableExpr_default_instance_;
 class CreateTableExpr_TableOptionsEntry_DoNotUse;
 struct CreateTableExpr_TableOptionsEntry_DoNotUseDefaultTypeInternal;
 extern CreateTableExpr_TableOptionsEntry_DoNotUseDefaultTypeInternal _CreateTableExpr_TableOptionsEntry_DoNotUse_default_instance_;
+class CreateTaskExpr;
+struct CreateTaskExprDefaultTypeInternal;
+extern CreateTaskExprDefaultTypeInternal _CreateTaskExpr_default_instance_;
+class CreateTaskExpr_TaskOptionsEntry_DoNotUse;
+struct CreateTaskExpr_TaskOptionsEntry_DoNotUseDefaultTypeInternal;
+extern CreateTaskExpr_TaskOptionsEntry_DoNotUseDefaultTypeInternal _CreateTaskExpr_TaskOptionsEntry_DoNotUse_default_instance_;
 class DdlRequest;
 struct DdlRequestDefaultTypeInternal;
 extern DdlRequestDefaultTypeInternal _DdlRequest_default_instance_;
@@ -93,6 +99,9 @@ extern DropDatabaseExprDefaultTypeInternal _DropDatabaseExpr_default_instance_;
 class DropTableExpr;
 struct DropTableExprDefaultTypeInternal;
 extern DropTableExprDefaultTypeInternal _DropTableExpr_default_instance_;
+class RemoveTaskExpr;
+struct RemoveTaskExprDefaultTypeInternal;
+extern RemoveTaskExprDefaultTypeInternal _RemoveTaskExpr_default_instance_;
 class RenameTable;
 struct RenameTableDefaultTypeInternal;
 extern RenameTableDefaultTypeInternal _RenameTable_default_instance_;
@@ -114,11 +123,14 @@ template<> ::greptime::v1::CreateDatabaseExpr* Arena::CreateMaybeMessage<::grept
 template<> ::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::CreateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr>(Arena*);
 template<> ::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::CreateTaskExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateTaskExpr>(Arena*);
+template<> ::greptime::v1::CreateTaskExpr_TaskOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateTaskExpr_TaskOptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::DdlRequest* Arena::CreateMaybeMessage<::greptime::v1::DdlRequest>(Arena*);
 template<> ::greptime::v1::DropColumn* Arena::CreateMaybeMessage<::greptime::v1::DropColumn>(Arena*);
 template<> ::greptime::v1::DropColumns* Arena::CreateMaybeMessage<::greptime::v1::DropColumns>(Arena*);
 template<> ::greptime::v1::DropDatabaseExpr* Arena::CreateMaybeMessage<::greptime::v1::DropDatabaseExpr>(Arena*);
 template<> ::greptime::v1::DropTableExpr* Arena::CreateMaybeMessage<::greptime::v1::DropTableExpr>(Arena*);
+template<> ::greptime::v1::RemoveTaskExpr* Arena::CreateMaybeMessage<::greptime::v1::RemoveTaskExpr>(Arena*);
 template<> ::greptime::v1::RenameTable* Arena::CreateMaybeMessage<::greptime::v1::RenameTable>(Arena*);
 template<> ::greptime::v1::TableId* Arena::CreateMaybeMessage<::greptime::v1::TableId>(Arena*);
 template<> ::greptime::v1::TruncateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::TruncateTableExpr>(Arena*);
@@ -202,6 +214,8 @@ class DdlRequest final :
     kAlter = 3,
     kDropTable = 4,
     kTruncateTable = 7,
+    kCreateTask = 8,
+    kRemoveTask = 9,
     EXPR_NOT_SET = 0,
   };
 
@@ -288,6 +302,8 @@ class DdlRequest final :
     kAlterFieldNumber = 3,
     kDropTableFieldNumber = 4,
     kTruncateTableFieldNumber = 7,
+    kCreateTaskFieldNumber = 8,
+    kRemoveTaskFieldNumber = 9,
   };
   // .greptime.v1.CreateDatabaseExpr create_database = 1;
   bool has_create_database() const;
@@ -379,6 +395,42 @@ class DdlRequest final :
       ::greptime::v1::TruncateTableExpr* truncate_table);
   ::greptime::v1::TruncateTableExpr* unsafe_arena_release_truncate_table();
 
+  // .greptime.v1.CreateTaskExpr create_task = 8;
+  bool has_create_task() const;
+  private:
+  bool _internal_has_create_task() const;
+  public:
+  void clear_create_task();
+  const ::greptime::v1::CreateTaskExpr& create_task() const;
+  PROTOBUF_NODISCARD ::greptime::v1::CreateTaskExpr* release_create_task();
+  ::greptime::v1::CreateTaskExpr* mutable_create_task();
+  void set_allocated_create_task(::greptime::v1::CreateTaskExpr* create_task);
+  private:
+  const ::greptime::v1::CreateTaskExpr& _internal_create_task() const;
+  ::greptime::v1::CreateTaskExpr* _internal_mutable_create_task();
+  public:
+  void unsafe_arena_set_allocated_create_task(
+      ::greptime::v1::CreateTaskExpr* create_task);
+  ::greptime::v1::CreateTaskExpr* unsafe_arena_release_create_task();
+
+  // .greptime.v1.RemoveTaskExpr remove_task = 9;
+  bool has_remove_task() const;
+  private:
+  bool _internal_has_remove_task() const;
+  public:
+  void clear_remove_task();
+  const ::greptime::v1::RemoveTaskExpr& remove_task() const;
+  PROTOBUF_NODISCARD ::greptime::v1::RemoveTaskExpr* release_remove_task();
+  ::greptime::v1::RemoveTaskExpr* mutable_remove_task();
+  void set_allocated_remove_task(::greptime::v1::RemoveTaskExpr* remove_task);
+  private:
+  const ::greptime::v1::RemoveTaskExpr& _internal_remove_task() const;
+  ::greptime::v1::RemoveTaskExpr* _internal_mutable_remove_task();
+  public:
+  void unsafe_arena_set_allocated_remove_task(
+      ::greptime::v1::RemoveTaskExpr* remove_task);
+  ::greptime::v1::RemoveTaskExpr* unsafe_arena_release_remove_task();
+
   void clear_expr();
   ExprCase expr_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.DdlRequest)
@@ -389,6 +441,8 @@ class DdlRequest final :
   void set_has_alter();
   void set_has_drop_table();
   void set_has_truncate_table();
+  void set_has_create_task();
+  void set_has_remove_task();
 
   inline bool has_expr() const;
   inline void clear_has_expr();
@@ -405,10 +459,495 @@ class DdlRequest final :
       ::greptime::v1::AlterExpr* alter_;
       ::greptime::v1::DropTableExpr* drop_table_;
       ::greptime::v1::TruncateTableExpr* truncate_table_;
+      ::greptime::v1::CreateTaskExpr* create_task_;
+      ::greptime::v1::RemoveTaskExpr* remove_task_;
     } expr_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
 
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CreateTaskExpr_TaskOptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateTaskExpr_TaskOptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateTaskExpr_TaskOptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  CreateTaskExpr_TaskOptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR CreateTaskExpr_TaskOptionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit CreateTaskExpr_TaskOptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const CreateTaskExpr_TaskOptionsEntry_DoNotUse& other);
+  static const CreateTaskExpr_TaskOptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CreateTaskExpr_TaskOptionsEntry_DoNotUse*>(&_CreateTaskExpr_TaskOptionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateTaskExpr.TaskOptionsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateTaskExpr.TaskOptionsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+
+// -------------------------------------------------------------------
+
+class CreateTaskExpr final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.CreateTaskExpr) */ {
+ public:
+  inline CreateTaskExpr() : CreateTaskExpr(nullptr) {}
+  ~CreateTaskExpr() override;
+  explicit PROTOBUF_CONSTEXPR CreateTaskExpr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CreateTaskExpr(const CreateTaskExpr& from);
+  CreateTaskExpr(CreateTaskExpr&& from) noexcept
+    : CreateTaskExpr() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateTaskExpr& operator=(const CreateTaskExpr& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CreateTaskExpr& operator=(CreateTaskExpr&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CreateTaskExpr& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CreateTaskExpr* internal_default_instance() {
+    return reinterpret_cast<const CreateTaskExpr*>(
+               &_CreateTaskExpr_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(CreateTaskExpr& a, CreateTaskExpr& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CreateTaskExpr* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CreateTaskExpr* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CreateTaskExpr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CreateTaskExpr>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CreateTaskExpr& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CreateTaskExpr& from) {
+    CreateTaskExpr::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateTaskExpr* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.CreateTaskExpr";
+  }
+  protected:
+  explicit CreateTaskExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTaskOptionsFieldNumber = 9,
+    kCatalogNameFieldNumber = 1,
+    kTaskNameFieldNumber = 2,
+    kOutputSchemaNameFieldNumber = 3,
+    kOutputTableNameFieldNumber = 4,
+    kExpireWhenFieldNumber = 6,
+    kCommentFieldNumber = 7,
+    kSqlFieldNumber = 8,
+    kCreateIfNotExistsFieldNumber = 5,
+  };
+  // map<string, string> task_options = 9;
+  int task_options_size() const;
+  private:
+  int _internal_task_options_size() const;
+  public:
+  void clear_task_options();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_task_options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_task_options();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      task_options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_task_options();
+
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // string task_name = 2;
+  void clear_task_name();
+  const std::string& task_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_task_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_task_name();
+  PROTOBUF_NODISCARD std::string* release_task_name();
+  void set_allocated_task_name(std::string* task_name);
+  private:
+  const std::string& _internal_task_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_task_name(const std::string& value);
+  std::string* _internal_mutable_task_name();
+  public:
+
+  // string output_schema_name = 3;
+  void clear_output_schema_name();
+  const std::string& output_schema_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_output_schema_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_output_schema_name();
+  PROTOBUF_NODISCARD std::string* release_output_schema_name();
+  void set_allocated_output_schema_name(std::string* output_schema_name);
+  private:
+  const std::string& _internal_output_schema_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_output_schema_name(const std::string& value);
+  std::string* _internal_mutable_output_schema_name();
+  public:
+
+  // string output_table_name = 4;
+  void clear_output_table_name();
+  const std::string& output_table_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_output_table_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_output_table_name();
+  PROTOBUF_NODISCARD std::string* release_output_table_name();
+  void set_allocated_output_table_name(std::string* output_table_name);
+  private:
+  const std::string& _internal_output_table_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_output_table_name(const std::string& value);
+  std::string* _internal_mutable_output_table_name();
+  public:
+
+  // string expire_when = 6;
+  void clear_expire_when();
+  const std::string& expire_when() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_expire_when(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_expire_when();
+  PROTOBUF_NODISCARD std::string* release_expire_when();
+  void set_allocated_expire_when(std::string* expire_when);
+  private:
+  const std::string& _internal_expire_when() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_expire_when(const std::string& value);
+  std::string* _internal_mutable_expire_when();
+  public:
+
+  // string comment = 7;
+  void clear_comment();
+  const std::string& comment() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_comment(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_comment();
+  PROTOBUF_NODISCARD std::string* release_comment();
+  void set_allocated_comment(std::string* comment);
+  private:
+  const std::string& _internal_comment() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_comment(const std::string& value);
+  std::string* _internal_mutable_comment();
+  public:
+
+  // string sql = 8;
+  void clear_sql();
+  const std::string& sql() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sql(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sql();
+  PROTOBUF_NODISCARD std::string* release_sql();
+  void set_allocated_sql(std::string* sql);
+  private:
+  const std::string& _internal_sql() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sql(const std::string& value);
+  std::string* _internal_mutable_sql();
+  public:
+
+  // bool create_if_not_exists = 5;
+  void clear_create_if_not_exists();
+  bool create_if_not_exists() const;
+  void set_create_if_not_exists(bool value);
+  private:
+  bool _internal_create_if_not_exists() const;
+  void _internal_set_create_if_not_exists(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.CreateTaskExpr)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        CreateTaskExpr_TaskOptionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> task_options_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr output_schema_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr output_table_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_when_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
+    bool create_if_not_exists_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RemoveTaskExpr final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.RemoveTaskExpr) */ {
+ public:
+  inline RemoveTaskExpr() : RemoveTaskExpr(nullptr) {}
+  ~RemoveTaskExpr() override;
+  explicit PROTOBUF_CONSTEXPR RemoveTaskExpr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemoveTaskExpr(const RemoveTaskExpr& from);
+  RemoveTaskExpr(RemoveTaskExpr&& from) noexcept
+    : RemoveTaskExpr() {
+    *this = ::std::move(from);
+  }
+
+  inline RemoveTaskExpr& operator=(const RemoveTaskExpr& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemoveTaskExpr& operator=(RemoveTaskExpr&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemoveTaskExpr& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemoveTaskExpr* internal_default_instance() {
+    return reinterpret_cast<const RemoveTaskExpr*>(
+               &_RemoveTaskExpr_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(RemoveTaskExpr& a, RemoveTaskExpr& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemoveTaskExpr* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemoveTaskExpr* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemoveTaskExpr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoveTaskExpr>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RemoveTaskExpr& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RemoveTaskExpr& from) {
+    RemoveTaskExpr::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RemoveTaskExpr* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.RemoveTaskExpr";
+  }
+  protected:
+  explicit RemoveTaskExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCatalogNameFieldNumber = 1,
+    kTaskNameFieldNumber = 2,
+  };
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // string task_name = 2;
+  void clear_task_name();
+  const std::string& task_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_task_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_task_name();
+  PROTOBUF_NODISCARD std::string* release_task_name();
+  void set_allocated_task_name(std::string* task_name);
+  private:
+  const std::string& _internal_task_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_task_name(const std::string& value);
+  std::string* _internal_mutable_task_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.RemoveTaskExpr)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_name_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
@@ -491,7 +1030,7 @@ class CreateTableExpr final :
                &_CreateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    5;
 
   friend void swap(CreateTableExpr& a, CreateTableExpr& b) {
     a.Swap(&b);
@@ -834,7 +1373,7 @@ class AlterExpr final :
                &_AlterExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    6;
 
   friend void swap(AlterExpr& a, AlterExpr& b) {
     a.Swap(&b);
@@ -1093,7 +1632,7 @@ class DropTableExpr final :
                &_DropTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    7;
 
   friend void swap(DropTableExpr& a, DropTableExpr& b) {
     a.Swap(&b);
@@ -1337,7 +1876,7 @@ class CreateDatabaseExpr final :
                &_CreateDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    9;
 
   friend void swap(CreateDatabaseExpr& a, CreateDatabaseExpr& b) {
     a.Swap(&b);
@@ -1543,7 +2082,7 @@ class TruncateTableExpr final :
                &_TruncateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    10;
 
   friend void swap(TruncateTableExpr& a, TruncateTableExpr& b) {
     a.Swap(&b);
@@ -1748,7 +2287,7 @@ class DropDatabaseExpr final :
                &_DropDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    11;
 
   friend void swap(DropDatabaseExpr& a, DropDatabaseExpr& b) {
     a.Swap(&b);
@@ -1928,7 +2467,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    12;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -2085,7 +2624,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    13;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -2242,7 +2781,7 @@ class RenameTable final :
                &_RenameTable_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    14;
 
   friend void swap(RenameTable& a, RenameTable& b) {
     a.Swap(&b);
@@ -2395,7 +2934,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    15;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -2572,7 +3111,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    16;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -2725,7 +3264,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    17;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -2873,7 +3412,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    18;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -3111,7 +3650,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    19;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -3636,6 +4175,154 @@ inline ::greptime::v1::TruncateTableExpr* DdlRequest::mutable_truncate_table() {
   return _msg;
 }
 
+// .greptime.v1.CreateTaskExpr create_task = 8;
+inline bool DdlRequest::_internal_has_create_task() const {
+  return expr_case() == kCreateTask;
+}
+inline bool DdlRequest::has_create_task() const {
+  return _internal_has_create_task();
+}
+inline void DdlRequest::set_has_create_task() {
+  _impl_._oneof_case_[0] = kCreateTask;
+}
+inline void DdlRequest::clear_create_task() {
+  if (_internal_has_create_task()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.expr_.create_task_;
+    }
+    clear_has_expr();
+  }
+}
+inline ::greptime::v1::CreateTaskExpr* DdlRequest::release_create_task() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DdlRequest.create_task)
+  if (_internal_has_create_task()) {
+    clear_has_expr();
+    ::greptime::v1::CreateTaskExpr* temp = _impl_.expr_.create_task_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.expr_.create_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::CreateTaskExpr& DdlRequest::_internal_create_task() const {
+  return _internal_has_create_task()
+      ? *_impl_.expr_.create_task_
+      : reinterpret_cast< ::greptime::v1::CreateTaskExpr&>(::greptime::v1::_CreateTaskExpr_default_instance_);
+}
+inline const ::greptime::v1::CreateTaskExpr& DdlRequest::create_task() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DdlRequest.create_task)
+  return _internal_create_task();
+}
+inline ::greptime::v1::CreateTaskExpr* DdlRequest::unsafe_arena_release_create_task() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.DdlRequest.create_task)
+  if (_internal_has_create_task()) {
+    clear_has_expr();
+    ::greptime::v1::CreateTaskExpr* temp = _impl_.expr_.create_task_;
+    _impl_.expr_.create_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void DdlRequest::unsafe_arena_set_allocated_create_task(::greptime::v1::CreateTaskExpr* create_task) {
+  clear_expr();
+  if (create_task) {
+    set_has_create_task();
+    _impl_.expr_.create_task_ = create_task;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.DdlRequest.create_task)
+}
+inline ::greptime::v1::CreateTaskExpr* DdlRequest::_internal_mutable_create_task() {
+  if (!_internal_has_create_task()) {
+    clear_expr();
+    set_has_create_task();
+    _impl_.expr_.create_task_ = CreateMaybeMessage< ::greptime::v1::CreateTaskExpr >(GetArenaForAllocation());
+  }
+  return _impl_.expr_.create_task_;
+}
+inline ::greptime::v1::CreateTaskExpr* DdlRequest::mutable_create_task() {
+  ::greptime::v1::CreateTaskExpr* _msg = _internal_mutable_create_task();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DdlRequest.create_task)
+  return _msg;
+}
+
+// .greptime.v1.RemoveTaskExpr remove_task = 9;
+inline bool DdlRequest::_internal_has_remove_task() const {
+  return expr_case() == kRemoveTask;
+}
+inline bool DdlRequest::has_remove_task() const {
+  return _internal_has_remove_task();
+}
+inline void DdlRequest::set_has_remove_task() {
+  _impl_._oneof_case_[0] = kRemoveTask;
+}
+inline void DdlRequest::clear_remove_task() {
+  if (_internal_has_remove_task()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.expr_.remove_task_;
+    }
+    clear_has_expr();
+  }
+}
+inline ::greptime::v1::RemoveTaskExpr* DdlRequest::release_remove_task() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DdlRequest.remove_task)
+  if (_internal_has_remove_task()) {
+    clear_has_expr();
+    ::greptime::v1::RemoveTaskExpr* temp = _impl_.expr_.remove_task_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.expr_.remove_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::RemoveTaskExpr& DdlRequest::_internal_remove_task() const {
+  return _internal_has_remove_task()
+      ? *_impl_.expr_.remove_task_
+      : reinterpret_cast< ::greptime::v1::RemoveTaskExpr&>(::greptime::v1::_RemoveTaskExpr_default_instance_);
+}
+inline const ::greptime::v1::RemoveTaskExpr& DdlRequest::remove_task() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DdlRequest.remove_task)
+  return _internal_remove_task();
+}
+inline ::greptime::v1::RemoveTaskExpr* DdlRequest::unsafe_arena_release_remove_task() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.DdlRequest.remove_task)
+  if (_internal_has_remove_task()) {
+    clear_has_expr();
+    ::greptime::v1::RemoveTaskExpr* temp = _impl_.expr_.remove_task_;
+    _impl_.expr_.remove_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void DdlRequest::unsafe_arena_set_allocated_remove_task(::greptime::v1::RemoveTaskExpr* remove_task) {
+  clear_expr();
+  if (remove_task) {
+    set_has_remove_task();
+    _impl_.expr_.remove_task_ = remove_task;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.DdlRequest.remove_task)
+}
+inline ::greptime::v1::RemoveTaskExpr* DdlRequest::_internal_mutable_remove_task() {
+  if (!_internal_has_remove_task()) {
+    clear_expr();
+    set_has_remove_task();
+    _impl_.expr_.remove_task_ = CreateMaybeMessage< ::greptime::v1::RemoveTaskExpr >(GetArenaForAllocation());
+  }
+  return _impl_.expr_.remove_task_;
+}
+inline ::greptime::v1::RemoveTaskExpr* DdlRequest::mutable_remove_task() {
+  ::greptime::v1::RemoveTaskExpr* _msg = _internal_mutable_remove_task();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DdlRequest.remove_task)
+  return _msg;
+}
+
 inline bool DdlRequest::has_expr() const {
   return expr_case() != EXPR_NOT_SET;
 }
@@ -3645,6 +4332,515 @@ inline void DdlRequest::clear_has_expr() {
 inline DdlRequest::ExprCase DdlRequest::expr_case() const {
   return DdlRequest::ExprCase(_impl_._oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// CreateTaskExpr
+
+// string catalog_name = 1;
+inline void CreateTaskExpr::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& CreateTaskExpr::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTaskExpr::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.catalog_name)
+}
+inline std::string* CreateTaskExpr::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTaskExpr.catalog_name)
+  return _s;
+}
+inline const std::string& CreateTaskExpr::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void CreateTaskExpr::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTaskExpr.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void CreateTaskExpr::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.catalog_name)
+}
+
+// string task_name = 2;
+inline void CreateTaskExpr::clear_task_name() {
+  _impl_.task_name_.ClearToEmpty();
+}
+inline const std::string& CreateTaskExpr::task_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.task_name)
+  return _internal_task_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTaskExpr::set_task_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.task_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.task_name)
+}
+inline std::string* CreateTaskExpr::mutable_task_name() {
+  std::string* _s = _internal_mutable_task_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTaskExpr.task_name)
+  return _s;
+}
+inline const std::string& CreateTaskExpr::_internal_task_name() const {
+  return _impl_.task_name_.Get();
+}
+inline void CreateTaskExpr::_internal_set_task_name(const std::string& value) {
+  
+  _impl_.task_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::_internal_mutable_task_name() {
+  
+  return _impl_.task_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::release_task_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTaskExpr.task_name)
+  return _impl_.task_name_.Release();
+}
+inline void CreateTaskExpr::set_allocated_task_name(std::string* task_name) {
+  if (task_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.task_name_.SetAllocated(task_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.task_name_.IsDefault()) {
+    _impl_.task_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.task_name)
+}
+
+// string output_schema_name = 3;
+inline void CreateTaskExpr::clear_output_schema_name() {
+  _impl_.output_schema_name_.ClearToEmpty();
+}
+inline const std::string& CreateTaskExpr::output_schema_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.output_schema_name)
+  return _internal_output_schema_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTaskExpr::set_output_schema_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.output_schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.output_schema_name)
+}
+inline std::string* CreateTaskExpr::mutable_output_schema_name() {
+  std::string* _s = _internal_mutable_output_schema_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTaskExpr.output_schema_name)
+  return _s;
+}
+inline const std::string& CreateTaskExpr::_internal_output_schema_name() const {
+  return _impl_.output_schema_name_.Get();
+}
+inline void CreateTaskExpr::_internal_set_output_schema_name(const std::string& value) {
+  
+  _impl_.output_schema_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::_internal_mutable_output_schema_name() {
+  
+  return _impl_.output_schema_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::release_output_schema_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTaskExpr.output_schema_name)
+  return _impl_.output_schema_name_.Release();
+}
+inline void CreateTaskExpr::set_allocated_output_schema_name(std::string* output_schema_name) {
+  if (output_schema_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.output_schema_name_.SetAllocated(output_schema_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.output_schema_name_.IsDefault()) {
+    _impl_.output_schema_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.output_schema_name)
+}
+
+// string output_table_name = 4;
+inline void CreateTaskExpr::clear_output_table_name() {
+  _impl_.output_table_name_.ClearToEmpty();
+}
+inline const std::string& CreateTaskExpr::output_table_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.output_table_name)
+  return _internal_output_table_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTaskExpr::set_output_table_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.output_table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.output_table_name)
+}
+inline std::string* CreateTaskExpr::mutable_output_table_name() {
+  std::string* _s = _internal_mutable_output_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTaskExpr.output_table_name)
+  return _s;
+}
+inline const std::string& CreateTaskExpr::_internal_output_table_name() const {
+  return _impl_.output_table_name_.Get();
+}
+inline void CreateTaskExpr::_internal_set_output_table_name(const std::string& value) {
+  
+  _impl_.output_table_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::_internal_mutable_output_table_name() {
+  
+  return _impl_.output_table_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::release_output_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTaskExpr.output_table_name)
+  return _impl_.output_table_name_.Release();
+}
+inline void CreateTaskExpr::set_allocated_output_table_name(std::string* output_table_name) {
+  if (output_table_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.output_table_name_.SetAllocated(output_table_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.output_table_name_.IsDefault()) {
+    _impl_.output_table_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.output_table_name)
+}
+
+// bool create_if_not_exists = 5;
+inline void CreateTaskExpr::clear_create_if_not_exists() {
+  _impl_.create_if_not_exists_ = false;
+}
+inline bool CreateTaskExpr::_internal_create_if_not_exists() const {
+  return _impl_.create_if_not_exists_;
+}
+inline bool CreateTaskExpr::create_if_not_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.create_if_not_exists)
+  return _internal_create_if_not_exists();
+}
+inline void CreateTaskExpr::_internal_set_create_if_not_exists(bool value) {
+  
+  _impl_.create_if_not_exists_ = value;
+}
+inline void CreateTaskExpr::set_create_if_not_exists(bool value) {
+  _internal_set_create_if_not_exists(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.create_if_not_exists)
+}
+
+// string expire_when = 6;
+inline void CreateTaskExpr::clear_expire_when() {
+  _impl_.expire_when_.ClearToEmpty();
+}
+inline const std::string& CreateTaskExpr::expire_when() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.expire_when)
+  return _internal_expire_when();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTaskExpr::set_expire_when(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.expire_when_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.expire_when)
+}
+inline std::string* CreateTaskExpr::mutable_expire_when() {
+  std::string* _s = _internal_mutable_expire_when();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTaskExpr.expire_when)
+  return _s;
+}
+inline const std::string& CreateTaskExpr::_internal_expire_when() const {
+  return _impl_.expire_when_.Get();
+}
+inline void CreateTaskExpr::_internal_set_expire_when(const std::string& value) {
+  
+  _impl_.expire_when_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::_internal_mutable_expire_when() {
+  
+  return _impl_.expire_when_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::release_expire_when() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTaskExpr.expire_when)
+  return _impl_.expire_when_.Release();
+}
+inline void CreateTaskExpr::set_allocated_expire_when(std::string* expire_when) {
+  if (expire_when != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.expire_when_.SetAllocated(expire_when, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.expire_when_.IsDefault()) {
+    _impl_.expire_when_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.expire_when)
+}
+
+// string comment = 7;
+inline void CreateTaskExpr::clear_comment() {
+  _impl_.comment_.ClearToEmpty();
+}
+inline const std::string& CreateTaskExpr::comment() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.comment)
+  return _internal_comment();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTaskExpr::set_comment(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.comment_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.comment)
+}
+inline std::string* CreateTaskExpr::mutable_comment() {
+  std::string* _s = _internal_mutable_comment();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTaskExpr.comment)
+  return _s;
+}
+inline const std::string& CreateTaskExpr::_internal_comment() const {
+  return _impl_.comment_.Get();
+}
+inline void CreateTaskExpr::_internal_set_comment(const std::string& value) {
+  
+  _impl_.comment_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::_internal_mutable_comment() {
+  
+  return _impl_.comment_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::release_comment() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTaskExpr.comment)
+  return _impl_.comment_.Release();
+}
+inline void CreateTaskExpr::set_allocated_comment(std::string* comment) {
+  if (comment != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.comment_.SetAllocated(comment, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.comment_.IsDefault()) {
+    _impl_.comment_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.comment)
+}
+
+// string sql = 8;
+inline void CreateTaskExpr::clear_sql() {
+  _impl_.sql_.ClearToEmpty();
+}
+inline const std::string& CreateTaskExpr::sql() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTaskExpr.sql)
+  return _internal_sql();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTaskExpr::set_sql(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.sql_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTaskExpr.sql)
+}
+inline std::string* CreateTaskExpr::mutable_sql() {
+  std::string* _s = _internal_mutable_sql();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTaskExpr.sql)
+  return _s;
+}
+inline const std::string& CreateTaskExpr::_internal_sql() const {
+  return _impl_.sql_.Get();
+}
+inline void CreateTaskExpr::_internal_set_sql(const std::string& value) {
+  
+  _impl_.sql_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::_internal_mutable_sql() {
+  
+  return _impl_.sql_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTaskExpr::release_sql() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTaskExpr.sql)
+  return _impl_.sql_.Release();
+}
+inline void CreateTaskExpr::set_allocated_sql(std::string* sql) {
+  if (sql != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.sql_.SetAllocated(sql, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sql_.IsDefault()) {
+    _impl_.sql_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTaskExpr.sql)
+}
+
+// map<string, string> task_options = 9;
+inline int CreateTaskExpr::_internal_task_options_size() const {
+  return _impl_.task_options_.size();
+}
+inline int CreateTaskExpr::task_options_size() const {
+  return _internal_task_options_size();
+}
+inline void CreateTaskExpr::clear_task_options() {
+  _impl_.task_options_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateTaskExpr::_internal_task_options() const {
+  return _impl_.task_options_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateTaskExpr::task_options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.CreateTaskExpr.task_options)
+  return _internal_task_options();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CreateTaskExpr::_internal_mutable_task_options() {
+  return _impl_.task_options_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CreateTaskExpr::mutable_task_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.CreateTaskExpr.task_options)
+  return _internal_mutable_task_options();
+}
+
+// -------------------------------------------------------------------
+
+// RemoveTaskExpr
+
+// string catalog_name = 1;
+inline void RemoveTaskExpr::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& RemoveTaskExpr::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.RemoveTaskExpr.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemoveTaskExpr::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.RemoveTaskExpr.catalog_name)
+}
+inline std::string* RemoveTaskExpr::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.RemoveTaskExpr.catalog_name)
+  return _s;
+}
+inline const std::string& RemoveTaskExpr::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void RemoveTaskExpr::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemoveTaskExpr::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemoveTaskExpr::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.RemoveTaskExpr.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void RemoveTaskExpr::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.RemoveTaskExpr.catalog_name)
+}
+
+// string task_name = 2;
+inline void RemoveTaskExpr::clear_task_name() {
+  _impl_.task_name_.ClearToEmpty();
+}
+inline const std::string& RemoveTaskExpr::task_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.RemoveTaskExpr.task_name)
+  return _internal_task_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemoveTaskExpr::set_task_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.task_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.RemoveTaskExpr.task_name)
+}
+inline std::string* RemoveTaskExpr::mutable_task_name() {
+  std::string* _s = _internal_mutable_task_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.RemoveTaskExpr.task_name)
+  return _s;
+}
+inline const std::string& RemoveTaskExpr::_internal_task_name() const {
+  return _impl_.task_name_.Get();
+}
+inline void RemoveTaskExpr::_internal_set_task_name(const std::string& value) {
+  
+  _impl_.task_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemoveTaskExpr::_internal_mutable_task_name() {
+  
+  return _impl_.task_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemoveTaskExpr::release_task_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.RemoveTaskExpr.task_name)
+  return _impl_.task_name_.Release();
+}
+inline void RemoveTaskExpr::set_allocated_task_name(std::string* task_name) {
+  if (task_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.task_name_.SetAllocated(task_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.task_name_.IsDefault()) {
+    _impl_.task_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.RemoveTaskExpr.task_name)
+}
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -6157,6 +7353,12 @@ inline void AddColumnLocation::set_allocated_after_column_name(std::string* afte
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

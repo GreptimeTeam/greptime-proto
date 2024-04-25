@@ -98,6 +98,26 @@ java.lang.String defaultValue);
      */
     com.google.protobuf.ByteString
         getDbnameBytes();
+
+    /**
+     * <pre>
+     * The `timezone` for the request
+     * </pre>
+     *
+     * <code>string timezone = 4;</code>
+     * @return The timezone.
+     */
+    java.lang.String getTimezone();
+    /**
+     * <pre>
+     * The `timezone` for the request
+     * </pre>
+     *
+     * <code>string timezone = 4;</code>
+     * @return The bytes for timezone.
+     */
+    com.google.protobuf.ByteString
+        getTimezoneBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.region.RegionRequestHeader}
@@ -113,6 +133,7 @@ java.lang.String defaultValue);
     }
     private RegionRequestHeader() {
       dbname_ = "";
+      timezone_ = "";
     }
 
     @java.lang.Override
@@ -150,6 +171,12 @@ java.lang.String defaultValue);
               java.lang.String s = input.readStringRequireUtf8();
 
               dbname_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timezone_ = s;
               break;
             }
             case 42: {
@@ -358,6 +385,52 @@ java.lang.String defaultValue);
       }
     }
 
+    public static final int TIMEZONE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object timezone_;
+    /**
+     * <pre>
+     * The `timezone` for the request
+     * </pre>
+     *
+     * <code>string timezone = 4;</code>
+     * @return The timezone.
+     */
+    @java.lang.Override
+    public java.lang.String getTimezone() {
+      java.lang.Object ref = timezone_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timezone_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The `timezone` for the request
+     * </pre>
+     *
+     * <code>string timezone = 4;</code>
+     * @return The bytes for timezone.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTimezoneBytes() {
+      java.lang.Object ref = timezone_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timezone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -374,6 +447,9 @@ java.lang.String defaultValue);
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, dbname_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timezone_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, timezone_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
@@ -392,6 +468,9 @@ java.lang.String defaultValue);
       size = 0;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dbname_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, dbname_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timezone_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, timezone_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetTracingContext().getMap().entrySet()) {
@@ -422,6 +501,8 @@ java.lang.String defaultValue);
           other.internalGetTracingContext())) return false;
       if (!getDbname()
           .equals(other.getDbname())) return false;
+      if (!getTimezone()
+          .equals(other.getTimezone())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -439,6 +520,8 @@ java.lang.String defaultValue);
       }
       hash = (37 * hash) + DBNAME_FIELD_NUMBER;
       hash = (53 * hash) + getDbname().hashCode();
+      hash = (37 * hash) + TIMEZONE_FIELD_NUMBER;
+      hash = (53 * hash) + getTimezone().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -597,6 +680,8 @@ java.lang.String defaultValue);
         internalGetMutableTracingContext().clear();
         dbname_ = "";
 
+        timezone_ = "";
+
         return this;
       }
 
@@ -627,6 +712,7 @@ java.lang.String defaultValue);
         result.tracingContext_ = internalGetTracingContext();
         result.tracingContext_.makeImmutable();
         result.dbname_ = dbname_;
+        result.timezone_ = timezone_;
         onBuilt();
         return result;
       }
@@ -679,6 +765,10 @@ java.lang.String defaultValue);
             other.internalGetTracingContext());
         if (!other.getDbname().isEmpty()) {
           dbname_ = other.dbname_;
+          onChanged();
+        }
+        if (!other.getTimezone().isEmpty()) {
+          timezone_ = other.timezone_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -969,6 +1059,102 @@ java.lang.String defaultValue);
   checkByteStringIsUtf8(value);
         
         dbname_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timezone_ = "";
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 4;</code>
+       * @return The timezone.
+       */
+      public java.lang.String getTimezone() {
+        java.lang.Object ref = timezone_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timezone_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 4;</code>
+       * @return The bytes for timezone.
+       */
+      public com.google.protobuf.ByteString
+          getTimezoneBytes() {
+        java.lang.Object ref = timezone_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timezone_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 4;</code>
+       * @param value The timezone to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimezone(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timezone_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimezone() {
+        
+        timezone_ = getDefaultInstance().getTimezone();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The `timezone` for the request
+       * </pre>
+       *
+       * <code>string timezone = 4;</code>
+       * @param value The bytes for timezone to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimezoneBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timezone_ = value;
         onChanged();
         return this;
       }
@@ -22546,84 +22732,85 @@ java.lang.String defaultValue);
       "\n\037greptime/v1/region/server.proto\022\022grept" +
       "ime.v1.region\032\030greptime/v1/common.proto\032" +
       "\025greptime/v1/row.proto\032\025greptime/v1/ddl." +
-      "proto\"\262\001\n\023RegionRequestHeader\022T\n\017tracing" +
+      "proto\"\304\001\n\023RegionRequestHeader\022T\n\017tracing" +
       "_context\030\005 \003(\0132;.greptime.v1.region.Regi" +
       "onRequestHeader.TracingContextEntry\022\016\n\006d" +
-      "bname\030\003 \001(\t\0325\n\023TracingContextEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\375\005\n\rRegionReq" +
-      "uest\0227\n\006header\030\001 \001(\0132\'.greptime.v1.regio" +
-      "n.RegionRequestHeader\0225\n\007inserts\030\003 \001(\0132\"" +
-      ".greptime.v1.region.InsertRequestsH\000\0225\n\007" +
-      "deletes\030\004 \001(\0132\".greptime.v1.region.Delet" +
-      "eRequestsH\000\0223\n\006create\030\005 \001(\0132!.greptime.v" +
-      "1.region.CreateRequestH\000\022/\n\004drop\030\006 \001(\0132\037" +
-      ".greptime.v1.region.DropRequestH\000\022/\n\004ope" +
-      "n\030\007 \001(\0132\037.greptime.v1.region.OpenRequest" +
-      "H\000\0221\n\005close\030\010 \001(\0132 .greptime.v1.region.C" +
-      "loseRequestH\000\0221\n\005alter\030\t \001(\0132 .greptime." +
-      "v1.region.AlterRequestH\000\0221\n\005flush\030\n \001(\0132" +
-      " .greptime.v1.region.FlushRequestH\000\0225\n\007c" +
-      "ompact\030\013 \001(\0132\".greptime.v1.region.Compac" +
-      "tRequestH\000\0227\n\010truncate\030\014 \001(\0132#.greptime." +
-      "v1.region.TruncateRequestH\000\0225\n\007creates\030\r" +
-      " \001(\0132\".greptime.v1.region.CreateRequests" +
-      "H\000\0221\n\005drops\030\016 \001(\0132 .greptime.v1.region.D" +
-      "ropRequestsH\000\0223\n\006alters\030\017 \001(\0132!.greptime" +
-      ".v1.region.AlterRequestsH\000B\006\n\004body\"\314\001\n\016R" +
-      "egionResponse\022+\n\006header\030\001 \001(\0132\033.greptime" +
-      ".v1.ResponseHeader\022\025\n\raffected_rows\030\002 \001(" +
-      "\004\022D\n\textension\030\003 \003(\01321.greptime.v1.regio" +
-      "n.RegionResponse.ExtensionEntry\0320\n\016Exten" +
-      "sionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028" +
-      "\001\"E\n\016InsertRequests\0223\n\010requests\030\001 \003(\0132!." +
-      "greptime.v1.region.InsertRequest\"E\n\016Dele" +
-      "teRequests\0223\n\010requests\030\001 \003(\0132!.greptime." +
-      "v1.region.DeleteRequest\"C\n\rInsertRequest" +
-      "\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.grep" +
-      "time.v1.Rows\"C\n\rDeleteRequest\022\021\n\tregion_" +
-      "id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Row" +
-      "s\"h\n\014QueryRequest\0227\n\006header\030\001 \001(\0132\'.grep" +
-      "time.v1.region.RegionRequestHeader\022\021\n\tre" +
-      "gion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"E\n\016CreateReq" +
-      "uests\0223\n\010requests\030\001 \003(\0132!.greptime.v1.re" +
-      "gion.CreateRequest\"\200\002\n\rCreateRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013colum" +
-      "n_defs\030\003 \003(\0132#.greptime.v1.region.Region" +
-      "ColumnDef\022\023\n\013primary_key\030\004 \003(\r\022\014\n\004path\030\005" +
-      " \001(\t\022?\n\007options\030\006 \003(\0132..greptime.v1.regi" +
-      "on.CreateRequest.OptionsEntry\032.\n\014Options" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"A\n" +
-      "\014DropRequests\0221\n\010requests\030\001 \003(\0132\037.grepti" +
-      "me.v1.region.DropRequest\" \n\013DropRequest\022" +
-      "\021\n\tregion_id\030\001 \001(\004\"\255\001\n\013OpenRequest\022\021\n\tre" +
-      "gion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 " +
-      "\001(\t\022=\n\007options\030\004 \003(\0132,.greptime.v1.regio" +
-      "n.OpenRequest.OptionsEntry\032.\n\014OptionsEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014Cl" +
-      "oseRequest\022\021\n\tregion_id\030\001 \001(\004\"C\n\rAlterRe" +
-      "quests\0222\n\010requests\030\001 \003(\0132 .greptime.v1.r" +
-      "egion.AlterRequest\"\261\001\n\014AlterRequest\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036.gr" +
-      "eptime.v1.region.AddColumnsH\000\0227\n\014drop_co" +
-      "lumns\030\003 \001(\0132\037.greptime.v1.region.DropCol" +
-      "umnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"@" +
-      "\n\nAddColumns\0222\n\013add_columns\030\001 \003(\0132\035.grep" +
-      "time.v1.region.AddColumn\"C\n\013DropColumns\022" +
-      "4\n\014drop_columns\030\001 \003(\0132\036.greptime.v1.regi" +
-      "on.DropColumn\"v\n\tAddColumn\0227\n\ncolumn_def" +
-      "\030\001 \001(\0132#.greptime.v1.region.RegionColumn" +
-      "Def\0220\n\010location\030\003 \001(\0132\036.greptime.v1.AddC" +
-      "olumnLocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(" +
-      "\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"#\n\016" +
-      "CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"$\n\017Tru" +
-      "ncateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Regio" +
-      "nColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.greptim" +
-      "e.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006Reg" +
-      "ion\022O\n\006Handle\022!.greptime.v1.region.Regio" +
-      "nRequest\032\".greptime.v1.region.RegionResp" +
-      "onseB]\n\025io.greptime.v1.regionB\006ServerZ<g" +
-      "ithub.com/GreptimeTeam/greptime-proto/go" +
-      "/greptime/v1/regionb\006proto3"
+      "bname\030\003 \001(\t\022\020\n\010timezone\030\004 \001(\t\0325\n\023Tracing" +
+      "ContextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
+      ":\0028\001\"\375\005\n\rRegionRequest\0227\n\006header\030\001 \001(\0132\'" +
+      ".greptime.v1.region.RegionRequestHeader\022" +
+      "5\n\007inserts\030\003 \001(\0132\".greptime.v1.region.In" +
+      "sertRequestsH\000\0225\n\007deletes\030\004 \001(\0132\".grepti" +
+      "me.v1.region.DeleteRequestsH\000\0223\n\006create\030" +
+      "\005 \001(\0132!.greptime.v1.region.CreateRequest" +
+      "H\000\022/\n\004drop\030\006 \001(\0132\037.greptime.v1.region.Dr" +
+      "opRequestH\000\022/\n\004open\030\007 \001(\0132\037.greptime.v1." +
+      "region.OpenRequestH\000\0221\n\005close\030\010 \001(\0132 .gr" +
+      "eptime.v1.region.CloseRequestH\000\0221\n\005alter" +
+      "\030\t \001(\0132 .greptime.v1.region.AlterRequest" +
+      "H\000\0221\n\005flush\030\n \001(\0132 .greptime.v1.region.F" +
+      "lushRequestH\000\0225\n\007compact\030\013 \001(\0132\".greptim" +
+      "e.v1.region.CompactRequestH\000\0227\n\010truncate" +
+      "\030\014 \001(\0132#.greptime.v1.region.TruncateRequ" +
+      "estH\000\0225\n\007creates\030\r \001(\0132\".greptime.v1.reg" +
+      "ion.CreateRequestsH\000\0221\n\005drops\030\016 \001(\0132 .gr" +
+      "eptime.v1.region.DropRequestsH\000\0223\n\006alter" +
+      "s\030\017 \001(\0132!.greptime.v1.region.AlterReques" +
+      "tsH\000B\006\n\004body\"\314\001\n\016RegionResponse\022+\n\006heade" +
+      "r\030\001 \001(\0132\033.greptime.v1.ResponseHeader\022\025\n\r" +
+      "affected_rows\030\002 \001(\004\022D\n\textension\030\003 \003(\01321" +
+      ".greptime.v1.region.RegionResponse.Exten" +
+      "sionEntry\0320\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\014:\0028\001\"E\n\016InsertRequests\0223\n" +
+      "\010requests\030\001 \003(\0132!.greptime.v1.region.Ins" +
+      "ertRequest\"E\n\016DeleteRequests\0223\n\010requests" +
+      "\030\001 \003(\0132!.greptime.v1.region.DeleteReques" +
+      "t\"C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n" +
+      "\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDelete" +
+      "Request\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\013" +
+      "2\021.greptime.v1.Rows\"h\n\014QueryRequest\0227\n\006h" +
+      "eader\030\001 \001(\0132\'.greptime.v1.region.RegionR" +
+      "equestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004plan\030" +
+      "\003 \001(\014\"E\n\016CreateRequests\0223\n\010requests\030\001 \003(" +
+      "\0132!.greptime.v1.region.CreateRequest\"\200\002\n" +
+      "\rCreateRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006eng" +
+      "ine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(\0132#.greptim" +
+      "e.v1.region.RegionColumnDef\022\023\n\013primary_k" +
+      "ey\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007options\030\006 \003(\0132" +
+      "..greptime.v1.region.CreateRequest.Optio" +
+      "nsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\t:\0028\001\"A\n\014DropRequests\0221\n\010reque" +
+      "sts\030\001 \003(\0132\037.greptime.v1.region.DropReque" +
+      "st\" \n\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\"\255\001\n" +
+      "\013OpenRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engin" +
+      "e\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132," +
+      ".greptime.v1.region.OpenRequest.OptionsE" +
+      "ntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010requests\030\001 \003" +
+      "(\0132 .greptime.v1.region.AlterRequest\"\261\001\n" +
+      "\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_" +
+      "columns\030\002 \001(\0132\036.greptime.v1.region.AddCo" +
+      "lumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime" +
+      ".v1.region.DropColumnsH\000\022\026\n\016schema_versi" +
+      "on\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_co" +
+      "lumns\030\001 \003(\0132\035.greptime.v1.region.AddColu" +
+      "mn\"C\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132" +
+      "\036.greptime.v1.region.DropColumn\"v\n\tAddCo" +
+      "lumn\0227\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.r" +
+      "egion.RegionColumnDef\0220\n\010location\030\003 \001(\0132" +
+      "\036.greptime.v1.AddColumnLocation\"\032\n\nDropC" +
+      "olumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tr" +
+      "egion_id\030\001 \001(\004\"#\n\016CompactRequest\022\021\n\tregi" +
+      "on_id\030\001 \001(\004\"$\n\017TruncateRequest\022\021\n\tregion" +
+      "_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_d" +
+      "ef\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcolu" +
+      "mn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.grepti" +
+      "me.v1.region.RegionRequest\032\".greptime.v1" +
+      ".region.RegionResponseB]\n\025io.greptime.v1" +
+      ".regionB\006ServerZ<github.com/GreptimeTeam" +
+      "/greptime-proto/go/greptime/v1/regionb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -22637,7 +22824,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequestHeader_descriptor,
-        new java.lang.String[] { "TracingContext", "Dbname", });
+        new java.lang.String[] { "TracingContext", "Dbname", "Timezone", });
     internal_static_greptime_v1_region_RegionRequestHeader_TracingContextEntry_descriptor =
       internal_static_greptime_v1_region_RegionRequestHeader_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_region_RegionRequestHeader_TracingContextEntry_fieldAccessorTable = new
