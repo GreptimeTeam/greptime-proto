@@ -58,14 +58,18 @@ message Basic {
 
 message Token { string token = 1; }
 
-message AffectedRows { uint32 value = 1; }
-
-message Metrics {
-  bytes metrics = 1;
+message TableName {
+  string catalog_name = 1;
+  string schema_name = 2;
+  string table_name = 3;
 }
 
-message FlightMetadata { 
-  AffectedRows affected_rows = 1; 
+message AffectedRows { uint32 value = 1; }
+
+message Metrics { bytes metrics = 1; }
+
+message FlightMetadata {
+  AffectedRows affected_rows = 1;
   Metrics metrics = 2;
 }
 

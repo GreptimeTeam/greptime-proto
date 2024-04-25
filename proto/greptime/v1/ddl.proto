@@ -42,20 +42,14 @@ message DdlRequest {
 message CreateFlowTaskExpr {
   string catalog_name = 1;
   string task_name = 2;
-  repeated SchemaScopedTableName source_table_names = 3;
-  SchemaScopedTableName sink_table_name = 4;
+  repeated TableName source_table_names = 3;
+  TableName sink_table_name = 4;
   bool or_replace = 5;
   bool create_if_not_exists = 6;
   string expire_when = 7;
   string comment = 8;
   string sql = 9;
   map<string, string> task_options = 10;
-}
-
-// Table name
-message SchemaScopedTableName {
-  string schema_name = 1;
-  string table_name = 2;
 }
 
 // Remove a flow task.

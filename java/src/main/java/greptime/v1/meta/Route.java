@@ -1986,19 +1986,19 @@ public final class Route {
     long getId();
 
     /**
-     * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+     * <code>.greptime.v1.TableName table_name = 2;</code>
      * @return Whether the tableName field is set.
      */
     boolean hasTableName();
     /**
-     * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+     * <code>.greptime.v1.TableName table_name = 2;</code>
      * @return The tableName.
      */
-    greptime.v1.meta.Common.TableName getTableName();
+    io.greptime.v1.Common.TableName getTableName();
     /**
-     * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+     * <code>.greptime.v1.TableName table_name = 2;</code>
      */
-    greptime.v1.meta.Common.TableNameOrBuilder getTableNameOrBuilder();
+    io.greptime.v1.Common.TableNameOrBuilder getTableNameOrBuilder();
 
     /**
      * <code>bytes table_schema = 3;</code>
@@ -2058,11 +2058,11 @@ public final class Route {
               break;
             }
             case 18: {
-              greptime.v1.meta.Common.TableName.Builder subBuilder = null;
+              io.greptime.v1.Common.TableName.Builder subBuilder = null;
               if (tableName_ != null) {
                 subBuilder = tableName_.toBuilder();
               }
-              tableName_ = input.readMessage(greptime.v1.meta.Common.TableName.parser(), extensionRegistry);
+              tableName_ = input.readMessage(io.greptime.v1.Common.TableName.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(tableName_);
                 tableName_ = subBuilder.buildPartial();
@@ -2121,9 +2121,9 @@ public final class Route {
     }
 
     public static final int TABLE_NAME_FIELD_NUMBER = 2;
-    private greptime.v1.meta.Common.TableName tableName_;
+    private io.greptime.v1.Common.TableName tableName_;
     /**
-     * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+     * <code>.greptime.v1.TableName table_name = 2;</code>
      * @return Whether the tableName field is set.
      */
     @java.lang.Override
@@ -2131,18 +2131,18 @@ public final class Route {
       return tableName_ != null;
     }
     /**
-     * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+     * <code>.greptime.v1.TableName table_name = 2;</code>
      * @return The tableName.
      */
     @java.lang.Override
-    public greptime.v1.meta.Common.TableName getTableName() {
-      return tableName_ == null ? greptime.v1.meta.Common.TableName.getDefaultInstance() : tableName_;
+    public io.greptime.v1.Common.TableName getTableName() {
+      return tableName_ == null ? io.greptime.v1.Common.TableName.getDefaultInstance() : tableName_;
     }
     /**
-     * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+     * <code>.greptime.v1.TableName table_name = 2;</code>
      */
     @java.lang.Override
-    public greptime.v1.meta.Common.TableNameOrBuilder getTableNameOrBuilder() {
+    public io.greptime.v1.Common.TableNameOrBuilder getTableNameOrBuilder() {
       return getTableName();
     }
 
@@ -2538,31 +2538,31 @@ public final class Route {
         return this;
       }
 
-      private greptime.v1.meta.Common.TableName tableName_;
+      private io.greptime.v1.Common.TableName tableName_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Common.TableName, greptime.v1.meta.Common.TableName.Builder, greptime.v1.meta.Common.TableNameOrBuilder> tableNameBuilder_;
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> tableNameBuilder_;
       /**
-       * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+       * <code>.greptime.v1.TableName table_name = 2;</code>
        * @return Whether the tableName field is set.
        */
       public boolean hasTableName() {
         return tableNameBuilder_ != null || tableName_ != null;
       }
       /**
-       * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+       * <code>.greptime.v1.TableName table_name = 2;</code>
        * @return The tableName.
        */
-      public greptime.v1.meta.Common.TableName getTableName() {
+      public io.greptime.v1.Common.TableName getTableName() {
         if (tableNameBuilder_ == null) {
-          return tableName_ == null ? greptime.v1.meta.Common.TableName.getDefaultInstance() : tableName_;
+          return tableName_ == null ? io.greptime.v1.Common.TableName.getDefaultInstance() : tableName_;
         } else {
           return tableNameBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+       * <code>.greptime.v1.TableName table_name = 2;</code>
        */
-      public Builder setTableName(greptime.v1.meta.Common.TableName value) {
+      public Builder setTableName(io.greptime.v1.Common.TableName value) {
         if (tableNameBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2576,10 +2576,10 @@ public final class Route {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+       * <code>.greptime.v1.TableName table_name = 2;</code>
        */
       public Builder setTableName(
-          greptime.v1.meta.Common.TableName.Builder builderForValue) {
+          io.greptime.v1.Common.TableName.Builder builderForValue) {
         if (tableNameBuilder_ == null) {
           tableName_ = builderForValue.build();
           onChanged();
@@ -2590,13 +2590,13 @@ public final class Route {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+       * <code>.greptime.v1.TableName table_name = 2;</code>
        */
-      public Builder mergeTableName(greptime.v1.meta.Common.TableName value) {
+      public Builder mergeTableName(io.greptime.v1.Common.TableName value) {
         if (tableNameBuilder_ == null) {
           if (tableName_ != null) {
             tableName_ =
-              greptime.v1.meta.Common.TableName.newBuilder(tableName_).mergeFrom(value).buildPartial();
+              io.greptime.v1.Common.TableName.newBuilder(tableName_).mergeFrom(value).buildPartial();
           } else {
             tableName_ = value;
           }
@@ -2608,7 +2608,7 @@ public final class Route {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+       * <code>.greptime.v1.TableName table_name = 2;</code>
        */
       public Builder clearTableName() {
         if (tableNameBuilder_ == null) {
@@ -2622,33 +2622,33 @@ public final class Route {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+       * <code>.greptime.v1.TableName table_name = 2;</code>
        */
-      public greptime.v1.meta.Common.TableName.Builder getTableNameBuilder() {
+      public io.greptime.v1.Common.TableName.Builder getTableNameBuilder() {
         
         onChanged();
         return getTableNameFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+       * <code>.greptime.v1.TableName table_name = 2;</code>
        */
-      public greptime.v1.meta.Common.TableNameOrBuilder getTableNameOrBuilder() {
+      public io.greptime.v1.Common.TableNameOrBuilder getTableNameOrBuilder() {
         if (tableNameBuilder_ != null) {
           return tableNameBuilder_.getMessageOrBuilder();
         } else {
           return tableName_ == null ?
-              greptime.v1.meta.Common.TableName.getDefaultInstance() : tableName_;
+              io.greptime.v1.Common.TableName.getDefaultInstance() : tableName_;
         }
       }
       /**
-       * <code>.greptime.v1.meta.TableName table_name = 2;</code>
+       * <code>.greptime.v1.TableName table_name = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Common.TableName, greptime.v1.meta.Common.TableName.Builder, greptime.v1.meta.Common.TableNameOrBuilder> 
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> 
           getTableNameFieldBuilder() {
         if (tableNameBuilder_ == null) {
           tableNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              greptime.v1.meta.Common.TableName, greptime.v1.meta.Common.TableName.Builder, greptime.v1.meta.Common.TableNameOrBuilder>(
+              io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder>(
                   getTableName(),
                   getParentForChildren(),
                   isClean());
@@ -5768,31 +5768,32 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\034greptime/v1/meta/route.proto\022\020greptime" +
-      ".v1.meta\032\035greptime/v1/meta/common.proto\"" +
-      "j\n\nTableRoute\022&\n\005table\030\001 \001(\0132\027.greptime." +
-      "v1.meta.Table\0224\n\rregion_routes\030\002 \003(\0132\035.g" +
-      "reptime.v1.meta.RegionRoute\"q\n\013RegionRou" +
-      "te\022(\n\006region\030\001 \001(\0132\030.greptime.v1.meta.Re" +
-      "gion\022\031\n\021leader_peer_index\030\002 \001(\004\022\035\n\025follo" +
-      "wer_peer_indexes\030\003 \003(\004\"Z\n\005Table\022\n\n\002id\030\001 " +
-      "\001(\004\022/\n\ntable_name\030\002 \001(\0132\033.greptime.v1.me" +
-      "ta.TableName\022\024\n\014table_schema\030\003 \001(\014\"\264\001\n\006R" +
-      "egion\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022.\n\tparti" +
-      "tion\030\003 \001(\0132\033.greptime.v1.meta.Partition\022" +
-      "2\n\005attrs\030d \003(\0132#.greptime.v1.meta.Region" +
-      ".AttrsEntry\032,\n\nAttrsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001\"4\n\tPartition\022\023\n\013column" +
-      "_list\030\001 \003(\014\022\022\n\nvalue_list\030\002 \003(\014\"k\n\017Table" +
-      "RouteValue\022%\n\005peers\030\001 \003(\0132\026.greptime.v1." +
-      "meta.Peer\0221\n\013table_route\030\002 \001(\0132\034.greptim" +
-      "e.v1.meta.TableRouteB<Z:github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1/me" +
-      "tab\006proto3"
+      ".v1.meta\032\035greptime/v1/meta/common.proto\032" +
+      "\030greptime/v1/common.proto\"j\n\nTableRoute\022" +
+      "&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Table\022" +
+      "4\n\rregion_routes\030\002 \003(\0132\035.greptime.v1.met" +
+      "a.RegionRoute\"q\n\013RegionRoute\022(\n\006region\030\001" +
+      " \001(\0132\030.greptime.v1.meta.Region\022\031\n\021leader" +
+      "_peer_index\030\002 \001(\004\022\035\n\025follower_peer_index" +
+      "es\030\003 \003(\004\"U\n\005Table\022\n\n\002id\030\001 \001(\004\022*\n\ntable_n" +
+      "ame\030\002 \001(\0132\026.greptime.v1.TableName\022\024\n\014tab" +
+      "le_schema\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002id\030\001 \001(\004\022\014" +
+      "\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033.grepti" +
+      "me.v1.meta.Partition\0222\n\005attrs\030d \003(\0132#.gr" +
+      "eptime.v1.meta.Region.AttrsEntry\032,\n\nAttr" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"4" +
+      "\n\tPartition\022\023\n\013column_list\030\001 \003(\014\022\022\n\nvalu" +
+      "e_list\030\002 \003(\014\"k\n\017TableRouteValue\022%\n\005peers" +
+      "\030\001 \003(\0132\026.greptime.v1.meta.Peer\0221\n\013table_" +
+      "route\030\002 \001(\0132\034.greptime.v1.meta.TableRout" +
+      "eB<Z:github.com/GreptimeTeam/greptime-pr" +
+      "oto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           greptime.v1.meta.Common.getDescriptor(),
+          io.greptime.v1.Common.getDescriptor(),
         });
     internal_static_greptime_v1_meta_TableRoute_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -5837,6 +5838,7 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_meta_TableRouteValue_descriptor,
         new java.lang.String[] { "Peers", "TableRoute", });
     greptime.v1.meta.Common.getDescriptor();
+    io.greptime.v1.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

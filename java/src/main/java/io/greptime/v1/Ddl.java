@@ -2158,43 +2158,43 @@ public final class Ddl {
         getTaskNameBytes();
 
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
-    java.util.List<io.greptime.v1.Ddl.SchemaScopedTableName> 
+    java.util.List<io.greptime.v1.Common.TableName> 
         getSourceTableNamesList();
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
-    io.greptime.v1.Ddl.SchemaScopedTableName getSourceTableNames(int index);
+    io.greptime.v1.Common.TableName getSourceTableNames(int index);
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
     int getSourceTableNamesCount();
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
-    java.util.List<? extends io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder> 
+    java.util.List<? extends io.greptime.v1.Common.TableNameOrBuilder> 
         getSourceTableNamesOrBuilderList();
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
-    io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder getSourceTableNamesOrBuilder(
+    io.greptime.v1.Common.TableNameOrBuilder getSourceTableNamesOrBuilder(
         int index);
 
     /**
-     * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+     * <code>.greptime.v1.TableName sink_table_name = 4;</code>
      * @return Whether the sinkTableName field is set.
      */
     boolean hasSinkTableName();
     /**
-     * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+     * <code>.greptime.v1.TableName sink_table_name = 4;</code>
      * @return The sinkTableName.
      */
-    io.greptime.v1.Ddl.SchemaScopedTableName getSinkTableName();
+    io.greptime.v1.Common.TableName getSinkTableName();
     /**
-     * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+     * <code>.greptime.v1.TableName sink_table_name = 4;</code>
      */
-    io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder getSinkTableNameOrBuilder();
+    io.greptime.v1.Common.TableNameOrBuilder getSinkTableNameOrBuilder();
 
     /**
      * <code>bool or_replace = 5;</code>
@@ -2350,19 +2350,19 @@ java.lang.String defaultValue);
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                sourceTableNames_ = new java.util.ArrayList<io.greptime.v1.Ddl.SchemaScopedTableName>();
+                sourceTableNames_ = new java.util.ArrayList<io.greptime.v1.Common.TableName>();
                 mutable_bitField0_ |= 0x00000001;
               }
               sourceTableNames_.add(
-                  input.readMessage(io.greptime.v1.Ddl.SchemaScopedTableName.parser(), extensionRegistry));
+                  input.readMessage(io.greptime.v1.Common.TableName.parser(), extensionRegistry));
               break;
             }
             case 34: {
-              io.greptime.v1.Ddl.SchemaScopedTableName.Builder subBuilder = null;
+              io.greptime.v1.Common.TableName.Builder subBuilder = null;
               if (sinkTableName_ != null) {
                 subBuilder = sinkTableName_.toBuilder();
               }
-              sinkTableName_ = input.readMessage(io.greptime.v1.Ddl.SchemaScopedTableName.parser(), extensionRegistry);
+              sinkTableName_ = input.readMessage(io.greptime.v1.Common.TableName.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(sinkTableName_);
                 sinkTableName_ = subBuilder.buildPartial();
@@ -2537,49 +2537,49 @@ java.lang.String defaultValue);
     }
 
     public static final int SOURCE_TABLE_NAMES_FIELD_NUMBER = 3;
-    private java.util.List<io.greptime.v1.Ddl.SchemaScopedTableName> sourceTableNames_;
+    private java.util.List<io.greptime.v1.Common.TableName> sourceTableNames_;
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
     @java.lang.Override
-    public java.util.List<io.greptime.v1.Ddl.SchemaScopedTableName> getSourceTableNamesList() {
+    public java.util.List<io.greptime.v1.Common.TableName> getSourceTableNamesList() {
       return sourceTableNames_;
     }
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder> 
+    public java.util.List<? extends io.greptime.v1.Common.TableNameOrBuilder> 
         getSourceTableNamesOrBuilderList() {
       return sourceTableNames_;
     }
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
     @java.lang.Override
     public int getSourceTableNamesCount() {
       return sourceTableNames_.size();
     }
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.SchemaScopedTableName getSourceTableNames(int index) {
+    public io.greptime.v1.Common.TableName getSourceTableNames(int index) {
       return sourceTableNames_.get(index);
     }
     /**
-     * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+     * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder getSourceTableNamesOrBuilder(
+    public io.greptime.v1.Common.TableNameOrBuilder getSourceTableNamesOrBuilder(
         int index) {
       return sourceTableNames_.get(index);
     }
 
     public static final int SINK_TABLE_NAME_FIELD_NUMBER = 4;
-    private io.greptime.v1.Ddl.SchemaScopedTableName sinkTableName_;
+    private io.greptime.v1.Common.TableName sinkTableName_;
     /**
-     * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+     * <code>.greptime.v1.TableName sink_table_name = 4;</code>
      * @return Whether the sinkTableName field is set.
      */
     @java.lang.Override
@@ -2587,18 +2587,18 @@ java.lang.String defaultValue);
       return sinkTableName_ != null;
     }
     /**
-     * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+     * <code>.greptime.v1.TableName sink_table_name = 4;</code>
      * @return The sinkTableName.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.SchemaScopedTableName getSinkTableName() {
-      return sinkTableName_ == null ? io.greptime.v1.Ddl.SchemaScopedTableName.getDefaultInstance() : sinkTableName_;
+    public io.greptime.v1.Common.TableName getSinkTableName() {
+      return sinkTableName_ == null ? io.greptime.v1.Common.TableName.getDefaultInstance() : sinkTableName_;
     }
     /**
-     * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+     * <code>.greptime.v1.TableName sink_table_name = 4;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder getSinkTableNameOrBuilder() {
+    public io.greptime.v1.Common.TableNameOrBuilder getSinkTableNameOrBuilder() {
       return getSinkTableName();
     }
 
@@ -3517,22 +3517,22 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.util.List<io.greptime.v1.Ddl.SchemaScopedTableName> sourceTableNames_ =
+      private java.util.List<io.greptime.v1.Common.TableName> sourceTableNames_ =
         java.util.Collections.emptyList();
       private void ensureSourceTableNamesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          sourceTableNames_ = new java.util.ArrayList<io.greptime.v1.Ddl.SchemaScopedTableName>(sourceTableNames_);
+          sourceTableNames_ = new java.util.ArrayList<io.greptime.v1.Common.TableName>(sourceTableNames_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Ddl.SchemaScopedTableName, io.greptime.v1.Ddl.SchemaScopedTableName.Builder, io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder> sourceTableNamesBuilder_;
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> sourceTableNamesBuilder_;
 
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
-      public java.util.List<io.greptime.v1.Ddl.SchemaScopedTableName> getSourceTableNamesList() {
+      public java.util.List<io.greptime.v1.Common.TableName> getSourceTableNamesList() {
         if (sourceTableNamesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(sourceTableNames_);
         } else {
@@ -3540,7 +3540,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
       public int getSourceTableNamesCount() {
         if (sourceTableNamesBuilder_ == null) {
@@ -3550,9 +3550,9 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
-      public io.greptime.v1.Ddl.SchemaScopedTableName getSourceTableNames(int index) {
+      public io.greptime.v1.Common.TableName getSourceTableNames(int index) {
         if (sourceTableNamesBuilder_ == null) {
           return sourceTableNames_.get(index);
         } else {
@@ -3560,10 +3560,10 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
       public Builder setSourceTableNames(
-          int index, io.greptime.v1.Ddl.SchemaScopedTableName value) {
+          int index, io.greptime.v1.Common.TableName value) {
         if (sourceTableNamesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3577,10 +3577,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
       public Builder setSourceTableNames(
-          int index, io.greptime.v1.Ddl.SchemaScopedTableName.Builder builderForValue) {
+          int index, io.greptime.v1.Common.TableName.Builder builderForValue) {
         if (sourceTableNamesBuilder_ == null) {
           ensureSourceTableNamesIsMutable();
           sourceTableNames_.set(index, builderForValue.build());
@@ -3591,9 +3591,9 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
-      public Builder addSourceTableNames(io.greptime.v1.Ddl.SchemaScopedTableName value) {
+      public Builder addSourceTableNames(io.greptime.v1.Common.TableName value) {
         if (sourceTableNamesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3607,10 +3607,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
       public Builder addSourceTableNames(
-          int index, io.greptime.v1.Ddl.SchemaScopedTableName value) {
+          int index, io.greptime.v1.Common.TableName value) {
         if (sourceTableNamesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3624,10 +3624,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
       public Builder addSourceTableNames(
-          io.greptime.v1.Ddl.SchemaScopedTableName.Builder builderForValue) {
+          io.greptime.v1.Common.TableName.Builder builderForValue) {
         if (sourceTableNamesBuilder_ == null) {
           ensureSourceTableNamesIsMutable();
           sourceTableNames_.add(builderForValue.build());
@@ -3638,10 +3638,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
       public Builder addSourceTableNames(
-          int index, io.greptime.v1.Ddl.SchemaScopedTableName.Builder builderForValue) {
+          int index, io.greptime.v1.Common.TableName.Builder builderForValue) {
         if (sourceTableNamesBuilder_ == null) {
           ensureSourceTableNamesIsMutable();
           sourceTableNames_.add(index, builderForValue.build());
@@ -3652,10 +3652,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
       public Builder addAllSourceTableNames(
-          java.lang.Iterable<? extends io.greptime.v1.Ddl.SchemaScopedTableName> values) {
+          java.lang.Iterable<? extends io.greptime.v1.Common.TableName> values) {
         if (sourceTableNamesBuilder_ == null) {
           ensureSourceTableNamesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3667,7 +3667,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
       public Builder clearSourceTableNames() {
         if (sourceTableNamesBuilder_ == null) {
@@ -3680,7 +3680,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
       public Builder removeSourceTableNames(int index) {
         if (sourceTableNamesBuilder_ == null) {
@@ -3693,16 +3693,16 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
-      public io.greptime.v1.Ddl.SchemaScopedTableName.Builder getSourceTableNamesBuilder(
+      public io.greptime.v1.Common.TableName.Builder getSourceTableNamesBuilder(
           int index) {
         return getSourceTableNamesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
-      public io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder getSourceTableNamesOrBuilder(
+      public io.greptime.v1.Common.TableNameOrBuilder getSourceTableNamesOrBuilder(
           int index) {
         if (sourceTableNamesBuilder_ == null) {
           return sourceTableNames_.get(index);  } else {
@@ -3710,9 +3710,9 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
-      public java.util.List<? extends io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder> 
+      public java.util.List<? extends io.greptime.v1.Common.TableNameOrBuilder> 
            getSourceTableNamesOrBuilderList() {
         if (sourceTableNamesBuilder_ != null) {
           return sourceTableNamesBuilder_.getMessageOrBuilderList();
@@ -3721,33 +3721,33 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
-      public io.greptime.v1.Ddl.SchemaScopedTableName.Builder addSourceTableNamesBuilder() {
+      public io.greptime.v1.Common.TableName.Builder addSourceTableNamesBuilder() {
         return getSourceTableNamesFieldBuilder().addBuilder(
-            io.greptime.v1.Ddl.SchemaScopedTableName.getDefaultInstance());
+            io.greptime.v1.Common.TableName.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
-      public io.greptime.v1.Ddl.SchemaScopedTableName.Builder addSourceTableNamesBuilder(
+      public io.greptime.v1.Common.TableName.Builder addSourceTableNamesBuilder(
           int index) {
         return getSourceTableNamesFieldBuilder().addBuilder(
-            index, io.greptime.v1.Ddl.SchemaScopedTableName.getDefaultInstance());
+            index, io.greptime.v1.Common.TableName.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;</code>
+       * <code>repeated .greptime.v1.TableName source_table_names = 3;</code>
        */
-      public java.util.List<io.greptime.v1.Ddl.SchemaScopedTableName.Builder> 
+      public java.util.List<io.greptime.v1.Common.TableName.Builder> 
            getSourceTableNamesBuilderList() {
         return getSourceTableNamesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Ddl.SchemaScopedTableName, io.greptime.v1.Ddl.SchemaScopedTableName.Builder, io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder> 
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> 
           getSourceTableNamesFieldBuilder() {
         if (sourceTableNamesBuilder_ == null) {
           sourceTableNamesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.greptime.v1.Ddl.SchemaScopedTableName, io.greptime.v1.Ddl.SchemaScopedTableName.Builder, io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder>(
+              io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder>(
                   sourceTableNames_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -3757,31 +3757,31 @@ java.lang.String defaultValue);
         return sourceTableNamesBuilder_;
       }
 
-      private io.greptime.v1.Ddl.SchemaScopedTableName sinkTableName_;
+      private io.greptime.v1.Common.TableName sinkTableName_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.SchemaScopedTableName, io.greptime.v1.Ddl.SchemaScopedTableName.Builder, io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder> sinkTableNameBuilder_;
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> sinkTableNameBuilder_;
       /**
-       * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 4;</code>
        * @return Whether the sinkTableName field is set.
        */
       public boolean hasSinkTableName() {
         return sinkTableNameBuilder_ != null || sinkTableName_ != null;
       }
       /**
-       * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 4;</code>
        * @return The sinkTableName.
        */
-      public io.greptime.v1.Ddl.SchemaScopedTableName getSinkTableName() {
+      public io.greptime.v1.Common.TableName getSinkTableName() {
         if (sinkTableNameBuilder_ == null) {
-          return sinkTableName_ == null ? io.greptime.v1.Ddl.SchemaScopedTableName.getDefaultInstance() : sinkTableName_;
+          return sinkTableName_ == null ? io.greptime.v1.Common.TableName.getDefaultInstance() : sinkTableName_;
         } else {
           return sinkTableNameBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 4;</code>
        */
-      public Builder setSinkTableName(io.greptime.v1.Ddl.SchemaScopedTableName value) {
+      public Builder setSinkTableName(io.greptime.v1.Common.TableName value) {
         if (sinkTableNameBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3795,10 +3795,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 4;</code>
        */
       public Builder setSinkTableName(
-          io.greptime.v1.Ddl.SchemaScopedTableName.Builder builderForValue) {
+          io.greptime.v1.Common.TableName.Builder builderForValue) {
         if (sinkTableNameBuilder_ == null) {
           sinkTableName_ = builderForValue.build();
           onChanged();
@@ -3809,13 +3809,13 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 4;</code>
        */
-      public Builder mergeSinkTableName(io.greptime.v1.Ddl.SchemaScopedTableName value) {
+      public Builder mergeSinkTableName(io.greptime.v1.Common.TableName value) {
         if (sinkTableNameBuilder_ == null) {
           if (sinkTableName_ != null) {
             sinkTableName_ =
-              io.greptime.v1.Ddl.SchemaScopedTableName.newBuilder(sinkTableName_).mergeFrom(value).buildPartial();
+              io.greptime.v1.Common.TableName.newBuilder(sinkTableName_).mergeFrom(value).buildPartial();
           } else {
             sinkTableName_ = value;
           }
@@ -3827,7 +3827,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 4;</code>
        */
       public Builder clearSinkTableName() {
         if (sinkTableNameBuilder_ == null) {
@@ -3841,33 +3841,33 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 4;</code>
        */
-      public io.greptime.v1.Ddl.SchemaScopedTableName.Builder getSinkTableNameBuilder() {
+      public io.greptime.v1.Common.TableName.Builder getSinkTableNameBuilder() {
         
         onChanged();
         return getSinkTableNameFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 4;</code>
        */
-      public io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder getSinkTableNameOrBuilder() {
+      public io.greptime.v1.Common.TableNameOrBuilder getSinkTableNameOrBuilder() {
         if (sinkTableNameBuilder_ != null) {
           return sinkTableNameBuilder_.getMessageOrBuilder();
         } else {
           return sinkTableName_ == null ?
-              io.greptime.v1.Ddl.SchemaScopedTableName.getDefaultInstance() : sinkTableName_;
+              io.greptime.v1.Common.TableName.getDefaultInstance() : sinkTableName_;
         }
       }
       /**
-       * <code>.greptime.v1.SchemaScopedTableName sink_table_name = 4;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.SchemaScopedTableName, io.greptime.v1.Ddl.SchemaScopedTableName.Builder, io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder> 
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> 
           getSinkTableNameFieldBuilder() {
         if (sinkTableNameBuilder_ == null) {
           sinkTableNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.SchemaScopedTableName, io.greptime.v1.Ddl.SchemaScopedTableName.Builder, io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder>(
+              io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder>(
                   getSinkTableName(),
                   getParentForChildren(),
                   isClean());
@@ -4344,734 +4344,6 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.Ddl.CreateFlowTaskExpr getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface SchemaScopedTableNameOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.SchemaScopedTableName)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string schema_name = 1;</code>
-     * @return The schemaName.
-     */
-    java.lang.String getSchemaName();
-    /**
-     * <code>string schema_name = 1;</code>
-     * @return The bytes for schemaName.
-     */
-    com.google.protobuf.ByteString
-        getSchemaNameBytes();
-
-    /**
-     * <code>string table_name = 2;</code>
-     * @return The tableName.
-     */
-    java.lang.String getTableName();
-    /**
-     * <code>string table_name = 2;</code>
-     * @return The bytes for tableName.
-     */
-    com.google.protobuf.ByteString
-        getTableNameBytes();
-  }
-  /**
-   * <pre>
-   * Table name
-   * </pre>
-   *
-   * Protobuf type {@code greptime.v1.SchemaScopedTableName}
-   */
-  public static final class SchemaScopedTableName extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.SchemaScopedTableName)
-      SchemaScopedTableNameOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use SchemaScopedTableName.newBuilder() to construct.
-    private SchemaScopedTableName(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private SchemaScopedTableName() {
-      schemaName_ = "";
-      tableName_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new SchemaScopedTableName();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private SchemaScopedTableName(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              schemaName_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tableName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_SchemaScopedTableName_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_SchemaScopedTableName_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Ddl.SchemaScopedTableName.class, io.greptime.v1.Ddl.SchemaScopedTableName.Builder.class);
-    }
-
-    public static final int SCHEMA_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object schemaName_;
-    /**
-     * <code>string schema_name = 1;</code>
-     * @return The schemaName.
-     */
-    @java.lang.Override
-    public java.lang.String getSchemaName() {
-      java.lang.Object ref = schemaName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        schemaName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string schema_name = 1;</code>
-     * @return The bytes for schemaName.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSchemaNameBytes() {
-      java.lang.Object ref = schemaName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        schemaName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TABLE_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object tableName_;
-    /**
-     * <code>string table_name = 2;</code>
-     * @return The tableName.
-     */
-    @java.lang.Override
-    public java.lang.String getTableName() {
-      java.lang.Object ref = tableName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        tableName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string table_name = 2;</code>
-     * @return The bytes for tableName.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTableNameBytes() {
-      java.lang.Object ref = tableName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        tableName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, schemaName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tableName_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, schemaName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tableName_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Ddl.SchemaScopedTableName)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Ddl.SchemaScopedTableName other = (io.greptime.v1.Ddl.SchemaScopedTableName) obj;
-
-      if (!getSchemaName()
-          .equals(other.getSchemaName())) return false;
-      if (!getTableName()
-          .equals(other.getTableName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getSchemaName().hashCode();
-      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getTableName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Ddl.SchemaScopedTableName parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Ddl.SchemaScopedTableName prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * Table name
-     * </pre>
-     *
-     * Protobuf type {@code greptime.v1.SchemaScopedTableName}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.SchemaScopedTableName)
-        io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_SchemaScopedTableName_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_SchemaScopedTableName_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Ddl.SchemaScopedTableName.class, io.greptime.v1.Ddl.SchemaScopedTableName.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Ddl.SchemaScopedTableName.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        schemaName_ = "";
-
-        tableName_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_SchemaScopedTableName_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Ddl.SchemaScopedTableName getDefaultInstanceForType() {
-        return io.greptime.v1.Ddl.SchemaScopedTableName.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Ddl.SchemaScopedTableName build() {
-        io.greptime.v1.Ddl.SchemaScopedTableName result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Ddl.SchemaScopedTableName buildPartial() {
-        io.greptime.v1.Ddl.SchemaScopedTableName result = new io.greptime.v1.Ddl.SchemaScopedTableName(this);
-        result.schemaName_ = schemaName_;
-        result.tableName_ = tableName_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Ddl.SchemaScopedTableName) {
-          return mergeFrom((io.greptime.v1.Ddl.SchemaScopedTableName)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Ddl.SchemaScopedTableName other) {
-        if (other == io.greptime.v1.Ddl.SchemaScopedTableName.getDefaultInstance()) return this;
-        if (!other.getSchemaName().isEmpty()) {
-          schemaName_ = other.schemaName_;
-          onChanged();
-        }
-        if (!other.getTableName().isEmpty()) {
-          tableName_ = other.tableName_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Ddl.SchemaScopedTableName parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Ddl.SchemaScopedTableName) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object schemaName_ = "";
-      /**
-       * <code>string schema_name = 1;</code>
-       * @return The schemaName.
-       */
-      public java.lang.String getSchemaName() {
-        java.lang.Object ref = schemaName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          schemaName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string schema_name = 1;</code>
-       * @return The bytes for schemaName.
-       */
-      public com.google.protobuf.ByteString
-          getSchemaNameBytes() {
-        java.lang.Object ref = schemaName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          schemaName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string schema_name = 1;</code>
-       * @param value The schemaName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchemaName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        schemaName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string schema_name = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSchemaName() {
-        
-        schemaName_ = getDefaultInstance().getSchemaName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string schema_name = 1;</code>
-       * @param value The bytes for schemaName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchemaNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        schemaName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object tableName_ = "";
-      /**
-       * <code>string table_name = 2;</code>
-       * @return The tableName.
-       */
-      public java.lang.String getTableName() {
-        java.lang.Object ref = tableName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          tableName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string table_name = 2;</code>
-       * @return The bytes for tableName.
-       */
-      public com.google.protobuf.ByteString
-          getTableNameBytes() {
-        java.lang.Object ref = tableName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          tableName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string table_name = 2;</code>
-       * @param value The tableName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTableName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        tableName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string table_name = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTableName() {
-        
-        tableName_ = getDefaultInstance().getTableName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string table_name = 2;</code>
-       * @param value The bytes for tableName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        tableName_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.SchemaScopedTableName)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.SchemaScopedTableName)
-    private static final io.greptime.v1.Ddl.SchemaScopedTableName DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.SchemaScopedTableName();
-    }
-
-    public static io.greptime.v1.Ddl.SchemaScopedTableName getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<SchemaScopedTableName>
-        PARSER = new com.google.protobuf.AbstractParser<SchemaScopedTableName>() {
-      @java.lang.Override
-      public SchemaScopedTableName parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SchemaScopedTableName(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<SchemaScopedTableName> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SchemaScopedTableName> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Ddl.SchemaScopedTableName getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -20257,11 +19529,6 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_CreateFlowTaskExpr_TaskOptionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_SchemaScopedTableName_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_SchemaScopedTableName_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_DropFlowTaskExpr_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -20366,71 +19633,69 @@ java.lang.String defaultValue);
       ".TruncateTableExprH\000\022;\n\020create_flow_task" +
       "\030\010 \001(\0132\037.greptime.v1.CreateFlowTaskExprH" +
       "\000\0227\n\016drop_flow_task\030\t \001(\0132\035.greptime.v1." +
-      "DropFlowTaskExprH\000B\006\n\004expr\"\233\003\n\022CreateFlo" +
+      "DropFlowTaskExprH\000B\006\n\004expr\"\203\003\n\022CreateFlo" +
       "wTaskExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\ttask_" +
-      "name\030\002 \001(\t\022>\n\022source_table_names\030\003 \003(\0132\"" +
-      ".greptime.v1.SchemaScopedTableName\022;\n\017si" +
-      "nk_table_name\030\004 \001(\0132\".greptime.v1.Schema" +
-      "ScopedTableName\022\022\n\nor_replace\030\005 \001(\010\022\034\n\024c" +
-      "reate_if_not_exists\030\006 \001(\010\022\023\n\013expire_when" +
-      "\030\007 \001(\t\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022F\n\014" +
-      "task_options\030\n \003(\01320.greptime.v1.CreateF" +
-      "lowTaskExpr.TaskOptionsEntry\0322\n\020TaskOpti" +
-      "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"@\n\025SchemaScopedTableName\022\023\n\013schema_name" +
-      "\030\001 \001(\t\022\022\n\ntable_name\030\002 \001(\t\";\n\020DropFlowTa" +
-      "skExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\ttask_nam" +
-      "e\030\002 \001(\t\"\207\003\n\017CreateTableExpr\022\024\n\014catalog_n" +
-      "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_" +
-      "name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013column_defs\030" +
-      "\005 \003(\0132\026.greptime.v1.ColumnDef\022\022\n\ntime_in" +
-      "dex\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t\022\034\n\024creat" +
-      "e_if_not_exists\030\010 \001(\010\022E\n\rtable_options\030\t" +
-      " \003(\0132..greptime.v1.CreateTableExpr.Table" +
-      "OptionsEntry\022&\n\010table_id\030\n \001(\0132\024.greptim" +
-      "e.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOpt" +
-      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"\346\001\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
-      "\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022." +
-      "\n\013add_columns\030\004 \001(\0132\027.greptime.v1.AddCol" +
-      "umnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.greptime." +
-      "v1.DropColumnsH\000\0220\n\014rename_table\030\006 \001(\0132\030" +
-      ".greptime.v1.RenameTableH\000B\006\n\004kind\"\216\001\n\rD" +
-      "ropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
-      "hema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010t" +
-      "able_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016d" +
-      "rop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDatabaseEx" +
+      "name\030\002 \001(\t\0222\n\022source_table_names\030\003 \003(\0132\026" +
+      ".greptime.v1.TableName\022/\n\017sink_table_nam" +
+      "e\030\004 \001(\0132\026.greptime.v1.TableName\022\022\n\nor_re" +
+      "place\030\005 \001(\010\022\034\n\024create_if_not_exists\030\006 \001(" +
+      "\010\022\023\n\013expire_when\030\007 \001(\t\022\017\n\007comment\030\010 \001(\t\022" +
+      "\013\n\003sql\030\t \001(\t\022F\n\014task_options\030\n \003(\01320.gre" +
+      "ptime.v1.CreateFlowTaskExpr.TaskOptionsE" +
+      "ntry\0322\n\020TaskOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\t:\0028\001\";\n\020DropFlowTaskExpr\022\024\n\014" +
+      "catalog_name\030\001 \001(\t\022\021\n\ttask_name\030\002 \001(\t\"\207\003" +
+      "\n\017CreateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
+      "\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t" +
+      "\022\014\n\004desc\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.gr" +
+      "eptime.v1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022" +
+      "\024\n\014primary_keys\030\007 \003(\t\022\034\n\024create_if_not_e" +
+      "xists\030\010 \001(\010\022E\n\rtable_options\030\t \003(\0132..gre" +
+      "ptime.v1.CreateTableExpr.TableOptionsEnt" +
+      "ry\022&\n\010table_id\030\n \001(\0132\024.greptime.v1.Table" +
+      "Id\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\346\001\n\tAlte" +
+      "rExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_na" +
+      "me\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_colu" +
+      "mns\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014" +
+      "drop_columns\030\005 \001(\0132\030.greptime.v1.DropCol" +
+      "umnsH\000\0220\n\014rename_table\030\006 \001(\0132\030.greptime." +
+      "v1.RenameTableH\000B\006\n\004kind\"\216\001\n\rDropTableEx" +
       "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
-      "\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022=\n\007o" +
-      "ptions\030\004 \003(\0132,.greptime.v1.CreateDatabas" +
-      "eExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTa" +
-      "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
-      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_" +
-      "id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n\020DropDa" +
-      "tabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sche" +
-      "ma_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n" +
-      "\nAddColumns\022+\n\013add_columns\030\001 \003(\0132\026.grept" +
-      "ime.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop_" +
-      "columns\030\001 \003(\0132\027.greptime.v1.DropColumn\"%" +
-      "\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"i\n" +
-      "\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptim" +
-      "e.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.grept" +
-      "ime.v1.AddColumnLocation\"\032\n\nDropColumn\022\014" +
-      "\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\t" +
-      "ColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001" +
-      "(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_nu" +
-      "llable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014" +
-      "\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime.v1.Se" +
-      "manticType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_" +
-      "extension\030\007 \001(\0132$.greptime.v1.ColumnData" +
-      "TypeExtension\"\230\001\n\021AddColumnLocation\022B\n\rl" +
-      "ocation_type\030\001 \001(\0162+.greptime.v1.AddColu" +
-      "mnLocation.LocationType\022\031\n\021after_column_" +
-      "name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n" +
-      "\005AFTER\020\001BL\n\016io.greptime.v1B\003DdlZ5github." +
-      "com/GreptimeTeam/greptime-proto/go/grept" +
-      "ime/v1b\006proto3"
+      "\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 " +
+      "\001(\0132\024.greptime.v1.TableId\022\026\n\016drop_if_exi" +
+      "sts\030\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014cata" +
+      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024c" +
+      "reate_if_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003" +
+      "(\0132,.greptime.v1.CreateDatabaseExpr.Opti" +
+      "onsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n" +
+      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
+      "\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024" +
+      ".greptime.v1.TableId\"U\n\020DropDatabaseExpr" +
+      "\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 " +
+      "\001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddColumn" +
+      "s\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1.Add" +
+      "Column\"<\n\013DropColumns\022-\n\014drop_columns\030\001 " +
+      "\003(\0132\027.greptime.v1.DropColumn\"%\n\013RenameTa" +
+      "ble\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddColumn" +
+      "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum" +
+      "nDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.Add" +
+      "ColumnLocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001" +
+      "(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022" +
+      "\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.grept" +
+      "ime.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001" +
+      "(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemant" +
+      "ic_type\030\005 \001(\0162\031.greptime.v1.SemanticType" +
+      "\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030" +
+      "\007 \001(\0132$.greptime.v1.ColumnDataTypeExtens" +
+      "ion\"\230\001\n\021AddColumnLocation\022B\n\rlocation_ty" +
+      "pe\030\001 \001(\0162+.greptime.v1.AddColumnLocation" +
+      ".LocationType\022\031\n\021after_column_name\030\002 \001(\t" +
+      "\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL" +
+      "\n\016io.greptime.v1B\003DdlZ5github.com/Grepti" +
+      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20455,20 +19720,14 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateFlowTaskExpr_TaskOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_SchemaScopedTableName_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_greptime_v1_SchemaScopedTableName_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_SchemaScopedTableName_descriptor,
-        new java.lang.String[] { "SchemaName", "TableName", });
     internal_static_greptime_v1_DropFlowTaskExpr_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_DropFlowTaskExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropFlowTaskExpr_descriptor,
         new java.lang.String[] { "CatalogName", "TaskName", });
     internal_static_greptime_v1_CreateTableExpr_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_CreateTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTableExpr_descriptor,
@@ -20480,19 +19739,19 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_CreateTableExpr_TableOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_AlterExpr_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_AlterExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "Kind", });
     internal_static_greptime_v1_DropTableExpr_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_DropTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTableExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", "DropIfExists", });
     internal_static_greptime_v1_CreateDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_CreateDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateDatabaseExpr_descriptor,
@@ -20504,61 +19763,61 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_CreateDatabaseExpr_OptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_TruncateTableExpr_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_TruncateTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TruncateTableExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", });
     internal_static_greptime_v1_DropDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_DropDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropDatabaseExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "DropIfExists", });
     internal_static_greptime_v1_AddColumns_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_AddColumns_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumns_descriptor,
         new java.lang.String[] { "AddColumns", });
     internal_static_greptime_v1_DropColumns_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_DropColumns_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropColumns_descriptor,
         new java.lang.String[] { "DropColumns", });
     internal_static_greptime_v1_RenameTable_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_RenameTable_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RenameTable_descriptor,
         new java.lang.String[] { "NewTableName", });
     internal_static_greptime_v1_AddColumn_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_AddColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumn_descriptor,
         new java.lang.String[] { "ColumnDef", "Location", });
     internal_static_greptime_v1_DropColumn_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_DropColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropColumn_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_greptime_v1_TableId_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_TableId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TableId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_greptime_v1_ColumnDef_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
         new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", "DatatypeExtension", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumnLocation_descriptor,

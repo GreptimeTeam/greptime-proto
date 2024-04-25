@@ -19,6 +19,7 @@ package greptime.v1.meta;
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
 import "greptime/v1/meta/common.proto";
+import "greptime/v1/common.proto";
 
 message TableRoute {
   Table table = 1;

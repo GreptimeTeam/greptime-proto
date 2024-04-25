@@ -216,35 +216,36 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\034greptime/v1/meta/route.proto\022\020greptime"
-  ".v1.meta\032\035greptime/v1/meta/common.proto\""
-  "j\n\nTableRoute\022&\n\005table\030\001 \001(\0132\027.greptime."
-  "v1.meta.Table\0224\n\rregion_routes\030\002 \003(\0132\035.g"
-  "reptime.v1.meta.RegionRoute\"q\n\013RegionRou"
-  "te\022(\n\006region\030\001 \001(\0132\030.greptime.v1.meta.Re"
-  "gion\022\031\n\021leader_peer_index\030\002 \001(\004\022\035\n\025follo"
-  "wer_peer_indexes\030\003 \003(\004\"Z\n\005Table\022\n\n\002id\030\001 "
-  "\001(\004\022/\n\ntable_name\030\002 \001(\0132\033.greptime.v1.me"
-  "ta.TableName\022\024\n\014table_schema\030\003 \001(\014\"\264\001\n\006R"
-  "egion\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022.\n\tparti"
-  "tion\030\003 \001(\0132\033.greptime.v1.meta.Partition\022"
-  "2\n\005attrs\030d \003(\0132#.greptime.v1.meta.Region"
-  ".AttrsEntry\032,\n\nAttrsEntry\022\013\n\003key\030\001 \001(\t\022\r"
-  "\n\005value\030\002 \001(\t:\0028\001\"4\n\tPartition\022\023\n\013column"
-  "_list\030\001 \003(\014\022\022\n\nvalue_list\030\002 \003(\014\"k\n\017Table"
-  "RouteValue\022%\n\005peers\030\001 \003(\0132\026.greptime.v1."
-  "meta.Peer\0221\n\013table_route\030\002 \001(\0132\034.greptim"
-  "e.v1.meta.TableRouteB<Z:github.com/Grept"
-  "imeTeam/greptime-proto/go/greptime/v1/me"
-  "tab\006proto3"
+  ".v1.meta\032\035greptime/v1/meta/common.proto\032"
+  "\030greptime/v1/common.proto\"j\n\nTableRoute\022"
+  "&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Table\022"
+  "4\n\rregion_routes\030\002 \003(\0132\035.greptime.v1.met"
+  "a.RegionRoute\"q\n\013RegionRoute\022(\n\006region\030\001"
+  " \001(\0132\030.greptime.v1.meta.Region\022\031\n\021leader"
+  "_peer_index\030\002 \001(\004\022\035\n\025follower_peer_index"
+  "es\030\003 \003(\004\"U\n\005Table\022\n\n\002id\030\001 \001(\004\022*\n\ntable_n"
+  "ame\030\002 \001(\0132\026.greptime.v1.TableName\022\024\n\014tab"
+  "le_schema\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002id\030\001 \001(\004\022\014"
+  "\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033.grepti"
+  "me.v1.meta.Partition\0222\n\005attrs\030d \003(\0132#.gr"
+  "eptime.v1.meta.Region.AttrsEntry\032,\n\nAttr"
+  "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"4"
+  "\n\tPartition\022\023\n\013column_list\030\001 \003(\014\022\022\n\nvalu"
+  "e_list\030\002 \003(\014\"k\n\017TableRouteValue\022%\n\005peers"
+  "\030\001 \003(\0132\026.greptime.v1.meta.Peer\0221\n\013table_"
+  "route\030\002 \001(\0132\034.greptime.v1.meta.TableRout"
+  "eB<Z:github.com/GreptimeTeam/greptime-pr"
+  "oto/go/greptime/v1/metab\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps[1] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps[2] = {
+  &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto = {
-    false, false, 810, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
+    false, false, 831, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
     "greptime/v1/meta/route.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps, 1, 7,
+    &descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps, 2, 7,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2froute_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2froute_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2froute_2eproto,
@@ -756,10 +757,10 @@ void RegionRoute::InternalSwap(RegionRoute* other) {
 
 class Table::_Internal {
  public:
-  static const ::greptime::v1::meta::TableName& table_name(const Table* msg);
+  static const ::greptime::v1::TableName& table_name(const Table* msg);
 };
 
-const ::greptime::v1::meta::TableName&
+const ::greptime::v1::TableName&
 Table::_Internal::table_name(const Table* msg) {
   return *msg->_impl_.table_name_;
 }
@@ -794,7 +795,7 @@ Table::Table(const Table& from)
       _this->GetArenaForAllocation());
   }
   if (from._internal_has_table_name()) {
-    _this->_impl_.table_name_ = new ::greptime::v1::meta::TableName(*from._impl_.table_name_);
+    _this->_impl_.table_name_ = new ::greptime::v1::TableName(*from._impl_.table_name_);
   }
   _this->_impl_.id_ = from._impl_.id_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.Table)
@@ -864,7 +865,7 @@ const char* Table::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.meta.TableName table_name = 2;
+      // .greptime.v1.TableName table_name = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_table_name(), ptr);
@@ -916,7 +917,7 @@ uint8_t* Table::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_id(), target);
   }
 
-  // .greptime.v1.meta.TableName table_name = 2;
+  // .greptime.v1.TableName table_name = 2;
   if (this->_internal_has_table_name()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(2, _Internal::table_name(this),
@@ -952,7 +953,7 @@ size_t Table::ByteSizeLong() const {
         this->_internal_table_schema());
   }
 
-  // .greptime.v1.meta.TableName table_name = 2;
+  // .greptime.v1.TableName table_name = 2;
   if (this->_internal_has_table_name()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -986,7 +987,7 @@ void Table::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
     _this->_internal_set_table_schema(from._internal_table_schema());
   }
   if (from._internal_has_table_name()) {
-    _this->_internal_mutable_table_name()->::greptime::v1::meta::TableName::MergeFrom(
+    _this->_internal_mutable_table_name()->::greptime::v1::TableName::MergeFrom(
         from._internal_table_name());
   }
   if (from._internal_id() != 0) {
