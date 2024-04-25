@@ -104,7 +104,8 @@ struct FlowCreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowCreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal _FlowCreateRequest_TaskOptionsEntry_DoNotUse_default_instance_;
 PROTOBUF_CONSTEXPR FlowCreateRequest::FlowCreateRequest(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.task_options_)*/{::_pbi::ConstantInitialized()}
+    /*decltype(_impl_.source_table_ids_)*/{}
+  , /*decltype(_impl_.task_options_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.expire_when_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.comment_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.sql_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -136,7 +137,7 @@ struct FlowRemoveRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowRemoveRequestDefaultTypeInternal _FlowRemoveRequest_default_instance_;
 PROTOBUF_CONSTEXPR TaskId::TaskId(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.id_)*/uint64_t{0u}
+    /*decltype(_impl_.id_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct TaskIdDefaultTypeInternal {
   PROTOBUF_CONSTEXPR TaskIdDefaultTypeInternal()
@@ -216,6 +217,7 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowCreateRequest, _impl_.task_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowCreateRequest, _impl_.source_table_ids_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowCreateRequest, _impl_.output_table_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowCreateRequest, _impl_.create_if_not_exists_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowCreateRequest, _impl_.expire_when_),
@@ -245,8 +247,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 34, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
   { 44, 52, -1, sizeof(::greptime::v1::flow::FlowCreateRequest_TaskOptionsEntry_DoNotUse)},
   { 54, -1, -1, sizeof(::greptime::v1::flow::FlowCreateRequest)},
-  { 67, -1, -1, sizeof(::greptime::v1::flow::FlowRemoveRequest)},
-  { 74, -1, -1, sizeof(::greptime::v1::flow::TaskId)},
+  { 68, -1, -1, sizeof(::greptime::v1::flow::FlowRemoveRequest)},
+  { 75, -1, -1, sizeof(::greptime::v1::flow::TaskId)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -278,24 +280,25 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "wResponse.ExtensionEntry\0220\n\016affected_tas"
   "ks\030\004 \003(\0132\030.greptime.v1.flow.TaskId\0320\n\016Ex"
   "tensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014"
-  ":\0028\001\"\276\002\n\021FlowCreateRequest\022)\n\007task_id\030\001 "
-  "\001(\0132\030.greptime.v1.flow.TaskId\022-\n\017output_"
-  "table_id\030\002 \001(\0132\024.greptime.v1.TableId\022\034\n\024"
-  "create_if_not_exists\030\003 \001(\010\022\023\n\013expire_whe"
-  "n\030\004 \001(\t\022\017\n\007comment\030\005 \001(\t\022\013\n\003sql\030\006 \001(\t\022J\n"
-  "\014task_options\030\007 \003(\01324.greptime.v1.flow.F"
-  "lowCreateRequest.TaskOptionsEntry\0322\n\020Tas"
-  "kOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001("
-  "\t:\0028\001\">\n\021FlowRemoveRequest\022)\n\007task_id\030\001 "
-  "\001(\0132\030.greptime.v1.flow.TaskId\"\024\n\006TaskId\022"
-  "\n\n\002id\030\001 \001(\0042\264\001\n\004Flow\022S\n\022HandleCreateRemo"
-  "ve\022\035.greptime.v1.flow.FlowRequest\032\036.grep"
-  "time.v1.flow.FlowResponse\022W\n\023HandleMirro"
-  "rRequest\022 .greptime.v1.flow.InsertReques"
-  "ts\032\036.greptime.v1.flow.FlowResponseBY\n\023io"
-  ".greptime.v1.flowB\006ServerZ:github.com/Gr"
-  "eptimeTeam/greptime-proto/go/greptime/v1"
-  "/flowb\006proto3"
+  ":\0028\001\"\356\002\n\021FlowCreateRequest\022)\n\007task_id\030\001 "
+  "\001(\0132\030.greptime.v1.flow.TaskId\022.\n\020source_"
+  "table_ids\030\002 \003(\0132\024.greptime.v1.TableId\022-\n"
+  "\017output_table_id\030\003 \001(\0132\024.greptime.v1.Tab"
+  "leId\022\034\n\024create_if_not_exists\030\004 \001(\010\022\023\n\013ex"
+  "pire_when\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030"
+  "\007 \001(\t\022J\n\014task_options\030\010 \003(\01324.greptime.v"
+  "1.flow.FlowCreateRequest.TaskOptionsEntr"
+  "y\0322\n\020TaskOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va"
+  "lue\030\002 \001(\t:\0028\001\">\n\021FlowRemoveRequest\022)\n\007ta"
+  "sk_id\030\001 \001(\0132\030.greptime.v1.flow.TaskId\"\024\n"
+  "\006TaskId\022\n\n\002id\030\001 \001(\r2\264\001\n\004Flow\022S\n\022HandleCr"
+  "eateRemove\022\035.greptime.v1.flow.FlowReques"
+  "t\032\036.greptime.v1.flow.FlowResponse\022W\n\023Han"
+  "dleMirrorRequest\022 .greptime.v1.flow.Inse"
+  "rtRequests\032\036.greptime.v1.flow.FlowRespon"
+  "seBY\n\023io.greptime.v1.flowB\006ServerZ:githu"
+  "b.com/GreptimeTeam/greptime-proto/go/gre"
+  "ptime/v1/flowb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -304,7 +307,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 1333, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 1381, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
     &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 9,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
@@ -1413,6 +1416,9 @@ const ::greptime::v1::TableId&
 FlowCreateRequest::_Internal::output_table_id(const FlowCreateRequest* msg) {
   return *msg->_impl_.output_table_id_;
 }
+void FlowCreateRequest::clear_source_table_ids() {
+  _impl_.source_table_ids_.Clear();
+}
 void FlowCreateRequest::clear_output_table_id() {
   if (GetArenaForAllocation() == nullptr && _impl_.output_table_id_ != nullptr) {
     delete _impl_.output_table_id_;
@@ -1432,7 +1438,8 @@ FlowCreateRequest::FlowCreateRequest(const FlowCreateRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   FlowCreateRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      /*decltype(_impl_.task_options_)*/{}
+      decltype(_impl_.source_table_ids_){from._impl_.source_table_ids_}
+    , /*decltype(_impl_.task_options_)*/{}
     , decltype(_impl_.expire_when_){}
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
@@ -1482,7 +1489,8 @@ inline void FlowCreateRequest::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      /*decltype(_impl_.task_options_)*/{::_pbi::ArenaInitialized(), arena}
+      decltype(_impl_.source_table_ids_){arena}
+    , /*decltype(_impl_.task_options_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.expire_when_){}
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
@@ -1517,6 +1525,7 @@ FlowCreateRequest::~FlowCreateRequest() {
 
 inline void FlowCreateRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.source_table_ids_.~RepeatedPtrField();
   _impl_.task_options_.Destruct();
   _impl_.task_options_.~MapField();
   _impl_.expire_when_.Destroy();
@@ -1540,6 +1549,7 @@ void FlowCreateRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.source_table_ids_.Clear();
   _impl_.task_options_.Clear();
   _impl_.expire_when_.ClearToEmpty();
   _impl_.comment_.ClearToEmpty();
@@ -1570,25 +1580,38 @@ const char* FlowCreateRequest::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.TableId output_table_id = 2;
+      // repeated .greptime.v1.TableId source_table_ids = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_source_table_ids(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.TableId output_table_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_output_table_id(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bool create_if_not_exists = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+      // bool create_if_not_exists = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _impl_.create_if_not_exists_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // string expire_when = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // string expire_when = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_expire_when();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -1596,9 +1619,9 @@ const char* FlowCreateRequest::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // string comment = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+      // string comment = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           auto str = _internal_mutable_comment();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -1606,9 +1629,9 @@ const char* FlowCreateRequest::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // string sql = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+      // string sql = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           auto str = _internal_mutable_sql();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -1616,16 +1639,16 @@ const char* FlowCreateRequest::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // map<string, string> task_options = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+      // map<string, string> task_options = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(&_impl_.task_options_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -1665,50 +1688,58 @@ uint8_t* FlowCreateRequest::_InternalSerialize(
         _Internal::task_id(this).GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.TableId output_table_id = 2;
+  // repeated .greptime.v1.TableId source_table_ids = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_source_table_ids_size()); i < n; i++) {
+    const auto& repfield = this->_internal_source_table_ids(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.TableId output_table_id = 3;
   if (this->_internal_has_output_table_id()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::output_table_id(this),
+      InternalWriteMessage(3, _Internal::output_table_id(this),
         _Internal::output_table_id(this).GetCachedSize(), target, stream);
   }
 
-  // bool create_if_not_exists = 3;
+  // bool create_if_not_exists = 4;
   if (this->_internal_create_if_not_exists() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_create_if_not_exists(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_create_if_not_exists(), target);
   }
 
-  // string expire_when = 4;
+  // string expire_when = 5;
   if (!this->_internal_expire_when().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_expire_when().data(), static_cast<int>(this->_internal_expire_when().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "greptime.v1.flow.FlowCreateRequest.expire_when");
     target = stream->WriteStringMaybeAliased(
-        4, this->_internal_expire_when(), target);
+        5, this->_internal_expire_when(), target);
   }
 
-  // string comment = 5;
+  // string comment = 6;
   if (!this->_internal_comment().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_comment().data(), static_cast<int>(this->_internal_comment().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "greptime.v1.flow.FlowCreateRequest.comment");
     target = stream->WriteStringMaybeAliased(
-        5, this->_internal_comment(), target);
+        6, this->_internal_comment(), target);
   }
 
-  // string sql = 6;
+  // string sql = 7;
   if (!this->_internal_sql().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_sql().data(), static_cast<int>(this->_internal_sql().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "greptime.v1.flow.FlowCreateRequest.sql");
     target = stream->WriteStringMaybeAliased(
-        6, this->_internal_sql(), target);
+        7, this->_internal_sql(), target);
   }
 
-  // map<string, string> task_options = 7;
+  // map<string, string> task_options = 8;
   if (!this->_internal_task_options().empty()) {
     using MapType = ::_pb::Map<std::string, std::string>;
     using WireHelper = FlowCreateRequest_TaskOptionsEntry_DoNotUse::Funcs;
@@ -1727,12 +1758,12 @@ uint8_t* FlowCreateRequest::_InternalSerialize(
 
     if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
       for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
-        target = WireHelper::InternalSerialize(7, entry.first, entry.second, target, stream);
+        target = WireHelper::InternalSerialize(8, entry.first, entry.second, target, stream);
         check_utf8(entry);
       }
     } else {
       for (const auto& entry : map_field) {
-        target = WireHelper::InternalSerialize(7, entry.first, entry.second, target, stream);
+        target = WireHelper::InternalSerialize(8, entry.first, entry.second, target, stream);
         check_utf8(entry);
       }
     }
@@ -1754,7 +1785,14 @@ size_t FlowCreateRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<string, string> task_options = 7;
+  // repeated .greptime.v1.TableId source_table_ids = 2;
+  total_size += 1UL * this->_internal_source_table_ids_size();
+  for (const auto& msg : this->_impl_.source_table_ids_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // map<string, string> task_options = 8;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_task_options_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
@@ -1763,21 +1801,21 @@ size_t FlowCreateRequest::ByteSizeLong() const {
     total_size += FlowCreateRequest_TaskOptionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  // string expire_when = 4;
+  // string expire_when = 5;
   if (!this->_internal_expire_when().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_expire_when());
   }
 
-  // string comment = 5;
+  // string comment = 6;
   if (!this->_internal_comment().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_comment());
   }
 
-  // string sql = 6;
+  // string sql = 7;
   if (!this->_internal_sql().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -1791,14 +1829,14 @@ size_t FlowCreateRequest::ByteSizeLong() const {
         *_impl_.task_id_);
   }
 
-  // .greptime.v1.TableId output_table_id = 2;
+  // .greptime.v1.TableId output_table_id = 3;
   if (this->_internal_has_output_table_id()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.output_table_id_);
   }
 
-  // bool create_if_not_exists = 3;
+  // bool create_if_not_exists = 4;
   if (this->_internal_create_if_not_exists() != 0) {
     total_size += 1 + 1;
   }
@@ -1821,6 +1859,7 @@ void FlowCreateRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.source_table_ids_.MergeFrom(from._impl_.source_table_ids_);
   _this->_impl_.task_options_.MergeFrom(from._impl_.task_options_);
   if (!from._internal_expire_when().empty()) {
     _this->_internal_set_expire_when(from._internal_expire_when());
@@ -1861,6 +1900,7 @@ void FlowCreateRequest::InternalSwap(FlowCreateRequest* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.source_table_ids_.InternalSwap(&other->_impl_.source_table_ids_);
   _impl_.task_options_.InternalSwap(&other->_impl_.task_options_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.expire_when_, lhs_arena,
@@ -2110,7 +2150,7 @@ inline void TaskId::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.id_){uint64_t{0u}}
+      decltype(_impl_.id_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -2138,7 +2178,7 @@ void TaskId::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.id_ = uint64_t{0u};
+  _impl_.id_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2148,10 +2188,10 @@ const char* TaskId::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint64 id = 1;
+      // uint32 id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2185,10 +2225,10 @@ uint8_t* TaskId::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 id = 1;
+  // uint32 id = 1;
   if (this->_internal_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2207,9 +2247,9 @@ size_t TaskId::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 id = 1;
+  // uint32 id = 1;
   if (this->_internal_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_id());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);

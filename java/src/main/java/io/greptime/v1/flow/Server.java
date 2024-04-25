@@ -3977,68 +3977,92 @@ com.google.protobuf.ByteString defaultValue);
     io.greptime.v1.flow.Server.TaskIdOrBuilder getTaskIdOrBuilder();
 
     /**
-     * <code>.greptime.v1.TableId output_table_id = 2;</code>
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    java.util.List<io.greptime.v1.Ddl.TableId> 
+        getSourceTableIdsList();
+    /**
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    io.greptime.v1.Ddl.TableId getSourceTableIds(int index);
+    /**
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    int getSourceTableIdsCount();
+    /**
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    java.util.List<? extends io.greptime.v1.Ddl.TableIdOrBuilder> 
+        getSourceTableIdsOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    io.greptime.v1.Ddl.TableIdOrBuilder getSourceTableIdsOrBuilder(
+        int index);
+
+    /**
+     * <code>.greptime.v1.TableId output_table_id = 3;</code>
      * @return Whether the outputTableId field is set.
      */
     boolean hasOutputTableId();
     /**
-     * <code>.greptime.v1.TableId output_table_id = 2;</code>
+     * <code>.greptime.v1.TableId output_table_id = 3;</code>
      * @return The outputTableId.
      */
     io.greptime.v1.Ddl.TableId getOutputTableId();
     /**
-     * <code>.greptime.v1.TableId output_table_id = 2;</code>
+     * <code>.greptime.v1.TableId output_table_id = 3;</code>
      */
     io.greptime.v1.Ddl.TableIdOrBuilder getOutputTableIdOrBuilder();
 
     /**
-     * <code>bool create_if_not_exists = 3;</code>
+     * <code>bool create_if_not_exists = 4;</code>
      * @return The createIfNotExists.
      */
     boolean getCreateIfNotExists();
 
     /**
-     * <code>string expire_when = 4;</code>
+     * <code>string expire_when = 5;</code>
      * @return The expireWhen.
      */
     java.lang.String getExpireWhen();
     /**
-     * <code>string expire_when = 4;</code>
+     * <code>string expire_when = 5;</code>
      * @return The bytes for expireWhen.
      */
     com.google.protobuf.ByteString
         getExpireWhenBytes();
 
     /**
-     * <code>string comment = 5;</code>
+     * <code>string comment = 6;</code>
      * @return The comment.
      */
     java.lang.String getComment();
     /**
-     * <code>string comment = 5;</code>
+     * <code>string comment = 6;</code>
      * @return The bytes for comment.
      */
     com.google.protobuf.ByteString
         getCommentBytes();
 
     /**
-     * <code>string sql = 6;</code>
+     * <code>string sql = 7;</code>
      * @return The sql.
      */
     java.lang.String getSql();
     /**
-     * <code>string sql = 6;</code>
+     * <code>string sql = 7;</code>
      * @return The bytes for sql.
      */
     com.google.protobuf.ByteString
         getSqlBytes();
 
     /**
-     * <code>map&lt;string, string&gt; task_options = 7;</code>
+     * <code>map&lt;string, string&gt; task_options = 8;</code>
      */
     int getTaskOptionsCount();
     /**
-     * <code>map&lt;string, string&gt; task_options = 7;</code>
+     * <code>map&lt;string, string&gt; task_options = 8;</code>
      */
     boolean containsTaskOptions(
         java.lang.String key);
@@ -4049,12 +4073,12 @@ com.google.protobuf.ByteString defaultValue);
     java.util.Map<java.lang.String, java.lang.String>
     getTaskOptions();
     /**
-     * <code>map&lt;string, string&gt; task_options = 7;</code>
+     * <code>map&lt;string, string&gt; task_options = 8;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getTaskOptionsMap();
     /**
-     * <code>map&lt;string, string&gt; task_options = 7;</code>
+     * <code>map&lt;string, string&gt; task_options = 8;</code>
      */
 
     /* nullable */
@@ -4063,7 +4087,7 @@ java.lang.String getTaskOptionsOrDefault(
         /* nullable */
 java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; task_options = 7;</code>
+     * <code>map&lt;string, string&gt; task_options = 8;</code>
      */
 
     java.lang.String getTaskOptionsOrThrow(
@@ -4086,6 +4110,7 @@ java.lang.String defaultValue);
       super(builder);
     }
     private FlowCreateRequest() {
+      sourceTableIds_ = java.util.Collections.emptyList();
       expireWhen_ = "";
       comment_ = "";
       sql_ = "";
@@ -4136,6 +4161,15 @@ java.lang.String defaultValue);
               break;
             }
             case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                sourceTableIds_ = new java.util.ArrayList<io.greptime.v1.Ddl.TableId>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              sourceTableIds_.add(
+                  input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
               io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
               if (outputTableId_ != null) {
                 subBuilder = outputTableId_.toBuilder();
@@ -4148,34 +4182,34 @@ java.lang.String defaultValue);
 
               break;
             }
-            case 24: {
+            case 32: {
 
               createIfNotExists_ = input.readBool();
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              expireWhen_ = s;
               break;
             }
             case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              comment_ = s;
+              expireWhen_ = s;
               break;
             }
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              sql_ = s;
+              comment_ = s;
               break;
             }
             case 58: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sql_ = s;
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 taskOptions_ = com.google.protobuf.MapField.newMapField(
                     TaskOptionsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               taskOptions__ = input.readMessage(
@@ -4201,6 +4235,9 @@ java.lang.String defaultValue);
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          sourceTableIds_ = java.util.Collections.unmodifiableList(sourceTableIds_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -4215,7 +4252,7 @@ java.lang.String defaultValue);
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 7:
+        case 8:
           return internalGetTaskOptions();
         default:
           throw new RuntimeException(
@@ -4256,10 +4293,50 @@ java.lang.String defaultValue);
       return getTaskId();
     }
 
-    public static final int OUTPUT_TABLE_ID_FIELD_NUMBER = 2;
+    public static final int SOURCE_TABLE_IDS_FIELD_NUMBER = 2;
+    private java.util.List<io.greptime.v1.Ddl.TableId> sourceTableIds_;
+    /**
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.Ddl.TableId> getSourceTableIdsList() {
+      return sourceTableIds_;
+    }
+    /**
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.Ddl.TableIdOrBuilder> 
+        getSourceTableIdsOrBuilderList() {
+      return sourceTableIds_;
+    }
+    /**
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    @java.lang.Override
+    public int getSourceTableIdsCount() {
+      return sourceTableIds_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableId getSourceTableIds(int index) {
+      return sourceTableIds_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableIdOrBuilder getSourceTableIdsOrBuilder(
+        int index) {
+      return sourceTableIds_.get(index);
+    }
+
+    public static final int OUTPUT_TABLE_ID_FIELD_NUMBER = 3;
     private io.greptime.v1.Ddl.TableId outputTableId_;
     /**
-     * <code>.greptime.v1.TableId output_table_id = 2;</code>
+     * <code>.greptime.v1.TableId output_table_id = 3;</code>
      * @return Whether the outputTableId field is set.
      */
     @java.lang.Override
@@ -4267,7 +4344,7 @@ java.lang.String defaultValue);
       return outputTableId_ != null;
     }
     /**
-     * <code>.greptime.v1.TableId output_table_id = 2;</code>
+     * <code>.greptime.v1.TableId output_table_id = 3;</code>
      * @return The outputTableId.
      */
     @java.lang.Override
@@ -4275,17 +4352,17 @@ java.lang.String defaultValue);
       return outputTableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : outputTableId_;
     }
     /**
-     * <code>.greptime.v1.TableId output_table_id = 2;</code>
+     * <code>.greptime.v1.TableId output_table_id = 3;</code>
      */
     @java.lang.Override
     public io.greptime.v1.Ddl.TableIdOrBuilder getOutputTableIdOrBuilder() {
       return getOutputTableId();
     }
 
-    public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 3;
+    public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 4;
     private boolean createIfNotExists_;
     /**
-     * <code>bool create_if_not_exists = 3;</code>
+     * <code>bool create_if_not_exists = 4;</code>
      * @return The createIfNotExists.
      */
     @java.lang.Override
@@ -4293,10 +4370,10 @@ java.lang.String defaultValue);
       return createIfNotExists_;
     }
 
-    public static final int EXPIRE_WHEN_FIELD_NUMBER = 4;
+    public static final int EXPIRE_WHEN_FIELD_NUMBER = 5;
     private volatile java.lang.Object expireWhen_;
     /**
-     * <code>string expire_when = 4;</code>
+     * <code>string expire_when = 5;</code>
      * @return The expireWhen.
      */
     @java.lang.Override
@@ -4313,7 +4390,7 @@ java.lang.String defaultValue);
       }
     }
     /**
-     * <code>string expire_when = 4;</code>
+     * <code>string expire_when = 5;</code>
      * @return The bytes for expireWhen.
      */
     @java.lang.Override
@@ -4331,10 +4408,10 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int COMMENT_FIELD_NUMBER = 5;
+    public static final int COMMENT_FIELD_NUMBER = 6;
     private volatile java.lang.Object comment_;
     /**
-     * <code>string comment = 5;</code>
+     * <code>string comment = 6;</code>
      * @return The comment.
      */
     @java.lang.Override
@@ -4351,7 +4428,7 @@ java.lang.String defaultValue);
       }
     }
     /**
-     * <code>string comment = 5;</code>
+     * <code>string comment = 6;</code>
      * @return The bytes for comment.
      */
     @java.lang.Override
@@ -4369,10 +4446,10 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int SQL_FIELD_NUMBER = 6;
+    public static final int SQL_FIELD_NUMBER = 7;
     private volatile java.lang.Object sql_;
     /**
-     * <code>string sql = 6;</code>
+     * <code>string sql = 7;</code>
      * @return The sql.
      */
     @java.lang.Override
@@ -4389,7 +4466,7 @@ java.lang.String defaultValue);
       }
     }
     /**
-     * <code>string sql = 6;</code>
+     * <code>string sql = 7;</code>
      * @return The bytes for sql.
      */
     @java.lang.Override
@@ -4407,7 +4484,7 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int TASK_OPTIONS_FIELD_NUMBER = 7;
+    public static final int TASK_OPTIONS_FIELD_NUMBER = 8;
     private static final class TaskOptionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -4434,7 +4511,7 @@ java.lang.String defaultValue);
       return internalGetTaskOptions().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 7;</code>
+     * <code>map&lt;string, string&gt; task_options = 8;</code>
      */
 
     @java.lang.Override
@@ -4452,7 +4529,7 @@ java.lang.String defaultValue);
       return getTaskOptionsMap();
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 7;</code>
+     * <code>map&lt;string, string&gt; task_options = 8;</code>
      */
     @java.lang.Override
 
@@ -4460,7 +4537,7 @@ java.lang.String defaultValue);
       return internalGetTaskOptions().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 7;</code>
+     * <code>map&lt;string, string&gt; task_options = 8;</code>
      */
     @java.lang.Override
 
@@ -4473,7 +4550,7 @@ java.lang.String defaultValue);
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 7;</code>
+     * <code>map&lt;string, string&gt; task_options = 8;</code>
      */
     @java.lang.Override
 
@@ -4505,27 +4582,30 @@ java.lang.String defaultValue);
       if (taskId_ != null) {
         output.writeMessage(1, getTaskId());
       }
+      for (int i = 0; i < sourceTableIds_.size(); i++) {
+        output.writeMessage(2, sourceTableIds_.get(i));
+      }
       if (outputTableId_ != null) {
-        output.writeMessage(2, getOutputTableId());
+        output.writeMessage(3, getOutputTableId());
       }
       if (createIfNotExists_ != false) {
-        output.writeBool(3, createIfNotExists_);
+        output.writeBool(4, createIfNotExists_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireWhen_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, expireWhen_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, expireWhen_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, comment_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, comment_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sql_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sql_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, sql_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetTaskOptions(),
           TaskOptionsDefaultEntryHolder.defaultEntry,
-          7);
+          8);
       unknownFields.writeTo(output);
     }
 
@@ -4539,22 +4619,26 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getTaskId());
       }
+      for (int i = 0; i < sourceTableIds_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, sourceTableIds_.get(i));
+      }
       if (outputTableId_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getOutputTableId());
+          .computeMessageSize(3, getOutputTableId());
       }
       if (createIfNotExists_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, createIfNotExists_);
+          .computeBoolSize(4, createIfNotExists_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireWhen_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, expireWhen_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, expireWhen_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, comment_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, comment_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sql_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sql_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, sql_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetTaskOptions().getMap().entrySet()) {
@@ -4564,7 +4648,7 @@ java.lang.String defaultValue);
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(7, taskOptions__);
+            .computeMessageSize(8, taskOptions__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4586,6 +4670,8 @@ java.lang.String defaultValue);
         if (!getTaskId()
             .equals(other.getTaskId())) return false;
       }
+      if (!getSourceTableIdsList()
+          .equals(other.getSourceTableIdsList())) return false;
       if (hasOutputTableId() != other.hasOutputTableId()) return false;
       if (hasOutputTableId()) {
         if (!getOutputTableId()
@@ -4615,6 +4701,10 @@ java.lang.String defaultValue);
       if (hasTaskId()) {
         hash = (37 * hash) + TASK_ID_FIELD_NUMBER;
         hash = (53 * hash) + getTaskId().hashCode();
+      }
+      if (getSourceTableIdsCount() > 0) {
+        hash = (37 * hash) + SOURCE_TABLE_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getSourceTableIdsList().hashCode();
       }
       if (hasOutputTableId()) {
         hash = (37 * hash) + OUTPUT_TABLE_ID_FIELD_NUMBER;
@@ -4748,7 +4838,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 7:
+          case 8:
             return internalGetTaskOptions();
           default:
             throw new RuntimeException(
@@ -4759,7 +4849,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 7:
+          case 8:
             return internalGetMutableTaskOptions();
           default:
             throw new RuntimeException(
@@ -4787,6 +4877,7 @@ java.lang.String defaultValue);
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getSourceTableIdsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -4797,6 +4888,12 @@ java.lang.String defaultValue);
         } else {
           taskId_ = null;
           taskIdBuilder_ = null;
+        }
+        if (sourceTableIdsBuilder_ == null) {
+          sourceTableIds_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          sourceTableIdsBuilder_.clear();
         }
         if (outputTableIdBuilder_ == null) {
           outputTableId_ = null;
@@ -4844,6 +4941,15 @@ java.lang.String defaultValue);
           result.taskId_ = taskId_;
         } else {
           result.taskId_ = taskIdBuilder_.build();
+        }
+        if (sourceTableIdsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            sourceTableIds_ = java.util.Collections.unmodifiableList(sourceTableIds_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.sourceTableIds_ = sourceTableIds_;
+        } else {
+          result.sourceTableIds_ = sourceTableIdsBuilder_.build();
         }
         if (outputTableIdBuilder_ == null) {
           result.outputTableId_ = outputTableId_;
@@ -4906,6 +5012,32 @@ java.lang.String defaultValue);
         if (other == io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance()) return this;
         if (other.hasTaskId()) {
           mergeTaskId(other.getTaskId());
+        }
+        if (sourceTableIdsBuilder_ == null) {
+          if (!other.sourceTableIds_.isEmpty()) {
+            if (sourceTableIds_.isEmpty()) {
+              sourceTableIds_ = other.sourceTableIds_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureSourceTableIdsIsMutable();
+              sourceTableIds_.addAll(other.sourceTableIds_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.sourceTableIds_.isEmpty()) {
+            if (sourceTableIdsBuilder_.isEmpty()) {
+              sourceTableIdsBuilder_.dispose();
+              sourceTableIdsBuilder_ = null;
+              sourceTableIds_ = other.sourceTableIds_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              sourceTableIdsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getSourceTableIdsFieldBuilder() : null;
+            } else {
+              sourceTableIdsBuilder_.addAllMessages(other.sourceTableIds_);
+            }
+          }
         }
         if (other.hasOutputTableId()) {
           mergeOutputTableId(other.getOutputTableId());
@@ -5076,18 +5208,258 @@ java.lang.String defaultValue);
         return taskIdBuilder_;
       }
 
+      private java.util.List<io.greptime.v1.Ddl.TableId> sourceTableIds_ =
+        java.util.Collections.emptyList();
+      private void ensureSourceTableIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          sourceTableIds_ = new java.util.ArrayList<io.greptime.v1.Ddl.TableId>(sourceTableIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> sourceTableIdsBuilder_;
+
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public java.util.List<io.greptime.v1.Ddl.TableId> getSourceTableIdsList() {
+        if (sourceTableIdsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(sourceTableIds_);
+        } else {
+          return sourceTableIdsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public int getSourceTableIdsCount() {
+        if (sourceTableIdsBuilder_ == null) {
+          return sourceTableIds_.size();
+        } else {
+          return sourceTableIdsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public io.greptime.v1.Ddl.TableId getSourceTableIds(int index) {
+        if (sourceTableIdsBuilder_ == null) {
+          return sourceTableIds_.get(index);
+        } else {
+          return sourceTableIdsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public Builder setSourceTableIds(
+          int index, io.greptime.v1.Ddl.TableId value) {
+        if (sourceTableIdsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSourceTableIdsIsMutable();
+          sourceTableIds_.set(index, value);
+          onChanged();
+        } else {
+          sourceTableIdsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public Builder setSourceTableIds(
+          int index, io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+        if (sourceTableIdsBuilder_ == null) {
+          ensureSourceTableIdsIsMutable();
+          sourceTableIds_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          sourceTableIdsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public Builder addSourceTableIds(io.greptime.v1.Ddl.TableId value) {
+        if (sourceTableIdsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSourceTableIdsIsMutable();
+          sourceTableIds_.add(value);
+          onChanged();
+        } else {
+          sourceTableIdsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public Builder addSourceTableIds(
+          int index, io.greptime.v1.Ddl.TableId value) {
+        if (sourceTableIdsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSourceTableIdsIsMutable();
+          sourceTableIds_.add(index, value);
+          onChanged();
+        } else {
+          sourceTableIdsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public Builder addSourceTableIds(
+          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+        if (sourceTableIdsBuilder_ == null) {
+          ensureSourceTableIdsIsMutable();
+          sourceTableIds_.add(builderForValue.build());
+          onChanged();
+        } else {
+          sourceTableIdsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public Builder addSourceTableIds(
+          int index, io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+        if (sourceTableIdsBuilder_ == null) {
+          ensureSourceTableIdsIsMutable();
+          sourceTableIds_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          sourceTableIdsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public Builder addAllSourceTableIds(
+          java.lang.Iterable<? extends io.greptime.v1.Ddl.TableId> values) {
+        if (sourceTableIdsBuilder_ == null) {
+          ensureSourceTableIdsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, sourceTableIds_);
+          onChanged();
+        } else {
+          sourceTableIdsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public Builder clearSourceTableIds() {
+        if (sourceTableIdsBuilder_ == null) {
+          sourceTableIds_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          sourceTableIdsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public Builder removeSourceTableIds(int index) {
+        if (sourceTableIdsBuilder_ == null) {
+          ensureSourceTableIdsIsMutable();
+          sourceTableIds_.remove(index);
+          onChanged();
+        } else {
+          sourceTableIdsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public io.greptime.v1.Ddl.TableId.Builder getSourceTableIdsBuilder(
+          int index) {
+        return getSourceTableIdsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public io.greptime.v1.Ddl.TableIdOrBuilder getSourceTableIdsOrBuilder(
+          int index) {
+        if (sourceTableIdsBuilder_ == null) {
+          return sourceTableIds_.get(index);  } else {
+          return sourceTableIdsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.Ddl.TableIdOrBuilder> 
+           getSourceTableIdsOrBuilderList() {
+        if (sourceTableIdsBuilder_ != null) {
+          return sourceTableIdsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(sourceTableIds_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public io.greptime.v1.Ddl.TableId.Builder addSourceTableIdsBuilder() {
+        return getSourceTableIdsFieldBuilder().addBuilder(
+            io.greptime.v1.Ddl.TableId.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public io.greptime.v1.Ddl.TableId.Builder addSourceTableIdsBuilder(
+          int index) {
+        return getSourceTableIdsFieldBuilder().addBuilder(
+            index, io.greptime.v1.Ddl.TableId.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.TableId source_table_ids = 2;</code>
+       */
+      public java.util.List<io.greptime.v1.Ddl.TableId.Builder> 
+           getSourceTableIdsBuilderList() {
+        return getSourceTableIdsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
+          getSourceTableIdsFieldBuilder() {
+        if (sourceTableIdsBuilder_ == null) {
+          sourceTableIdsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
+                  sourceTableIds_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          sourceTableIds_ = null;
+        }
+        return sourceTableIdsBuilder_;
+      }
+
       private io.greptime.v1.Ddl.TableId outputTableId_;
       private com.google.protobuf.SingleFieldBuilderV3<
           io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> outputTableIdBuilder_;
       /**
-       * <code>.greptime.v1.TableId output_table_id = 2;</code>
+       * <code>.greptime.v1.TableId output_table_id = 3;</code>
        * @return Whether the outputTableId field is set.
        */
       public boolean hasOutputTableId() {
         return outputTableIdBuilder_ != null || outputTableId_ != null;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 2;</code>
+       * <code>.greptime.v1.TableId output_table_id = 3;</code>
        * @return The outputTableId.
        */
       public io.greptime.v1.Ddl.TableId getOutputTableId() {
@@ -5098,7 +5470,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 2;</code>
+       * <code>.greptime.v1.TableId output_table_id = 3;</code>
        */
       public Builder setOutputTableId(io.greptime.v1.Ddl.TableId value) {
         if (outputTableIdBuilder_ == null) {
@@ -5114,7 +5486,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 2;</code>
+       * <code>.greptime.v1.TableId output_table_id = 3;</code>
        */
       public Builder setOutputTableId(
           io.greptime.v1.Ddl.TableId.Builder builderForValue) {
@@ -5128,7 +5500,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 2;</code>
+       * <code>.greptime.v1.TableId output_table_id = 3;</code>
        */
       public Builder mergeOutputTableId(io.greptime.v1.Ddl.TableId value) {
         if (outputTableIdBuilder_ == null) {
@@ -5146,7 +5518,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 2;</code>
+       * <code>.greptime.v1.TableId output_table_id = 3;</code>
        */
       public Builder clearOutputTableId() {
         if (outputTableIdBuilder_ == null) {
@@ -5160,7 +5532,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 2;</code>
+       * <code>.greptime.v1.TableId output_table_id = 3;</code>
        */
       public io.greptime.v1.Ddl.TableId.Builder getOutputTableIdBuilder() {
         
@@ -5168,7 +5540,7 @@ java.lang.String defaultValue);
         return getOutputTableIdFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 2;</code>
+       * <code>.greptime.v1.TableId output_table_id = 3;</code>
        */
       public io.greptime.v1.Ddl.TableIdOrBuilder getOutputTableIdOrBuilder() {
         if (outputTableIdBuilder_ != null) {
@@ -5179,7 +5551,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 2;</code>
+       * <code>.greptime.v1.TableId output_table_id = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
@@ -5197,7 +5569,7 @@ java.lang.String defaultValue);
 
       private boolean createIfNotExists_ ;
       /**
-       * <code>bool create_if_not_exists = 3;</code>
+       * <code>bool create_if_not_exists = 4;</code>
        * @return The createIfNotExists.
        */
       @java.lang.Override
@@ -5205,7 +5577,7 @@ java.lang.String defaultValue);
         return createIfNotExists_;
       }
       /**
-       * <code>bool create_if_not_exists = 3;</code>
+       * <code>bool create_if_not_exists = 4;</code>
        * @param value The createIfNotExists to set.
        * @return This builder for chaining.
        */
@@ -5216,7 +5588,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>bool create_if_not_exists = 3;</code>
+       * <code>bool create_if_not_exists = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearCreateIfNotExists() {
@@ -5228,7 +5600,7 @@ java.lang.String defaultValue);
 
       private java.lang.Object expireWhen_ = "";
       /**
-       * <code>string expire_when = 4;</code>
+       * <code>string expire_when = 5;</code>
        * @return The expireWhen.
        */
       public java.lang.String getExpireWhen() {
@@ -5244,7 +5616,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string expire_when = 4;</code>
+       * <code>string expire_when = 5;</code>
        * @return The bytes for expireWhen.
        */
       public com.google.protobuf.ByteString
@@ -5261,7 +5633,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string expire_when = 4;</code>
+       * <code>string expire_when = 5;</code>
        * @param value The expireWhen to set.
        * @return This builder for chaining.
        */
@@ -5276,7 +5648,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string expire_when = 4;</code>
+       * <code>string expire_when = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearExpireWhen() {
@@ -5286,7 +5658,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string expire_when = 4;</code>
+       * <code>string expire_when = 5;</code>
        * @param value The bytes for expireWhen to set.
        * @return This builder for chaining.
        */
@@ -5304,7 +5676,7 @@ java.lang.String defaultValue);
 
       private java.lang.Object comment_ = "";
       /**
-       * <code>string comment = 5;</code>
+       * <code>string comment = 6;</code>
        * @return The comment.
        */
       public java.lang.String getComment() {
@@ -5320,7 +5692,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string comment = 5;</code>
+       * <code>string comment = 6;</code>
        * @return The bytes for comment.
        */
       public com.google.protobuf.ByteString
@@ -5337,7 +5709,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string comment = 5;</code>
+       * <code>string comment = 6;</code>
        * @param value The comment to set.
        * @return This builder for chaining.
        */
@@ -5352,7 +5724,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string comment = 5;</code>
+       * <code>string comment = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearComment() {
@@ -5362,7 +5734,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string comment = 5;</code>
+       * <code>string comment = 6;</code>
        * @param value The bytes for comment to set.
        * @return This builder for chaining.
        */
@@ -5380,7 +5752,7 @@ java.lang.String defaultValue);
 
       private java.lang.Object sql_ = "";
       /**
-       * <code>string sql = 6;</code>
+       * <code>string sql = 7;</code>
        * @return The sql.
        */
       public java.lang.String getSql() {
@@ -5396,7 +5768,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string sql = 6;</code>
+       * <code>string sql = 7;</code>
        * @return The bytes for sql.
        */
       public com.google.protobuf.ByteString
@@ -5413,7 +5785,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string sql = 6;</code>
+       * <code>string sql = 7;</code>
        * @param value The sql to set.
        * @return This builder for chaining.
        */
@@ -5428,7 +5800,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string sql = 6;</code>
+       * <code>string sql = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearSql() {
@@ -5438,7 +5810,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string sql = 6;</code>
+       * <code>string sql = 7;</code>
        * @param value The bytes for sql to set.
        * @return This builder for chaining.
        */
@@ -5481,7 +5853,7 @@ java.lang.String defaultValue);
         return internalGetTaskOptions().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 7;</code>
+       * <code>map&lt;string, string&gt; task_options = 8;</code>
        */
 
       @java.lang.Override
@@ -5499,7 +5871,7 @@ java.lang.String defaultValue);
         return getTaskOptionsMap();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 7;</code>
+       * <code>map&lt;string, string&gt; task_options = 8;</code>
        */
       @java.lang.Override
 
@@ -5507,7 +5879,7 @@ java.lang.String defaultValue);
         return internalGetTaskOptions().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 7;</code>
+       * <code>map&lt;string, string&gt; task_options = 8;</code>
        */
       @java.lang.Override
 
@@ -5520,7 +5892,7 @@ java.lang.String defaultValue);
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 7;</code>
+       * <code>map&lt;string, string&gt; task_options = 8;</code>
        */
       @java.lang.Override
 
@@ -5541,7 +5913,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 7;</code>
+       * <code>map&lt;string, string&gt; task_options = 8;</code>
        */
 
       public Builder removeTaskOptions(
@@ -5560,7 +5932,7 @@ java.lang.String defaultValue);
         return internalGetMutableTaskOptions().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 7;</code>
+       * <code>map&lt;string, string&gt; task_options = 8;</code>
        */
       public Builder putTaskOptions(
           java.lang.String key,
@@ -5575,7 +5947,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 7;</code>
+       * <code>map&lt;string, string&gt; task_options = 8;</code>
        */
 
       public Builder putAllTaskOptions(
@@ -6265,10 +6637,10 @@ java.lang.String defaultValue);
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint64 id = 1;</code>
+     * <code>uint32 id = 1;</code>
      * @return The id.
      */
-    long getId();
+    int getId();
   }
   /**
    * Protobuf type {@code greptime.v1.flow.TaskId}
@@ -6317,7 +6689,7 @@ java.lang.String defaultValue);
               break;
             case 8: {
 
-              id_ = input.readUInt64();
+              id_ = input.readUInt32();
               break;
             }
             default: {
@@ -6355,13 +6727,13 @@ java.lang.String defaultValue);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private long id_;
+    private int id_;
     /**
-     * <code>uint64 id = 1;</code>
+     * <code>uint32 id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
-    public long getId() {
+    public int getId() {
       return id_;
     }
 
@@ -6379,8 +6751,8 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0L) {
-        output.writeUInt64(1, id_);
+      if (id_ != 0) {
+        output.writeUInt32(1, id_);
       }
       unknownFields.writeTo(output);
     }
@@ -6391,9 +6763,9 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0L) {
+      if (id_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, id_);
+          .computeUInt32Size(1, id_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6424,8 +6796,7 @@ java.lang.String defaultValue);
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getId());
+      hash = (53 * hash) + getId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6559,7 +6930,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = 0L;
+        id_ = 0;
 
         return this;
       }
@@ -6636,7 +7007,7 @@ java.lang.String defaultValue);
 
       public Builder mergeFrom(io.greptime.v1.flow.Server.TaskId other) {
         if (other == io.greptime.v1.flow.Server.TaskId.getDefaultInstance()) return this;
-        if (other.getId() != 0L) {
+        if (other.getId() != 0) {
           setId(other.getId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -6668,33 +7039,33 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private long id_ ;
+      private int id_ ;
       /**
-       * <code>uint64 id = 1;</code>
+       * <code>uint32 id = 1;</code>
        * @return The id.
        */
       @java.lang.Override
-      public long getId() {
+      public int getId() {
         return id_;
       }
       /**
-       * <code>uint64 id = 1;</code>
+       * <code>uint32 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(long value) {
+      public Builder setId(int value) {
         
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint64 id = 1;</code>
+       * <code>uint32 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = 0L;
+        id_ = 0;
         onChanged();
         return this;
       }
@@ -6821,24 +7192,25 @@ java.lang.String defaultValue);
       "wResponse.ExtensionEntry\0220\n\016affected_tas" +
       "ks\030\004 \003(\0132\030.greptime.v1.flow.TaskId\0320\n\016Ex" +
       "tensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014" +
-      ":\0028\001\"\276\002\n\021FlowCreateRequest\022)\n\007task_id\030\001 " +
-      "\001(\0132\030.greptime.v1.flow.TaskId\022-\n\017output_" +
-      "table_id\030\002 \001(\0132\024.greptime.v1.TableId\022\034\n\024" +
-      "create_if_not_exists\030\003 \001(\010\022\023\n\013expire_whe" +
-      "n\030\004 \001(\t\022\017\n\007comment\030\005 \001(\t\022\013\n\003sql\030\006 \001(\t\022J\n" +
-      "\014task_options\030\007 \003(\01324.greptime.v1.flow.F" +
-      "lowCreateRequest.TaskOptionsEntry\0322\n\020Tas" +
-      "kOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001\">\n\021FlowRemoveRequest\022)\n\007task_id\030\001 " +
-      "\001(\0132\030.greptime.v1.flow.TaskId\"\024\n\006TaskId\022" +
-      "\n\n\002id\030\001 \001(\0042\264\001\n\004Flow\022S\n\022HandleCreateRemo" +
-      "ve\022\035.greptime.v1.flow.FlowRequest\032\036.grep" +
-      "time.v1.flow.FlowResponse\022W\n\023HandleMirro" +
-      "rRequest\022 .greptime.v1.flow.InsertReques" +
-      "ts\032\036.greptime.v1.flow.FlowResponseBY\n\023io" +
-      ".greptime.v1.flowB\006ServerZ:github.com/Gr" +
-      "eptimeTeam/greptime-proto/go/greptime/v1" +
-      "/flowb\006proto3"
+      ":\0028\001\"\356\002\n\021FlowCreateRequest\022)\n\007task_id\030\001 " +
+      "\001(\0132\030.greptime.v1.flow.TaskId\022.\n\020source_" +
+      "table_ids\030\002 \003(\0132\024.greptime.v1.TableId\022-\n" +
+      "\017output_table_id\030\003 \001(\0132\024.greptime.v1.Tab" +
+      "leId\022\034\n\024create_if_not_exists\030\004 \001(\010\022\023\n\013ex" +
+      "pire_when\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030" +
+      "\007 \001(\t\022J\n\014task_options\030\010 \003(\01324.greptime.v" +
+      "1.flow.FlowCreateRequest.TaskOptionsEntr" +
+      "y\0322\n\020TaskOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\">\n\021FlowRemoveRequest\022)\n\007ta" +
+      "sk_id\030\001 \001(\0132\030.greptime.v1.flow.TaskId\"\024\n" +
+      "\006TaskId\022\n\n\002id\030\001 \001(\r2\264\001\n\004Flow\022S\n\022HandleCr" +
+      "eateRemove\022\035.greptime.v1.flow.FlowReques" +
+      "t\032\036.greptime.v1.flow.FlowResponse\022W\n\023Han" +
+      "dleMirrorRequest\022 .greptime.v1.flow.Inse" +
+      "rtRequests\032\036.greptime.v1.flow.FlowRespon" +
+      "seBY\n\023io.greptime.v1.flowB\006ServerZ:githu" +
+      "b.com/GreptimeTeam/greptime-proto/go/gre" +
+      "ptime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6882,7 +7254,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_FlowCreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowCreateRequest_descriptor,
-        new java.lang.String[] { "TaskId", "OutputTableId", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "TaskOptions", });
+        new java.lang.String[] { "TaskId", "SourceTableIds", "OutputTableId", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "TaskOptions", });
     internal_static_greptime_v1_flow_FlowCreateRequest_TaskOptionsEntry_descriptor =
       internal_static_greptime_v1_flow_FlowCreateRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_flow_FlowCreateRequest_TaskOptionsEntry_fieldAccessorTable = new

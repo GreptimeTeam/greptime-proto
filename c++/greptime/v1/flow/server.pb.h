@@ -1013,15 +1013,34 @@ class FlowCreateRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTaskOptionsFieldNumber = 7,
-    kExpireWhenFieldNumber = 4,
-    kCommentFieldNumber = 5,
-    kSqlFieldNumber = 6,
+    kSourceTableIdsFieldNumber = 2,
+    kTaskOptionsFieldNumber = 8,
+    kExpireWhenFieldNumber = 5,
+    kCommentFieldNumber = 6,
+    kSqlFieldNumber = 7,
     kTaskIdFieldNumber = 1,
-    kOutputTableIdFieldNumber = 2,
-    kCreateIfNotExistsFieldNumber = 3,
+    kOutputTableIdFieldNumber = 3,
+    kCreateIfNotExistsFieldNumber = 4,
   };
-  // map<string, string> task_options = 7;
+  // repeated .greptime.v1.TableId source_table_ids = 2;
+  int source_table_ids_size() const;
+  private:
+  int _internal_source_table_ids_size() const;
+  public:
+  void clear_source_table_ids();
+  ::greptime::v1::TableId* mutable_source_table_ids(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId >*
+      mutable_source_table_ids();
+  private:
+  const ::greptime::v1::TableId& _internal_source_table_ids(int index) const;
+  ::greptime::v1::TableId* _internal_add_source_table_ids();
+  public:
+  const ::greptime::v1::TableId& source_table_ids(int index) const;
+  ::greptime::v1::TableId* add_source_table_ids();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId >&
+      source_table_ids() const;
+
+  // map<string, string> task_options = 8;
   int task_options_size() const;
   private:
   int _internal_task_options_size() const;
@@ -1038,7 +1057,7 @@ class FlowCreateRequest final :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
       mutable_task_options();
 
-  // string expire_when = 4;
+  // string expire_when = 5;
   void clear_expire_when();
   const std::string& expire_when() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1052,7 +1071,7 @@ class FlowCreateRequest final :
   std::string* _internal_mutable_expire_when();
   public:
 
-  // string comment = 5;
+  // string comment = 6;
   void clear_comment();
   const std::string& comment() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1066,7 +1085,7 @@ class FlowCreateRequest final :
   std::string* _internal_mutable_comment();
   public:
 
-  // string sql = 6;
+  // string sql = 7;
   void clear_sql();
   const std::string& sql() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1098,7 +1117,7 @@ class FlowCreateRequest final :
       ::greptime::v1::flow::TaskId* task_id);
   ::greptime::v1::flow::TaskId* unsafe_arena_release_task_id();
 
-  // .greptime.v1.TableId output_table_id = 2;
+  // .greptime.v1.TableId output_table_id = 3;
   bool has_output_table_id() const;
   private:
   bool _internal_has_output_table_id() const;
@@ -1116,7 +1135,7 @@ class FlowCreateRequest final :
       ::greptime::v1::TableId* output_table_id);
   ::greptime::v1::TableId* unsafe_arena_release_output_table_id();
 
-  // bool create_if_not_exists = 3;
+  // bool create_if_not_exists = 4;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
   void set_create_if_not_exists(bool value);
@@ -1133,6 +1152,7 @@ class FlowCreateRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId > source_table_ids_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
         FlowCreateRequest_TaskOptionsEntry_DoNotUse,
         std::string, std::string,
@@ -1431,13 +1451,13 @@ class TaskId final :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // uint64 id = 1;
+  // uint32 id = 1;
   void clear_id();
-  uint64_t id() const;
-  void set_id(uint64_t value);
+  uint32_t id() const;
+  void set_id(uint32_t value);
   private:
-  uint64_t _internal_id() const;
-  void _internal_set_id(uint64_t value);
+  uint32_t _internal_id() const;
+  void _internal_set_id(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.flow.TaskId)
@@ -1448,7 +1468,7 @@ class TaskId final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    uint64_t id_;
+    uint32_t id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2051,7 +2071,44 @@ inline void FlowCreateRequest::set_allocated_task_id(::greptime::v1::flow::TaskI
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.task_id)
 }
 
-// .greptime.v1.TableId output_table_id = 2;
+// repeated .greptime.v1.TableId source_table_ids = 2;
+inline int FlowCreateRequest::_internal_source_table_ids_size() const {
+  return _impl_.source_table_ids_.size();
+}
+inline int FlowCreateRequest::source_table_ids_size() const {
+  return _internal_source_table_ids_size();
+}
+inline ::greptime::v1::TableId* FlowCreateRequest::mutable_source_table_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowCreateRequest.source_table_ids)
+  return _impl_.source_table_ids_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId >*
+FlowCreateRequest::mutable_source_table_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.flow.FlowCreateRequest.source_table_ids)
+  return &_impl_.source_table_ids_;
+}
+inline const ::greptime::v1::TableId& FlowCreateRequest::_internal_source_table_ids(int index) const {
+  return _impl_.source_table_ids_.Get(index);
+}
+inline const ::greptime::v1::TableId& FlowCreateRequest::source_table_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowCreateRequest.source_table_ids)
+  return _internal_source_table_ids(index);
+}
+inline ::greptime::v1::TableId* FlowCreateRequest::_internal_add_source_table_ids() {
+  return _impl_.source_table_ids_.Add();
+}
+inline ::greptime::v1::TableId* FlowCreateRequest::add_source_table_ids() {
+  ::greptime::v1::TableId* _add = _internal_add_source_table_ids();
+  // @@protoc_insertion_point(field_add:greptime.v1.flow.FlowCreateRequest.source_table_ids)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId >&
+FlowCreateRequest::source_table_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.flow.FlowCreateRequest.source_table_ids)
+  return _impl_.source_table_ids_;
+}
+
+// .greptime.v1.TableId output_table_id = 3;
 inline bool FlowCreateRequest::_internal_has_output_table_id() const {
   return this != internal_default_instance() && _impl_.output_table_id_ != nullptr;
 }
@@ -2136,7 +2193,7 @@ inline void FlowCreateRequest::set_allocated_output_table_id(::greptime::v1::Tab
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.output_table_id)
 }
 
-// bool create_if_not_exists = 3;
+// bool create_if_not_exists = 4;
 inline void FlowCreateRequest::clear_create_if_not_exists() {
   _impl_.create_if_not_exists_ = false;
 }
@@ -2156,7 +2213,7 @@ inline void FlowCreateRequest::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.flow.FlowCreateRequest.create_if_not_exists)
 }
 
-// string expire_when = 4;
+// string expire_when = 5;
 inline void FlowCreateRequest::clear_expire_when() {
   _impl_.expire_when_.ClearToEmpty();
 }
@@ -2206,7 +2263,7 @@ inline void FlowCreateRequest::set_allocated_expire_when(std::string* expire_whe
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.expire_when)
 }
 
-// string comment = 5;
+// string comment = 6;
 inline void FlowCreateRequest::clear_comment() {
   _impl_.comment_.ClearToEmpty();
 }
@@ -2256,7 +2313,7 @@ inline void FlowCreateRequest::set_allocated_comment(std::string* comment) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.comment)
 }
 
-// string sql = 6;
+// string sql = 7;
 inline void FlowCreateRequest::clear_sql() {
   _impl_.sql_.ClearToEmpty();
 }
@@ -2306,7 +2363,7 @@ inline void FlowCreateRequest::set_allocated_sql(std::string* sql) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.sql)
 }
 
-// map<string, string> task_options = 7;
+// map<string, string> task_options = 8;
 inline int FlowCreateRequest::_internal_task_options_size() const {
   return _impl_.task_options_.size();
 }
@@ -2433,22 +2490,22 @@ inline void FlowRemoveRequest::set_allocated_task_id(::greptime::v1::flow::TaskI
 
 // TaskId
 
-// uint64 id = 1;
+// uint32 id = 1;
 inline void TaskId::clear_id() {
-  _impl_.id_ = uint64_t{0u};
+  _impl_.id_ = 0u;
 }
-inline uint64_t TaskId::_internal_id() const {
+inline uint32_t TaskId::_internal_id() const {
   return _impl_.id_;
 }
-inline uint64_t TaskId::id() const {
+inline uint32_t TaskId::id() const {
   // @@protoc_insertion_point(field_get:greptime.v1.flow.TaskId.id)
   return _internal_id();
 }
-inline void TaskId::_internal_set_id(uint64_t value) {
+inline void TaskId::_internal_set_id(uint32_t value) {
   
   _impl_.id_ = value;
 }
-inline void TaskId::set_id(uint64_t value) {
+inline void TaskId::set_id(uint32_t value) {
   _internal_set_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.flow.TaskId.id)
 }
