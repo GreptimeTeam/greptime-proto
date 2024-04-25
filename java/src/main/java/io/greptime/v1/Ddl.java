@@ -2197,53 +2197,59 @@ public final class Ddl {
     io.greptime.v1.Ddl.SchemaScopedTableNameOrBuilder getSinkTableNameOrBuilder();
 
     /**
-     * <code>bool create_if_not_exists = 5;</code>
+     * <code>bool or_replace = 5;</code>
+     * @return The orReplace.
+     */
+    boolean getOrReplace();
+
+    /**
+     * <code>bool create_if_not_exists = 6;</code>
      * @return The createIfNotExists.
      */
     boolean getCreateIfNotExists();
 
     /**
-     * <code>string expire_when = 6;</code>
+     * <code>string expire_when = 7;</code>
      * @return The expireWhen.
      */
     java.lang.String getExpireWhen();
     /**
-     * <code>string expire_when = 6;</code>
+     * <code>string expire_when = 7;</code>
      * @return The bytes for expireWhen.
      */
     com.google.protobuf.ByteString
         getExpireWhenBytes();
 
     /**
-     * <code>string comment = 7;</code>
+     * <code>string comment = 8;</code>
      * @return The comment.
      */
     java.lang.String getComment();
     /**
-     * <code>string comment = 7;</code>
+     * <code>string comment = 8;</code>
      * @return The bytes for comment.
      */
     com.google.protobuf.ByteString
         getCommentBytes();
 
     /**
-     * <code>string sql = 8;</code>
+     * <code>string sql = 9;</code>
      * @return The sql.
      */
     java.lang.String getSql();
     /**
-     * <code>string sql = 8;</code>
+     * <code>string sql = 9;</code>
      * @return The bytes for sql.
      */
     com.google.protobuf.ByteString
         getSqlBytes();
 
     /**
-     * <code>map&lt;string, string&gt; task_options = 9;</code>
+     * <code>map&lt;string, string&gt; task_options = 10;</code>
      */
     int getTaskOptionsCount();
     /**
-     * <code>map&lt;string, string&gt; task_options = 9;</code>
+     * <code>map&lt;string, string&gt; task_options = 10;</code>
      */
     boolean containsTaskOptions(
         java.lang.String key);
@@ -2254,12 +2260,12 @@ public final class Ddl {
     java.util.Map<java.lang.String, java.lang.String>
     getTaskOptions();
     /**
-     * <code>map&lt;string, string&gt; task_options = 9;</code>
+     * <code>map&lt;string, string&gt; task_options = 10;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
     getTaskOptionsMap();
     /**
-     * <code>map&lt;string, string&gt; task_options = 9;</code>
+     * <code>map&lt;string, string&gt; task_options = 10;</code>
      */
 
     /* nullable */
@@ -2268,7 +2274,7 @@ java.lang.String getTaskOptionsOrDefault(
         /* nullable */
 java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; task_options = 9;</code>
+     * <code>map&lt;string, string&gt; task_options = 10;</code>
      */
 
     java.lang.String getTaskOptionsOrThrow(
@@ -2366,28 +2372,33 @@ java.lang.String defaultValue);
             }
             case 40: {
 
-              createIfNotExists_ = input.readBool();
+              orReplace_ = input.readBool();
               break;
             }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 48: {
 
-              expireWhen_ = s;
+              createIfNotExists_ = input.readBool();
               break;
             }
             case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              comment_ = s;
+              expireWhen_ = s;
               break;
             }
             case 66: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              sql_ = s;
+              comment_ = s;
               break;
             }
             case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sql_ = s;
+              break;
+            }
+            case 82: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 taskOptions_ = com.google.protobuf.MapField.newMapField(
                     TaskOptionsDefaultEntryHolder.defaultEntry);
@@ -2434,7 +2445,7 @@ java.lang.String defaultValue);
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 9:
+        case 10:
           return internalGetTaskOptions();
         default:
           throw new RuntimeException(
@@ -2591,10 +2602,21 @@ java.lang.String defaultValue);
       return getSinkTableName();
     }
 
-    public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 5;
+    public static final int OR_REPLACE_FIELD_NUMBER = 5;
+    private boolean orReplace_;
+    /**
+     * <code>bool or_replace = 5;</code>
+     * @return The orReplace.
+     */
+    @java.lang.Override
+    public boolean getOrReplace() {
+      return orReplace_;
+    }
+
+    public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 6;
     private boolean createIfNotExists_;
     /**
-     * <code>bool create_if_not_exists = 5;</code>
+     * <code>bool create_if_not_exists = 6;</code>
      * @return The createIfNotExists.
      */
     @java.lang.Override
@@ -2602,10 +2624,10 @@ java.lang.String defaultValue);
       return createIfNotExists_;
     }
 
-    public static final int EXPIRE_WHEN_FIELD_NUMBER = 6;
+    public static final int EXPIRE_WHEN_FIELD_NUMBER = 7;
     private volatile java.lang.Object expireWhen_;
     /**
-     * <code>string expire_when = 6;</code>
+     * <code>string expire_when = 7;</code>
      * @return The expireWhen.
      */
     @java.lang.Override
@@ -2622,7 +2644,7 @@ java.lang.String defaultValue);
       }
     }
     /**
-     * <code>string expire_when = 6;</code>
+     * <code>string expire_when = 7;</code>
      * @return The bytes for expireWhen.
      */
     @java.lang.Override
@@ -2640,10 +2662,10 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int COMMENT_FIELD_NUMBER = 7;
+    public static final int COMMENT_FIELD_NUMBER = 8;
     private volatile java.lang.Object comment_;
     /**
-     * <code>string comment = 7;</code>
+     * <code>string comment = 8;</code>
      * @return The comment.
      */
     @java.lang.Override
@@ -2660,7 +2682,7 @@ java.lang.String defaultValue);
       }
     }
     /**
-     * <code>string comment = 7;</code>
+     * <code>string comment = 8;</code>
      * @return The bytes for comment.
      */
     @java.lang.Override
@@ -2678,10 +2700,10 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int SQL_FIELD_NUMBER = 8;
+    public static final int SQL_FIELD_NUMBER = 9;
     private volatile java.lang.Object sql_;
     /**
-     * <code>string sql = 8;</code>
+     * <code>string sql = 9;</code>
      * @return The sql.
      */
     @java.lang.Override
@@ -2698,7 +2720,7 @@ java.lang.String defaultValue);
       }
     }
     /**
-     * <code>string sql = 8;</code>
+     * <code>string sql = 9;</code>
      * @return The bytes for sql.
      */
     @java.lang.Override
@@ -2716,7 +2738,7 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int TASK_OPTIONS_FIELD_NUMBER = 9;
+    public static final int TASK_OPTIONS_FIELD_NUMBER = 10;
     private static final class TaskOptionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
@@ -2743,7 +2765,7 @@ java.lang.String defaultValue);
       return internalGetTaskOptions().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 9;</code>
+     * <code>map&lt;string, string&gt; task_options = 10;</code>
      */
 
     @java.lang.Override
@@ -2761,7 +2783,7 @@ java.lang.String defaultValue);
       return getTaskOptionsMap();
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 9;</code>
+     * <code>map&lt;string, string&gt; task_options = 10;</code>
      */
     @java.lang.Override
 
@@ -2769,7 +2791,7 @@ java.lang.String defaultValue);
       return internalGetTaskOptions().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 9;</code>
+     * <code>map&lt;string, string&gt; task_options = 10;</code>
      */
     @java.lang.Override
 
@@ -2782,7 +2804,7 @@ java.lang.String defaultValue);
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 9;</code>
+     * <code>map&lt;string, string&gt; task_options = 10;</code>
      */
     @java.lang.Override
 
@@ -2823,24 +2845,27 @@ java.lang.String defaultValue);
       if (sinkTableName_ != null) {
         output.writeMessage(4, getSinkTableName());
       }
+      if (orReplace_ != false) {
+        output.writeBool(5, orReplace_);
+      }
       if (createIfNotExists_ != false) {
-        output.writeBool(5, createIfNotExists_);
+        output.writeBool(6, createIfNotExists_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireWhen_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, expireWhen_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, expireWhen_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, comment_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, comment_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sql_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, sql_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, sql_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetTaskOptions(),
           TaskOptionsDefaultEntryHolder.defaultEntry,
-          9);
+          10);
       unknownFields.writeTo(output);
     }
 
@@ -2864,18 +2889,22 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getSinkTableName());
       }
+      if (orReplace_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, orReplace_);
+      }
       if (createIfNotExists_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, createIfNotExists_);
+          .computeBoolSize(6, createIfNotExists_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireWhen_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, expireWhen_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, expireWhen_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, comment_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, comment_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sql_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, sql_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, sql_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetTaskOptions().getMap().entrySet()) {
@@ -2885,7 +2914,7 @@ java.lang.String defaultValue);
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(9, taskOptions__);
+            .computeMessageSize(10, taskOptions__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2913,6 +2942,8 @@ java.lang.String defaultValue);
         if (!getSinkTableName()
             .equals(other.getSinkTableName())) return false;
       }
+      if (getOrReplace()
+          != other.getOrReplace()) return false;
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
       if (!getExpireWhen()
@@ -2946,6 +2977,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + SINK_TABLE_NAME_FIELD_NUMBER;
         hash = (53 * hash) + getSinkTableName().hashCode();
       }
+      hash = (37 * hash) + OR_REPLACE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOrReplace());
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCreateIfNotExists());
@@ -3074,7 +3108,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 9:
+          case 10:
             return internalGetTaskOptions();
           default:
             throw new RuntimeException(
@@ -3085,7 +3119,7 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 9:
+          case 10:
             return internalGetMutableTaskOptions();
           default:
             throw new RuntimeException(
@@ -3135,6 +3169,8 @@ java.lang.String defaultValue);
           sinkTableName_ = null;
           sinkTableNameBuilder_ = null;
         }
+        orReplace_ = false;
+
         createIfNotExists_ = false;
 
         expireWhen_ = "";
@@ -3187,6 +3223,7 @@ java.lang.String defaultValue);
         } else {
           result.sinkTableName_ = sinkTableNameBuilder_.build();
         }
+        result.orReplace_ = orReplace_;
         result.createIfNotExists_ = createIfNotExists_;
         result.expireWhen_ = expireWhen_;
         result.comment_ = comment_;
@@ -3277,6 +3314,9 @@ java.lang.String defaultValue);
         }
         if (other.hasSinkTableName()) {
           mergeSinkTableName(other.getSinkTableName());
+        }
+        if (other.getOrReplace() != false) {
+          setOrReplace(other.getOrReplace());
         }
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
@@ -3836,9 +3876,40 @@ java.lang.String defaultValue);
         return sinkTableNameBuilder_;
       }
 
+      private boolean orReplace_ ;
+      /**
+       * <code>bool or_replace = 5;</code>
+       * @return The orReplace.
+       */
+      @java.lang.Override
+      public boolean getOrReplace() {
+        return orReplace_;
+      }
+      /**
+       * <code>bool or_replace = 5;</code>
+       * @param value The orReplace to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrReplace(boolean value) {
+        
+        orReplace_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool or_replace = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrReplace() {
+        
+        orReplace_ = false;
+        onChanged();
+        return this;
+      }
+
       private boolean createIfNotExists_ ;
       /**
-       * <code>bool create_if_not_exists = 5;</code>
+       * <code>bool create_if_not_exists = 6;</code>
        * @return The createIfNotExists.
        */
       @java.lang.Override
@@ -3846,7 +3917,7 @@ java.lang.String defaultValue);
         return createIfNotExists_;
       }
       /**
-       * <code>bool create_if_not_exists = 5;</code>
+       * <code>bool create_if_not_exists = 6;</code>
        * @param value The createIfNotExists to set.
        * @return This builder for chaining.
        */
@@ -3857,7 +3928,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>bool create_if_not_exists = 5;</code>
+       * <code>bool create_if_not_exists = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearCreateIfNotExists() {
@@ -3869,7 +3940,7 @@ java.lang.String defaultValue);
 
       private java.lang.Object expireWhen_ = "";
       /**
-       * <code>string expire_when = 6;</code>
+       * <code>string expire_when = 7;</code>
        * @return The expireWhen.
        */
       public java.lang.String getExpireWhen() {
@@ -3885,7 +3956,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string expire_when = 6;</code>
+       * <code>string expire_when = 7;</code>
        * @return The bytes for expireWhen.
        */
       public com.google.protobuf.ByteString
@@ -3902,7 +3973,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string expire_when = 6;</code>
+       * <code>string expire_when = 7;</code>
        * @param value The expireWhen to set.
        * @return This builder for chaining.
        */
@@ -3917,7 +3988,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string expire_when = 6;</code>
+       * <code>string expire_when = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearExpireWhen() {
@@ -3927,7 +3998,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string expire_when = 6;</code>
+       * <code>string expire_when = 7;</code>
        * @param value The bytes for expireWhen to set.
        * @return This builder for chaining.
        */
@@ -3945,7 +4016,7 @@ java.lang.String defaultValue);
 
       private java.lang.Object comment_ = "";
       /**
-       * <code>string comment = 7;</code>
+       * <code>string comment = 8;</code>
        * @return The comment.
        */
       public java.lang.String getComment() {
@@ -3961,7 +4032,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string comment = 7;</code>
+       * <code>string comment = 8;</code>
        * @return The bytes for comment.
        */
       public com.google.protobuf.ByteString
@@ -3978,7 +4049,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string comment = 7;</code>
+       * <code>string comment = 8;</code>
        * @param value The comment to set.
        * @return This builder for chaining.
        */
@@ -3993,7 +4064,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string comment = 7;</code>
+       * <code>string comment = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearComment() {
@@ -4003,7 +4074,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string comment = 7;</code>
+       * <code>string comment = 8;</code>
        * @param value The bytes for comment to set.
        * @return This builder for chaining.
        */
@@ -4021,7 +4092,7 @@ java.lang.String defaultValue);
 
       private java.lang.Object sql_ = "";
       /**
-       * <code>string sql = 8;</code>
+       * <code>string sql = 9;</code>
        * @return The sql.
        */
       public java.lang.String getSql() {
@@ -4037,7 +4108,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string sql = 8;</code>
+       * <code>string sql = 9;</code>
        * @return The bytes for sql.
        */
       public com.google.protobuf.ByteString
@@ -4054,7 +4125,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>string sql = 8;</code>
+       * <code>string sql = 9;</code>
        * @param value The sql to set.
        * @return This builder for chaining.
        */
@@ -4069,7 +4140,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string sql = 8;</code>
+       * <code>string sql = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearSql() {
@@ -4079,7 +4150,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>string sql = 8;</code>
+       * <code>string sql = 9;</code>
        * @param value The bytes for sql to set.
        * @return This builder for chaining.
        */
@@ -4122,7 +4193,7 @@ java.lang.String defaultValue);
         return internalGetTaskOptions().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 9;</code>
+       * <code>map&lt;string, string&gt; task_options = 10;</code>
        */
 
       @java.lang.Override
@@ -4140,7 +4211,7 @@ java.lang.String defaultValue);
         return getTaskOptionsMap();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 9;</code>
+       * <code>map&lt;string, string&gt; task_options = 10;</code>
        */
       @java.lang.Override
 
@@ -4148,7 +4219,7 @@ java.lang.String defaultValue);
         return internalGetTaskOptions().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 9;</code>
+       * <code>map&lt;string, string&gt; task_options = 10;</code>
        */
       @java.lang.Override
 
@@ -4161,7 +4232,7 @@ java.lang.String defaultValue);
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 9;</code>
+       * <code>map&lt;string, string&gt; task_options = 10;</code>
        */
       @java.lang.Override
 
@@ -4182,7 +4253,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 9;</code>
+       * <code>map&lt;string, string&gt; task_options = 10;</code>
        */
 
       public Builder removeTaskOptions(
@@ -4201,7 +4272,7 @@ java.lang.String defaultValue);
         return internalGetMutableTaskOptions().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 9;</code>
+       * <code>map&lt;string, string&gt; task_options = 10;</code>
        */
       public Builder putTaskOptions(
           java.lang.String key,
@@ -4216,7 +4287,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 9;</code>
+       * <code>map&lt;string, string&gt; task_options = 10;</code>
        */
 
       public Builder putAllTaskOptions(
@@ -20295,70 +20366,71 @@ java.lang.String defaultValue);
       ".TruncateTableExprH\000\022;\n\020create_flow_task" +
       "\030\010 \001(\0132\037.greptime.v1.CreateFlowTaskExprH" +
       "\000\0227\n\016drop_flow_task\030\t \001(\0132\035.greptime.v1." +
-      "DropFlowTaskExprH\000B\006\n\004expr\"\207\003\n\022CreateFlo" +
+      "DropFlowTaskExprH\000B\006\n\004expr\"\233\003\n\022CreateFlo" +
       "wTaskExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\ttask_" +
       "name\030\002 \001(\t\022>\n\022source_table_names\030\003 \003(\0132\"" +
       ".greptime.v1.SchemaScopedTableName\022;\n\017si" +
       "nk_table_name\030\004 \001(\0132\".greptime.v1.Schema" +
-      "ScopedTableName\022\034\n\024create_if_not_exists\030" +
-      "\005 \001(\010\022\023\n\013expire_when\030\006 \001(\t\022\017\n\007comment\030\007 " +
-      "\001(\t\022\013\n\003sql\030\010 \001(\t\022F\n\014task_options\030\t \003(\01320" +
-      ".greptime.v1.CreateFlowTaskExpr.TaskOpti" +
-      "onsEntry\0322\n\020TaskOptionsEntry\022\013\n\003key\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\025SchemaScopedTabl" +
-      "eName\022\023\n\013schema_name\030\001 \001(\t\022\022\n\ntable_name" +
-      "\030\002 \001(\t\";\n\020DropFlowTaskExpr\022\024\n\014catalog_na" +
-      "me\030\001 \001(\t\022\021\n\ttask_name\030\002 \001(\t\"\207\003\n\017CreateTa" +
-      "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
-      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004" +
-      " \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v1." +
-      "ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014primary" +
-      "_keys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001(" +
-      "\010\022E\n\rtable_options\030\t \003(\0132..greptime.v1.C" +
-      "reateTableExpr.TableOptionsEntry\022&\n\010tabl" +
-      "e_id\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006engi" +
-      "ne\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\346\001\n\tAlterExpr\022\024\n\014c" +
-      "atalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022" +
-      "\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\0132" +
-      "\027.greptime.v1.AddColumnsH\000\0220\n\014drop_colum" +
-      "ns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220\n\014" +
-      "rename_table\030\006 \001(\0132\030.greptime.v1.RenameT" +
-      "ableH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014cata" +
-      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nt" +
-      "able_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grep" +
-      "time.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"" +
-      "\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_name\030\001" +
-      " \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_if_n" +
-      "ot_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.grept" +
-      "ime.v1.CreateDatabaseExpr.OptionsEntry\032." +
-      "\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
-      "(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalog_n" +
+      "ScopedTableName\022\022\n\nor_replace\030\005 \001(\010\022\034\n\024c" +
+      "reate_if_not_exists\030\006 \001(\010\022\023\n\013expire_when" +
+      "\030\007 \001(\t\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022F\n\014" +
+      "task_options\030\n \003(\01320.greptime.v1.CreateF" +
+      "lowTaskExpr.TaskOptionsEntry\0322\n\020TaskOpti" +
+      "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
+      "\"@\n\025SchemaScopedTableName\022\023\n\013schema_name" +
+      "\030\001 \001(\t\022\022\n\ntable_name\030\002 \001(\t\";\n\020DropFlowTa" +
+      "skExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\ttask_nam" +
+      "e\030\002 \001(\t\"\207\003\n\017CreateTableExpr\022\024\n\014catalog_n" +
       "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_" +
-      "name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime." +
-      "v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014catalo" +
-      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016dro" +
-      "p_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_c" +
-      "olumns\030\001 \003(\0132\026.greptime.v1.AddColumn\"<\n\013" +
-      "DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.grep" +
-      "time.v1.DropColumn\"%\n\013RenameTable\022\026\n\016new" +
-      "_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn" +
-      "_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010lo" +
-      "cation\030\003 \001(\0132\036.greptime.v1.AddColumnLoca" +
-      "tion\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007Tabl" +
-      "eId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 " +
-      "\001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1.Col" +
-      "umnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022defa" +
-      "ult_constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 " +
-      "\001(\0162\031.greptime.v1.SemanticType\022\017\n\007commen" +
-      "t\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.gr" +
-      "eptime.v1.ColumnDataTypeExtension\"\230\001\n\021Ad" +
-      "dColumnLocation\022B\n\rlocation_type\030\001 \001(\0162+" +
-      ".greptime.v1.AddColumnLocation.LocationT" +
-      "ype\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Locati" +
-      "onType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.grept" +
-      "ime.v1B\003DdlZ5github.com/GreptimeTeam/gre" +
-      "ptime-proto/go/greptime/v1b\006proto3"
+      "name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013column_defs\030" +
+      "\005 \003(\0132\026.greptime.v1.ColumnDef\022\022\n\ntime_in" +
+      "dex\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t\022\034\n\024creat" +
+      "e_if_not_exists\030\010 \001(\010\022E\n\rtable_options\030\t" +
+      " \003(\0132..greptime.v1.CreateTableExpr.Table" +
+      "OptionsEntry\022&\n\010table_id\030\n \001(\0132\024.greptim" +
+      "e.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOpt" +
+      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
+      "\001\"\346\001\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
+      "\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022." +
+      "\n\013add_columns\030\004 \001(\0132\027.greptime.v1.AddCol" +
+      "umnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.greptime." +
+      "v1.DropColumnsH\000\0220\n\014rename_table\030\006 \001(\0132\030" +
+      ".greptime.v1.RenameTableH\000B\006\n\004kind\"\216\001\n\rD" +
+      "ropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
+      "hema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010t" +
+      "able_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016d" +
+      "rop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDatabaseEx" +
+      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
+      "\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022=\n\007o" +
+      "ptions\030\004 \003(\0132,.greptime.v1.CreateDatabas" +
+      "eExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTa" +
+      "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
+      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_" +
+      "id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n\020DropDa" +
+      "tabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sche" +
+      "ma_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n" +
+      "\nAddColumns\022+\n\013add_columns\030\001 \003(\0132\026.grept" +
+      "ime.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop_" +
+      "columns\030\001 \003(\0132\027.greptime.v1.DropColumn\"%" +
+      "\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"i\n" +
+      "\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptim" +
+      "e.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.grept" +
+      "ime.v1.AddColumnLocation\"\032\n\nDropColumn\022\014" +
+      "\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\t" +
+      "ColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001" +
+      "(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_nu" +
+      "llable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014" +
+      "\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime.v1.Se" +
+      "manticType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_" +
+      "extension\030\007 \001(\0132$.greptime.v1.ColumnData" +
+      "TypeExtension\"\230\001\n\021AddColumnLocation\022B\n\rl" +
+      "ocation_type\030\001 \001(\0162+.greptime.v1.AddColu" +
+      "mnLocation.LocationType\022\031\n\021after_column_" +
+      "name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n" +
+      "\005AFTER\020\001BL\n\016io.greptime.v1B\003DdlZ5github." +
+      "com/GreptimeTeam/greptime-proto/go/grept" +
+      "ime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20376,7 +20448,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateFlowTaskExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateFlowTaskExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "TaskName", "SourceTableNames", "SinkTableName", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "TaskOptions", });
+        new java.lang.String[] { "CatalogName", "TaskName", "SourceTableNames", "SinkTableName", "OrReplace", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "TaskOptions", });
     internal_static_greptime_v1_CreateFlowTaskExpr_TaskOptionsEntry_descriptor =
       internal_static_greptime_v1_CreateFlowTaskExpr_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_CreateFlowTaskExpr_TaskOptionsEntry_fieldAccessorTable = new

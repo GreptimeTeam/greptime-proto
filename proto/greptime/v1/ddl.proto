@@ -44,11 +44,12 @@ message CreateFlowTaskExpr {
   string task_name = 2;
   repeated SchemaScopedTableName source_table_names = 3;
   SchemaScopedTableName sink_table_name = 4;
-  bool create_if_not_exists = 5;
-  string expire_when = 6;
-  string comment = 7;
-  string sql = 8;
-  map<string, string> task_options = 9;
+  bool or_replace = 5;
+  bool create_if_not_exists = 6;
+  string expire_when = 7;
+  string comment = 8;
+  string sql = 9;
+  map<string, string> task_options = 10;
 }
 
 // Table name

@@ -628,14 +628,15 @@ class CreateFlowTaskExpr final :
 
   enum : int {
     kSourceTableNamesFieldNumber = 3,
-    kTaskOptionsFieldNumber = 9,
+    kTaskOptionsFieldNumber = 10,
     kCatalogNameFieldNumber = 1,
     kTaskNameFieldNumber = 2,
-    kExpireWhenFieldNumber = 6,
-    kCommentFieldNumber = 7,
-    kSqlFieldNumber = 8,
+    kExpireWhenFieldNumber = 7,
+    kCommentFieldNumber = 8,
+    kSqlFieldNumber = 9,
     kSinkTableNameFieldNumber = 4,
-    kCreateIfNotExistsFieldNumber = 5,
+    kOrReplaceFieldNumber = 5,
+    kCreateIfNotExistsFieldNumber = 6,
   };
   // repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;
   int source_table_names_size() const;
@@ -655,7 +656,7 @@ class CreateFlowTaskExpr final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SchemaScopedTableName >&
       source_table_names() const;
 
-  // map<string, string> task_options = 9;
+  // map<string, string> task_options = 10;
   int task_options_size() const;
   private:
   int _internal_task_options_size() const;
@@ -700,7 +701,7 @@ class CreateFlowTaskExpr final :
   std::string* _internal_mutable_task_name();
   public:
 
-  // string expire_when = 6;
+  // string expire_when = 7;
   void clear_expire_when();
   const std::string& expire_when() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -714,7 +715,7 @@ class CreateFlowTaskExpr final :
   std::string* _internal_mutable_expire_when();
   public:
 
-  // string comment = 7;
+  // string comment = 8;
   void clear_comment();
   const std::string& comment() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -728,7 +729,7 @@ class CreateFlowTaskExpr final :
   std::string* _internal_mutable_comment();
   public:
 
-  // string sql = 8;
+  // string sql = 9;
   void clear_sql();
   const std::string& sql() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -760,7 +761,16 @@ class CreateFlowTaskExpr final :
       ::greptime::v1::SchemaScopedTableName* sink_table_name);
   ::greptime::v1::SchemaScopedTableName* unsafe_arena_release_sink_table_name();
 
-  // bool create_if_not_exists = 5;
+  // bool or_replace = 5;
+  void clear_or_replace();
+  bool or_replace() const;
+  void set_or_replace(bool value);
+  private:
+  bool _internal_or_replace() const;
+  void _internal_set_or_replace(bool value);
+  public:
+
+  // bool create_if_not_exists = 6;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
   void set_create_if_not_exists(bool value);
@@ -789,6 +799,7 @@ class CreateFlowTaskExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
     ::greptime::v1::SchemaScopedTableName* sink_table_name_;
+    bool or_replace_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -4749,7 +4760,27 @@ inline void CreateFlowTaskExpr::set_allocated_sink_table_name(::greptime::v1::Sc
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.sink_table_name)
 }
 
-// bool create_if_not_exists = 5;
+// bool or_replace = 5;
+inline void CreateFlowTaskExpr::clear_or_replace() {
+  _impl_.or_replace_ = false;
+}
+inline bool CreateFlowTaskExpr::_internal_or_replace() const {
+  return _impl_.or_replace_;
+}
+inline bool CreateFlowTaskExpr::or_replace() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateFlowTaskExpr.or_replace)
+  return _internal_or_replace();
+}
+inline void CreateFlowTaskExpr::_internal_set_or_replace(bool value) {
+  
+  _impl_.or_replace_ = value;
+}
+inline void CreateFlowTaskExpr::set_or_replace(bool value) {
+  _internal_set_or_replace(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowTaskExpr.or_replace)
+}
+
+// bool create_if_not_exists = 6;
 inline void CreateFlowTaskExpr::clear_create_if_not_exists() {
   _impl_.create_if_not_exists_ = false;
 }
@@ -4769,7 +4800,7 @@ inline void CreateFlowTaskExpr::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowTaskExpr.create_if_not_exists)
 }
 
-// string expire_when = 6;
+// string expire_when = 7;
 inline void CreateFlowTaskExpr::clear_expire_when() {
   _impl_.expire_when_.ClearToEmpty();
 }
@@ -4819,7 +4850,7 @@ inline void CreateFlowTaskExpr::set_allocated_expire_when(std::string* expire_wh
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.expire_when)
 }
 
-// string comment = 7;
+// string comment = 8;
 inline void CreateFlowTaskExpr::clear_comment() {
   _impl_.comment_.ClearToEmpty();
 }
@@ -4869,7 +4900,7 @@ inline void CreateFlowTaskExpr::set_allocated_comment(std::string* comment) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.comment)
 }
 
-// string sql = 8;
+// string sql = 9;
 inline void CreateFlowTaskExpr::clear_sql() {
   _impl_.sql_.ClearToEmpty();
 }
@@ -4919,7 +4950,7 @@ inline void CreateFlowTaskExpr::set_allocated_sql(std::string* sql) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.sql)
 }
 
-// map<string, string> task_options = 9;
+// map<string, string> task_options = 10;
 inline int CreateFlowTaskExpr::_internal_task_options_size() const {
   return _impl_.task_options_.size();
 }
