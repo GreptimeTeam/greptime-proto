@@ -105,6 +105,9 @@ extern RemoveFlowTaskExprDefaultTypeInternal _RemoveFlowTaskExpr_default_instanc
 class RenameTable;
 struct RenameTableDefaultTypeInternal;
 extern RenameTableDefaultTypeInternal _RenameTable_default_instance_;
+class SchemaScopedTableName;
+struct SchemaScopedTableNameDefaultTypeInternal;
+extern SchemaScopedTableNameDefaultTypeInternal _SchemaScopedTableName_default_instance_;
 class TableId;
 struct TableIdDefaultTypeInternal;
 extern TableIdDefaultTypeInternal _TableId_default_instance_;
@@ -132,6 +135,7 @@ template<> ::greptime::v1::DropDatabaseExpr* Arena::CreateMaybeMessage<::greptim
 template<> ::greptime::v1::DropTableExpr* Arena::CreateMaybeMessage<::greptime::v1::DropTableExpr>(Arena*);
 template<> ::greptime::v1::RemoveFlowTaskExpr* Arena::CreateMaybeMessage<::greptime::v1::RemoveFlowTaskExpr>(Arena*);
 template<> ::greptime::v1::RenameTable* Arena::CreateMaybeMessage<::greptime::v1::RenameTable>(Arena*);
+template<> ::greptime::v1::SchemaScopedTableName* Arena::CreateMaybeMessage<::greptime::v1::SchemaScopedTableName>(Arena*);
 template<> ::greptime::v1::TableId* Arena::CreateMaybeMessage<::greptime::v1::TableId>(Arena*);
 template<> ::greptime::v1::TruncateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::TruncateTableExpr>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -623,42 +627,35 @@ class CreateFlowTaskExpr final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSourceTablesFieldNumber = 3,
-    kTaskOptionsFieldNumber = 10,
+    kSourceTableNamesFieldNumber = 3,
+    kTaskOptionsFieldNumber = 9,
     kCatalogNameFieldNumber = 1,
     kTaskNameFieldNumber = 2,
-    kOutputSchemaNameFieldNumber = 4,
-    kOutputTableNameFieldNumber = 5,
-    kExpireWhenFieldNumber = 7,
-    kCommentFieldNumber = 8,
-    kSqlFieldNumber = 9,
-    kCreateIfNotExistsFieldNumber = 6,
+    kExpireWhenFieldNumber = 6,
+    kCommentFieldNumber = 7,
+    kSqlFieldNumber = 8,
+    kOutputTableNameFieldNumber = 4,
+    kCreateIfNotExistsFieldNumber = 5,
   };
-  // repeated string source_tables = 3;
-  int source_tables_size() const;
+  // repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;
+  int source_table_names_size() const;
   private:
-  int _internal_source_tables_size() const;
+  int _internal_source_table_names_size() const;
   public:
-  void clear_source_tables();
-  const std::string& source_tables(int index) const;
-  std::string* mutable_source_tables(int index);
-  void set_source_tables(int index, const std::string& value);
-  void set_source_tables(int index, std::string&& value);
-  void set_source_tables(int index, const char* value);
-  void set_source_tables(int index, const char* value, size_t size);
-  std::string* add_source_tables();
-  void add_source_tables(const std::string& value);
-  void add_source_tables(std::string&& value);
-  void add_source_tables(const char* value);
-  void add_source_tables(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& source_tables() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_source_tables();
+  void clear_source_table_names();
+  ::greptime::v1::SchemaScopedTableName* mutable_source_table_names(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SchemaScopedTableName >*
+      mutable_source_table_names();
   private:
-  const std::string& _internal_source_tables(int index) const;
-  std::string* _internal_add_source_tables();
+  const ::greptime::v1::SchemaScopedTableName& _internal_source_table_names(int index) const;
+  ::greptime::v1::SchemaScopedTableName* _internal_add_source_table_names();
   public:
+  const ::greptime::v1::SchemaScopedTableName& source_table_names(int index) const;
+  ::greptime::v1::SchemaScopedTableName* add_source_table_names();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SchemaScopedTableName >&
+      source_table_names() const;
 
-  // map<string, string> task_options = 10;
+  // map<string, string> task_options = 9;
   int task_options_size() const;
   private:
   int _internal_task_options_size() const;
@@ -703,35 +700,7 @@ class CreateFlowTaskExpr final :
   std::string* _internal_mutable_task_name();
   public:
 
-  // string output_schema_name = 4;
-  void clear_output_schema_name();
-  const std::string& output_schema_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_output_schema_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_output_schema_name();
-  PROTOBUF_NODISCARD std::string* release_output_schema_name();
-  void set_allocated_output_schema_name(std::string* output_schema_name);
-  private:
-  const std::string& _internal_output_schema_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_output_schema_name(const std::string& value);
-  std::string* _internal_mutable_output_schema_name();
-  public:
-
-  // string output_table_name = 5;
-  void clear_output_table_name();
-  const std::string& output_table_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_output_table_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_output_table_name();
-  PROTOBUF_NODISCARD std::string* release_output_table_name();
-  void set_allocated_output_table_name(std::string* output_table_name);
-  private:
-  const std::string& _internal_output_table_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_output_table_name(const std::string& value);
-  std::string* _internal_mutable_output_table_name();
-  public:
-
-  // string expire_when = 7;
+  // string expire_when = 6;
   void clear_expire_when();
   const std::string& expire_when() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -745,7 +714,7 @@ class CreateFlowTaskExpr final :
   std::string* _internal_mutable_expire_when();
   public:
 
-  // string comment = 8;
+  // string comment = 7;
   void clear_comment();
   const std::string& comment() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -759,7 +728,7 @@ class CreateFlowTaskExpr final :
   std::string* _internal_mutable_comment();
   public:
 
-  // string sql = 9;
+  // string sql = 8;
   void clear_sql();
   const std::string& sql() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -773,7 +742,25 @@ class CreateFlowTaskExpr final :
   std::string* _internal_mutable_sql();
   public:
 
-  // bool create_if_not_exists = 6;
+  // .greptime.v1.SchemaScopedTableName output_table_name = 4;
+  bool has_output_table_name() const;
+  private:
+  bool _internal_has_output_table_name() const;
+  public:
+  void clear_output_table_name();
+  const ::greptime::v1::SchemaScopedTableName& output_table_name() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SchemaScopedTableName* release_output_table_name();
+  ::greptime::v1::SchemaScopedTableName* mutable_output_table_name();
+  void set_allocated_output_table_name(::greptime::v1::SchemaScopedTableName* output_table_name);
+  private:
+  const ::greptime::v1::SchemaScopedTableName& _internal_output_table_name() const;
+  ::greptime::v1::SchemaScopedTableName* _internal_mutable_output_table_name();
+  public:
+  void unsafe_arena_set_allocated_output_table_name(
+      ::greptime::v1::SchemaScopedTableName* output_table_name);
+  ::greptime::v1::SchemaScopedTableName* unsafe_arena_release_output_table_name();
+
+  // bool create_if_not_exists = 5;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
   void set_create_if_not_exists(bool value);
@@ -790,7 +777,7 @@ class CreateFlowTaskExpr final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> source_tables_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SchemaScopedTableName > source_table_names_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
         CreateFlowTaskExpr_TaskOptionsEntry_DoNotUse,
         std::string, std::string,
@@ -798,12 +785,180 @@ class CreateFlowTaskExpr final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> task_options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr output_schema_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr output_table_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_when_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
+    ::greptime::v1::SchemaScopedTableName* output_table_name_;
     bool create_if_not_exists_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SchemaScopedTableName final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SchemaScopedTableName) */ {
+ public:
+  inline SchemaScopedTableName() : SchemaScopedTableName(nullptr) {}
+  ~SchemaScopedTableName() override;
+  explicit PROTOBUF_CONSTEXPR SchemaScopedTableName(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SchemaScopedTableName(const SchemaScopedTableName& from);
+  SchemaScopedTableName(SchemaScopedTableName&& from) noexcept
+    : SchemaScopedTableName() {
+    *this = ::std::move(from);
+  }
+
+  inline SchemaScopedTableName& operator=(const SchemaScopedTableName& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SchemaScopedTableName& operator=(SchemaScopedTableName&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SchemaScopedTableName& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SchemaScopedTableName* internal_default_instance() {
+    return reinterpret_cast<const SchemaScopedTableName*>(
+               &_SchemaScopedTableName_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(SchemaScopedTableName& a, SchemaScopedTableName& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SchemaScopedTableName* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SchemaScopedTableName* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SchemaScopedTableName* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SchemaScopedTableName>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SchemaScopedTableName& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SchemaScopedTableName& from) {
+    SchemaScopedTableName::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SchemaScopedTableName* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.SchemaScopedTableName";
+  }
+  protected:
+  explicit SchemaScopedTableName(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSchemaNameFieldNumber = 1,
+    kTableNameFieldNumber = 2,
+  };
+  // string schema_name = 1;
+  void clear_schema_name();
+  const std::string& schema_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_schema_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_schema_name();
+  PROTOBUF_NODISCARD std::string* release_schema_name();
+  void set_allocated_schema_name(std::string* schema_name);
+  private:
+  const std::string& _internal_schema_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema_name(const std::string& value);
+  std::string* _internal_mutable_schema_name();
+  public:
+
+  // string table_name = 2;
+  void clear_table_name();
+  const std::string& table_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_table_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_table_name();
+  PROTOBUF_NODISCARD std::string* release_table_name();
+  void set_allocated_table_name(std::string* table_name);
+  private:
+  const std::string& _internal_table_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_name(const std::string& value);
+  std::string* _internal_mutable_table_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.SchemaScopedTableName)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -859,7 +1014,7 @@ class RemoveFlowTaskExpr final :
                &_RemoveFlowTaskExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(RemoveFlowTaskExpr& a, RemoveFlowTaskExpr& b) {
     a.Swap(&b);
@@ -1056,7 +1211,7 @@ class CreateTableExpr final :
                &_CreateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(CreateTableExpr& a, CreateTableExpr& b) {
     a.Swap(&b);
@@ -1399,7 +1554,7 @@ class AlterExpr final :
                &_AlterExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(AlterExpr& a, AlterExpr& b) {
     a.Swap(&b);
@@ -1658,7 +1813,7 @@ class DropTableExpr final :
                &_DropTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(DropTableExpr& a, DropTableExpr& b) {
     a.Swap(&b);
@@ -1902,7 +2057,7 @@ class CreateDatabaseExpr final :
                &_CreateDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(CreateDatabaseExpr& a, CreateDatabaseExpr& b) {
     a.Swap(&b);
@@ -2108,7 +2263,7 @@ class TruncateTableExpr final :
                &_TruncateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(TruncateTableExpr& a, TruncateTableExpr& b) {
     a.Swap(&b);
@@ -2313,7 +2468,7 @@ class DropDatabaseExpr final :
                &_DropDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(DropDatabaseExpr& a, DropDatabaseExpr& b) {
     a.Swap(&b);
@@ -2493,7 +2648,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -2650,7 +2805,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -2807,7 +2962,7 @@ class RenameTable final :
                &_RenameTable_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(RenameTable& a, RenameTable& b) {
     a.Swap(&b);
@@ -2960,7 +3115,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -3137,7 +3292,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -3290,7 +3445,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -3438,7 +3593,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -3676,7 +3831,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -4464,182 +4619,137 @@ inline void CreateFlowTaskExpr::set_allocated_task_name(std::string* task_name) 
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.task_name)
 }
 
-// repeated string source_tables = 3;
-inline int CreateFlowTaskExpr::_internal_source_tables_size() const {
-  return _impl_.source_tables_.size();
+// repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;
+inline int CreateFlowTaskExpr::_internal_source_table_names_size() const {
+  return _impl_.source_table_names_.size();
 }
-inline int CreateFlowTaskExpr::source_tables_size() const {
-  return _internal_source_tables_size();
+inline int CreateFlowTaskExpr::source_table_names_size() const {
+  return _internal_source_table_names_size();
 }
-inline void CreateFlowTaskExpr::clear_source_tables() {
-  _impl_.source_tables_.Clear();
+inline void CreateFlowTaskExpr::clear_source_table_names() {
+  _impl_.source_table_names_.Clear();
 }
-inline std::string* CreateFlowTaskExpr::add_source_tables() {
-  std::string* _s = _internal_add_source_tables();
-  // @@protoc_insertion_point(field_add_mutable:greptime.v1.CreateFlowTaskExpr.source_tables)
-  return _s;
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::mutable_source_table_names(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateFlowTaskExpr.source_table_names)
+  return _impl_.source_table_names_.Mutable(index);
 }
-inline const std::string& CreateFlowTaskExpr::_internal_source_tables(int index) const {
-  return _impl_.source_tables_.Get(index);
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SchemaScopedTableName >*
+CreateFlowTaskExpr::mutable_source_table_names() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.CreateFlowTaskExpr.source_table_names)
+  return &_impl_.source_table_names_;
 }
-inline const std::string& CreateFlowTaskExpr::source_tables(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CreateFlowTaskExpr.source_tables)
-  return _internal_source_tables(index);
+inline const ::greptime::v1::SchemaScopedTableName& CreateFlowTaskExpr::_internal_source_table_names(int index) const {
+  return _impl_.source_table_names_.Get(index);
 }
-inline std::string* CreateFlowTaskExpr::mutable_source_tables(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateFlowTaskExpr.source_tables)
-  return _impl_.source_tables_.Mutable(index);
+inline const ::greptime::v1::SchemaScopedTableName& CreateFlowTaskExpr::source_table_names(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateFlowTaskExpr.source_table_names)
+  return _internal_source_table_names(index);
 }
-inline void CreateFlowTaskExpr::set_source_tables(int index, const std::string& value) {
-  _impl_.source_tables_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowTaskExpr.source_tables)
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::_internal_add_source_table_names() {
+  return _impl_.source_table_names_.Add();
 }
-inline void CreateFlowTaskExpr::set_source_tables(int index, std::string&& value) {
-  _impl_.source_tables_.Mutable(index)->assign(std::move(value));
-  // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowTaskExpr.source_tables)
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::add_source_table_names() {
+  ::greptime::v1::SchemaScopedTableName* _add = _internal_add_source_table_names();
+  // @@protoc_insertion_point(field_add:greptime.v1.CreateFlowTaskExpr.source_table_names)
+  return _add;
 }
-inline void CreateFlowTaskExpr::set_source_tables(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.source_tables_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:greptime.v1.CreateFlowTaskExpr.source_tables)
-}
-inline void CreateFlowTaskExpr::set_source_tables(int index, const char* value, size_t size) {
-  _impl_.source_tables_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:greptime.v1.CreateFlowTaskExpr.source_tables)
-}
-inline std::string* CreateFlowTaskExpr::_internal_add_source_tables() {
-  return _impl_.source_tables_.Add();
-}
-inline void CreateFlowTaskExpr::add_source_tables(const std::string& value) {
-  _impl_.source_tables_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.CreateFlowTaskExpr.source_tables)
-}
-inline void CreateFlowTaskExpr::add_source_tables(std::string&& value) {
-  _impl_.source_tables_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:greptime.v1.CreateFlowTaskExpr.source_tables)
-}
-inline void CreateFlowTaskExpr::add_source_tables(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.source_tables_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:greptime.v1.CreateFlowTaskExpr.source_tables)
-}
-inline void CreateFlowTaskExpr::add_source_tables(const char* value, size_t size) {
-  _impl_.source_tables_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:greptime.v1.CreateFlowTaskExpr.source_tables)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-CreateFlowTaskExpr::source_tables() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.CreateFlowTaskExpr.source_tables)
-  return _impl_.source_tables_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-CreateFlowTaskExpr::mutable_source_tables() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.CreateFlowTaskExpr.source_tables)
-  return &_impl_.source_tables_;
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SchemaScopedTableName >&
+CreateFlowTaskExpr::source_table_names() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.CreateFlowTaskExpr.source_table_names)
+  return _impl_.source_table_names_;
 }
 
-// string output_schema_name = 4;
-inline void CreateFlowTaskExpr::clear_output_schema_name() {
-  _impl_.output_schema_name_.ClearToEmpty();
+// .greptime.v1.SchemaScopedTableName output_table_name = 4;
+inline bool CreateFlowTaskExpr::_internal_has_output_table_name() const {
+  return this != internal_default_instance() && _impl_.output_table_name_ != nullptr;
 }
-inline const std::string& CreateFlowTaskExpr::output_schema_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CreateFlowTaskExpr.output_schema_name)
-  return _internal_output_schema_name();
+inline bool CreateFlowTaskExpr::has_output_table_name() const {
+  return _internal_has_output_table_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CreateFlowTaskExpr::set_output_schema_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.output_schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowTaskExpr.output_schema_name)
-}
-inline std::string* CreateFlowTaskExpr::mutable_output_schema_name() {
-  std::string* _s = _internal_mutable_output_schema_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateFlowTaskExpr.output_schema_name)
-  return _s;
-}
-inline const std::string& CreateFlowTaskExpr::_internal_output_schema_name() const {
-  return _impl_.output_schema_name_.Get();
-}
-inline void CreateFlowTaskExpr::_internal_set_output_schema_name(const std::string& value) {
-  
-  _impl_.output_schema_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CreateFlowTaskExpr::_internal_mutable_output_schema_name() {
-  
-  return _impl_.output_schema_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CreateFlowTaskExpr::release_output_schema_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.CreateFlowTaskExpr.output_schema_name)
-  return _impl_.output_schema_name_.Release();
-}
-inline void CreateFlowTaskExpr::set_allocated_output_schema_name(std::string* output_schema_name) {
-  if (output_schema_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.output_schema_name_.SetAllocated(output_schema_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.output_schema_name_.IsDefault()) {
-    _impl_.output_schema_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.output_schema_name)
-}
-
-// string output_table_name = 5;
 inline void CreateFlowTaskExpr::clear_output_table_name() {
-  _impl_.output_table_name_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.output_table_name_ != nullptr) {
+    delete _impl_.output_table_name_;
+  }
+  _impl_.output_table_name_ = nullptr;
 }
-inline const std::string& CreateFlowTaskExpr::output_table_name() const {
+inline const ::greptime::v1::SchemaScopedTableName& CreateFlowTaskExpr::_internal_output_table_name() const {
+  const ::greptime::v1::SchemaScopedTableName* p = _impl_.output_table_name_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::SchemaScopedTableName&>(
+      ::greptime::v1::_SchemaScopedTableName_default_instance_);
+}
+inline const ::greptime::v1::SchemaScopedTableName& CreateFlowTaskExpr::output_table_name() const {
   // @@protoc_insertion_point(field_get:greptime.v1.CreateFlowTaskExpr.output_table_name)
   return _internal_output_table_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CreateFlowTaskExpr::set_output_table_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.output_table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowTaskExpr.output_table_name)
-}
-inline std::string* CreateFlowTaskExpr::mutable_output_table_name() {
-  std::string* _s = _internal_mutable_output_table_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateFlowTaskExpr.output_table_name)
-  return _s;
-}
-inline const std::string& CreateFlowTaskExpr::_internal_output_table_name() const {
-  return _impl_.output_table_name_.Get();
-}
-inline void CreateFlowTaskExpr::_internal_set_output_table_name(const std::string& value) {
-  
-  _impl_.output_table_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CreateFlowTaskExpr::_internal_mutable_output_table_name() {
-  
-  return _impl_.output_table_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CreateFlowTaskExpr::release_output_table_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.CreateFlowTaskExpr.output_table_name)
-  return _impl_.output_table_name_.Release();
-}
-inline void CreateFlowTaskExpr::set_allocated_output_table_name(std::string* output_table_name) {
-  if (output_table_name != nullptr) {
+inline void CreateFlowTaskExpr::unsafe_arena_set_allocated_output_table_name(
+    ::greptime::v1::SchemaScopedTableName* output_table_name) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.output_table_name_);
+  }
+  _impl_.output_table_name_ = output_table_name;
+  if (output_table_name) {
     
   } else {
     
   }
-  _impl_.output_table_name_.SetAllocated(output_table_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.output_table_name_.IsDefault()) {
-    _impl_.output_table_name_.Set("", GetArenaForAllocation());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.CreateFlowTaskExpr.output_table_name)
+}
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::release_output_table_name() {
+  
+  ::greptime::v1::SchemaScopedTableName* temp = _impl_.output_table_name_;
+  _impl_.output_table_name_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::unsafe_arena_release_output_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateFlowTaskExpr.output_table_name)
+  
+  ::greptime::v1::SchemaScopedTableName* temp = _impl_.output_table_name_;
+  _impl_.output_table_name_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::_internal_mutable_output_table_name() {
+  
+  if (_impl_.output_table_name_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::SchemaScopedTableName>(GetArenaForAllocation());
+    _impl_.output_table_name_ = p;
+  }
+  return _impl_.output_table_name_;
+}
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::mutable_output_table_name() {
+  ::greptime::v1::SchemaScopedTableName* _msg = _internal_mutable_output_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateFlowTaskExpr.output_table_name)
+  return _msg;
+}
+inline void CreateFlowTaskExpr::set_allocated_output_table_name(::greptime::v1::SchemaScopedTableName* output_table_name) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.output_table_name_;
+  }
+  if (output_table_name) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(output_table_name);
+    if (message_arena != submessage_arena) {
+      output_table_name = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, output_table_name, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.output_table_name_ = output_table_name;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.output_table_name)
 }
 
-// bool create_if_not_exists = 6;
+// bool create_if_not_exists = 5;
 inline void CreateFlowTaskExpr::clear_create_if_not_exists() {
   _impl_.create_if_not_exists_ = false;
 }
@@ -4659,7 +4769,7 @@ inline void CreateFlowTaskExpr::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowTaskExpr.create_if_not_exists)
 }
 
-// string expire_when = 7;
+// string expire_when = 6;
 inline void CreateFlowTaskExpr::clear_expire_when() {
   _impl_.expire_when_.ClearToEmpty();
 }
@@ -4709,7 +4819,7 @@ inline void CreateFlowTaskExpr::set_allocated_expire_when(std::string* expire_wh
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.expire_when)
 }
 
-// string comment = 8;
+// string comment = 7;
 inline void CreateFlowTaskExpr::clear_comment() {
   _impl_.comment_.ClearToEmpty();
 }
@@ -4759,7 +4869,7 @@ inline void CreateFlowTaskExpr::set_allocated_comment(std::string* comment) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.comment)
 }
 
-// string sql = 9;
+// string sql = 8;
 inline void CreateFlowTaskExpr::clear_sql() {
   _impl_.sql_.ClearToEmpty();
 }
@@ -4809,7 +4919,7 @@ inline void CreateFlowTaskExpr::set_allocated_sql(std::string* sql) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.sql)
 }
 
-// map<string, string> task_options = 10;
+// map<string, string> task_options = 9;
 inline int CreateFlowTaskExpr::_internal_task_options_size() const {
   return _impl_.task_options_.size();
 }
@@ -4836,6 +4946,110 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
 CreateFlowTaskExpr::mutable_task_options() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.CreateFlowTaskExpr.task_options)
   return _internal_mutable_task_options();
+}
+
+// -------------------------------------------------------------------
+
+// SchemaScopedTableName
+
+// string schema_name = 1;
+inline void SchemaScopedTableName::clear_schema_name() {
+  _impl_.schema_name_.ClearToEmpty();
+}
+inline const std::string& SchemaScopedTableName::schema_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SchemaScopedTableName.schema_name)
+  return _internal_schema_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SchemaScopedTableName::set_schema_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.SchemaScopedTableName.schema_name)
+}
+inline std::string* SchemaScopedTableName::mutable_schema_name() {
+  std::string* _s = _internal_mutable_schema_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SchemaScopedTableName.schema_name)
+  return _s;
+}
+inline const std::string& SchemaScopedTableName::_internal_schema_name() const {
+  return _impl_.schema_name_.Get();
+}
+inline void SchemaScopedTableName::_internal_set_schema_name(const std::string& value) {
+  
+  _impl_.schema_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SchemaScopedTableName::_internal_mutable_schema_name() {
+  
+  return _impl_.schema_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SchemaScopedTableName::release_schema_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.SchemaScopedTableName.schema_name)
+  return _impl_.schema_name_.Release();
+}
+inline void SchemaScopedTableName::set_allocated_schema_name(std::string* schema_name) {
+  if (schema_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.schema_name_.SetAllocated(schema_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.schema_name_.IsDefault()) {
+    _impl_.schema_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.SchemaScopedTableName.schema_name)
+}
+
+// string table_name = 2;
+inline void SchemaScopedTableName::clear_table_name() {
+  _impl_.table_name_.ClearToEmpty();
+}
+inline const std::string& SchemaScopedTableName::table_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SchemaScopedTableName.table_name)
+  return _internal_table_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SchemaScopedTableName::set_table_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.SchemaScopedTableName.table_name)
+}
+inline std::string* SchemaScopedTableName::mutable_table_name() {
+  std::string* _s = _internal_mutable_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SchemaScopedTableName.table_name)
+  return _s;
+}
+inline const std::string& SchemaScopedTableName::_internal_table_name() const {
+  return _impl_.table_name_.Get();
+}
+inline void SchemaScopedTableName::_internal_set_table_name(const std::string& value) {
+  
+  _impl_.table_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SchemaScopedTableName::_internal_mutable_table_name() {
+  
+  return _impl_.table_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SchemaScopedTableName::release_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.SchemaScopedTableName.table_name)
+  return _impl_.table_name_.Release();
+}
+inline void SchemaScopedTableName::set_allocated_table_name(std::string* table_name) {
+  if (table_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.table_name_.SetAllocated(table_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.table_name_.IsDefault()) {
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.SchemaScopedTableName.table_name)
 }
 
 // -------------------------------------------------------------------
@@ -7454,6 +7668,8 @@ inline void AddColumnLocation::set_allocated_after_column_name(std::string* afte
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
