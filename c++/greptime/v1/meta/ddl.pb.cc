@@ -142,6 +142,32 @@ struct DropDatabaseTaskDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DropDatabaseTaskDefaultTypeInternal _DropDatabaseTask_default_instance_;
+PROTOBUF_CONSTEXPR CreateFlowTask::CreateFlowTask(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.create_flow_task_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CreateFlowTaskDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CreateFlowTaskDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CreateFlowTaskDefaultTypeInternal() {}
+  union {
+    CreateFlowTask _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateFlowTaskDefaultTypeInternal _CreateFlowTask_default_instance_;
+PROTOBUF_CONSTEXPR DropFlowTask::DropFlowTask(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.drop_flow_task_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct DropFlowTaskDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DropFlowTaskDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DropFlowTaskDefaultTypeInternal() {}
+  union {
+    DropFlowTask _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DropFlowTaskDefaultTypeInternal _DropFlowTask_default_instance_;
 PROTOBUF_CONSTEXPR DdlTaskRequest::DdlTaskRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
@@ -176,7 +202,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fddl_2eproto[11];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fddl_2eproto[13];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fddl_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fddl_2eproto = nullptr;
 
@@ -247,12 +273,28 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets[] PROTOBU
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DropDatabaseTask, _impl_.drop_database_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::CreateFlowTask, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::CreateFlowTask, _impl_.create_flow_task_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DropFlowTask, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DropFlowTask, _impl_.drop_flow_task_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DdlTaskRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DdlTaskRequest, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DdlTaskRequest, _impl_.header_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
@@ -284,8 +326,10 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 44, -1, -1, sizeof(::greptime::v1::meta::AlterTableTasks)},
   { 51, -1, -1, sizeof(::greptime::v1::meta::TruncateTableTask)},
   { 58, -1, -1, sizeof(::greptime::v1::meta::DropDatabaseTask)},
-  { 65, -1, -1, sizeof(::greptime::v1::meta::DdlTaskRequest)},
-  { 82, -1, -1, sizeof(::greptime::v1::meta::DdlTaskResponse)},
+  { 65, -1, -1, sizeof(::greptime::v1::meta::CreateFlowTask)},
+  { 72, -1, -1, sizeof(::greptime::v1::meta::DropFlowTask)},
+  { 79, -1, -1, sizeof(::greptime::v1::meta::DdlTaskRequest)},
+  { 98, -1, -1, sizeof(::greptime::v1::meta::DdlTaskResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -298,6 +342,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_AlterTableTasks_default_instance_._instance,
   &::greptime::v1::meta::_TruncateTableTask_default_instance_._instance,
   &::greptime::v1::meta::_DropDatabaseTask_default_instance_._instance,
+  &::greptime::v1::meta::_CreateFlowTask_default_instance_._instance,
+  &::greptime::v1::meta::_DropFlowTask_default_instance_._instance,
   &::greptime::v1::meta::_DdlTaskRequest_default_instance_._instance,
   &::greptime::v1::meta::_DdlTaskResponse_default_instance_._instance,
 };
@@ -323,32 +369,38 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto[] PROTOB
   "ask\"K\n\021TruncateTableTask\0226\n\016truncate_tab"
   "le\030\001 \001(\0132\036.greptime.v1.TruncateTableExpr"
   "\"H\n\020DropDatabaseTask\0224\n\rdrop_database\030\001 "
-  "\001(\0132\035.greptime.v1.DropDatabaseExpr\"\217\005\n\016D"
-  "dlTaskRequest\022/\n\006header\030\001 \001(\0132\037.greptime"
-  ".v1.meta.RequestHeader\022>\n\021create_table_t"
-  "ask\030\002 \001(\0132!.greptime.v1.meta.CreateTable"
-  "TaskH\000\022:\n\017drop_table_task\030\003 \001(\0132\037.grepti"
-  "me.v1.meta.DropTableTaskH\000\022<\n\020alter_tabl"
-  "e_task\030\004 \001(\0132 .greptime.v1.meta.AlterTab"
-  "leTaskH\000\022B\n\023truncate_table_task\030\005 \001(\0132#."
-  "greptime.v1.meta.TruncateTableTaskH\000\022@\n\022"
-  "create_table_tasks\030\006 \001(\0132\".greptime.v1.m"
-  "eta.CreateTableTasksH\000\022<\n\020drop_table_tas"
-  "ks\030\007 \001(\0132 .greptime.v1.meta.DropTableTas"
-  "ksH\000\022>\n\021alter_table_tasks\030\010 \001(\0132!.grepti"
-  "me.v1.meta.AlterTableTasksH\000\022@\n\022drop_dat"
-  "abase_task\030\t \001(\0132\".greptime.v1.meta.Drop"
-  "DatabaseTaskH\000\022D\n\024create_database_task\030\n"
-  " \001(\0132$.greptime.v1.meta.CreateDatabaseTa"
-  "skH\000B\006\n\004task\"\312\001\n\017DdlTaskResponse\0220\n\006head"
-  "er\030\001 \001(\0132 .greptime.v1.meta.ResponseHead"
-  "er\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.Proce"
-  "dureId\022+\n\010table_id\030\004 \001(\0132\031.greptime.v1.m"
-  "eta.TableId\022,\n\ttable_ids\030\005 \003(\0132\031.greptim"
-  "e.v1.meta.TableId*#\n\013DdlTaskType\022\n\n\006Crea"
-  "te\020\000\022\010\n\004Drop\020\001B<Z:github.com/GreptimeTea"
-  "m/greptime-proto/go/greptime/v1/metab\006pr"
-  "oto3"
+  "\001(\0132\035.greptime.v1.DropDatabaseExpr\"K\n\016Cr"
+  "eateFlowTask\0229\n\020create_flow_task\030\001 \001(\0132\037"
+  ".greptime.v1.CreateFlowTaskExpr\"E\n\014DropF"
+  "lowTask\0225\n\016drop_flow_task\030\001 \001(\0132\035.grepti"
+  "me.v1.DropFlowTaskExpr\"\207\006\n\016DdlTaskReques"
+  "t\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Req"
+  "uestHeader\022>\n\021create_table_task\030\002 \001(\0132!."
+  "greptime.v1.meta.CreateTableTaskH\000\022:\n\017dr"
+  "op_table_task\030\003 \001(\0132\037.greptime.v1.meta.D"
+  "ropTableTaskH\000\022<\n\020alter_table_task\030\004 \001(\013"
+  "2 .greptime.v1.meta.AlterTableTaskH\000\022B\n\023"
+  "truncate_table_task\030\005 \001(\0132#.greptime.v1."
+  "meta.TruncateTableTaskH\000\022@\n\022create_table"
+  "_tasks\030\006 \001(\0132\".greptime.v1.meta.CreateTa"
+  "bleTasksH\000\022<\n\020drop_table_tasks\030\007 \001(\0132 .g"
+  "reptime.v1.meta.DropTableTasksH\000\022>\n\021alte"
+  "r_table_tasks\030\010 \001(\0132!.greptime.v1.meta.A"
+  "lterTableTasksH\000\022@\n\022drop_database_task\030\t"
+  " \001(\0132\".greptime.v1.meta.DropDatabaseTask"
+  "H\000\022D\n\024create_database_task\030\n \001(\0132$.grept"
+  "ime.v1.meta.CreateDatabaseTaskH\000\022<\n\020crea"
+  "te_flow_task\030\013 \001(\0132 .greptime.v1.meta.Cr"
+  "eateFlowTaskH\000\0228\n\016drop_flow_task\030\014 \001(\0132\036"
+  ".greptime.v1.meta.DropFlowTaskH\000B\006\n\004task"
+  "\"\312\001\n\017DdlTaskResponse\0220\n\006header\030\001 \001(\0132 .g"
+  "reptime.v1.meta.ResponseHeader\022*\n\003pid\030\002 "
+  "\001(\0132\035.greptime.v1.meta.ProcedureId\022+\n\010ta"
+  "ble_id\030\004 \001(\0132\031.greptime.v1.meta.TableId\022"
+  ",\n\ttable_ids\030\005 \003(\0132\031.greptime.v1.meta.Ta"
+  "bleId*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop"
+  "\020\001B<Z:github.com/GreptimeTeam/greptime-p"
+  "roto/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fddl_2eproto,
@@ -357,9 +409,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto = {
-    false, false, 1804, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
+    false, false, 2072, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
     "greptime/v1/meta/ddl.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps, 3, 11,
+    &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps, 3, 13,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fddl_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fddl_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fddl_2eproto,
@@ -2223,6 +2275,404 @@ void DropDatabaseTask::InternalSwap(DropDatabaseTask* other) {
 
 // ===================================================================
 
+class CreateFlowTask::_Internal {
+ public:
+  static const ::greptime::v1::CreateFlowTaskExpr& create_flow_task(const CreateFlowTask* msg);
+};
+
+const ::greptime::v1::CreateFlowTaskExpr&
+CreateFlowTask::_Internal::create_flow_task(const CreateFlowTask* msg) {
+  return *msg->_impl_.create_flow_task_;
+}
+void CreateFlowTask::clear_create_flow_task() {
+  if (GetArenaForAllocation() == nullptr && _impl_.create_flow_task_ != nullptr) {
+    delete _impl_.create_flow_task_;
+  }
+  _impl_.create_flow_task_ = nullptr;
+}
+CreateFlowTask::CreateFlowTask(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.CreateFlowTask)
+}
+CreateFlowTask::CreateFlowTask(const CreateFlowTask& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CreateFlowTask* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.create_flow_task_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_create_flow_task()) {
+    _this->_impl_.create_flow_task_ = new ::greptime::v1::CreateFlowTaskExpr(*from._impl_.create_flow_task_);
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.CreateFlowTask)
+}
+
+inline void CreateFlowTask::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.create_flow_task_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CreateFlowTask::~CreateFlowTask() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.CreateFlowTask)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CreateFlowTask::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.create_flow_task_;
+}
+
+void CreateFlowTask::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CreateFlowTask::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.CreateFlowTask)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.create_flow_task_ != nullptr) {
+    delete _impl_.create_flow_task_;
+  }
+  _impl_.create_flow_task_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CreateFlowTask::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.CreateFlowTaskExpr create_flow_task = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_create_flow_task(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CreateFlowTask::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.CreateFlowTask)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.CreateFlowTaskExpr create_flow_task = 1;
+  if (this->_internal_has_create_flow_task()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::create_flow_task(this),
+        _Internal::create_flow_task(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.CreateFlowTask)
+  return target;
+}
+
+size_t CreateFlowTask::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.CreateFlowTask)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .greptime.v1.CreateFlowTaskExpr create_flow_task = 1;
+  if (this->_internal_has_create_flow_task()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.create_flow_task_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CreateFlowTask::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CreateFlowTask::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CreateFlowTask::GetClassData() const { return &_class_data_; }
+
+
+void CreateFlowTask::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CreateFlowTask*>(&to_msg);
+  auto& from = static_cast<const CreateFlowTask&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.CreateFlowTask)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_create_flow_task()) {
+    _this->_internal_mutable_create_flow_task()->::greptime::v1::CreateFlowTaskExpr::MergeFrom(
+        from._internal_create_flow_task());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CreateFlowTask::CopyFrom(const CreateFlowTask& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.CreateFlowTask)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CreateFlowTask::IsInitialized() const {
+  return true;
+}
+
+void CreateFlowTask::InternalSwap(CreateFlowTask* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.create_flow_task_, other->_impl_.create_flow_task_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CreateFlowTask::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fddl_2eproto[9]);
+}
+
+// ===================================================================
+
+class DropFlowTask::_Internal {
+ public:
+  static const ::greptime::v1::DropFlowTaskExpr& drop_flow_task(const DropFlowTask* msg);
+};
+
+const ::greptime::v1::DropFlowTaskExpr&
+DropFlowTask::_Internal::drop_flow_task(const DropFlowTask* msg) {
+  return *msg->_impl_.drop_flow_task_;
+}
+void DropFlowTask::clear_drop_flow_task() {
+  if (GetArenaForAllocation() == nullptr && _impl_.drop_flow_task_ != nullptr) {
+    delete _impl_.drop_flow_task_;
+  }
+  _impl_.drop_flow_task_ = nullptr;
+}
+DropFlowTask::DropFlowTask(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.DropFlowTask)
+}
+DropFlowTask::DropFlowTask(const DropFlowTask& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  DropFlowTask* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.drop_flow_task_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_drop_flow_task()) {
+    _this->_impl_.drop_flow_task_ = new ::greptime::v1::DropFlowTaskExpr(*from._impl_.drop_flow_task_);
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.DropFlowTask)
+}
+
+inline void DropFlowTask::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.drop_flow_task_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+DropFlowTask::~DropFlowTask() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.DropFlowTask)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void DropFlowTask::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.drop_flow_task_;
+}
+
+void DropFlowTask::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void DropFlowTask::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.DropFlowTask)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.drop_flow_task_ != nullptr) {
+    delete _impl_.drop_flow_task_;
+  }
+  _impl_.drop_flow_task_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DropFlowTask::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.DropFlowTaskExpr drop_flow_task = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_drop_flow_task(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DropFlowTask::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.DropFlowTask)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.DropFlowTaskExpr drop_flow_task = 1;
+  if (this->_internal_has_drop_flow_task()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::drop_flow_task(this),
+        _Internal::drop_flow_task(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.DropFlowTask)
+  return target;
+}
+
+size_t DropFlowTask::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.DropFlowTask)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .greptime.v1.DropFlowTaskExpr drop_flow_task = 1;
+  if (this->_internal_has_drop_flow_task()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.drop_flow_task_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DropFlowTask::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    DropFlowTask::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DropFlowTask::GetClassData() const { return &_class_data_; }
+
+
+void DropFlowTask::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<DropFlowTask*>(&to_msg);
+  auto& from = static_cast<const DropFlowTask&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.DropFlowTask)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_drop_flow_task()) {
+    _this->_internal_mutable_drop_flow_task()->::greptime::v1::DropFlowTaskExpr::MergeFrom(
+        from._internal_drop_flow_task());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DropFlowTask::CopyFrom(const DropFlowTask& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.DropFlowTask)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DropFlowTask::IsInitialized() const {
+  return true;
+}
+
+void DropFlowTask::InternalSwap(DropFlowTask* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.drop_flow_task_, other->_impl_.drop_flow_task_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DropFlowTask::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fddl_2eproto[10]);
+}
+
+// ===================================================================
+
 class DdlTaskRequest::_Internal {
  public:
   static const ::greptime::v1::meta::RequestHeader& header(const DdlTaskRequest* msg);
@@ -2235,6 +2685,8 @@ class DdlTaskRequest::_Internal {
   static const ::greptime::v1::meta::AlterTableTasks& alter_table_tasks(const DdlTaskRequest* msg);
   static const ::greptime::v1::meta::DropDatabaseTask& drop_database_task(const DdlTaskRequest* msg);
   static const ::greptime::v1::meta::CreateDatabaseTask& create_database_task(const DdlTaskRequest* msg);
+  static const ::greptime::v1::meta::CreateFlowTask& create_flow_task(const DdlTaskRequest* msg);
+  static const ::greptime::v1::meta::DropFlowTask& drop_flow_task(const DdlTaskRequest* msg);
 };
 
 const ::greptime::v1::meta::RequestHeader&
@@ -2276,6 +2728,14 @@ DdlTaskRequest::_Internal::drop_database_task(const DdlTaskRequest* msg) {
 const ::greptime::v1::meta::CreateDatabaseTask&
 DdlTaskRequest::_Internal::create_database_task(const DdlTaskRequest* msg) {
   return *msg->_impl_.task_.create_database_task_;
+}
+const ::greptime::v1::meta::CreateFlowTask&
+DdlTaskRequest::_Internal::create_flow_task(const DdlTaskRequest* msg) {
+  return *msg->_impl_.task_.create_flow_task_;
+}
+const ::greptime::v1::meta::DropFlowTask&
+DdlTaskRequest::_Internal::drop_flow_task(const DdlTaskRequest* msg) {
+  return *msg->_impl_.task_.drop_flow_task_;
 }
 void DdlTaskRequest::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
@@ -2418,6 +2878,36 @@ void DdlTaskRequest::set_allocated_create_database_task(::greptime::v1::meta::Cr
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskRequest.create_database_task)
 }
+void DdlTaskRequest::set_allocated_create_flow_task(::greptime::v1::meta::CreateFlowTask* create_flow_task) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_task();
+  if (create_flow_task) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(create_flow_task);
+    if (message_arena != submessage_arena) {
+      create_flow_task = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, create_flow_task, submessage_arena);
+    }
+    set_has_create_flow_task();
+    _impl_.task_.create_flow_task_ = create_flow_task;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskRequest.create_flow_task)
+}
+void DdlTaskRequest::set_allocated_drop_flow_task(::greptime::v1::meta::DropFlowTask* drop_flow_task) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_task();
+  if (drop_flow_task) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(drop_flow_task);
+    if (message_arena != submessage_arena) {
+      drop_flow_task = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, drop_flow_task, submessage_arena);
+    }
+    set_has_drop_flow_task();
+    _impl_.task_.drop_flow_task_ = drop_flow_task;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskRequest.drop_flow_task)
+}
 DdlTaskRequest::DdlTaskRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -2482,6 +2972,16 @@ DdlTaskRequest::DdlTaskRequest(const DdlTaskRequest& from)
     case kCreateDatabaseTask: {
       _this->_internal_mutable_create_database_task()->::greptime::v1::meta::CreateDatabaseTask::MergeFrom(
           from._internal_create_database_task());
+      break;
+    }
+    case kCreateFlowTask: {
+      _this->_internal_mutable_create_flow_task()->::greptime::v1::meta::CreateFlowTask::MergeFrom(
+          from._internal_create_flow_task());
+      break;
+    }
+    case kDropFlowTask: {
+      _this->_internal_mutable_drop_flow_task()->::greptime::v1::meta::DropFlowTask::MergeFrom(
+          from._internal_drop_flow_task());
       break;
     }
     case TASK_NOT_SET: {
@@ -2579,6 +3079,18 @@ void DdlTaskRequest::clear_task() {
     case kCreateDatabaseTask: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.task_.create_database_task_;
+      }
+      break;
+    }
+    case kCreateFlowTask: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.task_.create_flow_task_;
+      }
+      break;
+    }
+    case kDropFlowTask: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.task_.drop_flow_task_;
       }
       break;
     }
@@ -2690,6 +3202,22 @@ const char* DdlTaskRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
+      // .greptime.v1.meta.CreateFlowTask create_flow_task = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          ptr = ctx->ParseMessage(_internal_mutable_create_flow_task(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.DropFlowTask drop_flow_task = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
+          ptr = ctx->ParseMessage(_internal_mutable_drop_flow_task(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -2789,6 +3317,20 @@ uint8_t* DdlTaskRequest::_InternalSerialize(
         _Internal::create_database_task(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.meta.CreateFlowTask create_flow_task = 11;
+  if (_internal_has_create_flow_task()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(11, _Internal::create_flow_task(this),
+        _Internal::create_flow_task(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.DropFlowTask drop_flow_task = 12;
+  if (_internal_has_drop_flow_task()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(12, _Internal::drop_flow_task(this),
+        _Internal::drop_flow_task(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2876,6 +3418,20 @@ size_t DdlTaskRequest::ByteSizeLong() const {
           *_impl_.task_.create_database_task_);
       break;
     }
+    // .greptime.v1.meta.CreateFlowTask create_flow_task = 11;
+    case kCreateFlowTask: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.task_.create_flow_task_);
+      break;
+    }
+    // .greptime.v1.meta.DropFlowTask drop_flow_task = 12;
+    case kDropFlowTask: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.task_.drop_flow_task_);
+      break;
+    }
     case TASK_NOT_SET: {
       break;
     }
@@ -2948,6 +3504,16 @@ void DdlTaskRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
           from._internal_create_database_task());
       break;
     }
+    case kCreateFlowTask: {
+      _this->_internal_mutable_create_flow_task()->::greptime::v1::meta::CreateFlowTask::MergeFrom(
+          from._internal_create_flow_task());
+      break;
+    }
+    case kDropFlowTask: {
+      _this->_internal_mutable_drop_flow_task()->::greptime::v1::meta::DropFlowTask::MergeFrom(
+          from._internal_drop_flow_task());
+      break;
+    }
     case TASK_NOT_SET: {
       break;
     }
@@ -2977,7 +3543,7 @@ void DdlTaskRequest::InternalSwap(DdlTaskRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DdlTaskRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fddl_2eproto[9]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fddl_2eproto[11]);
 }
 
 // ===================================================================
@@ -3312,7 +3878,7 @@ void DdlTaskResponse::InternalSwap(DdlTaskResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DdlTaskResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fddl_2eproto[10]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fddl_2eproto[12]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -3355,6 +3921,14 @@ Arena::CreateMaybeMessage< ::greptime::v1::meta::TruncateTableTask >(Arena* aren
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::DropDatabaseTask*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::DropDatabaseTask >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::DropDatabaseTask >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::CreateFlowTask*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::CreateFlowTask >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::CreateFlowTask >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::DropFlowTask*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::DropFlowTask >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::DropFlowTask >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::DdlTaskRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::DdlTaskRequest >(Arena* arena) {

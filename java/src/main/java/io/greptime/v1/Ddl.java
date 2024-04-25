@@ -109,19 +109,19 @@ public final class Ddl {
     io.greptime.v1.Ddl.CreateFlowTaskExprOrBuilder getCreateFlowTaskOrBuilder();
 
     /**
-     * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
-     * @return Whether the removeFlowTask field is set.
+     * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
+     * @return Whether the dropFlowTask field is set.
      */
-    boolean hasRemoveFlowTask();
+    boolean hasDropFlowTask();
     /**
-     * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
-     * @return The removeFlowTask.
+     * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
+     * @return The dropFlowTask.
      */
-    io.greptime.v1.Ddl.RemoveFlowTaskExpr getRemoveFlowTask();
+    io.greptime.v1.Ddl.DropFlowTaskExpr getDropFlowTask();
     /**
-     * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
+     * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
      */
-    io.greptime.v1.Ddl.RemoveFlowTaskExprOrBuilder getRemoveFlowTaskOrBuilder();
+    io.greptime.v1.Ddl.DropFlowTaskExprOrBuilder getDropFlowTaskOrBuilder();
 
     public io.greptime.v1.Ddl.DdlRequest.ExprCase getExprCase();
   }
@@ -262,14 +262,14 @@ public final class Ddl {
               break;
             }
             case 74: {
-              io.greptime.v1.Ddl.RemoveFlowTaskExpr.Builder subBuilder = null;
+              io.greptime.v1.Ddl.DropFlowTaskExpr.Builder subBuilder = null;
               if (exprCase_ == 9) {
-                subBuilder = ((io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_).toBuilder();
+                subBuilder = ((io.greptime.v1.Ddl.DropFlowTaskExpr) expr_).toBuilder();
               }
               expr_ =
-                  input.readMessage(io.greptime.v1.Ddl.RemoveFlowTaskExpr.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.Ddl.DropFlowTaskExpr.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_);
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.DropFlowTaskExpr) expr_);
                 expr_ = subBuilder.buildPartial();
               }
               exprCase_ = 9;
@@ -320,7 +320,7 @@ public final class Ddl {
       DROP_TABLE(4),
       TRUNCATE_TABLE(7),
       CREATE_FLOW_TASK(8),
-      REMOVE_FLOW_TASK(9),
+      DROP_FLOW_TASK(9),
       EXPR_NOT_SET(0);
       private final int value;
       private ExprCase(int value) {
@@ -344,7 +344,7 @@ public final class Ddl {
           case 4: return DROP_TABLE;
           case 7: return TRUNCATE_TABLE;
           case 8: return CREATE_FLOW_TASK;
-          case 9: return REMOVE_FLOW_TASK;
+          case 9: return DROP_FLOW_TASK;
           case 0: return EXPR_NOT_SET;
           default: return null;
         }
@@ -546,35 +546,35 @@ public final class Ddl {
       return io.greptime.v1.Ddl.CreateFlowTaskExpr.getDefaultInstance();
     }
 
-    public static final int REMOVE_FLOW_TASK_FIELD_NUMBER = 9;
+    public static final int DROP_FLOW_TASK_FIELD_NUMBER = 9;
     /**
-     * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
-     * @return Whether the removeFlowTask field is set.
+     * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
+     * @return Whether the dropFlowTask field is set.
      */
     @java.lang.Override
-    public boolean hasRemoveFlowTask() {
+    public boolean hasDropFlowTask() {
       return exprCase_ == 9;
     }
     /**
-     * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
-     * @return The removeFlowTask.
+     * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
+     * @return The dropFlowTask.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.RemoveFlowTaskExpr getRemoveFlowTask() {
+    public io.greptime.v1.Ddl.DropFlowTaskExpr getDropFlowTask() {
       if (exprCase_ == 9) {
-         return (io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_;
+         return (io.greptime.v1.Ddl.DropFlowTaskExpr) expr_;
       }
-      return io.greptime.v1.Ddl.RemoveFlowTaskExpr.getDefaultInstance();
+      return io.greptime.v1.Ddl.DropFlowTaskExpr.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
+     * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.RemoveFlowTaskExprOrBuilder getRemoveFlowTaskOrBuilder() {
+    public io.greptime.v1.Ddl.DropFlowTaskExprOrBuilder getDropFlowTaskOrBuilder() {
       if (exprCase_ == 9) {
-         return (io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_;
+         return (io.greptime.v1.Ddl.DropFlowTaskExpr) expr_;
       }
-      return io.greptime.v1.Ddl.RemoveFlowTaskExpr.getDefaultInstance();
+      return io.greptime.v1.Ddl.DropFlowTaskExpr.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -610,7 +610,7 @@ public final class Ddl {
         output.writeMessage(8, (io.greptime.v1.Ddl.CreateFlowTaskExpr) expr_);
       }
       if (exprCase_ == 9) {
-        output.writeMessage(9, (io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_);
+        output.writeMessage(9, (io.greptime.v1.Ddl.DropFlowTaskExpr) expr_);
       }
       unknownFields.writeTo(output);
     }
@@ -647,7 +647,7 @@ public final class Ddl {
       }
       if (exprCase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, (io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_);
+          .computeMessageSize(9, (io.greptime.v1.Ddl.DropFlowTaskExpr) expr_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -691,8 +691,8 @@ public final class Ddl {
               .equals(other.getCreateFlowTask())) return false;
           break;
         case 9:
-          if (!getRemoveFlowTask()
-              .equals(other.getRemoveFlowTask())) return false;
+          if (!getDropFlowTask()
+              .equals(other.getDropFlowTask())) return false;
           break;
         case 0:
         default:
@@ -734,8 +734,8 @@ public final class Ddl {
           hash = (53 * hash) + getCreateFlowTask().hashCode();
           break;
         case 9:
-          hash = (37 * hash) + REMOVE_FLOW_TASK_FIELD_NUMBER;
-          hash = (53 * hash) + getRemoveFlowTask().hashCode();
+          hash = (37 * hash) + DROP_FLOW_TASK_FIELD_NUMBER;
+          hash = (53 * hash) + getDropFlowTask().hashCode();
           break;
         case 0:
         default:
@@ -951,10 +951,10 @@ public final class Ddl {
           }
         }
         if (exprCase_ == 9) {
-          if (removeFlowTaskBuilder_ == null) {
+          if (dropFlowTaskBuilder_ == null) {
             result.expr_ = expr_;
           } else {
-            result.expr_ = removeFlowTaskBuilder_.build();
+            result.expr_ = dropFlowTaskBuilder_.build();
           }
         }
         result.exprCase_ = exprCase_;
@@ -1031,8 +1031,8 @@ public final class Ddl {
             mergeCreateFlowTask(other.getCreateFlowTask());
             break;
           }
-          case REMOVE_FLOW_TASK: {
-            mergeRemoveFlowTask(other.getRemoveFlowTask());
+          case DROP_FLOW_TASK: {
+            mergeDropFlowTask(other.getDropFlowTask());
             break;
           }
           case EXPR_NOT_SET: {
@@ -1936,71 +1936,71 @@ public final class Ddl {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.RemoveFlowTaskExpr, io.greptime.v1.Ddl.RemoveFlowTaskExpr.Builder, io.greptime.v1.Ddl.RemoveFlowTaskExprOrBuilder> removeFlowTaskBuilder_;
+          io.greptime.v1.Ddl.DropFlowTaskExpr, io.greptime.v1.Ddl.DropFlowTaskExpr.Builder, io.greptime.v1.Ddl.DropFlowTaskExprOrBuilder> dropFlowTaskBuilder_;
       /**
-       * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
-       * @return Whether the removeFlowTask field is set.
+       * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
+       * @return Whether the dropFlowTask field is set.
        */
       @java.lang.Override
-      public boolean hasRemoveFlowTask() {
+      public boolean hasDropFlowTask() {
         return exprCase_ == 9;
       }
       /**
-       * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
-       * @return The removeFlowTask.
+       * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
+       * @return The dropFlowTask.
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.RemoveFlowTaskExpr getRemoveFlowTask() {
-        if (removeFlowTaskBuilder_ == null) {
+      public io.greptime.v1.Ddl.DropFlowTaskExpr getDropFlowTask() {
+        if (dropFlowTaskBuilder_ == null) {
           if (exprCase_ == 9) {
-            return (io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_;
+            return (io.greptime.v1.Ddl.DropFlowTaskExpr) expr_;
           }
-          return io.greptime.v1.Ddl.RemoveFlowTaskExpr.getDefaultInstance();
+          return io.greptime.v1.Ddl.DropFlowTaskExpr.getDefaultInstance();
         } else {
           if (exprCase_ == 9) {
-            return removeFlowTaskBuilder_.getMessage();
+            return dropFlowTaskBuilder_.getMessage();
           }
-          return io.greptime.v1.Ddl.RemoveFlowTaskExpr.getDefaultInstance();
+          return io.greptime.v1.Ddl.DropFlowTaskExpr.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
+       * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
        */
-      public Builder setRemoveFlowTask(io.greptime.v1.Ddl.RemoveFlowTaskExpr value) {
-        if (removeFlowTaskBuilder_ == null) {
+      public Builder setDropFlowTask(io.greptime.v1.Ddl.DropFlowTaskExpr value) {
+        if (dropFlowTaskBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           expr_ = value;
           onChanged();
         } else {
-          removeFlowTaskBuilder_.setMessage(value);
+          dropFlowTaskBuilder_.setMessage(value);
         }
         exprCase_ = 9;
         return this;
       }
       /**
-       * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
+       * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
        */
-      public Builder setRemoveFlowTask(
-          io.greptime.v1.Ddl.RemoveFlowTaskExpr.Builder builderForValue) {
-        if (removeFlowTaskBuilder_ == null) {
+      public Builder setDropFlowTask(
+          io.greptime.v1.Ddl.DropFlowTaskExpr.Builder builderForValue) {
+        if (dropFlowTaskBuilder_ == null) {
           expr_ = builderForValue.build();
           onChanged();
         } else {
-          removeFlowTaskBuilder_.setMessage(builderForValue.build());
+          dropFlowTaskBuilder_.setMessage(builderForValue.build());
         }
         exprCase_ = 9;
         return this;
       }
       /**
-       * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
+       * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
        */
-      public Builder mergeRemoveFlowTask(io.greptime.v1.Ddl.RemoveFlowTaskExpr value) {
-        if (removeFlowTaskBuilder_ == null) {
+      public Builder mergeDropFlowTask(io.greptime.v1.Ddl.DropFlowTaskExpr value) {
+        if (dropFlowTaskBuilder_ == null) {
           if (exprCase_ == 9 &&
-              expr_ != io.greptime.v1.Ddl.RemoveFlowTaskExpr.getDefaultInstance()) {
-            expr_ = io.greptime.v1.Ddl.RemoveFlowTaskExpr.newBuilder((io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_)
+              expr_ != io.greptime.v1.Ddl.DropFlowTaskExpr.getDefaultInstance()) {
+            expr_ = io.greptime.v1.Ddl.DropFlowTaskExpr.newBuilder((io.greptime.v1.Ddl.DropFlowTaskExpr) expr_)
                 .mergeFrom(value).buildPartial();
           } else {
             expr_ = value;
@@ -2008,19 +2008,19 @@ public final class Ddl {
           onChanged();
         } else {
           if (exprCase_ == 9) {
-            removeFlowTaskBuilder_.mergeFrom(value);
+            dropFlowTaskBuilder_.mergeFrom(value);
           } else {
-            removeFlowTaskBuilder_.setMessage(value);
+            dropFlowTaskBuilder_.setMessage(value);
           }
         }
         exprCase_ = 9;
         return this;
       }
       /**
-       * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
+       * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
        */
-      public Builder clearRemoveFlowTask() {
-        if (removeFlowTaskBuilder_ == null) {
+      public Builder clearDropFlowTask() {
+        if (dropFlowTaskBuilder_ == null) {
           if (exprCase_ == 9) {
             exprCase_ = 0;
             expr_ = null;
@@ -2031,50 +2031,50 @@ public final class Ddl {
             exprCase_ = 0;
             expr_ = null;
           }
-          removeFlowTaskBuilder_.clear();
+          dropFlowTaskBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
+       * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
        */
-      public io.greptime.v1.Ddl.RemoveFlowTaskExpr.Builder getRemoveFlowTaskBuilder() {
-        return getRemoveFlowTaskFieldBuilder().getBuilder();
+      public io.greptime.v1.Ddl.DropFlowTaskExpr.Builder getDropFlowTaskBuilder() {
+        return getDropFlowTaskFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
+       * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.RemoveFlowTaskExprOrBuilder getRemoveFlowTaskOrBuilder() {
-        if ((exprCase_ == 9) && (removeFlowTaskBuilder_ != null)) {
-          return removeFlowTaskBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Ddl.DropFlowTaskExprOrBuilder getDropFlowTaskOrBuilder() {
+        if ((exprCase_ == 9) && (dropFlowTaskBuilder_ != null)) {
+          return dropFlowTaskBuilder_.getMessageOrBuilder();
         } else {
           if (exprCase_ == 9) {
-            return (io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_;
+            return (io.greptime.v1.Ddl.DropFlowTaskExpr) expr_;
           }
-          return io.greptime.v1.Ddl.RemoveFlowTaskExpr.getDefaultInstance();
+          return io.greptime.v1.Ddl.DropFlowTaskExpr.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.RemoveFlowTaskExpr remove_flow_task = 9;</code>
+       * <code>.greptime.v1.DropFlowTaskExpr drop_flow_task = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.RemoveFlowTaskExpr, io.greptime.v1.Ddl.RemoveFlowTaskExpr.Builder, io.greptime.v1.Ddl.RemoveFlowTaskExprOrBuilder> 
-          getRemoveFlowTaskFieldBuilder() {
-        if (removeFlowTaskBuilder_ == null) {
+          io.greptime.v1.Ddl.DropFlowTaskExpr, io.greptime.v1.Ddl.DropFlowTaskExpr.Builder, io.greptime.v1.Ddl.DropFlowTaskExprOrBuilder> 
+          getDropFlowTaskFieldBuilder() {
+        if (dropFlowTaskBuilder_ == null) {
           if (!(exprCase_ == 9)) {
-            expr_ = io.greptime.v1.Ddl.RemoveFlowTaskExpr.getDefaultInstance();
+            expr_ = io.greptime.v1.Ddl.DropFlowTaskExpr.getDefaultInstance();
           }
-          removeFlowTaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.RemoveFlowTaskExpr, io.greptime.v1.Ddl.RemoveFlowTaskExpr.Builder, io.greptime.v1.Ddl.RemoveFlowTaskExprOrBuilder>(
-                  (io.greptime.v1.Ddl.RemoveFlowTaskExpr) expr_,
+          dropFlowTaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.DropFlowTaskExpr, io.greptime.v1.Ddl.DropFlowTaskExpr.Builder, io.greptime.v1.Ddl.DropFlowTaskExprOrBuilder>(
+                  (io.greptime.v1.Ddl.DropFlowTaskExpr) expr_,
                   getParentForChildren(),
                   isClean());
           expr_ = null;
         }
         exprCase_ = 9;
         onChanged();;
-        return removeFlowTaskBuilder_;
+        return dropFlowTaskBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5006,8 +5006,8 @@ java.lang.String defaultValue);
 
   }
 
-  public interface RemoveFlowTaskExprOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.RemoveFlowTaskExpr)
+  public interface DropFlowTaskExprOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.DropFlowTaskExpr)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -5039,18 +5039,18 @@ java.lang.String defaultValue);
    * Remove a flow task.
    * </pre>
    *
-   * Protobuf type {@code greptime.v1.RemoveFlowTaskExpr}
+   * Protobuf type {@code greptime.v1.DropFlowTaskExpr}
    */
-  public static final class RemoveFlowTaskExpr extends
+  public static final class DropFlowTaskExpr extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.RemoveFlowTaskExpr)
-      RemoveFlowTaskExprOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.DropFlowTaskExpr)
+      DropFlowTaskExprOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use RemoveFlowTaskExpr.newBuilder() to construct.
-    private RemoveFlowTaskExpr(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use DropFlowTaskExpr.newBuilder() to construct.
+    private DropFlowTaskExpr(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private RemoveFlowTaskExpr() {
+    private DropFlowTaskExpr() {
       catalogName_ = "";
       taskName_ = "";
     }
@@ -5059,7 +5059,7 @@ java.lang.String defaultValue);
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new RemoveFlowTaskExpr();
+      return new DropFlowTaskExpr();
     }
 
     @java.lang.Override
@@ -5067,7 +5067,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RemoveFlowTaskExpr(
+    private DropFlowTaskExpr(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5120,15 +5120,15 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_RemoveFlowTaskExpr_descriptor;
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_DropFlowTaskExpr_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_RemoveFlowTaskExpr_fieldAccessorTable
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_DropFlowTaskExpr_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Ddl.RemoveFlowTaskExpr.class, io.greptime.v1.Ddl.RemoveFlowTaskExpr.Builder.class);
+              io.greptime.v1.Ddl.DropFlowTaskExpr.class, io.greptime.v1.Ddl.DropFlowTaskExpr.Builder.class);
     }
 
     public static final int CATALOG_NAME_FIELD_NUMBER = 1;
@@ -5252,10 +5252,10 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.Ddl.RemoveFlowTaskExpr)) {
+      if (!(obj instanceof io.greptime.v1.Ddl.DropFlowTaskExpr)) {
         return super.equals(obj);
       }
-      io.greptime.v1.Ddl.RemoveFlowTaskExpr other = (io.greptime.v1.Ddl.RemoveFlowTaskExpr) obj;
+      io.greptime.v1.Ddl.DropFlowTaskExpr other = (io.greptime.v1.Ddl.DropFlowTaskExpr) obj;
 
       if (!getCatalogName()
           .equals(other.getCatalogName())) return false;
@@ -5281,69 +5281,69 @@ java.lang.String defaultValue);
       return hash;
     }
 
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(byte[] data)
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseDelimitedFrom(
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr parseFrom(
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5356,7 +5356,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.Ddl.RemoveFlowTaskExpr prototype) {
+    public static Builder newBuilder(io.greptime.v1.Ddl.DropFlowTaskExpr prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -5376,26 +5376,26 @@ java.lang.String defaultValue);
      * Remove a flow task.
      * </pre>
      *
-     * Protobuf type {@code greptime.v1.RemoveFlowTaskExpr}
+     * Protobuf type {@code greptime.v1.DropFlowTaskExpr}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.RemoveFlowTaskExpr)
-        io.greptime.v1.Ddl.RemoveFlowTaskExprOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.DropFlowTaskExpr)
+        io.greptime.v1.Ddl.DropFlowTaskExprOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_RemoveFlowTaskExpr_descriptor;
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_DropFlowTaskExpr_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_RemoveFlowTaskExpr_fieldAccessorTable
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_DropFlowTaskExpr_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Ddl.RemoveFlowTaskExpr.class, io.greptime.v1.Ddl.RemoveFlowTaskExpr.Builder.class);
+                io.greptime.v1.Ddl.DropFlowTaskExpr.class, io.greptime.v1.Ddl.DropFlowTaskExpr.Builder.class);
       }
 
-      // Construct using io.greptime.v1.Ddl.RemoveFlowTaskExpr.newBuilder()
+      // Construct using io.greptime.v1.Ddl.DropFlowTaskExpr.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5423,17 +5423,17 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_RemoveFlowTaskExpr_descriptor;
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_DropFlowTaskExpr_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.RemoveFlowTaskExpr getDefaultInstanceForType() {
-        return io.greptime.v1.Ddl.RemoveFlowTaskExpr.getDefaultInstance();
+      public io.greptime.v1.Ddl.DropFlowTaskExpr getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.DropFlowTaskExpr.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.RemoveFlowTaskExpr build() {
-        io.greptime.v1.Ddl.RemoveFlowTaskExpr result = buildPartial();
+      public io.greptime.v1.Ddl.DropFlowTaskExpr build() {
+        io.greptime.v1.Ddl.DropFlowTaskExpr result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -5441,8 +5441,8 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.RemoveFlowTaskExpr buildPartial() {
-        io.greptime.v1.Ddl.RemoveFlowTaskExpr result = new io.greptime.v1.Ddl.RemoveFlowTaskExpr(this);
+      public io.greptime.v1.Ddl.DropFlowTaskExpr buildPartial() {
+        io.greptime.v1.Ddl.DropFlowTaskExpr result = new io.greptime.v1.Ddl.DropFlowTaskExpr(this);
         result.catalogName_ = catalogName_;
         result.taskName_ = taskName_;
         onBuilt();
@@ -5483,16 +5483,16 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Ddl.RemoveFlowTaskExpr) {
-          return mergeFrom((io.greptime.v1.Ddl.RemoveFlowTaskExpr)other);
+        if (other instanceof io.greptime.v1.Ddl.DropFlowTaskExpr) {
+          return mergeFrom((io.greptime.v1.Ddl.DropFlowTaskExpr)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.Ddl.RemoveFlowTaskExpr other) {
-        if (other == io.greptime.v1.Ddl.RemoveFlowTaskExpr.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.Ddl.DropFlowTaskExpr other) {
+        if (other == io.greptime.v1.Ddl.DropFlowTaskExpr.getDefaultInstance()) return this;
         if (!other.getCatalogName().isEmpty()) {
           catalogName_ = other.catalogName_;
           onChanged();
@@ -5516,11 +5516,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Ddl.RemoveFlowTaskExpr parsedMessage = null;
+        io.greptime.v1.Ddl.DropFlowTaskExpr parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Ddl.RemoveFlowTaskExpr) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.Ddl.DropFlowTaskExpr) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5694,41 +5694,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.RemoveFlowTaskExpr)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.DropFlowTaskExpr)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.RemoveFlowTaskExpr)
-    private static final io.greptime.v1.Ddl.RemoveFlowTaskExpr DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.DropFlowTaskExpr)
+    private static final io.greptime.v1.Ddl.DropFlowTaskExpr DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.RemoveFlowTaskExpr();
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.DropFlowTaskExpr();
     }
 
-    public static io.greptime.v1.Ddl.RemoveFlowTaskExpr getDefaultInstance() {
+    public static io.greptime.v1.Ddl.DropFlowTaskExpr getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<RemoveFlowTaskExpr>
-        PARSER = new com.google.protobuf.AbstractParser<RemoveFlowTaskExpr>() {
+    private static final com.google.protobuf.Parser<DropFlowTaskExpr>
+        PARSER = new com.google.protobuf.AbstractParser<DropFlowTaskExpr>() {
       @java.lang.Override
-      public RemoveFlowTaskExpr parsePartialFrom(
+      public DropFlowTaskExpr parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RemoveFlowTaskExpr(input, extensionRegistry);
+        return new DropFlowTaskExpr(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<RemoveFlowTaskExpr> parser() {
+    public static com.google.protobuf.Parser<DropFlowTaskExpr> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<RemoveFlowTaskExpr> getParserForType() {
+    public com.google.protobuf.Parser<DropFlowTaskExpr> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.Ddl.RemoveFlowTaskExpr getDefaultInstanceForType() {
+    public io.greptime.v1.Ddl.DropFlowTaskExpr getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -20191,10 +20191,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_SchemaScopedTableName_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_RemoveFlowTaskExpr_descriptor;
+    internal_static_greptime_v1_DropFlowTaskExpr_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_RemoveFlowTaskExpr_fieldAccessorTable;
+      internal_static_greptime_v1_DropFlowTaskExpr_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_CreateTableExpr_descriptor;
   private static final 
@@ -20285,7 +20285,7 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\025greptime/v1/ddl.proto\022\013greptime.v1\032\030gr" +
-      "eptime/v1/common.proto\"\225\003\n\nDdlRequest\022:\n" +
+      "eptime/v1/common.proto\"\221\003\n\nDdlRequest\022:\n" +
       "\017create_database\030\001 \001(\0132\037.greptime.v1.Cre" +
       "ateDatabaseExprH\000\0224\n\014create_table\030\002 \001(\0132" +
       "\034.greptime.v1.CreateTableExprH\000\022\'\n\005alter" +
@@ -20294,71 +20294,71 @@ java.lang.String defaultValue);
       "H\000\0228\n\016truncate_table\030\007 \001(\0132\036.greptime.v1" +
       ".TruncateTableExprH\000\022;\n\020create_flow_task" +
       "\030\010 \001(\0132\037.greptime.v1.CreateFlowTaskExprH" +
-      "\000\022;\n\020remove_flow_task\030\t \001(\0132\037.greptime.v" +
-      "1.RemoveFlowTaskExprH\000B\006\n\004expr\"\207\003\n\022Creat" +
-      "eFlowTaskExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tt" +
-      "ask_name\030\002 \001(\t\022>\n\022source_table_names\030\003 \003" +
-      "(\0132\".greptime.v1.SchemaScopedTableName\022;" +
-      "\n\017sink_table_name\030\004 \001(\0132\".greptime.v1.Sc" +
-      "hemaScopedTableName\022\034\n\024create_if_not_exi" +
-      "sts\030\005 \001(\010\022\023\n\013expire_when\030\006 \001(\t\022\017\n\007commen" +
-      "t\030\007 \001(\t\022\013\n\003sql\030\010 \001(\t\022F\n\014task_options\030\t \003" +
-      "(\01320.greptime.v1.CreateFlowTaskExpr.Task" +
-      "OptionsEntry\0322\n\020TaskOptionsEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\025SchemaScoped" +
-      "TableName\022\023\n\013schema_name\030\001 \001(\t\022\022\n\ntable_" +
-      "name\030\002 \001(\t\"=\n\022RemoveFlowTaskExpr\022\024\n\014cata" +
-      "log_name\030\001 \001(\t\022\021\n\ttask_name\030\002 \001(\t\"\207\003\n\017Cr" +
-      "eateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013s" +
-      "chema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004" +
-      "desc\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.grepti" +
-      "me.v1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014p" +
-      "rimary_keys\030\007 \003(\t\022\034\n\024create_if_not_exist" +
-      "s\030\010 \001(\010\022E\n\rtable_options\030\t \003(\0132..greptim" +
-      "e.v1.CreateTableExpr.TableOptionsEntry\022&" +
-      "\n\010table_id\030\n \001(\0132\024.greptime.v1.TableId\022\016" +
-      "\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\346\001\n\tAlterExp" +
-      "r\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002" +
-      " \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030" +
-      "\004 \001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014drop" +
-      "_columns\030\005 \001(\0132\030.greptime.v1.DropColumns" +
-      "H\000\0220\n\014rename_table\030\006 \001(\0132\030.greptime.v1.R" +
-      "enameTableH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024" +
-      "\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(" +
-      "\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132" +
-      "\024.greptime.v1.TableId\022\026\n\016drop_if_exists\030" +
-      "\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_" +
-      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024creat" +
-      "e_if_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132," +
-      ".greptime.v1.CreateDatabaseExpr.OptionsE" +
-      "ntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014cat" +
-      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\n" +
-      "table_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gre" +
-      "ptime.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014" +
-      "catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022" +
-      "\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n" +
-      "\013add_columns\030\001 \003(\0132\026.greptime.v1.AddColu" +
-      "mn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132" +
-      "\027.greptime.v1.DropColumn\"%\n\013RenameTable\022" +
-      "\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\n" +
-      "column_def\030\001 \001(\0132\026.greptime.v1.ColumnDef" +
-      "\0220\n\010location\030\003 \001(\0132\036.greptime.v1.AddColu" +
-      "mnLocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025" +
-      "\n\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004n" +
-      "ame\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime." +
-      "v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032" +
-      "\n\022default_constraint\030\004 \001(\014\0220\n\rsemantic_t" +
-      "ype\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007" +
-      "comment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(" +
-      "\0132$.greptime.v1.ColumnDataTypeExtension\"" +
-      "\230\001\n\021AddColumnLocation\022B\n\rlocation_type\030\001" +
-      " \001(\0162+.greptime.v1.AddColumnLocation.Loc" +
-      "ationType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014" +
-      "LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io" +
-      ".greptime.v1B\003DdlZ5github.com/GreptimeTe" +
-      "am/greptime-proto/go/greptime/v1b\006proto3"
+      "\000\0227\n\016drop_flow_task\030\t \001(\0132\035.greptime.v1." +
+      "DropFlowTaskExprH\000B\006\n\004expr\"\207\003\n\022CreateFlo" +
+      "wTaskExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\ttask_" +
+      "name\030\002 \001(\t\022>\n\022source_table_names\030\003 \003(\0132\"" +
+      ".greptime.v1.SchemaScopedTableName\022;\n\017si" +
+      "nk_table_name\030\004 \001(\0132\".greptime.v1.Schema" +
+      "ScopedTableName\022\034\n\024create_if_not_exists\030" +
+      "\005 \001(\010\022\023\n\013expire_when\030\006 \001(\t\022\017\n\007comment\030\007 " +
+      "\001(\t\022\013\n\003sql\030\010 \001(\t\022F\n\014task_options\030\t \003(\01320" +
+      ".greptime.v1.CreateFlowTaskExpr.TaskOpti" +
+      "onsEntry\0322\n\020TaskOptionsEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\025SchemaScopedTabl" +
+      "eName\022\023\n\013schema_name\030\001 \001(\t\022\022\n\ntable_name" +
+      "\030\002 \001(\t\";\n\020DropFlowTaskExpr\022\024\n\014catalog_na" +
+      "me\030\001 \001(\t\022\021\n\ttask_name\030\002 \001(\t\"\207\003\n\017CreateTa" +
+      "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
+      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004" +
+      " \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v1." +
+      "ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014primary" +
+      "_keys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001(" +
+      "\010\022E\n\rtable_options\030\t \003(\0132..greptime.v1.C" +
+      "reateTableExpr.TableOptionsEntry\022&\n\010tabl" +
+      "e_id\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006engi" +
+      "ne\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\346\001\n\tAlterExpr\022\024\n\014c" +
+      "atalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022" +
+      "\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\0132" +
+      "\027.greptime.v1.AddColumnsH\000\0220\n\014drop_colum" +
+      "ns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220\n\014" +
+      "rename_table\030\006 \001(\0132\030.greptime.v1.RenameT" +
+      "ableH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014cata" +
+      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nt" +
+      "able_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grep" +
+      "time.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"" +
+      "\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_name\030\001" +
+      " \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_if_n" +
+      "ot_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.grept" +
+      "ime.v1.CreateDatabaseExpr.OptionsEntry\032." +
+      "\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalog_n" +
+      "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_" +
+      "name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime." +
+      "v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014catalo" +
+      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016dro" +
+      "p_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_c" +
+      "olumns\030\001 \003(\0132\026.greptime.v1.AddColumn\"<\n\013" +
+      "DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.grep" +
+      "time.v1.DropColumn\"%\n\013RenameTable\022\026\n\016new" +
+      "_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn" +
+      "_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010lo" +
+      "cation\030\003 \001(\0132\036.greptime.v1.AddColumnLoca" +
+      "tion\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007Tabl" +
+      "eId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 " +
+      "\001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1.Col" +
+      "umnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022defa" +
+      "ult_constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 " +
+      "\001(\0162\031.greptime.v1.SemanticType\022\017\n\007commen" +
+      "t\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.gr" +
+      "eptime.v1.ColumnDataTypeExtension\"\230\001\n\021Ad" +
+      "dColumnLocation\022B\n\rlocation_type\030\001 \001(\0162+" +
+      ".greptime.v1.AddColumnLocation.LocationT" +
+      "ype\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Locati" +
+      "onType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.grept" +
+      "ime.v1B\003DdlZ5github.com/GreptimeTeam/gre" +
+      "ptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20370,7 +20370,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_DdlRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DdlRequest_descriptor,
-        new java.lang.String[] { "CreateDatabase", "CreateTable", "Alter", "DropTable", "TruncateTable", "CreateFlowTask", "RemoveFlowTask", "Expr", });
+        new java.lang.String[] { "CreateDatabase", "CreateTable", "Alter", "DropTable", "TruncateTable", "CreateFlowTask", "DropFlowTask", "Expr", });
     internal_static_greptime_v1_CreateFlowTaskExpr_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_CreateFlowTaskExpr_fieldAccessorTable = new
@@ -20389,11 +20389,11 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SchemaScopedTableName_descriptor,
         new java.lang.String[] { "SchemaName", "TableName", });
-    internal_static_greptime_v1_RemoveFlowTaskExpr_descriptor =
+    internal_static_greptime_v1_DropFlowTaskExpr_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_greptime_v1_RemoveFlowTaskExpr_fieldAccessorTable = new
+    internal_static_greptime_v1_DropFlowTaskExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_RemoveFlowTaskExpr_descriptor,
+        internal_static_greptime_v1_DropFlowTaskExpr_descriptor,
         new java.lang.String[] { "CatalogName", "TaskName", });
     internal_static_greptime_v1_CreateTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(4);

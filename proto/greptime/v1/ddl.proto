@@ -34,7 +34,7 @@ message DdlRequest {
     DropTableExpr drop_table = 4;
     TruncateTableExpr truncate_table = 7;
     CreateFlowTaskExpr create_flow_task = 8;
-    RemoveFlowTaskExpr remove_flow_task = 9;
+    DropFlowTaskExpr drop_flow_task = 9;
   }
 }
 
@@ -58,7 +58,7 @@ message SchemaScopedTableName {
 }
 
 // Remove a flow task.
-message RemoveFlowTaskExpr {
+message DropFlowTaskExpr {
   string catalog_name = 1;
   string task_name = 2;
 }
