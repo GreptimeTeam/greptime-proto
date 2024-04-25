@@ -34,6 +34,7 @@
 #include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/meta/common.pb.h"
+#include "greptime/v1/common.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_greptime_2fv1_2fmeta_2froute_2eproto
@@ -599,23 +600,23 @@ class Table final :
   std::string* _internal_mutable_table_schema();
   public:
 
-  // .greptime.v1.meta.TableName table_name = 2;
+  // .greptime.v1.TableName table_name = 2;
   bool has_table_name() const;
   private:
   bool _internal_has_table_name() const;
   public:
   void clear_table_name();
-  const ::greptime::v1::meta::TableName& table_name() const;
-  PROTOBUF_NODISCARD ::greptime::v1::meta::TableName* release_table_name();
-  ::greptime::v1::meta::TableName* mutable_table_name();
-  void set_allocated_table_name(::greptime::v1::meta::TableName* table_name);
+  const ::greptime::v1::TableName& table_name() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TableName* release_table_name();
+  ::greptime::v1::TableName* mutable_table_name();
+  void set_allocated_table_name(::greptime::v1::TableName* table_name);
   private:
-  const ::greptime::v1::meta::TableName& _internal_table_name() const;
-  ::greptime::v1::meta::TableName* _internal_mutable_table_name();
+  const ::greptime::v1::TableName& _internal_table_name() const;
+  ::greptime::v1::TableName* _internal_mutable_table_name();
   public:
   void unsafe_arena_set_allocated_table_name(
-      ::greptime::v1::meta::TableName* table_name);
-  ::greptime::v1::meta::TableName* unsafe_arena_release_table_name();
+      ::greptime::v1::TableName* table_name);
+  ::greptime::v1::TableName* unsafe_arena_release_table_name();
 
   // uint64 id = 1;
   void clear_id();
@@ -635,7 +636,7 @@ class Table final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_schema_;
-    ::greptime::v1::meta::TableName* table_name_;
+    ::greptime::v1::TableName* table_name_;
     uint64_t id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1572,24 +1573,24 @@ inline void Table::set_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.Table.id)
 }
 
-// .greptime.v1.meta.TableName table_name = 2;
+// .greptime.v1.TableName table_name = 2;
 inline bool Table::_internal_has_table_name() const {
   return this != internal_default_instance() && _impl_.table_name_ != nullptr;
 }
 inline bool Table::has_table_name() const {
   return _internal_has_table_name();
 }
-inline const ::greptime::v1::meta::TableName& Table::_internal_table_name() const {
-  const ::greptime::v1::meta::TableName* p = _impl_.table_name_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::TableName&>(
-      ::greptime::v1::meta::_TableName_default_instance_);
+inline const ::greptime::v1::TableName& Table::_internal_table_name() const {
+  const ::greptime::v1::TableName* p = _impl_.table_name_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableName&>(
+      ::greptime::v1::_TableName_default_instance_);
 }
-inline const ::greptime::v1::meta::TableName& Table::table_name() const {
+inline const ::greptime::v1::TableName& Table::table_name() const {
   // @@protoc_insertion_point(field_get:greptime.v1.meta.Table.table_name)
   return _internal_table_name();
 }
 inline void Table::unsafe_arena_set_allocated_table_name(
-    ::greptime::v1::meta::TableName* table_name) {
+    ::greptime::v1::TableName* table_name) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_name_);
   }
@@ -1601,9 +1602,9 @@ inline void Table::unsafe_arena_set_allocated_table_name(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.Table.table_name)
 }
-inline ::greptime::v1::meta::TableName* Table::release_table_name() {
+inline ::greptime::v1::TableName* Table::release_table_name() {
   
-  ::greptime::v1::meta::TableName* temp = _impl_.table_name_;
+  ::greptime::v1::TableName* temp = _impl_.table_name_;
   _impl_.table_name_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -1616,27 +1617,27 @@ inline ::greptime::v1::meta::TableName* Table::release_table_name() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::meta::TableName* Table::unsafe_arena_release_table_name() {
+inline ::greptime::v1::TableName* Table::unsafe_arena_release_table_name() {
   // @@protoc_insertion_point(field_release:greptime.v1.meta.Table.table_name)
   
-  ::greptime::v1::meta::TableName* temp = _impl_.table_name_;
+  ::greptime::v1::TableName* temp = _impl_.table_name_;
   _impl_.table_name_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::meta::TableName* Table::_internal_mutable_table_name() {
+inline ::greptime::v1::TableName* Table::_internal_mutable_table_name() {
   
   if (_impl_.table_name_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::meta::TableName>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::greptime::v1::TableName>(GetArenaForAllocation());
     _impl_.table_name_ = p;
   }
   return _impl_.table_name_;
 }
-inline ::greptime::v1::meta::TableName* Table::mutable_table_name() {
-  ::greptime::v1::meta::TableName* _msg = _internal_mutable_table_name();
+inline ::greptime::v1::TableName* Table::mutable_table_name() {
+  ::greptime::v1::TableName* _msg = _internal_mutable_table_name();
   // @@protoc_insertion_point(field_mutable:greptime.v1.meta.Table.table_name)
   return _msg;
 }
-inline void Table::set_allocated_table_name(::greptime::v1::meta::TableName* table_name) {
+inline void Table::set_allocated_table_name(::greptime::v1::TableName* table_name) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_name_);
