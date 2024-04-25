@@ -33,17 +33,17 @@ message DdlRequest {
     AlterExpr alter = 3;
     DropTableExpr drop_table = 4;
     TruncateTableExpr truncate_table = 7;
-    CreateTaskExpr create_task = 8;
-    RemoveTaskExpr remove_task = 9;
+    CreateFlowTaskExpr create_flow_task = 8;
+    DropFlowTaskExpr drop_flow_task = 9;
   }
 }
 
 // Create a flow task to run the SQL when new data arrives.
-message CreateTaskExpr {
+message CreateFlowTaskExpr {
   string catalog_name = 1;
   string task_name = 2;
-  string output_schema_name = 3;
-  string output_table_name = 4;
+  repeated SchemaScopedTableName source_table_names = 3;
+  SchemaScopedTableName sink_table_name = 4;
   bool create_if_not_exists = 5;
   string expire_when = 6;
   string comment = 7;
@@ -51,8 +51,14 @@ message CreateTaskExpr {
   map<string, string> task_options = 9;
 }
 
+// Table name
+message SchemaScopedTableName {
+  string schema_name = 1;
+  string table_name = 2;
+}
+
 // Remove a flow task.
-message RemoveTaskExpr {
+message DropFlowTaskExpr {
   string catalog_name = 1;
   string task_name = 2;
 }

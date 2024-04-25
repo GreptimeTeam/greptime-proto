@@ -59,6 +59,14 @@ message DropDatabaseTask {
     DropDatabaseExpr drop_database = 1;
 }
 
+message CreateFlowTask {
+    CreateFlowTaskExpr create_flow_task = 1;
+}
+
+message DropFlowTask {
+    DropFlowTaskExpr drop_flow_task = 1;
+}
+
 message DdlTaskRequest {
     RequestHeader header = 1;
 
@@ -72,6 +80,8 @@ message DdlTaskRequest {
         AlterTableTasks alter_table_tasks = 8;
         DropDatabaseTask drop_database_task = 9;
         CreateDatabaseTask create_database_task = 10;
+        CreateFlowTask create_flow_task = 11;
+        DropFlowTask drop_flow_task = 12;
      }
 }
 

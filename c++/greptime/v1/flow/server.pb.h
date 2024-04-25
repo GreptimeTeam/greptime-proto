@@ -53,15 +53,12 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 namespace greptime {
 namespace v1 {
 namespace flow {
-class FlowCreateRequest;
-struct FlowCreateRequestDefaultTypeInternal;
-extern FlowCreateRequestDefaultTypeInternal _FlowCreateRequest_default_instance_;
-class FlowCreateRequest_TaskOptionsEntry_DoNotUse;
-struct FlowCreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal;
-extern FlowCreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal _FlowCreateRequest_TaskOptionsEntry_DoNotUse_default_instance_;
-class FlowRemoveRequest;
-struct FlowRemoveRequestDefaultTypeInternal;
-extern FlowRemoveRequestDefaultTypeInternal _FlowRemoveRequest_default_instance_;
+class CreateRequest;
+struct CreateRequestDefaultTypeInternal;
+extern CreateRequestDefaultTypeInternal _CreateRequest_default_instance_;
+class CreateRequest_TaskOptionsEntry_DoNotUse;
+struct CreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal;
+extern CreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal _CreateRequest_TaskOptionsEntry_DoNotUse_default_instance_;
 class FlowRequest;
 struct FlowRequestDefaultTypeInternal;
 extern FlowRequestDefaultTypeInternal _FlowRequest_default_instance_;
@@ -77,6 +74,9 @@ extern InsertRequestDefaultTypeInternal _InsertRequest_default_instance_;
 class InsertRequests;
 struct InsertRequestsDefaultTypeInternal;
 extern InsertRequestsDefaultTypeInternal _InsertRequests_default_instance_;
+class RemoveRequest;
+struct RemoveRequestDefaultTypeInternal;
+extern RemoveRequestDefaultTypeInternal _RemoveRequest_default_instance_;
 class TaskId;
 struct TaskIdDefaultTypeInternal;
 extern TaskIdDefaultTypeInternal _TaskId_default_instance_;
@@ -84,14 +84,14 @@ extern TaskIdDefaultTypeInternal _TaskId_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
-template<> ::greptime::v1::flow::FlowCreateRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowCreateRequest>(Arena*);
-template<> ::greptime::v1::flow::FlowCreateRequest_TaskOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowCreateRequest_TaskOptionsEntry_DoNotUse>(Arena*);
-template<> ::greptime::v1::flow::FlowRemoveRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowRemoveRequest>(Arena*);
+template<> ::greptime::v1::flow::CreateRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::CreateRequest>(Arena*);
+template<> ::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::flow::FlowRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowRequest>(Arena*);
 template<> ::greptime::v1::flow::FlowResponse* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowResponse>(Arena*);
 template<> ::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::flow::InsertRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::InsertRequest>(Arena*);
 template<> ::greptime::v1::flow::InsertRequests* Arena::CreateMaybeMessage<::greptime::v1::flow::InsertRequests>(Arena*);
+template<> ::greptime::v1::flow::RemoveRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::RemoveRequest>(Arena*);
 template<> ::greptime::v1::flow::TaskId* Arena::CreateMaybeMessage<::greptime::v1::flow::TaskId>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -555,41 +555,41 @@ class FlowRequest final :
     kCreateFieldNumber = 1,
     kRemoveFieldNumber = 2,
   };
-  // .greptime.v1.flow.FlowCreateRequest create = 1;
+  // .greptime.v1.flow.CreateRequest create = 1;
   bool has_create() const;
   private:
   bool _internal_has_create() const;
   public:
   void clear_create();
-  const ::greptime::v1::flow::FlowCreateRequest& create() const;
-  PROTOBUF_NODISCARD ::greptime::v1::flow::FlowCreateRequest* release_create();
-  ::greptime::v1::flow::FlowCreateRequest* mutable_create();
-  void set_allocated_create(::greptime::v1::flow::FlowCreateRequest* create);
+  const ::greptime::v1::flow::CreateRequest& create() const;
+  PROTOBUF_NODISCARD ::greptime::v1::flow::CreateRequest* release_create();
+  ::greptime::v1::flow::CreateRequest* mutable_create();
+  void set_allocated_create(::greptime::v1::flow::CreateRequest* create);
   private:
-  const ::greptime::v1::flow::FlowCreateRequest& _internal_create() const;
-  ::greptime::v1::flow::FlowCreateRequest* _internal_mutable_create();
+  const ::greptime::v1::flow::CreateRequest& _internal_create() const;
+  ::greptime::v1::flow::CreateRequest* _internal_mutable_create();
   public:
   void unsafe_arena_set_allocated_create(
-      ::greptime::v1::flow::FlowCreateRequest* create);
-  ::greptime::v1::flow::FlowCreateRequest* unsafe_arena_release_create();
+      ::greptime::v1::flow::CreateRequest* create);
+  ::greptime::v1::flow::CreateRequest* unsafe_arena_release_create();
 
-  // .greptime.v1.flow.FlowRemoveRequest remove = 2;
+  // .greptime.v1.flow.RemoveRequest remove = 2;
   bool has_remove() const;
   private:
   bool _internal_has_remove() const;
   public:
   void clear_remove();
-  const ::greptime::v1::flow::FlowRemoveRequest& remove() const;
-  PROTOBUF_NODISCARD ::greptime::v1::flow::FlowRemoveRequest* release_remove();
-  ::greptime::v1::flow::FlowRemoveRequest* mutable_remove();
-  void set_allocated_remove(::greptime::v1::flow::FlowRemoveRequest* remove);
+  const ::greptime::v1::flow::RemoveRequest& remove() const;
+  PROTOBUF_NODISCARD ::greptime::v1::flow::RemoveRequest* release_remove();
+  ::greptime::v1::flow::RemoveRequest* mutable_remove();
+  void set_allocated_remove(::greptime::v1::flow::RemoveRequest* remove);
   private:
-  const ::greptime::v1::flow::FlowRemoveRequest& _internal_remove() const;
-  ::greptime::v1::flow::FlowRemoveRequest* _internal_mutable_remove();
+  const ::greptime::v1::flow::RemoveRequest& _internal_remove() const;
+  ::greptime::v1::flow::RemoveRequest* _internal_mutable_remove();
   public:
   void unsafe_arena_set_allocated_remove(
-      ::greptime::v1::flow::FlowRemoveRequest* remove);
-  ::greptime::v1::flow::FlowRemoveRequest* unsafe_arena_release_remove();
+      ::greptime::v1::flow::RemoveRequest* remove);
+  ::greptime::v1::flow::RemoveRequest* unsafe_arena_release_remove();
 
   void clear_body();
   BodyCase body_case() const;
@@ -609,8 +609,8 @@ class FlowRequest final :
     union BodyUnion {
       constexpr BodyUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-      ::greptime::v1::flow::FlowCreateRequest* create_;
-      ::greptime::v1::flow::FlowRemoveRequest* remove_;
+      ::greptime::v1::flow::CreateRequest* create_;
+      ::greptime::v1::flow::RemoveRequest* remove_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -861,26 +861,26 @@ class FlowResponse final :
 };
 // -------------------------------------------------------------------
 
-class FlowCreateRequest_TaskOptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowCreateRequest_TaskOptionsEntry_DoNotUse, 
+class CreateRequest_TaskOptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateRequest_TaskOptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowCreateRequest_TaskOptionsEntry_DoNotUse, 
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateRequest_TaskOptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  FlowCreateRequest_TaskOptionsEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR FlowCreateRequest_TaskOptionsEntry_DoNotUse(
+  CreateRequest_TaskOptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR CreateRequest_TaskOptionsEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit FlowCreateRequest_TaskOptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const FlowCreateRequest_TaskOptionsEntry_DoNotUse& other);
-  static const FlowCreateRequest_TaskOptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const FlowCreateRequest_TaskOptionsEntry_DoNotUse*>(&_FlowCreateRequest_TaskOptionsEntry_DoNotUse_default_instance_); }
+  explicit CreateRequest_TaskOptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const CreateRequest_TaskOptionsEntry_DoNotUse& other);
+  static const CreateRequest_TaskOptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CreateRequest_TaskOptionsEntry_DoNotUse*>(&_CreateRequest_TaskOptionsEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.FlowCreateRequest.TaskOptionsEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.CreateRequest.TaskOptionsEntry.key");
  }
   static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.FlowCreateRequest.TaskOptionsEntry.value");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.CreateRequest.TaskOptionsEntry.value");
  }
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
@@ -889,24 +889,24 @@ public:
 
 // -------------------------------------------------------------------
 
-class FlowCreateRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.flow.FlowCreateRequest) */ {
+class CreateRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.flow.CreateRequest) */ {
  public:
-  inline FlowCreateRequest() : FlowCreateRequest(nullptr) {}
-  ~FlowCreateRequest() override;
-  explicit PROTOBUF_CONSTEXPR FlowCreateRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CreateRequest() : CreateRequest(nullptr) {}
+  ~CreateRequest() override;
+  explicit PROTOBUF_CONSTEXPR CreateRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  FlowCreateRequest(const FlowCreateRequest& from);
-  FlowCreateRequest(FlowCreateRequest&& from) noexcept
-    : FlowCreateRequest() {
+  CreateRequest(const CreateRequest& from);
+  CreateRequest(CreateRequest&& from) noexcept
+    : CreateRequest() {
     *this = ::std::move(from);
   }
 
-  inline FlowCreateRequest& operator=(const FlowCreateRequest& from) {
+  inline CreateRequest& operator=(const CreateRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline FlowCreateRequest& operator=(FlowCreateRequest&& from) noexcept {
+  inline CreateRequest& operator=(CreateRequest&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -929,20 +929,20 @@ class FlowCreateRequest final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const FlowCreateRequest& default_instance() {
+  static const CreateRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const FlowCreateRequest* internal_default_instance() {
-    return reinterpret_cast<const FlowCreateRequest*>(
-               &_FlowCreateRequest_default_instance_);
+  static inline const CreateRequest* internal_default_instance() {
+    return reinterpret_cast<const CreateRequest*>(
+               &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     6;
 
-  friend void swap(FlowCreateRequest& a, FlowCreateRequest& b) {
+  friend void swap(CreateRequest& a, CreateRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(FlowCreateRequest* other) {
+  inline void Swap(CreateRequest* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -955,7 +955,7 @@ class FlowCreateRequest final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(FlowCreateRequest* other) {
+  void UnsafeArenaSwap(CreateRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -963,14 +963,14 @@ class FlowCreateRequest final :
 
   // implements Message ----------------------------------------------
 
-  FlowCreateRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<FlowCreateRequest>(arena);
+  CreateRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CreateRequest>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const FlowCreateRequest& from);
+  void CopyFrom(const CreateRequest& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const FlowCreateRequest& from) {
-    FlowCreateRequest::MergeImpl(*this, from);
+  void MergeFrom( const CreateRequest& from) {
+    CreateRequest::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -988,15 +988,15 @@ class FlowCreateRequest final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(FlowCreateRequest* other);
+  void InternalSwap(CreateRequest* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.flow.FlowCreateRequest";
+    return "greptime.v1.flow.CreateRequest";
   }
   protected:
-  explicit FlowCreateRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CreateRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -1013,15 +1013,34 @@ class FlowCreateRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTaskOptionsFieldNumber = 7,
-    kExpireWhenFieldNumber = 4,
-    kCommentFieldNumber = 5,
-    kSqlFieldNumber = 6,
+    kSourceTableIdsFieldNumber = 2,
+    kTaskOptionsFieldNumber = 8,
+    kExpireWhenFieldNumber = 5,
+    kCommentFieldNumber = 6,
+    kSqlFieldNumber = 7,
     kTaskIdFieldNumber = 1,
-    kOutputTableIdFieldNumber = 2,
-    kCreateIfNotExistsFieldNumber = 3,
+    kSinkTableIdFieldNumber = 3,
+    kCreateIfNotExistsFieldNumber = 4,
   };
-  // map<string, string> task_options = 7;
+  // repeated .greptime.v1.TableId source_table_ids = 2;
+  int source_table_ids_size() const;
+  private:
+  int _internal_source_table_ids_size() const;
+  public:
+  void clear_source_table_ids();
+  ::greptime::v1::TableId* mutable_source_table_ids(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId >*
+      mutable_source_table_ids();
+  private:
+  const ::greptime::v1::TableId& _internal_source_table_ids(int index) const;
+  ::greptime::v1::TableId* _internal_add_source_table_ids();
+  public:
+  const ::greptime::v1::TableId& source_table_ids(int index) const;
+  ::greptime::v1::TableId* add_source_table_ids();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId >&
+      source_table_ids() const;
+
+  // map<string, string> task_options = 8;
   int task_options_size() const;
   private:
   int _internal_task_options_size() const;
@@ -1038,7 +1057,7 @@ class FlowCreateRequest final :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
       mutable_task_options();
 
-  // string expire_when = 4;
+  // string expire_when = 5;
   void clear_expire_when();
   const std::string& expire_when() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1052,7 +1071,7 @@ class FlowCreateRequest final :
   std::string* _internal_mutable_expire_when();
   public:
 
-  // string comment = 5;
+  // string comment = 6;
   void clear_comment();
   const std::string& comment() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1066,7 +1085,7 @@ class FlowCreateRequest final :
   std::string* _internal_mutable_comment();
   public:
 
-  // string sql = 6;
+  // string sql = 7;
   void clear_sql();
   const std::string& sql() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1098,25 +1117,25 @@ class FlowCreateRequest final :
       ::greptime::v1::flow::TaskId* task_id);
   ::greptime::v1::flow::TaskId* unsafe_arena_release_task_id();
 
-  // .greptime.v1.TableId output_table_id = 2;
-  bool has_output_table_id() const;
+  // .greptime.v1.TableId sink_table_id = 3;
+  bool has_sink_table_id() const;
   private:
-  bool _internal_has_output_table_id() const;
+  bool _internal_has_sink_table_id() const;
   public:
-  void clear_output_table_id();
-  const ::greptime::v1::TableId& output_table_id() const;
-  PROTOBUF_NODISCARD ::greptime::v1::TableId* release_output_table_id();
-  ::greptime::v1::TableId* mutable_output_table_id();
-  void set_allocated_output_table_id(::greptime::v1::TableId* output_table_id);
+  void clear_sink_table_id();
+  const ::greptime::v1::TableId& sink_table_id() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TableId* release_sink_table_id();
+  ::greptime::v1::TableId* mutable_sink_table_id();
+  void set_allocated_sink_table_id(::greptime::v1::TableId* sink_table_id);
   private:
-  const ::greptime::v1::TableId& _internal_output_table_id() const;
-  ::greptime::v1::TableId* _internal_mutable_output_table_id();
+  const ::greptime::v1::TableId& _internal_sink_table_id() const;
+  ::greptime::v1::TableId* _internal_mutable_sink_table_id();
   public:
-  void unsafe_arena_set_allocated_output_table_id(
-      ::greptime::v1::TableId* output_table_id);
-  ::greptime::v1::TableId* unsafe_arena_release_output_table_id();
+  void unsafe_arena_set_allocated_sink_table_id(
+      ::greptime::v1::TableId* sink_table_id);
+  ::greptime::v1::TableId* unsafe_arena_release_sink_table_id();
 
-  // bool create_if_not_exists = 3;
+  // bool create_if_not_exists = 4;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
   void set_create_if_not_exists(bool value);
@@ -1125,7 +1144,7 @@ class FlowCreateRequest final :
   void _internal_set_create_if_not_exists(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.flow.FlowCreateRequest)
+  // @@protoc_insertion_point(class_scope:greptime.v1.flow.CreateRequest)
  private:
   class _Internal;
 
@@ -1133,8 +1152,9 @@ class FlowCreateRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId > source_table_ids_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        FlowCreateRequest_TaskOptionsEntry_DoNotUse,
+        CreateRequest_TaskOptionsEntry_DoNotUse,
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> task_options_;
@@ -1142,7 +1162,7 @@ class FlowCreateRequest final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
     ::greptime::v1::flow::TaskId* task_id_;
-    ::greptime::v1::TableId* output_table_id_;
+    ::greptime::v1::TableId* sink_table_id_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1151,24 +1171,24 @@ class FlowCreateRequest final :
 };
 // -------------------------------------------------------------------
 
-class FlowRemoveRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.flow.FlowRemoveRequest) */ {
+class RemoveRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.flow.RemoveRequest) */ {
  public:
-  inline FlowRemoveRequest() : FlowRemoveRequest(nullptr) {}
-  ~FlowRemoveRequest() override;
-  explicit PROTOBUF_CONSTEXPR FlowRemoveRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline RemoveRequest() : RemoveRequest(nullptr) {}
+  ~RemoveRequest() override;
+  explicit PROTOBUF_CONSTEXPR RemoveRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  FlowRemoveRequest(const FlowRemoveRequest& from);
-  FlowRemoveRequest(FlowRemoveRequest&& from) noexcept
-    : FlowRemoveRequest() {
+  RemoveRequest(const RemoveRequest& from);
+  RemoveRequest(RemoveRequest&& from) noexcept
+    : RemoveRequest() {
     *this = ::std::move(from);
   }
 
-  inline FlowRemoveRequest& operator=(const FlowRemoveRequest& from) {
+  inline RemoveRequest& operator=(const RemoveRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline FlowRemoveRequest& operator=(FlowRemoveRequest&& from) noexcept {
+  inline RemoveRequest& operator=(RemoveRequest&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1191,20 +1211,20 @@ class FlowRemoveRequest final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const FlowRemoveRequest& default_instance() {
+  static const RemoveRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const FlowRemoveRequest* internal_default_instance() {
-    return reinterpret_cast<const FlowRemoveRequest*>(
-               &_FlowRemoveRequest_default_instance_);
+  static inline const RemoveRequest* internal_default_instance() {
+    return reinterpret_cast<const RemoveRequest*>(
+               &_RemoveRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     7;
 
-  friend void swap(FlowRemoveRequest& a, FlowRemoveRequest& b) {
+  friend void swap(RemoveRequest& a, RemoveRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(FlowRemoveRequest* other) {
+  inline void Swap(RemoveRequest* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1217,7 +1237,7 @@ class FlowRemoveRequest final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(FlowRemoveRequest* other) {
+  void UnsafeArenaSwap(RemoveRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1225,14 +1245,14 @@ class FlowRemoveRequest final :
 
   // implements Message ----------------------------------------------
 
-  FlowRemoveRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<FlowRemoveRequest>(arena);
+  RemoveRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoveRequest>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const FlowRemoveRequest& from);
+  void CopyFrom(const RemoveRequest& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const FlowRemoveRequest& from) {
-    FlowRemoveRequest::MergeImpl(*this, from);
+  void MergeFrom( const RemoveRequest& from) {
+    RemoveRequest::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -1250,15 +1270,15 @@ class FlowRemoveRequest final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(FlowRemoveRequest* other);
+  void InternalSwap(RemoveRequest* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.flow.FlowRemoveRequest";
+    return "greptime.v1.flow.RemoveRequest";
   }
   protected:
-  explicit FlowRemoveRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit RemoveRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -1292,7 +1312,7 @@ class FlowRemoveRequest final :
       ::greptime::v1::flow::TaskId* task_id);
   ::greptime::v1::flow::TaskId* unsafe_arena_release_task_id();
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.flow.FlowRemoveRequest)
+  // @@protoc_insertion_point(class_scope:greptime.v1.flow.RemoveRequest)
  private:
   class _Internal;
 
@@ -1431,13 +1451,13 @@ class TaskId final :
   enum : int {
     kIdFieldNumber = 1,
   };
-  // uint64 id = 1;
+  // uint32 id = 1;
   void clear_id();
-  uint64_t id() const;
-  void set_id(uint64_t value);
+  uint32_t id() const;
+  void set_id(uint32_t value);
   private:
-  uint64_t _internal_id() const;
-  void _internal_set_id(uint64_t value);
+  uint32_t _internal_id() const;
+  void _internal_set_id(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.flow.TaskId)
@@ -1448,7 +1468,7 @@ class TaskId final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    uint64_t id_;
+    uint32_t id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1618,7 +1638,7 @@ inline void InsertRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
 
 // FlowRequest
 
-// .greptime.v1.flow.FlowCreateRequest create = 1;
+// .greptime.v1.flow.CreateRequest create = 1;
 inline bool FlowRequest::_internal_has_create() const {
   return body_case() == kCreate;
 }
@@ -1636,11 +1656,11 @@ inline void FlowRequest::clear_create() {
     clear_has_body();
   }
 }
-inline ::greptime::v1::flow::FlowCreateRequest* FlowRequest::release_create() {
+inline ::greptime::v1::flow::CreateRequest* FlowRequest::release_create() {
   // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowRequest.create)
   if (_internal_has_create()) {
     clear_has_body();
-    ::greptime::v1::flow::FlowCreateRequest* temp = _impl_.body_.create_;
+    ::greptime::v1::flow::CreateRequest* temp = _impl_.body_.create_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -1650,27 +1670,27 @@ inline ::greptime::v1::flow::FlowCreateRequest* FlowRequest::release_create() {
     return nullptr;
   }
 }
-inline const ::greptime::v1::flow::FlowCreateRequest& FlowRequest::_internal_create() const {
+inline const ::greptime::v1::flow::CreateRequest& FlowRequest::_internal_create() const {
   return _internal_has_create()
       ? *_impl_.body_.create_
-      : reinterpret_cast< ::greptime::v1::flow::FlowCreateRequest&>(::greptime::v1::flow::_FlowCreateRequest_default_instance_);
+      : reinterpret_cast< ::greptime::v1::flow::CreateRequest&>(::greptime::v1::flow::_CreateRequest_default_instance_);
 }
-inline const ::greptime::v1::flow::FlowCreateRequest& FlowRequest::create() const {
+inline const ::greptime::v1::flow::CreateRequest& FlowRequest::create() const {
   // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowRequest.create)
   return _internal_create();
 }
-inline ::greptime::v1::flow::FlowCreateRequest* FlowRequest::unsafe_arena_release_create() {
+inline ::greptime::v1::flow::CreateRequest* FlowRequest::unsafe_arena_release_create() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.flow.FlowRequest.create)
   if (_internal_has_create()) {
     clear_has_body();
-    ::greptime::v1::flow::FlowCreateRequest* temp = _impl_.body_.create_;
+    ::greptime::v1::flow::CreateRequest* temp = _impl_.body_.create_;
     _impl_.body_.create_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void FlowRequest::unsafe_arena_set_allocated_create(::greptime::v1::flow::FlowCreateRequest* create) {
+inline void FlowRequest::unsafe_arena_set_allocated_create(::greptime::v1::flow::CreateRequest* create) {
   clear_body();
   if (create) {
     set_has_create();
@@ -1678,21 +1698,21 @@ inline void FlowRequest::unsafe_arena_set_allocated_create(::greptime::v1::flow:
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.FlowRequest.create)
 }
-inline ::greptime::v1::flow::FlowCreateRequest* FlowRequest::_internal_mutable_create() {
+inline ::greptime::v1::flow::CreateRequest* FlowRequest::_internal_mutable_create() {
   if (!_internal_has_create()) {
     clear_body();
     set_has_create();
-    _impl_.body_.create_ = CreateMaybeMessage< ::greptime::v1::flow::FlowCreateRequest >(GetArenaForAllocation());
+    _impl_.body_.create_ = CreateMaybeMessage< ::greptime::v1::flow::CreateRequest >(GetArenaForAllocation());
   }
   return _impl_.body_.create_;
 }
-inline ::greptime::v1::flow::FlowCreateRequest* FlowRequest::mutable_create() {
-  ::greptime::v1::flow::FlowCreateRequest* _msg = _internal_mutable_create();
+inline ::greptime::v1::flow::CreateRequest* FlowRequest::mutable_create() {
+  ::greptime::v1::flow::CreateRequest* _msg = _internal_mutable_create();
   // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowRequest.create)
   return _msg;
 }
 
-// .greptime.v1.flow.FlowRemoveRequest remove = 2;
+// .greptime.v1.flow.RemoveRequest remove = 2;
 inline bool FlowRequest::_internal_has_remove() const {
   return body_case() == kRemove;
 }
@@ -1710,11 +1730,11 @@ inline void FlowRequest::clear_remove() {
     clear_has_body();
   }
 }
-inline ::greptime::v1::flow::FlowRemoveRequest* FlowRequest::release_remove() {
+inline ::greptime::v1::flow::RemoveRequest* FlowRequest::release_remove() {
   // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowRequest.remove)
   if (_internal_has_remove()) {
     clear_has_body();
-    ::greptime::v1::flow::FlowRemoveRequest* temp = _impl_.body_.remove_;
+    ::greptime::v1::flow::RemoveRequest* temp = _impl_.body_.remove_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -1724,27 +1744,27 @@ inline ::greptime::v1::flow::FlowRemoveRequest* FlowRequest::release_remove() {
     return nullptr;
   }
 }
-inline const ::greptime::v1::flow::FlowRemoveRequest& FlowRequest::_internal_remove() const {
+inline const ::greptime::v1::flow::RemoveRequest& FlowRequest::_internal_remove() const {
   return _internal_has_remove()
       ? *_impl_.body_.remove_
-      : reinterpret_cast< ::greptime::v1::flow::FlowRemoveRequest&>(::greptime::v1::flow::_FlowRemoveRequest_default_instance_);
+      : reinterpret_cast< ::greptime::v1::flow::RemoveRequest&>(::greptime::v1::flow::_RemoveRequest_default_instance_);
 }
-inline const ::greptime::v1::flow::FlowRemoveRequest& FlowRequest::remove() const {
+inline const ::greptime::v1::flow::RemoveRequest& FlowRequest::remove() const {
   // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowRequest.remove)
   return _internal_remove();
 }
-inline ::greptime::v1::flow::FlowRemoveRequest* FlowRequest::unsafe_arena_release_remove() {
+inline ::greptime::v1::flow::RemoveRequest* FlowRequest::unsafe_arena_release_remove() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.flow.FlowRequest.remove)
   if (_internal_has_remove()) {
     clear_has_body();
-    ::greptime::v1::flow::FlowRemoveRequest* temp = _impl_.body_.remove_;
+    ::greptime::v1::flow::RemoveRequest* temp = _impl_.body_.remove_;
     _impl_.body_.remove_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void FlowRequest::unsafe_arena_set_allocated_remove(::greptime::v1::flow::FlowRemoveRequest* remove) {
+inline void FlowRequest::unsafe_arena_set_allocated_remove(::greptime::v1::flow::RemoveRequest* remove) {
   clear_body();
   if (remove) {
     set_has_remove();
@@ -1752,16 +1772,16 @@ inline void FlowRequest::unsafe_arena_set_allocated_remove(::greptime::v1::flow:
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.FlowRequest.remove)
 }
-inline ::greptime::v1::flow::FlowRemoveRequest* FlowRequest::_internal_mutable_remove() {
+inline ::greptime::v1::flow::RemoveRequest* FlowRequest::_internal_mutable_remove() {
   if (!_internal_has_remove()) {
     clear_body();
     set_has_remove();
-    _impl_.body_.remove_ = CreateMaybeMessage< ::greptime::v1::flow::FlowRemoveRequest >(GetArenaForAllocation());
+    _impl_.body_.remove_ = CreateMaybeMessage< ::greptime::v1::flow::RemoveRequest >(GetArenaForAllocation());
   }
   return _impl_.body_.remove_;
 }
-inline ::greptime::v1::flow::FlowRemoveRequest* FlowRequest::mutable_remove() {
-  ::greptime::v1::flow::FlowRemoveRequest* _msg = _internal_mutable_remove();
+inline ::greptime::v1::flow::RemoveRequest* FlowRequest::mutable_remove() {
+  ::greptime::v1::flow::RemoveRequest* _msg = _internal_mutable_remove();
   // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowRequest.remove)
   return _msg;
 }
@@ -1959,31 +1979,31 @@ FlowResponse::affected_tasks() const {
 
 // -------------------------------------------------------------------
 
-// FlowCreateRequest
+// CreateRequest
 
 // .greptime.v1.flow.TaskId task_id = 1;
-inline bool FlowCreateRequest::_internal_has_task_id() const {
+inline bool CreateRequest::_internal_has_task_id() const {
   return this != internal_default_instance() && _impl_.task_id_ != nullptr;
 }
-inline bool FlowCreateRequest::has_task_id() const {
+inline bool CreateRequest::has_task_id() const {
   return _internal_has_task_id();
 }
-inline void FlowCreateRequest::clear_task_id() {
+inline void CreateRequest::clear_task_id() {
   if (GetArenaForAllocation() == nullptr && _impl_.task_id_ != nullptr) {
     delete _impl_.task_id_;
   }
   _impl_.task_id_ = nullptr;
 }
-inline const ::greptime::v1::flow::TaskId& FlowCreateRequest::_internal_task_id() const {
+inline const ::greptime::v1::flow::TaskId& CreateRequest::_internal_task_id() const {
   const ::greptime::v1::flow::TaskId* p = _impl_.task_id_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::flow::TaskId&>(
       ::greptime::v1::flow::_TaskId_default_instance_);
 }
-inline const ::greptime::v1::flow::TaskId& FlowCreateRequest::task_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowCreateRequest.task_id)
+inline const ::greptime::v1::flow::TaskId& CreateRequest::task_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.task_id)
   return _internal_task_id();
 }
-inline void FlowCreateRequest::unsafe_arena_set_allocated_task_id(
+inline void CreateRequest::unsafe_arena_set_allocated_task_id(
     ::greptime::v1::flow::TaskId* task_id) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.task_id_);
@@ -1994,9 +2014,9 @@ inline void FlowCreateRequest::unsafe_arena_set_allocated_task_id(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.FlowCreateRequest.task_id)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.CreateRequest.task_id)
 }
-inline ::greptime::v1::flow::TaskId* FlowCreateRequest::release_task_id() {
+inline ::greptime::v1::flow::TaskId* CreateRequest::release_task_id() {
   
   ::greptime::v1::flow::TaskId* temp = _impl_.task_id_;
   _impl_.task_id_ = nullptr;
@@ -2011,14 +2031,14 @@ inline ::greptime::v1::flow::TaskId* FlowCreateRequest::release_task_id() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::flow::TaskId* FlowCreateRequest::unsafe_arena_release_task_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowCreateRequest.task_id)
+inline ::greptime::v1::flow::TaskId* CreateRequest::unsafe_arena_release_task_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.task_id)
   
   ::greptime::v1::flow::TaskId* temp = _impl_.task_id_;
   _impl_.task_id_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::flow::TaskId* FlowCreateRequest::_internal_mutable_task_id() {
+inline ::greptime::v1::flow::TaskId* CreateRequest::_internal_mutable_task_id() {
   
   if (_impl_.task_id_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::flow::TaskId>(GetArenaForAllocation());
@@ -2026,12 +2046,12 @@ inline ::greptime::v1::flow::TaskId* FlowCreateRequest::_internal_mutable_task_i
   }
   return _impl_.task_id_;
 }
-inline ::greptime::v1::flow::TaskId* FlowCreateRequest::mutable_task_id() {
+inline ::greptime::v1::flow::TaskId* CreateRequest::mutable_task_id() {
   ::greptime::v1::flow::TaskId* _msg = _internal_mutable_task_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowCreateRequest.task_id)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.task_id)
   return _msg;
 }
-inline void FlowCreateRequest::set_allocated_task_id(::greptime::v1::flow::TaskId* task_id) {
+inline void CreateRequest::set_allocated_task_id(::greptime::v1::flow::TaskId* task_id) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.task_id_;
@@ -2048,42 +2068,79 @@ inline void FlowCreateRequest::set_allocated_task_id(::greptime::v1::flow::TaskI
     
   }
   _impl_.task_id_ = task_id;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.task_id)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.task_id)
 }
 
-// .greptime.v1.TableId output_table_id = 2;
-inline bool FlowCreateRequest::_internal_has_output_table_id() const {
-  return this != internal_default_instance() && _impl_.output_table_id_ != nullptr;
+// repeated .greptime.v1.TableId source_table_ids = 2;
+inline int CreateRequest::_internal_source_table_ids_size() const {
+  return _impl_.source_table_ids_.size();
 }
-inline bool FlowCreateRequest::has_output_table_id() const {
-  return _internal_has_output_table_id();
+inline int CreateRequest::source_table_ids_size() const {
+  return _internal_source_table_ids_size();
 }
-inline const ::greptime::v1::TableId& FlowCreateRequest::_internal_output_table_id() const {
-  const ::greptime::v1::TableId* p = _impl_.output_table_id_;
+inline ::greptime::v1::TableId* CreateRequest::mutable_source_table_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.source_table_ids)
+  return _impl_.source_table_ids_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId >*
+CreateRequest::mutable_source_table_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.flow.CreateRequest.source_table_ids)
+  return &_impl_.source_table_ids_;
+}
+inline const ::greptime::v1::TableId& CreateRequest::_internal_source_table_ids(int index) const {
+  return _impl_.source_table_ids_.Get(index);
+}
+inline const ::greptime::v1::TableId& CreateRequest::source_table_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.source_table_ids)
+  return _internal_source_table_ids(index);
+}
+inline ::greptime::v1::TableId* CreateRequest::_internal_add_source_table_ids() {
+  return _impl_.source_table_ids_.Add();
+}
+inline ::greptime::v1::TableId* CreateRequest::add_source_table_ids() {
+  ::greptime::v1::TableId* _add = _internal_add_source_table_ids();
+  // @@protoc_insertion_point(field_add:greptime.v1.flow.CreateRequest.source_table_ids)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId >&
+CreateRequest::source_table_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.flow.CreateRequest.source_table_ids)
+  return _impl_.source_table_ids_;
+}
+
+// .greptime.v1.TableId sink_table_id = 3;
+inline bool CreateRequest::_internal_has_sink_table_id() const {
+  return this != internal_default_instance() && _impl_.sink_table_id_ != nullptr;
+}
+inline bool CreateRequest::has_sink_table_id() const {
+  return _internal_has_sink_table_id();
+}
+inline const ::greptime::v1::TableId& CreateRequest::_internal_sink_table_id() const {
+  const ::greptime::v1::TableId* p = _impl_.sink_table_id_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableId&>(
       ::greptime::v1::_TableId_default_instance_);
 }
-inline const ::greptime::v1::TableId& FlowCreateRequest::output_table_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowCreateRequest.output_table_id)
-  return _internal_output_table_id();
+inline const ::greptime::v1::TableId& CreateRequest::sink_table_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.sink_table_id)
+  return _internal_sink_table_id();
 }
-inline void FlowCreateRequest::unsafe_arena_set_allocated_output_table_id(
-    ::greptime::v1::TableId* output_table_id) {
+inline void CreateRequest::unsafe_arena_set_allocated_sink_table_id(
+    ::greptime::v1::TableId* sink_table_id) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.output_table_id_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sink_table_id_);
   }
-  _impl_.output_table_id_ = output_table_id;
-  if (output_table_id) {
+  _impl_.sink_table_id_ = sink_table_id;
+  if (sink_table_id) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.FlowCreateRequest.output_table_id)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.CreateRequest.sink_table_id)
 }
-inline ::greptime::v1::TableId* FlowCreateRequest::release_output_table_id() {
+inline ::greptime::v1::TableId* CreateRequest::release_sink_table_id() {
   
-  ::greptime::v1::TableId* temp = _impl_.output_table_id_;
-  _impl_.output_table_id_ = nullptr;
+  ::greptime::v1::TableId* temp = _impl_.sink_table_id_;
+  _impl_.sink_table_id_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -2095,103 +2152,103 @@ inline ::greptime::v1::TableId* FlowCreateRequest::release_output_table_id() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::TableId* FlowCreateRequest::unsafe_arena_release_output_table_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowCreateRequest.output_table_id)
+inline ::greptime::v1::TableId* CreateRequest::unsafe_arena_release_sink_table_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.sink_table_id)
   
-  ::greptime::v1::TableId* temp = _impl_.output_table_id_;
-  _impl_.output_table_id_ = nullptr;
+  ::greptime::v1::TableId* temp = _impl_.sink_table_id_;
+  _impl_.sink_table_id_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::TableId* FlowCreateRequest::_internal_mutable_output_table_id() {
+inline ::greptime::v1::TableId* CreateRequest::_internal_mutable_sink_table_id() {
   
-  if (_impl_.output_table_id_ == nullptr) {
+  if (_impl_.sink_table_id_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::TableId>(GetArenaForAllocation());
-    _impl_.output_table_id_ = p;
+    _impl_.sink_table_id_ = p;
   }
-  return _impl_.output_table_id_;
+  return _impl_.sink_table_id_;
 }
-inline ::greptime::v1::TableId* FlowCreateRequest::mutable_output_table_id() {
-  ::greptime::v1::TableId* _msg = _internal_mutable_output_table_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowCreateRequest.output_table_id)
+inline ::greptime::v1::TableId* CreateRequest::mutable_sink_table_id() {
+  ::greptime::v1::TableId* _msg = _internal_mutable_sink_table_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.sink_table_id)
   return _msg;
 }
-inline void FlowCreateRequest::set_allocated_output_table_id(::greptime::v1::TableId* output_table_id) {
+inline void CreateRequest::set_allocated_sink_table_id(::greptime::v1::TableId* sink_table_id) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.output_table_id_);
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sink_table_id_);
   }
-  if (output_table_id) {
+  if (sink_table_id) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(output_table_id));
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sink_table_id));
     if (message_arena != submessage_arena) {
-      output_table_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, output_table_id, submessage_arena);
+      sink_table_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, sink_table_id, submessage_arena);
     }
     
   } else {
     
   }
-  _impl_.output_table_id_ = output_table_id;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.output_table_id)
+  _impl_.sink_table_id_ = sink_table_id;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.sink_table_id)
 }
 
-// bool create_if_not_exists = 3;
-inline void FlowCreateRequest::clear_create_if_not_exists() {
+// bool create_if_not_exists = 4;
+inline void CreateRequest::clear_create_if_not_exists() {
   _impl_.create_if_not_exists_ = false;
 }
-inline bool FlowCreateRequest::_internal_create_if_not_exists() const {
+inline bool CreateRequest::_internal_create_if_not_exists() const {
   return _impl_.create_if_not_exists_;
 }
-inline bool FlowCreateRequest::create_if_not_exists() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowCreateRequest.create_if_not_exists)
+inline bool CreateRequest::create_if_not_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.create_if_not_exists)
   return _internal_create_if_not_exists();
 }
-inline void FlowCreateRequest::_internal_set_create_if_not_exists(bool value) {
+inline void CreateRequest::_internal_set_create_if_not_exists(bool value) {
   
   _impl_.create_if_not_exists_ = value;
 }
-inline void FlowCreateRequest::set_create_if_not_exists(bool value) {
+inline void CreateRequest::set_create_if_not_exists(bool value) {
   _internal_set_create_if_not_exists(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.flow.FlowCreateRequest.create_if_not_exists)
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.create_if_not_exists)
 }
 
-// string expire_when = 4;
-inline void FlowCreateRequest::clear_expire_when() {
+// string expire_when = 5;
+inline void CreateRequest::clear_expire_when() {
   _impl_.expire_when_.ClearToEmpty();
 }
-inline const std::string& FlowCreateRequest::expire_when() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowCreateRequest.expire_when)
+inline const std::string& CreateRequest::expire_when() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.expire_when)
   return _internal_expire_when();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void FlowCreateRequest::set_expire_when(ArgT0&& arg0, ArgT... args) {
+void CreateRequest::set_expire_when(ArgT0&& arg0, ArgT... args) {
  
  _impl_.expire_when_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.flow.FlowCreateRequest.expire_when)
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.expire_when)
 }
-inline std::string* FlowCreateRequest::mutable_expire_when() {
+inline std::string* CreateRequest::mutable_expire_when() {
   std::string* _s = _internal_mutable_expire_when();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowCreateRequest.expire_when)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.expire_when)
   return _s;
 }
-inline const std::string& FlowCreateRequest::_internal_expire_when() const {
+inline const std::string& CreateRequest::_internal_expire_when() const {
   return _impl_.expire_when_.Get();
 }
-inline void FlowCreateRequest::_internal_set_expire_when(const std::string& value) {
+inline void CreateRequest::_internal_set_expire_when(const std::string& value) {
   
   _impl_.expire_when_.Set(value, GetArenaForAllocation());
 }
-inline std::string* FlowCreateRequest::_internal_mutable_expire_when() {
+inline std::string* CreateRequest::_internal_mutable_expire_when() {
   
   return _impl_.expire_when_.Mutable(GetArenaForAllocation());
 }
-inline std::string* FlowCreateRequest::release_expire_when() {
-  // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowCreateRequest.expire_when)
+inline std::string* CreateRequest::release_expire_when() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.expire_when)
   return _impl_.expire_when_.Release();
 }
-inline void FlowCreateRequest::set_allocated_expire_when(std::string* expire_when) {
+inline void CreateRequest::set_allocated_expire_when(std::string* expire_when) {
   if (expire_when != nullptr) {
     
   } else {
@@ -2203,45 +2260,45 @@ inline void FlowCreateRequest::set_allocated_expire_when(std::string* expire_whe
     _impl_.expire_when_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.expire_when)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.expire_when)
 }
 
-// string comment = 5;
-inline void FlowCreateRequest::clear_comment() {
+// string comment = 6;
+inline void CreateRequest::clear_comment() {
   _impl_.comment_.ClearToEmpty();
 }
-inline const std::string& FlowCreateRequest::comment() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowCreateRequest.comment)
+inline const std::string& CreateRequest::comment() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.comment)
   return _internal_comment();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void FlowCreateRequest::set_comment(ArgT0&& arg0, ArgT... args) {
+void CreateRequest::set_comment(ArgT0&& arg0, ArgT... args) {
  
  _impl_.comment_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.flow.FlowCreateRequest.comment)
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.comment)
 }
-inline std::string* FlowCreateRequest::mutable_comment() {
+inline std::string* CreateRequest::mutable_comment() {
   std::string* _s = _internal_mutable_comment();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowCreateRequest.comment)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.comment)
   return _s;
 }
-inline const std::string& FlowCreateRequest::_internal_comment() const {
+inline const std::string& CreateRequest::_internal_comment() const {
   return _impl_.comment_.Get();
 }
-inline void FlowCreateRequest::_internal_set_comment(const std::string& value) {
+inline void CreateRequest::_internal_set_comment(const std::string& value) {
   
   _impl_.comment_.Set(value, GetArenaForAllocation());
 }
-inline std::string* FlowCreateRequest::_internal_mutable_comment() {
+inline std::string* CreateRequest::_internal_mutable_comment() {
   
   return _impl_.comment_.Mutable(GetArenaForAllocation());
 }
-inline std::string* FlowCreateRequest::release_comment() {
-  // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowCreateRequest.comment)
+inline std::string* CreateRequest::release_comment() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.comment)
   return _impl_.comment_.Release();
 }
-inline void FlowCreateRequest::set_allocated_comment(std::string* comment) {
+inline void CreateRequest::set_allocated_comment(std::string* comment) {
   if (comment != nullptr) {
     
   } else {
@@ -2253,45 +2310,45 @@ inline void FlowCreateRequest::set_allocated_comment(std::string* comment) {
     _impl_.comment_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.comment)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.comment)
 }
 
-// string sql = 6;
-inline void FlowCreateRequest::clear_sql() {
+// string sql = 7;
+inline void CreateRequest::clear_sql() {
   _impl_.sql_.ClearToEmpty();
 }
-inline const std::string& FlowCreateRequest::sql() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowCreateRequest.sql)
+inline const std::string& CreateRequest::sql() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.sql)
   return _internal_sql();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void FlowCreateRequest::set_sql(ArgT0&& arg0, ArgT... args) {
+void CreateRequest::set_sql(ArgT0&& arg0, ArgT... args) {
  
  _impl_.sql_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.flow.FlowCreateRequest.sql)
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.sql)
 }
-inline std::string* FlowCreateRequest::mutable_sql() {
+inline std::string* CreateRequest::mutable_sql() {
   std::string* _s = _internal_mutable_sql();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowCreateRequest.sql)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.sql)
   return _s;
 }
-inline const std::string& FlowCreateRequest::_internal_sql() const {
+inline const std::string& CreateRequest::_internal_sql() const {
   return _impl_.sql_.Get();
 }
-inline void FlowCreateRequest::_internal_set_sql(const std::string& value) {
+inline void CreateRequest::_internal_set_sql(const std::string& value) {
   
   _impl_.sql_.Set(value, GetArenaForAllocation());
 }
-inline std::string* FlowCreateRequest::_internal_mutable_sql() {
+inline std::string* CreateRequest::_internal_mutable_sql() {
   
   return _impl_.sql_.Mutable(GetArenaForAllocation());
 }
-inline std::string* FlowCreateRequest::release_sql() {
-  // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowCreateRequest.sql)
+inline std::string* CreateRequest::release_sql() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.sql)
   return _impl_.sql_.Release();
 }
-inline void FlowCreateRequest::set_allocated_sql(std::string* sql) {
+inline void CreateRequest::set_allocated_sql(std::string* sql) {
   if (sql != nullptr) {
     
   } else {
@@ -2303,65 +2360,65 @@ inline void FlowCreateRequest::set_allocated_sql(std::string* sql) {
     _impl_.sql_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowCreateRequest.sql)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.sql)
 }
 
-// map<string, string> task_options = 7;
-inline int FlowCreateRequest::_internal_task_options_size() const {
+// map<string, string> task_options = 8;
+inline int CreateRequest::_internal_task_options_size() const {
   return _impl_.task_options_.size();
 }
-inline int FlowCreateRequest::task_options_size() const {
+inline int CreateRequest::task_options_size() const {
   return _internal_task_options_size();
 }
-inline void FlowCreateRequest::clear_task_options() {
+inline void CreateRequest::clear_task_options() {
   _impl_.task_options_.Clear();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-FlowCreateRequest::_internal_task_options() const {
+CreateRequest::_internal_task_options() const {
   return _impl_.task_options_.GetMap();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-FlowCreateRequest::task_options() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.flow.FlowCreateRequest.task_options)
+CreateRequest::task_options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.flow.CreateRequest.task_options)
   return _internal_task_options();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-FlowCreateRequest::_internal_mutable_task_options() {
+CreateRequest::_internal_mutable_task_options() {
   return _impl_.task_options_.MutableMap();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-FlowCreateRequest::mutable_task_options() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.flow.FlowCreateRequest.task_options)
+CreateRequest::mutable_task_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.flow.CreateRequest.task_options)
   return _internal_mutable_task_options();
 }
 
 // -------------------------------------------------------------------
 
-// FlowRemoveRequest
+// RemoveRequest
 
 // .greptime.v1.flow.TaskId task_id = 1;
-inline bool FlowRemoveRequest::_internal_has_task_id() const {
+inline bool RemoveRequest::_internal_has_task_id() const {
   return this != internal_default_instance() && _impl_.task_id_ != nullptr;
 }
-inline bool FlowRemoveRequest::has_task_id() const {
+inline bool RemoveRequest::has_task_id() const {
   return _internal_has_task_id();
 }
-inline void FlowRemoveRequest::clear_task_id() {
+inline void RemoveRequest::clear_task_id() {
   if (GetArenaForAllocation() == nullptr && _impl_.task_id_ != nullptr) {
     delete _impl_.task_id_;
   }
   _impl_.task_id_ = nullptr;
 }
-inline const ::greptime::v1::flow::TaskId& FlowRemoveRequest::_internal_task_id() const {
+inline const ::greptime::v1::flow::TaskId& RemoveRequest::_internal_task_id() const {
   const ::greptime::v1::flow::TaskId* p = _impl_.task_id_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::flow::TaskId&>(
       ::greptime::v1::flow::_TaskId_default_instance_);
 }
-inline const ::greptime::v1::flow::TaskId& FlowRemoveRequest::task_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowRemoveRequest.task_id)
+inline const ::greptime::v1::flow::TaskId& RemoveRequest::task_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.RemoveRequest.task_id)
   return _internal_task_id();
 }
-inline void FlowRemoveRequest::unsafe_arena_set_allocated_task_id(
+inline void RemoveRequest::unsafe_arena_set_allocated_task_id(
     ::greptime::v1::flow::TaskId* task_id) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.task_id_);
@@ -2372,9 +2429,9 @@ inline void FlowRemoveRequest::unsafe_arena_set_allocated_task_id(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.FlowRemoveRequest.task_id)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.RemoveRequest.task_id)
 }
-inline ::greptime::v1::flow::TaskId* FlowRemoveRequest::release_task_id() {
+inline ::greptime::v1::flow::TaskId* RemoveRequest::release_task_id() {
   
   ::greptime::v1::flow::TaskId* temp = _impl_.task_id_;
   _impl_.task_id_ = nullptr;
@@ -2389,14 +2446,14 @@ inline ::greptime::v1::flow::TaskId* FlowRemoveRequest::release_task_id() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::flow::TaskId* FlowRemoveRequest::unsafe_arena_release_task_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowRemoveRequest.task_id)
+inline ::greptime::v1::flow::TaskId* RemoveRequest::unsafe_arena_release_task_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.RemoveRequest.task_id)
   
   ::greptime::v1::flow::TaskId* temp = _impl_.task_id_;
   _impl_.task_id_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::flow::TaskId* FlowRemoveRequest::_internal_mutable_task_id() {
+inline ::greptime::v1::flow::TaskId* RemoveRequest::_internal_mutable_task_id() {
   
   if (_impl_.task_id_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::flow::TaskId>(GetArenaForAllocation());
@@ -2404,12 +2461,12 @@ inline ::greptime::v1::flow::TaskId* FlowRemoveRequest::_internal_mutable_task_i
   }
   return _impl_.task_id_;
 }
-inline ::greptime::v1::flow::TaskId* FlowRemoveRequest::mutable_task_id() {
+inline ::greptime::v1::flow::TaskId* RemoveRequest::mutable_task_id() {
   ::greptime::v1::flow::TaskId* _msg = _internal_mutable_task_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowRemoveRequest.task_id)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.RemoveRequest.task_id)
   return _msg;
 }
-inline void FlowRemoveRequest::set_allocated_task_id(::greptime::v1::flow::TaskId* task_id) {
+inline void RemoveRequest::set_allocated_task_id(::greptime::v1::flow::TaskId* task_id) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.task_id_;
@@ -2426,29 +2483,29 @@ inline void FlowRemoveRequest::set_allocated_task_id(::greptime::v1::flow::TaskI
     
   }
   _impl_.task_id_ = task_id;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowRemoveRequest.task_id)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.RemoveRequest.task_id)
 }
 
 // -------------------------------------------------------------------
 
 // TaskId
 
-// uint64 id = 1;
+// uint32 id = 1;
 inline void TaskId::clear_id() {
-  _impl_.id_ = uint64_t{0u};
+  _impl_.id_ = 0u;
 }
-inline uint64_t TaskId::_internal_id() const {
+inline uint32_t TaskId::_internal_id() const {
   return _impl_.id_;
 }
-inline uint64_t TaskId::id() const {
+inline uint32_t TaskId::id() const {
   // @@protoc_insertion_point(field_get:greptime.v1.flow.TaskId.id)
   return _internal_id();
 }
-inline void TaskId::_internal_set_id(uint64_t value) {
+inline void TaskId::_internal_set_id(uint32_t value) {
   
   _impl_.id_ = value;
 }
-inline void TaskId::set_id(uint64_t value) {
+inline void TaskId::set_id(uint32_t value) {
   _internal_set_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.flow.TaskId.id)
 }
