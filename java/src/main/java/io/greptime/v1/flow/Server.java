@@ -1508,34 +1508,34 @@ public final class Server {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+     * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
      * @return Whether the create field is set.
      */
     boolean hasCreate();
     /**
-     * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+     * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
      * @return The create.
      */
-    io.greptime.v1.flow.Server.FlowCreateRequest getCreate();
+    io.greptime.v1.flow.Server.CreateRequest getCreate();
     /**
-     * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+     * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
      */
-    io.greptime.v1.flow.Server.FlowCreateRequestOrBuilder getCreateOrBuilder();
+    io.greptime.v1.flow.Server.CreateRequestOrBuilder getCreateOrBuilder();
 
     /**
-     * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+     * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
      * @return Whether the remove field is set.
      */
     boolean hasRemove();
     /**
-     * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+     * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
      * @return The remove.
      */
-    io.greptime.v1.flow.Server.FlowRemoveRequest getRemove();
+    io.greptime.v1.flow.Server.RemoveRequest getRemove();
     /**
-     * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+     * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
      */
-    io.greptime.v1.flow.Server.FlowRemoveRequestOrBuilder getRemoveOrBuilder();
+    io.greptime.v1.flow.Server.RemoveRequestOrBuilder getRemoveOrBuilder();
 
     public io.greptime.v1.flow.Server.FlowRequest.BodyCase getBodyCase();
   }
@@ -1585,28 +1585,28 @@ public final class Server {
               done = true;
               break;
             case 10: {
-              io.greptime.v1.flow.Server.FlowCreateRequest.Builder subBuilder = null;
+              io.greptime.v1.flow.Server.CreateRequest.Builder subBuilder = null;
               if (bodyCase_ == 1) {
-                subBuilder = ((io.greptime.v1.flow.Server.FlowCreateRequest) body_).toBuilder();
+                subBuilder = ((io.greptime.v1.flow.Server.CreateRequest) body_).toBuilder();
               }
               body_ =
-                  input.readMessage(io.greptime.v1.flow.Server.FlowCreateRequest.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.flow.Server.CreateRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.flow.Server.FlowCreateRequest) body_);
+                subBuilder.mergeFrom((io.greptime.v1.flow.Server.CreateRequest) body_);
                 body_ = subBuilder.buildPartial();
               }
               bodyCase_ = 1;
               break;
             }
             case 18: {
-              io.greptime.v1.flow.Server.FlowRemoveRequest.Builder subBuilder = null;
+              io.greptime.v1.flow.Server.RemoveRequest.Builder subBuilder = null;
               if (bodyCase_ == 2) {
-                subBuilder = ((io.greptime.v1.flow.Server.FlowRemoveRequest) body_).toBuilder();
+                subBuilder = ((io.greptime.v1.flow.Server.RemoveRequest) body_).toBuilder();
               }
               body_ =
-                  input.readMessage(io.greptime.v1.flow.Server.FlowRemoveRequest.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.flow.Server.RemoveRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.flow.Server.FlowRemoveRequest) body_);
+                subBuilder.mergeFrom((io.greptime.v1.flow.Server.RemoveRequest) body_);
                 body_ = subBuilder.buildPartial();
               }
               bodyCase_ = 2;
@@ -1689,7 +1689,7 @@ public final class Server {
 
     public static final int CREATE_FIELD_NUMBER = 1;
     /**
-     * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+     * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
      * @return Whether the create field is set.
      */
     @java.lang.Override
@@ -1697,30 +1697,30 @@ public final class Server {
       return bodyCase_ == 1;
     }
     /**
-     * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+     * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
      * @return The create.
      */
     @java.lang.Override
-    public io.greptime.v1.flow.Server.FlowCreateRequest getCreate() {
+    public io.greptime.v1.flow.Server.CreateRequest getCreate() {
       if (bodyCase_ == 1) {
-         return (io.greptime.v1.flow.Server.FlowCreateRequest) body_;
+         return (io.greptime.v1.flow.Server.CreateRequest) body_;
       }
-      return io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance();
+      return io.greptime.v1.flow.Server.CreateRequest.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+     * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.flow.Server.FlowCreateRequestOrBuilder getCreateOrBuilder() {
+    public io.greptime.v1.flow.Server.CreateRequestOrBuilder getCreateOrBuilder() {
       if (bodyCase_ == 1) {
-         return (io.greptime.v1.flow.Server.FlowCreateRequest) body_;
+         return (io.greptime.v1.flow.Server.CreateRequest) body_;
       }
-      return io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance();
+      return io.greptime.v1.flow.Server.CreateRequest.getDefaultInstance();
     }
 
     public static final int REMOVE_FIELD_NUMBER = 2;
     /**
-     * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+     * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
      * @return Whether the remove field is set.
      */
     @java.lang.Override
@@ -1728,25 +1728,25 @@ public final class Server {
       return bodyCase_ == 2;
     }
     /**
-     * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+     * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
      * @return The remove.
      */
     @java.lang.Override
-    public io.greptime.v1.flow.Server.FlowRemoveRequest getRemove() {
+    public io.greptime.v1.flow.Server.RemoveRequest getRemove() {
       if (bodyCase_ == 2) {
-         return (io.greptime.v1.flow.Server.FlowRemoveRequest) body_;
+         return (io.greptime.v1.flow.Server.RemoveRequest) body_;
       }
-      return io.greptime.v1.flow.Server.FlowRemoveRequest.getDefaultInstance();
+      return io.greptime.v1.flow.Server.RemoveRequest.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+     * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.flow.Server.FlowRemoveRequestOrBuilder getRemoveOrBuilder() {
+    public io.greptime.v1.flow.Server.RemoveRequestOrBuilder getRemoveOrBuilder() {
       if (bodyCase_ == 2) {
-         return (io.greptime.v1.flow.Server.FlowRemoveRequest) body_;
+         return (io.greptime.v1.flow.Server.RemoveRequest) body_;
       }
-      return io.greptime.v1.flow.Server.FlowRemoveRequest.getDefaultInstance();
+      return io.greptime.v1.flow.Server.RemoveRequest.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1764,10 +1764,10 @@ public final class Server {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (bodyCase_ == 1) {
-        output.writeMessage(1, (io.greptime.v1.flow.Server.FlowCreateRequest) body_);
+        output.writeMessage(1, (io.greptime.v1.flow.Server.CreateRequest) body_);
       }
       if (bodyCase_ == 2) {
-        output.writeMessage(2, (io.greptime.v1.flow.Server.FlowRemoveRequest) body_);
+        output.writeMessage(2, (io.greptime.v1.flow.Server.RemoveRequest) body_);
       }
       unknownFields.writeTo(output);
     }
@@ -1780,11 +1780,11 @@ public final class Server {
       size = 0;
       if (bodyCase_ == 1) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, (io.greptime.v1.flow.Server.FlowCreateRequest) body_);
+          .computeMessageSize(1, (io.greptime.v1.flow.Server.CreateRequest) body_);
       }
       if (bodyCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (io.greptime.v1.flow.Server.FlowRemoveRequest) body_);
+          .computeMessageSize(2, (io.greptime.v1.flow.Server.RemoveRequest) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2119,9 +2119,9 @@ public final class Server {
 
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.FlowCreateRequest, io.greptime.v1.flow.Server.FlowCreateRequest.Builder, io.greptime.v1.flow.Server.FlowCreateRequestOrBuilder> createBuilder_;
+          io.greptime.v1.flow.Server.CreateRequest, io.greptime.v1.flow.Server.CreateRequest.Builder, io.greptime.v1.flow.Server.CreateRequestOrBuilder> createBuilder_;
       /**
-       * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+       * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
        * @return Whether the create field is set.
        */
       @java.lang.Override
@@ -2129,27 +2129,27 @@ public final class Server {
         return bodyCase_ == 1;
       }
       /**
-       * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+       * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
        * @return The create.
        */
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowCreateRequest getCreate() {
+      public io.greptime.v1.flow.Server.CreateRequest getCreate() {
         if (createBuilder_ == null) {
           if (bodyCase_ == 1) {
-            return (io.greptime.v1.flow.Server.FlowCreateRequest) body_;
+            return (io.greptime.v1.flow.Server.CreateRequest) body_;
           }
-          return io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance();
+          return io.greptime.v1.flow.Server.CreateRequest.getDefaultInstance();
         } else {
           if (bodyCase_ == 1) {
             return createBuilder_.getMessage();
           }
-          return io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance();
+          return io.greptime.v1.flow.Server.CreateRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+       * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
        */
-      public Builder setCreate(io.greptime.v1.flow.Server.FlowCreateRequest value) {
+      public Builder setCreate(io.greptime.v1.flow.Server.CreateRequest value) {
         if (createBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2163,10 +2163,10 @@ public final class Server {
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+       * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
        */
       public Builder setCreate(
-          io.greptime.v1.flow.Server.FlowCreateRequest.Builder builderForValue) {
+          io.greptime.v1.flow.Server.CreateRequest.Builder builderForValue) {
         if (createBuilder_ == null) {
           body_ = builderForValue.build();
           onChanged();
@@ -2177,13 +2177,13 @@ public final class Server {
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+       * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
        */
-      public Builder mergeCreate(io.greptime.v1.flow.Server.FlowCreateRequest value) {
+      public Builder mergeCreate(io.greptime.v1.flow.Server.CreateRequest value) {
         if (createBuilder_ == null) {
           if (bodyCase_ == 1 &&
-              body_ != io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance()) {
-            body_ = io.greptime.v1.flow.Server.FlowCreateRequest.newBuilder((io.greptime.v1.flow.Server.FlowCreateRequest) body_)
+              body_ != io.greptime.v1.flow.Server.CreateRequest.getDefaultInstance()) {
+            body_ = io.greptime.v1.flow.Server.CreateRequest.newBuilder((io.greptime.v1.flow.Server.CreateRequest) body_)
                 .mergeFrom(value).buildPartial();
           } else {
             body_ = value;
@@ -2200,7 +2200,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+       * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
        */
       public Builder clearCreate() {
         if (createBuilder_ == null) {
@@ -2219,38 +2219,38 @@ public final class Server {
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+       * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
        */
-      public io.greptime.v1.flow.Server.FlowCreateRequest.Builder getCreateBuilder() {
+      public io.greptime.v1.flow.Server.CreateRequest.Builder getCreateBuilder() {
         return getCreateFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+       * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowCreateRequestOrBuilder getCreateOrBuilder() {
+      public io.greptime.v1.flow.Server.CreateRequestOrBuilder getCreateOrBuilder() {
         if ((bodyCase_ == 1) && (createBuilder_ != null)) {
           return createBuilder_.getMessageOrBuilder();
         } else {
           if (bodyCase_ == 1) {
-            return (io.greptime.v1.flow.Server.FlowCreateRequest) body_;
+            return (io.greptime.v1.flow.Server.CreateRequest) body_;
           }
-          return io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance();
+          return io.greptime.v1.flow.Server.CreateRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.flow.FlowCreateRequest create = 1;</code>
+       * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.FlowCreateRequest, io.greptime.v1.flow.Server.FlowCreateRequest.Builder, io.greptime.v1.flow.Server.FlowCreateRequestOrBuilder> 
+          io.greptime.v1.flow.Server.CreateRequest, io.greptime.v1.flow.Server.CreateRequest.Builder, io.greptime.v1.flow.Server.CreateRequestOrBuilder> 
           getCreateFieldBuilder() {
         if (createBuilder_ == null) {
           if (!(bodyCase_ == 1)) {
-            body_ = io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance();
+            body_ = io.greptime.v1.flow.Server.CreateRequest.getDefaultInstance();
           }
           createBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.flow.Server.FlowCreateRequest, io.greptime.v1.flow.Server.FlowCreateRequest.Builder, io.greptime.v1.flow.Server.FlowCreateRequestOrBuilder>(
-                  (io.greptime.v1.flow.Server.FlowCreateRequest) body_,
+              io.greptime.v1.flow.Server.CreateRequest, io.greptime.v1.flow.Server.CreateRequest.Builder, io.greptime.v1.flow.Server.CreateRequestOrBuilder>(
+                  (io.greptime.v1.flow.Server.CreateRequest) body_,
                   getParentForChildren(),
                   isClean());
           body_ = null;
@@ -2261,9 +2261,9 @@ public final class Server {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.FlowRemoveRequest, io.greptime.v1.flow.Server.FlowRemoveRequest.Builder, io.greptime.v1.flow.Server.FlowRemoveRequestOrBuilder> removeBuilder_;
+          io.greptime.v1.flow.Server.RemoveRequest, io.greptime.v1.flow.Server.RemoveRequest.Builder, io.greptime.v1.flow.Server.RemoveRequestOrBuilder> removeBuilder_;
       /**
-       * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+       * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
        * @return Whether the remove field is set.
        */
       @java.lang.Override
@@ -2271,27 +2271,27 @@ public final class Server {
         return bodyCase_ == 2;
       }
       /**
-       * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+       * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
        * @return The remove.
        */
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowRemoveRequest getRemove() {
+      public io.greptime.v1.flow.Server.RemoveRequest getRemove() {
         if (removeBuilder_ == null) {
           if (bodyCase_ == 2) {
-            return (io.greptime.v1.flow.Server.FlowRemoveRequest) body_;
+            return (io.greptime.v1.flow.Server.RemoveRequest) body_;
           }
-          return io.greptime.v1.flow.Server.FlowRemoveRequest.getDefaultInstance();
+          return io.greptime.v1.flow.Server.RemoveRequest.getDefaultInstance();
         } else {
           if (bodyCase_ == 2) {
             return removeBuilder_.getMessage();
           }
-          return io.greptime.v1.flow.Server.FlowRemoveRequest.getDefaultInstance();
+          return io.greptime.v1.flow.Server.RemoveRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+       * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
        */
-      public Builder setRemove(io.greptime.v1.flow.Server.FlowRemoveRequest value) {
+      public Builder setRemove(io.greptime.v1.flow.Server.RemoveRequest value) {
         if (removeBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2305,10 +2305,10 @@ public final class Server {
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+       * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
        */
       public Builder setRemove(
-          io.greptime.v1.flow.Server.FlowRemoveRequest.Builder builderForValue) {
+          io.greptime.v1.flow.Server.RemoveRequest.Builder builderForValue) {
         if (removeBuilder_ == null) {
           body_ = builderForValue.build();
           onChanged();
@@ -2319,13 +2319,13 @@ public final class Server {
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+       * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
        */
-      public Builder mergeRemove(io.greptime.v1.flow.Server.FlowRemoveRequest value) {
+      public Builder mergeRemove(io.greptime.v1.flow.Server.RemoveRequest value) {
         if (removeBuilder_ == null) {
           if (bodyCase_ == 2 &&
-              body_ != io.greptime.v1.flow.Server.FlowRemoveRequest.getDefaultInstance()) {
-            body_ = io.greptime.v1.flow.Server.FlowRemoveRequest.newBuilder((io.greptime.v1.flow.Server.FlowRemoveRequest) body_)
+              body_ != io.greptime.v1.flow.Server.RemoveRequest.getDefaultInstance()) {
+            body_ = io.greptime.v1.flow.Server.RemoveRequest.newBuilder((io.greptime.v1.flow.Server.RemoveRequest) body_)
                 .mergeFrom(value).buildPartial();
           } else {
             body_ = value;
@@ -2342,7 +2342,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+       * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
        */
       public Builder clearRemove() {
         if (removeBuilder_ == null) {
@@ -2361,38 +2361,38 @@ public final class Server {
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+       * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
        */
-      public io.greptime.v1.flow.Server.FlowRemoveRequest.Builder getRemoveBuilder() {
+      public io.greptime.v1.flow.Server.RemoveRequest.Builder getRemoveBuilder() {
         return getRemoveFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+       * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowRemoveRequestOrBuilder getRemoveOrBuilder() {
+      public io.greptime.v1.flow.Server.RemoveRequestOrBuilder getRemoveOrBuilder() {
         if ((bodyCase_ == 2) && (removeBuilder_ != null)) {
           return removeBuilder_.getMessageOrBuilder();
         } else {
           if (bodyCase_ == 2) {
-            return (io.greptime.v1.flow.Server.FlowRemoveRequest) body_;
+            return (io.greptime.v1.flow.Server.RemoveRequest) body_;
           }
-          return io.greptime.v1.flow.Server.FlowRemoveRequest.getDefaultInstance();
+          return io.greptime.v1.flow.Server.RemoveRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.flow.FlowRemoveRequest remove = 2;</code>
+       * <code>.greptime.v1.flow.RemoveRequest remove = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.FlowRemoveRequest, io.greptime.v1.flow.Server.FlowRemoveRequest.Builder, io.greptime.v1.flow.Server.FlowRemoveRequestOrBuilder> 
+          io.greptime.v1.flow.Server.RemoveRequest, io.greptime.v1.flow.Server.RemoveRequest.Builder, io.greptime.v1.flow.Server.RemoveRequestOrBuilder> 
           getRemoveFieldBuilder() {
         if (removeBuilder_ == null) {
           if (!(bodyCase_ == 2)) {
-            body_ = io.greptime.v1.flow.Server.FlowRemoveRequest.getDefaultInstance();
+            body_ = io.greptime.v1.flow.Server.RemoveRequest.getDefaultInstance();
           }
           removeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.flow.Server.FlowRemoveRequest, io.greptime.v1.flow.Server.FlowRemoveRequest.Builder, io.greptime.v1.flow.Server.FlowRemoveRequestOrBuilder>(
-                  (io.greptime.v1.flow.Server.FlowRemoveRequest) body_,
+              io.greptime.v1.flow.Server.RemoveRequest, io.greptime.v1.flow.Server.RemoveRequest.Builder, io.greptime.v1.flow.Server.RemoveRequestOrBuilder>(
+                  (io.greptime.v1.flow.Server.RemoveRequest) body_,
                   getParentForChildren(),
                   isClean());
           body_ = null;
@@ -3957,8 +3957,8 @@ com.google.protobuf.ByteString defaultValue);
 
   }
 
-  public interface FlowCreateRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.FlowCreateRequest)
+  public interface CreateRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.CreateRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -4001,19 +4001,19 @@ com.google.protobuf.ByteString defaultValue);
         int index);
 
     /**
-     * <code>.greptime.v1.TableId output_table_id = 3;</code>
-     * @return Whether the outputTableId field is set.
+     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+     * @return Whether the sinkTableId field is set.
      */
-    boolean hasOutputTableId();
+    boolean hasSinkTableId();
     /**
-     * <code>.greptime.v1.TableId output_table_id = 3;</code>
-     * @return The outputTableId.
+     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+     * @return The sinkTableId.
      */
-    io.greptime.v1.Ddl.TableId getOutputTableId();
+    io.greptime.v1.Ddl.TableId getSinkTableId();
     /**
-     * <code>.greptime.v1.TableId output_table_id = 3;</code>
+     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
      */
-    io.greptime.v1.Ddl.TableIdOrBuilder getOutputTableIdOrBuilder();
+    io.greptime.v1.Ddl.TableIdOrBuilder getSinkTableIdOrBuilder();
 
     /**
      * <code>bool create_if_not_exists = 4;</code>
@@ -4098,18 +4098,18 @@ java.lang.String defaultValue);
    * very similar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
    * </pre>
    *
-   * Protobuf type {@code greptime.v1.flow.FlowCreateRequest}
+   * Protobuf type {@code greptime.v1.flow.CreateRequest}
    */
-  public static final class FlowCreateRequest extends
+  public static final class CreateRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.flow.FlowCreateRequest)
-      FlowCreateRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.flow.CreateRequest)
+      CreateRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use FlowCreateRequest.newBuilder() to construct.
-    private FlowCreateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use CreateRequest.newBuilder() to construct.
+    private CreateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private FlowCreateRequest() {
+    private CreateRequest() {
       sourceTableIds_ = java.util.Collections.emptyList();
       expireWhen_ = "";
       comment_ = "";
@@ -4120,7 +4120,7 @@ java.lang.String defaultValue);
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new FlowCreateRequest();
+      return new CreateRequest();
     }
 
     @java.lang.Override
@@ -4128,7 +4128,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FlowCreateRequest(
+    private CreateRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4171,13 +4171,13 @@ java.lang.String defaultValue);
             }
             case 26: {
               io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
-              if (outputTableId_ != null) {
-                subBuilder = outputTableId_.toBuilder();
+              if (sinkTableId_ != null) {
+                subBuilder = sinkTableId_.toBuilder();
               }
-              outputTableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              sinkTableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(outputTableId_);
-                outputTableId_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(sinkTableId_);
+                sinkTableId_ = subBuilder.buildPartial();
               }
 
               break;
@@ -4244,7 +4244,7 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowCreateRequest_descriptor;
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_CreateRequest_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -4262,9 +4262,9 @@ java.lang.String defaultValue);
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowCreateRequest_fieldAccessorTable
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.flow.Server.FlowCreateRequest.class, io.greptime.v1.flow.Server.FlowCreateRequest.Builder.class);
+              io.greptime.v1.flow.Server.CreateRequest.class, io.greptime.v1.flow.Server.CreateRequest.Builder.class);
     }
 
     public static final int TASK_ID_FIELD_NUMBER = 1;
@@ -4333,30 +4333,30 @@ java.lang.String defaultValue);
       return sourceTableIds_.get(index);
     }
 
-    public static final int OUTPUT_TABLE_ID_FIELD_NUMBER = 3;
-    private io.greptime.v1.Ddl.TableId outputTableId_;
+    public static final int SINK_TABLE_ID_FIELD_NUMBER = 3;
+    private io.greptime.v1.Ddl.TableId sinkTableId_;
     /**
-     * <code>.greptime.v1.TableId output_table_id = 3;</code>
-     * @return Whether the outputTableId field is set.
+     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+     * @return Whether the sinkTableId field is set.
      */
     @java.lang.Override
-    public boolean hasOutputTableId() {
-      return outputTableId_ != null;
+    public boolean hasSinkTableId() {
+      return sinkTableId_ != null;
     }
     /**
-     * <code>.greptime.v1.TableId output_table_id = 3;</code>
-     * @return The outputTableId.
+     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+     * @return The sinkTableId.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.TableId getOutputTableId() {
-      return outputTableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : outputTableId_;
+    public io.greptime.v1.Ddl.TableId getSinkTableId() {
+      return sinkTableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : sinkTableId_;
     }
     /**
-     * <code>.greptime.v1.TableId output_table_id = 3;</code>
+     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.TableIdOrBuilder getOutputTableIdOrBuilder() {
-      return getOutputTableId();
+    public io.greptime.v1.Ddl.TableIdOrBuilder getSinkTableIdOrBuilder() {
+      return getSinkTableId();
     }
 
     public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 4;
@@ -4490,7 +4490,7 @@ java.lang.String defaultValue);
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowCreateRequest_TaskOptionsEntry_descriptor, 
+                  io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
@@ -4585,8 +4585,8 @@ java.lang.String defaultValue);
       for (int i = 0; i < sourceTableIds_.size(); i++) {
         output.writeMessage(2, sourceTableIds_.get(i));
       }
-      if (outputTableId_ != null) {
-        output.writeMessage(3, getOutputTableId());
+      if (sinkTableId_ != null) {
+        output.writeMessage(3, getSinkTableId());
       }
       if (createIfNotExists_ != false) {
         output.writeBool(4, createIfNotExists_);
@@ -4623,9 +4623,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, sourceTableIds_.get(i));
       }
-      if (outputTableId_ != null) {
+      if (sinkTableId_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getOutputTableId());
+          .computeMessageSize(3, getSinkTableId());
       }
       if (createIfNotExists_ != false) {
         size += com.google.protobuf.CodedOutputStream
@@ -4660,10 +4660,10 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.flow.Server.FlowCreateRequest)) {
+      if (!(obj instanceof io.greptime.v1.flow.Server.CreateRequest)) {
         return super.equals(obj);
       }
-      io.greptime.v1.flow.Server.FlowCreateRequest other = (io.greptime.v1.flow.Server.FlowCreateRequest) obj;
+      io.greptime.v1.flow.Server.CreateRequest other = (io.greptime.v1.flow.Server.CreateRequest) obj;
 
       if (hasTaskId() != other.hasTaskId()) return false;
       if (hasTaskId()) {
@@ -4672,10 +4672,10 @@ java.lang.String defaultValue);
       }
       if (!getSourceTableIdsList()
           .equals(other.getSourceTableIdsList())) return false;
-      if (hasOutputTableId() != other.hasOutputTableId()) return false;
-      if (hasOutputTableId()) {
-        if (!getOutputTableId()
-            .equals(other.getOutputTableId())) return false;
+      if (hasSinkTableId() != other.hasSinkTableId()) return false;
+      if (hasSinkTableId()) {
+        if (!getSinkTableId()
+            .equals(other.getSinkTableId())) return false;
       }
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
@@ -4706,9 +4706,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + SOURCE_TABLE_IDS_FIELD_NUMBER;
         hash = (53 * hash) + getSourceTableIdsList().hashCode();
       }
-      if (hasOutputTableId()) {
-        hash = (37 * hash) + OUTPUT_TABLE_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getOutputTableId().hashCode();
+      if (hasSinkTableId()) {
+        hash = (37 * hash) + SINK_TABLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getSinkTableId().hashCode();
       }
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
@@ -4728,69 +4728,69 @@ java.lang.String defaultValue);
       return hash;
     }
 
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(byte[] data)
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.flow.Server.CreateRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseDelimitedFrom(
+    public static io.greptime.v1.flow.Server.CreateRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.flow.Server.FlowCreateRequest parseFrom(
+    public static io.greptime.v1.flow.Server.CreateRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4803,7 +4803,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.flow.Server.FlowCreateRequest prototype) {
+    public static Builder newBuilder(io.greptime.v1.flow.Server.CreateRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4823,15 +4823,15 @@ java.lang.String defaultValue);
      * very similar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
      * </pre>
      *
-     * Protobuf type {@code greptime.v1.flow.FlowCreateRequest}
+     * Protobuf type {@code greptime.v1.flow.CreateRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.FlowCreateRequest)
-        io.greptime.v1.flow.Server.FlowCreateRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.CreateRequest)
+        io.greptime.v1.flow.Server.CreateRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowCreateRequest_descriptor;
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_CreateRequest_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -4859,12 +4859,12 @@ java.lang.String defaultValue);
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowCreateRequest_fieldAccessorTable
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.flow.Server.FlowCreateRequest.class, io.greptime.v1.flow.Server.FlowCreateRequest.Builder.class);
+                io.greptime.v1.flow.Server.CreateRequest.class, io.greptime.v1.flow.Server.CreateRequest.Builder.class);
       }
 
-      // Construct using io.greptime.v1.flow.Server.FlowCreateRequest.newBuilder()
+      // Construct using io.greptime.v1.flow.Server.CreateRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4895,11 +4895,11 @@ java.lang.String defaultValue);
         } else {
           sourceTableIdsBuilder_.clear();
         }
-        if (outputTableIdBuilder_ == null) {
-          outputTableId_ = null;
+        if (sinkTableIdBuilder_ == null) {
+          sinkTableId_ = null;
         } else {
-          outputTableId_ = null;
-          outputTableIdBuilder_ = null;
+          sinkTableId_ = null;
+          sinkTableIdBuilder_ = null;
         }
         createIfNotExists_ = false;
 
@@ -4916,17 +4916,17 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowCreateRequest_descriptor;
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_CreateRequest_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowCreateRequest getDefaultInstanceForType() {
-        return io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance();
+      public io.greptime.v1.flow.Server.CreateRequest getDefaultInstanceForType() {
+        return io.greptime.v1.flow.Server.CreateRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowCreateRequest build() {
-        io.greptime.v1.flow.Server.FlowCreateRequest result = buildPartial();
+      public io.greptime.v1.flow.Server.CreateRequest build() {
+        io.greptime.v1.flow.Server.CreateRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4934,8 +4934,8 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowCreateRequest buildPartial() {
-        io.greptime.v1.flow.Server.FlowCreateRequest result = new io.greptime.v1.flow.Server.FlowCreateRequest(this);
+      public io.greptime.v1.flow.Server.CreateRequest buildPartial() {
+        io.greptime.v1.flow.Server.CreateRequest result = new io.greptime.v1.flow.Server.CreateRequest(this);
         int from_bitField0_ = bitField0_;
         if (taskIdBuilder_ == null) {
           result.taskId_ = taskId_;
@@ -4951,10 +4951,10 @@ java.lang.String defaultValue);
         } else {
           result.sourceTableIds_ = sourceTableIdsBuilder_.build();
         }
-        if (outputTableIdBuilder_ == null) {
-          result.outputTableId_ = outputTableId_;
+        if (sinkTableIdBuilder_ == null) {
+          result.sinkTableId_ = sinkTableId_;
         } else {
-          result.outputTableId_ = outputTableIdBuilder_.build();
+          result.sinkTableId_ = sinkTableIdBuilder_.build();
         }
         result.createIfNotExists_ = createIfNotExists_;
         result.expireWhen_ = expireWhen_;
@@ -5000,16 +5000,16 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.flow.Server.FlowCreateRequest) {
-          return mergeFrom((io.greptime.v1.flow.Server.FlowCreateRequest)other);
+        if (other instanceof io.greptime.v1.flow.Server.CreateRequest) {
+          return mergeFrom((io.greptime.v1.flow.Server.CreateRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.flow.Server.FlowCreateRequest other) {
-        if (other == io.greptime.v1.flow.Server.FlowCreateRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.flow.Server.CreateRequest other) {
+        if (other == io.greptime.v1.flow.Server.CreateRequest.getDefaultInstance()) return this;
         if (other.hasTaskId()) {
           mergeTaskId(other.getTaskId());
         }
@@ -5039,8 +5039,8 @@ java.lang.String defaultValue);
             }
           }
         }
-        if (other.hasOutputTableId()) {
-          mergeOutputTableId(other.getOutputTableId());
+        if (other.hasSinkTableId()) {
+          mergeSinkTableId(other.getSinkTableId());
         }
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
@@ -5074,11 +5074,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.flow.Server.FlowCreateRequest parsedMessage = null;
+        io.greptime.v1.flow.Server.CreateRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.flow.Server.FlowCreateRequest) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.flow.Server.CreateRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5448,123 +5448,123 @@ java.lang.String defaultValue);
         return sourceTableIdsBuilder_;
       }
 
-      private io.greptime.v1.Ddl.TableId outputTableId_;
+      private io.greptime.v1.Ddl.TableId sinkTableId_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> outputTableIdBuilder_;
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> sinkTableIdBuilder_;
       /**
-       * <code>.greptime.v1.TableId output_table_id = 3;</code>
-       * @return Whether the outputTableId field is set.
+       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+       * @return Whether the sinkTableId field is set.
        */
-      public boolean hasOutputTableId() {
-        return outputTableIdBuilder_ != null || outputTableId_ != null;
+      public boolean hasSinkTableId() {
+        return sinkTableIdBuilder_ != null || sinkTableId_ != null;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 3;</code>
-       * @return The outputTableId.
+       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+       * @return The sinkTableId.
        */
-      public io.greptime.v1.Ddl.TableId getOutputTableId() {
-        if (outputTableIdBuilder_ == null) {
-          return outputTableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : outputTableId_;
+      public io.greptime.v1.Ddl.TableId getSinkTableId() {
+        if (sinkTableIdBuilder_ == null) {
+          return sinkTableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : sinkTableId_;
         } else {
-          return outputTableIdBuilder_.getMessage();
+          return sinkTableIdBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 3;</code>
+       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
        */
-      public Builder setOutputTableId(io.greptime.v1.Ddl.TableId value) {
-        if (outputTableIdBuilder_ == null) {
+      public Builder setSinkTableId(io.greptime.v1.Ddl.TableId value) {
+        if (sinkTableIdBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          outputTableId_ = value;
+          sinkTableId_ = value;
           onChanged();
         } else {
-          outputTableIdBuilder_.setMessage(value);
+          sinkTableIdBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 3;</code>
+       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
        */
-      public Builder setOutputTableId(
+      public Builder setSinkTableId(
           io.greptime.v1.Ddl.TableId.Builder builderForValue) {
-        if (outputTableIdBuilder_ == null) {
-          outputTableId_ = builderForValue.build();
+        if (sinkTableIdBuilder_ == null) {
+          sinkTableId_ = builderForValue.build();
           onChanged();
         } else {
-          outputTableIdBuilder_.setMessage(builderForValue.build());
+          sinkTableIdBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 3;</code>
+       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
        */
-      public Builder mergeOutputTableId(io.greptime.v1.Ddl.TableId value) {
-        if (outputTableIdBuilder_ == null) {
-          if (outputTableId_ != null) {
-            outputTableId_ =
-              io.greptime.v1.Ddl.TableId.newBuilder(outputTableId_).mergeFrom(value).buildPartial();
+      public Builder mergeSinkTableId(io.greptime.v1.Ddl.TableId value) {
+        if (sinkTableIdBuilder_ == null) {
+          if (sinkTableId_ != null) {
+            sinkTableId_ =
+              io.greptime.v1.Ddl.TableId.newBuilder(sinkTableId_).mergeFrom(value).buildPartial();
           } else {
-            outputTableId_ = value;
+            sinkTableId_ = value;
           }
           onChanged();
         } else {
-          outputTableIdBuilder_.mergeFrom(value);
+          sinkTableIdBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 3;</code>
+       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
        */
-      public Builder clearOutputTableId() {
-        if (outputTableIdBuilder_ == null) {
-          outputTableId_ = null;
+      public Builder clearSinkTableId() {
+        if (sinkTableIdBuilder_ == null) {
+          sinkTableId_ = null;
           onChanged();
         } else {
-          outputTableId_ = null;
-          outputTableIdBuilder_ = null;
+          sinkTableId_ = null;
+          sinkTableIdBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 3;</code>
+       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
        */
-      public io.greptime.v1.Ddl.TableId.Builder getOutputTableIdBuilder() {
+      public io.greptime.v1.Ddl.TableId.Builder getSinkTableIdBuilder() {
         
         onChanged();
-        return getOutputTableIdFieldBuilder().getBuilder();
+        return getSinkTableIdFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 3;</code>
+       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
        */
-      public io.greptime.v1.Ddl.TableIdOrBuilder getOutputTableIdOrBuilder() {
-        if (outputTableIdBuilder_ != null) {
-          return outputTableIdBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Ddl.TableIdOrBuilder getSinkTableIdOrBuilder() {
+        if (sinkTableIdBuilder_ != null) {
+          return sinkTableIdBuilder_.getMessageOrBuilder();
         } else {
-          return outputTableId_ == null ?
-              io.greptime.v1.Ddl.TableId.getDefaultInstance() : outputTableId_;
+          return sinkTableId_ == null ?
+              io.greptime.v1.Ddl.TableId.getDefaultInstance() : sinkTableId_;
         }
       }
       /**
-       * <code>.greptime.v1.TableId output_table_id = 3;</code>
+       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
-          getOutputTableIdFieldBuilder() {
-        if (outputTableIdBuilder_ == null) {
-          outputTableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getSinkTableIdFieldBuilder() {
+        if (sinkTableIdBuilder_ == null) {
+          sinkTableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
-                  getOutputTableId(),
+                  getSinkTableId(),
                   getParentForChildren(),
                   isClean());
-          outputTableId_ = null;
+          sinkTableId_ = null;
         }
-        return outputTableIdBuilder_;
+        return sinkTableIdBuilder_;
       }
 
       private boolean createIfNotExists_ ;
@@ -5969,48 +5969,48 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.FlowCreateRequest)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.CreateRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.flow.FlowCreateRequest)
-    private static final io.greptime.v1.flow.Server.FlowCreateRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.flow.CreateRequest)
+    private static final io.greptime.v1.flow.Server.CreateRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.FlowCreateRequest();
+      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.CreateRequest();
     }
 
-    public static io.greptime.v1.flow.Server.FlowCreateRequest getDefaultInstance() {
+    public static io.greptime.v1.flow.Server.CreateRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<FlowCreateRequest>
-        PARSER = new com.google.protobuf.AbstractParser<FlowCreateRequest>() {
+    private static final com.google.protobuf.Parser<CreateRequest>
+        PARSER = new com.google.protobuf.AbstractParser<CreateRequest>() {
       @java.lang.Override
-      public FlowCreateRequest parsePartialFrom(
+      public CreateRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FlowCreateRequest(input, extensionRegistry);
+        return new CreateRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<FlowCreateRequest> parser() {
+    public static com.google.protobuf.Parser<CreateRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<FlowCreateRequest> getParserForType() {
+    public com.google.protobuf.Parser<CreateRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.flow.Server.FlowCreateRequest getDefaultInstanceForType() {
+    public io.greptime.v1.flow.Server.CreateRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface FlowRemoveRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.FlowRemoveRequest)
+  public interface RemoveRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.RemoveRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -6029,25 +6029,25 @@ java.lang.String defaultValue);
     io.greptime.v1.flow.Server.TaskIdOrBuilder getTaskIdOrBuilder();
   }
   /**
-   * Protobuf type {@code greptime.v1.flow.FlowRemoveRequest}
+   * Protobuf type {@code greptime.v1.flow.RemoveRequest}
    */
-  public static final class FlowRemoveRequest extends
+  public static final class RemoveRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.flow.FlowRemoveRequest)
-      FlowRemoveRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.flow.RemoveRequest)
+      RemoveRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use FlowRemoveRequest.newBuilder() to construct.
-    private FlowRemoveRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use RemoveRequest.newBuilder() to construct.
+    private RemoveRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private FlowRemoveRequest() {
+    private RemoveRequest() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new FlowRemoveRequest();
+      return new RemoveRequest();
     }
 
     @java.lang.Override
@@ -6055,7 +6055,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FlowRemoveRequest(
+    private RemoveRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6109,15 +6109,15 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRemoveRequest_descriptor;
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_RemoveRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRemoveRequest_fieldAccessorTable
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_RemoveRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.flow.Server.FlowRemoveRequest.class, io.greptime.v1.flow.Server.FlowRemoveRequest.Builder.class);
+              io.greptime.v1.flow.Server.RemoveRequest.class, io.greptime.v1.flow.Server.RemoveRequest.Builder.class);
     }
 
     public static final int TASK_ID_FIELD_NUMBER = 1;
@@ -6186,10 +6186,10 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.flow.Server.FlowRemoveRequest)) {
+      if (!(obj instanceof io.greptime.v1.flow.Server.RemoveRequest)) {
         return super.equals(obj);
       }
-      io.greptime.v1.flow.Server.FlowRemoveRequest other = (io.greptime.v1.flow.Server.FlowRemoveRequest) obj;
+      io.greptime.v1.flow.Server.RemoveRequest other = (io.greptime.v1.flow.Server.RemoveRequest) obj;
 
       if (hasTaskId() != other.hasTaskId()) return false;
       if (hasTaskId()) {
@@ -6216,69 +6216,69 @@ java.lang.String defaultValue);
       return hash;
     }
 
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(byte[] data)
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.flow.Server.RemoveRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseDelimitedFrom(
+    public static io.greptime.v1.flow.Server.RemoveRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest parseFrom(
+    public static io.greptime.v1.flow.Server.RemoveRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6291,7 +6291,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.flow.Server.FlowRemoveRequest prototype) {
+    public static Builder newBuilder(io.greptime.v1.flow.Server.RemoveRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -6307,26 +6307,26 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.flow.FlowRemoveRequest}
+     * Protobuf type {@code greptime.v1.flow.RemoveRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.FlowRemoveRequest)
-        io.greptime.v1.flow.Server.FlowRemoveRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.RemoveRequest)
+        io.greptime.v1.flow.Server.RemoveRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRemoveRequest_descriptor;
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_RemoveRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRemoveRequest_fieldAccessorTable
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_RemoveRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.flow.Server.FlowRemoveRequest.class, io.greptime.v1.flow.Server.FlowRemoveRequest.Builder.class);
+                io.greptime.v1.flow.Server.RemoveRequest.class, io.greptime.v1.flow.Server.RemoveRequest.Builder.class);
       }
 
-      // Construct using io.greptime.v1.flow.Server.FlowRemoveRequest.newBuilder()
+      // Construct using io.greptime.v1.flow.Server.RemoveRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6356,17 +6356,17 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRemoveRequest_descriptor;
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_RemoveRequest_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowRemoveRequest getDefaultInstanceForType() {
-        return io.greptime.v1.flow.Server.FlowRemoveRequest.getDefaultInstance();
+      public io.greptime.v1.flow.Server.RemoveRequest getDefaultInstanceForType() {
+        return io.greptime.v1.flow.Server.RemoveRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowRemoveRequest build() {
-        io.greptime.v1.flow.Server.FlowRemoveRequest result = buildPartial();
+      public io.greptime.v1.flow.Server.RemoveRequest build() {
+        io.greptime.v1.flow.Server.RemoveRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -6374,8 +6374,8 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.flow.Server.FlowRemoveRequest buildPartial() {
-        io.greptime.v1.flow.Server.FlowRemoveRequest result = new io.greptime.v1.flow.Server.FlowRemoveRequest(this);
+      public io.greptime.v1.flow.Server.RemoveRequest buildPartial() {
+        io.greptime.v1.flow.Server.RemoveRequest result = new io.greptime.v1.flow.Server.RemoveRequest(this);
         if (taskIdBuilder_ == null) {
           result.taskId_ = taskId_;
         } else {
@@ -6419,16 +6419,16 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.flow.Server.FlowRemoveRequest) {
-          return mergeFrom((io.greptime.v1.flow.Server.FlowRemoveRequest)other);
+        if (other instanceof io.greptime.v1.flow.Server.RemoveRequest) {
+          return mergeFrom((io.greptime.v1.flow.Server.RemoveRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.flow.Server.FlowRemoveRequest other) {
-        if (other == io.greptime.v1.flow.Server.FlowRemoveRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.flow.Server.RemoveRequest other) {
+        if (other == io.greptime.v1.flow.Server.RemoveRequest.getDefaultInstance()) return this;
         if (other.hasTaskId()) {
           mergeTaskId(other.getTaskId());
         }
@@ -6447,11 +6447,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.flow.Server.FlowRemoveRequest parsedMessage = null;
+        io.greptime.v1.flow.Server.RemoveRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.flow.Server.FlowRemoveRequest) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.flow.Server.RemoveRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6592,41 +6592,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.FlowRemoveRequest)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.RemoveRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.flow.FlowRemoveRequest)
-    private static final io.greptime.v1.flow.Server.FlowRemoveRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.flow.RemoveRequest)
+    private static final io.greptime.v1.flow.Server.RemoveRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.FlowRemoveRequest();
+      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.RemoveRequest();
     }
 
-    public static io.greptime.v1.flow.Server.FlowRemoveRequest getDefaultInstance() {
+    public static io.greptime.v1.flow.Server.RemoveRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<FlowRemoveRequest>
-        PARSER = new com.google.protobuf.AbstractParser<FlowRemoveRequest>() {
+    private static final com.google.protobuf.Parser<RemoveRequest>
+        PARSER = new com.google.protobuf.AbstractParser<RemoveRequest>() {
       @java.lang.Override
-      public FlowRemoveRequest parsePartialFrom(
+      public RemoveRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FlowRemoveRequest(input, extensionRegistry);
+        return new RemoveRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<FlowRemoveRequest> parser() {
+    public static com.google.protobuf.Parser<RemoveRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<FlowRemoveRequest> getParserForType() {
+    public com.google.protobuf.Parser<RemoveRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.flow.Server.FlowRemoveRequest getDefaultInstanceForType() {
+    public io.greptime.v1.flow.Server.RemoveRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7148,20 +7148,20 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_flow_FlowCreateRequest_descriptor;
+    internal_static_greptime_v1_flow_CreateRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_flow_FlowCreateRequest_fieldAccessorTable;
+      internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_flow_FlowCreateRequest_TaskOptionsEntry_descriptor;
+    internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_flow_FlowCreateRequest_TaskOptionsEntry_fieldAccessorTable;
+      internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_flow_FlowRemoveRequest_descriptor;
+    internal_static_greptime_v1_flow_RemoveRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_flow_FlowRemoveRequest_fieldAccessorTable;
+      internal_static_greptime_v1_flow_RemoveRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_flow_TaskId_descriptor;
   private static final 
@@ -7182,35 +7182,34 @@ java.lang.String defaultValue);
       "o\"C\n\016InsertRequests\0221\n\010requests\030\001 \003(\0132\037." +
       "greptime.v1.flow.InsertRequest\"C\n\rInsert" +
       "Request\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\013" +
-      "2\021.greptime.v1.Rows\"\203\001\n\013FlowRequest\0225\n\006c" +
-      "reate\030\001 \001(\0132#.greptime.v1.flow.FlowCreat" +
-      "eRequestH\000\0225\n\006remove\030\002 \001(\0132#.greptime.v1" +
-      ".flow.FlowRemoveRequestH\000B\006\n\004body\"\370\001\n\014Fl" +
-      "owResponse\022+\n\006header\030\001 \001(\0132\033.greptime.v1" +
-      ".ResponseHeader\022\025\n\raffected_rows\030\002 \001(\004\022@" +
-      "\n\textension\030\003 \003(\0132-.greptime.v1.flow.Flo" +
-      "wResponse.ExtensionEntry\0220\n\016affected_tas" +
-      "ks\030\004 \003(\0132\030.greptime.v1.flow.TaskId\0320\n\016Ex" +
-      "tensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014" +
-      ":\0028\001\"\356\002\n\021FlowCreateRequest\022)\n\007task_id\030\001 " +
-      "\001(\0132\030.greptime.v1.flow.TaskId\022.\n\020source_" +
-      "table_ids\030\002 \003(\0132\024.greptime.v1.TableId\022-\n" +
-      "\017output_table_id\030\003 \001(\0132\024.greptime.v1.Tab" +
-      "leId\022\034\n\024create_if_not_exists\030\004 \001(\010\022\023\n\013ex" +
-      "pire_when\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030" +
-      "\007 \001(\t\022J\n\014task_options\030\010 \003(\01324.greptime.v" +
-      "1.flow.FlowCreateRequest.TaskOptionsEntr" +
-      "y\0322\n\020TaskOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\">\n\021FlowRemoveRequest\022)\n\007ta" +
-      "sk_id\030\001 \001(\0132\030.greptime.v1.flow.TaskId\"\024\n" +
-      "\006TaskId\022\n\n\002id\030\001 \001(\r2\264\001\n\004Flow\022S\n\022HandleCr" +
-      "eateRemove\022\035.greptime.v1.flow.FlowReques" +
-      "t\032\036.greptime.v1.flow.FlowResponse\022W\n\023Han" +
-      "dleMirrorRequest\022 .greptime.v1.flow.Inse" +
-      "rtRequests\032\036.greptime.v1.flow.FlowRespon" +
-      "seBY\n\023io.greptime.v1.flowB\006ServerZ:githu" +
-      "b.com/GreptimeTeam/greptime-proto/go/gre" +
-      "ptime/v1/flowb\006proto3"
+      "2\021.greptime.v1.Rows\"{\n\013FlowRequest\0221\n\006cr" +
+      "eate\030\001 \001(\0132\037.greptime.v1.flow.CreateRequ" +
+      "estH\000\0221\n\006remove\030\002 \001(\0132\037.greptime.v1.flow" +
+      ".RemoveRequestH\000B\006\n\004body\"\370\001\n\014FlowRespons" +
+      "e\022+\n\006header\030\001 \001(\0132\033.greptime.v1.Response" +
+      "Header\022\025\n\raffected_rows\030\002 \001(\004\022@\n\textensi" +
+      "on\030\003 \003(\0132-.greptime.v1.flow.FlowResponse" +
+      ".ExtensionEntry\0220\n\016affected_tasks\030\004 \003(\0132" +
+      "\030.greptime.v1.flow.TaskId\0320\n\016ExtensionEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\344\002\n\r" +
+      "CreateRequest\022)\n\007task_id\030\001 \001(\0132\030.greptim" +
+      "e.v1.flow.TaskId\022.\n\020source_table_ids\030\002 \003" +
+      "(\0132\024.greptime.v1.TableId\022+\n\rsink_table_i" +
+      "d\030\003 \001(\0132\024.greptime.v1.TableId\022\034\n\024create_" +
+      "if_not_exists\030\004 \001(\010\022\023\n\013expire_when\030\005 \001(\t" +
+      "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014task_o" +
+      "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe" +
+      "quest.TaskOptionsEntry\0322\n\020TaskOptionsEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\":\n\rRe" +
+      "moveRequest\022)\n\007task_id\030\001 \001(\0132\030.greptime." +
+      "v1.flow.TaskId\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\r2\264\001\n" +
+      "\004Flow\022S\n\022HandleCreateRemove\022\035.greptime.v" +
+      "1.flow.FlowRequest\032\036.greptime.v1.flow.Fl" +
+      "owResponse\022W\n\023HandleMirrorRequest\022 .grep" +
+      "time.v1.flow.InsertRequests\032\036.greptime.v" +
+      "1.flow.FlowResponseBY\n\023io.greptime.v1.fl" +
+      "owB\006ServerZ:github.com/GreptimeTeam/grep" +
+      "time-proto/go/greptime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7249,23 +7248,23 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_flow_FlowCreateRequest_descriptor =
+    internal_static_greptime_v1_flow_CreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_greptime_v1_flow_FlowCreateRequest_fieldAccessorTable = new
+    internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_flow_FlowCreateRequest_descriptor,
-        new java.lang.String[] { "TaskId", "SourceTableIds", "OutputTableId", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "TaskOptions", });
-    internal_static_greptime_v1_flow_FlowCreateRequest_TaskOptionsEntry_descriptor =
-      internal_static_greptime_v1_flow_FlowCreateRequest_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_flow_FlowCreateRequest_TaskOptionsEntry_fieldAccessorTable = new
+        internal_static_greptime_v1_flow_CreateRequest_descriptor,
+        new java.lang.String[] { "TaskId", "SourceTableIds", "SinkTableId", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "TaskOptions", });
+    internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_descriptor =
+      internal_static_greptime_v1_flow_CreateRequest_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_flow_FlowCreateRequest_TaskOptionsEntry_descriptor,
+        internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_flow_FlowRemoveRequest_descriptor =
+    internal_static_greptime_v1_flow_RemoveRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_greptime_v1_flow_FlowRemoveRequest_fieldAccessorTable = new
+    internal_static_greptime_v1_flow_RemoveRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_flow_FlowRemoveRequest_descriptor,
+        internal_static_greptime_v1_flow_RemoveRequest_descriptor,
         new java.lang.String[] { "TaskId", });
     internal_static_greptime_v1_flow_TaskId_descriptor =
       getDescriptor().getMessageTypes().get(6);

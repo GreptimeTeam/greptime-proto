@@ -42,8 +42,8 @@ message InsertRequest {
 
 message FlowRequest {
   oneof body {
-    FlowCreateRequest create = 1;
-    FlowRemoveRequest remove = 2;
+    CreateRequest create = 1;
+    RemoveRequest remove = 2;
   }
 }
 
@@ -56,10 +56,10 @@ message FlowResponse {
 }
 
 // very similar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
-message FlowCreateRequest {
+message CreateRequest {
   TaskId task_id = 1; 
   repeated TableId source_table_ids = 2;
-  TableId output_table_id = 3;
+  TableId sink_table_id = 3;
   bool create_if_not_exists = 4;
   string expire_when = 5;
   string comment = 6;
@@ -67,6 +67,6 @@ message FlowCreateRequest {
   map<string, string> task_options = 8;
 }
 
-message FlowRemoveRequest { TaskId task_id = 1; }
+message RemoveRequest { TaskId task_id = 1; }
 
 message TaskId { uint32 id = 1; }

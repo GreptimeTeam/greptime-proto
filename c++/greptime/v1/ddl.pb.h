@@ -634,7 +634,7 @@ class CreateFlowTaskExpr final :
     kExpireWhenFieldNumber = 6,
     kCommentFieldNumber = 7,
     kSqlFieldNumber = 8,
-    kOutputTableNameFieldNumber = 4,
+    kSinkTableNameFieldNumber = 4,
     kCreateIfNotExistsFieldNumber = 5,
   };
   // repeated .greptime.v1.SchemaScopedTableName source_table_names = 3;
@@ -742,23 +742,23 @@ class CreateFlowTaskExpr final :
   std::string* _internal_mutable_sql();
   public:
 
-  // .greptime.v1.SchemaScopedTableName output_table_name = 4;
-  bool has_output_table_name() const;
+  // .greptime.v1.SchemaScopedTableName sink_table_name = 4;
+  bool has_sink_table_name() const;
   private:
-  bool _internal_has_output_table_name() const;
+  bool _internal_has_sink_table_name() const;
   public:
-  void clear_output_table_name();
-  const ::greptime::v1::SchemaScopedTableName& output_table_name() const;
-  PROTOBUF_NODISCARD ::greptime::v1::SchemaScopedTableName* release_output_table_name();
-  ::greptime::v1::SchemaScopedTableName* mutable_output_table_name();
-  void set_allocated_output_table_name(::greptime::v1::SchemaScopedTableName* output_table_name);
+  void clear_sink_table_name();
+  const ::greptime::v1::SchemaScopedTableName& sink_table_name() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SchemaScopedTableName* release_sink_table_name();
+  ::greptime::v1::SchemaScopedTableName* mutable_sink_table_name();
+  void set_allocated_sink_table_name(::greptime::v1::SchemaScopedTableName* sink_table_name);
   private:
-  const ::greptime::v1::SchemaScopedTableName& _internal_output_table_name() const;
-  ::greptime::v1::SchemaScopedTableName* _internal_mutable_output_table_name();
+  const ::greptime::v1::SchemaScopedTableName& _internal_sink_table_name() const;
+  ::greptime::v1::SchemaScopedTableName* _internal_mutable_sink_table_name();
   public:
-  void unsafe_arena_set_allocated_output_table_name(
-      ::greptime::v1::SchemaScopedTableName* output_table_name);
-  ::greptime::v1::SchemaScopedTableName* unsafe_arena_release_output_table_name();
+  void unsafe_arena_set_allocated_sink_table_name(
+      ::greptime::v1::SchemaScopedTableName* sink_table_name);
+  ::greptime::v1::SchemaScopedTableName* unsafe_arena_release_sink_table_name();
 
   // bool create_if_not_exists = 5;
   void clear_create_if_not_exists();
@@ -788,7 +788,7 @@ class CreateFlowTaskExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_when_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
-    ::greptime::v1::SchemaScopedTableName* output_table_name_;
+    ::greptime::v1::SchemaScopedTableName* sink_table_name_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -4659,45 +4659,45 @@ CreateFlowTaskExpr::source_table_names() const {
   return _impl_.source_table_names_;
 }
 
-// .greptime.v1.SchemaScopedTableName output_table_name = 4;
-inline bool CreateFlowTaskExpr::_internal_has_output_table_name() const {
-  return this != internal_default_instance() && _impl_.output_table_name_ != nullptr;
+// .greptime.v1.SchemaScopedTableName sink_table_name = 4;
+inline bool CreateFlowTaskExpr::_internal_has_sink_table_name() const {
+  return this != internal_default_instance() && _impl_.sink_table_name_ != nullptr;
 }
-inline bool CreateFlowTaskExpr::has_output_table_name() const {
-  return _internal_has_output_table_name();
+inline bool CreateFlowTaskExpr::has_sink_table_name() const {
+  return _internal_has_sink_table_name();
 }
-inline void CreateFlowTaskExpr::clear_output_table_name() {
-  if (GetArenaForAllocation() == nullptr && _impl_.output_table_name_ != nullptr) {
-    delete _impl_.output_table_name_;
+inline void CreateFlowTaskExpr::clear_sink_table_name() {
+  if (GetArenaForAllocation() == nullptr && _impl_.sink_table_name_ != nullptr) {
+    delete _impl_.sink_table_name_;
   }
-  _impl_.output_table_name_ = nullptr;
+  _impl_.sink_table_name_ = nullptr;
 }
-inline const ::greptime::v1::SchemaScopedTableName& CreateFlowTaskExpr::_internal_output_table_name() const {
-  const ::greptime::v1::SchemaScopedTableName* p = _impl_.output_table_name_;
+inline const ::greptime::v1::SchemaScopedTableName& CreateFlowTaskExpr::_internal_sink_table_name() const {
+  const ::greptime::v1::SchemaScopedTableName* p = _impl_.sink_table_name_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::SchemaScopedTableName&>(
       ::greptime::v1::_SchemaScopedTableName_default_instance_);
 }
-inline const ::greptime::v1::SchemaScopedTableName& CreateFlowTaskExpr::output_table_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CreateFlowTaskExpr.output_table_name)
-  return _internal_output_table_name();
+inline const ::greptime::v1::SchemaScopedTableName& CreateFlowTaskExpr::sink_table_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateFlowTaskExpr.sink_table_name)
+  return _internal_sink_table_name();
 }
-inline void CreateFlowTaskExpr::unsafe_arena_set_allocated_output_table_name(
-    ::greptime::v1::SchemaScopedTableName* output_table_name) {
+inline void CreateFlowTaskExpr::unsafe_arena_set_allocated_sink_table_name(
+    ::greptime::v1::SchemaScopedTableName* sink_table_name) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.output_table_name_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sink_table_name_);
   }
-  _impl_.output_table_name_ = output_table_name;
-  if (output_table_name) {
+  _impl_.sink_table_name_ = sink_table_name;
+  if (sink_table_name) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.CreateFlowTaskExpr.output_table_name)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.CreateFlowTaskExpr.sink_table_name)
 }
-inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::release_output_table_name() {
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::release_sink_table_name() {
   
-  ::greptime::v1::SchemaScopedTableName* temp = _impl_.output_table_name_;
-  _impl_.output_table_name_ = nullptr;
+  ::greptime::v1::SchemaScopedTableName* temp = _impl_.sink_table_name_;
+  _impl_.sink_table_name_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -4709,44 +4709,44 @@ inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::release_output
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::unsafe_arena_release_output_table_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.CreateFlowTaskExpr.output_table_name)
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::unsafe_arena_release_sink_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateFlowTaskExpr.sink_table_name)
   
-  ::greptime::v1::SchemaScopedTableName* temp = _impl_.output_table_name_;
-  _impl_.output_table_name_ = nullptr;
+  ::greptime::v1::SchemaScopedTableName* temp = _impl_.sink_table_name_;
+  _impl_.sink_table_name_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::_internal_mutable_output_table_name() {
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::_internal_mutable_sink_table_name() {
   
-  if (_impl_.output_table_name_ == nullptr) {
+  if (_impl_.sink_table_name_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::SchemaScopedTableName>(GetArenaForAllocation());
-    _impl_.output_table_name_ = p;
+    _impl_.sink_table_name_ = p;
   }
-  return _impl_.output_table_name_;
+  return _impl_.sink_table_name_;
 }
-inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::mutable_output_table_name() {
-  ::greptime::v1::SchemaScopedTableName* _msg = _internal_mutable_output_table_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateFlowTaskExpr.output_table_name)
+inline ::greptime::v1::SchemaScopedTableName* CreateFlowTaskExpr::mutable_sink_table_name() {
+  ::greptime::v1::SchemaScopedTableName* _msg = _internal_mutable_sink_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateFlowTaskExpr.sink_table_name)
   return _msg;
 }
-inline void CreateFlowTaskExpr::set_allocated_output_table_name(::greptime::v1::SchemaScopedTableName* output_table_name) {
+inline void CreateFlowTaskExpr::set_allocated_sink_table_name(::greptime::v1::SchemaScopedTableName* sink_table_name) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete _impl_.output_table_name_;
+    delete _impl_.sink_table_name_;
   }
-  if (output_table_name) {
+  if (sink_table_name) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(output_table_name);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(sink_table_name);
     if (message_arena != submessage_arena) {
-      output_table_name = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, output_table_name, submessage_arena);
+      sink_table_name = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, sink_table_name, submessage_arena);
     }
     
   } else {
     
   }
-  _impl_.output_table_name_ = output_table_name;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.output_table_name)
+  _impl_.sink_table_name_ = sink_table_name;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowTaskExpr.sink_table_name)
 }
 
 // bool create_if_not_exists = 5;
