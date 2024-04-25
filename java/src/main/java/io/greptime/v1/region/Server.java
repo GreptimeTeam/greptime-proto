@@ -16342,6 +16342,21 @@ java.lang.String defaultValue);
     io.greptime.v1.region.Server.DropColumnsOrBuilder getDropColumnsOrBuilder();
 
     /**
+     * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+     * @return Whether the changeColumnTypes field is set.
+     */
+    boolean hasChangeColumnTypes();
+    /**
+     * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+     * @return The changeColumnTypes.
+     */
+    io.greptime.v1.Ddl.ChangeColumnTypes getChangeColumnTypes();
+    /**
+     * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+     */
+    io.greptime.v1.Ddl.ChangeColumnTypesOrBuilder getChangeColumnTypesOrBuilder();
+
+    /**
      * <pre>
      * The version of the schema before applying the alteration.
      * </pre>
@@ -16436,6 +16451,20 @@ java.lang.String defaultValue);
               schemaVersion_ = input.readUInt64();
               break;
             }
+            case 42: {
+              io.greptime.v1.Ddl.ChangeColumnTypes.Builder subBuilder = null;
+              if (kindCase_ == 5) {
+                subBuilder = ((io.greptime.v1.Ddl.ChangeColumnTypes) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.Ddl.ChangeColumnTypes.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.ChangeColumnTypes) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 5;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -16477,6 +16506,7 @@ java.lang.String defaultValue);
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       ADD_COLUMNS(2),
       DROP_COLUMNS(3),
+      CHANGE_COLUMN_TYPES(5),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -16496,6 +16526,7 @@ java.lang.String defaultValue);
         switch (value) {
           case 2: return ADD_COLUMNS;
           case 3: return DROP_COLUMNS;
+          case 5: return CHANGE_COLUMN_TYPES;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -16584,6 +16615,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.DropColumns.getDefaultInstance();
     }
 
+    public static final int CHANGE_COLUMN_TYPES_FIELD_NUMBER = 5;
+    /**
+     * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+     * @return Whether the changeColumnTypes field is set.
+     */
+    @java.lang.Override
+    public boolean hasChangeColumnTypes() {
+      return kindCase_ == 5;
+    }
+    /**
+     * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+     * @return The changeColumnTypes.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.ChangeColumnTypes getChangeColumnTypes() {
+      if (kindCase_ == 5) {
+         return (io.greptime.v1.Ddl.ChangeColumnTypes) kind_;
+      }
+      return io.greptime.v1.Ddl.ChangeColumnTypes.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.ChangeColumnTypesOrBuilder getChangeColumnTypesOrBuilder() {
+      if (kindCase_ == 5) {
+         return (io.greptime.v1.Ddl.ChangeColumnTypes) kind_;
+      }
+      return io.greptime.v1.Ddl.ChangeColumnTypes.getDefaultInstance();
+    }
+
     public static final int SCHEMA_VERSION_FIELD_NUMBER = 4;
     private long schemaVersion_;
     /**
@@ -16625,6 +16687,9 @@ java.lang.String defaultValue);
       if (schemaVersion_ != 0L) {
         output.writeUInt64(4, schemaVersion_);
       }
+      if (kindCase_ == 5) {
+        output.writeMessage(5, (io.greptime.v1.Ddl.ChangeColumnTypes) kind_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -16649,6 +16714,10 @@ java.lang.String defaultValue);
       if (schemaVersion_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(4, schemaVersion_);
+      }
+      if (kindCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (io.greptime.v1.Ddl.ChangeColumnTypes) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -16679,6 +16748,10 @@ java.lang.String defaultValue);
           if (!getDropColumns()
               .equals(other.getDropColumns())) return false;
           break;
+        case 5:
+          if (!getChangeColumnTypes()
+              .equals(other.getChangeColumnTypes())) return false;
+          break;
         case 0:
         default:
       }
@@ -16707,6 +16780,10 @@ java.lang.String defaultValue);
         case 3:
           hash = (37 * hash) + DROP_COLUMNS_FIELD_NUMBER;
           hash = (53 * hash) + getDropColumns().hashCode();
+          break;
+        case 5:
+          hash = (37 * hash) + CHANGE_COLUMN_TYPES_FIELD_NUMBER;
+          hash = (53 * hash) + getChangeColumnTypes().hashCode();
           break;
         case 0:
         default:
@@ -16891,6 +16968,13 @@ java.lang.String defaultValue);
             result.kind_ = dropColumnsBuilder_.build();
           }
         }
+        if (kindCase_ == 5) {
+          if (changeColumnTypesBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = changeColumnTypesBuilder_.build();
+          }
+        }
         result.schemaVersion_ = schemaVersion_;
         result.kindCase_ = kindCase_;
         onBuilt();
@@ -16954,6 +17038,10 @@ java.lang.String defaultValue);
           }
           case DROP_COLUMNS: {
             mergeDropColumns(other.getDropColumns());
+            break;
+          }
+          case CHANGE_COLUMN_TYPES: {
+            mergeChangeColumnTypes(other.getChangeColumnTypes());
             break;
           }
           case KIND_NOT_SET: {
@@ -17317,6 +17405,148 @@ java.lang.String defaultValue);
         kindCase_ = 3;
         onChanged();;
         return dropColumnsBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.ChangeColumnTypes, io.greptime.v1.Ddl.ChangeColumnTypes.Builder, io.greptime.v1.Ddl.ChangeColumnTypesOrBuilder> changeColumnTypesBuilder_;
+      /**
+       * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+       * @return Whether the changeColumnTypes field is set.
+       */
+      @java.lang.Override
+      public boolean hasChangeColumnTypes() {
+        return kindCase_ == 5;
+      }
+      /**
+       * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+       * @return The changeColumnTypes.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.ChangeColumnTypes getChangeColumnTypes() {
+        if (changeColumnTypesBuilder_ == null) {
+          if (kindCase_ == 5) {
+            return (io.greptime.v1.Ddl.ChangeColumnTypes) kind_;
+          }
+          return io.greptime.v1.Ddl.ChangeColumnTypes.getDefaultInstance();
+        } else {
+          if (kindCase_ == 5) {
+            return changeColumnTypesBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.ChangeColumnTypes.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+       */
+      public Builder setChangeColumnTypes(io.greptime.v1.Ddl.ChangeColumnTypes value) {
+        if (changeColumnTypesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          changeColumnTypesBuilder_.setMessage(value);
+        }
+        kindCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+       */
+      public Builder setChangeColumnTypes(
+          io.greptime.v1.Ddl.ChangeColumnTypes.Builder builderForValue) {
+        if (changeColumnTypesBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          changeColumnTypesBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+       */
+      public Builder mergeChangeColumnTypes(io.greptime.v1.Ddl.ChangeColumnTypes value) {
+        if (changeColumnTypesBuilder_ == null) {
+          if (kindCase_ == 5 &&
+              kind_ != io.greptime.v1.Ddl.ChangeColumnTypes.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.ChangeColumnTypes.newBuilder((io.greptime.v1.Ddl.ChangeColumnTypes) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 5) {
+            changeColumnTypesBuilder_.mergeFrom(value);
+          } else {
+            changeColumnTypesBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+       */
+      public Builder clearChangeColumnTypes() {
+        if (changeColumnTypesBuilder_ == null) {
+          if (kindCase_ == 5) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 5) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          changeColumnTypesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+       */
+      public io.greptime.v1.Ddl.ChangeColumnTypes.Builder getChangeColumnTypesBuilder() {
+        return getChangeColumnTypesFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.ChangeColumnTypesOrBuilder getChangeColumnTypesOrBuilder() {
+        if ((kindCase_ == 5) && (changeColumnTypesBuilder_ != null)) {
+          return changeColumnTypesBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 5) {
+            return (io.greptime.v1.Ddl.ChangeColumnTypes) kind_;
+          }
+          return io.greptime.v1.Ddl.ChangeColumnTypes.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.ChangeColumnTypes change_column_types = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.ChangeColumnTypes, io.greptime.v1.Ddl.ChangeColumnTypes.Builder, io.greptime.v1.Ddl.ChangeColumnTypesOrBuilder> 
+          getChangeColumnTypesFieldBuilder() {
+        if (changeColumnTypesBuilder_ == null) {
+          if (!(kindCase_ == 5)) {
+            kind_ = io.greptime.v1.Ddl.ChangeColumnTypes.getDefaultInstance();
+          }
+          changeColumnTypesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.ChangeColumnTypes, io.greptime.v1.Ddl.ChangeColumnTypes.Builder, io.greptime.v1.Ddl.ChangeColumnTypesOrBuilder>(
+                  (io.greptime.v1.Ddl.ChangeColumnTypes) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 5;
+        onChanged();;
+        return changeColumnTypesBuilder_;
       }
 
       private long schemaVersion_ ;
@@ -22788,29 +23018,30 @@ java.lang.String defaultValue);
       "ntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
       "ue\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_i" +
       "d\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010requests\030\001 \003" +
-      "(\0132 .greptime.v1.region.AlterRequest\"\261\001\n" +
+      "(\0132 .greptime.v1.region.AlterRequest\"\360\001\n" +
       "\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_" +
       "columns\030\002 \001(\0132\036.greptime.v1.region.AddCo" +
       "lumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime" +
-      ".v1.region.DropColumnsH\000\022\026\n\016schema_versi" +
-      "on\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_co" +
-      "lumns\030\001 \003(\0132\035.greptime.v1.region.AddColu" +
-      "mn\"C\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132" +
-      "\036.greptime.v1.region.DropColumn\"v\n\tAddCo" +
-      "lumn\0227\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.r" +
-      "egion.RegionColumnDef\0220\n\010location\030\003 \001(\0132" +
-      "\036.greptime.v1.AddColumnLocation\"\032\n\nDropC" +
-      "olumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\"#\n\016CompactRequest\022\021\n\tregi" +
-      "on_id\030\001 \001(\004\"$\n\017TruncateRequest\022\021\n\tregion" +
-      "_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_d" +
-      "ef\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcolu" +
-      "mn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.grepti" +
-      "me.v1.region.RegionRequest\032\".greptime.v1" +
-      ".region.RegionResponseB]\n\025io.greptime.v1" +
-      ".regionB\006ServerZ<github.com/GreptimeTeam" +
-      "/greptime-proto/go/greptime/v1/regionb\006p" +
-      "roto3"
+      ".v1.region.DropColumnsH\000\022=\n\023change_colum" +
+      "n_types\030\005 \001(\0132\036.greptime.v1.ChangeColumn" +
+      "TypesH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"" +
+      "@\n\nAddColumns\0222\n\013add_columns\030\001 \003(\0132\035.gre" +
+      "ptime.v1.region.AddColumn\"C\n\013DropColumns" +
+      "\0224\n\014drop_columns\030\001 \003(\0132\036.greptime.v1.reg" +
+      "ion.DropColumn\"v\n\tAddColumn\0227\n\ncolumn_de" +
+      "f\030\001 \001(\0132#.greptime.v1.region.RegionColum" +
+      "nDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.Add" +
+      "ColumnLocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001" +
+      "(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"#\n" +
+      "\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\"$\n\017Tr" +
+      "uncateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Regi" +
+      "onColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.grepti" +
+      "me.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006Re" +
+      "gion\022O\n\006Handle\022!.greptime.v1.region.Regi" +
+      "onRequest\032\".greptime.v1.region.RegionRes" +
+      "ponseB]\n\025io.greptime.v1.regionB\006ServerZ<" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -22938,7 +23169,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_AlterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AlterRequest_descriptor,
-        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "SchemaVersion", "Kind", });
+        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "ChangeColumnTypes", "SchemaVersion", "Kind", });
     internal_static_greptime_v1_region_AddColumns_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_region_AddColumns_fieldAccessorTable = new
