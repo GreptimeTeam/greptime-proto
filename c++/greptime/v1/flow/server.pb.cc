@@ -110,7 +110,7 @@ PROTOBUF_CONSTEXPR CreateRequest::CreateRequest(
   , /*decltype(_impl_.comment_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.sql_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.task_id_)*/nullptr
-  , /*decltype(_impl_.sink_table_id_)*/nullptr
+  , /*decltype(_impl_.sink_table_name_)*/nullptr
   , /*decltype(_impl_.create_if_not_exists_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CreateRequestDefaultTypeInternal {
@@ -218,7 +218,7 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.task_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.source_table_ids_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.sink_table_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.sink_table_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.create_if_not_exists_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.expire_when_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.comment_),
@@ -279,25 +279,26 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "on\030\003 \003(\0132-.greptime.v1.flow.FlowResponse"
   ".ExtensionEntry\0220\n\016affected_tasks\030\004 \003(\0132"
   "\030.greptime.v1.flow.TaskId\0320\n\016ExtensionEn"
-  "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\344\002\n\r"
+  "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\350\002\n\r"
   "CreateRequest\022)\n\007task_id\030\001 \001(\0132\030.greptim"
   "e.v1.flow.TaskId\022.\n\020source_table_ids\030\002 \003"
-  "(\0132\024.greptime.v1.TableId\022+\n\rsink_table_i"
-  "d\030\003 \001(\0132\024.greptime.v1.TableId\022\034\n\024create_"
-  "if_not_exists\030\004 \001(\010\022\023\n\013expire_when\030\005 \001(\t"
-  "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014task_o"
-  "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe"
-  "quest.TaskOptionsEntry\0322\n\020TaskOptionsEnt"
-  "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\":\n\rRe"
-  "moveRequest\022)\n\007task_id\030\001 \001(\0132\030.greptime."
-  "v1.flow.TaskId\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\r2\264\001\n"
-  "\004Flow\022S\n\022HandleCreateRemove\022\035.greptime.v"
-  "1.flow.FlowRequest\032\036.greptime.v1.flow.Fl"
-  "owResponse\022W\n\023HandleMirrorRequest\022 .grep"
-  "time.v1.flow.InsertRequests\032\036.greptime.v"
-  "1.flow.FlowResponseBY\n\023io.greptime.v1.fl"
-  "owB\006ServerZ:github.com/GreptimeTeam/grep"
-  "time-proto/go/greptime/v1/flowb\006proto3"
+  "(\0132\024.greptime.v1.TableId\022/\n\017sink_table_n"
+  "ame\030\003 \001(\0132\026.greptime.v1.TableName\022\034\n\024cre"
+  "ate_if_not_exists\030\004 \001(\010\022\023\n\013expire_when\030\005"
+  " \001(\t\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014ta"
+  "sk_options\030\010 \003(\01320.greptime.v1.flow.Crea"
+  "teRequest.TaskOptionsEntry\0322\n\020TaskOption"
+  "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\":"
+  "\n\rRemoveRequest\022)\n\007task_id\030\001 \001(\0132\030.grept"
+  "ime.v1.flow.TaskId\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\r"
+  "2\264\001\n\004Flow\022S\n\022HandleCreateRemove\022\035.grepti"
+  "me.v1.flow.FlowRequest\032\036.greptime.v1.flo"
+  "w.FlowResponse\022W\n\023HandleMirrorRequest\022 ."
+  "greptime.v1.flow.InsertRequests\032\036.grepti"
+  "me.v1.flow.FlowResponseBY\n\023io.greptime.v"
+  "1.flowB\006ServerZ:github.com/GreptimeTeam/"
+  "greptime-proto/go/greptime/v1/flowb\006prot"
+  "o3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -306,7 +307,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 1358, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 1362, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
     &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 9,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
@@ -1404,25 +1405,25 @@ void CreateRequest_TaskOptionsEntry_DoNotUse::MergeFrom(const CreateRequest_Task
 class CreateRequest::_Internal {
  public:
   static const ::greptime::v1::flow::TaskId& task_id(const CreateRequest* msg);
-  static const ::greptime::v1::TableId& sink_table_id(const CreateRequest* msg);
+  static const ::greptime::v1::TableName& sink_table_name(const CreateRequest* msg);
 };
 
 const ::greptime::v1::flow::TaskId&
 CreateRequest::_Internal::task_id(const CreateRequest* msg) {
   return *msg->_impl_.task_id_;
 }
-const ::greptime::v1::TableId&
-CreateRequest::_Internal::sink_table_id(const CreateRequest* msg) {
-  return *msg->_impl_.sink_table_id_;
+const ::greptime::v1::TableName&
+CreateRequest::_Internal::sink_table_name(const CreateRequest* msg) {
+  return *msg->_impl_.sink_table_name_;
 }
 void CreateRequest::clear_source_table_ids() {
   _impl_.source_table_ids_.Clear();
 }
-void CreateRequest::clear_sink_table_id() {
-  if (GetArenaForAllocation() == nullptr && _impl_.sink_table_id_ != nullptr) {
-    delete _impl_.sink_table_id_;
+void CreateRequest::clear_sink_table_name() {
+  if (GetArenaForAllocation() == nullptr && _impl_.sink_table_name_ != nullptr) {
+    delete _impl_.sink_table_name_;
   }
-  _impl_.sink_table_id_ = nullptr;
+  _impl_.sink_table_name_ = nullptr;
 }
 CreateRequest::CreateRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1443,7 +1444,7 @@ CreateRequest::CreateRequest(const CreateRequest& from)
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
     , decltype(_impl_.task_id_){nullptr}
-    , decltype(_impl_.sink_table_id_){nullptr}
+    , decltype(_impl_.sink_table_name_){nullptr}
     , decltype(_impl_.create_if_not_exists_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -1476,8 +1477,8 @@ CreateRequest::CreateRequest(const CreateRequest& from)
   if (from._internal_has_task_id()) {
     _this->_impl_.task_id_ = new ::greptime::v1::flow::TaskId(*from._impl_.task_id_);
   }
-  if (from._internal_has_sink_table_id()) {
-    _this->_impl_.sink_table_id_ = new ::greptime::v1::TableId(*from._impl_.sink_table_id_);
+  if (from._internal_has_sink_table_name()) {
+    _this->_impl_.sink_table_name_ = new ::greptime::v1::TableName(*from._impl_.sink_table_name_);
   }
   _this->_impl_.create_if_not_exists_ = from._impl_.create_if_not_exists_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.flow.CreateRequest)
@@ -1494,7 +1495,7 @@ inline void CreateRequest::SharedCtor(
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
     , decltype(_impl_.task_id_){nullptr}
-    , decltype(_impl_.sink_table_id_){nullptr}
+    , decltype(_impl_.sink_table_name_){nullptr}
     , decltype(_impl_.create_if_not_exists_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -1531,7 +1532,7 @@ inline void CreateRequest::SharedDtor() {
   _impl_.comment_.Destroy();
   _impl_.sql_.Destroy();
   if (this != internal_default_instance()) delete _impl_.task_id_;
-  if (this != internal_default_instance()) delete _impl_.sink_table_id_;
+  if (this != internal_default_instance()) delete _impl_.sink_table_name_;
 }
 
 void CreateRequest::ArenaDtor(void* object) {
@@ -1557,10 +1558,10 @@ void CreateRequest::Clear() {
     delete _impl_.task_id_;
   }
   _impl_.task_id_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.sink_table_id_ != nullptr) {
-    delete _impl_.sink_table_id_;
+  if (GetArenaForAllocation() == nullptr && _impl_.sink_table_name_ != nullptr) {
+    delete _impl_.sink_table_name_;
   }
-  _impl_.sink_table_id_ = nullptr;
+  _impl_.sink_table_name_ = nullptr;
   _impl_.create_if_not_exists_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1592,10 +1593,10 @@ const char* CreateRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.TableId sink_table_id = 3;
+      // .greptime.v1.TableName sink_table_name = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_sink_table_id(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_sink_table_name(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1695,11 +1696,11 @@ uint8_t* CreateRequest::_InternalSerialize(
         InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.TableId sink_table_id = 3;
-  if (this->_internal_has_sink_table_id()) {
+  // .greptime.v1.TableName sink_table_name = 3;
+  if (this->_internal_has_sink_table_name()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, _Internal::sink_table_id(this),
-        _Internal::sink_table_id(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(3, _Internal::sink_table_name(this),
+        _Internal::sink_table_name(this).GetCachedSize(), target, stream);
   }
 
   // bool create_if_not_exists = 4;
@@ -1828,11 +1829,11 @@ size_t CreateRequest::ByteSizeLong() const {
         *_impl_.task_id_);
   }
 
-  // .greptime.v1.TableId sink_table_id = 3;
-  if (this->_internal_has_sink_table_id()) {
+  // .greptime.v1.TableName sink_table_name = 3;
+  if (this->_internal_has_sink_table_name()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.sink_table_id_);
+        *_impl_.sink_table_name_);
   }
 
   // bool create_if_not_exists = 4;
@@ -1873,9 +1874,9 @@ void CreateRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
     _this->_internal_mutable_task_id()->::greptime::v1::flow::TaskId::MergeFrom(
         from._internal_task_id());
   }
-  if (from._internal_has_sink_table_id()) {
-    _this->_internal_mutable_sink_table_id()->::greptime::v1::TableId::MergeFrom(
-        from._internal_sink_table_id());
+  if (from._internal_has_sink_table_name()) {
+    _this->_internal_mutable_sink_table_name()->::greptime::v1::TableName::MergeFrom(
+        from._internal_sink_table_name());
   }
   if (from._internal_create_if_not_exists() != 0) {
     _this->_internal_set_create_if_not_exists(from._internal_create_if_not_exists());

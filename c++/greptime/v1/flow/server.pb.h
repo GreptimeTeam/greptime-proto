@@ -1019,7 +1019,7 @@ class CreateRequest final :
     kCommentFieldNumber = 6,
     kSqlFieldNumber = 7,
     kTaskIdFieldNumber = 1,
-    kSinkTableIdFieldNumber = 3,
+    kSinkTableNameFieldNumber = 3,
     kCreateIfNotExistsFieldNumber = 4,
   };
   // repeated .greptime.v1.TableId source_table_ids = 2;
@@ -1117,23 +1117,23 @@ class CreateRequest final :
       ::greptime::v1::flow::TaskId* task_id);
   ::greptime::v1::flow::TaskId* unsafe_arena_release_task_id();
 
-  // .greptime.v1.TableId sink_table_id = 3;
-  bool has_sink_table_id() const;
+  // .greptime.v1.TableName sink_table_name = 3;
+  bool has_sink_table_name() const;
   private:
-  bool _internal_has_sink_table_id() const;
+  bool _internal_has_sink_table_name() const;
   public:
-  void clear_sink_table_id();
-  const ::greptime::v1::TableId& sink_table_id() const;
-  PROTOBUF_NODISCARD ::greptime::v1::TableId* release_sink_table_id();
-  ::greptime::v1::TableId* mutable_sink_table_id();
-  void set_allocated_sink_table_id(::greptime::v1::TableId* sink_table_id);
+  void clear_sink_table_name();
+  const ::greptime::v1::TableName& sink_table_name() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TableName* release_sink_table_name();
+  ::greptime::v1::TableName* mutable_sink_table_name();
+  void set_allocated_sink_table_name(::greptime::v1::TableName* sink_table_name);
   private:
-  const ::greptime::v1::TableId& _internal_sink_table_id() const;
-  ::greptime::v1::TableId* _internal_mutable_sink_table_id();
+  const ::greptime::v1::TableName& _internal_sink_table_name() const;
+  ::greptime::v1::TableName* _internal_mutable_sink_table_name();
   public:
-  void unsafe_arena_set_allocated_sink_table_id(
-      ::greptime::v1::TableId* sink_table_id);
-  ::greptime::v1::TableId* unsafe_arena_release_sink_table_id();
+  void unsafe_arena_set_allocated_sink_table_name(
+      ::greptime::v1::TableName* sink_table_name);
+  ::greptime::v1::TableName* unsafe_arena_release_sink_table_name();
 
   // bool create_if_not_exists = 4;
   void clear_create_if_not_exists();
@@ -1162,7 +1162,7 @@ class CreateRequest final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
     ::greptime::v1::flow::TaskId* task_id_;
-    ::greptime::v1::TableId* sink_table_id_;
+    ::greptime::v1::TableName* sink_table_name_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2108,39 +2108,39 @@ CreateRequest::source_table_ids() const {
   return _impl_.source_table_ids_;
 }
 
-// .greptime.v1.TableId sink_table_id = 3;
-inline bool CreateRequest::_internal_has_sink_table_id() const {
-  return this != internal_default_instance() && _impl_.sink_table_id_ != nullptr;
+// .greptime.v1.TableName sink_table_name = 3;
+inline bool CreateRequest::_internal_has_sink_table_name() const {
+  return this != internal_default_instance() && _impl_.sink_table_name_ != nullptr;
 }
-inline bool CreateRequest::has_sink_table_id() const {
-  return _internal_has_sink_table_id();
+inline bool CreateRequest::has_sink_table_name() const {
+  return _internal_has_sink_table_name();
 }
-inline const ::greptime::v1::TableId& CreateRequest::_internal_sink_table_id() const {
-  const ::greptime::v1::TableId* p = _impl_.sink_table_id_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableId&>(
-      ::greptime::v1::_TableId_default_instance_);
+inline const ::greptime::v1::TableName& CreateRequest::_internal_sink_table_name() const {
+  const ::greptime::v1::TableName* p = _impl_.sink_table_name_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableName&>(
+      ::greptime::v1::_TableName_default_instance_);
 }
-inline const ::greptime::v1::TableId& CreateRequest::sink_table_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.sink_table_id)
-  return _internal_sink_table_id();
+inline const ::greptime::v1::TableName& CreateRequest::sink_table_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.sink_table_name)
+  return _internal_sink_table_name();
 }
-inline void CreateRequest::unsafe_arena_set_allocated_sink_table_id(
-    ::greptime::v1::TableId* sink_table_id) {
+inline void CreateRequest::unsafe_arena_set_allocated_sink_table_name(
+    ::greptime::v1::TableName* sink_table_name) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sink_table_id_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sink_table_name_);
   }
-  _impl_.sink_table_id_ = sink_table_id;
-  if (sink_table_id) {
+  _impl_.sink_table_name_ = sink_table_name;
+  if (sink_table_name) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.CreateRequest.sink_table_id)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.CreateRequest.sink_table_name)
 }
-inline ::greptime::v1::TableId* CreateRequest::release_sink_table_id() {
+inline ::greptime::v1::TableName* CreateRequest::release_sink_table_name() {
   
-  ::greptime::v1::TableId* temp = _impl_.sink_table_id_;
-  _impl_.sink_table_id_ = nullptr;
+  ::greptime::v1::TableName* temp = _impl_.sink_table_name_;
+  _impl_.sink_table_name_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -2152,45 +2152,45 @@ inline ::greptime::v1::TableId* CreateRequest::release_sink_table_id() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::TableId* CreateRequest::unsafe_arena_release_sink_table_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.sink_table_id)
+inline ::greptime::v1::TableName* CreateRequest::unsafe_arena_release_sink_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.sink_table_name)
   
-  ::greptime::v1::TableId* temp = _impl_.sink_table_id_;
-  _impl_.sink_table_id_ = nullptr;
+  ::greptime::v1::TableName* temp = _impl_.sink_table_name_;
+  _impl_.sink_table_name_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::TableId* CreateRequest::_internal_mutable_sink_table_id() {
+inline ::greptime::v1::TableName* CreateRequest::_internal_mutable_sink_table_name() {
   
-  if (_impl_.sink_table_id_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::TableId>(GetArenaForAllocation());
-    _impl_.sink_table_id_ = p;
+  if (_impl_.sink_table_name_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::TableName>(GetArenaForAllocation());
+    _impl_.sink_table_name_ = p;
   }
-  return _impl_.sink_table_id_;
+  return _impl_.sink_table_name_;
 }
-inline ::greptime::v1::TableId* CreateRequest::mutable_sink_table_id() {
-  ::greptime::v1::TableId* _msg = _internal_mutable_sink_table_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.sink_table_id)
+inline ::greptime::v1::TableName* CreateRequest::mutable_sink_table_name() {
+  ::greptime::v1::TableName* _msg = _internal_mutable_sink_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.sink_table_name)
   return _msg;
 }
-inline void CreateRequest::set_allocated_sink_table_id(::greptime::v1::TableId* sink_table_id) {
+inline void CreateRequest::set_allocated_sink_table_name(::greptime::v1::TableName* sink_table_name) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sink_table_id_);
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sink_table_name_);
   }
-  if (sink_table_id) {
+  if (sink_table_name) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sink_table_id));
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sink_table_name));
     if (message_arena != submessage_arena) {
-      sink_table_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, sink_table_id, submessage_arena);
+      sink_table_name = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, sink_table_name, submessage_arena);
     }
     
   } else {
     
   }
-  _impl_.sink_table_id_ = sink_table_id;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.sink_table_id)
+  _impl_.sink_table_name_ = sink_table_name;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.sink_table_name)
 }
 
 // bool create_if_not_exists = 4;
