@@ -4001,19 +4001,19 @@ com.google.protobuf.ByteString defaultValue);
         int index);
 
     /**
-     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
-     * @return Whether the sinkTableId field is set.
+     * <code>.greptime.v1.TableName sink_table_name = 3;</code>
+     * @return Whether the sinkTableName field is set.
      */
-    boolean hasSinkTableId();
+    boolean hasSinkTableName();
     /**
-     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
-     * @return The sinkTableId.
+     * <code>.greptime.v1.TableName sink_table_name = 3;</code>
+     * @return The sinkTableName.
      */
-    io.greptime.v1.Ddl.TableId getSinkTableId();
+    io.greptime.v1.Common.TableName getSinkTableName();
     /**
-     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+     * <code>.greptime.v1.TableName sink_table_name = 3;</code>
      */
-    io.greptime.v1.Ddl.TableIdOrBuilder getSinkTableIdOrBuilder();
+    io.greptime.v1.Common.TableNameOrBuilder getSinkTableNameOrBuilder();
 
     /**
      * <code>bool create_if_not_exists = 4;</code>
@@ -4095,7 +4095,10 @@ java.lang.String defaultValue);
   }
   /**
    * <pre>
-   * very similar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
+   * Create a flow task
+   * 
+   * Very similar to `ddl.CreateTaskExpr`, 
+   * replace `source_table_names` with `source_table_ids`
    * </pre>
    *
    * Protobuf type {@code greptime.v1.flow.CreateRequest}
@@ -4170,14 +4173,14 @@ java.lang.String defaultValue);
               break;
             }
             case 26: {
-              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
-              if (sinkTableId_ != null) {
-                subBuilder = sinkTableId_.toBuilder();
+              io.greptime.v1.Common.TableName.Builder subBuilder = null;
+              if (sinkTableName_ != null) {
+                subBuilder = sinkTableName_.toBuilder();
               }
-              sinkTableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              sinkTableName_ = input.readMessage(io.greptime.v1.Common.TableName.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(sinkTableId_);
-                sinkTableId_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(sinkTableName_);
+                sinkTableName_ = subBuilder.buildPartial();
               }
 
               break;
@@ -4333,30 +4336,30 @@ java.lang.String defaultValue);
       return sourceTableIds_.get(index);
     }
 
-    public static final int SINK_TABLE_ID_FIELD_NUMBER = 3;
-    private io.greptime.v1.Ddl.TableId sinkTableId_;
+    public static final int SINK_TABLE_NAME_FIELD_NUMBER = 3;
+    private io.greptime.v1.Common.TableName sinkTableName_;
     /**
-     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
-     * @return Whether the sinkTableId field is set.
+     * <code>.greptime.v1.TableName sink_table_name = 3;</code>
+     * @return Whether the sinkTableName field is set.
      */
     @java.lang.Override
-    public boolean hasSinkTableId() {
-      return sinkTableId_ != null;
+    public boolean hasSinkTableName() {
+      return sinkTableName_ != null;
     }
     /**
-     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
-     * @return The sinkTableId.
+     * <code>.greptime.v1.TableName sink_table_name = 3;</code>
+     * @return The sinkTableName.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.TableId getSinkTableId() {
-      return sinkTableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : sinkTableId_;
+    public io.greptime.v1.Common.TableName getSinkTableName() {
+      return sinkTableName_ == null ? io.greptime.v1.Common.TableName.getDefaultInstance() : sinkTableName_;
     }
     /**
-     * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+     * <code>.greptime.v1.TableName sink_table_name = 3;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.TableIdOrBuilder getSinkTableIdOrBuilder() {
-      return getSinkTableId();
+    public io.greptime.v1.Common.TableNameOrBuilder getSinkTableNameOrBuilder() {
+      return getSinkTableName();
     }
 
     public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 4;
@@ -4585,8 +4588,8 @@ java.lang.String defaultValue);
       for (int i = 0; i < sourceTableIds_.size(); i++) {
         output.writeMessage(2, sourceTableIds_.get(i));
       }
-      if (sinkTableId_ != null) {
-        output.writeMessage(3, getSinkTableId());
+      if (sinkTableName_ != null) {
+        output.writeMessage(3, getSinkTableName());
       }
       if (createIfNotExists_ != false) {
         output.writeBool(4, createIfNotExists_);
@@ -4623,9 +4626,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, sourceTableIds_.get(i));
       }
-      if (sinkTableId_ != null) {
+      if (sinkTableName_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getSinkTableId());
+          .computeMessageSize(3, getSinkTableName());
       }
       if (createIfNotExists_ != false) {
         size += com.google.protobuf.CodedOutputStream
@@ -4672,10 +4675,10 @@ java.lang.String defaultValue);
       }
       if (!getSourceTableIdsList()
           .equals(other.getSourceTableIdsList())) return false;
-      if (hasSinkTableId() != other.hasSinkTableId()) return false;
-      if (hasSinkTableId()) {
-        if (!getSinkTableId()
-            .equals(other.getSinkTableId())) return false;
+      if (hasSinkTableName() != other.hasSinkTableName()) return false;
+      if (hasSinkTableName()) {
+        if (!getSinkTableName()
+            .equals(other.getSinkTableName())) return false;
       }
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
@@ -4706,9 +4709,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + SOURCE_TABLE_IDS_FIELD_NUMBER;
         hash = (53 * hash) + getSourceTableIdsList().hashCode();
       }
-      if (hasSinkTableId()) {
-        hash = (37 * hash) + SINK_TABLE_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getSinkTableId().hashCode();
+      if (hasSinkTableName()) {
+        hash = (37 * hash) + SINK_TABLE_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getSinkTableName().hashCode();
       }
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
@@ -4820,7 +4823,10 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * very similar to `ddl.CreateTaskExpr` just replace `task_name` with `task_id`
+     * Create a flow task
+     * 
+     * Very similar to `ddl.CreateTaskExpr`, 
+     * replace `source_table_names` with `source_table_ids`
      * </pre>
      *
      * Protobuf type {@code greptime.v1.flow.CreateRequest}
@@ -4895,11 +4901,11 @@ java.lang.String defaultValue);
         } else {
           sourceTableIdsBuilder_.clear();
         }
-        if (sinkTableIdBuilder_ == null) {
-          sinkTableId_ = null;
+        if (sinkTableNameBuilder_ == null) {
+          sinkTableName_ = null;
         } else {
-          sinkTableId_ = null;
-          sinkTableIdBuilder_ = null;
+          sinkTableName_ = null;
+          sinkTableNameBuilder_ = null;
         }
         createIfNotExists_ = false;
 
@@ -4951,10 +4957,10 @@ java.lang.String defaultValue);
         } else {
           result.sourceTableIds_ = sourceTableIdsBuilder_.build();
         }
-        if (sinkTableIdBuilder_ == null) {
-          result.sinkTableId_ = sinkTableId_;
+        if (sinkTableNameBuilder_ == null) {
+          result.sinkTableName_ = sinkTableName_;
         } else {
-          result.sinkTableId_ = sinkTableIdBuilder_.build();
+          result.sinkTableName_ = sinkTableNameBuilder_.build();
         }
         result.createIfNotExists_ = createIfNotExists_;
         result.expireWhen_ = expireWhen_;
@@ -5039,8 +5045,8 @@ java.lang.String defaultValue);
             }
           }
         }
-        if (other.hasSinkTableId()) {
-          mergeSinkTableId(other.getSinkTableId());
+        if (other.hasSinkTableName()) {
+          mergeSinkTableName(other.getSinkTableName());
         }
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
@@ -5448,123 +5454,123 @@ java.lang.String defaultValue);
         return sourceTableIdsBuilder_;
       }
 
-      private io.greptime.v1.Ddl.TableId sinkTableId_;
+      private io.greptime.v1.Common.TableName sinkTableName_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> sinkTableIdBuilder_;
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> sinkTableNameBuilder_;
       /**
-       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
-       * @return Whether the sinkTableId field is set.
+       * <code>.greptime.v1.TableName sink_table_name = 3;</code>
+       * @return Whether the sinkTableName field is set.
        */
-      public boolean hasSinkTableId() {
-        return sinkTableIdBuilder_ != null || sinkTableId_ != null;
+      public boolean hasSinkTableName() {
+        return sinkTableNameBuilder_ != null || sinkTableName_ != null;
       }
       /**
-       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
-       * @return The sinkTableId.
+       * <code>.greptime.v1.TableName sink_table_name = 3;</code>
+       * @return The sinkTableName.
        */
-      public io.greptime.v1.Ddl.TableId getSinkTableId() {
-        if (sinkTableIdBuilder_ == null) {
-          return sinkTableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : sinkTableId_;
+      public io.greptime.v1.Common.TableName getSinkTableName() {
+        if (sinkTableNameBuilder_ == null) {
+          return sinkTableName_ == null ? io.greptime.v1.Common.TableName.getDefaultInstance() : sinkTableName_;
         } else {
-          return sinkTableIdBuilder_.getMessage();
+          return sinkTableNameBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 3;</code>
        */
-      public Builder setSinkTableId(io.greptime.v1.Ddl.TableId value) {
-        if (sinkTableIdBuilder_ == null) {
+      public Builder setSinkTableName(io.greptime.v1.Common.TableName value) {
+        if (sinkTableNameBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          sinkTableId_ = value;
+          sinkTableName_ = value;
           onChanged();
         } else {
-          sinkTableIdBuilder_.setMessage(value);
+          sinkTableNameBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 3;</code>
        */
-      public Builder setSinkTableId(
-          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
-        if (sinkTableIdBuilder_ == null) {
-          sinkTableId_ = builderForValue.build();
+      public Builder setSinkTableName(
+          io.greptime.v1.Common.TableName.Builder builderForValue) {
+        if (sinkTableNameBuilder_ == null) {
+          sinkTableName_ = builderForValue.build();
           onChanged();
         } else {
-          sinkTableIdBuilder_.setMessage(builderForValue.build());
+          sinkTableNameBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 3;</code>
        */
-      public Builder mergeSinkTableId(io.greptime.v1.Ddl.TableId value) {
-        if (sinkTableIdBuilder_ == null) {
-          if (sinkTableId_ != null) {
-            sinkTableId_ =
-              io.greptime.v1.Ddl.TableId.newBuilder(sinkTableId_).mergeFrom(value).buildPartial();
+      public Builder mergeSinkTableName(io.greptime.v1.Common.TableName value) {
+        if (sinkTableNameBuilder_ == null) {
+          if (sinkTableName_ != null) {
+            sinkTableName_ =
+              io.greptime.v1.Common.TableName.newBuilder(sinkTableName_).mergeFrom(value).buildPartial();
           } else {
-            sinkTableId_ = value;
+            sinkTableName_ = value;
           }
           onChanged();
         } else {
-          sinkTableIdBuilder_.mergeFrom(value);
+          sinkTableNameBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 3;</code>
        */
-      public Builder clearSinkTableId() {
-        if (sinkTableIdBuilder_ == null) {
-          sinkTableId_ = null;
+      public Builder clearSinkTableName() {
+        if (sinkTableNameBuilder_ == null) {
+          sinkTableName_ = null;
           onChanged();
         } else {
-          sinkTableId_ = null;
-          sinkTableIdBuilder_ = null;
+          sinkTableName_ = null;
+          sinkTableNameBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 3;</code>
        */
-      public io.greptime.v1.Ddl.TableId.Builder getSinkTableIdBuilder() {
+      public io.greptime.v1.Common.TableName.Builder getSinkTableNameBuilder() {
         
         onChanged();
-        return getSinkTableIdFieldBuilder().getBuilder();
+        return getSinkTableNameFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 3;</code>
        */
-      public io.greptime.v1.Ddl.TableIdOrBuilder getSinkTableIdOrBuilder() {
-        if (sinkTableIdBuilder_ != null) {
-          return sinkTableIdBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Common.TableNameOrBuilder getSinkTableNameOrBuilder() {
+        if (sinkTableNameBuilder_ != null) {
+          return sinkTableNameBuilder_.getMessageOrBuilder();
         } else {
-          return sinkTableId_ == null ?
-              io.greptime.v1.Ddl.TableId.getDefaultInstance() : sinkTableId_;
+          return sinkTableName_ == null ?
+              io.greptime.v1.Common.TableName.getDefaultInstance() : sinkTableName_;
         }
       }
       /**
-       * <code>.greptime.v1.TableId sink_table_id = 3;</code>
+       * <code>.greptime.v1.TableName sink_table_name = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
-          getSinkTableIdFieldBuilder() {
-        if (sinkTableIdBuilder_ == null) {
-          sinkTableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
-                  getSinkTableId(),
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> 
+          getSinkTableNameFieldBuilder() {
+        if (sinkTableNameBuilder_ == null) {
+          sinkTableNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder>(
+                  getSinkTableName(),
                   getParentForChildren(),
                   isClean());
-          sinkTableId_ = null;
+          sinkTableName_ = null;
         }
-        return sinkTableIdBuilder_;
+        return sinkTableNameBuilder_;
       }
 
       private boolean createIfNotExists_ ;
@@ -7191,25 +7197,26 @@ java.lang.String defaultValue);
       "on\030\003 \003(\0132-.greptime.v1.flow.FlowResponse" +
       ".ExtensionEntry\0220\n\016affected_tasks\030\004 \003(\0132" +
       "\030.greptime.v1.flow.TaskId\0320\n\016ExtensionEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\344\002\n\r" +
+      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\350\002\n\r" +
       "CreateRequest\022)\n\007task_id\030\001 \001(\0132\030.greptim" +
       "e.v1.flow.TaskId\022.\n\020source_table_ids\030\002 \003" +
-      "(\0132\024.greptime.v1.TableId\022+\n\rsink_table_i" +
-      "d\030\003 \001(\0132\024.greptime.v1.TableId\022\034\n\024create_" +
-      "if_not_exists\030\004 \001(\010\022\023\n\013expire_when\030\005 \001(\t" +
-      "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014task_o" +
-      "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe" +
-      "quest.TaskOptionsEntry\0322\n\020TaskOptionsEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\":\n\rRe" +
-      "moveRequest\022)\n\007task_id\030\001 \001(\0132\030.greptime." +
-      "v1.flow.TaskId\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\r2\264\001\n" +
-      "\004Flow\022S\n\022HandleCreateRemove\022\035.greptime.v" +
-      "1.flow.FlowRequest\032\036.greptime.v1.flow.Fl" +
-      "owResponse\022W\n\023HandleMirrorRequest\022 .grep" +
-      "time.v1.flow.InsertRequests\032\036.greptime.v" +
-      "1.flow.FlowResponseBY\n\023io.greptime.v1.fl" +
-      "owB\006ServerZ:github.com/GreptimeTeam/grep" +
-      "time-proto/go/greptime/v1/flowb\006proto3"
+      "(\0132\024.greptime.v1.TableId\022/\n\017sink_table_n" +
+      "ame\030\003 \001(\0132\026.greptime.v1.TableName\022\034\n\024cre" +
+      "ate_if_not_exists\030\004 \001(\010\022\023\n\013expire_when\030\005" +
+      " \001(\t\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014ta" +
+      "sk_options\030\010 \003(\01320.greptime.v1.flow.Crea" +
+      "teRequest.TaskOptionsEntry\0322\n\020TaskOption" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\":" +
+      "\n\rRemoveRequest\022)\n\007task_id\030\001 \001(\0132\030.grept" +
+      "ime.v1.flow.TaskId\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\r" +
+      "2\264\001\n\004Flow\022S\n\022HandleCreateRemove\022\035.grepti" +
+      "me.v1.flow.FlowRequest\032\036.greptime.v1.flo" +
+      "w.FlowResponse\022W\n\023HandleMirrorRequest\022 ." +
+      "greptime.v1.flow.InsertRequests\032\036.grepti" +
+      "me.v1.flow.FlowResponseBY\n\023io.greptime.v" +
+      "1.flowB\006ServerZ:github.com/GreptimeTeam/" +
+      "greptime-proto/go/greptime/v1/flowb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7253,7 +7260,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
-        new java.lang.String[] { "TaskId", "SourceTableIds", "SinkTableId", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "TaskOptions", });
+        new java.lang.String[] { "TaskId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "TaskOptions", });
     internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_descriptor =
       internal_static_greptime_v1_flow_CreateRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_fieldAccessorTable = new
