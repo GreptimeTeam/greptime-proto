@@ -127,6 +127,7 @@ message AlterRequest {
   oneof kind {
     AddColumns add_columns = 2;
     DropColumns drop_columns = 3;
+    ChangeColumnTypes change_column_types = 5;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;
