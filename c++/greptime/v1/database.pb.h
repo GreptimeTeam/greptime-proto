@@ -149,7 +149,6 @@ class GreptimeRequest final :
   }
   enum RequestCase {
     kInserts = 2,
-    kQuery = 3,
     kDdl = 4,
     kDeletes = 5,
     kRowInserts = 6,
@@ -237,7 +236,6 @@ class GreptimeRequest final :
   enum : int {
     kHeaderFieldNumber = 1,
     kInsertsFieldNumber = 2,
-    kQueryFieldNumber = 3,
     kDdlFieldNumber = 4,
     kDeletesFieldNumber = 5,
     kRowInsertsFieldNumber = 6,
@@ -278,24 +276,6 @@ class GreptimeRequest final :
   void unsafe_arena_set_allocated_inserts(
       ::greptime::v1::InsertRequests* inserts);
   ::greptime::v1::InsertRequests* unsafe_arena_release_inserts();
-
-  // .greptime.v1.QueryRequest query = 3;
-  bool has_query() const;
-  private:
-  bool _internal_has_query() const;
-  public:
-  void clear_query();
-  const ::greptime::v1::QueryRequest& query() const;
-  PROTOBUF_NODISCARD ::greptime::v1::QueryRequest* release_query();
-  ::greptime::v1::QueryRequest* mutable_query();
-  void set_allocated_query(::greptime::v1::QueryRequest* query);
-  private:
-  const ::greptime::v1::QueryRequest& _internal_query() const;
-  ::greptime::v1::QueryRequest* _internal_mutable_query();
-  public:
-  void unsafe_arena_set_allocated_query(
-      ::greptime::v1::QueryRequest* query);
-  ::greptime::v1::QueryRequest* unsafe_arena_release_query();
 
   // .greptime.v1.DdlRequest ddl = 4;
   bool has_ddl() const;
@@ -375,7 +355,6 @@ class GreptimeRequest final :
  private:
   class _Internal;
   void set_has_inserts();
-  void set_has_query();
   void set_has_ddl();
   void set_has_deletes();
   void set_has_row_inserts();
@@ -393,7 +372,6 @@ class GreptimeRequest final :
       constexpr RequestUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::InsertRequests* inserts_;
-      ::greptime::v1::QueryRequest* query_;
       ::greptime::v1::DdlRequest* ddl_;
       ::greptime::v1::DeleteRequests* deletes_;
       ::greptime::v1::RowInsertRequests* row_inserts_;
@@ -2327,80 +2305,6 @@ inline ::greptime::v1::InsertRequests* GreptimeRequest::_internal_mutable_insert
 inline ::greptime::v1::InsertRequests* GreptimeRequest::mutable_inserts() {
   ::greptime::v1::InsertRequests* _msg = _internal_mutable_inserts();
   // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeRequest.inserts)
-  return _msg;
-}
-
-// .greptime.v1.QueryRequest query = 3;
-inline bool GreptimeRequest::_internal_has_query() const {
-  return request_case() == kQuery;
-}
-inline bool GreptimeRequest::has_query() const {
-  return _internal_has_query();
-}
-inline void GreptimeRequest::set_has_query() {
-  _impl_._oneof_case_[0] = kQuery;
-}
-inline void GreptimeRequest::clear_query() {
-  if (_internal_has_query()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.request_.query_;
-    }
-    clear_has_request();
-  }
-}
-inline ::greptime::v1::QueryRequest* GreptimeRequest::release_query() {
-  // @@protoc_insertion_point(field_release:greptime.v1.GreptimeRequest.query)
-  if (_internal_has_query()) {
-    clear_has_request();
-    ::greptime::v1::QueryRequest* temp = _impl_.request_.query_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.request_.query_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::greptime::v1::QueryRequest& GreptimeRequest::_internal_query() const {
-  return _internal_has_query()
-      ? *_impl_.request_.query_
-      : reinterpret_cast< ::greptime::v1::QueryRequest&>(::greptime::v1::_QueryRequest_default_instance_);
-}
-inline const ::greptime::v1::QueryRequest& GreptimeRequest::query() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.GreptimeRequest.query)
-  return _internal_query();
-}
-inline ::greptime::v1::QueryRequest* GreptimeRequest::unsafe_arena_release_query() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.GreptimeRequest.query)
-  if (_internal_has_query()) {
-    clear_has_request();
-    ::greptime::v1::QueryRequest* temp = _impl_.request_.query_;
-    _impl_.request_.query_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void GreptimeRequest::unsafe_arena_set_allocated_query(::greptime::v1::QueryRequest* query) {
-  clear_request();
-  if (query) {
-    set_has_query();
-    _impl_.request_.query_ = query;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.GreptimeRequest.query)
-}
-inline ::greptime::v1::QueryRequest* GreptimeRequest::_internal_mutable_query() {
-  if (!_internal_has_query()) {
-    clear_request();
-    set_has_query();
-    _impl_.request_.query_ = CreateMaybeMessage< ::greptime::v1::QueryRequest >(GetArenaForAllocation());
-  }
-  return _impl_.request_.query_;
-}
-inline ::greptime::v1::QueryRequest* GreptimeRequest::mutable_query() {
-  ::greptime::v1::QueryRequest* _msg = _internal_mutable_query();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeRequest.query)
   return _msg;
 }
 

@@ -36,7 +36,6 @@ message GreptimeRequest {
   RequestHeader header = 1;
   oneof request {
     InsertRequests inserts = 2;
-    QueryRequest query = 3;
     DdlRequest ddl = 4;
     DeleteRequests deletes = 5;
     RowInsertRequests row_inserts = 6;
