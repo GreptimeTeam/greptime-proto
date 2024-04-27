@@ -5085,7 +5085,7 @@ java.lang.String defaultValue);
   }
   /**
    * <pre>
-   * Procedure identifer
+   * Procedure identifier
    * </pre>
    *
    * Protobuf type {@code greptime.v1.meta.ProcedureId}
@@ -5340,7 +5340,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * Procedure identifer
+     * Procedure identifier
      * </pre>
      *
      * Protobuf type {@code greptime.v1.meta.ProcedureId}
