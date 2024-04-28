@@ -16,8 +16,8 @@ jobs:
     name: Spell Check with Typos
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: crate-ci/typos@v1.0.4
+      - uses: actions/checkout@v4
+      - uses: crate-ci/typos@master
 
   check:
     name: Check
@@ -25,12 +25,12 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v5
         with:
           go-version: "1.18.4"
-      - uses: arduino/setup-protoc@v1
+      - uses: arduino/setup-protoc@v3
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: dtolnay/rust-toolchain@master
@@ -45,16 +45,14 @@ jobs:
           make go
           test $(git status --porcelain=v1 | wc -l) -eq 0 || (echo "Fail: generated go protobuf in github action is different from pushed ones" ; exit 1)
 
-          
-
   fmt:
     name: Rustfmt
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-20.04
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v3
-      - uses: arduino/setup-protoc@v1
+      - uses: actions/checkout@v4
+      - uses: arduino/setup-protoc@v3
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: dtolnay/rust-toolchain@master
@@ -72,8 +70,8 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v3
-      - uses: arduino/setup-protoc@v1
+      - uses: actions/checkout@v4
+      - uses: arduino/setup-protoc@v3
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: dtolnay/rust-toolchain@master

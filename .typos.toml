@@ -1,0 +1,5 @@
+[files]
+extend-exclude = [
+    # Exclude all generated files
+    "**/greptime/v1/**",
+]
