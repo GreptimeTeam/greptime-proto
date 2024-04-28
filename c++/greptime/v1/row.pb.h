@@ -671,10 +671,6 @@ class Value final :
     kIntervalYearMonthValue = 24,
     kIntervalDayTimeValue = 25,
     kIntervalMonthDayNanoValue = 26,
-    kDurationSecondValue = 27,
-    kDurationMillisecondValue = 28,
-    kDurationMicrosecondValue = 29,
-    kDurationNanosecondValue = 30,
     kDecimal128Value = 31,
     VALUE_DATA_NOT_SET = 0,
   };
@@ -783,10 +779,6 @@ class Value final :
     kIntervalYearMonthValueFieldNumber = 24,
     kIntervalDayTimeValueFieldNumber = 25,
     kIntervalMonthDayNanoValueFieldNumber = 26,
-    kDurationSecondValueFieldNumber = 27,
-    kDurationMillisecondValueFieldNumber = 28,
-    kDurationMicrosecondValueFieldNumber = 29,
-    kDurationNanosecondValueFieldNumber = 30,
     kDecimal128ValueFieldNumber = 31,
   };
   // int32 i8_value = 1;
@@ -1142,58 +1134,6 @@ class Value final :
       ::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_value);
   ::greptime::v1::IntervalMonthDayNano* unsafe_arena_release_interval_month_day_nano_value();
 
-  // int64 duration_second_value = 27;
-  bool has_duration_second_value() const;
-  private:
-  bool _internal_has_duration_second_value() const;
-  public:
-  void clear_duration_second_value();
-  int64_t duration_second_value() const;
-  void set_duration_second_value(int64_t value);
-  private:
-  int64_t _internal_duration_second_value() const;
-  void _internal_set_duration_second_value(int64_t value);
-  public:
-
-  // int64 duration_millisecond_value = 28;
-  bool has_duration_millisecond_value() const;
-  private:
-  bool _internal_has_duration_millisecond_value() const;
-  public:
-  void clear_duration_millisecond_value();
-  int64_t duration_millisecond_value() const;
-  void set_duration_millisecond_value(int64_t value);
-  private:
-  int64_t _internal_duration_millisecond_value() const;
-  void _internal_set_duration_millisecond_value(int64_t value);
-  public:
-
-  // int64 duration_microsecond_value = 29;
-  bool has_duration_microsecond_value() const;
-  private:
-  bool _internal_has_duration_microsecond_value() const;
-  public:
-  void clear_duration_microsecond_value();
-  int64_t duration_microsecond_value() const;
-  void set_duration_microsecond_value(int64_t value);
-  private:
-  int64_t _internal_duration_microsecond_value() const;
-  void _internal_set_duration_microsecond_value(int64_t value);
-  public:
-
-  // int64 duration_nanosecond_value = 30;
-  bool has_duration_nanosecond_value() const;
-  private:
-  bool _internal_has_duration_nanosecond_value() const;
-  public:
-  void clear_duration_nanosecond_value();
-  int64_t duration_nanosecond_value() const;
-  void set_duration_nanosecond_value(int64_t value);
-  private:
-  int64_t _internal_duration_nanosecond_value() const;
-  void _internal_set_duration_nanosecond_value(int64_t value);
-  public:
-
   // .greptime.v1.Decimal128 decimal128_value = 31;
   bool has_decimal128_value() const;
   private:
@@ -1243,10 +1183,6 @@ class Value final :
   void set_has_interval_year_month_value();
   void set_has_interval_day_time_value();
   void set_has_interval_month_day_nano_value();
-  void set_has_duration_second_value();
-  void set_has_duration_millisecond_value();
-  void set_has_duration_microsecond_value();
-  void set_has_duration_nanosecond_value();
   void set_has_decimal128_value();
 
   inline bool has_value_data() const;
@@ -1285,10 +1221,6 @@ class Value final :
       int32_t interval_year_month_value_;
       int64_t interval_day_time_value_;
       ::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_value_;
-      int64_t duration_second_value_;
-      int64_t duration_millisecond_value_;
-      int64_t duration_microsecond_value_;
-      int64_t duration_nanosecond_value_;
       ::greptime::v1::Decimal128* decimal128_value_;
     } value_data_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2708,158 +2640,6 @@ inline ::greptime::v1::IntervalMonthDayNano* Value::mutable_interval_month_day_n
   ::greptime::v1::IntervalMonthDayNano* _msg = _internal_mutable_interval_month_day_nano_value();
   // @@protoc_insertion_point(field_mutable:greptime.v1.Value.interval_month_day_nano_value)
   return _msg;
-}
-
-// int64 duration_second_value = 27;
-inline bool Value::_internal_has_duration_second_value() const {
-  return value_data_case() == kDurationSecondValue;
-}
-inline bool Value::has_duration_second_value() const {
-  return _internal_has_duration_second_value();
-}
-inline void Value::set_has_duration_second_value() {
-  _impl_._oneof_case_[0] = kDurationSecondValue;
-}
-inline void Value::clear_duration_second_value() {
-  if (_internal_has_duration_second_value()) {
-    _impl_.value_data_.duration_second_value_ = int64_t{0};
-    clear_has_value_data();
-  }
-}
-inline int64_t Value::_internal_duration_second_value() const {
-  if (_internal_has_duration_second_value()) {
-    return _impl_.value_data_.duration_second_value_;
-  }
-  return int64_t{0};
-}
-inline void Value::_internal_set_duration_second_value(int64_t value) {
-  if (!_internal_has_duration_second_value()) {
-    clear_value_data();
-    set_has_duration_second_value();
-  }
-  _impl_.value_data_.duration_second_value_ = value;
-}
-inline int64_t Value::duration_second_value() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.duration_second_value)
-  return _internal_duration_second_value();
-}
-inline void Value::set_duration_second_value(int64_t value) {
-  _internal_set_duration_second_value(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Value.duration_second_value)
-}
-
-// int64 duration_millisecond_value = 28;
-inline bool Value::_internal_has_duration_millisecond_value() const {
-  return value_data_case() == kDurationMillisecondValue;
-}
-inline bool Value::has_duration_millisecond_value() const {
-  return _internal_has_duration_millisecond_value();
-}
-inline void Value::set_has_duration_millisecond_value() {
-  _impl_._oneof_case_[0] = kDurationMillisecondValue;
-}
-inline void Value::clear_duration_millisecond_value() {
-  if (_internal_has_duration_millisecond_value()) {
-    _impl_.value_data_.duration_millisecond_value_ = int64_t{0};
-    clear_has_value_data();
-  }
-}
-inline int64_t Value::_internal_duration_millisecond_value() const {
-  if (_internal_has_duration_millisecond_value()) {
-    return _impl_.value_data_.duration_millisecond_value_;
-  }
-  return int64_t{0};
-}
-inline void Value::_internal_set_duration_millisecond_value(int64_t value) {
-  if (!_internal_has_duration_millisecond_value()) {
-    clear_value_data();
-    set_has_duration_millisecond_value();
-  }
-  _impl_.value_data_.duration_millisecond_value_ = value;
-}
-inline int64_t Value::duration_millisecond_value() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.duration_millisecond_value)
-  return _internal_duration_millisecond_value();
-}
-inline void Value::set_duration_millisecond_value(int64_t value) {
-  _internal_set_duration_millisecond_value(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Value.duration_millisecond_value)
-}
-
-// int64 duration_microsecond_value = 29;
-inline bool Value::_internal_has_duration_microsecond_value() const {
-  return value_data_case() == kDurationMicrosecondValue;
-}
-inline bool Value::has_duration_microsecond_value() const {
-  return _internal_has_duration_microsecond_value();
-}
-inline void Value::set_has_duration_microsecond_value() {
-  _impl_._oneof_case_[0] = kDurationMicrosecondValue;
-}
-inline void Value::clear_duration_microsecond_value() {
-  if (_internal_has_duration_microsecond_value()) {
-    _impl_.value_data_.duration_microsecond_value_ = int64_t{0};
-    clear_has_value_data();
-  }
-}
-inline int64_t Value::_internal_duration_microsecond_value() const {
-  if (_internal_has_duration_microsecond_value()) {
-    return _impl_.value_data_.duration_microsecond_value_;
-  }
-  return int64_t{0};
-}
-inline void Value::_internal_set_duration_microsecond_value(int64_t value) {
-  if (!_internal_has_duration_microsecond_value()) {
-    clear_value_data();
-    set_has_duration_microsecond_value();
-  }
-  _impl_.value_data_.duration_microsecond_value_ = value;
-}
-inline int64_t Value::duration_microsecond_value() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.duration_microsecond_value)
-  return _internal_duration_microsecond_value();
-}
-inline void Value::set_duration_microsecond_value(int64_t value) {
-  _internal_set_duration_microsecond_value(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Value.duration_microsecond_value)
-}
-
-// int64 duration_nanosecond_value = 30;
-inline bool Value::_internal_has_duration_nanosecond_value() const {
-  return value_data_case() == kDurationNanosecondValue;
-}
-inline bool Value::has_duration_nanosecond_value() const {
-  return _internal_has_duration_nanosecond_value();
-}
-inline void Value::set_has_duration_nanosecond_value() {
-  _impl_._oneof_case_[0] = kDurationNanosecondValue;
-}
-inline void Value::clear_duration_nanosecond_value() {
-  if (_internal_has_duration_nanosecond_value()) {
-    _impl_.value_data_.duration_nanosecond_value_ = int64_t{0};
-    clear_has_value_data();
-  }
-}
-inline int64_t Value::_internal_duration_nanosecond_value() const {
-  if (_internal_has_duration_nanosecond_value()) {
-    return _impl_.value_data_.duration_nanosecond_value_;
-  }
-  return int64_t{0};
-}
-inline void Value::_internal_set_duration_nanosecond_value(int64_t value) {
-  if (!_internal_has_duration_nanosecond_value()) {
-    clear_value_data();
-    set_has_duration_nanosecond_value();
-  }
-  _impl_.value_data_.duration_nanosecond_value_ = value;
-}
-inline int64_t Value::duration_nanosecond_value() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.duration_nanosecond_value)
-  return _internal_duration_nanosecond_value();
-}
-inline void Value::set_duration_nanosecond_value(int64_t value) {
-  _internal_set_duration_nanosecond_value(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Value.duration_nanosecond_value)
 }
 
 // .greptime.v1.Decimal128 decimal128_value = 31;
