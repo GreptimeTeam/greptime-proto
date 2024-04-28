@@ -144,10 +144,6 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Value, _impl_.value_data_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -174,7 +170,7 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType"
   "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime."
   "v1.ColumnDataTypeExtension\")\n\003Row\022\"\n\006val"
-  "ues\030\001 \003(\0132\022.greptime.v1.Value\"\316\007\n\005Value\022"
+  "ues\030\001 \003(\0132\022.greptime.v1.Value\"\274\006\n\005Value\022"
   "\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 \001(\005H\000"
   "\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030\004 \001(\003"
   "H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value\030\006 \001("
@@ -193,22 +189,18 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\001(\003H\000\022#\n\031interval_year_month_value\030\030 \001(\005"
   "H\000\022!\n\027interval_day_time_value\030\031 \001(\003H\000\022J\n"
   "\035interval_month_day_nano_value\030\032 \001(\0132!.g"
-  "reptime.v1.IntervalMonthDayNanoH\000\022\037\n\025dur"
-  "ation_second_value\030\033 \001(\003H\000\022$\n\032duration_m"
-  "illisecond_value\030\034 \001(\003H\000\022$\n\032duration_mic"
-  "rosecond_value\030\035 \001(\003H\000\022#\n\031duration_nanos"
-  "econd_value\030\036 \001(\003H\000\0223\n\020decimal128_value\030"
-  "\037 \001(\0132\027.greptime.v1.Decimal128H\000B\014\n\nvalu"
-  "e_dataBP\n\016io.greptime.v1B\007RowDataZ5githu"
-  "b.com/GreptimeTeam/greptime-proto/go/gre"
-  "ptime/v1b\006proto3"
+  "reptime.v1.IntervalMonthDayNanoH\000\0223\n\020dec"
+  "imal128_value\030\037 \001(\0132\027.greptime.v1.Decima"
+  "l128H\000B\014\n\nvalue_dataBP\n\016io.greptime.v1B\007"
+  "RowDataZ5github.com/GreptimeTeam/greptim"
+  "e-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1456, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1310, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
     &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
@@ -1130,22 +1122,6 @@ Value::Value(const Value& from)
           from._internal_interval_month_day_nano_value());
       break;
     }
-    case kDurationSecondValue: {
-      _this->_internal_set_duration_second_value(from._internal_duration_second_value());
-      break;
-    }
-    case kDurationMillisecondValue: {
-      _this->_internal_set_duration_millisecond_value(from._internal_duration_millisecond_value());
-      break;
-    }
-    case kDurationMicrosecondValue: {
-      _this->_internal_set_duration_microsecond_value(from._internal_duration_microsecond_value());
-      break;
-    }
-    case kDurationNanosecondValue: {
-      _this->_internal_set_duration_nanosecond_value(from._internal_duration_nanosecond_value());
-      break;
-    }
     case kDecimal128Value: {
       _this->_internal_mutable_decimal128_value()->::greptime::v1::Decimal128::MergeFrom(
           from._internal_decimal128_value());
@@ -1297,22 +1273,6 @@ void Value::clear_value_data() {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.value_data_.interval_month_day_nano_value_;
       }
-      break;
-    }
-    case kDurationSecondValue: {
-      // No need to clear
-      break;
-    }
-    case kDurationMillisecondValue: {
-      // No need to clear
-      break;
-    }
-    case kDurationMicrosecondValue: {
-      // No need to clear
-      break;
-    }
-    case kDurationNanosecondValue: {
-      // No need to clear
       break;
     }
     case kDecimal128Value: {
@@ -1556,38 +1516,6 @@ const char* Value::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // int64 duration_second_value = 27;
-      case 27:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 216)) {
-          _internal_set_duration_second_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // int64 duration_millisecond_value = 28;
-      case 28:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 224)) {
-          _internal_set_duration_millisecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // int64 duration_microsecond_value = 29;
-      case 29:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 232)) {
-          _internal_set_duration_microsecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // int64 duration_nanosecond_value = 30;
-      case 30:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 240)) {
-          _internal_set_duration_nanosecond_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
       // .greptime.v1.Decimal128 decimal128_value = 31;
       case 31:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 250)) {
@@ -1786,30 +1714,6 @@ uint8_t* Value::_InternalSerialize(
         _Internal::interval_month_day_nano_value(this).GetCachedSize(), target, stream);
   }
 
-  // int64 duration_second_value = 27;
-  if (_internal_has_duration_second_value()) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(27, this->_internal_duration_second_value(), target);
-  }
-
-  // int64 duration_millisecond_value = 28;
-  if (_internal_has_duration_millisecond_value()) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(28, this->_internal_duration_millisecond_value(), target);
-  }
-
-  // int64 duration_microsecond_value = 29;
-  if (_internal_has_duration_microsecond_value()) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(29, this->_internal_duration_microsecond_value(), target);
-  }
-
-  // int64 duration_nanosecond_value = 30;
-  if (_internal_has_duration_nanosecond_value()) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(30, this->_internal_duration_nanosecond_value(), target);
-  }
-
   // .greptime.v1.Decimal128 decimal128_value = 31;
   if (_internal_has_decimal128_value()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -1990,34 +1894,6 @@ size_t Value::ByteSizeLong() const {
           *_impl_.value_data_.interval_month_day_nano_value_);
       break;
     }
-    // int64 duration_second_value = 27;
-    case kDurationSecondValue: {
-      total_size += 2 +
-        ::_pbi::WireFormatLite::Int64Size(
-          this->_internal_duration_second_value());
-      break;
-    }
-    // int64 duration_millisecond_value = 28;
-    case kDurationMillisecondValue: {
-      total_size += 2 +
-        ::_pbi::WireFormatLite::Int64Size(
-          this->_internal_duration_millisecond_value());
-      break;
-    }
-    // int64 duration_microsecond_value = 29;
-    case kDurationMicrosecondValue: {
-      total_size += 2 +
-        ::_pbi::WireFormatLite::Int64Size(
-          this->_internal_duration_microsecond_value());
-      break;
-    }
-    // int64 duration_nanosecond_value = 30;
-    case kDurationNanosecondValue: {
-      total_size += 2 +
-        ::_pbi::WireFormatLite::Int64Size(
-          this->_internal_duration_nanosecond_value());
-      break;
-    }
     // .greptime.v1.Decimal128 decimal128_value = 31;
     case kDecimal128Value: {
       total_size += 2 +
@@ -2151,22 +2027,6 @@ void Value::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
     case kIntervalMonthDayNanoValue: {
       _this->_internal_mutable_interval_month_day_nano_value()->::greptime::v1::IntervalMonthDayNano::MergeFrom(
           from._internal_interval_month_day_nano_value());
-      break;
-    }
-    case kDurationSecondValue: {
-      _this->_internal_set_duration_second_value(from._internal_duration_second_value());
-      break;
-    }
-    case kDurationMillisecondValue: {
-      _this->_internal_set_duration_millisecond_value(from._internal_duration_millisecond_value());
-      break;
-    }
-    case kDurationMicrosecondValue: {
-      _this->_internal_set_duration_microsecond_value(from._internal_duration_microsecond_value());
-      break;
-    }
-    case kDurationNanosecondValue: {
-      _this->_internal_set_duration_nanosecond_value(from._internal_duration_nanosecond_value());
       break;
     }
     case kDecimal128Value: {

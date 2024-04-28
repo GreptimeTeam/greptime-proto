@@ -241,22 +241,6 @@ public final class Common {
      */
     INTERVAL_MONTH_DAY_NANO(25),
     /**
-     * <code>DURATION_SECOND = 26;</code>
-     */
-    DURATION_SECOND(26),
-    /**
-     * <code>DURATION_MILLISECOND = 27;</code>
-     */
-    DURATION_MILLISECOND(27),
-    /**
-     * <code>DURATION_MICROSECOND = 28;</code>
-     */
-    DURATION_MICROSECOND(28),
-    /**
-     * <code>DURATION_NANOSECOND = 29;</code>
-     */
-    DURATION_NANOSECOND(29),
-    /**
      * <code>DECIMAL128 = 30;</code>
      */
     DECIMAL128(30),
@@ -368,22 +352,6 @@ public final class Common {
      */
     public static final int INTERVAL_MONTH_DAY_NANO_VALUE = 25;
     /**
-     * <code>DURATION_SECOND = 26;</code>
-     */
-    public static final int DURATION_SECOND_VALUE = 26;
-    /**
-     * <code>DURATION_MILLISECOND = 27;</code>
-     */
-    public static final int DURATION_MILLISECOND_VALUE = 27;
-    /**
-     * <code>DURATION_MICROSECOND = 28;</code>
-     */
-    public static final int DURATION_MICROSECOND_VALUE = 28;
-    /**
-     * <code>DURATION_NANOSECOND = 29;</code>
-     */
-    public static final int DURATION_NANOSECOND_VALUE = 29;
-    /**
      * <code>DECIMAL128 = 30;</code>
      */
     public static final int DECIMAL128_VALUE = 30;
@@ -439,10 +407,6 @@ public final class Common {
         case 23: return INTERVAL_YEAR_MONTH;
         case 24: return INTERVAL_DAY_TIME;
         case 25: return INTERVAL_MONTH_DAY_NANO;
-        case 26: return DURATION_SECOND;
-        case 27: return DURATION_MILLISECOND;
-        case 28: return DURATION_MICROSECOND;
-        case 29: return DURATION_NANOSECOND;
         case 30: return DECIMAL128;
         default: return null;
       }
@@ -11138,7 +11102,7 @@ java.lang.String defaultValue);
       "lTypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalT" +
       "ypeExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale" +
       "\030\002 \001(\005*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD" +
-      "\020\001\022\r\n\tTIMESTAMP\020\002*\270\004\n\016ColumnDataType\022\013\n\007" +
+      "\020\001\022\r\n\tTIMESTAMP\020\002*\326\003\n\016ColumnDataType\022\013\n\007" +
       "BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020" +
       "\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006U" +
       "INT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOA" +
@@ -11149,12 +11113,10 @@ java.lang.String defaultValue);
       "IME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TI" +
       "ME_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n" +
       "\023INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_T" +
-      "IME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\023\n\017DU" +
-      "RATION_SECOND\020\032\022\030\n\024DURATION_MILLISECOND\020" +
-      "\033\022\030\n\024DURATION_MICROSECOND\020\034\022\027\n\023DURATION_" +
-      "NANOSECOND\020\035\022\016\n\nDECIMAL128\020\036BO\n\016io.grept" +
-      "ime.v1B\006CommonZ5github.com/GreptimeTeam/" +
-      "greptime-proto/go/greptime/v1b\006proto3"
+      "IME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDE" +
+      "CIMAL128\020\036BO\n\016io.greptime.v1B\006CommonZ5gi" +
+      "thub.com/GreptimeTeam/greptime-proto/go/" +
+      "greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

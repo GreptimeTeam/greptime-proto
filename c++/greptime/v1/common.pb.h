@@ -170,10 +170,6 @@ enum ColumnDataType : int {
   INTERVAL_YEAR_MONTH = 23,
   INTERVAL_DAY_TIME = 24,
   INTERVAL_MONTH_DAY_NANO = 25,
-  DURATION_SECOND = 26,
-  DURATION_MILLISECOND = 27,
-  DURATION_MICROSECOND = 28,
-  DURATION_NANOSECOND = 29,
   DECIMAL128 = 30,
   ColumnDataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ColumnDataType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
