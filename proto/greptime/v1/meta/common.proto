@@ -68,5 +68,5 @@ message KeyValue {
   bytes value = 2;
 }
 
-// Procedure identifer
+// Procedure identifier
 message ProcedureId { bytes key = 1; }

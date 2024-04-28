@@ -498,7 +498,7 @@ func (x *KeyValue) GetValue() []byte {
 	return nil
 }
 
-// Procedure identifer
+// Procedure identifier
 type ProcedureId struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
