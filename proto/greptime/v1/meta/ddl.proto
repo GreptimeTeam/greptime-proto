@@ -60,11 +60,11 @@ message DropDatabaseTask {
 }
 
 message CreateFlowTask {
-    CreateFlowTaskExpr create_flow_task = 1;
+    CreateFlowExpr create_flow = 1;
 }
 
 message DropFlowTask {
-    DropFlowTaskExpr drop_flow_task = 1;
+    DropFlowExpr drop_flow = 1;
 }
 
 message DdlTaskRequest {
