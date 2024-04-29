@@ -67,7 +67,7 @@ message CreateRequest {
   string expire_when = 5;
   string comment = 6;
   string sql = 7;
-  map<string, string> task_options = 8;
+  map<string, string> flow_options = 8;
 }
 
 message DropRequest { TaskId flow_id = 1; }

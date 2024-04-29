@@ -36,21 +36,21 @@ struct DdlRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DdlRequestDefaultTypeInternal _DdlRequest_default_instance_;
-PROTOBUF_CONSTEXPR CreateFlowExpr_OptionsEntry_DoNotUse::CreateFlowExpr_OptionsEntry_DoNotUse(
+PROTOBUF_CONSTEXPR CreateFlowExpr_FlowOptionsEntry_DoNotUse::CreateFlowExpr_FlowOptionsEntry_DoNotUse(
     ::_pbi::ConstantInitialized) {}
-struct CreateFlowExpr_OptionsEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CreateFlowExpr_OptionsEntry_DoNotUseDefaultTypeInternal()
+struct CreateFlowExpr_FlowOptionsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CreateFlowExpr_FlowOptionsEntry_DoNotUseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CreateFlowExpr_OptionsEntry_DoNotUseDefaultTypeInternal() {}
+  ~CreateFlowExpr_FlowOptionsEntry_DoNotUseDefaultTypeInternal() {}
   union {
-    CreateFlowExpr_OptionsEntry_DoNotUse _instance;
+    CreateFlowExpr_FlowOptionsEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateFlowExpr_OptionsEntry_DoNotUseDefaultTypeInternal _CreateFlowExpr_OptionsEntry_DoNotUse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateFlowExpr_FlowOptionsEntry_DoNotUseDefaultTypeInternal _CreateFlowExpr_FlowOptionsEntry_DoNotUse_default_instance_;
 PROTOBUF_CONSTEXPR CreateFlowExpr::CreateFlowExpr(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.source_table_names_)*/{}
-  , /*decltype(_impl_.options_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.flow_options_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.flow_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.expire_when_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -370,14 +370,14 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DdlRequest, _impl_.expr_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse, value_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse, value_),
   0,
   1,
   ~0u,  // no _has_bits_
@@ -395,7 +395,7 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr, _impl_.expire_when_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr, _impl_.comment_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr, _impl_.sql_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr, _impl_.options_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateFlowExpr, _impl_.flow_options_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DropFlowExpr, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -578,7 +578,7 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::DdlRequest)},
-  { 14, 22, -1, sizeof(::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse)},
+  { 14, 22, -1, sizeof(::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse)},
   { 24, -1, -1, sizeof(::greptime::v1::CreateFlowExpr)},
   { 40, -1, -1, sizeof(::greptime::v1::DropFlowExpr)},
   { 48, 56, -1, sizeof(::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse)},
@@ -603,7 +603,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_DdlRequest_default_instance_._instance,
-  &::greptime::v1::_CreateFlowExpr_OptionsEntry_DoNotUse_default_instance_._instance,
+  &::greptime::v1::_CreateFlowExpr_FlowOptionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::_CreateFlowExpr_default_instance_._instance,
   &::greptime::v1::_DropFlowExpr_default_instance_._instance,
   &::greptime::v1::_CreateTableExpr_TableOptionsEntry_DoNotUse_default_instance_._instance,
@@ -638,82 +638,82 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   ".TruncateTableExprH\000\0222\n\013create_flow\030\010 \001("
   "\0132\033.greptime.v1.CreateFlowExprH\000\022.\n\tdrop"
   "_flow\030\t \001(\0132\031.greptime.v1.DropFlowExprH\000"
-  "B\006\n\004expr\"\356\002\n\016CreateFlowExpr\022\024\n\014catalog_n"
+  "B\006\n\004expr\"\373\002\n\016CreateFlowExpr\022\024\n\014catalog_n"
   "ame\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\0222\n\022source_t"
   "able_names\030\003 \003(\0132\026.greptime.v1.TableName"
   "\022/\n\017sink_table_name\030\004 \001(\0132\026.greptime.v1."
   "TableName\022\022\n\nor_replace\030\005 \001(\010\022\034\n\024create_"
   "if_not_exists\030\006 \001(\010\022\023\n\013expire_when\030\007 \001(\t"
-  "\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\0229\n\007option"
-  "s\030\n \003(\0132(.greptime.v1.CreateFlowExpr.Opt"
-  "ionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r"
-  "\n\005value\030\002 \001(\t:\0028\001\"7\n\014DropFlowExpr\022\024\n\014cat"
-  "alog_name\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\"\207\003\n\017C"
-  "reateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013"
-  "schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n"
-  "\004desc\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.grept"
-  "ime.v1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014"
-  "primary_keys\030\007 \003(\t\022\034\n\024create_if_not_exis"
-  "ts\030\010 \001(\010\022E\n\rtable_options\030\t \003(\0132..grepti"
-  "me.v1.CreateTableExpr.TableOptionsEntry\022"
-  "&\n\010table_id\030\n \001(\0132\024.greptime.v1.TableId\022"
-  "\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003"
-  "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterEx"
-  "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030"
-  "\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns"
-  "\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014dro"
-  "p_columns\030\005 \001(\0132\030.greptime.v1.DropColumn"
-  "sH\000\0220\n\014rename_table\030\006 \001(\0132\030.greptime.v1."
-  "RenameTableH\000\022=\n\023change_column_types\030\007 \001"
-  "(\0132\036.greptime.v1.ChangeColumnTypesH\000B\006\n\004"
-  "kind\"\216\001\n\rDropTableExpr\022\024\n\014catalog_name\030\001"
-  " \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030"
-  "\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.Ta"
-  "bleId\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022Create"
-  "DatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc"
-  "hema_name\030\002 \001(\t\022\034\n\024create_if_not_exists\030"
-  "\003 \001(\010\022=\n\007options\030\004 \003(\0132,.greptime.v1.Cre"
-  "ateDatabaseExpr.OptionsEntry\032.\n\014OptionsE"
-  "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021"
-  "TruncateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022"
-  "\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t"
-  "\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableId"
-  "\"U\n\020DropDatabaseExpr\022\024\n\014catalog_name\030\001 \001"
-  "(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_if_exist"
-  "s\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_columns\030\001 \003"
-  "(\0132\026.greptime.v1.AddColumn\"<\n\013DropColumn"
-  "s\022-\n\014drop_columns\030\001 \003(\0132\027.greptime.v1.Dr"
-  "opColumn\"O\n\021ChangeColumnTypes\022:\n\023change_"
-  "column_types\030\001 \003(\0132\035.greptime.v1.ChangeC"
-  "olumnType\"%\n\013RenameTable\022\026\n\016new_table_na"
-  "me\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001("
-  "\0132\026.greptime.v1.ColumnDef\0220\n\010location\030\003 "
-  "\001(\0132\036.greptime.v1.AddColumnLocation\"\236\001\n\020"
-  "ChangeColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n"
-  "\013target_type\030\002 \001(\0162\033.greptime.v1.ColumnD"
-  "ataType\022C\n\025target_type_extension\030\003 \001(\0132$"
-  ".greptime.v1.ColumnDataTypeExtension\"\032\n\n"
-  "DropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002i"
-  "d\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\td"
-  "ata_type\030\002 \001(\0162\033.greptime.v1.ColumnDataT"
-  "ype\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_cons"
-  "traint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gr"
-  "eptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022"
-  "@\n\022datatype_extension\030\007 \001(\0132$.greptime.v"
-  "1.ColumnDataTypeExtension\"\230\001\n\021AddColumnL"
-  "ocation\022B\n\rlocation_type\030\001 \001(\0162+.greptim"
-  "e.v1.AddColumnLocation.LocationType\022\031\n\021a"
-  "fter_column_name\030\002 \001(\t\"$\n\014LocationType\022\t"
-  "\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003"
-  "DdlZ5github.com/GreptimeTeam/greptime-pr"
-  "oto/go/greptime/v1b\006proto3"
+  "\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n\014flow_o"
+  "ptions\030\n \003(\0132,.greptime.v1.CreateFlowExp"
+  "r.FlowOptionsEntry\0322\n\020FlowOptionsEntry\022\013"
+  "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"7\n\014DropFl"
+  "owExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_nam"
+  "e\030\002 \001(\t\"\207\003\n\017CreateTableExpr\022\024\n\014catalog_n"
+  "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_"
+  "name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013column_defs\030"
+  "\005 \003(\0132\026.greptime.v1.ColumnDef\022\022\n\ntime_in"
+  "dex\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t\022\034\n\024creat"
+  "e_if_not_exists\030\010 \001(\010\022E\n\rtable_options\030\t"
+  " \003(\0132..greptime.v1.CreateTableExpr.Table"
+  "OptionsEntry\022&\n\010table_id\030\n \001(\0132\024.greptim"
+  "e.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOpt"
+  "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028"
+  "\001\"\245\002\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n"
+  "\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022."
+  "\n\013add_columns\030\004 \001(\0132\027.greptime.v1.AddCol"
+  "umnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.greptime."
+  "v1.DropColumnsH\000\0220\n\014rename_table\030\006 \001(\0132\030"
+  ".greptime.v1.RenameTableH\000\022=\n\023change_col"
+  "umn_types\030\007 \001(\0132\036.greptime.v1.ChangeColu"
+  "mnTypesH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014c"
+  "atalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022"
+  "\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.g"
+  "reptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001"
+  "(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_nam"
+  "e\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_i"
+  "f_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.gr"
+  "eptime.v1.CreateDatabaseExpr.OptionsEntr"
+  "y\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
+  "\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalo"
+  "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntab"
+  "le_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grepti"
+  "me.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014cat"
+  "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016"
+  "drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013ad"
+  "d_columns\030\001 \003(\0132\026.greptime.v1.AddColumn\""
+  "<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.g"
+  "reptime.v1.DropColumn\"O\n\021ChangeColumnTyp"
+  "es\022:\n\023change_column_types\030\001 \003(\0132\035.grepti"
+  "me.v1.ChangeColumnType\"%\n\013RenameTable\022\026\n"
+  "\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\nco"
+  "lumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220"
+  "\n\010location\030\003 \001(\0132\036.greptime.v1.AddColumn"
+  "Location\"\236\001\n\020ChangeColumnType\022\023\n\013column_"
+  "name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.grepti"
+  "me.v1.ColumnDataType\022C\n\025target_type_exte"
+  "nsion\030\003 \001(\0132$.greptime.v1.ColumnDataType"
+  "Extension\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n"
+  "\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004na"
+  "me\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v"
+  "1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n"
+  "\022default_constraint\030\004 \001(\014\0220\n\rsemantic_ty"
+  "pe\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007c"
+  "omment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\013"
+  "2$.greptime.v1.ColumnDataTypeExtension\"\230"
+  "\001\n\021AddColumnLocation\022B\n\rlocation_type\030\001 "
+  "\001(\0162+.greptime.v1.AddColumnLocation.Loca"
+  "tionType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014L"
+  "ocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io."
+  "greptime.v1B\003DdlZ5github.com/GreptimeTea"
+  "m/greptime-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 3186, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 3199, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
     &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 22,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
@@ -1347,13 +1347,13 @@ void DdlRequest::InternalSwap(DdlRequest* other) {
 
 // ===================================================================
 
-CreateFlowExpr_OptionsEntry_DoNotUse::CreateFlowExpr_OptionsEntry_DoNotUse() {}
-CreateFlowExpr_OptionsEntry_DoNotUse::CreateFlowExpr_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+CreateFlowExpr_FlowOptionsEntry_DoNotUse::CreateFlowExpr_FlowOptionsEntry_DoNotUse() {}
+CreateFlowExpr_FlowOptionsEntry_DoNotUse::CreateFlowExpr_FlowOptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
-void CreateFlowExpr_OptionsEntry_DoNotUse::MergeFrom(const CreateFlowExpr_OptionsEntry_DoNotUse& other) {
+void CreateFlowExpr_FlowOptionsEntry_DoNotUse::MergeFrom(const CreateFlowExpr_FlowOptionsEntry_DoNotUse& other) {
   MergeFromInternal(other);
 }
-::PROTOBUF_NAMESPACE_ID::Metadata CreateFlowExpr_OptionsEntry_DoNotUse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CreateFlowExpr_FlowOptionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
       file_level_metadata_greptime_2fv1_2fddl_2eproto[1]);
@@ -1393,7 +1393,7 @@ CreateFlowExpr::CreateFlowExpr(const CreateFlowExpr& from)
   CreateFlowExpr* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.source_table_names_){from._impl_.source_table_names_}
-    , /*decltype(_impl_.options_)*/{}
+    , /*decltype(_impl_.flow_options_)*/{}
     , decltype(_impl_.catalog_name_){}
     , decltype(_impl_.flow_name_){}
     , decltype(_impl_.expire_when_){}
@@ -1405,7 +1405,7 @@ CreateFlowExpr::CreateFlowExpr(const CreateFlowExpr& from)
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.options_.MergeFrom(from._impl_.options_);
+  _this->_impl_.flow_options_.MergeFrom(from._impl_.flow_options_);
   _impl_.catalog_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.catalog_name_.Set("", GetArenaForAllocation());
@@ -1461,7 +1461,7 @@ inline void CreateFlowExpr::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.source_table_names_){arena}
-    , /*decltype(_impl_.options_)*/{::_pbi::ArenaInitialized(), arena}
+    , /*decltype(_impl_.flow_options_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.catalog_name_){}
     , decltype(_impl_.flow_name_){}
     , decltype(_impl_.expire_when_){}
@@ -1507,8 +1507,8 @@ CreateFlowExpr::~CreateFlowExpr() {
 inline void CreateFlowExpr::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.source_table_names_.~RepeatedPtrField();
-  _impl_.options_.Destruct();
-  _impl_.options_.~MapField();
+  _impl_.flow_options_.Destruct();
+  _impl_.flow_options_.~MapField();
   _impl_.catalog_name_.Destroy();
   _impl_.flow_name_.Destroy();
   _impl_.expire_when_.Destroy();
@@ -1519,7 +1519,7 @@ inline void CreateFlowExpr::SharedDtor() {
 
 void CreateFlowExpr::ArenaDtor(void* object) {
   CreateFlowExpr* _this = reinterpret_cast< CreateFlowExpr* >(object);
-  _this->_impl_.options_.Destruct();
+  _this->_impl_.flow_options_.Destruct();
 }
 void CreateFlowExpr::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
@@ -1532,7 +1532,7 @@ void CreateFlowExpr::Clear() {
   (void) cached_has_bits;
 
   _impl_.source_table_names_.Clear();
-  _impl_.options_.Clear();
+  _impl_.flow_options_.Clear();
   _impl_.catalog_name_.ClearToEmpty();
   _impl_.flow_name_.ClearToEmpty();
   _impl_.expire_when_.ClearToEmpty();
@@ -1641,13 +1641,13 @@ const char* CreateFlowExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // map<string, string> options = 10;
+      // map<string, string> flow_options = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&_impl_.options_, ptr);
+            ptr = ctx->ParseMessage(&_impl_.flow_options_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
@@ -1760,21 +1760,21 @@ uint8_t* CreateFlowExpr::_InternalSerialize(
         9, this->_internal_sql(), target);
   }
 
-  // map<string, string> options = 10;
-  if (!this->_internal_options().empty()) {
+  // map<string, string> flow_options = 10;
+  if (!this->_internal_flow_options().empty()) {
     using MapType = ::_pb::Map<std::string, std::string>;
-    using WireHelper = CreateFlowExpr_OptionsEntry_DoNotUse::Funcs;
-    const auto& map_field = this->_internal_options();
+    using WireHelper = CreateFlowExpr_FlowOptionsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_flow_options();
     auto check_utf8 = [](const MapType::value_type& entry) {
       (void)entry;
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
         entry.first.data(), static_cast<int>(entry.first.length()),
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "greptime.v1.CreateFlowExpr.OptionsEntry.key");
+        "greptime.v1.CreateFlowExpr.FlowOptionsEntry.key");
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
         entry.second.data(), static_cast<int>(entry.second.length()),
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "greptime.v1.CreateFlowExpr.OptionsEntry.value");
+        "greptime.v1.CreateFlowExpr.FlowOptionsEntry.value");
     };
 
     if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
@@ -1813,13 +1813,13 @@ size_t CreateFlowExpr::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // map<string, string> options = 10;
+  // map<string, string> flow_options = 10;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_options_size());
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_flow_options_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-      it = this->_internal_options().begin();
-      it != this->_internal_options().end(); ++it) {
-    total_size += CreateFlowExpr_OptionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+      it = this->_internal_flow_options().begin();
+      it != this->_internal_flow_options().end(); ++it) {
+    total_size += CreateFlowExpr_FlowOptionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
   // string catalog_name = 1;
@@ -1893,7 +1893,7 @@ void CreateFlowExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   (void) cached_has_bits;
 
   _this->_impl_.source_table_names_.MergeFrom(from._impl_.source_table_names_);
-  _this->_impl_.options_.MergeFrom(from._impl_.options_);
+  _this->_impl_.flow_options_.MergeFrom(from._impl_.flow_options_);
   if (!from._internal_catalog_name().empty()) {
     _this->_internal_set_catalog_name(from._internal_catalog_name());
   }
@@ -1939,7 +1939,7 @@ void CreateFlowExpr::InternalSwap(CreateFlowExpr* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.source_table_names_.InternalSwap(&other->_impl_.source_table_names_);
-  _impl_.options_.InternalSwap(&other->_impl_.options_);
+  _impl_.flow_options_.InternalSwap(&other->_impl_.flow_options_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.catalog_name_, lhs_arena,
       &other->_impl_.catalog_name_, rhs_arena
@@ -7183,9 +7183,9 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::DdlRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::DdlRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::DdlRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse*
-Arena::CreateMaybeMessage< ::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::CreateFlowExpr*
 Arena::CreateMaybeMessage< ::greptime::v1::CreateFlowExpr >(Arena* arena) {

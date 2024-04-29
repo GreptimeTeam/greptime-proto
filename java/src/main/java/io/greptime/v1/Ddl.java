@@ -2245,39 +2245,39 @@ public final class Ddl {
         getSqlBytes();
 
     /**
-     * <code>map&lt;string, string&gt; options = 10;</code>
+     * <code>map&lt;string, string&gt; flow_options = 10;</code>
      */
-    int getOptionsCount();
+    int getFlowOptionsCount();
     /**
-     * <code>map&lt;string, string&gt; options = 10;</code>
+     * <code>map&lt;string, string&gt; flow_options = 10;</code>
      */
-    boolean containsOptions(
+    boolean containsFlowOptions(
         java.lang.String key);
     /**
-     * Use {@link #getOptionsMap()} instead.
+     * Use {@link #getFlowOptionsMap()} instead.
      */
     @java.lang.Deprecated
     java.util.Map<java.lang.String, java.lang.String>
-    getOptions();
+    getFlowOptions();
     /**
-     * <code>map&lt;string, string&gt; options = 10;</code>
+     * <code>map&lt;string, string&gt; flow_options = 10;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
-    getOptionsMap();
+    getFlowOptionsMap();
     /**
-     * <code>map&lt;string, string&gt; options = 10;</code>
+     * <code>map&lt;string, string&gt; flow_options = 10;</code>
      */
 
     /* nullable */
-java.lang.String getOptionsOrDefault(
+java.lang.String getFlowOptionsOrDefault(
         java.lang.String key,
         /* nullable */
 java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; options = 10;</code>
+     * <code>map&lt;string, string&gt; flow_options = 10;</code>
      */
 
-    java.lang.String getOptionsOrThrow(
+    java.lang.String getFlowOptionsOrThrow(
         java.lang.String key);
   }
   /**
@@ -2400,15 +2400,15 @@ java.lang.String defaultValue);
             }
             case 82: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                options_ = com.google.protobuf.MapField.newMapField(
-                    OptionsDefaultEntryHolder.defaultEntry);
+                flowOptions_ = com.google.protobuf.MapField.newMapField(
+                    FlowOptionsDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000002;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              options__ = input.readMessage(
-                  OptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              options_.getMutableMap().put(
-                  options__.getKey(), options__.getValue());
+              flowOptions__ = input.readMessage(
+                  FlowOptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              flowOptions_.getMutableMap().put(
+                  flowOptions__.getKey(), flowOptions__.getValue());
               break;
             }
             default: {
@@ -2446,7 +2446,7 @@ java.lang.String defaultValue);
         int number) {
       switch (number) {
         case 10:
-          return internalGetOptions();
+          return internalGetFlowOptions();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -2738,81 +2738,81 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int OPTIONS_FIELD_NUMBER = 10;
-    private static final class OptionsDefaultEntryHolder {
+    public static final int FLOW_OPTIONS_FIELD_NUMBER = 10;
+    private static final class FlowOptionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  io.greptime.v1.Ddl.internal_static_greptime_v1_CreateFlowExpr_OptionsEntry_descriptor, 
+                  io.greptime.v1.Ddl.internal_static_greptime_v1_CreateFlowExpr_FlowOptionsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> options_;
+        java.lang.String, java.lang.String> flowOptions_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetOptions() {
-      if (options_ == null) {
+    internalGetFlowOptions() {
+      if (flowOptions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            OptionsDefaultEntryHolder.defaultEntry);
+            FlowOptionsDefaultEntryHolder.defaultEntry);
       }
-      return options_;
+      return flowOptions_;
     }
 
-    public int getOptionsCount() {
-      return internalGetOptions().getMap().size();
+    public int getFlowOptionsCount() {
+      return internalGetFlowOptions().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; options = 10;</code>
+     * <code>map&lt;string, string&gt; flow_options = 10;</code>
      */
 
     @java.lang.Override
-    public boolean containsOptions(
+    public boolean containsFlowOptions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetOptions().getMap().containsKey(key);
+      return internalGetFlowOptions().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getOptionsMap()} instead.
+     * Use {@link #getFlowOptionsMap()} instead.
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getOptions() {
-      return getOptionsMap();
+    public java.util.Map<java.lang.String, java.lang.String> getFlowOptions() {
+      return getFlowOptionsMap();
     }
     /**
-     * <code>map&lt;string, string&gt; options = 10;</code>
+     * <code>map&lt;string, string&gt; flow_options = 10;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.String, java.lang.String> getOptionsMap() {
-      return internalGetOptions().getMap();
+    public java.util.Map<java.lang.String, java.lang.String> getFlowOptionsMap() {
+      return internalGetFlowOptions().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; options = 10;</code>
+     * <code>map&lt;string, string&gt; flow_options = 10;</code>
      */
     @java.lang.Override
 
-    public java.lang.String getOptionsOrDefault(
+    public java.lang.String getFlowOptionsOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetOptions().getMap();
+          internalGetFlowOptions().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; options = 10;</code>
+     * <code>map&lt;string, string&gt; flow_options = 10;</code>
      */
     @java.lang.Override
 
-    public java.lang.String getOptionsOrThrow(
+    public java.lang.String getFlowOptionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetOptions().getMap();
+          internalGetFlowOptions().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
@@ -2863,8 +2863,8 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
-          internalGetOptions(),
-          OptionsDefaultEntryHolder.defaultEntry,
+          internalGetFlowOptions(),
+          FlowOptionsDefaultEntryHolder.defaultEntry,
           10);
       unknownFields.writeTo(output);
     }
@@ -2907,14 +2907,14 @@ java.lang.String defaultValue);
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, sql_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetOptions().getMap().entrySet()) {
+           : internalGetFlowOptions().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        options__ = OptionsDefaultEntryHolder.defaultEntry.newBuilderForType()
+        flowOptions__ = FlowOptionsDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(10, options__);
+            .computeMessageSize(10, flowOptions__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2952,8 +2952,8 @@ java.lang.String defaultValue);
           .equals(other.getComment())) return false;
       if (!getSql()
           .equals(other.getSql())) return false;
-      if (!internalGetOptions().equals(
-          other.internalGetOptions())) return false;
+      if (!internalGetFlowOptions().equals(
+          other.internalGetFlowOptions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2989,9 +2989,9 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getComment().hashCode();
       hash = (37 * hash) + SQL_FIELD_NUMBER;
       hash = (53 * hash) + getSql().hashCode();
-      if (!internalGetOptions().getMap().isEmpty()) {
-        hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetOptions().hashCode();
+      if (!internalGetFlowOptions().getMap().isEmpty()) {
+        hash = (37 * hash) + FLOW_OPTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetFlowOptions().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3109,7 +3109,7 @@ java.lang.String defaultValue);
           int number) {
         switch (number) {
           case 10:
-            return internalGetOptions();
+            return internalGetFlowOptions();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -3120,7 +3120,7 @@ java.lang.String defaultValue);
           int number) {
         switch (number) {
           case 10:
-            return internalGetMutableOptions();
+            return internalGetMutableFlowOptions();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -3179,7 +3179,7 @@ java.lang.String defaultValue);
 
         sql_ = "";
 
-        internalGetMutableOptions().clear();
+        internalGetMutableFlowOptions().clear();
         return this;
       }
 
@@ -3228,8 +3228,8 @@ java.lang.String defaultValue);
         result.expireWhen_ = expireWhen_;
         result.comment_ = comment_;
         result.sql_ = sql_;
-        result.options_ = internalGetOptions();
-        result.options_.makeImmutable();
+        result.flowOptions_ = internalGetFlowOptions();
+        result.flowOptions_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -3333,8 +3333,8 @@ java.lang.String defaultValue);
           sql_ = other.sql_;
           onChanged();
         }
-        internalGetMutableOptions().mergeFrom(
-            other.internalGetOptions());
+        internalGetMutableFlowOptions().mergeFrom(
+            other.internalGetFlowOptions());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4167,99 +4167,99 @@ java.lang.String defaultValue);
       }
 
       private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> options_;
+          java.lang.String, java.lang.String> flowOptions_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetOptions() {
-        if (options_ == null) {
+      internalGetFlowOptions() {
+        if (flowOptions_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
-              OptionsDefaultEntryHolder.defaultEntry);
+              FlowOptionsDefaultEntryHolder.defaultEntry);
         }
-        return options_;
+        return flowOptions_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableOptions() {
+      internalGetMutableFlowOptions() {
         onChanged();;
-        if (options_ == null) {
-          options_ = com.google.protobuf.MapField.newMapField(
-              OptionsDefaultEntryHolder.defaultEntry);
+        if (flowOptions_ == null) {
+          flowOptions_ = com.google.protobuf.MapField.newMapField(
+              FlowOptionsDefaultEntryHolder.defaultEntry);
         }
-        if (!options_.isMutable()) {
-          options_ = options_.copy();
+        if (!flowOptions_.isMutable()) {
+          flowOptions_ = flowOptions_.copy();
         }
-        return options_;
+        return flowOptions_;
       }
 
-      public int getOptionsCount() {
-        return internalGetOptions().getMap().size();
+      public int getFlowOptionsCount() {
+        return internalGetFlowOptions().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; options = 10;</code>
+       * <code>map&lt;string, string&gt; flow_options = 10;</code>
        */
 
       @java.lang.Override
-      public boolean containsOptions(
+      public boolean containsFlowOptions(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
-        return internalGetOptions().getMap().containsKey(key);
+        return internalGetFlowOptions().getMap().containsKey(key);
       }
       /**
-       * Use {@link #getOptionsMap()} instead.
+       * Use {@link #getFlowOptionsMap()} instead.
        */
       @java.lang.Override
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getOptions() {
-        return getOptionsMap();
+      public java.util.Map<java.lang.String, java.lang.String> getFlowOptions() {
+        return getFlowOptionsMap();
       }
       /**
-       * <code>map&lt;string, string&gt; options = 10;</code>
+       * <code>map&lt;string, string&gt; flow_options = 10;</code>
        */
       @java.lang.Override
 
-      public java.util.Map<java.lang.String, java.lang.String> getOptionsMap() {
-        return internalGetOptions().getMap();
+      public java.util.Map<java.lang.String, java.lang.String> getFlowOptionsMap() {
+        return internalGetFlowOptions().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; options = 10;</code>
+       * <code>map&lt;string, string&gt; flow_options = 10;</code>
        */
       @java.lang.Override
 
-      public java.lang.String getOptionsOrDefault(
+      public java.lang.String getFlowOptionsOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetOptions().getMap();
+            internalGetFlowOptions().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; options = 10;</code>
+       * <code>map&lt;string, string&gt; flow_options = 10;</code>
        */
       @java.lang.Override
 
-      public java.lang.String getOptionsOrThrow(
+      public java.lang.String getFlowOptionsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetOptions().getMap();
+            internalGetFlowOptions().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
 
-      public Builder clearOptions() {
-        internalGetMutableOptions().getMutableMap()
+      public Builder clearFlowOptions() {
+        internalGetMutableFlowOptions().getMutableMap()
             .clear();
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; options = 10;</code>
+       * <code>map&lt;string, string&gt; flow_options = 10;</code>
        */
 
-      public Builder removeOptions(
+      public Builder removeFlowOptions(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
-        internalGetMutableOptions().getMutableMap()
+        internalGetMutableFlowOptions().getMutableMap()
             .remove(key);
         return this;
       }
@@ -4268,13 +4268,13 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableOptions() {
-        return internalGetMutableOptions().getMutableMap();
+      getMutableFlowOptions() {
+        return internalGetMutableFlowOptions().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; options = 10;</code>
+       * <code>map&lt;string, string&gt; flow_options = 10;</code>
        */
-      public Builder putOptions(
+      public Builder putFlowOptions(
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4282,17 +4282,17 @@ java.lang.String defaultValue);
   throw new NullPointerException("map value");
 }
 
-        internalGetMutableOptions().getMutableMap()
+        internalGetMutableFlowOptions().getMutableMap()
             .put(key, value);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; options = 10;</code>
+       * <code>map&lt;string, string&gt; flow_options = 10;</code>
        */
 
-      public Builder putAllOptions(
+      public Builder putAllFlowOptions(
           java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableOptions().getMutableMap()
+        internalGetMutableFlowOptions().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -21429,10 +21429,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_CreateFlowExpr_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_CreateFlowExpr_OptionsEntry_descriptor;
+    internal_static_greptime_v1_CreateFlowExpr_FlowOptionsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_CreateFlowExpr_OptionsEntry_fieldAccessorTable;
+      internal_static_greptime_v1_CreateFlowExpr_FlowOptionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_DropFlowExpr_descriptor;
   private static final 
@@ -21548,75 +21548,75 @@ java.lang.String defaultValue);
       ".TruncateTableExprH\000\0222\n\013create_flow\030\010 \001(" +
       "\0132\033.greptime.v1.CreateFlowExprH\000\022.\n\tdrop" +
       "_flow\030\t \001(\0132\031.greptime.v1.DropFlowExprH\000" +
-      "B\006\n\004expr\"\356\002\n\016CreateFlowExpr\022\024\n\014catalog_n" +
+      "B\006\n\004expr\"\373\002\n\016CreateFlowExpr\022\024\n\014catalog_n" +
       "ame\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\0222\n\022source_t" +
       "able_names\030\003 \003(\0132\026.greptime.v1.TableName" +
       "\022/\n\017sink_table_name\030\004 \001(\0132\026.greptime.v1." +
       "TableName\022\022\n\nor_replace\030\005 \001(\010\022\034\n\024create_" +
       "if_not_exists\030\006 \001(\010\022\023\n\013expire_when\030\007 \001(\t" +
-      "\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\0229\n\007option" +
-      "s\030\n \003(\0132(.greptime.v1.CreateFlowExpr.Opt" +
-      "ionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001\"7\n\014DropFlowExpr\022\024\n\014cat" +
-      "alog_name\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\"\207\003\n\017C" +
-      "reateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013" +
-      "schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n" +
-      "\004desc\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.grept" +
-      "ime.v1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014" +
-      "primary_keys\030\007 \003(\t\022\034\n\024create_if_not_exis" +
-      "ts\030\010 \001(\010\022E\n\rtable_options\030\t \003(\0132..grepti" +
-      "me.v1.CreateTableExpr.TableOptionsEntry\022" +
-      "&\n\010table_id\030\n \001(\0132\024.greptime.v1.TableId\022" +
-      "\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterEx" +
-      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
-      "\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns" +
-      "\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014dro" +
-      "p_columns\030\005 \001(\0132\030.greptime.v1.DropColumn" +
-      "sH\000\0220\n\014rename_table\030\006 \001(\0132\030.greptime.v1." +
-      "RenameTableH\000\022=\n\023change_column_types\030\007 \001" +
-      "(\0132\036.greptime.v1.ChangeColumnTypesH\000B\006\n\004" +
-      "kind\"\216\001\n\rDropTableExpr\022\024\n\014catalog_name\030\001" +
-      " \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030" +
-      "\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.Ta" +
-      "bleId\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022Create" +
-      "DatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
-      "hema_name\030\002 \001(\t\022\034\n\024create_if_not_exists\030" +
-      "\003 \001(\010\022=\n\007options\030\004 \003(\0132,.greptime.v1.Cre" +
-      "ateDatabaseExpr.OptionsEntry\032.\n\014OptionsE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021" +
-      "TruncateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
-      "\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t" +
-      "\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableId" +
-      "\"U\n\020DropDatabaseExpr\022\024\n\014catalog_name\030\001 \001" +
-      "(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_if_exist" +
-      "s\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_columns\030\001 \003" +
-      "(\0132\026.greptime.v1.AddColumn\"<\n\013DropColumn" +
-      "s\022-\n\014drop_columns\030\001 \003(\0132\027.greptime.v1.Dr" +
-      "opColumn\"O\n\021ChangeColumnTypes\022:\n\023change_" +
-      "column_types\030\001 \003(\0132\035.greptime.v1.ChangeC" +
-      "olumnType\"%\n\013RenameTable\022\026\n\016new_table_na" +
-      "me\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(" +
-      "\0132\026.greptime.v1.ColumnDef\0220\n\010location\030\003 " +
-      "\001(\0132\036.greptime.v1.AddColumnLocation\"\236\001\n\020" +
-      "ChangeColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n" +
-      "\013target_type\030\002 \001(\0162\033.greptime.v1.ColumnD" +
-      "ataType\022C\n\025target_type_extension\030\003 \001(\0132$" +
-      ".greptime.v1.ColumnDataTypeExtension\"\032\n\n" +
-      "DropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002i" +
-      "d\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\td" +
-      "ata_type\030\002 \001(\0162\033.greptime.v1.ColumnDataT" +
-      "ype\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_cons" +
-      "traint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gr" +
-      "eptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022" +
-      "@\n\022datatype_extension\030\007 \001(\0132$.greptime.v" +
-      "1.ColumnDataTypeExtension\"\230\001\n\021AddColumnL" +
-      "ocation\022B\n\rlocation_type\030\001 \001(\0162+.greptim" +
-      "e.v1.AddColumnLocation.LocationType\022\031\n\021a" +
-      "fter_column_name\030\002 \001(\t\"$\n\014LocationType\022\t" +
-      "\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003" +
-      "DdlZ5github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1b\006proto3"
+      "\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n\014flow_o" +
+      "ptions\030\n \003(\0132,.greptime.v1.CreateFlowExp" +
+      "r.FlowOptionsEntry\0322\n\020FlowOptionsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"7\n\014DropFl" +
+      "owExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_nam" +
+      "e\030\002 \001(\t\"\207\003\n\017CreateTableExpr\022\024\n\014catalog_n" +
+      "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_" +
+      "name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013column_defs\030" +
+      "\005 \003(\0132\026.greptime.v1.ColumnDef\022\022\n\ntime_in" +
+      "dex\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t\022\034\n\024creat" +
+      "e_if_not_exists\030\010 \001(\010\022E\n\rtable_options\030\t" +
+      " \003(\0132..greptime.v1.CreateTableExpr.Table" +
+      "OptionsEntry\022&\n\010table_id\030\n \001(\0132\024.greptim" +
+      "e.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOpt" +
+      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
+      "\001\"\245\002\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
+      "\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022." +
+      "\n\013add_columns\030\004 \001(\0132\027.greptime.v1.AddCol" +
+      "umnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.greptime." +
+      "v1.DropColumnsH\000\0220\n\014rename_table\030\006 \001(\0132\030" +
+      ".greptime.v1.RenameTableH\000\022=\n\023change_col" +
+      "umn_types\030\007 \001(\0132\036.greptime.v1.ChangeColu" +
+      "mnTypesH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014c" +
+      "atalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022" +
+      "\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.g" +
+      "reptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001" +
+      "(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_nam" +
+      "e\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_i" +
+      "f_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.gr" +
+      "eptime.v1.CreateDatabaseExpr.OptionsEntr" +
+      "y\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalo" +
+      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntab" +
+      "le_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grepti" +
+      "me.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014cat" +
+      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016" +
+      "drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013ad" +
+      "d_columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"" +
+      "<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.g" +
+      "reptime.v1.DropColumn\"O\n\021ChangeColumnTyp" +
+      "es\022:\n\023change_column_types\030\001 \003(\0132\035.grepti" +
+      "me.v1.ChangeColumnType\"%\n\013RenameTable\022\026\n" +
+      "\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\nco" +
+      "lumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220" +
+      "\n\010location\030\003 \001(\0132\036.greptime.v1.AddColumn" +
+      "Location\"\236\001\n\020ChangeColumnType\022\023\n\013column_" +
+      "name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.grepti" +
+      "me.v1.ColumnDataType\022C\n\025target_type_exte" +
+      "nsion\030\003 \001(\0132$.greptime.v1.ColumnDataType" +
+      "Extension\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n" +
+      "\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004na" +
+      "me\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v" +
+      "1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n" +
+      "\022default_constraint\030\004 \001(\014\0220\n\rsemantic_ty" +
+      "pe\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007c" +
+      "omment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\013" +
+      "2$.greptime.v1.ColumnDataTypeExtension\"\230" +
+      "\001\n\021AddColumnLocation\022B\n\rlocation_type\030\001 " +
+      "\001(\0162+.greptime.v1.AddColumnLocation.Loca" +
+      "tionType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014L" +
+      "ocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io." +
+      "greptime.v1B\003DdlZ5github.com/GreptimeTea" +
+      "m/greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -21634,12 +21634,12 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateFlowExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateFlowExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "FlowName", "SourceTableNames", "SinkTableName", "OrReplace", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "Options", });
-    internal_static_greptime_v1_CreateFlowExpr_OptionsEntry_descriptor =
+        new java.lang.String[] { "CatalogName", "FlowName", "SourceTableNames", "SinkTableName", "OrReplace", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "FlowOptions", });
+    internal_static_greptime_v1_CreateFlowExpr_FlowOptionsEntry_descriptor =
       internal_static_greptime_v1_CreateFlowExpr_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_CreateFlowExpr_OptionsEntry_fieldAccessorTable = new
+    internal_static_greptime_v1_CreateFlowExpr_FlowOptionsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_CreateFlowExpr_OptionsEntry_descriptor,
+        internal_static_greptime_v1_CreateFlowExpr_FlowOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_DropFlowExpr_descriptor =
       getDescriptor().getMessageTypes().get(2);

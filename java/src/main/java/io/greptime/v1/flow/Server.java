@@ -4058,39 +4058,39 @@ com.google.protobuf.ByteString defaultValue);
         getSqlBytes();
 
     /**
-     * <code>map&lt;string, string&gt; task_options = 8;</code>
+     * <code>map&lt;string, string&gt; flow_options = 8;</code>
      */
-    int getTaskOptionsCount();
+    int getFlowOptionsCount();
     /**
-     * <code>map&lt;string, string&gt; task_options = 8;</code>
+     * <code>map&lt;string, string&gt; flow_options = 8;</code>
      */
-    boolean containsTaskOptions(
+    boolean containsFlowOptions(
         java.lang.String key);
     /**
-     * Use {@link #getTaskOptionsMap()} instead.
+     * Use {@link #getFlowOptionsMap()} instead.
      */
     @java.lang.Deprecated
     java.util.Map<java.lang.String, java.lang.String>
-    getTaskOptions();
+    getFlowOptions();
     /**
-     * <code>map&lt;string, string&gt; task_options = 8;</code>
+     * <code>map&lt;string, string&gt; flow_options = 8;</code>
      */
     java.util.Map<java.lang.String, java.lang.String>
-    getTaskOptionsMap();
+    getFlowOptionsMap();
     /**
-     * <code>map&lt;string, string&gt; task_options = 8;</code>
+     * <code>map&lt;string, string&gt; flow_options = 8;</code>
      */
 
     /* nullable */
-java.lang.String getTaskOptionsOrDefault(
+java.lang.String getFlowOptionsOrDefault(
         java.lang.String key,
         /* nullable */
 java.lang.String defaultValue);
     /**
-     * <code>map&lt;string, string&gt; task_options = 8;</code>
+     * <code>map&lt;string, string&gt; flow_options = 8;</code>
      */
 
-    java.lang.String getTaskOptionsOrThrow(
+    java.lang.String getFlowOptionsOrThrow(
         java.lang.String key);
   }
   /**
@@ -4210,15 +4210,15 @@ java.lang.String defaultValue);
             }
             case 66: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                taskOptions_ = com.google.protobuf.MapField.newMapField(
-                    TaskOptionsDefaultEntryHolder.defaultEntry);
+                flowOptions_ = com.google.protobuf.MapField.newMapField(
+                    FlowOptionsDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000002;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              taskOptions__ = input.readMessage(
-                  TaskOptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              taskOptions_.getMutableMap().put(
-                  taskOptions__.getKey(), taskOptions__.getValue());
+              flowOptions__ = input.readMessage(
+                  FlowOptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              flowOptions_.getMutableMap().put(
+                  flowOptions__.getKey(), flowOptions__.getValue());
               break;
             }
             default: {
@@ -4256,7 +4256,7 @@ java.lang.String defaultValue);
         int number) {
       switch (number) {
         case 8:
-          return internalGetTaskOptions();
+          return internalGetFlowOptions();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -4487,81 +4487,81 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int TASK_OPTIONS_FIELD_NUMBER = 8;
-    private static final class TaskOptionsDefaultEntryHolder {
+    public static final int FLOW_OPTIONS_FIELD_NUMBER = 8;
+    private static final class FlowOptionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_descriptor, 
+                  io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> taskOptions_;
+        java.lang.String, java.lang.String> flowOptions_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetTaskOptions() {
-      if (taskOptions_ == null) {
+    internalGetFlowOptions() {
+      if (flowOptions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            TaskOptionsDefaultEntryHolder.defaultEntry);
+            FlowOptionsDefaultEntryHolder.defaultEntry);
       }
-      return taskOptions_;
+      return flowOptions_;
     }
 
-    public int getTaskOptionsCount() {
-      return internalGetTaskOptions().getMap().size();
+    public int getFlowOptionsCount() {
+      return internalGetFlowOptions().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 8;</code>
+     * <code>map&lt;string, string&gt; flow_options = 8;</code>
      */
 
     @java.lang.Override
-    public boolean containsTaskOptions(
+    public boolean containsFlowOptions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetTaskOptions().getMap().containsKey(key);
+      return internalGetFlowOptions().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getTaskOptionsMap()} instead.
+     * Use {@link #getFlowOptionsMap()} instead.
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getTaskOptions() {
-      return getTaskOptionsMap();
+    public java.util.Map<java.lang.String, java.lang.String> getFlowOptions() {
+      return getFlowOptionsMap();
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 8;</code>
+     * <code>map&lt;string, string&gt; flow_options = 8;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.String, java.lang.String> getTaskOptionsMap() {
-      return internalGetTaskOptions().getMap();
+    public java.util.Map<java.lang.String, java.lang.String> getFlowOptionsMap() {
+      return internalGetFlowOptions().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 8;</code>
+     * <code>map&lt;string, string&gt; flow_options = 8;</code>
      */
     @java.lang.Override
 
-    public java.lang.String getTaskOptionsOrDefault(
+    public java.lang.String getFlowOptionsOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetTaskOptions().getMap();
+          internalGetFlowOptions().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; task_options = 8;</code>
+     * <code>map&lt;string, string&gt; flow_options = 8;</code>
      */
     @java.lang.Override
 
-    public java.lang.String getTaskOptionsOrThrow(
+    public java.lang.String getFlowOptionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetTaskOptions().getMap();
+          internalGetFlowOptions().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
@@ -4606,8 +4606,8 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
-          internalGetTaskOptions(),
-          TaskOptionsDefaultEntryHolder.defaultEntry,
+          internalGetFlowOptions(),
+          FlowOptionsDefaultEntryHolder.defaultEntry,
           8);
       unknownFields.writeTo(output);
     }
@@ -4644,14 +4644,14 @@ java.lang.String defaultValue);
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, sql_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetTaskOptions().getMap().entrySet()) {
+           : internalGetFlowOptions().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        taskOptions__ = TaskOptionsDefaultEntryHolder.defaultEntry.newBuilderForType()
+        flowOptions__ = FlowOptionsDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(8, taskOptions__);
+            .computeMessageSize(8, flowOptions__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4688,8 +4688,8 @@ java.lang.String defaultValue);
           .equals(other.getComment())) return false;
       if (!getSql()
           .equals(other.getSql())) return false;
-      if (!internalGetTaskOptions().equals(
-          other.internalGetTaskOptions())) return false;
+      if (!internalGetFlowOptions().equals(
+          other.internalGetFlowOptions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4722,9 +4722,9 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getComment().hashCode();
       hash = (37 * hash) + SQL_FIELD_NUMBER;
       hash = (53 * hash) + getSql().hashCode();
-      if (!internalGetTaskOptions().getMap().isEmpty()) {
-        hash = (37 * hash) + TASK_OPTIONS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetTaskOptions().hashCode();
+      if (!internalGetFlowOptions().getMap().isEmpty()) {
+        hash = (37 * hash) + FLOW_OPTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetFlowOptions().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4845,7 +4845,7 @@ java.lang.String defaultValue);
           int number) {
         switch (number) {
           case 8:
-            return internalGetTaskOptions();
+            return internalGetFlowOptions();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -4856,7 +4856,7 @@ java.lang.String defaultValue);
           int number) {
         switch (number) {
           case 8:
-            return internalGetMutableTaskOptions();
+            return internalGetMutableFlowOptions();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -4915,7 +4915,7 @@ java.lang.String defaultValue);
 
         sql_ = "";
 
-        internalGetMutableTaskOptions().clear();
+        internalGetMutableFlowOptions().clear();
         return this;
       }
 
@@ -4966,8 +4966,8 @@ java.lang.String defaultValue);
         result.expireWhen_ = expireWhen_;
         result.comment_ = comment_;
         result.sql_ = sql_;
-        result.taskOptions_ = internalGetTaskOptions();
-        result.taskOptions_.makeImmutable();
+        result.flowOptions_ = internalGetFlowOptions();
+        result.flowOptions_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -5063,8 +5063,8 @@ java.lang.String defaultValue);
           sql_ = other.sql_;
           onChanged();
         }
-        internalGetMutableTaskOptions().mergeFrom(
-            other.internalGetTaskOptions());
+        internalGetMutableFlowOptions().mergeFrom(
+            other.internalGetFlowOptions());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5833,99 +5833,99 @@ java.lang.String defaultValue);
       }
 
       private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> taskOptions_;
+          java.lang.String, java.lang.String> flowOptions_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetTaskOptions() {
-        if (taskOptions_ == null) {
+      internalGetFlowOptions() {
+        if (flowOptions_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
-              TaskOptionsDefaultEntryHolder.defaultEntry);
+              FlowOptionsDefaultEntryHolder.defaultEntry);
         }
-        return taskOptions_;
+        return flowOptions_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableTaskOptions() {
+      internalGetMutableFlowOptions() {
         onChanged();;
-        if (taskOptions_ == null) {
-          taskOptions_ = com.google.protobuf.MapField.newMapField(
-              TaskOptionsDefaultEntryHolder.defaultEntry);
+        if (flowOptions_ == null) {
+          flowOptions_ = com.google.protobuf.MapField.newMapField(
+              FlowOptionsDefaultEntryHolder.defaultEntry);
         }
-        if (!taskOptions_.isMutable()) {
-          taskOptions_ = taskOptions_.copy();
+        if (!flowOptions_.isMutable()) {
+          flowOptions_ = flowOptions_.copy();
         }
-        return taskOptions_;
+        return flowOptions_;
       }
 
-      public int getTaskOptionsCount() {
-        return internalGetTaskOptions().getMap().size();
+      public int getFlowOptionsCount() {
+        return internalGetFlowOptions().getMap().size();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 8;</code>
+       * <code>map&lt;string, string&gt; flow_options = 8;</code>
        */
 
       @java.lang.Override
-      public boolean containsTaskOptions(
+      public boolean containsFlowOptions(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
-        return internalGetTaskOptions().getMap().containsKey(key);
+        return internalGetFlowOptions().getMap().containsKey(key);
       }
       /**
-       * Use {@link #getTaskOptionsMap()} instead.
+       * Use {@link #getFlowOptionsMap()} instead.
        */
       @java.lang.Override
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getTaskOptions() {
-        return getTaskOptionsMap();
+      public java.util.Map<java.lang.String, java.lang.String> getFlowOptions() {
+        return getFlowOptionsMap();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 8;</code>
+       * <code>map&lt;string, string&gt; flow_options = 8;</code>
        */
       @java.lang.Override
 
-      public java.util.Map<java.lang.String, java.lang.String> getTaskOptionsMap() {
-        return internalGetTaskOptions().getMap();
+      public java.util.Map<java.lang.String, java.lang.String> getFlowOptionsMap() {
+        return internalGetFlowOptions().getMap();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 8;</code>
+       * <code>map&lt;string, string&gt; flow_options = 8;</code>
        */
       @java.lang.Override
 
-      public java.lang.String getTaskOptionsOrDefault(
+      public java.lang.String getFlowOptionsOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetTaskOptions().getMap();
+            internalGetFlowOptions().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 8;</code>
+       * <code>map&lt;string, string&gt; flow_options = 8;</code>
        */
       @java.lang.Override
 
-      public java.lang.String getTaskOptionsOrThrow(
+      public java.lang.String getFlowOptionsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetTaskOptions().getMap();
+            internalGetFlowOptions().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
 
-      public Builder clearTaskOptions() {
-        internalGetMutableTaskOptions().getMutableMap()
+      public Builder clearFlowOptions() {
+        internalGetMutableFlowOptions().getMutableMap()
             .clear();
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 8;</code>
+       * <code>map&lt;string, string&gt; flow_options = 8;</code>
        */
 
-      public Builder removeTaskOptions(
+      public Builder removeFlowOptions(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
-        internalGetMutableTaskOptions().getMutableMap()
+        internalGetMutableFlowOptions().getMutableMap()
             .remove(key);
         return this;
       }
@@ -5934,13 +5934,13 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableTaskOptions() {
-        return internalGetMutableTaskOptions().getMutableMap();
+      getMutableFlowOptions() {
+        return internalGetMutableFlowOptions().getMutableMap();
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 8;</code>
+       * <code>map&lt;string, string&gt; flow_options = 8;</code>
        */
-      public Builder putTaskOptions(
+      public Builder putFlowOptions(
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -5948,17 +5948,17 @@ java.lang.String defaultValue);
   throw new NullPointerException("map value");
 }
 
-        internalGetMutableTaskOptions().getMutableMap()
+        internalGetMutableFlowOptions().getMutableMap()
             .put(key, value);
         return this;
       }
       /**
-       * <code>map&lt;string, string&gt; task_options = 8;</code>
+       * <code>map&lt;string, string&gt; flow_options = 8;</code>
        */
 
-      public Builder putAllTaskOptions(
+      public Builder putAllFlowOptions(
           java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableTaskOptions().getMutableMap()
+        internalGetMutableFlowOptions().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -7159,10 +7159,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_descriptor;
+    internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_fieldAccessorTable;
+      internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_flow_DropRequest_descriptor;
   private static final 
@@ -7203,9 +7203,9 @@ java.lang.String defaultValue);
       ".greptime.v1.TableId\022/\n\017sink_table_name\030" +
       "\003 \001(\0132\026.greptime.v1.TableName\022\034\n\024create_" +
       "if_not_exists\030\004 \001(\010\022\023\n\013expire_when\030\005 \001(\t" +
-      "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014task_o" +
+      "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_o" +
       "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe" +
-      "quest.TaskOptionsEntry\0322\n\020TaskOptionsEnt" +
+      "quest.FlowOptionsEntry\0322\n\020FlowOptionsEnt" +
       "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"8\n\013Dr" +
       "opRequest\022)\n\007flow_id\030\001 \001(\0132\030.greptime.v1" +
       ".flow.TaskId\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\r2\264\001\n\004F" +
@@ -7259,12 +7259,12 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
-        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "TaskOptions", });
-    internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_descriptor =
+        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "FlowOptions", });
+    internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor =
       internal_static_greptime_v1_flow_CreateRequest_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_fieldAccessorTable = new
+    internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_flow_CreateRequest_TaskOptionsEntry_descriptor,
+        internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_DropRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);

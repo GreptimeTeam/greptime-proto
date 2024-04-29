@@ -56,9 +56,9 @@ namespace flow {
 class CreateRequest;
 struct CreateRequestDefaultTypeInternal;
 extern CreateRequestDefaultTypeInternal _CreateRequest_default_instance_;
-class CreateRequest_TaskOptionsEntry_DoNotUse;
-struct CreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal;
-extern CreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal _CreateRequest_TaskOptionsEntry_DoNotUse_default_instance_;
+class CreateRequest_FlowOptionsEntry_DoNotUse;
+struct CreateRequest_FlowOptionsEntry_DoNotUseDefaultTypeInternal;
+extern CreateRequest_FlowOptionsEntry_DoNotUseDefaultTypeInternal _CreateRequest_FlowOptionsEntry_DoNotUse_default_instance_;
 class DropRequest;
 struct DropRequestDefaultTypeInternal;
 extern DropRequestDefaultTypeInternal _DropRequest_default_instance_;
@@ -85,7 +85,7 @@ extern TaskIdDefaultTypeInternal _TaskId_default_instance_;
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::flow::CreateRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::CreateRequest>(Arena*);
-template<> ::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::flow::DropRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::DropRequest>(Arena*);
 template<> ::greptime::v1::flow::FlowRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowRequest>(Arena*);
 template<> ::greptime::v1::flow::FlowResponse* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowResponse>(Arena*);
@@ -861,26 +861,26 @@ class FlowResponse final :
 };
 // -------------------------------------------------------------------
 
-class CreateRequest_TaskOptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateRequest_TaskOptionsEntry_DoNotUse, 
+class CreateRequest_FlowOptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateRequest_FlowOptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateRequest_TaskOptionsEntry_DoNotUse, 
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateRequest_FlowOptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  CreateRequest_TaskOptionsEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR CreateRequest_TaskOptionsEntry_DoNotUse(
+  CreateRequest_FlowOptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR CreateRequest_FlowOptionsEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit CreateRequest_TaskOptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const CreateRequest_TaskOptionsEntry_DoNotUse& other);
-  static const CreateRequest_TaskOptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CreateRequest_TaskOptionsEntry_DoNotUse*>(&_CreateRequest_TaskOptionsEntry_DoNotUse_default_instance_); }
+  explicit CreateRequest_FlowOptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const CreateRequest_FlowOptionsEntry_DoNotUse& other);
+  static const CreateRequest_FlowOptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CreateRequest_FlowOptionsEntry_DoNotUse*>(&_CreateRequest_FlowOptionsEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.CreateRequest.TaskOptionsEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.CreateRequest.FlowOptionsEntry.key");
  }
   static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.CreateRequest.TaskOptionsEntry.value");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.CreateRequest.FlowOptionsEntry.value");
  }
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
@@ -1014,7 +1014,7 @@ class CreateRequest final :
 
   enum : int {
     kSourceTableIdsFieldNumber = 2,
-    kTaskOptionsFieldNumber = 8,
+    kFlowOptionsFieldNumber = 8,
     kExpireWhenFieldNumber = 5,
     kCommentFieldNumber = 6,
     kSqlFieldNumber = 7,
@@ -1040,22 +1040,22 @@ class CreateRequest final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId >&
       source_table_ids() const;
 
-  // map<string, string> task_options = 8;
-  int task_options_size() const;
+  // map<string, string> flow_options = 8;
+  int flow_options_size() const;
   private:
-  int _internal_task_options_size() const;
+  int _internal_flow_options_size() const;
   public:
-  void clear_task_options();
+  void clear_flow_options();
   private:
   const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      _internal_task_options() const;
+      _internal_flow_options() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      _internal_mutable_task_options();
+      _internal_mutable_flow_options();
   public:
   const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      task_options() const;
+      flow_options() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      mutable_task_options();
+      mutable_flow_options();
 
   // string expire_when = 5;
   void clear_expire_when();
@@ -1154,10 +1154,10 @@ class CreateRequest final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId > source_table_ids_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        CreateRequest_TaskOptionsEntry_DoNotUse,
+        CreateRequest_FlowOptionsEntry_DoNotUse,
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> task_options_;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> flow_options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_when_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
@@ -2363,33 +2363,33 @@ inline void CreateRequest::set_allocated_sql(std::string* sql) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.sql)
 }
 
-// map<string, string> task_options = 8;
-inline int CreateRequest::_internal_task_options_size() const {
-  return _impl_.task_options_.size();
+// map<string, string> flow_options = 8;
+inline int CreateRequest::_internal_flow_options_size() const {
+  return _impl_.flow_options_.size();
 }
-inline int CreateRequest::task_options_size() const {
-  return _internal_task_options_size();
+inline int CreateRequest::flow_options_size() const {
+  return _internal_flow_options_size();
 }
-inline void CreateRequest::clear_task_options() {
-  _impl_.task_options_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-CreateRequest::_internal_task_options() const {
-  return _impl_.task_options_.GetMap();
+inline void CreateRequest::clear_flow_options() {
+  _impl_.flow_options_.Clear();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-CreateRequest::task_options() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.flow.CreateRequest.task_options)
-  return _internal_task_options();
+CreateRequest::_internal_flow_options() const {
+  return _impl_.flow_options_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateRequest::flow_options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.flow.CreateRequest.flow_options)
+  return _internal_flow_options();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-CreateRequest::_internal_mutable_task_options() {
-  return _impl_.task_options_.MutableMap();
+CreateRequest::_internal_mutable_flow_options() {
+  return _impl_.flow_options_.MutableMap();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-CreateRequest::mutable_task_options() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.flow.CreateRequest.task_options)
-  return _internal_mutable_task_options();
+CreateRequest::mutable_flow_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.flow.CreateRequest.flow_options)
+  return _internal_mutable_flow_options();
 }
 
 // -------------------------------------------------------------------

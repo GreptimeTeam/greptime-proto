@@ -91,21 +91,21 @@ struct FlowResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowResponseDefaultTypeInternal _FlowResponse_default_instance_;
-PROTOBUF_CONSTEXPR CreateRequest_TaskOptionsEntry_DoNotUse::CreateRequest_TaskOptionsEntry_DoNotUse(
+PROTOBUF_CONSTEXPR CreateRequest_FlowOptionsEntry_DoNotUse::CreateRequest_FlowOptionsEntry_DoNotUse(
     ::_pbi::ConstantInitialized) {}
-struct CreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal()
+struct CreateRequest_FlowOptionsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CreateRequest_FlowOptionsEntry_DoNotUseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal() {}
+  ~CreateRequest_FlowOptionsEntry_DoNotUseDefaultTypeInternal() {}
   union {
-    CreateRequest_TaskOptionsEntry_DoNotUse _instance;
+    CreateRequest_FlowOptionsEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateRequest_TaskOptionsEntry_DoNotUseDefaultTypeInternal _CreateRequest_TaskOptionsEntry_DoNotUse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateRequest_FlowOptionsEntry_DoNotUseDefaultTypeInternal _CreateRequest_FlowOptionsEntry_DoNotUse_default_instance_;
 PROTOBUF_CONSTEXPR CreateRequest::CreateRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.source_table_ids_)*/{}
-  , /*decltype(_impl_.task_options_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.flow_options_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.expire_when_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.comment_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.sql_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -200,14 +200,14 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.affected_rows_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.extension_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.affected_tasks_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse, value_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse, value_),
   0,
   1,
   ~0u,  // no _has_bits_
@@ -223,7 +223,7 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.expire_when_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.comment_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.sql_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.task_options_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.flow_options_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::DropRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -245,7 +245,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 15, -1, -1, sizeof(::greptime::v1::flow::FlowRequest)},
   { 24, 32, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse)},
   { 34, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
-  { 44, 52, -1, sizeof(::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse)},
+  { 44, 52, -1, sizeof(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse)},
   { 54, -1, -1, sizeof(::greptime::v1::flow::CreateRequest)},
   { 68, -1, -1, sizeof(::greptime::v1::flow::DropRequest)},
   { 75, -1, -1, sizeof(::greptime::v1::flow::TaskId)},
@@ -257,7 +257,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::flow::_FlowRequest_default_instance_._instance,
   &::greptime::v1::flow::_FlowResponse_ExtensionEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::flow::_FlowResponse_default_instance_._instance,
-  &::greptime::v1::flow::_CreateRequest_TaskOptionsEntry_DoNotUse_default_instance_._instance,
+  &::greptime::v1::flow::_CreateRequest_FlowOptionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::flow::_CreateRequest_default_instance_._instance,
   &::greptime::v1::flow::_DropRequest_default_instance_._instance,
   &::greptime::v1::flow::_TaskId_default_instance_._instance,
@@ -285,9 +285,9 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   ".greptime.v1.TableId\022/\n\017sink_table_name\030"
   "\003 \001(\0132\026.greptime.v1.TableName\022\034\n\024create_"
   "if_not_exists\030\004 \001(\010\022\023\n\013expire_when\030\005 \001(\t"
-  "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014task_o"
+  "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_o"
   "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe"
-  "quest.TaskOptionsEntry\0322\n\020TaskOptionsEnt"
+  "quest.FlowOptionsEntry\0322\n\020FlowOptionsEnt"
   "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"8\n\013Dr"
   "opRequest\022)\n\007flow_id\030\001 \001(\0132\030.greptime.v1"
   ".flow.TaskId\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\r2\264\001\n\004F"
@@ -1387,13 +1387,13 @@ void FlowResponse::InternalSwap(FlowResponse* other) {
 
 // ===================================================================
 
-CreateRequest_TaskOptionsEntry_DoNotUse::CreateRequest_TaskOptionsEntry_DoNotUse() {}
-CreateRequest_TaskOptionsEntry_DoNotUse::CreateRequest_TaskOptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+CreateRequest_FlowOptionsEntry_DoNotUse::CreateRequest_FlowOptionsEntry_DoNotUse() {}
+CreateRequest_FlowOptionsEntry_DoNotUse::CreateRequest_FlowOptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
-void CreateRequest_TaskOptionsEntry_DoNotUse::MergeFrom(const CreateRequest_TaskOptionsEntry_DoNotUse& other) {
+void CreateRequest_FlowOptionsEntry_DoNotUse::MergeFrom(const CreateRequest_FlowOptionsEntry_DoNotUse& other) {
   MergeFromInternal(other);
 }
-::PROTOBUF_NAMESPACE_ID::Metadata CreateRequest_TaskOptionsEntry_DoNotUse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CreateRequest_FlowOptionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
       file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[5]);
@@ -1438,7 +1438,7 @@ CreateRequest::CreateRequest(const CreateRequest& from)
   CreateRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.source_table_ids_){from._impl_.source_table_ids_}
-    , /*decltype(_impl_.task_options_)*/{}
+    , /*decltype(_impl_.flow_options_)*/{}
     , decltype(_impl_.expire_when_){}
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
@@ -1448,7 +1448,7 @@ CreateRequest::CreateRequest(const CreateRequest& from)
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.task_options_.MergeFrom(from._impl_.task_options_);
+  _this->_impl_.flow_options_.MergeFrom(from._impl_.flow_options_);
   _impl_.expire_when_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.expire_when_.Set("", GetArenaForAllocation());
@@ -1489,7 +1489,7 @@ inline void CreateRequest::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.source_table_ids_){arena}
-    , /*decltype(_impl_.task_options_)*/{::_pbi::ArenaInitialized(), arena}
+    , /*decltype(_impl_.flow_options_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.expire_when_){}
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
@@ -1525,8 +1525,8 @@ CreateRequest::~CreateRequest() {
 inline void CreateRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.source_table_ids_.~RepeatedPtrField();
-  _impl_.task_options_.Destruct();
-  _impl_.task_options_.~MapField();
+  _impl_.flow_options_.Destruct();
+  _impl_.flow_options_.~MapField();
   _impl_.expire_when_.Destroy();
   _impl_.comment_.Destroy();
   _impl_.sql_.Destroy();
@@ -1536,7 +1536,7 @@ inline void CreateRequest::SharedDtor() {
 
 void CreateRequest::ArenaDtor(void* object) {
   CreateRequest* _this = reinterpret_cast< CreateRequest* >(object);
-  _this->_impl_.task_options_.Destruct();
+  _this->_impl_.flow_options_.Destruct();
 }
 void CreateRequest::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
@@ -1549,7 +1549,7 @@ void CreateRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.source_table_ids_.Clear();
-  _impl_.task_options_.Clear();
+  _impl_.flow_options_.Clear();
   _impl_.expire_when_.ClearToEmpty();
   _impl_.comment_.ClearToEmpty();
   _impl_.sql_.ClearToEmpty();
@@ -1638,13 +1638,13 @@ const char* CreateRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // map<string, string> task_options = 8;
+      // map<string, string> flow_options = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&_impl_.task_options_, ptr);
+            ptr = ctx->ParseMessage(&_impl_.flow_options_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
@@ -1738,21 +1738,21 @@ uint8_t* CreateRequest::_InternalSerialize(
         7, this->_internal_sql(), target);
   }
 
-  // map<string, string> task_options = 8;
-  if (!this->_internal_task_options().empty()) {
+  // map<string, string> flow_options = 8;
+  if (!this->_internal_flow_options().empty()) {
     using MapType = ::_pb::Map<std::string, std::string>;
-    using WireHelper = CreateRequest_TaskOptionsEntry_DoNotUse::Funcs;
-    const auto& map_field = this->_internal_task_options();
+    using WireHelper = CreateRequest_FlowOptionsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_flow_options();
     auto check_utf8 = [](const MapType::value_type& entry) {
       (void)entry;
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
         entry.first.data(), static_cast<int>(entry.first.length()),
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "greptime.v1.flow.CreateRequest.TaskOptionsEntry.key");
+        "greptime.v1.flow.CreateRequest.FlowOptionsEntry.key");
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
         entry.second.data(), static_cast<int>(entry.second.length()),
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "greptime.v1.flow.CreateRequest.TaskOptionsEntry.value");
+        "greptime.v1.flow.CreateRequest.FlowOptionsEntry.value");
     };
 
     if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
@@ -1791,13 +1791,13 @@ size_t CreateRequest::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // map<string, string> task_options = 8;
+  // map<string, string> flow_options = 8;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_task_options_size());
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_flow_options_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-      it = this->_internal_task_options().begin();
-      it != this->_internal_task_options().end(); ++it) {
-    total_size += CreateRequest_TaskOptionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+      it = this->_internal_flow_options().begin();
+      it != this->_internal_flow_options().end(); ++it) {
+    total_size += CreateRequest_FlowOptionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
   // string expire_when = 5;
@@ -1859,7 +1859,7 @@ void CreateRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   (void) cached_has_bits;
 
   _this->_impl_.source_table_ids_.MergeFrom(from._impl_.source_table_ids_);
-  _this->_impl_.task_options_.MergeFrom(from._impl_.task_options_);
+  _this->_impl_.flow_options_.MergeFrom(from._impl_.flow_options_);
   if (!from._internal_expire_when().empty()) {
     _this->_internal_set_expire_when(from._internal_expire_when());
   }
@@ -1900,7 +1900,7 @@ void CreateRequest::InternalSwap(CreateRequest* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.source_table_ids_.InternalSwap(&other->_impl_.source_table_ids_);
-  _impl_.task_options_.InternalSwap(&other->_impl_.task_options_);
+  _impl_.flow_options_.InternalSwap(&other->_impl_.flow_options_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.expire_when_, lhs_arena,
       &other->_impl_.expire_when_, rhs_arena
@@ -2323,9 +2323,9 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::flow::FlowResponse*
 Arena::CreateMaybeMessage< ::greptime::v1::flow::FlowResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::flow::FlowResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse*
-Arena::CreateMaybeMessage< ::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::flow::CreateRequest_TaskOptionsEntry_DoNotUse >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::flow::CreateRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::flow::CreateRequest >(Arena* arena) {

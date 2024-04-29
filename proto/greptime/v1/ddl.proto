@@ -49,7 +49,7 @@ message CreateFlowExpr {
   string expire_when = 7;
   string comment = 8;
   string sql = 9;
-  map<string, string> options = 10;
+  map<string, string> flow_options = 10;
 }
 
 // Drop a flow.

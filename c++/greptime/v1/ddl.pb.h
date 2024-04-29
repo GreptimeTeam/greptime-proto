@@ -81,9 +81,9 @@ extern CreateDatabaseExpr_OptionsEntry_DoNotUseDefaultTypeInternal _CreateDataba
 class CreateFlowExpr;
 struct CreateFlowExprDefaultTypeInternal;
 extern CreateFlowExprDefaultTypeInternal _CreateFlowExpr_default_instance_;
-class CreateFlowExpr_OptionsEntry_DoNotUse;
-struct CreateFlowExpr_OptionsEntry_DoNotUseDefaultTypeInternal;
-extern CreateFlowExpr_OptionsEntry_DoNotUseDefaultTypeInternal _CreateFlowExpr_OptionsEntry_DoNotUse_default_instance_;
+class CreateFlowExpr_FlowOptionsEntry_DoNotUse;
+struct CreateFlowExpr_FlowOptionsEntry_DoNotUseDefaultTypeInternal;
+extern CreateFlowExpr_FlowOptionsEntry_DoNotUseDefaultTypeInternal _CreateFlowExpr_FlowOptionsEntry_DoNotUse_default_instance_;
 class CreateTableExpr;
 struct CreateTableExprDefaultTypeInternal;
 extern CreateTableExprDefaultTypeInternal _CreateTableExpr_default_instance_;
@@ -130,7 +130,7 @@ template<> ::greptime::v1::ColumnDef* Arena::CreateMaybeMessage<::greptime::v1::
 template<> ::greptime::v1::CreateDatabaseExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr>(Arena*);
 template<> ::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::CreateFlowExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateFlowExpr>(Arena*);
-template<> ::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateFlowExpr_OptionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::CreateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr>(Arena*);
 template<> ::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::DdlRequest* Arena::CreateMaybeMessage<::greptime::v1::DdlRequest>(Arena*);
@@ -479,26 +479,26 @@ class DdlRequest final :
 };
 // -------------------------------------------------------------------
 
-class CreateFlowExpr_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateFlowExpr_OptionsEntry_DoNotUse, 
+class CreateFlowExpr_FlowOptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateFlowExpr_FlowOptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateFlowExpr_OptionsEntry_DoNotUse, 
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateFlowExpr_FlowOptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  CreateFlowExpr_OptionsEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR CreateFlowExpr_OptionsEntry_DoNotUse(
+  CreateFlowExpr_FlowOptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR CreateFlowExpr_FlowOptionsEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit CreateFlowExpr_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const CreateFlowExpr_OptionsEntry_DoNotUse& other);
-  static const CreateFlowExpr_OptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CreateFlowExpr_OptionsEntry_DoNotUse*>(&_CreateFlowExpr_OptionsEntry_DoNotUse_default_instance_); }
+  explicit CreateFlowExpr_FlowOptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const CreateFlowExpr_FlowOptionsEntry_DoNotUse& other);
+  static const CreateFlowExpr_FlowOptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CreateFlowExpr_FlowOptionsEntry_DoNotUse*>(&_CreateFlowExpr_FlowOptionsEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateFlowExpr.OptionsEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateFlowExpr.FlowOptionsEntry.key");
  }
   static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateFlowExpr.OptionsEntry.value");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateFlowExpr.FlowOptionsEntry.value");
  }
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
@@ -632,7 +632,7 @@ class CreateFlowExpr final :
 
   enum : int {
     kSourceTableNamesFieldNumber = 3,
-    kOptionsFieldNumber = 10,
+    kFlowOptionsFieldNumber = 10,
     kCatalogNameFieldNumber = 1,
     kFlowNameFieldNumber = 2,
     kExpireWhenFieldNumber = 7,
@@ -660,22 +660,22 @@ class CreateFlowExpr final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName >&
       source_table_names() const;
 
-  // map<string, string> options = 10;
-  int options_size() const;
+  // map<string, string> flow_options = 10;
+  int flow_options_size() const;
   private:
-  int _internal_options_size() const;
+  int _internal_flow_options_size() const;
   public:
-  void clear_options();
+  void clear_flow_options();
   private:
   const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      _internal_options() const;
+      _internal_flow_options() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      _internal_mutable_options();
+      _internal_mutable_flow_options();
   public:
   const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      options() const;
+      flow_options() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      mutable_options();
+      mutable_flow_options();
 
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -793,10 +793,10 @@ class CreateFlowExpr final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName > source_table_names_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        CreateFlowExpr_OptionsEntry_DoNotUse,
+        CreateFlowExpr_FlowOptionsEntry_DoNotUse,
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> flow_options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flow_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_when_;
@@ -5140,33 +5140,33 @@ inline void CreateFlowExpr::set_allocated_sql(std::string* sql) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowExpr.sql)
 }
 
-// map<string, string> options = 10;
-inline int CreateFlowExpr::_internal_options_size() const {
-  return _impl_.options_.size();
+// map<string, string> flow_options = 10;
+inline int CreateFlowExpr::_internal_flow_options_size() const {
+  return _impl_.flow_options_.size();
 }
-inline int CreateFlowExpr::options_size() const {
-  return _internal_options_size();
+inline int CreateFlowExpr::flow_options_size() const {
+  return _internal_flow_options_size();
 }
-inline void CreateFlowExpr::clear_options() {
-  _impl_.options_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-CreateFlowExpr::_internal_options() const {
-  return _impl_.options_.GetMap();
+inline void CreateFlowExpr::clear_flow_options() {
+  _impl_.flow_options_.Clear();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-CreateFlowExpr::options() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.CreateFlowExpr.options)
-  return _internal_options();
+CreateFlowExpr::_internal_flow_options() const {
+  return _impl_.flow_options_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateFlowExpr::flow_options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.CreateFlowExpr.flow_options)
+  return _internal_flow_options();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-CreateFlowExpr::_internal_mutable_options() {
-  return _impl_.options_.MutableMap();
+CreateFlowExpr::_internal_mutable_flow_options() {
+  return _impl_.flow_options_.MutableMap();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-CreateFlowExpr::mutable_options() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.CreateFlowExpr.options)
-  return _internal_mutable_options();
+CreateFlowExpr::mutable_flow_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.CreateFlowExpr.flow_options)
+  return _internal_mutable_flow_options();
 }
 
 // -------------------------------------------------------------------
