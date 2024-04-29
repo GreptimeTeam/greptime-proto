@@ -43,7 +43,7 @@ message InsertRequest {
 message FlowRequest {
   oneof body {
     CreateRequest create = 1;
-    RemoveRequest remove = 2;
+    DropRequest drop = 2;
   }
 }
 
@@ -55,12 +55,12 @@ message FlowResponse {
   repeated TaskId affected_tasks = 4;
 }
 
-// Create a flow task
+// Create a flow
 // 
 // Very similar to `ddl.CreateTaskExpr`, 
 // replace `source_table_names` with `source_table_ids`
 message CreateRequest {
-  TaskId task_id = 1; 
+  TaskId flow_id = 1; 
   repeated TableId source_table_ids = 2;
   TableName sink_table_name = 3;
   bool create_if_not_exists = 4;
@@ -70,6 +70,6 @@ message CreateRequest {
   map<string, string> task_options = 8;
 }
 
-message RemoveRequest { TaskId task_id = 1; }
+message DropRequest { TaskId flow_id = 1; }
 
 message TaskId { uint32 id = 1; }
