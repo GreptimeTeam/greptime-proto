@@ -46,6 +46,7 @@ message HeartbeatRequest {
   uint64 duration_since_epoch = 6;
   // The node's epoch
   uint64 node_epoch = 7;
+  NodeInfo info = 8;
 }
 
 enum RegionRole {
@@ -53,6 +54,15 @@ enum RegionRole {
   Leader = 0;
   // Readonly region.
   Follower = 1;
+}
+
+message NodeInfo {
+  // The node build version
+  string version = 1;
+  // The node build git commit hash
+  string git_commit = 2;
+  // The node start timestamp
+  uint64 start_time_ms = 3;
 }
 
 message RegionStat {

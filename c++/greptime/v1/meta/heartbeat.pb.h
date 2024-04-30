@@ -67,6 +67,9 @@ extern HeartbeatResponseDefaultTypeInternal _HeartbeatResponse_default_instance_
 class MailboxMessage;
 struct MailboxMessageDefaultTypeInternal;
 extern MailboxMessageDefaultTypeInternal _MailboxMessage_default_instance_;
+class NodeInfo;
+struct NodeInfoDefaultTypeInternal;
+extern NodeInfoDefaultTypeInternal _NodeInfo_default_instance_;
 class RegionLease;
 struct RegionLeaseDefaultTypeInternal;
 extern RegionLeaseDefaultTypeInternal _RegionLease_default_instance_;
@@ -83,6 +86,7 @@ template<> ::greptime::v1::meta::GrantedRegion* Arena::CreateMaybeMessage<::grep
 template<> ::greptime::v1::meta::HeartbeatRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatResponse>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessage>(Arena*);
+template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(Arena*);
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -243,6 +247,7 @@ class HeartbeatRequest final :
     kPeerFieldNumber = 2,
     kReportIntervalFieldNumber = 3,
     kMailboxMessageFieldNumber = 5,
+    kInfoFieldNumber = 8,
     kDurationSinceEpochFieldNumber = 6,
     kNodeEpochFieldNumber = 7,
   };
@@ -336,6 +341,24 @@ class HeartbeatRequest final :
       ::greptime::v1::meta::MailboxMessage* mailbox_message);
   ::greptime::v1::meta::MailboxMessage* unsafe_arena_release_mailbox_message();
 
+  // .greptime.v1.meta.NodeInfo info = 8;
+  bool has_info() const;
+  private:
+  bool _internal_has_info() const;
+  public:
+  void clear_info();
+  const ::greptime::v1::meta::NodeInfo& info() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::NodeInfo* release_info();
+  ::greptime::v1::meta::NodeInfo* mutable_info();
+  void set_allocated_info(::greptime::v1::meta::NodeInfo* info);
+  private:
+  const ::greptime::v1::meta::NodeInfo& _internal_info() const;
+  ::greptime::v1::meta::NodeInfo* _internal_mutable_info();
+  public:
+  void unsafe_arena_set_allocated_info(
+      ::greptime::v1::meta::NodeInfo* info);
+  ::greptime::v1::meta::NodeInfo* unsafe_arena_release_info();
+
   // uint64 duration_since_epoch = 6;
   void clear_duration_since_epoch();
   uint64_t duration_since_epoch() const;
@@ -367,8 +390,189 @@ class HeartbeatRequest final :
     ::greptime::v1::meta::Peer* peer_;
     ::greptime::v1::meta::TimeInterval* report_interval_;
     ::greptime::v1::meta::MailboxMessage* mailbox_message_;
+    ::greptime::v1::meta::NodeInfo* info_;
     uint64_t duration_since_epoch_;
     uint64_t node_epoch_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
+class NodeInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.NodeInfo) */ {
+ public:
+  inline NodeInfo() : NodeInfo(nullptr) {}
+  ~NodeInfo() override;
+  explicit PROTOBUF_CONSTEXPR NodeInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  NodeInfo(const NodeInfo& from);
+  NodeInfo(NodeInfo&& from) noexcept
+    : NodeInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline NodeInfo& operator=(const NodeInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline NodeInfo& operator=(NodeInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const NodeInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const NodeInfo* internal_default_instance() {
+    return reinterpret_cast<const NodeInfo*>(
+               &_NodeInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(NodeInfo& a, NodeInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(NodeInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(NodeInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  NodeInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<NodeInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const NodeInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const NodeInfo& from) {
+    NodeInfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NodeInfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.NodeInfo";
+  }
+  protected:
+  explicit NodeInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVersionFieldNumber = 1,
+    kGitCommitFieldNumber = 2,
+    kStartTimeMsFieldNumber = 3,
+  };
+  // string version = 1;
+  void clear_version();
+  const std::string& version() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_version(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_version();
+  PROTOBUF_NODISCARD std::string* release_version();
+  void set_allocated_version(std::string* version);
+  private:
+  const std::string& _internal_version() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_version(const std::string& value);
+  std::string* _internal_mutable_version();
+  public:
+
+  // string git_commit = 2;
+  void clear_git_commit();
+  const std::string& git_commit() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_git_commit(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_git_commit();
+  PROTOBUF_NODISCARD std::string* release_git_commit();
+  void set_allocated_git_commit(std::string* git_commit);
+  private:
+  const std::string& _internal_git_commit() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_git_commit(const std::string& value);
+  std::string* _internal_mutable_git_commit();
+  public:
+
+  // uint64 start_time_ms = 3;
+  void clear_start_time_ms();
+  uint64_t start_time_ms() const;
+  void set_start_time_ms(uint64_t value);
+  private:
+  uint64_t _internal_start_time_ms() const;
+  void _internal_set_start_time_ms(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.NodeInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr git_commit_;
+    uint64_t start_time_ms_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -424,7 +628,7 @@ class RegionStat final :
                &_RegionStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(RegionStat& a, RegionStat& b) {
     a.Swap(&b);
@@ -643,7 +847,7 @@ class HeartbeatResponse final :
                &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
@@ -840,7 +1044,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -999,7 +1203,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -1203,7 +1407,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -1360,7 +1564,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -1542,7 +1746,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -2165,6 +2369,220 @@ inline void HeartbeatRequest::_internal_set_node_epoch(uint64_t value) {
 inline void HeartbeatRequest::set_node_epoch(uint64_t value) {
   _internal_set_node_epoch(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.HeartbeatRequest.node_epoch)
+}
+
+// .greptime.v1.meta.NodeInfo info = 8;
+inline bool HeartbeatRequest::_internal_has_info() const {
+  return this != internal_default_instance() && _impl_.info_ != nullptr;
+}
+inline bool HeartbeatRequest::has_info() const {
+  return _internal_has_info();
+}
+inline void HeartbeatRequest::clear_info() {
+  if (GetArenaForAllocation() == nullptr && _impl_.info_ != nullptr) {
+    delete _impl_.info_;
+  }
+  _impl_.info_ = nullptr;
+}
+inline const ::greptime::v1::meta::NodeInfo& HeartbeatRequest::_internal_info() const {
+  const ::greptime::v1::meta::NodeInfo* p = _impl_.info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::NodeInfo&>(
+      ::greptime::v1::meta::_NodeInfo_default_instance_);
+}
+inline const ::greptime::v1::meta::NodeInfo& HeartbeatRequest::info() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatRequest.info)
+  return _internal_info();
+}
+inline void HeartbeatRequest::unsafe_arena_set_allocated_info(
+    ::greptime::v1::meta::NodeInfo* info) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.info_);
+  }
+  _impl_.info_ = info;
+  if (info) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.HeartbeatRequest.info)
+}
+inline ::greptime::v1::meta::NodeInfo* HeartbeatRequest::release_info() {
+  
+  ::greptime::v1::meta::NodeInfo* temp = _impl_.info_;
+  _impl_.info_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::NodeInfo* HeartbeatRequest::unsafe_arena_release_info() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.HeartbeatRequest.info)
+  
+  ::greptime::v1::meta::NodeInfo* temp = _impl_.info_;
+  _impl_.info_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::NodeInfo* HeartbeatRequest::_internal_mutable_info() {
+  
+  if (_impl_.info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(GetArenaForAllocation());
+    _impl_.info_ = p;
+  }
+  return _impl_.info_;
+}
+inline ::greptime::v1::meta::NodeInfo* HeartbeatRequest::mutable_info() {
+  ::greptime::v1::meta::NodeInfo* _msg = _internal_mutable_info();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatRequest.info)
+  return _msg;
+}
+inline void HeartbeatRequest::set_allocated_info(::greptime::v1::meta::NodeInfo* info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.info_;
+  }
+  if (info) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(info);
+    if (message_arena != submessage_arena) {
+      info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, info, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.info_ = info;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatRequest.info)
+}
+
+// -------------------------------------------------------------------
+
+// NodeInfo
+
+// string version = 1;
+inline void NodeInfo::clear_version() {
+  _impl_.version_.ClearToEmpty();
+}
+inline const std::string& NodeInfo::version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.NodeInfo.version)
+  return _internal_version();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void NodeInfo::set_version(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.version_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeInfo.version)
+}
+inline std::string* NodeInfo::mutable_version() {
+  std::string* _s = _internal_mutable_version();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.NodeInfo.version)
+  return _s;
+}
+inline const std::string& NodeInfo::_internal_version() const {
+  return _impl_.version_.Get();
+}
+inline void NodeInfo::_internal_set_version(const std::string& value) {
+  
+  _impl_.version_.Set(value, GetArenaForAllocation());
+}
+inline std::string* NodeInfo::_internal_mutable_version() {
+  
+  return _impl_.version_.Mutable(GetArenaForAllocation());
+}
+inline std::string* NodeInfo::release_version() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.NodeInfo.version)
+  return _impl_.version_.Release();
+}
+inline void NodeInfo::set_allocated_version(std::string* version) {
+  if (version != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.version_.SetAllocated(version, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.version_.IsDefault()) {
+    _impl_.version_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.NodeInfo.version)
+}
+
+// string git_commit = 2;
+inline void NodeInfo::clear_git_commit() {
+  _impl_.git_commit_.ClearToEmpty();
+}
+inline const std::string& NodeInfo::git_commit() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.NodeInfo.git_commit)
+  return _internal_git_commit();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void NodeInfo::set_git_commit(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.git_commit_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeInfo.git_commit)
+}
+inline std::string* NodeInfo::mutable_git_commit() {
+  std::string* _s = _internal_mutable_git_commit();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.NodeInfo.git_commit)
+  return _s;
+}
+inline const std::string& NodeInfo::_internal_git_commit() const {
+  return _impl_.git_commit_.Get();
+}
+inline void NodeInfo::_internal_set_git_commit(const std::string& value) {
+  
+  _impl_.git_commit_.Set(value, GetArenaForAllocation());
+}
+inline std::string* NodeInfo::_internal_mutable_git_commit() {
+  
+  return _impl_.git_commit_.Mutable(GetArenaForAllocation());
+}
+inline std::string* NodeInfo::release_git_commit() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.NodeInfo.git_commit)
+  return _impl_.git_commit_.Release();
+}
+inline void NodeInfo::set_allocated_git_commit(std::string* git_commit) {
+  if (git_commit != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.git_commit_.SetAllocated(git_commit, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.git_commit_.IsDefault()) {
+    _impl_.git_commit_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.NodeInfo.git_commit)
+}
+
+// uint64 start_time_ms = 3;
+inline void NodeInfo::clear_start_time_ms() {
+  _impl_.start_time_ms_ = uint64_t{0u};
+}
+inline uint64_t NodeInfo::_internal_start_time_ms() const {
+  return _impl_.start_time_ms_;
+}
+inline uint64_t NodeInfo::start_time_ms() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.NodeInfo.start_time_ms)
+  return _internal_start_time_ms();
+}
+inline void NodeInfo::_internal_set_start_time_ms(uint64_t value) {
+  
+  _impl_.start_time_ms_ = value;
+}
+inline void NodeInfo::set_start_time_ms(uint64_t value) {
+  _internal_set_start_time_ms(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeInfo.start_time_ms)
 }
 
 // -------------------------------------------------------------------
@@ -3331,6 +3749,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

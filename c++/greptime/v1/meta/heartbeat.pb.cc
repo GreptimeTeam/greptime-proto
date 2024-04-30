@@ -30,6 +30,7 @@ PROTOBUF_CONSTEXPR HeartbeatRequest::HeartbeatRequest(
   , /*decltype(_impl_.peer_)*/nullptr
   , /*decltype(_impl_.report_interval_)*/nullptr
   , /*decltype(_impl_.mailbox_message_)*/nullptr
+  , /*decltype(_impl_.info_)*/nullptr
   , /*decltype(_impl_.duration_since_epoch_)*/uint64_t{0u}
   , /*decltype(_impl_.node_epoch_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -42,6 +43,21 @@ struct HeartbeatRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HeartbeatRequestDefaultTypeInternal _HeartbeatRequest_default_instance_;
+PROTOBUF_CONSTEXPR NodeInfo::NodeInfo(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.version_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.git_commit_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.start_time_ms_)*/uint64_t{0u}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct NodeInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR NodeInfoDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~NodeInfoDefaultTypeInternal() {}
+  union {
+    NodeInfo _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 NodeInfoDefaultTypeInternal _NodeInfo_default_instance_;
 PROTOBUF_CONSTEXPR RegionStat::RegionStat(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.engine_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -156,7 +172,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[8];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[9];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto = nullptr;
 
@@ -174,6 +190,16 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatRequest, _impl_.mailbox_message_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatRequest, _impl_.duration_since_epoch_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatRequest, _impl_.node_epoch_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatRequest, _impl_.info_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::NodeInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::NodeInfo, _impl_.version_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::NodeInfo, _impl_.git_commit_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::NodeInfo, _impl_.start_time_ms_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -245,17 +271,19 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::HeartbeatRequest)},
-  { 13, -1, -1, sizeof(::greptime::v1::meta::RegionStat)},
-  { 26, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
-  { 35, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
-  { 43, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
-  { 53, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
-  { 60, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
-  { 68, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
+  { 14, -1, -1, sizeof(::greptime::v1::meta::NodeInfo)},
+  { 23, -1, -1, sizeof(::greptime::v1::meta::RegionStat)},
+  { 36, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
+  { 45, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
+  { 53, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
+  { 63, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
+  { 70, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
+  { 78, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_HeartbeatRequest_default_instance_._instance,
+  &::greptime::v1::meta::_NodeInfo_default_instance_._instance,
   &::greptime::v1::meta::_RegionStat_default_instance_._instance,
   &::greptime::v1::meta::_HeartbeatResponse_default_instance_._instance,
   &::greptime::v1::meta::_GrantedRegion_default_instance_._instance,
@@ -268,7 +296,7 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n greptime/v1/meta/heartbeat.proto\022\020grep"
   "time.v1.meta\032\035greptime/v1/meta/common.pr"
-  "oto\"\303\002\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013"
+  "oto\"\355\002\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013"
   "2\037.greptime.v1.meta.RequestHeader\022$\n\004pee"
   "r\030\002 \001(\0132\026.greptime.v1.meta.Peer\0227\n\017repor"
   "t_interval\030\003 \001(\0132\036.greptime.v1.meta.Time"
@@ -276,46 +304,49 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "e.v1.meta.RegionStat\0229\n\017mailbox_message\030"
   "\005 \001(\0132 .greptime.v1.meta.MailboxMessage\022"
   "\034\n\024duration_since_epoch\030\006 \001(\004\022\022\n\nnode_ep"
-  "och\030\007 \001(\004\"\254\001\n\nRegionStat\022\021\n\tregion_id\030\001 "
-  "\001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021appro"
-  "ximate_bytes\030\004 \001(\003\022\030\n\020approximate_rows\030\005"
-  " \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.gre"
-  "ptime.v1.meta.RegionRole\"\265\001\n\021HeartbeatRe"
-  "sponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.met"
-  "a.ResponseHeader\0229\n\017mailbox_message\030\002 \001("
-  "\0132 .greptime.v1.meta.MailboxMessage\0223\n\014r"
-  "egion_lease\030\003 \001(\0132\035.greptime.v1.meta.Reg"
-  "ionLease\"N\n\rGrantedRegion\022\021\n\tregion_id\030\001"
-  " \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.Re"
-  "gionRole\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003("
-  "\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024du"
-  "ration_since_epoch\030\002 \001(\004\022\025\n\rlease_second"
-  "s\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n"
-  "\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.grep"
-  "time.v1.meta.RequestHeader\"m\n\021AskLeaderR"
-  "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me"
-  "ta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.grep"
-  "time.v1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002i"
-  "d\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n"
-  "\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004"
-  "json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegionRole\022\n\n"
-  "\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHeartbeat\022Z\n"
-  "\tHeartbeat\022\".greptime.v1.meta.HeartbeatR"
-  "equest\032#.greptime.v1.meta.HeartbeatRespo"
-  "nse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.met"
-  "a.AskLeaderRequest\032#.greptime.v1.meta.As"
-  "kLeaderResponse\"\000B<Z:github.com/Greptime"
-  "Team/greptime-proto/go/greptime/v1/metab"
-  "\006proto3"
+  "och\030\007 \001(\004\022(\n\004info\030\010 \001(\0132\032.greptime.v1.me"
+  "ta.NodeInfo\"F\n\010NodeInfo\022\017\n\007version\030\001 \001(\t"
+  "\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_time_ms\030\003 "
+  "\001(\004\"\254\001\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n"
+  "\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate"
+  "_bytes\030\004 \001(\003\022\030\n\020approximate_rows\030\005 \001(\003\022\016"
+  "\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.greptime."
+  "v1.meta.RegionRole\"\265\001\n\021HeartbeatResponse"
+  "\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Resp"
+  "onseHeader\0229\n\017mailbox_message\030\002 \001(\0132 .gr"
+  "eptime.v1.meta.MailboxMessage\0223\n\014region_"
+  "lease\030\003 \001(\0132\035.greptime.v1.meta.RegionLea"
+  "se\"N\n\rGrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*"
+  "\n\004role\030\002 \001(\0162\034.greptime.v1.meta.RegionRo"
+  "le\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.gr"
+  "eptime.v1.meta.GrantedRegion\022\034\n\024duration"
+  "_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001("
+  "\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n\020AskLe"
+  "aderRequest\022/\n\006header\030\001 \001(\0132\037.greptime.v"
+  "1.meta.RequestHeader\"m\n\021AskLeaderRespons"
+  "e\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Res"
+  "ponseHeader\022&\n\006leader\030\002 \001(\0132\026.greptime.v"
+  "1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001("
+  "\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004"
+  " \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006"
+  " \001(\tH\000B\t\n\007payload*&\n\nRegionRole\022\n\n\006Leade"
+  "r\020\000\022\014\n\010Follower\020\0012\277\001\n\tHeartbeat\022Z\n\tHeart"
+  "beat\022\".greptime.v1.meta.HeartbeatRequest"
+  "\032#.greptime.v1.meta.HeartbeatResponse\"\000("
+  "\0010\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskL"
+  "eaderRequest\032#.greptime.v1.meta.AskLeade"
+  "rResponse\"\000B<Z:github.com/GreptimeTeam/g"
+  "reptime-proto/go/greptime/v1/metab\006proto"
+  "3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 1607, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 1721, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 8,
+    &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 9,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
@@ -352,6 +383,7 @@ class HeartbeatRequest::_Internal {
   static const ::greptime::v1::meta::Peer& peer(const HeartbeatRequest* msg);
   static const ::greptime::v1::meta::TimeInterval& report_interval(const HeartbeatRequest* msg);
   static const ::greptime::v1::meta::MailboxMessage& mailbox_message(const HeartbeatRequest* msg);
+  static const ::greptime::v1::meta::NodeInfo& info(const HeartbeatRequest* msg);
 };
 
 const ::greptime::v1::meta::RequestHeader&
@@ -369,6 +401,10 @@ HeartbeatRequest::_Internal::report_interval(const HeartbeatRequest* msg) {
 const ::greptime::v1::meta::MailboxMessage&
 HeartbeatRequest::_Internal::mailbox_message(const HeartbeatRequest* msg) {
   return *msg->_impl_.mailbox_message_;
+}
+const ::greptime::v1::meta::NodeInfo&
+HeartbeatRequest::_Internal::info(const HeartbeatRequest* msg) {
+  return *msg->_impl_.info_;
 }
 void HeartbeatRequest::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
@@ -403,6 +439,7 @@ HeartbeatRequest::HeartbeatRequest(const HeartbeatRequest& from)
     , decltype(_impl_.peer_){nullptr}
     , decltype(_impl_.report_interval_){nullptr}
     , decltype(_impl_.mailbox_message_){nullptr}
+    , decltype(_impl_.info_){nullptr}
     , decltype(_impl_.duration_since_epoch_){}
     , decltype(_impl_.node_epoch_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -420,6 +457,9 @@ HeartbeatRequest::HeartbeatRequest(const HeartbeatRequest& from)
   if (from._internal_has_mailbox_message()) {
     _this->_impl_.mailbox_message_ = new ::greptime::v1::meta::MailboxMessage(*from._impl_.mailbox_message_);
   }
+  if (from._internal_has_info()) {
+    _this->_impl_.info_ = new ::greptime::v1::meta::NodeInfo(*from._impl_.info_);
+  }
   ::memcpy(&_impl_.duration_since_epoch_, &from._impl_.duration_since_epoch_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.node_epoch_) -
     reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.node_epoch_));
@@ -436,6 +476,7 @@ inline void HeartbeatRequest::SharedCtor(
     , decltype(_impl_.peer_){nullptr}
     , decltype(_impl_.report_interval_){nullptr}
     , decltype(_impl_.mailbox_message_){nullptr}
+    , decltype(_impl_.info_){nullptr}
     , decltype(_impl_.duration_since_epoch_){uint64_t{0u}}
     , decltype(_impl_.node_epoch_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -458,6 +499,7 @@ inline void HeartbeatRequest::SharedDtor() {
   if (this != internal_default_instance()) delete _impl_.peer_;
   if (this != internal_default_instance()) delete _impl_.report_interval_;
   if (this != internal_default_instance()) delete _impl_.mailbox_message_;
+  if (this != internal_default_instance()) delete _impl_.info_;
 }
 
 void HeartbeatRequest::SetCachedSize(int size) const {
@@ -487,6 +529,10 @@ void HeartbeatRequest::Clear() {
     delete _impl_.mailbox_message_;
   }
   _impl_.mailbox_message_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.info_ != nullptr) {
+    delete _impl_.info_;
+  }
+  _impl_.info_ = nullptr;
   ::memset(&_impl_.duration_since_epoch_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.node_epoch_) -
       reinterpret_cast<char*>(&_impl_.duration_since_epoch_)) + sizeof(_impl_.node_epoch_));
@@ -556,6 +602,14 @@ const char* HeartbeatRequest::_InternalParse(const char* ptr, ::_pbi::ParseConte
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           _impl_.node_epoch_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.NodeInfo info = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          ptr = ctx->ParseMessage(_internal_mutable_info(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -637,6 +691,13 @@ uint8_t* HeartbeatRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(7, this->_internal_node_epoch(), target);
   }
 
+  // .greptime.v1.meta.NodeInfo info = 8;
+  if (this->_internal_has_info()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(8, _Internal::info(this),
+        _Internal::info(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -688,6 +749,13 @@ size_t HeartbeatRequest::ByteSizeLong() const {
         *_impl_.mailbox_message_);
   }
 
+  // .greptime.v1.meta.NodeInfo info = 8;
+  if (this->_internal_has_info()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.info_);
+  }
+
   // uint64 duration_since_epoch = 6;
   if (this->_internal_duration_since_epoch() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_duration_since_epoch());
@@ -733,6 +801,10 @@ void HeartbeatRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
     _this->_internal_mutable_mailbox_message()->::greptime::v1::meta::MailboxMessage::MergeFrom(
         from._internal_mailbox_message());
   }
+  if (from._internal_has_info()) {
+    _this->_internal_mutable_info()->::greptime::v1::meta::NodeInfo::MergeFrom(
+        from._internal_info());
+  }
   if (from._internal_duration_since_epoch() != 0) {
     _this->_internal_set_duration_since_epoch(from._internal_duration_since_epoch());
   }
@@ -769,6 +841,286 @@ void HeartbeatRequest::InternalSwap(HeartbeatRequest* other) {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
       file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[0]);
+}
+
+// ===================================================================
+
+class NodeInfo::_Internal {
+ public:
+};
+
+NodeInfo::NodeInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.NodeInfo)
+}
+NodeInfo::NodeInfo(const NodeInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  NodeInfo* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.version_){}
+    , decltype(_impl_.git_commit_){}
+    , decltype(_impl_.start_time_ms_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_version().empty()) {
+    _this->_impl_.version_.Set(from._internal_version(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.git_commit_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.git_commit_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_git_commit().empty()) {
+    _this->_impl_.git_commit_.Set(from._internal_git_commit(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.start_time_ms_ = from._impl_.start_time_ms_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.NodeInfo)
+}
+
+inline void NodeInfo::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.version_){}
+    , decltype(_impl_.git_commit_){}
+    , decltype(_impl_.start_time_ms_){uint64_t{0u}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.git_commit_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.git_commit_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+NodeInfo::~NodeInfo() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.NodeInfo)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void NodeInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.version_.Destroy();
+  _impl_.git_commit_.Destroy();
+}
+
+void NodeInfo::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void NodeInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.NodeInfo)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.version_.ClearToEmpty();
+  _impl_.git_commit_.ClearToEmpty();
+  _impl_.start_time_ms_ = uint64_t{0u};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* NodeInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string version = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_version();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.NodeInfo.version"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string git_commit = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_git_commit();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.NodeInfo.git_commit"));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 start_time_ms = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.start_time_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* NodeInfo::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.NodeInfo)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string version = 1;
+  if (!this->_internal_version().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.NodeInfo.version");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_version(), target);
+  }
+
+  // string git_commit = 2;
+  if (!this->_internal_git_commit().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_git_commit().data(), static_cast<int>(this->_internal_git_commit().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.NodeInfo.git_commit");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_git_commit(), target);
+  }
+
+  // uint64 start_time_ms = 3;
+  if (this->_internal_start_time_ms() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_start_time_ms(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.NodeInfo)
+  return target;
+}
+
+size_t NodeInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.NodeInfo)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string version = 1;
+  if (!this->_internal_version().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_version());
+  }
+
+  // string git_commit = 2;
+  if (!this->_internal_git_commit().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_git_commit());
+  }
+
+  // uint64 start_time_ms = 3;
+  if (this->_internal_start_time_ms() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_start_time_ms());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData NodeInfo::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    NodeInfo::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*NodeInfo::GetClassData() const { return &_class_data_; }
+
+
+void NodeInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<NodeInfo*>(&to_msg);
+  auto& from = static_cast<const NodeInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.NodeInfo)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_version().empty()) {
+    _this->_internal_set_version(from._internal_version());
+  }
+  if (!from._internal_git_commit().empty()) {
+    _this->_internal_set_git_commit(from._internal_git_commit());
+  }
+  if (from._internal_start_time_ms() != 0) {
+    _this->_internal_set_start_time_ms(from._internal_start_time_ms());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void NodeInfo::CopyFrom(const NodeInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.NodeInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NodeInfo::IsInitialized() const {
+  return true;
+}
+
+void NodeInfo::InternalSwap(NodeInfo* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.version_, lhs_arena,
+      &other->_impl_.version_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.git_commit_, lhs_arena,
+      &other->_impl_.git_commit_, rhs_arena
+  );
+  swap(_impl_.start_time_ms_, other->_impl_.start_time_ms_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata NodeInfo::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[1]);
 }
 
 // ===================================================================
@@ -1130,7 +1482,7 @@ void RegionStat::InternalSwap(RegionStat* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata RegionStat::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[1]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[2]);
 }
 
 // ===================================================================
@@ -1416,7 +1768,7 @@ void HeartbeatResponse::InternalSwap(HeartbeatResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HeartbeatResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[2]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[3]);
 }
 
 // ===================================================================
@@ -1630,7 +1982,7 @@ void GrantedRegion::InternalSwap(GrantedRegion* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GrantedRegion::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[3]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[4]);
 }
 
 // ===================================================================
@@ -1917,7 +2269,7 @@ void RegionLease::InternalSwap(RegionLease* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata RegionLease::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[4]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[5]);
 }
 
 // ===================================================================
@@ -2116,7 +2468,7 @@ void AskLeaderRequest::InternalSwap(AskLeaderRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AskLeaderRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[5]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[6]);
 }
 
 // ===================================================================
@@ -2367,7 +2719,7 @@ void AskLeaderResponse::InternalSwap(AskLeaderResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AskLeaderResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[6]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[7]);
 }
 
 // ===================================================================
@@ -2807,7 +3159,7 @@ void MailboxMessage::InternalSwap(MailboxMessage* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata MailboxMessage::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[7]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[8]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -2818,6 +3170,10 @@ PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::HeartbeatRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::HeartbeatRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::HeartbeatRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::NodeInfo*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::NodeInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::NodeInfo >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::RegionStat*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::RegionStat >(Arena* arena) {

@@ -301,6 +301,21 @@ public final class HeartbeatOuterClass {
      * @return The nodeEpoch.
      */
     long getNodeEpoch();
+
+    /**
+     * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+     * @return Whether the info field is set.
+     */
+    boolean hasInfo();
+    /**
+     * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+     * @return The info.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.NodeInfo getInfo();
+    /**
+     * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+     */
+    greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.HeartbeatRequest}
@@ -418,6 +433,19 @@ public final class HeartbeatOuterClass {
             case 56: {
 
               nodeEpoch_ = input.readUInt64();
+              break;
+            }
+            case 66: {
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder subBuilder = null;
+              if (info_ != null) {
+                subBuilder = info_.toBuilder();
+              }
+              info_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.NodeInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(info_);
+                info_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -687,6 +715,32 @@ public final class HeartbeatOuterClass {
       return nodeEpoch_;
     }
 
+    public static final int INFO_FIELD_NUMBER = 8;
+    private greptime.v1.meta.HeartbeatOuterClass.NodeInfo info_;
+    /**
+     * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+     * @return Whether the info field is set.
+     */
+    @java.lang.Override
+    public boolean hasInfo() {
+      return info_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+     * @return The info.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.NodeInfo getInfo() {
+      return info_ == null ? greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance() : info_;
+    }
+    /**
+     * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder() {
+      return getInfo();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -721,6 +775,9 @@ public final class HeartbeatOuterClass {
       }
       if (nodeEpoch_ != 0L) {
         output.writeUInt64(7, nodeEpoch_);
+      }
+      if (info_ != null) {
+        output.writeMessage(8, getInfo());
       }
       unknownFields.writeTo(output);
     }
@@ -758,6 +815,10 @@ public final class HeartbeatOuterClass {
       if (nodeEpoch_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(7, nodeEpoch_);
+      }
+      if (info_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getInfo());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -800,6 +861,11 @@ public final class HeartbeatOuterClass {
           != other.getDurationSinceEpoch()) return false;
       if (getNodeEpoch()
           != other.getNodeEpoch()) return false;
+      if (hasInfo() != other.hasInfo()) return false;
+      if (hasInfo()) {
+        if (!getInfo()
+            .equals(other.getInfo())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -837,6 +903,10 @@ public final class HeartbeatOuterClass {
       hash = (37 * hash) + NODE_EPOCH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getNodeEpoch());
+      if (hasInfo()) {
+        hash = (37 * hash) + INFO_FIELD_NUMBER;
+        hash = (53 * hash) + getInfo().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1005,6 +1075,12 @@ public final class HeartbeatOuterClass {
 
         nodeEpoch_ = 0L;
 
+        if (infoBuilder_ == null) {
+          info_ = null;
+        } else {
+          info_ = null;
+          infoBuilder_ = null;
+        }
         return this;
       }
 
@@ -1063,6 +1139,11 @@ public final class HeartbeatOuterClass {
         }
         result.durationSinceEpoch_ = durationSinceEpoch_;
         result.nodeEpoch_ = nodeEpoch_;
+        if (infoBuilder_ == null) {
+          result.info_ = info_;
+        } else {
+          result.info_ = infoBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -1154,6 +1235,9 @@ public final class HeartbeatOuterClass {
         }
         if (other.getNodeEpoch() != 0L) {
           setNodeEpoch(other.getNodeEpoch());
+        }
+        if (other.hasInfo()) {
+          mergeInfo(other.getInfo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2166,6 +2250,125 @@ public final class HeartbeatOuterClass {
         onChanged();
         return this;
       }
+
+      private greptime.v1.meta.HeartbeatOuterClass.NodeInfo info_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.NodeInfo, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder> infoBuilder_;
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+       * @return Whether the info field is set.
+       */
+      public boolean hasInfo() {
+        return infoBuilder_ != null || info_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+       * @return The info.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfo getInfo() {
+        if (infoBuilder_ == null) {
+          return info_ == null ? greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance() : info_;
+        } else {
+          return infoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+       */
+      public Builder setInfo(greptime.v1.meta.HeartbeatOuterClass.NodeInfo value) {
+        if (infoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          info_ = value;
+          onChanged();
+        } else {
+          infoBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+       */
+      public Builder setInfo(
+          greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder builderForValue) {
+        if (infoBuilder_ == null) {
+          info_ = builderForValue.build();
+          onChanged();
+        } else {
+          infoBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+       */
+      public Builder mergeInfo(greptime.v1.meta.HeartbeatOuterClass.NodeInfo value) {
+        if (infoBuilder_ == null) {
+          if (info_ != null) {
+            info_ =
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.newBuilder(info_).mergeFrom(value).buildPartial();
+          } else {
+            info_ = value;
+          }
+          onChanged();
+        } else {
+          infoBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+       */
+      public Builder clearInfo() {
+        if (infoBuilder_ == null) {
+          info_ = null;
+          onChanged();
+        } else {
+          info_ = null;
+          infoBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder getInfoBuilder() {
+        
+        onChanged();
+        return getInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder() {
+        if (infoBuilder_ != null) {
+          return infoBuilder_.getMessageOrBuilder();
+        } else {
+          return info_ == null ?
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance() : info_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.NodeInfo, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder> 
+          getInfoFieldBuilder() {
+        if (infoBuilder_ == null) {
+          infoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder>(
+                  getInfo(),
+                  getParentForChildren(),
+                  isClean());
+          info_ = null;
+        }
+        return infoBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2214,6 +2417,889 @@ public final class HeartbeatOuterClass {
 
     @java.lang.Override
     public greptime.v1.meta.HeartbeatOuterClass.HeartbeatRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface NodeInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.NodeInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The node build version
+     * </pre>
+     *
+     * <code>string version = 1;</code>
+     * @return The version.
+     */
+    java.lang.String getVersion();
+    /**
+     * <pre>
+     * The node build version
+     * </pre>
+     *
+     * <code>string version = 1;</code>
+     * @return The bytes for version.
+     */
+    com.google.protobuf.ByteString
+        getVersionBytes();
+
+    /**
+     * <pre>
+     * The node build git commit hash
+     * </pre>
+     *
+     * <code>string git_commit = 2;</code>
+     * @return The gitCommit.
+     */
+    java.lang.String getGitCommit();
+    /**
+     * <pre>
+     * The node build git commit hash
+     * </pre>
+     *
+     * <code>string git_commit = 2;</code>
+     * @return The bytes for gitCommit.
+     */
+    com.google.protobuf.ByteString
+        getGitCommitBytes();
+
+    /**
+     * <pre>
+     * The node start timestamp
+     * </pre>
+     *
+     * <code>uint64 start_time_ms = 3;</code>
+     * @return The startTimeMs.
+     */
+    long getStartTimeMs();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.NodeInfo}
+   */
+  public static final class NodeInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.NodeInfo)
+      NodeInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use NodeInfo.newBuilder() to construct.
+    private NodeInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private NodeInfo() {
+      version_ = "";
+      gitCommit_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NodeInfo();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private NodeInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              version_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              gitCommit_ = s;
+              break;
+            }
+            case 24: {
+
+              startTimeMs_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeInfo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.class, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder.class);
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 1;
+    private volatile java.lang.Object version_;
+    /**
+     * <pre>
+     * The node build version
+     * </pre>
+     *
+     * <code>string version = 1;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public java.lang.String getVersion() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        version_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The node build version
+     * </pre>
+     *
+     * <code>string version = 1;</code>
+     * @return The bytes for version.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVersionBytes() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        version_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int GIT_COMMIT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object gitCommit_;
+    /**
+     * <pre>
+     * The node build git commit hash
+     * </pre>
+     *
+     * <code>string git_commit = 2;</code>
+     * @return The gitCommit.
+     */
+    @java.lang.Override
+    public java.lang.String getGitCommit() {
+      java.lang.Object ref = gitCommit_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        gitCommit_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The node build git commit hash
+     * </pre>
+     *
+     * <code>string git_commit = 2;</code>
+     * @return The bytes for gitCommit.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getGitCommitBytes() {
+      java.lang.Object ref = gitCommit_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        gitCommit_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int START_TIME_MS_FIELD_NUMBER = 3;
+    private long startTimeMs_;
+    /**
+     * <pre>
+     * The node start timestamp
+     * </pre>
+     *
+     * <code>uint64 start_time_ms = 3;</code>
+     * @return The startTimeMs.
+     */
+    @java.lang.Override
+    public long getStartTimeMs() {
+      return startTimeMs_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, version_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gitCommit_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, gitCommit_);
+      }
+      if (startTimeMs_ != 0L) {
+        output.writeUInt64(3, startTimeMs_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, version_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gitCommit_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, gitCommit_);
+      }
+      if (startTimeMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, startTimeMs_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.NodeInfo)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.HeartbeatOuterClass.NodeInfo other = (greptime.v1.meta.HeartbeatOuterClass.NodeInfo) obj;
+
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
+      if (!getGitCommit()
+          .equals(other.getGitCommit())) return false;
+      if (getStartTimeMs()
+          != other.getStartTimeMs()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion().hashCode();
+      hash = (37 * hash) + GIT_COMMIT_FIELD_NUMBER;
+      hash = (53 * hash) + getGitCommit().hashCode();
+      hash = (37 * hash) + START_TIME_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStartTimeMs());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.NodeInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.NodeInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.NodeInfo)
+        greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeInfo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.HeartbeatOuterClass.NodeInfo.class, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.NodeInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        version_ = "";
+
+        gitCommit_ = "";
+
+        startTimeMs_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_NodeInfo_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfo getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfo build() {
+        greptime.v1.meta.HeartbeatOuterClass.NodeInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfo buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.NodeInfo result = new greptime.v1.meta.HeartbeatOuterClass.NodeInfo(this);
+        result.version_ = version_;
+        result.gitCommit_ = gitCommit_;
+        result.startTimeMs_ = startTimeMs_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.NodeInfo) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.NodeInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.NodeInfo other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance()) return this;
+        if (!other.getVersion().isEmpty()) {
+          version_ = other.version_;
+          onChanged();
+        }
+        if (!other.getGitCommit().isEmpty()) {
+          gitCommit_ = other.gitCommit_;
+          onChanged();
+        }
+        if (other.getStartTimeMs() != 0L) {
+          setStartTimeMs(other.getStartTimeMs());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.HeartbeatOuterClass.NodeInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.NodeInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object version_ = "";
+      /**
+       * <pre>
+       * The node build version
+       * </pre>
+       *
+       * <code>string version = 1;</code>
+       * @return The version.
+       */
+      public java.lang.String getVersion() {
+        java.lang.Object ref = version_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          version_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The node build version
+       * </pre>
+       *
+       * <code>string version = 1;</code>
+       * @return The bytes for version.
+       */
+      public com.google.protobuf.ByteString
+          getVersionBytes() {
+        java.lang.Object ref = version_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          version_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The node build version
+       * </pre>
+       *
+       * <code>string version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The node build version
+       * </pre>
+       *
+       * <code>string version = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        
+        version_ = getDefaultInstance().getVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The node build version
+       * </pre>
+       *
+       * <code>string version = 1;</code>
+       * @param value The bytes for version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object gitCommit_ = "";
+      /**
+       * <pre>
+       * The node build git commit hash
+       * </pre>
+       *
+       * <code>string git_commit = 2;</code>
+       * @return The gitCommit.
+       */
+      public java.lang.String getGitCommit() {
+        java.lang.Object ref = gitCommit_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          gitCommit_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The node build git commit hash
+       * </pre>
+       *
+       * <code>string git_commit = 2;</code>
+       * @return The bytes for gitCommit.
+       */
+      public com.google.protobuf.ByteString
+          getGitCommitBytes() {
+        java.lang.Object ref = gitCommit_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          gitCommit_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The node build git commit hash
+       * </pre>
+       *
+       * <code>string git_commit = 2;</code>
+       * @param value The gitCommit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGitCommit(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        gitCommit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The node build git commit hash
+       * </pre>
+       *
+       * <code>string git_commit = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGitCommit() {
+        
+        gitCommit_ = getDefaultInstance().getGitCommit();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The node build git commit hash
+       * </pre>
+       *
+       * <code>string git_commit = 2;</code>
+       * @param value The bytes for gitCommit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGitCommitBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        gitCommit_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long startTimeMs_ ;
+      /**
+       * <pre>
+       * The node start timestamp
+       * </pre>
+       *
+       * <code>uint64 start_time_ms = 3;</code>
+       * @return The startTimeMs.
+       */
+      @java.lang.Override
+      public long getStartTimeMs() {
+        return startTimeMs_;
+      }
+      /**
+       * <pre>
+       * The node start timestamp
+       * </pre>
+       *
+       * <code>uint64 start_time_ms = 3;</code>
+       * @param value The startTimeMs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStartTimeMs(long value) {
+        
+        startTimeMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The node start timestamp
+       * </pre>
+       *
+       * <code>uint64 start_time_ms = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStartTimeMs() {
+        
+        startTimeMs_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.NodeInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.NodeInfo)
+    private static final greptime.v1.meta.HeartbeatOuterClass.NodeInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.NodeInfo();
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.NodeInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<NodeInfo>
+        PARSER = new com.google.protobuf.AbstractParser<NodeInfo>() {
+      @java.lang.Override
+      public NodeInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NodeInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<NodeInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NodeInfo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.NodeInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8981,6 +10067,11 @@ public final class HeartbeatOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_HeartbeatRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_NodeInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_NodeInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_RegionStat_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -9026,7 +10117,7 @@ public final class HeartbeatOuterClass {
     java.lang.String[] descriptorData = {
       "\n greptime/v1/meta/heartbeat.proto\022\020grep" +
       "time.v1.meta\032\035greptime/v1/meta/common.pr" +
-      "oto\"\303\002\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
+      "oto\"\355\002\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
       "2\037.greptime.v1.meta.RequestHeader\022$\n\004pee" +
       "r\030\002 \001(\0132\026.greptime.v1.meta.Peer\0227\n\017repor" +
       "t_interval\030\003 \001(\0132\036.greptime.v1.meta.Time" +
@@ -9034,37 +10125,40 @@ public final class HeartbeatOuterClass {
       "e.v1.meta.RegionStat\0229\n\017mailbox_message\030" +
       "\005 \001(\0132 .greptime.v1.meta.MailboxMessage\022" +
       "\034\n\024duration_since_epoch\030\006 \001(\004\022\022\n\nnode_ep" +
-      "och\030\007 \001(\004\"\254\001\n\nRegionStat\022\021\n\tregion_id\030\001 " +
-      "\001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021appro" +
-      "ximate_bytes\030\004 \001(\003\022\030\n\020approximate_rows\030\005" +
-      " \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.gre" +
-      "ptime.v1.meta.RegionRole\"\265\001\n\021HeartbeatRe" +
-      "sponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.met" +
-      "a.ResponseHeader\0229\n\017mailbox_message\030\002 \001(" +
-      "\0132 .greptime.v1.meta.MailboxMessage\0223\n\014r" +
-      "egion_lease\030\003 \001(\0132\035.greptime.v1.meta.Reg" +
-      "ionLease\"N\n\rGrantedRegion\022\021\n\tregion_id\030\001" +
-      " \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.Re" +
-      "gionRole\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(" +
-      "\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024du" +
-      "ration_since_epoch\030\002 \001(\004\022\025\n\rlease_second" +
-      "s\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n" +
-      "\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.grep" +
-      "time.v1.meta.RequestHeader\"m\n\021AskLeaderR" +
-      "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me" +
-      "ta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.grep" +
-      "time.v1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002i" +
-      "d\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n" +
-      "\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004" +
-      "json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegionRole\022\n\n" +
-      "\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHeartbeat\022Z\n" +
-      "\tHeartbeat\022\".greptime.v1.meta.HeartbeatR" +
-      "equest\032#.greptime.v1.meta.HeartbeatRespo" +
-      "nse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.met" +
-      "a.AskLeaderRequest\032#.greptime.v1.meta.As" +
-      "kLeaderResponse\"\000B<Z:github.com/Greptime" +
-      "Team/greptime-proto/go/greptime/v1/metab" +
-      "\006proto3"
+      "och\030\007 \001(\004\022(\n\004info\030\010 \001(\0132\032.greptime.v1.me" +
+      "ta.NodeInfo\"F\n\010NodeInfo\022\017\n\007version\030\001 \001(\t" +
+      "\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_time_ms\030\003 " +
+      "\001(\004\"\254\001\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n" +
+      "\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate" +
+      "_bytes\030\004 \001(\003\022\030\n\020approximate_rows\030\005 \001(\003\022\016" +
+      "\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.greptime." +
+      "v1.meta.RegionRole\"\265\001\n\021HeartbeatResponse" +
+      "\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Resp" +
+      "onseHeader\0229\n\017mailbox_message\030\002 \001(\0132 .gr" +
+      "eptime.v1.meta.MailboxMessage\0223\n\014region_" +
+      "lease\030\003 \001(\0132\035.greptime.v1.meta.RegionLea" +
+      "se\"N\n\rGrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*" +
+      "\n\004role\030\002 \001(\0162\034.greptime.v1.meta.RegionRo" +
+      "le\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.gr" +
+      "eptime.v1.meta.GrantedRegion\022\034\n\024duration" +
+      "_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(" +
+      "\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n\020AskLe" +
+      "aderRequest\022/\n\006header\030\001 \001(\0132\037.greptime.v" +
+      "1.meta.RequestHeader\"m\n\021AskLeaderRespons" +
+      "e\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Res" +
+      "ponseHeader\022&\n\006leader\030\002 \001(\0132\026.greptime.v" +
+      "1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(" +
+      "\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004" +
+      " \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006" +
+      " \001(\tH\000B\t\n\007payload*&\n\nRegionRole\022\n\n\006Leade" +
+      "r\020\000\022\014\n\010Follower\020\0012\277\001\n\tHeartbeat\022Z\n\tHeart" +
+      "beat\022\".greptime.v1.meta.HeartbeatRequest" +
+      "\032#.greptime.v1.meta.HeartbeatResponse\"\000(" +
+      "\0010\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskL" +
+      "eaderRequest\032#.greptime.v1.meta.AskLeade" +
+      "rResponse\"\000B<Z:github.com/GreptimeTeam/g" +
+      "reptime-proto/go/greptime/v1/metab\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9076,45 +10170,51 @@ public final class HeartbeatOuterClass {
     internal_static_greptime_v1_meta_HeartbeatRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatRequest_descriptor,
-        new java.lang.String[] { "Header", "Peer", "ReportInterval", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", });
-    internal_static_greptime_v1_meta_RegionStat_descriptor =
+        new java.lang.String[] { "Header", "Peer", "ReportInterval", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", "Info", });
+    internal_static_greptime_v1_meta_NodeInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_greptime_v1_meta_NodeInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_NodeInfo_descriptor,
+        new java.lang.String[] { "Version", "GitCommit", "StartTimeMs", });
+    internal_static_greptime_v1_meta_RegionStat_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_descriptor,
         new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "ApproximateRows", "Engine", "Role", });
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatResponse_descriptor,
         new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", });
     internal_static_greptime_v1_meta_GrantedRegion_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_GrantedRegion_descriptor,
         new java.lang.String[] { "RegionId", "Role", });
     internal_static_greptime_v1_meta_RegionLease_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_meta_RegionLease_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionLease_descriptor,
         new java.lang.String[] { "Regions", "DurationSinceEpoch", "LeaseSeconds", "CloseableRegionIds", });
     internal_static_greptime_v1_meta_AskLeaderRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_meta_AskLeaderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderRequest_descriptor,
         new java.lang.String[] { "Header", });
     internal_static_greptime_v1_meta_AskLeaderResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_AskLeaderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderResponse_descriptor,
         new java.lang.String[] { "Header", "Leader", });
     internal_static_greptime_v1_meta_MailboxMessage_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_meta_MailboxMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MailboxMessage_descriptor,
