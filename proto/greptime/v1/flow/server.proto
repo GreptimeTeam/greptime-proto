@@ -61,7 +61,7 @@ message FlowResponse {
   uint64 affected_rows = 2;
   map<string, bytes> extension = 3;
   // affected task ids
-  repeated TaskId affected_tasks = 4;
+  repeated FlowId affected_tasks = 4;
 }
 
 // Create a flow
@@ -69,7 +69,7 @@ message FlowResponse {
 // Very similar to `ddl.CreateTaskExpr`, 
 // replace `source_table_names` with `source_table_ids`
 message CreateRequest {
-  TaskId flow_id = 1; 
+  FlowId flow_id = 1; 
   repeated TableId source_table_ids = 2;
   TableName sink_table_name = 3;
   bool create_if_not_exists = 4;
@@ -79,6 +79,5 @@ message CreateRequest {
   map<string, string> flow_options = 8;
 }
 
-message DropRequest { TaskId flow_id = 1; }
+message DropRequest { FlowId flow_id = 1; }
 
-message TaskId { uint32 id = 1; }
