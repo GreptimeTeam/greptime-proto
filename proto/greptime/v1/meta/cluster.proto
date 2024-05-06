@@ -38,6 +38,12 @@ message MetasrvPeersRequest { RequestHeader header = 1; }
 message MetasrvPeersResponse {
   ResponseHeader header = 1;
 
-  Peer leader = 2;
-  repeated Peer followers = 3;
+  MetasrvNodeInfo leader = 2;
+  repeated MetasrvNodeInfo followers = 3;
+}
+
+message MetasrvNodeInfo {
+  Peer addr = 1;
+  string version = 2;
+  string git_commit = 3;
 }

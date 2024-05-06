@@ -51,10 +51,25 @@ struct MetasrvPeersResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MetasrvPeersResponseDefaultTypeInternal _MetasrvPeersResponse_default_instance_;
+PROTOBUF_CONSTEXPR MetasrvNodeInfo::MetasrvNodeInfo(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.version_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.git_commit_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.addr_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct MetasrvNodeInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR MetasrvNodeInfoDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~MetasrvNodeInfoDefaultTypeInternal() {}
+  union {
+    MetasrvNodeInfo _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MetasrvNodeInfoDefaultTypeInternal _MetasrvNodeInfo_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fcluster_2eproto[2];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fcluster_2eproto[3];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2fmeta_2fcluster_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fcluster_2eproto = nullptr;
 
@@ -75,15 +90,26 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fcluster_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvPeersResponse, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvPeersResponse, _impl_.leader_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvPeersResponse, _impl_.followers_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvNodeInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvNodeInfo, _impl_.addr_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvNodeInfo, _impl_.version_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvNodeInfo, _impl_.git_commit_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::MetasrvPeersRequest)},
   { 7, -1, -1, sizeof(::greptime::v1::meta::MetasrvPeersResponse)},
+  { 16, -1, -1, sizeof(::greptime::v1::meta::MetasrvNodeInfo)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_MetasrvPeersRequest_default_instance_._instance,
   &::greptime::v1::meta::_MetasrvPeersResponse_default_instance_._instance,
+  &::greptime::v1::meta::_MetasrvNodeInfo_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fcluster_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -91,19 +117,22 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fcluster_2eproto[] PR
   "me.v1.meta\032\035greptime/v1/meta/common.prot"
   "o\032\034greptime/v1/meta/store.proto\"F\n\023Metas"
   "rvPeersRequest\022/\n\006header\030\001 \001(\0132\037.greptim"
-  "e.v1.meta.RequestHeader\"\233\001\n\024MetasrvPeers"
+  "e.v1.meta.RequestHeader\"\261\001\n\024MetasrvPeers"
   "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
-  "eta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.gre"
-  "ptime.v1.meta.Peer\022)\n\tfollowers\030\003 \003(\0132\026."
-  "greptime.v1.meta.Peer2\205\002\n\007Cluster\022Q\n\010Bat"
-  "chGet\022!.greptime.v1.meta.BatchGetRequest"
-  "\032\".greptime.v1.meta.BatchGetResponse\022H\n\005"
-  "Range\022\036.greptime.v1.meta.RangeRequest\032\037."
-  "greptime.v1.meta.RangeResponse\022]\n\014Metasr"
-  "vPeers\022%.greptime.v1.meta.MetasrvPeersRe"
-  "quest\032&.greptime.v1.meta.MetasrvPeersRes"
-  "ponseB<Z:github.com/GreptimeTeam/greptim"
-  "e-proto/go/greptime/v1/metab\006proto3"
+  "eta.ResponseHeader\0221\n\006leader\030\002 \001(\0132!.gre"
+  "ptime.v1.meta.MetasrvNodeInfo\0224\n\tfollowe"
+  "rs\030\003 \003(\0132!.greptime.v1.meta.MetasrvNodeI"
+  "nfo\"\\\n\017MetasrvNodeInfo\022$\n\004addr\030\001 \001(\0132\026.g"
+  "reptime.v1.meta.Peer\022\017\n\007version\030\002 \001(\t\022\022\n"
+  "\ngit_commit\030\003 \001(\t2\205\002\n\007Cluster\022Q\n\010BatchGe"
+  "t\022!.greptime.v1.meta.BatchGetRequest\032\".g"
+  "reptime.v1.meta.BatchGetResponse\022H\n\005Rang"
+  "e\022\036.greptime.v1.meta.RangeRequest\032\037.grep"
+  "time.v1.meta.RangeResponse\022]\n\014MetasrvPee"
+  "rs\022%.greptime.v1.meta.MetasrvPeersReques"
+  "t\032&.greptime.v1.meta.MetasrvPeersRespons"
+  "eB<Z:github.com/GreptimeTeam/greptime-pr"
+  "oto/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_deps[2] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
@@ -111,9 +140,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto = {
-    false, false, 675, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcluster_2eproto,
+    false, false, 791, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcluster_2eproto,
     "greptime/v1/meta/cluster.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_deps, 2, 2,
+    &descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_deps, 2, 3,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fcluster_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fcluster_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fcluster_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fcluster_2eproto,
@@ -332,14 +361,14 @@ void MetasrvPeersRequest::InternalSwap(MetasrvPeersRequest* other) {
 class MetasrvPeersResponse::_Internal {
  public:
   static const ::greptime::v1::meta::ResponseHeader& header(const MetasrvPeersResponse* msg);
-  static const ::greptime::v1::meta::Peer& leader(const MetasrvPeersResponse* msg);
+  static const ::greptime::v1::meta::MetasrvNodeInfo& leader(const MetasrvPeersResponse* msg);
 };
 
 const ::greptime::v1::meta::ResponseHeader&
 MetasrvPeersResponse::_Internal::header(const MetasrvPeersResponse* msg) {
   return *msg->_impl_.header_;
 }
-const ::greptime::v1::meta::Peer&
+const ::greptime::v1::meta::MetasrvNodeInfo&
 MetasrvPeersResponse::_Internal::leader(const MetasrvPeersResponse* msg) {
   return *msg->_impl_.leader_;
 }
@@ -348,15 +377,6 @@ void MetasrvPeersResponse::clear_header() {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
-}
-void MetasrvPeersResponse::clear_leader() {
-  if (GetArenaForAllocation() == nullptr && _impl_.leader_ != nullptr) {
-    delete _impl_.leader_;
-  }
-  _impl_.leader_ = nullptr;
-}
-void MetasrvPeersResponse::clear_followers() {
-  _impl_.followers_.Clear();
 }
 MetasrvPeersResponse::MetasrvPeersResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -378,7 +398,7 @@ MetasrvPeersResponse::MetasrvPeersResponse(const MetasrvPeersResponse& from)
     _this->_impl_.header_ = new ::greptime::v1::meta::ResponseHeader(*from._impl_.header_);
   }
   if (from._internal_has_leader()) {
-    _this->_impl_.leader_ = new ::greptime::v1::meta::Peer(*from._impl_.leader_);
+    _this->_impl_.leader_ = new ::greptime::v1::meta::MetasrvNodeInfo(*from._impl_.leader_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.MetasrvPeersResponse)
 }
@@ -447,7 +467,7 @@ const char* MetasrvPeersResponse::_InternalParse(const char* ptr, ::_pbi::ParseC
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.meta.Peer leader = 2;
+      // .greptime.v1.meta.MetasrvNodeInfo leader = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_leader(), ptr);
@@ -455,7 +475,7 @@ const char* MetasrvPeersResponse::_InternalParse(const char* ptr, ::_pbi::ParseC
         } else
           goto handle_unusual;
         continue;
-      // repeated .greptime.v1.meta.Peer followers = 3;
+      // repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
@@ -504,14 +524,14 @@ uint8_t* MetasrvPeersResponse::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.meta.Peer leader = 2;
+  // .greptime.v1.meta.MetasrvNodeInfo leader = 2;
   if (this->_internal_has_leader()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(2, _Internal::leader(this),
         _Internal::leader(this).GetCachedSize(), target, stream);
   }
 
-  // repeated .greptime.v1.meta.Peer followers = 3;
+  // repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_followers_size()); i < n; i++) {
     const auto& repfield = this->_internal_followers(i);
@@ -535,7 +555,7 @@ size_t MetasrvPeersResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.meta.Peer followers = 3;
+  // repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;
   total_size += 1UL * this->_internal_followers_size();
   for (const auto& msg : this->_impl_.followers_) {
     total_size +=
@@ -549,7 +569,7 @@ size_t MetasrvPeersResponse::ByteSizeLong() const {
         *_impl_.header_);
   }
 
-  // .greptime.v1.meta.Peer leader = 2;
+  // .greptime.v1.meta.MetasrvNodeInfo leader = 2;
   if (this->_internal_has_leader()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -580,7 +600,7 @@ void MetasrvPeersResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
         from._internal_header());
   }
   if (from._internal_has_leader()) {
-    _this->_internal_mutable_leader()->::greptime::v1::meta::Peer::MergeFrom(
+    _this->_internal_mutable_leader()->::greptime::v1::meta::MetasrvNodeInfo::MergeFrom(
         from._internal_leader());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -615,6 +635,307 @@ void MetasrvPeersResponse::InternalSwap(MetasrvPeersResponse* other) {
       file_level_metadata_greptime_2fv1_2fmeta_2fcluster_2eproto[1]);
 }
 
+// ===================================================================
+
+class MetasrvNodeInfo::_Internal {
+ public:
+  static const ::greptime::v1::meta::Peer& addr(const MetasrvNodeInfo* msg);
+};
+
+const ::greptime::v1::meta::Peer&
+MetasrvNodeInfo::_Internal::addr(const MetasrvNodeInfo* msg) {
+  return *msg->_impl_.addr_;
+}
+void MetasrvNodeInfo::clear_addr() {
+  if (GetArenaForAllocation() == nullptr && _impl_.addr_ != nullptr) {
+    delete _impl_.addr_;
+  }
+  _impl_.addr_ = nullptr;
+}
+MetasrvNodeInfo::MetasrvNodeInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.MetasrvNodeInfo)
+}
+MetasrvNodeInfo::MetasrvNodeInfo(const MetasrvNodeInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  MetasrvNodeInfo* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.version_){}
+    , decltype(_impl_.git_commit_){}
+    , decltype(_impl_.addr_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_version().empty()) {
+    _this->_impl_.version_.Set(from._internal_version(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.git_commit_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.git_commit_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_git_commit().empty()) {
+    _this->_impl_.git_commit_.Set(from._internal_git_commit(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_addr()) {
+    _this->_impl_.addr_ = new ::greptime::v1::meta::Peer(*from._impl_.addr_);
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.MetasrvNodeInfo)
+}
+
+inline void MetasrvNodeInfo::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.version_){}
+    , decltype(_impl_.git_commit_){}
+    , decltype(_impl_.addr_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.git_commit_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.git_commit_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+MetasrvNodeInfo::~MetasrvNodeInfo() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.MetasrvNodeInfo)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void MetasrvNodeInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.version_.Destroy();
+  _impl_.git_commit_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.addr_;
+}
+
+void MetasrvNodeInfo::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void MetasrvNodeInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.MetasrvNodeInfo)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.version_.ClearToEmpty();
+  _impl_.git_commit_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.addr_ != nullptr) {
+    delete _impl_.addr_;
+  }
+  _impl_.addr_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* MetasrvNodeInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.meta.Peer addr = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_addr(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string version = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_version();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.MetasrvNodeInfo.version"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string git_commit = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_git_commit();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.MetasrvNodeInfo.git_commit"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* MetasrvNodeInfo::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.MetasrvNodeInfo)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.Peer addr = 1;
+  if (this->_internal_has_addr()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::addr(this),
+        _Internal::addr(this).GetCachedSize(), target, stream);
+  }
+
+  // string version = 2;
+  if (!this->_internal_version().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.MetasrvNodeInfo.version");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_version(), target);
+  }
+
+  // string git_commit = 3;
+  if (!this->_internal_git_commit().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_git_commit().data(), static_cast<int>(this->_internal_git_commit().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.MetasrvNodeInfo.git_commit");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_git_commit(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.MetasrvNodeInfo)
+  return target;
+}
+
+size_t MetasrvNodeInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.MetasrvNodeInfo)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string version = 2;
+  if (!this->_internal_version().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_version());
+  }
+
+  // string git_commit = 3;
+  if (!this->_internal_git_commit().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_git_commit());
+  }
+
+  // .greptime.v1.meta.Peer addr = 1;
+  if (this->_internal_has_addr()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.addr_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MetasrvNodeInfo::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    MetasrvNodeInfo::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MetasrvNodeInfo::GetClassData() const { return &_class_data_; }
+
+
+void MetasrvNodeInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<MetasrvNodeInfo*>(&to_msg);
+  auto& from = static_cast<const MetasrvNodeInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.MetasrvNodeInfo)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_version().empty()) {
+    _this->_internal_set_version(from._internal_version());
+  }
+  if (!from._internal_git_commit().empty()) {
+    _this->_internal_set_git_commit(from._internal_git_commit());
+  }
+  if (from._internal_has_addr()) {
+    _this->_internal_mutable_addr()->::greptime::v1::meta::Peer::MergeFrom(
+        from._internal_addr());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void MetasrvNodeInfo::CopyFrom(const MetasrvNodeInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.MetasrvNodeInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MetasrvNodeInfo::IsInitialized() const {
+  return true;
+}
+
+void MetasrvNodeInfo::InternalSwap(MetasrvNodeInfo* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.version_, lhs_arena,
+      &other->_impl_.version_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.git_commit_, lhs_arena,
+      &other->_impl_.git_commit_, rhs_arena
+  );
+  swap(_impl_.addr_, other->_impl_.addr_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata MetasrvNodeInfo::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fcluster_2eproto[2]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace meta
 }  // namespace v1
@@ -627,6 +948,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::meta::MetasrvPeersRequest >(Arena* ar
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::MetasrvPeersResponse*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::MetasrvPeersResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::MetasrvPeersResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::MetasrvNodeInfo*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::MetasrvNodeInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::MetasrvNodeInfo >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
