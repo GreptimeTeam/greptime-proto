@@ -26,14 +26,21 @@ import "greptime/v1/ddl.proto";
 
 service Region { rpc Handle(RegionRequest) returns (RegionResponse); }
 
+message QueryContext {
+  string current_catalog = 1;
+  string current_schema = 2;
+  string timezone = 4;
+  map<string, string> extensions = 5;
+}
+
 message RegionRequestHeader {
   // Encoded trace_id & span_id, follow the w3c Trace Context
   // https://www.w3.org/TR/trace-context/#header-name
   map<string, string> tracing_context = 5;
   // DB Name of request, tracking only
   string dbname = 3;
-  // The `timezone` for the request
-  string timezone = 4;
+  // The contextual information of the query
+  QueryContext query_context = 6;
 }
 
 message RegionRequest {
