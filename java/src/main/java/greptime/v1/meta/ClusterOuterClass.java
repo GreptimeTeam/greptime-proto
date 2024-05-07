@@ -657,42 +657,42 @@ public final class ClusterOuterClass {
     greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <code>.greptime.v1.meta.Peer leader = 2;</code>
+     * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
      * @return Whether the leader field is set.
      */
     boolean hasLeader();
     /**
-     * <code>.greptime.v1.meta.Peer leader = 2;</code>
+     * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
      * @return The leader.
      */
-    greptime.v1.meta.Common.Peer getLeader();
+    greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo getLeader();
     /**
-     * <code>.greptime.v1.meta.Peer leader = 2;</code>
+     * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
      */
-    greptime.v1.meta.Common.PeerOrBuilder getLeaderOrBuilder();
+    greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder getLeaderOrBuilder();
 
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
-    java.util.List<greptime.v1.meta.Common.Peer> 
+    java.util.List<greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo> 
         getFollowersList();
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
-    greptime.v1.meta.Common.Peer getFollowers(int index);
+    greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo getFollowers(int index);
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
     int getFollowersCount();
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
-    java.util.List<? extends greptime.v1.meta.Common.PeerOrBuilder> 
+    java.util.List<? extends greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder> 
         getFollowersOrBuilderList();
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
-    greptime.v1.meta.Common.PeerOrBuilder getFollowersOrBuilder(
+    greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder getFollowersOrBuilder(
         int index);
   }
   /**
@@ -756,11 +756,11 @@ public final class ClusterOuterClass {
               break;
             }
             case 18: {
-              greptime.v1.meta.Common.Peer.Builder subBuilder = null;
+              greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder subBuilder = null;
               if (leader_ != null) {
                 subBuilder = leader_.toBuilder();
               }
-              leader_ = input.readMessage(greptime.v1.meta.Common.Peer.parser(), extensionRegistry);
+              leader_ = input.readMessage(greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(leader_);
                 leader_ = subBuilder.buildPartial();
@@ -770,11 +770,11 @@ public final class ClusterOuterClass {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                followers_ = new java.util.ArrayList<greptime.v1.meta.Common.Peer>();
+                followers_ = new java.util.ArrayList<greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo>();
                 mutable_bitField0_ |= 0x00000001;
               }
               followers_.add(
-                  input.readMessage(greptime.v1.meta.Common.Peer.parser(), extensionRegistry));
+                  input.readMessage(greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -841,9 +841,9 @@ public final class ClusterOuterClass {
     }
 
     public static final int LEADER_FIELD_NUMBER = 2;
-    private greptime.v1.meta.Common.Peer leader_;
+    private greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo leader_;
     /**
-     * <code>.greptime.v1.meta.Peer leader = 2;</code>
+     * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
      * @return Whether the leader field is set.
      */
     @java.lang.Override
@@ -851,57 +851,57 @@ public final class ClusterOuterClass {
       return leader_ != null;
     }
     /**
-     * <code>.greptime.v1.meta.Peer leader = 2;</code>
+     * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
      * @return The leader.
      */
     @java.lang.Override
-    public greptime.v1.meta.Common.Peer getLeader() {
-      return leader_ == null ? greptime.v1.meta.Common.Peer.getDefaultInstance() : leader_;
+    public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo getLeader() {
+      return leader_ == null ? greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.getDefaultInstance() : leader_;
     }
     /**
-     * <code>.greptime.v1.meta.Peer leader = 2;</code>
+     * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
      */
     @java.lang.Override
-    public greptime.v1.meta.Common.PeerOrBuilder getLeaderOrBuilder() {
+    public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder getLeaderOrBuilder() {
       return getLeader();
     }
 
     public static final int FOLLOWERS_FIELD_NUMBER = 3;
-    private java.util.List<greptime.v1.meta.Common.Peer> followers_;
+    private java.util.List<greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo> followers_;
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
     @java.lang.Override
-    public java.util.List<greptime.v1.meta.Common.Peer> getFollowersList() {
+    public java.util.List<greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo> getFollowersList() {
       return followers_;
     }
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends greptime.v1.meta.Common.PeerOrBuilder> 
+    public java.util.List<? extends greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder> 
         getFollowersOrBuilderList() {
       return followers_;
     }
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
     @java.lang.Override
     public int getFollowersCount() {
       return followers_.size();
     }
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
     @java.lang.Override
-    public greptime.v1.meta.Common.Peer getFollowers(int index) {
+    public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo getFollowers(int index) {
       return followers_.get(index);
     }
     /**
-     * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+     * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
      */
     @java.lang.Override
-    public greptime.v1.meta.Common.PeerOrBuilder getFollowersOrBuilder(
+    public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder getFollowersOrBuilder(
         int index) {
       return followers_.get(index);
     }
@@ -1427,31 +1427,31 @@ public final class ClusterOuterClass {
         return headerBuilder_;
       }
 
-      private greptime.v1.meta.Common.Peer leader_;
+      private greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo leader_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder> leaderBuilder_;
+          greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder> leaderBuilder_;
       /**
-       * <code>.greptime.v1.meta.Peer leader = 2;</code>
+       * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
        * @return Whether the leader field is set.
        */
       public boolean hasLeader() {
         return leaderBuilder_ != null || leader_ != null;
       }
       /**
-       * <code>.greptime.v1.meta.Peer leader = 2;</code>
+       * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
        * @return The leader.
        */
-      public greptime.v1.meta.Common.Peer getLeader() {
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo getLeader() {
         if (leaderBuilder_ == null) {
-          return leader_ == null ? greptime.v1.meta.Common.Peer.getDefaultInstance() : leader_;
+          return leader_ == null ? greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.getDefaultInstance() : leader_;
         } else {
           return leaderBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.meta.Peer leader = 2;</code>
+       * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
        */
-      public Builder setLeader(greptime.v1.meta.Common.Peer value) {
+      public Builder setLeader(greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo value) {
         if (leaderBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1465,10 +1465,10 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.Peer leader = 2;</code>
+       * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
        */
       public Builder setLeader(
-          greptime.v1.meta.Common.Peer.Builder builderForValue) {
+          greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder builderForValue) {
         if (leaderBuilder_ == null) {
           leader_ = builderForValue.build();
           onChanged();
@@ -1479,13 +1479,13 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.Peer leader = 2;</code>
+       * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
        */
-      public Builder mergeLeader(greptime.v1.meta.Common.Peer value) {
+      public Builder mergeLeader(greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo value) {
         if (leaderBuilder_ == null) {
           if (leader_ != null) {
             leader_ =
-              greptime.v1.meta.Common.Peer.newBuilder(leader_).mergeFrom(value).buildPartial();
+              greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.newBuilder(leader_).mergeFrom(value).buildPartial();
           } else {
             leader_ = value;
           }
@@ -1497,7 +1497,7 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.Peer leader = 2;</code>
+       * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
        */
       public Builder clearLeader() {
         if (leaderBuilder_ == null) {
@@ -1511,33 +1511,33 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.Peer leader = 2;</code>
+       * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
        */
-      public greptime.v1.meta.Common.Peer.Builder getLeaderBuilder() {
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder getLeaderBuilder() {
         
         onChanged();
         return getLeaderFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.meta.Peer leader = 2;</code>
+       * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
        */
-      public greptime.v1.meta.Common.PeerOrBuilder getLeaderOrBuilder() {
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder getLeaderOrBuilder() {
         if (leaderBuilder_ != null) {
           return leaderBuilder_.getMessageOrBuilder();
         } else {
           return leader_ == null ?
-              greptime.v1.meta.Common.Peer.getDefaultInstance() : leader_;
+              greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.getDefaultInstance() : leader_;
         }
       }
       /**
-       * <code>.greptime.v1.meta.Peer leader = 2;</code>
+       * <code>.greptime.v1.meta.MetasrvNodeInfo leader = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder> 
+          greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder> 
           getLeaderFieldBuilder() {
         if (leaderBuilder_ == null) {
           leaderBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder>(
+              greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder>(
                   getLeader(),
                   getParentForChildren(),
                   isClean());
@@ -1546,22 +1546,22 @@ public final class ClusterOuterClass {
         return leaderBuilder_;
       }
 
-      private java.util.List<greptime.v1.meta.Common.Peer> followers_ =
+      private java.util.List<greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo> followers_ =
         java.util.Collections.emptyList();
       private void ensureFollowersIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          followers_ = new java.util.ArrayList<greptime.v1.meta.Common.Peer>(followers_);
+          followers_ = new java.util.ArrayList<greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo>(followers_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder> followersBuilder_;
+          greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder> followersBuilder_;
 
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
-      public java.util.List<greptime.v1.meta.Common.Peer> getFollowersList() {
+      public java.util.List<greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo> getFollowersList() {
         if (followersBuilder_ == null) {
           return java.util.Collections.unmodifiableList(followers_);
         } else {
@@ -1569,7 +1569,7 @@ public final class ClusterOuterClass {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
       public int getFollowersCount() {
         if (followersBuilder_ == null) {
@@ -1579,9 +1579,9 @@ public final class ClusterOuterClass {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
-      public greptime.v1.meta.Common.Peer getFollowers(int index) {
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo getFollowers(int index) {
         if (followersBuilder_ == null) {
           return followers_.get(index);
         } else {
@@ -1589,10 +1589,10 @@ public final class ClusterOuterClass {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
       public Builder setFollowers(
-          int index, greptime.v1.meta.Common.Peer value) {
+          int index, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo value) {
         if (followersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1606,10 +1606,10 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
       public Builder setFollowers(
-          int index, greptime.v1.meta.Common.Peer.Builder builderForValue) {
+          int index, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder builderForValue) {
         if (followersBuilder_ == null) {
           ensureFollowersIsMutable();
           followers_.set(index, builderForValue.build());
@@ -1620,9 +1620,9 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
-      public Builder addFollowers(greptime.v1.meta.Common.Peer value) {
+      public Builder addFollowers(greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo value) {
         if (followersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1636,10 +1636,10 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
       public Builder addFollowers(
-          int index, greptime.v1.meta.Common.Peer value) {
+          int index, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo value) {
         if (followersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1653,10 +1653,10 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
       public Builder addFollowers(
-          greptime.v1.meta.Common.Peer.Builder builderForValue) {
+          greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder builderForValue) {
         if (followersBuilder_ == null) {
           ensureFollowersIsMutable();
           followers_.add(builderForValue.build());
@@ -1667,10 +1667,10 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
       public Builder addFollowers(
-          int index, greptime.v1.meta.Common.Peer.Builder builderForValue) {
+          int index, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder builderForValue) {
         if (followersBuilder_ == null) {
           ensureFollowersIsMutable();
           followers_.add(index, builderForValue.build());
@@ -1681,10 +1681,10 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
       public Builder addAllFollowers(
-          java.lang.Iterable<? extends greptime.v1.meta.Common.Peer> values) {
+          java.lang.Iterable<? extends greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo> values) {
         if (followersBuilder_ == null) {
           ensureFollowersIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1696,7 +1696,7 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
       public Builder clearFollowers() {
         if (followersBuilder_ == null) {
@@ -1709,7 +1709,7 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
       public Builder removeFollowers(int index) {
         if (followersBuilder_ == null) {
@@ -1722,16 +1722,16 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
-      public greptime.v1.meta.Common.Peer.Builder getFollowersBuilder(
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder getFollowersBuilder(
           int index) {
         return getFollowersFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
-      public greptime.v1.meta.Common.PeerOrBuilder getFollowersOrBuilder(
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder getFollowersOrBuilder(
           int index) {
         if (followersBuilder_ == null) {
           return followers_.get(index);  } else {
@@ -1739,9 +1739,9 @@ public final class ClusterOuterClass {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
-      public java.util.List<? extends greptime.v1.meta.Common.PeerOrBuilder> 
+      public java.util.List<? extends greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder> 
            getFollowersOrBuilderList() {
         if (followersBuilder_ != null) {
           return followersBuilder_.getMessageOrBuilderList();
@@ -1750,33 +1750,33 @@ public final class ClusterOuterClass {
         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
-      public greptime.v1.meta.Common.Peer.Builder addFollowersBuilder() {
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder addFollowersBuilder() {
         return getFollowersFieldBuilder().addBuilder(
-            greptime.v1.meta.Common.Peer.getDefaultInstance());
+            greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
-      public greptime.v1.meta.Common.Peer.Builder addFollowersBuilder(
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder addFollowersBuilder(
           int index) {
         return getFollowersFieldBuilder().addBuilder(
-            index, greptime.v1.meta.Common.Peer.getDefaultInstance());
+            index, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.meta.Peer followers = 3;</code>
+       * <code>repeated .greptime.v1.meta.MetasrvNodeInfo followers = 3;</code>
        */
-      public java.util.List<greptime.v1.meta.Common.Peer.Builder> 
+      public java.util.List<greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder> 
            getFollowersBuilderList() {
         return getFollowersFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder> 
+          greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder> 
           getFollowersFieldBuilder() {
         if (followersBuilder_ == null) {
           followersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder>(
+              greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder>(
                   followers_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -1838,6 +1838,929 @@ public final class ClusterOuterClass {
 
   }
 
+  public interface MetasrvNodeInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.MetasrvNodeInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     * @return Whether the peer field is set.
+     */
+    boolean hasPeer();
+    /**
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     * @return The peer.
+     */
+    greptime.v1.meta.Common.Peer getPeer();
+    /**
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     */
+    greptime.v1.meta.Common.PeerOrBuilder getPeerOrBuilder();
+
+    /**
+     * <code>string version = 2;</code>
+     * @return The version.
+     */
+    java.lang.String getVersion();
+    /**
+     * <code>string version = 2;</code>
+     * @return The bytes for version.
+     */
+    com.google.protobuf.ByteString
+        getVersionBytes();
+
+    /**
+     * <code>string git_commit = 3;</code>
+     * @return The gitCommit.
+     */
+    java.lang.String getGitCommit();
+    /**
+     * <code>string git_commit = 3;</code>
+     * @return The bytes for gitCommit.
+     */
+    com.google.protobuf.ByteString
+        getGitCommitBytes();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.MetasrvNodeInfo}
+   */
+  public static final class MetasrvNodeInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.MetasrvNodeInfo)
+      MetasrvNodeInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MetasrvNodeInfo.newBuilder() to construct.
+    private MetasrvNodeInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MetasrvNodeInfo() {
+      version_ = "";
+      gitCommit_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MetasrvNodeInfo();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MetasrvNodeInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              greptime.v1.meta.Common.Peer.Builder subBuilder = null;
+              if (peer_ != null) {
+                subBuilder = peer_.toBuilder();
+              }
+              peer_ = input.readMessage(greptime.v1.meta.Common.Peer.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(peer_);
+                peer_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              version_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              gitCommit_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.ClusterOuterClass.internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.ClusterOuterClass.internal_static_greptime_v1_meta_MetasrvNodeInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.class, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder.class);
+    }
+
+    public static final int PEER_FIELD_NUMBER = 1;
+    private greptime.v1.meta.Common.Peer peer_;
+    /**
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     * @return Whether the peer field is set.
+     */
+    @java.lang.Override
+    public boolean hasPeer() {
+      return peer_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     * @return The peer.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.Peer getPeer() {
+      return peer_ == null ? greptime.v1.meta.Common.Peer.getDefaultInstance() : peer_;
+    }
+    /**
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.PeerOrBuilder getPeerOrBuilder() {
+      return getPeer();
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object version_;
+    /**
+     * <code>string version = 2;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public java.lang.String getVersion() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        version_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string version = 2;</code>
+     * @return The bytes for version.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVersionBytes() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        version_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int GIT_COMMIT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object gitCommit_;
+    /**
+     * <code>string git_commit = 3;</code>
+     * @return The gitCommit.
+     */
+    @java.lang.Override
+    public java.lang.String getGitCommit() {
+      java.lang.Object ref = gitCommit_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        gitCommit_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string git_commit = 3;</code>
+     * @return The bytes for gitCommit.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getGitCommitBytes() {
+      java.lang.Object ref = gitCommit_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        gitCommit_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (peer_ != null) {
+        output.writeMessage(1, getPeer());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, version_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gitCommit_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, gitCommit_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (peer_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPeer());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, version_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gitCommit_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, gitCommit_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo other = (greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo) obj;
+
+      if (hasPeer() != other.hasPeer()) return false;
+      if (hasPeer()) {
+        if (!getPeer()
+            .equals(other.getPeer())) return false;
+      }
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
+      if (!getGitCommit()
+          .equals(other.getGitCommit())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPeer()) {
+        hash = (37 * hash) + PEER_FIELD_NUMBER;
+        hash = (53 * hash) + getPeer().hashCode();
+      }
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion().hashCode();
+      hash = (37 * hash) + GIT_COMMIT_FIELD_NUMBER;
+      hash = (53 * hash) + getGitCommit().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.MetasrvNodeInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.MetasrvNodeInfo)
+        greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.ClusterOuterClass.internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.ClusterOuterClass.internal_static_greptime_v1_meta_MetasrvNodeInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.class, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (peerBuilder_ == null) {
+          peer_ = null;
+        } else {
+          peer_ = null;
+          peerBuilder_ = null;
+        }
+        version_ = "";
+
+        gitCommit_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.ClusterOuterClass.internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo getDefaultInstanceForType() {
+        return greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo build() {
+        greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo buildPartial() {
+        greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo result = new greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo(this);
+        if (peerBuilder_ == null) {
+          result.peer_ = peer_;
+        } else {
+          result.peer_ = peerBuilder_.build();
+        }
+        result.version_ = version_;
+        result.gitCommit_ = gitCommit_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo) {
+          return mergeFrom((greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo other) {
+        if (other == greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.getDefaultInstance()) return this;
+        if (other.hasPeer()) {
+          mergePeer(other.getPeer());
+        }
+        if (!other.getVersion().isEmpty()) {
+          version_ = other.version_;
+          onChanged();
+        }
+        if (!other.getGitCommit().isEmpty()) {
+          gitCommit_ = other.gitCommit_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private greptime.v1.meta.Common.Peer peer_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder> peerBuilder_;
+      /**
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       * @return Whether the peer field is set.
+       */
+      public boolean hasPeer() {
+        return peerBuilder_ != null || peer_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       * @return The peer.
+       */
+      public greptime.v1.meta.Common.Peer getPeer() {
+        if (peerBuilder_ == null) {
+          return peer_ == null ? greptime.v1.meta.Common.Peer.getDefaultInstance() : peer_;
+        } else {
+          return peerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       */
+      public Builder setPeer(greptime.v1.meta.Common.Peer value) {
+        if (peerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          peer_ = value;
+          onChanged();
+        } else {
+          peerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       */
+      public Builder setPeer(
+          greptime.v1.meta.Common.Peer.Builder builderForValue) {
+        if (peerBuilder_ == null) {
+          peer_ = builderForValue.build();
+          onChanged();
+        } else {
+          peerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       */
+      public Builder mergePeer(greptime.v1.meta.Common.Peer value) {
+        if (peerBuilder_ == null) {
+          if (peer_ != null) {
+            peer_ =
+              greptime.v1.meta.Common.Peer.newBuilder(peer_).mergeFrom(value).buildPartial();
+          } else {
+            peer_ = value;
+          }
+          onChanged();
+        } else {
+          peerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       */
+      public Builder clearPeer() {
+        if (peerBuilder_ == null) {
+          peer_ = null;
+          onChanged();
+        } else {
+          peer_ = null;
+          peerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       */
+      public greptime.v1.meta.Common.Peer.Builder getPeerBuilder() {
+        
+        onChanged();
+        return getPeerFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       */
+      public greptime.v1.meta.Common.PeerOrBuilder getPeerOrBuilder() {
+        if (peerBuilder_ != null) {
+          return peerBuilder_.getMessageOrBuilder();
+        } else {
+          return peer_ == null ?
+              greptime.v1.meta.Common.Peer.getDefaultInstance() : peer_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder> 
+          getPeerFieldBuilder() {
+        if (peerBuilder_ == null) {
+          peerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder>(
+                  getPeer(),
+                  getParentForChildren(),
+                  isClean());
+          peer_ = null;
+        }
+        return peerBuilder_;
+      }
+
+      private java.lang.Object version_ = "";
+      /**
+       * <code>string version = 2;</code>
+       * @return The version.
+       */
+      public java.lang.String getVersion() {
+        java.lang.Object ref = version_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          version_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string version = 2;</code>
+       * @return The bytes for version.
+       */
+      public com.google.protobuf.ByteString
+          getVersionBytes() {
+        java.lang.Object ref = version_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          version_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string version = 2;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string version = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        
+        version_ = getDefaultInstance().getVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string version = 2;</code>
+       * @param value The bytes for version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object gitCommit_ = "";
+      /**
+       * <code>string git_commit = 3;</code>
+       * @return The gitCommit.
+       */
+      public java.lang.String getGitCommit() {
+        java.lang.Object ref = gitCommit_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          gitCommit_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string git_commit = 3;</code>
+       * @return The bytes for gitCommit.
+       */
+      public com.google.protobuf.ByteString
+          getGitCommitBytes() {
+        java.lang.Object ref = gitCommit_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          gitCommit_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string git_commit = 3;</code>
+       * @param value The gitCommit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGitCommit(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        gitCommit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string git_commit = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGitCommit() {
+        
+        gitCommit_ = getDefaultInstance().getGitCommit();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string git_commit = 3;</code>
+       * @param value The bytes for gitCommit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGitCommitBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        gitCommit_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.MetasrvNodeInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.MetasrvNodeInfo)
+    private static final greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo();
+    }
+
+    public static greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MetasrvNodeInfo>
+        PARSER = new com.google.protobuf.AbstractParser<MetasrvNodeInfo>() {
+      @java.lang.Override
+      public MetasrvNodeInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MetasrvNodeInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MetasrvNodeInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MetasrvNodeInfo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_MetasrvPeersRequest_descriptor;
   private static final 
@@ -1848,6 +2771,11 @@ public final class ClusterOuterClass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_MetasrvPeersResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_MetasrvNodeInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1861,19 +2789,22 @@ public final class ClusterOuterClass {
       "me.v1.meta\032\035greptime/v1/meta/common.prot" +
       "o\032\034greptime/v1/meta/store.proto\"F\n\023Metas" +
       "rvPeersRequest\022/\n\006header\030\001 \001(\0132\037.greptim" +
-      "e.v1.meta.RequestHeader\"\233\001\n\024MetasrvPeers" +
+      "e.v1.meta.RequestHeader\"\261\001\n\024MetasrvPeers" +
       "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
-      "eta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.gre" +
-      "ptime.v1.meta.Peer\022)\n\tfollowers\030\003 \003(\0132\026." +
-      "greptime.v1.meta.Peer2\205\002\n\007Cluster\022Q\n\010Bat" +
-      "chGet\022!.greptime.v1.meta.BatchGetRequest" +
-      "\032\".greptime.v1.meta.BatchGetResponse\022H\n\005" +
-      "Range\022\036.greptime.v1.meta.RangeRequest\032\037." +
-      "greptime.v1.meta.RangeResponse\022]\n\014Metasr" +
-      "vPeers\022%.greptime.v1.meta.MetasrvPeersRe" +
-      "quest\032&.greptime.v1.meta.MetasrvPeersRes" +
-      "ponseB<Z:github.com/GreptimeTeam/greptim" +
-      "e-proto/go/greptime/v1/metab\006proto3"
+      "eta.ResponseHeader\0221\n\006leader\030\002 \001(\0132!.gre" +
+      "ptime.v1.meta.MetasrvNodeInfo\0224\n\tfollowe" +
+      "rs\030\003 \003(\0132!.greptime.v1.meta.MetasrvNodeI" +
+      "nfo\"\\\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026.g" +
+      "reptime.v1.meta.Peer\022\017\n\007version\030\002 \001(\t\022\022\n" +
+      "\ngit_commit\030\003 \001(\t2\205\002\n\007Cluster\022Q\n\010BatchGe" +
+      "t\022!.greptime.v1.meta.BatchGetRequest\032\".g" +
+      "reptime.v1.meta.BatchGetResponse\022H\n\005Rang" +
+      "e\022\036.greptime.v1.meta.RangeRequest\032\037.grep" +
+      "time.v1.meta.RangeResponse\022]\n\014MetasrvPee" +
+      "rs\022%.greptime.v1.meta.MetasrvPeersReques" +
+      "t\032&.greptime.v1.meta.MetasrvPeersRespons" +
+      "eB<Z:github.com/GreptimeTeam/greptime-pr" +
+      "oto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1893,6 +2824,12 @@ public final class ClusterOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MetasrvPeersResponse_descriptor,
         new java.lang.String[] { "Header", "Leader", "Followers", });
+    internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_greptime_v1_meta_MetasrvNodeInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor,
+        new java.lang.String[] { "Peer", "Version", "GitCommit", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.StoreOuterClass.getDescriptor();
   }
