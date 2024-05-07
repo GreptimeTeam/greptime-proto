@@ -549,7 +549,7 @@ class MetasrvNodeInfo final :
   enum : int {
     kVersionFieldNumber = 2,
     kGitCommitFieldNumber = 3,
-    kAddrFieldNumber = 1,
+    kPeerFieldNumber = 1,
   };
   // string version = 2;
   void clear_version();
@@ -579,23 +579,23 @@ class MetasrvNodeInfo final :
   std::string* _internal_mutable_git_commit();
   public:
 
-  // .greptime.v1.meta.Peer addr = 1;
-  bool has_addr() const;
+  // .greptime.v1.meta.Peer peer = 1;
+  bool has_peer() const;
   private:
-  bool _internal_has_addr() const;
+  bool _internal_has_peer() const;
   public:
-  void clear_addr();
-  const ::greptime::v1::meta::Peer& addr() const;
-  PROTOBUF_NODISCARD ::greptime::v1::meta::Peer* release_addr();
-  ::greptime::v1::meta::Peer* mutable_addr();
-  void set_allocated_addr(::greptime::v1::meta::Peer* addr);
+  void clear_peer();
+  const ::greptime::v1::meta::Peer& peer() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::Peer* release_peer();
+  ::greptime::v1::meta::Peer* mutable_peer();
+  void set_allocated_peer(::greptime::v1::meta::Peer* peer);
   private:
-  const ::greptime::v1::meta::Peer& _internal_addr() const;
-  ::greptime::v1::meta::Peer* _internal_mutable_addr();
+  const ::greptime::v1::meta::Peer& _internal_peer() const;
+  ::greptime::v1::meta::Peer* _internal_mutable_peer();
   public:
-  void unsafe_arena_set_allocated_addr(
-      ::greptime::v1::meta::Peer* addr);
-  ::greptime::v1::meta::Peer* unsafe_arena_release_addr();
+  void unsafe_arena_set_allocated_peer(
+      ::greptime::v1::meta::Peer* peer);
+  ::greptime::v1::meta::Peer* unsafe_arena_release_peer();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.MetasrvNodeInfo)
  private:
@@ -607,7 +607,7 @@ class MetasrvNodeInfo final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr git_commit_;
-    ::greptime::v1::meta::Peer* addr_;
+    ::greptime::v1::meta::Peer* peer_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -932,39 +932,39 @@ MetasrvPeersResponse::followers() const {
 
 // MetasrvNodeInfo
 
-// .greptime.v1.meta.Peer addr = 1;
-inline bool MetasrvNodeInfo::_internal_has_addr() const {
-  return this != internal_default_instance() && _impl_.addr_ != nullptr;
+// .greptime.v1.meta.Peer peer = 1;
+inline bool MetasrvNodeInfo::_internal_has_peer() const {
+  return this != internal_default_instance() && _impl_.peer_ != nullptr;
 }
-inline bool MetasrvNodeInfo::has_addr() const {
-  return _internal_has_addr();
+inline bool MetasrvNodeInfo::has_peer() const {
+  return _internal_has_peer();
 }
-inline const ::greptime::v1::meta::Peer& MetasrvNodeInfo::_internal_addr() const {
-  const ::greptime::v1::meta::Peer* p = _impl_.addr_;
+inline const ::greptime::v1::meta::Peer& MetasrvNodeInfo::_internal_peer() const {
+  const ::greptime::v1::meta::Peer* p = _impl_.peer_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::Peer&>(
       ::greptime::v1::meta::_Peer_default_instance_);
 }
-inline const ::greptime::v1::meta::Peer& MetasrvNodeInfo::addr() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvNodeInfo.addr)
-  return _internal_addr();
+inline const ::greptime::v1::meta::Peer& MetasrvNodeInfo::peer() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvNodeInfo.peer)
+  return _internal_peer();
 }
-inline void MetasrvNodeInfo::unsafe_arena_set_allocated_addr(
-    ::greptime::v1::meta::Peer* addr) {
+inline void MetasrvNodeInfo::unsafe_arena_set_allocated_peer(
+    ::greptime::v1::meta::Peer* peer) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.addr_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.peer_);
   }
-  _impl_.addr_ = addr;
-  if (addr) {
+  _impl_.peer_ = peer;
+  if (peer) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.MetasrvNodeInfo.addr)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.MetasrvNodeInfo.peer)
 }
-inline ::greptime::v1::meta::Peer* MetasrvNodeInfo::release_addr() {
+inline ::greptime::v1::meta::Peer* MetasrvNodeInfo::release_peer() {
   
-  ::greptime::v1::meta::Peer* temp = _impl_.addr_;
-  _impl_.addr_ = nullptr;
+  ::greptime::v1::meta::Peer* temp = _impl_.peer_;
+  _impl_.peer_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -976,45 +976,45 @@ inline ::greptime::v1::meta::Peer* MetasrvNodeInfo::release_addr() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::meta::Peer* MetasrvNodeInfo::unsafe_arena_release_addr() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.MetasrvNodeInfo.addr)
+inline ::greptime::v1::meta::Peer* MetasrvNodeInfo::unsafe_arena_release_peer() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.MetasrvNodeInfo.peer)
   
-  ::greptime::v1::meta::Peer* temp = _impl_.addr_;
-  _impl_.addr_ = nullptr;
+  ::greptime::v1::meta::Peer* temp = _impl_.peer_;
+  _impl_.peer_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::meta::Peer* MetasrvNodeInfo::_internal_mutable_addr() {
+inline ::greptime::v1::meta::Peer* MetasrvNodeInfo::_internal_mutable_peer() {
   
-  if (_impl_.addr_ == nullptr) {
+  if (_impl_.peer_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::meta::Peer>(GetArenaForAllocation());
-    _impl_.addr_ = p;
+    _impl_.peer_ = p;
   }
-  return _impl_.addr_;
+  return _impl_.peer_;
 }
-inline ::greptime::v1::meta::Peer* MetasrvNodeInfo::mutable_addr() {
-  ::greptime::v1::meta::Peer* _msg = _internal_mutable_addr();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.MetasrvNodeInfo.addr)
+inline ::greptime::v1::meta::Peer* MetasrvNodeInfo::mutable_peer() {
+  ::greptime::v1::meta::Peer* _msg = _internal_mutable_peer();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.MetasrvNodeInfo.peer)
   return _msg;
 }
-inline void MetasrvNodeInfo::set_allocated_addr(::greptime::v1::meta::Peer* addr) {
+inline void MetasrvNodeInfo::set_allocated_peer(::greptime::v1::meta::Peer* peer) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.addr_);
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.peer_);
   }
-  if (addr) {
+  if (peer) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(addr));
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(peer));
     if (message_arena != submessage_arena) {
-      addr = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, addr, submessage_arena);
+      peer = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, peer, submessage_arena);
     }
     
   } else {
     
   }
-  _impl_.addr_ = addr;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvNodeInfo.addr)
+  _impl_.peer_ = peer;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvNodeInfo.peer)
 }
 
 // string version = 2;

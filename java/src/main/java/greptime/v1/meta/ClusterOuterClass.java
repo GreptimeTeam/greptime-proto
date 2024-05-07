@@ -1843,19 +1843,19 @@ public final class ClusterOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.greptime.v1.meta.Peer addr = 1;</code>
-     * @return Whether the addr field is set.
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     * @return Whether the peer field is set.
      */
-    boolean hasAddr();
+    boolean hasPeer();
     /**
-     * <code>.greptime.v1.meta.Peer addr = 1;</code>
-     * @return The addr.
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     * @return The peer.
      */
-    greptime.v1.meta.Common.Peer getAddr();
+    greptime.v1.meta.Common.Peer getPeer();
     /**
-     * <code>.greptime.v1.meta.Peer addr = 1;</code>
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
      */
-    greptime.v1.meta.Common.PeerOrBuilder getAddrOrBuilder();
+    greptime.v1.meta.Common.PeerOrBuilder getPeerOrBuilder();
 
     /**
      * <code>string version = 2;</code>
@@ -1930,13 +1930,13 @@ public final class ClusterOuterClass {
               break;
             case 10: {
               greptime.v1.meta.Common.Peer.Builder subBuilder = null;
-              if (addr_ != null) {
-                subBuilder = addr_.toBuilder();
+              if (peer_ != null) {
+                subBuilder = peer_.toBuilder();
               }
-              addr_ = input.readMessage(greptime.v1.meta.Common.Peer.parser(), extensionRegistry);
+              peer_ = input.readMessage(greptime.v1.meta.Common.Peer.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(addr_);
-                addr_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(peer_);
+                peer_ = subBuilder.buildPartial();
               }
 
               break;
@@ -1987,30 +1987,30 @@ public final class ClusterOuterClass {
               greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.class, greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.Builder.class);
     }
 
-    public static final int ADDR_FIELD_NUMBER = 1;
-    private greptime.v1.meta.Common.Peer addr_;
+    public static final int PEER_FIELD_NUMBER = 1;
+    private greptime.v1.meta.Common.Peer peer_;
     /**
-     * <code>.greptime.v1.meta.Peer addr = 1;</code>
-     * @return Whether the addr field is set.
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     * @return Whether the peer field is set.
      */
     @java.lang.Override
-    public boolean hasAddr() {
-      return addr_ != null;
+    public boolean hasPeer() {
+      return peer_ != null;
     }
     /**
-     * <code>.greptime.v1.meta.Peer addr = 1;</code>
-     * @return The addr.
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
+     * @return The peer.
      */
     @java.lang.Override
-    public greptime.v1.meta.Common.Peer getAddr() {
-      return addr_ == null ? greptime.v1.meta.Common.Peer.getDefaultInstance() : addr_;
+    public greptime.v1.meta.Common.Peer getPeer() {
+      return peer_ == null ? greptime.v1.meta.Common.Peer.getDefaultInstance() : peer_;
     }
     /**
-     * <code>.greptime.v1.meta.Peer addr = 1;</code>
+     * <code>.greptime.v1.meta.Peer peer = 1;</code>
      */
     @java.lang.Override
-    public greptime.v1.meta.Common.PeerOrBuilder getAddrOrBuilder() {
-      return getAddr();
+    public greptime.v1.meta.Common.PeerOrBuilder getPeerOrBuilder() {
+      return getPeer();
     }
 
     public static final int VERSION_FIELD_NUMBER = 2;
@@ -2103,8 +2103,8 @@ public final class ClusterOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (addr_ != null) {
-        output.writeMessage(1, getAddr());
+      if (peer_ != null) {
+        output.writeMessage(1, getPeer());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, version_);
@@ -2121,9 +2121,9 @@ public final class ClusterOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (addr_ != null) {
+      if (peer_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getAddr());
+          .computeMessageSize(1, getPeer());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, version_);
@@ -2146,10 +2146,10 @@ public final class ClusterOuterClass {
       }
       greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo other = (greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo) obj;
 
-      if (hasAddr() != other.hasAddr()) return false;
-      if (hasAddr()) {
-        if (!getAddr()
-            .equals(other.getAddr())) return false;
+      if (hasPeer() != other.hasPeer()) return false;
+      if (hasPeer()) {
+        if (!getPeer()
+            .equals(other.getPeer())) return false;
       }
       if (!getVersion()
           .equals(other.getVersion())) return false;
@@ -2166,9 +2166,9 @@ public final class ClusterOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasAddr()) {
-        hash = (37 * hash) + ADDR_FIELD_NUMBER;
-        hash = (53 * hash) + getAddr().hashCode();
+      if (hasPeer()) {
+        hash = (37 * hash) + PEER_FIELD_NUMBER;
+        hash = (53 * hash) + getPeer().hashCode();
       }
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getVersion().hashCode();
@@ -2307,11 +2307,11 @@ public final class ClusterOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (addrBuilder_ == null) {
-          addr_ = null;
+        if (peerBuilder_ == null) {
+          peer_ = null;
         } else {
-          addr_ = null;
-          addrBuilder_ = null;
+          peer_ = null;
+          peerBuilder_ = null;
         }
         version_ = "";
 
@@ -2343,10 +2343,10 @@ public final class ClusterOuterClass {
       @java.lang.Override
       public greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo buildPartial() {
         greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo result = new greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo(this);
-        if (addrBuilder_ == null) {
-          result.addr_ = addr_;
+        if (peerBuilder_ == null) {
+          result.peer_ = peer_;
         } else {
-          result.addr_ = addrBuilder_.build();
+          result.peer_ = peerBuilder_.build();
         }
         result.version_ = version_;
         result.gitCommit_ = gitCommit_;
@@ -2398,8 +2398,8 @@ public final class ClusterOuterClass {
 
       public Builder mergeFrom(greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo other) {
         if (other == greptime.v1.meta.ClusterOuterClass.MetasrvNodeInfo.getDefaultInstance()) return this;
-        if (other.hasAddr()) {
-          mergeAddr(other.getAddr());
+        if (other.hasPeer()) {
+          mergePeer(other.getPeer());
         }
         if (!other.getVersion().isEmpty()) {
           version_ = other.version_;
@@ -2438,123 +2438,123 @@ public final class ClusterOuterClass {
         return this;
       }
 
-      private greptime.v1.meta.Common.Peer addr_;
+      private greptime.v1.meta.Common.Peer peer_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder> addrBuilder_;
+          greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder> peerBuilder_;
       /**
-       * <code>.greptime.v1.meta.Peer addr = 1;</code>
-       * @return Whether the addr field is set.
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       * @return Whether the peer field is set.
        */
-      public boolean hasAddr() {
-        return addrBuilder_ != null || addr_ != null;
+      public boolean hasPeer() {
+        return peerBuilder_ != null || peer_ != null;
       }
       /**
-       * <code>.greptime.v1.meta.Peer addr = 1;</code>
-       * @return The addr.
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
+       * @return The peer.
        */
-      public greptime.v1.meta.Common.Peer getAddr() {
-        if (addrBuilder_ == null) {
-          return addr_ == null ? greptime.v1.meta.Common.Peer.getDefaultInstance() : addr_;
+      public greptime.v1.meta.Common.Peer getPeer() {
+        if (peerBuilder_ == null) {
+          return peer_ == null ? greptime.v1.meta.Common.Peer.getDefaultInstance() : peer_;
         } else {
-          return addrBuilder_.getMessage();
+          return peerBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.meta.Peer addr = 1;</code>
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
        */
-      public Builder setAddr(greptime.v1.meta.Common.Peer value) {
-        if (addrBuilder_ == null) {
+      public Builder setPeer(greptime.v1.meta.Common.Peer value) {
+        if (peerBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          addr_ = value;
+          peer_ = value;
           onChanged();
         } else {
-          addrBuilder_.setMessage(value);
+          peerBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.Peer addr = 1;</code>
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
        */
-      public Builder setAddr(
+      public Builder setPeer(
           greptime.v1.meta.Common.Peer.Builder builderForValue) {
-        if (addrBuilder_ == null) {
-          addr_ = builderForValue.build();
+        if (peerBuilder_ == null) {
+          peer_ = builderForValue.build();
           onChanged();
         } else {
-          addrBuilder_.setMessage(builderForValue.build());
+          peerBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.Peer addr = 1;</code>
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
        */
-      public Builder mergeAddr(greptime.v1.meta.Common.Peer value) {
-        if (addrBuilder_ == null) {
-          if (addr_ != null) {
-            addr_ =
-              greptime.v1.meta.Common.Peer.newBuilder(addr_).mergeFrom(value).buildPartial();
+      public Builder mergePeer(greptime.v1.meta.Common.Peer value) {
+        if (peerBuilder_ == null) {
+          if (peer_ != null) {
+            peer_ =
+              greptime.v1.meta.Common.Peer.newBuilder(peer_).mergeFrom(value).buildPartial();
           } else {
-            addr_ = value;
+            peer_ = value;
           }
           onChanged();
         } else {
-          addrBuilder_.mergeFrom(value);
+          peerBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.Peer addr = 1;</code>
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
        */
-      public Builder clearAddr() {
-        if (addrBuilder_ == null) {
-          addr_ = null;
+      public Builder clearPeer() {
+        if (peerBuilder_ == null) {
+          peer_ = null;
           onChanged();
         } else {
-          addr_ = null;
-          addrBuilder_ = null;
+          peer_ = null;
+          peerBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.Peer addr = 1;</code>
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
        */
-      public greptime.v1.meta.Common.Peer.Builder getAddrBuilder() {
+      public greptime.v1.meta.Common.Peer.Builder getPeerBuilder() {
         
         onChanged();
-        return getAddrFieldBuilder().getBuilder();
+        return getPeerFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.meta.Peer addr = 1;</code>
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
        */
-      public greptime.v1.meta.Common.PeerOrBuilder getAddrOrBuilder() {
-        if (addrBuilder_ != null) {
-          return addrBuilder_.getMessageOrBuilder();
+      public greptime.v1.meta.Common.PeerOrBuilder getPeerOrBuilder() {
+        if (peerBuilder_ != null) {
+          return peerBuilder_.getMessageOrBuilder();
         } else {
-          return addr_ == null ?
-              greptime.v1.meta.Common.Peer.getDefaultInstance() : addr_;
+          return peer_ == null ?
+              greptime.v1.meta.Common.Peer.getDefaultInstance() : peer_;
         }
       }
       /**
-       * <code>.greptime.v1.meta.Peer addr = 1;</code>
+       * <code>.greptime.v1.meta.Peer peer = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder> 
-          getAddrFieldBuilder() {
-        if (addrBuilder_ == null) {
-          addrBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getPeerFieldBuilder() {
+        if (peerBuilder_ == null) {
+          peerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               greptime.v1.meta.Common.Peer, greptime.v1.meta.Common.Peer.Builder, greptime.v1.meta.Common.PeerOrBuilder>(
-                  getAddr(),
+                  getPeer(),
                   getParentForChildren(),
                   isClean());
-          addr_ = null;
+          peer_ = null;
         }
-        return addrBuilder_;
+        return peerBuilder_;
       }
 
       private java.lang.Object version_ = "";
@@ -2794,7 +2794,7 @@ public final class ClusterOuterClass {
       "eta.ResponseHeader\0221\n\006leader\030\002 \001(\0132!.gre" +
       "ptime.v1.meta.MetasrvNodeInfo\0224\n\tfollowe" +
       "rs\030\003 \003(\0132!.greptime.v1.meta.MetasrvNodeI" +
-      "nfo\"\\\n\017MetasrvNodeInfo\022$\n\004addr\030\001 \001(\0132\026.g" +
+      "nfo\"\\\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026.g" +
       "reptime.v1.meta.Peer\022\017\n\007version\030\002 \001(\t\022\022\n" +
       "\ngit_commit\030\003 \001(\t2\205\002\n\007Cluster\022Q\n\010BatchGe" +
       "t\022!.greptime.v1.meta.BatchGetRequest\032\".g" +
@@ -2829,7 +2829,7 @@ public final class ClusterOuterClass {
     internal_static_greptime_v1_meta_MetasrvNodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor,
-        new java.lang.String[] { "Addr", "Version", "GitCommit", });
+        new java.lang.String[] { "Peer", "Version", "GitCommit", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.StoreOuterClass.getDescriptor();
   }
