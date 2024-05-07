@@ -34,6 +34,7 @@
 #include "greptime/v1/meta/common.pb.h"
 #include "greptime/v1/meta/route.pb.h"
 #include "greptime/v1/ddl.pb.h"
+#include "greptime/v1/common.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_greptime_2fv1_2fmeta_2fddl_2eproto
@@ -2039,6 +2040,7 @@ class DdlTaskRequest final :
 
   enum : int {
     kHeaderFieldNumber = 1,
+    kQueryContextFieldNumber = 64,
     kCreateTableTaskFieldNumber = 2,
     kDropTableTaskFieldNumber = 3,
     kAlterTableTaskFieldNumber = 4,
@@ -2068,6 +2070,24 @@ class DdlTaskRequest final :
   void unsafe_arena_set_allocated_header(
       ::greptime::v1::meta::RequestHeader* header);
   ::greptime::v1::meta::RequestHeader* unsafe_arena_release_header();
+
+  // .greptime.v1.QueryContext query_context = 64;
+  bool has_query_context() const;
+  private:
+  bool _internal_has_query_context() const;
+  public:
+  void clear_query_context();
+  const ::greptime::v1::QueryContext& query_context() const;
+  PROTOBUF_NODISCARD ::greptime::v1::QueryContext* release_query_context();
+  ::greptime::v1::QueryContext* mutable_query_context();
+  void set_allocated_query_context(::greptime::v1::QueryContext* query_context);
+  private:
+  const ::greptime::v1::QueryContext& _internal_query_context() const;
+  ::greptime::v1::QueryContext* _internal_mutable_query_context();
+  public:
+  void unsafe_arena_set_allocated_query_context(
+      ::greptime::v1::QueryContext* query_context);
+  ::greptime::v1::QueryContext* unsafe_arena_release_query_context();
 
   // .greptime.v1.meta.CreateTableTask create_table_task = 2;
   bool has_create_table_task() const;
@@ -2292,6 +2312,7 @@ class DdlTaskRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::meta::RequestHeader* header_;
+    ::greptime::v1::QueryContext* query_context_;
     union TaskUnion {
       constexpr TaskUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -3556,6 +3577,91 @@ inline void DdlTaskRequest::set_allocated_header(::greptime::v1::meta::RequestHe
   }
   _impl_.header_ = header;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskRequest.header)
+}
+
+// .greptime.v1.QueryContext query_context = 64;
+inline bool DdlTaskRequest::_internal_has_query_context() const {
+  return this != internal_default_instance() && _impl_.query_context_ != nullptr;
+}
+inline bool DdlTaskRequest::has_query_context() const {
+  return _internal_has_query_context();
+}
+inline const ::greptime::v1::QueryContext& DdlTaskRequest::_internal_query_context() const {
+  const ::greptime::v1::QueryContext* p = _impl_.query_context_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::QueryContext&>(
+      ::greptime::v1::_QueryContext_default_instance_);
+}
+inline const ::greptime::v1::QueryContext& DdlTaskRequest::query_context() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.query_context)
+  return _internal_query_context();
+}
+inline void DdlTaskRequest::unsafe_arena_set_allocated_query_context(
+    ::greptime::v1::QueryContext* query_context) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.query_context_);
+  }
+  _impl_.query_context_ = query_context;
+  if (query_context) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.query_context)
+}
+inline ::greptime::v1::QueryContext* DdlTaskRequest::release_query_context() {
+  
+  ::greptime::v1::QueryContext* temp = _impl_.query_context_;
+  _impl_.query_context_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::QueryContext* DdlTaskRequest::unsafe_arena_release_query_context() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.query_context)
+  
+  ::greptime::v1::QueryContext* temp = _impl_.query_context_;
+  _impl_.query_context_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::QueryContext* DdlTaskRequest::_internal_mutable_query_context() {
+  
+  if (_impl_.query_context_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::QueryContext>(GetArenaForAllocation());
+    _impl_.query_context_ = p;
+  }
+  return _impl_.query_context_;
+}
+inline ::greptime::v1::QueryContext* DdlTaskRequest::mutable_query_context() {
+  ::greptime::v1::QueryContext* _msg = _internal_mutable_query_context();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.query_context)
+  return _msg;
+}
+inline void DdlTaskRequest::set_allocated_query_context(::greptime::v1::QueryContext* query_context) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.query_context_);
+  }
+  if (query_context) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(query_context));
+    if (message_arena != submessage_arena) {
+      query_context = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, query_context, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.query_context_ = query_context;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskRequest.query_context)
 }
 
 // .greptime.v1.meta.CreateTableTask create_table_task = 2;

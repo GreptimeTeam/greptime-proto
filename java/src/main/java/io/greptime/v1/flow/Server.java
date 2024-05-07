@@ -14,6 +14,1094 @@ public final class Server {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface FlowRequestHeaderOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.FlowRequestHeader)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    int getTracingContextCount();
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    boolean containsTracingContext(
+        java.lang.String key);
+    /**
+     * Use {@link #getTracingContextMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getTracingContext();
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getTracingContextMap();
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+
+    /* nullable */
+java.lang.String getTracingContextOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+
+    java.lang.String getTracingContextOrThrow(
+        java.lang.String key);
+
+    /**
+     * <pre>
+     * The contextual information of the query
+     * </pre>
+     *
+     * <code>.greptime.v1.QueryContext query_context = 2;</code>
+     * @return Whether the queryContext field is set.
+     */
+    boolean hasQueryContext();
+    /**
+     * <pre>
+     * The contextual information of the query
+     * </pre>
+     *
+     * <code>.greptime.v1.QueryContext query_context = 2;</code>
+     * @return The queryContext.
+     */
+    io.greptime.v1.Common.QueryContext getQueryContext();
+    /**
+     * <pre>
+     * The contextual information of the query
+     * </pre>
+     *
+     * <code>.greptime.v1.QueryContext query_context = 2;</code>
+     */
+    io.greptime.v1.Common.QueryContextOrBuilder getQueryContextOrBuilder();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.flow.FlowRequestHeader}
+   */
+  public static final class FlowRequestHeader extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.flow.FlowRequestHeader)
+      FlowRequestHeaderOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FlowRequestHeader.newBuilder() to construct.
+    private FlowRequestHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FlowRequestHeader() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FlowRequestHeader();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FlowRequestHeader(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tracingContext_ = com.google.protobuf.MapField.newMapField(
+                    TracingContextDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              tracingContext__ = input.readMessage(
+                  TracingContextDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              tracingContext_.getMutableMap().put(
+                  tracingContext__.getKey(), tracingContext__.getValue());
+              break;
+            }
+            case 18: {
+              io.greptime.v1.Common.QueryContext.Builder subBuilder = null;
+              if (queryContext_ != null) {
+                subBuilder = queryContext_.toBuilder();
+              }
+              queryContext_ = input.readMessage(io.greptime.v1.Common.QueryContext.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(queryContext_);
+                queryContext_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRequestHeader_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 1:
+          return internalGetTracingContext();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRequestHeader_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.flow.Server.FlowRequestHeader.class, io.greptime.v1.flow.Server.FlowRequestHeader.Builder.class);
+    }
+
+    public static final int TRACING_CONTEXT_FIELD_NUMBER = 1;
+    private static final class TracingContextDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRequestHeader_TracingContextEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> tracingContext_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetTracingContext() {
+      if (tracingContext_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            TracingContextDefaultEntryHolder.defaultEntry);
+      }
+      return tracingContext_;
+    }
+
+    public int getTracingContextCount() {
+      return internalGetTracingContext().getMap().size();
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsTracingContext(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetTracingContext().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getTracingContextMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getTracingContext() {
+      return getTracingContextMap();
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getTracingContextMap() {
+      return internalGetTracingContext().getMap();
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getTracingContextOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetTracingContext().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getTracingContextOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetTracingContext().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int QUERY_CONTEXT_FIELD_NUMBER = 2;
+    private io.greptime.v1.Common.QueryContext queryContext_;
+    /**
+     * <pre>
+     * The contextual information of the query
+     * </pre>
+     *
+     * <code>.greptime.v1.QueryContext query_context = 2;</code>
+     * @return Whether the queryContext field is set.
+     */
+    @java.lang.Override
+    public boolean hasQueryContext() {
+      return queryContext_ != null;
+    }
+    /**
+     * <pre>
+     * The contextual information of the query
+     * </pre>
+     *
+     * <code>.greptime.v1.QueryContext query_context = 2;</code>
+     * @return The queryContext.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.QueryContext getQueryContext() {
+      return queryContext_ == null ? io.greptime.v1.Common.QueryContext.getDefaultInstance() : queryContext_;
+    }
+    /**
+     * <pre>
+     * The contextual information of the query
+     * </pre>
+     *
+     * <code>.greptime.v1.QueryContext query_context = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.QueryContextOrBuilder getQueryContextOrBuilder() {
+      return getQueryContext();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetTracingContext(),
+          TracingContextDefaultEntryHolder.defaultEntry,
+          1);
+      if (queryContext_ != null) {
+        output.writeMessage(2, getQueryContext());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetTracingContext().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        tracingContext__ = TracingContextDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, tracingContext__);
+      }
+      if (queryContext_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getQueryContext());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.flow.Server.FlowRequestHeader)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.flow.Server.FlowRequestHeader other = (io.greptime.v1.flow.Server.FlowRequestHeader) obj;
+
+      if (!internalGetTracingContext().equals(
+          other.internalGetTracingContext())) return false;
+      if (hasQueryContext() != other.hasQueryContext()) return false;
+      if (hasQueryContext()) {
+        if (!getQueryContext()
+            .equals(other.getQueryContext())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (!internalGetTracingContext().getMap().isEmpty()) {
+        hash = (37 * hash) + TRACING_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetTracingContext().hashCode();
+      }
+      if (hasQueryContext()) {
+        hash = (37 * hash) + QUERY_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + getQueryContext().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.flow.Server.FlowRequestHeader parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.flow.Server.FlowRequestHeader prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.flow.FlowRequestHeader}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.FlowRequestHeader)
+        io.greptime.v1.flow.Server.FlowRequestHeaderOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRequestHeader_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetTracingContext();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMutableTracingContext();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRequestHeader_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.flow.Server.FlowRequestHeader.class, io.greptime.v1.flow.Server.FlowRequestHeader.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.flow.Server.FlowRequestHeader.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        internalGetMutableTracingContext().clear();
+        if (queryContextBuilder_ == null) {
+          queryContext_ = null;
+        } else {
+          queryContext_ = null;
+          queryContextBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowRequestHeader_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.flow.Server.FlowRequestHeader getDefaultInstanceForType() {
+        return io.greptime.v1.flow.Server.FlowRequestHeader.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.flow.Server.FlowRequestHeader build() {
+        io.greptime.v1.flow.Server.FlowRequestHeader result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.flow.Server.FlowRequestHeader buildPartial() {
+        io.greptime.v1.flow.Server.FlowRequestHeader result = new io.greptime.v1.flow.Server.FlowRequestHeader(this);
+        int from_bitField0_ = bitField0_;
+        result.tracingContext_ = internalGetTracingContext();
+        result.tracingContext_.makeImmutable();
+        if (queryContextBuilder_ == null) {
+          result.queryContext_ = queryContext_;
+        } else {
+          result.queryContext_ = queryContextBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.flow.Server.FlowRequestHeader) {
+          return mergeFrom((io.greptime.v1.flow.Server.FlowRequestHeader)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.flow.Server.FlowRequestHeader other) {
+        if (other == io.greptime.v1.flow.Server.FlowRequestHeader.getDefaultInstance()) return this;
+        internalGetMutableTracingContext().mergeFrom(
+            other.internalGetTracingContext());
+        if (other.hasQueryContext()) {
+          mergeQueryContext(other.getQueryContext());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.flow.Server.FlowRequestHeader parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.flow.Server.FlowRequestHeader) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> tracingContext_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetTracingContext() {
+        if (tracingContext_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              TracingContextDefaultEntryHolder.defaultEntry);
+        }
+        return tracingContext_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableTracingContext() {
+        onChanged();;
+        if (tracingContext_ == null) {
+          tracingContext_ = com.google.protobuf.MapField.newMapField(
+              TracingContextDefaultEntryHolder.defaultEntry);
+        }
+        if (!tracingContext_.isMutable()) {
+          tracingContext_ = tracingContext_.copy();
+        }
+        return tracingContext_;
+      }
+
+      public int getTracingContextCount() {
+        return internalGetTracingContext().getMap().size();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsTracingContext(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetTracingContext().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getTracingContextMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getTracingContext() {
+        return getTracingContextMap();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getTracingContextMap() {
+        return internalGetTracingContext().getMap();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getTracingContextOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetTracingContext().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getTracingContextOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetTracingContext().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearTracingContext() {
+        internalGetMutableTracingContext().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+
+      public Builder removeTracingContext(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableTracingContext().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableTracingContext() {
+        return internalGetMutableTracingContext().getMutableMap();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+      public Builder putTracingContext(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableTracingContext().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+
+      public Builder putAllTracingContext(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableTracingContext().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private io.greptime.v1.Common.QueryContext queryContext_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.QueryContext, io.greptime.v1.Common.QueryContext.Builder, io.greptime.v1.Common.QueryContextOrBuilder> queryContextBuilder_;
+      /**
+       * <pre>
+       * The contextual information of the query
+       * </pre>
+       *
+       * <code>.greptime.v1.QueryContext query_context = 2;</code>
+       * @return Whether the queryContext field is set.
+       */
+      public boolean hasQueryContext() {
+        return queryContextBuilder_ != null || queryContext_ != null;
+      }
+      /**
+       * <pre>
+       * The contextual information of the query
+       * </pre>
+       *
+       * <code>.greptime.v1.QueryContext query_context = 2;</code>
+       * @return The queryContext.
+       */
+      public io.greptime.v1.Common.QueryContext getQueryContext() {
+        if (queryContextBuilder_ == null) {
+          return queryContext_ == null ? io.greptime.v1.Common.QueryContext.getDefaultInstance() : queryContext_;
+        } else {
+          return queryContextBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The contextual information of the query
+       * </pre>
+       *
+       * <code>.greptime.v1.QueryContext query_context = 2;</code>
+       */
+      public Builder setQueryContext(io.greptime.v1.Common.QueryContext value) {
+        if (queryContextBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          queryContext_ = value;
+          onChanged();
+        } else {
+          queryContextBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The contextual information of the query
+       * </pre>
+       *
+       * <code>.greptime.v1.QueryContext query_context = 2;</code>
+       */
+      public Builder setQueryContext(
+          io.greptime.v1.Common.QueryContext.Builder builderForValue) {
+        if (queryContextBuilder_ == null) {
+          queryContext_ = builderForValue.build();
+          onChanged();
+        } else {
+          queryContextBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The contextual information of the query
+       * </pre>
+       *
+       * <code>.greptime.v1.QueryContext query_context = 2;</code>
+       */
+      public Builder mergeQueryContext(io.greptime.v1.Common.QueryContext value) {
+        if (queryContextBuilder_ == null) {
+          if (queryContext_ != null) {
+            queryContext_ =
+              io.greptime.v1.Common.QueryContext.newBuilder(queryContext_).mergeFrom(value).buildPartial();
+          } else {
+            queryContext_ = value;
+          }
+          onChanged();
+        } else {
+          queryContextBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The contextual information of the query
+       * </pre>
+       *
+       * <code>.greptime.v1.QueryContext query_context = 2;</code>
+       */
+      public Builder clearQueryContext() {
+        if (queryContextBuilder_ == null) {
+          queryContext_ = null;
+          onChanged();
+        } else {
+          queryContext_ = null;
+          queryContextBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The contextual information of the query
+       * </pre>
+       *
+       * <code>.greptime.v1.QueryContext query_context = 2;</code>
+       */
+      public io.greptime.v1.Common.QueryContext.Builder getQueryContextBuilder() {
+        
+        onChanged();
+        return getQueryContextFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The contextual information of the query
+       * </pre>
+       *
+       * <code>.greptime.v1.QueryContext query_context = 2;</code>
+       */
+      public io.greptime.v1.Common.QueryContextOrBuilder getQueryContextOrBuilder() {
+        if (queryContextBuilder_ != null) {
+          return queryContextBuilder_.getMessageOrBuilder();
+        } else {
+          return queryContext_ == null ?
+              io.greptime.v1.Common.QueryContext.getDefaultInstance() : queryContext_;
+        }
+      }
+      /**
+       * <pre>
+       * The contextual information of the query
+       * </pre>
+       *
+       * <code>.greptime.v1.QueryContext query_context = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.QueryContext, io.greptime.v1.Common.QueryContext.Builder, io.greptime.v1.Common.QueryContextOrBuilder> 
+          getQueryContextFieldBuilder() {
+        if (queryContextBuilder_ == null) {
+          queryContextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.QueryContext, io.greptime.v1.Common.QueryContext.Builder, io.greptime.v1.Common.QueryContextOrBuilder>(
+                  getQueryContext(),
+                  getParentForChildren(),
+                  isClean());
+          queryContext_ = null;
+        }
+        return queryContextBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.FlowRequestHeader)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.flow.FlowRequestHeader)
+    private static final io.greptime.v1.flow.Server.FlowRequestHeader DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.FlowRequestHeader();
+    }
+
+    public static io.greptime.v1.flow.Server.FlowRequestHeader getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FlowRequestHeader>
+        PARSER = new com.google.protobuf.AbstractParser<FlowRequestHeader>() {
+      @java.lang.Override
+      public FlowRequestHeader parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FlowRequestHeader(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FlowRequestHeader> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FlowRequestHeader> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.flow.Server.FlowRequestHeader getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface InsertRequestsOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.flow.InsertRequests)
       com.google.protobuf.MessageOrBuilder {
@@ -1508,6 +2596,21 @@ public final class Server {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+     * @return Whether the header field is set.
+     */
+    boolean hasHeader();
+    /**
+     * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+     * @return The header.
+     */
+    io.greptime.v1.flow.Server.FlowRequestHeader getHeader();
+    /**
+     * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+     */
+    io.greptime.v1.flow.Server.FlowRequestHeaderOrBuilder getHeaderOrBuilder();
+
+    /**
      * <code>.greptime.v1.flow.CreateRequest create = 1;</code>
      * @return Whether the create field is set.
      */
@@ -1612,6 +2715,19 @@ public final class Server {
               bodyCase_ = 2;
               break;
             }
+            case 514: {
+              io.greptime.v1.flow.Server.FlowRequestHeader.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(io.greptime.v1.flow.Server.FlowRequestHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1685,6 +2801,32 @@ public final class Server {
     getBodyCase() {
       return BodyCase.forNumber(
           bodyCase_);
+    }
+
+    public static final int HEADER_FIELD_NUMBER = 64;
+    private io.greptime.v1.flow.Server.FlowRequestHeader header_;
+    /**
+     * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+     * @return Whether the header field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeader() {
+      return header_ != null;
+    }
+    /**
+     * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+     * @return The header.
+     */
+    @java.lang.Override
+    public io.greptime.v1.flow.Server.FlowRequestHeader getHeader() {
+      return header_ == null ? io.greptime.v1.flow.Server.FlowRequestHeader.getDefaultInstance() : header_;
+    }
+    /**
+     * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.flow.Server.FlowRequestHeaderOrBuilder getHeaderOrBuilder() {
+      return getHeader();
     }
 
     public static final int CREATE_FIELD_NUMBER = 1;
@@ -1769,6 +2911,9 @@ public final class Server {
       if (bodyCase_ == 2) {
         output.writeMessage(2, (io.greptime.v1.flow.Server.DropRequest) body_);
       }
+      if (header_ != null) {
+        output.writeMessage(64, getHeader());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1786,6 +2931,10 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (io.greptime.v1.flow.Server.DropRequest) body_);
       }
+      if (header_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(64, getHeader());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1801,6 +2950,11 @@ public final class Server {
       }
       io.greptime.v1.flow.Server.FlowRequest other = (io.greptime.v1.flow.Server.FlowRequest) obj;
 
+      if (hasHeader() != other.hasHeader()) return false;
+      if (hasHeader()) {
+        if (!getHeader()
+            .equals(other.getHeader())) return false;
+      }
       if (!getBodyCase().equals(other.getBodyCase())) return false;
       switch (bodyCase_) {
         case 1:
@@ -1825,6 +2979,10 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasHeader()) {
+        hash = (37 * hash) + HEADER_FIELD_NUMBER;
+        hash = (53 * hash) + getHeader().hashCode();
+      }
       switch (bodyCase_) {
         case 1:
           hash = (37 * hash) + CREATE_FIELD_NUMBER;
@@ -1970,6 +3128,12 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
         bodyCase_ = 0;
         body_ = null;
         return this;
@@ -1998,6 +3162,11 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.flow.Server.FlowRequest buildPartial() {
         io.greptime.v1.flow.Server.FlowRequest result = new io.greptime.v1.flow.Server.FlowRequest(this);
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
         if (bodyCase_ == 1) {
           if (createBuilder_ == null) {
             result.body_ = body_;
@@ -2061,6 +3230,9 @@ public final class Server {
 
       public Builder mergeFrom(io.greptime.v1.flow.Server.FlowRequest other) {
         if (other == io.greptime.v1.flow.Server.FlowRequest.getDefaultInstance()) return this;
+        if (other.hasHeader()) {
+          mergeHeader(other.getHeader());
+        }
         switch (other.getBodyCase()) {
           case CREATE: {
             mergeCreate(other.getCreate());
@@ -2117,6 +3289,125 @@ public final class Server {
         return this;
       }
 
+
+      private io.greptime.v1.flow.Server.FlowRequestHeader header_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.flow.Server.FlowRequestHeader, io.greptime.v1.flow.Server.FlowRequestHeader.Builder, io.greptime.v1.flow.Server.FlowRequestHeaderOrBuilder> headerBuilder_;
+      /**
+       * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+       * @return Whether the header field is set.
+       */
+      public boolean hasHeader() {
+        return headerBuilder_ != null || header_ != null;
+      }
+      /**
+       * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+       * @return The header.
+       */
+      public io.greptime.v1.flow.Server.FlowRequestHeader getHeader() {
+        if (headerBuilder_ == null) {
+          return header_ == null ? io.greptime.v1.flow.Server.FlowRequestHeader.getDefaultInstance() : header_;
+        } else {
+          return headerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+       */
+      public Builder setHeader(io.greptime.v1.flow.Server.FlowRequestHeader value) {
+        if (headerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          header_ = value;
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+       */
+      public Builder setHeader(
+          io.greptime.v1.flow.Server.FlowRequestHeader.Builder builderForValue) {
+        if (headerBuilder_ == null) {
+          header_ = builderForValue.build();
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+       */
+      public Builder mergeHeader(io.greptime.v1.flow.Server.FlowRequestHeader value) {
+        if (headerBuilder_ == null) {
+          if (header_ != null) {
+            header_ =
+              io.greptime.v1.flow.Server.FlowRequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+          } else {
+            header_ = value;
+          }
+          onChanged();
+        } else {
+          headerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+       */
+      public Builder clearHeader() {
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+       */
+      public io.greptime.v1.flow.Server.FlowRequestHeader.Builder getHeaderBuilder() {
+        
+        onChanged();
+        return getHeaderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+       */
+      public io.greptime.v1.flow.Server.FlowRequestHeaderOrBuilder getHeaderOrBuilder() {
+        if (headerBuilder_ != null) {
+          return headerBuilder_.getMessageOrBuilder();
+        } else {
+          return header_ == null ?
+              io.greptime.v1.flow.Server.FlowRequestHeader.getDefaultInstance() : header_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.flow.FlowRequestHeader header = 64;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.flow.Server.FlowRequestHeader, io.greptime.v1.flow.Server.FlowRequestHeader.Builder, io.greptime.v1.flow.Server.FlowRequestHeaderOrBuilder> 
+          getHeaderFieldBuilder() {
+        if (headerBuilder_ == null) {
+          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.flow.Server.FlowRequestHeader, io.greptime.v1.flow.Server.FlowRequestHeader.Builder, io.greptime.v1.flow.Server.FlowRequestHeaderOrBuilder>(
+                  getHeader(),
+                  getParentForChildren(),
+                  isClean());
+          header_ = null;
+        }
+        return headerBuilder_;
+      }
 
       private com.google.protobuf.SingleFieldBuilderV3<
           io.greptime.v1.flow.Server.CreateRequest, io.greptime.v1.flow.Server.CreateRequest.Builder, io.greptime.v1.flow.Server.CreateRequestOrBuilder> createBuilder_;
@@ -7129,6 +8420,16 @@ java.lang.String defaultValue);
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_flow_FlowRequestHeader_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_flow_FlowRequestHeader_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_flow_FlowRequestHeader_TracingContextEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_flow_FlowRequestHeader_TracingContextEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_flow_InsertRequests_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -7185,37 +8486,44 @@ java.lang.String defaultValue);
       "\n\035greptime/v1/flow/server.proto\022\020greptim" +
       "e.v1.flow\032\030greptime/v1/common.proto\032\025gre" +
       "ptime/v1/ddl.proto\032\025greptime/v1/row.prot" +
-      "o\"C\n\016InsertRequests\0221\n\010requests\030\001 \003(\0132\037." +
-      "greptime.v1.flow.InsertRequest\"C\n\rInsert" +
-      "Request\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\013" +
-      "2\021.greptime.v1.Rows\"w\n\013FlowRequest\0221\n\006cr" +
-      "eate\030\001 \001(\0132\037.greptime.v1.flow.CreateRequ" +
-      "estH\000\022-\n\004drop\030\002 \001(\0132\035.greptime.v1.flow.D" +
-      "ropRequestH\000B\006\n\004body\"\370\001\n\014FlowResponse\022+\n" +
-      "\006header\030\001 \001(\0132\033.greptime.v1.ResponseHead" +
-      "er\022\025\n\raffected_rows\030\002 \001(\004\022@\n\textension\030\003" +
-      " \003(\0132-.greptime.v1.flow.FlowResponse.Ext" +
-      "ensionEntry\0220\n\016affected_tasks\030\004 \003(\0132\030.gr" +
-      "eptime.v1.flow.TaskId\0320\n\016ExtensionEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\350\002\n\rCrea" +
-      "teRequest\022)\n\007flow_id\030\001 \001(\0132\030.greptime.v1" +
-      ".flow.TaskId\022.\n\020source_table_ids\030\002 \003(\0132\024" +
-      ".greptime.v1.TableId\022/\n\017sink_table_name\030" +
-      "\003 \001(\0132\026.greptime.v1.TableName\022\034\n\024create_" +
-      "if_not_exists\030\004 \001(\010\022\023\n\013expire_when\030\005 \001(\t" +
-      "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_o" +
-      "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe" +
-      "quest.FlowOptionsEntry\0322\n\020FlowOptionsEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"8\n\013Dr" +
-      "opRequest\022)\n\007flow_id\030\001 \001(\0132\030.greptime.v1" +
-      ".flow.TaskId\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\r2\264\001\n\004F" +
-      "low\022S\n\022HandleCreateRemove\022\035.greptime.v1." +
-      "flow.FlowRequest\032\036.greptime.v1.flow.Flow" +
-      "Response\022W\n\023HandleMirrorRequest\022 .grepti" +
-      "me.v1.flow.InsertRequests\032\036.greptime.v1." +
-      "flow.FlowResponseBY\n\023io.greptime.v1.flow" +
-      "B\006ServerZ:github.com/GreptimeTeam/grepti" +
-      "me-proto/go/greptime/v1/flowb\006proto3"
+      "o\"\316\001\n\021FlowRequestHeader\022P\n\017tracing_conte" +
+      "xt\030\001 \003(\01327.greptime.v1.flow.FlowRequestH" +
+      "eader.TracingContextEntry\0220\n\rquery_conte" +
+      "xt\030\002 \001(\0132\031.greptime.v1.QueryContext\0325\n\023T" +
+      "racingContextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001\"C\n\016InsertRequests\0221\n\010requests" +
+      "\030\001 \003(\0132\037.greptime.v1.flow.InsertRequest\"" +
+      "C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004r" +
+      "ows\030\002 \001(\0132\021.greptime.v1.Rows\"\254\001\n\013FlowReq" +
+      "uest\0223\n\006header\030@ \001(\0132#.greptime.v1.flow." +
+      "FlowRequestHeader\0221\n\006create\030\001 \001(\0132\037.grep" +
+      "time.v1.flow.CreateRequestH\000\022-\n\004drop\030\002 \001" +
+      "(\0132\035.greptime.v1.flow.DropRequestH\000B\006\n\004b" +
+      "ody\"\370\001\n\014FlowResponse\022+\n\006header\030\001 \001(\0132\033.g" +
+      "reptime.v1.ResponseHeader\022\025\n\raffected_ro" +
+      "ws\030\002 \001(\004\022@\n\textension\030\003 \003(\0132-.greptime.v" +
+      "1.flow.FlowResponse.ExtensionEntry\0220\n\016af" +
+      "fected_tasks\030\004 \003(\0132\030.greptime.v1.flow.Ta" +
+      "skId\0320\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\014:\0028\001\"\350\002\n\rCreateRequest\022)\n\007flow" +
+      "_id\030\001 \001(\0132\030.greptime.v1.flow.TaskId\022.\n\020s" +
+      "ource_table_ids\030\002 \003(\0132\024.greptime.v1.Tabl" +
+      "eId\022/\n\017sink_table_name\030\003 \001(\0132\026.greptime." +
+      "v1.TableName\022\034\n\024create_if_not_exists\030\004 \001" +
+      "(\010\022\023\n\013expire_when\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t" +
+      "\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_options\030\010 \003(\01320.gr" +
+      "eptime.v1.flow.CreateRequest.FlowOptions" +
+      "Entry\0322\n\020FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\"8\n\013DropRequest\022)\n\007flow" +
+      "_id\030\001 \001(\0132\030.greptime.v1.flow.TaskId\"\024\n\006T" +
+      "askId\022\n\n\002id\030\001 \001(\r2\264\001\n\004Flow\022S\n\022HandleCrea" +
+      "teRemove\022\035.greptime.v1.flow.FlowRequest\032" +
+      "\036.greptime.v1.flow.FlowResponse\022W\n\023Handl" +
+      "eMirrorRequest\022 .greptime.v1.flow.Insert" +
+      "Requests\032\036.greptime.v1.flow.FlowResponse" +
+      "BY\n\023io.greptime.v1.flowB\006ServerZ:github." +
+      "com/GreptimeTeam/greptime-proto/go/grept" +
+      "ime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7224,26 +8532,38 @@ java.lang.String defaultValue);
           io.greptime.v1.Ddl.getDescriptor(),
           io.greptime.v1.RowData.getDescriptor(),
         });
-    internal_static_greptime_v1_flow_InsertRequests_descriptor =
+    internal_static_greptime_v1_flow_FlowRequestHeader_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_greptime_v1_flow_FlowRequestHeader_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_flow_FlowRequestHeader_descriptor,
+        new java.lang.String[] { "TracingContext", "QueryContext", });
+    internal_static_greptime_v1_flow_FlowRequestHeader_TracingContextEntry_descriptor =
+      internal_static_greptime_v1_flow_FlowRequestHeader_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_flow_FlowRequestHeader_TracingContextEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_flow_FlowRequestHeader_TracingContextEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_greptime_v1_flow_InsertRequests_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_flow_InsertRequests_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_InsertRequests_descriptor,
         new java.lang.String[] { "Requests", });
     internal_static_greptime_v1_flow_InsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_flow_InsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_InsertRequest_descriptor,
         new java.lang.String[] { "RegionId", "Rows", });
     internal_static_greptime_v1_flow_FlowRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_flow_FlowRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowRequest_descriptor,
-        new java.lang.String[] { "Create", "Drop", "Body", });
+        new java.lang.String[] { "Header", "Create", "Drop", "Body", });
     internal_static_greptime_v1_flow_FlowResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_flow_FlowResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowResponse_descriptor,
@@ -7255,7 +8575,7 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_CreateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
@@ -7267,13 +8587,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_DropRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_flow_DropRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_DropRequest_descriptor,
         new java.lang.String[] { "FlowId", });
     internal_static_greptime_v1_flow_TaskId_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_flow_TaskId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_TaskId_descriptor,

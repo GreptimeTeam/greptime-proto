@@ -21,6 +21,7 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta"
 import "greptime/v1/meta/common.proto";
 import "greptime/v1/meta/route.proto";
 import "greptime/v1/ddl.proto";
+import "greptime/v1/common.proto";
 
 enum DdlTaskType {
     Create = 0;
@@ -69,6 +70,7 @@ message DropFlowTask {
 
 message DdlTaskRequest {
     RequestHeader header = 1;
+    QueryContext query_context = 64;
 
     oneof task {
         CreateTableTask create_table_task = 2;

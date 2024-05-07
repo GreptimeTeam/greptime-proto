@@ -20,6 +20,13 @@ option java_package = "io.greptime.v1";
 option java_outer_classname = "Common";
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
+message QueryContext {
+  string current_catalog = 1;
+  string current_schema = 2;
+  string timezone = 4;
+  map<string, string> extensions = 5;
+}
+
 message RequestHeader {
   // The `catalog` that is selected to be used in this request.
   string catalog = 1;
