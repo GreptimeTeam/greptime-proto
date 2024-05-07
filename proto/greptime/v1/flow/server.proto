@@ -59,9 +59,9 @@ message FlowRequest {
 message FlowResponse {
   ResponseHeader header = 1;
   uint64 affected_rows = 2;
-  map<string, bytes> extension = 3;
-  // affected task ids
-  repeated FlowId affected_tasks = 4;
+  // affected flow ids
+  repeated FlowId affected_flows = 3;
+  map<string, bytes> extension = 4;
 }
 
 // Create a flow
