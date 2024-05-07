@@ -68,6 +68,16 @@ message DropFlowTask {
     DropFlowExpr drop_flow = 1;
 }
 
+// Create a view task
+message CreateViewTask {
+    CreateViewExpr create_view = 1;
+}
+
+// Drop a view task
+message DropViewTask {
+    DropViewExpr drop_view = 1;
+}
+
 message DdlTaskRequest {
     RequestHeader header = 1;
     QueryContext query_context = 64;
@@ -84,6 +94,8 @@ message DdlTaskRequest {
         CreateDatabaseTask create_database_task = 10;
         CreateFlowTask create_flow_task = 11;
         DropFlowTask drop_flow_task = 12;
+        CreateViewTask create_view_task = 13;
+        DropViewTask drop_view_task = 14;
      }
 }
 
