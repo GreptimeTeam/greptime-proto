@@ -2032,8 +2032,23 @@ class CreateViewTask final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kViewInfoFieldNumber = 2,
     kCreateViewFieldNumber = 1,
   };
+  // bytes view_info = 2;
+  void clear_view_info();
+  const std::string& view_info() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_view_info(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_view_info();
+  PROTOBUF_NODISCARD std::string* release_view_info();
+  void set_allocated_view_info(std::string* view_info);
+  private:
+  const std::string& _internal_view_info() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_view_info(const std::string& value);
+  std::string* _internal_mutable_view_info();
+  public:
+
   // .greptime.v1.CreateViewExpr create_view = 1;
   bool has_create_view() const;
   private:
@@ -2060,6 +2075,7 @@ class CreateViewTask final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr view_info_;
     ::greptime::v1::CreateViewExpr* create_view_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -3943,6 +3959,56 @@ inline void CreateViewTask::set_allocated_create_view(::greptime::v1::CreateView
   }
   _impl_.create_view_ = create_view;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.CreateViewTask.create_view)
+}
+
+// bytes view_info = 2;
+inline void CreateViewTask::clear_view_info() {
+  _impl_.view_info_.ClearToEmpty();
+}
+inline const std::string& CreateViewTask::view_info() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.CreateViewTask.view_info)
+  return _internal_view_info();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateViewTask::set_view_info(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.view_info_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.CreateViewTask.view_info)
+}
+inline std::string* CreateViewTask::mutable_view_info() {
+  std::string* _s = _internal_mutable_view_info();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.CreateViewTask.view_info)
+  return _s;
+}
+inline const std::string& CreateViewTask::_internal_view_info() const {
+  return _impl_.view_info_.Get();
+}
+inline void CreateViewTask::_internal_set_view_info(const std::string& value) {
+  
+  _impl_.view_info_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateViewTask::_internal_mutable_view_info() {
+  
+  return _impl_.view_info_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateViewTask::release_view_info() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.CreateViewTask.view_info)
+  return _impl_.view_info_.Release();
+}
+inline void CreateViewTask::set_allocated_view_info(std::string* view_info) {
+  if (view_info != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.view_info_.SetAllocated(view_info, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.view_info_.IsDefault()) {
+    _impl_.view_info_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.CreateViewTask.view_info)
 }
 
 // -------------------------------------------------------------------

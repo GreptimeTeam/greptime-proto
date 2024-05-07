@@ -7958,6 +7958,12 @@ public final class Ddl {
      * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
      */
     io.greptime.v1.Ddl.CreateViewExprOrBuilder getCreateViewOrBuilder();
+
+    /**
+     * <code>bytes view_info = 2;</code>
+     * @return The viewInfo.
+     */
+    com.google.protobuf.ByteString getViewInfo();
   }
   /**
    * <pre>
@@ -7976,6 +7982,7 @@ public final class Ddl {
       super(builder);
     }
     private CreateViewTask() {
+      viewInfo_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -8019,6 +8026,11 @@ public final class Ddl {
                 createView_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 18: {
+
+              viewInfo_ = input.readBytes();
               break;
             }
             default: {
@@ -8081,6 +8093,17 @@ public final class Ddl {
       return getCreateView();
     }
 
+    public static final int VIEW_INFO_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString viewInfo_;
+    /**
+     * <code>bytes view_info = 2;</code>
+     * @return The viewInfo.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getViewInfo() {
+      return viewInfo_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8098,6 +8121,9 @@ public final class Ddl {
       if (createView_ != null) {
         output.writeMessage(1, getCreateView());
       }
+      if (!viewInfo_.isEmpty()) {
+        output.writeBytes(2, viewInfo_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -8110,6 +8136,10 @@ public final class Ddl {
       if (createView_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCreateView());
+      }
+      if (!viewInfo_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, viewInfo_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8131,6 +8161,8 @@ public final class Ddl {
         if (!getCreateView()
             .equals(other.getCreateView())) return false;
       }
+      if (!getViewInfo()
+          .equals(other.getViewInfo())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -8146,6 +8178,8 @@ public final class Ddl {
         hash = (37 * hash) + CREATE_VIEW_FIELD_NUMBER;
         hash = (53 * hash) + getCreateView().hashCode();
       }
+      hash = (37 * hash) + VIEW_INFO_FIELD_NUMBER;
+      hash = (53 * hash) + getViewInfo().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8289,6 +8323,8 @@ public final class Ddl {
           createView_ = null;
           createViewBuilder_ = null;
         }
+        viewInfo_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -8320,6 +8356,7 @@ public final class Ddl {
         } else {
           result.createView_ = createViewBuilder_.build();
         }
+        result.viewInfo_ = viewInfo_;
         onBuilt();
         return result;
       }
@@ -8370,6 +8407,9 @@ public final class Ddl {
         if (other == greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance()) return this;
         if (other.hasCreateView()) {
           mergeCreateView(other.getCreateView());
+        }
+        if (other.getViewInfo() != com.google.protobuf.ByteString.EMPTY) {
+          setViewInfo(other.getViewInfo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -8517,6 +8557,40 @@ public final class Ddl {
           createView_ = null;
         }
         return createViewBuilder_;
+      }
+
+      private com.google.protobuf.ByteString viewInfo_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes view_info = 2;</code>
+       * @return The viewInfo.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getViewInfo() {
+        return viewInfo_;
+      }
+      /**
+       * <code>bytes view_info = 2;</code>
+       * @param value The viewInfo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setViewInfo(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        viewInfo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes view_info = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearViewInfo() {
+        
+        viewInfo_ = getDefaultInstance().getViewInfo();
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -14788,42 +14862,42 @@ public final class Ddl {
       ".v1.DropDatabaseExpr\"B\n\016CreateFlowTask\0220" +
       "\n\013create_flow\030\001 \001(\0132\033.greptime.v1.Create" +
       "FlowExpr\"<\n\014DropFlowTask\022,\n\tdrop_flow\030\001 " +
-      "\001(\0132\031.greptime.v1.DropFlowExpr\"B\n\016Create" +
+      "\001(\0132\031.greptime.v1.DropFlowExpr\"U\n\016Create" +
       "ViewTask\0220\n\013create_view\030\001 \001(\0132\033.greptime" +
-      ".v1.CreateViewExpr\"<\n\014DropViewTask\022,\n\tdr" +
-      "op_view\030\001 \001(\0132\031.greptime.v1.DropViewExpr" +
-      "\"\261\007\n\016DdlTaskRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
-      "eptime.v1.meta.RequestHeader\0220\n\rquery_co" +
-      "ntext\030@ \001(\0132\031.greptime.v1.QueryContext\022>" +
-      "\n\021create_table_task\030\002 \001(\0132!.greptime.v1." +
-      "meta.CreateTableTaskH\000\022:\n\017drop_table_tas" +
-      "k\030\003 \001(\0132\037.greptime.v1.meta.DropTableTask" +
-      "H\000\022<\n\020alter_table_task\030\004 \001(\0132 .greptime." +
-      "v1.meta.AlterTableTaskH\000\022B\n\023truncate_tab" +
-      "le_task\030\005 \001(\0132#.greptime.v1.meta.Truncat" +
-      "eTableTaskH\000\022@\n\022create_table_tasks\030\006 \001(\013" +
-      "2\".greptime.v1.meta.CreateTableTasksH\000\022<" +
-      "\n\020drop_table_tasks\030\007 \001(\0132 .greptime.v1.m" +
-      "eta.DropTableTasksH\000\022>\n\021alter_table_task" +
-      "s\030\010 \001(\0132!.greptime.v1.meta.AlterTableTas" +
-      "ksH\000\022@\n\022drop_database_task\030\t \001(\0132\".grept" +
-      "ime.v1.meta.DropDatabaseTaskH\000\022D\n\024create" +
-      "_database_task\030\n \001(\0132$.greptime.v1.meta." +
-      "CreateDatabaseTaskH\000\022<\n\020create_flow_task" +
-      "\030\013 \001(\0132 .greptime.v1.meta.CreateFlowTask" +
-      "H\000\0228\n\016drop_flow_task\030\014 \001(\0132\036.greptime.v1" +
-      ".meta.DropFlowTaskH\000\022<\n\020create_view_task" +
-      "\030\r \001(\0132 .greptime.v1.meta.CreateViewTask" +
-      "H\000\0228\n\016drop_view_task\030\016 \001(\0132\036.greptime.v1" +
-      ".meta.DropViewTaskH\000B\006\n\004task\"\300\001\n\017DdlTask" +
-      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
-      "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti" +
-      "me.v1.meta.ProcedureId\022&\n\010table_id\030\004 \001(\013" +
-      "2\024.greptime.v1.TableId\022\'\n\ttable_ids\030\005 \003(" +
-      "\0132\024.greptime.v1.TableId*#\n\013DdlTaskType\022\n" +
-      "\n\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1/me" +
-      "tab\006proto3"
+      ".v1.CreateViewExpr\022\021\n\tview_info\030\002 \001(\014\"<\n" +
+      "\014DropViewTask\022,\n\tdrop_view\030\001 \001(\0132\031.grept" +
+      "ime.v1.DropViewExpr\"\261\007\n\016DdlTaskRequest\022/" +
+      "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques" +
+      "tHeader\0220\n\rquery_context\030@ \001(\0132\031.greptim" +
+      "e.v1.QueryContext\022>\n\021create_table_task\030\002" +
+      " \001(\0132!.greptime.v1.meta.CreateTableTaskH" +
+      "\000\022:\n\017drop_table_task\030\003 \001(\0132\037.greptime.v1" +
+      ".meta.DropTableTaskH\000\022<\n\020alter_table_tas" +
+      "k\030\004 \001(\0132 .greptime.v1.meta.AlterTableTas" +
+      "kH\000\022B\n\023truncate_table_task\030\005 \001(\0132#.grept" +
+      "ime.v1.meta.TruncateTableTaskH\000\022@\n\022creat" +
+      "e_table_tasks\030\006 \001(\0132\".greptime.v1.meta.C" +
+      "reateTableTasksH\000\022<\n\020drop_table_tasks\030\007 " +
+      "\001(\0132 .greptime.v1.meta.DropTableTasksH\000\022" +
+      ">\n\021alter_table_tasks\030\010 \001(\0132!.greptime.v1" +
+      ".meta.AlterTableTasksH\000\022@\n\022drop_database" +
+      "_task\030\t \001(\0132\".greptime.v1.meta.DropDatab" +
+      "aseTaskH\000\022D\n\024create_database_task\030\n \001(\0132" +
+      "$.greptime.v1.meta.CreateDatabaseTaskH\000\022" +
+      "<\n\020create_flow_task\030\013 \001(\0132 .greptime.v1." +
+      "meta.CreateFlowTaskH\000\0228\n\016drop_flow_task\030" +
+      "\014 \001(\0132\036.greptime.v1.meta.DropFlowTaskH\000\022" +
+      "<\n\020create_view_task\030\r \001(\0132 .greptime.v1." +
+      "meta.CreateViewTaskH\000\0228\n\016drop_view_task\030" +
+      "\016 \001(\0132\036.greptime.v1.meta.DropViewTaskH\000B" +
+      "\006\n\004task\"\300\001\n\017DdlTaskResponse\0220\n\006header\030\001 " +
+      "\001(\0132 .greptime.v1.meta.ResponseHeader\022*\n" +
+      "\003pid\030\002 \001(\0132\035.greptime.v1.meta.ProcedureI" +
+      "d\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableI" +
+      "d\022\'\n\ttable_ids\030\005 \003(\0132\024.greptime.v1.Table" +
+      "Id*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\001B" +
+      "<Z:github.com/GreptimeTeam/greptime-prot" +
+      "o/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14904,7 +14978,7 @@ public final class Ddl {
     internal_static_greptime_v1_meta_CreateViewTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_CreateViewTask_descriptor,
-        new java.lang.String[] { "CreateView", });
+        new java.lang.String[] { "CreateView", "ViewInfo", });
     internal_static_greptime_v1_meta_DropViewTask_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_meta_DropViewTask_fieldAccessorTable = new

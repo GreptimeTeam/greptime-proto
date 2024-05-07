@@ -71,6 +71,7 @@ message DropFlowTask {
 // Create a view task
 message CreateViewTask {
     CreateViewExpr create_view = 1;
+    bytes view_info = 2;
 }
 
 // Drop a view task

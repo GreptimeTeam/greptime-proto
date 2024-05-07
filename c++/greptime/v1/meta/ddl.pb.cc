@@ -170,7 +170,8 @@ struct DropFlowTaskDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DropFlowTaskDefaultTypeInternal _DropFlowTask_default_instance_;
 PROTOBUF_CONSTEXPR CreateViewTask::CreateViewTask(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.create_view_)*/nullptr
+    /*decltype(_impl_.view_info_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.create_view_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CreateViewTaskDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CreateViewTaskDefaultTypeInternal()
@@ -320,6 +321,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets[] PROTOBU
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::CreateViewTask, _impl_.create_view_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::CreateViewTask, _impl_.view_info_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DropViewTask, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -373,9 +375,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 65, -1, -1, sizeof(::greptime::v1::meta::CreateFlowTask)},
   { 72, -1, -1, sizeof(::greptime::v1::meta::DropFlowTask)},
   { 79, -1, -1, sizeof(::greptime::v1::meta::CreateViewTask)},
-  { 86, -1, -1, sizeof(::greptime::v1::meta::DropViewTask)},
-  { 93, -1, -1, sizeof(::greptime::v1::meta::DdlTaskRequest)},
-  { 115, -1, -1, sizeof(::greptime::v1::meta::DdlTaskResponse)},
+  { 87, -1, -1, sizeof(::greptime::v1::meta::DropViewTask)},
+  { 94, -1, -1, sizeof(::greptime::v1::meta::DdlTaskRequest)},
+  { 116, -1, -1, sizeof(::greptime::v1::meta::DdlTaskResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -421,42 +423,42 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto[] PROTOB
   ".v1.DropDatabaseExpr\"B\n\016CreateFlowTask\0220"
   "\n\013create_flow\030\001 \001(\0132\033.greptime.v1.Create"
   "FlowExpr\"<\n\014DropFlowTask\022,\n\tdrop_flow\030\001 "
-  "\001(\0132\031.greptime.v1.DropFlowExpr\"B\n\016Create"
+  "\001(\0132\031.greptime.v1.DropFlowExpr\"U\n\016Create"
   "ViewTask\0220\n\013create_view\030\001 \001(\0132\033.greptime"
-  ".v1.CreateViewExpr\"<\n\014DropViewTask\022,\n\tdr"
-  "op_view\030\001 \001(\0132\031.greptime.v1.DropViewExpr"
-  "\"\261\007\n\016DdlTaskRequest\022/\n\006header\030\001 \001(\0132\037.gr"
-  "eptime.v1.meta.RequestHeader\0220\n\rquery_co"
-  "ntext\030@ \001(\0132\031.greptime.v1.QueryContext\022>"
-  "\n\021create_table_task\030\002 \001(\0132!.greptime.v1."
-  "meta.CreateTableTaskH\000\022:\n\017drop_table_tas"
-  "k\030\003 \001(\0132\037.greptime.v1.meta.DropTableTask"
-  "H\000\022<\n\020alter_table_task\030\004 \001(\0132 .greptime."
-  "v1.meta.AlterTableTaskH\000\022B\n\023truncate_tab"
-  "le_task\030\005 \001(\0132#.greptime.v1.meta.Truncat"
-  "eTableTaskH\000\022@\n\022create_table_tasks\030\006 \001(\013"
-  "2\".greptime.v1.meta.CreateTableTasksH\000\022<"
-  "\n\020drop_table_tasks\030\007 \001(\0132 .greptime.v1.m"
-  "eta.DropTableTasksH\000\022>\n\021alter_table_task"
-  "s\030\010 \001(\0132!.greptime.v1.meta.AlterTableTas"
-  "ksH\000\022@\n\022drop_database_task\030\t \001(\0132\".grept"
-  "ime.v1.meta.DropDatabaseTaskH\000\022D\n\024create"
-  "_database_task\030\n \001(\0132$.greptime.v1.meta."
-  "CreateDatabaseTaskH\000\022<\n\020create_flow_task"
-  "\030\013 \001(\0132 .greptime.v1.meta.CreateFlowTask"
-  "H\000\0228\n\016drop_flow_task\030\014 \001(\0132\036.greptime.v1"
-  ".meta.DropFlowTaskH\000\022<\n\020create_view_task"
-  "\030\r \001(\0132 .greptime.v1.meta.CreateViewTask"
-  "H\000\0228\n\016drop_view_task\030\016 \001(\0132\036.greptime.v1"
-  ".meta.DropViewTaskH\000B\006\n\004task\"\300\001\n\017DdlTask"
-  "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
-  "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti"
-  "me.v1.meta.ProcedureId\022&\n\010table_id\030\004 \001(\013"
-  "2\024.greptime.v1.TableId\022\'\n\ttable_ids\030\005 \003("
-  "\0132\024.greptime.v1.TableId*#\n\013DdlTaskType\022\n"
-  "\n\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/Grept"
-  "imeTeam/greptime-proto/go/greptime/v1/me"
-  "tab\006proto3"
+  ".v1.CreateViewExpr\022\021\n\tview_info\030\002 \001(\014\"<\n"
+  "\014DropViewTask\022,\n\tdrop_view\030\001 \001(\0132\031.grept"
+  "ime.v1.DropViewExpr\"\261\007\n\016DdlTaskRequest\022/"
+  "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques"
+  "tHeader\0220\n\rquery_context\030@ \001(\0132\031.greptim"
+  "e.v1.QueryContext\022>\n\021create_table_task\030\002"
+  " \001(\0132!.greptime.v1.meta.CreateTableTaskH"
+  "\000\022:\n\017drop_table_task\030\003 \001(\0132\037.greptime.v1"
+  ".meta.DropTableTaskH\000\022<\n\020alter_table_tas"
+  "k\030\004 \001(\0132 .greptime.v1.meta.AlterTableTas"
+  "kH\000\022B\n\023truncate_table_task\030\005 \001(\0132#.grept"
+  "ime.v1.meta.TruncateTableTaskH\000\022@\n\022creat"
+  "e_table_tasks\030\006 \001(\0132\".greptime.v1.meta.C"
+  "reateTableTasksH\000\022<\n\020drop_table_tasks\030\007 "
+  "\001(\0132 .greptime.v1.meta.DropTableTasksH\000\022"
+  ">\n\021alter_table_tasks\030\010 \001(\0132!.greptime.v1"
+  ".meta.AlterTableTasksH\000\022@\n\022drop_database"
+  "_task\030\t \001(\0132\".greptime.v1.meta.DropDatab"
+  "aseTaskH\000\022D\n\024create_database_task\030\n \001(\0132"
+  "$.greptime.v1.meta.CreateDatabaseTaskH\000\022"
+  "<\n\020create_flow_task\030\013 \001(\0132 .greptime.v1."
+  "meta.CreateFlowTaskH\000\0228\n\016drop_flow_task\030"
+  "\014 \001(\0132\036.greptime.v1.meta.DropFlowTaskH\000\022"
+  "<\n\020create_view_task\030\r \001(\0132 .greptime.v1."
+  "meta.CreateViewTaskH\000\0228\n\016drop_view_task\030"
+  "\016 \001(\0132\036.greptime.v1.meta.DropViewTaskH\000B"
+  "\006\n\004task\"\300\001\n\017DdlTaskResponse\0220\n\006header\030\001 "
+  "\001(\0132 .greptime.v1.meta.ResponseHeader\022*\n"
+  "\003pid\030\002 \001(\0132\035.greptime.v1.meta.ProcedureI"
+  "d\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableI"
+  "d\022\'\n\ttable_ids\030\005 \003(\0132\024.greptime.v1.Table"
+  "Id*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\001B"
+  "<Z:github.com/GreptimeTeam/greptime-prot"
+  "o/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps[4] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -466,7 +468,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto = {
-    false, false, 2370, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
+    false, false, 2389, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
     "greptime/v1/meta/ddl.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps, 4, 15,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets,
@@ -2755,10 +2757,19 @@ CreateViewTask::CreateViewTask(const CreateViewTask& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   CreateViewTask* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.create_view_){nullptr}
+      decltype(_impl_.view_info_){}
+    , decltype(_impl_.create_view_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.view_info_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.view_info_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_view_info().empty()) {
+    _this->_impl_.view_info_.Set(from._internal_view_info(), 
+      _this->GetArenaForAllocation());
+  }
   if (from._internal_has_create_view()) {
     _this->_impl_.create_view_ = new ::greptime::v1::CreateViewExpr(*from._impl_.create_view_);
   }
@@ -2770,9 +2781,14 @@ inline void CreateViewTask::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.create_view_){nullptr}
+      decltype(_impl_.view_info_){}
+    , decltype(_impl_.create_view_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.view_info_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.view_info_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 CreateViewTask::~CreateViewTask() {
@@ -2786,6 +2802,7 @@ CreateViewTask::~CreateViewTask() {
 
 inline void CreateViewTask::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.view_info_.Destroy();
   if (this != internal_default_instance()) delete _impl_.create_view_;
 }
 
@@ -2799,6 +2816,7 @@ void CreateViewTask::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.view_info_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.create_view_ != nullptr) {
     delete _impl_.create_view_;
   }
@@ -2816,6 +2834,15 @@ const char* CreateViewTask::_InternalParse(const char* ptr, ::_pbi::ParseContext
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_create_view(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes view_info = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_view_info();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2856,6 +2883,12 @@ uint8_t* CreateViewTask::_InternalSerialize(
         _Internal::create_view(this).GetCachedSize(), target, stream);
   }
 
+  // bytes view_info = 2;
+  if (!this->_internal_view_info().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_view_info(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2871,6 +2904,13 @@ size_t CreateViewTask::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // bytes view_info = 2;
+  if (!this->_internal_view_info().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_view_info());
+  }
 
   // .greptime.v1.CreateViewExpr create_view = 1;
   if (this->_internal_has_create_view()) {
@@ -2897,6 +2937,9 @@ void CreateViewTask::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_view_info().empty()) {
+    _this->_internal_set_view_info(from._internal_view_info());
+  }
   if (from._internal_has_create_view()) {
     _this->_internal_mutable_create_view()->::greptime::v1::CreateViewExpr::MergeFrom(
         from._internal_create_view());
@@ -2917,7 +2960,13 @@ bool CreateViewTask::IsInitialized() const {
 
 void CreateViewTask::InternalSwap(CreateViewTask* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.view_info_, lhs_arena,
+      &other->_impl_.view_info_, rhs_arena
+  );
   swap(_impl_.create_view_, other->_impl_.create_view_);
 }
 
