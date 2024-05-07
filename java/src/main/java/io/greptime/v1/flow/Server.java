@@ -3771,11 +3771,55 @@ java.lang.String defaultValue);
     long getAffectedRows();
 
     /**
-     * <code>map&lt;string, bytes&gt; extension = 3;</code>
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    java.util.List<io.greptime.v1.Ddl.FlowId> 
+        getAffectedFlowsList();
+    /**
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    io.greptime.v1.Ddl.FlowId getAffectedFlows(int index);
+    /**
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    int getAffectedFlowsCount();
+    /**
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    java.util.List<? extends io.greptime.v1.Ddl.FlowIdOrBuilder> 
+        getAffectedFlowsOrBuilderList();
+    /**
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    io.greptime.v1.Ddl.FlowIdOrBuilder getAffectedFlowsOrBuilder(
+        int index);
+
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 4;</code>
      */
     int getExtensionCount();
     /**
-     * <code>map&lt;string, bytes&gt; extension = 3;</code>
+     * <code>map&lt;string, bytes&gt; extension = 4;</code>
      */
     boolean containsExtension(
         java.lang.String key);
@@ -3786,12 +3830,12 @@ java.lang.String defaultValue);
     java.util.Map<java.lang.String, com.google.protobuf.ByteString>
     getExtension();
     /**
-     * <code>map&lt;string, bytes&gt; extension = 3;</code>
+     * <code>map&lt;string, bytes&gt; extension = 4;</code>
      */
     java.util.Map<java.lang.String, com.google.protobuf.ByteString>
     getExtensionMap();
     /**
-     * <code>map&lt;string, bytes&gt; extension = 3;</code>
+     * <code>map&lt;string, bytes&gt; extension = 4;</code>
      */
 
     /* nullable */
@@ -3800,55 +3844,11 @@ com.google.protobuf.ByteString getExtensionOrDefault(
         /* nullable */
 com.google.protobuf.ByteString defaultValue);
     /**
-     * <code>map&lt;string, bytes&gt; extension = 3;</code>
+     * <code>map&lt;string, bytes&gt; extension = 4;</code>
      */
 
     com.google.protobuf.ByteString getExtensionOrThrow(
         java.lang.String key);
-
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    java.util.List<io.greptime.v1.Ddl.FlowId> 
-        getAffectedTasksList();
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    io.greptime.v1.Ddl.FlowId getAffectedTasks(int index);
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    int getAffectedTasksCount();
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    java.util.List<? extends io.greptime.v1.Ddl.FlowIdOrBuilder> 
-        getAffectedTasksOrBuilderList();
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    io.greptime.v1.Ddl.FlowIdOrBuilder getAffectedTasksOrBuilder(
-        int index);
   }
   /**
    * Protobuf type {@code greptime.v1.flow.FlowResponse}
@@ -3863,7 +3863,7 @@ com.google.protobuf.ByteString defaultValue);
       super(builder);
     }
     private FlowResponse() {
-      affectedTasks_ = java.util.Collections.emptyList();
+      affectedFlows_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -3917,24 +3917,24 @@ com.google.protobuf.ByteString defaultValue);
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                affectedFlows_ = new java.util.ArrayList<io.greptime.v1.Ddl.FlowId>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              affectedFlows_.add(
+                  input.readMessage(io.greptime.v1.Ddl.FlowId.parser(), extensionRegistry));
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 extension_ = com.google.protobuf.MapField.newMapField(
                     ExtensionDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
               extension__ = input.readMessage(
                   ExtensionDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               extension_.getMutableMap().put(
                   extension__.getKey(), extension__.getValue());
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                affectedTasks_ = new java.util.ArrayList<io.greptime.v1.Ddl.FlowId>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              affectedTasks_.add(
-                  input.readMessage(io.greptime.v1.Ddl.FlowId.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -3954,8 +3954,8 @@ com.google.protobuf.ByteString defaultValue);
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          affectedTasks_ = java.util.Collections.unmodifiableList(affectedTasks_);
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          affectedFlows_ = java.util.Collections.unmodifiableList(affectedFlows_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3971,7 +3971,7 @@ com.google.protobuf.ByteString defaultValue);
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 3:
+        case 4:
           return internalGetExtension();
         default:
           throw new RuntimeException(
@@ -4023,7 +4023,67 @@ com.google.protobuf.ByteString defaultValue);
       return affectedRows_;
     }
 
-    public static final int EXTENSION_FIELD_NUMBER = 3;
+    public static final int AFFECTED_FLOWS_FIELD_NUMBER = 3;
+    private java.util.List<io.greptime.v1.Ddl.FlowId> affectedFlows_;
+    /**
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.Ddl.FlowId> getAffectedFlowsList() {
+      return affectedFlows_;
+    }
+    /**
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.Ddl.FlowIdOrBuilder> 
+        getAffectedFlowsOrBuilderList() {
+      return affectedFlows_;
+    }
+    /**
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    @java.lang.Override
+    public int getAffectedFlowsCount() {
+      return affectedFlows_.size();
+    }
+    /**
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowId getAffectedFlows(int index) {
+      return affectedFlows_.get(index);
+    }
+    /**
+     * <pre>
+     * affected flow ids
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowIdOrBuilder getAffectedFlowsOrBuilder(
+        int index) {
+      return affectedFlows_.get(index);
+    }
+
+    public static final int EXTENSION_FIELD_NUMBER = 4;
     private static final class ExtensionDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, com.google.protobuf.ByteString> defaultEntry =
@@ -4050,7 +4110,7 @@ com.google.protobuf.ByteString defaultValue);
       return internalGetExtension().getMap().size();
     }
     /**
-     * <code>map&lt;string, bytes&gt; extension = 3;</code>
+     * <code>map&lt;string, bytes&gt; extension = 4;</code>
      */
 
     @java.lang.Override
@@ -4068,7 +4128,7 @@ com.google.protobuf.ByteString defaultValue);
       return getExtensionMap();
     }
     /**
-     * <code>map&lt;string, bytes&gt; extension = 3;</code>
+     * <code>map&lt;string, bytes&gt; extension = 4;</code>
      */
     @java.lang.Override
 
@@ -4076,7 +4136,7 @@ com.google.protobuf.ByteString defaultValue);
       return internalGetExtension().getMap();
     }
     /**
-     * <code>map&lt;string, bytes&gt; extension = 3;</code>
+     * <code>map&lt;string, bytes&gt; extension = 4;</code>
      */
     @java.lang.Override
 
@@ -4089,7 +4149,7 @@ com.google.protobuf.ByteString defaultValue);
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, bytes&gt; extension = 3;</code>
+     * <code>map&lt;string, bytes&gt; extension = 4;</code>
      */
     @java.lang.Override
 
@@ -4102,66 +4162,6 @@ com.google.protobuf.ByteString defaultValue);
         throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
-    }
-
-    public static final int AFFECTED_TASKS_FIELD_NUMBER = 4;
-    private java.util.List<io.greptime.v1.Ddl.FlowId> affectedTasks_;
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    @java.lang.Override
-    public java.util.List<io.greptime.v1.Ddl.FlowId> getAffectedTasksList() {
-      return affectedTasks_;
-    }
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.Ddl.FlowIdOrBuilder> 
-        getAffectedTasksOrBuilderList() {
-      return affectedTasks_;
-    }
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    @java.lang.Override
-    public int getAffectedTasksCount() {
-      return affectedTasks_.size();
-    }
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.FlowId getAffectedTasks(int index) {
-      return affectedTasks_.get(index);
-    }
-    /**
-     * <pre>
-     * affected task ids
-     * </pre>
-     *
-     * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.FlowIdOrBuilder getAffectedTasksOrBuilder(
-        int index) {
-      return affectedTasks_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4184,15 +4184,15 @@ com.google.protobuf.ByteString defaultValue);
       if (affectedRows_ != 0L) {
         output.writeUInt64(2, affectedRows_);
       }
+      for (int i = 0; i < affectedFlows_.size(); i++) {
+        output.writeMessage(3, affectedFlows_.get(i));
+      }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
           internalGetExtension(),
           ExtensionDefaultEntryHolder.defaultEntry,
-          3);
-      for (int i = 0; i < affectedTasks_.size(); i++) {
-        output.writeMessage(4, affectedTasks_.get(i));
-      }
+          4);
       unknownFields.writeTo(output);
     }
 
@@ -4210,6 +4210,10 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, affectedRows_);
       }
+      for (int i = 0; i < affectedFlows_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, affectedFlows_.get(i));
+      }
       for (java.util.Map.Entry<java.lang.String, com.google.protobuf.ByteString> entry
            : internalGetExtension().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
@@ -4218,11 +4222,7 @@ com.google.protobuf.ByteString defaultValue);
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(3, extension__);
-      }
-      for (int i = 0; i < affectedTasks_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, affectedTasks_.get(i));
+            .computeMessageSize(4, extension__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4246,10 +4246,10 @@ com.google.protobuf.ByteString defaultValue);
       }
       if (getAffectedRows()
           != other.getAffectedRows()) return false;
+      if (!getAffectedFlowsList()
+          .equals(other.getAffectedFlowsList())) return false;
       if (!internalGetExtension().equals(
           other.internalGetExtension())) return false;
-      if (!getAffectedTasksList()
-          .equals(other.getAffectedTasksList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4268,13 +4268,13 @@ com.google.protobuf.ByteString defaultValue);
       hash = (37 * hash) + AFFECTED_ROWS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getAffectedRows());
+      if (getAffectedFlowsCount() > 0) {
+        hash = (37 * hash) + AFFECTED_FLOWS_FIELD_NUMBER;
+        hash = (53 * hash) + getAffectedFlowsList().hashCode();
+      }
       if (!internalGetExtension().getMap().isEmpty()) {
         hash = (37 * hash) + EXTENSION_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtension().hashCode();
-      }
-      if (getAffectedTasksCount() > 0) {
-        hash = (37 * hash) + AFFECTED_TASKS_FIELD_NUMBER;
-        hash = (53 * hash) + getAffectedTasksList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4387,7 +4387,7 @@ com.google.protobuf.ByteString defaultValue);
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 3:
+          case 4:
             return internalGetExtension();
           default:
             throw new RuntimeException(
@@ -4398,7 +4398,7 @@ com.google.protobuf.ByteString defaultValue);
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 3:
+          case 4:
             return internalGetMutableExtension();
           default:
             throw new RuntimeException(
@@ -4426,7 +4426,7 @@ com.google.protobuf.ByteString defaultValue);
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getAffectedTasksFieldBuilder();
+          getAffectedFlowsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -4440,13 +4440,13 @@ com.google.protobuf.ByteString defaultValue);
         }
         affectedRows_ = 0L;
 
-        internalGetMutableExtension().clear();
-        if (affectedTasksBuilder_ == null) {
-          affectedTasks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+        if (affectedFlowsBuilder_ == null) {
+          affectedFlows_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          affectedTasksBuilder_.clear();
+          affectedFlowsBuilder_.clear();
         }
+        internalGetMutableExtension().clear();
         return this;
       }
 
@@ -4480,17 +4480,17 @@ com.google.protobuf.ByteString defaultValue);
           result.header_ = headerBuilder_.build();
         }
         result.affectedRows_ = affectedRows_;
+        if (affectedFlowsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            affectedFlows_ = java.util.Collections.unmodifiableList(affectedFlows_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.affectedFlows_ = affectedFlows_;
+        } else {
+          result.affectedFlows_ = affectedFlowsBuilder_.build();
+        }
         result.extension_ = internalGetExtension();
         result.extension_.makeImmutable();
-        if (affectedTasksBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
-            affectedTasks_ = java.util.Collections.unmodifiableList(affectedTasks_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
-          result.affectedTasks_ = affectedTasks_;
-        } else {
-          result.affectedTasks_ = affectedTasksBuilder_.build();
-        }
         onBuilt();
         return result;
       }
@@ -4545,34 +4545,34 @@ com.google.protobuf.ByteString defaultValue);
         if (other.getAffectedRows() != 0L) {
           setAffectedRows(other.getAffectedRows());
         }
-        internalGetMutableExtension().mergeFrom(
-            other.internalGetExtension());
-        if (affectedTasksBuilder_ == null) {
-          if (!other.affectedTasks_.isEmpty()) {
-            if (affectedTasks_.isEmpty()) {
-              affectedTasks_ = other.affectedTasks_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+        if (affectedFlowsBuilder_ == null) {
+          if (!other.affectedFlows_.isEmpty()) {
+            if (affectedFlows_.isEmpty()) {
+              affectedFlows_ = other.affectedFlows_;
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureAffectedTasksIsMutable();
-              affectedTasks_.addAll(other.affectedTasks_);
+              ensureAffectedFlowsIsMutable();
+              affectedFlows_.addAll(other.affectedFlows_);
             }
             onChanged();
           }
         } else {
-          if (!other.affectedTasks_.isEmpty()) {
-            if (affectedTasksBuilder_.isEmpty()) {
-              affectedTasksBuilder_.dispose();
-              affectedTasksBuilder_ = null;
-              affectedTasks_ = other.affectedTasks_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              affectedTasksBuilder_ = 
+          if (!other.affectedFlows_.isEmpty()) {
+            if (affectedFlowsBuilder_.isEmpty()) {
+              affectedFlowsBuilder_.dispose();
+              affectedFlowsBuilder_ = null;
+              affectedFlows_ = other.affectedFlows_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              affectedFlowsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getAffectedTasksFieldBuilder() : null;
+                   getAffectedFlowsFieldBuilder() : null;
             } else {
-              affectedTasksBuilder_.addAllMessages(other.affectedTasks_);
+              affectedFlowsBuilder_.addAllMessages(other.affectedFlows_);
             }
           }
         }
+        internalGetMutableExtension().mergeFrom(
+            other.internalGetExtension());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4753,6 +4753,318 @@ com.google.protobuf.ByteString defaultValue);
         return this;
       }
 
+      private java.util.List<io.greptime.v1.Ddl.FlowId> affectedFlows_ =
+        java.util.Collections.emptyList();
+      private void ensureAffectedFlowsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          affectedFlows_ = new java.util.ArrayList<io.greptime.v1.Ddl.FlowId>(affectedFlows_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder> affectedFlowsBuilder_;
+
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public java.util.List<io.greptime.v1.Ddl.FlowId> getAffectedFlowsList() {
+        if (affectedFlowsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(affectedFlows_);
+        } else {
+          return affectedFlowsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public int getAffectedFlowsCount() {
+        if (affectedFlowsBuilder_ == null) {
+          return affectedFlows_.size();
+        } else {
+          return affectedFlowsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public io.greptime.v1.Ddl.FlowId getAffectedFlows(int index) {
+        if (affectedFlowsBuilder_ == null) {
+          return affectedFlows_.get(index);
+        } else {
+          return affectedFlowsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public Builder setAffectedFlows(
+          int index, io.greptime.v1.Ddl.FlowId value) {
+        if (affectedFlowsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAffectedFlowsIsMutable();
+          affectedFlows_.set(index, value);
+          onChanged();
+        } else {
+          affectedFlowsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public Builder setAffectedFlows(
+          int index, io.greptime.v1.Ddl.FlowId.Builder builderForValue) {
+        if (affectedFlowsBuilder_ == null) {
+          ensureAffectedFlowsIsMutable();
+          affectedFlows_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          affectedFlowsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public Builder addAffectedFlows(io.greptime.v1.Ddl.FlowId value) {
+        if (affectedFlowsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAffectedFlowsIsMutable();
+          affectedFlows_.add(value);
+          onChanged();
+        } else {
+          affectedFlowsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public Builder addAffectedFlows(
+          int index, io.greptime.v1.Ddl.FlowId value) {
+        if (affectedFlowsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAffectedFlowsIsMutable();
+          affectedFlows_.add(index, value);
+          onChanged();
+        } else {
+          affectedFlowsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public Builder addAffectedFlows(
+          io.greptime.v1.Ddl.FlowId.Builder builderForValue) {
+        if (affectedFlowsBuilder_ == null) {
+          ensureAffectedFlowsIsMutable();
+          affectedFlows_.add(builderForValue.build());
+          onChanged();
+        } else {
+          affectedFlowsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public Builder addAffectedFlows(
+          int index, io.greptime.v1.Ddl.FlowId.Builder builderForValue) {
+        if (affectedFlowsBuilder_ == null) {
+          ensureAffectedFlowsIsMutable();
+          affectedFlows_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          affectedFlowsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public Builder addAllAffectedFlows(
+          java.lang.Iterable<? extends io.greptime.v1.Ddl.FlowId> values) {
+        if (affectedFlowsBuilder_ == null) {
+          ensureAffectedFlowsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, affectedFlows_);
+          onChanged();
+        } else {
+          affectedFlowsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public Builder clearAffectedFlows() {
+        if (affectedFlowsBuilder_ == null) {
+          affectedFlows_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          affectedFlowsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public Builder removeAffectedFlows(int index) {
+        if (affectedFlowsBuilder_ == null) {
+          ensureAffectedFlowsIsMutable();
+          affectedFlows_.remove(index);
+          onChanged();
+        } else {
+          affectedFlowsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public io.greptime.v1.Ddl.FlowId.Builder getAffectedFlowsBuilder(
+          int index) {
+        return getAffectedFlowsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public io.greptime.v1.Ddl.FlowIdOrBuilder getAffectedFlowsOrBuilder(
+          int index) {
+        if (affectedFlowsBuilder_ == null) {
+          return affectedFlows_.get(index);  } else {
+          return affectedFlowsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.Ddl.FlowIdOrBuilder> 
+           getAffectedFlowsOrBuilderList() {
+        if (affectedFlowsBuilder_ != null) {
+          return affectedFlowsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(affectedFlows_);
+        }
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public io.greptime.v1.Ddl.FlowId.Builder addAffectedFlowsBuilder() {
+        return getAffectedFlowsFieldBuilder().addBuilder(
+            io.greptime.v1.Ddl.FlowId.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public io.greptime.v1.Ddl.FlowId.Builder addAffectedFlowsBuilder(
+          int index) {
+        return getAffectedFlowsFieldBuilder().addBuilder(
+            index, io.greptime.v1.Ddl.FlowId.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * affected flow ids
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.FlowId affected_flows = 3;</code>
+       */
+      public java.util.List<io.greptime.v1.Ddl.FlowId.Builder> 
+           getAffectedFlowsBuilderList() {
+        return getAffectedFlowsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder> 
+          getAffectedFlowsFieldBuilder() {
+        if (affectedFlowsBuilder_ == null) {
+          affectedFlowsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder>(
+                  affectedFlows_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          affectedFlows_ = null;
+        }
+        return affectedFlowsBuilder_;
+      }
+
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf.ByteString> extension_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
@@ -4780,7 +5092,7 @@ com.google.protobuf.ByteString defaultValue);
         return internalGetExtension().getMap().size();
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 3;</code>
+       * <code>map&lt;string, bytes&gt; extension = 4;</code>
        */
 
       @java.lang.Override
@@ -4798,7 +5110,7 @@ com.google.protobuf.ByteString defaultValue);
         return getExtensionMap();
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 3;</code>
+       * <code>map&lt;string, bytes&gt; extension = 4;</code>
        */
       @java.lang.Override
 
@@ -4806,7 +5118,7 @@ com.google.protobuf.ByteString defaultValue);
         return internalGetExtension().getMap();
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 3;</code>
+       * <code>map&lt;string, bytes&gt; extension = 4;</code>
        */
       @java.lang.Override
 
@@ -4819,7 +5131,7 @@ com.google.protobuf.ByteString defaultValue);
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 3;</code>
+       * <code>map&lt;string, bytes&gt; extension = 4;</code>
        */
       @java.lang.Override
 
@@ -4840,7 +5152,7 @@ com.google.protobuf.ByteString defaultValue);
         return this;
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 3;</code>
+       * <code>map&lt;string, bytes&gt; extension = 4;</code>
        */
 
       public Builder removeExtension(
@@ -4859,7 +5171,7 @@ com.google.protobuf.ByteString defaultValue);
         return internalGetMutableExtension().getMutableMap();
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 3;</code>
+       * <code>map&lt;string, bytes&gt; extension = 4;</code>
        */
       public Builder putExtension(
           java.lang.String key,
@@ -4874,7 +5186,7 @@ com.google.protobuf.ByteString defaultValue);
         return this;
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 3;</code>
+       * <code>map&lt;string, bytes&gt; extension = 4;</code>
        */
 
       public Builder putAllExtension(
@@ -4882,318 +5194,6 @@ com.google.protobuf.ByteString defaultValue);
         internalGetMutableExtension().getMutableMap()
             .putAll(values);
         return this;
-      }
-
-      private java.util.List<io.greptime.v1.Ddl.FlowId> affectedTasks_ =
-        java.util.Collections.emptyList();
-      private void ensureAffectedTasksIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
-          affectedTasks_ = new java.util.ArrayList<io.greptime.v1.Ddl.FlowId>(affectedTasks_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder> affectedTasksBuilder_;
-
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public java.util.List<io.greptime.v1.Ddl.FlowId> getAffectedTasksList() {
-        if (affectedTasksBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(affectedTasks_);
-        } else {
-          return affectedTasksBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public int getAffectedTasksCount() {
-        if (affectedTasksBuilder_ == null) {
-          return affectedTasks_.size();
-        } else {
-          return affectedTasksBuilder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public io.greptime.v1.Ddl.FlowId getAffectedTasks(int index) {
-        if (affectedTasksBuilder_ == null) {
-          return affectedTasks_.get(index);
-        } else {
-          return affectedTasksBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public Builder setAffectedTasks(
-          int index, io.greptime.v1.Ddl.FlowId value) {
-        if (affectedTasksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureAffectedTasksIsMutable();
-          affectedTasks_.set(index, value);
-          onChanged();
-        } else {
-          affectedTasksBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public Builder setAffectedTasks(
-          int index, io.greptime.v1.Ddl.FlowId.Builder builderForValue) {
-        if (affectedTasksBuilder_ == null) {
-          ensureAffectedTasksIsMutable();
-          affectedTasks_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          affectedTasksBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public Builder addAffectedTasks(io.greptime.v1.Ddl.FlowId value) {
-        if (affectedTasksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureAffectedTasksIsMutable();
-          affectedTasks_.add(value);
-          onChanged();
-        } else {
-          affectedTasksBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public Builder addAffectedTasks(
-          int index, io.greptime.v1.Ddl.FlowId value) {
-        if (affectedTasksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureAffectedTasksIsMutable();
-          affectedTasks_.add(index, value);
-          onChanged();
-        } else {
-          affectedTasksBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public Builder addAffectedTasks(
-          io.greptime.v1.Ddl.FlowId.Builder builderForValue) {
-        if (affectedTasksBuilder_ == null) {
-          ensureAffectedTasksIsMutable();
-          affectedTasks_.add(builderForValue.build());
-          onChanged();
-        } else {
-          affectedTasksBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public Builder addAffectedTasks(
-          int index, io.greptime.v1.Ddl.FlowId.Builder builderForValue) {
-        if (affectedTasksBuilder_ == null) {
-          ensureAffectedTasksIsMutable();
-          affectedTasks_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          affectedTasksBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public Builder addAllAffectedTasks(
-          java.lang.Iterable<? extends io.greptime.v1.Ddl.FlowId> values) {
-        if (affectedTasksBuilder_ == null) {
-          ensureAffectedTasksIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, affectedTasks_);
-          onChanged();
-        } else {
-          affectedTasksBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public Builder clearAffectedTasks() {
-        if (affectedTasksBuilder_ == null) {
-          affectedTasks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-          onChanged();
-        } else {
-          affectedTasksBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public Builder removeAffectedTasks(int index) {
-        if (affectedTasksBuilder_ == null) {
-          ensureAffectedTasksIsMutable();
-          affectedTasks_.remove(index);
-          onChanged();
-        } else {
-          affectedTasksBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public io.greptime.v1.Ddl.FlowId.Builder getAffectedTasksBuilder(
-          int index) {
-        return getAffectedTasksFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public io.greptime.v1.Ddl.FlowIdOrBuilder getAffectedTasksOrBuilder(
-          int index) {
-        if (affectedTasksBuilder_ == null) {
-          return affectedTasks_.get(index);  } else {
-          return affectedTasksBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public java.util.List<? extends io.greptime.v1.Ddl.FlowIdOrBuilder> 
-           getAffectedTasksOrBuilderList() {
-        if (affectedTasksBuilder_ != null) {
-          return affectedTasksBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(affectedTasks_);
-        }
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public io.greptime.v1.Ddl.FlowId.Builder addAffectedTasksBuilder() {
-        return getAffectedTasksFieldBuilder().addBuilder(
-            io.greptime.v1.Ddl.FlowId.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public io.greptime.v1.Ddl.FlowId.Builder addAffectedTasksBuilder(
-          int index) {
-        return getAffectedTasksFieldBuilder().addBuilder(
-            index, io.greptime.v1.Ddl.FlowId.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * affected task ids
-       * </pre>
-       *
-       * <code>repeated .greptime.v1.FlowId affected_tasks = 4;</code>
-       */
-      public java.util.List<io.greptime.v1.Ddl.FlowId.Builder> 
-           getAffectedTasksBuilderList() {
-        return getAffectedTasksFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder> 
-          getAffectedTasksFieldBuilder() {
-        if (affectedTasksBuilder_ == null) {
-          affectedTasksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder>(
-                  affectedTasks_,
-                  ((bitField0_ & 0x00000002) != 0),
-                  getParentForChildren(),
-                  isClean());
-          affectedTasks_ = null;
-        }
-        return affectedTasksBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -8006,9 +8006,9 @@ java.lang.String defaultValue);
       "(\0132\035.greptime.v1.flow.DropRequestH\000B\006\n\004b" +
       "ody\"\363\001\n\014FlowResponse\022+\n\006header\030\001 \001(\0132\033.g" +
       "reptime.v1.ResponseHeader\022\025\n\raffected_ro" +
-      "ws\030\002 \001(\004\022@\n\textension\030\003 \003(\0132-.greptime.v" +
-      "1.flow.FlowResponse.ExtensionEntry\022+\n\016af" +
-      "fected_tasks\030\004 \003(\0132\023.greptime.v1.FlowId\032" +
+      "ws\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023.grept" +
+      "ime.v1.FlowId\022@\n\textension\030\004 \003(\0132-.grept" +
+      "ime.v1.flow.FlowResponse.ExtensionEntry\032" +
       "0\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
       "\002 \001(\014:\0028\001\"\343\002\n\rCreateRequest\022$\n\007flow_id\030\001" +
       " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl" +
@@ -8071,7 +8071,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_FlowResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowResponse_descriptor,
-        new java.lang.String[] { "Header", "AffectedRows", "Extension", "AffectedTasks", });
+        new java.lang.String[] { "Header", "AffectedRows", "AffectedFlows", "Extension", });
     internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_descriptor =
       internal_static_greptime_v1_flow_FlowResponse_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_fieldAccessorTable = new

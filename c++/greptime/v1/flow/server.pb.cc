@@ -103,8 +103,8 @@ struct FlowResponse_ExtensionEntry_DoNotUseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowResponse_ExtensionEntry_DoNotUseDefaultTypeInternal _FlowResponse_ExtensionEntry_DoNotUse_default_instance_;
 PROTOBUF_CONSTEXPR FlowResponse::FlowResponse(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.extension_)*/{::_pbi::ConstantInitialized()}
-  , /*decltype(_impl_.affected_tasks_)*/{}
+    /*decltype(_impl_.affected_flows_)*/{}
+  , /*decltype(_impl_.extension_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.affected_rows_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -230,8 +230,8 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.affected_rows_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.affected_flows_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.extension_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.affected_tasks_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -309,9 +309,9 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "(\0132\035.greptime.v1.flow.DropRequestH\000B\006\n\004b"
   "ody\"\363\001\n\014FlowResponse\022+\n\006header\030\001 \001(\0132\033.g"
   "reptime.v1.ResponseHeader\022\025\n\raffected_ro"
-  "ws\030\002 \001(\004\022@\n\textension\030\003 \003(\0132-.greptime.v"
-  "1.flow.FlowResponse.ExtensionEntry\022+\n\016af"
-  "fected_tasks\030\004 \003(\0132\023.greptime.v1.FlowId\032"
+  "ws\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023.grept"
+  "ime.v1.FlowId\022@\n\textension\030\004 \003(\0132-.grept"
+  "ime.v1.flow.FlowResponse.ExtensionEntry\032"
   "0\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
   "\002 \001(\014:\0028\001\"\343\002\n\rCreateRequest\022$\n\007flow_id\030\001"
   " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl"
@@ -1430,8 +1430,8 @@ void FlowResponse::clear_header() {
   }
   _impl_.header_ = nullptr;
 }
-void FlowResponse::clear_affected_tasks() {
-  _impl_.affected_tasks_.Clear();
+void FlowResponse::clear_affected_flows() {
+  _impl_.affected_flows_.Clear();
 }
 FlowResponse::FlowResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1446,8 +1446,8 @@ FlowResponse::FlowResponse(const FlowResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   FlowResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      /*decltype(_impl_.extension_)*/{}
-    , decltype(_impl_.affected_tasks_){from._impl_.affected_tasks_}
+      decltype(_impl_.affected_flows_){from._impl_.affected_flows_}
+    , /*decltype(_impl_.extension_)*/{}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.affected_rows_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -1466,8 +1466,8 @@ inline void FlowResponse::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      /*decltype(_impl_.extension_)*/{::_pbi::ArenaInitialized(), arena}
-    , decltype(_impl_.affected_tasks_){arena}
+      decltype(_impl_.affected_flows_){arena}
+    , /*decltype(_impl_.extension_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.affected_rows_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -1486,9 +1486,9 @@ FlowResponse::~FlowResponse() {
 
 inline void FlowResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.affected_flows_.~RepeatedPtrField();
   _impl_.extension_.Destruct();
   _impl_.extension_.~MapField();
-  _impl_.affected_tasks_.~RepeatedPtrField();
   if (this != internal_default_instance()) delete _impl_.header_;
 }
 
@@ -1506,8 +1506,8 @@ void FlowResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.affected_flows_.Clear();
   _impl_.extension_.Clear();
-  _impl_.affected_tasks_.Clear();
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
@@ -1538,26 +1538,26 @@ const char* FlowResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // map<string, bytes> extension = 3;
+      // repeated .greptime.v1.FlowId affected_flows = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&_impl_.extension_, ptr);
+            ptr = ctx->ParseMessage(_internal_add_affected_flows(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else
           goto handle_unusual;
         continue;
-      // repeated .greptime.v1.FlowId affected_tasks = 4;
+      // map<string, bytes> extension = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_affected_tasks(), ptr);
+            ptr = ctx->ParseMessage(&_impl_.extension_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
@@ -1606,7 +1606,15 @@ uint8_t* FlowResponse::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_affected_rows(), target);
   }
 
-  // map<string, bytes> extension = 3;
+  // repeated .greptime.v1.FlowId affected_flows = 3;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_affected_flows_size()); i < n; i++) {
+    const auto& repfield = this->_internal_affected_flows(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // map<string, bytes> extension = 4;
   if (!this->_internal_extension().empty()) {
     using MapType = ::_pb::Map<std::string, std::string>;
     using WireHelper = FlowResponse_ExtensionEntry_DoNotUse::Funcs;
@@ -1621,23 +1629,15 @@ uint8_t* FlowResponse::_InternalSerialize(
 
     if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
       for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
-        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
         check_utf8(entry);
       }
     } else {
       for (const auto& entry : map_field) {
-        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
         check_utf8(entry);
       }
     }
-  }
-
-  // repeated .greptime.v1.FlowId affected_tasks = 4;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_affected_tasks_size()); i < n; i++) {
-    const auto& repfield = this->_internal_affected_tasks(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1656,20 +1656,20 @@ size_t FlowResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<string, bytes> extension = 3;
+  // repeated .greptime.v1.FlowId affected_flows = 3;
+  total_size += 1UL * this->_internal_affected_flows_size();
+  for (const auto& msg : this->_impl_.affected_flows_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // map<string, bytes> extension = 4;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_extension_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
       it = this->_internal_extension().begin();
       it != this->_internal_extension().end(); ++it) {
     total_size += FlowResponse_ExtensionEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
-  }
-
-  // repeated .greptime.v1.FlowId affected_tasks = 4;
-  total_size += 1UL * this->_internal_affected_tasks_size();
-  for (const auto& msg : this->_impl_.affected_tasks_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
   // .greptime.v1.ResponseHeader header = 1;
@@ -1702,8 +1702,8 @@ void FlowResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.affected_flows_.MergeFrom(from._impl_.affected_flows_);
   _this->_impl_.extension_.MergeFrom(from._impl_.extension_);
-  _this->_impl_.affected_tasks_.MergeFrom(from._impl_.affected_tasks_);
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::ResponseHeader::MergeFrom(
         from._internal_header());
@@ -1728,8 +1728,8 @@ bool FlowResponse::IsInitialized() const {
 void FlowResponse::InternalSwap(FlowResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.affected_flows_.InternalSwap(&other->_impl_.affected_flows_);
   _impl_.extension_.InternalSwap(&other->_impl_.extension_);
-  _impl_.affected_tasks_.InternalSwap(&other->_impl_.affected_tasks_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(FlowResponse, _impl_.affected_rows_)
       + sizeof(FlowResponse::_impl_.affected_rows_)
