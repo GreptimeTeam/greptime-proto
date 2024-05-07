@@ -90,6 +90,9 @@ extern CreateTableExprDefaultTypeInternal _CreateTableExpr_default_instance_;
 class CreateTableExpr_TableOptionsEntry_DoNotUse;
 struct CreateTableExpr_TableOptionsEntry_DoNotUseDefaultTypeInternal;
 extern CreateTableExpr_TableOptionsEntry_DoNotUseDefaultTypeInternal _CreateTableExpr_TableOptionsEntry_DoNotUse_default_instance_;
+class CreateViewExpr;
+struct CreateViewExprDefaultTypeInternal;
+extern CreateViewExprDefaultTypeInternal _CreateViewExpr_default_instance_;
 class DdlRequest;
 struct DdlRequestDefaultTypeInternal;
 extern DdlRequestDefaultTypeInternal _DdlRequest_default_instance_;
@@ -108,6 +111,9 @@ extern DropFlowExprDefaultTypeInternal _DropFlowExpr_default_instance_;
 class DropTableExpr;
 struct DropTableExprDefaultTypeInternal;
 extern DropTableExprDefaultTypeInternal _DropTableExpr_default_instance_;
+class DropViewExpr;
+struct DropViewExprDefaultTypeInternal;
+extern DropViewExprDefaultTypeInternal _DropViewExpr_default_instance_;
 class FlowId;
 struct FlowIdDefaultTypeInternal;
 extern FlowIdDefaultTypeInternal _FlowId_default_instance_;
@@ -136,12 +142,14 @@ template<> ::greptime::v1::CreateFlowExpr* Arena::CreateMaybeMessage<::greptime:
 template<> ::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::CreateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr>(Arena*);
 template<> ::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::CreateViewExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateViewExpr>(Arena*);
 template<> ::greptime::v1::DdlRequest* Arena::CreateMaybeMessage<::greptime::v1::DdlRequest>(Arena*);
 template<> ::greptime::v1::DropColumn* Arena::CreateMaybeMessage<::greptime::v1::DropColumn>(Arena*);
 template<> ::greptime::v1::DropColumns* Arena::CreateMaybeMessage<::greptime::v1::DropColumns>(Arena*);
 template<> ::greptime::v1::DropDatabaseExpr* Arena::CreateMaybeMessage<::greptime::v1::DropDatabaseExpr>(Arena*);
 template<> ::greptime::v1::DropFlowExpr* Arena::CreateMaybeMessage<::greptime::v1::DropFlowExpr>(Arena*);
 template<> ::greptime::v1::DropTableExpr* Arena::CreateMaybeMessage<::greptime::v1::DropTableExpr>(Arena*);
+template<> ::greptime::v1::DropViewExpr* Arena::CreateMaybeMessage<::greptime::v1::DropViewExpr>(Arena*);
 template<> ::greptime::v1::FlowId* Arena::CreateMaybeMessage<::greptime::v1::FlowId>(Arena*);
 template<> ::greptime::v1::RenameTable* Arena::CreateMaybeMessage<::greptime::v1::RenameTable>(Arena*);
 template<> ::greptime::v1::TableId* Arena::CreateMaybeMessage<::greptime::v1::TableId>(Arena*);
@@ -228,6 +236,8 @@ class DdlRequest final :
     kTruncateTable = 7,
     kCreateFlow = 8,
     kDropFlow = 9,
+    kCreateView = 10,
+    kDropView = 11,
     EXPR_NOT_SET = 0,
   };
 
@@ -316,6 +326,8 @@ class DdlRequest final :
     kTruncateTableFieldNumber = 7,
     kCreateFlowFieldNumber = 8,
     kDropFlowFieldNumber = 9,
+    kCreateViewFieldNumber = 10,
+    kDropViewFieldNumber = 11,
   };
   // .greptime.v1.CreateDatabaseExpr create_database = 1;
   bool has_create_database() const;
@@ -443,6 +455,42 @@ class DdlRequest final :
       ::greptime::v1::DropFlowExpr* drop_flow);
   ::greptime::v1::DropFlowExpr* unsafe_arena_release_drop_flow();
 
+  // .greptime.v1.CreateViewExpr create_view = 10;
+  bool has_create_view() const;
+  private:
+  bool _internal_has_create_view() const;
+  public:
+  void clear_create_view();
+  const ::greptime::v1::CreateViewExpr& create_view() const;
+  PROTOBUF_NODISCARD ::greptime::v1::CreateViewExpr* release_create_view();
+  ::greptime::v1::CreateViewExpr* mutable_create_view();
+  void set_allocated_create_view(::greptime::v1::CreateViewExpr* create_view);
+  private:
+  const ::greptime::v1::CreateViewExpr& _internal_create_view() const;
+  ::greptime::v1::CreateViewExpr* _internal_mutable_create_view();
+  public:
+  void unsafe_arena_set_allocated_create_view(
+      ::greptime::v1::CreateViewExpr* create_view);
+  ::greptime::v1::CreateViewExpr* unsafe_arena_release_create_view();
+
+  // .greptime.v1.DropViewExpr drop_view = 11;
+  bool has_drop_view() const;
+  private:
+  bool _internal_has_drop_view() const;
+  public:
+  void clear_drop_view();
+  const ::greptime::v1::DropViewExpr& drop_view() const;
+  PROTOBUF_NODISCARD ::greptime::v1::DropViewExpr* release_drop_view();
+  ::greptime::v1::DropViewExpr* mutable_drop_view();
+  void set_allocated_drop_view(::greptime::v1::DropViewExpr* drop_view);
+  private:
+  const ::greptime::v1::DropViewExpr& _internal_drop_view() const;
+  ::greptime::v1::DropViewExpr* _internal_mutable_drop_view();
+  public:
+  void unsafe_arena_set_allocated_drop_view(
+      ::greptime::v1::DropViewExpr* drop_view);
+  ::greptime::v1::DropViewExpr* unsafe_arena_release_drop_view();
+
   void clear_expr();
   ExprCase expr_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.DdlRequest)
@@ -455,6 +503,8 @@ class DdlRequest final :
   void set_has_truncate_table();
   void set_has_create_flow();
   void set_has_drop_flow();
+  void set_has_create_view();
+  void set_has_drop_view();
 
   inline bool has_expr() const;
   inline void clear_has_expr();
@@ -473,6 +523,8 @@ class DdlRequest final :
       ::greptime::v1::TruncateTableExpr* truncate_table_;
       ::greptime::v1::CreateFlowExpr* create_flow_;
       ::greptime::v1::DropFlowExpr* drop_flow_;
+      ::greptime::v1::CreateViewExpr* create_view_;
+      ::greptime::v1::DropViewExpr* drop_view_;
     } expr_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -1016,6 +1068,445 @@ class DropFlowExpr final :
 };
 // -------------------------------------------------------------------
 
+class CreateViewExpr final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.CreateViewExpr) */ {
+ public:
+  inline CreateViewExpr() : CreateViewExpr(nullptr) {}
+  ~CreateViewExpr() override;
+  explicit PROTOBUF_CONSTEXPR CreateViewExpr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CreateViewExpr(const CreateViewExpr& from);
+  CreateViewExpr(CreateViewExpr&& from) noexcept
+    : CreateViewExpr() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateViewExpr& operator=(const CreateViewExpr& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CreateViewExpr& operator=(CreateViewExpr&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CreateViewExpr& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CreateViewExpr* internal_default_instance() {
+    return reinterpret_cast<const CreateViewExpr*>(
+               &_CreateViewExpr_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(CreateViewExpr& a, CreateViewExpr& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CreateViewExpr* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CreateViewExpr* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CreateViewExpr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CreateViewExpr>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CreateViewExpr& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CreateViewExpr& from) {
+    CreateViewExpr::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateViewExpr* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.CreateViewExpr";
+  }
+  protected:
+  explicit CreateViewExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCatalogNameFieldNumber = 1,
+    kSchemaNameFieldNumber = 2,
+    kViewNameFieldNumber = 3,
+    kLogicalPlanFieldNumber = 4,
+    kCreateIfNotExistsFieldNumber = 5,
+    kCreateOrReplaceFieldNumber = 6,
+  };
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // string schema_name = 2;
+  void clear_schema_name();
+  const std::string& schema_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_schema_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_schema_name();
+  PROTOBUF_NODISCARD std::string* release_schema_name();
+  void set_allocated_schema_name(std::string* schema_name);
+  private:
+  const std::string& _internal_schema_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema_name(const std::string& value);
+  std::string* _internal_mutable_schema_name();
+  public:
+
+  // string view_name = 3;
+  void clear_view_name();
+  const std::string& view_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_view_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_view_name();
+  PROTOBUF_NODISCARD std::string* release_view_name();
+  void set_allocated_view_name(std::string* view_name);
+  private:
+  const std::string& _internal_view_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_view_name(const std::string& value);
+  std::string* _internal_mutable_view_name();
+  public:
+
+  // bytes logical_plan = 4;
+  void clear_logical_plan();
+  const std::string& logical_plan() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_logical_plan(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_logical_plan();
+  PROTOBUF_NODISCARD std::string* release_logical_plan();
+  void set_allocated_logical_plan(std::string* logical_plan);
+  private:
+  const std::string& _internal_logical_plan() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_logical_plan(const std::string& value);
+  std::string* _internal_mutable_logical_plan();
+  public:
+
+  // bool create_if_not_exists = 5;
+  void clear_create_if_not_exists();
+  bool create_if_not_exists() const;
+  void set_create_if_not_exists(bool value);
+  private:
+  bool _internal_create_if_not_exists() const;
+  void _internal_set_create_if_not_exists(bool value);
+  public:
+
+  // bool create_or_replace = 6;
+  void clear_create_or_replace();
+  bool create_or_replace() const;
+  void set_create_or_replace(bool value);
+  private:
+  bool _internal_create_or_replace() const;
+  void _internal_set_create_or_replace(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.CreateViewExpr)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr view_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr logical_plan_;
+    bool create_if_not_exists_;
+    bool create_or_replace_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DropViewExpr final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.DropViewExpr) */ {
+ public:
+  inline DropViewExpr() : DropViewExpr(nullptr) {}
+  ~DropViewExpr() override;
+  explicit PROTOBUF_CONSTEXPR DropViewExpr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DropViewExpr(const DropViewExpr& from);
+  DropViewExpr(DropViewExpr&& from) noexcept
+    : DropViewExpr() {
+    *this = ::std::move(from);
+  }
+
+  inline DropViewExpr& operator=(const DropViewExpr& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DropViewExpr& operator=(DropViewExpr&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DropViewExpr& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DropViewExpr* internal_default_instance() {
+    return reinterpret_cast<const DropViewExpr*>(
+               &_DropViewExpr_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(DropViewExpr& a, DropViewExpr& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DropViewExpr* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DropViewExpr* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DropViewExpr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DropViewExpr>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DropViewExpr& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const DropViewExpr& from) {
+    DropViewExpr::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DropViewExpr* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.DropViewExpr";
+  }
+  protected:
+  explicit DropViewExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCatalogNameFieldNumber = 1,
+    kSchemaNameFieldNumber = 2,
+    kViewNameFieldNumber = 3,
+    kViewIdFieldNumber = 4,
+    kDropIfExistsFieldNumber = 5,
+  };
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // string schema_name = 2;
+  void clear_schema_name();
+  const std::string& schema_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_schema_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_schema_name();
+  PROTOBUF_NODISCARD std::string* release_schema_name();
+  void set_allocated_schema_name(std::string* schema_name);
+  private:
+  const std::string& _internal_schema_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema_name(const std::string& value);
+  std::string* _internal_mutable_schema_name();
+  public:
+
+  // string view_name = 3;
+  void clear_view_name();
+  const std::string& view_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_view_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_view_name();
+  PROTOBUF_NODISCARD std::string* release_view_name();
+  void set_allocated_view_name(std::string* view_name);
+  private:
+  const std::string& _internal_view_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_view_name(const std::string& value);
+  std::string* _internal_mutable_view_name();
+  public:
+
+  // .greptime.v1.TableId view_id = 4;
+  bool has_view_id() const;
+  private:
+  bool _internal_has_view_id() const;
+  public:
+  void clear_view_id();
+  const ::greptime::v1::TableId& view_id() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TableId* release_view_id();
+  ::greptime::v1::TableId* mutable_view_id();
+  void set_allocated_view_id(::greptime::v1::TableId* view_id);
+  private:
+  const ::greptime::v1::TableId& _internal_view_id() const;
+  ::greptime::v1::TableId* _internal_mutable_view_id();
+  public:
+  void unsafe_arena_set_allocated_view_id(
+      ::greptime::v1::TableId* view_id);
+  ::greptime::v1::TableId* unsafe_arena_release_view_id();
+
+  // bool drop_if_exists = 5;
+  void clear_drop_if_exists();
+  bool drop_if_exists() const;
+  void set_drop_if_exists(bool value);
+  private:
+  bool _internal_drop_if_exists() const;
+  void _internal_set_drop_if_exists(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.DropViewExpr)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr view_name_;
+    ::greptime::v1::TableId* view_id_;
+    bool drop_if_exists_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CreateTableExpr_TableOptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateTableExpr_TableOptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
@@ -1092,7 +1583,7 @@ class CreateTableExpr final :
                &_CreateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(CreateTableExpr& a, CreateTableExpr& b) {
     a.Swap(&b);
@@ -1436,7 +1927,7 @@ class AlterExpr final :
                &_AlterExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(AlterExpr& a, AlterExpr& b) {
     a.Swap(&b);
@@ -1716,7 +2207,7 @@ class DropTableExpr final :
                &_DropTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(DropTableExpr& a, DropTableExpr& b) {
     a.Swap(&b);
@@ -1960,7 +2451,7 @@ class CreateDatabaseExpr final :
                &_CreateDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(CreateDatabaseExpr& a, CreateDatabaseExpr& b) {
     a.Swap(&b);
@@ -2166,7 +2657,7 @@ class TruncateTableExpr final :
                &_TruncateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(TruncateTableExpr& a, TruncateTableExpr& b) {
     a.Swap(&b);
@@ -2371,7 +2862,7 @@ class DropDatabaseExpr final :
                &_DropDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(DropDatabaseExpr& a, DropDatabaseExpr& b) {
     a.Swap(&b);
@@ -2551,7 +3042,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -2708,7 +3199,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -2865,7 +3356,7 @@ class ChangeColumnTypes final :
                &_ChangeColumnTypes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(ChangeColumnTypes& a, ChangeColumnTypes& b) {
     a.Swap(&b);
@@ -3022,7 +3513,7 @@ class RenameTable final :
                &_RenameTable_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(RenameTable& a, RenameTable& b) {
     a.Swap(&b);
@@ -3175,7 +3666,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -3352,7 +3843,7 @@ class ChangeColumnType final :
                &_ChangeColumnType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(ChangeColumnType& a, ChangeColumnType& b) {
     a.Swap(&b);
@@ -3536,7 +4027,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -3689,7 +4180,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -3837,7 +4328,7 @@ class FlowId final :
                &_FlowId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(FlowId& a, FlowId& b) {
     a.Swap(&b);
@@ -3985,7 +4476,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -4223,7 +4714,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -4896,6 +5387,154 @@ inline ::greptime::v1::DropFlowExpr* DdlRequest::mutable_drop_flow() {
   return _msg;
 }
 
+// .greptime.v1.CreateViewExpr create_view = 10;
+inline bool DdlRequest::_internal_has_create_view() const {
+  return expr_case() == kCreateView;
+}
+inline bool DdlRequest::has_create_view() const {
+  return _internal_has_create_view();
+}
+inline void DdlRequest::set_has_create_view() {
+  _impl_._oneof_case_[0] = kCreateView;
+}
+inline void DdlRequest::clear_create_view() {
+  if (_internal_has_create_view()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.expr_.create_view_;
+    }
+    clear_has_expr();
+  }
+}
+inline ::greptime::v1::CreateViewExpr* DdlRequest::release_create_view() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DdlRequest.create_view)
+  if (_internal_has_create_view()) {
+    clear_has_expr();
+    ::greptime::v1::CreateViewExpr* temp = _impl_.expr_.create_view_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.expr_.create_view_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::CreateViewExpr& DdlRequest::_internal_create_view() const {
+  return _internal_has_create_view()
+      ? *_impl_.expr_.create_view_
+      : reinterpret_cast< ::greptime::v1::CreateViewExpr&>(::greptime::v1::_CreateViewExpr_default_instance_);
+}
+inline const ::greptime::v1::CreateViewExpr& DdlRequest::create_view() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DdlRequest.create_view)
+  return _internal_create_view();
+}
+inline ::greptime::v1::CreateViewExpr* DdlRequest::unsafe_arena_release_create_view() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.DdlRequest.create_view)
+  if (_internal_has_create_view()) {
+    clear_has_expr();
+    ::greptime::v1::CreateViewExpr* temp = _impl_.expr_.create_view_;
+    _impl_.expr_.create_view_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void DdlRequest::unsafe_arena_set_allocated_create_view(::greptime::v1::CreateViewExpr* create_view) {
+  clear_expr();
+  if (create_view) {
+    set_has_create_view();
+    _impl_.expr_.create_view_ = create_view;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.DdlRequest.create_view)
+}
+inline ::greptime::v1::CreateViewExpr* DdlRequest::_internal_mutable_create_view() {
+  if (!_internal_has_create_view()) {
+    clear_expr();
+    set_has_create_view();
+    _impl_.expr_.create_view_ = CreateMaybeMessage< ::greptime::v1::CreateViewExpr >(GetArenaForAllocation());
+  }
+  return _impl_.expr_.create_view_;
+}
+inline ::greptime::v1::CreateViewExpr* DdlRequest::mutable_create_view() {
+  ::greptime::v1::CreateViewExpr* _msg = _internal_mutable_create_view();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DdlRequest.create_view)
+  return _msg;
+}
+
+// .greptime.v1.DropViewExpr drop_view = 11;
+inline bool DdlRequest::_internal_has_drop_view() const {
+  return expr_case() == kDropView;
+}
+inline bool DdlRequest::has_drop_view() const {
+  return _internal_has_drop_view();
+}
+inline void DdlRequest::set_has_drop_view() {
+  _impl_._oneof_case_[0] = kDropView;
+}
+inline void DdlRequest::clear_drop_view() {
+  if (_internal_has_drop_view()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.expr_.drop_view_;
+    }
+    clear_has_expr();
+  }
+}
+inline ::greptime::v1::DropViewExpr* DdlRequest::release_drop_view() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DdlRequest.drop_view)
+  if (_internal_has_drop_view()) {
+    clear_has_expr();
+    ::greptime::v1::DropViewExpr* temp = _impl_.expr_.drop_view_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.expr_.drop_view_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::DropViewExpr& DdlRequest::_internal_drop_view() const {
+  return _internal_has_drop_view()
+      ? *_impl_.expr_.drop_view_
+      : reinterpret_cast< ::greptime::v1::DropViewExpr&>(::greptime::v1::_DropViewExpr_default_instance_);
+}
+inline const ::greptime::v1::DropViewExpr& DdlRequest::drop_view() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DdlRequest.drop_view)
+  return _internal_drop_view();
+}
+inline ::greptime::v1::DropViewExpr* DdlRequest::unsafe_arena_release_drop_view() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.DdlRequest.drop_view)
+  if (_internal_has_drop_view()) {
+    clear_has_expr();
+    ::greptime::v1::DropViewExpr* temp = _impl_.expr_.drop_view_;
+    _impl_.expr_.drop_view_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void DdlRequest::unsafe_arena_set_allocated_drop_view(::greptime::v1::DropViewExpr* drop_view) {
+  clear_expr();
+  if (drop_view) {
+    set_has_drop_view();
+    _impl_.expr_.drop_view_ = drop_view;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.DdlRequest.drop_view)
+}
+inline ::greptime::v1::DropViewExpr* DdlRequest::_internal_mutable_drop_view() {
+  if (!_internal_has_drop_view()) {
+    clear_expr();
+    set_has_drop_view();
+    _impl_.expr_.drop_view_ = CreateMaybeMessage< ::greptime::v1::DropViewExpr >(GetArenaForAllocation());
+  }
+  return _impl_.expr_.drop_view_;
+}
+inline ::greptime::v1::DropViewExpr* DdlRequest::mutable_drop_view() {
+  ::greptime::v1::DropViewExpr* _msg = _internal_mutable_drop_view();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DdlRequest.drop_view)
+  return _msg;
+}
+
 inline bool DdlRequest::has_expr() const {
   return expr_case() != EXPR_NOT_SET;
 }
@@ -5564,6 +6203,514 @@ inline void DropFlowExpr::_internal_set_drop_if_exists(bool value) {
 inline void DropFlowExpr::set_drop_if_exists(bool value) {
   _internal_set_drop_if_exists(value);
   // @@protoc_insertion_point(field_set:greptime.v1.DropFlowExpr.drop_if_exists)
+}
+
+// -------------------------------------------------------------------
+
+// CreateViewExpr
+
+// string catalog_name = 1;
+inline void CreateViewExpr::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& CreateViewExpr::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateViewExpr::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.catalog_name)
+}
+inline std::string* CreateViewExpr::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateViewExpr.catalog_name)
+  return _s;
+}
+inline const std::string& CreateViewExpr::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void CreateViewExpr::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateViewExpr.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void CreateViewExpr::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateViewExpr.catalog_name)
+}
+
+// string schema_name = 2;
+inline void CreateViewExpr::clear_schema_name() {
+  _impl_.schema_name_.ClearToEmpty();
+}
+inline const std::string& CreateViewExpr::schema_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.schema_name)
+  return _internal_schema_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateViewExpr::set_schema_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.schema_name)
+}
+inline std::string* CreateViewExpr::mutable_schema_name() {
+  std::string* _s = _internal_mutable_schema_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateViewExpr.schema_name)
+  return _s;
+}
+inline const std::string& CreateViewExpr::_internal_schema_name() const {
+  return _impl_.schema_name_.Get();
+}
+inline void CreateViewExpr::_internal_set_schema_name(const std::string& value) {
+  
+  _impl_.schema_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::_internal_mutable_schema_name() {
+  
+  return _impl_.schema_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::release_schema_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateViewExpr.schema_name)
+  return _impl_.schema_name_.Release();
+}
+inline void CreateViewExpr::set_allocated_schema_name(std::string* schema_name) {
+  if (schema_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.schema_name_.SetAllocated(schema_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.schema_name_.IsDefault()) {
+    _impl_.schema_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateViewExpr.schema_name)
+}
+
+// string view_name = 3;
+inline void CreateViewExpr::clear_view_name() {
+  _impl_.view_name_.ClearToEmpty();
+}
+inline const std::string& CreateViewExpr::view_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.view_name)
+  return _internal_view_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateViewExpr::set_view_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.view_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.view_name)
+}
+inline std::string* CreateViewExpr::mutable_view_name() {
+  std::string* _s = _internal_mutable_view_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateViewExpr.view_name)
+  return _s;
+}
+inline const std::string& CreateViewExpr::_internal_view_name() const {
+  return _impl_.view_name_.Get();
+}
+inline void CreateViewExpr::_internal_set_view_name(const std::string& value) {
+  
+  _impl_.view_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::_internal_mutable_view_name() {
+  
+  return _impl_.view_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::release_view_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateViewExpr.view_name)
+  return _impl_.view_name_.Release();
+}
+inline void CreateViewExpr::set_allocated_view_name(std::string* view_name) {
+  if (view_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.view_name_.SetAllocated(view_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.view_name_.IsDefault()) {
+    _impl_.view_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateViewExpr.view_name)
+}
+
+// bytes logical_plan = 4;
+inline void CreateViewExpr::clear_logical_plan() {
+  _impl_.logical_plan_.ClearToEmpty();
+}
+inline const std::string& CreateViewExpr::logical_plan() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.logical_plan)
+  return _internal_logical_plan();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateViewExpr::set_logical_plan(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.logical_plan_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.logical_plan)
+}
+inline std::string* CreateViewExpr::mutable_logical_plan() {
+  std::string* _s = _internal_mutable_logical_plan();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateViewExpr.logical_plan)
+  return _s;
+}
+inline const std::string& CreateViewExpr::_internal_logical_plan() const {
+  return _impl_.logical_plan_.Get();
+}
+inline void CreateViewExpr::_internal_set_logical_plan(const std::string& value) {
+  
+  _impl_.logical_plan_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::_internal_mutable_logical_plan() {
+  
+  return _impl_.logical_plan_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::release_logical_plan() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateViewExpr.logical_plan)
+  return _impl_.logical_plan_.Release();
+}
+inline void CreateViewExpr::set_allocated_logical_plan(std::string* logical_plan) {
+  if (logical_plan != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.logical_plan_.SetAllocated(logical_plan, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.logical_plan_.IsDefault()) {
+    _impl_.logical_plan_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateViewExpr.logical_plan)
+}
+
+// bool create_if_not_exists = 5;
+inline void CreateViewExpr::clear_create_if_not_exists() {
+  _impl_.create_if_not_exists_ = false;
+}
+inline bool CreateViewExpr::_internal_create_if_not_exists() const {
+  return _impl_.create_if_not_exists_;
+}
+inline bool CreateViewExpr::create_if_not_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.create_if_not_exists)
+  return _internal_create_if_not_exists();
+}
+inline void CreateViewExpr::_internal_set_create_if_not_exists(bool value) {
+  
+  _impl_.create_if_not_exists_ = value;
+}
+inline void CreateViewExpr::set_create_if_not_exists(bool value) {
+  _internal_set_create_if_not_exists(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.create_if_not_exists)
+}
+
+// bool create_or_replace = 6;
+inline void CreateViewExpr::clear_create_or_replace() {
+  _impl_.create_or_replace_ = false;
+}
+inline bool CreateViewExpr::_internal_create_or_replace() const {
+  return _impl_.create_or_replace_;
+}
+inline bool CreateViewExpr::create_or_replace() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.create_or_replace)
+  return _internal_create_or_replace();
+}
+inline void CreateViewExpr::_internal_set_create_or_replace(bool value) {
+  
+  _impl_.create_or_replace_ = value;
+}
+inline void CreateViewExpr::set_create_or_replace(bool value) {
+  _internal_set_create_or_replace(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.create_or_replace)
+}
+
+// -------------------------------------------------------------------
+
+// DropViewExpr
+
+// string catalog_name = 1;
+inline void DropViewExpr::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& DropViewExpr::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropViewExpr.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DropViewExpr::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.DropViewExpr.catalog_name)
+}
+inline std::string* DropViewExpr::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DropViewExpr.catalog_name)
+  return _s;
+}
+inline const std::string& DropViewExpr::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void DropViewExpr::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DropViewExpr::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DropViewExpr::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DropViewExpr.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void DropViewExpr::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.DropViewExpr.catalog_name)
+}
+
+// string schema_name = 2;
+inline void DropViewExpr::clear_schema_name() {
+  _impl_.schema_name_.ClearToEmpty();
+}
+inline const std::string& DropViewExpr::schema_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropViewExpr.schema_name)
+  return _internal_schema_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DropViewExpr::set_schema_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.DropViewExpr.schema_name)
+}
+inline std::string* DropViewExpr::mutable_schema_name() {
+  std::string* _s = _internal_mutable_schema_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DropViewExpr.schema_name)
+  return _s;
+}
+inline const std::string& DropViewExpr::_internal_schema_name() const {
+  return _impl_.schema_name_.Get();
+}
+inline void DropViewExpr::_internal_set_schema_name(const std::string& value) {
+  
+  _impl_.schema_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DropViewExpr::_internal_mutable_schema_name() {
+  
+  return _impl_.schema_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DropViewExpr::release_schema_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DropViewExpr.schema_name)
+  return _impl_.schema_name_.Release();
+}
+inline void DropViewExpr::set_allocated_schema_name(std::string* schema_name) {
+  if (schema_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.schema_name_.SetAllocated(schema_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.schema_name_.IsDefault()) {
+    _impl_.schema_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.DropViewExpr.schema_name)
+}
+
+// string view_name = 3;
+inline void DropViewExpr::clear_view_name() {
+  _impl_.view_name_.ClearToEmpty();
+}
+inline const std::string& DropViewExpr::view_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropViewExpr.view_name)
+  return _internal_view_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DropViewExpr::set_view_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.view_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.DropViewExpr.view_name)
+}
+inline std::string* DropViewExpr::mutable_view_name() {
+  std::string* _s = _internal_mutable_view_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DropViewExpr.view_name)
+  return _s;
+}
+inline const std::string& DropViewExpr::_internal_view_name() const {
+  return _impl_.view_name_.Get();
+}
+inline void DropViewExpr::_internal_set_view_name(const std::string& value) {
+  
+  _impl_.view_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DropViewExpr::_internal_mutable_view_name() {
+  
+  return _impl_.view_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DropViewExpr::release_view_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DropViewExpr.view_name)
+  return _impl_.view_name_.Release();
+}
+inline void DropViewExpr::set_allocated_view_name(std::string* view_name) {
+  if (view_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.view_name_.SetAllocated(view_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.view_name_.IsDefault()) {
+    _impl_.view_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.DropViewExpr.view_name)
+}
+
+// .greptime.v1.TableId view_id = 4;
+inline bool DropViewExpr::_internal_has_view_id() const {
+  return this != internal_default_instance() && _impl_.view_id_ != nullptr;
+}
+inline bool DropViewExpr::has_view_id() const {
+  return _internal_has_view_id();
+}
+inline void DropViewExpr::clear_view_id() {
+  if (GetArenaForAllocation() == nullptr && _impl_.view_id_ != nullptr) {
+    delete _impl_.view_id_;
+  }
+  _impl_.view_id_ = nullptr;
+}
+inline const ::greptime::v1::TableId& DropViewExpr::_internal_view_id() const {
+  const ::greptime::v1::TableId* p = _impl_.view_id_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableId&>(
+      ::greptime::v1::_TableId_default_instance_);
+}
+inline const ::greptime::v1::TableId& DropViewExpr::view_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropViewExpr.view_id)
+  return _internal_view_id();
+}
+inline void DropViewExpr::unsafe_arena_set_allocated_view_id(
+    ::greptime::v1::TableId* view_id) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.view_id_);
+  }
+  _impl_.view_id_ = view_id;
+  if (view_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.DropViewExpr.view_id)
+}
+inline ::greptime::v1::TableId* DropViewExpr::release_view_id() {
+  
+  ::greptime::v1::TableId* temp = _impl_.view_id_;
+  _impl_.view_id_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::TableId* DropViewExpr::unsafe_arena_release_view_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DropViewExpr.view_id)
+  
+  ::greptime::v1::TableId* temp = _impl_.view_id_;
+  _impl_.view_id_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::TableId* DropViewExpr::_internal_mutable_view_id() {
+  
+  if (_impl_.view_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::TableId>(GetArenaForAllocation());
+    _impl_.view_id_ = p;
+  }
+  return _impl_.view_id_;
+}
+inline ::greptime::v1::TableId* DropViewExpr::mutable_view_id() {
+  ::greptime::v1::TableId* _msg = _internal_mutable_view_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DropViewExpr.view_id)
+  return _msg;
+}
+inline void DropViewExpr::set_allocated_view_id(::greptime::v1::TableId* view_id) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.view_id_;
+  }
+  if (view_id) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(view_id);
+    if (message_arena != submessage_arena) {
+      view_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, view_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.view_id_ = view_id;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.DropViewExpr.view_id)
+}
+
+// bool drop_if_exists = 5;
+inline void DropViewExpr::clear_drop_if_exists() {
+  _impl_.drop_if_exists_ = false;
+}
+inline bool DropViewExpr::_internal_drop_if_exists() const {
+  return _impl_.drop_if_exists_;
+}
+inline bool DropViewExpr::drop_if_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropViewExpr.drop_if_exists)
+  return _internal_drop_if_exists();
+}
+inline void DropViewExpr::_internal_set_drop_if_exists(bool value) {
+  
+  _impl_.drop_if_exists_ = value;
+}
+inline void DropViewExpr::set_drop_if_exists(bool value) {
+  _internal_set_drop_if_exists(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.DropViewExpr.drop_if_exists)
 }
 
 // -------------------------------------------------------------------
@@ -8379,6 +9526,10 @@ inline void AddColumnLocation::set_allocated_after_column_name(std::string* afte
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
