@@ -46,4 +46,6 @@ message MetasrvNodeInfo {
   Peer peer = 1;
   string version = 2;
   string git_commit = 3;
+  // The node start timestamp in milliseconds.
+  uint64 start_time_ms = 4;
 }

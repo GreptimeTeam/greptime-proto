@@ -550,6 +550,7 @@ class MetasrvNodeInfo final :
     kVersionFieldNumber = 2,
     kGitCommitFieldNumber = 3,
     kPeerFieldNumber = 1,
+    kStartTimeMsFieldNumber = 4,
   };
   // string version = 2;
   void clear_version();
@@ -597,6 +598,15 @@ class MetasrvNodeInfo final :
       ::greptime::v1::meta::Peer* peer);
   ::greptime::v1::meta::Peer* unsafe_arena_release_peer();
 
+  // uint64 start_time_ms = 4;
+  void clear_start_time_ms();
+  uint64_t start_time_ms() const;
+  void set_start_time_ms(uint64_t value);
+  private:
+  uint64_t _internal_start_time_ms() const;
+  void _internal_set_start_time_ms(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.MetasrvNodeInfo)
  private:
   class _Internal;
@@ -608,6 +618,7 @@ class MetasrvNodeInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr git_commit_;
     ::greptime::v1::meta::Peer* peer_;
+    uint64_t start_time_ms_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1115,6 +1126,26 @@ inline void MetasrvNodeInfo::set_allocated_git_commit(std::string* git_commit) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvNodeInfo.git_commit)
+}
+
+// uint64 start_time_ms = 4;
+inline void MetasrvNodeInfo::clear_start_time_ms() {
+  _impl_.start_time_ms_ = uint64_t{0u};
+}
+inline uint64_t MetasrvNodeInfo::_internal_start_time_ms() const {
+  return _impl_.start_time_ms_;
+}
+inline uint64_t MetasrvNodeInfo::start_time_ms() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvNodeInfo.start_time_ms)
+  return _internal_start_time_ms();
+}
+inline void MetasrvNodeInfo::_internal_set_start_time_ms(uint64_t value) {
+  
+  _impl_.start_time_ms_ = value;
+}
+inline void MetasrvNodeInfo::set_start_time_ms(uint64_t value) {
+  _internal_set_start_time_ms(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.MetasrvNodeInfo.start_time_ms)
 }
 
 #ifdef __GNUC__
