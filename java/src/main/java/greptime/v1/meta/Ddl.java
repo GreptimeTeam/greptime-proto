@@ -7960,6 +7960,21 @@ public final class Ddl {
     greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder();
 
     /**
+     * <code>.greptime.v1.QueryContext query_context = 64;</code>
+     * @return Whether the queryContext field is set.
+     */
+    boolean hasQueryContext();
+    /**
+     * <code>.greptime.v1.QueryContext query_context = 64;</code>
+     * @return The queryContext.
+     */
+    io.greptime.v1.Common.QueryContext getQueryContext();
+    /**
+     * <code>.greptime.v1.QueryContext query_context = 64;</code>
+     */
+    io.greptime.v1.Common.QueryContextOrBuilder getQueryContextOrBuilder();
+
+    /**
      * <code>.greptime.v1.meta.CreateTableTask create_table_task = 2;</code>
      * @return Whether the createTableTask field is set.
      */
@@ -8338,6 +8353,19 @@ public final class Ddl {
               taskCase_ = 12;
               break;
             }
+            case 514: {
+              io.greptime.v1.Common.QueryContext.Builder subBuilder = null;
+              if (queryContext_ != null) {
+                subBuilder = queryContext_.toBuilder();
+              }
+              queryContext_ = input.readMessage(io.greptime.v1.Common.QueryContext.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(queryContext_);
+                queryContext_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -8455,6 +8483,32 @@ public final class Ddl {
     @java.lang.Override
     public greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder() {
       return getHeader();
+    }
+
+    public static final int QUERY_CONTEXT_FIELD_NUMBER = 64;
+    private io.greptime.v1.Common.QueryContext queryContext_;
+    /**
+     * <code>.greptime.v1.QueryContext query_context = 64;</code>
+     * @return Whether the queryContext field is set.
+     */
+    @java.lang.Override
+    public boolean hasQueryContext() {
+      return queryContext_ != null;
+    }
+    /**
+     * <code>.greptime.v1.QueryContext query_context = 64;</code>
+     * @return The queryContext.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.QueryContext getQueryContext() {
+      return queryContext_ == null ? io.greptime.v1.Common.QueryContext.getDefaultInstance() : queryContext_;
+    }
+    /**
+     * <code>.greptime.v1.QueryContext query_context = 64;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.QueryContextOrBuilder getQueryContextOrBuilder() {
+      return getQueryContext();
     }
 
     public static final int CREATE_TABLE_TASK_FIELD_NUMBER = 2;
@@ -8848,6 +8902,9 @@ public final class Ddl {
       if (taskCase_ == 12) {
         output.writeMessage(12, (greptime.v1.meta.Ddl.DropFlowTask) task_);
       }
+      if (queryContext_ != null) {
+        output.writeMessage(64, getQueryContext());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -8905,6 +8962,10 @@ public final class Ddl {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, (greptime.v1.meta.Ddl.DropFlowTask) task_);
       }
+      if (queryContext_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(64, getQueryContext());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -8924,6 +8985,11 @@ public final class Ddl {
       if (hasHeader()) {
         if (!getHeader()
             .equals(other.getHeader())) return false;
+      }
+      if (hasQueryContext() != other.hasQueryContext()) return false;
+      if (hasQueryContext()) {
+        if (!getQueryContext()
+            .equals(other.getQueryContext())) return false;
       }
       if (!getTaskCase().equals(other.getTaskCase())) return false;
       switch (taskCase_) {
@@ -8988,6 +9054,10 @@ public final class Ddl {
       if (hasHeader()) {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
+      }
+      if (hasQueryContext()) {
+        hash = (37 * hash) + QUERY_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + getQueryContext().hashCode();
       }
       switch (taskCase_) {
         case 2:
@@ -9176,6 +9246,12 @@ public final class Ddl {
           header_ = null;
           headerBuilder_ = null;
         }
+        if (queryContextBuilder_ == null) {
+          queryContext_ = null;
+        } else {
+          queryContext_ = null;
+          queryContextBuilder_ = null;
+        }
         taskCase_ = 0;
         task_ = null;
         return this;
@@ -9208,6 +9284,11 @@ public final class Ddl {
           result.header_ = header_;
         } else {
           result.header_ = headerBuilder_.build();
+        }
+        if (queryContextBuilder_ == null) {
+          result.queryContext_ = queryContext_;
+        } else {
+          result.queryContext_ = queryContextBuilder_.build();
         }
         if (taskCase_ == 2) {
           if (createTableTaskBuilder_ == null) {
@@ -9337,6 +9418,9 @@ public final class Ddl {
         if (other == greptime.v1.meta.Ddl.DdlTaskRequest.getDefaultInstance()) return this;
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
+        }
+        if (other.hasQueryContext()) {
+          mergeQueryContext(other.getQueryContext());
         }
         switch (other.getTaskCase()) {
           case CREATE_TABLE_TASK: {
@@ -9548,6 +9632,125 @@ public final class Ddl {
           header_ = null;
         }
         return headerBuilder_;
+      }
+
+      private io.greptime.v1.Common.QueryContext queryContext_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.QueryContext, io.greptime.v1.Common.QueryContext.Builder, io.greptime.v1.Common.QueryContextOrBuilder> queryContextBuilder_;
+      /**
+       * <code>.greptime.v1.QueryContext query_context = 64;</code>
+       * @return Whether the queryContext field is set.
+       */
+      public boolean hasQueryContext() {
+        return queryContextBuilder_ != null || queryContext_ != null;
+      }
+      /**
+       * <code>.greptime.v1.QueryContext query_context = 64;</code>
+       * @return The queryContext.
+       */
+      public io.greptime.v1.Common.QueryContext getQueryContext() {
+        if (queryContextBuilder_ == null) {
+          return queryContext_ == null ? io.greptime.v1.Common.QueryContext.getDefaultInstance() : queryContext_;
+        } else {
+          return queryContextBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.QueryContext query_context = 64;</code>
+       */
+      public Builder setQueryContext(io.greptime.v1.Common.QueryContext value) {
+        if (queryContextBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          queryContext_ = value;
+          onChanged();
+        } else {
+          queryContextBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.QueryContext query_context = 64;</code>
+       */
+      public Builder setQueryContext(
+          io.greptime.v1.Common.QueryContext.Builder builderForValue) {
+        if (queryContextBuilder_ == null) {
+          queryContext_ = builderForValue.build();
+          onChanged();
+        } else {
+          queryContextBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.QueryContext query_context = 64;</code>
+       */
+      public Builder mergeQueryContext(io.greptime.v1.Common.QueryContext value) {
+        if (queryContextBuilder_ == null) {
+          if (queryContext_ != null) {
+            queryContext_ =
+              io.greptime.v1.Common.QueryContext.newBuilder(queryContext_).mergeFrom(value).buildPartial();
+          } else {
+            queryContext_ = value;
+          }
+          onChanged();
+        } else {
+          queryContextBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.QueryContext query_context = 64;</code>
+       */
+      public Builder clearQueryContext() {
+        if (queryContextBuilder_ == null) {
+          queryContext_ = null;
+          onChanged();
+        } else {
+          queryContext_ = null;
+          queryContextBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.QueryContext query_context = 64;</code>
+       */
+      public io.greptime.v1.Common.QueryContext.Builder getQueryContextBuilder() {
+        
+        onChanged();
+        return getQueryContextFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.QueryContext query_context = 64;</code>
+       */
+      public io.greptime.v1.Common.QueryContextOrBuilder getQueryContextOrBuilder() {
+        if (queryContextBuilder_ != null) {
+          return queryContextBuilder_.getMessageOrBuilder();
+        } else {
+          return queryContext_ == null ?
+              io.greptime.v1.Common.QueryContext.getDefaultInstance() : queryContext_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.QueryContext query_context = 64;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.QueryContext, io.greptime.v1.Common.QueryContext.Builder, io.greptime.v1.Common.QueryContextOrBuilder> 
+          getQueryContextFieldBuilder() {
+        if (queryContextBuilder_ == null) {
+          queryContextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.QueryContext, io.greptime.v1.Common.QueryContext.Builder, io.greptime.v1.Common.QueryContextOrBuilder>(
+                  getQueryContext(),
+                  getParentForChildren(),
+                  isClean());
+          queryContext_ = null;
+        }
+        return queryContextBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -12832,55 +13035,57 @@ public final class Ddl {
       "\n\032greptime/v1/meta/ddl.proto\022\020greptime.v" +
       "1.meta\032\035greptime/v1/meta/common.proto\032\034g" +
       "reptime/v1/meta/route.proto\032\025greptime/v1" +
-      "/ddl.proto\"N\n\022CreateDatabaseTask\0228\n\017crea" +
-      "te_database\030\001 \001(\0132\037.greptime.v1.CreateDa" +
-      "tabaseExpr\"\212\001\n\017CreateTableTask\0222\n\014create" +
-      "_table\030\001 \001(\0132\034.greptime.v1.CreateTableEx" +
-      "pr\022/\n\npartitions\030\002 \003(\0132\033.greptime.v1.met" +
-      "a.Partition\022\022\n\ntable_info\030\003 \001(\014\"D\n\020Creat" +
-      "eTableTasks\0220\n\005tasks\030\001 \003(\0132!.greptime.v1" +
-      ".meta.CreateTableTask\"?\n\rDropTableTask\022." +
-      "\n\ndrop_table\030\001 \001(\0132\032.greptime.v1.DropTab" +
-      "leExpr\"@\n\016DropTableTasks\022.\n\005tasks\030\001 \003(\0132" +
-      "\037.greptime.v1.meta.DropTableTask\"=\n\016Alte" +
-      "rTableTask\022+\n\013alter_table\030\001 \001(\0132\026.grepti" +
-      "me.v1.AlterExpr\"B\n\017AlterTableTasks\022/\n\005ta" +
-      "sks\030\001 \003(\0132 .greptime.v1.meta.AlterTableT" +
-      "ask\"K\n\021TruncateTableTask\0226\n\016truncate_tab" +
-      "le\030\001 \001(\0132\036.greptime.v1.TruncateTableExpr" +
-      "\"H\n\020DropDatabaseTask\0224\n\rdrop_database\030\001 " +
-      "\001(\0132\035.greptime.v1.DropDatabaseExpr\"B\n\016Cr" +
-      "eateFlowTask\0220\n\013create_flow\030\001 \001(\0132\033.grep" +
-      "time.v1.CreateFlowExpr\"<\n\014DropFlowTask\022," +
-      "\n\tdrop_flow\030\001 \001(\0132\031.greptime.v1.DropFlow" +
-      "Expr\"\207\006\n\016DdlTaskRequest\022/\n\006header\030\001 \001(\0132" +
-      "\037.greptime.v1.meta.RequestHeader\022>\n\021crea" +
-      "te_table_task\030\002 \001(\0132!.greptime.v1.meta.C" +
-      "reateTableTaskH\000\022:\n\017drop_table_task\030\003 \001(" +
-      "\0132\037.greptime.v1.meta.DropTableTaskH\000\022<\n\020" +
-      "alter_table_task\030\004 \001(\0132 .greptime.v1.met" +
-      "a.AlterTableTaskH\000\022B\n\023truncate_table_tas" +
-      "k\030\005 \001(\0132#.greptime.v1.meta.TruncateTable" +
-      "TaskH\000\022@\n\022create_table_tasks\030\006 \001(\0132\".gre" +
-      "ptime.v1.meta.CreateTableTasksH\000\022<\n\020drop" +
-      "_table_tasks\030\007 \001(\0132 .greptime.v1.meta.Dr" +
-      "opTableTasksH\000\022>\n\021alter_table_tasks\030\010 \001(" +
-      "\0132!.greptime.v1.meta.AlterTableTasksH\000\022@" +
-      "\n\022drop_database_task\030\t \001(\0132\".greptime.v1" +
-      ".meta.DropDatabaseTaskH\000\022D\n\024create_datab" +
-      "ase_task\030\n \001(\0132$.greptime.v1.meta.Create" +
-      "DatabaseTaskH\000\022<\n\020create_flow_task\030\013 \001(\013" +
-      "2 .greptime.v1.meta.CreateFlowTaskH\000\0228\n\016" +
-      "drop_flow_task\030\014 \001(\0132\036.greptime.v1.meta." +
-      "DropFlowTaskH\000B\006\n\004task\"\312\001\n\017DdlTaskRespon" +
-      "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re" +
-      "sponseHeader\022*\n\003pid\030\002 \001(\0132\035.greptime.v1." +
-      "meta.ProcedureId\022+\n\010table_id\030\004 \001(\0132\031.gre" +
-      "ptime.v1.meta.TableId\022,\n\ttable_ids\030\005 \003(\013" +
-      "2\031.greptime.v1.meta.TableId*#\n\013DdlTaskTy" +
-      "pe\022\n\n\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/G" +
-      "reptimeTeam/greptime-proto/go/greptime/v" +
-      "1/metab\006proto3"
+      "/ddl.proto\032\030greptime/v1/common.proto\"N\n\022" +
+      "CreateDatabaseTask\0228\n\017create_database\030\001 " +
+      "\001(\0132\037.greptime.v1.CreateDatabaseExpr\"\212\001\n" +
+      "\017CreateTableTask\0222\n\014create_table\030\001 \001(\0132\034" +
+      ".greptime.v1.CreateTableExpr\022/\n\npartitio" +
+      "ns\030\002 \003(\0132\033.greptime.v1.meta.Partition\022\022\n" +
+      "\ntable_info\030\003 \001(\014\"D\n\020CreateTableTasks\0220\n" +
+      "\005tasks\030\001 \003(\0132!.greptime.v1.meta.CreateTa" +
+      "bleTask\"?\n\rDropTableTask\022.\n\ndrop_table\030\001" +
+      " \001(\0132\032.greptime.v1.DropTableExpr\"@\n\016Drop" +
+      "TableTasks\022.\n\005tasks\030\001 \003(\0132\037.greptime.v1." +
+      "meta.DropTableTask\"=\n\016AlterTableTask\022+\n\013" +
+      "alter_table\030\001 \001(\0132\026.greptime.v1.AlterExp" +
+      "r\"B\n\017AlterTableTasks\022/\n\005tasks\030\001 \003(\0132 .gr" +
+      "eptime.v1.meta.AlterTableTask\"K\n\021Truncat" +
+      "eTableTask\0226\n\016truncate_table\030\001 \001(\0132\036.gre" +
+      "ptime.v1.TruncateTableExpr\"H\n\020DropDataba" +
+      "seTask\0224\n\rdrop_database\030\001 \001(\0132\035.greptime" +
+      ".v1.DropDatabaseExpr\"B\n\016CreateFlowTask\0220" +
+      "\n\013create_flow\030\001 \001(\0132\033.greptime.v1.Create" +
+      "FlowExpr\"<\n\014DropFlowTask\022,\n\tdrop_flow\030\001 " +
+      "\001(\0132\031.greptime.v1.DropFlowExpr\"\271\006\n\016DdlTa" +
+      "skRequest\022/\n\006header\030\001 \001(\0132\037.greptime.v1." +
+      "meta.RequestHeader\0220\n\rquery_context\030@ \001(" +
+      "\0132\031.greptime.v1.QueryContext\022>\n\021create_t" +
+      "able_task\030\002 \001(\0132!.greptime.v1.meta.Creat" +
+      "eTableTaskH\000\022:\n\017drop_table_task\030\003 \001(\0132\037." +
+      "greptime.v1.meta.DropTableTaskH\000\022<\n\020alte" +
+      "r_table_task\030\004 \001(\0132 .greptime.v1.meta.Al" +
+      "terTableTaskH\000\022B\n\023truncate_table_task\030\005 " +
+      "\001(\0132#.greptime.v1.meta.TruncateTableTask" +
+      "H\000\022@\n\022create_table_tasks\030\006 \001(\0132\".greptim" +
+      "e.v1.meta.CreateTableTasksH\000\022<\n\020drop_tab" +
+      "le_tasks\030\007 \001(\0132 .greptime.v1.meta.DropTa" +
+      "bleTasksH\000\022>\n\021alter_table_tasks\030\010 \001(\0132!." +
+      "greptime.v1.meta.AlterTableTasksH\000\022@\n\022dr" +
+      "op_database_task\030\t \001(\0132\".greptime.v1.met" +
+      "a.DropDatabaseTaskH\000\022D\n\024create_database_" +
+      "task\030\n \001(\0132$.greptime.v1.meta.CreateData" +
+      "baseTaskH\000\022<\n\020create_flow_task\030\013 \001(\0132 .g" +
+      "reptime.v1.meta.CreateFlowTaskH\000\0228\n\016drop" +
+      "_flow_task\030\014 \001(\0132\036.greptime.v1.meta.Drop" +
+      "FlowTaskH\000B\006\n\004task\"\312\001\n\017DdlTaskResponse\0220" +
+      "\n\006header\030\001 \001(\0132 .greptime.v1.meta.Respon" +
+      "seHeader\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta" +
+      ".ProcedureId\022+\n\010table_id\030\004 \001(\0132\031.greptim" +
+      "e.v1.meta.TableId\022,\n\ttable_ids\030\005 \003(\0132\031.g" +
+      "reptime.v1.meta.TableId*#\n\013DdlTaskType\022\n" +
+      "\n\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/Grept" +
+      "imeTeam/greptime-proto/go/greptime/v1/me" +
+      "tab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12888,6 +13093,7 @@ public final class Ddl {
           greptime.v1.meta.Common.getDescriptor(),
           greptime.v1.meta.Route.getDescriptor(),
           io.greptime.v1.Ddl.getDescriptor(),
+          io.greptime.v1.Common.getDescriptor(),
         });
     internal_static_greptime_v1_meta_CreateDatabaseTask_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -12960,7 +13166,7 @@ public final class Ddl {
     internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskRequest_descriptor,
-        new java.lang.String[] { "Header", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "Task", });
+        new java.lang.String[] { "Header", "QueryContext", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "Task", });
     internal_static_greptime_v1_meta_DdlTaskResponse_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable = new
@@ -12970,6 +13176,7 @@ public final class Ddl {
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
+    io.greptime.v1.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

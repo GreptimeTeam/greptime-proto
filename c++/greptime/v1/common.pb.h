@@ -77,6 +77,12 @@ extern IntervalMonthDayNanoDefaultTypeInternal _IntervalMonthDayNano_default_ins
 class Metrics;
 struct MetricsDefaultTypeInternal;
 extern MetricsDefaultTypeInternal _Metrics_default_instance_;
+class QueryContext;
+struct QueryContextDefaultTypeInternal;
+extern QueryContextDefaultTypeInternal _QueryContext_default_instance_;
+class QueryContext_ExtensionsEntry_DoNotUse;
+struct QueryContext_ExtensionsEntry_DoNotUseDefaultTypeInternal;
+extern QueryContext_ExtensionsEntry_DoNotUseDefaultTypeInternal _QueryContext_ExtensionsEntry_DoNotUse_default_instance_;
 class RequestHeader;
 struct RequestHeaderDefaultTypeInternal;
 extern RequestHeaderDefaultTypeInternal _RequestHeader_default_instance_;
@@ -107,6 +113,8 @@ template<> ::greptime::v1::DecimalTypeExtension* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
 template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::greptime::v1::IntervalMonthDayNano>(Arena*);
 template<> ::greptime::v1::Metrics* Arena::CreateMaybeMessage<::greptime::v1::Metrics>(Arena*);
+template<> ::greptime::v1::QueryContext* Arena::CreateMaybeMessage<::greptime::v1::QueryContext>(Arena*);
+template<> ::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
 template<> ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::ResponseHeader>(Arena*);
@@ -195,6 +203,245 @@ inline bool ColumnDataType_Parse(
 }
 // ===================================================================
 
+class QueryContext_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<QueryContext_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<QueryContext_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  QueryContext_ExtensionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR QueryContext_ExtensionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit QueryContext_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const QueryContext_ExtensionsEntry_DoNotUse& other);
+  static const QueryContext_ExtensionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const QueryContext_ExtensionsEntry_DoNotUse*>(&_QueryContext_ExtensionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.QueryContext.ExtensionsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.QueryContext.ExtensionsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+
+// -------------------------------------------------------------------
+
+class QueryContext final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.QueryContext) */ {
+ public:
+  inline QueryContext() : QueryContext(nullptr) {}
+  ~QueryContext() override;
+  explicit PROTOBUF_CONSTEXPR QueryContext(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  QueryContext(const QueryContext& from);
+  QueryContext(QueryContext&& from) noexcept
+    : QueryContext() {
+    *this = ::std::move(from);
+  }
+
+  inline QueryContext& operator=(const QueryContext& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline QueryContext& operator=(QueryContext&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const QueryContext& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const QueryContext* internal_default_instance() {
+    return reinterpret_cast<const QueryContext*>(
+               &_QueryContext_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(QueryContext& a, QueryContext& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(QueryContext* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(QueryContext* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  QueryContext* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<QueryContext>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const QueryContext& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const QueryContext& from) {
+    QueryContext::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(QueryContext* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.QueryContext";
+  }
+  protected:
+  explicit QueryContext(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kExtensionsFieldNumber = 5,
+    kCurrentCatalogFieldNumber = 1,
+    kCurrentSchemaFieldNumber = 2,
+    kTimezoneFieldNumber = 4,
+  };
+  // map<string, string> extensions = 5;
+  int extensions_size() const;
+  private:
+  int _internal_extensions_size() const;
+  public:
+  void clear_extensions();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_extensions();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_extensions();
+
+  // string current_catalog = 1;
+  void clear_current_catalog();
+  const std::string& current_catalog() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_current_catalog(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_current_catalog();
+  PROTOBUF_NODISCARD std::string* release_current_catalog();
+  void set_allocated_current_catalog(std::string* current_catalog);
+  private:
+  const std::string& _internal_current_catalog() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_current_catalog(const std::string& value);
+  std::string* _internal_mutable_current_catalog();
+  public:
+
+  // string current_schema = 2;
+  void clear_current_schema();
+  const std::string& current_schema() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_current_schema(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_current_schema();
+  PROTOBUF_NODISCARD std::string* release_current_schema();
+  void set_allocated_current_schema(std::string* current_schema);
+  private:
+  const std::string& _internal_current_schema() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_current_schema(const std::string& value);
+  std::string* _internal_mutable_current_schema();
+  public:
+
+  // string timezone = 4;
+  void clear_timezone();
+  const std::string& timezone() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_timezone(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_timezone();
+  PROTOBUF_NODISCARD std::string* release_timezone();
+  void set_allocated_timezone(std::string* timezone);
+  private:
+  const std::string& _internal_timezone() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_timezone(const std::string& value);
+  std::string* _internal_mutable_timezone();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.QueryContext)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        QueryContext_ExtensionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> extensions_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_catalog_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_schema_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr timezone_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class RequestHeader_TracingContextEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RequestHeader_TracingContextEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
@@ -271,7 +518,7 @@ class RequestHeader final :
                &_RequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    3;
 
   friend void swap(RequestHeader& a, RequestHeader& b) {
     a.Swap(&b);
@@ -518,7 +765,7 @@ class ResponseHeader final :
                &_ResponseHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   friend void swap(ResponseHeader& a, ResponseHeader& b) {
     a.Swap(&b);
@@ -675,7 +922,7 @@ class Status final :
                &_Status_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(Status& a, Status& b) {
     a.Swap(&b);
@@ -845,7 +1092,7 @@ class AuthHeader final :
                &_AuthHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(AuthHeader& a, AuthHeader& b) {
     a.Swap(&b);
@@ -1035,7 +1282,7 @@ class Basic final :
                &_Basic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(Basic& a, Basic& b) {
     a.Swap(&b);
@@ -1204,7 +1451,7 @@ class Token final :
                &_Token_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(Token& a, Token& b) {
     a.Swap(&b);
@@ -1357,7 +1604,7 @@ class TableName final :
                &_TableName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(TableName& a, TableName& b) {
     a.Swap(&b);
@@ -1542,7 +1789,7 @@ class AffectedRows final :
                &_AffectedRows_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(AffectedRows& a, AffectedRows& b) {
     a.Swap(&b);
@@ -1690,7 +1937,7 @@ class Metrics final :
                &_Metrics_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(Metrics& a, Metrics& b) {
     a.Swap(&b);
@@ -1843,7 +2090,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -2020,7 +2267,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -2190,7 +2437,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -2354,7 +2601,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -2523,7 +2770,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -2641,6 +2888,191 @@ class DecimalTypeExtension final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// QueryContext
+
+// string current_catalog = 1;
+inline void QueryContext::clear_current_catalog() {
+  _impl_.current_catalog_.ClearToEmpty();
+}
+inline const std::string& QueryContext::current_catalog() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.QueryContext.current_catalog)
+  return _internal_current_catalog();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void QueryContext::set_current_catalog(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.current_catalog_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.QueryContext.current_catalog)
+}
+inline std::string* QueryContext::mutable_current_catalog() {
+  std::string* _s = _internal_mutable_current_catalog();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.QueryContext.current_catalog)
+  return _s;
+}
+inline const std::string& QueryContext::_internal_current_catalog() const {
+  return _impl_.current_catalog_.Get();
+}
+inline void QueryContext::_internal_set_current_catalog(const std::string& value) {
+  
+  _impl_.current_catalog_.Set(value, GetArenaForAllocation());
+}
+inline std::string* QueryContext::_internal_mutable_current_catalog() {
+  
+  return _impl_.current_catalog_.Mutable(GetArenaForAllocation());
+}
+inline std::string* QueryContext::release_current_catalog() {
+  // @@protoc_insertion_point(field_release:greptime.v1.QueryContext.current_catalog)
+  return _impl_.current_catalog_.Release();
+}
+inline void QueryContext::set_allocated_current_catalog(std::string* current_catalog) {
+  if (current_catalog != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.current_catalog_.SetAllocated(current_catalog, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.current_catalog_.IsDefault()) {
+    _impl_.current_catalog_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.QueryContext.current_catalog)
+}
+
+// string current_schema = 2;
+inline void QueryContext::clear_current_schema() {
+  _impl_.current_schema_.ClearToEmpty();
+}
+inline const std::string& QueryContext::current_schema() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.QueryContext.current_schema)
+  return _internal_current_schema();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void QueryContext::set_current_schema(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.current_schema_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.QueryContext.current_schema)
+}
+inline std::string* QueryContext::mutable_current_schema() {
+  std::string* _s = _internal_mutable_current_schema();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.QueryContext.current_schema)
+  return _s;
+}
+inline const std::string& QueryContext::_internal_current_schema() const {
+  return _impl_.current_schema_.Get();
+}
+inline void QueryContext::_internal_set_current_schema(const std::string& value) {
+  
+  _impl_.current_schema_.Set(value, GetArenaForAllocation());
+}
+inline std::string* QueryContext::_internal_mutable_current_schema() {
+  
+  return _impl_.current_schema_.Mutable(GetArenaForAllocation());
+}
+inline std::string* QueryContext::release_current_schema() {
+  // @@protoc_insertion_point(field_release:greptime.v1.QueryContext.current_schema)
+  return _impl_.current_schema_.Release();
+}
+inline void QueryContext::set_allocated_current_schema(std::string* current_schema) {
+  if (current_schema != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.current_schema_.SetAllocated(current_schema, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.current_schema_.IsDefault()) {
+    _impl_.current_schema_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.QueryContext.current_schema)
+}
+
+// string timezone = 4;
+inline void QueryContext::clear_timezone() {
+  _impl_.timezone_.ClearToEmpty();
+}
+inline const std::string& QueryContext::timezone() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.QueryContext.timezone)
+  return _internal_timezone();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void QueryContext::set_timezone(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.timezone_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.QueryContext.timezone)
+}
+inline std::string* QueryContext::mutable_timezone() {
+  std::string* _s = _internal_mutable_timezone();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.QueryContext.timezone)
+  return _s;
+}
+inline const std::string& QueryContext::_internal_timezone() const {
+  return _impl_.timezone_.Get();
+}
+inline void QueryContext::_internal_set_timezone(const std::string& value) {
+  
+  _impl_.timezone_.Set(value, GetArenaForAllocation());
+}
+inline std::string* QueryContext::_internal_mutable_timezone() {
+  
+  return _impl_.timezone_.Mutable(GetArenaForAllocation());
+}
+inline std::string* QueryContext::release_timezone() {
+  // @@protoc_insertion_point(field_release:greptime.v1.QueryContext.timezone)
+  return _impl_.timezone_.Release();
+}
+inline void QueryContext::set_allocated_timezone(std::string* timezone) {
+  if (timezone != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.timezone_.SetAllocated(timezone, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.timezone_.IsDefault()) {
+    _impl_.timezone_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.QueryContext.timezone)
+}
+
+// map<string, string> extensions = 5;
+inline int QueryContext::_internal_extensions_size() const {
+  return _impl_.extensions_.size();
+}
+inline int QueryContext::extensions_size() const {
+  return _internal_extensions_size();
+}
+inline void QueryContext::clear_extensions() {
+  _impl_.extensions_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+QueryContext::_internal_extensions() const {
+  return _impl_.extensions_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+QueryContext::extensions() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.QueryContext.extensions)
+  return _internal_extensions();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+QueryContext::_internal_mutable_extensions() {
+  return _impl_.extensions_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+QueryContext::mutable_extensions() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.QueryContext.extensions)
+  return _internal_mutable_extensions();
+}
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // RequestHeader
@@ -4109,6 +4541,10 @@ inline void DecimalTypeExtension::set_scale(int32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

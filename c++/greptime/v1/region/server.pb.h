@@ -113,12 +113,6 @@ extern OpenRequestDefaultTypeInternal _OpenRequest_default_instance_;
 class OpenRequest_OptionsEntry_DoNotUse;
 struct OpenRequest_OptionsEntry_DoNotUseDefaultTypeInternal;
 extern OpenRequest_OptionsEntry_DoNotUseDefaultTypeInternal _OpenRequest_OptionsEntry_DoNotUse_default_instance_;
-class QueryContext;
-struct QueryContextDefaultTypeInternal;
-extern QueryContextDefaultTypeInternal _QueryContext_default_instance_;
-class QueryContext_ExtensionsEntry_DoNotUse;
-struct QueryContext_ExtensionsEntry_DoNotUseDefaultTypeInternal;
-extern QueryContext_ExtensionsEntry_DoNotUseDefaultTypeInternal _QueryContext_ExtensionsEntry_DoNotUse_default_instance_;
 class QueryRequest;
 struct QueryRequestDefaultTypeInternal;
 extern QueryRequestDefaultTypeInternal _QueryRequest_default_instance_;
@@ -167,8 +161,6 @@ template<> ::greptime::v1::region::InsertRequest* Arena::CreateMaybeMessage<::gr
 template<> ::greptime::v1::region::InsertRequests* Arena::CreateMaybeMessage<::greptime::v1::region::InsertRequests>(Arena*);
 template<> ::greptime::v1::region::OpenRequest* Arena::CreateMaybeMessage<::greptime::v1::region::OpenRequest>(Arena*);
 template<> ::greptime::v1::region::OpenRequest_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::OpenRequest_OptionsEntry_DoNotUse>(Arena*);
-template<> ::greptime::v1::region::QueryContext* Arena::CreateMaybeMessage<::greptime::v1::region::QueryContext>(Arena*);
-template<> ::greptime::v1::region::QueryContext_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::QueryContext_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::QueryRequest* Arena::CreateMaybeMessage<::greptime::v1::region::QueryRequest>(Arena*);
 template<> ::greptime::v1::region::RegionColumnDef* Arena::CreateMaybeMessage<::greptime::v1::region::RegionColumnDef>(Arena*);
 template<> ::greptime::v1::region::RegionRequest* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequest>(Arena*);
@@ -183,245 +175,6 @@ namespace v1 {
 namespace region {
 
 // ===================================================================
-
-class QueryContext_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<QueryContext_ExtensionsEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<QueryContext_ExtensionsEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  QueryContext_ExtensionsEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR QueryContext_ExtensionsEntry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit QueryContext_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const QueryContext_ExtensionsEntry_DoNotUse& other);
-  static const QueryContext_ExtensionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const QueryContext_ExtensionsEntry_DoNotUse*>(&_QueryContext_ExtensionsEntry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.region.QueryContext.ExtensionsEntry.key");
- }
-  static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.region.QueryContext.ExtensionsEntry.value");
- }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
-};
-
-// -------------------------------------------------------------------
-
-class QueryContext final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.QueryContext) */ {
- public:
-  inline QueryContext() : QueryContext(nullptr) {}
-  ~QueryContext() override;
-  explicit PROTOBUF_CONSTEXPR QueryContext(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  QueryContext(const QueryContext& from);
-  QueryContext(QueryContext&& from) noexcept
-    : QueryContext() {
-    *this = ::std::move(from);
-  }
-
-  inline QueryContext& operator=(const QueryContext& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline QueryContext& operator=(QueryContext&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const QueryContext& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const QueryContext* internal_default_instance() {
-    return reinterpret_cast<const QueryContext*>(
-               &_QueryContext_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(QueryContext& a, QueryContext& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(QueryContext* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(QueryContext* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  QueryContext* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<QueryContext>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const QueryContext& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const QueryContext& from) {
-    QueryContext::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(QueryContext* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.region.QueryContext";
-  }
-  protected:
-  explicit QueryContext(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kExtensionsFieldNumber = 5,
-    kCurrentCatalogFieldNumber = 1,
-    kCurrentSchemaFieldNumber = 2,
-    kTimezoneFieldNumber = 4,
-  };
-  // map<string, string> extensions = 5;
-  int extensions_size() const;
-  private:
-  int _internal_extensions_size() const;
-  public:
-  void clear_extensions();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      _internal_extensions() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      _internal_mutable_extensions();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      extensions() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      mutable_extensions();
-
-  // string current_catalog = 1;
-  void clear_current_catalog();
-  const std::string& current_catalog() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_current_catalog(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_current_catalog();
-  PROTOBUF_NODISCARD std::string* release_current_catalog();
-  void set_allocated_current_catalog(std::string* current_catalog);
-  private:
-  const std::string& _internal_current_catalog() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_current_catalog(const std::string& value);
-  std::string* _internal_mutable_current_catalog();
-  public:
-
-  // string current_schema = 2;
-  void clear_current_schema();
-  const std::string& current_schema() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_current_schema(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_current_schema();
-  PROTOBUF_NODISCARD std::string* release_current_schema();
-  void set_allocated_current_schema(std::string* current_schema);
-  private:
-  const std::string& _internal_current_schema() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_current_schema(const std::string& value);
-  std::string* _internal_mutable_current_schema();
-  public:
-
-  // string timezone = 4;
-  void clear_timezone();
-  const std::string& timezone() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_timezone(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_timezone();
-  PROTOBUF_NODISCARD std::string* release_timezone();
-  void set_allocated_timezone(std::string* timezone);
-  private:
-  const std::string& _internal_timezone() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_timezone(const std::string& value);
-  std::string* _internal_mutable_timezone();
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.region.QueryContext)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        QueryContext_ExtensionsEntry_DoNotUse,
-        std::string, std::string,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> extensions_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_catalog_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_schema_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr timezone_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
-};
-// -------------------------------------------------------------------
 
 class RegionRequestHeader_TracingContextEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionRequestHeader_TracingContextEntry_DoNotUse, 
     std::string, std::string,
@@ -499,7 +252,7 @@ class RegionRequestHeader final :
                &_RegionRequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    1;
 
   friend void swap(RegionRequestHeader& a, RegionRequestHeader& b) {
     a.Swap(&b);
@@ -610,23 +363,23 @@ class RegionRequestHeader final :
   std::string* _internal_mutable_dbname();
   public:
 
-  // .greptime.v1.region.QueryContext query_context = 6;
+  // .greptime.v1.QueryContext query_context = 6;
   bool has_query_context() const;
   private:
   bool _internal_has_query_context() const;
   public:
   void clear_query_context();
-  const ::greptime::v1::region::QueryContext& query_context() const;
-  PROTOBUF_NODISCARD ::greptime::v1::region::QueryContext* release_query_context();
-  ::greptime::v1::region::QueryContext* mutable_query_context();
-  void set_allocated_query_context(::greptime::v1::region::QueryContext* query_context);
+  const ::greptime::v1::QueryContext& query_context() const;
+  PROTOBUF_NODISCARD ::greptime::v1::QueryContext* release_query_context();
+  ::greptime::v1::QueryContext* mutable_query_context();
+  void set_allocated_query_context(::greptime::v1::QueryContext* query_context);
   private:
-  const ::greptime::v1::region::QueryContext& _internal_query_context() const;
-  ::greptime::v1::region::QueryContext* _internal_mutable_query_context();
+  const ::greptime::v1::QueryContext& _internal_query_context() const;
+  ::greptime::v1::QueryContext* _internal_mutable_query_context();
   public:
   void unsafe_arena_set_allocated_query_context(
-      ::greptime::v1::region::QueryContext* query_context);
-  ::greptime::v1::region::QueryContext* unsafe_arena_release_query_context();
+      ::greptime::v1::QueryContext* query_context);
+  ::greptime::v1::QueryContext* unsafe_arena_release_query_context();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequestHeader)
  private:
@@ -642,7 +395,7 @@ class RegionRequestHeader final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> tracing_context_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dbname_;
-    ::greptime::v1::region::QueryContext* query_context_;
+    ::greptime::v1::QueryContext* query_context_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -715,7 +468,7 @@ class RegionRequest final :
                &_RegionRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    2;
 
   friend void swap(RegionRequest& a, RegionRequest& b) {
     a.Swap(&b);
@@ -1182,7 +935,7 @@ class RegionResponse final :
                &_RegionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    4;
 
   friend void swap(RegionResponse& a, RegionResponse& b) {
     a.Swap(&b);
@@ -1376,7 +1129,7 @@ class InsertRequests final :
                &_InsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    5;
 
   friend void swap(InsertRequests& a, InsertRequests& b) {
     a.Swap(&b);
@@ -1533,7 +1286,7 @@ class DeleteRequests final :
                &_DeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    6;
 
   friend void swap(DeleteRequests& a, DeleteRequests& b) {
     a.Swap(&b);
@@ -1690,7 +1443,7 @@ class InsertRequest final :
                &_InsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    7;
 
   friend void swap(InsertRequest& a, InsertRequest& b) {
     a.Swap(&b);
@@ -1858,7 +1611,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    8;
 
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
     a.Swap(&b);
@@ -2026,7 +1779,7 @@ class QueryRequest final :
                &_QueryRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    9;
 
   friend void swap(QueryRequest& a, QueryRequest& b) {
     a.Swap(&b);
@@ -2210,7 +1963,7 @@ class CreateRequests final :
                &_CreateRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    10;
 
   friend void swap(CreateRequests& a, CreateRequests& b) {
     a.Swap(&b);
@@ -2395,7 +2148,7 @@ class CreateRequest final :
                &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    12;
 
   friend void swap(CreateRequest& a, CreateRequest& b) {
     a.Swap(&b);
@@ -2646,7 +2399,7 @@ class DropRequests final :
                &_DropRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    13;
 
   friend void swap(DropRequests& a, DropRequests& b) {
     a.Swap(&b);
@@ -2803,7 +2556,7 @@ class DropRequest final :
                &_DropRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    14;
 
   friend void swap(DropRequest& a, DropRequest& b) {
     a.Swap(&b);
@@ -2979,7 +2732,7 @@ class OpenRequest final :
                &_OpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    16;
 
   friend void swap(OpenRequest& a, OpenRequest& b) {
     a.Swap(&b);
@@ -3185,7 +2938,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    17;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -3333,7 +3086,7 @@ class AlterRequests final :
                &_AlterRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    18;
 
   friend void swap(AlterRequests& a, AlterRequests& b) {
     a.Swap(&b);
@@ -3497,7 +3250,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    19;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -3730,7 +3483,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    20;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -3887,7 +3640,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    21;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -4044,7 +3797,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    22;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -4221,7 +3974,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    23;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -4374,7 +4127,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    24;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -4522,7 +4275,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    25;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -4670,7 +4423,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    26;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -4818,7 +4571,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    27;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -4947,191 +4700,6 @@ class RegionColumnDef final :
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
-// QueryContext
-
-// string current_catalog = 1;
-inline void QueryContext::clear_current_catalog() {
-  _impl_.current_catalog_.ClearToEmpty();
-}
-inline const std::string& QueryContext::current_catalog() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.QueryContext.current_catalog)
-  return _internal_current_catalog();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void QueryContext::set_current_catalog(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.current_catalog_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.region.QueryContext.current_catalog)
-}
-inline std::string* QueryContext::mutable_current_catalog() {
-  std::string* _s = _internal_mutable_current_catalog();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.QueryContext.current_catalog)
-  return _s;
-}
-inline const std::string& QueryContext::_internal_current_catalog() const {
-  return _impl_.current_catalog_.Get();
-}
-inline void QueryContext::_internal_set_current_catalog(const std::string& value) {
-  
-  _impl_.current_catalog_.Set(value, GetArenaForAllocation());
-}
-inline std::string* QueryContext::_internal_mutable_current_catalog() {
-  
-  return _impl_.current_catalog_.Mutable(GetArenaForAllocation());
-}
-inline std::string* QueryContext::release_current_catalog() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.QueryContext.current_catalog)
-  return _impl_.current_catalog_.Release();
-}
-inline void QueryContext::set_allocated_current_catalog(std::string* current_catalog) {
-  if (current_catalog != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.current_catalog_.SetAllocated(current_catalog, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.current_catalog_.IsDefault()) {
-    _impl_.current_catalog_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.QueryContext.current_catalog)
-}
-
-// string current_schema = 2;
-inline void QueryContext::clear_current_schema() {
-  _impl_.current_schema_.ClearToEmpty();
-}
-inline const std::string& QueryContext::current_schema() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.QueryContext.current_schema)
-  return _internal_current_schema();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void QueryContext::set_current_schema(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.current_schema_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.region.QueryContext.current_schema)
-}
-inline std::string* QueryContext::mutable_current_schema() {
-  std::string* _s = _internal_mutable_current_schema();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.QueryContext.current_schema)
-  return _s;
-}
-inline const std::string& QueryContext::_internal_current_schema() const {
-  return _impl_.current_schema_.Get();
-}
-inline void QueryContext::_internal_set_current_schema(const std::string& value) {
-  
-  _impl_.current_schema_.Set(value, GetArenaForAllocation());
-}
-inline std::string* QueryContext::_internal_mutable_current_schema() {
-  
-  return _impl_.current_schema_.Mutable(GetArenaForAllocation());
-}
-inline std::string* QueryContext::release_current_schema() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.QueryContext.current_schema)
-  return _impl_.current_schema_.Release();
-}
-inline void QueryContext::set_allocated_current_schema(std::string* current_schema) {
-  if (current_schema != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.current_schema_.SetAllocated(current_schema, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.current_schema_.IsDefault()) {
-    _impl_.current_schema_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.QueryContext.current_schema)
-}
-
-// string timezone = 4;
-inline void QueryContext::clear_timezone() {
-  _impl_.timezone_.ClearToEmpty();
-}
-inline const std::string& QueryContext::timezone() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.QueryContext.timezone)
-  return _internal_timezone();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void QueryContext::set_timezone(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.timezone_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.region.QueryContext.timezone)
-}
-inline std::string* QueryContext::mutable_timezone() {
-  std::string* _s = _internal_mutable_timezone();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.QueryContext.timezone)
-  return _s;
-}
-inline const std::string& QueryContext::_internal_timezone() const {
-  return _impl_.timezone_.Get();
-}
-inline void QueryContext::_internal_set_timezone(const std::string& value) {
-  
-  _impl_.timezone_.Set(value, GetArenaForAllocation());
-}
-inline std::string* QueryContext::_internal_mutable_timezone() {
-  
-  return _impl_.timezone_.Mutable(GetArenaForAllocation());
-}
-inline std::string* QueryContext::release_timezone() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.QueryContext.timezone)
-  return _impl_.timezone_.Release();
-}
-inline void QueryContext::set_allocated_timezone(std::string* timezone) {
-  if (timezone != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.timezone_.SetAllocated(timezone, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.timezone_.IsDefault()) {
-    _impl_.timezone_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.QueryContext.timezone)
-}
-
-// map<string, string> extensions = 5;
-inline int QueryContext::_internal_extensions_size() const {
-  return _impl_.extensions_.size();
-}
-inline int QueryContext::extensions_size() const {
-  return _internal_extensions_size();
-}
-inline void QueryContext::clear_extensions() {
-  _impl_.extensions_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-QueryContext::_internal_extensions() const {
-  return _impl_.extensions_.GetMap();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-QueryContext::extensions() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.region.QueryContext.extensions)
-  return _internal_extensions();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-QueryContext::_internal_mutable_extensions() {
-  return _impl_.extensions_.MutableMap();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-QueryContext::mutable_extensions() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.region.QueryContext.extensions)
-  return _internal_mutable_extensions();
-}
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // RegionRequestHeader
 
 // map<string, string> tracing_context = 5;
@@ -5213,30 +4781,24 @@ inline void RegionRequestHeader::set_allocated_dbname(std::string* dbname) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionRequestHeader.dbname)
 }
 
-// .greptime.v1.region.QueryContext query_context = 6;
+// .greptime.v1.QueryContext query_context = 6;
 inline bool RegionRequestHeader::_internal_has_query_context() const {
   return this != internal_default_instance() && _impl_.query_context_ != nullptr;
 }
 inline bool RegionRequestHeader::has_query_context() const {
   return _internal_has_query_context();
 }
-inline void RegionRequestHeader::clear_query_context() {
-  if (GetArenaForAllocation() == nullptr && _impl_.query_context_ != nullptr) {
-    delete _impl_.query_context_;
-  }
-  _impl_.query_context_ = nullptr;
+inline const ::greptime::v1::QueryContext& RegionRequestHeader::_internal_query_context() const {
+  const ::greptime::v1::QueryContext* p = _impl_.query_context_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::QueryContext&>(
+      ::greptime::v1::_QueryContext_default_instance_);
 }
-inline const ::greptime::v1::region::QueryContext& RegionRequestHeader::_internal_query_context() const {
-  const ::greptime::v1::region::QueryContext* p = _impl_.query_context_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::QueryContext&>(
-      ::greptime::v1::region::_QueryContext_default_instance_);
-}
-inline const ::greptime::v1::region::QueryContext& RegionRequestHeader::query_context() const {
+inline const ::greptime::v1::QueryContext& RegionRequestHeader::query_context() const {
   // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequestHeader.query_context)
   return _internal_query_context();
 }
 inline void RegionRequestHeader::unsafe_arena_set_allocated_query_context(
-    ::greptime::v1::region::QueryContext* query_context) {
+    ::greptime::v1::QueryContext* query_context) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.query_context_);
   }
@@ -5248,9 +4810,9 @@ inline void RegionRequestHeader::unsafe_arena_set_allocated_query_context(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequestHeader.query_context)
 }
-inline ::greptime::v1::region::QueryContext* RegionRequestHeader::release_query_context() {
+inline ::greptime::v1::QueryContext* RegionRequestHeader::release_query_context() {
   
-  ::greptime::v1::region::QueryContext* temp = _impl_.query_context_;
+  ::greptime::v1::QueryContext* temp = _impl_.query_context_;
   _impl_.query_context_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -5263,34 +4825,35 @@ inline ::greptime::v1::region::QueryContext* RegionRequestHeader::release_query_
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::region::QueryContext* RegionRequestHeader::unsafe_arena_release_query_context() {
+inline ::greptime::v1::QueryContext* RegionRequestHeader::unsafe_arena_release_query_context() {
   // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequestHeader.query_context)
   
-  ::greptime::v1::region::QueryContext* temp = _impl_.query_context_;
+  ::greptime::v1::QueryContext* temp = _impl_.query_context_;
   _impl_.query_context_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::region::QueryContext* RegionRequestHeader::_internal_mutable_query_context() {
+inline ::greptime::v1::QueryContext* RegionRequestHeader::_internal_mutable_query_context() {
   
   if (_impl_.query_context_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::region::QueryContext>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::greptime::v1::QueryContext>(GetArenaForAllocation());
     _impl_.query_context_ = p;
   }
   return _impl_.query_context_;
 }
-inline ::greptime::v1::region::QueryContext* RegionRequestHeader::mutable_query_context() {
-  ::greptime::v1::region::QueryContext* _msg = _internal_mutable_query_context();
+inline ::greptime::v1::QueryContext* RegionRequestHeader::mutable_query_context() {
+  ::greptime::v1::QueryContext* _msg = _internal_mutable_query_context();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequestHeader.query_context)
   return _msg;
 }
-inline void RegionRequestHeader::set_allocated_query_context(::greptime::v1::region::QueryContext* query_context) {
+inline void RegionRequestHeader::set_allocated_query_context(::greptime::v1::QueryContext* query_context) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete _impl_.query_context_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.query_context_);
   }
   if (query_context) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(query_context);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(query_context));
     if (message_arena != submessage_arena) {
       query_context = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, query_context, submessage_arena);
@@ -8327,10 +7890,6 @@ inline void RegionColumnDef::set_column_id(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
