@@ -1880,6 +1880,16 @@ public final class ClusterOuterClass {
      */
     com.google.protobuf.ByteString
         getGitCommitBytes();
+
+    /**
+     * <pre>
+     * The node start timestamp in milliseconds.
+     * </pre>
+     *
+     * <code>uint64 start_time_ms = 4;</code>
+     * @return The startTimeMs.
+     */
+    long getStartTimeMs();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.MetasrvNodeInfo}
@@ -1951,6 +1961,11 @@ public final class ClusterOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               gitCommit_ = s;
+              break;
+            }
+            case 32: {
+
+              startTimeMs_ = input.readUInt64();
               break;
             }
             default: {
@@ -2089,6 +2104,21 @@ public final class ClusterOuterClass {
       }
     }
 
+    public static final int START_TIME_MS_FIELD_NUMBER = 4;
+    private long startTimeMs_;
+    /**
+     * <pre>
+     * The node start timestamp in milliseconds.
+     * </pre>
+     *
+     * <code>uint64 start_time_ms = 4;</code>
+     * @return The startTimeMs.
+     */
+    @java.lang.Override
+    public long getStartTimeMs() {
+      return startTimeMs_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2112,6 +2142,9 @@ public final class ClusterOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gitCommit_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, gitCommit_);
       }
+      if (startTimeMs_ != 0L) {
+        output.writeUInt64(4, startTimeMs_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2130,6 +2163,10 @@ public final class ClusterOuterClass {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gitCommit_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, gitCommit_);
+      }
+      if (startTimeMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, startTimeMs_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2155,6 +2192,8 @@ public final class ClusterOuterClass {
           .equals(other.getVersion())) return false;
       if (!getGitCommit()
           .equals(other.getGitCommit())) return false;
+      if (getStartTimeMs()
+          != other.getStartTimeMs()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2174,6 +2213,9 @@ public final class ClusterOuterClass {
       hash = (53 * hash) + getVersion().hashCode();
       hash = (37 * hash) + GIT_COMMIT_FIELD_NUMBER;
       hash = (53 * hash) + getGitCommit().hashCode();
+      hash = (37 * hash) + START_TIME_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStartTimeMs());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2317,6 +2359,8 @@ public final class ClusterOuterClass {
 
         gitCommit_ = "";
 
+        startTimeMs_ = 0L;
+
         return this;
       }
 
@@ -2350,6 +2394,7 @@ public final class ClusterOuterClass {
         }
         result.version_ = version_;
         result.gitCommit_ = gitCommit_;
+        result.startTimeMs_ = startTimeMs_;
         onBuilt();
         return result;
       }
@@ -2408,6 +2453,9 @@ public final class ClusterOuterClass {
         if (!other.getGitCommit().isEmpty()) {
           gitCommit_ = other.gitCommit_;
           onChanged();
+        }
+        if (other.getStartTimeMs() != 0L) {
+          setStartTimeMs(other.getStartTimeMs());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2708,6 +2756,49 @@ public final class ClusterOuterClass {
         onChanged();
         return this;
       }
+
+      private long startTimeMs_ ;
+      /**
+       * <pre>
+       * The node start timestamp in milliseconds.
+       * </pre>
+       *
+       * <code>uint64 start_time_ms = 4;</code>
+       * @return The startTimeMs.
+       */
+      @java.lang.Override
+      public long getStartTimeMs() {
+        return startTimeMs_;
+      }
+      /**
+       * <pre>
+       * The node start timestamp in milliseconds.
+       * </pre>
+       *
+       * <code>uint64 start_time_ms = 4;</code>
+       * @param value The startTimeMs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStartTimeMs(long value) {
+        
+        startTimeMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The node start timestamp in milliseconds.
+       * </pre>
+       *
+       * <code>uint64 start_time_ms = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStartTimeMs() {
+        
+        startTimeMs_ = 0L;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2794,17 +2885,18 @@ public final class ClusterOuterClass {
       "eta.ResponseHeader\0221\n\006leader\030\002 \001(\0132!.gre" +
       "ptime.v1.meta.MetasrvNodeInfo\0224\n\tfollowe" +
       "rs\030\003 \003(\0132!.greptime.v1.meta.MetasrvNodeI" +
-      "nfo\"\\\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026.g" +
+      "nfo\"s\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026.g" +
       "reptime.v1.meta.Peer\022\017\n\007version\030\002 \001(\t\022\022\n" +
-      "\ngit_commit\030\003 \001(\t2\205\002\n\007Cluster\022Q\n\010BatchGe" +
-      "t\022!.greptime.v1.meta.BatchGetRequest\032\".g" +
-      "reptime.v1.meta.BatchGetResponse\022H\n\005Rang" +
-      "e\022\036.greptime.v1.meta.RangeRequest\032\037.grep" +
-      "time.v1.meta.RangeResponse\022]\n\014MetasrvPee" +
-      "rs\022%.greptime.v1.meta.MetasrvPeersReques" +
-      "t\032&.greptime.v1.meta.MetasrvPeersRespons" +
-      "eB<Z:github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1/metab\006proto3"
+      "\ngit_commit\030\003 \001(\t\022\025\n\rstart_time_ms\030\004 \001(\004" +
+      "2\205\002\n\007Cluster\022Q\n\010BatchGet\022!.greptime.v1.m" +
+      "eta.BatchGetRequest\032\".greptime.v1.meta.B" +
+      "atchGetResponse\022H\n\005Range\022\036.greptime.v1.m" +
+      "eta.RangeRequest\032\037.greptime.v1.meta.Rang" +
+      "eResponse\022]\n\014MetasrvPeers\022%.greptime.v1." +
+      "meta.MetasrvPeersRequest\032&.greptime.v1.m" +
+      "eta.MetasrvPeersResponseB<Z:github.com/G" +
+      "reptimeTeam/greptime-proto/go/greptime/v" +
+      "1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2829,7 +2921,7 @@ public final class ClusterOuterClass {
     internal_static_greptime_v1_meta_MetasrvNodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor,
-        new java.lang.String[] { "Peer", "Version", "GitCommit", });
+        new java.lang.String[] { "Peer", "Version", "GitCommit", "StartTimeMs", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.StoreOuterClass.getDescriptor();
   }
