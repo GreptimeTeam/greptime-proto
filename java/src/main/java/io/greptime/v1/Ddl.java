@@ -4376,6 +4376,27 @@ java.lang.String defaultValue);
      */
     com.google.protobuf.ByteString
         getFlowNameBytes();
+
+    /**
+     * <code>.greptime.v1.FlowId flow_id = 3;</code>
+     * @return Whether the flowId field is set.
+     */
+    boolean hasFlowId();
+    /**
+     * <code>.greptime.v1.FlowId flow_id = 3;</code>
+     * @return The flowId.
+     */
+    io.greptime.v1.Ddl.FlowId getFlowId();
+    /**
+     * <code>.greptime.v1.FlowId flow_id = 3;</code>
+     */
+    io.greptime.v1.Ddl.FlowIdOrBuilder getFlowIdOrBuilder();
+
+    /**
+     * <code>bool drop_if_exists = 5;</code>
+     * @return The dropIfExists.
+     */
+    boolean getDropIfExists();
   }
   /**
    * <pre>
@@ -4438,6 +4459,24 @@ java.lang.String defaultValue);
               java.lang.String s = input.readStringRequireUtf8();
 
               flowName_ = s;
+              break;
+            }
+            case 26: {
+              io.greptime.v1.Ddl.FlowId.Builder subBuilder = null;
+              if (flowId_ != null) {
+                subBuilder = flowId_.toBuilder();
+              }
+              flowId_ = input.readMessage(io.greptime.v1.Ddl.FlowId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(flowId_);
+                flowId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 40: {
+
+              dropIfExists_ = input.readBool();
               break;
             }
             default: {
@@ -4550,6 +4589,43 @@ java.lang.String defaultValue);
       }
     }
 
+    public static final int FLOW_ID_FIELD_NUMBER = 3;
+    private io.greptime.v1.Ddl.FlowId flowId_;
+    /**
+     * <code>.greptime.v1.FlowId flow_id = 3;</code>
+     * @return Whether the flowId field is set.
+     */
+    @java.lang.Override
+    public boolean hasFlowId() {
+      return flowId_ != null;
+    }
+    /**
+     * <code>.greptime.v1.FlowId flow_id = 3;</code>
+     * @return The flowId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowId getFlowId() {
+      return flowId_ == null ? io.greptime.v1.Ddl.FlowId.getDefaultInstance() : flowId_;
+    }
+    /**
+     * <code>.greptime.v1.FlowId flow_id = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowIdOrBuilder getFlowIdOrBuilder() {
+      return getFlowId();
+    }
+
+    public static final int DROP_IF_EXISTS_FIELD_NUMBER = 5;
+    private boolean dropIfExists_;
+    /**
+     * <code>bool drop_if_exists = 5;</code>
+     * @return The dropIfExists.
+     */
+    @java.lang.Override
+    public boolean getDropIfExists() {
+      return dropIfExists_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4570,6 +4646,12 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(flowName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, flowName_);
       }
+      if (flowId_ != null) {
+        output.writeMessage(3, getFlowId());
+      }
+      if (dropIfExists_ != false) {
+        output.writeBool(5, dropIfExists_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4584,6 +4666,14 @@ java.lang.String defaultValue);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(flowName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, flowName_);
+      }
+      if (flowId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getFlowId());
+      }
+      if (dropIfExists_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, dropIfExists_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4604,6 +4694,13 @@ java.lang.String defaultValue);
           .equals(other.getCatalogName())) return false;
       if (!getFlowName()
           .equals(other.getFlowName())) return false;
+      if (hasFlowId() != other.hasFlowId()) return false;
+      if (hasFlowId()) {
+        if (!getFlowId()
+            .equals(other.getFlowId())) return false;
+      }
+      if (getDropIfExists()
+          != other.getDropIfExists()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4619,6 +4716,13 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getCatalogName().hashCode();
       hash = (37 * hash) + FLOW_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getFlowName().hashCode();
+      if (hasFlowId()) {
+        hash = (37 * hash) + FLOW_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getFlowId().hashCode();
+      }
+      hash = (37 * hash) + DROP_IF_EXISTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getDropIfExists());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4760,6 +4864,14 @@ java.lang.String defaultValue);
 
         flowName_ = "";
 
+        if (flowIdBuilder_ == null) {
+          flowId_ = null;
+        } else {
+          flowId_ = null;
+          flowIdBuilder_ = null;
+        }
+        dropIfExists_ = false;
+
         return this;
       }
 
@@ -4788,6 +4900,12 @@ java.lang.String defaultValue);
         io.greptime.v1.Ddl.DropFlowExpr result = new io.greptime.v1.Ddl.DropFlowExpr(this);
         result.catalogName_ = catalogName_;
         result.flowName_ = flowName_;
+        if (flowIdBuilder_ == null) {
+          result.flowId_ = flowId_;
+        } else {
+          result.flowId_ = flowIdBuilder_.build();
+        }
+        result.dropIfExists_ = dropIfExists_;
         onBuilt();
         return result;
       }
@@ -4843,6 +4961,12 @@ java.lang.String defaultValue);
         if (!other.getFlowName().isEmpty()) {
           flowName_ = other.flowName_;
           onChanged();
+        }
+        if (other.hasFlowId()) {
+          mergeFlowId(other.getFlowId());
+        }
+        if (other.getDropIfExists() != false) {
+          setDropIfExists(other.getDropIfExists());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5021,6 +5145,156 @@ java.lang.String defaultValue);
   checkByteStringIsUtf8(value);
         
         flowName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.greptime.v1.Ddl.FlowId flowId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder> flowIdBuilder_;
+      /**
+       * <code>.greptime.v1.FlowId flow_id = 3;</code>
+       * @return Whether the flowId field is set.
+       */
+      public boolean hasFlowId() {
+        return flowIdBuilder_ != null || flowId_ != null;
+      }
+      /**
+       * <code>.greptime.v1.FlowId flow_id = 3;</code>
+       * @return The flowId.
+       */
+      public io.greptime.v1.Ddl.FlowId getFlowId() {
+        if (flowIdBuilder_ == null) {
+          return flowId_ == null ? io.greptime.v1.Ddl.FlowId.getDefaultInstance() : flowId_;
+        } else {
+          return flowIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.FlowId flow_id = 3;</code>
+       */
+      public Builder setFlowId(io.greptime.v1.Ddl.FlowId value) {
+        if (flowIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          flowId_ = value;
+          onChanged();
+        } else {
+          flowIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowId flow_id = 3;</code>
+       */
+      public Builder setFlowId(
+          io.greptime.v1.Ddl.FlowId.Builder builderForValue) {
+        if (flowIdBuilder_ == null) {
+          flowId_ = builderForValue.build();
+          onChanged();
+        } else {
+          flowIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowId flow_id = 3;</code>
+       */
+      public Builder mergeFlowId(io.greptime.v1.Ddl.FlowId value) {
+        if (flowIdBuilder_ == null) {
+          if (flowId_ != null) {
+            flowId_ =
+              io.greptime.v1.Ddl.FlowId.newBuilder(flowId_).mergeFrom(value).buildPartial();
+          } else {
+            flowId_ = value;
+          }
+          onChanged();
+        } else {
+          flowIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowId flow_id = 3;</code>
+       */
+      public Builder clearFlowId() {
+        if (flowIdBuilder_ == null) {
+          flowId_ = null;
+          onChanged();
+        } else {
+          flowId_ = null;
+          flowIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowId flow_id = 3;</code>
+       */
+      public io.greptime.v1.Ddl.FlowId.Builder getFlowIdBuilder() {
+        
+        onChanged();
+        return getFlowIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.FlowId flow_id = 3;</code>
+       */
+      public io.greptime.v1.Ddl.FlowIdOrBuilder getFlowIdOrBuilder() {
+        if (flowIdBuilder_ != null) {
+          return flowIdBuilder_.getMessageOrBuilder();
+        } else {
+          return flowId_ == null ?
+              io.greptime.v1.Ddl.FlowId.getDefaultInstance() : flowId_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.FlowId flow_id = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder> 
+          getFlowIdFieldBuilder() {
+        if (flowIdBuilder_ == null) {
+          flowIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder>(
+                  getFlowId(),
+                  getParentForChildren(),
+                  isClean());
+          flowId_ = null;
+        }
+        return flowIdBuilder_;
+      }
+
+      private boolean dropIfExists_ ;
+      /**
+       * <code>bool drop_if_exists = 5;</code>
+       * @return The dropIfExists.
+       */
+      @java.lang.Override
+      public boolean getDropIfExists() {
+        return dropIfExists_;
+      }
+      /**
+       * <code>bool drop_if_exists = 5;</code>
+       * @param value The dropIfExists to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDropIfExists(boolean value) {
+        
+        dropIfExists_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool drop_if_exists = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDropIfExists() {
+        
+        dropIfExists_ = false;
         onChanged();
         return this;
       }
@@ -19291,6 +19565,496 @@ java.lang.String defaultValue);
 
   }
 
+  public interface FlowIdOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.FlowId)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 id = 1;</code>
+     * @return The id.
+     */
+    int getId();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.FlowId}
+   */
+  public static final class FlowId extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.FlowId)
+      FlowIdOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FlowId.newBuilder() to construct.
+    private FlowId(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FlowId() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FlowId();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FlowId(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              id_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_FlowId_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_FlowId_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.FlowId.class, io.greptime.v1.Ddl.FlowId.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>uint32 id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public int getId() {
+      return id_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (id_ != 0) {
+        output.writeUInt32(1, id_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, id_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.FlowId)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.FlowId other = (io.greptime.v1.Ddl.FlowId) obj;
+
+      if (getId()
+          != other.getId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.FlowId parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.FlowId parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.FlowId prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.FlowId}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.FlowId)
+        io.greptime.v1.Ddl.FlowIdOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_FlowId_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_FlowId_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.FlowId.class, io.greptime.v1.Ddl.FlowId.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.FlowId.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_FlowId_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.FlowId getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.FlowId.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.FlowId build() {
+        io.greptime.v1.Ddl.FlowId result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.FlowId buildPartial() {
+        io.greptime.v1.Ddl.FlowId result = new io.greptime.v1.Ddl.FlowId(this);
+        result.id_ = id_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.FlowId) {
+          return mergeFrom((io.greptime.v1.Ddl.FlowId)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.FlowId other) {
+        if (other == io.greptime.v1.Ddl.FlowId.getDefaultInstance()) return this;
+        if (other.getId() != 0) {
+          setId(other.getId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.FlowId parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.FlowId) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int id_ ;
+      /**
+       * <code>uint32 id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>uint32 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(int value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.FlowId)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.FlowId)
+    private static final io.greptime.v1.Ddl.FlowId DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.FlowId();
+    }
+
+    public static io.greptime.v1.Ddl.FlowId getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FlowId>
+        PARSER = new com.google.protobuf.AbstractParser<FlowId>() {
+      @java.lang.Override
+      public FlowId parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FlowId(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FlowId> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FlowId> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowId getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ColumnDefOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.ColumnDef)
       com.google.protobuf.MessageOrBuilder {
@@ -21519,6 +22283,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_TableId_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_FlowId_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_FlowId_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_ColumnDef_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -21557,66 +22326,69 @@ java.lang.String defaultValue);
       "\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n\014flow_o" +
       "ptions\030\n \003(\0132,.greptime.v1.CreateFlowExp" +
       "r.FlowOptionsEntry\0322\n\020FlowOptionsEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"7\n\014DropFl" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u\n\014DropFl" +
       "owExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_nam" +
-      "e\030\002 \001(\t\"\207\003\n\017CreateTableExpr\022\024\n\014catalog_n" +
-      "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_" +
-      "name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013column_defs\030" +
-      "\005 \003(\0132\026.greptime.v1.ColumnDef\022\022\n\ntime_in" +
-      "dex\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t\022\034\n\024creat" +
-      "e_if_not_exists\030\010 \001(\010\022E\n\rtable_options\030\t" +
-      " \003(\0132..greptime.v1.CreateTableExpr.Table" +
-      "OptionsEntry\022&\n\010table_id\030\n \001(\0132\024.greptim" +
-      "e.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOpt" +
-      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"\245\002\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
-      "\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022." +
-      "\n\013add_columns\030\004 \001(\0132\027.greptime.v1.AddCol" +
-      "umnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.greptime." +
-      "v1.DropColumnsH\000\0220\n\014rename_table\030\006 \001(\0132\030" +
-      ".greptime.v1.RenameTableH\000\022=\n\023change_col" +
-      "umn_types\030\007 \001(\0132\036.greptime.v1.ChangeColu" +
-      "mnTypesH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014c" +
-      "atalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022" +
-      "\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.g" +
-      "reptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001" +
-      "(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_nam" +
-      "e\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_i" +
-      "f_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.gr" +
-      "eptime.v1.CreateDatabaseExpr.OptionsEntr" +
-      "y\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalo" +
-      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntab" +
-      "le_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grepti" +
-      "me.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014cat" +
-      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016" +
-      "drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013ad" +
-      "d_columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"" +
-      "<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.g" +
-      "reptime.v1.DropColumn\"O\n\021ChangeColumnTyp" +
-      "es\022:\n\023change_column_types\030\001 \003(\0132\035.grepti" +
-      "me.v1.ChangeColumnType\"%\n\013RenameTable\022\026\n" +
-      "\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\nco" +
-      "lumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220" +
-      "\n\010location\030\003 \001(\0132\036.greptime.v1.AddColumn" +
-      "Location\"\236\001\n\020ChangeColumnType\022\023\n\013column_" +
-      "name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.grepti" +
-      "me.v1.ColumnDataType\022C\n\025target_type_exte" +
-      "nsion\030\003 \001(\0132$.greptime.v1.ColumnDataType" +
-      "Extension\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n" +
-      "\007TableId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004na" +
-      "me\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v" +
-      "1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n" +
-      "\022default_constraint\030\004 \001(\014\0220\n\rsemantic_ty" +
-      "pe\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007c" +
-      "omment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\013" +
-      "2$.greptime.v1.ColumnDataTypeExtension\"\230" +
-      "\001\n\021AddColumnLocation\022B\n\rlocation_type\030\001 " +
-      "\001(\0162+.greptime.v1.AddColumnLocation.Loca" +
-      "tionType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014L" +
-      "ocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io." +
-      "greptime.v1B\003DdlZ5github.com/GreptimeTea" +
-      "m/greptime-proto/go/greptime/v1b\006proto3"
+      "e\030\002 \001(\t\022$\n\007flow_id\030\003 \001(\0132\023.greptime.v1.F" +
+      "lowId\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017Create" +
+      "TableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schem" +
+      "a_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc" +
+      "\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v" +
+      "1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014prima" +
+      "ry_keys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 " +
+      "\001(\010\022E\n\rtable_options\030\t \003(\0132..greptime.v1" +
+      ".CreateTableExpr.TableOptionsEntry\022&\n\010ta" +
+      "ble_id\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006en" +
+      "gine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n" +
+      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
+      "\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(" +
+      "\0132\027.greptime.v1.AddColumnsH\000\0220\n\014drop_col" +
+      "umns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220" +
+      "\n\014rename_table\030\006 \001(\0132\030.greptime.v1.Renam" +
+      "eTableH\000\022=\n\023change_column_types\030\007 \001(\0132\036." +
+      "greptime.v1.ChangeColumnTypesH\000B\006\n\004kind\"" +
+      "\216\001\n\rDropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
+      "\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t" +
+      "\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableId" +
+      "\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDatab" +
+      "aseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
+      "name\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010" +
+      "\022=\n\007options\030\004 \003(\0132,.greptime.v1.CreateDa" +
+      "tabaseExpr.OptionsEntry\032.\n\014OptionsEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021Trunc" +
+      "ateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
+      "hema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010t" +
+      "able_id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n\020D" +
+      "ropDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
+      "\013schema_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001" +
+      "(\010\"9\n\nAddColumns\022+\n\013add_columns\030\001 \003(\0132\026." +
+      "greptime.v1.AddColumn\"<\n\013DropColumns\022-\n\014" +
+      "drop_columns\030\001 \003(\0132\027.greptime.v1.DropCol" +
+      "umn\"O\n\021ChangeColumnTypes\022:\n\023change_colum" +
+      "n_types\030\001 \003(\0132\035.greptime.v1.ChangeColumn" +
+      "Type\"%\n\013RenameTable\022\026\n\016new_table_name\030\001 " +
+      "\001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.g" +
+      "reptime.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036" +
+      ".greptime.v1.AddColumnLocation\"\236\001\n\020Chang" +
+      "eColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013targ" +
+      "et_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy" +
+      "pe\022C\n\025target_type_extension\030\003 \001(\0132$.grep" +
+      "time.v1.ColumnDataTypeExtension\"\032\n\nDropC" +
+      "olumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001" +
+      "(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014" +
+      "\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.grepti" +
+      "me.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(" +
+      "\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemanti" +
+      "c_type\030\005 \001(\0162\031.greptime.v1.SemanticType\022" +
+      "\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030\007" +
+      " \001(\0132$.greptime.v1.ColumnDataTypeExtensi" +
+      "on\"\230\001\n\021AddColumnLocation\022B\n\rlocation_typ" +
+      "e\030\001 \001(\0162+.greptime.v1.AddColumnLocation." +
+      "LocationType\022\031\n\021after_column_name\030\002 \001(\t\"" +
+      "$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n" +
+      "\016io.greptime.v1B\003DdlZ5github.com/Greptim" +
+      "eTeam/greptime-proto/go/greptime/v1b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -21646,7 +22418,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_DropFlowExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropFlowExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "FlowName", });
+        new java.lang.String[] { "CatalogName", "FlowName", "FlowId", "DropIfExists", });
     internal_static_greptime_v1_CreateTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_CreateTableExpr_fieldAccessorTable = new
@@ -21743,14 +22515,20 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TableId_descriptor,
         new java.lang.String[] { "Id", });
-    internal_static_greptime_v1_ColumnDef_descriptor =
+    internal_static_greptime_v1_FlowId_descriptor =
       getDescriptor().getMessageTypes().get(17);
+    internal_static_greptime_v1_FlowId_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_FlowId_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_greptime_v1_ColumnDef_descriptor =
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
         new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", "DatatypeExtension", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumnLocation_descriptor,

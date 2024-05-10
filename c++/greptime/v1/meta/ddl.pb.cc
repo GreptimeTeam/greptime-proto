@@ -396,15 +396,14 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto[] PROTOB
   "baseTaskH\000\022<\n\020create_flow_task\030\013 \001(\0132 .g"
   "reptime.v1.meta.CreateFlowTaskH\000\0228\n\016drop"
   "_flow_task\030\014 \001(\0132\036.greptime.v1.meta.Drop"
-  "FlowTaskH\000B\006\n\004task\"\312\001\n\017DdlTaskResponse\0220"
+  "FlowTaskH\000B\006\n\004task\"\300\001\n\017DdlTaskResponse\0220"
   "\n\006header\030\001 \001(\0132 .greptime.v1.meta.Respon"
   "seHeader\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta"
-  ".ProcedureId\022+\n\010table_id\030\004 \001(\0132\031.greptim"
-  "e.v1.meta.TableId\022,\n\ttable_ids\030\005 \003(\0132\031.g"
-  "reptime.v1.meta.TableId*#\n\013DdlTaskType\022\n"
-  "\n\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/Grept"
-  "imeTeam/greptime-proto/go/greptime/v1/me"
-  "tab\006proto3"
+  ".ProcedureId\022&\n\010table_id\030\004 \001(\0132\024.greptim"
+  "e.v1.TableId\022\'\n\ttable_ids\030\005 \003(\0132\024.grepti"
+  "me.v1.TableId*#\n\013DdlTaskType\022\n\n\006Create\020\000"
+  "\022\010\n\004Drop\020\001B<Z:github.com/GreptimeTeam/gr"
+  "eptime-proto/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps[4] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -414,7 +413,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto = {
-    false, false, 2130, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
+    false, false, 2120, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
     "greptime/v1/meta/ddl.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps, 4, 13,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets,
@@ -3609,7 +3608,7 @@ class DdlTaskResponse::_Internal {
  public:
   static const ::greptime::v1::meta::ResponseHeader& header(const DdlTaskResponse* msg);
   static const ::greptime::v1::meta::ProcedureId& pid(const DdlTaskResponse* msg);
-  static const ::greptime::v1::meta::TableId& table_id(const DdlTaskResponse* msg);
+  static const ::greptime::v1::TableId& table_id(const DdlTaskResponse* msg);
 };
 
 const ::greptime::v1::meta::ResponseHeader&
@@ -3620,7 +3619,7 @@ const ::greptime::v1::meta::ProcedureId&
 DdlTaskResponse::_Internal::pid(const DdlTaskResponse* msg) {
   return *msg->_impl_.pid_;
 }
-const ::greptime::v1::meta::TableId&
+const ::greptime::v1::TableId&
 DdlTaskResponse::_Internal::table_id(const DdlTaskResponse* msg) {
   return *msg->_impl_.table_id_;
 }
@@ -3669,7 +3668,7 @@ DdlTaskResponse::DdlTaskResponse(const DdlTaskResponse& from)
     _this->_impl_.pid_ = new ::greptime::v1::meta::ProcedureId(*from._impl_.pid_);
   }
   if (from._internal_has_table_id()) {
-    _this->_impl_.table_id_ = new ::greptime::v1::meta::TableId(*from._impl_.table_id_);
+    _this->_impl_.table_id_ = new ::greptime::v1::TableId(*from._impl_.table_id_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.DdlTaskResponse)
 }
@@ -3752,7 +3751,7 @@ const char* DdlTaskResponse::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.meta.TableId table_id = 4;
+      // .greptime.v1.TableId table_id = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_table_id(), ptr);
@@ -3760,7 +3759,7 @@ const char* DdlTaskResponse::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // repeated .greptime.v1.meta.TableId table_ids = 5;
+      // repeated .greptime.v1.TableId table_ids = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
@@ -3816,14 +3815,14 @@ uint8_t* DdlTaskResponse::_InternalSerialize(
         _Internal::pid(this).GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.meta.TableId table_id = 4;
+  // .greptime.v1.TableId table_id = 4;
   if (this->_internal_has_table_id()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(4, _Internal::table_id(this),
         _Internal::table_id(this).GetCachedSize(), target, stream);
   }
 
-  // repeated .greptime.v1.meta.TableId table_ids = 5;
+  // repeated .greptime.v1.TableId table_ids = 5;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_table_ids_size()); i < n; i++) {
     const auto& repfield = this->_internal_table_ids(i);
@@ -3847,7 +3846,7 @@ size_t DdlTaskResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.meta.TableId table_ids = 5;
+  // repeated .greptime.v1.TableId table_ids = 5;
   total_size += 1UL * this->_internal_table_ids_size();
   for (const auto& msg : this->_impl_.table_ids_) {
     total_size +=
@@ -3868,7 +3867,7 @@ size_t DdlTaskResponse::ByteSizeLong() const {
         *_impl_.pid_);
   }
 
-  // .greptime.v1.meta.TableId table_id = 4;
+  // .greptime.v1.TableId table_id = 4;
   if (this->_internal_has_table_id()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3903,7 +3902,7 @@ void DdlTaskResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
         from._internal_pid());
   }
   if (from._internal_has_table_id()) {
-    _this->_internal_mutable_table_id()->::greptime::v1::meta::TableId::MergeFrom(
+    _this->_internal_mutable_table_id()->::greptime::v1::TableId::MergeFrom(
         from._internal_table_id());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
