@@ -1194,7 +1194,7 @@ class CreateViewExpr final :
     kViewNameFieldNumber = 3,
     kLogicalPlanFieldNumber = 4,
     kCreateIfNotExistsFieldNumber = 5,
-    kCreateOrReplaceFieldNumber = 6,
+    kOrReplaceFieldNumber = 6,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -1261,13 +1261,13 @@ class CreateViewExpr final :
   void _internal_set_create_if_not_exists(bool value);
   public:
 
-  // bool create_or_replace = 6;
-  void clear_create_or_replace();
-  bool create_or_replace() const;
-  void set_create_or_replace(bool value);
+  // bool or_replace = 6;
+  void clear_or_replace();
+  bool or_replace() const;
+  void set_or_replace(bool value);
   private:
-  bool _internal_create_or_replace() const;
-  void _internal_set_create_or_replace(bool value);
+  bool _internal_or_replace() const;
+  void _internal_set_or_replace(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.CreateViewExpr)
@@ -1283,7 +1283,7 @@ class CreateViewExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr view_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr logical_plan_;
     bool create_if_not_exists_;
-    bool create_or_replace_;
+    bool or_replace_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -6429,24 +6429,24 @@ inline void CreateViewExpr::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.create_if_not_exists)
 }
 
-// bool create_or_replace = 6;
-inline void CreateViewExpr::clear_create_or_replace() {
-  _impl_.create_or_replace_ = false;
+// bool or_replace = 6;
+inline void CreateViewExpr::clear_or_replace() {
+  _impl_.or_replace_ = false;
 }
-inline bool CreateViewExpr::_internal_create_or_replace() const {
-  return _impl_.create_or_replace_;
+inline bool CreateViewExpr::_internal_or_replace() const {
+  return _impl_.or_replace_;
 }
-inline bool CreateViewExpr::create_or_replace() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.create_or_replace)
-  return _internal_create_or_replace();
+inline bool CreateViewExpr::or_replace() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.or_replace)
+  return _internal_or_replace();
 }
-inline void CreateViewExpr::_internal_set_create_or_replace(bool value) {
+inline void CreateViewExpr::_internal_set_or_replace(bool value) {
   
-  _impl_.create_or_replace_ = value;
+  _impl_.or_replace_ = value;
 }
-inline void CreateViewExpr::set_create_or_replace(bool value) {
-  _internal_set_create_or_replace(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.create_or_replace)
+inline void CreateViewExpr::set_or_replace(bool value) {
+  _internal_set_or_replace(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.or_replace)
 }
 
 // -------------------------------------------------------------------

@@ -5864,10 +5864,10 @@ java.lang.String defaultValue);
     boolean getCreateIfNotExists();
 
     /**
-     * <code>bool create_or_replace = 6;</code>
-     * @return The createOrReplace.
+     * <code>bool or_replace = 6;</code>
+     * @return The orReplace.
      */
-    boolean getCreateOrReplace();
+    boolean getOrReplace();
   }
   /**
    * <pre>
@@ -5952,7 +5952,7 @@ java.lang.String defaultValue);
             }
             case 48: {
 
-              createOrReplace_ = input.readBool();
+              orReplace_ = input.readBool();
               break;
             }
             default: {
@@ -6125,15 +6125,15 @@ java.lang.String defaultValue);
       return createIfNotExists_;
     }
 
-    public static final int CREATE_OR_REPLACE_FIELD_NUMBER = 6;
-    private boolean createOrReplace_;
+    public static final int OR_REPLACE_FIELD_NUMBER = 6;
+    private boolean orReplace_;
     /**
-     * <code>bool create_or_replace = 6;</code>
-     * @return The createOrReplace.
+     * <code>bool or_replace = 6;</code>
+     * @return The orReplace.
      */
     @java.lang.Override
-    public boolean getCreateOrReplace() {
-      return createOrReplace_;
+    public boolean getOrReplace() {
+      return orReplace_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6165,8 +6165,8 @@ java.lang.String defaultValue);
       if (createIfNotExists_ != false) {
         output.writeBool(5, createIfNotExists_);
       }
-      if (createOrReplace_ != false) {
-        output.writeBool(6, createOrReplace_);
+      if (orReplace_ != false) {
+        output.writeBool(6, orReplace_);
       }
       unknownFields.writeTo(output);
     }
@@ -6194,9 +6194,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, createIfNotExists_);
       }
-      if (createOrReplace_ != false) {
+      if (orReplace_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(6, createOrReplace_);
+          .computeBoolSize(6, orReplace_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6223,8 +6223,8 @@ java.lang.String defaultValue);
           .equals(other.getLogicalPlan())) return false;
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
-      if (getCreateOrReplace()
-          != other.getCreateOrReplace()) return false;
+      if (getOrReplace()
+          != other.getOrReplace()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6247,9 +6247,9 @@ java.lang.String defaultValue);
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCreateIfNotExists());
-      hash = (37 * hash) + CREATE_OR_REPLACE_FIELD_NUMBER;
+      hash = (37 * hash) + OR_REPLACE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getCreateOrReplace());
+          getOrReplace());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6397,7 +6397,7 @@ java.lang.String defaultValue);
 
         createIfNotExists_ = false;
 
-        createOrReplace_ = false;
+        orReplace_ = false;
 
         return this;
       }
@@ -6430,7 +6430,7 @@ java.lang.String defaultValue);
         result.viewName_ = viewName_;
         result.logicalPlan_ = logicalPlan_;
         result.createIfNotExists_ = createIfNotExists_;
-        result.createOrReplace_ = createOrReplace_;
+        result.orReplace_ = orReplace_;
         onBuilt();
         return result;
       }
@@ -6497,8 +6497,8 @@ java.lang.String defaultValue);
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
         }
-        if (other.getCreateOrReplace() != false) {
-          setCreateOrReplace(other.getCreateOrReplace());
+        if (other.getOrReplace() != false) {
+          setOrReplace(other.getOrReplace());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6822,33 +6822,33 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private boolean createOrReplace_ ;
+      private boolean orReplace_ ;
       /**
-       * <code>bool create_or_replace = 6;</code>
-       * @return The createOrReplace.
+       * <code>bool or_replace = 6;</code>
+       * @return The orReplace.
        */
       @java.lang.Override
-      public boolean getCreateOrReplace() {
-        return createOrReplace_;
+      public boolean getOrReplace() {
+        return orReplace_;
       }
       /**
-       * <code>bool create_or_replace = 6;</code>
-       * @param value The createOrReplace to set.
+       * <code>bool or_replace = 6;</code>
+       * @param value The orReplace to set.
        * @return This builder for chaining.
        */
-      public Builder setCreateOrReplace(boolean value) {
+      public Builder setOrReplace(boolean value) {
         
-        createOrReplace_ = value;
+        orReplace_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool create_or_replace = 6;</code>
+       * <code>bool or_replace = 6;</code>
        * @return This builder for chaining.
        */
-      public Builder clearCreateOrReplace() {
+      public Builder clearOrReplace() {
         
-        createOrReplace_ = false;
+        orReplace_ = false;
         onChanged();
         return this;
       }
@@ -25048,73 +25048,72 @@ java.lang.String defaultValue);
       "\030\002 \001(\t:\0028\001\"u\n\014DropFlowExpr\022\024\n\014catalog_na" +
       "me\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\022$\n\007flow_id\030\003" +
       " \001(\0132\023.greptime.v1.FlowId\022\026\n\016drop_if_exi" +
-      "sts\030\005 \001(\010\"\235\001\n\016CreateViewExpr\022\024\n\014catalog_" +
+      "sts\030\005 \001(\010\"\226\001\n\016CreateViewExpr\022\024\n\014catalog_" +
       "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_" +
       "name\030\003 \001(\t\022\024\n\014logical_plan\030\004 \001(\014\022\034\n\024crea" +
-      "te_if_not_exists\030\005 \001(\010\022\031\n\021create_or_repl" +
-      "ace\030\006 \001(\010\"\213\001\n\014DropViewExpr\022\024\n\014catalog_na" +
-      "me\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_na" +
-      "me\030\003 \001(\t\022%\n\007view_id\030\004 \001(\0132\024.greptime.v1." +
-      "TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017Crea" +
-      "teTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
-      "ema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004de" +
-      "sc\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime" +
-      ".v1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014pri" +
-      "mary_keys\030\007 \003(\t\022\034\n\024create_if_not_exists\030" +
-      "\010 \001(\010\022E\n\rtable_options\030\t \003(\0132..greptime." +
-      "v1.CreateTableExpr.TableOptionsEntry\022&\n\010" +
-      "table_id\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006" +
-      "engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterExpr\022" +
-      "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001" +
-      "(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030\004 " +
-      "\001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014drop_c" +
-      "olumns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000" +
-      "\0220\n\014rename_table\030\006 \001(\0132\030.greptime.v1.Ren" +
-      "ameTableH\000\022=\n\023change_column_types\030\007 \001(\0132" +
-      "\036.greptime.v1.ChangeColumnTypesH\000B\006\n\004kin" +
-      "d\"\216\001\n\rDropTableExpr\022\024\n\014catalog_name\030\001 \001(" +
-      "\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001" +
-      "(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.Table" +
-      "Id\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDat" +
-      "abaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schem" +
-      "a_name\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001" +
-      "(\010\022=\n\007options\030\004 \003(\0132,.greptime.v1.Create" +
-      "DatabaseExpr.OptionsEntry\032.\n\014OptionsEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021Tru" +
-      "ncateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013" +
-      "schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n" +
-      "\010table_id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n" +
-      "\020DropDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
-      "\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003" +
-      " \001(\010\"9\n\nAddColumns\022+\n\013add_columns\030\001 \003(\0132" +
-      "\026.greptime.v1.AddColumn\"<\n\013DropColumns\022-" +
-      "\n\014drop_columns\030\001 \003(\0132\027.greptime.v1.DropC" +
-      "olumn\"O\n\021ChangeColumnTypes\022:\n\023change_col" +
-      "umn_types\030\001 \003(\0132\035.greptime.v1.ChangeColu" +
-      "mnType\"%\n\013RenameTable\022\026\n\016new_table_name\030" +
-      "\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026" +
-      ".greptime.v1.ColumnDef\0220\n\010location\030\003 \001(\013" +
-      "2\036.greptime.v1.AddColumnLocation\"\236\001\n\020Cha" +
-      "ngeColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013ta" +
-      "rget_type\030\002 \001(\0162\033.greptime.v1.ColumnData" +
-      "Type\022C\n\025target_type_extension\030\003 \001(\0132$.gr" +
-      "eptime.v1.ColumnDataTypeExtension\"\032\n\nDro" +
-      "pColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001" +
-      " \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef" +
-      "\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.grep" +
-      "time.v1.ColumnDataType\022\023\n\013is_nullable\030\003 " +
-      "\001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rseman" +
-      "tic_type\030\005 \001(\0162\031.greptime.v1.SemanticTyp" +
-      "e\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extension" +
-      "\030\007 \001(\0132$.greptime.v1.ColumnDataTypeExten" +
-      "sion\"\230\001\n\021AddColumnLocation\022B\n\rlocation_t" +
-      "ype\030\001 \001(\0162+.greptime.v1.AddColumnLocatio" +
-      "n.LocationType\022\031\n\021after_column_name\030\002 \001(" +
-      "\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001B" +
-      "L\n\016io.greptime.v1B\003DdlZ5github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1b\006p" +
-      "roto3"
+      "te_if_not_exists\030\005 \001(\010\022\022\n\nor_replace\030\006 \001" +
+      "(\010\"\213\001\n\014DropViewExpr\022\024\n\014catalog_name\030\001 \001(" +
+      "\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(" +
+      "\t\022%\n\007view_id\030\004 \001(\0132\024.greptime.v1.TableId" +
+      "\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017CreateTable" +
+      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
+      "e\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(" +
+      "\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v1.Col" +
+      "umnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014primary_ke" +
+      "ys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001(\010\022E" +
+      "\n\rtable_options\030\t \003(\0132..greptime.v1.Crea" +
+      "teTableExpr.TableOptionsEntry\022&\n\010table_i" +
+      "d\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006engine\030" +
+      "\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n\014cata" +
+      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nt" +
+      "able_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\0132\027.g" +
+      "reptime.v1.AddColumnsH\000\0220\n\014drop_columns\030" +
+      "\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220\n\014ren" +
+      "ame_table\030\006 \001(\0132\030.greptime.v1.RenameTabl" +
+      "eH\000\022=\n\023change_column_types\030\007 \001(\0132\036.grept" +
+      "ime.v1.ChangeColumnTypesH\000B\006\n\004kind\"\216\001\n\rD" +
+      "ropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
+      "hema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010t" +
+      "able_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016d" +
+      "rop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDatabaseEx" +
+      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
+      "\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022=\n\007o" +
+      "ptions\030\004 \003(\0132,.greptime.v1.CreateDatabas" +
+      "eExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTa" +
+      "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
+      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_" +
+      "id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n\020DropDa" +
+      "tabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sche" +
+      "ma_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n" +
+      "\nAddColumns\022+\n\013add_columns\030\001 \003(\0132\026.grept" +
+      "ime.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop_" +
+      "columns\030\001 \003(\0132\027.greptime.v1.DropColumn\"O" +
+      "\n\021ChangeColumnTypes\022:\n\023change_column_typ" +
+      "es\030\001 \003(\0132\035.greptime.v1.ChangeColumnType\"" +
+      "%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"i" +
+      "\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.grepti" +
+      "me.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.grep" +
+      "time.v1.AddColumnLocation\"\236\001\n\020ChangeColu" +
+      "mnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013target_ty" +
+      "pe\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022C\n" +
+      "\025target_type_extension\030\003 \001(\0132$.greptime." +
+      "v1.ColumnDataTypeExtension\"\032\n\nDropColumn" +
+      "\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n" +
+      "\006FlowId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004nam" +
+      "e\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1" +
+      ".ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022" +
+      "default_constraint\030\004 \001(\014\0220\n\rsemantic_typ" +
+      "e\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007co" +
+      "mment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132" +
+      "$.greptime.v1.ColumnDataTypeExtension\"\230\001" +
+      "\n\021AddColumnLocation\022B\n\rlocation_type\030\001 \001" +
+      "(\0162+.greptime.v1.AddColumnLocation.Locat" +
+      "ionType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Lo" +
+      "cationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.g" +
+      "reptime.v1B\003DdlZ5github.com/GreptimeTeam" +
+      "/greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25150,7 +25149,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateViewExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateViewExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "ViewName", "LogicalPlan", "CreateIfNotExists", "CreateOrReplace", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "ViewName", "LogicalPlan", "CreateIfNotExists", "OrReplace", });
     internal_static_greptime_v1_DropViewExpr_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_DropViewExpr_fieldAccessorTable = new
