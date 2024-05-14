@@ -146,7 +146,23 @@ message DropColumn { string name = 1; }
 
 message FlushRequest { uint64 region_id = 1; }
 
-message CompactRequest { uint64 region_id = 1; }
+message Regular{}
+
+message StrictWindow {
+  int64 window = 1;
+}
+
+message CompactType {
+  oneof ty {
+    Regular regular = 1;
+      StrictWindow strict_window = 2;
+  }
+}
+
+message CompactRequest {
+    uint64 region_id = 1;
+    CompactType compact_type = 2;
+}
 
 message TruncateRequest { uint64 region_id = 1; }
 
