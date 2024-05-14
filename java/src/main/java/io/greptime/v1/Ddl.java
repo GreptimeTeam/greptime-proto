@@ -123,6 +123,36 @@ public final class Ddl {
      */
     io.greptime.v1.Ddl.DropFlowExprOrBuilder getDropFlowOrBuilder();
 
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+     * @return Whether the createView field is set.
+     */
+    boolean hasCreateView();
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+     * @return The createView.
+     */
+    io.greptime.v1.Ddl.CreateViewExpr getCreateView();
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+     */
+    io.greptime.v1.Ddl.CreateViewExprOrBuilder getCreateViewOrBuilder();
+
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+     * @return Whether the dropView field is set.
+     */
+    boolean hasDropView();
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+     * @return The dropView.
+     */
+    io.greptime.v1.Ddl.DropViewExpr getDropView();
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+     */
+    io.greptime.v1.Ddl.DropViewExprOrBuilder getDropViewOrBuilder();
+
     public io.greptime.v1.Ddl.DdlRequest.ExprCase getExprCase();
   }
   /**
@@ -275,6 +305,34 @@ public final class Ddl {
               exprCase_ = 9;
               break;
             }
+            case 82: {
+              io.greptime.v1.Ddl.CreateViewExpr.Builder subBuilder = null;
+              if (exprCase_ == 10) {
+                subBuilder = ((io.greptime.v1.Ddl.CreateViewExpr) expr_).toBuilder();
+              }
+              expr_ =
+                  input.readMessage(io.greptime.v1.Ddl.CreateViewExpr.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.CreateViewExpr) expr_);
+                expr_ = subBuilder.buildPartial();
+              }
+              exprCase_ = 10;
+              break;
+            }
+            case 90: {
+              io.greptime.v1.Ddl.DropViewExpr.Builder subBuilder = null;
+              if (exprCase_ == 11) {
+                subBuilder = ((io.greptime.v1.Ddl.DropViewExpr) expr_).toBuilder();
+              }
+              expr_ =
+                  input.readMessage(io.greptime.v1.Ddl.DropViewExpr.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.DropViewExpr) expr_);
+                expr_ = subBuilder.buildPartial();
+              }
+              exprCase_ = 11;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -321,6 +379,8 @@ public final class Ddl {
       TRUNCATE_TABLE(7),
       CREATE_FLOW(8),
       DROP_FLOW(9),
+      CREATE_VIEW(10),
+      DROP_VIEW(11),
       EXPR_NOT_SET(0);
       private final int value;
       private ExprCase(int value) {
@@ -345,6 +405,8 @@ public final class Ddl {
           case 7: return TRUNCATE_TABLE;
           case 8: return CREATE_FLOW;
           case 9: return DROP_FLOW;
+          case 10: return CREATE_VIEW;
+          case 11: return DROP_VIEW;
           case 0: return EXPR_NOT_SET;
           default: return null;
         }
@@ -577,6 +639,68 @@ public final class Ddl {
       return io.greptime.v1.Ddl.DropFlowExpr.getDefaultInstance();
     }
 
+    public static final int CREATE_VIEW_FIELD_NUMBER = 10;
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+     * @return Whether the createView field is set.
+     */
+    @java.lang.Override
+    public boolean hasCreateView() {
+      return exprCase_ == 10;
+    }
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+     * @return The createView.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CreateViewExpr getCreateView() {
+      if (exprCase_ == 10) {
+         return (io.greptime.v1.Ddl.CreateViewExpr) expr_;
+      }
+      return io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CreateViewExprOrBuilder getCreateViewOrBuilder() {
+      if (exprCase_ == 10) {
+         return (io.greptime.v1.Ddl.CreateViewExpr) expr_;
+      }
+      return io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance();
+    }
+
+    public static final int DROP_VIEW_FIELD_NUMBER = 11;
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+     * @return Whether the dropView field is set.
+     */
+    @java.lang.Override
+    public boolean hasDropView() {
+      return exprCase_ == 11;
+    }
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+     * @return The dropView.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.DropViewExpr getDropView() {
+      if (exprCase_ == 11) {
+         return (io.greptime.v1.Ddl.DropViewExpr) expr_;
+      }
+      return io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.DropViewExprOrBuilder getDropViewOrBuilder() {
+      if (exprCase_ == 11) {
+         return (io.greptime.v1.Ddl.DropViewExpr) expr_;
+      }
+      return io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -611,6 +735,12 @@ public final class Ddl {
       }
       if (exprCase_ == 9) {
         output.writeMessage(9, (io.greptime.v1.Ddl.DropFlowExpr) expr_);
+      }
+      if (exprCase_ == 10) {
+        output.writeMessage(10, (io.greptime.v1.Ddl.CreateViewExpr) expr_);
+      }
+      if (exprCase_ == 11) {
+        output.writeMessage(11, (io.greptime.v1.Ddl.DropViewExpr) expr_);
       }
       unknownFields.writeTo(output);
     }
@@ -648,6 +778,14 @@ public final class Ddl {
       if (exprCase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(9, (io.greptime.v1.Ddl.DropFlowExpr) expr_);
+      }
+      if (exprCase_ == 10) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, (io.greptime.v1.Ddl.CreateViewExpr) expr_);
+      }
+      if (exprCase_ == 11) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, (io.greptime.v1.Ddl.DropViewExpr) expr_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -694,6 +832,14 @@ public final class Ddl {
           if (!getDropFlow()
               .equals(other.getDropFlow())) return false;
           break;
+        case 10:
+          if (!getCreateView()
+              .equals(other.getCreateView())) return false;
+          break;
+        case 11:
+          if (!getDropView()
+              .equals(other.getDropView())) return false;
+          break;
         case 0:
         default:
       }
@@ -736,6 +882,14 @@ public final class Ddl {
         case 9:
           hash = (37 * hash) + DROP_FLOW_FIELD_NUMBER;
           hash = (53 * hash) + getDropFlow().hashCode();
+          break;
+        case 10:
+          hash = (37 * hash) + CREATE_VIEW_FIELD_NUMBER;
+          hash = (53 * hash) + getCreateView().hashCode();
+          break;
+        case 11:
+          hash = (37 * hash) + DROP_VIEW_FIELD_NUMBER;
+          hash = (53 * hash) + getDropView().hashCode();
           break;
         case 0:
         default:
@@ -957,6 +1111,20 @@ public final class Ddl {
             result.expr_ = dropFlowBuilder_.build();
           }
         }
+        if (exprCase_ == 10) {
+          if (createViewBuilder_ == null) {
+            result.expr_ = expr_;
+          } else {
+            result.expr_ = createViewBuilder_.build();
+          }
+        }
+        if (exprCase_ == 11) {
+          if (dropViewBuilder_ == null) {
+            result.expr_ = expr_;
+          } else {
+            result.expr_ = dropViewBuilder_.build();
+          }
+        }
         result.exprCase_ = exprCase_;
         onBuilt();
         return result;
@@ -1033,6 +1201,14 @@ public final class Ddl {
           }
           case DROP_FLOW: {
             mergeDropFlow(other.getDropFlow());
+            break;
+          }
+          case CREATE_VIEW: {
+            mergeCreateView(other.getCreateView());
+            break;
+          }
+          case DROP_VIEW: {
+            mergeDropView(other.getDropView());
             break;
           }
           case EXPR_NOT_SET: {
@@ -2075,6 +2251,290 @@ public final class Ddl {
         exprCase_ = 9;
         onChanged();;
         return dropFlowBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.CreateViewExpr, io.greptime.v1.Ddl.CreateViewExpr.Builder, io.greptime.v1.Ddl.CreateViewExprOrBuilder> createViewBuilder_;
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+       * @return Whether the createView field is set.
+       */
+      @java.lang.Override
+      public boolean hasCreateView() {
+        return exprCase_ == 10;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+       * @return The createView.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CreateViewExpr getCreateView() {
+        if (createViewBuilder_ == null) {
+          if (exprCase_ == 10) {
+            return (io.greptime.v1.Ddl.CreateViewExpr) expr_;
+          }
+          return io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance();
+        } else {
+          if (exprCase_ == 10) {
+            return createViewBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+       */
+      public Builder setCreateView(io.greptime.v1.Ddl.CreateViewExpr value) {
+        if (createViewBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          expr_ = value;
+          onChanged();
+        } else {
+          createViewBuilder_.setMessage(value);
+        }
+        exprCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+       */
+      public Builder setCreateView(
+          io.greptime.v1.Ddl.CreateViewExpr.Builder builderForValue) {
+        if (createViewBuilder_ == null) {
+          expr_ = builderForValue.build();
+          onChanged();
+        } else {
+          createViewBuilder_.setMessage(builderForValue.build());
+        }
+        exprCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+       */
+      public Builder mergeCreateView(io.greptime.v1.Ddl.CreateViewExpr value) {
+        if (createViewBuilder_ == null) {
+          if (exprCase_ == 10 &&
+              expr_ != io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance()) {
+            expr_ = io.greptime.v1.Ddl.CreateViewExpr.newBuilder((io.greptime.v1.Ddl.CreateViewExpr) expr_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            expr_ = value;
+          }
+          onChanged();
+        } else {
+          if (exprCase_ == 10) {
+            createViewBuilder_.mergeFrom(value);
+          } else {
+            createViewBuilder_.setMessage(value);
+          }
+        }
+        exprCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+       */
+      public Builder clearCreateView() {
+        if (createViewBuilder_ == null) {
+          if (exprCase_ == 10) {
+            exprCase_ = 0;
+            expr_ = null;
+            onChanged();
+          }
+        } else {
+          if (exprCase_ == 10) {
+            exprCase_ = 0;
+            expr_ = null;
+          }
+          createViewBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+       */
+      public io.greptime.v1.Ddl.CreateViewExpr.Builder getCreateViewBuilder() {
+        return getCreateViewFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CreateViewExprOrBuilder getCreateViewOrBuilder() {
+        if ((exprCase_ == 10) && (createViewBuilder_ != null)) {
+          return createViewBuilder_.getMessageOrBuilder();
+        } else {
+          if (exprCase_ == 10) {
+            return (io.greptime.v1.Ddl.CreateViewExpr) expr_;
+          }
+          return io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.CreateViewExpr, io.greptime.v1.Ddl.CreateViewExpr.Builder, io.greptime.v1.Ddl.CreateViewExprOrBuilder> 
+          getCreateViewFieldBuilder() {
+        if (createViewBuilder_ == null) {
+          if (!(exprCase_ == 10)) {
+            expr_ = io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance();
+          }
+          createViewBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.CreateViewExpr, io.greptime.v1.Ddl.CreateViewExpr.Builder, io.greptime.v1.Ddl.CreateViewExprOrBuilder>(
+                  (io.greptime.v1.Ddl.CreateViewExpr) expr_,
+                  getParentForChildren(),
+                  isClean());
+          expr_ = null;
+        }
+        exprCase_ = 10;
+        onChanged();;
+        return createViewBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.DropViewExpr, io.greptime.v1.Ddl.DropViewExpr.Builder, io.greptime.v1.Ddl.DropViewExprOrBuilder> dropViewBuilder_;
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+       * @return Whether the dropView field is set.
+       */
+      @java.lang.Override
+      public boolean hasDropView() {
+        return exprCase_ == 11;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+       * @return The dropView.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.DropViewExpr getDropView() {
+        if (dropViewBuilder_ == null) {
+          if (exprCase_ == 11) {
+            return (io.greptime.v1.Ddl.DropViewExpr) expr_;
+          }
+          return io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance();
+        } else {
+          if (exprCase_ == 11) {
+            return dropViewBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+       */
+      public Builder setDropView(io.greptime.v1.Ddl.DropViewExpr value) {
+        if (dropViewBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          expr_ = value;
+          onChanged();
+        } else {
+          dropViewBuilder_.setMessage(value);
+        }
+        exprCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+       */
+      public Builder setDropView(
+          io.greptime.v1.Ddl.DropViewExpr.Builder builderForValue) {
+        if (dropViewBuilder_ == null) {
+          expr_ = builderForValue.build();
+          onChanged();
+        } else {
+          dropViewBuilder_.setMessage(builderForValue.build());
+        }
+        exprCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+       */
+      public Builder mergeDropView(io.greptime.v1.Ddl.DropViewExpr value) {
+        if (dropViewBuilder_ == null) {
+          if (exprCase_ == 11 &&
+              expr_ != io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance()) {
+            expr_ = io.greptime.v1.Ddl.DropViewExpr.newBuilder((io.greptime.v1.Ddl.DropViewExpr) expr_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            expr_ = value;
+          }
+          onChanged();
+        } else {
+          if (exprCase_ == 11) {
+            dropViewBuilder_.mergeFrom(value);
+          } else {
+            dropViewBuilder_.setMessage(value);
+          }
+        }
+        exprCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+       */
+      public Builder clearDropView() {
+        if (dropViewBuilder_ == null) {
+          if (exprCase_ == 11) {
+            exprCase_ = 0;
+            expr_ = null;
+            onChanged();
+          }
+        } else {
+          if (exprCase_ == 11) {
+            exprCase_ = 0;
+            expr_ = null;
+          }
+          dropViewBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+       */
+      public io.greptime.v1.Ddl.DropViewExpr.Builder getDropViewBuilder() {
+        return getDropViewFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.DropViewExprOrBuilder getDropViewOrBuilder() {
+        if ((exprCase_ == 11) && (dropViewBuilder_ != null)) {
+          return dropViewBuilder_.getMessageOrBuilder();
+        } else {
+          if (exprCase_ == 11) {
+            return (io.greptime.v1.Ddl.DropViewExpr) expr_;
+          }
+          return io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.DropViewExpr, io.greptime.v1.Ddl.DropViewExpr.Builder, io.greptime.v1.Ddl.DropViewExprOrBuilder> 
+          getDropViewFieldBuilder() {
+        if (dropViewBuilder_ == null) {
+          if (!(exprCase_ == 11)) {
+            expr_ = io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance();
+          }
+          dropViewBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.DropViewExpr, io.greptime.v1.Ddl.DropViewExpr.Builder, io.greptime.v1.Ddl.DropViewExprOrBuilder>(
+                  (io.greptime.v1.Ddl.DropViewExpr) expr_,
+                  getParentForChildren(),
+                  isClean());
+          expr_ = null;
+        }
+        exprCase_ = 11;
+        onChanged();;
+        return dropViewBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5346,6 +5806,2252 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.Ddl.DropFlowExpr getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CreateViewExprOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.CreateViewExpr)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    java.lang.String getCatalogName();
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    com.google.protobuf.ByteString
+        getCatalogNameBytes();
+
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    java.lang.String getSchemaName();
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    com.google.protobuf.ByteString
+        getSchemaNameBytes();
+
+    /**
+     * <code>string view_name = 3;</code>
+     * @return The viewName.
+     */
+    java.lang.String getViewName();
+    /**
+     * <code>string view_name = 3;</code>
+     * @return The bytes for viewName.
+     */
+    com.google.protobuf.ByteString
+        getViewNameBytes();
+
+    /**
+     * <code>bytes logical_plan = 4;</code>
+     * @return The logicalPlan.
+     */
+    com.google.protobuf.ByteString getLogicalPlan();
+
+    /**
+     * <code>bool create_if_not_exists = 5;</code>
+     * @return The createIfNotExists.
+     */
+    boolean getCreateIfNotExists();
+
+    /**
+     * <code>bool or_replace = 6;</code>
+     * @return The orReplace.
+     */
+    boolean getOrReplace();
+  }
+  /**
+   * <pre>
+   * Create a view
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.CreateViewExpr}
+   */
+  public static final class CreateViewExpr extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.CreateViewExpr)
+      CreateViewExprOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CreateViewExpr.newBuilder() to construct.
+    private CreateViewExpr(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CreateViewExpr() {
+      catalogName_ = "";
+      schemaName_ = "";
+      viewName_ = "";
+      logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreateViewExpr();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CreateViewExpr(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              catalogName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              schemaName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              viewName_ = s;
+              break;
+            }
+            case 34: {
+
+              logicalPlan_ = input.readBytes();
+              break;
+            }
+            case 40: {
+
+              createIfNotExists_ = input.readBool();
+              break;
+            }
+            case 48: {
+
+              orReplace_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateViewExpr_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateViewExpr_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.CreateViewExpr.class, io.greptime.v1.Ddl.CreateViewExpr.Builder.class);
+    }
+
+    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalogName_;
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalogName() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalogName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogNameBytes() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalogName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCHEMA_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object schemaName_;
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    @java.lang.Override
+    public java.lang.String getSchemaName() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        schemaName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSchemaNameBytes() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        schemaName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VIEW_NAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object viewName_;
+    /**
+     * <code>string view_name = 3;</code>
+     * @return The viewName.
+     */
+    @java.lang.Override
+    public java.lang.String getViewName() {
+      java.lang.Object ref = viewName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        viewName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string view_name = 3;</code>
+     * @return The bytes for viewName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getViewNameBytes() {
+      java.lang.Object ref = viewName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        viewName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LOGICAL_PLAN_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString logicalPlan_;
+    /**
+     * <code>bytes logical_plan = 4;</code>
+     * @return The logicalPlan.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getLogicalPlan() {
+      return logicalPlan_;
+    }
+
+    public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 5;
+    private boolean createIfNotExists_;
+    /**
+     * <code>bool create_if_not_exists = 5;</code>
+     * @return The createIfNotExists.
+     */
+    @java.lang.Override
+    public boolean getCreateIfNotExists() {
+      return createIfNotExists_;
+    }
+
+    public static final int OR_REPLACE_FIELD_NUMBER = 6;
+    private boolean orReplace_;
+    /**
+     * <code>bool or_replace = 6;</code>
+     * @return The orReplace.
+     */
+    @java.lang.Override
+    public boolean getOrReplace() {
+      return orReplace_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(viewName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, viewName_);
+      }
+      if (!logicalPlan_.isEmpty()) {
+        output.writeBytes(4, logicalPlan_);
+      }
+      if (createIfNotExists_ != false) {
+        output.writeBool(5, createIfNotExists_);
+      }
+      if (orReplace_ != false) {
+        output.writeBool(6, orReplace_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(viewName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, viewName_);
+      }
+      if (!logicalPlan_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, logicalPlan_);
+      }
+      if (createIfNotExists_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, createIfNotExists_);
+      }
+      if (orReplace_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, orReplace_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.CreateViewExpr)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.CreateViewExpr other = (io.greptime.v1.Ddl.CreateViewExpr) obj;
+
+      if (!getCatalogName()
+          .equals(other.getCatalogName())) return false;
+      if (!getSchemaName()
+          .equals(other.getSchemaName())) return false;
+      if (!getViewName()
+          .equals(other.getViewName())) return false;
+      if (!getLogicalPlan()
+          .equals(other.getLogicalPlan())) return false;
+      if (getCreateIfNotExists()
+          != other.getCreateIfNotExists()) return false;
+      if (getOrReplace()
+          != other.getOrReplace()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalogName().hashCode();
+      hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getSchemaName().hashCode();
+      hash = (37 * hash) + VIEW_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getViewName().hashCode();
+      hash = (37 * hash) + LOGICAL_PLAN_FIELD_NUMBER;
+      hash = (53 * hash) + getLogicalPlan().hashCode();
+      hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getCreateIfNotExists());
+      hash = (37 * hash) + OR_REPLACE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOrReplace());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.CreateViewExpr parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.CreateViewExpr prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Create a view
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.CreateViewExpr}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.CreateViewExpr)
+        io.greptime.v1.Ddl.CreateViewExprOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateViewExpr_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateViewExpr_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.CreateViewExpr.class, io.greptime.v1.Ddl.CreateViewExpr.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.CreateViewExpr.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        catalogName_ = "";
+
+        schemaName_ = "";
+
+        viewName_ = "";
+
+        logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
+
+        createIfNotExists_ = false;
+
+        orReplace_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateViewExpr_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CreateViewExpr getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CreateViewExpr build() {
+        io.greptime.v1.Ddl.CreateViewExpr result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CreateViewExpr buildPartial() {
+        io.greptime.v1.Ddl.CreateViewExpr result = new io.greptime.v1.Ddl.CreateViewExpr(this);
+        result.catalogName_ = catalogName_;
+        result.schemaName_ = schemaName_;
+        result.viewName_ = viewName_;
+        result.logicalPlan_ = logicalPlan_;
+        result.createIfNotExists_ = createIfNotExists_;
+        result.orReplace_ = orReplace_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.CreateViewExpr) {
+          return mergeFrom((io.greptime.v1.Ddl.CreateViewExpr)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.CreateViewExpr other) {
+        if (other == io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance()) return this;
+        if (!other.getCatalogName().isEmpty()) {
+          catalogName_ = other.catalogName_;
+          onChanged();
+        }
+        if (!other.getSchemaName().isEmpty()) {
+          schemaName_ = other.schemaName_;
+          onChanged();
+        }
+        if (!other.getViewName().isEmpty()) {
+          viewName_ = other.viewName_;
+          onChanged();
+        }
+        if (other.getLogicalPlan() != com.google.protobuf.ByteString.EMPTY) {
+          setLogicalPlan(other.getLogicalPlan());
+        }
+        if (other.getCreateIfNotExists() != false) {
+          setCreateIfNotExists(other.getCreateIfNotExists());
+        }
+        if (other.getOrReplace() != false) {
+          setOrReplace(other.getOrReplace());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.CreateViewExpr parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.CreateViewExpr) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object catalogName_ = "";
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The catalogName.
+       */
+      public java.lang.String getCatalogName() {
+        java.lang.Object ref = catalogName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalogName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The bytes for catalogName.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogNameBytes() {
+        java.lang.Object ref = catalogName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalogName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalogName() {
+        
+        catalogName_ = getDefaultInstance().getCatalogName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The bytes for catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object schemaName_ = "";
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The schemaName.
+       */
+      public java.lang.String getSchemaName() {
+        java.lang.Object ref = schemaName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          schemaName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The bytes for schemaName.
+       */
+      public com.google.protobuf.ByteString
+          getSchemaNameBytes() {
+        java.lang.Object ref = schemaName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          schemaName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSchemaName() {
+        
+        schemaName_ = getDefaultInstance().getSchemaName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The bytes for schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object viewName_ = "";
+      /**
+       * <code>string view_name = 3;</code>
+       * @return The viewName.
+       */
+      public java.lang.String getViewName() {
+        java.lang.Object ref = viewName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          viewName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string view_name = 3;</code>
+       * @return The bytes for viewName.
+       */
+      public com.google.protobuf.ByteString
+          getViewNameBytes() {
+        java.lang.Object ref = viewName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          viewName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string view_name = 3;</code>
+       * @param value The viewName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setViewName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        viewName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string view_name = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearViewName() {
+        
+        viewName_ = getDefaultInstance().getViewName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string view_name = 3;</code>
+       * @param value The bytes for viewName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setViewNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        viewName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes logical_plan = 4;</code>
+       * @return The logicalPlan.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getLogicalPlan() {
+        return logicalPlan_;
+      }
+      /**
+       * <code>bytes logical_plan = 4;</code>
+       * @param value The logicalPlan to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLogicalPlan(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        logicalPlan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes logical_plan = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLogicalPlan() {
+        
+        logicalPlan_ = getDefaultInstance().getLogicalPlan();
+        onChanged();
+        return this;
+      }
+
+      private boolean createIfNotExists_ ;
+      /**
+       * <code>bool create_if_not_exists = 5;</code>
+       * @return The createIfNotExists.
+       */
+      @java.lang.Override
+      public boolean getCreateIfNotExists() {
+        return createIfNotExists_;
+      }
+      /**
+       * <code>bool create_if_not_exists = 5;</code>
+       * @param value The createIfNotExists to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCreateIfNotExists(boolean value) {
+        
+        createIfNotExists_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool create_if_not_exists = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCreateIfNotExists() {
+        
+        createIfNotExists_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean orReplace_ ;
+      /**
+       * <code>bool or_replace = 6;</code>
+       * @return The orReplace.
+       */
+      @java.lang.Override
+      public boolean getOrReplace() {
+        return orReplace_;
+      }
+      /**
+       * <code>bool or_replace = 6;</code>
+       * @param value The orReplace to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrReplace(boolean value) {
+        
+        orReplace_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool or_replace = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrReplace() {
+        
+        orReplace_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.CreateViewExpr)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.CreateViewExpr)
+    private static final io.greptime.v1.Ddl.CreateViewExpr DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.CreateViewExpr();
+    }
+
+    public static io.greptime.v1.Ddl.CreateViewExpr getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreateViewExpr>
+        PARSER = new com.google.protobuf.AbstractParser<CreateViewExpr>() {
+      @java.lang.Override
+      public CreateViewExpr parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CreateViewExpr(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreateViewExpr> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreateViewExpr> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CreateViewExpr getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DropViewExprOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.DropViewExpr)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    java.lang.String getCatalogName();
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    com.google.protobuf.ByteString
+        getCatalogNameBytes();
+
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    java.lang.String getSchemaName();
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    com.google.protobuf.ByteString
+        getSchemaNameBytes();
+
+    /**
+     * <code>string view_name = 3;</code>
+     * @return The viewName.
+     */
+    java.lang.String getViewName();
+    /**
+     * <code>string view_name = 3;</code>
+     * @return The bytes for viewName.
+     */
+    com.google.protobuf.ByteString
+        getViewNameBytes();
+
+    /**
+     * <code>.greptime.v1.TableId view_id = 4;</code>
+     * @return Whether the viewId field is set.
+     */
+    boolean hasViewId();
+    /**
+     * <code>.greptime.v1.TableId view_id = 4;</code>
+     * @return The viewId.
+     */
+    io.greptime.v1.Ddl.TableId getViewId();
+    /**
+     * <code>.greptime.v1.TableId view_id = 4;</code>
+     */
+    io.greptime.v1.Ddl.TableIdOrBuilder getViewIdOrBuilder();
+
+    /**
+     * <code>bool drop_if_exists = 5;</code>
+     * @return The dropIfExists.
+     */
+    boolean getDropIfExists();
+  }
+  /**
+   * <pre>
+   * Drop a view
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.DropViewExpr}
+   */
+  public static final class DropViewExpr extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.DropViewExpr)
+      DropViewExprOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DropViewExpr.newBuilder() to construct.
+    private DropViewExpr(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DropViewExpr() {
+      catalogName_ = "";
+      schemaName_ = "";
+      viewName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DropViewExpr();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DropViewExpr(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              catalogName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              schemaName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              viewName_ = s;
+              break;
+            }
+            case 34: {
+              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
+              if (viewId_ != null) {
+                subBuilder = viewId_.toBuilder();
+              }
+              viewId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(viewId_);
+                viewId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 40: {
+
+              dropIfExists_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_DropViewExpr_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_DropViewExpr_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.DropViewExpr.class, io.greptime.v1.Ddl.DropViewExpr.Builder.class);
+    }
+
+    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalogName_;
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalogName() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalogName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogNameBytes() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalogName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCHEMA_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object schemaName_;
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    @java.lang.Override
+    public java.lang.String getSchemaName() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        schemaName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSchemaNameBytes() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        schemaName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VIEW_NAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object viewName_;
+    /**
+     * <code>string view_name = 3;</code>
+     * @return The viewName.
+     */
+    @java.lang.Override
+    public java.lang.String getViewName() {
+      java.lang.Object ref = viewName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        viewName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string view_name = 3;</code>
+     * @return The bytes for viewName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getViewNameBytes() {
+      java.lang.Object ref = viewName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        viewName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VIEW_ID_FIELD_NUMBER = 4;
+    private io.greptime.v1.Ddl.TableId viewId_;
+    /**
+     * <code>.greptime.v1.TableId view_id = 4;</code>
+     * @return Whether the viewId field is set.
+     */
+    @java.lang.Override
+    public boolean hasViewId() {
+      return viewId_ != null;
+    }
+    /**
+     * <code>.greptime.v1.TableId view_id = 4;</code>
+     * @return The viewId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableId getViewId() {
+      return viewId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : viewId_;
+    }
+    /**
+     * <code>.greptime.v1.TableId view_id = 4;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableIdOrBuilder getViewIdOrBuilder() {
+      return getViewId();
+    }
+
+    public static final int DROP_IF_EXISTS_FIELD_NUMBER = 5;
+    private boolean dropIfExists_;
+    /**
+     * <code>bool drop_if_exists = 5;</code>
+     * @return The dropIfExists.
+     */
+    @java.lang.Override
+    public boolean getDropIfExists() {
+      return dropIfExists_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(viewName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, viewName_);
+      }
+      if (viewId_ != null) {
+        output.writeMessage(4, getViewId());
+      }
+      if (dropIfExists_ != false) {
+        output.writeBool(5, dropIfExists_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(viewName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, viewName_);
+      }
+      if (viewId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getViewId());
+      }
+      if (dropIfExists_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, dropIfExists_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.DropViewExpr)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.DropViewExpr other = (io.greptime.v1.Ddl.DropViewExpr) obj;
+
+      if (!getCatalogName()
+          .equals(other.getCatalogName())) return false;
+      if (!getSchemaName()
+          .equals(other.getSchemaName())) return false;
+      if (!getViewName()
+          .equals(other.getViewName())) return false;
+      if (hasViewId() != other.hasViewId()) return false;
+      if (hasViewId()) {
+        if (!getViewId()
+            .equals(other.getViewId())) return false;
+      }
+      if (getDropIfExists()
+          != other.getDropIfExists()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalogName().hashCode();
+      hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getSchemaName().hashCode();
+      hash = (37 * hash) + VIEW_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getViewName().hashCode();
+      if (hasViewId()) {
+        hash = (37 * hash) + VIEW_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getViewId().hashCode();
+      }
+      hash = (37 * hash) + DROP_IF_EXISTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getDropIfExists());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.DropViewExpr parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.DropViewExpr prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Drop a view
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.DropViewExpr}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.DropViewExpr)
+        io.greptime.v1.Ddl.DropViewExprOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_DropViewExpr_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_DropViewExpr_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.DropViewExpr.class, io.greptime.v1.Ddl.DropViewExpr.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.DropViewExpr.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        catalogName_ = "";
+
+        schemaName_ = "";
+
+        viewName_ = "";
+
+        if (viewIdBuilder_ == null) {
+          viewId_ = null;
+        } else {
+          viewId_ = null;
+          viewIdBuilder_ = null;
+        }
+        dropIfExists_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_DropViewExpr_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.DropViewExpr getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.DropViewExpr build() {
+        io.greptime.v1.Ddl.DropViewExpr result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.DropViewExpr buildPartial() {
+        io.greptime.v1.Ddl.DropViewExpr result = new io.greptime.v1.Ddl.DropViewExpr(this);
+        result.catalogName_ = catalogName_;
+        result.schemaName_ = schemaName_;
+        result.viewName_ = viewName_;
+        if (viewIdBuilder_ == null) {
+          result.viewId_ = viewId_;
+        } else {
+          result.viewId_ = viewIdBuilder_.build();
+        }
+        result.dropIfExists_ = dropIfExists_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.DropViewExpr) {
+          return mergeFrom((io.greptime.v1.Ddl.DropViewExpr)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.DropViewExpr other) {
+        if (other == io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance()) return this;
+        if (!other.getCatalogName().isEmpty()) {
+          catalogName_ = other.catalogName_;
+          onChanged();
+        }
+        if (!other.getSchemaName().isEmpty()) {
+          schemaName_ = other.schemaName_;
+          onChanged();
+        }
+        if (!other.getViewName().isEmpty()) {
+          viewName_ = other.viewName_;
+          onChanged();
+        }
+        if (other.hasViewId()) {
+          mergeViewId(other.getViewId());
+        }
+        if (other.getDropIfExists() != false) {
+          setDropIfExists(other.getDropIfExists());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.DropViewExpr parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.DropViewExpr) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object catalogName_ = "";
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The catalogName.
+       */
+      public java.lang.String getCatalogName() {
+        java.lang.Object ref = catalogName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalogName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The bytes for catalogName.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogNameBytes() {
+        java.lang.Object ref = catalogName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalogName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalogName() {
+        
+        catalogName_ = getDefaultInstance().getCatalogName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The bytes for catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object schemaName_ = "";
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The schemaName.
+       */
+      public java.lang.String getSchemaName() {
+        java.lang.Object ref = schemaName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          schemaName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The bytes for schemaName.
+       */
+      public com.google.protobuf.ByteString
+          getSchemaNameBytes() {
+        java.lang.Object ref = schemaName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          schemaName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSchemaName() {
+        
+        schemaName_ = getDefaultInstance().getSchemaName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The bytes for schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object viewName_ = "";
+      /**
+       * <code>string view_name = 3;</code>
+       * @return The viewName.
+       */
+      public java.lang.String getViewName() {
+        java.lang.Object ref = viewName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          viewName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string view_name = 3;</code>
+       * @return The bytes for viewName.
+       */
+      public com.google.protobuf.ByteString
+          getViewNameBytes() {
+        java.lang.Object ref = viewName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          viewName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string view_name = 3;</code>
+       * @param value The viewName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setViewName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        viewName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string view_name = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearViewName() {
+        
+        viewName_ = getDefaultInstance().getViewName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string view_name = 3;</code>
+       * @param value The bytes for viewName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setViewNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        viewName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.greptime.v1.Ddl.TableId viewId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> viewIdBuilder_;
+      /**
+       * <code>.greptime.v1.TableId view_id = 4;</code>
+       * @return Whether the viewId field is set.
+       */
+      public boolean hasViewId() {
+        return viewIdBuilder_ != null || viewId_ != null;
+      }
+      /**
+       * <code>.greptime.v1.TableId view_id = 4;</code>
+       * @return The viewId.
+       */
+      public io.greptime.v1.Ddl.TableId getViewId() {
+        if (viewIdBuilder_ == null) {
+          return viewId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : viewId_;
+        } else {
+          return viewIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId view_id = 4;</code>
+       */
+      public Builder setViewId(io.greptime.v1.Ddl.TableId value) {
+        if (viewIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          viewId_ = value;
+          onChanged();
+        } else {
+          viewIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId view_id = 4;</code>
+       */
+      public Builder setViewId(
+          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+        if (viewIdBuilder_ == null) {
+          viewId_ = builderForValue.build();
+          onChanged();
+        } else {
+          viewIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId view_id = 4;</code>
+       */
+      public Builder mergeViewId(io.greptime.v1.Ddl.TableId value) {
+        if (viewIdBuilder_ == null) {
+          if (viewId_ != null) {
+            viewId_ =
+              io.greptime.v1.Ddl.TableId.newBuilder(viewId_).mergeFrom(value).buildPartial();
+          } else {
+            viewId_ = value;
+          }
+          onChanged();
+        } else {
+          viewIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId view_id = 4;</code>
+       */
+      public Builder clearViewId() {
+        if (viewIdBuilder_ == null) {
+          viewId_ = null;
+          onChanged();
+        } else {
+          viewId_ = null;
+          viewIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId view_id = 4;</code>
+       */
+      public io.greptime.v1.Ddl.TableId.Builder getViewIdBuilder() {
+        
+        onChanged();
+        return getViewIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.TableId view_id = 4;</code>
+       */
+      public io.greptime.v1.Ddl.TableIdOrBuilder getViewIdOrBuilder() {
+        if (viewIdBuilder_ != null) {
+          return viewIdBuilder_.getMessageOrBuilder();
+        } else {
+          return viewId_ == null ?
+              io.greptime.v1.Ddl.TableId.getDefaultInstance() : viewId_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId view_id = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
+          getViewIdFieldBuilder() {
+        if (viewIdBuilder_ == null) {
+          viewIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
+                  getViewId(),
+                  getParentForChildren(),
+                  isClean());
+          viewId_ = null;
+        }
+        return viewIdBuilder_;
+      }
+
+      private boolean dropIfExists_ ;
+      /**
+       * <code>bool drop_if_exists = 5;</code>
+       * @return The dropIfExists.
+       */
+      @java.lang.Override
+      public boolean getDropIfExists() {
+        return dropIfExists_;
+      }
+      /**
+       * <code>bool drop_if_exists = 5;</code>
+       * @param value The dropIfExists to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDropIfExists(boolean value) {
+        
+        dropIfExists_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool drop_if_exists = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDropIfExists() {
+        
+        dropIfExists_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.DropViewExpr)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.DropViewExpr)
+    private static final io.greptime.v1.Ddl.DropViewExpr DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.DropViewExpr();
+    }
+
+    public static io.greptime.v1.Ddl.DropViewExpr getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DropViewExpr>
+        PARSER = new com.google.protobuf.AbstractParser<DropViewExpr>() {
+      @java.lang.Override
+      public DropViewExpr parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DropViewExpr(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DropViewExpr> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DropViewExpr> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.DropViewExpr getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -22203,6 +24909,16 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_DropFlowExpr_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_CreateViewExpr_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_CreateViewExpr_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_DropViewExpr_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_DropViewExpr_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_CreateTableExpr_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -22307,7 +25023,7 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\025greptime/v1/ddl.proto\022\013greptime.v1\032\030gr" +
-      "eptime/v1/common.proto\"\377\002\n\nDdlRequest\022:\n" +
+      "eptime/v1/common.proto\"\343\003\n\nDdlRequest\022:\n" +
       "\017create_database\030\001 \001(\0132\037.greptime.v1.Cre" +
       "ateDatabaseExprH\000\0224\n\014create_table\030\002 \001(\0132" +
       "\034.greptime.v1.CreateTableExprH\000\022\'\n\005alter" +
@@ -22317,78 +25033,87 @@ java.lang.String defaultValue);
       ".TruncateTableExprH\000\0222\n\013create_flow\030\010 \001(" +
       "\0132\033.greptime.v1.CreateFlowExprH\000\022.\n\tdrop" +
       "_flow\030\t \001(\0132\031.greptime.v1.DropFlowExprH\000" +
-      "B\006\n\004expr\"\373\002\n\016CreateFlowExpr\022\024\n\014catalog_n" +
-      "ame\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\0222\n\022source_t" +
-      "able_names\030\003 \003(\0132\026.greptime.v1.TableName" +
-      "\022/\n\017sink_table_name\030\004 \001(\0132\026.greptime.v1." +
-      "TableName\022\022\n\nor_replace\030\005 \001(\010\022\034\n\024create_" +
-      "if_not_exists\030\006 \001(\010\022\023\n\013expire_when\030\007 \001(\t" +
-      "\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n\014flow_o" +
-      "ptions\030\n \003(\0132,.greptime.v1.CreateFlowExp" +
-      "r.FlowOptionsEntry\0322\n\020FlowOptionsEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u\n\014DropFl" +
-      "owExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_nam" +
-      "e\030\002 \001(\t\022$\n\007flow_id\030\003 \001(\0132\023.greptime.v1.F" +
-      "lowId\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017Create" +
-      "TableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schem" +
-      "a_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc" +
-      "\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v" +
-      "1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014prima" +
-      "ry_keys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 " +
-      "\001(\010\022E\n\rtable_options\030\t \003(\0132..greptime.v1" +
-      ".CreateTableExpr.TableOptionsEntry\022&\n\010ta" +
-      "ble_id\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006en" +
-      "gine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n" +
-      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
-      "\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(" +
-      "\0132\027.greptime.v1.AddColumnsH\000\0220\n\014drop_col" +
-      "umns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220" +
-      "\n\014rename_table\030\006 \001(\0132\030.greptime.v1.Renam" +
-      "eTableH\000\022=\n\023change_column_types\030\007 \001(\0132\036." +
-      "greptime.v1.ChangeColumnTypesH\000B\006\n\004kind\"" +
-      "\216\001\n\rDropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
-      "\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t" +
-      "\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableId" +
-      "\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDatab" +
-      "aseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
-      "name\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010" +
-      "\022=\n\007options\030\004 \003(\0132,.greptime.v1.CreateDa" +
-      "tabaseExpr.OptionsEntry\032.\n\014OptionsEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021Trunc" +
-      "ateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
+      "\0222\n\013create_view\030\n \001(\0132\033.greptime.v1.Crea" +
+      "teViewExprH\000\022.\n\tdrop_view\030\013 \001(\0132\031.grepti" +
+      "me.v1.DropViewExprH\000B\006\n\004expr\"\373\002\n\016CreateF" +
+      "lowExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_na" +
+      "me\030\002 \001(\t\0222\n\022source_table_names\030\003 \003(\0132\026.g" +
+      "reptime.v1.TableName\022/\n\017sink_table_name\030" +
+      "\004 \001(\0132\026.greptime.v1.TableName\022\022\n\nor_repl" +
+      "ace\030\005 \001(\010\022\034\n\024create_if_not_exists\030\006 \001(\010\022" +
+      "\023\n\013expire_when\030\007 \001(\t\022\017\n\007comment\030\010 \001(\t\022\013\n" +
+      "\003sql\030\t \001(\t\022B\n\014flow_options\030\n \003(\0132,.grept" +
+      "ime.v1.CreateFlowExpr.FlowOptionsEntry\0322" +
+      "\n\020FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001\"u\n\014DropFlowExpr\022\024\n\014catalog_na" +
+      "me\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\022$\n\007flow_id\030\003" +
+      " \001(\0132\023.greptime.v1.FlowId\022\026\n\016drop_if_exi" +
+      "sts\030\005 \001(\010\"\226\001\n\016CreateViewExpr\022\024\n\014catalog_" +
+      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_" +
+      "name\030\003 \001(\t\022\024\n\014logical_plan\030\004 \001(\014\022\034\n\024crea" +
+      "te_if_not_exists\030\005 \001(\010\022\022\n\nor_replace\030\006 \001" +
+      "(\010\"\213\001\n\014DropViewExpr\022\024\n\014catalog_name\030\001 \001(" +
+      "\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(" +
+      "\t\022%\n\007view_id\030\004 \001(\0132\024.greptime.v1.TableId" +
+      "\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017CreateTable" +
+      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
+      "e\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(" +
+      "\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v1.Col" +
+      "umnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014primary_ke" +
+      "ys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001(\010\022E" +
+      "\n\rtable_options\030\t \003(\0132..greptime.v1.Crea" +
+      "teTableExpr.TableOptionsEntry\022&\n\010table_i" +
+      "d\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006engine\030" +
+      "\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n\014cata" +
+      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nt" +
+      "able_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\0132\027.g" +
+      "reptime.v1.AddColumnsH\000\0220\n\014drop_columns\030" +
+      "\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220\n\014ren" +
+      "ame_table\030\006 \001(\0132\030.greptime.v1.RenameTabl" +
+      "eH\000\022=\n\023change_column_types\030\007 \001(\0132\036.grept" +
+      "ime.v1.ChangeColumnTypesH\000B\006\n\004kind\"\216\001\n\rD" +
+      "ropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
       "hema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010t" +
-      "able_id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n\020D" +
-      "ropDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
-      "\013schema_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001" +
-      "(\010\"9\n\nAddColumns\022+\n\013add_columns\030\001 \003(\0132\026." +
-      "greptime.v1.AddColumn\"<\n\013DropColumns\022-\n\014" +
-      "drop_columns\030\001 \003(\0132\027.greptime.v1.DropCol" +
-      "umn\"O\n\021ChangeColumnTypes\022:\n\023change_colum" +
-      "n_types\030\001 \003(\0132\035.greptime.v1.ChangeColumn" +
-      "Type\"%\n\013RenameTable\022\026\n\016new_table_name\030\001 " +
-      "\001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.g" +
-      "reptime.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036" +
-      ".greptime.v1.AddColumnLocation\"\236\001\n\020Chang" +
-      "eColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013targ" +
-      "et_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy" +
-      "pe\022C\n\025target_type_extension\030\003 \001(\0132$.grep" +
-      "time.v1.ColumnDataTypeExtension\"\032\n\nDropC" +
-      "olumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001" +
-      "(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014" +
-      "\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.grepti" +
-      "me.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(" +
-      "\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemanti" +
-      "c_type\030\005 \001(\0162\031.greptime.v1.SemanticType\022" +
-      "\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030\007" +
-      " \001(\0132$.greptime.v1.ColumnDataTypeExtensi" +
-      "on\"\230\001\n\021AddColumnLocation\022B\n\rlocation_typ" +
-      "e\030\001 \001(\0162+.greptime.v1.AddColumnLocation." +
-      "LocationType\022\031\n\021after_column_name\030\002 \001(\t\"" +
-      "$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n" +
-      "\016io.greptime.v1B\003DdlZ5github.com/Greptim" +
-      "eTeam/greptime-proto/go/greptime/v1b\006pro" +
-      "to3"
+      "able_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016d" +
+      "rop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDatabaseEx" +
+      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
+      "\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022=\n\007o" +
+      "ptions\030\004 \003(\0132,.greptime.v1.CreateDatabas" +
+      "eExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTa" +
+      "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
+      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_" +
+      "id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n\020DropDa" +
+      "tabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sche" +
+      "ma_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n" +
+      "\nAddColumns\022+\n\013add_columns\030\001 \003(\0132\026.grept" +
+      "ime.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop_" +
+      "columns\030\001 \003(\0132\027.greptime.v1.DropColumn\"O" +
+      "\n\021ChangeColumnTypes\022:\n\023change_column_typ" +
+      "es\030\001 \003(\0132\035.greptime.v1.ChangeColumnType\"" +
+      "%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"i" +
+      "\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.grepti" +
+      "me.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.grep" +
+      "time.v1.AddColumnLocation\"\236\001\n\020ChangeColu" +
+      "mnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013target_ty" +
+      "pe\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022C\n" +
+      "\025target_type_extension\030\003 \001(\0132$.greptime." +
+      "v1.ColumnDataTypeExtension\"\032\n\nDropColumn" +
+      "\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n" +
+      "\006FlowId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004nam" +
+      "e\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1" +
+      ".ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022" +
+      "default_constraint\030\004 \001(\014\0220\n\rsemantic_typ" +
+      "e\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007co" +
+      "mment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132" +
+      "$.greptime.v1.ColumnDataTypeExtension\"\230\001" +
+      "\n\021AddColumnLocation\022B\n\rlocation_type\030\001 \001" +
+      "(\0162+.greptime.v1.AddColumnLocation.Locat" +
+      "ionType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Lo" +
+      "cationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.g" +
+      "reptime.v1B\003DdlZ5github.com/GreptimeTeam" +
+      "/greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -22400,7 +25125,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_DdlRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DdlRequest_descriptor,
-        new java.lang.String[] { "CreateDatabase", "CreateTable", "Alter", "DropTable", "TruncateTable", "CreateFlow", "DropFlow", "Expr", });
+        new java.lang.String[] { "CreateDatabase", "CreateTable", "Alter", "DropTable", "TruncateTable", "CreateFlow", "DropFlow", "CreateView", "DropView", "Expr", });
     internal_static_greptime_v1_CreateFlowExpr_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_CreateFlowExpr_fieldAccessorTable = new
@@ -22419,8 +25144,20 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropFlowExpr_descriptor,
         new java.lang.String[] { "CatalogName", "FlowName", "FlowId", "DropIfExists", });
-    internal_static_greptime_v1_CreateTableExpr_descriptor =
+    internal_static_greptime_v1_CreateViewExpr_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_greptime_v1_CreateViewExpr_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_CreateViewExpr_descriptor,
+        new java.lang.String[] { "CatalogName", "SchemaName", "ViewName", "LogicalPlan", "CreateIfNotExists", "OrReplace", });
+    internal_static_greptime_v1_DropViewExpr_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_greptime_v1_DropViewExpr_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_DropViewExpr_descriptor,
+        new java.lang.String[] { "CatalogName", "SchemaName", "ViewName", "ViewId", "DropIfExists", });
+    internal_static_greptime_v1_CreateTableExpr_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_CreateTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTableExpr_descriptor,
@@ -22432,19 +25169,19 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_CreateTableExpr_TableOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_AlterExpr_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_AlterExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ChangeColumnTypes", "Kind", });
     internal_static_greptime_v1_DropTableExpr_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_DropTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTableExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", "DropIfExists", });
     internal_static_greptime_v1_CreateDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_CreateDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateDatabaseExpr_descriptor,
@@ -22456,79 +25193,79 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_CreateDatabaseExpr_OptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_TruncateTableExpr_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_TruncateTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TruncateTableExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", });
     internal_static_greptime_v1_DropDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_DropDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropDatabaseExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "DropIfExists", });
     internal_static_greptime_v1_AddColumns_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_AddColumns_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumns_descriptor,
         new java.lang.String[] { "AddColumns", });
     internal_static_greptime_v1_DropColumns_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_DropColumns_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropColumns_descriptor,
         new java.lang.String[] { "DropColumns", });
     internal_static_greptime_v1_ChangeColumnTypes_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_ChangeColumnTypes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ChangeColumnTypes_descriptor,
         new java.lang.String[] { "ChangeColumnTypes", });
     internal_static_greptime_v1_RenameTable_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_RenameTable_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RenameTable_descriptor,
         new java.lang.String[] { "NewTableName", });
     internal_static_greptime_v1_AddColumn_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_AddColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumn_descriptor,
         new java.lang.String[] { "ColumnDef", "Location", });
     internal_static_greptime_v1_ChangeColumnType_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_ChangeColumnType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ChangeColumnType_descriptor,
         new java.lang.String[] { "ColumnName", "TargetType", "TargetTypeExtension", });
     internal_static_greptime_v1_DropColumn_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_DropColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropColumn_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_greptime_v1_TableId_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_TableId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TableId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_greptime_v1_FlowId_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_greptime_v1_FlowId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlowId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_greptime_v1_ColumnDef_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
         new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", "DatatypeExtension", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumnLocation_descriptor,

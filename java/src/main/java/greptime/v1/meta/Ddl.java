@@ -7940,6 +7940,1342 @@ public final class Ddl {
 
   }
 
+  public interface CreateViewTaskOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.CreateViewTask)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+     * @return Whether the createView field is set.
+     */
+    boolean hasCreateView();
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+     * @return The createView.
+     */
+    io.greptime.v1.Ddl.CreateViewExpr getCreateView();
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+     */
+    io.greptime.v1.Ddl.CreateViewExprOrBuilder getCreateViewOrBuilder();
+
+    /**
+     * <code>bytes view_info = 2;</code>
+     * @return The viewInfo.
+     */
+    com.google.protobuf.ByteString getViewInfo();
+  }
+  /**
+   * <pre>
+   * Create a view task
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.meta.CreateViewTask}
+   */
+  public static final class CreateViewTask extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.CreateViewTask)
+      CreateViewTaskOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CreateViewTask.newBuilder() to construct.
+    private CreateViewTask(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CreateViewTask() {
+      viewInfo_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreateViewTask();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CreateViewTask(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.greptime.v1.Ddl.CreateViewExpr.Builder subBuilder = null;
+              if (createView_ != null) {
+                subBuilder = createView_.toBuilder();
+              }
+              createView_ = input.readMessage(io.greptime.v1.Ddl.CreateViewExpr.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(createView_);
+                createView_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+
+              viewInfo_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateViewTask_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateViewTask_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Ddl.CreateViewTask.class, greptime.v1.meta.Ddl.CreateViewTask.Builder.class);
+    }
+
+    public static final int CREATE_VIEW_FIELD_NUMBER = 1;
+    private io.greptime.v1.Ddl.CreateViewExpr createView_;
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+     * @return Whether the createView field is set.
+     */
+    @java.lang.Override
+    public boolean hasCreateView() {
+      return createView_ != null;
+    }
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+     * @return The createView.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CreateViewExpr getCreateView() {
+      return createView_ == null ? io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance() : createView_;
+    }
+    /**
+     * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CreateViewExprOrBuilder getCreateViewOrBuilder() {
+      return getCreateView();
+    }
+
+    public static final int VIEW_INFO_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString viewInfo_;
+    /**
+     * <code>bytes view_info = 2;</code>
+     * @return The viewInfo.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getViewInfo() {
+      return viewInfo_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (createView_ != null) {
+        output.writeMessage(1, getCreateView());
+      }
+      if (!viewInfo_.isEmpty()) {
+        output.writeBytes(2, viewInfo_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (createView_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getCreateView());
+      }
+      if (!viewInfo_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, viewInfo_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Ddl.CreateViewTask)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Ddl.CreateViewTask other = (greptime.v1.meta.Ddl.CreateViewTask) obj;
+
+      if (hasCreateView() != other.hasCreateView()) return false;
+      if (hasCreateView()) {
+        if (!getCreateView()
+            .equals(other.getCreateView())) return false;
+      }
+      if (!getViewInfo()
+          .equals(other.getViewInfo())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCreateView()) {
+        hash = (37 * hash) + CREATE_VIEW_FIELD_NUMBER;
+        hash = (53 * hash) + getCreateView().hashCode();
+      }
+      hash = (37 * hash) + VIEW_INFO_FIELD_NUMBER;
+      hash = (53 * hash) + getViewInfo().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.CreateViewTask parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Ddl.CreateViewTask prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Create a view task
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.meta.CreateViewTask}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.CreateViewTask)
+        greptime.v1.meta.Ddl.CreateViewTaskOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateViewTask_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateViewTask_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Ddl.CreateViewTask.class, greptime.v1.meta.Ddl.CreateViewTask.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Ddl.CreateViewTask.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (createViewBuilder_ == null) {
+          createView_ = null;
+        } else {
+          createView_ = null;
+          createViewBuilder_ = null;
+        }
+        viewInfo_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateViewTask_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateViewTask getDefaultInstanceForType() {
+        return greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateViewTask build() {
+        greptime.v1.meta.Ddl.CreateViewTask result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateViewTask buildPartial() {
+        greptime.v1.meta.Ddl.CreateViewTask result = new greptime.v1.meta.Ddl.CreateViewTask(this);
+        if (createViewBuilder_ == null) {
+          result.createView_ = createView_;
+        } else {
+          result.createView_ = createViewBuilder_.build();
+        }
+        result.viewInfo_ = viewInfo_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Ddl.CreateViewTask) {
+          return mergeFrom((greptime.v1.meta.Ddl.CreateViewTask)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Ddl.CreateViewTask other) {
+        if (other == greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance()) return this;
+        if (other.hasCreateView()) {
+          mergeCreateView(other.getCreateView());
+        }
+        if (other.getViewInfo() != com.google.protobuf.ByteString.EMPTY) {
+          setViewInfo(other.getViewInfo());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Ddl.CreateViewTask parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Ddl.CreateViewTask) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private io.greptime.v1.Ddl.CreateViewExpr createView_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.CreateViewExpr, io.greptime.v1.Ddl.CreateViewExpr.Builder, io.greptime.v1.Ddl.CreateViewExprOrBuilder> createViewBuilder_;
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+       * @return Whether the createView field is set.
+       */
+      public boolean hasCreateView() {
+        return createViewBuilder_ != null || createView_ != null;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+       * @return The createView.
+       */
+      public io.greptime.v1.Ddl.CreateViewExpr getCreateView() {
+        if (createViewBuilder_ == null) {
+          return createView_ == null ? io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance() : createView_;
+        } else {
+          return createViewBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+       */
+      public Builder setCreateView(io.greptime.v1.Ddl.CreateViewExpr value) {
+        if (createViewBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          createView_ = value;
+          onChanged();
+        } else {
+          createViewBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+       */
+      public Builder setCreateView(
+          io.greptime.v1.Ddl.CreateViewExpr.Builder builderForValue) {
+        if (createViewBuilder_ == null) {
+          createView_ = builderForValue.build();
+          onChanged();
+        } else {
+          createViewBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+       */
+      public Builder mergeCreateView(io.greptime.v1.Ddl.CreateViewExpr value) {
+        if (createViewBuilder_ == null) {
+          if (createView_ != null) {
+            createView_ =
+              io.greptime.v1.Ddl.CreateViewExpr.newBuilder(createView_).mergeFrom(value).buildPartial();
+          } else {
+            createView_ = value;
+          }
+          onChanged();
+        } else {
+          createViewBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+       */
+      public Builder clearCreateView() {
+        if (createViewBuilder_ == null) {
+          createView_ = null;
+          onChanged();
+        } else {
+          createView_ = null;
+          createViewBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+       */
+      public io.greptime.v1.Ddl.CreateViewExpr.Builder getCreateViewBuilder() {
+        
+        onChanged();
+        return getCreateViewFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+       */
+      public io.greptime.v1.Ddl.CreateViewExprOrBuilder getCreateViewOrBuilder() {
+        if (createViewBuilder_ != null) {
+          return createViewBuilder_.getMessageOrBuilder();
+        } else {
+          return createView_ == null ?
+              io.greptime.v1.Ddl.CreateViewExpr.getDefaultInstance() : createView_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.CreateViewExpr create_view = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.CreateViewExpr, io.greptime.v1.Ddl.CreateViewExpr.Builder, io.greptime.v1.Ddl.CreateViewExprOrBuilder> 
+          getCreateViewFieldBuilder() {
+        if (createViewBuilder_ == null) {
+          createViewBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.CreateViewExpr, io.greptime.v1.Ddl.CreateViewExpr.Builder, io.greptime.v1.Ddl.CreateViewExprOrBuilder>(
+                  getCreateView(),
+                  getParentForChildren(),
+                  isClean());
+          createView_ = null;
+        }
+        return createViewBuilder_;
+      }
+
+      private com.google.protobuf.ByteString viewInfo_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes view_info = 2;</code>
+       * @return The viewInfo.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getViewInfo() {
+        return viewInfo_;
+      }
+      /**
+       * <code>bytes view_info = 2;</code>
+       * @param value The viewInfo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setViewInfo(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        viewInfo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes view_info = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearViewInfo() {
+        
+        viewInfo_ = getDefaultInstance().getViewInfo();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.CreateViewTask)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.CreateViewTask)
+    private static final greptime.v1.meta.Ddl.CreateViewTask DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.CreateViewTask();
+    }
+
+    public static greptime.v1.meta.Ddl.CreateViewTask getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreateViewTask>
+        PARSER = new com.google.protobuf.AbstractParser<CreateViewTask>() {
+      @java.lang.Override
+      public CreateViewTask parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CreateViewTask(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreateViewTask> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreateViewTask> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.CreateViewTask getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DropViewTaskOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.DropViewTask)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+     * @return Whether the dropView field is set.
+     */
+    boolean hasDropView();
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+     * @return The dropView.
+     */
+    io.greptime.v1.Ddl.DropViewExpr getDropView();
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+     */
+    io.greptime.v1.Ddl.DropViewExprOrBuilder getDropViewOrBuilder();
+  }
+  /**
+   * <pre>
+   * Drop a view task
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.meta.DropViewTask}
+   */
+  public static final class DropViewTask extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.DropViewTask)
+      DropViewTaskOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DropViewTask.newBuilder() to construct.
+    private DropViewTask(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DropViewTask() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DropViewTask();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DropViewTask(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.greptime.v1.Ddl.DropViewExpr.Builder subBuilder = null;
+              if (dropView_ != null) {
+                subBuilder = dropView_.toBuilder();
+              }
+              dropView_ = input.readMessage(io.greptime.v1.Ddl.DropViewExpr.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(dropView_);
+                dropView_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DropViewTask_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DropViewTask_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Ddl.DropViewTask.class, greptime.v1.meta.Ddl.DropViewTask.Builder.class);
+    }
+
+    public static final int DROP_VIEW_FIELD_NUMBER = 1;
+    private io.greptime.v1.Ddl.DropViewExpr dropView_;
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+     * @return Whether the dropView field is set.
+     */
+    @java.lang.Override
+    public boolean hasDropView() {
+      return dropView_ != null;
+    }
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+     * @return The dropView.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.DropViewExpr getDropView() {
+      return dropView_ == null ? io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance() : dropView_;
+    }
+    /**
+     * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.DropViewExprOrBuilder getDropViewOrBuilder() {
+      return getDropView();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (dropView_ != null) {
+        output.writeMessage(1, getDropView());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (dropView_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getDropView());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Ddl.DropViewTask)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Ddl.DropViewTask other = (greptime.v1.meta.Ddl.DropViewTask) obj;
+
+      if (hasDropView() != other.hasDropView()) return false;
+      if (hasDropView()) {
+        if (!getDropView()
+            .equals(other.getDropView())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasDropView()) {
+        hash = (37 * hash) + DROP_VIEW_FIELD_NUMBER;
+        hash = (53 * hash) + getDropView().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.DropViewTask parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Ddl.DropViewTask prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Drop a view task
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.meta.DropViewTask}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.DropViewTask)
+        greptime.v1.meta.Ddl.DropViewTaskOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DropViewTask_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DropViewTask_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Ddl.DropViewTask.class, greptime.v1.meta.Ddl.DropViewTask.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Ddl.DropViewTask.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (dropViewBuilder_ == null) {
+          dropView_ = null;
+        } else {
+          dropView_ = null;
+          dropViewBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_DropViewTask_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.DropViewTask getDefaultInstanceForType() {
+        return greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.DropViewTask build() {
+        greptime.v1.meta.Ddl.DropViewTask result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.DropViewTask buildPartial() {
+        greptime.v1.meta.Ddl.DropViewTask result = new greptime.v1.meta.Ddl.DropViewTask(this);
+        if (dropViewBuilder_ == null) {
+          result.dropView_ = dropView_;
+        } else {
+          result.dropView_ = dropViewBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Ddl.DropViewTask) {
+          return mergeFrom((greptime.v1.meta.Ddl.DropViewTask)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Ddl.DropViewTask other) {
+        if (other == greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance()) return this;
+        if (other.hasDropView()) {
+          mergeDropView(other.getDropView());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Ddl.DropViewTask parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Ddl.DropViewTask) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private io.greptime.v1.Ddl.DropViewExpr dropView_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.DropViewExpr, io.greptime.v1.Ddl.DropViewExpr.Builder, io.greptime.v1.Ddl.DropViewExprOrBuilder> dropViewBuilder_;
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+       * @return Whether the dropView field is set.
+       */
+      public boolean hasDropView() {
+        return dropViewBuilder_ != null || dropView_ != null;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+       * @return The dropView.
+       */
+      public io.greptime.v1.Ddl.DropViewExpr getDropView() {
+        if (dropViewBuilder_ == null) {
+          return dropView_ == null ? io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance() : dropView_;
+        } else {
+          return dropViewBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+       */
+      public Builder setDropView(io.greptime.v1.Ddl.DropViewExpr value) {
+        if (dropViewBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          dropView_ = value;
+          onChanged();
+        } else {
+          dropViewBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+       */
+      public Builder setDropView(
+          io.greptime.v1.Ddl.DropViewExpr.Builder builderForValue) {
+        if (dropViewBuilder_ == null) {
+          dropView_ = builderForValue.build();
+          onChanged();
+        } else {
+          dropViewBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+       */
+      public Builder mergeDropView(io.greptime.v1.Ddl.DropViewExpr value) {
+        if (dropViewBuilder_ == null) {
+          if (dropView_ != null) {
+            dropView_ =
+              io.greptime.v1.Ddl.DropViewExpr.newBuilder(dropView_).mergeFrom(value).buildPartial();
+          } else {
+            dropView_ = value;
+          }
+          onChanged();
+        } else {
+          dropViewBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+       */
+      public Builder clearDropView() {
+        if (dropViewBuilder_ == null) {
+          dropView_ = null;
+          onChanged();
+        } else {
+          dropView_ = null;
+          dropViewBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+       */
+      public io.greptime.v1.Ddl.DropViewExpr.Builder getDropViewBuilder() {
+        
+        onChanged();
+        return getDropViewFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+       */
+      public io.greptime.v1.Ddl.DropViewExprOrBuilder getDropViewOrBuilder() {
+        if (dropViewBuilder_ != null) {
+          return dropViewBuilder_.getMessageOrBuilder();
+        } else {
+          return dropView_ == null ?
+              io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance() : dropView_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.DropViewExpr drop_view = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.DropViewExpr, io.greptime.v1.Ddl.DropViewExpr.Builder, io.greptime.v1.Ddl.DropViewExprOrBuilder> 
+          getDropViewFieldBuilder() {
+        if (dropViewBuilder_ == null) {
+          dropViewBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.DropViewExpr, io.greptime.v1.Ddl.DropViewExpr.Builder, io.greptime.v1.Ddl.DropViewExprOrBuilder>(
+                  getDropView(),
+                  getParentForChildren(),
+                  isClean());
+          dropView_ = null;
+        }
+        return dropViewBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.DropViewTask)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.DropViewTask)
+    private static final greptime.v1.meta.Ddl.DropViewTask DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.DropViewTask();
+    }
+
+    public static greptime.v1.meta.Ddl.DropViewTask getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DropViewTask>
+        PARSER = new com.google.protobuf.AbstractParser<DropViewTask>() {
+      @java.lang.Override
+      public DropViewTask parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DropViewTask(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DropViewTask> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DropViewTask> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.DropViewTask getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface DdlTaskRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.DdlTaskRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -8138,6 +9474,36 @@ public final class Ddl {
      * <code>.greptime.v1.meta.DropFlowTask drop_flow_task = 12;</code>
      */
     greptime.v1.meta.Ddl.DropFlowTaskOrBuilder getDropFlowTaskOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+     * @return Whether the createViewTask field is set.
+     */
+    boolean hasCreateViewTask();
+    /**
+     * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+     * @return The createViewTask.
+     */
+    greptime.v1.meta.Ddl.CreateViewTask getCreateViewTask();
+    /**
+     * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+     */
+    greptime.v1.meta.Ddl.CreateViewTaskOrBuilder getCreateViewTaskOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+     * @return Whether the dropViewTask field is set.
+     */
+    boolean hasDropViewTask();
+    /**
+     * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+     * @return The dropViewTask.
+     */
+    greptime.v1.meta.Ddl.DropViewTask getDropViewTask();
+    /**
+     * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+     */
+    greptime.v1.meta.Ddl.DropViewTaskOrBuilder getDropViewTaskOrBuilder();
 
     public greptime.v1.meta.Ddl.DdlTaskRequest.TaskCase getTaskCase();
   }
@@ -8353,6 +9719,34 @@ public final class Ddl {
               taskCase_ = 12;
               break;
             }
+            case 106: {
+              greptime.v1.meta.Ddl.CreateViewTask.Builder subBuilder = null;
+              if (taskCase_ == 13) {
+                subBuilder = ((greptime.v1.meta.Ddl.CreateViewTask) task_).toBuilder();
+              }
+              task_ =
+                  input.readMessage(greptime.v1.meta.Ddl.CreateViewTask.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.Ddl.CreateViewTask) task_);
+                task_ = subBuilder.buildPartial();
+              }
+              taskCase_ = 13;
+              break;
+            }
+            case 114: {
+              greptime.v1.meta.Ddl.DropViewTask.Builder subBuilder = null;
+              if (taskCase_ == 14) {
+                subBuilder = ((greptime.v1.meta.Ddl.DropViewTask) task_).toBuilder();
+              }
+              task_ =
+                  input.readMessage(greptime.v1.meta.Ddl.DropViewTask.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.Ddl.DropViewTask) task_);
+                task_ = subBuilder.buildPartial();
+              }
+              taskCase_ = 14;
+              break;
+            }
             case 514: {
               io.greptime.v1.Common.QueryContext.Builder subBuilder = null;
               if (queryContext_ != null) {
@@ -8416,6 +9810,8 @@ public final class Ddl {
       CREATE_DATABASE_TASK(10),
       CREATE_FLOW_TASK(11),
       DROP_FLOW_TASK(12),
+      CREATE_VIEW_TASK(13),
+      DROP_VIEW_TASK(14),
       TASK_NOT_SET(0);
       private final int value;
       private TaskCase(int value) {
@@ -8444,6 +9840,8 @@ public final class Ddl {
           case 10: return CREATE_DATABASE_TASK;
           case 11: return CREATE_FLOW_TASK;
           case 12: return DROP_FLOW_TASK;
+          case 13: return CREATE_VIEW_TASK;
+          case 14: return DROP_VIEW_TASK;
           case 0: return TASK_NOT_SET;
           default: return null;
         }
@@ -8852,6 +10250,68 @@ public final class Ddl {
       return greptime.v1.meta.Ddl.DropFlowTask.getDefaultInstance();
     }
 
+    public static final int CREATE_VIEW_TASK_FIELD_NUMBER = 13;
+    /**
+     * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+     * @return Whether the createViewTask field is set.
+     */
+    @java.lang.Override
+    public boolean hasCreateViewTask() {
+      return taskCase_ == 13;
+    }
+    /**
+     * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+     * @return The createViewTask.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.CreateViewTask getCreateViewTask() {
+      if (taskCase_ == 13) {
+         return (greptime.v1.meta.Ddl.CreateViewTask) task_;
+      }
+      return greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.CreateViewTaskOrBuilder getCreateViewTaskOrBuilder() {
+      if (taskCase_ == 13) {
+         return (greptime.v1.meta.Ddl.CreateViewTask) task_;
+      }
+      return greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance();
+    }
+
+    public static final int DROP_VIEW_TASK_FIELD_NUMBER = 14;
+    /**
+     * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+     * @return Whether the dropViewTask field is set.
+     */
+    @java.lang.Override
+    public boolean hasDropViewTask() {
+      return taskCase_ == 14;
+    }
+    /**
+     * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+     * @return The dropViewTask.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.DropViewTask getDropViewTask() {
+      if (taskCase_ == 14) {
+         return (greptime.v1.meta.Ddl.DropViewTask) task_;
+      }
+      return greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.DropViewTaskOrBuilder getDropViewTaskOrBuilder() {
+      if (taskCase_ == 14) {
+         return (greptime.v1.meta.Ddl.DropViewTask) task_;
+      }
+      return greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8901,6 +10361,12 @@ public final class Ddl {
       }
       if (taskCase_ == 12) {
         output.writeMessage(12, (greptime.v1.meta.Ddl.DropFlowTask) task_);
+      }
+      if (taskCase_ == 13) {
+        output.writeMessage(13, (greptime.v1.meta.Ddl.CreateViewTask) task_);
+      }
+      if (taskCase_ == 14) {
+        output.writeMessage(14, (greptime.v1.meta.Ddl.DropViewTask) task_);
       }
       if (queryContext_ != null) {
         output.writeMessage(64, getQueryContext());
@@ -8961,6 +10427,14 @@ public final class Ddl {
       if (taskCase_ == 12) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, (greptime.v1.meta.Ddl.DropFlowTask) task_);
+      }
+      if (taskCase_ == 13) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, (greptime.v1.meta.Ddl.CreateViewTask) task_);
+      }
+      if (taskCase_ == 14) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(14, (greptime.v1.meta.Ddl.DropViewTask) task_);
       }
       if (queryContext_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -9037,6 +10511,14 @@ public final class Ddl {
           if (!getDropFlowTask()
               .equals(other.getDropFlowTask())) return false;
           break;
+        case 13:
+          if (!getCreateViewTask()
+              .equals(other.getCreateViewTask())) return false;
+          break;
+        case 14:
+          if (!getDropViewTask()
+              .equals(other.getDropViewTask())) return false;
+          break;
         case 0:
         default:
       }
@@ -9103,6 +10585,14 @@ public final class Ddl {
         case 12:
           hash = (37 * hash) + DROP_FLOW_TASK_FIELD_NUMBER;
           hash = (53 * hash) + getDropFlowTask().hashCode();
+          break;
+        case 13:
+          hash = (37 * hash) + CREATE_VIEW_TASK_FIELD_NUMBER;
+          hash = (53 * hash) + getCreateViewTask().hashCode();
+          break;
+        case 14:
+          hash = (37 * hash) + DROP_VIEW_TASK_FIELD_NUMBER;
+          hash = (53 * hash) + getDropViewTask().hashCode();
           break;
         case 0:
         default:
@@ -9367,6 +10857,20 @@ public final class Ddl {
             result.task_ = dropFlowTaskBuilder_.build();
           }
         }
+        if (taskCase_ == 13) {
+          if (createViewTaskBuilder_ == null) {
+            result.task_ = task_;
+          } else {
+            result.task_ = createViewTaskBuilder_.build();
+          }
+        }
+        if (taskCase_ == 14) {
+          if (dropViewTaskBuilder_ == null) {
+            result.task_ = task_;
+          } else {
+            result.task_ = dropViewTaskBuilder_.build();
+          }
+        }
         result.taskCase_ = taskCase_;
         onBuilt();
         return result;
@@ -9465,6 +10969,14 @@ public final class Ddl {
           }
           case DROP_FLOW_TASK: {
             mergeDropFlowTask(other.getDropFlowTask());
+            break;
+          }
+          case CREATE_VIEW_TASK: {
+            mergeCreateViewTask(other.getCreateViewTask());
+            break;
+          }
+          case DROP_VIEW_TASK: {
+            mergeDropViewTask(other.getDropViewTask());
             break;
           }
           case TASK_NOT_SET: {
@@ -11314,6 +12826,290 @@ public final class Ddl {
         onChanged();;
         return dropFlowTaskBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.CreateViewTask, greptime.v1.meta.Ddl.CreateViewTask.Builder, greptime.v1.meta.Ddl.CreateViewTaskOrBuilder> createViewTaskBuilder_;
+      /**
+       * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+       * @return Whether the createViewTask field is set.
+       */
+      @java.lang.Override
+      public boolean hasCreateViewTask() {
+        return taskCase_ == 13;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+       * @return The createViewTask.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateViewTask getCreateViewTask() {
+        if (createViewTaskBuilder_ == null) {
+          if (taskCase_ == 13) {
+            return (greptime.v1.meta.Ddl.CreateViewTask) task_;
+          }
+          return greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance();
+        } else {
+          if (taskCase_ == 13) {
+            return createViewTaskBuilder_.getMessage();
+          }
+          return greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+       */
+      public Builder setCreateViewTask(greptime.v1.meta.Ddl.CreateViewTask value) {
+        if (createViewTaskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          task_ = value;
+          onChanged();
+        } else {
+          createViewTaskBuilder_.setMessage(value);
+        }
+        taskCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+       */
+      public Builder setCreateViewTask(
+          greptime.v1.meta.Ddl.CreateViewTask.Builder builderForValue) {
+        if (createViewTaskBuilder_ == null) {
+          task_ = builderForValue.build();
+          onChanged();
+        } else {
+          createViewTaskBuilder_.setMessage(builderForValue.build());
+        }
+        taskCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+       */
+      public Builder mergeCreateViewTask(greptime.v1.meta.Ddl.CreateViewTask value) {
+        if (createViewTaskBuilder_ == null) {
+          if (taskCase_ == 13 &&
+              task_ != greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance()) {
+            task_ = greptime.v1.meta.Ddl.CreateViewTask.newBuilder((greptime.v1.meta.Ddl.CreateViewTask) task_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            task_ = value;
+          }
+          onChanged();
+        } else {
+          if (taskCase_ == 13) {
+            createViewTaskBuilder_.mergeFrom(value);
+          } else {
+            createViewTaskBuilder_.setMessage(value);
+          }
+        }
+        taskCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+       */
+      public Builder clearCreateViewTask() {
+        if (createViewTaskBuilder_ == null) {
+          if (taskCase_ == 13) {
+            taskCase_ = 0;
+            task_ = null;
+            onChanged();
+          }
+        } else {
+          if (taskCase_ == 13) {
+            taskCase_ = 0;
+            task_ = null;
+          }
+          createViewTaskBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+       */
+      public greptime.v1.meta.Ddl.CreateViewTask.Builder getCreateViewTaskBuilder() {
+        return getCreateViewTaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateViewTaskOrBuilder getCreateViewTaskOrBuilder() {
+        if ((taskCase_ == 13) && (createViewTaskBuilder_ != null)) {
+          return createViewTaskBuilder_.getMessageOrBuilder();
+        } else {
+          if (taskCase_ == 13) {
+            return (greptime.v1.meta.Ddl.CreateViewTask) task_;
+          }
+          return greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateViewTask create_view_task = 13;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.CreateViewTask, greptime.v1.meta.Ddl.CreateViewTask.Builder, greptime.v1.meta.Ddl.CreateViewTaskOrBuilder> 
+          getCreateViewTaskFieldBuilder() {
+        if (createViewTaskBuilder_ == null) {
+          if (!(taskCase_ == 13)) {
+            task_ = greptime.v1.meta.Ddl.CreateViewTask.getDefaultInstance();
+          }
+          createViewTaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Ddl.CreateViewTask, greptime.v1.meta.Ddl.CreateViewTask.Builder, greptime.v1.meta.Ddl.CreateViewTaskOrBuilder>(
+                  (greptime.v1.meta.Ddl.CreateViewTask) task_,
+                  getParentForChildren(),
+                  isClean());
+          task_ = null;
+        }
+        taskCase_ = 13;
+        onChanged();;
+        return createViewTaskBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.DropViewTask, greptime.v1.meta.Ddl.DropViewTask.Builder, greptime.v1.meta.Ddl.DropViewTaskOrBuilder> dropViewTaskBuilder_;
+      /**
+       * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+       * @return Whether the dropViewTask field is set.
+       */
+      @java.lang.Override
+      public boolean hasDropViewTask() {
+        return taskCase_ == 14;
+      }
+      /**
+       * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+       * @return The dropViewTask.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.DropViewTask getDropViewTask() {
+        if (dropViewTaskBuilder_ == null) {
+          if (taskCase_ == 14) {
+            return (greptime.v1.meta.Ddl.DropViewTask) task_;
+          }
+          return greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance();
+        } else {
+          if (taskCase_ == 14) {
+            return dropViewTaskBuilder_.getMessage();
+          }
+          return greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+       */
+      public Builder setDropViewTask(greptime.v1.meta.Ddl.DropViewTask value) {
+        if (dropViewTaskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          task_ = value;
+          onChanged();
+        } else {
+          dropViewTaskBuilder_.setMessage(value);
+        }
+        taskCase_ = 14;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+       */
+      public Builder setDropViewTask(
+          greptime.v1.meta.Ddl.DropViewTask.Builder builderForValue) {
+        if (dropViewTaskBuilder_ == null) {
+          task_ = builderForValue.build();
+          onChanged();
+        } else {
+          dropViewTaskBuilder_.setMessage(builderForValue.build());
+        }
+        taskCase_ = 14;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+       */
+      public Builder mergeDropViewTask(greptime.v1.meta.Ddl.DropViewTask value) {
+        if (dropViewTaskBuilder_ == null) {
+          if (taskCase_ == 14 &&
+              task_ != greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance()) {
+            task_ = greptime.v1.meta.Ddl.DropViewTask.newBuilder((greptime.v1.meta.Ddl.DropViewTask) task_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            task_ = value;
+          }
+          onChanged();
+        } else {
+          if (taskCase_ == 14) {
+            dropViewTaskBuilder_.mergeFrom(value);
+          } else {
+            dropViewTaskBuilder_.setMessage(value);
+          }
+        }
+        taskCase_ = 14;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+       */
+      public Builder clearDropViewTask() {
+        if (dropViewTaskBuilder_ == null) {
+          if (taskCase_ == 14) {
+            taskCase_ = 0;
+            task_ = null;
+            onChanged();
+          }
+        } else {
+          if (taskCase_ == 14) {
+            taskCase_ = 0;
+            task_ = null;
+          }
+          dropViewTaskBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+       */
+      public greptime.v1.meta.Ddl.DropViewTask.Builder getDropViewTaskBuilder() {
+        return getDropViewTaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.DropViewTaskOrBuilder getDropViewTaskOrBuilder() {
+        if ((taskCase_ == 14) && (dropViewTaskBuilder_ != null)) {
+          return dropViewTaskBuilder_.getMessageOrBuilder();
+        } else {
+          if (taskCase_ == 14) {
+            return (greptime.v1.meta.Ddl.DropViewTask) task_;
+          }
+          return greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.DropViewTask drop_view_task = 14;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.DropViewTask, greptime.v1.meta.Ddl.DropViewTask.Builder, greptime.v1.meta.Ddl.DropViewTaskOrBuilder> 
+          getDropViewTaskFieldBuilder() {
+        if (dropViewTaskBuilder_ == null) {
+          if (!(taskCase_ == 14)) {
+            task_ = greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance();
+          }
+          dropViewTaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Ddl.DropViewTask, greptime.v1.meta.Ddl.DropViewTask.Builder, greptime.v1.meta.Ddl.DropViewTaskOrBuilder>(
+                  (greptime.v1.meta.Ddl.DropViewTask) task_,
+                  getParentForChildren(),
+                  isClean());
+          task_ = null;
+        }
+        taskCase_ = 14;
+        onChanged();;
+        return dropViewTaskBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -13014,6 +14810,16 @@ public final class Ddl {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_DropFlowTask_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_CreateViewTask_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_CreateViewTask_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_DropViewTask_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_DropViewTask_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_DdlTaskRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -13056,35 +14862,42 @@ public final class Ddl {
       ".v1.DropDatabaseExpr\"B\n\016CreateFlowTask\0220" +
       "\n\013create_flow\030\001 \001(\0132\033.greptime.v1.Create" +
       "FlowExpr\"<\n\014DropFlowTask\022,\n\tdrop_flow\030\001 " +
-      "\001(\0132\031.greptime.v1.DropFlowExpr\"\271\006\n\016DdlTa" +
-      "skRequest\022/\n\006header\030\001 \001(\0132\037.greptime.v1." +
-      "meta.RequestHeader\0220\n\rquery_context\030@ \001(" +
-      "\0132\031.greptime.v1.QueryContext\022>\n\021create_t" +
-      "able_task\030\002 \001(\0132!.greptime.v1.meta.Creat" +
-      "eTableTaskH\000\022:\n\017drop_table_task\030\003 \001(\0132\037." +
-      "greptime.v1.meta.DropTableTaskH\000\022<\n\020alte" +
-      "r_table_task\030\004 \001(\0132 .greptime.v1.meta.Al" +
-      "terTableTaskH\000\022B\n\023truncate_table_task\030\005 " +
-      "\001(\0132#.greptime.v1.meta.TruncateTableTask" +
-      "H\000\022@\n\022create_table_tasks\030\006 \001(\0132\".greptim" +
-      "e.v1.meta.CreateTableTasksH\000\022<\n\020drop_tab" +
-      "le_tasks\030\007 \001(\0132 .greptime.v1.meta.DropTa" +
-      "bleTasksH\000\022>\n\021alter_table_tasks\030\010 \001(\0132!." +
-      "greptime.v1.meta.AlterTableTasksH\000\022@\n\022dr" +
-      "op_database_task\030\t \001(\0132\".greptime.v1.met" +
-      "a.DropDatabaseTaskH\000\022D\n\024create_database_" +
-      "task\030\n \001(\0132$.greptime.v1.meta.CreateData" +
-      "baseTaskH\000\022<\n\020create_flow_task\030\013 \001(\0132 .g" +
-      "reptime.v1.meta.CreateFlowTaskH\000\0228\n\016drop" +
-      "_flow_task\030\014 \001(\0132\036.greptime.v1.meta.Drop" +
-      "FlowTaskH\000B\006\n\004task\"\300\001\n\017DdlTaskResponse\0220" +
-      "\n\006header\030\001 \001(\0132 .greptime.v1.meta.Respon" +
-      "seHeader\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta" +
-      ".ProcedureId\022&\n\010table_id\030\004 \001(\0132\024.greptim" +
-      "e.v1.TableId\022\'\n\ttable_ids\030\005 \003(\0132\024.grepti" +
-      "me.v1.TableId*#\n\013DdlTaskType\022\n\n\006Create\020\000" +
-      "\022\010\n\004Drop\020\001B<Z:github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1/metab\006proto3"
+      "\001(\0132\031.greptime.v1.DropFlowExpr\"U\n\016Create" +
+      "ViewTask\0220\n\013create_view\030\001 \001(\0132\033.greptime" +
+      ".v1.CreateViewExpr\022\021\n\tview_info\030\002 \001(\014\"<\n" +
+      "\014DropViewTask\022,\n\tdrop_view\030\001 \001(\0132\031.grept" +
+      "ime.v1.DropViewExpr\"\261\007\n\016DdlTaskRequest\022/" +
+      "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques" +
+      "tHeader\0220\n\rquery_context\030@ \001(\0132\031.greptim" +
+      "e.v1.QueryContext\022>\n\021create_table_task\030\002" +
+      " \001(\0132!.greptime.v1.meta.CreateTableTaskH" +
+      "\000\022:\n\017drop_table_task\030\003 \001(\0132\037.greptime.v1" +
+      ".meta.DropTableTaskH\000\022<\n\020alter_table_tas" +
+      "k\030\004 \001(\0132 .greptime.v1.meta.AlterTableTas" +
+      "kH\000\022B\n\023truncate_table_task\030\005 \001(\0132#.grept" +
+      "ime.v1.meta.TruncateTableTaskH\000\022@\n\022creat" +
+      "e_table_tasks\030\006 \001(\0132\".greptime.v1.meta.C" +
+      "reateTableTasksH\000\022<\n\020drop_table_tasks\030\007 " +
+      "\001(\0132 .greptime.v1.meta.DropTableTasksH\000\022" +
+      ">\n\021alter_table_tasks\030\010 \001(\0132!.greptime.v1" +
+      ".meta.AlterTableTasksH\000\022@\n\022drop_database" +
+      "_task\030\t \001(\0132\".greptime.v1.meta.DropDatab" +
+      "aseTaskH\000\022D\n\024create_database_task\030\n \001(\0132" +
+      "$.greptime.v1.meta.CreateDatabaseTaskH\000\022" +
+      "<\n\020create_flow_task\030\013 \001(\0132 .greptime.v1." +
+      "meta.CreateFlowTaskH\000\0228\n\016drop_flow_task\030" +
+      "\014 \001(\0132\036.greptime.v1.meta.DropFlowTaskH\000\022" +
+      "<\n\020create_view_task\030\r \001(\0132 .greptime.v1." +
+      "meta.CreateViewTaskH\000\0228\n\016drop_view_task\030" +
+      "\016 \001(\0132\036.greptime.v1.meta.DropViewTaskH\000B" +
+      "\006\n\004task\"\300\001\n\017DdlTaskResponse\0220\n\006header\030\001 " +
+      "\001(\0132 .greptime.v1.meta.ResponseHeader\022*\n" +
+      "\003pid\030\002 \001(\0132\035.greptime.v1.meta.ProcedureI" +
+      "d\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableI" +
+      "d\022\'\n\ttable_ids\030\005 \003(\0132\024.greptime.v1.Table" +
+      "Id*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\001B" +
+      "<Z:github.com/GreptimeTeam/greptime-prot" +
+      "o/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13160,14 +14973,26 @@ public final class Ddl {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DropFlowTask_descriptor,
         new java.lang.String[] { "DropFlow", });
-    internal_static_greptime_v1_meta_DdlTaskRequest_descriptor =
+    internal_static_greptime_v1_meta_CreateViewTask_descriptor =
       getDescriptor().getMessageTypes().get(11);
+    internal_static_greptime_v1_meta_CreateViewTask_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_CreateViewTask_descriptor,
+        new java.lang.String[] { "CreateView", "ViewInfo", });
+    internal_static_greptime_v1_meta_DropViewTask_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_greptime_v1_meta_DropViewTask_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_DropViewTask_descriptor,
+        new java.lang.String[] { "DropView", });
+    internal_static_greptime_v1_meta_DdlTaskRequest_descriptor =
+      getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskRequest_descriptor,
-        new java.lang.String[] { "Header", "QueryContext", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "Task", });
+        new java.lang.String[] { "Header", "QueryContext", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "Task", });
     internal_static_greptime_v1_meta_DdlTaskResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskResponse_descriptor,

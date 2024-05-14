@@ -35,6 +35,8 @@ message DdlRequest {
     TruncateTableExpr truncate_table = 7;
     CreateFlowExpr create_flow = 8;
     DropFlowExpr drop_flow = 9;
+    CreateViewExpr create_view = 10;
+    DropViewExpr drop_view = 11;
   }
 }
 
@@ -57,6 +59,25 @@ message DropFlowExpr {
   string catalog_name = 1;
   string flow_name = 2;
   FlowId flow_id = 3;
+  bool drop_if_exists = 5;
+}
+
+// Create a view
+message CreateViewExpr {
+  string catalog_name = 1;
+  string schema_name = 2;
+  string view_name = 3;
+  bytes logical_plan = 4;
+  bool create_if_not_exists = 5;
+  bool or_replace = 6;
+}
+
+// Drop a view
+message DropViewExpr {
+  string catalog_name = 1;
+  string schema_name = 2;
+  string view_name = 3;
+  TableId view_id = 4;
   bool drop_if_exists = 5;
 }
 
