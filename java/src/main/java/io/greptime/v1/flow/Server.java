@@ -5313,16 +5313,16 @@ com.google.protobuf.ByteString defaultValue);
     boolean getCreateIfNotExists();
 
     /**
-     * <code>string expire_when = 5;</code>
-     * @return The expireWhen.
+     * <code>string expire_after = 5;</code>
+     * @return The expireAfter.
      */
-    java.lang.String getExpireWhen();
+    java.lang.String getExpireAfter();
     /**
-     * <code>string expire_when = 5;</code>
-     * @return The bytes for expireWhen.
+     * <code>string expire_after = 5;</code>
+     * @return The bytes for expireAfter.
      */
     com.google.protobuf.ByteString
-        getExpireWhenBytes();
+        getExpireAfterBytes();
 
     /**
      * <code>string comment = 6;</code>
@@ -5387,8 +5387,7 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * Create a flow
-   * 
-   * Very similar to `ddl.CreateTaskExpr`, 
+   * Very similar to `ddl.CreateTaskExpr`,
    * replace `source_table_names` with `source_table_ids`
    * </pre>
    *
@@ -5405,7 +5404,7 @@ java.lang.String defaultValue);
     }
     private CreateRequest() {
       sourceTableIds_ = java.util.Collections.emptyList();
-      expireWhen_ = "";
+      expireAfter_ = "";
       comment_ = "";
       sql_ = "";
     }
@@ -5484,7 +5483,7 @@ java.lang.String defaultValue);
             case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              expireWhen_ = s;
+              expireAfter_ = s;
               break;
             }
             case 50: {
@@ -5664,38 +5663,38 @@ java.lang.String defaultValue);
       return createIfNotExists_;
     }
 
-    public static final int EXPIRE_WHEN_FIELD_NUMBER = 5;
-    private volatile java.lang.Object expireWhen_;
+    public static final int EXPIRE_AFTER_FIELD_NUMBER = 5;
+    private volatile java.lang.Object expireAfter_;
     /**
-     * <code>string expire_when = 5;</code>
-     * @return The expireWhen.
+     * <code>string expire_after = 5;</code>
+     * @return The expireAfter.
      */
     @java.lang.Override
-    public java.lang.String getExpireWhen() {
-      java.lang.Object ref = expireWhen_;
+    public java.lang.String getExpireAfter() {
+      java.lang.Object ref = expireAfter_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        expireWhen_ = s;
+        expireAfter_ = s;
         return s;
       }
     }
     /**
-     * <code>string expire_when = 5;</code>
-     * @return The bytes for expireWhen.
+     * <code>string expire_after = 5;</code>
+     * @return The bytes for expireAfter.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getExpireWhenBytes() {
-      java.lang.Object ref = expireWhen_;
+        getExpireAfterBytes() {
+      java.lang.Object ref = expireAfter_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        expireWhen_ = b;
+        expireAfter_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5885,8 +5884,8 @@ java.lang.String defaultValue);
       if (createIfNotExists_ != false) {
         output.writeBool(4, createIfNotExists_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireWhen_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, expireWhen_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireAfter_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, expireAfter_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, comment_);
@@ -5925,8 +5924,8 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, createIfNotExists_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireWhen_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, expireWhen_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireAfter_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, expireAfter_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, comment_);
@@ -5973,8 +5972,8 @@ java.lang.String defaultValue);
       }
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
-      if (!getExpireWhen()
-          .equals(other.getExpireWhen())) return false;
+      if (!getExpireAfter()
+          .equals(other.getExpireAfter())) return false;
       if (!getComment()
           .equals(other.getComment())) return false;
       if (!getSql()
@@ -6007,8 +6006,8 @@ java.lang.String defaultValue);
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCreateIfNotExists());
-      hash = (37 * hash) + EXPIRE_WHEN_FIELD_NUMBER;
-      hash = (53 * hash) + getExpireWhen().hashCode();
+      hash = (37 * hash) + EXPIRE_AFTER_FIELD_NUMBER;
+      hash = (53 * hash) + getExpireAfter().hashCode();
       hash = (37 * hash) + COMMENT_FIELD_NUMBER;
       hash = (53 * hash) + getComment().hashCode();
       hash = (37 * hash) + SQL_FIELD_NUMBER;
@@ -6115,8 +6114,7 @@ java.lang.String defaultValue);
     /**
      * <pre>
      * Create a flow
-     * 
-     * Very similar to `ddl.CreateTaskExpr`, 
+     * Very similar to `ddl.CreateTaskExpr`,
      * replace `source_table_names` with `source_table_ids`
      * </pre>
      *
@@ -6200,7 +6198,7 @@ java.lang.String defaultValue);
         }
         createIfNotExists_ = false;
 
-        expireWhen_ = "";
+        expireAfter_ = "";
 
         comment_ = "";
 
@@ -6254,7 +6252,7 @@ java.lang.String defaultValue);
           result.sinkTableName_ = sinkTableNameBuilder_.build();
         }
         result.createIfNotExists_ = createIfNotExists_;
-        result.expireWhen_ = expireWhen_;
+        result.expireAfter_ = expireAfter_;
         result.comment_ = comment_;
         result.sql_ = sql_;
         result.flowOptions_ = internalGetFlowOptions();
@@ -6342,8 +6340,8 @@ java.lang.String defaultValue);
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
         }
-        if (!other.getExpireWhen().isEmpty()) {
-          expireWhen_ = other.expireWhen_;
+        if (!other.getExpireAfter().isEmpty()) {
+          expireAfter_ = other.expireAfter_;
           onChanged();
         }
         if (!other.getComment().isEmpty()) {
@@ -6895,78 +6893,78 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.lang.Object expireWhen_ = "";
+      private java.lang.Object expireAfter_ = "";
       /**
-       * <code>string expire_when = 5;</code>
-       * @return The expireWhen.
+       * <code>string expire_after = 5;</code>
+       * @return The expireAfter.
        */
-      public java.lang.String getExpireWhen() {
-        java.lang.Object ref = expireWhen_;
+      public java.lang.String getExpireAfter() {
+        java.lang.Object ref = expireAfter_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          expireWhen_ = s;
+          expireAfter_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string expire_when = 5;</code>
-       * @return The bytes for expireWhen.
+       * <code>string expire_after = 5;</code>
+       * @return The bytes for expireAfter.
        */
       public com.google.protobuf.ByteString
-          getExpireWhenBytes() {
-        java.lang.Object ref = expireWhen_;
+          getExpireAfterBytes() {
+        java.lang.Object ref = expireAfter_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          expireWhen_ = b;
+          expireAfter_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string expire_when = 5;</code>
-       * @param value The expireWhen to set.
+       * <code>string expire_after = 5;</code>
+       * @param value The expireAfter to set.
        * @return This builder for chaining.
        */
-      public Builder setExpireWhen(
+      public Builder setExpireAfter(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        expireWhen_ = value;
+        expireAfter_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string expire_when = 5;</code>
+       * <code>string expire_after = 5;</code>
        * @return This builder for chaining.
        */
-      public Builder clearExpireWhen() {
+      public Builder clearExpireAfter() {
         
-        expireWhen_ = getDefaultInstance().getExpireWhen();
+        expireAfter_ = getDefaultInstance().getExpireAfter();
         onChanged();
         return this;
       }
       /**
-       * <code>string expire_when = 5;</code>
-       * @param value The bytes for expireWhen to set.
+       * <code>string expire_after = 5;</code>
+       * @param value The bytes for expireAfter to set.
        * @return This builder for chaining.
        */
-      public Builder setExpireWhenBytes(
+      public Builder setExpireAfterBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        expireWhen_ = value;
+        expireAfter_ = value;
         onChanged();
         return this;
       }
@@ -8010,24 +8008,24 @@ java.lang.String defaultValue);
       "ime.v1.FlowId\022@\n\textension\030\004 \003(\0132-.grept" +
       "ime.v1.flow.FlowResponse.ExtensionEntry\032" +
       "0\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\014:\0028\001\"\343\002\n\rCreateRequest\022$\n\007flow_id\030\001" +
+      "\002 \001(\014:\0028\001\"\344\002\n\rCreateRequest\022$\n\007flow_id\030\001" +
       " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl" +
       "e_ids\030\002 \003(\0132\024.greptime.v1.TableId\022/\n\017sin" +
       "k_table_name\030\003 \001(\0132\026.greptime.v1.TableNa" +
-      "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022\023\n\013expi" +
-      "re_when\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 " +
-      "\001(\t\022F\n\014flow_options\030\010 \003(\01320.greptime.v1." +
-      "flow.CreateRequest.FlowOptionsEntry\0322\n\020F" +
-      "lowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132" +
-      "\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022HandleC" +
-      "reateRemove\022\035.greptime.v1.flow.FlowReque" +
-      "st\032\036.greptime.v1.flow.FlowResponse\022W\n\023Ha" +
-      "ndleMirrorRequest\022 .greptime.v1.flow.Ins" +
-      "ertRequests\032\036.greptime.v1.flow.FlowRespo" +
-      "nseBY\n\023io.greptime.v1.flowB\006ServerZ:gith" +
-      "ub.com/GreptimeTeam/greptime-proto/go/gr" +
-      "eptime/v1/flowb\006proto3"
+      "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022\024\n\014expi" +
+      "re_after\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007" +
+      " \001(\t\022F\n\014flow_options\030\010 \003(\01320.greptime.v1" +
+      ".flow.CreateRequest.FlowOptionsEntry\0322\n\020" +
+      "FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t:\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\013" +
+      "2\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022Handle" +
+      "CreateRemove\022\035.greptime.v1.flow.FlowRequ" +
+      "est\032\036.greptime.v1.flow.FlowResponse\022W\n\023H" +
+      "andleMirrorRequest\022 .greptime.v1.flow.In" +
+      "sertRequests\032\036.greptime.v1.flow.FlowResp" +
+      "onseBY\n\023io.greptime.v1.flowB\006ServerZ:git" +
+      "hub.com/GreptimeTeam/greptime-proto/go/g" +
+      "reptime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8083,7 +8081,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
-        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "FlowOptions", });
+        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireAfter", "Comment", "Sql", "FlowOptions", });
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor =
       internal_static_greptime_v1_flow_CreateRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_fieldAccessorTable = new

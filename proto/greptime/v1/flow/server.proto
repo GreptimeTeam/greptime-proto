@@ -65,19 +65,18 @@ message FlowResponse {
 }
 
 // Create a flow
-// 
-// Very similar to `ddl.CreateTaskExpr`, 
+//
+// Very similar to `ddl.CreateTaskExpr`,
 // replace `source_table_names` with `source_table_ids`
 message CreateRequest {
-  FlowId flow_id = 1; 
+  FlowId flow_id = 1;
   repeated TableId source_table_ids = 2;
   TableName sink_table_name = 3;
   bool create_if_not_exists = 4;
-  string expire_when = 5;
+  string expire_after = 5;
   string comment = 6;
   string sql = 7;
   map<string, string> flow_options = 8;
 }
 
 message DropRequest { FlowId flow_id = 1; }
-

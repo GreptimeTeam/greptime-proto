@@ -1250,7 +1250,7 @@ class CreateRequest final :
   enum : int {
     kSourceTableIdsFieldNumber = 2,
     kFlowOptionsFieldNumber = 8,
-    kExpireWhenFieldNumber = 5,
+    kExpireAfterFieldNumber = 5,
     kCommentFieldNumber = 6,
     kSqlFieldNumber = 7,
     kFlowIdFieldNumber = 1,
@@ -1292,18 +1292,18 @@ class CreateRequest final :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
       mutable_flow_options();
 
-  // string expire_when = 5;
-  void clear_expire_when();
-  const std::string& expire_when() const;
+  // string expire_after = 5;
+  void clear_expire_after();
+  const std::string& expire_after() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_expire_when(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_expire_when();
-  PROTOBUF_NODISCARD std::string* release_expire_when();
-  void set_allocated_expire_when(std::string* expire_when);
+  void set_expire_after(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_expire_after();
+  PROTOBUF_NODISCARD std::string* release_expire_after();
+  void set_allocated_expire_after(std::string* expire_after);
   private:
-  const std::string& _internal_expire_when() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_expire_when(const std::string& value);
-  std::string* _internal_mutable_expire_when();
+  const std::string& _internal_expire_after() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_expire_after(const std::string& value);
+  std::string* _internal_mutable_expire_after();
   public:
 
   // string comment = 6;
@@ -1393,7 +1393,7 @@ class CreateRequest final :
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> flow_options_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_when_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_after_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
     ::greptime::v1::FlowId* flow_id_;
@@ -2502,54 +2502,54 @@ inline void CreateRequest::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.create_if_not_exists)
 }
 
-// string expire_when = 5;
-inline void CreateRequest::clear_expire_when() {
-  _impl_.expire_when_.ClearToEmpty();
+// string expire_after = 5;
+inline void CreateRequest::clear_expire_after() {
+  _impl_.expire_after_.ClearToEmpty();
 }
-inline const std::string& CreateRequest::expire_when() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.expire_when)
-  return _internal_expire_when();
+inline const std::string& CreateRequest::expire_after() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.expire_after)
+  return _internal_expire_after();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CreateRequest::set_expire_when(ArgT0&& arg0, ArgT... args) {
+void CreateRequest::set_expire_after(ArgT0&& arg0, ArgT... args) {
  
- _impl_.expire_when_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.expire_when)
+ _impl_.expire_after_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.expire_after)
 }
-inline std::string* CreateRequest::mutable_expire_when() {
-  std::string* _s = _internal_mutable_expire_when();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.expire_when)
+inline std::string* CreateRequest::mutable_expire_after() {
+  std::string* _s = _internal_mutable_expire_after();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.expire_after)
   return _s;
 }
-inline const std::string& CreateRequest::_internal_expire_when() const {
-  return _impl_.expire_when_.Get();
+inline const std::string& CreateRequest::_internal_expire_after() const {
+  return _impl_.expire_after_.Get();
 }
-inline void CreateRequest::_internal_set_expire_when(const std::string& value) {
+inline void CreateRequest::_internal_set_expire_after(const std::string& value) {
   
-  _impl_.expire_when_.Set(value, GetArenaForAllocation());
+  _impl_.expire_after_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CreateRequest::_internal_mutable_expire_when() {
+inline std::string* CreateRequest::_internal_mutable_expire_after() {
   
-  return _impl_.expire_when_.Mutable(GetArenaForAllocation());
+  return _impl_.expire_after_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CreateRequest::release_expire_when() {
-  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.expire_when)
-  return _impl_.expire_when_.Release();
+inline std::string* CreateRequest::release_expire_after() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.expire_after)
+  return _impl_.expire_after_.Release();
 }
-inline void CreateRequest::set_allocated_expire_when(std::string* expire_when) {
-  if (expire_when != nullptr) {
+inline void CreateRequest::set_allocated_expire_after(std::string* expire_after) {
+  if (expire_after != nullptr) {
     
   } else {
     
   }
-  _impl_.expire_when_.SetAllocated(expire_when, GetArenaForAllocation());
+  _impl_.expire_after_.SetAllocated(expire_after, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.expire_when_.IsDefault()) {
-    _impl_.expire_when_.Set("", GetArenaForAllocation());
+  if (_impl_.expire_after_.IsDefault()) {
+    _impl_.expire_after_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.expire_when)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.expire_after)
 }
 
 // string comment = 6;
