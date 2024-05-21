@@ -691,10 +691,10 @@ class CreateFlowExpr final :
     kFlowOptionsFieldNumber = 10,
     kCatalogNameFieldNumber = 1,
     kFlowNameFieldNumber = 2,
-    kExpireAfterFieldNumber = 7,
     kCommentFieldNumber = 8,
     kSqlFieldNumber = 9,
     kSinkTableNameFieldNumber = 4,
+    kExpireAfterFieldNumber = 7,
     kOrReplaceFieldNumber = 5,
     kCreateIfNotExistsFieldNumber = 6,
   };
@@ -761,20 +761,6 @@ class CreateFlowExpr final :
   std::string* _internal_mutable_flow_name();
   public:
 
-  // string expire_after = 7;
-  void clear_expire_after();
-  const std::string& expire_after() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_expire_after(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_expire_after();
-  PROTOBUF_NODISCARD std::string* release_expire_after();
-  void set_allocated_expire_after(std::string* expire_after);
-  private:
-  const std::string& _internal_expire_after() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_expire_after(const std::string& value);
-  std::string* _internal_mutable_expire_after();
-  public:
-
   // string comment = 8;
   void clear_comment();
   const std::string& comment() const;
@@ -821,6 +807,15 @@ class CreateFlowExpr final :
       ::greptime::v1::TableName* sink_table_name);
   ::greptime::v1::TableName* unsafe_arena_release_sink_table_name();
 
+  // int64 expire_after = 7;
+  void clear_expire_after();
+  int64_t expire_after() const;
+  void set_expire_after(int64_t value);
+  private:
+  int64_t _internal_expire_after() const;
+  void _internal_set_expire_after(int64_t value);
+  public:
+
   // bool or_replace = 5;
   void clear_or_replace();
   bool or_replace() const;
@@ -855,10 +850,10 @@ class CreateFlowExpr final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> flow_options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flow_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_after_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
     ::greptime::v1::TableName* sink_table_name_;
+    int64_t expire_after_;
     bool or_replace_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -5812,54 +5807,24 @@ inline void CreateFlowExpr::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowExpr.create_if_not_exists)
 }
 
-// string expire_after = 7;
+// int64 expire_after = 7;
 inline void CreateFlowExpr::clear_expire_after() {
-  _impl_.expire_after_.ClearToEmpty();
+  _impl_.expire_after_ = int64_t{0};
 }
-inline const std::string& CreateFlowExpr::expire_after() const {
+inline int64_t CreateFlowExpr::_internal_expire_after() const {
+  return _impl_.expire_after_;
+}
+inline int64_t CreateFlowExpr::expire_after() const {
   // @@protoc_insertion_point(field_get:greptime.v1.CreateFlowExpr.expire_after)
   return _internal_expire_after();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CreateFlowExpr::set_expire_after(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.expire_after_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void CreateFlowExpr::_internal_set_expire_after(int64_t value) {
+  
+  _impl_.expire_after_ = value;
+}
+inline void CreateFlowExpr::set_expire_after(int64_t value) {
+  _internal_set_expire_after(value);
   // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowExpr.expire_after)
-}
-inline std::string* CreateFlowExpr::mutable_expire_after() {
-  std::string* _s = _internal_mutable_expire_after();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateFlowExpr.expire_after)
-  return _s;
-}
-inline const std::string& CreateFlowExpr::_internal_expire_after() const {
-  return _impl_.expire_after_.Get();
-}
-inline void CreateFlowExpr::_internal_set_expire_after(const std::string& value) {
-  
-  _impl_.expire_after_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CreateFlowExpr::_internal_mutable_expire_after() {
-  
-  return _impl_.expire_after_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CreateFlowExpr::release_expire_after() {
-  // @@protoc_insertion_point(field_release:greptime.v1.CreateFlowExpr.expire_after)
-  return _impl_.expire_after_.Release();
-}
-inline void CreateFlowExpr::set_allocated_expire_after(std::string* expire_after) {
-  if (expire_after != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.expire_after_.SetAllocated(expire_after, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.expire_after_.IsDefault()) {
-    _impl_.expire_after_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowExpr.expire_after)
 }
 
 // string comment = 8;

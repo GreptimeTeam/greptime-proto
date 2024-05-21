@@ -73,7 +73,8 @@ message CreateRequest {
   repeated TableId source_table_ids = 2;
   TableName sink_table_name = 3;
   bool create_if_not_exists = 4;
-  string expire_after = 5;
+  // Expire data older than the given duration seconds.
+  int64 expire_after = 5;
   string comment = 6;
   string sql = 7;
   map<string, string> flow_options = 8;

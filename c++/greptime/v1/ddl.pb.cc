@@ -53,10 +53,10 @@ PROTOBUF_CONSTEXPR CreateFlowExpr::CreateFlowExpr(
   , /*decltype(_impl_.flow_options_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.flow_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.expire_after_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.comment_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.sql_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.sink_table_name_)*/nullptr
+  , /*decltype(_impl_.expire_after_)*/int64_t{0}
   , /*decltype(_impl_.or_replace_)*/false
   , /*decltype(_impl_.create_if_not_exists_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -736,7 +736,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "reptime.v1.TableName\022/\n\017sink_table_name\030"
   "\004 \001(\0132\026.greptime.v1.TableName\022\022\n\nor_repl"
   "ace\030\005 \001(\010\022\034\n\024create_if_not_exists\030\006 \001(\010\022"
-  "\024\n\014expire_after\030\007 \001(\t\022\017\n\007comment\030\010 \001(\t\022\013"
+  "\024\n\014expire_after\030\007 \001(\003\022\017\n\007comment\030\010 \001(\t\022\013"
   "\n\003sql\030\t \001(\t\022B\n\014flow_options\030\n \003(\0132,.grep"
   "time.v1.CreateFlowExpr.FlowOptionsEntry\032"
   "2\n\020FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu"
@@ -1614,10 +1614,10 @@ CreateFlowExpr::CreateFlowExpr(const CreateFlowExpr& from)
     , /*decltype(_impl_.flow_options_)*/{}
     , decltype(_impl_.catalog_name_){}
     , decltype(_impl_.flow_name_){}
-    , decltype(_impl_.expire_after_){}
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
     , decltype(_impl_.sink_table_name_){nullptr}
+    , decltype(_impl_.expire_after_){}
     , decltype(_impl_.or_replace_){}
     , decltype(_impl_.create_if_not_exists_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -1640,14 +1640,6 @@ CreateFlowExpr::CreateFlowExpr(const CreateFlowExpr& from)
     _this->_impl_.flow_name_.Set(from._internal_flow_name(), 
       _this->GetArenaForAllocation());
   }
-  _impl_.expire_after_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.expire_after_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_expire_after().empty()) {
-    _this->_impl_.expire_after_.Set(from._internal_expire_after(), 
-      _this->GetArenaForAllocation());
-  }
   _impl_.comment_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.comment_.Set("", GetArenaForAllocation());
@@ -1667,9 +1659,9 @@ CreateFlowExpr::CreateFlowExpr(const CreateFlowExpr& from)
   if (from._internal_has_sink_table_name()) {
     _this->_impl_.sink_table_name_ = new ::greptime::v1::TableName(*from._impl_.sink_table_name_);
   }
-  ::memcpy(&_impl_.or_replace_, &from._impl_.or_replace_,
+  ::memcpy(&_impl_.expire_after_, &from._impl_.expire_after_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.create_if_not_exists_) -
-    reinterpret_cast<char*>(&_impl_.or_replace_)) + sizeof(_impl_.create_if_not_exists_));
+    reinterpret_cast<char*>(&_impl_.expire_after_)) + sizeof(_impl_.create_if_not_exists_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.CreateFlowExpr)
 }
 
@@ -1682,10 +1674,10 @@ inline void CreateFlowExpr::SharedCtor(
     , /*decltype(_impl_.flow_options_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.catalog_name_){}
     , decltype(_impl_.flow_name_){}
-    , decltype(_impl_.expire_after_){}
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
     , decltype(_impl_.sink_table_name_){nullptr}
+    , decltype(_impl_.expire_after_){int64_t{0}}
     , decltype(_impl_.or_replace_){false}
     , decltype(_impl_.create_if_not_exists_){false}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -1697,10 +1689,6 @@ inline void CreateFlowExpr::SharedCtor(
   _impl_.flow_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.flow_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.expire_after_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.expire_after_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.comment_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -1729,7 +1717,6 @@ inline void CreateFlowExpr::SharedDtor() {
   _impl_.flow_options_.~MapField();
   _impl_.catalog_name_.Destroy();
   _impl_.flow_name_.Destroy();
-  _impl_.expire_after_.Destroy();
   _impl_.comment_.Destroy();
   _impl_.sql_.Destroy();
   if (this != internal_default_instance()) delete _impl_.sink_table_name_;
@@ -1753,16 +1740,15 @@ void CreateFlowExpr::Clear() {
   _impl_.flow_options_.Clear();
   _impl_.catalog_name_.ClearToEmpty();
   _impl_.flow_name_.ClearToEmpty();
-  _impl_.expire_after_.ClearToEmpty();
   _impl_.comment_.ClearToEmpty();
   _impl_.sql_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.sink_table_name_ != nullptr) {
     delete _impl_.sink_table_name_;
   }
   _impl_.sink_table_name_ = nullptr;
-  ::memset(&_impl_.or_replace_, 0, static_cast<size_t>(
+  ::memset(&_impl_.expire_after_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.create_if_not_exists_) -
-      reinterpret_cast<char*>(&_impl_.or_replace_)) + sizeof(_impl_.create_if_not_exists_));
+      reinterpret_cast<char*>(&_impl_.expire_after_)) + sizeof(_impl_.create_if_not_exists_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1829,13 +1815,11 @@ const char* CreateFlowExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // string expire_after = 7;
+      // int64 expire_after = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
-          auto str = _internal_mutable_expire_after();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.expire_after_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.CreateFlowExpr.expire_after"));
         } else
           goto handle_unusual;
         continue;
@@ -1948,14 +1932,10 @@ uint8_t* CreateFlowExpr::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_create_if_not_exists(), target);
   }
 
-  // string expire_after = 7;
-  if (!this->_internal_expire_after().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_expire_after().data(), static_cast<int>(this->_internal_expire_after().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "greptime.v1.CreateFlowExpr.expire_after");
-    target = stream->WriteStringMaybeAliased(
-        7, this->_internal_expire_after(), target);
+  // int64 expire_after = 7;
+  if (this->_internal_expire_after() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(7, this->_internal_expire_after(), target);
   }
 
   // string comment = 8;
@@ -2054,13 +2034,6 @@ size_t CreateFlowExpr::ByteSizeLong() const {
         this->_internal_flow_name());
   }
 
-  // string expire_after = 7;
-  if (!this->_internal_expire_after().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_expire_after());
-  }
-
   // string comment = 8;
   if (!this->_internal_comment().empty()) {
     total_size += 1 +
@@ -2080,6 +2053,11 @@ size_t CreateFlowExpr::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.sink_table_name_);
+  }
+
+  // int64 expire_after = 7;
+  if (this->_internal_expire_after() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_expire_after());
   }
 
   // bool or_replace = 5;
@@ -2118,9 +2096,6 @@ void CreateFlowExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   if (!from._internal_flow_name().empty()) {
     _this->_internal_set_flow_name(from._internal_flow_name());
   }
-  if (!from._internal_expire_after().empty()) {
-    _this->_internal_set_expire_after(from._internal_expire_after());
-  }
   if (!from._internal_comment().empty()) {
     _this->_internal_set_comment(from._internal_comment());
   }
@@ -2130,6 +2105,9 @@ void CreateFlowExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   if (from._internal_has_sink_table_name()) {
     _this->_internal_mutable_sink_table_name()->::greptime::v1::TableName::MergeFrom(
         from._internal_sink_table_name());
+  }
+  if (from._internal_expire_after() != 0) {
+    _this->_internal_set_expire_after(from._internal_expire_after());
   }
   if (from._internal_or_replace() != 0) {
     _this->_internal_set_or_replace(from._internal_or_replace());
@@ -2165,10 +2143,6 @@ void CreateFlowExpr::InternalSwap(CreateFlowExpr* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.flow_name_, lhs_arena,
       &other->_impl_.flow_name_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.expire_after_, lhs_arena,
-      &other->_impl_.expire_after_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.comment_, lhs_arena,

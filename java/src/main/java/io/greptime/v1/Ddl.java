@@ -2669,16 +2669,14 @@ public final class Ddl {
     boolean getCreateIfNotExists();
 
     /**
-     * <code>string expire_after = 7;</code>
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>int64 expire_after = 7;</code>
      * @return The expireAfter.
      */
-    java.lang.String getExpireAfter();
-    /**
-     * <code>string expire_after = 7;</code>
-     * @return The bytes for expireAfter.
-     */
-    com.google.protobuf.ByteString
-        getExpireAfterBytes();
+    long getExpireAfter();
 
     /**
      * <code>string comment = 8;</code>
@@ -2760,7 +2758,6 @@ java.lang.String defaultValue);
       catalogName_ = "";
       flowName_ = "";
       sourceTableNames_ = java.util.Collections.emptyList();
-      expireAfter_ = "";
       comment_ = "";
       sql_ = "";
     }
@@ -2840,10 +2837,9 @@ java.lang.String defaultValue);
               createIfNotExists_ = input.readBool();
               break;
             }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 56: {
 
-              expireAfter_ = s;
+              expireAfter_ = input.readInt64();
               break;
             }
             case 66: {
@@ -3085,41 +3081,18 @@ java.lang.String defaultValue);
     }
 
     public static final int EXPIRE_AFTER_FIELD_NUMBER = 7;
-    private volatile java.lang.Object expireAfter_;
+    private long expireAfter_;
     /**
-     * <code>string expire_after = 7;</code>
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>int64 expire_after = 7;</code>
      * @return The expireAfter.
      */
     @java.lang.Override
-    public java.lang.String getExpireAfter() {
-      java.lang.Object ref = expireAfter_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        expireAfter_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string expire_after = 7;</code>
-     * @return The bytes for expireAfter.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getExpireAfterBytes() {
-      java.lang.Object ref = expireAfter_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        expireAfter_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getExpireAfter() {
+      return expireAfter_;
     }
 
     public static final int COMMENT_FIELD_NUMBER = 8;
@@ -3311,8 +3284,8 @@ java.lang.String defaultValue);
       if (createIfNotExists_ != false) {
         output.writeBool(6, createIfNotExists_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireAfter_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, expireAfter_);
+      if (expireAfter_ != 0L) {
+        output.writeInt64(7, expireAfter_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, comment_);
@@ -3357,8 +3330,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(6, createIfNotExists_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireAfter_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, expireAfter_);
+      if (expireAfter_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, expireAfter_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, comment_);
@@ -3406,8 +3380,8 @@ java.lang.String defaultValue);
           != other.getOrReplace()) return false;
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
-      if (!getExpireAfter()
-          .equals(other.getExpireAfter())) return false;
+      if (getExpireAfter()
+          != other.getExpireAfter()) return false;
       if (!getComment()
           .equals(other.getComment())) return false;
       if (!getSql()
@@ -3444,7 +3418,8 @@ java.lang.String defaultValue);
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCreateIfNotExists());
       hash = (37 * hash) + EXPIRE_AFTER_FIELD_NUMBER;
-      hash = (53 * hash) + getExpireAfter().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExpireAfter());
       hash = (37 * hash) + COMMENT_FIELD_NUMBER;
       hash = (53 * hash) + getComment().hashCode();
       hash = (37 * hash) + SQL_FIELD_NUMBER;
@@ -3633,7 +3608,7 @@ java.lang.String defaultValue);
 
         createIfNotExists_ = false;
 
-        expireAfter_ = "";
+        expireAfter_ = 0L;
 
         comment_ = "";
 
@@ -3781,9 +3756,8 @@ java.lang.String defaultValue);
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
         }
-        if (!other.getExpireAfter().isEmpty()) {
-          expireAfter_ = other.expireAfter_;
-          onChanged();
+        if (other.getExpireAfter() != 0L) {
+          setExpireAfter(other.getExpireAfter());
         }
         if (!other.getComment().isEmpty()) {
           comment_ = other.comment_;
@@ -4398,78 +4372,45 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.lang.Object expireAfter_ = "";
+      private long expireAfter_ ;
       /**
-       * <code>string expire_after = 7;</code>
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>int64 expire_after = 7;</code>
        * @return The expireAfter.
        */
-      public java.lang.String getExpireAfter() {
-        java.lang.Object ref = expireAfter_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          expireAfter_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public long getExpireAfter() {
+        return expireAfter_;
       }
       /**
-       * <code>string expire_after = 7;</code>
-       * @return The bytes for expireAfter.
-       */
-      public com.google.protobuf.ByteString
-          getExpireAfterBytes() {
-        java.lang.Object ref = expireAfter_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          expireAfter_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string expire_after = 7;</code>
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>int64 expire_after = 7;</code>
        * @param value The expireAfter to set.
        * @return This builder for chaining.
        */
-      public Builder setExpireAfter(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setExpireAfter(long value) {
+        
         expireAfter_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string expire_after = 7;</code>
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>int64 expire_after = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearExpireAfter() {
         
-        expireAfter_ = getDefaultInstance().getExpireAfter();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string expire_after = 7;</code>
-       * @param value The bytes for expireAfter to set.
-       * @return This builder for chaining.
-       */
-      public Builder setExpireAfterBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        expireAfter_ = value;
+        expireAfter_ = 0L;
         onChanged();
         return this;
       }
@@ -25041,7 +24982,7 @@ java.lang.String defaultValue);
       "reptime.v1.TableName\022/\n\017sink_table_name\030" +
       "\004 \001(\0132\026.greptime.v1.TableName\022\022\n\nor_repl" +
       "ace\030\005 \001(\010\022\034\n\024create_if_not_exists\030\006 \001(\010\022" +
-      "\024\n\014expire_after\030\007 \001(\t\022\017\n\007comment\030\010 \001(\t\022\013" +
+      "\024\n\014expire_after\030\007 \001(\003\022\017\n\007comment\030\010 \001(\t\022\013" +
       "\n\003sql\030\t \001(\t\022B\n\014flow_options\030\n \003(\0132,.grep" +
       "time.v1.CreateFlowExpr.FlowOptionsEntry\032" +
       "2\n\020FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +

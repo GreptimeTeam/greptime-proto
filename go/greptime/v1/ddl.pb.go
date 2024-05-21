@@ -269,16 +269,17 @@ type CreateFlowExpr struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	CatalogName       string            `protobuf:"bytes,1,opt,name=catalog_name,json=catalogName,proto3" json:"catalog_name,omitempty"`
-	FlowName          string            `protobuf:"bytes,2,opt,name=flow_name,json=flowName,proto3" json:"flow_name,omitempty"`
-	SourceTableNames  []*TableName      `protobuf:"bytes,3,rep,name=source_table_names,json=sourceTableNames,proto3" json:"source_table_names,omitempty"`
-	SinkTableName     *TableName        `protobuf:"bytes,4,opt,name=sink_table_name,json=sinkTableName,proto3" json:"sink_table_name,omitempty"`
-	OrReplace         bool              `protobuf:"varint,5,opt,name=or_replace,json=orReplace,proto3" json:"or_replace,omitempty"`
-	CreateIfNotExists bool              `protobuf:"varint,6,opt,name=create_if_not_exists,json=createIfNotExists,proto3" json:"create_if_not_exists,omitempty"`
-	ExpireAfter       string            `protobuf:"bytes,7,opt,name=expire_after,json=expireAfter,proto3" json:"expire_after,omitempty"`
-	Comment           string            `protobuf:"bytes,8,opt,name=comment,proto3" json:"comment,omitempty"`
-	Sql               string            `protobuf:"bytes,9,opt,name=sql,proto3" json:"sql,omitempty"`
-	FlowOptions       map[string]string `protobuf:"bytes,10,rep,name=flow_options,json=flowOptions,proto3" json:"flow_options,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	CatalogName       string       `protobuf:"bytes,1,opt,name=catalog_name,json=catalogName,proto3" json:"catalog_name,omitempty"`
+	FlowName          string       `protobuf:"bytes,2,opt,name=flow_name,json=flowName,proto3" json:"flow_name,omitempty"`
+	SourceTableNames  []*TableName `protobuf:"bytes,3,rep,name=source_table_names,json=sourceTableNames,proto3" json:"source_table_names,omitempty"`
+	SinkTableName     *TableName   `protobuf:"bytes,4,opt,name=sink_table_name,json=sinkTableName,proto3" json:"sink_table_name,omitempty"`
+	OrReplace         bool         `protobuf:"varint,5,opt,name=or_replace,json=orReplace,proto3" json:"or_replace,omitempty"`
+	CreateIfNotExists bool         `protobuf:"varint,6,opt,name=create_if_not_exists,json=createIfNotExists,proto3" json:"create_if_not_exists,omitempty"`
+	// Expire data older than the given duration seconds.
+	ExpireAfter int64             `protobuf:"varint,7,opt,name=expire_after,json=expireAfter,proto3" json:"expire_after,omitempty"`
+	Comment     string            `protobuf:"bytes,8,opt,name=comment,proto3" json:"comment,omitempty"`
+	Sql         string            `protobuf:"bytes,9,opt,name=sql,proto3" json:"sql,omitempty"`
+	FlowOptions map[string]string `protobuf:"bytes,10,rep,name=flow_options,json=flowOptions,proto3" json:"flow_options,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *CreateFlowExpr) Reset() {
@@ -355,11 +356,11 @@ func (x *CreateFlowExpr) GetCreateIfNotExists() bool {
 	return false
 }
 
-func (x *CreateFlowExpr) GetExpireAfter() string {
+func (x *CreateFlowExpr) GetExpireAfter() int64 {
 	if x != nil {
 		return x.ExpireAfter
 	}
-	return ""
+	return 0
 }
 
 func (x *CreateFlowExpr) GetComment() string {
@@ -1828,7 +1829,7 @@ var file_greptime_v1_ddl_proto_rawDesc = []byte{
 	0x5f, 0x69, 0x66, 0x5f, 0x6e, 0x6f, 0x74, 0x5f, 0x65, 0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x06,
 	0x20, 0x01, 0x28, 0x08, 0x52, 0x11, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x66, 0x4e, 0x6f,
 	0x74, 0x45, 0x78, 0x69, 0x73, 0x74, 0x73, 0x12, 0x21, 0x0a, 0x0c, 0x65, 0x78, 0x70, 0x69, 0x72,
-	0x65, 0x5f, 0x61, 0x66, 0x74, 0x65, 0x72, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x65,
+	0x65, 0x5f, 0x61, 0x66, 0x74, 0x65, 0x72, 0x18, 0x07, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x65,
 	0x78, 0x70, 0x69, 0x72, 0x65, 0x41, 0x66, 0x74, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x6f,
 	0x6d, 0x6d, 0x65, 0x6e, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x6f, 0x6d,
 	0x6d, 0x65, 0x6e, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x73, 0x71, 0x6c, 0x18, 0x09, 0x20, 0x01, 0x28,
