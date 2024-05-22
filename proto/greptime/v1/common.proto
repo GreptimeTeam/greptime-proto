@@ -84,6 +84,7 @@ enum SemanticType {
   TAG = 0;
   FIELD = 1;
   TIMESTAMP = 2;
+  Text = 3;
 }
 
 enum ColumnDataType {
