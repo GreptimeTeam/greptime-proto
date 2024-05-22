@@ -23,6 +23,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
+#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
@@ -134,6 +135,12 @@ extern RegionResponseDefaultTypeInternal _RegionResponse_default_instance_;
 class RegionResponse_ExtensionEntry_DoNotUse;
 struct RegionResponse_ExtensionEntry_DoNotUseDefaultTypeInternal;
 extern RegionResponse_ExtensionEntry_DoNotUseDefaultTypeInternal _RegionResponse_ExtensionEntry_DoNotUse_default_instance_;
+class Regular;
+struct RegularDefaultTypeInternal;
+extern RegularDefaultTypeInternal _Regular_default_instance_;
+class StrictWindow;
+struct StrictWindowDefaultTypeInternal;
+extern StrictWindowDefaultTypeInternal _StrictWindow_default_instance_;
 class TruncateRequest;
 struct TruncateRequestDefaultTypeInternal;
 extern TruncateRequestDefaultTypeInternal _TruncateRequest_default_instance_;
@@ -168,6 +175,8 @@ template<> ::greptime::v1::region::RegionRequestHeader* Arena::CreateMaybeMessag
 template<> ::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::region::Regular* Arena::CreateMaybeMessage<::greptime::v1::region::Regular>(Arena*);
+template<> ::greptime::v1::region::StrictWindow* Arena::CreateMaybeMessage<::greptime::v1::region::StrictWindow>(Arena*);
 template<> ::greptime::v1::region::TruncateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::TruncateRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -4227,6 +4236,272 @@ class FlushRequest final :
 };
 // -------------------------------------------------------------------
 
+class Regular final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:greptime.v1.region.Regular) */ {
+ public:
+  inline Regular() : Regular(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR Regular(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Regular(const Regular& from);
+  Regular(Regular&& from) noexcept
+    : Regular() {
+    *this = ::std::move(from);
+  }
+
+  inline Regular& operator=(const Regular& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Regular& operator=(Regular&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Regular& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Regular* internal_default_instance() {
+    return reinterpret_cast<const Regular*>(
+               &_Regular_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  friend void swap(Regular& a, Regular& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Regular* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Regular* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Regular* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Regular>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const Regular& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const Regular& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.Regular";
+  }
+  protected:
+  explicit Regular(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.Regular)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class StrictWindow final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.StrictWindow) */ {
+ public:
+  inline StrictWindow() : StrictWindow(nullptr) {}
+  ~StrictWindow() override;
+  explicit PROTOBUF_CONSTEXPR StrictWindow(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  StrictWindow(const StrictWindow& from);
+  StrictWindow(StrictWindow&& from) noexcept
+    : StrictWindow() {
+    *this = ::std::move(from);
+  }
+
+  inline StrictWindow& operator=(const StrictWindow& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StrictWindow& operator=(StrictWindow&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StrictWindow& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StrictWindow* internal_default_instance() {
+    return reinterpret_cast<const StrictWindow*>(
+               &_StrictWindow_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  friend void swap(StrictWindow& a, StrictWindow& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StrictWindow* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StrictWindow* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StrictWindow* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StrictWindow>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const StrictWindow& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const StrictWindow& from) {
+    StrictWindow::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StrictWindow* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.StrictWindow";
+  }
+  protected:
+  explicit StrictWindow(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kWindowSecondsFieldNumber = 1,
+  };
+  // int64 window_seconds = 1;
+  void clear_window_seconds();
+  int64_t window_seconds() const;
+  void set_window_seconds(int64_t value);
+  private:
+  int64_t _internal_window_seconds() const;
+  void _internal_set_window_seconds(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.StrictWindow)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int64_t window_seconds_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CompactRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CompactRequest) */ {
  public:
@@ -4270,12 +4545,18 @@ class CompactRequest final :
   static const CompactRequest& default_instance() {
     return *internal_default_instance();
   }
+  enum OptionsCase {
+    kRegular = 2,
+    kStrictWindow = 3,
+    OPTIONS_NOT_SET = 0,
+  };
+
   static inline const CompactRequest* internal_default_instance() {
     return reinterpret_cast<const CompactRequest*>(
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -4349,6 +4630,8 @@ class CompactRequest final :
 
   enum : int {
     kRegionIdFieldNumber = 1,
+    kRegularFieldNumber = 2,
+    kStrictWindowFieldNumber = 3,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -4359,16 +4642,67 @@ class CompactRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // .greptime.v1.region.Regular regular = 2;
+  bool has_regular() const;
+  private:
+  bool _internal_has_regular() const;
+  public:
+  void clear_regular();
+  const ::greptime::v1::region::Regular& regular() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::Regular* release_regular();
+  ::greptime::v1::region::Regular* mutable_regular();
+  void set_allocated_regular(::greptime::v1::region::Regular* regular);
+  private:
+  const ::greptime::v1::region::Regular& _internal_regular() const;
+  ::greptime::v1::region::Regular* _internal_mutable_regular();
+  public:
+  void unsafe_arena_set_allocated_regular(
+      ::greptime::v1::region::Regular* regular);
+  ::greptime::v1::region::Regular* unsafe_arena_release_regular();
+
+  // .greptime.v1.region.StrictWindow strict_window = 3;
+  bool has_strict_window() const;
+  private:
+  bool _internal_has_strict_window() const;
+  public:
+  void clear_strict_window();
+  const ::greptime::v1::region::StrictWindow& strict_window() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::StrictWindow* release_strict_window();
+  ::greptime::v1::region::StrictWindow* mutable_strict_window();
+  void set_allocated_strict_window(::greptime::v1::region::StrictWindow* strict_window);
+  private:
+  const ::greptime::v1::region::StrictWindow& _internal_strict_window() const;
+  ::greptime::v1::region::StrictWindow* _internal_mutable_strict_window();
+  public:
+  void unsafe_arena_set_allocated_strict_window(
+      ::greptime::v1::region::StrictWindow* strict_window);
+  ::greptime::v1::region::StrictWindow* unsafe_arena_release_strict_window();
+
+  void clear_options();
+  OptionsCase options_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.CompactRequest)
  private:
   class _Internal;
+  void set_has_regular();
+  void set_has_strict_window();
+
+  inline bool has_options() const;
+  inline void clear_has_options();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     uint64_t region_id_;
+    union OptionsUnion {
+      constexpr OptionsUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::greptime::v1::region::Regular* regular_;
+      ::greptime::v1::region::StrictWindow* strict_window_;
+    } options_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
@@ -4423,7 +4757,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    28;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -4571,7 +4905,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    29;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -7732,6 +8066,34 @@ inline void FlushRequest::set_region_id(uint64_t value) {
 
 // -------------------------------------------------------------------
 
+// Regular
+
+// -------------------------------------------------------------------
+
+// StrictWindow
+
+// int64 window_seconds = 1;
+inline void StrictWindow::clear_window_seconds() {
+  _impl_.window_seconds_ = int64_t{0};
+}
+inline int64_t StrictWindow::_internal_window_seconds() const {
+  return _impl_.window_seconds_;
+}
+inline int64_t StrictWindow::window_seconds() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.StrictWindow.window_seconds)
+  return _internal_window_seconds();
+}
+inline void StrictWindow::_internal_set_window_seconds(int64_t value) {
+  
+  _impl_.window_seconds_ = value;
+}
+inline void StrictWindow::set_window_seconds(int64_t value) {
+  _internal_set_window_seconds(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.StrictWindow.window_seconds)
+}
+
+// -------------------------------------------------------------------
+
 // CompactRequest
 
 // uint64 region_id = 1;
@@ -7754,6 +8116,163 @@ inline void CompactRequest::set_region_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.CompactRequest.region_id)
 }
 
+// .greptime.v1.region.Regular regular = 2;
+inline bool CompactRequest::_internal_has_regular() const {
+  return options_case() == kRegular;
+}
+inline bool CompactRequest::has_regular() const {
+  return _internal_has_regular();
+}
+inline void CompactRequest::set_has_regular() {
+  _impl_._oneof_case_[0] = kRegular;
+}
+inline void CompactRequest::clear_regular() {
+  if (_internal_has_regular()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.options_.regular_;
+    }
+    clear_has_options();
+  }
+}
+inline ::greptime::v1::region::Regular* CompactRequest::release_regular() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CompactRequest.regular)
+  if (_internal_has_regular()) {
+    clear_has_options();
+    ::greptime::v1::region::Regular* temp = _impl_.options_.regular_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.options_.regular_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::Regular& CompactRequest::_internal_regular() const {
+  return _internal_has_regular()
+      ? *_impl_.options_.regular_
+      : reinterpret_cast< ::greptime::v1::region::Regular&>(::greptime::v1::region::_Regular_default_instance_);
+}
+inline const ::greptime::v1::region::Regular& CompactRequest::regular() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CompactRequest.regular)
+  return _internal_regular();
+}
+inline ::greptime::v1::region::Regular* CompactRequest::unsafe_arena_release_regular() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.CompactRequest.regular)
+  if (_internal_has_regular()) {
+    clear_has_options();
+    ::greptime::v1::region::Regular* temp = _impl_.options_.regular_;
+    _impl_.options_.regular_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CompactRequest::unsafe_arena_set_allocated_regular(::greptime::v1::region::Regular* regular) {
+  clear_options();
+  if (regular) {
+    set_has_regular();
+    _impl_.options_.regular_ = regular;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.CompactRequest.regular)
+}
+inline ::greptime::v1::region::Regular* CompactRequest::_internal_mutable_regular() {
+  if (!_internal_has_regular()) {
+    clear_options();
+    set_has_regular();
+    _impl_.options_.regular_ = CreateMaybeMessage< ::greptime::v1::region::Regular >(GetArenaForAllocation());
+  }
+  return _impl_.options_.regular_;
+}
+inline ::greptime::v1::region::Regular* CompactRequest::mutable_regular() {
+  ::greptime::v1::region::Regular* _msg = _internal_mutable_regular();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CompactRequest.regular)
+  return _msg;
+}
+
+// .greptime.v1.region.StrictWindow strict_window = 3;
+inline bool CompactRequest::_internal_has_strict_window() const {
+  return options_case() == kStrictWindow;
+}
+inline bool CompactRequest::has_strict_window() const {
+  return _internal_has_strict_window();
+}
+inline void CompactRequest::set_has_strict_window() {
+  _impl_._oneof_case_[0] = kStrictWindow;
+}
+inline void CompactRequest::clear_strict_window() {
+  if (_internal_has_strict_window()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.options_.strict_window_;
+    }
+    clear_has_options();
+  }
+}
+inline ::greptime::v1::region::StrictWindow* CompactRequest::release_strict_window() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CompactRequest.strict_window)
+  if (_internal_has_strict_window()) {
+    clear_has_options();
+    ::greptime::v1::region::StrictWindow* temp = _impl_.options_.strict_window_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.options_.strict_window_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::StrictWindow& CompactRequest::_internal_strict_window() const {
+  return _internal_has_strict_window()
+      ? *_impl_.options_.strict_window_
+      : reinterpret_cast< ::greptime::v1::region::StrictWindow&>(::greptime::v1::region::_StrictWindow_default_instance_);
+}
+inline const ::greptime::v1::region::StrictWindow& CompactRequest::strict_window() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CompactRequest.strict_window)
+  return _internal_strict_window();
+}
+inline ::greptime::v1::region::StrictWindow* CompactRequest::unsafe_arena_release_strict_window() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.CompactRequest.strict_window)
+  if (_internal_has_strict_window()) {
+    clear_has_options();
+    ::greptime::v1::region::StrictWindow* temp = _impl_.options_.strict_window_;
+    _impl_.options_.strict_window_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CompactRequest::unsafe_arena_set_allocated_strict_window(::greptime::v1::region::StrictWindow* strict_window) {
+  clear_options();
+  if (strict_window) {
+    set_has_strict_window();
+    _impl_.options_.strict_window_ = strict_window;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.CompactRequest.strict_window)
+}
+inline ::greptime::v1::region::StrictWindow* CompactRequest::_internal_mutable_strict_window() {
+  if (!_internal_has_strict_window()) {
+    clear_options();
+    set_has_strict_window();
+    _impl_.options_.strict_window_ = CreateMaybeMessage< ::greptime::v1::region::StrictWindow >(GetArenaForAllocation());
+  }
+  return _impl_.options_.strict_window_;
+}
+inline ::greptime::v1::region::StrictWindow* CompactRequest::mutable_strict_window() {
+  ::greptime::v1::region::StrictWindow* _msg = _internal_mutable_strict_window();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CompactRequest.strict_window)
+  return _msg;
+}
+
+inline bool CompactRequest::has_options() const {
+  return options_case() != OPTIONS_NOT_SET;
+}
+inline void CompactRequest::clear_has_options() {
+  _impl_._oneof_case_[0] = OPTIONS_NOT_SET;
+}
+inline CompactRequest::OptionsCase CompactRequest::options_case() const {
+  return CompactRequest::OptionsCase(_impl_._oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // TruncateRequest
@@ -7890,6 +8409,10 @@ inline void RegionColumnDef::set_column_id(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
