@@ -39,7 +39,7 @@ type MergeScan struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// / the input logical plan
+	// the input logical plan
 	Input []byte `protobuf:"bytes,1,opt,name=input,proto3" json:"input,omitempty"`
 	// whether this plan is a placeholder
 	IsPlaceholder bool `protobuf:"varint,2,opt,name=is_placeholder,json=isPlaceholder,proto3" json:"is_placeholder,omitempty"`

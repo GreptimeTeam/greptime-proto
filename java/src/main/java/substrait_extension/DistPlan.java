@@ -20,7 +20,7 @@ public final class DistPlan {
 
     /**
      * <pre>
-     *&#47; the input logical plan
+     * the input logical plan
      * </pre>
      *
      * <code>bytes input = 1;</code>
@@ -132,7 +132,7 @@ public final class DistPlan {
     private com.google.protobuf.ByteString input_;
     /**
      * <pre>
-     *&#47; the input logical plan
+     * the input logical plan
      * </pre>
      *
      * <code>bytes input = 1;</code>
@@ -481,7 +481,7 @@ public final class DistPlan {
       private com.google.protobuf.ByteString input_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
-       *&#47; the input logical plan
+       * the input logical plan
        * </pre>
        *
        * <code>bytes input = 1;</code>
@@ -493,7 +493,7 @@ public final class DistPlan {
       }
       /**
        * <pre>
-       *&#47; the input logical plan
+       * the input logical plan
        * </pre>
        *
        * <code>bytes input = 1;</code>
@@ -511,7 +511,7 @@ public final class DistPlan {
       }
       /**
        * <pre>
-       *&#47; the input logical plan
+       * the input logical plan
        * </pre>
        *
        * <code>bytes input = 1;</code>
