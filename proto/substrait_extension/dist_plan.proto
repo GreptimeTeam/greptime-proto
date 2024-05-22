@@ -19,7 +19,7 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/substrait_extensi
 package substrait_extension;
 
 message MergeScan {
-  /// the input logical plan
+  // the input logical plan
   bytes input = 1;
   // whether this plan is a placeholder
   bool is_placeholder = 2;
