@@ -33,6 +33,9 @@ message ColumnSchema {
   SemanticType semantic_type = 3;
   // Extension for ColumnDataType.
   ColumnDataTypeExtension datatype_extension = 4;
+
+  // "index.type": "inverted" to indicate inverted index
+  map<string, string> options = 5;
 }
 
 message Row { repeated Value values = 1; }
