@@ -5317,10 +5317,27 @@ com.google.protobuf.ByteString defaultValue);
      * Expire data older than the given duration seconds.
      * </pre>
      *
-     * <code>int64 expire_after = 5;</code>
+     * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+     * @return Whether the expireAfter field is set.
+     */
+    boolean hasExpireAfter();
+    /**
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
      * @return The expireAfter.
      */
-    long getExpireAfter();
+    io.greptime.v1.Common.ExpireAfter getExpireAfter();
+    /**
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+     */
+    io.greptime.v1.Common.ExpireAfterOrBuilder getExpireAfterOrBuilder();
 
     /**
      * <code>string comment = 6;</code>
@@ -5477,9 +5494,17 @@ java.lang.String defaultValue);
               createIfNotExists_ = input.readBool();
               break;
             }
-            case 40: {
+            case 42: {
+              io.greptime.v1.Common.ExpireAfter.Builder subBuilder = null;
+              if (expireAfter_ != null) {
+                subBuilder = expireAfter_.toBuilder();
+              }
+              expireAfter_ = input.readMessage(io.greptime.v1.Common.ExpireAfter.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(expireAfter_);
+                expireAfter_ = subBuilder.buildPartial();
+              }
 
-              expireAfter_ = input.readInt64();
               break;
             }
             case 50: {
@@ -5660,18 +5685,41 @@ java.lang.String defaultValue);
     }
 
     public static final int EXPIRE_AFTER_FIELD_NUMBER = 5;
-    private long expireAfter_;
+    private io.greptime.v1.Common.ExpireAfter expireAfter_;
     /**
      * <pre>
      * Expire data older than the given duration seconds.
      * </pre>
      *
-     * <code>int64 expire_after = 5;</code>
+     * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+     * @return Whether the expireAfter field is set.
+     */
+    @java.lang.Override
+    public boolean hasExpireAfter() {
+      return expireAfter_ != null;
+    }
+    /**
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
      * @return The expireAfter.
      */
     @java.lang.Override
-    public long getExpireAfter() {
-      return expireAfter_;
+    public io.greptime.v1.Common.ExpireAfter getExpireAfter() {
+      return expireAfter_ == null ? io.greptime.v1.Common.ExpireAfter.getDefaultInstance() : expireAfter_;
+    }
+    /**
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ExpireAfterOrBuilder getExpireAfterOrBuilder() {
+      return getExpireAfter();
     }
 
     public static final int COMMENT_FIELD_NUMBER = 6;
@@ -5857,8 +5905,8 @@ java.lang.String defaultValue);
       if (createIfNotExists_ != false) {
         output.writeBool(4, createIfNotExists_);
       }
-      if (expireAfter_ != 0L) {
-        output.writeInt64(5, expireAfter_);
+      if (expireAfter_ != null) {
+        output.writeMessage(5, getExpireAfter());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, comment_);
@@ -5897,9 +5945,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, createIfNotExists_);
       }
-      if (expireAfter_ != 0L) {
+      if (expireAfter_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, expireAfter_);
+          .computeMessageSize(5, getExpireAfter());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, comment_);
@@ -5946,8 +5994,11 @@ java.lang.String defaultValue);
       }
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
-      if (getExpireAfter()
-          != other.getExpireAfter()) return false;
+      if (hasExpireAfter() != other.hasExpireAfter()) return false;
+      if (hasExpireAfter()) {
+        if (!getExpireAfter()
+            .equals(other.getExpireAfter())) return false;
+      }
       if (!getComment()
           .equals(other.getComment())) return false;
       if (!getSql()
@@ -5980,9 +6031,10 @@ java.lang.String defaultValue);
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCreateIfNotExists());
-      hash = (37 * hash) + EXPIRE_AFTER_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getExpireAfter());
+      if (hasExpireAfter()) {
+        hash = (37 * hash) + EXPIRE_AFTER_FIELD_NUMBER;
+        hash = (53 * hash) + getExpireAfter().hashCode();
+      }
       hash = (37 * hash) + COMMENT_FIELD_NUMBER;
       hash = (53 * hash) + getComment().hashCode();
       hash = (37 * hash) + SQL_FIELD_NUMBER;
@@ -6173,8 +6225,12 @@ java.lang.String defaultValue);
         }
         createIfNotExists_ = false;
 
-        expireAfter_ = 0L;
-
+        if (expireAfterBuilder_ == null) {
+          expireAfter_ = null;
+        } else {
+          expireAfter_ = null;
+          expireAfterBuilder_ = null;
+        }
         comment_ = "";
 
         sql_ = "";
@@ -6227,7 +6283,11 @@ java.lang.String defaultValue);
           result.sinkTableName_ = sinkTableNameBuilder_.build();
         }
         result.createIfNotExists_ = createIfNotExists_;
-        result.expireAfter_ = expireAfter_;
+        if (expireAfterBuilder_ == null) {
+          result.expireAfter_ = expireAfter_;
+        } else {
+          result.expireAfter_ = expireAfterBuilder_.build();
+        }
         result.comment_ = comment_;
         result.sql_ = sql_;
         result.flowOptions_ = internalGetFlowOptions();
@@ -6315,8 +6375,8 @@ java.lang.String defaultValue);
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
         }
-        if (other.getExpireAfter() != 0L) {
-          setExpireAfter(other.getExpireAfter());
+        if (other.hasExpireAfter()) {
+          mergeExpireAfter(other.getExpireAfter());
         }
         if (!other.getComment().isEmpty()) {
           comment_ = other.comment_;
@@ -6867,32 +6927,53 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private long expireAfter_ ;
+      private io.greptime.v1.Common.ExpireAfter expireAfter_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ExpireAfter, io.greptime.v1.Common.ExpireAfter.Builder, io.greptime.v1.Common.ExpireAfterOrBuilder> expireAfterBuilder_;
       /**
        * <pre>
        * Expire data older than the given duration seconds.
        * </pre>
        *
-       * <code>int64 expire_after = 5;</code>
+       * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+       * @return Whether the expireAfter field is set.
+       */
+      public boolean hasExpireAfter() {
+        return expireAfterBuilder_ != null || expireAfter_ != null;
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
        * @return The expireAfter.
        */
-      @java.lang.Override
-      public long getExpireAfter() {
-        return expireAfter_;
+      public io.greptime.v1.Common.ExpireAfter getExpireAfter() {
+        if (expireAfterBuilder_ == null) {
+          return expireAfter_ == null ? io.greptime.v1.Common.ExpireAfter.getDefaultInstance() : expireAfter_;
+        } else {
+          return expireAfterBuilder_.getMessage();
+        }
       }
       /**
        * <pre>
        * Expire data older than the given duration seconds.
        * </pre>
        *
-       * <code>int64 expire_after = 5;</code>
-       * @param value The expireAfter to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
        */
-      public Builder setExpireAfter(long value) {
-        
-        expireAfter_ = value;
-        onChanged();
+      public Builder setExpireAfter(io.greptime.v1.Common.ExpireAfter value) {
+        if (expireAfterBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          expireAfter_ = value;
+          onChanged();
+        } else {
+          expireAfterBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
@@ -6900,14 +6981,105 @@ java.lang.String defaultValue);
        * Expire data older than the given duration seconds.
        * </pre>
        *
-       * <code>int64 expire_after = 5;</code>
-       * @return This builder for chaining.
+       * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+       */
+      public Builder setExpireAfter(
+          io.greptime.v1.Common.ExpireAfter.Builder builderForValue) {
+        if (expireAfterBuilder_ == null) {
+          expireAfter_ = builderForValue.build();
+          onChanged();
+        } else {
+          expireAfterBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+       */
+      public Builder mergeExpireAfter(io.greptime.v1.Common.ExpireAfter value) {
+        if (expireAfterBuilder_ == null) {
+          if (expireAfter_ != null) {
+            expireAfter_ =
+              io.greptime.v1.Common.ExpireAfter.newBuilder(expireAfter_).mergeFrom(value).buildPartial();
+          } else {
+            expireAfter_ = value;
+          }
+          onChanged();
+        } else {
+          expireAfterBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
        */
       public Builder clearExpireAfter() {
-        
-        expireAfter_ = 0L;
-        onChanged();
+        if (expireAfterBuilder_ == null) {
+          expireAfter_ = null;
+          onChanged();
+        } else {
+          expireAfter_ = null;
+          expireAfterBuilder_ = null;
+        }
+
         return this;
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+       */
+      public io.greptime.v1.Common.ExpireAfter.Builder getExpireAfterBuilder() {
+        
+        onChanged();
+        return getExpireAfterFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+       */
+      public io.greptime.v1.Common.ExpireAfterOrBuilder getExpireAfterOrBuilder() {
+        if (expireAfterBuilder_ != null) {
+          return expireAfterBuilder_.getMessageOrBuilder();
+        } else {
+          return expireAfter_ == null ?
+              io.greptime.v1.Common.ExpireAfter.getDefaultInstance() : expireAfter_;
+        }
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ExpireAfter, io.greptime.v1.Common.ExpireAfter.Builder, io.greptime.v1.Common.ExpireAfterOrBuilder> 
+          getExpireAfterFieldBuilder() {
+        if (expireAfterBuilder_ == null) {
+          expireAfterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.ExpireAfter, io.greptime.v1.Common.ExpireAfter.Builder, io.greptime.v1.Common.ExpireAfterOrBuilder>(
+                  getExpireAfter(),
+                  getParentForChildren(),
+                  isClean());
+          expireAfter_ = null;
+        }
+        return expireAfterBuilder_;
       }
 
       private java.lang.Object comment_ = "";
@@ -7949,24 +8121,25 @@ java.lang.String defaultValue);
       "ime.v1.FlowId\022@\n\textension\030\004 \003(\0132-.grept" +
       "ime.v1.flow.FlowResponse.ExtensionEntry\032" +
       "0\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\014:\0028\001\"\344\002\n\rCreateRequest\022$\n\007flow_id\030\001" +
+      "\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007flow_id\030\001" +
       " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl" +
       "e_ids\030\002 \003(\0132\024.greptime.v1.TableId\022/\n\017sin" +
       "k_table_name\030\003 \001(\0132\026.greptime.v1.TableNa" +
-      "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022\024\n\014expi" +
-      "re_after\030\005 \001(\003\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007" +
-      " \001(\t\022F\n\014flow_options\030\010 \003(\01320.greptime.v1" +
-      ".flow.CreateRequest.FlowOptionsEntry\0322\n\020" +
-      "FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
-      " \001(\t:\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\013" +
-      "2\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022Handle" +
-      "CreateRemove\022\035.greptime.v1.flow.FlowRequ" +
-      "est\032\036.greptime.v1.flow.FlowResponse\022W\n\023H" +
-      "andleMirrorRequest\022 .greptime.v1.flow.In" +
-      "sertRequests\032\036.greptime.v1.flow.FlowResp" +
-      "onseBY\n\023io.greptime.v1.flowB\006ServerZ:git" +
-      "hub.com/GreptimeTeam/greptime-proto/go/g" +
-      "reptime/v1/flowb\006proto3"
+      "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022.\n\014expi" +
+      "re_after\030\005 \001(\0132\030.greptime.v1.ExpireAfter" +
+      "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_o" +
+      "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe" +
+      "quest.FlowOptionsEntry\0322\n\020FlowOptionsEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013Dr" +
+      "opRequest\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1" +
+      ".FlowId2\264\001\n\004Flow\022S\n\022HandleCreateRemove\022\035" +
+      ".greptime.v1.flow.FlowRequest\032\036.greptime" +
+      ".v1.flow.FlowResponse\022W\n\023HandleMirrorReq" +
+      "uest\022 .greptime.v1.flow.InsertRequests\032\036" +
+      ".greptime.v1.flow.FlowResponseBY\n\023io.gre" +
+      "ptime.v1.flowB\006ServerZ:github.com/Grepti" +
+      "meTeam/greptime-proto/go/greptime/v1/flo" +
+      "wb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

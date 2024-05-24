@@ -807,14 +807,23 @@ class CreateFlowExpr final :
       ::greptime::v1::TableName* sink_table_name);
   ::greptime::v1::TableName* unsafe_arena_release_sink_table_name();
 
-  // int64 expire_after = 7;
-  void clear_expire_after();
-  int64_t expire_after() const;
-  void set_expire_after(int64_t value);
+  // .greptime.v1.ExpireAfter expire_after = 7;
+  bool has_expire_after() const;
   private:
-  int64_t _internal_expire_after() const;
-  void _internal_set_expire_after(int64_t value);
+  bool _internal_has_expire_after() const;
   public:
+  void clear_expire_after();
+  const ::greptime::v1::ExpireAfter& expire_after() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ExpireAfter* release_expire_after();
+  ::greptime::v1::ExpireAfter* mutable_expire_after();
+  void set_allocated_expire_after(::greptime::v1::ExpireAfter* expire_after);
+  private:
+  const ::greptime::v1::ExpireAfter& _internal_expire_after() const;
+  ::greptime::v1::ExpireAfter* _internal_mutable_expire_after();
+  public:
+  void unsafe_arena_set_allocated_expire_after(
+      ::greptime::v1::ExpireAfter* expire_after);
+  ::greptime::v1::ExpireAfter* unsafe_arena_release_expire_after();
 
   // bool or_replace = 5;
   void clear_or_replace();
@@ -853,7 +862,7 @@ class CreateFlowExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
     ::greptime::v1::TableName* sink_table_name_;
-    int64_t expire_after_;
+    ::greptime::v1::ExpireAfter* expire_after_;
     bool or_replace_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -5807,24 +5816,89 @@ inline void CreateFlowExpr::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowExpr.create_if_not_exists)
 }
 
-// int64 expire_after = 7;
-inline void CreateFlowExpr::clear_expire_after() {
-  _impl_.expire_after_ = int64_t{0};
+// .greptime.v1.ExpireAfter expire_after = 7;
+inline bool CreateFlowExpr::_internal_has_expire_after() const {
+  return this != internal_default_instance() && _impl_.expire_after_ != nullptr;
 }
-inline int64_t CreateFlowExpr::_internal_expire_after() const {
-  return _impl_.expire_after_;
+inline bool CreateFlowExpr::has_expire_after() const {
+  return _internal_has_expire_after();
 }
-inline int64_t CreateFlowExpr::expire_after() const {
+inline const ::greptime::v1::ExpireAfter& CreateFlowExpr::_internal_expire_after() const {
+  const ::greptime::v1::ExpireAfter* p = _impl_.expire_after_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ExpireAfter&>(
+      ::greptime::v1::_ExpireAfter_default_instance_);
+}
+inline const ::greptime::v1::ExpireAfter& CreateFlowExpr::expire_after() const {
   // @@protoc_insertion_point(field_get:greptime.v1.CreateFlowExpr.expire_after)
   return _internal_expire_after();
 }
-inline void CreateFlowExpr::_internal_set_expire_after(int64_t value) {
-  
-  _impl_.expire_after_ = value;
+inline void CreateFlowExpr::unsafe_arena_set_allocated_expire_after(
+    ::greptime::v1::ExpireAfter* expire_after) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.expire_after_);
+  }
+  _impl_.expire_after_ = expire_after;
+  if (expire_after) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.CreateFlowExpr.expire_after)
 }
-inline void CreateFlowExpr::set_expire_after(int64_t value) {
-  _internal_set_expire_after(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.CreateFlowExpr.expire_after)
+inline ::greptime::v1::ExpireAfter* CreateFlowExpr::release_expire_after() {
+  
+  ::greptime::v1::ExpireAfter* temp = _impl_.expire_after_;
+  _impl_.expire_after_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ExpireAfter* CreateFlowExpr::unsafe_arena_release_expire_after() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateFlowExpr.expire_after)
+  
+  ::greptime::v1::ExpireAfter* temp = _impl_.expire_after_;
+  _impl_.expire_after_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ExpireAfter* CreateFlowExpr::_internal_mutable_expire_after() {
+  
+  if (_impl_.expire_after_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ExpireAfter>(GetArenaForAllocation());
+    _impl_.expire_after_ = p;
+  }
+  return _impl_.expire_after_;
+}
+inline ::greptime::v1::ExpireAfter* CreateFlowExpr::mutable_expire_after() {
+  ::greptime::v1::ExpireAfter* _msg = _internal_mutable_expire_after();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateFlowExpr.expire_after)
+  return _msg;
+}
+inline void CreateFlowExpr::set_allocated_expire_after(::greptime::v1::ExpireAfter* expire_after) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.expire_after_);
+  }
+  if (expire_after) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(expire_after));
+    if (message_arena != submessage_arena) {
+      expire_after = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, expire_after, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.expire_after_ = expire_after;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateFlowExpr.expire_after)
 }
 
 // string comment = 8;

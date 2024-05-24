@@ -136,7 +136,7 @@ PROTOBUF_CONSTEXPR CreateRequest::CreateRequest(
   , /*decltype(_impl_.sql_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.flow_id_)*/nullptr
   , /*decltype(_impl_.sink_table_name_)*/nullptr
-  , /*decltype(_impl_.expire_after_)*/int64_t{0}
+  , /*decltype(_impl_.expire_after_)*/nullptr
   , /*decltype(_impl_.create_if_not_exists_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CreateRequestDefaultTypeInternal {
@@ -313,24 +313,25 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "ime.v1.FlowId\022@\n\textension\030\004 \003(\0132-.grept"
   "ime.v1.flow.FlowResponse.ExtensionEntry\032"
   "0\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
-  "\002 \001(\014:\0028\001\"\344\002\n\rCreateRequest\022$\n\007flow_id\030\001"
+  "\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007flow_id\030\001"
   " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl"
   "e_ids\030\002 \003(\0132\024.greptime.v1.TableId\022/\n\017sin"
   "k_table_name\030\003 \001(\0132\026.greptime.v1.TableNa"
-  "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022\024\n\014expi"
-  "re_after\030\005 \001(\003\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007"
-  " \001(\t\022F\n\014flow_options\030\010 \003(\01320.greptime.v1"
-  ".flow.CreateRequest.FlowOptionsEntry\0322\n\020"
-  "FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002"
-  " \001(\t:\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\013"
-  "2\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022Handle"
-  "CreateRemove\022\035.greptime.v1.flow.FlowRequ"
-  "est\032\036.greptime.v1.flow.FlowResponse\022W\n\023H"
-  "andleMirrorRequest\022 .greptime.v1.flow.In"
-  "sertRequests\032\036.greptime.v1.flow.FlowResp"
-  "onseBY\n\023io.greptime.v1.flowB\006ServerZ:git"
-  "hub.com/GreptimeTeam/greptime-proto/go/g"
-  "reptime/v1/flowb\006proto3"
+  "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022.\n\014expi"
+  "re_after\030\005 \001(\0132\030.greptime.v1.ExpireAfter"
+  "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_o"
+  "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe"
+  "quest.FlowOptionsEntry\0322\n\020FlowOptionsEnt"
+  "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013Dr"
+  "opRequest\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1"
+  ".FlowId2\264\001\n\004Flow\022S\n\022HandleCreateRemove\022\035"
+  ".greptime.v1.flow.FlowRequest\032\036.greptime"
+  ".v1.flow.FlowResponse\022W\n\023HandleMirrorReq"
+  "uest\022 .greptime.v1.flow.InsertRequests\032\036"
+  ".greptime.v1.flow.FlowResponseBY\n\023io.gre"
+  "ptime.v1.flowB\006ServerZ:github.com/Grepti"
+  "meTeam/greptime-proto/go/greptime/v1/flo"
+  "wb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -339,7 +340,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 1583, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 1609, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
     &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 10,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
@@ -1764,6 +1765,7 @@ class CreateRequest::_Internal {
  public:
   static const ::greptime::v1::FlowId& flow_id(const CreateRequest* msg);
   static const ::greptime::v1::TableName& sink_table_name(const CreateRequest* msg);
+  static const ::greptime::v1::ExpireAfter& expire_after(const CreateRequest* msg);
 };
 
 const ::greptime::v1::FlowId&
@@ -1773,6 +1775,10 @@ CreateRequest::_Internal::flow_id(const CreateRequest* msg) {
 const ::greptime::v1::TableName&
 CreateRequest::_Internal::sink_table_name(const CreateRequest* msg) {
   return *msg->_impl_.sink_table_name_;
+}
+const ::greptime::v1::ExpireAfter&
+CreateRequest::_Internal::expire_after(const CreateRequest* msg) {
+  return *msg->_impl_.expire_after_;
 }
 void CreateRequest::clear_flow_id() {
   if (GetArenaForAllocation() == nullptr && _impl_.flow_id_ != nullptr) {
@@ -1788,6 +1794,12 @@ void CreateRequest::clear_sink_table_name() {
     delete _impl_.sink_table_name_;
   }
   _impl_.sink_table_name_ = nullptr;
+}
+void CreateRequest::clear_expire_after() {
+  if (GetArenaForAllocation() == nullptr && _impl_.expire_after_ != nullptr) {
+    delete _impl_.expire_after_;
+  }
+  _impl_.expire_after_ = nullptr;
 }
 CreateRequest::CreateRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1808,7 +1820,7 @@ CreateRequest::CreateRequest(const CreateRequest& from)
     , decltype(_impl_.sql_){}
     , decltype(_impl_.flow_id_){nullptr}
     , decltype(_impl_.sink_table_name_){nullptr}
-    , decltype(_impl_.expire_after_){}
+    , decltype(_impl_.expire_after_){nullptr}
     , decltype(_impl_.create_if_not_exists_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -1836,9 +1848,10 @@ CreateRequest::CreateRequest(const CreateRequest& from)
   if (from._internal_has_sink_table_name()) {
     _this->_impl_.sink_table_name_ = new ::greptime::v1::TableName(*from._impl_.sink_table_name_);
   }
-  ::memcpy(&_impl_.expire_after_, &from._impl_.expire_after_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.create_if_not_exists_) -
-    reinterpret_cast<char*>(&_impl_.expire_after_)) + sizeof(_impl_.create_if_not_exists_));
+  if (from._internal_has_expire_after()) {
+    _this->_impl_.expire_after_ = new ::greptime::v1::ExpireAfter(*from._impl_.expire_after_);
+  }
+  _this->_impl_.create_if_not_exists_ = from._impl_.create_if_not_exists_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.flow.CreateRequest)
 }
 
@@ -1853,7 +1866,7 @@ inline void CreateRequest::SharedCtor(
     , decltype(_impl_.sql_){}
     , decltype(_impl_.flow_id_){nullptr}
     , decltype(_impl_.sink_table_name_){nullptr}
-    , decltype(_impl_.expire_after_){int64_t{0}}
+    , decltype(_impl_.expire_after_){nullptr}
     , decltype(_impl_.create_if_not_exists_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -1886,6 +1899,7 @@ inline void CreateRequest::SharedDtor() {
   _impl_.sql_.Destroy();
   if (this != internal_default_instance()) delete _impl_.flow_id_;
   if (this != internal_default_instance()) delete _impl_.sink_table_name_;
+  if (this != internal_default_instance()) delete _impl_.expire_after_;
 }
 
 void CreateRequest::ArenaDtor(void* object) {
@@ -1914,9 +1928,11 @@ void CreateRequest::Clear() {
     delete _impl_.sink_table_name_;
   }
   _impl_.sink_table_name_ = nullptr;
-  ::memset(&_impl_.expire_after_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.create_if_not_exists_) -
-      reinterpret_cast<char*>(&_impl_.expire_after_)) + sizeof(_impl_.create_if_not_exists_));
+  if (GetArenaForAllocation() == nullptr && _impl_.expire_after_ != nullptr) {
+    delete _impl_.expire_after_;
+  }
+  _impl_.expire_after_ = nullptr;
+  _impl_.create_if_not_exists_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1963,10 +1979,10 @@ const char* CreateRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // int64 expire_after = 5;
+      // .greptime.v1.ExpireAfter expire_after = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          _impl_.expire_after_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_expire_after(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2061,10 +2077,11 @@ uint8_t* CreateRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_create_if_not_exists(), target);
   }
 
-  // int64 expire_after = 5;
-  if (this->_internal_expire_after() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt64ToArray(5, this->_internal_expire_after(), target);
+  // .greptime.v1.ExpireAfter expire_after = 5;
+  if (this->_internal_has_expire_after()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, _Internal::expire_after(this),
+        _Internal::expire_after(this).GetCachedSize(), target, stream);
   }
 
   // string comment = 6;
@@ -2177,9 +2194,11 @@ size_t CreateRequest::ByteSizeLong() const {
         *_impl_.sink_table_name_);
   }
 
-  // int64 expire_after = 5;
-  if (this->_internal_expire_after() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_expire_after());
+  // .greptime.v1.ExpireAfter expire_after = 5;
+  if (this->_internal_has_expire_after()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.expire_after_);
   }
 
   // bool create_if_not_exists = 4;
@@ -2221,8 +2240,9 @@ void CreateRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
     _this->_internal_mutable_sink_table_name()->::greptime::v1::TableName::MergeFrom(
         from._internal_sink_table_name());
   }
-  if (from._internal_expire_after() != 0) {
-    _this->_internal_set_expire_after(from._internal_expire_after());
+  if (from._internal_has_expire_after()) {
+    _this->_internal_mutable_expire_after()->::greptime::v1::ExpireAfter::MergeFrom(
+        from._internal_expire_after());
   }
   if (from._internal_create_if_not_exists() != 0) {
     _this->_internal_set_create_if_not_exists(from._internal_create_if_not_exists());

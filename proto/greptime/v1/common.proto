@@ -75,6 +75,8 @@ message AffectedRows { uint32 value = 1; }
 
 message Metrics { bytes metrics = 1; }
 
+message ExpireAfter { int64 value = 1; }
+
 message FlightMetadata {
   AffectedRows affected_rows = 1;
   Metrics metrics = 2;
