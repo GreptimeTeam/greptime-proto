@@ -68,6 +68,9 @@ extern Decimal128DefaultTypeInternal _Decimal128_default_instance_;
 class DecimalTypeExtension;
 struct DecimalTypeExtensionDefaultTypeInternal;
 extern DecimalTypeExtensionDefaultTypeInternal _DecimalTypeExtension_default_instance_;
+class ExpireAfter;
+struct ExpireAfterDefaultTypeInternal;
+extern ExpireAfterDefaultTypeInternal _ExpireAfter_default_instance_;
 class FlightMetadata;
 struct FlightMetadataDefaultTypeInternal;
 extern FlightMetadataDefaultTypeInternal _FlightMetadata_default_instance_;
@@ -110,6 +113,7 @@ template<> ::greptime::v1::Basic* Arena::CreateMaybeMessage<::greptime::v1::Basi
 template<> ::greptime::v1::ColumnDataTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::ColumnDataTypeExtension>(Arena*);
 template<> ::greptime::v1::Decimal128* Arena::CreateMaybeMessage<::greptime::v1::Decimal128>(Arena*);
 template<> ::greptime::v1::DecimalTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::DecimalTypeExtension>(Arena*);
+template<> ::greptime::v1::ExpireAfter* Arena::CreateMaybeMessage<::greptime::v1::ExpireAfter>(Arena*);
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
 template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::greptime::v1::IntervalMonthDayNano>(Arena*);
 template<> ::greptime::v1::Metrics* Arena::CreateMaybeMessage<::greptime::v1::Metrics>(Arena*);
@@ -2042,6 +2046,154 @@ class Metrics final :
 };
 // -------------------------------------------------------------------
 
+class ExpireAfter final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ExpireAfter) */ {
+ public:
+  inline ExpireAfter() : ExpireAfter(nullptr) {}
+  ~ExpireAfter() override;
+  explicit PROTOBUF_CONSTEXPR ExpireAfter(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ExpireAfter(const ExpireAfter& from);
+  ExpireAfter(ExpireAfter&& from) noexcept
+    : ExpireAfter() {
+    *this = ::std::move(from);
+  }
+
+  inline ExpireAfter& operator=(const ExpireAfter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ExpireAfter& operator=(ExpireAfter&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ExpireAfter& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ExpireAfter* internal_default_instance() {
+    return reinterpret_cast<const ExpireAfter*>(
+               &_ExpireAfter_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(ExpireAfter& a, ExpireAfter& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ExpireAfter* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ExpireAfter* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ExpireAfter* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ExpireAfter>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ExpireAfter& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ExpireAfter& from) {
+    ExpireAfter::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ExpireAfter* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.ExpireAfter";
+  }
+  protected:
+  explicit ExpireAfter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+  };
+  // int64 value = 1;
+  void clear_value();
+  int64_t value() const;
+  void set_value(int64_t value);
+  private:
+  int64_t _internal_value() const;
+  void _internal_set_value(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.ExpireAfter)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int64_t value_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class FlightMetadata final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.FlightMetadata) */ {
  public:
@@ -2090,7 +2242,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -2267,7 +2419,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -2437,7 +2589,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -2601,7 +2753,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -2770,7 +2922,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -4117,6 +4269,30 @@ inline void Metrics::set_allocated_metrics(std::string* metrics) {
 
 // -------------------------------------------------------------------
 
+// ExpireAfter
+
+// int64 value = 1;
+inline void ExpireAfter::clear_value() {
+  _impl_.value_ = int64_t{0};
+}
+inline int64_t ExpireAfter::_internal_value() const {
+  return _impl_.value_;
+}
+inline int64_t ExpireAfter::value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ExpireAfter.value)
+  return _internal_value();
+}
+inline void ExpireAfter::_internal_set_value(int64_t value) {
+  
+  _impl_.value_ = value;
+}
+inline void ExpireAfter::set_value(int64_t value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ExpireAfter.value)
+}
+
+// -------------------------------------------------------------------
+
 // FlightMetadata
 
 // .greptime.v1.AffectedRows affected_rows = 1;
@@ -4541,6 +4717,8 @@ inline void DecimalTypeExtension::set_scale(int32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

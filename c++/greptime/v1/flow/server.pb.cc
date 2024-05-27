@@ -132,11 +132,11 @@ PROTOBUF_CONSTEXPR CreateRequest::CreateRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.source_table_ids_)*/{}
   , /*decltype(_impl_.flow_options_)*/{::_pbi::ConstantInitialized()}
-  , /*decltype(_impl_.expire_when_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.comment_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.sql_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.flow_id_)*/nullptr
   , /*decltype(_impl_.sink_table_name_)*/nullptr
+  , /*decltype(_impl_.expire_after_)*/nullptr
   , /*decltype(_impl_.create_if_not_exists_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CreateRequestDefaultTypeInternal {
@@ -252,7 +252,7 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.source_table_ids_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.sink_table_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.create_if_not_exists_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.expire_when_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.expire_after_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.comment_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.sql_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest, _impl_.flow_options_),
@@ -313,24 +313,25 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "ime.v1.FlowId\022@\n\textension\030\004 \003(\0132-.grept"
   "ime.v1.flow.FlowResponse.ExtensionEntry\032"
   "0\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
-  "\002 \001(\014:\0028\001\"\343\002\n\rCreateRequest\022$\n\007flow_id\030\001"
+  "\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007flow_id\030\001"
   " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl"
   "e_ids\030\002 \003(\0132\024.greptime.v1.TableId\022/\n\017sin"
   "k_table_name\030\003 \001(\0132\026.greptime.v1.TableNa"
-  "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022\023\n\013expi"
-  "re_when\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 "
-  "\001(\t\022F\n\014flow_options\030\010 \003(\01320.greptime.v1."
-  "flow.CreateRequest.FlowOptionsEntry\0322\n\020F"
-  "lowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 "
-  "\001(\t:\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132"
-  "\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022HandleC"
-  "reateRemove\022\035.greptime.v1.flow.FlowReque"
-  "st\032\036.greptime.v1.flow.FlowResponse\022W\n\023Ha"
-  "ndleMirrorRequest\022 .greptime.v1.flow.Ins"
-  "ertRequests\032\036.greptime.v1.flow.FlowRespo"
-  "nseBY\n\023io.greptime.v1.flowB\006ServerZ:gith"
-  "ub.com/GreptimeTeam/greptime-proto/go/gr"
-  "eptime/v1/flowb\006proto3"
+  "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022.\n\014expi"
+  "re_after\030\005 \001(\0132\030.greptime.v1.ExpireAfter"
+  "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_o"
+  "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe"
+  "quest.FlowOptionsEntry\0322\n\020FlowOptionsEnt"
+  "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013Dr"
+  "opRequest\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1"
+  ".FlowId2\264\001\n\004Flow\022S\n\022HandleCreateRemove\022\035"
+  ".greptime.v1.flow.FlowRequest\032\036.greptime"
+  ".v1.flow.FlowResponse\022W\n\023HandleMirrorReq"
+  "uest\022 .greptime.v1.flow.InsertRequests\032\036"
+  ".greptime.v1.flow.FlowResponseBY\n\023io.gre"
+  "ptime.v1.flowB\006ServerZ:github.com/Grepti"
+  "meTeam/greptime-proto/go/greptime/v1/flo"
+  "wb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -339,7 +340,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 1582, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 1609, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
     &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 10,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
@@ -1764,6 +1765,7 @@ class CreateRequest::_Internal {
  public:
   static const ::greptime::v1::FlowId& flow_id(const CreateRequest* msg);
   static const ::greptime::v1::TableName& sink_table_name(const CreateRequest* msg);
+  static const ::greptime::v1::ExpireAfter& expire_after(const CreateRequest* msg);
 };
 
 const ::greptime::v1::FlowId&
@@ -1773,6 +1775,10 @@ CreateRequest::_Internal::flow_id(const CreateRequest* msg) {
 const ::greptime::v1::TableName&
 CreateRequest::_Internal::sink_table_name(const CreateRequest* msg) {
   return *msg->_impl_.sink_table_name_;
+}
+const ::greptime::v1::ExpireAfter&
+CreateRequest::_Internal::expire_after(const CreateRequest* msg) {
+  return *msg->_impl_.expire_after_;
 }
 void CreateRequest::clear_flow_id() {
   if (GetArenaForAllocation() == nullptr && _impl_.flow_id_ != nullptr) {
@@ -1789,6 +1795,12 @@ void CreateRequest::clear_sink_table_name() {
   }
   _impl_.sink_table_name_ = nullptr;
 }
+void CreateRequest::clear_expire_after() {
+  if (GetArenaForAllocation() == nullptr && _impl_.expire_after_ != nullptr) {
+    delete _impl_.expire_after_;
+  }
+  _impl_.expire_after_ = nullptr;
+}
 CreateRequest::CreateRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -1804,24 +1816,16 @@ CreateRequest::CreateRequest(const CreateRequest& from)
   new (&_impl_) Impl_{
       decltype(_impl_.source_table_ids_){from._impl_.source_table_ids_}
     , /*decltype(_impl_.flow_options_)*/{}
-    , decltype(_impl_.expire_when_){}
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
     , decltype(_impl_.flow_id_){nullptr}
     , decltype(_impl_.sink_table_name_){nullptr}
+    , decltype(_impl_.expire_after_){nullptr}
     , decltype(_impl_.create_if_not_exists_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _this->_impl_.flow_options_.MergeFrom(from._impl_.flow_options_);
-  _impl_.expire_when_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.expire_when_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_expire_when().empty()) {
-    _this->_impl_.expire_when_.Set(from._internal_expire_when(), 
-      _this->GetArenaForAllocation());
-  }
   _impl_.comment_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.comment_.Set("", GetArenaForAllocation());
@@ -1844,6 +1848,9 @@ CreateRequest::CreateRequest(const CreateRequest& from)
   if (from._internal_has_sink_table_name()) {
     _this->_impl_.sink_table_name_ = new ::greptime::v1::TableName(*from._impl_.sink_table_name_);
   }
+  if (from._internal_has_expire_after()) {
+    _this->_impl_.expire_after_ = new ::greptime::v1::ExpireAfter(*from._impl_.expire_after_);
+  }
   _this->_impl_.create_if_not_exists_ = from._impl_.create_if_not_exists_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.flow.CreateRequest)
 }
@@ -1855,18 +1862,14 @@ inline void CreateRequest::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.source_table_ids_){arena}
     , /*decltype(_impl_.flow_options_)*/{::_pbi::ArenaInitialized(), arena}
-    , decltype(_impl_.expire_when_){}
     , decltype(_impl_.comment_){}
     , decltype(_impl_.sql_){}
     , decltype(_impl_.flow_id_){nullptr}
     , decltype(_impl_.sink_table_name_){nullptr}
+    , decltype(_impl_.expire_after_){nullptr}
     , decltype(_impl_.create_if_not_exists_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
-  _impl_.expire_when_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.expire_when_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.comment_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.comment_.Set("", GetArenaForAllocation());
@@ -1892,11 +1895,11 @@ inline void CreateRequest::SharedDtor() {
   _impl_.source_table_ids_.~RepeatedPtrField();
   _impl_.flow_options_.Destruct();
   _impl_.flow_options_.~MapField();
-  _impl_.expire_when_.Destroy();
   _impl_.comment_.Destroy();
   _impl_.sql_.Destroy();
   if (this != internal_default_instance()) delete _impl_.flow_id_;
   if (this != internal_default_instance()) delete _impl_.sink_table_name_;
+  if (this != internal_default_instance()) delete _impl_.expire_after_;
 }
 
 void CreateRequest::ArenaDtor(void* object) {
@@ -1915,7 +1918,6 @@ void CreateRequest::Clear() {
 
   _impl_.source_table_ids_.Clear();
   _impl_.flow_options_.Clear();
-  _impl_.expire_when_.ClearToEmpty();
   _impl_.comment_.ClearToEmpty();
   _impl_.sql_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.flow_id_ != nullptr) {
@@ -1926,6 +1928,10 @@ void CreateRequest::Clear() {
     delete _impl_.sink_table_name_;
   }
   _impl_.sink_table_name_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.expire_after_ != nullptr) {
+    delete _impl_.expire_after_;
+  }
+  _impl_.expire_after_ = nullptr;
   _impl_.create_if_not_exists_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1973,13 +1979,11 @@ const char* CreateRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // string expire_when = 5;
+      // .greptime.v1.ExpireAfter expire_after = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
-          auto str = _internal_mutable_expire_when();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ctx->ParseMessage(_internal_mutable_expire_after(), ptr);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.flow.CreateRequest.expire_when"));
         } else
           goto handle_unusual;
         continue;
@@ -2073,14 +2077,11 @@ uint8_t* CreateRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_create_if_not_exists(), target);
   }
 
-  // string expire_when = 5;
-  if (!this->_internal_expire_when().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_expire_when().data(), static_cast<int>(this->_internal_expire_when().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "greptime.v1.flow.CreateRequest.expire_when");
-    target = stream->WriteStringMaybeAliased(
-        5, this->_internal_expire_when(), target);
+  // .greptime.v1.ExpireAfter expire_after = 5;
+  if (this->_internal_has_expire_after()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, _Internal::expire_after(this),
+        _Internal::expire_after(this).GetCachedSize(), target, stream);
   }
 
   // string comment = 6;
@@ -2165,13 +2166,6 @@ size_t CreateRequest::ByteSizeLong() const {
     total_size += CreateRequest_FlowOptionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  // string expire_when = 5;
-  if (!this->_internal_expire_when().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_expire_when());
-  }
-
   // string comment = 6;
   if (!this->_internal_comment().empty()) {
     total_size += 1 +
@@ -2200,6 +2194,13 @@ size_t CreateRequest::ByteSizeLong() const {
         *_impl_.sink_table_name_);
   }
 
+  // .greptime.v1.ExpireAfter expire_after = 5;
+  if (this->_internal_has_expire_after()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.expire_after_);
+  }
+
   // bool create_if_not_exists = 4;
   if (this->_internal_create_if_not_exists() != 0) {
     total_size += 1 + 1;
@@ -2225,9 +2226,6 @@ void CreateRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
 
   _this->_impl_.source_table_ids_.MergeFrom(from._impl_.source_table_ids_);
   _this->_impl_.flow_options_.MergeFrom(from._impl_.flow_options_);
-  if (!from._internal_expire_when().empty()) {
-    _this->_internal_set_expire_when(from._internal_expire_when());
-  }
   if (!from._internal_comment().empty()) {
     _this->_internal_set_comment(from._internal_comment());
   }
@@ -2241,6 +2239,10 @@ void CreateRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   if (from._internal_has_sink_table_name()) {
     _this->_internal_mutable_sink_table_name()->::greptime::v1::TableName::MergeFrom(
         from._internal_sink_table_name());
+  }
+  if (from._internal_has_expire_after()) {
+    _this->_internal_mutable_expire_after()->::greptime::v1::ExpireAfter::MergeFrom(
+        from._internal_expire_after());
   }
   if (from._internal_create_if_not_exists() != 0) {
     _this->_internal_set_create_if_not_exists(from._internal_create_if_not_exists());
@@ -2266,10 +2268,6 @@ void CreateRequest::InternalSwap(CreateRequest* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.source_table_ids_.InternalSwap(&other->_impl_.source_table_ids_);
   _impl_.flow_options_.InternalSwap(&other->_impl_.flow_options_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.expire_when_, lhs_arena,
-      &other->_impl_.expire_when_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.comment_, lhs_arena,
       &other->_impl_.comment_, rhs_arena

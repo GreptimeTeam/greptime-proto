@@ -1250,11 +1250,11 @@ class CreateRequest final :
   enum : int {
     kSourceTableIdsFieldNumber = 2,
     kFlowOptionsFieldNumber = 8,
-    kExpireWhenFieldNumber = 5,
     kCommentFieldNumber = 6,
     kSqlFieldNumber = 7,
     kFlowIdFieldNumber = 1,
     kSinkTableNameFieldNumber = 3,
+    kExpireAfterFieldNumber = 5,
     kCreateIfNotExistsFieldNumber = 4,
   };
   // repeated .greptime.v1.TableId source_table_ids = 2;
@@ -1291,20 +1291,6 @@ class CreateRequest final :
       flow_options() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
       mutable_flow_options();
-
-  // string expire_when = 5;
-  void clear_expire_when();
-  const std::string& expire_when() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_expire_when(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_expire_when();
-  PROTOBUF_NODISCARD std::string* release_expire_when();
-  void set_allocated_expire_when(std::string* expire_when);
-  private:
-  const std::string& _internal_expire_when() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_expire_when(const std::string& value);
-  std::string* _internal_mutable_expire_when();
-  public:
 
   // string comment = 6;
   void clear_comment();
@@ -1370,6 +1356,24 @@ class CreateRequest final :
       ::greptime::v1::TableName* sink_table_name);
   ::greptime::v1::TableName* unsafe_arena_release_sink_table_name();
 
+  // .greptime.v1.ExpireAfter expire_after = 5;
+  bool has_expire_after() const;
+  private:
+  bool _internal_has_expire_after() const;
+  public:
+  void clear_expire_after();
+  const ::greptime::v1::ExpireAfter& expire_after() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ExpireAfter* release_expire_after();
+  ::greptime::v1::ExpireAfter* mutable_expire_after();
+  void set_allocated_expire_after(::greptime::v1::ExpireAfter* expire_after);
+  private:
+  const ::greptime::v1::ExpireAfter& _internal_expire_after() const;
+  ::greptime::v1::ExpireAfter* _internal_mutable_expire_after();
+  public:
+  void unsafe_arena_set_allocated_expire_after(
+      ::greptime::v1::ExpireAfter* expire_after);
+  ::greptime::v1::ExpireAfter* unsafe_arena_release_expire_after();
+
   // bool create_if_not_exists = 4;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
@@ -1393,11 +1397,11 @@ class CreateRequest final :
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> flow_options_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expire_when_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr comment_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
     ::greptime::v1::FlowId* flow_id_;
     ::greptime::v1::TableName* sink_table_name_;
+    ::greptime::v1::ExpireAfter* expire_after_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2502,54 +2506,89 @@ inline void CreateRequest::set_create_if_not_exists(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.create_if_not_exists)
 }
 
-// string expire_when = 5;
-inline void CreateRequest::clear_expire_when() {
-  _impl_.expire_when_.ClearToEmpty();
+// .greptime.v1.ExpireAfter expire_after = 5;
+inline bool CreateRequest::_internal_has_expire_after() const {
+  return this != internal_default_instance() && _impl_.expire_after_ != nullptr;
 }
-inline const std::string& CreateRequest::expire_when() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.expire_when)
-  return _internal_expire_when();
+inline bool CreateRequest::has_expire_after() const {
+  return _internal_has_expire_after();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CreateRequest::set_expire_when(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.expire_when_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.expire_when)
+inline const ::greptime::v1::ExpireAfter& CreateRequest::_internal_expire_after() const {
+  const ::greptime::v1::ExpireAfter* p = _impl_.expire_after_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ExpireAfter&>(
+      ::greptime::v1::_ExpireAfter_default_instance_);
 }
-inline std::string* CreateRequest::mutable_expire_when() {
-  std::string* _s = _internal_mutable_expire_when();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.expire_when)
-  return _s;
+inline const ::greptime::v1::ExpireAfter& CreateRequest::expire_after() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.expire_after)
+  return _internal_expire_after();
 }
-inline const std::string& CreateRequest::_internal_expire_when() const {
-  return _impl_.expire_when_.Get();
-}
-inline void CreateRequest::_internal_set_expire_when(const std::string& value) {
-  
-  _impl_.expire_when_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CreateRequest::_internal_mutable_expire_when() {
-  
-  return _impl_.expire_when_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CreateRequest::release_expire_when() {
-  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.expire_when)
-  return _impl_.expire_when_.Release();
-}
-inline void CreateRequest::set_allocated_expire_when(std::string* expire_when) {
-  if (expire_when != nullptr) {
+inline void CreateRequest::unsafe_arena_set_allocated_expire_after(
+    ::greptime::v1::ExpireAfter* expire_after) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.expire_after_);
+  }
+  _impl_.expire_after_ = expire_after;
+  if (expire_after) {
     
   } else {
     
   }
-  _impl_.expire_when_.SetAllocated(expire_when, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.expire_when_.IsDefault()) {
-    _impl_.expire_when_.Set("", GetArenaForAllocation());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.CreateRequest.expire_after)
+}
+inline ::greptime::v1::ExpireAfter* CreateRequest::release_expire_after() {
+  
+  ::greptime::v1::ExpireAfter* temp = _impl_.expire_after_;
+  _impl_.expire_after_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.expire_when)
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ExpireAfter* CreateRequest::unsafe_arena_release_expire_after() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.expire_after)
+  
+  ::greptime::v1::ExpireAfter* temp = _impl_.expire_after_;
+  _impl_.expire_after_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ExpireAfter* CreateRequest::_internal_mutable_expire_after() {
+  
+  if (_impl_.expire_after_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ExpireAfter>(GetArenaForAllocation());
+    _impl_.expire_after_ = p;
+  }
+  return _impl_.expire_after_;
+}
+inline ::greptime::v1::ExpireAfter* CreateRequest::mutable_expire_after() {
+  ::greptime::v1::ExpireAfter* _msg = _internal_mutable_expire_after();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.expire_after)
+  return _msg;
+}
+inline void CreateRequest::set_allocated_expire_after(::greptime::v1::ExpireAfter* expire_after) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.expire_after_);
+  }
+  if (expire_after) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(expire_after));
+    if (message_arena != submessage_arena) {
+      expire_after = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, expire_after, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.expire_after_ = expire_after;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.expire_after)
 }
 
 // string comment = 6;

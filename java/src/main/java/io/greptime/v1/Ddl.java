@@ -2669,16 +2669,31 @@ public final class Ddl {
     boolean getCreateIfNotExists();
 
     /**
-     * <code>string expire_when = 7;</code>
-     * @return The expireWhen.
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+     * @return Whether the expireAfter field is set.
      */
-    java.lang.String getExpireWhen();
+    boolean hasExpireAfter();
     /**
-     * <code>string expire_when = 7;</code>
-     * @return The bytes for expireWhen.
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+     * @return The expireAfter.
      */
-    com.google.protobuf.ByteString
-        getExpireWhenBytes();
+    io.greptime.v1.Common.ExpireAfter getExpireAfter();
+    /**
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+     */
+    io.greptime.v1.Common.ExpireAfterOrBuilder getExpireAfterOrBuilder();
 
     /**
      * <code>string comment = 8;</code>
@@ -2760,7 +2775,6 @@ java.lang.String defaultValue);
       catalogName_ = "";
       flowName_ = "";
       sourceTableNames_ = java.util.Collections.emptyList();
-      expireWhen_ = "";
       comment_ = "";
       sql_ = "";
     }
@@ -2841,9 +2855,16 @@ java.lang.String defaultValue);
               break;
             }
             case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
+              io.greptime.v1.Common.ExpireAfter.Builder subBuilder = null;
+              if (expireAfter_ != null) {
+                subBuilder = expireAfter_.toBuilder();
+              }
+              expireAfter_ = input.readMessage(io.greptime.v1.Common.ExpireAfter.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(expireAfter_);
+                expireAfter_ = subBuilder.buildPartial();
+              }
 
-              expireWhen_ = s;
               break;
             }
             case 66: {
@@ -3084,42 +3105,42 @@ java.lang.String defaultValue);
       return createIfNotExists_;
     }
 
-    public static final int EXPIRE_WHEN_FIELD_NUMBER = 7;
-    private volatile java.lang.Object expireWhen_;
+    public static final int EXPIRE_AFTER_FIELD_NUMBER = 7;
+    private io.greptime.v1.Common.ExpireAfter expireAfter_;
     /**
-     * <code>string expire_when = 7;</code>
-     * @return The expireWhen.
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+     * @return Whether the expireAfter field is set.
      */
     @java.lang.Override
-    public java.lang.String getExpireWhen() {
-      java.lang.Object ref = expireWhen_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        expireWhen_ = s;
-        return s;
-      }
+    public boolean hasExpireAfter() {
+      return expireAfter_ != null;
     }
     /**
-     * <code>string expire_when = 7;</code>
-     * @return The bytes for expireWhen.
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+     * @return The expireAfter.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getExpireWhenBytes() {
-      java.lang.Object ref = expireWhen_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        expireWhen_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public io.greptime.v1.Common.ExpireAfter getExpireAfter() {
+      return expireAfter_ == null ? io.greptime.v1.Common.ExpireAfter.getDefaultInstance() : expireAfter_;
+    }
+    /**
+     * <pre>
+     * Expire data older than the given duration seconds.
+     * </pre>
+     *
+     * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ExpireAfterOrBuilder getExpireAfterOrBuilder() {
+      return getExpireAfter();
     }
 
     public static final int COMMENT_FIELD_NUMBER = 8;
@@ -3311,8 +3332,8 @@ java.lang.String defaultValue);
       if (createIfNotExists_ != false) {
         output.writeBool(6, createIfNotExists_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireWhen_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, expireWhen_);
+      if (expireAfter_ != null) {
+        output.writeMessage(7, getExpireAfter());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, comment_);
@@ -3357,8 +3378,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(6, createIfNotExists_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireWhen_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, expireWhen_);
+      if (expireAfter_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getExpireAfter());
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, comment_);
@@ -3406,8 +3428,11 @@ java.lang.String defaultValue);
           != other.getOrReplace()) return false;
       if (getCreateIfNotExists()
           != other.getCreateIfNotExists()) return false;
-      if (!getExpireWhen()
-          .equals(other.getExpireWhen())) return false;
+      if (hasExpireAfter() != other.hasExpireAfter()) return false;
+      if (hasExpireAfter()) {
+        if (!getExpireAfter()
+            .equals(other.getExpireAfter())) return false;
+      }
       if (!getComment()
           .equals(other.getComment())) return false;
       if (!getSql()
@@ -3443,8 +3468,10 @@ java.lang.String defaultValue);
       hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCreateIfNotExists());
-      hash = (37 * hash) + EXPIRE_WHEN_FIELD_NUMBER;
-      hash = (53 * hash) + getExpireWhen().hashCode();
+      if (hasExpireAfter()) {
+        hash = (37 * hash) + EXPIRE_AFTER_FIELD_NUMBER;
+        hash = (53 * hash) + getExpireAfter().hashCode();
+      }
       hash = (37 * hash) + COMMENT_FIELD_NUMBER;
       hash = (53 * hash) + getComment().hashCode();
       hash = (37 * hash) + SQL_FIELD_NUMBER;
@@ -3633,8 +3660,12 @@ java.lang.String defaultValue);
 
         createIfNotExists_ = false;
 
-        expireWhen_ = "";
-
+        if (expireAfterBuilder_ == null) {
+          expireAfter_ = null;
+        } else {
+          expireAfter_ = null;
+          expireAfterBuilder_ = null;
+        }
         comment_ = "";
 
         sql_ = "";
@@ -3685,7 +3716,11 @@ java.lang.String defaultValue);
         }
         result.orReplace_ = orReplace_;
         result.createIfNotExists_ = createIfNotExists_;
-        result.expireWhen_ = expireWhen_;
+        if (expireAfterBuilder_ == null) {
+          result.expireAfter_ = expireAfter_;
+        } else {
+          result.expireAfter_ = expireAfterBuilder_.build();
+        }
         result.comment_ = comment_;
         result.sql_ = sql_;
         result.flowOptions_ = internalGetFlowOptions();
@@ -3781,9 +3816,8 @@ java.lang.String defaultValue);
         if (other.getCreateIfNotExists() != false) {
           setCreateIfNotExists(other.getCreateIfNotExists());
         }
-        if (!other.getExpireWhen().isEmpty()) {
-          expireWhen_ = other.expireWhen_;
-          onChanged();
+        if (other.hasExpireAfter()) {
+          mergeExpireAfter(other.getExpireAfter());
         }
         if (!other.getComment().isEmpty()) {
           comment_ = other.comment_;
@@ -4398,80 +4432,159 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.lang.Object expireWhen_ = "";
+      private io.greptime.v1.Common.ExpireAfter expireAfter_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ExpireAfter, io.greptime.v1.Common.ExpireAfter.Builder, io.greptime.v1.Common.ExpireAfterOrBuilder> expireAfterBuilder_;
       /**
-       * <code>string expire_when = 7;</code>
-       * @return The expireWhen.
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+       * @return Whether the expireAfter field is set.
        */
-      public java.lang.String getExpireWhen() {
-        java.lang.Object ref = expireWhen_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          expireWhen_ = s;
-          return s;
+      public boolean hasExpireAfter() {
+        return expireAfterBuilder_ != null || expireAfter_ != null;
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+       * @return The expireAfter.
+       */
+      public io.greptime.v1.Common.ExpireAfter getExpireAfter() {
+        if (expireAfterBuilder_ == null) {
+          return expireAfter_ == null ? io.greptime.v1.Common.ExpireAfter.getDefaultInstance() : expireAfter_;
         } else {
-          return (java.lang.String) ref;
+          return expireAfterBuilder_.getMessage();
         }
       }
       /**
-       * <code>string expire_when = 7;</code>
-       * @return The bytes for expireWhen.
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
        */
-      public com.google.protobuf.ByteString
-          getExpireWhenBytes() {
-        java.lang.Object ref = expireWhen_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          expireWhen_ = b;
-          return b;
+      public Builder setExpireAfter(io.greptime.v1.Common.ExpireAfter value) {
+        if (expireAfterBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          expireAfter_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          expireAfterBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+       */
+      public Builder setExpireAfter(
+          io.greptime.v1.Common.ExpireAfter.Builder builderForValue) {
+        if (expireAfterBuilder_ == null) {
+          expireAfter_ = builderForValue.build();
+          onChanged();
+        } else {
+          expireAfterBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+       */
+      public Builder mergeExpireAfter(io.greptime.v1.Common.ExpireAfter value) {
+        if (expireAfterBuilder_ == null) {
+          if (expireAfter_ != null) {
+            expireAfter_ =
+              io.greptime.v1.Common.ExpireAfter.newBuilder(expireAfter_).mergeFrom(value).buildPartial();
+          } else {
+            expireAfter_ = value;
+          }
+          onChanged();
+        } else {
+          expireAfterBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+       */
+      public Builder clearExpireAfter() {
+        if (expireAfterBuilder_ == null) {
+          expireAfter_ = null;
+          onChanged();
+        } else {
+          expireAfter_ = null;
+          expireAfterBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+       */
+      public io.greptime.v1.Common.ExpireAfter.Builder getExpireAfterBuilder() {
+        
+        onChanged();
+        return getExpireAfterFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
+       */
+      public io.greptime.v1.Common.ExpireAfterOrBuilder getExpireAfterOrBuilder() {
+        if (expireAfterBuilder_ != null) {
+          return expireAfterBuilder_.getMessageOrBuilder();
+        } else {
+          return expireAfter_ == null ?
+              io.greptime.v1.Common.ExpireAfter.getDefaultInstance() : expireAfter_;
         }
       }
       /**
-       * <code>string expire_when = 7;</code>
-       * @param value The expireWhen to set.
-       * @return This builder for chaining.
+       * <pre>
+       * Expire data older than the given duration seconds.
+       * </pre>
+       *
+       * <code>.greptime.v1.ExpireAfter expire_after = 7;</code>
        */
-      public Builder setExpireWhen(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        expireWhen_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string expire_when = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearExpireWhen() {
-        
-        expireWhen_ = getDefaultInstance().getExpireWhen();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string expire_when = 7;</code>
-       * @param value The bytes for expireWhen to set.
-       * @return This builder for chaining.
-       */
-      public Builder setExpireWhenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        expireWhen_ = value;
-        onChanged();
-        return this;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ExpireAfter, io.greptime.v1.Common.ExpireAfter.Builder, io.greptime.v1.Common.ExpireAfterOrBuilder> 
+          getExpireAfterFieldBuilder() {
+        if (expireAfterBuilder_ == null) {
+          expireAfterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.ExpireAfter, io.greptime.v1.Common.ExpireAfter.Builder, io.greptime.v1.Common.ExpireAfterOrBuilder>(
+                  getExpireAfter(),
+                  getParentForChildren(),
+                  isClean());
+          expireAfter_ = null;
+        }
+        return expireAfterBuilder_;
       }
 
       private java.lang.Object comment_ = "";
@@ -25035,85 +25148,86 @@ java.lang.String defaultValue);
       "_flow\030\t \001(\0132\031.greptime.v1.DropFlowExprH\000" +
       "\0222\n\013create_view\030\n \001(\0132\033.greptime.v1.Crea" +
       "teViewExprH\000\022.\n\tdrop_view\030\013 \001(\0132\031.grepti" +
-      "me.v1.DropViewExprH\000B\006\n\004expr\"\373\002\n\016CreateF" +
+      "me.v1.DropViewExprH\000B\006\n\004expr\"\226\003\n\016CreateF" +
       "lowExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_na" +
       "me\030\002 \001(\t\0222\n\022source_table_names\030\003 \003(\0132\026.g" +
       "reptime.v1.TableName\022/\n\017sink_table_name\030" +
       "\004 \001(\0132\026.greptime.v1.TableName\022\022\n\nor_repl" +
       "ace\030\005 \001(\010\022\034\n\024create_if_not_exists\030\006 \001(\010\022" +
-      "\023\n\013expire_when\030\007 \001(\t\022\017\n\007comment\030\010 \001(\t\022\013\n" +
-      "\003sql\030\t \001(\t\022B\n\014flow_options\030\n \003(\0132,.grept" +
-      "ime.v1.CreateFlowExpr.FlowOptionsEntry\0322" +
-      "\n\020FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
-      "\030\002 \001(\t:\0028\001\"u\n\014DropFlowExpr\022\024\n\014catalog_na" +
-      "me\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\022$\n\007flow_id\030\003" +
-      " \001(\0132\023.greptime.v1.FlowId\022\026\n\016drop_if_exi" +
-      "sts\030\005 \001(\010\"\226\001\n\016CreateViewExpr\022\024\n\014catalog_" +
-      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_" +
-      "name\030\003 \001(\t\022\024\n\014logical_plan\030\004 \001(\014\022\034\n\024crea" +
-      "te_if_not_exists\030\005 \001(\010\022\022\n\nor_replace\030\006 \001" +
-      "(\010\"\213\001\n\014DropViewExpr\022\024\n\014catalog_name\030\001 \001(" +
-      "\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(" +
-      "\t\022%\n\007view_id\030\004 \001(\0132\024.greptime.v1.TableId" +
-      "\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017CreateTable" +
-      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
-      "e\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(" +
-      "\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v1.Col" +
-      "umnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014primary_ke" +
-      "ys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001(\010\022E" +
-      "\n\rtable_options\030\t \003(\0132..greptime.v1.Crea" +
-      "teTableExpr.TableOptionsEntry\022&\n\010table_i" +
-      "d\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006engine\030" +
-      "\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n\014cata" +
-      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nt" +
-      "able_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\0132\027.g" +
-      "reptime.v1.AddColumnsH\000\0220\n\014drop_columns\030" +
-      "\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220\n\014ren" +
-      "ame_table\030\006 \001(\0132\030.greptime.v1.RenameTabl" +
-      "eH\000\022=\n\023change_column_types\030\007 \001(\0132\036.grept" +
-      "ime.v1.ChangeColumnTypesH\000B\006\n\004kind\"\216\001\n\rD" +
-      "ropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
-      "hema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010t" +
-      "able_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016d" +
-      "rop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDatabaseEx" +
-      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
-      "\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022=\n\007o" +
-      "ptions\030\004 \003(\0132,.greptime.v1.CreateDatabas" +
-      "eExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTa" +
-      "bleExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
-      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_" +
-      "id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n\020DropDa" +
-      "tabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sche" +
-      "ma_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n" +
-      "\nAddColumns\022+\n\013add_columns\030\001 \003(\0132\026.grept" +
-      "ime.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop_" +
-      "columns\030\001 \003(\0132\027.greptime.v1.DropColumn\"O" +
-      "\n\021ChangeColumnTypes\022:\n\023change_column_typ" +
-      "es\030\001 \003(\0132\035.greptime.v1.ChangeColumnType\"" +
-      "%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"i" +
-      "\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.grepti" +
-      "me.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.grep" +
-      "time.v1.AddColumnLocation\"\236\001\n\020ChangeColu" +
-      "mnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013target_ty" +
-      "pe\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022C\n" +
-      "\025target_type_extension\030\003 \001(\0132$.greptime." +
-      "v1.ColumnDataTypeExtension\"\032\n\nDropColumn" +
-      "\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n" +
-      "\006FlowId\022\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004nam" +
-      "e\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1" +
-      ".ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022" +
-      "default_constraint\030\004 \001(\014\0220\n\rsemantic_typ" +
-      "e\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007co" +
-      "mment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132" +
-      "$.greptime.v1.ColumnDataTypeExtension\"\230\001" +
-      "\n\021AddColumnLocation\022B\n\rlocation_type\030\001 \001" +
-      "(\0162+.greptime.v1.AddColumnLocation.Locat" +
-      "ionType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Lo" +
-      "cationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.g" +
-      "reptime.v1B\003DdlZ5github.com/GreptimeTeam" +
-      "/greptime-proto/go/greptime/v1b\006proto3"
+      ".\n\014expire_after\030\007 \001(\0132\030.greptime.v1.Expi" +
+      "reAfter\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n" +
+      "\014flow_options\030\n \003(\0132,.greptime.v1.Create" +
+      "FlowExpr.FlowOptionsEntry\0322\n\020FlowOptions" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u\n" +
+      "\014DropFlowExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tf" +
+      "low_name\030\002 \001(\t\022$\n\007flow_id\030\003 \001(\0132\023.grepti" +
+      "me.v1.FlowId\022\026\n\016drop_if_exists\030\005 \001(\010\"\226\001\n" +
+      "\016CreateViewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
+      "\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022\024\n" +
+      "\014logical_plan\030\004 \001(\014\022\034\n\024create_if_not_exi" +
+      "sts\030\005 \001(\010\022\022\n\nor_replace\030\006 \001(\010\"\213\001\n\014DropVi" +
+      "ewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_n" +
+      "ame\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022%\n\007view_id\030" +
+      "\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016drop_if_e" +
+      "xists\030\005 \001(\010\"\207\003\n\017CreateTableExpr\022\024\n\014catal" +
+      "og_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nta" +
+      "ble_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013column_d" +
+      "efs\030\005 \003(\0132\026.greptime.v1.ColumnDef\022\022\n\ntim" +
+      "e_index\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t\022\034\n\024c" +
+      "reate_if_not_exists\030\010 \001(\010\022E\n\rtable_optio" +
+      "ns\030\t \003(\0132..greptime.v1.CreateTableExpr.T" +
+      "ableOptionsEntry\022&\n\010table_id\030\n \001(\0132\024.gre" +
+      "ptime.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n\021Tabl" +
+      "eOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
+      "\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(" +
+      "\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001" +
+      "(\t\022.\n\013add_columns\030\004 \001(\0132\027.greptime.v1.Ad" +
+      "dColumnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.grept" +
+      "ime.v1.DropColumnsH\000\0220\n\014rename_table\030\006 \001" +
+      "(\0132\030.greptime.v1.RenameTableH\000\022=\n\023change" +
+      "_column_types\030\007 \001(\0132\036.greptime.v1.Change" +
+      "ColumnTypesH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022" +
+      "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001" +
+      "(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\013" +
+      "2\024.greptime.v1.TableId\022\026\n\016drop_if_exists" +
+      "\030\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog" +
+      "_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024crea" +
+      "te_if_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132" +
+      ",.greptime.v1.CreateDatabaseExpr.Options" +
+      "Entry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014ca" +
+      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n" +
+      "\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gr" +
+      "eptime.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n" +
+      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
+      "\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+" +
+      "\n\013add_columns\030\001 \003(\0132\026.greptime.v1.AddCol" +
+      "umn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\013" +
+      "2\027.greptime.v1.DropColumn\"O\n\021ChangeColum" +
+      "nTypes\022:\n\023change_column_types\030\001 \003(\0132\035.gr" +
+      "eptime.v1.ChangeColumnType\"%\n\013RenameTabl" +
+      "e\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*" +
+      "\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnD" +
+      "ef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.AddCo" +
+      "lumnLocation\"\236\001\n\020ChangeColumnType\022\023\n\013col" +
+      "umn_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.gr" +
+      "eptime.v1.ColumnDataType\022C\n\025target_type_" +
+      "extension\030\003 \001(\0132$.greptime.v1.ColumnData" +
+      "TypeExtension\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(" +
+      "\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id" +
+      "\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tda" +
+      "ta_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy" +
+      "pe\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_const" +
+      "raint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gre" +
+      "ptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@" +
+      "\n\022datatype_extension\030\007 \001(\0132$.greptime.v1" +
+      ".ColumnDataTypeExtension\"\230\001\n\021AddColumnLo" +
+      "cation\022B\n\rlocation_type\030\001 \001(\0162+.greptime" +
+      ".v1.AddColumnLocation.LocationType\022\031\n\021af" +
+      "ter_column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n" +
+      "\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003D" +
+      "dlZ5github.com/GreptimeTeam/greptime-pro" +
+      "to/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25131,7 +25245,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateFlowExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateFlowExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "FlowName", "SourceTableNames", "SinkTableName", "OrReplace", "CreateIfNotExists", "ExpireWhen", "Comment", "Sql", "FlowOptions", });
+        new java.lang.String[] { "CatalogName", "FlowName", "SourceTableNames", "SinkTableName", "OrReplace", "CreateIfNotExists", "ExpireAfter", "Comment", "Sql", "FlowOptions", });
     internal_static_greptime_v1_CreateFlowExpr_FlowOptionsEntry_descriptor =
       internal_static_greptime_v1_CreateFlowExpr_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_CreateFlowExpr_FlowOptionsEntry_fieldAccessorTable = new

@@ -8869,6 +8869,497 @@ java.lang.String defaultValue);
 
   }
 
+  public interface ExpireAfterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.ExpireAfter)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 value = 1;</code>
+     * @return The value.
+     */
+    long getValue();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.ExpireAfter}
+   */
+  public static final class ExpireAfter extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.ExpireAfter)
+      ExpireAfterOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ExpireAfter.newBuilder() to construct.
+    private ExpireAfter(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ExpireAfter() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ExpireAfter();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ExpireAfter(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              value_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_ExpireAfter_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_ExpireAfter_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Common.ExpireAfter.class, io.greptime.v1.Common.ExpireAfter.Builder.class);
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private long value_;
+    /**
+     * <code>int64 value = 1;</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public long getValue() {
+      return value_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (value_ != 0L) {
+        output.writeInt64(1, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (value_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Common.ExpireAfter)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Common.ExpireAfter other = (io.greptime.v1.Common.ExpireAfter) obj;
+
+      if (getValue()
+          != other.getValue()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getValue());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.ExpireAfter parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Common.ExpireAfter prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.ExpireAfter}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.ExpireAfter)
+        io.greptime.v1.Common.ExpireAfterOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_ExpireAfter_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_ExpireAfter_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Common.ExpireAfter.class, io.greptime.v1.Common.ExpireAfter.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Common.ExpireAfter.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        value_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_ExpireAfter_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.ExpireAfter getDefaultInstanceForType() {
+        return io.greptime.v1.Common.ExpireAfter.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.ExpireAfter build() {
+        io.greptime.v1.Common.ExpireAfter result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.ExpireAfter buildPartial() {
+        io.greptime.v1.Common.ExpireAfter result = new io.greptime.v1.Common.ExpireAfter(this);
+        result.value_ = value_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Common.ExpireAfter) {
+          return mergeFrom((io.greptime.v1.Common.ExpireAfter)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Common.ExpireAfter other) {
+        if (other == io.greptime.v1.Common.ExpireAfter.getDefaultInstance()) return this;
+        if (other.getValue() != 0L) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Common.ExpireAfter parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Common.ExpireAfter) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long value_ ;
+      /**
+       * <code>int64 value = 1;</code>
+       * @return The value.
+       */
+      @java.lang.Override
+      public long getValue() {
+        return value_;
+      }
+      /**
+       * <code>int64 value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(long value) {
+        
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 value = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        
+        value_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.ExpireAfter)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.ExpireAfter)
+    private static final io.greptime.v1.Common.ExpireAfter DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Common.ExpireAfter();
+    }
+
+    public static io.greptime.v1.Common.ExpireAfter getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ExpireAfter>
+        PARSER = new com.google.protobuf.AbstractParser<ExpireAfter>() {
+      @java.lang.Override
+      public ExpireAfter parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ExpireAfter(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ExpireAfter> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExpireAfter> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Common.ExpireAfter getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface FlightMetadataOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.FlightMetadata)
       com.google.protobuf.MessageOrBuilder {
@@ -12246,6 +12737,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_Metrics_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_ExpireAfter_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_ExpireAfter_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_FlightMetadata_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -12301,32 +12797,33 @@ java.lang.String defaultValue);
       "\n\005token\030\001 \001(\t\"J\n\tTableName\022\024\n\014catalog_na" +
       "me\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_n" +
       "ame\030\003 \001(\t\"\035\n\014AffectedRows\022\r\n\005value\030\001 \001(\r" +
-      "\"\032\n\007Metrics\022\017\n\007metrics\030\001 \001(\014\"i\n\016FlightMe" +
-      "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime" +
-      ".v1.AffectedRows\022%\n\007metrics\030\002 \001(\0132\024.grep" +
-      "time.v1.Metrics\"I\n\024IntervalMonthDayNano\022" +
-      "\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanosec" +
-      "onds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n\002" +
-      "lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtension\0229\n\014d" +
-      "ecimal_type\030\001 \001(\0132!.greptime.v1.DecimalT" +
-      "ypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTyp" +
-      "eExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002" +
-      " \001(\005*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001" +
-      "\022\r\n\tTIMESTAMP\020\002*\326\003\n\016ColumnDataType\022\013\n\007BO" +
-      "OLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022" +
-      "\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UIN" +
-      "T32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT6" +
-      "4\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n" +
-      "\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIM" +
-      "ESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROS" +
-      "ECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIM" +
-      "E_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME" +
-      "_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023I" +
-      "NTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIM" +
-      "E\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECI" +
-      "MAL128\020\036BO\n\016io.greptime.v1B\006CommonZ5gith" +
-      "ub.com/GreptimeTeam/greptime-proto/go/gr" +
-      "eptime/v1b\006proto3"
+      "\"\032\n\007Metrics\022\017\n\007metrics\030\001 \001(\014\"\034\n\013ExpireAf" +
+      "ter\022\r\n\005value\030\001 \001(\003\"i\n\016FlightMetadata\0220\n\r" +
+      "affected_rows\030\001 \001(\0132\031.greptime.v1.Affect" +
+      "edRows\022%\n\007metrics\030\002 \001(\0132\024.greptime.v1.Me" +
+      "trics\"I\n\024IntervalMonthDayNano\022\016\n\006months\030" +
+      "\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003" +
+      "\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n\002lo\030\002 \001(\003\"`" +
+      "\n\027ColumnDataTypeExtension\0229\n\014decimal_typ" +
+      "e\030\001 \001(\0132!.greptime.v1.DecimalTypeExtensi" +
+      "onH\000B\n\n\010type_ext\"8\n\024DecimalTypeExtension" +
+      "\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005*1\n\014Se" +
+      "manticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMEST" +
+      "AMP\020\002*\326\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n" +
+      "\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004" +
+      "\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006U" +
+      "INT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BIN" +
+      "ARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020" +
+      "\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MIL" +
+      "LISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n" +
+      "\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023" +
+      "\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROSECO" +
+      "ND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_YE" +
+      "AR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INT" +
+      "ERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036BO" +
+      "\n\016io.greptime.v1B\006CommonZ5github.com/Gre" +
+      "ptimeTeam/greptime-proto/go/greptime/v1b" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12404,32 +12901,38 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Metrics_descriptor,
         new java.lang.String[] { "Metrics", });
-    internal_static_greptime_v1_FlightMetadata_descriptor =
+    internal_static_greptime_v1_ExpireAfter_descriptor =
       getDescriptor().getMessageTypes().get(10);
+    internal_static_greptime_v1_ExpireAfter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_ExpireAfter_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_greptime_v1_FlightMetadata_descriptor =
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_FlightMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlightMetadata_descriptor,
         new java.lang.String[] { "AffectedRows", "Metrics", });
     internal_static_greptime_v1_IntervalMonthDayNano_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_IntervalMonthDayNano_descriptor,
         new java.lang.String[] { "Months", "Days", "Nanoseconds", });
     internal_static_greptime_v1_Decimal128_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_Decimal128_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Decimal128_descriptor,
         new java.lang.String[] { "Hi", "Lo", });
     internal_static_greptime_v1_ColumnDataTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_ColumnDataTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDataTypeExtension_descriptor,
         new java.lang.String[] { "DecimalType", "TypeExt", });
     internal_static_greptime_v1_DecimalTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_DecimalTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DecimalTypeExtension_descriptor,

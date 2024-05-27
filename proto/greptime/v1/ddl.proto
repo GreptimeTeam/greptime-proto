@@ -48,7 +48,8 @@ message CreateFlowExpr {
   TableName sink_table_name = 4;
   bool or_replace = 5;
   bool create_if_not_exists = 6;
-  string expire_when = 7;
+  // Expire data older than the given duration seconds.
+  ExpireAfter expire_after = 7;
   string comment = 8;
   string sql = 9;
   map<string, string> flow_options = 10;
@@ -149,9 +150,9 @@ message AddColumn {
 }
 
 message ChangeColumnType {
-    string column_name = 1;
-    ColumnDataType target_type = 2;
-    ColumnDataTypeExtension target_type_extension = 3;
+  string column_name = 1;
+  ColumnDataType target_type = 2;
+  ColumnDataTypeExtension target_type_extension = 3;
 }
 
 message DropColumn { string name = 1; }
