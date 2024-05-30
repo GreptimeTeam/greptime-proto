@@ -40,6 +40,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR WalEntry::WalEntry(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.mutations_)*/{}
+  , /*decltype(_impl_.raw_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.format_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct WalEntryDefaultTypeInternal {
   PROTOBUF_CONSTEXPR WalEntryDefaultTypeInternal()
@@ -53,7 +55,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace v1
 }  // namespace greptime
 static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fwal_2eproto[2];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fwal_2eproto[1];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fwal_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fwal_2eproto = nullptr;
 
 const uint32_t TableStruct_greptime_2fv1_2fwal_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -73,6 +75,8 @@ const uint32_t TableStruct_greptime_2fv1_2fwal_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::WalEntry, _impl_.mutations_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::WalEntry, _impl_.format_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::WalEntry, _impl_.raw_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::Mutation)},
@@ -89,17 +93,20 @@ const char descriptor_table_protodef_greptime_2fv1_2fwal_2eproto[] PROTOBUF_SECT
   "eptime/v1/row.proto\"c\n\010Mutation\022$\n\007op_ty"
   "pe\030\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010sequenc"
   "e\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Rows"
-  "\"4\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grepti"
-  "me.v1.Mutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003"
-  "PUT\020\001B7Z5github.com/GreptimeTeam/greptim"
-  "e-proto/go/greptime/v1b\006proto3"
+  "\"n\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grepti"
+  "me.v1.Mutation\022+\n\006format\030\002 \001(\0162\033.greptim"
+  "e.v1.WalEntryFormat\022\013\n\003raw\030\003 \001(\014*\035\n\006OpTy"
+  "pe\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001*+\n\016WalEntryForma"
+  "t\022\014\n\010Protobuf\020\000\022\013\n\007Parquet\020\001B7Z5github.c"
+  "om/GreptimeTeam/greptime-proto/go/grepti"
+  "me/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fwal_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2frow_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fwal_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fwal_2eproto = {
-    false, false, 310, descriptor_table_protodef_greptime_2fv1_2fwal_2eproto,
+    false, false, 413, descriptor_table_protodef_greptime_2fv1_2fwal_2eproto,
     "greptime/v1/wal.proto",
     &descriptor_table_greptime_2fv1_2fwal_2eproto_once, descriptor_table_greptime_2fv1_2fwal_2eproto_deps, 1, 2,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fwal_2eproto::offsets,
@@ -119,6 +126,20 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* OpType_descriptor() {
   return file_level_enum_descriptors_greptime_2fv1_2fwal_2eproto[0];
 }
 bool OpType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* WalEntryFormat_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fwal_2eproto);
+  return file_level_enum_descriptors_greptime_2fv1_2fwal_2eproto[1];
+}
+bool WalEntryFormat_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -407,9 +428,20 @@ WalEntry::WalEntry(const WalEntry& from)
   WalEntry* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.mutations_){from._impl_.mutations_}
+    , decltype(_impl_.raw_){}
+    , decltype(_impl_.format_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.raw_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.raw_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_raw().empty()) {
+    _this->_impl_.raw_.Set(from._internal_raw(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.format_ = from._impl_.format_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.WalEntry)
 }
 
@@ -419,8 +451,14 @@ inline void WalEntry::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.mutations_){arena}
+    , decltype(_impl_.raw_){}
+    , decltype(_impl_.format_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.raw_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.raw_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 WalEntry::~WalEntry() {
@@ -435,6 +473,7 @@ WalEntry::~WalEntry() {
 inline void WalEntry::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.mutations_.~RepeatedPtrField();
+  _impl_.raw_.Destroy();
 }
 
 void WalEntry::SetCachedSize(int size) const {
@@ -448,6 +487,8 @@ void WalEntry::Clear() {
   (void) cached_has_bits;
 
   _impl_.mutations_.Clear();
+  _impl_.raw_.ClearToEmpty();
+  _impl_.format_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -467,6 +508,24 @@ const char* WalEntry::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.WalEntryFormat format = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_format(static_cast<::greptime::v1::WalEntryFormat>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes raw = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_raw();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -507,6 +566,19 @@ uint8_t* WalEntry::_InternalSerialize(
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.WalEntryFormat format = 2;
+  if (this->_internal_format() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_format(), target);
+  }
+
+  // bytes raw = 3;
+  if (!this->_internal_raw().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        3, this->_internal_raw(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -530,6 +602,19 @@ size_t WalEntry::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // bytes raw = 3;
+  if (!this->_internal_raw().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_raw());
+  }
+
+  // .greptime.v1.WalEntryFormat format = 2;
+  if (this->_internal_format() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_format());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -549,6 +634,12 @@ void WalEntry::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTO
   (void) cached_has_bits;
 
   _this->_impl_.mutations_.MergeFrom(from._impl_.mutations_);
+  if (!from._internal_raw().empty()) {
+    _this->_internal_set_raw(from._internal_raw());
+  }
+  if (from._internal_format() != 0) {
+    _this->_internal_set_format(from._internal_format());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -565,8 +656,15 @@ bool WalEntry::IsInitialized() const {
 
 void WalEntry::InternalSwap(WalEntry* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.mutations_.InternalSwap(&other->_impl_.mutations_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.raw_, lhs_arena,
+      &other->_impl_.raw_, rhs_arena
+  );
+  swap(_impl_.format_, other->_impl_.format_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata WalEntry::GetMetadata() const {

@@ -142,6 +142,134 @@ public final class Wal {
     // @@protoc_insertion_point(enum_scope:greptime.v1.OpType)
   }
 
+  /**
+   * <pre>
+   * Format of WalEntry
+   * </pre>
+   *
+   * Protobuf enum {@code greptime.v1.WalEntryFormat}
+   */
+  public enum WalEntryFormat
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * WalEntry is protobuf-encoded
+     * </pre>
+     *
+     * <code>Protobuf = 0;</code>
+     */
+    Protobuf(0),
+    /**
+     * <pre>
+     * WalEntry is parquet-encoded, and should be decoded from WalEntry::raw
+     * </pre>
+     *
+     * <code>Parquet = 1;</code>
+     */
+    Parquet(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * WalEntry is protobuf-encoded
+     * </pre>
+     *
+     * <code>Protobuf = 0;</code>
+     */
+    public static final int Protobuf_VALUE = 0;
+    /**
+     * <pre>
+     * WalEntry is parquet-encoded, and should be decoded from WalEntry::raw
+     * </pre>
+     *
+     * <code>Parquet = 1;</code>
+     */
+    public static final int Parquet_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static WalEntryFormat valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static WalEntryFormat forNumber(int value) {
+      switch (value) {
+        case 0: return Protobuf;
+        case 1: return Parquet;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<WalEntryFormat>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        WalEntryFormat> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<WalEntryFormat>() {
+            public WalEntryFormat findValueByNumber(int number) {
+              return WalEntryFormat.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return greptime.v1.Wal.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final WalEntryFormat[] VALUES = values();
+
+    public static WalEntryFormat valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private WalEntryFormat(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.WalEntryFormat)
+  }
+
   public interface MutationOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.Mutation)
       com.google.protobuf.MessageOrBuilder {
@@ -1114,6 +1242,35 @@ public final class Wal {
      */
     greptime.v1.Wal.MutationOrBuilder getMutationsOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * Wal entry format
+     * </pre>
+     *
+     * <code>.greptime.v1.WalEntryFormat format = 2;</code>
+     * @return The enum numeric value on the wire for format.
+     */
+    int getFormatValue();
+    /**
+     * <pre>
+     * Wal entry format
+     * </pre>
+     *
+     * <code>.greptime.v1.WalEntryFormat format = 2;</code>
+     * @return The format.
+     */
+    greptime.v1.Wal.WalEntryFormat getFormat();
+
+    /**
+     * <pre>
+     * Raw data if format is Parquet.
+     * </pre>
+     *
+     * <code>bytes raw = 3;</code>
+     * @return The raw.
+     */
+    com.google.protobuf.ByteString getRaw();
   }
   /**
    * <pre>
@@ -1133,6 +1290,8 @@ public final class Wal {
     }
     private WalEntry() {
       mutations_ = java.util.Collections.emptyList();
+      format_ = 0;
+      raw_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -1173,6 +1332,17 @@ public final class Wal {
               }
               mutations_.add(
                   input.readMessage(greptime.v1.Wal.Mutation.parser(), extensionRegistry));
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              format_ = rawValue;
+              break;
+            }
+            case 26: {
+
+              raw_ = input.readBytes();
               break;
             }
             default: {
@@ -1272,6 +1442,48 @@ public final class Wal {
       return mutations_.get(index);
     }
 
+    public static final int FORMAT_FIELD_NUMBER = 2;
+    private int format_;
+    /**
+     * <pre>
+     * Wal entry format
+     * </pre>
+     *
+     * <code>.greptime.v1.WalEntryFormat format = 2;</code>
+     * @return The enum numeric value on the wire for format.
+     */
+    @java.lang.Override public int getFormatValue() {
+      return format_;
+    }
+    /**
+     * <pre>
+     * Wal entry format
+     * </pre>
+     *
+     * <code>.greptime.v1.WalEntryFormat format = 2;</code>
+     * @return The format.
+     */
+    @java.lang.Override public greptime.v1.Wal.WalEntryFormat getFormat() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.Wal.WalEntryFormat result = greptime.v1.Wal.WalEntryFormat.valueOf(format_);
+      return result == null ? greptime.v1.Wal.WalEntryFormat.UNRECOGNIZED : result;
+    }
+
+    public static final int RAW_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString raw_;
+    /**
+     * <pre>
+     * Raw data if format is Parquet.
+     * </pre>
+     *
+     * <code>bytes raw = 3;</code>
+     * @return The raw.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getRaw() {
+      return raw_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1289,6 +1501,12 @@ public final class Wal {
       for (int i = 0; i < mutations_.size(); i++) {
         output.writeMessage(1, mutations_.get(i));
       }
+      if (format_ != greptime.v1.Wal.WalEntryFormat.Protobuf.getNumber()) {
+        output.writeEnum(2, format_);
+      }
+      if (!raw_.isEmpty()) {
+        output.writeBytes(3, raw_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1301,6 +1519,14 @@ public final class Wal {
       for (int i = 0; i < mutations_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, mutations_.get(i));
+      }
+      if (format_ != greptime.v1.Wal.WalEntryFormat.Protobuf.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, format_);
+      }
+      if (!raw_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, raw_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1319,6 +1545,9 @@ public final class Wal {
 
       if (!getMutationsList()
           .equals(other.getMutationsList())) return false;
+      if (format_ != other.format_) return false;
+      if (!getRaw()
+          .equals(other.getRaw())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1334,6 +1563,10 @@ public final class Wal {
         hash = (37 * hash) + MUTATIONS_FIELD_NUMBER;
         hash = (53 * hash) + getMutationsList().hashCode();
       }
+      hash = (37 * hash) + FORMAT_FIELD_NUMBER;
+      hash = (53 * hash) + format_;
+      hash = (37 * hash) + RAW_FIELD_NUMBER;
+      hash = (53 * hash) + getRaw().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1478,6 +1711,10 @@ public final class Wal {
         } else {
           mutationsBuilder_.clear();
         }
+        format_ = 0;
+
+        raw_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -1514,6 +1751,8 @@ public final class Wal {
         } else {
           result.mutations_ = mutationsBuilder_.build();
         }
+        result.format_ = format_;
+        result.raw_ = raw_;
         onBuilt();
         return result;
       }
@@ -1587,6 +1826,12 @@ public final class Wal {
               mutationsBuilder_.addAllMessages(other.mutations_);
             }
           }
+        }
+        if (other.format_ != 0) {
+          setFormatValue(other.getFormatValue());
+        }
+        if (other.getRaw() != com.google.protobuf.ByteString.EMPTY) {
+          setRaw(other.getRaw());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1929,6 +2174,126 @@ public final class Wal {
         }
         return mutationsBuilder_;
       }
+
+      private int format_ = 0;
+      /**
+       * <pre>
+       * Wal entry format
+       * </pre>
+       *
+       * <code>.greptime.v1.WalEntryFormat format = 2;</code>
+       * @return The enum numeric value on the wire for format.
+       */
+      @java.lang.Override public int getFormatValue() {
+        return format_;
+      }
+      /**
+       * <pre>
+       * Wal entry format
+       * </pre>
+       *
+       * <code>.greptime.v1.WalEntryFormat format = 2;</code>
+       * @param value The enum numeric value on the wire for format to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFormatValue(int value) {
+        
+        format_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Wal entry format
+       * </pre>
+       *
+       * <code>.greptime.v1.WalEntryFormat format = 2;</code>
+       * @return The format.
+       */
+      @java.lang.Override
+      public greptime.v1.Wal.WalEntryFormat getFormat() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.Wal.WalEntryFormat result = greptime.v1.Wal.WalEntryFormat.valueOf(format_);
+        return result == null ? greptime.v1.Wal.WalEntryFormat.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Wal entry format
+       * </pre>
+       *
+       * <code>.greptime.v1.WalEntryFormat format = 2;</code>
+       * @param value The format to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFormat(greptime.v1.Wal.WalEntryFormat value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        format_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Wal entry format
+       * </pre>
+       *
+       * <code>.greptime.v1.WalEntryFormat format = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFormat() {
+        
+        format_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString raw_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * Raw data if format is Parquet.
+       * </pre>
+       *
+       * <code>bytes raw = 3;</code>
+       * @return The raw.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getRaw() {
+        return raw_;
+      }
+      /**
+       * <pre>
+       * Raw data if format is Parquet.
+       * </pre>
+       *
+       * <code>bytes raw = 3;</code>
+       * @param value The raw to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRaw(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        raw_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Raw data if format is Parquet.
+       * </pre>
+       *
+       * <code>bytes raw = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRaw() {
+        
+        raw_ = getDefaultInstance().getRaw();
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2005,10 +2370,13 @@ public final class Wal {
       "eptime/v1/row.proto\"c\n\010Mutation\022$\n\007op_ty" +
       "pe\030\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010sequenc" +
       "e\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Rows" +
-      "\"4\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grepti" +
-      "me.v1.Mutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003" +
-      "PUT\020\001B7Z5github.com/GreptimeTeam/greptim" +
-      "e-proto/go/greptime/v1b\006proto3"
+      "\"n\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grepti" +
+      "me.v1.Mutation\022+\n\006format\030\002 \001(\0162\033.greptim" +
+      "e.v1.WalEntryFormat\022\013\n\003raw\030\003 \001(\014*\035\n\006OpTy" +
+      "pe\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001*+\n\016WalEntryForma" +
+      "t\022\014\n\010Protobuf\020\000\022\013\n\007Parquet\020\001B7Z5github.c" +
+      "om/GreptimeTeam/greptime-proto/go/grepti" +
+      "me/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2026,7 +2394,7 @@ public final class Wal {
     internal_static_greptime_v1_WalEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_WalEntry_descriptor,
-        new java.lang.String[] { "Mutations", });
+        new java.lang.String[] { "Mutations", "Format", "Raw", });
     io.greptime.v1.RowData.getDescriptor();
   }
 

@@ -38,8 +38,20 @@ message Mutation {
   Rows rows = 3;
 }
 
+// Format of WalEntry
+enum WalEntryFormat {
+  // WalEntry is protobuf-encoded
+  Protobuf = 0;
+  // WalEntry is parquet-encoded, and should be decoded from WalEntry::raw
+  Parquet = 1;
+}
+
 // A WAL entry contains a list of mutations for a region to write.
 message WalEntry {
   // List of mutations for a region.
   repeated Mutation mutations = 1;
+  // Wal entry format
+  WalEntryFormat format = 2;
+  // Raw data if format is Parquet.
+  bytes raw = 3;
 }

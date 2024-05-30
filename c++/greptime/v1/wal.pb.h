@@ -88,6 +88,31 @@ inline bool OpType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<OpType>(
     OpType_descriptor(), name, value);
 }
+enum WalEntryFormat : int {
+  Protobuf = 0,
+  Parquet = 1,
+  WalEntryFormat_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  WalEntryFormat_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool WalEntryFormat_IsValid(int value);
+constexpr WalEntryFormat WalEntryFormat_MIN = Protobuf;
+constexpr WalEntryFormat WalEntryFormat_MAX = Parquet;
+constexpr int WalEntryFormat_ARRAYSIZE = WalEntryFormat_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* WalEntryFormat_descriptor();
+template<typename T>
+inline const std::string& WalEntryFormat_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, WalEntryFormat>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function WalEntryFormat_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    WalEntryFormat_descriptor(), enum_t_value);
+}
+inline bool WalEntryFormat_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, WalEntryFormat* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<WalEntryFormat>(
+    WalEntryFormat_descriptor(), name, value);
+}
 // ===================================================================
 
 class Mutation final :
@@ -391,6 +416,8 @@ class WalEntry final :
 
   enum : int {
     kMutationsFieldNumber = 1,
+    kRawFieldNumber = 3,
+    kFormatFieldNumber = 2,
   };
   // repeated .greptime.v1.Mutation mutations = 1;
   int mutations_size() const;
@@ -410,6 +437,29 @@ class WalEntry final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Mutation >&
       mutations() const;
 
+  // bytes raw = 3;
+  void clear_raw();
+  const std::string& raw() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_raw(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_raw();
+  PROTOBUF_NODISCARD std::string* release_raw();
+  void set_allocated_raw(std::string* raw);
+  private:
+  const std::string& _internal_raw() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_raw(const std::string& value);
+  std::string* _internal_mutable_raw();
+  public:
+
+  // .greptime.v1.WalEntryFormat format = 2;
+  void clear_format();
+  ::greptime::v1::WalEntryFormat format() const;
+  void set_format(::greptime::v1::WalEntryFormat value);
+  private:
+  ::greptime::v1::WalEntryFormat _internal_format() const;
+  void _internal_set_format(::greptime::v1::WalEntryFormat value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.WalEntry)
  private:
   class _Internal;
@@ -419,6 +469,8 @@ class WalEntry final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Mutation > mutations_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr raw_;
+    int format_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -604,6 +656,76 @@ WalEntry::mutations() const {
   return _impl_.mutations_;
 }
 
+// .greptime.v1.WalEntryFormat format = 2;
+inline void WalEntry::clear_format() {
+  _impl_.format_ = 0;
+}
+inline ::greptime::v1::WalEntryFormat WalEntry::_internal_format() const {
+  return static_cast< ::greptime::v1::WalEntryFormat >(_impl_.format_);
+}
+inline ::greptime::v1::WalEntryFormat WalEntry::format() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.WalEntry.format)
+  return _internal_format();
+}
+inline void WalEntry::_internal_set_format(::greptime::v1::WalEntryFormat value) {
+  
+  _impl_.format_ = value;
+}
+inline void WalEntry::set_format(::greptime::v1::WalEntryFormat value) {
+  _internal_set_format(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.WalEntry.format)
+}
+
+// bytes raw = 3;
+inline void WalEntry::clear_raw() {
+  _impl_.raw_.ClearToEmpty();
+}
+inline const std::string& WalEntry::raw() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.WalEntry.raw)
+  return _internal_raw();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void WalEntry::set_raw(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.raw_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.WalEntry.raw)
+}
+inline std::string* WalEntry::mutable_raw() {
+  std::string* _s = _internal_mutable_raw();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.WalEntry.raw)
+  return _s;
+}
+inline const std::string& WalEntry::_internal_raw() const {
+  return _impl_.raw_.Get();
+}
+inline void WalEntry::_internal_set_raw(const std::string& value) {
+  
+  _impl_.raw_.Set(value, GetArenaForAllocation());
+}
+inline std::string* WalEntry::_internal_mutable_raw() {
+  
+  return _impl_.raw_.Mutable(GetArenaForAllocation());
+}
+inline std::string* WalEntry::release_raw() {
+  // @@protoc_insertion_point(field_release:greptime.v1.WalEntry.raw)
+  return _impl_.raw_.Release();
+}
+inline void WalEntry::set_allocated_raw(std::string* raw) {
+  if (raw != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.raw_.SetAllocated(raw, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.raw_.IsDefault()) {
+    _impl_.raw_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.WalEntry.raw)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -621,6 +743,11 @@ template <> struct is_proto_enum< ::greptime::v1::OpType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::OpType>() {
   return ::greptime::v1::OpType_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::WalEntryFormat> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::WalEntryFormat>() {
+  return ::greptime::v1::WalEntryFormat_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
