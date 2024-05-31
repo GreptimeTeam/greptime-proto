@@ -13199,36 +13199,6 @@ public final class Ddl {
 
     /**
      * <pre>
-     * Returns if table created.
-     * TODO(jeremy): remove it?
-     * </pre>
-     *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return Whether the tableId field is set.
-     */
-    boolean hasTableId();
-    /**
-     * <pre>
-     * Returns if table created.
-     * TODO(jeremy): remove it?
-     * </pre>
-     *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return The tableId.
-     */
-    io.greptime.v1.Ddl.TableId getTableId();
-    /**
-     * <pre>
-     * Returns if table created.
-     * TODO(jeremy): remove it?
-     * </pre>
-     *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     */
-    io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
-
-    /**
-     * <pre>
      * Returns if the tables created.
      * </pre>
      *
@@ -13344,19 +13314,6 @@ public final class Ddl {
 
               break;
             }
-            case 34: {
-              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
-              if (tableId_ != null) {
-                subBuilder = tableId_.toBuilder();
-              }
-              tableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(tableId_);
-                tableId_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 tableIds_ = new java.util.ArrayList<io.greptime.v1.Ddl.TableId>();
@@ -13455,47 +13412,6 @@ public final class Ddl {
       return getPid();
     }
 
-    public static final int TABLE_ID_FIELD_NUMBER = 4;
-    private io.greptime.v1.Ddl.TableId tableId_;
-    /**
-     * <pre>
-     * Returns if table created.
-     * TODO(jeremy): remove it?
-     * </pre>
-     *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return Whether the tableId field is set.
-     */
-    @java.lang.Override
-    public boolean hasTableId() {
-      return tableId_ != null;
-    }
-    /**
-     * <pre>
-     * Returns if table created.
-     * TODO(jeremy): remove it?
-     * </pre>
-     *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return The tableId.
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TableId getTableId() {
-      return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
-    }
-    /**
-     * <pre>
-     * Returns if table created.
-     * TODO(jeremy): remove it?
-     * </pre>
-     *
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
-      return getTableId();
-    }
-
     public static final int TABLE_IDS_FIELD_NUMBER = 5;
     private java.util.List<io.greptime.v1.Ddl.TableId> tableIds_;
     /**
@@ -13576,9 +13492,6 @@ public final class Ddl {
       if (pid_ != null) {
         output.writeMessage(2, getPid());
       }
-      if (tableId_ != null) {
-        output.writeMessage(4, getTableId());
-      }
       for (int i = 0; i < tableIds_.size(); i++) {
         output.writeMessage(5, tableIds_.get(i));
       }
@@ -13598,10 +13511,6 @@ public final class Ddl {
       if (pid_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getPid());
-      }
-      if (tableId_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getTableId());
       }
       for (int i = 0; i < tableIds_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -13632,11 +13541,6 @@ public final class Ddl {
         if (!getPid()
             .equals(other.getPid())) return false;
       }
-      if (hasTableId() != other.hasTableId()) return false;
-      if (hasTableId()) {
-        if (!getTableId()
-            .equals(other.getTableId())) return false;
-      }
       if (!getTableIdsList()
           .equals(other.getTableIdsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -13657,10 +13561,6 @@ public final class Ddl {
       if (hasPid()) {
         hash = (37 * hash) + PID_FIELD_NUMBER;
         hash = (53 * hash) + getPid().hashCode();
-      }
-      if (hasTableId()) {
-        hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getTableId().hashCode();
       }
       if (getTableIdsCount() > 0) {
         hash = (37 * hash) + TABLE_IDS_FIELD_NUMBER;
@@ -13812,12 +13712,6 @@ public final class Ddl {
           pid_ = null;
           pidBuilder_ = null;
         }
-        if (tableIdBuilder_ == null) {
-          tableId_ = null;
-        } else {
-          tableId_ = null;
-          tableIdBuilder_ = null;
-        }
         if (tableIdsBuilder_ == null) {
           tableIds_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -13860,11 +13754,6 @@ public final class Ddl {
           result.pid_ = pid_;
         } else {
           result.pid_ = pidBuilder_.build();
-        }
-        if (tableIdBuilder_ == null) {
-          result.tableId_ = tableId_;
-        } else {
-          result.tableId_ = tableIdBuilder_.build();
         }
         if (tableIdsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -13928,9 +13817,6 @@ public final class Ddl {
         }
         if (other.hasPid()) {
           mergePid(other.getPid());
-        }
-        if (other.hasTableId()) {
-          mergeTableId(other.getTableId());
         }
         if (tableIdsBuilder_ == null) {
           if (!other.tableIds_.isEmpty()) {
@@ -14224,170 +14110,6 @@ public final class Ddl {
           pid_ = null;
         }
         return pidBuilder_;
-      }
-
-      private io.greptime.v1.Ddl.TableId tableId_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> tableIdBuilder_;
-      /**
-       * <pre>
-       * Returns if table created.
-       * TODO(jeremy): remove it?
-       * </pre>
-       *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       * @return Whether the tableId field is set.
-       */
-      public boolean hasTableId() {
-        return tableIdBuilder_ != null || tableId_ != null;
-      }
-      /**
-       * <pre>
-       * Returns if table created.
-       * TODO(jeremy): remove it?
-       * </pre>
-       *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       * @return The tableId.
-       */
-      public io.greptime.v1.Ddl.TableId getTableId() {
-        if (tableIdBuilder_ == null) {
-          return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
-        } else {
-          return tableIdBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * Returns if table created.
-       * TODO(jeremy): remove it?
-       * </pre>
-       *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       */
-      public Builder setTableId(io.greptime.v1.Ddl.TableId value) {
-        if (tableIdBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          tableId_ = value;
-          onChanged();
-        } else {
-          tableIdBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Returns if table created.
-       * TODO(jeremy): remove it?
-       * </pre>
-       *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       */
-      public Builder setTableId(
-          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
-        if (tableIdBuilder_ == null) {
-          tableId_ = builderForValue.build();
-          onChanged();
-        } else {
-          tableIdBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Returns if table created.
-       * TODO(jeremy): remove it?
-       * </pre>
-       *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       */
-      public Builder mergeTableId(io.greptime.v1.Ddl.TableId value) {
-        if (tableIdBuilder_ == null) {
-          if (tableId_ != null) {
-            tableId_ =
-              io.greptime.v1.Ddl.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
-          } else {
-            tableId_ = value;
-          }
-          onChanged();
-        } else {
-          tableIdBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Returns if table created.
-       * TODO(jeremy): remove it?
-       * </pre>
-       *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       */
-      public Builder clearTableId() {
-        if (tableIdBuilder_ == null) {
-          tableId_ = null;
-          onChanged();
-        } else {
-          tableId_ = null;
-          tableIdBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Returns if table created.
-       * TODO(jeremy): remove it?
-       * </pre>
-       *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       */
-      public io.greptime.v1.Ddl.TableId.Builder getTableIdBuilder() {
-        
-        onChanged();
-        return getTableIdFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * Returns if table created.
-       * TODO(jeremy): remove it?
-       * </pre>
-       *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       */
-      public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
-        if (tableIdBuilder_ != null) {
-          return tableIdBuilder_.getMessageOrBuilder();
-        } else {
-          return tableId_ == null ?
-              io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
-        }
-      }
-      /**
-       * <pre>
-       * Returns if table created.
-       * TODO(jeremy): remove it?
-       * </pre>
-       *
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
-          getTableIdFieldBuilder() {
-        if (tableIdBuilder_ == null) {
-          tableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
-                  getTableId(),
-                  getParentForChildren(),
-                  isClean());
-          tableId_ = null;
-        }
-        return tableIdBuilder_;
       }
 
       private java.util.List<io.greptime.v1.Ddl.TableId> tableIds_ =
@@ -14890,10 +14612,9 @@ public final class Ddl {
       "<\n\020create_view_task\030\r \001(\0132 .greptime.v1." +
       "meta.CreateViewTaskH\000\0228\n\016drop_view_task\030" +
       "\016 \001(\0132\036.greptime.v1.meta.DropViewTaskH\000B" +
-      "\006\n\004task\"\300\001\n\017DdlTaskResponse\0220\n\006header\030\001 " +
+      "\006\n\004task\"\230\001\n\017DdlTaskResponse\0220\n\006header\030\001 " +
       "\001(\0132 .greptime.v1.meta.ResponseHeader\022*\n" +
       "\003pid\030\002 \001(\0132\035.greptime.v1.meta.ProcedureI" +
-      "d\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableI" +
       "d\022\'\n\ttable_ids\030\005 \003(\0132\024.greptime.v1.Table" +
       "Id*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\001B" +
       "<Z:github.com/GreptimeTeam/greptime-prot" +
@@ -14996,7 +14717,7 @@ public final class Ddl {
     internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskResponse_descriptor,
-        new java.lang.String[] { "Header", "Pid", "TableId", "TableIds", });
+        new java.lang.String[] { "Header", "Pid", "TableIds", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();

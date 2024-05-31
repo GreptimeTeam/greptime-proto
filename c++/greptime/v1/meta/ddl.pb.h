@@ -2843,7 +2843,6 @@ class DdlTaskResponse final :
     kTableIdsFieldNumber = 5,
     kHeaderFieldNumber = 1,
     kPidFieldNumber = 2,
-    kTableIdFieldNumber = 4,
   };
   // repeated .greptime.v1.TableId table_ids = 5;
   int table_ids_size() const;
@@ -2899,24 +2898,6 @@ class DdlTaskResponse final :
       ::greptime::v1::meta::ProcedureId* pid);
   ::greptime::v1::meta::ProcedureId* unsafe_arena_release_pid();
 
-  // .greptime.v1.TableId table_id = 4;
-  bool has_table_id() const;
-  private:
-  bool _internal_has_table_id() const;
-  public:
-  void clear_table_id();
-  const ::greptime::v1::TableId& table_id() const;
-  PROTOBUF_NODISCARD ::greptime::v1::TableId* release_table_id();
-  ::greptime::v1::TableId* mutable_table_id();
-  void set_allocated_table_id(::greptime::v1::TableId* table_id);
-  private:
-  const ::greptime::v1::TableId& _internal_table_id() const;
-  ::greptime::v1::TableId* _internal_mutable_table_id();
-  public:
-  void unsafe_arena_set_allocated_table_id(
-      ::greptime::v1::TableId* table_id);
-  ::greptime::v1::TableId* unsafe_arena_release_table_id();
-
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.DdlTaskResponse)
  private:
   class _Internal;
@@ -2928,7 +2909,6 @@ class DdlTaskResponse final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableId > table_ids_;
     ::greptime::v1::meta::ResponseHeader* header_;
     ::greptime::v1::meta::ProcedureId* pid_;
-    ::greptime::v1::TableId* table_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5417,91 +5397,6 @@ inline void DdlTaskResponse::set_allocated_pid(::greptime::v1::meta::ProcedureId
   }
   _impl_.pid_ = pid;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskResponse.pid)
-}
-
-// .greptime.v1.TableId table_id = 4;
-inline bool DdlTaskResponse::_internal_has_table_id() const {
-  return this != internal_default_instance() && _impl_.table_id_ != nullptr;
-}
-inline bool DdlTaskResponse::has_table_id() const {
-  return _internal_has_table_id();
-}
-inline const ::greptime::v1::TableId& DdlTaskResponse::_internal_table_id() const {
-  const ::greptime::v1::TableId* p = _impl_.table_id_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableId&>(
-      ::greptime::v1::_TableId_default_instance_);
-}
-inline const ::greptime::v1::TableId& DdlTaskResponse::table_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskResponse.table_id)
-  return _internal_table_id();
-}
-inline void DdlTaskResponse::unsafe_arena_set_allocated_table_id(
-    ::greptime::v1::TableId* table_id) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_id_);
-  }
-  _impl_.table_id_ = table_id;
-  if (table_id) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskResponse.table_id)
-}
-inline ::greptime::v1::TableId* DdlTaskResponse::release_table_id() {
-  
-  ::greptime::v1::TableId* temp = _impl_.table_id_;
-  _impl_.table_id_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::TableId* DdlTaskResponse::unsafe_arena_release_table_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskResponse.table_id)
-  
-  ::greptime::v1::TableId* temp = _impl_.table_id_;
-  _impl_.table_id_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::TableId* DdlTaskResponse::_internal_mutable_table_id() {
-  
-  if (_impl_.table_id_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::TableId>(GetArenaForAllocation());
-    _impl_.table_id_ = p;
-  }
-  return _impl_.table_id_;
-}
-inline ::greptime::v1::TableId* DdlTaskResponse::mutable_table_id() {
-  ::greptime::v1::TableId* _msg = _internal_mutable_table_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskResponse.table_id)
-  return _msg;
-}
-inline void DdlTaskResponse::set_allocated_table_id(::greptime::v1::TableId* table_id) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_id_);
-  }
-  if (table_id) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(table_id));
-    if (message_arena != submessage_arena) {
-      table_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, table_id, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.table_id_ = table_id;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskResponse.table_id)
 }
 
 // repeated .greptime.v1.TableId table_ids = 5;

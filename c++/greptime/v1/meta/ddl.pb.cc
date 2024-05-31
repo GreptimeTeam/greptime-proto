@@ -216,7 +216,6 @@ PROTOBUF_CONSTEXPR DdlTaskResponse::DdlTaskResponse(
     /*decltype(_impl_.table_ids_)*/{}
   , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.pid_)*/nullptr
-  , /*decltype(_impl_.table_id_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct DdlTaskResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR DdlTaskResponseDefaultTypeInternal()
@@ -359,7 +358,6 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets[] PROTOBU
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DdlTaskResponse, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DdlTaskResponse, _impl_.pid_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DdlTaskResponse, _impl_.table_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DdlTaskResponse, _impl_.table_ids_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -451,10 +449,9 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto[] PROTOB
   "<\n\020create_view_task\030\r \001(\0132 .greptime.v1."
   "meta.CreateViewTaskH\000\0228\n\016drop_view_task\030"
   "\016 \001(\0132\036.greptime.v1.meta.DropViewTaskH\000B"
-  "\006\n\004task\"\300\001\n\017DdlTaskResponse\0220\n\006header\030\001 "
+  "\006\n\004task\"\230\001\n\017DdlTaskResponse\0220\n\006header\030\001 "
   "\001(\0132 .greptime.v1.meta.ResponseHeader\022*\n"
   "\003pid\030\002 \001(\0132\035.greptime.v1.meta.ProcedureI"
-  "d\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableI"
   "d\022\'\n\ttable_ids\030\005 \003(\0132\024.greptime.v1.Table"
   "Id*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\001B"
   "<Z:github.com/GreptimeTeam/greptime-prot"
@@ -468,7 +465,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto = {
-    false, false, 2389, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
+    false, false, 2349, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
     "greptime/v1/meta/ddl.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps, 4, 15,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets,
@@ -4224,7 +4221,6 @@ class DdlTaskResponse::_Internal {
  public:
   static const ::greptime::v1::meta::ResponseHeader& header(const DdlTaskResponse* msg);
   static const ::greptime::v1::meta::ProcedureId& pid(const DdlTaskResponse* msg);
-  static const ::greptime::v1::TableId& table_id(const DdlTaskResponse* msg);
 };
 
 const ::greptime::v1::meta::ResponseHeader&
@@ -4234,10 +4230,6 @@ DdlTaskResponse::_Internal::header(const DdlTaskResponse* msg) {
 const ::greptime::v1::meta::ProcedureId&
 DdlTaskResponse::_Internal::pid(const DdlTaskResponse* msg) {
   return *msg->_impl_.pid_;
-}
-const ::greptime::v1::TableId&
-DdlTaskResponse::_Internal::table_id(const DdlTaskResponse* msg) {
-  return *msg->_impl_.table_id_;
 }
 void DdlTaskResponse::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
@@ -4250,12 +4242,6 @@ void DdlTaskResponse::clear_pid() {
     delete _impl_.pid_;
   }
   _impl_.pid_ = nullptr;
-}
-void DdlTaskResponse::clear_table_id() {
-  if (GetArenaForAllocation() == nullptr && _impl_.table_id_ != nullptr) {
-    delete _impl_.table_id_;
-  }
-  _impl_.table_id_ = nullptr;
 }
 void DdlTaskResponse::clear_table_ids() {
   _impl_.table_ids_.Clear();
@@ -4273,7 +4259,6 @@ DdlTaskResponse::DdlTaskResponse(const DdlTaskResponse& from)
       decltype(_impl_.table_ids_){from._impl_.table_ids_}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.pid_){nullptr}
-    , decltype(_impl_.table_id_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -4282,9 +4267,6 @@ DdlTaskResponse::DdlTaskResponse(const DdlTaskResponse& from)
   }
   if (from._internal_has_pid()) {
     _this->_impl_.pid_ = new ::greptime::v1::meta::ProcedureId(*from._impl_.pid_);
-  }
-  if (from._internal_has_table_id()) {
-    _this->_impl_.table_id_ = new ::greptime::v1::TableId(*from._impl_.table_id_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.DdlTaskResponse)
 }
@@ -4297,7 +4279,6 @@ inline void DdlTaskResponse::SharedCtor(
       decltype(_impl_.table_ids_){arena}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.pid_){nullptr}
-    , decltype(_impl_.table_id_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -4316,7 +4297,6 @@ inline void DdlTaskResponse::SharedDtor() {
   _impl_.table_ids_.~RepeatedPtrField();
   if (this != internal_default_instance()) delete _impl_.header_;
   if (this != internal_default_instance()) delete _impl_.pid_;
-  if (this != internal_default_instance()) delete _impl_.table_id_;
 }
 
 void DdlTaskResponse::SetCachedSize(int size) const {
@@ -4338,10 +4318,6 @@ void DdlTaskResponse::Clear() {
     delete _impl_.pid_;
   }
   _impl_.pid_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.table_id_ != nullptr) {
-    delete _impl_.table_id_;
-  }
-  _impl_.table_id_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4363,14 +4339,6 @@ const char* DdlTaskResponse::_InternalParse(const char* ptr, ::_pbi::ParseContex
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_pid(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .greptime.v1.TableId table_id = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_table_id(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4431,13 +4399,6 @@ uint8_t* DdlTaskResponse::_InternalSerialize(
         _Internal::pid(this).GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.TableId table_id = 4;
-  if (this->_internal_has_table_id()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, _Internal::table_id(this),
-        _Internal::table_id(this).GetCachedSize(), target, stream);
-  }
-
   // repeated .greptime.v1.TableId table_ids = 5;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_table_ids_size()); i < n; i++) {
@@ -4483,13 +4444,6 @@ size_t DdlTaskResponse::ByteSizeLong() const {
         *_impl_.pid_);
   }
 
-  // .greptime.v1.TableId table_id = 4;
-  if (this->_internal_has_table_id()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.table_id_);
-  }
-
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -4517,10 +4471,6 @@ void DdlTaskResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
     _this->_internal_mutable_pid()->::greptime::v1::meta::ProcedureId::MergeFrom(
         from._internal_pid());
   }
-  if (from._internal_has_table_id()) {
-    _this->_internal_mutable_table_id()->::greptime::v1::TableId::MergeFrom(
-        from._internal_table_id());
-  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -4540,8 +4490,8 @@ void DdlTaskResponse::InternalSwap(DdlTaskResponse* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.table_ids_.InternalSwap(&other->_impl_.table_ids_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(DdlTaskResponse, _impl_.table_id_)
-      + sizeof(DdlTaskResponse::_impl_.table_id_)
+      PROTOBUF_FIELD_OFFSET(DdlTaskResponse, _impl_.pid_)
+      + sizeof(DdlTaskResponse::_impl_.pid_)
       - PROTOBUF_FIELD_OFFSET(DdlTaskResponse, _impl_.header_)>(
           reinterpret_cast<char*>(&_impl_.header_),
           reinterpret_cast<char*>(&other->_impl_.header_));
