@@ -29,6 +29,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/common.pb.h"
 // @@protoc_insertion_point(includes)
@@ -47,6 +48,9 @@ struct TableStruct_greptime_2fv1_2frow_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto;
 namespace greptime {
 namespace v1 {
+class ColumnOptions;
+struct ColumnOptionsDefaultTypeInternal;
+extern ColumnOptionsDefaultTypeInternal _ColumnOptions_default_instance_;
 class ColumnSchema;
 struct ColumnSchemaDefaultTypeInternal;
 extern ColumnSchemaDefaultTypeInternal _ColumnSchema_default_instance_;
@@ -62,6 +66,7 @@ extern ValueDefaultTypeInternal _Value_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
+template<> ::greptime::v1::ColumnOptions* Arena::CreateMaybeMessage<::greptime::v1::ColumnOptions>(Arena*);
 template<> ::greptime::v1::ColumnSchema* Arena::CreateMaybeMessage<::greptime::v1::ColumnSchema>(Arena*);
 template<> ::greptime::v1::Row* Arena::CreateMaybeMessage<::greptime::v1::Row>(Arena*);
 template<> ::greptime::v1::Rows* Arena::CreateMaybeMessage<::greptime::v1::Rows>(Arena*);
@@ -70,6 +75,30 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
 
+enum IndexType : int {
+  INVERTED = 0,
+  IndexType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  IndexType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool IndexType_IsValid(int value);
+constexpr IndexType IndexType_MIN = INVERTED;
+constexpr IndexType IndexType_MAX = INVERTED;
+constexpr int IndexType_ARRAYSIZE = IndexType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* IndexType_descriptor();
+template<typename T>
+inline const std::string& IndexType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, IndexType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function IndexType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    IndexType_descriptor(), enum_t_value);
+}
+inline bool IndexType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, IndexType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<IndexType>(
+    IndexType_descriptor(), name, value);
+}
 // ===================================================================
 
 class Rows final :
@@ -372,6 +401,7 @@ class ColumnSchema final :
   enum : int {
     kColumnNameFieldNumber = 1,
     kDatatypeExtensionFieldNumber = 4,
+    kOptionsFieldNumber = 5,
     kDatatypeFieldNumber = 2,
     kSemanticTypeFieldNumber = 3,
   };
@@ -407,6 +437,24 @@ class ColumnSchema final :
       ::greptime::v1::ColumnDataTypeExtension* datatype_extension);
   ::greptime::v1::ColumnDataTypeExtension* unsafe_arena_release_datatype_extension();
 
+  // .greptime.v1.ColumnOptions options = 5;
+  bool has_options() const;
+  private:
+  bool _internal_has_options() const;
+  public:
+  void clear_options();
+  const ::greptime::v1::ColumnOptions& options() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ColumnOptions* release_options();
+  ::greptime::v1::ColumnOptions* mutable_options();
+  void set_allocated_options(::greptime::v1::ColumnOptions* options);
+  private:
+  const ::greptime::v1::ColumnOptions& _internal_options() const;
+  ::greptime::v1::ColumnOptions* _internal_mutable_options();
+  public:
+  void unsafe_arena_set_allocated_options(
+      ::greptime::v1::ColumnOptions* options);
+  ::greptime::v1::ColumnOptions* unsafe_arena_release_options();
+
   // .greptime.v1.ColumnDataType datatype = 2;
   void clear_datatype();
   ::greptime::v1::ColumnDataType datatype() const;
@@ -435,8 +483,157 @@ class ColumnSchema final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
     ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
+    ::greptime::v1::ColumnOptions* options_;
     int datatype_;
     int semantic_type_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ColumnOptions final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ColumnOptions) */ {
+ public:
+  inline ColumnOptions() : ColumnOptions(nullptr) {}
+  ~ColumnOptions() override;
+  explicit PROTOBUF_CONSTEXPR ColumnOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ColumnOptions(const ColumnOptions& from);
+  ColumnOptions(ColumnOptions&& from) noexcept
+    : ColumnOptions() {
+    *this = ::std::move(from);
+  }
+
+  inline ColumnOptions& operator=(const ColumnOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ColumnOptions& operator=(ColumnOptions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ColumnOptions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ColumnOptions* internal_default_instance() {
+    return reinterpret_cast<const ColumnOptions*>(
+               &_ColumnOptions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(ColumnOptions& a, ColumnOptions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ColumnOptions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ColumnOptions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ColumnOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ColumnOptions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ColumnOptions& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ColumnOptions& from) {
+    ColumnOptions::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ColumnOptions* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.ColumnOptions";
+  }
+  protected:
+  explicit ColumnOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIndexTypeFieldNumber = 1,
+  };
+  // .greptime.v1.IndexType index_type = 1;
+  void clear_index_type();
+  ::greptime::v1::IndexType index_type() const;
+  void set_index_type(::greptime::v1::IndexType value);
+  private:
+  ::greptime::v1::IndexType _internal_index_type() const;
+  void _internal_set_index_type(::greptime::v1::IndexType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.ColumnOptions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int index_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -492,7 +689,7 @@ class Row final :
                &_Row_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(Row& a, Row& b) {
     a.Swap(&b);
@@ -680,7 +877,7 @@ class Value final :
                &_Value_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Value& a, Value& b) {
     a.Swap(&b);
@@ -1498,6 +1695,120 @@ inline void ColumnSchema::set_allocated_datatype_extension(::greptime::v1::Colum
   }
   _impl_.datatype_extension_ = datatype_extension;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnSchema.datatype_extension)
+}
+
+// .greptime.v1.ColumnOptions options = 5;
+inline bool ColumnSchema::_internal_has_options() const {
+  return this != internal_default_instance() && _impl_.options_ != nullptr;
+}
+inline bool ColumnSchema::has_options() const {
+  return _internal_has_options();
+}
+inline void ColumnSchema::clear_options() {
+  if (GetArenaForAllocation() == nullptr && _impl_.options_ != nullptr) {
+    delete _impl_.options_;
+  }
+  _impl_.options_ = nullptr;
+}
+inline const ::greptime::v1::ColumnOptions& ColumnSchema::_internal_options() const {
+  const ::greptime::v1::ColumnOptions* p = _impl_.options_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ColumnOptions&>(
+      ::greptime::v1::_ColumnOptions_default_instance_);
+}
+inline const ::greptime::v1::ColumnOptions& ColumnSchema::options() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnSchema.options)
+  return _internal_options();
+}
+inline void ColumnSchema::unsafe_arena_set_allocated_options(
+    ::greptime::v1::ColumnOptions* options) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.options_);
+  }
+  _impl_.options_ = options;
+  if (options) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ColumnSchema.options)
+}
+inline ::greptime::v1::ColumnOptions* ColumnSchema::release_options() {
+  
+  ::greptime::v1::ColumnOptions* temp = _impl_.options_;
+  _impl_.options_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ColumnOptions* ColumnSchema::unsafe_arena_release_options() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ColumnSchema.options)
+  
+  ::greptime::v1::ColumnOptions* temp = _impl_.options_;
+  _impl_.options_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ColumnOptions* ColumnSchema::_internal_mutable_options() {
+  
+  if (_impl_.options_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ColumnOptions>(GetArenaForAllocation());
+    _impl_.options_ = p;
+  }
+  return _impl_.options_;
+}
+inline ::greptime::v1::ColumnOptions* ColumnSchema::mutable_options() {
+  ::greptime::v1::ColumnOptions* _msg = _internal_mutable_options();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnSchema.options)
+  return _msg;
+}
+inline void ColumnSchema::set_allocated_options(::greptime::v1::ColumnOptions* options) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.options_;
+  }
+  if (options) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(options);
+    if (message_arena != submessage_arena) {
+      options = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, options, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.options_ = options;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnSchema.options)
+}
+
+// -------------------------------------------------------------------
+
+// ColumnOptions
+
+// .greptime.v1.IndexType index_type = 1;
+inline void ColumnOptions::clear_index_type() {
+  _impl_.index_type_ = 0;
+}
+inline ::greptime::v1::IndexType ColumnOptions::_internal_index_type() const {
+  return static_cast< ::greptime::v1::IndexType >(_impl_.index_type_);
+}
+inline ::greptime::v1::IndexType ColumnOptions::index_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnOptions.index_type)
+  return _internal_index_type();
+}
+inline void ColumnOptions::_internal_set_index_type(::greptime::v1::IndexType value) {
+  
+  _impl_.index_type_ = value;
+}
+inline void ColumnOptions::set_index_type(::greptime::v1::IndexType value) {
+  _internal_set_index_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnOptions.index_type)
 }
 
 // -------------------------------------------------------------------
@@ -2726,11 +3037,23 @@ inline Value::ValueDataCase Value::value_data_case() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace v1
 }  // namespace greptime
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::greptime::v1::IndexType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::IndexType>() {
+  return ::greptime::v1::IndexType_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 
