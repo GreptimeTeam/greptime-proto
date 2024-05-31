@@ -5981,6 +5981,30 @@ java.lang.String defaultValue);
      * @return The orReplace.
      */
     boolean getOrReplace();
+
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    java.util.List<io.greptime.v1.Common.TableName> 
+        getTableNamesList();
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    io.greptime.v1.Common.TableName getTableNames(int index);
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    int getTableNamesCount();
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    java.util.List<? extends io.greptime.v1.Common.TableNameOrBuilder> 
+        getTableNamesOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    io.greptime.v1.Common.TableNameOrBuilder getTableNamesOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -6003,6 +6027,7 @@ java.lang.String defaultValue);
       schemaName_ = "";
       viewName_ = "";
       logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
+      tableNames_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -6025,6 +6050,7 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -6068,6 +6094,15 @@ java.lang.String defaultValue);
               orReplace_ = input.readBool();
               break;
             }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tableNames_ = new java.util.ArrayList<io.greptime.v1.Common.TableName>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tableNames_.add(
+                  input.readMessage(io.greptime.v1.Common.TableName.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -6085,6 +6120,9 @@ java.lang.String defaultValue);
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          tableNames_ = java.util.Collections.unmodifiableList(tableNames_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -6249,6 +6287,46 @@ java.lang.String defaultValue);
       return orReplace_;
     }
 
+    public static final int TABLE_NAMES_FIELD_NUMBER = 7;
+    private java.util.List<io.greptime.v1.Common.TableName> tableNames_;
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.Common.TableName> getTableNamesList() {
+      return tableNames_;
+    }
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.Common.TableNameOrBuilder> 
+        getTableNamesOrBuilderList() {
+      return tableNames_;
+    }
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    @java.lang.Override
+    public int getTableNamesCount() {
+      return tableNames_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.TableName getTableNames(int index) {
+      return tableNames_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.TableNameOrBuilder getTableNamesOrBuilder(
+        int index) {
+      return tableNames_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6281,6 +6359,9 @@ java.lang.String defaultValue);
       if (orReplace_ != false) {
         output.writeBool(6, orReplace_);
       }
+      for (int i = 0; i < tableNames_.size(); i++) {
+        output.writeMessage(7, tableNames_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6311,6 +6392,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(6, orReplace_);
       }
+      for (int i = 0; i < tableNames_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, tableNames_.get(i));
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6338,6 +6423,8 @@ java.lang.String defaultValue);
           != other.getCreateIfNotExists()) return false;
       if (getOrReplace()
           != other.getOrReplace()) return false;
+      if (!getTableNamesList()
+          .equals(other.getTableNamesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6363,6 +6450,10 @@ java.lang.String defaultValue);
       hash = (37 * hash) + OR_REPLACE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getOrReplace());
+      if (getTableNamesCount() > 0) {
+        hash = (37 * hash) + TABLE_NAMES_FIELD_NUMBER;
+        hash = (53 * hash) + getTableNamesList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6495,6 +6586,7 @@ java.lang.String defaultValue);
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getTableNamesFieldBuilder();
         }
       }
       @java.lang.Override
@@ -6512,6 +6604,12 @@ java.lang.String defaultValue);
 
         orReplace_ = false;
 
+        if (tableNamesBuilder_ == null) {
+          tableNames_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          tableNamesBuilder_.clear();
+        }
         return this;
       }
 
@@ -6538,12 +6636,22 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Ddl.CreateViewExpr buildPartial() {
         io.greptime.v1.Ddl.CreateViewExpr result = new io.greptime.v1.Ddl.CreateViewExpr(this);
+        int from_bitField0_ = bitField0_;
         result.catalogName_ = catalogName_;
         result.schemaName_ = schemaName_;
         result.viewName_ = viewName_;
         result.logicalPlan_ = logicalPlan_;
         result.createIfNotExists_ = createIfNotExists_;
         result.orReplace_ = orReplace_;
+        if (tableNamesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            tableNames_ = java.util.Collections.unmodifiableList(tableNames_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.tableNames_ = tableNames_;
+        } else {
+          result.tableNames_ = tableNamesBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -6613,6 +6721,32 @@ java.lang.String defaultValue);
         if (other.getOrReplace() != false) {
           setOrReplace(other.getOrReplace());
         }
+        if (tableNamesBuilder_ == null) {
+          if (!other.tableNames_.isEmpty()) {
+            if (tableNames_.isEmpty()) {
+              tableNames_ = other.tableNames_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureTableNamesIsMutable();
+              tableNames_.addAll(other.tableNames_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.tableNames_.isEmpty()) {
+            if (tableNamesBuilder_.isEmpty()) {
+              tableNamesBuilder_.dispose();
+              tableNamesBuilder_ = null;
+              tableNames_ = other.tableNames_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              tableNamesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTableNamesFieldBuilder() : null;
+            } else {
+              tableNamesBuilder_.addAllMessages(other.tableNames_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6641,6 +6775,7 @@ java.lang.String defaultValue);
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object catalogName_ = "";
       /**
@@ -6964,6 +7099,246 @@ java.lang.String defaultValue);
         orReplace_ = false;
         onChanged();
         return this;
+      }
+
+      private java.util.List<io.greptime.v1.Common.TableName> tableNames_ =
+        java.util.Collections.emptyList();
+      private void ensureTableNamesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          tableNames_ = new java.util.ArrayList<io.greptime.v1.Common.TableName>(tableNames_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> tableNamesBuilder_;
+
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public java.util.List<io.greptime.v1.Common.TableName> getTableNamesList() {
+        if (tableNamesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tableNames_);
+        } else {
+          return tableNamesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public int getTableNamesCount() {
+        if (tableNamesBuilder_ == null) {
+          return tableNames_.size();
+        } else {
+          return tableNamesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public io.greptime.v1.Common.TableName getTableNames(int index) {
+        if (tableNamesBuilder_ == null) {
+          return tableNames_.get(index);
+        } else {
+          return tableNamesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public Builder setTableNames(
+          int index, io.greptime.v1.Common.TableName value) {
+        if (tableNamesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTableNamesIsMutable();
+          tableNames_.set(index, value);
+          onChanged();
+        } else {
+          tableNamesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public Builder setTableNames(
+          int index, io.greptime.v1.Common.TableName.Builder builderForValue) {
+        if (tableNamesBuilder_ == null) {
+          ensureTableNamesIsMutable();
+          tableNames_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tableNamesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public Builder addTableNames(io.greptime.v1.Common.TableName value) {
+        if (tableNamesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTableNamesIsMutable();
+          tableNames_.add(value);
+          onChanged();
+        } else {
+          tableNamesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public Builder addTableNames(
+          int index, io.greptime.v1.Common.TableName value) {
+        if (tableNamesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTableNamesIsMutable();
+          tableNames_.add(index, value);
+          onChanged();
+        } else {
+          tableNamesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public Builder addTableNames(
+          io.greptime.v1.Common.TableName.Builder builderForValue) {
+        if (tableNamesBuilder_ == null) {
+          ensureTableNamesIsMutable();
+          tableNames_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tableNamesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public Builder addTableNames(
+          int index, io.greptime.v1.Common.TableName.Builder builderForValue) {
+        if (tableNamesBuilder_ == null) {
+          ensureTableNamesIsMutable();
+          tableNames_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tableNamesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public Builder addAllTableNames(
+          java.lang.Iterable<? extends io.greptime.v1.Common.TableName> values) {
+        if (tableNamesBuilder_ == null) {
+          ensureTableNamesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tableNames_);
+          onChanged();
+        } else {
+          tableNamesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public Builder clearTableNames() {
+        if (tableNamesBuilder_ == null) {
+          tableNames_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          tableNamesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public Builder removeTableNames(int index) {
+        if (tableNamesBuilder_ == null) {
+          ensureTableNamesIsMutable();
+          tableNames_.remove(index);
+          onChanged();
+        } else {
+          tableNamesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public io.greptime.v1.Common.TableName.Builder getTableNamesBuilder(
+          int index) {
+        return getTableNamesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public io.greptime.v1.Common.TableNameOrBuilder getTableNamesOrBuilder(
+          int index) {
+        if (tableNamesBuilder_ == null) {
+          return tableNames_.get(index);  } else {
+          return tableNamesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.Common.TableNameOrBuilder> 
+           getTableNamesOrBuilderList() {
+        if (tableNamesBuilder_ != null) {
+          return tableNamesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tableNames_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public io.greptime.v1.Common.TableName.Builder addTableNamesBuilder() {
+        return getTableNamesFieldBuilder().addBuilder(
+            io.greptime.v1.Common.TableName.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public io.greptime.v1.Common.TableName.Builder addTableNamesBuilder(
+          int index) {
+        return getTableNamesFieldBuilder().addBuilder(
+            index, io.greptime.v1.Common.TableName.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.TableName table_names = 7;</code>
+       */
+      public java.util.List<io.greptime.v1.Common.TableName.Builder> 
+           getTableNamesBuilderList() {
+        return getTableNamesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> 
+          getTableNamesFieldBuilder() {
+        if (tableNamesBuilder_ == null) {
+          tableNamesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder>(
+                  tableNames_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          tableNames_ = null;
+        }
+        return tableNamesBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -25161,73 +25536,74 @@ java.lang.String defaultValue);
       "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u\n" +
       "\014DropFlowExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tf" +
       "low_name\030\002 \001(\t\022$\n\007flow_id\030\003 \001(\0132\023.grepti" +
-      "me.v1.FlowId\022\026\n\016drop_if_exists\030\005 \001(\010\"\226\001\n" +
+      "me.v1.FlowId\022\026\n\016drop_if_exists\030\005 \001(\010\"\303\001\n" +
       "\016CreateViewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
       "\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022\024\n" +
       "\014logical_plan\030\004 \001(\014\022\034\n\024create_if_not_exi" +
-      "sts\030\005 \001(\010\022\022\n\nor_replace\030\006 \001(\010\"\213\001\n\014DropVi" +
-      "ewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_n" +
-      "ame\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022%\n\007view_id\030" +
+      "sts\030\005 \001(\010\022\022\n\nor_replace\030\006 \001(\010\022+\n\013table_n" +
+      "ames\030\007 \003(\0132\026.greptime.v1.TableName\"\213\001\n\014D" +
+      "ropViewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
+      "ema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022%\n\007vie" +
+      "w_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016drop" +
+      "_if_exists\030\005 \001(\010\"\207\003\n\017CreateTableExpr\022\024\n\014" +
+      "catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022" +
+      "\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013col" +
+      "umn_defs\030\005 \003(\0132\026.greptime.v1.ColumnDef\022\022" +
+      "\n\ntime_index\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t" +
+      "\022\034\n\024create_if_not_exists\030\010 \001(\010\022E\n\rtable_" +
+      "options\030\t \003(\0132..greptime.v1.CreateTableE" +
+      "xpr.TableOptionsEntry\022&\n\010table_id\030\n \001(\0132" +
+      "\024.greptime.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n" +
+      "\021TableOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n\014catalog_name" +
+      "\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_nam" +
+      "e\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\0132\027.greptime." +
+      "v1.AddColumnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030." +
+      "greptime.v1.DropColumnsH\000\0220\n\014rename_tabl" +
+      "e\030\006 \001(\0132\030.greptime.v1.RenameTableH\000\022=\n\023c" +
+      "hange_column_types\030\007 \001(\0132\036.greptime.v1.C" +
+      "hangeColumnTypesH\000B\006\n\004kind\"\216\001\n\rDropTable" +
+      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
+      "e\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030" +
       "\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016drop_if_e" +
-      "xists\030\005 \001(\010\"\207\003\n\017CreateTableExpr\022\024\n\014catal" +
-      "og_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\nta" +
-      "ble_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013column_d" +
-      "efs\030\005 \003(\0132\026.greptime.v1.ColumnDef\022\022\n\ntim" +
-      "e_index\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t\022\034\n\024c" +
-      "reate_if_not_exists\030\010 \001(\010\022E\n\rtable_optio" +
-      "ns\030\t \003(\0132..greptime.v1.CreateTableExpr.T" +
-      "ableOptionsEntry\022&\n\010table_id\030\n \001(\0132\024.gre" +
-      "ptime.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n\021Tabl" +
-      "eOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n\014catalog_name\030\001 \001(" +
-      "\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001" +
-      "(\t\022.\n\013add_columns\030\004 \001(\0132\027.greptime.v1.Ad" +
-      "dColumnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030.grept" +
-      "ime.v1.DropColumnsH\000\0220\n\014rename_table\030\006 \001" +
-      "(\0132\030.greptime.v1.RenameTableH\000\022=\n\023change" +
-      "_column_types\030\007 \001(\0132\036.greptime.v1.Change" +
-      "ColumnTypesH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022" +
+      "xists\030\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014ca" +
+      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n" +
+      "\024create_if_not_exists\030\003 \001(\010\022=\n\007options\030\004" +
+      " \003(\0132,.greptime.v1.CreateDatabaseExpr.Op" +
+      "tionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022" +
       "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001" +
       "(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\013" +
-      "2\024.greptime.v1.TableId\022\026\n\016drop_if_exists" +
-      "\030\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog" +
-      "_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024crea" +
-      "te_if_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132" +
-      ",.greptime.v1.CreateDatabaseExpr.Options" +
-      "Entry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014ca" +
-      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n" +
-      "\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gr" +
-      "eptime.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n" +
-      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
-      "\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+" +
-      "\n\013add_columns\030\001 \003(\0132\026.greptime.v1.AddCol" +
-      "umn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\013" +
-      "2\027.greptime.v1.DropColumn\"O\n\021ChangeColum" +
-      "nTypes\022:\n\023change_column_types\030\001 \003(\0132\035.gr" +
-      "eptime.v1.ChangeColumnType\"%\n\013RenameTabl" +
-      "e\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*" +
-      "\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnD" +
-      "ef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.AddCo" +
-      "lumnLocation\"\236\001\n\020ChangeColumnType\022\023\n\013col" +
-      "umn_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.gr" +
-      "eptime.v1.ColumnDataType\022C\n\025target_type_" +
-      "extension\030\003 \001(\0132$.greptime.v1.ColumnData" +
-      "TypeExtension\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(" +
-      "\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id" +
-      "\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tda" +
-      "ta_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy" +
-      "pe\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_const" +
-      "raint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gre" +
-      "ptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@" +
-      "\n\022datatype_extension\030\007 \001(\0132$.greptime.v1" +
-      ".ColumnDataTypeExtension\"\230\001\n\021AddColumnLo" +
-      "cation\022B\n\rlocation_type\030\001 \001(\0162+.greptime" +
-      ".v1.AddColumnLocation.LocationType\022\031\n\021af" +
-      "ter_column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n" +
-      "\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003D" +
-      "dlZ5github.com/GreptimeTeam/greptime-pro" +
-      "to/go/greptime/v1b\006proto3"
+      "2\024.greptime.v1.TableId\"U\n\020DropDatabaseEx" +
+      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
+      "\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddColu" +
+      "mns\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1.A" +
+      "ddColumn\"<\n\013DropColumns\022-\n\014drop_columns\030" +
+      "\001 \003(\0132\027.greptime.v1.DropColumn\"O\n\021Change" +
+      "ColumnTypes\022:\n\023change_column_types\030\001 \003(\013" +
+      "2\035.greptime.v1.ChangeColumnType\"%\n\013Renam" +
+      "eTable\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddCol" +
+      "umn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Co" +
+      "lumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1." +
+      "AddColumnLocation\"\236\001\n\020ChangeColumnType\022\023" +
+      "\n\013column_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\016" +
+      "2\033.greptime.v1.ColumnDataType\022C\n\025target_" +
+      "type_extension\030\003 \001(\0132$.greptime.v1.Colum" +
+      "nDataTypeExtension\"\032\n\nDropColumn\022\014\n\004name" +
+      "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022" +
+      "\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022" +
+      ".\n\tdata_type\030\002 \001(\0162\033.greptime.v1.ColumnD" +
+      "ataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_" +
+      "constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162" +
+      "\031.greptime.v1.SemanticType\022\017\n\007comment\030\006 " +
+      "\001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grepti" +
+      "me.v1.ColumnDataTypeExtension\"\230\001\n\021AddCol" +
+      "umnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gre" +
+      "ptime.v1.AddColumnLocation.LocationType\022" +
+      "\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationTy" +
+      "pe\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime." +
+      "v1B\003DdlZ5github.com/GreptimeTeam/greptim" +
+      "e-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25263,7 +25639,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateViewExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateViewExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "ViewName", "LogicalPlan", "CreateIfNotExists", "OrReplace", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "ViewName", "LogicalPlan", "CreateIfNotExists", "OrReplace", "TableNames", });
     internal_static_greptime_v1_DropViewExpr_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_DropViewExpr_fieldAccessorTable = new

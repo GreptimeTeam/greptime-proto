@@ -1193,6 +1193,7 @@ class CreateViewExpr final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTableNamesFieldNumber = 7,
     kCatalogNameFieldNumber = 1,
     kSchemaNameFieldNumber = 2,
     kViewNameFieldNumber = 3,
@@ -1200,6 +1201,24 @@ class CreateViewExpr final :
     kCreateIfNotExistsFieldNumber = 5,
     kOrReplaceFieldNumber = 6,
   };
+  // repeated .greptime.v1.TableName table_names = 7;
+  int table_names_size() const;
+  private:
+  int _internal_table_names_size() const;
+  public:
+  void clear_table_names();
+  ::greptime::v1::TableName* mutable_table_names(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName >*
+      mutable_table_names();
+  private:
+  const ::greptime::v1::TableName& _internal_table_names(int index) const;
+  ::greptime::v1::TableName* _internal_add_table_names();
+  public:
+  const ::greptime::v1::TableName& table_names(int index) const;
+  ::greptime::v1::TableName* add_table_names();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName >&
+      table_names() const;
+
   // string catalog_name = 1;
   void clear_catalog_name();
   const std::string& catalog_name() const;
@@ -1282,6 +1301,7 @@ class CreateViewExpr final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName > table_names_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr view_name_;
@@ -6486,6 +6506,43 @@ inline void CreateViewExpr::_internal_set_or_replace(bool value) {
 inline void CreateViewExpr::set_or_replace(bool value) {
   _internal_set_or_replace(value);
   // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.or_replace)
+}
+
+// repeated .greptime.v1.TableName table_names = 7;
+inline int CreateViewExpr::_internal_table_names_size() const {
+  return _impl_.table_names_.size();
+}
+inline int CreateViewExpr::table_names_size() const {
+  return _internal_table_names_size();
+}
+inline ::greptime::v1::TableName* CreateViewExpr::mutable_table_names(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateViewExpr.table_names)
+  return _impl_.table_names_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName >*
+CreateViewExpr::mutable_table_names() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.CreateViewExpr.table_names)
+  return &_impl_.table_names_;
+}
+inline const ::greptime::v1::TableName& CreateViewExpr::_internal_table_names(int index) const {
+  return _impl_.table_names_.Get(index);
+}
+inline const ::greptime::v1::TableName& CreateViewExpr::table_names(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.table_names)
+  return _internal_table_names(index);
+}
+inline ::greptime::v1::TableName* CreateViewExpr::_internal_add_table_names() {
+  return _impl_.table_names_.Add();
+}
+inline ::greptime::v1::TableName* CreateViewExpr::add_table_names() {
+  ::greptime::v1::TableName* _add = _internal_add_table_names();
+  // @@protoc_insertion_point(field_add:greptime.v1.CreateViewExpr.table_names)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName >&
+CreateViewExpr::table_names() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.CreateViewExpr.table_names)
+  return _impl_.table_names_;
 }
 
 // -------------------------------------------------------------------

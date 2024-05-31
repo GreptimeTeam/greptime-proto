@@ -71,6 +71,7 @@ message CreateViewExpr {
   bytes logical_plan = 4;
   bool create_if_not_exists = 5;
   bool or_replace = 6;
+  repeated TableName table_names = 7;
 }
 
 // Drop a view
