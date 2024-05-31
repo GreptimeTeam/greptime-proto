@@ -104,9 +104,6 @@ message DdlTaskResponse {
     ResponseHeader header = 1;
     ProcedureId pid = 2;
 
-    // Returns if table created.
-    // TODO(jeremy): remove it?
-    TableId table_id = 4;
     // Returns if the tables created.
     repeated TableId table_ids = 5;
 }
