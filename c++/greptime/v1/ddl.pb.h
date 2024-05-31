@@ -1198,6 +1198,7 @@ class CreateViewExpr final :
     kSchemaNameFieldNumber = 2,
     kViewNameFieldNumber = 3,
     kLogicalPlanFieldNumber = 4,
+    kDefinitionFieldNumber = 8,
     kCreateIfNotExistsFieldNumber = 5,
     kOrReplaceFieldNumber = 6,
   };
@@ -1275,6 +1276,20 @@ class CreateViewExpr final :
   std::string* _internal_mutable_logical_plan();
   public:
 
+  // string definition = 8;
+  void clear_definition();
+  const std::string& definition() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_definition(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_definition();
+  PROTOBUF_NODISCARD std::string* release_definition();
+  void set_allocated_definition(std::string* definition);
+  private:
+  const std::string& _internal_definition() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_definition(const std::string& value);
+  std::string* _internal_mutable_definition();
+  public:
+
   // bool create_if_not_exists = 5;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
@@ -1306,6 +1321,7 @@ class CreateViewExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr view_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr logical_plan_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr definition_;
     bool create_if_not_exists_;
     bool or_replace_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -6563,6 +6579,56 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableNam
 CreateViewExpr::table_names() const {
   // @@protoc_insertion_point(field_list:greptime.v1.CreateViewExpr.table_names)
   return _impl_.table_names_;
+}
+
+// string definition = 8;
+inline void CreateViewExpr::clear_definition() {
+  _impl_.definition_.ClearToEmpty();
+}
+inline const std::string& CreateViewExpr::definition() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.definition)
+  return _internal_definition();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateViewExpr::set_definition(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.definition_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.definition)
+}
+inline std::string* CreateViewExpr::mutable_definition() {
+  std::string* _s = _internal_mutable_definition();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateViewExpr.definition)
+  return _s;
+}
+inline const std::string& CreateViewExpr::_internal_definition() const {
+  return _impl_.definition_.Get();
+}
+inline void CreateViewExpr::_internal_set_definition(const std::string& value) {
+  
+  _impl_.definition_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::_internal_mutable_definition() {
+  
+  return _impl_.definition_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateViewExpr::release_definition() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateViewExpr.definition)
+  return _impl_.definition_.Release();
+}
+inline void CreateViewExpr::set_allocated_definition(std::string* definition) {
+  if (definition != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.definition_.SetAllocated(definition, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.definition_.IsDefault()) {
+    _impl_.definition_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateViewExpr.definition)
 }
 
 // -------------------------------------------------------------------
