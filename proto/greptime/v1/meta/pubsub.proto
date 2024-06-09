@@ -1,0 +1,76 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package greptime.v1.meta;
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
+
+import "greptime/v1/meta/common.proto";
+
+service PubSub {
+  // Subscribe the topics and receive the messages in stream.
+  rpc Subscribe(SubscribeRequest) returns (stream Message) {}
+
+  // Unsubscribe the topics.
+  rpc Unsubscribe(UnsubscribeRequest) returns (UnsubscribeResponse) {}
+
+  // Publish the message to the topics.
+  rpc Publish(Message) returns (PublishResponse) {}
+}
+
+message Message {
+  ResponseHeader header = 1;
+
+  // The message id.
+  uint64 message_id = 2;
+
+  // The topic of the message.
+  string topic = 3;
+
+  // The unix timestamp in milliseconds.
+  int64 timestamp_millis = 4;
+
+  // The message payload. The payload can be any string. Most of the time, it will be a JSON string.
+  string payload = 5;
+}
+
+message SubscribeRequest {
+  RequestHeader header = 1;
+
+  // The topics to subscribe to.
+  repeated string topics = 2;
+}
+
+message UnsubscribeRequest {
+  RequestHeader header = 1;
+
+  // The topics that are unsubscribed.
+  repeated string topics = 2;
+}
+
+message UnsubscribeResponse {
+  ResponseHeader header = 1;
+
+  // The topics that are unsubscribed.
+  repeated string topics = 2;
+}
+
+message PublishResponse {
+  ResponseHeader header = 1;
+
+  // The message id of the published message.
+  uint64 message_id = 2;
+}
