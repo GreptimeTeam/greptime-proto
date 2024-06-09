@@ -154,11 +154,15 @@ message StrictWindow {
   int64 window_seconds = 1;
 }
 
+/// The options for region compaction.
+message Remote {}
+
 message CompactRequest {
     uint64 region_id = 1;
     oneof options {
       Regular regular = 2;
       StrictWindow strict_window = 3;
+      Remote remote = 4;
     }
 }
 

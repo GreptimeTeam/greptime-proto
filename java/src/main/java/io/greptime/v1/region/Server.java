@@ -22125,6 +22125,434 @@ java.lang.String defaultValue);
 
   }
 
+  public interface RemoteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.Remote)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * <pre>
+   *&#47; The options for region compaction.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.Remote}
+   */
+  public static final class Remote extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.Remote)
+      RemoteOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Remote.newBuilder() to construct.
+    private Remote(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Remote() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Remote();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Remote(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_Remote_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_Remote_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.Remote.class, io.greptime.v1.region.Server.Remote.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.Remote)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.Remote other = (io.greptime.v1.region.Server.Remote) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.Remote parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.Remote parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.Remote parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.Remote parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.Remote parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.Remote parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.Remote parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.Remote parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.Remote parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.Remote parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.Remote parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.Remote parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.Remote prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; The options for region compaction.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.Remote}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.Remote)
+        io.greptime.v1.region.Server.RemoteOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_Remote_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_Remote_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.Remote.class, io.greptime.v1.region.Server.Remote.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.Remote.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_Remote_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.Remote getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.Remote.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.Remote build() {
+        io.greptime.v1.region.Server.Remote result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.Remote buildPartial() {
+        io.greptime.v1.region.Server.Remote result = new io.greptime.v1.region.Server.Remote(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.Remote) {
+          return mergeFrom((io.greptime.v1.region.Server.Remote)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.Remote other) {
+        if (other == io.greptime.v1.region.Server.Remote.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.Remote parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.Remote) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.Remote)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.Remote)
+    private static final io.greptime.v1.region.Server.Remote DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.Remote();
+    }
+
+    public static io.greptime.v1.region.Server.Remote getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Remote>
+        PARSER = new com.google.protobuf.AbstractParser<Remote>() {
+      @java.lang.Override
+      public Remote parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Remote(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Remote> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Remote> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.Remote getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface CompactRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.region.CompactRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -22164,6 +22592,21 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.region.StrictWindow strict_window = 3;</code>
      */
     io.greptime.v1.region.Server.StrictWindowOrBuilder getStrictWindowOrBuilder();
+
+    /**
+     * <code>.greptime.v1.region.Remote remote = 4;</code>
+     * @return Whether the remote field is set.
+     */
+    boolean hasRemote();
+    /**
+     * <code>.greptime.v1.region.Remote remote = 4;</code>
+     * @return The remote.
+     */
+    io.greptime.v1.region.Server.Remote getRemote();
+    /**
+     * <code>.greptime.v1.region.Remote remote = 4;</code>
+     */
+    io.greptime.v1.region.Server.RemoteOrBuilder getRemoteOrBuilder();
 
     public io.greptime.v1.region.Server.CompactRequest.OptionsCase getOptionsCase();
   }
@@ -22245,6 +22688,20 @@ java.lang.String defaultValue);
               optionsCase_ = 3;
               break;
             }
+            case 34: {
+              io.greptime.v1.region.Server.Remote.Builder subBuilder = null;
+              if (optionsCase_ == 4) {
+                subBuilder = ((io.greptime.v1.region.Server.Remote) options_).toBuilder();
+              }
+              options_ =
+                  input.readMessage(io.greptime.v1.region.Server.Remote.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.Remote) options_);
+                options_ = subBuilder.buildPartial();
+              }
+              optionsCase_ = 4;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -22286,6 +22743,7 @@ java.lang.String defaultValue);
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       REGULAR(2),
       STRICT_WINDOW(3),
+      REMOTE(4),
       OPTIONS_NOT_SET(0);
       private final int value;
       private OptionsCase(int value) {
@@ -22305,6 +22763,7 @@ java.lang.String defaultValue);
         switch (value) {
           case 2: return REGULAR;
           case 3: return STRICT_WINDOW;
+          case 4: return REMOTE;
           case 0: return OPTIONS_NOT_SET;
           default: return null;
         }
@@ -22393,6 +22852,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.StrictWindow.getDefaultInstance();
     }
 
+    public static final int REMOTE_FIELD_NUMBER = 4;
+    /**
+     * <code>.greptime.v1.region.Remote remote = 4;</code>
+     * @return Whether the remote field is set.
+     */
+    @java.lang.Override
+    public boolean hasRemote() {
+      return optionsCase_ == 4;
+    }
+    /**
+     * <code>.greptime.v1.region.Remote remote = 4;</code>
+     * @return The remote.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.Remote getRemote() {
+      if (optionsCase_ == 4) {
+         return (io.greptime.v1.region.Server.Remote) options_;
+      }
+      return io.greptime.v1.region.Server.Remote.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.Remote remote = 4;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteOrBuilder getRemoteOrBuilder() {
+      if (optionsCase_ == 4) {
+         return (io.greptime.v1.region.Server.Remote) options_;
+      }
+      return io.greptime.v1.region.Server.Remote.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -22416,6 +22906,9 @@ java.lang.String defaultValue);
       if (optionsCase_ == 3) {
         output.writeMessage(3, (io.greptime.v1.region.Server.StrictWindow) options_);
       }
+      if (optionsCase_ == 4) {
+        output.writeMessage(4, (io.greptime.v1.region.Server.Remote) options_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -22436,6 +22929,10 @@ java.lang.String defaultValue);
       if (optionsCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (io.greptime.v1.region.Server.StrictWindow) options_);
+      }
+      if (optionsCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (io.greptime.v1.region.Server.Remote) options_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -22464,6 +22961,10 @@ java.lang.String defaultValue);
           if (!getStrictWindow()
               .equals(other.getStrictWindow())) return false;
           break;
+        case 4:
+          if (!getRemote()
+              .equals(other.getRemote())) return false;
+          break;
         case 0:
         default:
       }
@@ -22489,6 +22990,10 @@ java.lang.String defaultValue);
         case 3:
           hash = (37 * hash) + STRICT_WINDOW_FIELD_NUMBER;
           hash = (53 * hash) + getStrictWindow().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + REMOTE_FIELD_NUMBER;
+          hash = (53 * hash) + getRemote().hashCode();
           break;
         case 0:
         default:
@@ -22671,6 +23176,13 @@ java.lang.String defaultValue);
             result.options_ = strictWindowBuilder_.build();
           }
         }
+        if (optionsCase_ == 4) {
+          if (remoteBuilder_ == null) {
+            result.options_ = options_;
+          } else {
+            result.options_ = remoteBuilder_.build();
+          }
+        }
         result.optionsCase_ = optionsCase_;
         onBuilt();
         return result;
@@ -22730,6 +23242,10 @@ java.lang.String defaultValue);
           }
           case STRICT_WINDOW: {
             mergeStrictWindow(other.getStrictWindow());
+            break;
+          }
+          case REMOTE: {
+            mergeRemote(other.getRemote());
             break;
           }
           case OPTIONS_NOT_SET: {
@@ -23093,6 +23609,148 @@ java.lang.String defaultValue);
         optionsCase_ = 3;
         onChanged();;
         return strictWindowBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.Remote, io.greptime.v1.region.Server.Remote.Builder, io.greptime.v1.region.Server.RemoteOrBuilder> remoteBuilder_;
+      /**
+       * <code>.greptime.v1.region.Remote remote = 4;</code>
+       * @return Whether the remote field is set.
+       */
+      @java.lang.Override
+      public boolean hasRemote() {
+        return optionsCase_ == 4;
+      }
+      /**
+       * <code>.greptime.v1.region.Remote remote = 4;</code>
+       * @return The remote.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.Remote getRemote() {
+        if (remoteBuilder_ == null) {
+          if (optionsCase_ == 4) {
+            return (io.greptime.v1.region.Server.Remote) options_;
+          }
+          return io.greptime.v1.region.Server.Remote.getDefaultInstance();
+        } else {
+          if (optionsCase_ == 4) {
+            return remoteBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.Remote.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.Remote remote = 4;</code>
+       */
+      public Builder setRemote(io.greptime.v1.region.Server.Remote value) {
+        if (remoteBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          remoteBuilder_.setMessage(value);
+        }
+        optionsCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.Remote remote = 4;</code>
+       */
+      public Builder setRemote(
+          io.greptime.v1.region.Server.Remote.Builder builderForValue) {
+        if (remoteBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          remoteBuilder_.setMessage(builderForValue.build());
+        }
+        optionsCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.Remote remote = 4;</code>
+       */
+      public Builder mergeRemote(io.greptime.v1.region.Server.Remote value) {
+        if (remoteBuilder_ == null) {
+          if (optionsCase_ == 4 &&
+              options_ != io.greptime.v1.region.Server.Remote.getDefaultInstance()) {
+            options_ = io.greptime.v1.region.Server.Remote.newBuilder((io.greptime.v1.region.Server.Remote) options_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          if (optionsCase_ == 4) {
+            remoteBuilder_.mergeFrom(value);
+          } else {
+            remoteBuilder_.setMessage(value);
+          }
+        }
+        optionsCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.Remote remote = 4;</code>
+       */
+      public Builder clearRemote() {
+        if (remoteBuilder_ == null) {
+          if (optionsCase_ == 4) {
+            optionsCase_ = 0;
+            options_ = null;
+            onChanged();
+          }
+        } else {
+          if (optionsCase_ == 4) {
+            optionsCase_ = 0;
+            options_ = null;
+          }
+          remoteBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.Remote remote = 4;</code>
+       */
+      public io.greptime.v1.region.Server.Remote.Builder getRemoteBuilder() {
+        return getRemoteFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.Remote remote = 4;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteOrBuilder getRemoteOrBuilder() {
+        if ((optionsCase_ == 4) && (remoteBuilder_ != null)) {
+          return remoteBuilder_.getMessageOrBuilder();
+        } else {
+          if (optionsCase_ == 4) {
+            return (io.greptime.v1.region.Server.Remote) options_;
+          }
+          return io.greptime.v1.region.Server.Remote.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.Remote remote = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.Remote, io.greptime.v1.region.Server.Remote.Builder, io.greptime.v1.region.Server.RemoteOrBuilder> 
+          getRemoteFieldBuilder() {
+        if (remoteBuilder_ == null) {
+          if (!(optionsCase_ == 4)) {
+            options_ = io.greptime.v1.region.Server.Remote.getDefaultInstance();
+          }
+          remoteBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.Remote, io.greptime.v1.region.Server.Remote.Builder, io.greptime.v1.region.Server.RemoteOrBuilder>(
+                  (io.greptime.v1.region.Server.Remote) options_,
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        optionsCase_ = 4;
+        onChanged();;
+        return remoteBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -24481,6 +25139,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_StrictWindow_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_Remote_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_Remote_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_CompactRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -24580,18 +25243,20 @@ java.lang.String defaultValue);
       "cation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Fl" +
       "ushRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular" +
       "\"&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003" +
-      "\"\231\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022." +
-      "\n\007regular\030\002 \001(\0132\033.greptime.v1.region.Reg" +
-      "ularH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime" +
-      ".v1.region.StrictWindowH\000B\t\n\007options\"$\n\017" +
-      "TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Re" +
-      "gionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.grep" +
-      "time.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006" +
-      "Region\022O\n\006Handle\022!.greptime.v1.region.Re" +
-      "gionRequest\032\".greptime.v1.region.RegionR" +
-      "esponseB]\n\025io.greptime.v1.regionB\006Server" +
-      "Z<github.com/GreptimeTeam/greptime-proto" +
-      "/go/greptime/v1/regionb\006proto3"
+      "\"\010\n\006Remote\"\307\001\n\016CompactRequest\022\021\n\tregion_" +
+      "id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.greptime.v1." +
+      "region.RegularH\000\0229\n\rstrict_window\030\003 \001(\0132" +
+      " .greptime.v1.region.StrictWindowH\000\022,\n\006r" +
+      "emote\030\004 \001(\0132\032.greptime.v1.region.RemoteH" +
+      "\000B\t\n\007options\"$\n\017TruncateRequest\022\021\n\tregio" +
+      "n_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_" +
+      "def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcol" +
+      "umn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.grept" +
+      "ime.v1.region.RegionRequest\032\".greptime.v" +
+      "1.region.RegionResponseB]\n\025io.greptime.v" +
+      "1.regionB\006ServerZ<github.com/GreptimeTea" +
+      "m/greptime-proto/go/greptime/v1/regionb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -24762,20 +25427,26 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_StrictWindow_descriptor,
         new java.lang.String[] { "WindowSeconds", });
-    internal_static_greptime_v1_region_CompactRequest_descriptor =
+    internal_static_greptime_v1_region_Remote_descriptor =
       getDescriptor().getMessageTypes().get(23);
+    internal_static_greptime_v1_region_Remote_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_Remote_descriptor,
+        new java.lang.String[] { });
+    internal_static_greptime_v1_region_CompactRequest_descriptor =
+      getDescriptor().getMessageTypes().get(24);
     internal_static_greptime_v1_region_CompactRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_CompactRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Regular", "StrictWindow", "Options", });
+        new java.lang.String[] { "RegionId", "Regular", "StrictWindow", "Remote", "Options", });
     internal_static_greptime_v1_region_TruncateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_greptime_v1_region_TruncateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_TruncateRequest_descriptor,
         new java.lang.String[] { "RegionId", });
     internal_static_greptime_v1_region_RegionColumnDef_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_greptime_v1_region_RegionColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionColumnDef_descriptor,

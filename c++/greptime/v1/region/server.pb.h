@@ -138,6 +138,9 @@ extern RegionResponse_ExtensionEntry_DoNotUseDefaultTypeInternal _RegionResponse
 class Regular;
 struct RegularDefaultTypeInternal;
 extern RegularDefaultTypeInternal _Regular_default_instance_;
+class Remote;
+struct RemoteDefaultTypeInternal;
+extern RemoteDefaultTypeInternal _Remote_default_instance_;
 class StrictWindow;
 struct StrictWindowDefaultTypeInternal;
 extern StrictWindowDefaultTypeInternal _StrictWindow_default_instance_;
@@ -176,6 +179,7 @@ template<> ::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNot
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::Regular* Arena::CreateMaybeMessage<::greptime::v1::region::Regular>(Arena*);
+template<> ::greptime::v1::region::Remote* Arena::CreateMaybeMessage<::greptime::v1::region::Remote>(Arena*);
 template<> ::greptime::v1::region::StrictWindow* Arena::CreateMaybeMessage<::greptime::v1::region::StrictWindow>(Arena*);
 template<> ::greptime::v1::region::TruncateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::TruncateRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -4502,6 +4506,124 @@ class StrictWindow final :
 };
 // -------------------------------------------------------------------
 
+class Remote final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:greptime.v1.region.Remote) */ {
+ public:
+  inline Remote() : Remote(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR Remote(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Remote(const Remote& from);
+  Remote(Remote&& from) noexcept
+    : Remote() {
+    *this = ::std::move(from);
+  }
+
+  inline Remote& operator=(const Remote& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Remote& operator=(Remote&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Remote& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Remote* internal_default_instance() {
+    return reinterpret_cast<const Remote*>(
+               &_Remote_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    27;
+
+  friend void swap(Remote& a, Remote& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Remote* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Remote* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Remote* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Remote>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const Remote& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const Remote& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.Remote";
+  }
+  protected:
+  explicit Remote(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.Remote)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CompactRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CompactRequest) */ {
  public:
@@ -4548,6 +4670,7 @@ class CompactRequest final :
   enum OptionsCase {
     kRegular = 2,
     kStrictWindow = 3,
+    kRemote = 4,
     OPTIONS_NOT_SET = 0,
   };
 
@@ -4556,7 +4679,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -4632,6 +4755,7 @@ class CompactRequest final :
     kRegionIdFieldNumber = 1,
     kRegularFieldNumber = 2,
     kStrictWindowFieldNumber = 3,
+    kRemoteFieldNumber = 4,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -4678,6 +4802,24 @@ class CompactRequest final :
       ::greptime::v1::region::StrictWindow* strict_window);
   ::greptime::v1::region::StrictWindow* unsafe_arena_release_strict_window();
 
+  // .greptime.v1.region.Remote remote = 4;
+  bool has_remote() const;
+  private:
+  bool _internal_has_remote() const;
+  public:
+  void clear_remote();
+  const ::greptime::v1::region::Remote& remote() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::Remote* release_remote();
+  ::greptime::v1::region::Remote* mutable_remote();
+  void set_allocated_remote(::greptime::v1::region::Remote* remote);
+  private:
+  const ::greptime::v1::region::Remote& _internal_remote() const;
+  ::greptime::v1::region::Remote* _internal_mutable_remote();
+  public:
+  void unsafe_arena_set_allocated_remote(
+      ::greptime::v1::region::Remote* remote);
+  ::greptime::v1::region::Remote* unsafe_arena_release_remote();
+
   void clear_options();
   OptionsCase options_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.CompactRequest)
@@ -4685,6 +4827,7 @@ class CompactRequest final :
   class _Internal;
   void set_has_regular();
   void set_has_strict_window();
+  void set_has_remote();
 
   inline bool has_options() const;
   inline void clear_has_options();
@@ -4699,6 +4842,7 @@ class CompactRequest final :
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::region::Regular* regular_;
       ::greptime::v1::region::StrictWindow* strict_window_;
+      ::greptime::v1::region::Remote* remote_;
     } options_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -4757,7 +4901,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -4905,7 +5049,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -8094,6 +8238,10 @@ inline void StrictWindow::set_window_seconds(int64_t value) {
 
 // -------------------------------------------------------------------
 
+// Remote
+
+// -------------------------------------------------------------------
+
 // CompactRequest
 
 // uint64 region_id = 1;
@@ -8264,6 +8412,80 @@ inline ::greptime::v1::region::StrictWindow* CompactRequest::mutable_strict_wind
   return _msg;
 }
 
+// .greptime.v1.region.Remote remote = 4;
+inline bool CompactRequest::_internal_has_remote() const {
+  return options_case() == kRemote;
+}
+inline bool CompactRequest::has_remote() const {
+  return _internal_has_remote();
+}
+inline void CompactRequest::set_has_remote() {
+  _impl_._oneof_case_[0] = kRemote;
+}
+inline void CompactRequest::clear_remote() {
+  if (_internal_has_remote()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.options_.remote_;
+    }
+    clear_has_options();
+  }
+}
+inline ::greptime::v1::region::Remote* CompactRequest::release_remote() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CompactRequest.remote)
+  if (_internal_has_remote()) {
+    clear_has_options();
+    ::greptime::v1::region::Remote* temp = _impl_.options_.remote_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.options_.remote_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::Remote& CompactRequest::_internal_remote() const {
+  return _internal_has_remote()
+      ? *_impl_.options_.remote_
+      : reinterpret_cast< ::greptime::v1::region::Remote&>(::greptime::v1::region::_Remote_default_instance_);
+}
+inline const ::greptime::v1::region::Remote& CompactRequest::remote() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CompactRequest.remote)
+  return _internal_remote();
+}
+inline ::greptime::v1::region::Remote* CompactRequest::unsafe_arena_release_remote() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.CompactRequest.remote)
+  if (_internal_has_remote()) {
+    clear_has_options();
+    ::greptime::v1::region::Remote* temp = _impl_.options_.remote_;
+    _impl_.options_.remote_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CompactRequest::unsafe_arena_set_allocated_remote(::greptime::v1::region::Remote* remote) {
+  clear_options();
+  if (remote) {
+    set_has_remote();
+    _impl_.options_.remote_ = remote;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.CompactRequest.remote)
+}
+inline ::greptime::v1::region::Remote* CompactRequest::_internal_mutable_remote() {
+  if (!_internal_has_remote()) {
+    clear_options();
+    set_has_remote();
+    _impl_.options_.remote_ = CreateMaybeMessage< ::greptime::v1::region::Remote >(GetArenaForAllocation());
+  }
+  return _impl_.options_.remote_;
+}
+inline ::greptime::v1::region::Remote* CompactRequest::mutable_remote() {
+  ::greptime::v1::region::Remote* _msg = _internal_mutable_remote();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CompactRequest.remote)
+  return _msg;
+}
+
 inline bool CompactRequest::has_options() const {
   return options_case() != OPTIONS_NOT_SET;
 }
@@ -8409,6 +8631,8 @@ inline void RegionColumnDef::set_column_id(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

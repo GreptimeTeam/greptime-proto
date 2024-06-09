@@ -387,6 +387,17 @@ struct StrictWindowDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StrictWindowDefaultTypeInternal _StrictWindow_default_instance_;
+PROTOBUF_CONSTEXPR Remote::Remote(
+    ::_pbi::ConstantInitialized) {}
+struct RemoteDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RemoteDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RemoteDefaultTypeInternal() {}
+  union {
+    Remote _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RemoteDefaultTypeInternal _Remote_default_instance_;
 PROTOBUF_CONSTEXPR CompactRequest::CompactRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.region_id_)*/uint64_t{0u}
@@ -432,7 +443,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace region
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[30];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[31];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2fregion_2fserver_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fregion_2fserver_2eproto = nullptr;
 
@@ -674,12 +685,19 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets[] PR
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::StrictWindow, _impl_.window_seconds_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::Remote, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::CompactRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::CompactRequest, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::CompactRequest, _impl_.region_id_),
+  ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::CompactRequest, _impl_.options_),
@@ -727,9 +745,10 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 216, -1, -1, sizeof(::greptime::v1::region::FlushRequest)},
   { 223, -1, -1, sizeof(::greptime::v1::region::Regular)},
   { 229, -1, -1, sizeof(::greptime::v1::region::StrictWindow)},
-  { 236, -1, -1, sizeof(::greptime::v1::region::CompactRequest)},
-  { 246, -1, -1, sizeof(::greptime::v1::region::TruncateRequest)},
-  { 253, -1, -1, sizeof(::greptime::v1::region::RegionColumnDef)},
+  { 236, -1, -1, sizeof(::greptime::v1::region::Remote)},
+  { 242, -1, -1, sizeof(::greptime::v1::region::CompactRequest)},
+  { 253, -1, -1, sizeof(::greptime::v1::region::TruncateRequest)},
+  { 260, -1, -1, sizeof(::greptime::v1::region::RegionColumnDef)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -760,6 +779,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::region::_FlushRequest_default_instance_._instance,
   &::greptime::v1::region::_Regular_default_instance_._instance,
   &::greptime::v1::region::_StrictWindow_default_instance_._instance,
+  &::greptime::v1::region::_Remote_default_instance_._instance,
   &::greptime::v1::region::_CompactRequest_default_instance_._instance,
   &::greptime::v1::region::_TruncateRequest_default_instance_._instance,
   &::greptime::v1::region::_RegionColumnDef_default_instance_._instance,
@@ -842,18 +862,20 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "cation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Fl"
   "ushRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular"
   "\"&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003"
-  "\"\231\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022."
-  "\n\007regular\030\002 \001(\0132\033.greptime.v1.region.Reg"
-  "ularH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime"
-  ".v1.region.StrictWindowH\000B\t\n\007options\"$\n\017"
-  "TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Re"
-  "gionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.grep"
-  "time.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006"
-  "Region\022O\n\006Handle\022!.greptime.v1.region.Re"
-  "gionRequest\032\".greptime.v1.region.RegionR"
-  "esponseB]\n\025io.greptime.v1.regionB\006Server"
-  "Z<github.com/GreptimeTeam/greptime-proto"
-  "/go/greptime/v1/regionb\006proto3"
+  "\"\010\n\006Remote\"\307\001\n\016CompactRequest\022\021\n\tregion_"
+  "id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.greptime.v1."
+  "region.RegularH\000\0229\n\rstrict_window\030\003 \001(\0132"
+  " .greptime.v1.region.StrictWindowH\000\022,\n\006r"
+  "emote\030\004 \001(\0132\032.greptime.v1.region.RemoteH"
+  "\000B\t\n\007options\"$\n\017TruncateRequest\022\021\n\tregio"
+  "n_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_"
+  "def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcol"
+  "umn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.grept"
+  "ime.v1.region.RegionRequest\032\".greptime.v"
+  "1.region.RegionResponseB]\n\025io.greptime.v"
+  "1.regionB\006ServerZ<github.com/GreptimeTea"
+  "m/greptime-proto/go/greptime/v1/regionb\006"
+  "proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -862,9 +884,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 3510, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 3566, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
-    &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 3, 30,
+    &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 3, 31,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto, file_level_enum_descriptors_greptime_2fv1_2fregion_2fserver_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fregion_2fserver_2eproto,
@@ -6965,10 +6987,51 @@ void StrictWindow::InternalSwap(StrictWindow* other) {
 
 // ===================================================================
 
+class Remote::_Internal {
+ public:
+};
+
+Remote::Remote(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.region.Remote)
+}
+Remote::Remote(const Remote& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  Remote* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.region.Remote)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Remote::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Remote::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata Remote::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[27]);
+}
+
+// ===================================================================
+
 class CompactRequest::_Internal {
  public:
   static const ::greptime::v1::region::Regular& regular(const CompactRequest* msg);
   static const ::greptime::v1::region::StrictWindow& strict_window(const CompactRequest* msg);
+  static const ::greptime::v1::region::Remote& remote(const CompactRequest* msg);
 };
 
 const ::greptime::v1::region::Regular&
@@ -6978,6 +7041,10 @@ CompactRequest::_Internal::regular(const CompactRequest* msg) {
 const ::greptime::v1::region::StrictWindow&
 CompactRequest::_Internal::strict_window(const CompactRequest* msg) {
   return *msg->_impl_.options_.strict_window_;
+}
+const ::greptime::v1::region::Remote&
+CompactRequest::_Internal::remote(const CompactRequest* msg) {
+  return *msg->_impl_.options_.remote_;
 }
 void CompactRequest::set_allocated_regular(::greptime::v1::region::Regular* regular) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -7009,6 +7076,21 @@ void CompactRequest::set_allocated_strict_window(::greptime::v1::region::StrictW
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CompactRequest.strict_window)
 }
+void CompactRequest::set_allocated_remote(::greptime::v1::region::Remote* remote) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_options();
+  if (remote) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(remote);
+    if (message_arena != submessage_arena) {
+      remote = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, remote, submessage_arena);
+    }
+    set_has_remote();
+    _impl_.options_.remote_ = remote;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CompactRequest.remote)
+}
 CompactRequest::CompactRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -7036,6 +7118,11 @@ CompactRequest::CompactRequest(const CompactRequest& from)
     case kStrictWindow: {
       _this->_internal_mutable_strict_window()->::greptime::v1::region::StrictWindow::MergeFrom(
           from._internal_strict_window());
+      break;
+    }
+    case kRemote: {
+      _this->_internal_mutable_remote()->::greptime::v1::region::Remote::MergeFrom(
+          from._internal_remote());
       break;
     }
     case OPTIONS_NOT_SET: {
@@ -7093,6 +7180,12 @@ void CompactRequest::clear_options() {
       }
       break;
     }
+    case kRemote: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.options_.remote_;
+      }
+      break;
+    }
     case OPTIONS_NOT_SET: {
       break;
     }
@@ -7138,6 +7231,14 @@ const char* CompactRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_strict_window(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.region.Remote remote = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_remote(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -7191,6 +7292,13 @@ uint8_t* CompactRequest::_InternalSerialize(
         _Internal::strict_window(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.region.Remote remote = 4;
+  if (_internal_has_remote()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::remote(this),
+        _Internal::remote(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -7225,6 +7333,13 @@ size_t CompactRequest::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *_impl_.options_.strict_window_);
+      break;
+    }
+    // .greptime.v1.region.Remote remote = 4;
+    case kRemote: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.options_.remote_);
       break;
     }
     case OPTIONS_NOT_SET: {
@@ -7263,6 +7378,11 @@ void CompactRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
           from._internal_strict_window());
       break;
     }
+    case kRemote: {
+      _this->_internal_mutable_remote()->::greptime::v1::region::Remote::MergeFrom(
+          from._internal_remote());
+      break;
+    }
     case OPTIONS_NOT_SET: {
       break;
     }
@@ -7292,7 +7412,7 @@ void CompactRequest::InternalSwap(CompactRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CompactRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[27]);
+      file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[28]);
 }
 
 // ===================================================================
@@ -7470,7 +7590,7 @@ void TruncateRequest::InternalSwap(TruncateRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata TruncateRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[28]);
+      file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[29]);
 }
 
 // ===================================================================
@@ -7700,7 +7820,7 @@ void RegionColumnDef::InternalSwap(RegionColumnDef* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata RegionColumnDef::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[29]);
+      file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[30]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -7815,6 +7935,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::region::Regular >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::region::StrictWindow*
 Arena::CreateMaybeMessage< ::greptime::v1::region::StrictWindow >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::region::StrictWindow >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::region::Remote*
+Arena::CreateMaybeMessage< ::greptime::v1::region::Remote >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::region::Remote >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::region::CompactRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::region::CompactRequest >(Arena* arena) {
