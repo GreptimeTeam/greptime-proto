@@ -95,12 +95,13 @@ namespace meta {
 enum Role : int {
   DATANODE = 0,
   FRONTEND = 1,
+  FLOWNODE = 2,
   Role_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   Role_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool Role_IsValid(int value);
 constexpr Role Role_MIN = DATANODE;
-constexpr Role Role_MAX = FRONTEND;
+constexpr Role Role_MAX = FLOWNODE;
 constexpr int Role_ARRAYSIZE = Role_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Role_descriptor();

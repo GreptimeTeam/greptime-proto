@@ -251,14 +251,14 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto[] PRO
   "\t\"L\n\014TimeInterval\022\036\n\026start_timestamp_mil"
   "lis\030\001 \001(\003\022\034\n\024end_timestamp_millis\030\002 \001(\003\""
   "&\n\010KeyValue\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\""
-  "\032\n\013ProcedureId\022\013\n\003key\030\001 \001(\014*\"\n\004Role\022\014\n\010D"
-  "ATANODE\020\000\022\014\n\010FRONTEND\020\001B<Z:github.com/Gr"
-  "eptimeTeam/greptime-proto/go/greptime/v1"
-  "/metab\006proto3"
+  "\032\n\013ProcedureId\022\013\n\003key\030\001 \001(\014*0\n\004Role\022\014\n\010D"
+  "ATANODE\020\000\022\014\n\010FRONTEND\020\001\022\014\n\010FLOWNODE\020\002B<Z"
+  ":github.com/GreptimeTeam/greptime-proto/"
+  "go/greptime/v1/metab\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto = {
-    false, false, 733, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto,
+    false, false, 747, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto,
     "greptime/v1/meta/common.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once, nullptr, 0, 8,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto::offsets,
@@ -282,6 +282,7 @@ bool Role_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 2:
       return true;
     default:
       return false;

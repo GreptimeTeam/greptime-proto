@@ -706,7 +706,6 @@ class RegionStat final :
     kRcusFieldNumber = 2,
     kWcusFieldNumber = 3,
     kApproximateBytesFieldNumber = 4,
-    kApproximateRowsFieldNumber = 5,
     kRoleFieldNumber = 7,
   };
   // string engine = 6;
@@ -759,15 +758,6 @@ class RegionStat final :
   void _internal_set_approximate_bytes(int64_t value);
   public:
 
-  // int64 approximate_rows = 5;
-  void clear_approximate_rows();
-  int64_t approximate_rows() const;
-  void set_approximate_rows(int64_t value);
-  private:
-  int64_t _internal_approximate_rows() const;
-  void _internal_set_approximate_rows(int64_t value);
-  public:
-
   // .greptime.v1.meta.RegionRole role = 7;
   void clear_role();
   ::greptime::v1::meta::RegionRole role() const;
@@ -790,7 +780,6 @@ class RegionStat final :
     int64_t rcus_;
     int64_t wcus_;
     int64_t approximate_bytes_;
-    int64_t approximate_rows_;
     int role_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2667,26 +2656,6 @@ inline void RegionStat::_internal_set_approximate_bytes(int64_t value) {
 inline void RegionStat::set_approximate_bytes(int64_t value) {
   _internal_set_approximate_bytes(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.approximate_bytes)
-}
-
-// int64 approximate_rows = 5;
-inline void RegionStat::clear_approximate_rows() {
-  _impl_.approximate_rows_ = int64_t{0};
-}
-inline int64_t RegionStat::_internal_approximate_rows() const {
-  return _impl_.approximate_rows_;
-}
-inline int64_t RegionStat::approximate_rows() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionStat.approximate_rows)
-  return _internal_approximate_rows();
-}
-inline void RegionStat::_internal_set_approximate_rows(int64_t value) {
-  
-  _impl_.approximate_rows_ = value;
-}
-inline void RegionStat::set_approximate_rows(int64_t value) {
-  _internal_set_approximate_rows(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.approximate_rows)
 }
 
 // string engine = 6;
