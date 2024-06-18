@@ -73,8 +73,6 @@ message RegionStat {
   int64 wcus = 3;
   // Approximate bytes of this region
   int64 approximate_bytes = 4;
-  // Approximate number of rows in this region
-  int64 approximate_rows = 5;
   // Engine name
   string engine = 6;
   // Region role

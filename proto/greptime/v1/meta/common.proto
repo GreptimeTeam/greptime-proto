@@ -33,6 +33,7 @@ message RequestHeader {
 enum Role {
   DATANODE = 0;
   FRONTEND = 1;
+  FLOWNODE = 2;
 }
 
 message ResponseHeader {

@@ -27,6 +27,10 @@ public final class Common {
      * <code>FRONTEND = 1;</code>
      */
     FRONTEND(1),
+    /**
+     * <code>FLOWNODE = 2;</code>
+     */
+    FLOWNODE(2),
     UNRECOGNIZED(-1),
     ;
 
@@ -38,6 +42,10 @@ public final class Common {
      * <code>FRONTEND = 1;</code>
      */
     public static final int FRONTEND_VALUE = 1;
+    /**
+     * <code>FLOWNODE = 2;</code>
+     */
+    public static final int FLOWNODE_VALUE = 2;
 
 
     public final int getNumber() {
@@ -66,6 +74,7 @@ public final class Common {
       switch (value) {
         case 0: return DATANODE;
         case 1: return FRONTEND;
+        case 2: return FLOWNODE;
         default: return null;
       }
     }
@@ -5149,10 +5158,10 @@ java.lang.String defaultValue);
       "\t\"L\n\014TimeInterval\022\036\n\026start_timestamp_mil" +
       "lis\030\001 \001(\003\022\034\n\024end_timestamp_millis\030\002 \001(\003\"" +
       "&\n\010KeyValue\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\"" +
-      "\032\n\013ProcedureId\022\013\n\003key\030\001 \001(\014*\"\n\004Role\022\014\n\010D" +
-      "ATANODE\020\000\022\014\n\010FRONTEND\020\001B<Z:github.com/Gr" +
-      "eptimeTeam/greptime-proto/go/greptime/v1" +
-      "/metab\006proto3"
+      "\032\n\013ProcedureId\022\013\n\003key\030\001 \001(\014*0\n\004Role\022\014\n\010D" +
+      "ATANODE\020\000\022\014\n\010FRONTEND\020\001\022\014\n\010FLOWNODE\020\002B<Z" +
+      ":github.com/GreptimeTeam/greptime-proto/" +
+      "go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

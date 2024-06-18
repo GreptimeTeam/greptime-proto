@@ -3347,16 +3347,6 @@ public final class HeartbeatOuterClass {
 
     /**
      * <pre>
-     * Approximate number of rows in this region
-     * </pre>
-     *
-     * <code>int64 approximate_rows = 5;</code>
-     * @return The approximateRows.
-     */
-    long getApproximateRows();
-
-    /**
-     * <pre>
      * Engine name
      * </pre>
      *
@@ -3461,11 +3451,6 @@ public final class HeartbeatOuterClass {
               approximateBytes_ = input.readInt64();
               break;
             }
-            case 40: {
-
-              approximateRows_ = input.readInt64();
-              break;
-            }
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -3568,21 +3553,6 @@ public final class HeartbeatOuterClass {
       return approximateBytes_;
     }
 
-    public static final int APPROXIMATE_ROWS_FIELD_NUMBER = 5;
-    private long approximateRows_;
-    /**
-     * <pre>
-     * Approximate number of rows in this region
-     * </pre>
-     *
-     * <code>int64 approximate_rows = 5;</code>
-     * @return The approximateRows.
-     */
-    @java.lang.Override
-    public long getApproximateRows() {
-      return approximateRows_;
-    }
-
     public static final int ENGINE_FIELD_NUMBER = 6;
     private volatile java.lang.Object engine_;
     /**
@@ -3682,9 +3652,6 @@ public final class HeartbeatOuterClass {
       if (approximateBytes_ != 0L) {
         output.writeInt64(4, approximateBytes_);
       }
-      if (approximateRows_ != 0L) {
-        output.writeInt64(5, approximateRows_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, engine_);
       }
@@ -3716,10 +3683,6 @@ public final class HeartbeatOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, approximateBytes_);
       }
-      if (approximateRows_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, approximateRows_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(engine_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, engine_);
       }
@@ -3750,8 +3713,6 @@ public final class HeartbeatOuterClass {
           != other.getWcus()) return false;
       if (getApproximateBytes()
           != other.getApproximateBytes()) return false;
-      if (getApproximateRows()
-          != other.getApproximateRows()) return false;
       if (!getEngine()
           .equals(other.getEngine())) return false;
       if (role_ != other.role_) return false;
@@ -3778,9 +3739,6 @@ public final class HeartbeatOuterClass {
       hash = (37 * hash) + APPROXIMATE_BYTES_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getApproximateBytes());
-      hash = (37 * hash) + APPROXIMATE_ROWS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getApproximateRows());
       hash = (37 * hash) + ENGINE_FIELD_NUMBER;
       hash = (53 * hash) + getEngine().hashCode();
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
@@ -3926,8 +3884,6 @@ public final class HeartbeatOuterClass {
 
         approximateBytes_ = 0L;
 
-        approximateRows_ = 0L;
-
         engine_ = "";
 
         role_ = 0;
@@ -3962,7 +3918,6 @@ public final class HeartbeatOuterClass {
         result.rcus_ = rcus_;
         result.wcus_ = wcus_;
         result.approximateBytes_ = approximateBytes_;
-        result.approximateRows_ = approximateRows_;
         result.engine_ = engine_;
         result.role_ = role_;
         onBuilt();
@@ -4024,9 +3979,6 @@ public final class HeartbeatOuterClass {
         }
         if (other.getApproximateBytes() != 0L) {
           setApproximateBytes(other.getApproximateBytes());
-        }
-        if (other.getApproximateRows() != 0L) {
-          setApproximateRows(other.getApproximateRows());
         }
         if (!other.getEngine().isEmpty()) {
           engine_ = other.engine_;
@@ -4220,49 +4172,6 @@ public final class HeartbeatOuterClass {
       public Builder clearApproximateBytes() {
         
         approximateBytes_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long approximateRows_ ;
-      /**
-       * <pre>
-       * Approximate number of rows in this region
-       * </pre>
-       *
-       * <code>int64 approximate_rows = 5;</code>
-       * @return The approximateRows.
-       */
-      @java.lang.Override
-      public long getApproximateRows() {
-        return approximateRows_;
-      }
-      /**
-       * <pre>
-       * Approximate number of rows in this region
-       * </pre>
-       *
-       * <code>int64 approximate_rows = 5;</code>
-       * @param value The approximateRows to set.
-       * @return This builder for chaining.
-       */
-      public Builder setApproximateRows(long value) {
-        
-        approximateRows_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Approximate number of rows in this region
-       * </pre>
-       *
-       * <code>int64 approximate_rows = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearApproximateRows() {
-        
-        approximateRows_ = 0L;
         onChanged();
         return this;
       }
@@ -10128,37 +10037,36 @@ public final class HeartbeatOuterClass {
       "och\030\007 \001(\004\022(\n\004info\030\010 \001(\0132\032.greptime.v1.me" +
       "ta.NodeInfo\"F\n\010NodeInfo\022\017\n\007version\030\001 \001(\t" +
       "\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_time_ms\030\003 " +
-      "\001(\004\"\254\001\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n" +
+      "\001(\004\"\222\001\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n" +
       "\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate" +
-      "_bytes\030\004 \001(\003\022\030\n\020approximate_rows\030\005 \001(\003\022\016" +
-      "\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.greptime." +
-      "v1.meta.RegionRole\"\265\001\n\021HeartbeatResponse" +
-      "\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Resp" +
-      "onseHeader\0229\n\017mailbox_message\030\002 \001(\0132 .gr" +
-      "eptime.v1.meta.MailboxMessage\0223\n\014region_" +
-      "lease\030\003 \001(\0132\035.greptime.v1.meta.RegionLea" +
-      "se\"N\n\rGrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*" +
-      "\n\004role\030\002 \001(\0162\034.greptime.v1.meta.RegionRo" +
-      "le\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.gr" +
-      "eptime.v1.meta.GrantedRegion\022\034\n\024duration" +
-      "_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(" +
-      "\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n\020AskLe" +
-      "aderRequest\022/\n\006header\030\001 \001(\0132\037.greptime.v" +
-      "1.meta.RequestHeader\"m\n\021AskLeaderRespons" +
-      "e\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Res" +
-      "ponseHeader\022&\n\006leader\030\002 \001(\0132\026.greptime.v" +
-      "1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(" +
-      "\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004" +
-      " \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006" +
-      " \001(\tH\000B\t\n\007payload*&\n\nRegionRole\022\n\n\006Leade" +
-      "r\020\000\022\014\n\010Follower\020\0012\277\001\n\tHeartbeat\022Z\n\tHeart" +
-      "beat\022\".greptime.v1.meta.HeartbeatRequest" +
-      "\032#.greptime.v1.meta.HeartbeatResponse\"\000(" +
-      "\0010\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskL" +
-      "eaderRequest\032#.greptime.v1.meta.AskLeade" +
-      "rResponse\"\000B<Z:github.com/GreptimeTeam/g" +
-      "reptime-proto/go/greptime/v1/metab\006proto" +
-      "3"
+      "_bytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001" +
+      "(\0162\034.greptime.v1.meta.RegionRole\"\265\001\n\021Hea" +
+      "rtbeatResponse\0220\n\006header\030\001 \001(\0132 .greptim" +
+      "e.v1.meta.ResponseHeader\0229\n\017mailbox_mess" +
+      "age\030\002 \001(\0132 .greptime.v1.meta.MailboxMess" +
+      "age\0223\n\014region_lease\030\003 \001(\0132\035.greptime.v1." +
+      "meta.RegionLease\"N\n\rGrantedRegion\022\021\n\treg" +
+      "ion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1" +
+      ".meta.RegionRole\"\222\001\n\013RegionLease\0220\n\007regi" +
+      "ons\030\001 \003(\0132\037.greptime.v1.meta.GrantedRegi" +
+      "on\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rleas" +
+      "e_seconds\030\003 \001(\004\022\034\n\024closeable_region_ids\030" +
+      "\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(" +
+      "\0132\037.greptime.v1.meta.RequestHeader\"m\n\021As" +
+      "kLeaderResponse\0220\n\006header\030\001 \001(\0132 .grepti" +
+      "me.v1.meta.ResponseHeader\022&\n\006leader\030\002 \001(" +
+      "\0132\026.greptime.v1.meta.Peer\"|\n\016MailboxMess" +
+      "age\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from" +
+      "\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005" +
+      " \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegio" +
+      "nRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHear" +
+      "tbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta.He" +
+      "artbeatRequest\032#.greptime.v1.meta.Heartb" +
+      "eatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptim" +
+      "e.v1.meta.AskLeaderRequest\032#.greptime.v1" +
+      ".meta.AskLeaderResponse\"\000B<Z:github.com/" +
+      "GreptimeTeam/greptime-proto/go/greptime/" +
+      "v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10182,7 +10090,7 @@ public final class HeartbeatOuterClass {
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_descriptor,
-        new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "ApproximateRows", "Engine", "Role", });
+        new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "Engine", "Role", });
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
