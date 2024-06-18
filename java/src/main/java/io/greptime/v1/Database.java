@@ -49,21 +49,6 @@ public final class Database {
     io.greptime.v1.Database.InsertRequestsOrBuilder getInsertsOrBuilder();
 
     /**
-     * <code>.greptime.v1.QueryRequest query = 3;</code>
-     * @return Whether the query field is set.
-     */
-    boolean hasQuery();
-    /**
-     * <code>.greptime.v1.QueryRequest query = 3;</code>
-     * @return The query.
-     */
-    io.greptime.v1.Database.QueryRequest getQuery();
-    /**
-     * <code>.greptime.v1.QueryRequest query = 3;</code>
-     */
-    io.greptime.v1.Database.QueryRequestOrBuilder getQueryOrBuilder();
-
-    /**
      * <code>.greptime.v1.DdlRequest ddl = 4;</code>
      * @return Whether the ddl field is set.
      */
@@ -197,20 +182,6 @@ public final class Database {
               requestCase_ = 2;
               break;
             }
-            case 26: {
-              io.greptime.v1.Database.QueryRequest.Builder subBuilder = null;
-              if (requestCase_ == 3) {
-                subBuilder = ((io.greptime.v1.Database.QueryRequest) request_).toBuilder();
-              }
-              request_ =
-                  input.readMessage(io.greptime.v1.Database.QueryRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Database.QueryRequest) request_);
-                request_ = subBuilder.buildPartial();
-              }
-              requestCase_ = 3;
-              break;
-            }
             case 34: {
               io.greptime.v1.Ddl.DdlRequest.Builder subBuilder = null;
               if (requestCase_ == 4) {
@@ -307,7 +278,6 @@ public final class Database {
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       INSERTS(2),
-      QUERY(3),
       DDL(4),
       DELETES(5),
       ROW_INSERTS(6),
@@ -330,7 +300,6 @@ public final class Database {
       public static RequestCase forNumber(int value) {
         switch (value) {
           case 2: return INSERTS;
-          case 3: return QUERY;
           case 4: return DDL;
           case 5: return DELETES;
           case 6: return ROW_INSERTS;
@@ -405,37 +374,6 @@ public final class Database {
          return (io.greptime.v1.Database.InsertRequests) request_;
       }
       return io.greptime.v1.Database.InsertRequests.getDefaultInstance();
-    }
-
-    public static final int QUERY_FIELD_NUMBER = 3;
-    /**
-     * <code>.greptime.v1.QueryRequest query = 3;</code>
-     * @return Whether the query field is set.
-     */
-    @java.lang.Override
-    public boolean hasQuery() {
-      return requestCase_ == 3;
-    }
-    /**
-     * <code>.greptime.v1.QueryRequest query = 3;</code>
-     * @return The query.
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.QueryRequest getQuery() {
-      if (requestCase_ == 3) {
-         return (io.greptime.v1.Database.QueryRequest) request_;
-      }
-      return io.greptime.v1.Database.QueryRequest.getDefaultInstance();
-    }
-    /**
-     * <code>.greptime.v1.QueryRequest query = 3;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Database.QueryRequestOrBuilder getQueryOrBuilder() {
-      if (requestCase_ == 3) {
-         return (io.greptime.v1.Database.QueryRequest) request_;
-      }
-      return io.greptime.v1.Database.QueryRequest.getDefaultInstance();
     }
 
     public static final int DDL_FIELD_NUMBER = 4;
@@ -582,9 +520,6 @@ public final class Database {
       if (requestCase_ == 2) {
         output.writeMessage(2, (io.greptime.v1.Database.InsertRequests) request_);
       }
-      if (requestCase_ == 3) {
-        output.writeMessage(3, (io.greptime.v1.Database.QueryRequest) request_);
-      }
       if (requestCase_ == 4) {
         output.writeMessage(4, (io.greptime.v1.Ddl.DdlRequest) request_);
       }
@@ -613,10 +548,6 @@ public final class Database {
       if (requestCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (io.greptime.v1.Database.InsertRequests) request_);
-      }
-      if (requestCase_ == 3) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (io.greptime.v1.Database.QueryRequest) request_);
       }
       if (requestCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
@@ -660,10 +591,6 @@ public final class Database {
           if (!getInserts()
               .equals(other.getInserts())) return false;
           break;
-        case 3:
-          if (!getQuery()
-              .equals(other.getQuery())) return false;
-          break;
         case 4:
           if (!getDdl()
               .equals(other.getDdl())) return false;
@@ -702,10 +629,6 @@ public final class Database {
         case 2:
           hash = (37 * hash) + INSERTS_FIELD_NUMBER;
           hash = (53 * hash) + getInserts().hashCode();
-          break;
-        case 3:
-          hash = (37 * hash) + QUERY_FIELD_NUMBER;
-          hash = (53 * hash) + getQuery().hashCode();
           break;
         case 4:
           hash = (37 * hash) + DDL_FIELD_NUMBER;
@@ -905,13 +828,6 @@ public final class Database {
             result.request_ = insertsBuilder_.build();
           }
         }
-        if (requestCase_ == 3) {
-          if (queryBuilder_ == null) {
-            result.request_ = request_;
-          } else {
-            result.request_ = queryBuilder_.build();
-          }
-        }
         if (requestCase_ == 4) {
           if (ddlBuilder_ == null) {
             result.request_ = request_;
@@ -995,10 +911,6 @@ public final class Database {
         switch (other.getRequestCase()) {
           case INSERTS: {
             mergeInserts(other.getInserts());
-            break;
-          }
-          case QUERY: {
-            mergeQuery(other.getQuery());
             break;
           }
           case DDL: {
@@ -1324,148 +1236,6 @@ public final class Database {
         requestCase_ = 2;
         onChanged();;
         return insertsBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.QueryRequest, io.greptime.v1.Database.QueryRequest.Builder, io.greptime.v1.Database.QueryRequestOrBuilder> queryBuilder_;
-      /**
-       * <code>.greptime.v1.QueryRequest query = 3;</code>
-       * @return Whether the query field is set.
-       */
-      @java.lang.Override
-      public boolean hasQuery() {
-        return requestCase_ == 3;
-      }
-      /**
-       * <code>.greptime.v1.QueryRequest query = 3;</code>
-       * @return The query.
-       */
-      @java.lang.Override
-      public io.greptime.v1.Database.QueryRequest getQuery() {
-        if (queryBuilder_ == null) {
-          if (requestCase_ == 3) {
-            return (io.greptime.v1.Database.QueryRequest) request_;
-          }
-          return io.greptime.v1.Database.QueryRequest.getDefaultInstance();
-        } else {
-          if (requestCase_ == 3) {
-            return queryBuilder_.getMessage();
-          }
-          return io.greptime.v1.Database.QueryRequest.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.QueryRequest query = 3;</code>
-       */
-      public Builder setQuery(io.greptime.v1.Database.QueryRequest value) {
-        if (queryBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          request_ = value;
-          onChanged();
-        } else {
-          queryBuilder_.setMessage(value);
-        }
-        requestCase_ = 3;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.QueryRequest query = 3;</code>
-       */
-      public Builder setQuery(
-          io.greptime.v1.Database.QueryRequest.Builder builderForValue) {
-        if (queryBuilder_ == null) {
-          request_ = builderForValue.build();
-          onChanged();
-        } else {
-          queryBuilder_.setMessage(builderForValue.build());
-        }
-        requestCase_ = 3;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.QueryRequest query = 3;</code>
-       */
-      public Builder mergeQuery(io.greptime.v1.Database.QueryRequest value) {
-        if (queryBuilder_ == null) {
-          if (requestCase_ == 3 &&
-              request_ != io.greptime.v1.Database.QueryRequest.getDefaultInstance()) {
-            request_ = io.greptime.v1.Database.QueryRequest.newBuilder((io.greptime.v1.Database.QueryRequest) request_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            request_ = value;
-          }
-          onChanged();
-        } else {
-          if (requestCase_ == 3) {
-            queryBuilder_.mergeFrom(value);
-          } else {
-            queryBuilder_.setMessage(value);
-          }
-        }
-        requestCase_ = 3;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.QueryRequest query = 3;</code>
-       */
-      public Builder clearQuery() {
-        if (queryBuilder_ == null) {
-          if (requestCase_ == 3) {
-            requestCase_ = 0;
-            request_ = null;
-            onChanged();
-          }
-        } else {
-          if (requestCase_ == 3) {
-            requestCase_ = 0;
-            request_ = null;
-          }
-          queryBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.QueryRequest query = 3;</code>
-       */
-      public io.greptime.v1.Database.QueryRequest.Builder getQueryBuilder() {
-        return getQueryFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.QueryRequest query = 3;</code>
-       */
-      @java.lang.Override
-      public io.greptime.v1.Database.QueryRequestOrBuilder getQueryOrBuilder() {
-        if ((requestCase_ == 3) && (queryBuilder_ != null)) {
-          return queryBuilder_.getMessageOrBuilder();
-        } else {
-          if (requestCase_ == 3) {
-            return (io.greptime.v1.Database.QueryRequest) request_;
-          }
-          return io.greptime.v1.Database.QueryRequest.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.QueryRequest query = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Database.QueryRequest, io.greptime.v1.Database.QueryRequest.Builder, io.greptime.v1.Database.QueryRequestOrBuilder> 
-          getQueryFieldBuilder() {
-        if (queryBuilder_ == null) {
-          if (!(requestCase_ == 3)) {
-            request_ = io.greptime.v1.Database.QueryRequest.getDefaultInstance();
-          }
-          queryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Database.QueryRequest, io.greptime.v1.Database.QueryRequest.Builder, io.greptime.v1.Database.QueryRequestOrBuilder>(
-                  (io.greptime.v1.Database.QueryRequest) request_,
-                  getParentForChildren(),
-                  isClean());
-          request_ = null;
-        }
-        requestCase_ = 3;
-        onChanged();;
-        return queryBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -11340,44 +11110,42 @@ public final class Database {
       "1\032\025greptime/v1/ddl.proto\032\030greptime/v1/co" +
       "lumn.proto\032\025greptime/v1/row.proto\032\026grept" +
       "ime/v1/prom.proto\032\030greptime/v1/common.pr" +
-      "oto\"\352\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132" +
+      "oto\"\276\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132" +
       "\032.greptime.v1.RequestHeader\022.\n\007inserts\030\002" +
-      " \001(\0132\033.greptime.v1.InsertRequestsH\000\022*\n\005q" +
-      "uery\030\003 \001(\0132\031.greptime.v1.QueryRequestH\000\022" +
-      "&\n\003ddl\030\004 \001(\0132\027.greptime.v1.DdlRequestH\000\022" +
-      ".\n\007deletes\030\005 \001(\0132\033.greptime.v1.DeleteReq" +
-      "uestsH\000\0225\n\013row_inserts\030\006 \001(\0132\036.greptime." +
-      "v1.RowInsertRequestsH\000\0225\n\013row_deletes\030\007 " +
-      "\001(\0132\036.greptime.v1.RowDeleteRequestsH\000B\t\n" +
-      "\007request\"\177\n\020GreptimeResponse\022+\n\006header\030\001" +
-      " \001(\0132\033.greptime.v1.ResponseHeader\0222\n\raff" +
-      "ected_rows\030\002 \001(\0132\031.greptime.v1.AffectedR" +
-      "owsH\000B\n\n\010response\"w\n\014QueryRequest\022\r\n\003sql" +
-      "\030\001 \001(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020prom" +
-      "_range_query\030\003 \001(\0132\033.greptime.v1.PromRan" +
-      "geQueryH\000B\007\n\005query\"=\n\016InsertRequests\022+\n\007" +
-      "inserts\030\001 \003(\0132\032.greptime.v1.InsertReques" +
-      "t\"\\\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$" +
-      "\n\007columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\t" +
-      "row_count\030\004 \001(\r\"=\n\016DeleteRequests\022+\n\007del" +
-      "etes\030\001 \003(\0132\032.greptime.v1.DeleteRequest\"`" +
-      "\n\rDeleteRequest\022\022\n\ntable_name\030\001 \001(\t\022(\n\013k" +
-      "ey_columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n" +
-      "\trow_count\030\004 \001(\r\"C\n\021RowInsertRequests\022.\n" +
-      "\007inserts\030\001 \003(\0132\035.greptime.v1.RowInsertRe" +
-      "quest\"G\n\020RowInsertRequest\022\022\n\ntable_name\030" +
-      "\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C" +
-      "\n\021RowDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035.g" +
-      "reptime.v1.RowDeleteRequest\"G\n\020RowDelete" +
-      "Request\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(" +
-      "\0132\021.greptime.v1.Rows2\252\001\n\020GreptimeDatabas" +
-      "e\022E\n\006Handle\022\034.greptime.v1.GreptimeReques" +
-      "t\032\035.greptime.v1.GreptimeResponse\022O\n\016Hand" +
-      "leRequests\022\034.greptime.v1.GreptimeRequest" +
-      "\032\035.greptime.v1.GreptimeResponse(\001BQ\n\016io." +
-      "greptime.v1B\010DatabaseZ5github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
-      "oto3"
+      " \001(\0132\033.greptime.v1.InsertRequestsH\000\022&\n\003d" +
+      "dl\030\004 \001(\0132\027.greptime.v1.DdlRequestH\000\022.\n\007d" +
+      "eletes\030\005 \001(\0132\033.greptime.v1.DeleteRequest" +
+      "sH\000\0225\n\013row_inserts\030\006 \001(\0132\036.greptime.v1.R" +
+      "owInsertRequestsH\000\0225\n\013row_deletes\030\007 \001(\0132" +
+      "\036.greptime.v1.RowDeleteRequestsH\000B\t\n\007req" +
+      "uest\"\177\n\020GreptimeResponse\022+\n\006header\030\001 \001(\013" +
+      "2\033.greptime.v1.ResponseHeader\0222\n\raffecte" +
+      "d_rows\030\002 \001(\0132\031.greptime.v1.AffectedRowsH" +
+      "\000B\n\n\010response\"w\n\014QueryRequest\022\r\n\003sql\030\001 \001" +
+      "(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020prom_ran" +
+      "ge_query\030\003 \001(\0132\033.greptime.v1.PromRangeQu" +
+      "eryH\000B\007\n\005query\"=\n\016InsertRequests\022+\n\007inse" +
+      "rts\030\001 \003(\0132\032.greptime.v1.InsertRequest\"\\\n" +
+      "\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$\n\007co" +
+      "lumns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\trow_" +
+      "count\030\004 \001(\r\"=\n\016DeleteRequests\022+\n\007deletes" +
+      "\030\001 \003(\0132\032.greptime.v1.DeleteRequest\"`\n\rDe" +
+      "leteRequest\022\022\n\ntable_name\030\001 \001(\t\022(\n\013key_c" +
+      "olumns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\trow" +
+      "_count\030\004 \001(\r\"C\n\021RowInsertRequests\022.\n\007ins" +
+      "erts\030\001 \003(\0132\035.greptime.v1.RowInsertReques" +
+      "t\"G\n\020RowInsertRequest\022\022\n\ntable_name\030\001 \001(" +
+      "\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\021Ro" +
+      "wDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035.grept" +
+      "ime.v1.RowDeleteRequest\"G\n\020RowDeleteRequ" +
+      "est\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021." +
+      "greptime.v1.Rows2\252\001\n\020GreptimeDatabase\022E\n" +
+      "\006Handle\022\034.greptime.v1.GreptimeRequest\032\035." +
+      "greptime.v1.GreptimeResponse\022O\n\016HandleRe" +
+      "quests\022\034.greptime.v1.GreptimeRequest\032\035.g" +
+      "reptime.v1.GreptimeResponse(\001BQ\n\016io.grep" +
+      "time.v1B\010DatabaseZ5github.com/GreptimeTe" +
+      "am/greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11393,7 +11161,7 @@ public final class Database {
     internal_static_greptime_v1_GreptimeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_GreptimeRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Query", "Ddl", "Deletes", "RowInserts", "RowDeletes", "Request", });
+        new java.lang.String[] { "Header", "Inserts", "Ddl", "Deletes", "RowInserts", "RowDeletes", "Request", });
     internal_static_greptime_v1_GreptimeResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_GreptimeResponse_fieldAccessorTable = new
