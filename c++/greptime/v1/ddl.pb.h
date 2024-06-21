@@ -1194,11 +1194,12 @@ class CreateViewExpr final :
 
   enum : int {
     kTableNamesFieldNumber = 7,
+    kColumnsFieldNumber = 8,
     kCatalogNameFieldNumber = 1,
     kSchemaNameFieldNumber = 2,
     kViewNameFieldNumber = 3,
     kLogicalPlanFieldNumber = 4,
-    kDefinitionFieldNumber = 8,
+    kDefinitionFieldNumber = 9,
     kCreateIfNotExistsFieldNumber = 5,
     kOrReplaceFieldNumber = 6,
   };
@@ -1219,6 +1220,30 @@ class CreateViewExpr final :
   ::greptime::v1::TableName* add_table_names();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName >&
       table_names() const;
+
+  // repeated string columns = 8;
+  int columns_size() const;
+  private:
+  int _internal_columns_size() const;
+  public:
+  void clear_columns();
+  const std::string& columns(int index) const;
+  std::string* mutable_columns(int index);
+  void set_columns(int index, const std::string& value);
+  void set_columns(int index, std::string&& value);
+  void set_columns(int index, const char* value);
+  void set_columns(int index, const char* value, size_t size);
+  std::string* add_columns();
+  void add_columns(const std::string& value);
+  void add_columns(std::string&& value);
+  void add_columns(const char* value);
+  void add_columns(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& columns() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_columns();
+  private:
+  const std::string& _internal_columns(int index) const;
+  std::string* _internal_add_columns();
+  public:
 
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -1276,7 +1301,7 @@ class CreateViewExpr final :
   std::string* _internal_mutable_logical_plan();
   public:
 
-  // string definition = 8;
+  // string definition = 9;
   void clear_definition();
   const std::string& definition() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1317,6 +1342,7 @@ class CreateViewExpr final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName > table_names_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> columns_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr view_name_;
@@ -6581,7 +6607,82 @@ CreateViewExpr::table_names() const {
   return _impl_.table_names_;
 }
 
-// string definition = 8;
+// repeated string columns = 8;
+inline int CreateViewExpr::_internal_columns_size() const {
+  return _impl_.columns_.size();
+}
+inline int CreateViewExpr::columns_size() const {
+  return _internal_columns_size();
+}
+inline void CreateViewExpr::clear_columns() {
+  _impl_.columns_.Clear();
+}
+inline std::string* CreateViewExpr::add_columns() {
+  std::string* _s = _internal_add_columns();
+  // @@protoc_insertion_point(field_add_mutable:greptime.v1.CreateViewExpr.columns)
+  return _s;
+}
+inline const std::string& CreateViewExpr::_internal_columns(int index) const {
+  return _impl_.columns_.Get(index);
+}
+inline const std::string& CreateViewExpr::columns(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.columns)
+  return _internal_columns(index);
+}
+inline std::string* CreateViewExpr::mutable_columns(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateViewExpr.columns)
+  return _impl_.columns_.Mutable(index);
+}
+inline void CreateViewExpr::set_columns(int index, const std::string& value) {
+  _impl_.columns_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.columns)
+}
+inline void CreateViewExpr::set_columns(int index, std::string&& value) {
+  _impl_.columns_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.columns)
+}
+inline void CreateViewExpr::set_columns(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.columns_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:greptime.v1.CreateViewExpr.columns)
+}
+inline void CreateViewExpr::set_columns(int index, const char* value, size_t size) {
+  _impl_.columns_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:greptime.v1.CreateViewExpr.columns)
+}
+inline std::string* CreateViewExpr::_internal_add_columns() {
+  return _impl_.columns_.Add();
+}
+inline void CreateViewExpr::add_columns(const std::string& value) {
+  _impl_.columns_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.CreateViewExpr.columns)
+}
+inline void CreateViewExpr::add_columns(std::string&& value) {
+  _impl_.columns_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:greptime.v1.CreateViewExpr.columns)
+}
+inline void CreateViewExpr::add_columns(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.columns_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:greptime.v1.CreateViewExpr.columns)
+}
+inline void CreateViewExpr::add_columns(const char* value, size_t size) {
+  _impl_.columns_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:greptime.v1.CreateViewExpr.columns)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+CreateViewExpr::columns() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.CreateViewExpr.columns)
+  return _impl_.columns_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+CreateViewExpr::mutable_columns() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.CreateViewExpr.columns)
+  return &_impl_.columns_;
+}
+
+// string definition = 9;
 inline void CreateViewExpr::clear_definition() {
   _impl_.definition_.ClearToEmpty();
 }
