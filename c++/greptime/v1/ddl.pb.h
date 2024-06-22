@@ -1195,11 +1195,12 @@ class CreateViewExpr final :
   enum : int {
     kTableNamesFieldNumber = 7,
     kColumnsFieldNumber = 8,
+    kPlanColumnsFieldNumber = 9,
     kCatalogNameFieldNumber = 1,
     kSchemaNameFieldNumber = 2,
     kViewNameFieldNumber = 3,
     kLogicalPlanFieldNumber = 4,
-    kDefinitionFieldNumber = 9,
+    kDefinitionFieldNumber = 10,
     kCreateIfNotExistsFieldNumber = 5,
     kOrReplaceFieldNumber = 6,
   };
@@ -1243,6 +1244,30 @@ class CreateViewExpr final :
   private:
   const std::string& _internal_columns(int index) const;
   std::string* _internal_add_columns();
+  public:
+
+  // repeated string plan_columns = 9;
+  int plan_columns_size() const;
+  private:
+  int _internal_plan_columns_size() const;
+  public:
+  void clear_plan_columns();
+  const std::string& plan_columns(int index) const;
+  std::string* mutable_plan_columns(int index);
+  void set_plan_columns(int index, const std::string& value);
+  void set_plan_columns(int index, std::string&& value);
+  void set_plan_columns(int index, const char* value);
+  void set_plan_columns(int index, const char* value, size_t size);
+  std::string* add_plan_columns();
+  void add_plan_columns(const std::string& value);
+  void add_plan_columns(std::string&& value);
+  void add_plan_columns(const char* value);
+  void add_plan_columns(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& plan_columns() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_plan_columns();
+  private:
+  const std::string& _internal_plan_columns(int index) const;
+  std::string* _internal_add_plan_columns();
   public:
 
   // string catalog_name = 1;
@@ -1301,7 +1326,7 @@ class CreateViewExpr final :
   std::string* _internal_mutable_logical_plan();
   public:
 
-  // string definition = 9;
+  // string definition = 10;
   void clear_definition();
   const std::string& definition() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1343,6 +1368,7 @@ class CreateViewExpr final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TableName > table_names_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> columns_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> plan_columns_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr view_name_;
@@ -6662,7 +6688,82 @@ CreateViewExpr::mutable_columns() {
   return &_impl_.columns_;
 }
 
-// string definition = 9;
+// repeated string plan_columns = 9;
+inline int CreateViewExpr::_internal_plan_columns_size() const {
+  return _impl_.plan_columns_.size();
+}
+inline int CreateViewExpr::plan_columns_size() const {
+  return _internal_plan_columns_size();
+}
+inline void CreateViewExpr::clear_plan_columns() {
+  _impl_.plan_columns_.Clear();
+}
+inline std::string* CreateViewExpr::add_plan_columns() {
+  std::string* _s = _internal_add_plan_columns();
+  // @@protoc_insertion_point(field_add_mutable:greptime.v1.CreateViewExpr.plan_columns)
+  return _s;
+}
+inline const std::string& CreateViewExpr::_internal_plan_columns(int index) const {
+  return _impl_.plan_columns_.Get(index);
+}
+inline const std::string& CreateViewExpr::plan_columns(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateViewExpr.plan_columns)
+  return _internal_plan_columns(index);
+}
+inline std::string* CreateViewExpr::mutable_plan_columns(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateViewExpr.plan_columns)
+  return _impl_.plan_columns_.Mutable(index);
+}
+inline void CreateViewExpr::set_plan_columns(int index, const std::string& value) {
+  _impl_.plan_columns_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.plan_columns)
+}
+inline void CreateViewExpr::set_plan_columns(int index, std::string&& value) {
+  _impl_.plan_columns_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateViewExpr.plan_columns)
+}
+inline void CreateViewExpr::set_plan_columns(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.plan_columns_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:greptime.v1.CreateViewExpr.plan_columns)
+}
+inline void CreateViewExpr::set_plan_columns(int index, const char* value, size_t size) {
+  _impl_.plan_columns_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:greptime.v1.CreateViewExpr.plan_columns)
+}
+inline std::string* CreateViewExpr::_internal_add_plan_columns() {
+  return _impl_.plan_columns_.Add();
+}
+inline void CreateViewExpr::add_plan_columns(const std::string& value) {
+  _impl_.plan_columns_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.CreateViewExpr.plan_columns)
+}
+inline void CreateViewExpr::add_plan_columns(std::string&& value) {
+  _impl_.plan_columns_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:greptime.v1.CreateViewExpr.plan_columns)
+}
+inline void CreateViewExpr::add_plan_columns(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.plan_columns_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:greptime.v1.CreateViewExpr.plan_columns)
+}
+inline void CreateViewExpr::add_plan_columns(const char* value, size_t size) {
+  _impl_.plan_columns_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:greptime.v1.CreateViewExpr.plan_columns)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+CreateViewExpr::plan_columns() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.CreateViewExpr.plan_columns)
+  return _impl_.plan_columns_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+CreateViewExpr::mutable_plan_columns() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.CreateViewExpr.plan_columns)
+  return &_impl_.plan_columns_;
+}
+
+// string definition = 10;
 inline void CreateViewExpr::clear_definition() {
   _impl_.definition_.ClearToEmpty();
 }
