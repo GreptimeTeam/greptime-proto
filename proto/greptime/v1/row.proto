@@ -33,6 +33,16 @@ message ColumnSchema {
   SemanticType semantic_type = 3;
   // Extension for ColumnDataType.
   ColumnDataTypeExtension datatype_extension = 4;
+
+  ColumnOptions options = 5;
+}
+
+message ColumnOptions {
+  IndexType index_type = 1;
+}
+
+enum IndexType {
+  INVERTED = 0;
 }
 
 message Row { repeated Value values = 1; }

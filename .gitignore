@@ -18,3 +18,4 @@ Cargo.lock
 
 # ccls cache dir
 .ccls-cache/
+java/target/
