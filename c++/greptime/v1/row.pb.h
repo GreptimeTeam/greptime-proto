@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/common.pb.h"
 // @@protoc_insertion_point(includes)
@@ -47,15 +50,12 @@ struct TableStruct_greptime_2fv1_2frow_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto;
 namespace greptime {
 namespace v1 {
-class ColumnOptions;
-struct ColumnOptionsDefaultTypeInternal;
-extern ColumnOptionsDefaultTypeInternal _ColumnOptions_default_instance_;
 class ColumnSchema;
 struct ColumnSchemaDefaultTypeInternal;
 extern ColumnSchemaDefaultTypeInternal _ColumnSchema_default_instance_;
-class FulltextOptions;
-struct FulltextOptionsDefaultTypeInternal;
-extern FulltextOptionsDefaultTypeInternal _FulltextOptions_default_instance_;
+class ColumnSchema_OptionsEntry_DoNotUse;
+struct ColumnSchema_OptionsEntry_DoNotUseDefaultTypeInternal;
+extern ColumnSchema_OptionsEntry_DoNotUseDefaultTypeInternal _ColumnSchema_OptionsEntry_DoNotUse_default_instance_;
 class Row;
 struct RowDefaultTypeInternal;
 extern RowDefaultTypeInternal _Row_default_instance_;
@@ -68,9 +68,8 @@ extern ValueDefaultTypeInternal _Value_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
-template<> ::greptime::v1::ColumnOptions* Arena::CreateMaybeMessage<::greptime::v1::ColumnOptions>(Arena*);
 template<> ::greptime::v1::ColumnSchema* Arena::CreateMaybeMessage<::greptime::v1::ColumnSchema>(Arena*);
-template<> ::greptime::v1::FulltextOptions* Arena::CreateMaybeMessage<::greptime::v1::FulltextOptions>(Arena*);
+template<> ::greptime::v1::ColumnSchema_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::ColumnSchema_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::Row* Arena::CreateMaybeMessage<::greptime::v1::Row>(Arena*);
 template<> ::greptime::v1::Rows* Arena::CreateMaybeMessage<::greptime::v1::Rows>(Arena*);
 template<> ::greptime::v1::Value* Arena::CreateMaybeMessage<::greptime::v1::Value>(Arena*);
@@ -257,6 +256,34 @@ class Rows final :
 };
 // -------------------------------------------------------------------
 
+class ColumnSchema_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ColumnSchema_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ColumnSchema_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  ColumnSchema_OptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR ColumnSchema_OptionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit ColumnSchema_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const ColumnSchema_OptionsEntry_DoNotUse& other);
+  static const ColumnSchema_OptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ColumnSchema_OptionsEntry_DoNotUse*>(&_ColumnSchema_OptionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.ColumnSchema.OptionsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.ColumnSchema.OptionsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class ColumnSchema final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ColumnSchema) */ {
  public:
@@ -305,7 +332,7 @@ class ColumnSchema final :
                &_ColumnSchema_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(ColumnSchema& a, ColumnSchema& b) {
     a.Swap(&b);
@@ -366,6 +393,8 @@ class ColumnSchema final :
   protected:
   explicit ColumnSchema(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -375,15 +404,33 @@ class ColumnSchema final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kOptionsFieldNumber = 5,
     kColumnNameFieldNumber = 1,
     kDatatypeExtensionFieldNumber = 4,
-    kOptionsFieldNumber = 5,
     kDatatypeFieldNumber = 2,
     kSemanticTypeFieldNumber = 3,
   };
+  // map<string, string> options = 5;
+  int options_size() const;
+  private:
+  int _internal_options_size() const;
+  public:
+  void clear_options();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_options();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_options();
+
   // string column_name = 1;
   void clear_column_name();
   const std::string& column_name() const;
@@ -416,24 +463,6 @@ class ColumnSchema final :
       ::greptime::v1::ColumnDataTypeExtension* datatype_extension);
   ::greptime::v1::ColumnDataTypeExtension* unsafe_arena_release_datatype_extension();
 
-  // .greptime.v1.ColumnOptions options = 5;
-  bool has_options() const;
-  private:
-  bool _internal_has_options() const;
-  public:
-  void clear_options();
-  const ::greptime::v1::ColumnOptions& options() const;
-  PROTOBUF_NODISCARD ::greptime::v1::ColumnOptions* release_options();
-  ::greptime::v1::ColumnOptions* mutable_options();
-  void set_allocated_options(::greptime::v1::ColumnOptions* options);
-  private:
-  const ::greptime::v1::ColumnOptions& _internal_options() const;
-  ::greptime::v1::ColumnOptions* _internal_mutable_options();
-  public:
-  void unsafe_arena_set_allocated_options(
-      ::greptime::v1::ColumnOptions* options);
-  ::greptime::v1::ColumnOptions* unsafe_arena_release_options();
-
   // .greptime.v1.ColumnDataType datatype = 2;
   void clear_datatype();
   ::greptime::v1::ColumnDataType datatype() const;
@@ -460,9 +489,13 @@ class ColumnSchema final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        ColumnSchema_OptionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
     ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
-    ::greptime::v1::ColumnOptions* options_;
     int datatype_;
     int semantic_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -520,7 +553,7 @@ class Row final :
                &_Row_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(Row& a, Row& b) {
     a.Swap(&b);
@@ -708,7 +741,7 @@ class Value final :
                &_Value_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Value& a, Value& b) {
     a.Swap(&b);
@@ -1258,338 +1291,6 @@ class Value final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
 };
-// -------------------------------------------------------------------
-
-class ColumnOptions final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ColumnOptions) */ {
- public:
-  inline ColumnOptions() : ColumnOptions(nullptr) {}
-  ~ColumnOptions() override;
-  explicit PROTOBUF_CONSTEXPR ColumnOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  ColumnOptions(const ColumnOptions& from);
-  ColumnOptions(ColumnOptions&& from) noexcept
-    : ColumnOptions() {
-    *this = ::std::move(from);
-  }
-
-  inline ColumnOptions& operator=(const ColumnOptions& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline ColumnOptions& operator=(ColumnOptions&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const ColumnOptions& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const ColumnOptions* internal_default_instance() {
-    return reinterpret_cast<const ColumnOptions*>(
-               &_ColumnOptions_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  friend void swap(ColumnOptions& a, ColumnOptions& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(ColumnOptions* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(ColumnOptions* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  ColumnOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<ColumnOptions>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const ColumnOptions& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const ColumnOptions& from) {
-    ColumnOptions::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(ColumnOptions* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.ColumnOptions";
-  }
-  protected:
-  explicit ColumnOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kFulltextFieldNumber = 1,
-  };
-  // .greptime.v1.FulltextOptions fulltext = 1;
-  bool has_fulltext() const;
-  private:
-  bool _internal_has_fulltext() const;
-  public:
-  void clear_fulltext();
-  const ::greptime::v1::FulltextOptions& fulltext() const;
-  PROTOBUF_NODISCARD ::greptime::v1::FulltextOptions* release_fulltext();
-  ::greptime::v1::FulltextOptions* mutable_fulltext();
-  void set_allocated_fulltext(::greptime::v1::FulltextOptions* fulltext);
-  private:
-  const ::greptime::v1::FulltextOptions& _internal_fulltext() const;
-  ::greptime::v1::FulltextOptions* _internal_mutable_fulltext();
-  public:
-  void unsafe_arena_set_allocated_fulltext(
-      ::greptime::v1::FulltextOptions* fulltext);
-  ::greptime::v1::FulltextOptions* unsafe_arena_release_fulltext();
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.ColumnOptions)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::greptime::v1::FulltextOptions* fulltext_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
-};
-// -------------------------------------------------------------------
-
-class FulltextOptions final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.FulltextOptions) */ {
- public:
-  inline FulltextOptions() : FulltextOptions(nullptr) {}
-  ~FulltextOptions() override;
-  explicit PROTOBUF_CONSTEXPR FulltextOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  FulltextOptions(const FulltextOptions& from);
-  FulltextOptions(FulltextOptions&& from) noexcept
-    : FulltextOptions() {
-    *this = ::std::move(from);
-  }
-
-  inline FulltextOptions& operator=(const FulltextOptions& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline FulltextOptions& operator=(FulltextOptions&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const FulltextOptions& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const FulltextOptions* internal_default_instance() {
-    return reinterpret_cast<const FulltextOptions*>(
-               &_FulltextOptions_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(FulltextOptions& a, FulltextOptions& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(FulltextOptions* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(FulltextOptions* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  FulltextOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<FulltextOptions>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const FulltextOptions& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const FulltextOptions& from) {
-    FulltextOptions::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(FulltextOptions* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.FulltextOptions";
-  }
-  protected:
-  explicit FulltextOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kAnalyzerFieldNumber = 2,
-    kEnableFieldNumber = 1,
-    kCaseSensitiveFieldNumber = 3,
-  };
-  // string analyzer = 2;
-  void clear_analyzer();
-  const std::string& analyzer() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_analyzer(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_analyzer();
-  PROTOBUF_NODISCARD std::string* release_analyzer();
-  void set_allocated_analyzer(std::string* analyzer);
-  private:
-  const std::string& _internal_analyzer() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_analyzer(const std::string& value);
-  std::string* _internal_mutable_analyzer();
-  public:
-
-  // bool enable = 1;
-  void clear_enable();
-  bool enable() const;
-  void set_enable(bool value);
-  private:
-  bool _internal_enable() const;
-  void _internal_set_enable(bool value);
-  public:
-
-  // bool case_sensitive = 3;
-  void clear_case_sensitive();
-  bool case_sensitive() const;
-  void set_case_sensitive(bool value);
-  private:
-  bool _internal_case_sensitive() const;
-  void _internal_set_case_sensitive(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.FulltextOptions)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr analyzer_;
-    bool enable_;
-    bool case_sensitive_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
-};
 // ===================================================================
 
 
@@ -1680,6 +1381,8 @@ Rows::rows() const {
   // @@protoc_insertion_point(field_list:greptime.v1.Rows.rows)
   return _impl_.rows_;
 }
+
+// -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
 
@@ -1860,94 +1563,33 @@ inline void ColumnSchema::set_allocated_datatype_extension(::greptime::v1::Colum
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnSchema.datatype_extension)
 }
 
-// .greptime.v1.ColumnOptions options = 5;
-inline bool ColumnSchema::_internal_has_options() const {
-  return this != internal_default_instance() && _impl_.options_ != nullptr;
+// map<string, string> options = 5;
+inline int ColumnSchema::_internal_options_size() const {
+  return _impl_.options_.size();
 }
-inline bool ColumnSchema::has_options() const {
-  return _internal_has_options();
+inline int ColumnSchema::options_size() const {
+  return _internal_options_size();
 }
 inline void ColumnSchema::clear_options() {
-  if (GetArenaForAllocation() == nullptr && _impl_.options_ != nullptr) {
-    delete _impl_.options_;
-  }
-  _impl_.options_ = nullptr;
+  _impl_.options_.Clear();
 }
-inline const ::greptime::v1::ColumnOptions& ColumnSchema::_internal_options() const {
-  const ::greptime::v1::ColumnOptions* p = _impl_.options_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ColumnOptions&>(
-      ::greptime::v1::_ColumnOptions_default_instance_);
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+ColumnSchema::_internal_options() const {
+  return _impl_.options_.GetMap();
 }
-inline const ::greptime::v1::ColumnOptions& ColumnSchema::options() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.ColumnSchema.options)
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+ColumnSchema::options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.ColumnSchema.options)
   return _internal_options();
 }
-inline void ColumnSchema::unsafe_arena_set_allocated_options(
-    ::greptime::v1::ColumnOptions* options) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.options_);
-  }
-  _impl_.options_ = options;
-  if (options) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ColumnSchema.options)
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+ColumnSchema::_internal_mutable_options() {
+  return _impl_.options_.MutableMap();
 }
-inline ::greptime::v1::ColumnOptions* ColumnSchema::release_options() {
-  
-  ::greptime::v1::ColumnOptions* temp = _impl_.options_;
-  _impl_.options_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::ColumnOptions* ColumnSchema::unsafe_arena_release_options() {
-  // @@protoc_insertion_point(field_release:greptime.v1.ColumnSchema.options)
-  
-  ::greptime::v1::ColumnOptions* temp = _impl_.options_;
-  _impl_.options_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::ColumnOptions* ColumnSchema::_internal_mutable_options() {
-  
-  if (_impl_.options_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::ColumnOptions>(GetArenaForAllocation());
-    _impl_.options_ = p;
-  }
-  return _impl_.options_;
-}
-inline ::greptime::v1::ColumnOptions* ColumnSchema::mutable_options() {
-  ::greptime::v1::ColumnOptions* _msg = _internal_mutable_options();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnSchema.options)
-  return _msg;
-}
-inline void ColumnSchema::set_allocated_options(::greptime::v1::ColumnOptions* options) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.options_;
-  }
-  if (options) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(options);
-    if (message_arena != submessage_arena) {
-      options = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, options, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.options_ = options;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnSchema.options)
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+ColumnSchema::mutable_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.ColumnSchema.options)
+  return _internal_mutable_options();
 }
 
 // -------------------------------------------------------------------
@@ -3167,199 +2809,9 @@ inline void Value::clear_has_value_data() {
 inline Value::ValueDataCase Value::value_data_case() const {
   return Value::ValueDataCase(_impl_._oneof_case_[0]);
 }
-// -------------------------------------------------------------------
-
-// ColumnOptions
-
-// .greptime.v1.FulltextOptions fulltext = 1;
-inline bool ColumnOptions::_internal_has_fulltext() const {
-  return this != internal_default_instance() && _impl_.fulltext_ != nullptr;
-}
-inline bool ColumnOptions::has_fulltext() const {
-  return _internal_has_fulltext();
-}
-inline void ColumnOptions::clear_fulltext() {
-  if (GetArenaForAllocation() == nullptr && _impl_.fulltext_ != nullptr) {
-    delete _impl_.fulltext_;
-  }
-  _impl_.fulltext_ = nullptr;
-}
-inline const ::greptime::v1::FulltextOptions& ColumnOptions::_internal_fulltext() const {
-  const ::greptime::v1::FulltextOptions* p = _impl_.fulltext_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::FulltextOptions&>(
-      ::greptime::v1::_FulltextOptions_default_instance_);
-}
-inline const ::greptime::v1::FulltextOptions& ColumnOptions::fulltext() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.ColumnOptions.fulltext)
-  return _internal_fulltext();
-}
-inline void ColumnOptions::unsafe_arena_set_allocated_fulltext(
-    ::greptime::v1::FulltextOptions* fulltext) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.fulltext_);
-  }
-  _impl_.fulltext_ = fulltext;
-  if (fulltext) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ColumnOptions.fulltext)
-}
-inline ::greptime::v1::FulltextOptions* ColumnOptions::release_fulltext() {
-  
-  ::greptime::v1::FulltextOptions* temp = _impl_.fulltext_;
-  _impl_.fulltext_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::FulltextOptions* ColumnOptions::unsafe_arena_release_fulltext() {
-  // @@protoc_insertion_point(field_release:greptime.v1.ColumnOptions.fulltext)
-  
-  ::greptime::v1::FulltextOptions* temp = _impl_.fulltext_;
-  _impl_.fulltext_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::FulltextOptions* ColumnOptions::_internal_mutable_fulltext() {
-  
-  if (_impl_.fulltext_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::FulltextOptions>(GetArenaForAllocation());
-    _impl_.fulltext_ = p;
-  }
-  return _impl_.fulltext_;
-}
-inline ::greptime::v1::FulltextOptions* ColumnOptions::mutable_fulltext() {
-  ::greptime::v1::FulltextOptions* _msg = _internal_mutable_fulltext();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnOptions.fulltext)
-  return _msg;
-}
-inline void ColumnOptions::set_allocated_fulltext(::greptime::v1::FulltextOptions* fulltext) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.fulltext_;
-  }
-  if (fulltext) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(fulltext);
-    if (message_arena != submessage_arena) {
-      fulltext = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, fulltext, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.fulltext_ = fulltext;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnOptions.fulltext)
-}
-
-// -------------------------------------------------------------------
-
-// FulltextOptions
-
-// bool enable = 1;
-inline void FulltextOptions::clear_enable() {
-  _impl_.enable_ = false;
-}
-inline bool FulltextOptions::_internal_enable() const {
-  return _impl_.enable_;
-}
-inline bool FulltextOptions::enable() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.FulltextOptions.enable)
-  return _internal_enable();
-}
-inline void FulltextOptions::_internal_set_enable(bool value) {
-  
-  _impl_.enable_ = value;
-}
-inline void FulltextOptions::set_enable(bool value) {
-  _internal_set_enable(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.FulltextOptions.enable)
-}
-
-// string analyzer = 2;
-inline void FulltextOptions::clear_analyzer() {
-  _impl_.analyzer_.ClearToEmpty();
-}
-inline const std::string& FulltextOptions::analyzer() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.FulltextOptions.analyzer)
-  return _internal_analyzer();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FulltextOptions::set_analyzer(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.analyzer_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.FulltextOptions.analyzer)
-}
-inline std::string* FulltextOptions::mutable_analyzer() {
-  std::string* _s = _internal_mutable_analyzer();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.FulltextOptions.analyzer)
-  return _s;
-}
-inline const std::string& FulltextOptions::_internal_analyzer() const {
-  return _impl_.analyzer_.Get();
-}
-inline void FulltextOptions::_internal_set_analyzer(const std::string& value) {
-  
-  _impl_.analyzer_.Set(value, GetArenaForAllocation());
-}
-inline std::string* FulltextOptions::_internal_mutable_analyzer() {
-  
-  return _impl_.analyzer_.Mutable(GetArenaForAllocation());
-}
-inline std::string* FulltextOptions::release_analyzer() {
-  // @@protoc_insertion_point(field_release:greptime.v1.FulltextOptions.analyzer)
-  return _impl_.analyzer_.Release();
-}
-inline void FulltextOptions::set_allocated_analyzer(std::string* analyzer) {
-  if (analyzer != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.analyzer_.SetAllocated(analyzer, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.analyzer_.IsDefault()) {
-    _impl_.analyzer_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.FulltextOptions.analyzer)
-}
-
-// bool case_sensitive = 3;
-inline void FulltextOptions::clear_case_sensitive() {
-  _impl_.case_sensitive_ = false;
-}
-inline bool FulltextOptions::_internal_case_sensitive() const {
-  return _impl_.case_sensitive_;
-}
-inline bool FulltextOptions::case_sensitive() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.FulltextOptions.case_sensitive)
-  return _internal_case_sensitive();
-}
-inline void FulltextOptions::_internal_set_case_sensitive(bool value) {
-  
-  _impl_.case_sensitive_ = value;
-}
-inline void FulltextOptions::set_case_sensitive(bool value) {
-  _internal_set_case_sensitive(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.FulltextOptions.case_sensitive)
-}
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
