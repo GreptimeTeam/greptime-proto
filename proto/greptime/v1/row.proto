@@ -31,8 +31,12 @@ message ColumnSchema {
   string column_name = 1;
   ColumnDataType datatype = 2;
   SemanticType semantic_type = 3;
+
   // Extension for ColumnDataType.
   ColumnDataTypeExtension datatype_extension = 4;
+
+  // Additional options for the column.
+  ColumnOptions options = 5;
 }
 
 message Row { repeated Value values = 1; }
@@ -71,4 +75,21 @@ message Value {
     IntervalMonthDayNano interval_month_day_nano_value = 26;
     Decimal128 decimal128_value = 31;
   }
+}
+
+message ColumnOptions {
+  // Options for fulltext.
+  FulltextOptions fulltext = 1;
+}
+
+message FulltextOptions {
+  // Indicates whether full-text search is enabled for the column.
+  bool enable = 1;
+
+  // The language-specific text analyzer to use for indexing and searching the text.
+  // Supported values are 'English' (Default) and 'Chinese'.
+  string analyzer = 2;
+
+  // Indicates whether the text should be treated as case sensitive during full-text search.
+  bool case_sensitive = 3;
 }
