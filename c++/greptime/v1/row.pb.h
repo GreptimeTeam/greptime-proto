@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/common.pb.h"
 // @@protoc_insertion_point(includes)
@@ -50,6 +53,9 @@ namespace v1 {
 class ColumnSchema;
 struct ColumnSchemaDefaultTypeInternal;
 extern ColumnSchemaDefaultTypeInternal _ColumnSchema_default_instance_;
+class ColumnSchema_OptionsEntry_DoNotUse;
+struct ColumnSchema_OptionsEntry_DoNotUseDefaultTypeInternal;
+extern ColumnSchema_OptionsEntry_DoNotUseDefaultTypeInternal _ColumnSchema_OptionsEntry_DoNotUse_default_instance_;
 class Row;
 struct RowDefaultTypeInternal;
 extern RowDefaultTypeInternal _Row_default_instance_;
@@ -63,6 +69,7 @@ extern ValueDefaultTypeInternal _Value_default_instance_;
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::ColumnSchema* Arena::CreateMaybeMessage<::greptime::v1::ColumnSchema>(Arena*);
+template<> ::greptime::v1::ColumnSchema_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::ColumnSchema_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::Row* Arena::CreateMaybeMessage<::greptime::v1::Row>(Arena*);
 template<> ::greptime::v1::Rows* Arena::CreateMaybeMessage<::greptime::v1::Rows>(Arena*);
 template<> ::greptime::v1::Value* Arena::CreateMaybeMessage<::greptime::v1::Value>(Arena*);
@@ -249,6 +256,34 @@ class Rows final :
 };
 // -------------------------------------------------------------------
 
+class ColumnSchema_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ColumnSchema_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ColumnSchema_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  ColumnSchema_OptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR ColumnSchema_OptionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit ColumnSchema_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const ColumnSchema_OptionsEntry_DoNotUse& other);
+  static const ColumnSchema_OptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ColumnSchema_OptionsEntry_DoNotUse*>(&_ColumnSchema_OptionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.ColumnSchema.OptionsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.ColumnSchema.OptionsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class ColumnSchema final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ColumnSchema) */ {
  public:
@@ -297,7 +332,7 @@ class ColumnSchema final :
                &_ColumnSchema_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(ColumnSchema& a, ColumnSchema& b) {
     a.Swap(&b);
@@ -358,6 +393,8 @@ class ColumnSchema final :
   protected:
   explicit ColumnSchema(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -367,14 +404,33 @@ class ColumnSchema final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kOptionsFieldNumber = 5,
     kColumnNameFieldNumber = 1,
     kDatatypeExtensionFieldNumber = 4,
     kDatatypeFieldNumber = 2,
     kSemanticTypeFieldNumber = 3,
   };
+  // map<string, string> options = 5;
+  int options_size() const;
+  private:
+  int _internal_options_size() const;
+  public:
+  void clear_options();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_options();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_options();
+
   // string column_name = 1;
   void clear_column_name();
   const std::string& column_name() const;
@@ -433,6 +489,11 @@ class ColumnSchema final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        ColumnSchema_OptionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
     ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
     int datatype_;
@@ -492,7 +553,7 @@ class Row final :
                &_Row_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(Row& a, Row& b) {
     a.Swap(&b);
@@ -680,7 +741,7 @@ class Value final :
                &_Value_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Value& a, Value& b) {
     a.Swap(&b);
@@ -1323,6 +1384,8 @@ Rows::rows() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // ColumnSchema
 
 // string column_name = 1;
@@ -1498,6 +1561,35 @@ inline void ColumnSchema::set_allocated_datatype_extension(::greptime::v1::Colum
   }
   _impl_.datatype_extension_ = datatype_extension;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnSchema.datatype_extension)
+}
+
+// map<string, string> options = 5;
+inline int ColumnSchema::_internal_options_size() const {
+  return _impl_.options_.size();
+}
+inline int ColumnSchema::options_size() const {
+  return _internal_options_size();
+}
+inline void ColumnSchema::clear_options() {
+  _impl_.options_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+ColumnSchema::_internal_options() const {
+  return _impl_.options_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+ColumnSchema::options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.ColumnSchema.options)
+  return _internal_options();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+ColumnSchema::_internal_mutable_options() {
+  return _impl_.options_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+ColumnSchema::mutable_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.ColumnSchema.options)
+  return _internal_mutable_options();
 }
 
 // -------------------------------------------------------------------
@@ -2720,6 +2812,8 @@ inline Value::ValueDataCase Value::value_data_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
