@@ -1255,6 +1255,7 @@ class CreateRequest final :
     kFlowIdFieldNumber = 1,
     kSinkTableNameFieldNumber = 3,
     kExpireAfterFieldNumber = 5,
+    kPartitionIdFieldNumber = 9,
     kCreateIfNotExistsFieldNumber = 4,
   };
   // repeated .greptime.v1.TableId source_table_ids = 2;
@@ -1374,6 +1375,24 @@ class CreateRequest final :
       ::greptime::v1::ExpireAfter* expire_after);
   ::greptime::v1::ExpireAfter* unsafe_arena_release_expire_after();
 
+  // .greptime.v1.FlowPartitionId partition_id = 9;
+  bool has_partition_id() const;
+  private:
+  bool _internal_has_partition_id() const;
+  public:
+  void clear_partition_id();
+  const ::greptime::v1::FlowPartitionId& partition_id() const;
+  PROTOBUF_NODISCARD ::greptime::v1::FlowPartitionId* release_partition_id();
+  ::greptime::v1::FlowPartitionId* mutable_partition_id();
+  void set_allocated_partition_id(::greptime::v1::FlowPartitionId* partition_id);
+  private:
+  const ::greptime::v1::FlowPartitionId& _internal_partition_id() const;
+  ::greptime::v1::FlowPartitionId* _internal_mutable_partition_id();
+  public:
+  void unsafe_arena_set_allocated_partition_id(
+      ::greptime::v1::FlowPartitionId* partition_id);
+  ::greptime::v1::FlowPartitionId* unsafe_arena_release_partition_id();
+
   // bool create_if_not_exists = 4;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
@@ -1402,6 +1421,7 @@ class CreateRequest final :
     ::greptime::v1::FlowId* flow_id_;
     ::greptime::v1::TableName* sink_table_name_;
     ::greptime::v1::ExpireAfter* expire_after_;
+    ::greptime::v1::FlowPartitionId* partition_id_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1532,6 +1552,7 @@ class DropRequest final :
 
   enum : int {
     kFlowIdFieldNumber = 1,
+    kPartitionIdFieldNumber = 2,
   };
   // .greptime.v1.FlowId flow_id = 1;
   bool has_flow_id() const;
@@ -1551,6 +1572,24 @@ class DropRequest final :
       ::greptime::v1::FlowId* flow_id);
   ::greptime::v1::FlowId* unsafe_arena_release_flow_id();
 
+  // .greptime.v1.FlowPartitionId partition_id = 2;
+  bool has_partition_id() const;
+  private:
+  bool _internal_has_partition_id() const;
+  public:
+  void clear_partition_id();
+  const ::greptime::v1::FlowPartitionId& partition_id() const;
+  PROTOBUF_NODISCARD ::greptime::v1::FlowPartitionId* release_partition_id();
+  ::greptime::v1::FlowPartitionId* mutable_partition_id();
+  void set_allocated_partition_id(::greptime::v1::FlowPartitionId* partition_id);
+  private:
+  const ::greptime::v1::FlowPartitionId& _internal_partition_id() const;
+  ::greptime::v1::FlowPartitionId* _internal_mutable_partition_id();
+  public:
+  void unsafe_arena_set_allocated_partition_id(
+      ::greptime::v1::FlowPartitionId* partition_id);
+  ::greptime::v1::FlowPartitionId* unsafe_arena_release_partition_id();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.flow.DropRequest)
  private:
   class _Internal;
@@ -1560,6 +1599,7 @@ class DropRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::FlowId* flow_id_;
+    ::greptime::v1::FlowPartitionId* partition_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2720,6 +2760,91 @@ CreateRequest::mutable_flow_options() {
   return _internal_mutable_flow_options();
 }
 
+// .greptime.v1.FlowPartitionId partition_id = 9;
+inline bool CreateRequest::_internal_has_partition_id() const {
+  return this != internal_default_instance() && _impl_.partition_id_ != nullptr;
+}
+inline bool CreateRequest::has_partition_id() const {
+  return _internal_has_partition_id();
+}
+inline const ::greptime::v1::FlowPartitionId& CreateRequest::_internal_partition_id() const {
+  const ::greptime::v1::FlowPartitionId* p = _impl_.partition_id_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::FlowPartitionId&>(
+      ::greptime::v1::_FlowPartitionId_default_instance_);
+}
+inline const ::greptime::v1::FlowPartitionId& CreateRequest::partition_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.partition_id)
+  return _internal_partition_id();
+}
+inline void CreateRequest::unsafe_arena_set_allocated_partition_id(
+    ::greptime::v1::FlowPartitionId* partition_id) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.partition_id_);
+  }
+  _impl_.partition_id_ = partition_id;
+  if (partition_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.CreateRequest.partition_id)
+}
+inline ::greptime::v1::FlowPartitionId* CreateRequest::release_partition_id() {
+  
+  ::greptime::v1::FlowPartitionId* temp = _impl_.partition_id_;
+  _impl_.partition_id_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::FlowPartitionId* CreateRequest::unsafe_arena_release_partition_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.partition_id)
+  
+  ::greptime::v1::FlowPartitionId* temp = _impl_.partition_id_;
+  _impl_.partition_id_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::FlowPartitionId* CreateRequest::_internal_mutable_partition_id() {
+  
+  if (_impl_.partition_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::FlowPartitionId>(GetArenaForAllocation());
+    _impl_.partition_id_ = p;
+  }
+  return _impl_.partition_id_;
+}
+inline ::greptime::v1::FlowPartitionId* CreateRequest::mutable_partition_id() {
+  ::greptime::v1::FlowPartitionId* _msg = _internal_mutable_partition_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.partition_id)
+  return _msg;
+}
+inline void CreateRequest::set_allocated_partition_id(::greptime::v1::FlowPartitionId* partition_id) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.partition_id_);
+  }
+  if (partition_id) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(partition_id));
+    if (message_arena != submessage_arena) {
+      partition_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, partition_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.partition_id_ = partition_id;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.partition_id)
+}
+
 // -------------------------------------------------------------------
 
 // DropRequest
@@ -2807,6 +2932,91 @@ inline void DropRequest::set_allocated_flow_id(::greptime::v1::FlowId* flow_id) 
   }
   _impl_.flow_id_ = flow_id;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.DropRequest.flow_id)
+}
+
+// .greptime.v1.FlowPartitionId partition_id = 2;
+inline bool DropRequest::_internal_has_partition_id() const {
+  return this != internal_default_instance() && _impl_.partition_id_ != nullptr;
+}
+inline bool DropRequest::has_partition_id() const {
+  return _internal_has_partition_id();
+}
+inline const ::greptime::v1::FlowPartitionId& DropRequest::_internal_partition_id() const {
+  const ::greptime::v1::FlowPartitionId* p = _impl_.partition_id_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::FlowPartitionId&>(
+      ::greptime::v1::_FlowPartitionId_default_instance_);
+}
+inline const ::greptime::v1::FlowPartitionId& DropRequest::partition_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.DropRequest.partition_id)
+  return _internal_partition_id();
+}
+inline void DropRequest::unsafe_arena_set_allocated_partition_id(
+    ::greptime::v1::FlowPartitionId* partition_id) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.partition_id_);
+  }
+  _impl_.partition_id_ = partition_id;
+  if (partition_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.DropRequest.partition_id)
+}
+inline ::greptime::v1::FlowPartitionId* DropRequest::release_partition_id() {
+  
+  ::greptime::v1::FlowPartitionId* temp = _impl_.partition_id_;
+  _impl_.partition_id_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::FlowPartitionId* DropRequest::unsafe_arena_release_partition_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.DropRequest.partition_id)
+  
+  ::greptime::v1::FlowPartitionId* temp = _impl_.partition_id_;
+  _impl_.partition_id_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::FlowPartitionId* DropRequest::_internal_mutable_partition_id() {
+  
+  if (_impl_.partition_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::FlowPartitionId>(GetArenaForAllocation());
+    _impl_.partition_id_ = p;
+  }
+  return _impl_.partition_id_;
+}
+inline ::greptime::v1::FlowPartitionId* DropRequest::mutable_partition_id() {
+  ::greptime::v1::FlowPartitionId* _msg = _internal_mutable_partition_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.DropRequest.partition_id)
+  return _msg;
+}
+inline void DropRequest::set_allocated_partition_id(::greptime::v1::FlowPartitionId* partition_id) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.partition_id_);
+  }
+  if (partition_id) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(partition_id));
+    if (message_arena != submessage_arena) {
+      partition_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, partition_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.partition_id_ = partition_id;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.DropRequest.partition_id)
 }
 
 #ifdef __GNUC__

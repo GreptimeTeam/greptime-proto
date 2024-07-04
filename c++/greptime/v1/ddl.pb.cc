@@ -367,6 +367,19 @@ struct FlowIdDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowIdDefaultTypeInternal _FlowId_default_instance_;
+PROTOBUF_CONSTEXPR FlowPartitionId::FlowPartitionId(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.id_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct FlowPartitionIdDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR FlowPartitionIdDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~FlowPartitionIdDefaultTypeInternal() {}
+  union {
+    FlowPartitionId _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowPartitionIdDefaultTypeInternal _FlowPartitionId_default_instance_;
 PROTOBUF_CONSTEXPR ColumnDef::ColumnDef(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -402,7 +415,7 @@ struct AddColumnLocationDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddColumnLocationDefaultTypeInternal _AddColumnLocation_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fddl_2eproto[25];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fddl_2eproto[26];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fddl_2eproto = nullptr;
 
@@ -641,6 +654,13 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::FlowId, _impl_.id_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::FlowPartitionId, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::FlowPartitionId, _impl_.id_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDef, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -686,8 +706,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 212, -1, -1, sizeof(::greptime::v1::DropColumn)},
   { 219, -1, -1, sizeof(::greptime::v1::TableId)},
   { 226, -1, -1, sizeof(::greptime::v1::FlowId)},
-  { 233, -1, -1, sizeof(::greptime::v1::ColumnDef)},
-  { 246, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
+  { 233, -1, -1, sizeof(::greptime::v1::FlowPartitionId)},
+  { 240, -1, -1, sizeof(::greptime::v1::ColumnDef)},
+  { 253, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -714,6 +735,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_DropColumn_default_instance_._instance,
   &::greptime::v1::_TableId_default_instance_._instance,
   &::greptime::v1::_FlowId_default_instance_._instance,
+  &::greptime::v1::_FlowPartitionId_default_instance_._instance,
   &::greptime::v1::_ColumnDef_default_instance_._instance,
   &::greptime::v1::_AddColumnLocation_default_instance_._instance,
 };
@@ -800,28 +822,29 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "type_extension\030\003 \001(\0132$.greptime.v1.Colum"
   "nDataTypeExtension\"\032\n\nDropColumn\022\014\n\004name"
   "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022"
-  "\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022"
-  ".\n\tdata_type\030\002 \001(\0162\033.greptime.v1.ColumnD"
-  "ataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_"
-  "constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162"
-  "\031.greptime.v1.SemanticType\022\017\n\007comment\030\006 "
-  "\001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grepti"
-  "me.v1.ColumnDataTypeExtension\"\230\001\n\021AddCol"
-  "umnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gre"
-  "ptime.v1.AddColumnLocation.LocationType\022"
-  "\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationTy"
-  "pe\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime."
-  "v1B\003DdlZ5github.com/GreptimeTeam/greptim"
-  "e-proto/go/greptime/v1b\006proto3"
+  "\n\n\002id\030\001 \001(\r\"\035\n\017FlowPartitionId\022\n\n\002id\030\001 \001"
+  "(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_t"
+  "ype\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023"
+  "\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constrain"
+  "t\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptim"
+  "e.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022da"
+  "tatype_extension\030\007 \001(\0132$.greptime.v1.Col"
+  "umnDataTypeExtension\"\230\001\n\021AddColumnLocati"
+  "on\022B\n\rlocation_type\030\001 \001(\0162+.greptime.v1."
+  "AddColumnLocation.LocationType\022\031\n\021after_"
+  "column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIR"
+  "ST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003DdlZ5"
+  "github.com/GreptimeTeam/greptime-proto/g"
+  "o/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 3750, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 3781, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
-    &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 25,
+    &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 26,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fddl_2eproto, file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fddl_2eproto,
@@ -7800,6 +7823,184 @@ void FlowId::InternalSwap(FlowId* other) {
 
 // ===================================================================
 
+class FlowPartitionId::_Internal {
+ public:
+};
+
+FlowPartitionId::FlowPartitionId(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.FlowPartitionId)
+}
+FlowPartitionId::FlowPartitionId(const FlowPartitionId& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  FlowPartitionId* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.id_ = from._impl_.id_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.FlowPartitionId)
+}
+
+inline void FlowPartitionId::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+FlowPartitionId::~FlowPartitionId() {
+  // @@protoc_insertion_point(destructor:greptime.v1.FlowPartitionId)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void FlowPartitionId::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void FlowPartitionId::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void FlowPartitionId::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.FlowPartitionId)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.id_ = 0u;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* FlowPartitionId::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* FlowPartitionId::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.FlowPartitionId)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 id = 1;
+  if (this->_internal_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.FlowPartitionId)
+  return target;
+}
+
+size_t FlowPartitionId::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.FlowPartitionId)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData FlowPartitionId::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    FlowPartitionId::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*FlowPartitionId::GetClassData() const { return &_class_data_; }
+
+
+void FlowPartitionId::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<FlowPartitionId*>(&to_msg);
+  auto& from = static_cast<const FlowPartitionId&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.FlowPartitionId)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_id() != 0) {
+    _this->_internal_set_id(from._internal_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void FlowPartitionId::CopyFrom(const FlowPartitionId& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.FlowPartitionId)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FlowPartitionId::IsInitialized() const {
+  return true;
+}
+
+void FlowPartitionId::InternalSwap(FlowPartitionId* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.id_, other->_impl_.id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FlowPartitionId::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[23]);
+}
+
+// ===================================================================
+
 class ColumnDef::_Internal {
  public:
   static const ::greptime::v1::ColumnDataTypeExtension& datatype_extension(const ColumnDef* msg);
@@ -8230,7 +8431,7 @@ void ColumnDef::InternalSwap(ColumnDef* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnDef::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[23]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[24]);
 }
 
 // ===================================================================
@@ -8463,7 +8664,7 @@ void AddColumnLocation::InternalSwap(AddColumnLocation* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AddColumnLocation::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[24]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[25]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -8561,6 +8762,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::TableId >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::FlowId*
 Arena::CreateMaybeMessage< ::greptime::v1::FlowId >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::FlowId >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::FlowPartitionId*
+Arena::CreateMaybeMessage< ::greptime::v1::FlowPartitionId >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::FlowPartitionId >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::ColumnDef*
 Arena::CreateMaybeMessage< ::greptime::v1::ColumnDef >(Arena* arena) {
