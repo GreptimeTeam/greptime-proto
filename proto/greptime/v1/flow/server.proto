@@ -70,6 +70,7 @@ message FlowResponse {
 // replace `source_table_names` with `source_table_ids`
 message CreateRequest {
   FlowId flow_id = 1;
+  FlowPartitionId partition_id = 2;
   repeated TableId source_table_ids = 2;
   TableName sink_table_name = 3;
   bool create_if_not_exists = 4;
@@ -80,4 +81,7 @@ message CreateRequest {
   map<string, string> flow_options = 8;
 }
 
-message DropRequest { FlowId flow_id = 1; }
+message DropRequest {
+  FlowId flow_id = 1;
+  FlowPartitionId partition_id = 2;
+}
