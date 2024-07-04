@@ -78,6 +78,10 @@ message CreateRequest {
   string comment = 6;
   string sql = 7;
   map<string, string> flow_options = 8;
+  FlowPartitionId partition_id = 9;
 }
 
-message DropRequest { FlowId flow_id = 1; }
+message DropRequest {
+  FlowId flow_id = 1;
+  FlowPartitionId partition_id = 2;
+}

@@ -5398,6 +5398,21 @@ java.lang.String defaultValue);
 
     java.lang.String getFlowOptionsOrThrow(
         java.lang.String key);
+
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+     * @return Whether the partitionId field is set.
+     */
+    boolean hasPartitionId();
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+     * @return The partitionId.
+     */
+    io.greptime.v1.Ddl.FlowPartitionId getPartitionId();
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+     */
+    io.greptime.v1.Ddl.FlowPartitionIdOrBuilder getPartitionIdOrBuilder();
   }
   /**
    * <pre>
@@ -5530,6 +5545,19 @@ java.lang.String defaultValue);
                   FlowOptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               flowOptions_.getMutableMap().put(
                   flowOptions__.getKey(), flowOptions__.getValue());
+              break;
+            }
+            case 74: {
+              io.greptime.v1.Ddl.FlowPartitionId.Builder subBuilder = null;
+              if (partitionId_ != null) {
+                subBuilder = partitionId_.toBuilder();
+              }
+              partitionId_ = input.readMessage(io.greptime.v1.Ddl.FlowPartitionId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(partitionId_);
+                partitionId_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -5879,6 +5907,32 @@ java.lang.String defaultValue);
       return map.get(key);
     }
 
+    public static final int PARTITION_ID_FIELD_NUMBER = 9;
+    private io.greptime.v1.Ddl.FlowPartitionId partitionId_;
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+     * @return Whether the partitionId field is set.
+     */
+    @java.lang.Override
+    public boolean hasPartitionId() {
+      return partitionId_ != null;
+    }
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+     * @return The partitionId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowPartitionId getPartitionId() {
+      return partitionId_ == null ? io.greptime.v1.Ddl.FlowPartitionId.getDefaultInstance() : partitionId_;
+    }
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowPartitionIdOrBuilder getPartitionIdOrBuilder() {
+      return getPartitionId();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5920,6 +5974,9 @@ java.lang.String defaultValue);
           internalGetFlowOptions(),
           FlowOptionsDefaultEntryHolder.defaultEntry,
           8);
+      if (partitionId_ != null) {
+        output.writeMessage(9, getPartitionId());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5965,6 +6022,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(8, flowOptions__);
       }
+      if (partitionId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getPartitionId());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6005,6 +6066,11 @@ java.lang.String defaultValue);
           .equals(other.getSql())) return false;
       if (!internalGetFlowOptions().equals(
           other.internalGetFlowOptions())) return false;
+      if (hasPartitionId() != other.hasPartitionId()) return false;
+      if (hasPartitionId()) {
+        if (!getPartitionId()
+            .equals(other.getPartitionId())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6042,6 +6108,10 @@ java.lang.String defaultValue);
       if (!internalGetFlowOptions().getMap().isEmpty()) {
         hash = (37 * hash) + FLOW_OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetFlowOptions().hashCode();
+      }
+      if (hasPartitionId()) {
+        hash = (37 * hash) + PARTITION_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getPartitionId().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6236,6 +6306,12 @@ java.lang.String defaultValue);
         sql_ = "";
 
         internalGetMutableFlowOptions().clear();
+        if (partitionIdBuilder_ == null) {
+          partitionId_ = null;
+        } else {
+          partitionId_ = null;
+          partitionIdBuilder_ = null;
+        }
         return this;
       }
 
@@ -6292,6 +6368,11 @@ java.lang.String defaultValue);
         result.sql_ = sql_;
         result.flowOptions_ = internalGetFlowOptions();
         result.flowOptions_.makeImmutable();
+        if (partitionIdBuilder_ == null) {
+          result.partitionId_ = partitionId_;
+        } else {
+          result.partitionId_ = partitionIdBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -6388,6 +6469,9 @@ java.lang.String defaultValue);
         }
         internalGetMutableFlowOptions().mergeFrom(
             other.internalGetFlowOptions());
+        if (other.hasPartitionId()) {
+          mergePartitionId(other.getPartitionId());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7364,6 +7448,125 @@ java.lang.String defaultValue);
             .putAll(values);
         return this;
       }
+
+      private io.greptime.v1.Ddl.FlowPartitionId partitionId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowPartitionId, io.greptime.v1.Ddl.FlowPartitionId.Builder, io.greptime.v1.Ddl.FlowPartitionIdOrBuilder> partitionIdBuilder_;
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+       * @return Whether the partitionId field is set.
+       */
+      public boolean hasPartitionId() {
+        return partitionIdBuilder_ != null || partitionId_ != null;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+       * @return The partitionId.
+       */
+      public io.greptime.v1.Ddl.FlowPartitionId getPartitionId() {
+        if (partitionIdBuilder_ == null) {
+          return partitionId_ == null ? io.greptime.v1.Ddl.FlowPartitionId.getDefaultInstance() : partitionId_;
+        } else {
+          return partitionIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+       */
+      public Builder setPartitionId(io.greptime.v1.Ddl.FlowPartitionId value) {
+        if (partitionIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          partitionId_ = value;
+          onChanged();
+        } else {
+          partitionIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+       */
+      public Builder setPartitionId(
+          io.greptime.v1.Ddl.FlowPartitionId.Builder builderForValue) {
+        if (partitionIdBuilder_ == null) {
+          partitionId_ = builderForValue.build();
+          onChanged();
+        } else {
+          partitionIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+       */
+      public Builder mergePartitionId(io.greptime.v1.Ddl.FlowPartitionId value) {
+        if (partitionIdBuilder_ == null) {
+          if (partitionId_ != null) {
+            partitionId_ =
+              io.greptime.v1.Ddl.FlowPartitionId.newBuilder(partitionId_).mergeFrom(value).buildPartial();
+          } else {
+            partitionId_ = value;
+          }
+          onChanged();
+        } else {
+          partitionIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+       */
+      public Builder clearPartitionId() {
+        if (partitionIdBuilder_ == null) {
+          partitionId_ = null;
+          onChanged();
+        } else {
+          partitionId_ = null;
+          partitionIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+       */
+      public io.greptime.v1.Ddl.FlowPartitionId.Builder getPartitionIdBuilder() {
+        
+        onChanged();
+        return getPartitionIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+       */
+      public io.greptime.v1.Ddl.FlowPartitionIdOrBuilder getPartitionIdOrBuilder() {
+        if (partitionIdBuilder_ != null) {
+          return partitionIdBuilder_.getMessageOrBuilder();
+        } else {
+          return partitionId_ == null ?
+              io.greptime.v1.Ddl.FlowPartitionId.getDefaultInstance() : partitionId_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowPartitionId, io.greptime.v1.Ddl.FlowPartitionId.Builder, io.greptime.v1.Ddl.FlowPartitionIdOrBuilder> 
+          getPartitionIdFieldBuilder() {
+        if (partitionIdBuilder_ == null) {
+          partitionIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.FlowPartitionId, io.greptime.v1.Ddl.FlowPartitionId.Builder, io.greptime.v1.Ddl.FlowPartitionIdOrBuilder>(
+                  getPartitionId(),
+                  getParentForChildren(),
+                  isClean());
+          partitionId_ = null;
+        }
+        return partitionIdBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7435,6 +7638,21 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.FlowId flow_id = 1;</code>
      */
     io.greptime.v1.Ddl.FlowIdOrBuilder getFlowIdOrBuilder();
+
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+     * @return Whether the partitionId field is set.
+     */
+    boolean hasPartitionId();
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+     * @return The partitionId.
+     */
+    io.greptime.v1.Ddl.FlowPartitionId getPartitionId();
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+     */
+    io.greptime.v1.Ddl.FlowPartitionIdOrBuilder getPartitionIdOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.flow.DropRequest}
@@ -7490,6 +7708,19 @@ java.lang.String defaultValue);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(flowId_);
                 flowId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              io.greptime.v1.Ddl.FlowPartitionId.Builder subBuilder = null;
+              if (partitionId_ != null) {
+                subBuilder = partitionId_.toBuilder();
+              }
+              partitionId_ = input.readMessage(io.greptime.v1.Ddl.FlowPartitionId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(partitionId_);
+                partitionId_ = subBuilder.buildPartial();
               }
 
               break;
@@ -7554,6 +7785,32 @@ java.lang.String defaultValue);
       return getFlowId();
     }
 
+    public static final int PARTITION_ID_FIELD_NUMBER = 2;
+    private io.greptime.v1.Ddl.FlowPartitionId partitionId_;
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+     * @return Whether the partitionId field is set.
+     */
+    @java.lang.Override
+    public boolean hasPartitionId() {
+      return partitionId_ != null;
+    }
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+     * @return The partitionId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowPartitionId getPartitionId() {
+      return partitionId_ == null ? io.greptime.v1.Ddl.FlowPartitionId.getDefaultInstance() : partitionId_;
+    }
+    /**
+     * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowPartitionIdOrBuilder getPartitionIdOrBuilder() {
+      return getPartitionId();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7571,6 +7828,9 @@ java.lang.String defaultValue);
       if (flowId_ != null) {
         output.writeMessage(1, getFlowId());
       }
+      if (partitionId_ != null) {
+        output.writeMessage(2, getPartitionId());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7583,6 +7843,10 @@ java.lang.String defaultValue);
       if (flowId_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getFlowId());
+      }
+      if (partitionId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getPartitionId());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7604,6 +7868,11 @@ java.lang.String defaultValue);
         if (!getFlowId()
             .equals(other.getFlowId())) return false;
       }
+      if (hasPartitionId() != other.hasPartitionId()) return false;
+      if (hasPartitionId()) {
+        if (!getPartitionId()
+            .equals(other.getPartitionId())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7618,6 +7887,10 @@ java.lang.String defaultValue);
       if (hasFlowId()) {
         hash = (37 * hash) + FLOW_ID_FIELD_NUMBER;
         hash = (53 * hash) + getFlowId().hashCode();
+      }
+      if (hasPartitionId()) {
+        hash = (37 * hash) + PARTITION_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getPartitionId().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7758,6 +8031,12 @@ java.lang.String defaultValue);
           flowId_ = null;
           flowIdBuilder_ = null;
         }
+        if (partitionIdBuilder_ == null) {
+          partitionId_ = null;
+        } else {
+          partitionId_ = null;
+          partitionIdBuilder_ = null;
+        }
         return this;
       }
 
@@ -7788,6 +8067,11 @@ java.lang.String defaultValue);
           result.flowId_ = flowId_;
         } else {
           result.flowId_ = flowIdBuilder_.build();
+        }
+        if (partitionIdBuilder_ == null) {
+          result.partitionId_ = partitionId_;
+        } else {
+          result.partitionId_ = partitionIdBuilder_.build();
         }
         onBuilt();
         return result;
@@ -7839,6 +8123,9 @@ java.lang.String defaultValue);
         if (other == io.greptime.v1.flow.Server.DropRequest.getDefaultInstance()) return this;
         if (other.hasFlowId()) {
           mergeFlowId(other.getFlowId());
+        }
+        if (other.hasPartitionId()) {
+          mergePartitionId(other.getPartitionId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7987,6 +8274,125 @@ java.lang.String defaultValue);
         }
         return flowIdBuilder_;
       }
+
+      private io.greptime.v1.Ddl.FlowPartitionId partitionId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowPartitionId, io.greptime.v1.Ddl.FlowPartitionId.Builder, io.greptime.v1.Ddl.FlowPartitionIdOrBuilder> partitionIdBuilder_;
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+       * @return Whether the partitionId field is set.
+       */
+      public boolean hasPartitionId() {
+        return partitionIdBuilder_ != null || partitionId_ != null;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+       * @return The partitionId.
+       */
+      public io.greptime.v1.Ddl.FlowPartitionId getPartitionId() {
+        if (partitionIdBuilder_ == null) {
+          return partitionId_ == null ? io.greptime.v1.Ddl.FlowPartitionId.getDefaultInstance() : partitionId_;
+        } else {
+          return partitionIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+       */
+      public Builder setPartitionId(io.greptime.v1.Ddl.FlowPartitionId value) {
+        if (partitionIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          partitionId_ = value;
+          onChanged();
+        } else {
+          partitionIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+       */
+      public Builder setPartitionId(
+          io.greptime.v1.Ddl.FlowPartitionId.Builder builderForValue) {
+        if (partitionIdBuilder_ == null) {
+          partitionId_ = builderForValue.build();
+          onChanged();
+        } else {
+          partitionIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+       */
+      public Builder mergePartitionId(io.greptime.v1.Ddl.FlowPartitionId value) {
+        if (partitionIdBuilder_ == null) {
+          if (partitionId_ != null) {
+            partitionId_ =
+              io.greptime.v1.Ddl.FlowPartitionId.newBuilder(partitionId_).mergeFrom(value).buildPartial();
+          } else {
+            partitionId_ = value;
+          }
+          onChanged();
+        } else {
+          partitionIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+       */
+      public Builder clearPartitionId() {
+        if (partitionIdBuilder_ == null) {
+          partitionId_ = null;
+          onChanged();
+        } else {
+          partitionId_ = null;
+          partitionIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+       */
+      public io.greptime.v1.Ddl.FlowPartitionId.Builder getPartitionIdBuilder() {
+        
+        onChanged();
+        return getPartitionIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+       */
+      public io.greptime.v1.Ddl.FlowPartitionIdOrBuilder getPartitionIdOrBuilder() {
+        if (partitionIdBuilder_ != null) {
+          return partitionIdBuilder_.getMessageOrBuilder();
+        } else {
+          return partitionId_ == null ?
+              io.greptime.v1.Ddl.FlowPartitionId.getDefaultInstance() : partitionId_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.FlowPartitionId partition_id = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowPartitionId, io.greptime.v1.Ddl.FlowPartitionId.Builder, io.greptime.v1.Ddl.FlowPartitionIdOrBuilder> 
+          getPartitionIdFieldBuilder() {
+        if (partitionIdBuilder_ == null) {
+          partitionIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.FlowPartitionId, io.greptime.v1.Ddl.FlowPartitionId.Builder, io.greptime.v1.Ddl.FlowPartitionIdOrBuilder>(
+                  getPartitionId(),
+                  getParentForChildren(),
+                  isClean());
+          partitionId_ = null;
+        }
+        return partitionIdBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8121,7 +8527,7 @@ java.lang.String defaultValue);
       "ime.v1.FlowId\022@\n\textension\030\004 \003(\0132-.grept" +
       "ime.v1.flow.FlowResponse.ExtensionEntry\032" +
       "0\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007flow_id\030\001" +
+      "\002 \001(\014:\0028\001\"\262\003\n\rCreateRequest\022$\n\007flow_id\030\001" +
       " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl" +
       "e_ids\030\002 \003(\0132\024.greptime.v1.TableId\022/\n\017sin" +
       "k_table_name\030\003 \001(\0132\026.greptime.v1.TableNa" +
@@ -8129,17 +8535,19 @@ java.lang.String defaultValue);
       "re_after\030\005 \001(\0132\030.greptime.v1.ExpireAfter" +
       "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_o" +
       "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe" +
-      "quest.FlowOptionsEntry\0322\n\020FlowOptionsEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013Dr" +
-      "opRequest\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1" +
-      ".FlowId2\264\001\n\004Flow\022S\n\022HandleCreateRemove\022\035" +
-      ".greptime.v1.flow.FlowRequest\032\036.greptime" +
-      ".v1.flow.FlowResponse\022W\n\023HandleMirrorReq" +
-      "uest\022 .greptime.v1.flow.InsertRequests\032\036" +
-      ".greptime.v1.flow.FlowResponseBY\n\023io.gre" +
-      "ptime.v1.flowB\006ServerZ:github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1/flo" +
-      "wb\006proto3"
+      "quest.FlowOptionsEntry\0222\n\014partition_id\030\t" +
+      " \001(\0132\034.greptime.v1.FlowPartitionId\0322\n\020Fl" +
+      "owOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\t:\0028\001\"g\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023" +
+      ".greptime.v1.FlowId\0222\n\014partition_id\030\002 \001(" +
+      "\0132\034.greptime.v1.FlowPartitionId2\264\001\n\004Flow" +
+      "\022S\n\022HandleCreateRemove\022\035.greptime.v1.flo" +
+      "w.FlowRequest\032\036.greptime.v1.flow.FlowRes" +
+      "ponse\022W\n\023HandleMirrorRequest\022 .greptime." +
+      "v1.flow.InsertRequests\032\036.greptime.v1.flo" +
+      "w.FlowResponseBY\n\023io.greptime.v1.flowB\006S" +
+      "erverZ:github.com/GreptimeTeam/greptime-" +
+      "proto/go/greptime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8195,7 +8603,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
-        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireAfter", "Comment", "Sql", "FlowOptions", });
+        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireAfter", "Comment", "Sql", "FlowOptions", "PartitionId", });
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor =
       internal_static_greptime_v1_flow_CreateRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_fieldAccessorTable = new
@@ -8207,7 +8615,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_DropRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_DropRequest_descriptor,
-        new java.lang.String[] { "FlowId", });
+        new java.lang.String[] { "FlowId", "PartitionId", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();

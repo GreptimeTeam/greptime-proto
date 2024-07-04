@@ -162,6 +162,8 @@ message TableId { uint32 id = 1; }
 
 message FlowId { uint32 id = 1; }
 
+message FlowPartitionId { uint32 id = 1; }
+
 message ColumnDef {
   string name = 1;
   ColumnDataType data_type = 2;
