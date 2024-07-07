@@ -108,10 +108,15 @@ type ColumnSchema struct {
 	//
 	//	   The fulltext options JSON structure:
 	//	   {
-	//	     "enable": bool,              // Indicates whether full-text search is enabled for the column.
-	//	     "analyzer": string,          // The language-specific text analyzer to use for indexing and searching text.
-	//	                                  // Supported values are "English" (Default) and "Chinese".
-	//	     "case-sensitive": bool       // Indicates whether the text should be treated as case-sensitive during full-text search.
+	//	     "enable": bool,          // Indicates whether full-text search is
+	//	                              // enabled for the column.
+	//
+	//	     "analyzer": string,      // The language-specific text analyzer to
+	//	                              // use for indexing and searching text.
+	//	                              // Supported values: ["English" (Default), "Chinese"].
+	//
+	//	     "case-sensitive": bool   // Indicates whether the text should be treated
+	//	                              // as case-sensitive during full-text search.
 	//	   }
 	//
 	//	   Example:

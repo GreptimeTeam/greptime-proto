@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/common.pb.h"
 // @@protoc_insertion_point(includes)
@@ -50,6 +53,9 @@ namespace v1 {
 class Column;
 struct ColumnDefaultTypeInternal;
 extern ColumnDefaultTypeInternal _Column_default_instance_;
+class Column_OptionsEntry_DoNotUse;
+struct Column_OptionsEntry_DoNotUseDefaultTypeInternal;
+extern Column_OptionsEntry_DoNotUseDefaultTypeInternal _Column_OptionsEntry_DoNotUse_default_instance_;
 class Column_Values;
 struct Column_ValuesDefaultTypeInternal;
 extern Column_ValuesDefaultTypeInternal _Column_Values_default_instance_;
@@ -57,6 +63,7 @@ extern Column_ValuesDefaultTypeInternal _Column_Values_default_instance_;
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::Column* Arena::CreateMaybeMessage<::greptime::v1::Column>(Arena*);
+template<> ::greptime::v1::Column_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::Column_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::Column_Values* Arena::CreateMaybeMessage<::greptime::v1::Column_Values>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -865,6 +872,34 @@ class Column_Values final :
 };
 // -------------------------------------------------------------------
 
+class Column_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Column_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Column_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  Column_OptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR Column_OptionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit Column_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const Column_OptionsEntry_DoNotUse& other);
+  static const Column_OptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Column_OptionsEntry_DoNotUse*>(&_Column_OptionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.Column.OptionsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.Column.OptionsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fcolumn_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class Column final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Column) */ {
  public:
@@ -913,7 +948,7 @@ class Column final :
                &_Column_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(Column& a, Column& b) {
     a.Swap(&b);
@@ -974,6 +1009,8 @@ class Column final :
   protected:
   explicit Column(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -988,6 +1025,7 @@ class Column final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kOptionsFieldNumber = 7,
     kColumnNameFieldNumber = 1,
     kNullMaskFieldNumber = 4,
     kValuesFieldNumber = 3,
@@ -995,6 +1033,23 @@ class Column final :
     kSemanticTypeFieldNumber = 2,
     kDatatypeFieldNumber = 5,
   };
+  // map<string, string> options = 7;
+  int options_size() const;
+  private:
+  int _internal_options_size() const;
+  public:
+  void clear_options();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_options();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_options();
+
   // string column_name = 1;
   void clear_column_name();
   const std::string& column_name() const;
@@ -1085,6 +1140,11 @@ class Column final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        Column_OptionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr null_mask_;
     ::greptime::v1::Column_Values* values_;
@@ -2414,6 +2474,8 @@ Column_Values::decimal128_values() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // Column
 
 // string column_name = 1;
@@ -2731,9 +2793,40 @@ inline void Column::set_allocated_datatype_extension(::greptime::v1::ColumnDataT
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Column.datatype_extension)
 }
 
+// map<string, string> options = 7;
+inline int Column::_internal_options_size() const {
+  return _impl_.options_.size();
+}
+inline int Column::options_size() const {
+  return _internal_options_size();
+}
+inline void Column::clear_options() {
+  _impl_.options_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+Column::_internal_options() const {
+  return _impl_.options_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+Column::options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.Column.options)
+  return _internal_options();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+Column::_internal_mutable_options() {
+  return _impl_.options_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+Column::mutable_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.Column.options)
+  return _internal_mutable_options();
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 
