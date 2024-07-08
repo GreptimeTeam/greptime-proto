@@ -31,8 +31,12 @@ message ColumnSchema {
   string column_name = 1;
   ColumnDataType datatype = 2;
   SemanticType semantic_type = 3;
+
   // Extension for ColumnDataType.
   ColumnDataTypeExtension datatype_extension = 4;
+
+  // Additional column options.
+  ColumnOptions options = 5;
 }
 
 message Row { repeated Value values = 1; }

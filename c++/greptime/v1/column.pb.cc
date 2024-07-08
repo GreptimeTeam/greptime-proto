@@ -87,6 +87,7 @@ PROTOBUF_CONSTEXPR Column::Column(
   , /*decltype(_impl_.null_mask_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.values_)*/nullptr
   , /*decltype(_impl_.datatype_extension_)*/nullptr
+  , /*decltype(_impl_.options_)*/nullptr
   , /*decltype(_impl_.semantic_type_)*/0
   , /*decltype(_impl_.datatype_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -151,6 +152,7 @@ const uint32_t TableStruct_greptime_2fv1_2fcolumn_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column, _impl_.null_mask_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column, _impl_.datatype_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Column, _impl_.datatype_extension_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Column, _impl_.options_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::Column_Values)},
@@ -164,43 +166,44 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030greptime/v1/column.proto\022\013greptime.v1\032"
-  "\030greptime/v1/common.proto\"\226\010\n\006Column\022\023\n\013"
+  "\030greptime/v1/common.proto\"\303\010\n\006Column\022\023\n\013"
   "column_name\030\001 \001(\t\0220\n\rsemantic_type\030\002 \001(\016"
   "2\031.greptime.v1.SemanticType\022*\n\006values\030\003 "
   "\001(\0132\032.greptime.v1.Column.Values\022\021\n\tnull_"
   "mask\030\004 \001(\014\022-\n\010datatype\030\005 \001(\0162\033.greptime."
   "v1.ColumnDataType\022@\n\022datatype_extension\030"
   "\006 \001(\0132$.greptime.v1.ColumnDataTypeExtens"
-  "ion\032\224\006\n\006Values\022\021\n\ti8_values\030\001 \003(\005\022\022\n\ni16"
-  "_values\030\002 \003(\005\022\022\n\ni32_values\030\003 \003(\005\022\022\n\ni64"
-  "_values\030\004 \003(\003\022\021\n\tu8_values\030\005 \003(\r\022\022\n\nu16_"
-  "values\030\006 \003(\r\022\022\n\nu32_values\030\007 \003(\r\022\022\n\nu64_"
-  "values\030\010 \003(\004\022\022\n\nf32_values\030\t \003(\002\022\022\n\nf64_"
-  "values\030\n \003(\001\022\023\n\013bool_values\030\013 \003(\010\022\025\n\rbin"
-  "ary_values\030\014 \003(\014\022\025\n\rstring_values\030\r \003(\t\022"
-  "\023\n\013date_values\030\016 \003(\005\022\027\n\017datetime_values\030"
-  "\017 \003(\003\022\037\n\027timestamp_second_values\030\020 \003(\003\022$"
-  "\n\034timestamp_millisecond_values\030\021 \003(\003\022$\n\034"
-  "timestamp_microsecond_values\030\022 \003(\003\022#\n\033ti"
-  "mestamp_nanosecond_values\030\023 \003(\003\022\032\n\022time_"
-  "second_values\030\024 \003(\003\022\037\n\027time_millisecond_"
-  "values\030\025 \003(\003\022\037\n\027time_microsecond_values\030"
-  "\026 \003(\003\022\036\n\026time_nanosecond_values\030\027 \003(\003\022\"\n"
-  "\032interval_year_month_values\030\030 \003(\005\022 \n\030int"
-  "erval_day_time_values\030\031 \003(\003\022I\n\036interval_"
-  "month_day_nano_values\030\032 \003(\0132!.greptime.v"
-  "1.IntervalMonthDayNano\0222\n\021decimal128_val"
-  "ues\030\037 \003(\0132\027.greptime.v1.Decimal128BP\n\016io"
-  ".greptime.v1B\007ColumnsZ5github.com/Grepti"
-  "meTeam/greptime-proto/go/greptime/v1b\006pr"
-  "oto3"
+  "ion\022+\n\007options\030\007 \001(\0132\032.greptime.v1.Colum"
+  "nOptions\032\224\006\n\006Values\022\021\n\ti8_values\030\001 \003(\005\022\022"
+  "\n\ni16_values\030\002 \003(\005\022\022\n\ni32_values\030\003 \003(\005\022\022"
+  "\n\ni64_values\030\004 \003(\003\022\021\n\tu8_values\030\005 \003(\r\022\022\n"
+  "\nu16_values\030\006 \003(\r\022\022\n\nu32_values\030\007 \003(\r\022\022\n"
+  "\nu64_values\030\010 \003(\004\022\022\n\nf32_values\030\t \003(\002\022\022\n"
+  "\nf64_values\030\n \003(\001\022\023\n\013bool_values\030\013 \003(\010\022\025"
+  "\n\rbinary_values\030\014 \003(\014\022\025\n\rstring_values\030\r"
+  " \003(\t\022\023\n\013date_values\030\016 \003(\005\022\027\n\017datetime_va"
+  "lues\030\017 \003(\003\022\037\n\027timestamp_second_values\030\020 "
+  "\003(\003\022$\n\034timestamp_millisecond_values\030\021 \003("
+  "\003\022$\n\034timestamp_microsecond_values\030\022 \003(\003\022"
+  "#\n\033timestamp_nanosecond_values\030\023 \003(\003\022\032\n\022"
+  "time_second_values\030\024 \003(\003\022\037\n\027time_millise"
+  "cond_values\030\025 \003(\003\022\037\n\027time_microsecond_va"
+  "lues\030\026 \003(\003\022\036\n\026time_nanosecond_values\030\027 \003"
+  "(\003\022\"\n\032interval_year_month_values\030\030 \003(\005\022 "
+  "\n\030interval_day_time_values\030\031 \003(\003\022I\n\036inte"
+  "rval_month_day_nano_values\030\032 \003(\0132!.grept"
+  "ime.v1.IntervalMonthDayNano\0222\n\021decimal12"
+  "8_values\030\037 \003(\0132\027.greptime.v1.Decimal128B"
+  "P\n\016io.greptime.v1B\007ColumnsZ5github.com/G"
+  "reptimeTeam/greptime-proto/go/greptime/v"
+  "1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fcolumn_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcolumn_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcolumn_2eproto = {
-    false, false, 1204, descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto,
+    false, false, 1249, descriptor_table_protodef_greptime_2fv1_2fcolumn_2eproto,
     "greptime/v1/column.proto",
     &descriptor_table_greptime_2fv1_2fcolumn_2eproto_once, descriptor_table_greptime_2fv1_2fcolumn_2eproto_deps, 1, 2,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcolumn_2eproto::offsets,
@@ -1459,6 +1462,7 @@ class Column::_Internal {
  public:
   static const ::greptime::v1::Column_Values& values(const Column* msg);
   static const ::greptime::v1::ColumnDataTypeExtension& datatype_extension(const Column* msg);
+  static const ::greptime::v1::ColumnOptions& options(const Column* msg);
 };
 
 const ::greptime::v1::Column_Values&
@@ -1469,11 +1473,21 @@ const ::greptime::v1::ColumnDataTypeExtension&
 Column::_Internal::datatype_extension(const Column* msg) {
   return *msg->_impl_.datatype_extension_;
 }
+const ::greptime::v1::ColumnOptions&
+Column::_Internal::options(const Column* msg) {
+  return *msg->_impl_.options_;
+}
 void Column::clear_datatype_extension() {
   if (GetArenaForAllocation() == nullptr && _impl_.datatype_extension_ != nullptr) {
     delete _impl_.datatype_extension_;
   }
   _impl_.datatype_extension_ = nullptr;
+}
+void Column::clear_options() {
+  if (GetArenaForAllocation() == nullptr && _impl_.options_ != nullptr) {
+    delete _impl_.options_;
+  }
+  _impl_.options_ = nullptr;
 }
 Column::Column(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1489,6 +1503,7 @@ Column::Column(const Column& from)
     , decltype(_impl_.null_mask_){}
     , decltype(_impl_.values_){nullptr}
     , decltype(_impl_.datatype_extension_){nullptr}
+    , decltype(_impl_.options_){nullptr}
     , decltype(_impl_.semantic_type_){}
     , decltype(_impl_.datatype_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -1516,6 +1531,9 @@ Column::Column(const Column& from)
   if (from._internal_has_datatype_extension()) {
     _this->_impl_.datatype_extension_ = new ::greptime::v1::ColumnDataTypeExtension(*from._impl_.datatype_extension_);
   }
+  if (from._internal_has_options()) {
+    _this->_impl_.options_ = new ::greptime::v1::ColumnOptions(*from._impl_.options_);
+  }
   ::memcpy(&_impl_.semantic_type_, &from._impl_.semantic_type_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.datatype_) -
     reinterpret_cast<char*>(&_impl_.semantic_type_)) + sizeof(_impl_.datatype_));
@@ -1531,6 +1549,7 @@ inline void Column::SharedCtor(
     , decltype(_impl_.null_mask_){}
     , decltype(_impl_.values_){nullptr}
     , decltype(_impl_.datatype_extension_){nullptr}
+    , decltype(_impl_.options_){nullptr}
     , decltype(_impl_.semantic_type_){0}
     , decltype(_impl_.datatype_){0}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -1560,6 +1579,7 @@ inline void Column::SharedDtor() {
   _impl_.null_mask_.Destroy();
   if (this != internal_default_instance()) delete _impl_.values_;
   if (this != internal_default_instance()) delete _impl_.datatype_extension_;
+  if (this != internal_default_instance()) delete _impl_.options_;
 }
 
 void Column::SetCachedSize(int size) const {
@@ -1582,6 +1602,10 @@ void Column::Clear() {
     delete _impl_.datatype_extension_;
   }
   _impl_.datatype_extension_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.options_ != nullptr) {
+    delete _impl_.options_;
+  }
+  _impl_.options_ = nullptr;
   ::memset(&_impl_.semantic_type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.datatype_) -
       reinterpret_cast<char*>(&_impl_.semantic_type_)) + sizeof(_impl_.datatype_));
@@ -1643,6 +1667,14 @@ const char* Column::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_datatype_extension(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.ColumnOptions options = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_options(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1720,6 +1752,13 @@ uint8_t* Column::_InternalSerialize(
         _Internal::datatype_extension(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.ColumnOptions options = 7;
+  if (this->_internal_has_options()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, _Internal::options(this),
+        _Internal::options(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1762,6 +1801,13 @@ size_t Column::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.datatype_extension_);
+  }
+
+  // .greptime.v1.ColumnOptions options = 7;
+  if (this->_internal_has_options()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.options_);
   }
 
   // .greptime.v1.SemanticType semantic_type = 2;
@@ -1807,6 +1853,10 @@ void Column::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
   if (from._internal_has_datatype_extension()) {
     _this->_internal_mutable_datatype_extension()->::greptime::v1::ColumnDataTypeExtension::MergeFrom(
         from._internal_datatype_extension());
+  }
+  if (from._internal_has_options()) {
+    _this->_internal_mutable_options()->::greptime::v1::ColumnOptions::MergeFrom(
+        from._internal_options());
   }
   if (from._internal_semantic_type() != 0) {
     _this->_internal_set_semantic_type(from._internal_semantic_type());

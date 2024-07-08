@@ -80,4 +80,7 @@ message Column {
 
   // Extension for ColumnDataType.
   ColumnDataTypeExtension datatype_extension = 6;
+
+  // Additional column options.
+  ColumnOptions options = 7;
 }

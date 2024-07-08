@@ -23337,6 +23337,33 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 7;</code>
      */
     io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder getDatatypeExtensionOrBuilder();
+
+    /**
+     * <pre>
+     * Additional column options.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 8;</code>
+     * @return Whether the options field is set.
+     */
+    boolean hasOptions();
+    /**
+     * <pre>
+     * Additional column options.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 8;</code>
+     * @return The options.
+     */
+    io.greptime.v1.Common.ColumnOptions getOptions();
+    /**
+     * <pre>
+     * Additional column options.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 8;</code>
+     */
+    io.greptime.v1.Common.ColumnOptionsOrBuilder getOptionsOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.ColumnDef}
@@ -23431,6 +23458,19 @@ java.lang.String defaultValue);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(datatypeExtension_);
                 datatypeExtension_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 66: {
+              io.greptime.v1.Common.ColumnOptions.Builder subBuilder = null;
+              if (options_ != null) {
+                subBuilder = options_.toBuilder();
+              }
+              options_ = input.readMessage(io.greptime.v1.Common.ColumnOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(options_);
+                options_ = subBuilder.buildPartial();
               }
 
               break;
@@ -23643,6 +23683,44 @@ java.lang.String defaultValue);
       return getDatatypeExtension();
     }
 
+    public static final int OPTIONS_FIELD_NUMBER = 8;
+    private io.greptime.v1.Common.ColumnOptions options_;
+    /**
+     * <pre>
+     * Additional column options.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 8;</code>
+     * @return Whether the options field is set.
+     */
+    @java.lang.Override
+    public boolean hasOptions() {
+      return options_ != null;
+    }
+    /**
+     * <pre>
+     * Additional column options.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 8;</code>
+     * @return The options.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ColumnOptions getOptions() {
+      return options_ == null ? io.greptime.v1.Common.ColumnOptions.getDefaultInstance() : options_;
+    }
+    /**
+     * <pre>
+     * Additional column options.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 8;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ColumnOptionsOrBuilder getOptionsOrBuilder() {
+      return getOptions();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -23677,6 +23755,9 @@ java.lang.String defaultValue);
       }
       if (datatypeExtension_ != null) {
         output.writeMessage(7, getDatatypeExtension());
+      }
+      if (options_ != null) {
+        output.writeMessage(8, getOptions());
       }
       unknownFields.writeTo(output);
     }
@@ -23713,6 +23794,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getDatatypeExtension());
       }
+      if (options_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getOptions());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -23743,6 +23828,11 @@ java.lang.String defaultValue);
         if (!getDatatypeExtension()
             .equals(other.getDatatypeExtension())) return false;
       }
+      if (hasOptions() != other.hasOptions()) return false;
+      if (hasOptions()) {
+        if (!getOptions()
+            .equals(other.getOptions())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -23770,6 +23860,10 @@ java.lang.String defaultValue);
       if (hasDatatypeExtension()) {
         hash = (37 * hash) + DATATYPE_EXTENSION_FIELD_NUMBER;
         hash = (53 * hash) + getDatatypeExtension().hashCode();
+      }
+      if (hasOptions()) {
+        hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getOptions().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -23922,6 +24016,12 @@ java.lang.String defaultValue);
           datatypeExtension_ = null;
           datatypeExtensionBuilder_ = null;
         }
+        if (optionsBuilder_ == null) {
+          options_ = null;
+        } else {
+          options_ = null;
+          optionsBuilder_ = null;
+        }
         return this;
       }
 
@@ -23958,6 +24058,11 @@ java.lang.String defaultValue);
           result.datatypeExtension_ = datatypeExtension_;
         } else {
           result.datatypeExtension_ = datatypeExtensionBuilder_.build();
+        }
+        if (optionsBuilder_ == null) {
+          result.options_ = options_;
+        } else {
+          result.options_ = optionsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -24029,6 +24134,9 @@ java.lang.String defaultValue);
         }
         if (other.hasDatatypeExtension()) {
           mergeDatatypeExtension(other.getDatatypeExtension());
+        }
+        if (other.hasOptions()) {
+          mergeOptions(other.getOptions());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -24537,6 +24645,161 @@ java.lang.String defaultValue);
           datatypeExtension_ = null;
         }
         return datatypeExtensionBuilder_;
+      }
+
+      private io.greptime.v1.Common.ColumnOptions options_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnOptions, io.greptime.v1.Common.ColumnOptions.Builder, io.greptime.v1.Common.ColumnOptionsOrBuilder> optionsBuilder_;
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 8;</code>
+       * @return Whether the options field is set.
+       */
+      public boolean hasOptions() {
+        return optionsBuilder_ != null || options_ != null;
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 8;</code>
+       * @return The options.
+       */
+      public io.greptime.v1.Common.ColumnOptions getOptions() {
+        if (optionsBuilder_ == null) {
+          return options_ == null ? io.greptime.v1.Common.ColumnOptions.getDefaultInstance() : options_;
+        } else {
+          return optionsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 8;</code>
+       */
+      public Builder setOptions(io.greptime.v1.Common.ColumnOptions value) {
+        if (optionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 8;</code>
+       */
+      public Builder setOptions(
+          io.greptime.v1.Common.ColumnOptions.Builder builderForValue) {
+        if (optionsBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 8;</code>
+       */
+      public Builder mergeOptions(io.greptime.v1.Common.ColumnOptions value) {
+        if (optionsBuilder_ == null) {
+          if (options_ != null) {
+            options_ =
+              io.greptime.v1.Common.ColumnOptions.newBuilder(options_).mergeFrom(value).buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          optionsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 8;</code>
+       */
+      public Builder clearOptions() {
+        if (optionsBuilder_ == null) {
+          options_ = null;
+          onChanged();
+        } else {
+          options_ = null;
+          optionsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 8;</code>
+       */
+      public io.greptime.v1.Common.ColumnOptions.Builder getOptionsBuilder() {
+        
+        onChanged();
+        return getOptionsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 8;</code>
+       */
+      public io.greptime.v1.Common.ColumnOptionsOrBuilder getOptionsOrBuilder() {
+        if (optionsBuilder_ != null) {
+          return optionsBuilder_.getMessageOrBuilder();
+        } else {
+          return options_ == null ?
+              io.greptime.v1.Common.ColumnOptions.getDefaultInstance() : options_;
+        }
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnOptions, io.greptime.v1.Common.ColumnOptions.Builder, io.greptime.v1.Common.ColumnOptionsOrBuilder> 
+          getOptionsFieldBuilder() {
+        if (optionsBuilder_ == null) {
+          optionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.ColumnOptions, io.greptime.v1.Common.ColumnOptions.Builder, io.greptime.v1.Common.ColumnOptionsOrBuilder>(
+                  getOptions(),
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        return optionsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -25591,19 +25854,20 @@ java.lang.String defaultValue);
       "type_extension\030\003 \001(\0132$.greptime.v1.Colum" +
       "nDataTypeExtension\"\032\n\nDropColumn\022\014\n\004name" +
       "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022" +
-      "\n\n\002id\030\001 \001(\r\"\377\001\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022" +
+      "\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022" +
       ".\n\tdata_type\030\002 \001(\0162\033.greptime.v1.ColumnD" +
       "ataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_" +
       "constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162" +
       "\031.greptime.v1.SemanticType\022\017\n\007comment\030\006 " +
       "\001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grepti" +
-      "me.v1.ColumnDataTypeExtension\"\230\001\n\021AddCol" +
-      "umnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gre" +
-      "ptime.v1.AddColumnLocation.LocationType\022" +
-      "\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationTy" +
-      "pe\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime." +
-      "v1B\003DdlZ5github.com/GreptimeTeam/greptim" +
-      "e-proto/go/greptime/v1b\006proto3"
+      "me.v1.ColumnDataTypeExtension\022+\n\007options" +
+      "\030\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021A" +
+      "ddColumnLocation\022B\n\rlocation_type\030\001 \001(\0162" +
+      "+.greptime.v1.AddColumnLocation.Location" +
+      "Type\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Locat" +
+      "ionType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.grep" +
+      "time.v1B\003DdlZ5github.com/GreptimeTeam/gr" +
+      "eptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25753,7 +26017,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
-        new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", "DatatypeExtension", });
+        new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", "DatatypeExtension", "Options", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
       getDescriptor().getMessageTypes().get(21);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
