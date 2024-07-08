@@ -1248,134 +1248,30 @@ public final class RowData {
 
     /**
      * <pre>
-     * Additional options for the column.
-     * Supported keys:
-     *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
-     *      The fulltext options JSON structure:
-     *      {
-     *        "enable": bool,          // Indicates whether full-text search is
-     *                                 // enabled for the column.
-     *        "analyzer": string,      // The language-specific text analyzer to
-     *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
-     *      }
-     *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     * Additional column options.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>.greptime.v1.ColumnOptions options = 5;</code>
+     * @return Whether the options field is set.
      */
-    int getOptionsCount();
+    boolean hasOptions();
     /**
      * <pre>
-     * Additional options for the column.
-     * Supported keys:
-     *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
-     *      The fulltext options JSON structure:
-     *      {
-     *        "enable": bool,          // Indicates whether full-text search is
-     *                                 // enabled for the column.
-     *        "analyzer": string,      // The language-specific text analyzer to
-     *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
-     *      }
-     *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     * Additional column options.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>.greptime.v1.ColumnOptions options = 5;</code>
+     * @return The options.
      */
-    boolean containsOptions(
-        java.lang.String key);
-    /**
-     * Use {@link #getOptionsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getOptions();
+    io.greptime.v1.Common.ColumnOptions getOptions();
     /**
      * <pre>
-     * Additional options for the column.
-     * Supported keys:
-     *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
-     *      The fulltext options JSON structure:
-     *      {
-     *        "enable": bool,          // Indicates whether full-text search is
-     *                                 // enabled for the column.
-     *        "analyzer": string,      // The language-specific text analyzer to
-     *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
-     *      }
-     *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     * Additional column options.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>.greptime.v1.ColumnOptions options = 5;</code>
      */
-    java.util.Map<java.lang.String, java.lang.String>
-    getOptionsMap();
-    /**
-     * <pre>
-     * Additional options for the column.
-     * Supported keys:
-     *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
-     *      The fulltext options JSON structure:
-     *      {
-     *        "enable": bool,          // Indicates whether full-text search is
-     *                                 // enabled for the column.
-     *        "analyzer": string,      // The language-specific text analyzer to
-     *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
-     *      }
-     *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; options = 5;</code>
-     */
-
-    /* nullable */
-java.lang.String getOptionsOrDefault(
-        java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
-    /**
-     * <pre>
-     * Additional options for the column.
-     * Supported keys:
-     *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
-     *      The fulltext options JSON structure:
-     *      {
-     *        "enable": bool,          // Indicates whether full-text search is
-     *                                 // enabled for the column.
-     *        "analyzer": string,      // The language-specific text analyzer to
-     *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
-     *      }
-     *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; options = 5;</code>
-     */
-
-    java.lang.String getOptionsOrThrow(
-        java.lang.String key);
+    io.greptime.v1.Common.ColumnOptionsOrBuilder getOptionsOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.ColumnSchema}
@@ -1415,7 +1311,6 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1458,16 +1353,16 @@ java.lang.String defaultValue);
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                options_ = com.google.protobuf.MapField.newMapField(
-                    OptionsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
+              io.greptime.v1.Common.ColumnOptions.Builder subBuilder = null;
+              if (options_ != null) {
+                subBuilder = options_.toBuilder();
               }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              options__ = input.readMessage(
-                  OptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              options_.getMutableMap().put(
-                  options__.getKey(), options__.getValue());
+              options_ = input.readMessage(io.greptime.v1.Common.ColumnOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(options_);
+                options_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -1496,18 +1391,6 @@ java.lang.String defaultValue);
       return io.greptime.v1.RowData.internal_static_greptime_v1_ColumnSchema_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 5:
-          return internalGetOptions();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -1631,160 +1514,41 @@ java.lang.String defaultValue);
     }
 
     public static final int OPTIONS_FIELD_NUMBER = 5;
-    private static final class OptionsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  io.greptime.v1.RowData.internal_static_greptime_v1_ColumnSchema_OptionsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> options_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetOptions() {
-      if (options_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            OptionsDefaultEntryHolder.defaultEntry);
-      }
-      return options_;
-    }
-
-    public int getOptionsCount() {
-      return internalGetOptions().getMap().size();
+    private io.greptime.v1.Common.ColumnOptions options_;
+    /**
+     * <pre>
+     * Additional column options.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 5;</code>
+     * @return Whether the options field is set.
+     */
+    @java.lang.Override
+    public boolean hasOptions() {
+      return options_ != null;
     }
     /**
      * <pre>
-     * Additional options for the column.
-     * Supported keys:
-     *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
-     *      The fulltext options JSON structure:
-     *      {
-     *        "enable": bool,          // Indicates whether full-text search is
-     *                                 // enabled for the column.
-     *        "analyzer": string,      // The language-specific text analyzer to
-     *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
-     *      }
-     *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     * Additional column options.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
-     */
-
-    @java.lang.Override
-    public boolean containsOptions(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetOptions().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getOptionsMap()} instead.
+     * <code>.greptime.v1.ColumnOptions options = 5;</code>
+     * @return The options.
      */
     @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getOptions() {
-      return getOptionsMap();
+    public io.greptime.v1.Common.ColumnOptions getOptions() {
+      return options_ == null ? io.greptime.v1.Common.ColumnOptions.getDefaultInstance() : options_;
     }
     /**
      * <pre>
-     * Additional options for the column.
-     * Supported keys:
-     *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
-     *      The fulltext options JSON structure:
-     *      {
-     *        "enable": bool,          // Indicates whether full-text search is
-     *                                 // enabled for the column.
-     *        "analyzer": string,      // The language-specific text analyzer to
-     *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
-     *      }
-     *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     * Additional column options.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; options = 5;</code>
+     * <code>.greptime.v1.ColumnOptions options = 5;</code>
      */
     @java.lang.Override
-
-    public java.util.Map<java.lang.String, java.lang.String> getOptionsMap() {
-      return internalGetOptions().getMap();
-    }
-    /**
-     * <pre>
-     * Additional options for the column.
-     * Supported keys:
-     *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
-     *      The fulltext options JSON structure:
-     *      {
-     *        "enable": bool,          // Indicates whether full-text search is
-     *                                 // enabled for the column.
-     *        "analyzer": string,      // The language-specific text analyzer to
-     *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
-     *      }
-     *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; options = 5;</code>
-     */
-    @java.lang.Override
-
-    public java.lang.String getOptionsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetOptions().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * Additional options for the column.
-     * Supported keys:
-     *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
-     *      The fulltext options JSON structure:
-     *      {
-     *        "enable": bool,          // Indicates whether full-text search is
-     *                                 // enabled for the column.
-     *        "analyzer": string,      // The language-specific text analyzer to
-     *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
-     *      }
-     *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; options = 5;</code>
-     */
-    @java.lang.Override
-
-    public java.lang.String getOptionsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetOptions().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public io.greptime.v1.Common.ColumnOptionsOrBuilder getOptionsOrBuilder() {
+      return getOptions();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1813,12 +1577,9 @@ java.lang.String defaultValue);
       if (datatypeExtension_ != null) {
         output.writeMessage(4, getDatatypeExtension());
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetOptions(),
-          OptionsDefaultEntryHolder.defaultEntry,
-          5);
+      if (options_ != null) {
+        output.writeMessage(5, getOptions());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1843,15 +1604,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getDatatypeExtension());
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetOptions().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        options__ = OptionsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      if (options_ != null) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, options__);
+          .computeMessageSize(5, getOptions());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1877,8 +1632,11 @@ java.lang.String defaultValue);
         if (!getDatatypeExtension()
             .equals(other.getDatatypeExtension())) return false;
       }
-      if (!internalGetOptions().equals(
-          other.internalGetOptions())) return false;
+      if (hasOptions() != other.hasOptions()) return false;
+      if (hasOptions()) {
+        if (!getOptions()
+            .equals(other.getOptions())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1900,9 +1658,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + DATATYPE_EXTENSION_FIELD_NUMBER;
         hash = (53 * hash) + getDatatypeExtension().hashCode();
       }
-      if (!internalGetOptions().getMap().isEmpty()) {
+      if (hasOptions()) {
         hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetOptions().hashCode();
+        hash = (53 * hash) + getOptions().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2011,28 +1769,6 @@ java.lang.String defaultValue);
         return io.greptime.v1.RowData.internal_static_greptime_v1_ColumnSchema_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 5:
-            return internalGetOptions();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 5:
-            return internalGetMutableOptions();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -2071,7 +1807,12 @@ java.lang.String defaultValue);
           datatypeExtension_ = null;
           datatypeExtensionBuilder_ = null;
         }
-        internalGetMutableOptions().clear();
+        if (optionsBuilder_ == null) {
+          options_ = null;
+        } else {
+          options_ = null;
+          optionsBuilder_ = null;
+        }
         return this;
       }
 
@@ -2098,7 +1839,6 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.RowData.ColumnSchema buildPartial() {
         io.greptime.v1.RowData.ColumnSchema result = new io.greptime.v1.RowData.ColumnSchema(this);
-        int from_bitField0_ = bitField0_;
         result.columnName_ = columnName_;
         result.datatype_ = datatype_;
         result.semanticType_ = semanticType_;
@@ -2107,8 +1847,11 @@ java.lang.String defaultValue);
         } else {
           result.datatypeExtension_ = datatypeExtensionBuilder_.build();
         }
-        result.options_ = internalGetOptions();
-        result.options_.makeImmutable();
+        if (optionsBuilder_ == null) {
+          result.options_ = options_;
+        } else {
+          result.options_ = optionsBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -2170,8 +1913,9 @@ java.lang.String defaultValue);
         if (other.hasDatatypeExtension()) {
           mergeDatatypeExtension(other.getDatatypeExtension());
         }
-        internalGetMutableOptions().mergeFrom(
-            other.internalGetOptions());
+        if (other.hasOptions()) {
+          mergeOptions(other.getOptions());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2200,7 +1944,6 @@ java.lang.String defaultValue);
         }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object columnName_ = "";
       /**
@@ -2541,268 +2284,159 @@ java.lang.String defaultValue);
         return datatypeExtensionBuilder_;
       }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> options_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetOptions() {
-        if (options_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              OptionsDefaultEntryHolder.defaultEntry);
-        }
-        return options_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableOptions() {
-        onChanged();;
-        if (options_ == null) {
-          options_ = com.google.protobuf.MapField.newMapField(
-              OptionsDefaultEntryHolder.defaultEntry);
-        }
-        if (!options_.isMutable()) {
-          options_ = options_.copy();
-        }
-        return options_;
-      }
-
-      public int getOptionsCount() {
-        return internalGetOptions().getMap().size();
+      private io.greptime.v1.Common.ColumnOptions options_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnOptions, io.greptime.v1.Common.ColumnOptions.Builder, io.greptime.v1.Common.ColumnOptionsOrBuilder> optionsBuilder_;
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 5;</code>
+       * @return Whether the options field is set.
+       */
+      public boolean hasOptions() {
+        return optionsBuilder_ != null || options_ != null;
       }
       /**
        * <pre>
-       * Additional options for the column.
-       * Supported keys:
-       *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
-       *      The fulltext options JSON structure:
-       *      {
-       *        "enable": bool,          // Indicates whether full-text search is
-       *                                 // enabled for the column.
-       *        "analyzer": string,      // The language-specific text analyzer to
-       *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
-       *      }
-       *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       * Additional column options.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>.greptime.v1.ColumnOptions options = 5;</code>
+       * @return The options.
        */
-
-      @java.lang.Override
-      public boolean containsOptions(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        return internalGetOptions().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getOptionsMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getOptions() {
-        return getOptionsMap();
-      }
-      /**
-       * <pre>
-       * Additional options for the column.
-       * Supported keys:
-       *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
-       *      The fulltext options JSON structure:
-       *      {
-       *        "enable": bool,          // Indicates whether full-text search is
-       *                                 // enabled for the column.
-       *        "analyzer": string,      // The language-specific text analyzer to
-       *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
-       *      }
-       *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; options = 5;</code>
-       */
-      @java.lang.Override
-
-      public java.util.Map<java.lang.String, java.lang.String> getOptionsMap() {
-        return internalGetOptions().getMap();
-      }
-      /**
-       * <pre>
-       * Additional options for the column.
-       * Supported keys:
-       *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
-       *      The fulltext options JSON structure:
-       *      {
-       *        "enable": bool,          // Indicates whether full-text search is
-       *                                 // enabled for the column.
-       *        "analyzer": string,      // The language-specific text analyzer to
-       *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
-       *      }
-       *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; options = 5;</code>
-       */
-      @java.lang.Override
-
-      public java.lang.String getOptionsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetOptions().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * Additional options for the column.
-       * Supported keys:
-       *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
-       *      The fulltext options JSON structure:
-       *      {
-       *        "enable": bool,          // Indicates whether full-text search is
-       *                                 // enabled for the column.
-       *        "analyzer": string,      // The language-specific text analyzer to
-       *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
-       *      }
-       *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; options = 5;</code>
-       */
-      @java.lang.Override
-
-      public java.lang.String getOptionsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetOptions().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+      public io.greptime.v1.Common.ColumnOptions getOptions() {
+        if (optionsBuilder_ == null) {
+          return options_ == null ? io.greptime.v1.Common.ColumnOptions.getDefaultInstance() : options_;
+        } else {
+          return optionsBuilder_.getMessage();
         }
-        return map.get(key);
       }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 5;</code>
+       */
+      public Builder setOptions(io.greptime.v1.Common.ColumnOptions value) {
+        if (optionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(value);
+        }
 
+        return this;
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 5;</code>
+       */
+      public Builder setOptions(
+          io.greptime.v1.Common.ColumnOptions.Builder builderForValue) {
+        if (optionsBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 5;</code>
+       */
+      public Builder mergeOptions(io.greptime.v1.Common.ColumnOptions value) {
+        if (optionsBuilder_ == null) {
+          if (options_ != null) {
+            options_ =
+              io.greptime.v1.Common.ColumnOptions.newBuilder(options_).mergeFrom(value).buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          optionsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Additional column options.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 5;</code>
+       */
       public Builder clearOptions() {
-        internalGetMutableOptions().getMutableMap()
-            .clear();
+        if (optionsBuilder_ == null) {
+          options_ = null;
+          onChanged();
+        } else {
+          options_ = null;
+          optionsBuilder_ = null;
+        }
+
         return this;
       }
       /**
        * <pre>
-       * Additional options for the column.
-       * Supported keys:
-       *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
-       *      The fulltext options JSON structure:
-       *      {
-       *        "enable": bool,          // Indicates whether full-text search is
-       *                                 // enabled for the column.
-       *        "analyzer": string,      // The language-specific text analyzer to
-       *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
-       *      }
-       *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       * Additional column options.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>.greptime.v1.ColumnOptions options = 5;</code>
        */
-
-      public Builder removeOptions(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        internalGetMutableOptions().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableOptions() {
-        return internalGetMutableOptions().getMutableMap();
+      public io.greptime.v1.Common.ColumnOptions.Builder getOptionsBuilder() {
+        
+        onChanged();
+        return getOptionsFieldBuilder().getBuilder();
       }
       /**
        * <pre>
-       * Additional options for the column.
-       * Supported keys:
-       *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
-       *      The fulltext options JSON structure:
-       *      {
-       *        "enable": bool,          // Indicates whether full-text search is
-       *                                 // enabled for the column.
-       *        "analyzer": string,      // The language-specific text analyzer to
-       *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
-       *      }
-       *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       * Additional column options.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>.greptime.v1.ColumnOptions options = 5;</code>
        */
-      public Builder putOptions(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
-        internalGetMutableOptions().getMutableMap()
-            .put(key, value);
-        return this;
+      public io.greptime.v1.Common.ColumnOptionsOrBuilder getOptionsOrBuilder() {
+        if (optionsBuilder_ != null) {
+          return optionsBuilder_.getMessageOrBuilder();
+        } else {
+          return options_ == null ?
+              io.greptime.v1.Common.ColumnOptions.getDefaultInstance() : options_;
+        }
       }
       /**
        * <pre>
-       * Additional options for the column.
-       * Supported keys:
-       *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
-       *      The fulltext options JSON structure:
-       *      {
-       *        "enable": bool,          // Indicates whether full-text search is
-       *                                 // enabled for the column.
-       *        "analyzer": string,      // The language-specific text analyzer to
-       *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
-       *      }
-       *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       * Additional column options.
        * </pre>
        *
-       * <code>map&lt;string, string&gt; options = 5;</code>
+       * <code>.greptime.v1.ColumnOptions options = 5;</code>
        */
-
-      public Builder putAllOptions(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableOptions().getMutableMap()
-            .putAll(values);
-        return this;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnOptions, io.greptime.v1.Common.ColumnOptions.Builder, io.greptime.v1.Common.ColumnOptionsOrBuilder> 
+          getOptionsFieldBuilder() {
+        if (optionsBuilder_ == null) {
+          optionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.ColumnOptions, io.greptime.v1.Common.ColumnOptions.Builder, io.greptime.v1.Common.ColumnOptionsOrBuilder>(
+                  getOptions(),
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        return optionsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7327,11 +6961,6 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_ColumnSchema_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_ColumnSchema_OptionsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_ColumnSchema_OptionsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_Row_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -7353,39 +6982,37 @@ java.lang.String defaultValue);
       "\n\025greptime/v1/row.proto\022\013greptime.v1\032\030gr" +
       "eptime/v1/common.proto\"Q\n\004Rows\022)\n\006schema" +
       "\030\001 \003(\0132\031.greptime.v1.ColumnSchema\022\036\n\004row" +
-      "s\030\002 \003(\0132\020.greptime.v1.Row\"\257\002\n\014ColumnSche" +
+      "s\030\002 \003(\0132\020.greptime.v1.Row\"\363\001\n\014ColumnSche" +
       "ma\022\023\n\013column_name\030\001 \001(\t\022-\n\010datatype\030\002 \001(" +
       "\0162\033.greptime.v1.ColumnDataType\0220\n\rsemant" +
       "ic_type\030\003 \001(\0162\031.greptime.v1.SemanticType" +
       "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime." +
-      "v1.ColumnDataTypeExtension\0227\n\007options\030\005 " +
-      "\003(\0132&.greptime.v1.ColumnSchema.OptionsEn" +
-      "try\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\t:\0028\001\")\n\003Row\022\"\n\006values\030\001 \003(\0132\022.gre" +
-      "ptime.v1.Value\"\274\006\n\005Value\022\022\n\010i8_value\030\001 \001" +
-      "(\005H\000\022\023\n\ti16_value\030\002 \001(\005H\000\022\023\n\ti32_value\030\003" +
-      " \001(\005H\000\022\023\n\ti64_value\030\004 \001(\003H\000\022\022\n\010u8_value\030" +
-      "\005 \001(\rH\000\022\023\n\tu16_value\030\006 \001(\rH\000\022\023\n\tu32_valu" +
-      "e\030\007 \001(\rH\000\022\023\n\tu64_value\030\010 \001(\004H\000\022\023\n\tf32_va" +
-      "lue\030\t \001(\002H\000\022\023\n\tf64_value\030\n \001(\001H\000\022\024\n\nbool" +
-      "_value\030\013 \001(\010H\000\022\026\n\014binary_value\030\014 \001(\014H\000\022\026" +
-      "\n\014string_value\030\r \001(\tH\000\022\024\n\ndate_value\030\016 \001" +
-      "(\005H\000\022\030\n\016datetime_value\030\017 \001(\003H\000\022 \n\026timest" +
-      "amp_second_value\030\020 \001(\003H\000\022%\n\033timestamp_mi" +
-      "llisecond_value\030\021 \001(\003H\000\022%\n\033timestamp_mic" +
-      "rosecond_value\030\022 \001(\003H\000\022$\n\032timestamp_nano" +
-      "second_value\030\023 \001(\003H\000\022\033\n\021time_second_valu" +
-      "e\030\024 \001(\003H\000\022 \n\026time_millisecond_value\030\025 \001(" +
-      "\003H\000\022 \n\026time_microsecond_value\030\026 \001(\003H\000\022\037\n" +
-      "\025time_nanosecond_value\030\027 \001(\003H\000\022#\n\031interv" +
-      "al_year_month_value\030\030 \001(\005H\000\022!\n\027interval_" +
-      "day_time_value\030\031 \001(\003H\000\022J\n\035interval_month" +
-      "_day_nano_value\030\032 \001(\0132!.greptime.v1.Inte" +
-      "rvalMonthDayNanoH\000\0223\n\020decimal128_value\030\037" +
-      " \001(\0132\027.greptime.v1.Decimal128H\000B\014\n\nvalue" +
-      "_dataBP\n\016io.greptime.v1B\007RowDataZ5github" +
-      ".com/GreptimeTeam/greptime-proto/go/grep" +
-      "time/v1b\006proto3"
+      "v1.ColumnDataTypeExtension\022+\n\007options\030\005 " +
+      "\001(\0132\032.greptime.v1.ColumnOptions\")\n\003Row\022\"" +
+      "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\274\006\n\005V" +
+      "alue\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 " +
+      "\001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030" +
+      "\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value" +
+      "\030\006 \001(\rH\000\022\023\n\tu32_value\030\007 \001(\rH\000\022\023\n\tu64_val" +
+      "ue\030\010 \001(\004H\000\022\023\n\tf32_value\030\t \001(\002H\000\022\023\n\tf64_v" +
+      "alue\030\n \001(\001H\000\022\024\n\nbool_value\030\013 \001(\010H\000\022\026\n\014bi" +
+      "nary_value\030\014 \001(\014H\000\022\026\n\014string_value\030\r \001(\t" +
+      "H\000\022\024\n\ndate_value\030\016 \001(\005H\000\022\030\n\016datetime_val" +
+      "ue\030\017 \001(\003H\000\022 \n\026timestamp_second_value\030\020 \001" +
+      "(\003H\000\022%\n\033timestamp_millisecond_value\030\021 \001(" +
+      "\003H\000\022%\n\033timestamp_microsecond_value\030\022 \001(\003" +
+      "H\000\022$\n\032timestamp_nanosecond_value\030\023 \001(\003H\000" +
+      "\022\033\n\021time_second_value\030\024 \001(\003H\000\022 \n\026time_mi" +
+      "llisecond_value\030\025 \001(\003H\000\022 \n\026time_microsec" +
+      "ond_value\030\026 \001(\003H\000\022\037\n\025time_nanosecond_val" +
+      "ue\030\027 \001(\003H\000\022#\n\031interval_year_month_value\030" +
+      "\030 \001(\005H\000\022!\n\027interval_day_time_value\030\031 \001(\003" +
+      "H\000\022J\n\035interval_month_day_nano_value\030\032 \001(" +
+      "\0132!.greptime.v1.IntervalMonthDayNanoH\000\0223" +
+      "\n\020decimal128_value\030\037 \001(\0132\027.greptime.v1.D" +
+      "ecimal128H\000B\014\n\nvalue_dataBP\n\016io.greptime" +
+      ".v1B\007RowDataZ5github.com/GreptimeTeam/gr" +
+      "eptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7404,12 +7031,6 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnSchema_descriptor,
         new java.lang.String[] { "ColumnName", "Datatype", "SemanticType", "DatatypeExtension", "Options", });
-    internal_static_greptime_v1_ColumnSchema_OptionsEntry_descriptor =
-      internal_static_greptime_v1_ColumnSchema_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_ColumnSchema_OptionsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_ColumnSchema_OptionsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_Row_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_Row_fieldAccessorTable = new

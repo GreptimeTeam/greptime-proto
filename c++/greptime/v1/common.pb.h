@@ -62,6 +62,12 @@ extern BasicDefaultTypeInternal _Basic_default_instance_;
 class ColumnDataTypeExtension;
 struct ColumnDataTypeExtensionDefaultTypeInternal;
 extern ColumnDataTypeExtensionDefaultTypeInternal _ColumnDataTypeExtension_default_instance_;
+class ColumnOptions;
+struct ColumnOptionsDefaultTypeInternal;
+extern ColumnOptionsDefaultTypeInternal _ColumnOptions_default_instance_;
+class ColumnOptions_OptionsEntry_DoNotUse;
+struct ColumnOptions_OptionsEntry_DoNotUseDefaultTypeInternal;
+extern ColumnOptions_OptionsEntry_DoNotUseDefaultTypeInternal _ColumnOptions_OptionsEntry_DoNotUse_default_instance_;
 class Decimal128;
 struct Decimal128DefaultTypeInternal;
 extern Decimal128DefaultTypeInternal _Decimal128_default_instance_;
@@ -111,6 +117,8 @@ template<> ::greptime::v1::AffectedRows* Arena::CreateMaybeMessage<::greptime::v
 template<> ::greptime::v1::AuthHeader* Arena::CreateMaybeMessage<::greptime::v1::AuthHeader>(Arena*);
 template<> ::greptime::v1::Basic* Arena::CreateMaybeMessage<::greptime::v1::Basic>(Arena*);
 template<> ::greptime::v1::ColumnDataTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::ColumnDataTypeExtension>(Arena*);
+template<> ::greptime::v1::ColumnOptions* Arena::CreateMaybeMessage<::greptime::v1::ColumnOptions>(Arena*);
+template<> ::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::Decimal128* Arena::CreateMaybeMessage<::greptime::v1::Decimal128>(Arena*);
 template<> ::greptime::v1::DecimalTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::DecimalTypeExtension>(Arena*);
 template<> ::greptime::v1::ExpireAfter* Arena::CreateMaybeMessage<::greptime::v1::ExpireAfter>(Arena*);
@@ -3031,6 +3039,197 @@ class DecimalTypeExtension final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ColumnOptions_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ColumnOptions_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ColumnOptions_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  ColumnOptions_OptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR ColumnOptions_OptionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit ColumnOptions_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const ColumnOptions_OptionsEntry_DoNotUse& other);
+  static const ColumnOptions_OptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ColumnOptions_OptionsEntry_DoNotUse*>(&_ColumnOptions_OptionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.ColumnOptions.OptionsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.ColumnOptions.OptionsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+
+// -------------------------------------------------------------------
+
+class ColumnOptions final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ColumnOptions) */ {
+ public:
+  inline ColumnOptions() : ColumnOptions(nullptr) {}
+  ~ColumnOptions() override;
+  explicit PROTOBUF_CONSTEXPR ColumnOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ColumnOptions(const ColumnOptions& from);
+  ColumnOptions(ColumnOptions&& from) noexcept
+    : ColumnOptions() {
+    *this = ::std::move(from);
+  }
+
+  inline ColumnOptions& operator=(const ColumnOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ColumnOptions& operator=(ColumnOptions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ColumnOptions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ColumnOptions* internal_default_instance() {
+    return reinterpret_cast<const ColumnOptions*>(
+               &_ColumnOptions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(ColumnOptions& a, ColumnOptions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ColumnOptions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ColumnOptions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ColumnOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ColumnOptions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ColumnOptions& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ColumnOptions& from) {
+    ColumnOptions::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ColumnOptions* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.ColumnOptions";
+  }
+  protected:
+  explicit ColumnOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOptionsFieldNumber = 1,
+  };
+  // map<string, string> options = 1;
+  int options_size() const;
+  private:
+  int _internal_options_size() const;
+  public:
+  void clear_options();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_options();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_options();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.ColumnOptions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        ColumnOptions_OptionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
 // ===================================================================
 
 
@@ -4714,9 +4913,48 @@ inline void DecimalTypeExtension::set_scale(int32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.DecimalTypeExtension.scale)
 }
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// ColumnOptions
+
+// map<string, string> options = 1;
+inline int ColumnOptions::_internal_options_size() const {
+  return _impl_.options_.size();
+}
+inline int ColumnOptions::options_size() const {
+  return _internal_options_size();
+}
+inline void ColumnOptions::clear_options() {
+  _impl_.options_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+ColumnOptions::_internal_options() const {
+  return _impl_.options_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+ColumnOptions::options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.ColumnOptions.options)
+  return _internal_options();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+ColumnOptions::_internal_mutable_options() {
+  return _impl_.options_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+ColumnOptions::mutable_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.ColumnOptions.options)
+  return _internal_mutable_options();
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
