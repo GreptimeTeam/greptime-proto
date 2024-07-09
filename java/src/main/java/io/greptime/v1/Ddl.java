@@ -6005,6 +6005,68 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Common.TableNameOrBuilder getTableNamesOrBuilder(
         int index);
+
+    /**
+     * <code>repeated string columns = 8;</code>
+     * @return A list containing the columns.
+     */
+    java.util.List<java.lang.String>
+        getColumnsList();
+    /**
+     * <code>repeated string columns = 8;</code>
+     * @return The count of columns.
+     */
+    int getColumnsCount();
+    /**
+     * <code>repeated string columns = 8;</code>
+     * @param index The index of the element to return.
+     * @return The columns at the given index.
+     */
+    java.lang.String getColumns(int index);
+    /**
+     * <code>repeated string columns = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the columns at the given index.
+     */
+    com.google.protobuf.ByteString
+        getColumnsBytes(int index);
+
+    /**
+     * <code>repeated string plan_columns = 9;</code>
+     * @return A list containing the planColumns.
+     */
+    java.util.List<java.lang.String>
+        getPlanColumnsList();
+    /**
+     * <code>repeated string plan_columns = 9;</code>
+     * @return The count of planColumns.
+     */
+    int getPlanColumnsCount();
+    /**
+     * <code>repeated string plan_columns = 9;</code>
+     * @param index The index of the element to return.
+     * @return The planColumns at the given index.
+     */
+    java.lang.String getPlanColumns(int index);
+    /**
+     * <code>repeated string plan_columns = 9;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the planColumns at the given index.
+     */
+    com.google.protobuf.ByteString
+        getPlanColumnsBytes(int index);
+
+    /**
+     * <code>string definition = 10;</code>
+     * @return The definition.
+     */
+    java.lang.String getDefinition();
+    /**
+     * <code>string definition = 10;</code>
+     * @return The bytes for definition.
+     */
+    com.google.protobuf.ByteString
+        getDefinitionBytes();
   }
   /**
    * <pre>
@@ -6028,6 +6090,9 @@ java.lang.String defaultValue);
       viewName_ = "";
       logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
       tableNames_ = java.util.Collections.emptyList();
+      columns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      planColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      definition_ = "";
     }
 
     @java.lang.Override
@@ -6103,6 +6168,30 @@ java.lang.String defaultValue);
                   input.readMessage(io.greptime.v1.Common.TableName.parser(), extensionRegistry));
               break;
             }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                columns_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              columns_.add(s);
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                planColumns_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              planColumns_.add(s);
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              definition_ = s;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -6122,6 +6211,12 @@ java.lang.String defaultValue);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           tableNames_ = java.util.Collections.unmodifiableList(tableNames_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          columns_ = columns_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          planColumns_ = planColumns_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -6327,6 +6422,114 @@ java.lang.String defaultValue);
       return tableNames_.get(index);
     }
 
+    public static final int COLUMNS_FIELD_NUMBER = 8;
+    private com.google.protobuf.LazyStringList columns_;
+    /**
+     * <code>repeated string columns = 8;</code>
+     * @return A list containing the columns.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getColumnsList() {
+      return columns_;
+    }
+    /**
+     * <code>repeated string columns = 8;</code>
+     * @return The count of columns.
+     */
+    public int getColumnsCount() {
+      return columns_.size();
+    }
+    /**
+     * <code>repeated string columns = 8;</code>
+     * @param index The index of the element to return.
+     * @return The columns at the given index.
+     */
+    public java.lang.String getColumns(int index) {
+      return columns_.get(index);
+    }
+    /**
+     * <code>repeated string columns = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the columns at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getColumnsBytes(int index) {
+      return columns_.getByteString(index);
+    }
+
+    public static final int PLAN_COLUMNS_FIELD_NUMBER = 9;
+    private com.google.protobuf.LazyStringList planColumns_;
+    /**
+     * <code>repeated string plan_columns = 9;</code>
+     * @return A list containing the planColumns.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPlanColumnsList() {
+      return planColumns_;
+    }
+    /**
+     * <code>repeated string plan_columns = 9;</code>
+     * @return The count of planColumns.
+     */
+    public int getPlanColumnsCount() {
+      return planColumns_.size();
+    }
+    /**
+     * <code>repeated string plan_columns = 9;</code>
+     * @param index The index of the element to return.
+     * @return The planColumns at the given index.
+     */
+    public java.lang.String getPlanColumns(int index) {
+      return planColumns_.get(index);
+    }
+    /**
+     * <code>repeated string plan_columns = 9;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the planColumns at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getPlanColumnsBytes(int index) {
+      return planColumns_.getByteString(index);
+    }
+
+    public static final int DEFINITION_FIELD_NUMBER = 10;
+    private volatile java.lang.Object definition_;
+    /**
+     * <code>string definition = 10;</code>
+     * @return The definition.
+     */
+    @java.lang.Override
+    public java.lang.String getDefinition() {
+      java.lang.Object ref = definition_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        definition_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string definition = 10;</code>
+     * @return The bytes for definition.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDefinitionBytes() {
+      java.lang.Object ref = definition_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        definition_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6362,6 +6565,15 @@ java.lang.String defaultValue);
       for (int i = 0; i < tableNames_.size(); i++) {
         output.writeMessage(7, tableNames_.get(i));
       }
+      for (int i = 0; i < columns_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, columns_.getRaw(i));
+      }
+      for (int i = 0; i < planColumns_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, planColumns_.getRaw(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, definition_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6396,6 +6608,25 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, tableNames_.get(i));
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < columns_.size(); i++) {
+          dataSize += computeStringSizeNoTag(columns_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getColumnsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < planColumns_.size(); i++) {
+          dataSize += computeStringSizeNoTag(planColumns_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPlanColumnsList().size();
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(definition_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, definition_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6425,6 +6656,12 @@ java.lang.String defaultValue);
           != other.getOrReplace()) return false;
       if (!getTableNamesList()
           .equals(other.getTableNamesList())) return false;
+      if (!getColumnsList()
+          .equals(other.getColumnsList())) return false;
+      if (!getPlanColumnsList()
+          .equals(other.getPlanColumnsList())) return false;
+      if (!getDefinition()
+          .equals(other.getDefinition())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6454,6 +6691,16 @@ java.lang.String defaultValue);
         hash = (37 * hash) + TABLE_NAMES_FIELD_NUMBER;
         hash = (53 * hash) + getTableNamesList().hashCode();
       }
+      if (getColumnsCount() > 0) {
+        hash = (37 * hash) + COLUMNS_FIELD_NUMBER;
+        hash = (53 * hash) + getColumnsList().hashCode();
+      }
+      if (getPlanColumnsCount() > 0) {
+        hash = (37 * hash) + PLAN_COLUMNS_FIELD_NUMBER;
+        hash = (53 * hash) + getPlanColumnsList().hashCode();
+      }
+      hash = (37 * hash) + DEFINITION_FIELD_NUMBER;
+      hash = (53 * hash) + getDefinition().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6610,6 +6857,12 @@ java.lang.String defaultValue);
         } else {
           tableNamesBuilder_.clear();
         }
+        columns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        planColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        definition_ = "";
+
         return this;
       }
 
@@ -6652,6 +6905,17 @@ java.lang.String defaultValue);
         } else {
           result.tableNames_ = tableNamesBuilder_.build();
         }
+        if (((bitField0_ & 0x00000002) != 0)) {
+          columns_ = columns_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.columns_ = columns_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          planColumns_ = planColumns_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.planColumns_ = planColumns_;
+        result.definition_ = definition_;
         onBuilt();
         return result;
       }
@@ -6746,6 +7010,30 @@ java.lang.String defaultValue);
               tableNamesBuilder_.addAllMessages(other.tableNames_);
             }
           }
+        }
+        if (!other.columns_.isEmpty()) {
+          if (columns_.isEmpty()) {
+            columns_ = other.columns_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureColumnsIsMutable();
+            columns_.addAll(other.columns_);
+          }
+          onChanged();
+        }
+        if (!other.planColumns_.isEmpty()) {
+          if (planColumns_.isEmpty()) {
+            planColumns_ = other.planColumns_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensurePlanColumnsIsMutable();
+            planColumns_.addAll(other.planColumns_);
+          }
+          onChanged();
+        }
+        if (!other.getDefinition().isEmpty()) {
+          definition_ = other.definition_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7339,6 +7627,302 @@ java.lang.String defaultValue);
           tableNames_ = null;
         }
         return tableNamesBuilder_;
+      }
+
+      private com.google.protobuf.LazyStringList columns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureColumnsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          columns_ = new com.google.protobuf.LazyStringArrayList(columns_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string columns = 8;</code>
+       * @return A list containing the columns.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getColumnsList() {
+        return columns_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string columns = 8;</code>
+       * @return The count of columns.
+       */
+      public int getColumnsCount() {
+        return columns_.size();
+      }
+      /**
+       * <code>repeated string columns = 8;</code>
+       * @param index The index of the element to return.
+       * @return The columns at the given index.
+       */
+      public java.lang.String getColumns(int index) {
+        return columns_.get(index);
+      }
+      /**
+       * <code>repeated string columns = 8;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the columns at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getColumnsBytes(int index) {
+        return columns_.getByteString(index);
+      }
+      /**
+       * <code>repeated string columns = 8;</code>
+       * @param index The index to set the value at.
+       * @param value The columns to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumns(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureColumnsIsMutable();
+        columns_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string columns = 8;</code>
+       * @param value The columns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addColumns(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureColumnsIsMutable();
+        columns_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string columns = 8;</code>
+       * @param values The columns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllColumns(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureColumnsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, columns_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string columns = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColumns() {
+        columns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string columns = 8;</code>
+       * @param value The bytes of the columns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addColumnsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureColumnsIsMutable();
+        columns_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList planColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePlanColumnsIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          planColumns_ = new com.google.protobuf.LazyStringArrayList(planColumns_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string plan_columns = 9;</code>
+       * @return A list containing the planColumns.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPlanColumnsList() {
+        return planColumns_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string plan_columns = 9;</code>
+       * @return The count of planColumns.
+       */
+      public int getPlanColumnsCount() {
+        return planColumns_.size();
+      }
+      /**
+       * <code>repeated string plan_columns = 9;</code>
+       * @param index The index of the element to return.
+       * @return The planColumns at the given index.
+       */
+      public java.lang.String getPlanColumns(int index) {
+        return planColumns_.get(index);
+      }
+      /**
+       * <code>repeated string plan_columns = 9;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the planColumns at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getPlanColumnsBytes(int index) {
+        return planColumns_.getByteString(index);
+      }
+      /**
+       * <code>repeated string plan_columns = 9;</code>
+       * @param index The index to set the value at.
+       * @param value The planColumns to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlanColumns(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePlanColumnsIsMutable();
+        planColumns_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string plan_columns = 9;</code>
+       * @param value The planColumns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addPlanColumns(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePlanColumnsIsMutable();
+        planColumns_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string plan_columns = 9;</code>
+       * @param values The planColumns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllPlanColumns(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePlanColumnsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, planColumns_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string plan_columns = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPlanColumns() {
+        planColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string plan_columns = 9;</code>
+       * @param value The bytes of the planColumns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addPlanColumnsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePlanColumnsIsMutable();
+        planColumns_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object definition_ = "";
+      /**
+       * <code>string definition = 10;</code>
+       * @return The definition.
+       */
+      public java.lang.String getDefinition() {
+        java.lang.Object ref = definition_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          definition_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string definition = 10;</code>
+       * @return The bytes for definition.
+       */
+      public com.google.protobuf.ByteString
+          getDefinitionBytes() {
+        java.lang.Object ref = definition_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          definition_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string definition = 10;</code>
+       * @param value The definition to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDefinition(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        definition_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string definition = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDefinition() {
+        
+        definition_ = getDefaultInstance().getDefinition();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string definition = 10;</code>
+       * @param value The bytes for definition to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDefinitionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        definition_ = value;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -25799,75 +26383,77 @@ java.lang.String defaultValue);
       "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u\n" +
       "\014DropFlowExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tf" +
       "low_name\030\002 \001(\t\022$\n\007flow_id\030\003 \001(\0132\023.grepti" +
-      "me.v1.FlowId\022\026\n\016drop_if_exists\030\005 \001(\010\"\303\001\n" +
+      "me.v1.FlowId\022\026\n\016drop_if_exists\030\005 \001(\010\"\376\001\n" +
       "\016CreateViewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
       "\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022\024\n" +
       "\014logical_plan\030\004 \001(\014\022\034\n\024create_if_not_exi" +
       "sts\030\005 \001(\010\022\022\n\nor_replace\030\006 \001(\010\022+\n\013table_n" +
-      "ames\030\007 \003(\0132\026.greptime.v1.TableName\"\213\001\n\014D" +
-      "ropViewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
-      "ema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022%\n\007vie" +
-      "w_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016drop" +
-      "_if_exists\030\005 \001(\010\"\207\003\n\017CreateTableExpr\022\024\n\014" +
-      "catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022" +
-      "\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013col" +
-      "umn_defs\030\005 \003(\0132\026.greptime.v1.ColumnDef\022\022" +
-      "\n\ntime_index\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t" +
-      "\022\034\n\024create_if_not_exists\030\010 \001(\010\022E\n\rtable_" +
-      "options\030\t \003(\0132..greptime.v1.CreateTableE" +
-      "xpr.TableOptionsEntry\022&\n\010table_id\030\n \001(\0132" +
-      "\024.greptime.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n" +
-      "\021TableOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
-      "\030\002 \001(\t:\0028\001\"\245\002\n\tAlterExpr\022\024\n\014catalog_name" +
-      "\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_nam" +
-      "e\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\0132\027.greptime." +
-      "v1.AddColumnsH\000\0220\n\014drop_columns\030\005 \001(\0132\030." +
-      "greptime.v1.DropColumnsH\000\0220\n\014rename_tabl" +
-      "e\030\006 \001(\0132\030.greptime.v1.RenameTableH\000\022=\n\023c" +
-      "hange_column_types\030\007 \001(\0132\036.greptime.v1.C" +
-      "hangeColumnTypesH\000B\006\n\004kind\"\216\001\n\rDropTable" +
-      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
-      "e\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030" +
-      "\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016drop_if_e" +
-      "xists\030\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014ca" +
-      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n" +
-      "\024create_if_not_exists\030\003 \001(\010\022=\n\007options\030\004" +
-      " \003(\0132,.greptime.v1.CreateDatabaseExpr.Op" +
-      "tionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022" +
-      "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001" +
-      "(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\013" +
-      "2\024.greptime.v1.TableId\"U\n\020DropDatabaseEx" +
-      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
-      "\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddColu" +
-      "mns\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1.A" +
-      "ddColumn\"<\n\013DropColumns\022-\n\014drop_columns\030" +
-      "\001 \003(\0132\027.greptime.v1.DropColumn\"O\n\021Change" +
-      "ColumnTypes\022:\n\023change_column_types\030\001 \003(\013" +
-      "2\035.greptime.v1.ChangeColumnType\"%\n\013Renam" +
-      "eTable\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddCol" +
-      "umn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Co" +
-      "lumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1." +
-      "AddColumnLocation\"\236\001\n\020ChangeColumnType\022\023" +
-      "\n\013column_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\016" +
-      "2\033.greptime.v1.ColumnDataType\022C\n\025target_" +
-      "type_extension\030\003 \001(\0132$.greptime.v1.Colum" +
-      "nDataTypeExtension\"\032\n\nDropColumn\022\014\n\004name" +
-      "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022" +
-      "\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022" +
-      ".\n\tdata_type\030\002 \001(\0162\033.greptime.v1.ColumnD" +
-      "ataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_" +
-      "constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162" +
-      "\031.greptime.v1.SemanticType\022\017\n\007comment\030\006 " +
-      "\001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grepti" +
-      "me.v1.ColumnDataTypeExtension\022+\n\007options" +
-      "\030\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021A" +
-      "ddColumnLocation\022B\n\rlocation_type\030\001 \001(\0162" +
-      "+.greptime.v1.AddColumnLocation.Location" +
-      "Type\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Locat" +
-      "ionType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.grep" +
-      "time.v1B\003DdlZ5github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1b\006proto3"
+      "ames\030\007 \003(\0132\026.greptime.v1.TableName\022\017\n\007co" +
+      "lumns\030\010 \003(\t\022\024\n\014plan_columns\030\t \003(\t\022\022\n\ndef" +
+      "inition\030\n \001(\t\"\213\001\n\014DropViewExpr\022\024\n\014catalo" +
+      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tvie" +
+      "w_name\030\003 \001(\t\022%\n\007view_id\030\004 \001(\0132\024.greptime" +
+      ".v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017" +
+      "CreateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
+      "\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014" +
+      "\n\004desc\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.grep" +
+      "time.v1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n" +
+      "\014primary_keys\030\007 \003(\t\022\034\n\024create_if_not_exi" +
+      "sts\030\010 \001(\010\022E\n\rtable_options\030\t \003(\0132..grept" +
+      "ime.v1.CreateTableExpr.TableOptionsEntry" +
+      "\022&\n\010table_id\030\n \001(\0132\024.greptime.v1.TableId" +
+      "\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\245\002\n\tAlterE" +
+      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
+      "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_column" +
+      "s\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014dr" +
+      "op_columns\030\005 \001(\0132\030.greptime.v1.DropColum" +
+      "nsH\000\0220\n\014rename_table\030\006 \001(\0132\030.greptime.v1" +
+      ".RenameTableH\000\022=\n\023change_column_types\030\007 " +
+      "\001(\0132\036.greptime.v1.ChangeColumnTypesH\000B\006\n" +
+      "\004kind\"\216\001\n\rDropTableExpr\022\024\n\014catalog_name\030" +
+      "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name" +
+      "\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.T" +
+      "ableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022Creat" +
+      "eDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013s" +
+      "chema_name\030\002 \001(\t\022\034\n\024create_if_not_exists" +
+      "\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.greptime.v1.Cr" +
+      "eateDatabaseExpr.OptionsEntry\032.\n\014Options" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n" +
+      "\021TruncateTableExpr\022\024\n\014catalog_name\030\001 \001(\t" +
+      "\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(" +
+      "\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableI" +
+      "d\"U\n\020DropDatabaseExpr\022\024\n\014catalog_name\030\001 " +
+      "\001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_if_exis" +
+      "ts\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_columns\030\001 " +
+      "\003(\0132\026.greptime.v1.AddColumn\"<\n\013DropColum" +
+      "ns\022-\n\014drop_columns\030\001 \003(\0132\027.greptime.v1.D" +
+      "ropColumn\"O\n\021ChangeColumnTypes\022:\n\023change" +
+      "_column_types\030\001 \003(\0132\035.greptime.v1.Change" +
+      "ColumnType\"%\n\013RenameTable\022\026\n\016new_table_n" +
+      "ame\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001" +
+      "(\0132\026.greptime.v1.ColumnDef\0220\n\010location\030\003" +
+      " \001(\0132\036.greptime.v1.AddColumnLocation\"\236\001\n" +
+      "\020ChangeColumnType\022\023\n\013column_name\030\001 \001(\t\0220" +
+      "\n\013target_type\030\002 \001(\0162\033.greptime.v1.Column" +
+      "DataType\022C\n\025target_type_extension\030\003 \001(\0132" +
+      "$.greptime.v1.ColumnDataTypeExtension\"\032\n" +
+      "\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002" +
+      "id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColum" +
+      "nDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033." +
+      "greptime.v1.ColumnDataType\022\023\n\013is_nullabl" +
+      "e\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rs" +
+      "emantic_type\030\005 \001(\0162\031.greptime.v1.Semanti" +
+      "cType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_exten" +
+      "sion\030\007 \001(\0132$.greptime.v1.ColumnDataTypeE" +
+      "xtension\022+\n\007options\030\010 \001(\0132\032.greptime.v1." +
+      "ColumnOptions\"\230\001\n\021AddColumnLocation\022B\n\rl" +
+      "ocation_type\030\001 \001(\0162+.greptime.v1.AddColu" +
+      "mnLocation.LocationType\022\031\n\021after_column_" +
+      "name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n" +
+      "\005AFTER\020\001BL\n\016io.greptime.v1B\003DdlZ5github." +
+      "com/GreptimeTeam/greptime-proto/go/grept" +
+      "ime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25903,7 +26489,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateViewExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateViewExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "ViewName", "LogicalPlan", "CreateIfNotExists", "OrReplace", "TableNames", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "ViewName", "LogicalPlan", "CreateIfNotExists", "OrReplace", "TableNames", "Columns", "PlanColumns", "Definition", });
     internal_static_greptime_v1_DropViewExpr_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_DropViewExpr_fieldAccessorTable = new

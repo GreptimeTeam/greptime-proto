@@ -72,6 +72,9 @@ message CreateViewExpr {
   bool create_if_not_exists = 5;
   bool or_replace = 6;
   repeated TableName table_names = 7;
+  repeated string columns = 8;
+  repeated string plan_columns = 9;
+  string definition = 10;
 }
 
 // Drop a view
