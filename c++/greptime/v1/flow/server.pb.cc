@@ -161,10 +161,23 @@ struct DropRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DropRequestDefaultTypeInternal _DropRequest_default_instance_;
+PROTOBUF_CONSTEXPR FlushFlow::FlushFlow(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.flow_id_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct FlushFlowDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR FlushFlowDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~FlushFlowDefaultTypeInternal() {}
+  union {
+    FlushFlow _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlushFlowDefaultTypeInternal _FlushFlow_default_instance_;
 }  // namespace flow
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[10];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[11];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2fflow_2fserver_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fflow_2fserver_2eproto = nullptr;
 
@@ -209,6 +222,7 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowRequest, _impl_.header_),
+  ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowRequest, _impl_.body_),
@@ -263,6 +277,13 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::DropRequest, _impl_.flow_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlushFlow, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlushFlow, _impl_.flow_id_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::greptime::v1::flow::FlowRequestHeader_TracingContextEntry_DoNotUse)},
@@ -270,11 +291,12 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 18, -1, -1, sizeof(::greptime::v1::flow::InsertRequests)},
   { 25, -1, -1, sizeof(::greptime::v1::flow::InsertRequest)},
   { 33, -1, -1, sizeof(::greptime::v1::flow::FlowRequest)},
-  { 43, 51, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse)},
-  { 53, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
-  { 63, 71, -1, sizeof(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse)},
-  { 73, -1, -1, sizeof(::greptime::v1::flow::CreateRequest)},
-  { 87, -1, -1, sizeof(::greptime::v1::flow::DropRequest)},
+  { 44, 52, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse)},
+  { 54, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
+  { 64, 72, -1, sizeof(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse)},
+  { 74, -1, -1, sizeof(::greptime::v1::flow::CreateRequest)},
+  { 88, -1, -1, sizeof(::greptime::v1::flow::DropRequest)},
+  { 95, -1, -1, sizeof(::greptime::v1::flow::FlushFlow)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -288,6 +310,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::flow::_CreateRequest_FlowOptionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::flow::_CreateRequest_default_instance_._instance,
   &::greptime::v1::flow::_DropRequest_default_instance_._instance,
+  &::greptime::v1::flow::_FlushFlow_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -302,36 +325,38 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "\030\002 \001(\t:\0028\001\"C\n\016InsertRequests\0221\n\010requests"
   "\030\001 \003(\0132\037.greptime.v1.flow.InsertRequest\""
   "C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004r"
-  "ows\030\002 \001(\0132\021.greptime.v1.Rows\"\254\001\n\013FlowReq"
+  "ows\030\002 \001(\0132\021.greptime.v1.Rows\"\332\001\n\013FlowReq"
   "uest\0223\n\006header\030@ \001(\0132#.greptime.v1.flow."
   "FlowRequestHeader\0221\n\006create\030\001 \001(\0132\037.grep"
   "time.v1.flow.CreateRequestH\000\022-\n\004drop\030\002 \001"
-  "(\0132\035.greptime.v1.flow.DropRequestH\000B\006\n\004b"
-  "ody\"\363\001\n\014FlowResponse\022+\n\006header\030\001 \001(\0132\033.g"
-  "reptime.v1.ResponseHeader\022\025\n\raffected_ro"
-  "ws\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023.grept"
-  "ime.v1.FlowId\022@\n\textension\030\004 \003(\0132-.grept"
-  "ime.v1.flow.FlowResponse.ExtensionEntry\032"
-  "0\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
-  "\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007flow_id\030\001"
-  " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl"
-  "e_ids\030\002 \003(\0132\024.greptime.v1.TableId\022/\n\017sin"
-  "k_table_name\030\003 \001(\0132\026.greptime.v1.TableNa"
-  "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022.\n\014expi"
-  "re_after\030\005 \001(\0132\030.greptime.v1.ExpireAfter"
-  "\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_o"
-  "ptions\030\010 \003(\01320.greptime.v1.flow.CreateRe"
-  "quest.FlowOptionsEntry\0322\n\020FlowOptionsEnt"
-  "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013Dr"
-  "opRequest\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1"
-  ".FlowId2\264\001\n\004Flow\022S\n\022HandleCreateRemove\022\035"
-  ".greptime.v1.flow.FlowRequest\032\036.greptime"
-  ".v1.flow.FlowResponse\022W\n\023HandleMirrorReq"
-  "uest\022 .greptime.v1.flow.InsertRequests\032\036"
-  ".greptime.v1.flow.FlowResponseBY\n\023io.gre"
-  "ptime.v1.flowB\006ServerZ:github.com/Grepti"
-  "meTeam/greptime-proto/go/greptime/v1/flo"
-  "wb\006proto3"
+  "(\0132\035.greptime.v1.flow.DropRequestH\000\022,\n\005f"
+  "lush\030\003 \001(\0132\033.greptime.v1.flow.FlushFlowH"
+  "\000B\006\n\004body\"\363\001\n\014FlowResponse\022+\n\006header\030\001 \001"
+  "(\0132\033.greptime.v1.ResponseHeader\022\025\n\raffec"
+  "ted_rows\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023"
+  ".greptime.v1.FlowId\022@\n\textension\030\004 \003(\0132-"
+  ".greptime.v1.flow.FlowResponse.Extension"
+  "Entry\0320\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
+  "value\030\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007flo"
+  "w_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n\020sourc"
+  "e_table_ids\030\002 \003(\0132\024.greptime.v1.TableId\022"
+  "/\n\017sink_table_name\030\003 \001(\0132\026.greptime.v1.T"
+  "ableName\022\034\n\024create_if_not_exists\030\004 \001(\010\022."
+  "\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Expir"
+  "eAfter\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014"
+  "flow_options\030\010 \003(\01320.greptime.v1.flow.Cr"
+  "eateRequest.FlowOptionsEntry\0322\n\020FlowOpti"
+  "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001"
+  "\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.grept"
+  "ime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 "
+  "\001(\0132\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022Han"
+  "dleCreateRemove\022\035.greptime.v1.flow.FlowR"
+  "equest\032\036.greptime.v1.flow.FlowResponse\022W"
+  "\n\023HandleMirrorRequest\022 .greptime.v1.flow"
+  ".InsertRequests\032\036.greptime.v1.flow.FlowR"
+  "esponseBY\n\023io.greptime.v1.flowB\006ServerZ:"
+  "github.com/GreptimeTeam/greptime-proto/g"
+  "o/greptime/v1/flowb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -340,9 +365,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 1609, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 1706, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
-    &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 10,
+    &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 11,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto, file_level_enum_descriptors_greptime_2fv1_2fflow_2fserver_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fflow_2fserver_2eproto,
@@ -1060,6 +1085,7 @@ class FlowRequest::_Internal {
   static const ::greptime::v1::flow::FlowRequestHeader& header(const FlowRequest* msg);
   static const ::greptime::v1::flow::CreateRequest& create(const FlowRequest* msg);
   static const ::greptime::v1::flow::DropRequest& drop(const FlowRequest* msg);
+  static const ::greptime::v1::flow::FlushFlow& flush(const FlowRequest* msg);
 };
 
 const ::greptime::v1::flow::FlowRequestHeader&
@@ -1073,6 +1099,10 @@ FlowRequest::_Internal::create(const FlowRequest* msg) {
 const ::greptime::v1::flow::DropRequest&
 FlowRequest::_Internal::drop(const FlowRequest* msg) {
   return *msg->_impl_.body_.drop_;
+}
+const ::greptime::v1::flow::FlushFlow&
+FlowRequest::_Internal::flush(const FlowRequest* msg) {
+  return *msg->_impl_.body_.flush_;
 }
 void FlowRequest::set_allocated_create(::greptime::v1::flow::CreateRequest* create) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -1104,6 +1134,21 @@ void FlowRequest::set_allocated_drop(::greptime::v1::flow::DropRequest* drop) {
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowRequest.drop)
 }
+void FlowRequest::set_allocated_flush(::greptime::v1::flow::FlushFlow* flush) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_body();
+  if (flush) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(flush);
+    if (message_arena != submessage_arena) {
+      flush = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, flush, submessage_arena);
+    }
+    set_has_flush();
+    _impl_.body_.flush_ = flush;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowRequest.flush)
+}
 FlowRequest::FlowRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -1133,6 +1178,11 @@ FlowRequest::FlowRequest(const FlowRequest& from)
     case kDrop: {
       _this->_internal_mutable_drop()->::greptime::v1::flow::DropRequest::MergeFrom(
           from._internal_drop());
+      break;
+    }
+    case kFlush: {
+      _this->_internal_mutable_flush()->::greptime::v1::flow::FlushFlow::MergeFrom(
+          from._internal_flush());
       break;
     }
     case BODY_NOT_SET: {
@@ -1191,6 +1241,12 @@ void FlowRequest::clear_body() {
       }
       break;
     }
+    case kFlush: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.body_.flush_;
+      }
+      break;
+    }
     case BODY_NOT_SET: {
       break;
     }
@@ -1231,6 +1287,14 @@ const char* FlowRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_drop(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.flow.FlushFlow flush = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_flush(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1286,6 +1350,13 @@ uint8_t* FlowRequest::_InternalSerialize(
         _Internal::drop(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.flow.FlushFlow flush = 3;
+  if (_internal_has_flush()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::flush(this),
+        _Internal::flush(this).GetCachedSize(), target, stream);
+  }
+
   // .greptime.v1.flow.FlowRequestHeader header = 64;
   if (this->_internal_has_header()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -1331,6 +1402,13 @@ size_t FlowRequest::ByteSizeLong() const {
           *_impl_.body_.drop_);
       break;
     }
+    // .greptime.v1.flow.FlushFlow flush = 3;
+    case kFlush: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.body_.flush_);
+      break;
+    }
     case BODY_NOT_SET: {
       break;
     }
@@ -1366,6 +1444,11 @@ void FlowRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
     case kDrop: {
       _this->_internal_mutable_drop()->::greptime::v1::flow::DropRequest::MergeFrom(
           from._internal_drop());
+      break;
+    }
+    case kFlush: {
+      _this->_internal_mutable_flush()->::greptime::v1::flow::FlushFlow::MergeFrom(
+          from._internal_flush());
       break;
     }
     case BODY_NOT_SET: {
@@ -2489,6 +2572,205 @@ void DropRequest::InternalSwap(DropRequest* other) {
       file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[9]);
 }
 
+// ===================================================================
+
+class FlushFlow::_Internal {
+ public:
+  static const ::greptime::v1::FlowId& flow_id(const FlushFlow* msg);
+};
+
+const ::greptime::v1::FlowId&
+FlushFlow::_Internal::flow_id(const FlushFlow* msg) {
+  return *msg->_impl_.flow_id_;
+}
+void FlushFlow::clear_flow_id() {
+  if (GetArenaForAllocation() == nullptr && _impl_.flow_id_ != nullptr) {
+    delete _impl_.flow_id_;
+  }
+  _impl_.flow_id_ = nullptr;
+}
+FlushFlow::FlushFlow(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.flow.FlushFlow)
+}
+FlushFlow::FlushFlow(const FlushFlow& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  FlushFlow* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.flow_id_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_flow_id()) {
+    _this->_impl_.flow_id_ = new ::greptime::v1::FlowId(*from._impl_.flow_id_);
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.flow.FlushFlow)
+}
+
+inline void FlushFlow::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.flow_id_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+FlushFlow::~FlushFlow() {
+  // @@protoc_insertion_point(destructor:greptime.v1.flow.FlushFlow)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void FlushFlow::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.flow_id_;
+}
+
+void FlushFlow::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void FlushFlow::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.flow.FlushFlow)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.flow_id_ != nullptr) {
+    delete _impl_.flow_id_;
+  }
+  _impl_.flow_id_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* FlushFlow::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.FlowId flow_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_flow_id(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* FlushFlow::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.flow.FlushFlow)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.FlowId flow_id = 1;
+  if (this->_internal_has_flow_id()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::flow_id(this),
+        _Internal::flow_id(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.flow.FlushFlow)
+  return target;
+}
+
+size_t FlushFlow::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.flow.FlushFlow)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .greptime.v1.FlowId flow_id = 1;
+  if (this->_internal_has_flow_id()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.flow_id_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData FlushFlow::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    FlushFlow::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*FlushFlow::GetClassData() const { return &_class_data_; }
+
+
+void FlushFlow::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<FlushFlow*>(&to_msg);
+  auto& from = static_cast<const FlushFlow&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.flow.FlushFlow)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_flow_id()) {
+    _this->_internal_mutable_flow_id()->::greptime::v1::FlowId::MergeFrom(
+        from._internal_flow_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void FlushFlow::CopyFrom(const FlushFlow& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.flow.FlushFlow)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FlushFlow::IsInitialized() const {
+  return true;
+}
+
+void FlushFlow::InternalSwap(FlushFlow* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.flow_id_, other->_impl_.flow_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FlushFlow::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[10]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace flow
 }  // namespace v1
@@ -2533,6 +2815,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::flow::CreateRequest >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::flow::DropRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::flow::DropRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::flow::DropRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::flow::FlushFlow*
+Arena::CreateMaybeMessage< ::greptime::v1::flow::FlushFlow >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::flow::FlushFlow >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
