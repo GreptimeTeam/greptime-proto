@@ -53,6 +53,7 @@ message FlowRequest {
   oneof body {
     CreateRequest create = 1;
     DropRequest drop = 2;
+    FlushFlow flush = 3;
   }
 }
 
@@ -81,3 +82,7 @@ message CreateRequest {
 }
 
 message DropRequest { FlowId flow_id = 1; }
+
+message FlushFlow {
+  FlowId flow_id = 1;
+}
