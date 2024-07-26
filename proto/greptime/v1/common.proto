@@ -25,6 +25,7 @@ message QueryContext {
   string current_schema = 2;
   string timezone = 4;
   map<string, string> extensions = 5;
+  uint32 source = 6;
 }
 
 message RequestHeader {
