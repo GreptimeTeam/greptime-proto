@@ -371,7 +371,7 @@ class QueryContext final :
     kCurrentCatalogFieldNumber = 1,
     kCurrentSchemaFieldNumber = 2,
     kTimezoneFieldNumber = 4,
-    kSourceFieldNumber = 6,
+    kChannelFieldNumber = 6,
   };
   // map<string, string> extensions = 5;
   int extensions_size() const;
@@ -432,13 +432,13 @@ class QueryContext final :
   std::string* _internal_mutable_timezone();
   public:
 
-  // uint32 source = 6;
-  void clear_source();
-  uint32_t source() const;
-  void set_source(uint32_t value);
+  // uint32 channel = 6;
+  void clear_channel();
+  uint32_t channel() const;
+  void set_channel(uint32_t value);
   private:
-  uint32_t _internal_source() const;
-  void _internal_set_source(uint32_t value);
+  uint32_t _internal_channel() const;
+  void _internal_set_channel(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.QueryContext)
@@ -457,7 +457,7 @@ class QueryContext final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_catalog_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_schema_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr timezone_;
-    uint32_t source_;
+    uint32_t channel_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3433,24 +3433,24 @@ QueryContext::mutable_extensions() {
   return _internal_mutable_extensions();
 }
 
-// uint32 source = 6;
-inline void QueryContext::clear_source() {
-  _impl_.source_ = 0u;
+// uint32 channel = 6;
+inline void QueryContext::clear_channel() {
+  _impl_.channel_ = 0u;
 }
-inline uint32_t QueryContext::_internal_source() const {
-  return _impl_.source_;
+inline uint32_t QueryContext::_internal_channel() const {
+  return _impl_.channel_;
 }
-inline uint32_t QueryContext::source() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.QueryContext.source)
-  return _internal_source();
+inline uint32_t QueryContext::channel() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.QueryContext.channel)
+  return _internal_channel();
 }
-inline void QueryContext::_internal_set_source(uint32_t value) {
+inline void QueryContext::_internal_set_channel(uint32_t value) {
   
-  _impl_.source_ = value;
+  _impl_.channel_ = value;
 }
-inline void QueryContext::set_source(uint32_t value) {
-  _internal_set_source(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.QueryContext.source)
+inline void QueryContext::set_channel(uint32_t value) {
+  _internal_set_channel(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.QueryContext.channel)
 }
 
 // -------------------------------------------------------------------

@@ -541,10 +541,10 @@ java.lang.String defaultValue);
         java.lang.String key);
 
     /**
-     * <code>uint32 source = 6;</code>
-     * @return The source.
+     * <code>uint32 channel = 6;</code>
+     * @return The channel.
      */
-    int getSource();
+    int getChannel();
   }
   /**
    * Protobuf type {@code greptime.v1.QueryContext}
@@ -628,7 +628,7 @@ java.lang.String defaultValue);
             }
             case 48: {
 
-              source_ = input.readUInt32();
+              channel_ = input.readUInt32();
               break;
             }
             default: {
@@ -872,15 +872,15 @@ java.lang.String defaultValue);
       return map.get(key);
     }
 
-    public static final int SOURCE_FIELD_NUMBER = 6;
-    private int source_;
+    public static final int CHANNEL_FIELD_NUMBER = 6;
+    private int channel_;
     /**
-     * <code>uint32 source = 6;</code>
-     * @return The source.
+     * <code>uint32 channel = 6;</code>
+     * @return The channel.
      */
     @java.lang.Override
-    public int getSource() {
-      return source_;
+    public int getChannel() {
+      return channel_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -912,8 +912,8 @@ java.lang.String defaultValue);
           internalGetExtensions(),
           ExtensionsDefaultEntryHolder.defaultEntry,
           5);
-      if (source_ != 0) {
-        output.writeUInt32(6, source_);
+      if (channel_ != 0) {
+        output.writeUInt32(6, channel_);
       }
       unknownFields.writeTo(output);
     }
@@ -943,9 +943,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(5, extensions__);
       }
-      if (source_ != 0) {
+      if (channel_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(6, source_);
+          .computeUInt32Size(6, channel_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -970,8 +970,8 @@ java.lang.String defaultValue);
           .equals(other.getTimezone())) return false;
       if (!internalGetExtensions().equals(
           other.internalGetExtensions())) return false;
-      if (getSource()
-          != other.getSource()) return false;
+      if (getChannel()
+          != other.getChannel()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -993,8 +993,8 @@ java.lang.String defaultValue);
         hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtensions().hashCode();
       }
-      hash = (37 * hash) + SOURCE_FIELD_NUMBER;
-      hash = (53 * hash) + getSource();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1157,7 +1157,7 @@ java.lang.String defaultValue);
         timezone_ = "";
 
         internalGetMutableExtensions().clear();
-        source_ = 0;
+        channel_ = 0;
 
         return this;
       }
@@ -1191,7 +1191,7 @@ java.lang.String defaultValue);
         result.timezone_ = timezone_;
         result.extensions_ = internalGetExtensions();
         result.extensions_.makeImmutable();
-        result.source_ = source_;
+        result.channel_ = channel_;
         onBuilt();
         return result;
       }
@@ -1254,8 +1254,8 @@ java.lang.String defaultValue);
         }
         internalGetMutableExtensions().mergeFrom(
             other.internalGetExtensions());
-        if (other.getSource() != 0) {
-          setSource(other.getSource());
+        if (other.getChannel() != 0) {
+          setChannel(other.getChannel());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1646,33 +1646,33 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private int source_ ;
+      private int channel_ ;
       /**
-       * <code>uint32 source = 6;</code>
-       * @return The source.
+       * <code>uint32 channel = 6;</code>
+       * @return The channel.
        */
       @java.lang.Override
-      public int getSource() {
-        return source_;
+      public int getChannel() {
+        return channel_;
       }
       /**
-       * <code>uint32 source = 6;</code>
-       * @param value The source to set.
+       * <code>uint32 channel = 6;</code>
+       * @param value The channel to set.
        * @return This builder for chaining.
        */
-      public Builder setSource(int value) {
+      public Builder setChannel(int value) {
         
-        source_ = value;
+        channel_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 source = 6;</code>
+       * <code>uint32 channel = 6;</code>
        * @return This builder for chaining.
        */
-      public Builder clearSource() {
+      public Builder clearChannel() {
         
-        source_ = 0;
+        channel_ = 0;
         onChanged();
         return this;
       }
@@ -13897,57 +13897,57 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/common.proto\022\013greptime.v1\"" +
-      "\323\001\n\014QueryContext\022\027\n\017current_catalog\030\001 \001(" +
+      "\324\001\n\014QueryContext\022\027\n\017current_catalog\030\001 \001(" +
       "\t\022\026\n\016current_schema\030\002 \001(\t\022\020\n\010timezone\030\004 " +
       "\001(\t\022=\n\nextensions\030\005 \003(\0132).greptime.v1.Qu" +
-      "eryContext.ExtensionsEntry\022\016\n\006source\030\006 \001" +
-      "(\r\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\"\202\002\n\rRequestHeader\022\017\n\007catal" +
-      "og\030\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthorizatio" +
-      "n\030\003 \001(\0132\027.greptime.v1.AuthHeader\022\016\n\006dbna" +
-      "me\030\004 \001(\t\022G\n\017tracing_context\030\005 \003(\0132..grep" +
-      "time.v1.RequestHeader.TracingContextEntr" +
-      "y\022\020\n\010timezone\030\006 \001(\t\0325\n\023TracingContextEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"5\n\016Re" +
-      "sponseHeader\022#\n\006status\030\001 \001(\0132\023.greptime." +
-      "v1.Status\".\n\006Status\022\023\n\013status_code\030\001 \001(\r" +
-      "\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basic" +
-      "\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005token\030\002 " +
-      "\001(\0132\022.greptime.v1.TokenH\000B\r\n\013auth_scheme" +
-      "\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030" +
-      "\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"J\n\tTableNa" +
-      "me\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
-      "\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"\035\n\014AffectedRow" +
-      "s\022\r\n\005value\030\001 \001(\r\"\032\n\007Metrics\022\017\n\007metrics\030\001" +
-      " \001(\014\"\034\n\013ExpireAfter\022\r\n\005value\030\001 \001(\003\"i\n\016Fl" +
-      "ightMetadata\0220\n\raffected_rows\030\001 \001(\0132\031.gr" +
-      "eptime.v1.AffectedRows\022%\n\007metrics\030\002 \001(\0132" +
-      "\024.greptime.v1.Metrics\"I\n\024IntervalMonthDa" +
-      "yNano\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013n" +
-      "anoseconds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001" +
-      "(\003\022\n\n\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtensio" +
-      "n\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v1.De" +
-      "cimalTypeExtensionH\000B\n\n\010type_ext\"8\n\024Deci" +
-      "malTypeExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005s" +
-      "cale\030\002 \001(\005\"y\n\rColumnOptions\0228\n\007options\030\001" +
-      " \003(\0132\'.greptime.v1.ColumnOptions.Options" +
-      "Entry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t" +
-      "\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\326\003\n\016ColumnDataT" +
-      "ype\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n" +
-      "\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16" +
-      "\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022" +
-      "\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004" +
-      "DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND" +
-      "\020\017\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTA" +
-      "MP_MICROSECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND" +
-      "\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020" +
-      "\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIME_NANOSECO" +
-      "ND\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVA" +
-      "L_DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020" +
-      "\031\022\016\n\nDECIMAL128\020\036BO\n\016io.greptime.v1B\006Com" +
-      "monZ5github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1b\006proto3"
+      "eryContext.ExtensionsEntry\022\017\n\007channel\030\006 " +
+      "\001(\r\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\t:\0028\001\"\202\002\n\rRequestHeader\022\017\n\007cata" +
+      "log\030\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthorizati" +
+      "on\030\003 \001(\0132\027.greptime.v1.AuthHeader\022\016\n\006dbn" +
+      "ame\030\004 \001(\t\022G\n\017tracing_context\030\005 \003(\0132..gre" +
+      "ptime.v1.RequestHeader.TracingContextEnt" +
+      "ry\022\020\n\010timezone\030\006 \001(\t\0325\n\023TracingContextEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"5\n\016R" +
+      "esponseHeader\022#\n\006status\030\001 \001(\0132\023.greptime" +
+      ".v1.Status\".\n\006Status\022\023\n\013status_code\030\001 \001(" +
+      "\r\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basi" +
+      "c\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005token\030\002" +
+      " \001(\0132\022.greptime.v1.TokenH\000B\r\n\013auth_schem" +
+      "e\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010password" +
+      "\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"J\n\tTableN" +
+      "ame\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
+      "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"\035\n\014AffectedRo" +
+      "ws\022\r\n\005value\030\001 \001(\r\"\032\n\007Metrics\022\017\n\007metrics\030" +
+      "\001 \001(\014\"\034\n\013ExpireAfter\022\r\n\005value\030\001 \001(\003\"i\n\016F" +
+      "lightMetadata\0220\n\raffected_rows\030\001 \001(\0132\031.g" +
+      "reptime.v1.AffectedRows\022%\n\007metrics\030\002 \001(\013" +
+      "2\024.greptime.v1.Metrics\"I\n\024IntervalMonthD" +
+      "ayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013" +
+      "nanoseconds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 " +
+      "\001(\003\022\n\n\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtensi" +
+      "on\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v1.D" +
+      "ecimalTypeExtensionH\000B\n\n\010type_ext\"8\n\024Dec" +
+      "imalTypeExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005" +
+      "scale\030\002 \001(\005\"y\n\rColumnOptions\0228\n\007options\030" +
+      "\001 \003(\0132\'.greptime.v1.ColumnOptions.Option" +
+      "sEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\t:\0028\001*1\n\014SemanticType\022\007\n\003TAG\020\000\022" +
+      "\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\326\003\n\016ColumnData" +
+      "Type\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t" +
+      "\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT1" +
+      "6\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t" +
+      "\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n" +
+      "\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECON" +
+      "D\020\017\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022\031\n\025TIMEST" +
+      "AMP_MICROSECOND\020\021\022\030\n\024TIMESTAMP_NANOSECON" +
+      "D\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MILLISECOND" +
+      "\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIME_NANOSEC" +
+      "OND\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERV" +
+      "AL_DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO" +
+      "\020\031\022\016\n\nDECIMAL128\020\036BO\n\016io.greptime.v1B\006Co" +
+      "mmonZ5github.com/GreptimeTeam/greptime-p" +
+      "roto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13958,7 +13958,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_QueryContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_QueryContext_descriptor,
-        new java.lang.String[] { "CurrentCatalog", "CurrentSchema", "Timezone", "Extensions", "Source", });
+        new java.lang.String[] { "CurrentCatalog", "CurrentSchema", "Timezone", "Extensions", "Channel", });
     internal_static_greptime_v1_QueryContext_ExtensionsEntry_descriptor =
       internal_static_greptime_v1_QueryContext_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_QueryContext_ExtensionsEntry_fieldAccessorTable = new
