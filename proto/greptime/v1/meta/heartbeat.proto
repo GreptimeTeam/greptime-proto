@@ -23,7 +23,7 @@ import "greptime/v1/meta/common.proto";
 service Heartbeat {
   // Heartbeat, there may be many contents of the heartbeat, such as:
   // 1. Metadata to be registered to meta server and discoverable by other
-  // nodes.
+  //    nodes.
   // 2. Some performance metrics, such as Load, CPU usage, etc.
   // 3. The number of computing tasks being executed.
   rpc Heartbeat(stream HeartbeatRequest) returns (stream HeartbeatResponse) {}

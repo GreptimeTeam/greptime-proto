@@ -54,7 +54,7 @@ class Heartbeat final {
     virtual ~StubInterface() {}
     // Heartbeat, there may be many contents of the heartbeat, such as:
     // 1. Metadata to be registered to meta server and discoverable by other
-    // nodes.
+    //    nodes.
     // 2. Some performance metrics, such as Load, CPU usage, etc.
     // 3. The number of computing tasks being executed.
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::greptime::v1::meta::HeartbeatRequest, ::greptime::v1::meta::HeartbeatResponse>> Heartbeat(::grpc::ClientContext* context) {
@@ -79,7 +79,7 @@ class Heartbeat final {
       virtual ~async_interface() {}
       // Heartbeat, there may be many contents of the heartbeat, such as:
       // 1. Metadata to be registered to meta server and discoverable by other
-      // nodes.
+      //    nodes.
       // 2. Some performance metrics, such as Load, CPU usage, etc.
       // 3. The number of computing tasks being executed.
       virtual void Heartbeat(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::greptime::v1::meta::HeartbeatRequest,::greptime::v1::meta::HeartbeatResponse>* reactor) = 0;
@@ -149,7 +149,7 @@ class Heartbeat final {
     virtual ~Service();
     // Heartbeat, there may be many contents of the heartbeat, such as:
     // 1. Metadata to be registered to meta server and discoverable by other
-    // nodes.
+    //    nodes.
     // 2. Some performance metrics, such as Load, CPU usage, etc.
     // 3. The number of computing tasks being executed.
     virtual ::grpc::Status Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::greptime::v1::meta::HeartbeatResponse, ::greptime::v1::meta::HeartbeatRequest>* stream);

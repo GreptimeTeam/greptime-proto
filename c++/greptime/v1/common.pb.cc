@@ -39,6 +39,7 @@ PROTOBUF_CONSTEXPR QueryContext::QueryContext(
   , /*decltype(_impl_.current_catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.current_schema_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.timezone_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.channel_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct QueryContextDefaultTypeInternal {
   PROTOBUF_CONSTEXPR QueryContextDefaultTypeInternal()
@@ -322,6 +323,7 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::QueryContext, _impl_.current_schema_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::QueryContext, _impl_.timezone_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::QueryContext, _impl_.extensions_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::QueryContext, _impl_.channel_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -475,24 +477,24 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse)},
   { 10, -1, -1, sizeof(::greptime::v1::QueryContext)},
-  { 20, 28, -1, sizeof(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse)},
-  { 30, -1, -1, sizeof(::greptime::v1::RequestHeader)},
-  { 42, -1, -1, sizeof(::greptime::v1::ResponseHeader)},
-  { 49, -1, -1, sizeof(::greptime::v1::Status)},
-  { 57, -1, -1, sizeof(::greptime::v1::AuthHeader)},
-  { 66, -1, -1, sizeof(::greptime::v1::Basic)},
-  { 74, -1, -1, sizeof(::greptime::v1::Token)},
-  { 81, -1, -1, sizeof(::greptime::v1::TableName)},
-  { 90, -1, -1, sizeof(::greptime::v1::AffectedRows)},
-  { 97, -1, -1, sizeof(::greptime::v1::Metrics)},
-  { 104, -1, -1, sizeof(::greptime::v1::ExpireAfter)},
-  { 111, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
-  { 119, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
-  { 128, -1, -1, sizeof(::greptime::v1::Decimal128)},
-  { 136, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
-  { 144, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
-  { 152, 160, -1, sizeof(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse)},
-  { 162, -1, -1, sizeof(::greptime::v1::ColumnOptions)},
+  { 21, 29, -1, sizeof(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse)},
+  { 31, -1, -1, sizeof(::greptime::v1::RequestHeader)},
+  { 43, -1, -1, sizeof(::greptime::v1::ResponseHeader)},
+  { 50, -1, -1, sizeof(::greptime::v1::Status)},
+  { 58, -1, -1, sizeof(::greptime::v1::AuthHeader)},
+  { 67, -1, -1, sizeof(::greptime::v1::Basic)},
+  { 75, -1, -1, sizeof(::greptime::v1::Token)},
+  { 82, -1, -1, sizeof(::greptime::v1::TableName)},
+  { 91, -1, -1, sizeof(::greptime::v1::AffectedRows)},
+  { 98, -1, -1, sizeof(::greptime::v1::Metrics)},
+  { 105, -1, -1, sizeof(::greptime::v1::ExpireAfter)},
+  { 112, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
+  { 120, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
+  { 129, -1, -1, sizeof(::greptime::v1::Decimal128)},
+  { 137, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
+  { 145, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
+  { 153, 161, -1, sizeof(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse)},
+  { 163, -1, -1, sizeof(::greptime::v1::ColumnOptions)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -520,61 +522,61 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030greptime/v1/common.proto\022\013greptime.v1\""
-  "\303\001\n\014QueryContext\022\027\n\017current_catalog\030\001 \001("
+  "\324\001\n\014QueryContext\022\027\n\017current_catalog\030\001 \001("
   "\t\022\026\n\016current_schema\030\002 \001(\t\022\020\n\010timezone\030\004 "
   "\001(\t\022=\n\nextensions\030\005 \003(\0132).greptime.v1.Qu"
-  "eryContext.ExtensionsEntry\0321\n\017Extensions"
-  "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\202\002"
-  "\n\rRequestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006sche"
-  "ma\030\002 \001(\t\022.\n\rauthorization\030\003 \001(\0132\027.grepti"
-  "me.v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022G\n\017trac"
-  "ing_context\030\005 \003(\0132..greptime.v1.RequestH"
-  "eader.TracingContextEntry\022\020\n\010timezone\030\006 "
-  "\001(\t\0325\n\023TracingContextEntry\022\013\n\003key\030\001 \001(\t\022"
-  "\r\n\005value\030\002 \001(\t:\0028\001\"5\n\016ResponseHeader\022#\n\006"
-  "status\030\001 \001(\0132\023.greptime.v1.Status\".\n\006Sta"
-  "tus\022\023\n\013status_code\030\001 \001(\r\022\017\n\007err_msg\030\002 \001("
-  "\t\"e\n\nAuthHeader\022#\n\005basic\030\001 \001(\0132\022.greptim"
-  "e.v1.BasicH\000\022#\n\005token\030\002 \001(\0132\022.greptime.v"
-  "1.TokenH\000B\r\n\013auth_scheme\"+\n\005Basic\022\020\n\010use"
-  "rname\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\026\n\005Token\022\r"
-  "\n\005token\030\001 \001(\t\"J\n\tTableName\022\024\n\014catalog_na"
-  "me\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_n"
-  "ame\030\003 \001(\t\"\035\n\014AffectedRows\022\r\n\005value\030\001 \001(\r"
-  "\"\032\n\007Metrics\022\017\n\007metrics\030\001 \001(\014\"\034\n\013ExpireAf"
-  "ter\022\r\n\005value\030\001 \001(\003\"i\n\016FlightMetadata\0220\n\r"
-  "affected_rows\030\001 \001(\0132\031.greptime.v1.Affect"
-  "edRows\022%\n\007metrics\030\002 \001(\0132\024.greptime.v1.Me"
-  "trics\"I\n\024IntervalMonthDayNano\022\016\n\006months\030"
-  "\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003"
-  "\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n\002lo\030\002 \001(\003\"`"
-  "\n\027ColumnDataTypeExtension\0229\n\014decimal_typ"
-  "e\030\001 \001(\0132!.greptime.v1.DecimalTypeExtensi"
-  "onH\000B\n\n\010type_ext\"8\n\024DecimalTypeExtension"
-  "\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005\"y\n\rCo"
-  "lumnOptions\0228\n\007options\030\001 \003(\0132\'.greptime."
-  "v1.ColumnOptions.OptionsEntry\032.\n\014Options"
-  "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001*1\n"
-  "\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIM"
-  "ESTAMP\020\002*\326\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000"
-  "\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT6"
-  "4\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n"
-  "\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006"
-  "BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETI"
-  "ME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_"
-  "MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021"
-  "\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECON"
-  "D\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROS"
-  "ECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL"
-  "_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027"
-  "INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020"
-  "\036BO\n\016io.greptime.v1B\006CommonZ5github.com/"
-  "GreptimeTeam/greptime-proto/go/greptime/"
-  "v1b\006proto3"
+  "eryContext.ExtensionsEntry\022\017\n\007channel\030\006 "
+  "\001(\r\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v"
+  "alue\030\002 \001(\t:\0028\001\"\202\002\n\rRequestHeader\022\017\n\007cata"
+  "log\030\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthorizati"
+  "on\030\003 \001(\0132\027.greptime.v1.AuthHeader\022\016\n\006dbn"
+  "ame\030\004 \001(\t\022G\n\017tracing_context\030\005 \003(\0132..gre"
+  "ptime.v1.RequestHeader.TracingContextEnt"
+  "ry\022\020\n\010timezone\030\006 \001(\t\0325\n\023TracingContextEn"
+  "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"5\n\016R"
+  "esponseHeader\022#\n\006status\030\001 \001(\0132\023.greptime"
+  ".v1.Status\".\n\006Status\022\023\n\013status_code\030\001 \001("
+  "\r\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basi"
+  "c\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005token\030\002"
+  " \001(\0132\022.greptime.v1.TokenH\000B\r\n\013auth_schem"
+  "e\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010password"
+  "\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"J\n\tTableN"
+  "ame\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name"
+  "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"\035\n\014AffectedRo"
+  "ws\022\r\n\005value\030\001 \001(\r\"\032\n\007Metrics\022\017\n\007metrics\030"
+  "\001 \001(\014\"\034\n\013ExpireAfter\022\r\n\005value\030\001 \001(\003\"i\n\016F"
+  "lightMetadata\0220\n\raffected_rows\030\001 \001(\0132\031.g"
+  "reptime.v1.AffectedRows\022%\n\007metrics\030\002 \001(\013"
+  "2\024.greptime.v1.Metrics\"I\n\024IntervalMonthD"
+  "ayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013"
+  "nanoseconds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 "
+  "\001(\003\022\n\n\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtensi"
+  "on\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v1.D"
+  "ecimalTypeExtensionH\000B\n\n\010type_ext\"8\n\024Dec"
+  "imalTypeExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005"
+  "scale\030\002 \001(\005\"y\n\rColumnOptions\0228\n\007options\030"
+  "\001 \003(\0132\'.greptime.v1.ColumnOptions.Option"
+  "sEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v"
+  "alue\030\002 \001(\t:\0028\001*1\n\014SemanticType\022\007\n\003TAG\020\000\022"
+  "\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\326\003\n\016ColumnData"
+  "Type\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t"
+  "\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT1"
+  "6\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t"
+  "\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n"
+  "\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECON"
+  "D\020\017\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022\031\n\025TIMEST"
+  "AMP_MICROSECOND\020\021\022\030\n\024TIMESTAMP_NANOSECON"
+  "D\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MILLISECOND"
+  "\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIME_NANOSEC"
+  "OND\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERV"
+  "AL_DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO"
+  "\020\031\022\016\n\nDECIMAL128\020\036BO\n\016io.greptime.v1B\006Co"
+  "mmonZ5github.com/GreptimeTeam/greptime-p"
+  "roto/go/greptime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 2050, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 2067, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
     &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 20,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
@@ -681,6 +683,7 @@ QueryContext::QueryContext(const QueryContext& from)
     , decltype(_impl_.current_catalog_){}
     , decltype(_impl_.current_schema_){}
     , decltype(_impl_.timezone_){}
+    , decltype(_impl_.channel_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -709,6 +712,7 @@ QueryContext::QueryContext(const QueryContext& from)
     _this->_impl_.timezone_.Set(from._internal_timezone(), 
       _this->GetArenaForAllocation());
   }
+  _this->_impl_.channel_ = from._impl_.channel_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.QueryContext)
 }
 
@@ -721,6 +725,7 @@ inline void QueryContext::SharedCtor(
     , decltype(_impl_.current_catalog_){}
     , decltype(_impl_.current_schema_){}
     , decltype(_impl_.timezone_){}
+    , decltype(_impl_.channel_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.current_catalog_.InitDefault();
@@ -774,6 +779,7 @@ void QueryContext::Clear() {
   _impl_.current_catalog_.ClearToEmpty();
   _impl_.current_schema_.ClearToEmpty();
   _impl_.timezone_.ClearToEmpty();
+  _impl_.channel_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -823,6 +829,14 @@ const char* QueryContext::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 channel = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _impl_.channel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -915,6 +929,12 @@ uint8_t* QueryContext::_InternalSerialize(
     }
   }
 
+  // uint32 channel = 6;
+  if (this->_internal_channel() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_channel(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -961,6 +981,11 @@ size_t QueryContext::ByteSizeLong() const {
         this->_internal_timezone());
   }
 
+  // uint32 channel = 6;
+  if (this->_internal_channel() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_channel());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -988,6 +1013,9 @@ void QueryContext::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   }
   if (!from._internal_timezone().empty()) {
     _this->_internal_set_timezone(from._internal_timezone());
+  }
+  if (from._internal_channel() != 0) {
+    _this->_internal_set_channel(from._internal_channel());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1021,6 +1049,7 @@ void QueryContext::InternalSwap(QueryContext* other) {
       &_impl_.timezone_, lhs_arena,
       &other->_impl_.timezone_, rhs_arena
   );
+  swap(_impl_.channel_, other->_impl_.channel_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata QueryContext::GetMetadata() const {
