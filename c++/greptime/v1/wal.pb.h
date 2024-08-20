@@ -48,6 +48,9 @@ struct TableStruct_greptime_2fv1_2fwal_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_greptime_2fv1_2fwal_2eproto;
 namespace greptime {
 namespace v1 {
+class ManifestNotification;
+struct ManifestNotificationDefaultTypeInternal;
+extern ManifestNotificationDefaultTypeInternal _ManifestNotification_default_instance_;
 class Mutation;
 struct MutationDefaultTypeInternal;
 extern MutationDefaultTypeInternal _Mutation_default_instance_;
@@ -60,6 +63,7 @@ extern WriteHintDefaultTypeInternal _WriteHint_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
+template<> ::greptime::v1::ManifestNotification* Arena::CreateMaybeMessage<::greptime::v1::ManifestNotification>(Arena*);
 template<> ::greptime::v1::Mutation* Arena::CreateMaybeMessage<::greptime::v1::Mutation>(Arena*);
 template<> ::greptime::v1::WalEntry* Arena::CreateMaybeMessage<::greptime::v1::WalEntry>(Arena*);
 template<> ::greptime::v1::WriteHint* Arena::CreateMaybeMessage<::greptime::v1::WriteHint>(Arena*);
@@ -70,12 +74,13 @@ namespace v1 {
 enum OpType : int {
   DELETE = 0,
   PUT = 1,
+  NOTIFY = 2,
   OpType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   OpType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool OpType_IsValid(int value);
 constexpr OpType OpType_MIN = DELETE;
-constexpr OpType OpType_MAX = PUT;
+constexpr OpType OpType_MAX = NOTIFY;
 constexpr int OpType_ARRAYSIZE = OpType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* OpType_descriptor();
@@ -118,6 +123,154 @@ inline bool PrimaryKeyEncoding_Parse(
     PrimaryKeyEncoding_descriptor(), name, value);
 }
 // ===================================================================
+
+class ManifestNotification final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ManifestNotification) */ {
+ public:
+  inline ManifestNotification() : ManifestNotification(nullptr) {}
+  ~ManifestNotification() override;
+  explicit PROTOBUF_CONSTEXPR ManifestNotification(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ManifestNotification(const ManifestNotification& from);
+  ManifestNotification(ManifestNotification&& from) noexcept
+    : ManifestNotification() {
+    *this = ::std::move(from);
+  }
+
+  inline ManifestNotification& operator=(const ManifestNotification& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ManifestNotification& operator=(ManifestNotification&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ManifestNotification& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ManifestNotification* internal_default_instance() {
+    return reinterpret_cast<const ManifestNotification*>(
+               &_ManifestNotification_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(ManifestNotification& a, ManifestNotification& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ManifestNotification* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ManifestNotification* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ManifestNotification* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ManifestNotification>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ManifestNotification& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ManifestNotification& from) {
+    ManifestNotification::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ManifestNotification* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.ManifestNotification";
+  }
+  protected:
+  explicit ManifestNotification(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVersionFieldNumber = 1,
+  };
+  // uint64 version = 1;
+  void clear_version();
+  uint64_t version() const;
+  void set_version(uint64_t value);
+  private:
+  uint64_t _internal_version() const;
+  void _internal_set_version(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.ManifestNotification)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t version_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fwal_2eproto;
+};
+// -------------------------------------------------------------------
 
 class WriteHint final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.WriteHint) */ {
@@ -167,7 +320,7 @@ class WriteHint final :
                &_WriteHint_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(WriteHint& a, WriteHint& b) {
     a.Swap(&b);
@@ -315,7 +468,7 @@ class Mutation final :
                &_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(Mutation& a, Mutation& b) {
     a.Swap(&b);
@@ -390,6 +543,7 @@ class Mutation final :
   enum : int {
     kRowsFieldNumber = 3,
     kWriteHintFieldNumber = 4,
+    kManifestNotificationFieldNumber = 5,
     kSequenceFieldNumber = 2,
     kOpTypeFieldNumber = 1,
   };
@@ -429,6 +583,24 @@ class Mutation final :
       ::greptime::v1::WriteHint* write_hint);
   ::greptime::v1::WriteHint* unsafe_arena_release_write_hint();
 
+  // .greptime.v1.ManifestNotification manifest_notification = 5;
+  bool has_manifest_notification() const;
+  private:
+  bool _internal_has_manifest_notification() const;
+  public:
+  void clear_manifest_notification();
+  const ::greptime::v1::ManifestNotification& manifest_notification() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ManifestNotification* release_manifest_notification();
+  ::greptime::v1::ManifestNotification* mutable_manifest_notification();
+  void set_allocated_manifest_notification(::greptime::v1::ManifestNotification* manifest_notification);
+  private:
+  const ::greptime::v1::ManifestNotification& _internal_manifest_notification() const;
+  ::greptime::v1::ManifestNotification* _internal_mutable_manifest_notification();
+  public:
+  void unsafe_arena_set_allocated_manifest_notification(
+      ::greptime::v1::ManifestNotification* manifest_notification);
+  ::greptime::v1::ManifestNotification* unsafe_arena_release_manifest_notification();
+
   // uint64 sequence = 2;
   void clear_sequence();
   uint64_t sequence() const;
@@ -457,6 +629,7 @@ class Mutation final :
   struct Impl_ {
     ::greptime::v1::Rows* rows_;
     ::greptime::v1::WriteHint* write_hint_;
+    ::greptime::v1::ManifestNotification* manifest_notification_;
     uint64_t sequence_;
     int op_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -514,7 +687,7 @@ class WalEntry final :
                &_WalEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(WalEntry& a, WalEntry& b) {
     a.Swap(&b);
@@ -630,6 +803,30 @@ class WalEntry final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// ManifestNotification
+
+// uint64 version = 1;
+inline void ManifestNotification::clear_version() {
+  _impl_.version_ = uint64_t{0u};
+}
+inline uint64_t ManifestNotification::_internal_version() const {
+  return _impl_.version_;
+}
+inline uint64_t ManifestNotification::version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ManifestNotification.version)
+  return _internal_version();
+}
+inline void ManifestNotification::_internal_set_version(uint64_t value) {
+  
+  _impl_.version_ = value;
+}
+inline void ManifestNotification::set_version(uint64_t value) {
+  _internal_set_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ManifestNotification.version)
+}
+
+// -------------------------------------------------------------------
+
 // WriteHint
 
 // .greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;
@@ -871,6 +1068,96 @@ inline void Mutation::set_allocated_write_hint(::greptime::v1::WriteHint* write_
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Mutation.write_hint)
 }
 
+// .greptime.v1.ManifestNotification manifest_notification = 5;
+inline bool Mutation::_internal_has_manifest_notification() const {
+  return this != internal_default_instance() && _impl_.manifest_notification_ != nullptr;
+}
+inline bool Mutation::has_manifest_notification() const {
+  return _internal_has_manifest_notification();
+}
+inline void Mutation::clear_manifest_notification() {
+  if (GetArenaForAllocation() == nullptr && _impl_.manifest_notification_ != nullptr) {
+    delete _impl_.manifest_notification_;
+  }
+  _impl_.manifest_notification_ = nullptr;
+}
+inline const ::greptime::v1::ManifestNotification& Mutation::_internal_manifest_notification() const {
+  const ::greptime::v1::ManifestNotification* p = _impl_.manifest_notification_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ManifestNotification&>(
+      ::greptime::v1::_ManifestNotification_default_instance_);
+}
+inline const ::greptime::v1::ManifestNotification& Mutation::manifest_notification() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Mutation.manifest_notification)
+  return _internal_manifest_notification();
+}
+inline void Mutation::unsafe_arena_set_allocated_manifest_notification(
+    ::greptime::v1::ManifestNotification* manifest_notification) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.manifest_notification_);
+  }
+  _impl_.manifest_notification_ = manifest_notification;
+  if (manifest_notification) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.Mutation.manifest_notification)
+}
+inline ::greptime::v1::ManifestNotification* Mutation::release_manifest_notification() {
+  
+  ::greptime::v1::ManifestNotification* temp = _impl_.manifest_notification_;
+  _impl_.manifest_notification_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ManifestNotification* Mutation::unsafe_arena_release_manifest_notification() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Mutation.manifest_notification)
+  
+  ::greptime::v1::ManifestNotification* temp = _impl_.manifest_notification_;
+  _impl_.manifest_notification_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ManifestNotification* Mutation::_internal_mutable_manifest_notification() {
+  
+  if (_impl_.manifest_notification_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ManifestNotification>(GetArenaForAllocation());
+    _impl_.manifest_notification_ = p;
+  }
+  return _impl_.manifest_notification_;
+}
+inline ::greptime::v1::ManifestNotification* Mutation::mutable_manifest_notification() {
+  ::greptime::v1::ManifestNotification* _msg = _internal_mutable_manifest_notification();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Mutation.manifest_notification)
+  return _msg;
+}
+inline void Mutation::set_allocated_manifest_notification(::greptime::v1::ManifestNotification* manifest_notification) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.manifest_notification_;
+  }
+  if (manifest_notification) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(manifest_notification);
+    if (message_arena != submessage_arena) {
+      manifest_notification = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, manifest_notification, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.manifest_notification_ = manifest_notification;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Mutation.manifest_notification)
+}
+
 // -------------------------------------------------------------------
 
 // WalEntry
@@ -918,6 +1205,8 @@ WalEntry::mutations() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
