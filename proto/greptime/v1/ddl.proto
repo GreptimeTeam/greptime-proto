@@ -109,7 +109,7 @@ message AlterExpr {
     DropColumns drop_columns = 5;
     RenameTable rename_table = 6;
     ChangeColumnTypes change_column_types = 7;
-    AddFulltexts add_fulltexts = 8;
+    AddFulltext add_fulltext = 8;
   }
 }
 
@@ -147,7 +147,10 @@ message DropColumns { repeated DropColumn drop_columns = 1; }
 
 message ChangeColumnTypes { repeated ChangeColumnType change_column_types = 1; }
 
-message AddFulltexts { repeated AddFulltext add_fulltexts = 1; }
+message AddFulltext {
+    string column_name = 1;
+    map<string, string> options = 2;
+}
 
 message RenameTable { string new_table_name = 1; }
 
@@ -160,11 +163,6 @@ message ChangeColumnType {
   string column_name = 1;
   ColumnDataType target_type = 2;
   ColumnDataTypeExtension target_type_extension = 3;
-}
-
-message AddFulltext {
-  string column_name = 1;
-  map<string, string> options = 2;
 }
 
 message DropColumn { string name = 1; }
