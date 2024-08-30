@@ -2764,6 +2764,7 @@ class ColumnDataTypeExtension final :
   }
   enum TypeExtCase {
     kDecimalType = 1,
+    kJsonType = 2,
     TYPE_EXT_NOT_SET = 0,
   };
 
@@ -2846,6 +2847,7 @@ class ColumnDataTypeExtension final :
 
   enum : int {
     kDecimalTypeFieldNumber = 1,
+    kJsonTypeFieldNumber = 2,
   };
   // .greptime.v1.DecimalTypeExtension decimal_type = 1;
   bool has_decimal_type() const;
@@ -2865,12 +2867,26 @@ class ColumnDataTypeExtension final :
       ::greptime::v1::DecimalTypeExtension* decimal_type);
   ::greptime::v1::DecimalTypeExtension* unsafe_arena_release_decimal_type();
 
+  // bool json_type = 2;
+  bool has_json_type() const;
+  private:
+  bool _internal_has_json_type() const;
+  public:
+  void clear_json_type();
+  bool json_type() const;
+  void set_json_type(bool value);
+  private:
+  bool _internal_json_type() const;
+  void _internal_set_json_type(bool value);
+  public:
+
   void clear_type_ext();
   TypeExtCase type_ext_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.ColumnDataTypeExtension)
  private:
   class _Internal;
   void set_has_decimal_type();
+  void set_has_json_type();
 
   inline bool has_type_ext() const;
   inline void clear_has_type_ext();
@@ -2883,6 +2899,7 @@ class ColumnDataTypeExtension final :
       constexpr TypeExtUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::DecimalTypeExtension* decimal_type_;
+      bool json_type_;
     } type_ext_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -4889,6 +4906,44 @@ inline ::greptime::v1::DecimalTypeExtension* ColumnDataTypeExtension::mutable_de
   ::greptime::v1::DecimalTypeExtension* _msg = _internal_mutable_decimal_type();
   // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnDataTypeExtension.decimal_type)
   return _msg;
+}
+
+// bool json_type = 2;
+inline bool ColumnDataTypeExtension::_internal_has_json_type() const {
+  return type_ext_case() == kJsonType;
+}
+inline bool ColumnDataTypeExtension::has_json_type() const {
+  return _internal_has_json_type();
+}
+inline void ColumnDataTypeExtension::set_has_json_type() {
+  _impl_._oneof_case_[0] = kJsonType;
+}
+inline void ColumnDataTypeExtension::clear_json_type() {
+  if (_internal_has_json_type()) {
+    _impl_.type_ext_.json_type_ = false;
+    clear_has_type_ext();
+  }
+}
+inline bool ColumnDataTypeExtension::_internal_json_type() const {
+  if (_internal_has_json_type()) {
+    return _impl_.type_ext_.json_type_;
+  }
+  return false;
+}
+inline void ColumnDataTypeExtension::_internal_set_json_type(bool value) {
+  if (!_internal_has_json_type()) {
+    clear_type_ext();
+    set_has_json_type();
+  }
+  _impl_.type_ext_.json_type_ = value;
+}
+inline bool ColumnDataTypeExtension::json_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDataTypeExtension.json_type)
+  return _internal_json_type();
+}
+inline void ColumnDataTypeExtension::set_json_type(bool value) {
+  _internal_set_json_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDataTypeExtension.json_type)
 }
 
 inline bool ColumnDataTypeExtension::has_type_ext() const {

@@ -133,7 +133,11 @@ message Decimal128 {
 
 // Type extension for some complex types
 message ColumnDataTypeExtension {
-  oneof type_ext { DecimalTypeExtension decimal_type = 1; }
+  oneof type_ext {
+    DecimalTypeExtension decimal_type = 1;
+    // Marks the binary column in proto is actually a JSON column.
+    bool json_type = 2;
+  }
 }
 
 message DecimalTypeExtension {
