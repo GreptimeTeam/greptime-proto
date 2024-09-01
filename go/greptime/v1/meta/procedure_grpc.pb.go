@@ -28,6 +28,8 @@ type ProcedureServiceClient interface {
 	Ddl(ctx context.Context, in *DdlTaskRequest, opts ...grpc.CallOption) (*DdlTaskResponse, error)
 	// Submits a region migration task
 	Migrate(ctx context.Context, in *MigrateRegionRequest, opts ...grpc.CallOption) (*MigrateRegionResponse, error)
+	// Query all submitted procedures details
+	Details(ctx context.Context, in *ProcedureDetailRequest, opts ...grpc.CallOption) (*ProcedureDetailResponse, error)
 }
 
 type procedureServiceClient struct {
@@ -65,6 +67,15 @@ func (c *procedureServiceClient) Migrate(ctx context.Context, in *MigrateRegionR
 	return out, nil
 }
 
+func (c *procedureServiceClient) Details(ctx context.Context, in *ProcedureDetailRequest, opts ...grpc.CallOption) (*ProcedureDetailResponse, error) {
+	out := new(ProcedureDetailResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/details", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProcedureServiceServer is the server API for ProcedureService service.
 // All implementations must embed UnimplementedProcedureServiceServer
 // for forward compatibility
@@ -75,6 +86,8 @@ type ProcedureServiceServer interface {
 	Ddl(context.Context, *DdlTaskRequest) (*DdlTaskResponse, error)
 	// Submits a region migration task
 	Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error)
+	// Query all submitted procedures details
+	Details(context.Context, *ProcedureDetailRequest) (*ProcedureDetailResponse, error)
 	mustEmbedUnimplementedProcedureServiceServer()
 }
 
@@ -90,6 +103,9 @@ func (UnimplementedProcedureServiceServer) Ddl(context.Context, *DdlTaskRequest)
 }
 func (UnimplementedProcedureServiceServer) Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Migrate not implemented")
+}
+func (UnimplementedProcedureServiceServer) Details(context.Context, *ProcedureDetailRequest) (*ProcedureDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Details not implemented")
 }
 func (UnimplementedProcedureServiceServer) mustEmbedUnimplementedProcedureServiceServer() {}
 
@@ -158,6 +174,24 @@ func _ProcedureService_Migrate_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProcedureService_Details_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProcedureDetailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProcedureServiceServer).Details(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.meta.ProcedureService/details",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProcedureServiceServer).Details(ctx, req.(*ProcedureDetailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProcedureService_ServiceDesc is the grpc.ServiceDesc for ProcedureService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -176,6 +210,10 @@ var ProcedureService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "migrate",
 			Handler:    _ProcedureService_Migrate_Handler,
+		},
+		{
+			MethodName: "details",
+			Handler:    _ProcedureService_Details_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
