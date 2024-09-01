@@ -11738,19 +11738,19 @@ java.lang.String defaultValue);
     io.greptime.v1.Ddl.ChangeColumnTypesOrBuilder getChangeColumnTypesOrBuilder();
 
     /**
-     * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
-     * @return Whether the addFulltext field is set.
+     * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
+     * @return Whether the changeFulltext field is set.
      */
-    boolean hasAddFulltext();
+    boolean hasChangeFulltext();
     /**
-     * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
-     * @return The addFulltext.
+     * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
+     * @return The changeFulltext.
      */
-    io.greptime.v1.Ddl.AddFulltext getAddFulltext();
+    io.greptime.v1.Ddl.ChangeFulltext getChangeFulltext();
     /**
-     * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
+     * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
      */
-    io.greptime.v1.Ddl.AddFulltextOrBuilder getAddFulltextOrBuilder();
+    io.greptime.v1.Ddl.ChangeFulltextOrBuilder getChangeFulltextOrBuilder();
 
     public io.greptime.v1.Ddl.AlterExpr.KindCase getKindCase();
   }
@@ -11877,14 +11877,14 @@ java.lang.String defaultValue);
               break;
             }
             case 66: {
-              io.greptime.v1.Ddl.AddFulltext.Builder subBuilder = null;
+              io.greptime.v1.Ddl.ChangeFulltext.Builder subBuilder = null;
               if (kindCase_ == 8) {
-                subBuilder = ((io.greptime.v1.Ddl.AddFulltext) kind_).toBuilder();
+                subBuilder = ((io.greptime.v1.Ddl.ChangeFulltext) kind_).toBuilder();
               }
               kind_ =
-                  input.readMessage(io.greptime.v1.Ddl.AddFulltext.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.Ddl.ChangeFulltext.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Ddl.AddFulltext) kind_);
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.ChangeFulltext) kind_);
                 kind_ = subBuilder.buildPartial();
               }
               kindCase_ = 8;
@@ -11933,7 +11933,7 @@ java.lang.String defaultValue);
       DROP_COLUMNS(5),
       RENAME_TABLE(6),
       CHANGE_COLUMN_TYPES(7),
-      ADD_FULLTEXT(8),
+      CHANGE_FULLTEXT(8),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -11955,7 +11955,7 @@ java.lang.String defaultValue);
           case 5: return DROP_COLUMNS;
           case 6: return RENAME_TABLE;
           case 7: return CHANGE_COLUMN_TYPES;
-          case 8: return ADD_FULLTEXT;
+          case 8: return CHANGE_FULLTEXT;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -12209,35 +12209,35 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.ChangeColumnTypes.getDefaultInstance();
     }
 
-    public static final int ADD_FULLTEXT_FIELD_NUMBER = 8;
+    public static final int CHANGE_FULLTEXT_FIELD_NUMBER = 8;
     /**
-     * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
-     * @return Whether the addFulltext field is set.
+     * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
+     * @return Whether the changeFulltext field is set.
      */
     @java.lang.Override
-    public boolean hasAddFulltext() {
+    public boolean hasChangeFulltext() {
       return kindCase_ == 8;
     }
     /**
-     * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
-     * @return The addFulltext.
+     * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
+     * @return The changeFulltext.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.AddFulltext getAddFulltext() {
+    public io.greptime.v1.Ddl.ChangeFulltext getChangeFulltext() {
       if (kindCase_ == 8) {
-         return (io.greptime.v1.Ddl.AddFulltext) kind_;
+         return (io.greptime.v1.Ddl.ChangeFulltext) kind_;
       }
-      return io.greptime.v1.Ddl.AddFulltext.getDefaultInstance();
+      return io.greptime.v1.Ddl.ChangeFulltext.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
+     * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.AddFulltextOrBuilder getAddFulltextOrBuilder() {
+    public io.greptime.v1.Ddl.ChangeFulltextOrBuilder getChangeFulltextOrBuilder() {
       if (kindCase_ == 8) {
-         return (io.greptime.v1.Ddl.AddFulltext) kind_;
+         return (io.greptime.v1.Ddl.ChangeFulltext) kind_;
       }
-      return io.greptime.v1.Ddl.AddFulltext.getDefaultInstance();
+      return io.greptime.v1.Ddl.ChangeFulltext.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12276,7 +12276,7 @@ java.lang.String defaultValue);
         output.writeMessage(7, (io.greptime.v1.Ddl.ChangeColumnTypes) kind_);
       }
       if (kindCase_ == 8) {
-        output.writeMessage(8, (io.greptime.v1.Ddl.AddFulltext) kind_);
+        output.writeMessage(8, (io.greptime.v1.Ddl.ChangeFulltext) kind_);
       }
       unknownFields.writeTo(output);
     }
@@ -12314,7 +12314,7 @@ java.lang.String defaultValue);
       }
       if (kindCase_ == 8) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, (io.greptime.v1.Ddl.AddFulltext) kind_);
+          .computeMessageSize(8, (io.greptime.v1.Ddl.ChangeFulltext) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12356,8 +12356,8 @@ java.lang.String defaultValue);
               .equals(other.getChangeColumnTypes())) return false;
           break;
         case 8:
-          if (!getAddFulltext()
-              .equals(other.getAddFulltext())) return false;
+          if (!getChangeFulltext()
+              .equals(other.getChangeFulltext())) return false;
           break;
         case 0:
         default:
@@ -12397,8 +12397,8 @@ java.lang.String defaultValue);
           hash = (53 * hash) + getChangeColumnTypes().hashCode();
           break;
         case 8:
-          hash = (37 * hash) + ADD_FULLTEXT_FIELD_NUMBER;
-          hash = (53 * hash) + getAddFulltext().hashCode();
+          hash = (37 * hash) + CHANGE_FULLTEXT_FIELD_NUMBER;
+          hash = (53 * hash) + getChangeFulltext().hashCode();
           break;
         case 0:
         default:
@@ -12602,10 +12602,10 @@ java.lang.String defaultValue);
           }
         }
         if (kindCase_ == 8) {
-          if (addFulltextBuilder_ == null) {
+          if (changeFulltextBuilder_ == null) {
             result.kind_ = kind_;
           } else {
-            result.kind_ = addFulltextBuilder_.build();
+            result.kind_ = changeFulltextBuilder_.build();
           }
         }
         result.kindCase_ = kindCase_;
@@ -12686,8 +12686,8 @@ java.lang.String defaultValue);
             mergeChangeColumnTypes(other.getChangeColumnTypes());
             break;
           }
-          case ADD_FULLTEXT: {
-            mergeAddFulltext(other.getAddFulltext());
+          case CHANGE_FULLTEXT: {
+            mergeChangeFulltext(other.getChangeFulltext());
             break;
           }
           case KIND_NOT_SET: {
@@ -13535,71 +13535,71 @@ java.lang.String defaultValue);
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.AddFulltext, io.greptime.v1.Ddl.AddFulltext.Builder, io.greptime.v1.Ddl.AddFulltextOrBuilder> addFulltextBuilder_;
+          io.greptime.v1.Ddl.ChangeFulltext, io.greptime.v1.Ddl.ChangeFulltext.Builder, io.greptime.v1.Ddl.ChangeFulltextOrBuilder> changeFulltextBuilder_;
       /**
-       * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
-       * @return Whether the addFulltext field is set.
+       * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
+       * @return Whether the changeFulltext field is set.
        */
       @java.lang.Override
-      public boolean hasAddFulltext() {
+      public boolean hasChangeFulltext() {
         return kindCase_ == 8;
       }
       /**
-       * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
-       * @return The addFulltext.
+       * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
+       * @return The changeFulltext.
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.AddFulltext getAddFulltext() {
-        if (addFulltextBuilder_ == null) {
+      public io.greptime.v1.Ddl.ChangeFulltext getChangeFulltext() {
+        if (changeFulltextBuilder_ == null) {
           if (kindCase_ == 8) {
-            return (io.greptime.v1.Ddl.AddFulltext) kind_;
+            return (io.greptime.v1.Ddl.ChangeFulltext) kind_;
           }
-          return io.greptime.v1.Ddl.AddFulltext.getDefaultInstance();
+          return io.greptime.v1.Ddl.ChangeFulltext.getDefaultInstance();
         } else {
           if (kindCase_ == 8) {
-            return addFulltextBuilder_.getMessage();
+            return changeFulltextBuilder_.getMessage();
           }
-          return io.greptime.v1.Ddl.AddFulltext.getDefaultInstance();
+          return io.greptime.v1.Ddl.ChangeFulltext.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
+       * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
        */
-      public Builder setAddFulltext(io.greptime.v1.Ddl.AddFulltext value) {
-        if (addFulltextBuilder_ == null) {
+      public Builder setChangeFulltext(io.greptime.v1.Ddl.ChangeFulltext value) {
+        if (changeFulltextBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           kind_ = value;
           onChanged();
         } else {
-          addFulltextBuilder_.setMessage(value);
+          changeFulltextBuilder_.setMessage(value);
         }
         kindCase_ = 8;
         return this;
       }
       /**
-       * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
+       * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
        */
-      public Builder setAddFulltext(
-          io.greptime.v1.Ddl.AddFulltext.Builder builderForValue) {
-        if (addFulltextBuilder_ == null) {
+      public Builder setChangeFulltext(
+          io.greptime.v1.Ddl.ChangeFulltext.Builder builderForValue) {
+        if (changeFulltextBuilder_ == null) {
           kind_ = builderForValue.build();
           onChanged();
         } else {
-          addFulltextBuilder_.setMessage(builderForValue.build());
+          changeFulltextBuilder_.setMessage(builderForValue.build());
         }
         kindCase_ = 8;
         return this;
       }
       /**
-       * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
+       * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
        */
-      public Builder mergeAddFulltext(io.greptime.v1.Ddl.AddFulltext value) {
-        if (addFulltextBuilder_ == null) {
+      public Builder mergeChangeFulltext(io.greptime.v1.Ddl.ChangeFulltext value) {
+        if (changeFulltextBuilder_ == null) {
           if (kindCase_ == 8 &&
-              kind_ != io.greptime.v1.Ddl.AddFulltext.getDefaultInstance()) {
-            kind_ = io.greptime.v1.Ddl.AddFulltext.newBuilder((io.greptime.v1.Ddl.AddFulltext) kind_)
+              kind_ != io.greptime.v1.Ddl.ChangeFulltext.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.ChangeFulltext.newBuilder((io.greptime.v1.Ddl.ChangeFulltext) kind_)
                 .mergeFrom(value).buildPartial();
           } else {
             kind_ = value;
@@ -13607,19 +13607,19 @@ java.lang.String defaultValue);
           onChanged();
         } else {
           if (kindCase_ == 8) {
-            addFulltextBuilder_.mergeFrom(value);
+            changeFulltextBuilder_.mergeFrom(value);
           } else {
-            addFulltextBuilder_.setMessage(value);
+            changeFulltextBuilder_.setMessage(value);
           }
         }
         kindCase_ = 8;
         return this;
       }
       /**
-       * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
+       * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
        */
-      public Builder clearAddFulltext() {
-        if (addFulltextBuilder_ == null) {
+      public Builder clearChangeFulltext() {
+        if (changeFulltextBuilder_ == null) {
           if (kindCase_ == 8) {
             kindCase_ = 0;
             kind_ = null;
@@ -13630,50 +13630,50 @@ java.lang.String defaultValue);
             kindCase_ = 0;
             kind_ = null;
           }
-          addFulltextBuilder_.clear();
+          changeFulltextBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
+       * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
        */
-      public io.greptime.v1.Ddl.AddFulltext.Builder getAddFulltextBuilder() {
-        return getAddFulltextFieldBuilder().getBuilder();
+      public io.greptime.v1.Ddl.ChangeFulltext.Builder getChangeFulltextBuilder() {
+        return getChangeFulltextFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
+       * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.AddFulltextOrBuilder getAddFulltextOrBuilder() {
-        if ((kindCase_ == 8) && (addFulltextBuilder_ != null)) {
-          return addFulltextBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Ddl.ChangeFulltextOrBuilder getChangeFulltextOrBuilder() {
+        if ((kindCase_ == 8) && (changeFulltextBuilder_ != null)) {
+          return changeFulltextBuilder_.getMessageOrBuilder();
         } else {
           if (kindCase_ == 8) {
-            return (io.greptime.v1.Ddl.AddFulltext) kind_;
+            return (io.greptime.v1.Ddl.ChangeFulltext) kind_;
           }
-          return io.greptime.v1.Ddl.AddFulltext.getDefaultInstance();
+          return io.greptime.v1.Ddl.ChangeFulltext.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.AddFulltext add_fulltext = 8;</code>
+       * <code>.greptime.v1.ChangeFulltext change_fulltext = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.AddFulltext, io.greptime.v1.Ddl.AddFulltext.Builder, io.greptime.v1.Ddl.AddFulltextOrBuilder> 
-          getAddFulltextFieldBuilder() {
-        if (addFulltextBuilder_ == null) {
+          io.greptime.v1.Ddl.ChangeFulltext, io.greptime.v1.Ddl.ChangeFulltext.Builder, io.greptime.v1.Ddl.ChangeFulltextOrBuilder> 
+          getChangeFulltextFieldBuilder() {
+        if (changeFulltextBuilder_ == null) {
           if (!(kindCase_ == 8)) {
-            kind_ = io.greptime.v1.Ddl.AddFulltext.getDefaultInstance();
+            kind_ = io.greptime.v1.Ddl.ChangeFulltext.getDefaultInstance();
           }
-          addFulltextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.AddFulltext, io.greptime.v1.Ddl.AddFulltext.Builder, io.greptime.v1.Ddl.AddFulltextOrBuilder>(
-                  (io.greptime.v1.Ddl.AddFulltext) kind_,
+          changeFulltextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.ChangeFulltext, io.greptime.v1.Ddl.ChangeFulltext.Builder, io.greptime.v1.Ddl.ChangeFulltextOrBuilder>(
+                  (io.greptime.v1.Ddl.ChangeFulltext) kind_,
                   getParentForChildren(),
                   isClean());
           kind_ = null;
         }
         kindCase_ = 8;
         onChanged();;
-        return addFulltextBuilder_;
+        return changeFulltextBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -20237,8 +20237,8 @@ java.lang.String defaultValue);
 
   }
 
-  public interface AddFulltextOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.AddFulltext)
+  public interface ChangeFulltextOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.ChangeFulltext)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -20290,18 +20290,18 @@ java.lang.String defaultValue);
         java.lang.String key);
   }
   /**
-   * Protobuf type {@code greptime.v1.AddFulltext}
+   * Protobuf type {@code greptime.v1.ChangeFulltext}
    */
-  public static final class AddFulltext extends
+  public static final class ChangeFulltext extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.AddFulltext)
-      AddFulltextOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.ChangeFulltext)
+      ChangeFulltextOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use AddFulltext.newBuilder() to construct.
-    private AddFulltext(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ChangeFulltext.newBuilder() to construct.
+    private ChangeFulltext(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private AddFulltext() {
+    private ChangeFulltext() {
       columnName_ = "";
     }
 
@@ -20309,7 +20309,7 @@ java.lang.String defaultValue);
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new AddFulltext();
+      return new ChangeFulltext();
     }
 
     @java.lang.Override
@@ -20317,7 +20317,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AddFulltext(
+    private ChangeFulltext(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -20378,7 +20378,7 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_AddFulltext_descriptor;
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeFulltext_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -20396,9 +20396,9 @@ java.lang.String defaultValue);
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_AddFulltext_fieldAccessorTable
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeFulltext_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Ddl.AddFulltext.class, io.greptime.v1.Ddl.AddFulltext.Builder.class);
+              io.greptime.v1.Ddl.ChangeFulltext.class, io.greptime.v1.Ddl.ChangeFulltext.Builder.class);
     }
 
     public static final int COLUMN_NAME_FIELD_NUMBER = 1;
@@ -20445,7 +20445,7 @@ java.lang.String defaultValue);
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  io.greptime.v1.Ddl.internal_static_greptime_v1_AddFulltext_OptionsEntry_descriptor, 
+                  io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeFulltext_OptionsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
@@ -20575,10 +20575,10 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.Ddl.AddFulltext)) {
+      if (!(obj instanceof io.greptime.v1.Ddl.ChangeFulltext)) {
         return super.equals(obj);
       }
-      io.greptime.v1.Ddl.AddFulltext other = (io.greptime.v1.Ddl.AddFulltext) obj;
+      io.greptime.v1.Ddl.ChangeFulltext other = (io.greptime.v1.Ddl.ChangeFulltext) obj;
 
       if (!getColumnName()
           .equals(other.getColumnName())) return false;
@@ -20606,69 +20606,69 @@ java.lang.String defaultValue);
       return hash;
     }
 
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(byte[] data)
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.Ddl.ChangeFulltext parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseDelimitedFrom(
+    public static io.greptime.v1.Ddl.ChangeFulltext parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.AddFulltext parseFrom(
+    public static io.greptime.v1.Ddl.ChangeFulltext parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -20681,7 +20681,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.Ddl.AddFulltext prototype) {
+    public static Builder newBuilder(io.greptime.v1.Ddl.ChangeFulltext prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -20697,15 +20697,15 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.AddFulltext}
+     * Protobuf type {@code greptime.v1.ChangeFulltext}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.AddFulltext)
-        io.greptime.v1.Ddl.AddFulltextOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.ChangeFulltext)
+        io.greptime.v1.Ddl.ChangeFulltextOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_AddFulltext_descriptor;
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeFulltext_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -20733,12 +20733,12 @@ java.lang.String defaultValue);
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_AddFulltext_fieldAccessorTable
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeFulltext_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Ddl.AddFulltext.class, io.greptime.v1.Ddl.AddFulltext.Builder.class);
+                io.greptime.v1.Ddl.ChangeFulltext.class, io.greptime.v1.Ddl.ChangeFulltext.Builder.class);
       }
 
-      // Construct using io.greptime.v1.Ddl.AddFulltext.newBuilder()
+      // Construct using io.greptime.v1.Ddl.ChangeFulltext.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -20765,17 +20765,17 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_AddFulltext_descriptor;
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeFulltext_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.AddFulltext getDefaultInstanceForType() {
-        return io.greptime.v1.Ddl.AddFulltext.getDefaultInstance();
+      public io.greptime.v1.Ddl.ChangeFulltext getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.ChangeFulltext.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.AddFulltext build() {
-        io.greptime.v1.Ddl.AddFulltext result = buildPartial();
+      public io.greptime.v1.Ddl.ChangeFulltext build() {
+        io.greptime.v1.Ddl.ChangeFulltext result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -20783,8 +20783,8 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.AddFulltext buildPartial() {
-        io.greptime.v1.Ddl.AddFulltext result = new io.greptime.v1.Ddl.AddFulltext(this);
+      public io.greptime.v1.Ddl.ChangeFulltext buildPartial() {
+        io.greptime.v1.Ddl.ChangeFulltext result = new io.greptime.v1.Ddl.ChangeFulltext(this);
         int from_bitField0_ = bitField0_;
         result.columnName_ = columnName_;
         result.options_ = internalGetOptions();
@@ -20827,16 +20827,16 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Ddl.AddFulltext) {
-          return mergeFrom((io.greptime.v1.Ddl.AddFulltext)other);
+        if (other instanceof io.greptime.v1.Ddl.ChangeFulltext) {
+          return mergeFrom((io.greptime.v1.Ddl.ChangeFulltext)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.Ddl.AddFulltext other) {
-        if (other == io.greptime.v1.Ddl.AddFulltext.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.Ddl.ChangeFulltext other) {
+        if (other == io.greptime.v1.Ddl.ChangeFulltext.getDefaultInstance()) return this;
         if (!other.getColumnName().isEmpty()) {
           columnName_ = other.columnName_;
           onChanged();
@@ -20858,11 +20858,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Ddl.AddFulltext parsedMessage = null;
+        io.greptime.v1.Ddl.ChangeFulltext parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Ddl.AddFulltext) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.Ddl.ChangeFulltext) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -21092,41 +21092,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.AddFulltext)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.ChangeFulltext)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.AddFulltext)
-    private static final io.greptime.v1.Ddl.AddFulltext DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.ChangeFulltext)
+    private static final io.greptime.v1.Ddl.ChangeFulltext DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.AddFulltext();
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.ChangeFulltext();
     }
 
-    public static io.greptime.v1.Ddl.AddFulltext getDefaultInstance() {
+    public static io.greptime.v1.Ddl.ChangeFulltext getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<AddFulltext>
-        PARSER = new com.google.protobuf.AbstractParser<AddFulltext>() {
+    private static final com.google.protobuf.Parser<ChangeFulltext>
+        PARSER = new com.google.protobuf.AbstractParser<ChangeFulltext>() {
       @java.lang.Override
-      public AddFulltext parsePartialFrom(
+      public ChangeFulltext parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AddFulltext(input, extensionRegistry);
+        return new ChangeFulltext(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<AddFulltext> parser() {
+    public static com.google.protobuf.Parser<ChangeFulltext> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AddFulltext> getParserForType() {
+    public com.google.protobuf.Parser<ChangeFulltext> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.Ddl.AddFulltext getDefaultInstanceForType() {
+    public io.greptime.v1.Ddl.ChangeFulltext getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -27434,15 +27434,15 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_ChangeColumnTypes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_AddFulltext_descriptor;
+    internal_static_greptime_v1_ChangeFulltext_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_AddFulltext_fieldAccessorTable;
+      internal_static_greptime_v1_ChangeFulltext_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_AddFulltext_OptionsEntry_descriptor;
+    internal_static_greptime_v1_ChangeFulltext_OptionsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_AddFulltext_OptionsEntry_fieldAccessorTable;
+      internal_static_greptime_v1_ChangeFulltext_OptionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_RenameTable_descriptor;
   private static final 
@@ -27538,62 +27538,62 @@ java.lang.String defaultValue);
       "ime.v1.CreateTableExpr.TableOptionsEntry" +
       "\022&\n\010table_id\030\n \001(\0132\024.greptime.v1.TableId" +
       "\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\327\002\n\tAlterE" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\335\002\n\tAlterE" +
       "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
       "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_column" +
       "s\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014dr" +
       "op_columns\030\005 \001(\0132\030.greptime.v1.DropColum" +
       "nsH\000\0220\n\014rename_table\030\006 \001(\0132\030.greptime.v1" +
       ".RenameTableH\000\022=\n\023change_column_types\030\007 " +
-      "\001(\0132\036.greptime.v1.ChangeColumnTypesH\000\0220\n" +
-      "\014add_fulltext\030\010 \001(\0132\030.greptime.v1.AddFul" +
-      "ltextH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014cat" +
-      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\n" +
-      "table_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gre" +
-      "ptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010" +
-      "\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_name\030" +
-      "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_if_" +
-      "not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.grep" +
-      "time.v1.CreateDatabaseExpr.OptionsEntry\032" +
-      ".\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalog_" +
-      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable" +
-      "_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime" +
-      ".v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014catal" +
-      "og_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016dr" +
-      "op_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_" +
-      "columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"<\n" +
-      "\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.gre" +
-      "ptime.v1.DropColumn\"O\n\021ChangeColumnTypes" +
-      "\022:\n\023change_column_types\030\001 \003(\0132\035.greptime" +
-      ".v1.ChangeColumnType\"\212\001\n\013AddFulltext\022\023\n\013" +
-      "column_name\030\001 \001(\t\0226\n\007options\030\002 \003(\0132%.gre" +
-      "ptime.v1.AddFulltext.OptionsEntry\032.\n\014Opt" +
-      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t" +
-      "\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.grep" +
-      "time.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.gr" +
-      "eptime.v1.AddColumnLocation\"\236\001\n\020ChangeCo" +
-      "lumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013target_" +
-      "type\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022" +
-      "C\n\025target_type_extension\030\003 \001(\0132$.greptim" +
-      "e.v1.ColumnDataTypeExtension\"\032\n\nDropColu" +
-      "mn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"" +
-      "\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004n" +
-      "ame\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime." +
-      "v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032" +
-      "\n\022default_constraint\030\004 \001(\014\0220\n\rsemantic_t" +
-      "ype\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007" +
-      "comment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(" +
-      "\0132$.greptime.v1.ColumnDataTypeExtension\022" +
-      "+\n\007options\030\010 \001(\0132\032.greptime.v1.ColumnOpt" +
-      "ions\"\230\001\n\021AddColumnLocation\022B\n\rlocation_t" +
-      "ype\030\001 \001(\0162+.greptime.v1.AddColumnLocatio" +
-      "n.LocationType\022\031\n\021after_column_name\030\002 \001(" +
-      "\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001B" +
-      "L\n\016io.greptime.v1B\003DdlZ5github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1b\006p" +
-      "roto3"
+      "\001(\0132\036.greptime.v1.ChangeColumnTypesH\000\0226\n" +
+      "\017change_fulltext\030\010 \001(\0132\033.greptime.v1.Cha" +
+      "ngeFulltextH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022" +
+      "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001" +
+      "(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\013" +
+      "2\024.greptime.v1.TableId\022\026\n\016drop_if_exists" +
+      "\030\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog" +
+      "_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024crea" +
+      "te_if_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132" +
+      ",.greptime.v1.CreateDatabaseExpr.Options" +
+      "Entry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014ca" +
+      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n" +
+      "\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gr" +
+      "eptime.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n" +
+      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
+      "\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+" +
+      "\n\013add_columns\030\001 \003(\0132\026.greptime.v1.AddCol" +
+      "umn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\013" +
+      "2\027.greptime.v1.DropColumn\"O\n\021ChangeColum" +
+      "nTypes\022:\n\023change_column_types\030\001 \003(\0132\035.gr" +
+      "eptime.v1.ChangeColumnType\"\220\001\n\016ChangeFul" +
+      "ltext\022\023\n\013column_name\030\001 \001(\t\0229\n\007options\030\002 " +
+      "\003(\0132(.greptime.v1.ChangeFulltext.Options" +
+      "Entry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\"%\n\013RenameTable\022\026\n\016new_tabl" +
+      "e_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030" +
+      "\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010locatio" +
+      "n\030\003 \001(\0132\036.greptime.v1.AddColumnLocation\"" +
+      "\236\001\n\020ChangeColumnType\022\023\n\013column_name\030\001 \001(" +
+      "\t\0220\n\013target_type\030\002 \001(\0162\033.greptime.v1.Col" +
+      "umnDataType\022C\n\025target_type_extension\030\003 \001" +
+      "(\0132$.greptime.v1.ColumnDataTypeExtension" +
+      "\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022" +
+      "\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tCo" +
+      "lumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\016" +
+      "2\033.greptime.v1.ColumnDataType\022\023\n\013is_null" +
+      "able\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220" +
+      "\n\rsemantic_type\030\005 \001(\0162\031.greptime.v1.Sema" +
+      "nticType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_ex" +
+      "tension\030\007 \001(\0132$.greptime.v1.ColumnDataTy" +
+      "peExtension\022+\n\007options\030\010 \001(\0132\032.greptime." +
+      "v1.ColumnOptions\"\230\001\n\021AddColumnLocation\022B" +
+      "\n\rlocation_type\030\001 \001(\0162+.greptime.v1.AddC" +
+      "olumnLocation.LocationType\022\031\n\021after_colu" +
+      "mn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000" +
+      "\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1B\003DdlZ5gith" +
+      "ub.com/GreptimeTeam/greptime-proto/go/gr" +
+      "eptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27653,7 +27653,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_AlterExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ChangeColumnTypes", "AddFulltext", "Kind", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ChangeColumnTypes", "ChangeFulltext", "Kind", });
     internal_static_greptime_v1_DropTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_DropTableExpr_fieldAccessorTable = new
@@ -27702,17 +27702,17 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ChangeColumnTypes_descriptor,
         new java.lang.String[] { "ChangeColumnTypes", });
-    internal_static_greptime_v1_AddFulltext_descriptor =
+    internal_static_greptime_v1_ChangeFulltext_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_greptime_v1_AddFulltext_fieldAccessorTable = new
+    internal_static_greptime_v1_ChangeFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_AddFulltext_descriptor,
+        internal_static_greptime_v1_ChangeFulltext_descriptor,
         new java.lang.String[] { "ColumnName", "Options", });
-    internal_static_greptime_v1_AddFulltext_OptionsEntry_descriptor =
-      internal_static_greptime_v1_AddFulltext_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_AddFulltext_OptionsEntry_fieldAccessorTable = new
+    internal_static_greptime_v1_ChangeFulltext_OptionsEntry_descriptor =
+      internal_static_greptime_v1_ChangeFulltext_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_ChangeFulltext_OptionsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_AddFulltext_OptionsEntry_descriptor,
+        internal_static_greptime_v1_ChangeFulltext_OptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_RenameTable_descriptor =
       getDescriptor().getMessageTypes().get(15);
