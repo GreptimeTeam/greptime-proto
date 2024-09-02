@@ -23,7 +23,7 @@ enum ProcedureStatus {
 
 message ProcedureMeta {
     ProcedureId id = 1;
-    string name = 2;
+    string type_name = 2;
     ProcedureStatus status = 3;
     uint64 start_time_ms = 4;
     uint64 end_time_ms = 5;

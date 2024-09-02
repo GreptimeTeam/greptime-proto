@@ -232,25 +232,25 @@ class ProcedureMeta final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNameFieldNumber = 2,
+    kTypeNameFieldNumber = 2,
     kErrorFieldNumber = 6,
     kIdFieldNumber = 1,
     kStartTimeMsFieldNumber = 4,
     kEndTimeMsFieldNumber = 5,
     kStatusFieldNumber = 3,
   };
-  // string name = 2;
-  void clear_name();
-  const std::string& name() const;
+  // string type_name = 2;
+  void clear_type_name();
+  const std::string& type_name() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_type_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_type_name();
+  PROTOBUF_NODISCARD std::string* release_type_name();
+  void set_allocated_type_name(std::string* type_name);
   private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
+  const std::string& _internal_type_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_type_name(const std::string& value);
+  std::string* _internal_mutable_type_name();
   public:
 
   // string error = 6;
@@ -320,7 +320,7 @@ class ProcedureMeta final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr error_;
     ::greptime::v1::meta::ProcedureId* id_;
     uint64_t start_time_ms_;
@@ -1122,54 +1122,54 @@ inline void ProcedureMeta::set_allocated_id(::greptime::v1::meta::ProcedureId* i
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ProcedureMeta.id)
 }
 
-// string name = 2;
-inline void ProcedureMeta::clear_name() {
-  _impl_.name_.ClearToEmpty();
+// string type_name = 2;
+inline void ProcedureMeta::clear_type_name() {
+  _impl_.type_name_.ClearToEmpty();
 }
-inline const std::string& ProcedureMeta::name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.ProcedureMeta.name)
-  return _internal_name();
+inline const std::string& ProcedureMeta::type_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ProcedureMeta.type_name)
+  return _internal_type_name();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void ProcedureMeta::set_name(ArgT0&& arg0, ArgT... args) {
+void ProcedureMeta::set_type_name(ArgT0&& arg0, ArgT... args) {
  
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureMeta.name)
+ _impl_.type_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureMeta.type_name)
 }
-inline std::string* ProcedureMeta::mutable_name() {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ProcedureMeta.name)
+inline std::string* ProcedureMeta::mutable_type_name() {
+  std::string* _s = _internal_mutable_type_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ProcedureMeta.type_name)
   return _s;
 }
-inline const std::string& ProcedureMeta::_internal_name() const {
-  return _impl_.name_.Get();
+inline const std::string& ProcedureMeta::_internal_type_name() const {
+  return _impl_.type_name_.Get();
 }
-inline void ProcedureMeta::_internal_set_name(const std::string& value) {
+inline void ProcedureMeta::_internal_set_type_name(const std::string& value) {
   
-  _impl_.name_.Set(value, GetArenaForAllocation());
+  _impl_.type_name_.Set(value, GetArenaForAllocation());
 }
-inline std::string* ProcedureMeta::_internal_mutable_name() {
+inline std::string* ProcedureMeta::_internal_mutable_type_name() {
   
-  return _impl_.name_.Mutable(GetArenaForAllocation());
+  return _impl_.type_name_.Mutable(GetArenaForAllocation());
 }
-inline std::string* ProcedureMeta::release_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.ProcedureMeta.name)
-  return _impl_.name_.Release();
+inline std::string* ProcedureMeta::release_type_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ProcedureMeta.type_name)
+  return _impl_.type_name_.Release();
 }
-inline void ProcedureMeta::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void ProcedureMeta::set_allocated_type_name(std::string* type_name) {
+  if (type_name != nullptr) {
     
   } else {
     
   }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+  _impl_.type_name_.SetAllocated(type_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
+  if (_impl_.type_name_.IsDefault()) {
+    _impl_.type_name_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ProcedureMeta.name)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ProcedureMeta.type_name)
 }
 
 // .greptime.v1.meta.ProcedureStatus status = 3;

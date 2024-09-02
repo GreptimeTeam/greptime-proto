@@ -178,16 +178,16 @@ public final class Procedure {
     greptime.v1.meta.Common.ProcedureIdOrBuilder getIdOrBuilder();
 
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>string type_name = 2;</code>
+     * @return The typeName.
      */
-    java.lang.String getName();
+    java.lang.String getTypeName();
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>string type_name = 2;</code>
+     * @return The bytes for typeName.
      */
     com.google.protobuf.ByteString
-        getNameBytes();
+        getTypeNameBytes();
 
     /**
      * <code>.greptime.v1.meta.ProcedureStatus status = 3;</code>
@@ -237,7 +237,7 @@ public final class Procedure {
       super(builder);
     }
     private ProcedureMeta() {
-      name_ = "";
+      typeName_ = "";
       status_ = 0;
       error_ = "";
     }
@@ -288,7 +288,7 @@ public final class Procedure {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              name_ = s;
+              typeName_ = s;
               break;
             }
             case 24: {
@@ -373,38 +373,38 @@ public final class Procedure {
       return getId();
     }
 
-    public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    public static final int TYPE_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object typeName_;
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>string type_name = 2;</code>
+     * @return The typeName.
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getTypeName() {
+      java.lang.Object ref = typeName_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        typeName_ = s;
         return s;
       }
     }
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>string type_name = 2;</code>
+     * @return The bytes for typeName.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getTypeNameBytes() {
+      java.lang.Object ref = typeName_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        typeName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -507,8 +507,8 @@ public final class Procedure {
       if (id_ != null) {
         output.writeMessage(1, getId());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(typeName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, typeName_);
       }
       if (status_ != greptime.v1.meta.Procedure.ProcedureStatus.Running.getNumber()) {
         output.writeEnum(3, status_);
@@ -535,8 +535,8 @@ public final class Procedure {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getId());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(typeName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, typeName_);
       }
       if (status_ != greptime.v1.meta.Procedure.ProcedureStatus.Running.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -573,8 +573,8 @@ public final class Procedure {
         if (!getId()
             .equals(other.getId())) return false;
       }
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (!getTypeName()
+          .equals(other.getTypeName())) return false;
       if (status_ != other.status_) return false;
       if (getStartTimeMs()
           != other.getStartTimeMs()) return false;
@@ -597,8 +597,8 @@ public final class Procedure {
         hash = (37 * hash) + ID_FIELD_NUMBER;
         hash = (53 * hash) + getId().hashCode();
       }
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + TYPE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getTypeName().hashCode();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + status_;
       hash = (37 * hash) + START_TIME_MS_FIELD_NUMBER;
@@ -748,7 +748,7 @@ public final class Procedure {
           id_ = null;
           idBuilder_ = null;
         }
-        name_ = "";
+        typeName_ = "";
 
         status_ = 0;
 
@@ -789,7 +789,7 @@ public final class Procedure {
         } else {
           result.id_ = idBuilder_.build();
         }
-        result.name_ = name_;
+        result.typeName_ = typeName_;
         result.status_ = status_;
         result.startTimeMs_ = startTimeMs_;
         result.endTimeMs_ = endTimeMs_;
@@ -845,8 +845,8 @@ public final class Procedure {
         if (other.hasId()) {
           mergeId(other.getId());
         }
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
+        if (!other.getTypeName().isEmpty()) {
+          typeName_ = other.typeName_;
           onChanged();
         }
         if (other.status_ != 0) {
@@ -1010,78 +1010,78 @@ public final class Procedure {
         return idBuilder_;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object typeName_ = "";
       /**
-       * <code>string name = 2;</code>
-       * @return The name.
+       * <code>string type_name = 2;</code>
+       * @return The typeName.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
+      public java.lang.String getTypeName() {
+        java.lang.Object ref = typeName_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          typeName_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @return The bytes for name.
+       * <code>string type_name = 2;</code>
+       * @return The bytes for typeName.
        */
       public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
+          getTypeNameBytes() {
+        java.lang.Object ref = typeName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          name_ = b;
+          typeName_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The name to set.
+       * <code>string type_name = 2;</code>
+       * @param value The typeName to set.
        * @return This builder for chaining.
        */
-      public Builder setName(
+      public Builder setTypeName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        name_ = value;
+        typeName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string type_name = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearName() {
+      public Builder clearTypeName() {
         
-        name_ = getDefaultInstance().getName();
+        typeName_ = getDefaultInstance().getTypeName();
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The bytes for name to set.
+       * <code>string type_name = 2;</code>
+       * @param value The bytes for typeName to set.
        * @return This builder for chaining.
        */
-      public Builder setNameBytes(
+      public Builder setTypeNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        name_ = value;
+        typeName_ = value;
         onChanged();
         return this;
       }
@@ -4694,37 +4694,37 @@ public final class Procedure {
       "\n greptime/v1/meta/procedure.proto\022\020grep" +
       "time.v1.meta\032\035greptime/v1/meta/common.pr" +
       "oto\032\032greptime/v1/meta/ddl.proto\032\035greptim" +
-      "e/v1/meta/region.proto\"\266\001\n\rProcedureMeta" +
+      "e/v1/meta/region.proto\"\273\001\n\rProcedureMeta" +
       "\022)\n\002id\030\001 \001(\0132\035.greptime.v1.meta.Procedur" +
-      "eId\022\014\n\004name\030\002 \001(\t\0221\n\006status\030\003 \001(\0162!.grep" +
-      "time.v1.meta.ProcedureStatus\022\025\n\rstart_ti" +
-      "me_ms\030\004 \001(\004\022\023\n\013end_time_ms\030\005 \001(\004\022\r\n\005erro" +
-      "r\030\006 \001(\t\"t\n\025QueryProcedureRequest\022/\n\006head" +
-      "er\030\001 \001(\0132\037.greptime.v1.meta.RequestHeade" +
-      "r\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.Proced" +
-      "ureId\"\214\001\n\026ProcedureStateResponse\0220\n\006head" +
-      "er\030\001 \001(\0132 .greptime.v1.meta.ResponseHead" +
-      "er\0221\n\006status\030\002 \001(\0162!.greptime.v1.meta.Pr" +
-      "ocedureStatus\022\r\n\005error\030\003 \001(\t\"I\n\026Procedur" +
-      "eDetailRequest\022/\n\006header\030\001 \001(\0132\037.greptim" +
-      "e.v1.meta.RequestHeader\"\200\001\n\027ProcedureDet" +
-      "ailResponse\0220\n\006header\030\001 \001(\0132 .greptime.v" +
-      "1.meta.ResponseHeader\0223\n\nprocedures\030\002 \003(" +
-      "\0132\037.greptime.v1.meta.ProcedureMeta*h\n\017Pr" +
-      "ocedureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010" +
-      "Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRollbac" +
-      "k\020\004\022\017\n\013RollingBack\020\0052\366\002\n\020ProcedureServic" +
-      "e\022Z\n\005query\022\'.greptime.v1.meta.QueryProce" +
-      "dureRequest\032(.greptime.v1.meta.Procedure" +
-      "StateResponse\022J\n\003ddl\022 .greptime.v1.meta." +
-      "DdlTaskRequest\032!.greptime.v1.meta.DdlTas" +
-      "kResponse\022Z\n\007migrate\022&.greptime.v1.meta." +
-      "MigrateRegionRequest\032\'.greptime.v1.meta." +
-      "MigrateRegionResponse\022^\n\007details\022(.grept" +
-      "ime.v1.meta.ProcedureDetailRequest\032).gre" +
-      "ptime.v1.meta.ProcedureDetailResponseB<Z" +
-      ":github.com/GreptimeTeam/greptime-proto/" +
-      "go/greptime/v1/metab\006proto3"
+      "eId\022\021\n\ttype_name\030\002 \001(\t\0221\n\006status\030\003 \001(\0162!" +
+      ".greptime.v1.meta.ProcedureStatus\022\025\n\rsta" +
+      "rt_time_ms\030\004 \001(\004\022\023\n\013end_time_ms\030\005 \001(\004\022\r\n" +
+      "\005error\030\006 \001(\t\"t\n\025QueryProcedureRequest\022/\n" +
+      "\006header\030\001 \001(\0132\037.greptime.v1.meta.Request" +
+      "Header\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.P" +
+      "rocedureId\"\214\001\n\026ProcedureStateResponse\0220\n" +
+      "\006header\030\001 \001(\0132 .greptime.v1.meta.Respons" +
+      "eHeader\0221\n\006status\030\002 \001(\0162!.greptime.v1.me" +
+      "ta.ProcedureStatus\022\r\n\005error\030\003 \001(\t\"I\n\026Pro" +
+      "cedureDetailRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
+      "eptime.v1.meta.RequestHeader\"\200\001\n\027Procedu" +
+      "reDetailResponse\0220\n\006header\030\001 \001(\0132 .grept" +
+      "ime.v1.meta.ResponseHeader\0223\n\nprocedures" +
+      "\030\002 \003(\0132\037.greptime.v1.meta.ProcedureMeta*" +
+      "h\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020" +
+      "\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRo" +
+      "llback\020\004\022\017\n\013RollingBack\020\0052\366\002\n\020ProcedureS" +
+      "ervice\022Z\n\005query\022\'.greptime.v1.meta.Query" +
+      "ProcedureRequest\032(.greptime.v1.meta.Proc" +
+      "edureStateResponse\022J\n\003ddl\022 .greptime.v1." +
+      "meta.DdlTaskRequest\032!.greptime.v1.meta.D" +
+      "dlTaskResponse\022Z\n\007migrate\022&.greptime.v1." +
+      "meta.MigrateRegionRequest\032\'.greptime.v1." +
+      "meta.MigrateRegionResponse\022^\n\007details\022(." +
+      "greptime.v1.meta.ProcedureDetailRequest\032" +
+      ").greptime.v1.meta.ProcedureDetailRespon" +
+      "seB<Z:github.com/GreptimeTeam/greptime-p" +
+      "roto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4738,7 +4738,7 @@ public final class Procedure {
     internal_static_greptime_v1_meta_ProcedureMeta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ProcedureMeta_descriptor,
-        new java.lang.String[] { "Id", "Name", "Status", "StartTimeMs", "EndTimeMs", "Error", });
+        new java.lang.String[] { "Id", "TypeName", "Status", "StartTimeMs", "EndTimeMs", "Error", });
     internal_static_greptime_v1_meta_QueryProcedureRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_meta_QueryProcedureRequest_fieldAccessorTable = new
