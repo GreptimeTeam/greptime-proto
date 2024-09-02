@@ -3054,30 +3054,6 @@ public final class Procedure {
      * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
      */
     greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder();
-
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    java.util.List<greptime.v1.meta.Common.ProcedureId> 
-        getPidsList();
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    greptime.v1.meta.Common.ProcedureId getPids(int index);
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    int getPidsCount();
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    java.util.List<? extends greptime.v1.meta.Common.ProcedureIdOrBuilder> 
-        getPidsOrBuilderList();
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    greptime.v1.meta.Common.ProcedureIdOrBuilder getPidsOrBuilder(
-        int index);
   }
   /**
    * Protobuf type {@code greptime.v1.meta.ProcedureDetailRequest}
@@ -3092,7 +3068,6 @@ public final class Procedure {
       super(builder);
     }
     private ProcedureDetailRequest() {
-      pids_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -3115,7 +3090,6 @@ public final class Procedure {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3139,15 +3113,6 @@ public final class Procedure {
 
               break;
             }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                pids_ = new java.util.ArrayList<greptime.v1.meta.Common.ProcedureId>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              pids_.add(
-                  input.readMessage(greptime.v1.meta.Common.ProcedureId.parser(), extensionRegistry));
-              break;
-            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3165,9 +3130,6 @@ public final class Procedure {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          pids_ = java.util.Collections.unmodifiableList(pids_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -3211,46 +3173,6 @@ public final class Procedure {
       return getHeader();
     }
 
-    public static final int PIDS_FIELD_NUMBER = 2;
-    private java.util.List<greptime.v1.meta.Common.ProcedureId> pids_;
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    @java.lang.Override
-    public java.util.List<greptime.v1.meta.Common.ProcedureId> getPidsList() {
-      return pids_;
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends greptime.v1.meta.Common.ProcedureIdOrBuilder> 
-        getPidsOrBuilderList() {
-      return pids_;
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    @java.lang.Override
-    public int getPidsCount() {
-      return pids_.size();
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Common.ProcedureId getPids(int index) {
-      return pids_.get(index);
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidsOrBuilder(
-        int index) {
-      return pids_.get(index);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3268,9 +3190,6 @@ public final class Procedure {
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      for (int i = 0; i < pids_.size(); i++) {
-        output.writeMessage(2, pids_.get(i));
-      }
       unknownFields.writeTo(output);
     }
 
@@ -3283,10 +3202,6 @@ public final class Procedure {
       if (header_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
-      }
-      for (int i = 0; i < pids_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, pids_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3308,8 +3223,6 @@ public final class Procedure {
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
-      if (!getPidsList()
-          .equals(other.getPidsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3324,10 +3237,6 @@ public final class Procedure {
       if (hasHeader()) {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
-      }
-      if (getPidsCount() > 0) {
-        hash = (37 * hash) + PIDS_FIELD_NUMBER;
-        hash = (53 * hash) + getPidsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3457,7 +3366,6 @@ public final class Procedure {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getPidsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -3468,12 +3376,6 @@ public final class Procedure {
         } else {
           header_ = null;
           headerBuilder_ = null;
-        }
-        if (pidsBuilder_ == null) {
-          pids_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          pidsBuilder_.clear();
         }
         return this;
       }
@@ -3501,20 +3403,10 @@ public final class Procedure {
       @java.lang.Override
       public greptime.v1.meta.Procedure.ProcedureDetailRequest buildPartial() {
         greptime.v1.meta.Procedure.ProcedureDetailRequest result = new greptime.v1.meta.Procedure.ProcedureDetailRequest(this);
-        int from_bitField0_ = bitField0_;
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
           result.header_ = headerBuilder_.build();
-        }
-        if (pidsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            pids_ = java.util.Collections.unmodifiableList(pids_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.pids_ = pids_;
-        } else {
-          result.pids_ = pidsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -3567,32 +3459,6 @@ public final class Procedure {
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        if (pidsBuilder_ == null) {
-          if (!other.pids_.isEmpty()) {
-            if (pids_.isEmpty()) {
-              pids_ = other.pids_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensurePidsIsMutable();
-              pids_.addAll(other.pids_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.pids_.isEmpty()) {
-            if (pidsBuilder_.isEmpty()) {
-              pidsBuilder_.dispose();
-              pidsBuilder_ = null;
-              pids_ = other.pids_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              pidsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getPidsFieldBuilder() : null;
-            } else {
-              pidsBuilder_.addAllMessages(other.pids_);
-            }
-          }
-        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3621,7 +3487,6 @@ public final class Procedure {
         }
         return this;
       }
-      private int bitField0_;
 
       private greptime.v1.meta.Common.RequestHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3740,246 +3605,6 @@ public final class Procedure {
           header_ = null;
         }
         return headerBuilder_;
-      }
-
-      private java.util.List<greptime.v1.meta.Common.ProcedureId> pids_ =
-        java.util.Collections.emptyList();
-      private void ensurePidsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          pids_ = new java.util.ArrayList<greptime.v1.meta.Common.ProcedureId>(pids_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> pidsBuilder_;
-
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public java.util.List<greptime.v1.meta.Common.ProcedureId> getPidsList() {
-        if (pidsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(pids_);
-        } else {
-          return pidsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public int getPidsCount() {
-        if (pidsBuilder_ == null) {
-          return pids_.size();
-        } else {
-          return pidsBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public greptime.v1.meta.Common.ProcedureId getPids(int index) {
-        if (pidsBuilder_ == null) {
-          return pids_.get(index);
-        } else {
-          return pidsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public Builder setPids(
-          int index, greptime.v1.meta.Common.ProcedureId value) {
-        if (pidsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePidsIsMutable();
-          pids_.set(index, value);
-          onChanged();
-        } else {
-          pidsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public Builder setPids(
-          int index, greptime.v1.meta.Common.ProcedureId.Builder builderForValue) {
-        if (pidsBuilder_ == null) {
-          ensurePidsIsMutable();
-          pids_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          pidsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public Builder addPids(greptime.v1.meta.Common.ProcedureId value) {
-        if (pidsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePidsIsMutable();
-          pids_.add(value);
-          onChanged();
-        } else {
-          pidsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public Builder addPids(
-          int index, greptime.v1.meta.Common.ProcedureId value) {
-        if (pidsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePidsIsMutable();
-          pids_.add(index, value);
-          onChanged();
-        } else {
-          pidsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public Builder addPids(
-          greptime.v1.meta.Common.ProcedureId.Builder builderForValue) {
-        if (pidsBuilder_ == null) {
-          ensurePidsIsMutable();
-          pids_.add(builderForValue.build());
-          onChanged();
-        } else {
-          pidsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public Builder addPids(
-          int index, greptime.v1.meta.Common.ProcedureId.Builder builderForValue) {
-        if (pidsBuilder_ == null) {
-          ensurePidsIsMutable();
-          pids_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          pidsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public Builder addAllPids(
-          java.lang.Iterable<? extends greptime.v1.meta.Common.ProcedureId> values) {
-        if (pidsBuilder_ == null) {
-          ensurePidsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, pids_);
-          onChanged();
-        } else {
-          pidsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public Builder clearPids() {
-        if (pidsBuilder_ == null) {
-          pids_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          pidsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public Builder removePids(int index) {
-        if (pidsBuilder_ == null) {
-          ensurePidsIsMutable();
-          pids_.remove(index);
-          onChanged();
-        } else {
-          pidsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public greptime.v1.meta.Common.ProcedureId.Builder getPidsBuilder(
-          int index) {
-        return getPidsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidsOrBuilder(
-          int index) {
-        if (pidsBuilder_ == null) {
-          return pids_.get(index);  } else {
-          return pidsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public java.util.List<? extends greptime.v1.meta.Common.ProcedureIdOrBuilder> 
-           getPidsOrBuilderList() {
-        if (pidsBuilder_ != null) {
-          return pidsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(pids_);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public greptime.v1.meta.Common.ProcedureId.Builder addPidsBuilder() {
-        return getPidsFieldBuilder().addBuilder(
-            greptime.v1.meta.Common.ProcedureId.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public greptime.v1.meta.Common.ProcedureId.Builder addPidsBuilder(
-          int index) {
-        return getPidsFieldBuilder().addBuilder(
-            index, greptime.v1.meta.Common.ProcedureId.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.ProcedureId pids = 2;</code>
-       */
-      public java.util.List<greptime.v1.meta.Common.ProcedureId.Builder> 
-           getPidsBuilderList() {
-        return getPidsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> 
-          getPidsFieldBuilder() {
-        if (pidsBuilder_ == null) {
-          pidsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder>(
-                  pids_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          pids_ = null;
-        }
-        return pidsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5080,27 +4705,26 @@ public final class Procedure {
       "ureId\"\214\001\n\026ProcedureStateResponse\0220\n\006head" +
       "er\030\001 \001(\0132 .greptime.v1.meta.ResponseHead" +
       "er\0221\n\006status\030\002 \001(\0162!.greptime.v1.meta.Pr" +
-      "ocedureStatus\022\r\n\005error\030\003 \001(\t\"v\n\026Procedur" +
+      "ocedureStatus\022\r\n\005error\030\003 \001(\t\"I\n\026Procedur" +
       "eDetailRequest\022/\n\006header\030\001 \001(\0132\037.greptim" +
-      "e.v1.meta.RequestHeader\022+\n\004pids\030\002 \003(\0132\035." +
-      "greptime.v1.meta.ProcedureId\"\200\001\n\027Procedu" +
-      "reDetailResponse\0220\n\006header\030\001 \001(\0132 .grept" +
-      "ime.v1.meta.ResponseHeader\0223\n\nprocedures" +
-      "\030\002 \003(\0132\037.greptime.v1.meta.ProcedureMeta*" +
-      "h\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020" +
-      "\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRo" +
-      "llback\020\004\022\017\n\013RollingBack\020\0052\366\002\n\020ProcedureS" +
-      "ervice\022Z\n\005query\022\'.greptime.v1.meta.Query" +
-      "ProcedureRequest\032(.greptime.v1.meta.Proc" +
-      "edureStateResponse\022J\n\003ddl\022 .greptime.v1." +
-      "meta.DdlTaskRequest\032!.greptime.v1.meta.D" +
-      "dlTaskResponse\022Z\n\007migrate\022&.greptime.v1." +
-      "meta.MigrateRegionRequest\032\'.greptime.v1." +
-      "meta.MigrateRegionResponse\022^\n\007details\022(." +
-      "greptime.v1.meta.ProcedureDetailRequest\032" +
-      ").greptime.v1.meta.ProcedureDetailRespon" +
-      "seB<Z:github.com/GreptimeTeam/greptime-p" +
-      "roto/go/greptime/v1/metab\006proto3"
+      "e.v1.meta.RequestHeader\"\200\001\n\027ProcedureDet" +
+      "ailResponse\0220\n\006header\030\001 \001(\0132 .greptime.v" +
+      "1.meta.ResponseHeader\0223\n\nprocedures\030\002 \003(" +
+      "\0132\037.greptime.v1.meta.ProcedureMeta*h\n\017Pr" +
+      "ocedureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010" +
+      "Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRollbac" +
+      "k\020\004\022\017\n\013RollingBack\020\0052\366\002\n\020ProcedureServic" +
+      "e\022Z\n\005query\022\'.greptime.v1.meta.QueryProce" +
+      "dureRequest\032(.greptime.v1.meta.Procedure" +
+      "StateResponse\022J\n\003ddl\022 .greptime.v1.meta." +
+      "DdlTaskRequest\032!.greptime.v1.meta.DdlTas" +
+      "kResponse\022Z\n\007migrate\022&.greptime.v1.meta." +
+      "MigrateRegionRequest\032\'.greptime.v1.meta." +
+      "MigrateRegionResponse\022^\n\007details\022(.grept" +
+      "ime.v1.meta.ProcedureDetailRequest\032).gre" +
+      "ptime.v1.meta.ProcedureDetailResponseB<Z" +
+      ":github.com/GreptimeTeam/greptime-proto/" +
+      "go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5132,7 +4756,7 @@ public final class Procedure {
     internal_static_greptime_v1_meta_ProcedureDetailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ProcedureDetailRequest_descriptor,
-        new java.lang.String[] { "Header", "Pids", });
+        new java.lang.String[] { "Header", });
     internal_static_greptime_v1_meta_ProcedureDetailResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_meta_ProcedureDetailResponse_fieldAccessorTable = new

@@ -815,27 +815,8 @@ class ProcedureDetailRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPidsFieldNumber = 2,
     kHeaderFieldNumber = 1,
   };
-  // repeated .greptime.v1.meta.ProcedureId pids = 2;
-  int pids_size() const;
-  private:
-  int _internal_pids_size() const;
-  public:
-  void clear_pids();
-  ::greptime::v1::meta::ProcedureId* mutable_pids(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::ProcedureId >*
-      mutable_pids();
-  private:
-  const ::greptime::v1::meta::ProcedureId& _internal_pids(int index) const;
-  ::greptime::v1::meta::ProcedureId* _internal_add_pids();
-  public:
-  const ::greptime::v1::meta::ProcedureId& pids(int index) const;
-  ::greptime::v1::meta::ProcedureId* add_pids();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::ProcedureId >&
-      pids() const;
-
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
   private:
@@ -862,7 +843,6 @@ class ProcedureDetailRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::ProcedureId > pids_;
     ::greptime::v1::meta::RequestHeader* header_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1722,43 +1702,6 @@ inline void ProcedureDetailRequest::set_allocated_header(::greptime::v1::meta::R
   }
   _impl_.header_ = header;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ProcedureDetailRequest.header)
-}
-
-// repeated .greptime.v1.meta.ProcedureId pids = 2;
-inline int ProcedureDetailRequest::_internal_pids_size() const {
-  return _impl_.pids_.size();
-}
-inline int ProcedureDetailRequest::pids_size() const {
-  return _internal_pids_size();
-}
-inline ::greptime::v1::meta::ProcedureId* ProcedureDetailRequest::mutable_pids(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ProcedureDetailRequest.pids)
-  return _impl_.pids_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::ProcedureId >*
-ProcedureDetailRequest::mutable_pids() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.ProcedureDetailRequest.pids)
-  return &_impl_.pids_;
-}
-inline const ::greptime::v1::meta::ProcedureId& ProcedureDetailRequest::_internal_pids(int index) const {
-  return _impl_.pids_.Get(index);
-}
-inline const ::greptime::v1::meta::ProcedureId& ProcedureDetailRequest::pids(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.ProcedureDetailRequest.pids)
-  return _internal_pids(index);
-}
-inline ::greptime::v1::meta::ProcedureId* ProcedureDetailRequest::_internal_add_pids() {
-  return _impl_.pids_.Add();
-}
-inline ::greptime::v1::meta::ProcedureId* ProcedureDetailRequest::add_pids() {
-  ::greptime::v1::meta::ProcedureId* _add = _internal_add_pids();
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.ProcedureDetailRequest.pids)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::ProcedureId >&
-ProcedureDetailRequest::pids() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.ProcedureDetailRequest.pids)
-  return _impl_.pids_;
 }
 
 // -------------------------------------------------------------------

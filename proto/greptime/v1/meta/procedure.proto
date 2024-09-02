@@ -43,7 +43,6 @@ message ProcedureStateResponse {
 
 message ProcedureDetailRequest {
     RequestHeader header = 1;
-    repeated ProcedureId pids = 2;
 }
 
 message ProcedureDetailResponse {
