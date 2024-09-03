@@ -147,12 +147,6 @@ message DropColumn { string name = 1; }
 
 message FlushRequest { uint64 region_id = 1; }
 
-message ChangeFulltext
-{
-    string column_name = 1;
-    map<string, string> options = 2;
-}
-
 /// Regular compaction
 message Regular {}
 
