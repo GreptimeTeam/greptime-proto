@@ -145,8 +145,8 @@ message DecimalTypeExtension {
   int32 scale = 2;
 }
 
-message JsonTypeExtension {
-  bool is_json = 1;
+enum JsonTypeExtension {
+  JSON_BINARY = 0;
 }
 
 // Additional options for the column.

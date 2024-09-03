@@ -464,6 +464,105 @@ public final class Common {
     // @@protoc_insertion_point(enum_scope:greptime.v1.ColumnDataType)
   }
 
+  /**
+   * Protobuf enum {@code greptime.v1.JsonTypeExtension}
+   */
+  public enum JsonTypeExtension
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>JSON_BINARY = 0;</code>
+     */
+    JSON_BINARY(0),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>JSON_BINARY = 0;</code>
+     */
+    public static final int JSON_BINARY_VALUE = 0;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static JsonTypeExtension valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static JsonTypeExtension forNumber(int value) {
+      switch (value) {
+        case 0: return JSON_BINARY;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<JsonTypeExtension>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        JsonTypeExtension> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<JsonTypeExtension>() {
+            public JsonTypeExtension findValueByNumber(int number) {
+              return JsonTypeExtension.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.greptime.v1.Common.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final JsonTypeExtension[] VALUES = values();
+
+    public static JsonTypeExtension valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private JsonTypeExtension(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.JsonTypeExtension)
+  }
+
   public interface QueryContextOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.QueryContext)
       com.google.protobuf.MessageOrBuilder {
@@ -11491,17 +11590,18 @@ java.lang.String defaultValue);
      * </pre>
      *
      * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
-     * @return The jsonType.
+     * @return The enum numeric value on the wire for jsonType.
      */
-    io.greptime.v1.Common.JsonTypeExtension getJsonType();
+    int getJsonTypeValue();
     /**
      * <pre>
      * Marks the binary column in proto is actually a JSON column.
      * </pre>
      *
      * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+     * @return The jsonType.
      */
-    io.greptime.v1.Common.JsonTypeExtensionOrBuilder getJsonTypeOrBuilder();
+    io.greptime.v1.Common.JsonTypeExtension getJsonType();
 
     public io.greptime.v1.Common.ColumnDataTypeExtension.TypeExtCase getTypeExtCase();
   }
@@ -11568,18 +11668,10 @@ java.lang.String defaultValue);
               typeExtCase_ = 1;
               break;
             }
-            case 18: {
-              io.greptime.v1.Common.JsonTypeExtension.Builder subBuilder = null;
-              if (typeExtCase_ == 2) {
-                subBuilder = ((io.greptime.v1.Common.JsonTypeExtension) typeExt_).toBuilder();
-              }
-              typeExt_ =
-                  input.readMessage(io.greptime.v1.Common.JsonTypeExtension.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Common.JsonTypeExtension) typeExt_);
-                typeExt_ = subBuilder.buildPartial();
-              }
+            case 16: {
+              int rawValue = input.readEnum();
               typeExtCase_ = 2;
+              typeExt_ = rawValue;
               break;
             }
             default: {
@@ -11697,7 +11789,6 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
      * @return Whether the jsonType field is set.
      */
-    @java.lang.Override
     public boolean hasJsonType() {
       return typeExtCase_ == 2;
     }
@@ -11707,14 +11798,13 @@ java.lang.String defaultValue);
      * </pre>
      *
      * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
-     * @return The jsonType.
+     * @return The enum numeric value on the wire for jsonType.
      */
-    @java.lang.Override
-    public io.greptime.v1.Common.JsonTypeExtension getJsonType() {
+    public int getJsonTypeValue() {
       if (typeExtCase_ == 2) {
-         return (io.greptime.v1.Common.JsonTypeExtension) typeExt_;
+        return (java.lang.Integer) typeExt_;
       }
-      return io.greptime.v1.Common.JsonTypeExtension.getDefaultInstance();
+      return 0;
     }
     /**
      * <pre>
@@ -11722,13 +11812,16 @@ java.lang.String defaultValue);
      * </pre>
      *
      * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+     * @return The jsonType.
      */
-    @java.lang.Override
-    public io.greptime.v1.Common.JsonTypeExtensionOrBuilder getJsonTypeOrBuilder() {
+    public io.greptime.v1.Common.JsonTypeExtension getJsonType() {
       if (typeExtCase_ == 2) {
-         return (io.greptime.v1.Common.JsonTypeExtension) typeExt_;
+        @SuppressWarnings("deprecation")
+        io.greptime.v1.Common.JsonTypeExtension result = io.greptime.v1.Common.JsonTypeExtension.valueOf(
+            (java.lang.Integer) typeExt_);
+        return result == null ? io.greptime.v1.Common.JsonTypeExtension.UNRECOGNIZED : result;
       }
-      return io.greptime.v1.Common.JsonTypeExtension.getDefaultInstance();
+      return io.greptime.v1.Common.JsonTypeExtension.JSON_BINARY;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11749,7 +11842,7 @@ java.lang.String defaultValue);
         output.writeMessage(1, (io.greptime.v1.Common.DecimalTypeExtension) typeExt_);
       }
       if (typeExtCase_ == 2) {
-        output.writeMessage(2, (io.greptime.v1.Common.JsonTypeExtension) typeExt_);
+        output.writeEnum(2, ((java.lang.Integer) typeExt_));
       }
       unknownFields.writeTo(output);
     }
@@ -11766,7 +11859,7 @@ java.lang.String defaultValue);
       }
       if (typeExtCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (io.greptime.v1.Common.JsonTypeExtension) typeExt_);
+          .computeEnumSize(2, ((java.lang.Integer) typeExt_));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -11790,8 +11883,8 @@ java.lang.String defaultValue);
               .equals(other.getDecimalType())) return false;
           break;
         case 2:
-          if (!getJsonType()
-              .equals(other.getJsonType())) return false;
+          if (getJsonTypeValue()
+              != other.getJsonTypeValue()) return false;
           break;
         case 0:
         default:
@@ -11814,7 +11907,7 @@ java.lang.String defaultValue);
           break;
         case 2:
           hash = (37 * hash) + JSON_TYPE_FIELD_NUMBER;
-          hash = (53 * hash) + getJsonType().hashCode();
+          hash = (53 * hash) + getJsonTypeValue();
           break;
         case 0:
         default:
@@ -11992,11 +12085,7 @@ java.lang.String defaultValue);
           }
         }
         if (typeExtCase_ == 2) {
-          if (jsonTypeBuilder_ == null) {
-            result.typeExt_ = typeExt_;
-          } else {
-            result.typeExt_ = jsonTypeBuilder_.build();
-          }
+          result.typeExt_ = typeExt_;
         }
         result.typeExtCase_ = typeExtCase_;
         onBuilt();
@@ -12053,7 +12142,7 @@ java.lang.String defaultValue);
             break;
           }
           case JSON_TYPE: {
-            mergeJsonType(other.getJsonType());
+            setJsonTypeValue(other.getJsonTypeValue());
             break;
           }
           case TYPEEXT_NOT_SET: {
@@ -12246,8 +12335,6 @@ java.lang.String defaultValue);
         return decimalTypeBuilder_;
       }
 
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Common.JsonTypeExtension, io.greptime.v1.Common.JsonTypeExtension.Builder, io.greptime.v1.Common.JsonTypeExtensionOrBuilder> jsonTypeBuilder_;
       /**
        * <pre>
        * Marks the binary column in proto is actually a JSON column.
@@ -12266,21 +12353,47 @@ java.lang.String defaultValue);
        * </pre>
        *
        * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @return The enum numeric value on the wire for jsonType.
+       */
+      @java.lang.Override
+      public int getJsonTypeValue() {
+        if (typeExtCase_ == 2) {
+          return ((java.lang.Integer) typeExt_).intValue();
+        }
+        return 0;
+      }
+      /**
+       * <pre>
+       * Marks the binary column in proto is actually a JSON column.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @param value The enum numeric value on the wire for jsonType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJsonTypeValue(int value) {
+        typeExtCase_ = 2;
+        typeExt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Marks the binary column in proto is actually a JSON column.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
        * @return The jsonType.
        */
       @java.lang.Override
       public io.greptime.v1.Common.JsonTypeExtension getJsonType() {
-        if (jsonTypeBuilder_ == null) {
-          if (typeExtCase_ == 2) {
-            return (io.greptime.v1.Common.JsonTypeExtension) typeExt_;
-          }
-          return io.greptime.v1.Common.JsonTypeExtension.getDefaultInstance();
-        } else {
-          if (typeExtCase_ == 2) {
-            return jsonTypeBuilder_.getMessage();
-          }
-          return io.greptime.v1.Common.JsonTypeExtension.getDefaultInstance();
+        if (typeExtCase_ == 2) {
+          @SuppressWarnings("deprecation")
+          io.greptime.v1.Common.JsonTypeExtension result = io.greptime.v1.Common.JsonTypeExtension.valueOf(
+              (java.lang.Integer) typeExt_);
+          return result == null ? io.greptime.v1.Common.JsonTypeExtension.UNRECOGNIZED : result;
         }
+        return io.greptime.v1.Common.JsonTypeExtension.JSON_BINARY;
       }
       /**
        * <pre>
@@ -12288,18 +12401,16 @@ java.lang.String defaultValue);
        * </pre>
        *
        * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @param value The jsonType to set.
+       * @return This builder for chaining.
        */
       public Builder setJsonType(io.greptime.v1.Common.JsonTypeExtension value) {
-        if (jsonTypeBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          typeExt_ = value;
-          onChanged();
-        } else {
-          jsonTypeBuilder_.setMessage(value);
+        if (value == null) {
+          throw new NullPointerException();
         }
         typeExtCase_ = 2;
+        typeExt_ = value.getNumber();
+        onChanged();
         return this;
       }
       /**
@@ -12308,120 +12419,15 @@ java.lang.String defaultValue);
        * </pre>
        *
        * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
-       */
-      public Builder setJsonType(
-          io.greptime.v1.Common.JsonTypeExtension.Builder builderForValue) {
-        if (jsonTypeBuilder_ == null) {
-          typeExt_ = builderForValue.build();
-          onChanged();
-        } else {
-          jsonTypeBuilder_.setMessage(builderForValue.build());
-        }
-        typeExtCase_ = 2;
-        return this;
-      }
-      /**
-       * <pre>
-       * Marks the binary column in proto is actually a JSON column.
-       * </pre>
-       *
-       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
-       */
-      public Builder mergeJsonType(io.greptime.v1.Common.JsonTypeExtension value) {
-        if (jsonTypeBuilder_ == null) {
-          if (typeExtCase_ == 2 &&
-              typeExt_ != io.greptime.v1.Common.JsonTypeExtension.getDefaultInstance()) {
-            typeExt_ = io.greptime.v1.Common.JsonTypeExtension.newBuilder((io.greptime.v1.Common.JsonTypeExtension) typeExt_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            typeExt_ = value;
-          }
-          onChanged();
-        } else {
-          if (typeExtCase_ == 2) {
-            jsonTypeBuilder_.mergeFrom(value);
-          } else {
-            jsonTypeBuilder_.setMessage(value);
-          }
-        }
-        typeExtCase_ = 2;
-        return this;
-      }
-      /**
-       * <pre>
-       * Marks the binary column in proto is actually a JSON column.
-       * </pre>
-       *
-       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearJsonType() {
-        if (jsonTypeBuilder_ == null) {
-          if (typeExtCase_ == 2) {
-            typeExtCase_ = 0;
-            typeExt_ = null;
-            onChanged();
-          }
-        } else {
-          if (typeExtCase_ == 2) {
-            typeExtCase_ = 0;
-            typeExt_ = null;
-          }
-          jsonTypeBuilder_.clear();
+        if (typeExtCase_ == 2) {
+          typeExtCase_ = 0;
+          typeExt_ = null;
+          onChanged();
         }
         return this;
-      }
-      /**
-       * <pre>
-       * Marks the binary column in proto is actually a JSON column.
-       * </pre>
-       *
-       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
-       */
-      public io.greptime.v1.Common.JsonTypeExtension.Builder getJsonTypeBuilder() {
-        return getJsonTypeFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * Marks the binary column in proto is actually a JSON column.
-       * </pre>
-       *
-       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
-       */
-      @java.lang.Override
-      public io.greptime.v1.Common.JsonTypeExtensionOrBuilder getJsonTypeOrBuilder() {
-        if ((typeExtCase_ == 2) && (jsonTypeBuilder_ != null)) {
-          return jsonTypeBuilder_.getMessageOrBuilder();
-        } else {
-          if (typeExtCase_ == 2) {
-            return (io.greptime.v1.Common.JsonTypeExtension) typeExt_;
-          }
-          return io.greptime.v1.Common.JsonTypeExtension.getDefaultInstance();
-        }
-      }
-      /**
-       * <pre>
-       * Marks the binary column in proto is actually a JSON column.
-       * </pre>
-       *
-       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Common.JsonTypeExtension, io.greptime.v1.Common.JsonTypeExtension.Builder, io.greptime.v1.Common.JsonTypeExtensionOrBuilder> 
-          getJsonTypeFieldBuilder() {
-        if (jsonTypeBuilder_ == null) {
-          if (!(typeExtCase_ == 2)) {
-            typeExt_ = io.greptime.v1.Common.JsonTypeExtension.getDefaultInstance();
-          }
-          jsonTypeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Common.JsonTypeExtension, io.greptime.v1.Common.JsonTypeExtension.Builder, io.greptime.v1.Common.JsonTypeExtensionOrBuilder>(
-                  (io.greptime.v1.Common.JsonTypeExtension) typeExt_,
-                  getParentForChildren(),
-                  isClean());
-          typeExt_ = null;
-        }
-        typeExtCase_ = 2;
-        onChanged();;
-        return jsonTypeBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -13031,497 +13037,6 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.Common.DecimalTypeExtension getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface JsonTypeExtensionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.JsonTypeExtension)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>bool is_json = 1;</code>
-     * @return The isJson.
-     */
-    boolean getIsJson();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.JsonTypeExtension}
-   */
-  public static final class JsonTypeExtension extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.JsonTypeExtension)
-      JsonTypeExtensionOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use JsonTypeExtension.newBuilder() to construct.
-    private JsonTypeExtension(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private JsonTypeExtension() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new JsonTypeExtension();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private JsonTypeExtension(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              isJson_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Common.internal_static_greptime_v1_JsonTypeExtension_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Common.internal_static_greptime_v1_JsonTypeExtension_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Common.JsonTypeExtension.class, io.greptime.v1.Common.JsonTypeExtension.Builder.class);
-    }
-
-    public static final int IS_JSON_FIELD_NUMBER = 1;
-    private boolean isJson_;
-    /**
-     * <code>bool is_json = 1;</code>
-     * @return The isJson.
-     */
-    @java.lang.Override
-    public boolean getIsJson() {
-      return isJson_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (isJson_ != false) {
-        output.writeBool(1, isJson_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (isJson_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, isJson_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Common.JsonTypeExtension)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Common.JsonTypeExtension other = (io.greptime.v1.Common.JsonTypeExtension) obj;
-
-      if (getIsJson()
-          != other.getIsJson()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + IS_JSON_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsJson());
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Common.JsonTypeExtension parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Common.JsonTypeExtension prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.JsonTypeExtension}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.JsonTypeExtension)
-        io.greptime.v1.Common.JsonTypeExtensionOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Common.internal_static_greptime_v1_JsonTypeExtension_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Common.internal_static_greptime_v1_JsonTypeExtension_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Common.JsonTypeExtension.class, io.greptime.v1.Common.JsonTypeExtension.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Common.JsonTypeExtension.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        isJson_ = false;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Common.internal_static_greptime_v1_JsonTypeExtension_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Common.JsonTypeExtension getDefaultInstanceForType() {
-        return io.greptime.v1.Common.JsonTypeExtension.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Common.JsonTypeExtension build() {
-        io.greptime.v1.Common.JsonTypeExtension result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Common.JsonTypeExtension buildPartial() {
-        io.greptime.v1.Common.JsonTypeExtension result = new io.greptime.v1.Common.JsonTypeExtension(this);
-        result.isJson_ = isJson_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Common.JsonTypeExtension) {
-          return mergeFrom((io.greptime.v1.Common.JsonTypeExtension)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Common.JsonTypeExtension other) {
-        if (other == io.greptime.v1.Common.JsonTypeExtension.getDefaultInstance()) return this;
-        if (other.getIsJson() != false) {
-          setIsJson(other.getIsJson());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Common.JsonTypeExtension parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Common.JsonTypeExtension) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private boolean isJson_ ;
-      /**
-       * <code>bool is_json = 1;</code>
-       * @return The isJson.
-       */
-      @java.lang.Override
-      public boolean getIsJson() {
-        return isJson_;
-      }
-      /**
-       * <code>bool is_json = 1;</code>
-       * @param value The isJson to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIsJson(boolean value) {
-        
-        isJson_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool is_json = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIsJson() {
-        
-        isJson_ = false;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.JsonTypeExtension)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.JsonTypeExtension)
-    private static final io.greptime.v1.Common.JsonTypeExtension DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Common.JsonTypeExtension();
-    }
-
-    public static io.greptime.v1.Common.JsonTypeExtension getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<JsonTypeExtension>
-        PARSER = new com.google.protobuf.AbstractParser<JsonTypeExtension>() {
-      @java.lang.Override
-      public JsonTypeExtension parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new JsonTypeExtension(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<JsonTypeExtension> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<JsonTypeExtension> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Common.JsonTypeExtension getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14659,11 +14174,6 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_DecimalTypeExtension_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_JsonTypeExtension_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_JsonTypeExtension_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_ColumnOptions_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -14714,26 +14224,26 @@ java.lang.String defaultValue);
       "\001(\003\022\n\n\002lo\030\002 \001(\003\"\225\001\n\027ColumnDataTypeExtens" +
       "ion\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v1." +
       "DecimalTypeExtensionH\000\0223\n\tjson_type\030\002 \001(" +
-      "\0132\036.greptime.v1.JsonTypeExtensionH\000B\n\n\010t" +
+      "\0162\036.greptime.v1.JsonTypeExtensionH\000B\n\n\010t" +
       "ype_ext\"8\n\024DecimalTypeExtension\022\021\n\tpreci" +
-      "sion\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005\"$\n\021JsonTypeExt" +
-      "ension\022\017\n\007is_json\030\001 \001(\010\"y\n\rColumnOptions" +
-      "\0228\n\007options\030\001 \003(\0132\'.greptime.v1.ColumnOp" +
-      "tions.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001*1\n\014SemanticTy" +
-      "pe\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\326\003" +
-      "\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022" +
-      "\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT" +
-      "8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022" +
-      "\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n" +
-      "\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIM" +
-      "ESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MILLISECOND" +
-      "\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n\024TIMESTA" +
-      "MP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME" +
-      "_MILLISECOND\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017" +
-      "TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_YEAR_MONTH" +
-      "\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INTERVAL_MO" +
-      "NTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036BO\n\016io.gre" +
+      "sion\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005\"y\n\rColumnOptio" +
+      "ns\0228\n\007options\030\001 \003(\0132\'.greptime.v1.Column" +
+      "Options.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001*1\n\014Semantic" +
+      "Type\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*" +
+      "\326\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020" +
+      "\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UI" +
+      "NT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020" +
+      "\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022" +
+      "\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020T" +
+      "IMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MILLISECO" +
+      "ND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n\024TIMES" +
+      "TAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TI" +
+      "ME_MILLISECOND\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023" +
+      "\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_YEAR_MON" +
+      "TH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INTERVAL_" +
+      "MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036*$\n\021Json" +
+      "TypeExtension\022\017\n\013JSON_BINARY\020\000BO\n\016io.gre" +
       "ptime.v1B\006CommonZ5github.com/GreptimeTea" +
       "m/greptime-proto/go/greptime/v1b\006proto3"
     };
@@ -14849,14 +14359,8 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DecimalTypeExtension_descriptor,
         new java.lang.String[] { "Precision", "Scale", });
-    internal_static_greptime_v1_JsonTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(16);
-    internal_static_greptime_v1_JsonTypeExtension_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_JsonTypeExtension_descriptor,
-        new java.lang.String[] { "IsJson", });
     internal_static_greptime_v1_ColumnOptions_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_ColumnOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnOptions_descriptor,

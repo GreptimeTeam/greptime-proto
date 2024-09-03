@@ -83,9 +83,6 @@ extern FlightMetadataDefaultTypeInternal _FlightMetadata_default_instance_;
 class IntervalMonthDayNano;
 struct IntervalMonthDayNanoDefaultTypeInternal;
 extern IntervalMonthDayNanoDefaultTypeInternal _IntervalMonthDayNano_default_instance_;
-class JsonTypeExtension;
-struct JsonTypeExtensionDefaultTypeInternal;
-extern JsonTypeExtensionDefaultTypeInternal _JsonTypeExtension_default_instance_;
 class Metrics;
 struct MetricsDefaultTypeInternal;
 extern MetricsDefaultTypeInternal _Metrics_default_instance_;
@@ -127,7 +124,6 @@ template<> ::greptime::v1::DecimalTypeExtension* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::ExpireAfter* Arena::CreateMaybeMessage<::greptime::v1::ExpireAfter>(Arena*);
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
 template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::greptime::v1::IntervalMonthDayNano>(Arena*);
-template<> ::greptime::v1::JsonTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::JsonTypeExtension>(Arena*);
 template<> ::greptime::v1::Metrics* Arena::CreateMaybeMessage<::greptime::v1::Metrics>(Arena*);
 template<> ::greptime::v1::QueryContext* Arena::CreateMaybeMessage<::greptime::v1::QueryContext>(Arena*);
 template<> ::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse>(Arena*);
@@ -216,6 +212,30 @@ inline bool ColumnDataType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ColumnDataType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ColumnDataType>(
     ColumnDataType_descriptor(), name, value);
+}
+enum JsonTypeExtension : int {
+  JSON_BINARY = 0,
+  JsonTypeExtension_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  JsonTypeExtension_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool JsonTypeExtension_IsValid(int value);
+constexpr JsonTypeExtension JsonTypeExtension_MIN = JSON_BINARY;
+constexpr JsonTypeExtension JsonTypeExtension_MAX = JSON_BINARY;
+constexpr int JsonTypeExtension_ARRAYSIZE = JsonTypeExtension_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* JsonTypeExtension_descriptor();
+template<typename T>
+inline const std::string& JsonTypeExtension_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, JsonTypeExtension>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function JsonTypeExtension_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    JsonTypeExtension_descriptor(), enum_t_value);
+}
+inline bool JsonTypeExtension_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, JsonTypeExtension* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<JsonTypeExtension>(
+    JsonTypeExtension_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -2877,17 +2897,12 @@ class ColumnDataTypeExtension final :
   bool _internal_has_json_type() const;
   public:
   void clear_json_type();
-  const ::greptime::v1::JsonTypeExtension& json_type() const;
-  PROTOBUF_NODISCARD ::greptime::v1::JsonTypeExtension* release_json_type();
-  ::greptime::v1::JsonTypeExtension* mutable_json_type();
-  void set_allocated_json_type(::greptime::v1::JsonTypeExtension* json_type);
+  ::greptime::v1::JsonTypeExtension json_type() const;
+  void set_json_type(::greptime::v1::JsonTypeExtension value);
   private:
-  const ::greptime::v1::JsonTypeExtension& _internal_json_type() const;
-  ::greptime::v1::JsonTypeExtension* _internal_mutable_json_type();
+  ::greptime::v1::JsonTypeExtension _internal_json_type() const;
+  void _internal_set_json_type(::greptime::v1::JsonTypeExtension value);
   public:
-  void unsafe_arena_set_allocated_json_type(
-      ::greptime::v1::JsonTypeExtension* json_type);
-  ::greptime::v1::JsonTypeExtension* unsafe_arena_release_json_type();
 
   void clear_type_ext();
   TypeExtCase type_ext_case() const;
@@ -2908,7 +2923,7 @@ class ColumnDataTypeExtension final :
       constexpr TypeExtUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::DecimalTypeExtension* decimal_type_;
-      ::greptime::v1::JsonTypeExtension* json_type_;
+      int json_type_;
     } type_ext_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -3078,154 +3093,6 @@ class DecimalTypeExtension final :
 };
 // -------------------------------------------------------------------
 
-class JsonTypeExtension final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.JsonTypeExtension) */ {
- public:
-  inline JsonTypeExtension() : JsonTypeExtension(nullptr) {}
-  ~JsonTypeExtension() override;
-  explicit PROTOBUF_CONSTEXPR JsonTypeExtension(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  JsonTypeExtension(const JsonTypeExtension& from);
-  JsonTypeExtension(JsonTypeExtension&& from) noexcept
-    : JsonTypeExtension() {
-    *this = ::std::move(from);
-  }
-
-  inline JsonTypeExtension& operator=(const JsonTypeExtension& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline JsonTypeExtension& operator=(JsonTypeExtension&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const JsonTypeExtension& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const JsonTypeExtension* internal_default_instance() {
-    return reinterpret_cast<const JsonTypeExtension*>(
-               &_JsonTypeExtension_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    18;
-
-  friend void swap(JsonTypeExtension& a, JsonTypeExtension& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(JsonTypeExtension* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(JsonTypeExtension* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  JsonTypeExtension* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<JsonTypeExtension>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const JsonTypeExtension& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const JsonTypeExtension& from) {
-    JsonTypeExtension::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(JsonTypeExtension* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.JsonTypeExtension";
-  }
-  protected:
-  explicit JsonTypeExtension(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kIsJsonFieldNumber = 1,
-  };
-  // bool is_json = 1;
-  void clear_is_json();
-  bool is_json() const;
-  void set_is_json(bool value);
-  private:
-  bool _internal_is_json() const;
-  void _internal_set_is_json(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.JsonTypeExtension)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    bool is_json_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
-};
-// -------------------------------------------------------------------
-
 class ColumnOptions_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ColumnOptions_OptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
@@ -3302,7 +3169,7 @@ class ColumnOptions final :
                &_ColumnOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    19;
 
   friend void swap(ColumnOptions& a, ColumnOptions& b) {
     a.Swap(&b);
@@ -5077,66 +4944,30 @@ inline void ColumnDataTypeExtension::set_has_json_type() {
 }
 inline void ColumnDataTypeExtension::clear_json_type() {
   if (_internal_has_json_type()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.type_ext_.json_type_;
-    }
+    _impl_.type_ext_.json_type_ = 0;
     clear_has_type_ext();
   }
 }
-inline ::greptime::v1::JsonTypeExtension* ColumnDataTypeExtension::release_json_type() {
-  // @@protoc_insertion_point(field_release:greptime.v1.ColumnDataTypeExtension.json_type)
+inline ::greptime::v1::JsonTypeExtension ColumnDataTypeExtension::_internal_json_type() const {
   if (_internal_has_json_type()) {
-    clear_has_type_ext();
-    ::greptime::v1::JsonTypeExtension* temp = _impl_.type_ext_.json_type_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.type_ext_.json_type_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
+    return static_cast< ::greptime::v1::JsonTypeExtension >(_impl_.type_ext_.json_type_);
   }
+  return static_cast< ::greptime::v1::JsonTypeExtension >(0);
 }
-inline const ::greptime::v1::JsonTypeExtension& ColumnDataTypeExtension::_internal_json_type() const {
-  return _internal_has_json_type()
-      ? *_impl_.type_ext_.json_type_
-      : reinterpret_cast< ::greptime::v1::JsonTypeExtension&>(::greptime::v1::_JsonTypeExtension_default_instance_);
-}
-inline const ::greptime::v1::JsonTypeExtension& ColumnDataTypeExtension::json_type() const {
+inline ::greptime::v1::JsonTypeExtension ColumnDataTypeExtension::json_type() const {
   // @@protoc_insertion_point(field_get:greptime.v1.ColumnDataTypeExtension.json_type)
   return _internal_json_type();
 }
-inline ::greptime::v1::JsonTypeExtension* ColumnDataTypeExtension::unsafe_arena_release_json_type() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.ColumnDataTypeExtension.json_type)
-  if (_internal_has_json_type()) {
-    clear_has_type_ext();
-    ::greptime::v1::JsonTypeExtension* temp = _impl_.type_ext_.json_type_;
-    _impl_.type_ext_.json_type_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void ColumnDataTypeExtension::unsafe_arena_set_allocated_json_type(::greptime::v1::JsonTypeExtension* json_type) {
-  clear_type_ext();
-  if (json_type) {
-    set_has_json_type();
-    _impl_.type_ext_.json_type_ = json_type;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ColumnDataTypeExtension.json_type)
-}
-inline ::greptime::v1::JsonTypeExtension* ColumnDataTypeExtension::_internal_mutable_json_type() {
+inline void ColumnDataTypeExtension::_internal_set_json_type(::greptime::v1::JsonTypeExtension value) {
   if (!_internal_has_json_type()) {
     clear_type_ext();
     set_has_json_type();
-    _impl_.type_ext_.json_type_ = CreateMaybeMessage< ::greptime::v1::JsonTypeExtension >(GetArenaForAllocation());
   }
-  return _impl_.type_ext_.json_type_;
+  _impl_.type_ext_.json_type_ = value;
 }
-inline ::greptime::v1::JsonTypeExtension* ColumnDataTypeExtension::mutable_json_type() {
-  ::greptime::v1::JsonTypeExtension* _msg = _internal_mutable_json_type();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnDataTypeExtension.json_type)
-  return _msg;
+inline void ColumnDataTypeExtension::set_json_type(::greptime::v1::JsonTypeExtension value) {
+  _internal_set_json_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDataTypeExtension.json_type)
 }
 
 inline bool ColumnDataTypeExtension::has_type_ext() const {
@@ -5190,30 +5021,6 @@ inline void DecimalTypeExtension::_internal_set_scale(int32_t value) {
 inline void DecimalTypeExtension::set_scale(int32_t value) {
   _internal_set_scale(value);
   // @@protoc_insertion_point(field_set:greptime.v1.DecimalTypeExtension.scale)
-}
-
-// -------------------------------------------------------------------
-
-// JsonTypeExtension
-
-// bool is_json = 1;
-inline void JsonTypeExtension::clear_is_json() {
-  _impl_.is_json_ = false;
-}
-inline bool JsonTypeExtension::_internal_is_json() const {
-  return _impl_.is_json_;
-}
-inline bool JsonTypeExtension::is_json() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.JsonTypeExtension.is_json)
-  return _internal_is_json();
-}
-inline void JsonTypeExtension::_internal_set_is_json(bool value) {
-  
-  _impl_.is_json_ = value;
-}
-inline void JsonTypeExtension::set_is_json(bool value) {
-  _internal_set_is_json(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.JsonTypeExtension.is_json)
 }
 
 // -------------------------------------------------------------------
@@ -5292,8 +5099,6 @@ ColumnOptions::mutable_options() {
 
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -5311,6 +5116,11 @@ template <> struct is_proto_enum< ::greptime::v1::ColumnDataType> : ::std::true_
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::ColumnDataType>() {
   return ::greptime::v1::ColumnDataType_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::JsonTypeExtension> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::JsonTypeExtension>() {
+  return ::greptime::v1::JsonTypeExtension_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
