@@ -213,12 +213,37 @@ public final class Procedure {
     long getEndTimeMs();
 
     /**
-     * <code>string error = 6;</code>
+     * <code>repeated string lock_keys = 6;</code>
+     * @return A list containing the lockKeys.
+     */
+    java.util.List<java.lang.String>
+        getLockKeysList();
+    /**
+     * <code>repeated string lock_keys = 6;</code>
+     * @return The count of lockKeys.
+     */
+    int getLockKeysCount();
+    /**
+     * <code>repeated string lock_keys = 6;</code>
+     * @param index The index of the element to return.
+     * @return The lockKeys at the given index.
+     */
+    java.lang.String getLockKeys(int index);
+    /**
+     * <code>repeated string lock_keys = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the lockKeys at the given index.
+     */
+    com.google.protobuf.ByteString
+        getLockKeysBytes(int index);
+
+    /**
+     * <code>string error = 7;</code>
      * @return The error.
      */
     java.lang.String getError();
     /**
-     * <code>string error = 6;</code>
+     * <code>string error = 7;</code>
      * @return The bytes for error.
      */
     com.google.protobuf.ByteString
@@ -239,6 +264,7 @@ public final class Procedure {
     private ProcedureMeta() {
       typeName_ = "";
       status_ = 0;
+      lockKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       error_ = "";
     }
 
@@ -262,6 +288,7 @@ public final class Procedure {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -309,6 +336,15 @@ public final class Procedure {
             }
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                lockKeys_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              lockKeys_.add(s);
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
 
               error_ = s;
               break;
@@ -330,6 +366,9 @@ public final class Procedure {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          lockKeys_ = lockKeys_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -452,10 +491,45 @@ public final class Procedure {
       return endTimeMs_;
     }
 
-    public static final int ERROR_FIELD_NUMBER = 6;
+    public static final int LOCK_KEYS_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList lockKeys_;
+    /**
+     * <code>repeated string lock_keys = 6;</code>
+     * @return A list containing the lockKeys.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getLockKeysList() {
+      return lockKeys_;
+    }
+    /**
+     * <code>repeated string lock_keys = 6;</code>
+     * @return The count of lockKeys.
+     */
+    public int getLockKeysCount() {
+      return lockKeys_.size();
+    }
+    /**
+     * <code>repeated string lock_keys = 6;</code>
+     * @param index The index of the element to return.
+     * @return The lockKeys at the given index.
+     */
+    public java.lang.String getLockKeys(int index) {
+      return lockKeys_.get(index);
+    }
+    /**
+     * <code>repeated string lock_keys = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the lockKeys at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getLockKeysBytes(int index) {
+      return lockKeys_.getByteString(index);
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 7;
     private volatile java.lang.Object error_;
     /**
-     * <code>string error = 6;</code>
+     * <code>string error = 7;</code>
      * @return The error.
      */
     @java.lang.Override
@@ -472,7 +546,7 @@ public final class Procedure {
       }
     }
     /**
-     * <code>string error = 6;</code>
+     * <code>string error = 7;</code>
      * @return The bytes for error.
      */
     @java.lang.Override
@@ -519,8 +593,11 @@ public final class Procedure {
       if (endTimeMs_ != 0L) {
         output.writeUInt64(5, endTimeMs_);
       }
+      for (int i = 0; i < lockKeys_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, lockKeys_.getRaw(i));
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, error_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, error_);
       }
       unknownFields.writeTo(output);
     }
@@ -550,8 +627,16 @@ public final class Procedure {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(5, endTimeMs_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < lockKeys_.size(); i++) {
+          dataSize += computeStringSizeNoTag(lockKeys_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getLockKeysList().size();
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, error_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, error_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -580,6 +665,8 @@ public final class Procedure {
           != other.getStartTimeMs()) return false;
       if (getEndTimeMs()
           != other.getEndTimeMs()) return false;
+      if (!getLockKeysList()
+          .equals(other.getLockKeysList())) return false;
       if (!getError()
           .equals(other.getError())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -607,6 +694,10 @@ public final class Procedure {
       hash = (37 * hash) + END_TIME_MS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getEndTimeMs());
+      if (getLockKeysCount() > 0) {
+        hash = (37 * hash) + LOCK_KEYS_FIELD_NUMBER;
+        hash = (53 * hash) + getLockKeysList().hashCode();
+      }
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -756,6 +847,8 @@ public final class Procedure {
 
         endTimeMs_ = 0L;
 
+        lockKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         error_ = "";
 
         return this;
@@ -784,6 +877,7 @@ public final class Procedure {
       @java.lang.Override
       public greptime.v1.meta.Procedure.ProcedureMeta buildPartial() {
         greptime.v1.meta.Procedure.ProcedureMeta result = new greptime.v1.meta.Procedure.ProcedureMeta(this);
+        int from_bitField0_ = bitField0_;
         if (idBuilder_ == null) {
           result.id_ = id_;
         } else {
@@ -793,6 +887,11 @@ public final class Procedure {
         result.status_ = status_;
         result.startTimeMs_ = startTimeMs_;
         result.endTimeMs_ = endTimeMs_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          lockKeys_ = lockKeys_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.lockKeys_ = lockKeys_;
         result.error_ = error_;
         onBuilt();
         return result;
@@ -858,6 +957,16 @@ public final class Procedure {
         if (other.getEndTimeMs() != 0L) {
           setEndTimeMs(other.getEndTimeMs());
         }
+        if (!other.lockKeys_.isEmpty()) {
+          if (lockKeys_.isEmpty()) {
+            lockKeys_ = other.lockKeys_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureLockKeysIsMutable();
+            lockKeys_.addAll(other.lockKeys_);
+          }
+          onChanged();
+        }
         if (!other.getError().isEmpty()) {
           error_ = other.error_;
           onChanged();
@@ -890,6 +999,7 @@ public final class Procedure {
         }
         return this;
       }
+      private int bitField0_;
 
       private greptime.v1.meta.Common.ProcedureId id_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1202,9 +1312,119 @@ public final class Procedure {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList lockKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureLockKeysIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          lockKeys_ = new com.google.protobuf.LazyStringArrayList(lockKeys_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string lock_keys = 6;</code>
+       * @return A list containing the lockKeys.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getLockKeysList() {
+        return lockKeys_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string lock_keys = 6;</code>
+       * @return The count of lockKeys.
+       */
+      public int getLockKeysCount() {
+        return lockKeys_.size();
+      }
+      /**
+       * <code>repeated string lock_keys = 6;</code>
+       * @param index The index of the element to return.
+       * @return The lockKeys at the given index.
+       */
+      public java.lang.String getLockKeys(int index) {
+        return lockKeys_.get(index);
+      }
+      /**
+       * <code>repeated string lock_keys = 6;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the lockKeys at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getLockKeysBytes(int index) {
+        return lockKeys_.getByteString(index);
+      }
+      /**
+       * <code>repeated string lock_keys = 6;</code>
+       * @param index The index to set the value at.
+       * @param value The lockKeys to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLockKeys(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureLockKeysIsMutable();
+        lockKeys_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string lock_keys = 6;</code>
+       * @param value The lockKeys to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLockKeys(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureLockKeysIsMutable();
+        lockKeys_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string lock_keys = 6;</code>
+       * @param values The lockKeys to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllLockKeys(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureLockKeysIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, lockKeys_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string lock_keys = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLockKeys() {
+        lockKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string lock_keys = 6;</code>
+       * @param value The bytes of the lockKeys to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLockKeysBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureLockKeysIsMutable();
+        lockKeys_.add(value);
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object error_ = "";
       /**
-       * <code>string error = 6;</code>
+       * <code>string error = 7;</code>
        * @return The error.
        */
       public java.lang.String getError() {
@@ -1220,7 +1440,7 @@ public final class Procedure {
         }
       }
       /**
-       * <code>string error = 6;</code>
+       * <code>string error = 7;</code>
        * @return The bytes for error.
        */
       public com.google.protobuf.ByteString
@@ -1237,7 +1457,7 @@ public final class Procedure {
         }
       }
       /**
-       * <code>string error = 6;</code>
+       * <code>string error = 7;</code>
        * @param value The error to set.
        * @return This builder for chaining.
        */
@@ -1252,7 +1472,7 @@ public final class Procedure {
         return this;
       }
       /**
-       * <code>string error = 6;</code>
+       * <code>string error = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearError() {
@@ -1262,7 +1482,7 @@ public final class Procedure {
         return this;
       }
       /**
-       * <code>string error = 6;</code>
+       * <code>string error = 7;</code>
        * @param value The bytes for error to set.
        * @return This builder for chaining.
        */
@@ -4694,37 +4914,38 @@ public final class Procedure {
       "\n greptime/v1/meta/procedure.proto\022\020grep" +
       "time.v1.meta\032\035greptime/v1/meta/common.pr" +
       "oto\032\032greptime/v1/meta/ddl.proto\032\035greptim" +
-      "e/v1/meta/region.proto\"\273\001\n\rProcedureMeta" +
+      "e/v1/meta/region.proto\"\316\001\n\rProcedureMeta" +
       "\022)\n\002id\030\001 \001(\0132\035.greptime.v1.meta.Procedur" +
       "eId\022\021\n\ttype_name\030\002 \001(\t\0221\n\006status\030\003 \001(\0162!" +
       ".greptime.v1.meta.ProcedureStatus\022\025\n\rsta" +
-      "rt_time_ms\030\004 \001(\004\022\023\n\013end_time_ms\030\005 \001(\004\022\r\n" +
-      "\005error\030\006 \001(\t\"t\n\025QueryProcedureRequest\022/\n" +
-      "\006header\030\001 \001(\0132\037.greptime.v1.meta.Request" +
-      "Header\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.P" +
-      "rocedureId\"\214\001\n\026ProcedureStateResponse\0220\n" +
-      "\006header\030\001 \001(\0132 .greptime.v1.meta.Respons" +
-      "eHeader\0221\n\006status\030\002 \001(\0162!.greptime.v1.me" +
-      "ta.ProcedureStatus\022\r\n\005error\030\003 \001(\t\"I\n\026Pro" +
-      "cedureDetailRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
-      "eptime.v1.meta.RequestHeader\"\200\001\n\027Procedu" +
-      "reDetailResponse\0220\n\006header\030\001 \001(\0132 .grept" +
-      "ime.v1.meta.ResponseHeader\0223\n\nprocedures" +
-      "\030\002 \003(\0132\037.greptime.v1.meta.ProcedureMeta*" +
-      "h\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020" +
-      "\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRo" +
-      "llback\020\004\022\017\n\013RollingBack\020\0052\366\002\n\020ProcedureS" +
-      "ervice\022Z\n\005query\022\'.greptime.v1.meta.Query" +
-      "ProcedureRequest\032(.greptime.v1.meta.Proc" +
-      "edureStateResponse\022J\n\003ddl\022 .greptime.v1." +
-      "meta.DdlTaskRequest\032!.greptime.v1.meta.D" +
-      "dlTaskResponse\022Z\n\007migrate\022&.greptime.v1." +
-      "meta.MigrateRegionRequest\032\'.greptime.v1." +
-      "meta.MigrateRegionResponse\022^\n\007details\022(." +
-      "greptime.v1.meta.ProcedureDetailRequest\032" +
-      ").greptime.v1.meta.ProcedureDetailRespon" +
-      "seB<Z:github.com/GreptimeTeam/greptime-p" +
-      "roto/go/greptime/v1/metab\006proto3"
+      "rt_time_ms\030\004 \001(\004\022\023\n\013end_time_ms\030\005 \001(\004\022\021\n" +
+      "\tlock_keys\030\006 \003(\t\022\r\n\005error\030\007 \001(\t\"t\n\025Query" +
+      "ProcedureRequest\022/\n\006header\030\001 \001(\0132\037.grept" +
+      "ime.v1.meta.RequestHeader\022*\n\003pid\030\002 \001(\0132\035" +
+      ".greptime.v1.meta.ProcedureId\"\214\001\n\026Proced" +
+      "ureStateResponse\0220\n\006header\030\001 \001(\0132 .grept" +
+      "ime.v1.meta.ResponseHeader\0221\n\006status\030\002 \001" +
+      "(\0162!.greptime.v1.meta.ProcedureStatus\022\r\n" +
+      "\005error\030\003 \001(\t\"I\n\026ProcedureDetailRequest\022/" +
+      "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques" +
+      "tHeader\"\200\001\n\027ProcedureDetailResponse\0220\n\006h" +
+      "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH" +
+      "eader\0223\n\nprocedures\030\002 \003(\0132\037.greptime.v1." +
+      "meta.ProcedureMeta*h\n\017ProcedureStatus\022\013\n" +
+      "\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n\n\006Fa" +
+      "iled\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013RollingBa" +
+      "ck\020\0052\366\002\n\020ProcedureService\022Z\n\005query\022\'.gre" +
+      "ptime.v1.meta.QueryProcedureRequest\032(.gr" +
+      "eptime.v1.meta.ProcedureStateResponse\022J\n" +
+      "\003ddl\022 .greptime.v1.meta.DdlTaskRequest\032!" +
+      ".greptime.v1.meta.DdlTaskResponse\022Z\n\007mig" +
+      "rate\022&.greptime.v1.meta.MigrateRegionReq" +
+      "uest\032\'.greptime.v1.meta.MigrateRegionRes" +
+      "ponse\022^\n\007details\022(.greptime.v1.meta.Proc" +
+      "edureDetailRequest\032).greptime.v1.meta.Pr" +
+      "ocedureDetailResponseB<Z:github.com/Grep" +
+      "timeTeam/greptime-proto/go/greptime/v1/m" +
+      "etab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4738,7 +4959,7 @@ public final class Procedure {
     internal_static_greptime_v1_meta_ProcedureMeta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ProcedureMeta_descriptor,
-        new java.lang.String[] { "Id", "TypeName", "Status", "StartTimeMs", "EndTimeMs", "Error", });
+        new java.lang.String[] { "Id", "TypeName", "Status", "StartTimeMs", "EndTimeMs", "LockKeys", "Error", });
     internal_static_greptime_v1_meta_QueryProcedureRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_meta_QueryProcedureRequest_fieldAccessorTable = new

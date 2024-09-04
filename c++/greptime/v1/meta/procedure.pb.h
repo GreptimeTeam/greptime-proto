@@ -232,13 +232,38 @@ class ProcedureMeta final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kLockKeysFieldNumber = 6,
     kTypeNameFieldNumber = 2,
-    kErrorFieldNumber = 6,
+    kErrorFieldNumber = 7,
     kIdFieldNumber = 1,
     kStartTimeMsFieldNumber = 4,
     kEndTimeMsFieldNumber = 5,
     kStatusFieldNumber = 3,
   };
+  // repeated string lock_keys = 6;
+  int lock_keys_size() const;
+  private:
+  int _internal_lock_keys_size() const;
+  public:
+  void clear_lock_keys();
+  const std::string& lock_keys(int index) const;
+  std::string* mutable_lock_keys(int index);
+  void set_lock_keys(int index, const std::string& value);
+  void set_lock_keys(int index, std::string&& value);
+  void set_lock_keys(int index, const char* value);
+  void set_lock_keys(int index, const char* value, size_t size);
+  std::string* add_lock_keys();
+  void add_lock_keys(const std::string& value);
+  void add_lock_keys(std::string&& value);
+  void add_lock_keys(const char* value);
+  void add_lock_keys(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& lock_keys() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_lock_keys();
+  private:
+  const std::string& _internal_lock_keys(int index) const;
+  std::string* _internal_add_lock_keys();
+  public:
+
   // string type_name = 2;
   void clear_type_name();
   const std::string& type_name() const;
@@ -253,7 +278,7 @@ class ProcedureMeta final :
   std::string* _internal_mutable_type_name();
   public:
 
-  // string error = 6;
+  // string error = 7;
   void clear_error();
   const std::string& error() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -320,6 +345,7 @@ class ProcedureMeta final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> lock_keys_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr error_;
     ::greptime::v1::meta::ProcedureId* id_;
@@ -1232,7 +1258,82 @@ inline void ProcedureMeta::set_end_time_ms(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureMeta.end_time_ms)
 }
 
-// string error = 6;
+// repeated string lock_keys = 6;
+inline int ProcedureMeta::_internal_lock_keys_size() const {
+  return _impl_.lock_keys_.size();
+}
+inline int ProcedureMeta::lock_keys_size() const {
+  return _internal_lock_keys_size();
+}
+inline void ProcedureMeta::clear_lock_keys() {
+  _impl_.lock_keys_.Clear();
+}
+inline std::string* ProcedureMeta::add_lock_keys() {
+  std::string* _s = _internal_add_lock_keys();
+  // @@protoc_insertion_point(field_add_mutable:greptime.v1.meta.ProcedureMeta.lock_keys)
+  return _s;
+}
+inline const std::string& ProcedureMeta::_internal_lock_keys(int index) const {
+  return _impl_.lock_keys_.Get(index);
+}
+inline const std::string& ProcedureMeta::lock_keys(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ProcedureMeta.lock_keys)
+  return _internal_lock_keys(index);
+}
+inline std::string* ProcedureMeta::mutable_lock_keys(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ProcedureMeta.lock_keys)
+  return _impl_.lock_keys_.Mutable(index);
+}
+inline void ProcedureMeta::set_lock_keys(int index, const std::string& value) {
+  _impl_.lock_keys_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureMeta.lock_keys)
+}
+inline void ProcedureMeta::set_lock_keys(int index, std::string&& value) {
+  _impl_.lock_keys_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureMeta.lock_keys)
+}
+inline void ProcedureMeta::set_lock_keys(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.lock_keys_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:greptime.v1.meta.ProcedureMeta.lock_keys)
+}
+inline void ProcedureMeta::set_lock_keys(int index, const char* value, size_t size) {
+  _impl_.lock_keys_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:greptime.v1.meta.ProcedureMeta.lock_keys)
+}
+inline std::string* ProcedureMeta::_internal_add_lock_keys() {
+  return _impl_.lock_keys_.Add();
+}
+inline void ProcedureMeta::add_lock_keys(const std::string& value) {
+  _impl_.lock_keys_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.ProcedureMeta.lock_keys)
+}
+inline void ProcedureMeta::add_lock_keys(std::string&& value) {
+  _impl_.lock_keys_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.ProcedureMeta.lock_keys)
+}
+inline void ProcedureMeta::add_lock_keys(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.lock_keys_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:greptime.v1.meta.ProcedureMeta.lock_keys)
+}
+inline void ProcedureMeta::add_lock_keys(const char* value, size_t size) {
+  _impl_.lock_keys_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:greptime.v1.meta.ProcedureMeta.lock_keys)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+ProcedureMeta::lock_keys() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.ProcedureMeta.lock_keys)
+  return _impl_.lock_keys_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+ProcedureMeta::mutable_lock_keys() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.ProcedureMeta.lock_keys)
+  return &_impl_.lock_keys_;
+}
+
+// string error = 7;
 inline void ProcedureMeta::clear_error() {
   _impl_.error_.ClearToEmpty();
 }

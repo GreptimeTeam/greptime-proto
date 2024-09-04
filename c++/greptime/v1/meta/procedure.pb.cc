@@ -25,7 +25,8 @@ namespace v1 {
 namespace meta {
 PROTOBUF_CONSTEXPR ProcedureMeta::ProcedureMeta(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.type_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.lock_keys_)*/{}
+  , /*decltype(_impl_.type_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.error_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.id_)*/nullptr
   , /*decltype(_impl_.start_time_ms_)*/uint64_t{0u}
@@ -116,6 +117,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureMeta, _impl_.status_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureMeta, _impl_.start_time_ms_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureMeta, _impl_.end_time_ms_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureMeta, _impl_.lock_keys_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureMeta, _impl_.error_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::QueryProcedureRequest, _internal_metadata_),
@@ -152,10 +154,10 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::ProcedureMeta)},
-  { 12, -1, -1, sizeof(::greptime::v1::meta::QueryProcedureRequest)},
-  { 20, -1, -1, sizeof(::greptime::v1::meta::ProcedureStateResponse)},
-  { 29, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailRequest)},
-  { 36, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailResponse)},
+  { 13, -1, -1, sizeof(::greptime::v1::meta::QueryProcedureRequest)},
+  { 21, -1, -1, sizeof(::greptime::v1::meta::ProcedureStateResponse)},
+  { 30, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailRequest)},
+  { 37, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -170,37 +172,38 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "\n greptime/v1/meta/procedure.proto\022\020grep"
   "time.v1.meta\032\035greptime/v1/meta/common.pr"
   "oto\032\032greptime/v1/meta/ddl.proto\032\035greptim"
-  "e/v1/meta/region.proto\"\273\001\n\rProcedureMeta"
+  "e/v1/meta/region.proto\"\316\001\n\rProcedureMeta"
   "\022)\n\002id\030\001 \001(\0132\035.greptime.v1.meta.Procedur"
   "eId\022\021\n\ttype_name\030\002 \001(\t\0221\n\006status\030\003 \001(\0162!"
   ".greptime.v1.meta.ProcedureStatus\022\025\n\rsta"
-  "rt_time_ms\030\004 \001(\004\022\023\n\013end_time_ms\030\005 \001(\004\022\r\n"
-  "\005error\030\006 \001(\t\"t\n\025QueryProcedureRequest\022/\n"
-  "\006header\030\001 \001(\0132\037.greptime.v1.meta.Request"
-  "Header\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.P"
-  "rocedureId\"\214\001\n\026ProcedureStateResponse\0220\n"
-  "\006header\030\001 \001(\0132 .greptime.v1.meta.Respons"
-  "eHeader\0221\n\006status\030\002 \001(\0162!.greptime.v1.me"
-  "ta.ProcedureStatus\022\r\n\005error\030\003 \001(\t\"I\n\026Pro"
-  "cedureDetailRequest\022/\n\006header\030\001 \001(\0132\037.gr"
-  "eptime.v1.meta.RequestHeader\"\200\001\n\027Procedu"
-  "reDetailResponse\0220\n\006header\030\001 \001(\0132 .grept"
-  "ime.v1.meta.ResponseHeader\0223\n\nprocedures"
-  "\030\002 \003(\0132\037.greptime.v1.meta.ProcedureMeta*"
-  "h\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020"
-  "\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRo"
-  "llback\020\004\022\017\n\013RollingBack\020\0052\366\002\n\020ProcedureS"
-  "ervice\022Z\n\005query\022\'.greptime.v1.meta.Query"
-  "ProcedureRequest\032(.greptime.v1.meta.Proc"
-  "edureStateResponse\022J\n\003ddl\022 .greptime.v1."
-  "meta.DdlTaskRequest\032!.greptime.v1.meta.D"
-  "dlTaskResponse\022Z\n\007migrate\022&.greptime.v1."
-  "meta.MigrateRegionRequest\032\'.greptime.v1."
-  "meta.MigrateRegionResponse\022^\n\007details\022(."
-  "greptime.v1.meta.ProcedureDetailRequest\032"
-  ").greptime.v1.meta.ProcedureDetailRespon"
-  "seB<Z:github.com/GreptimeTeam/greptime-p"
-  "roto/go/greptime/v1/metab\006proto3"
+  "rt_time_ms\030\004 \001(\004\022\023\n\013end_time_ms\030\005 \001(\004\022\021\n"
+  "\tlock_keys\030\006 \003(\t\022\r\n\005error\030\007 \001(\t\"t\n\025Query"
+  "ProcedureRequest\022/\n\006header\030\001 \001(\0132\037.grept"
+  "ime.v1.meta.RequestHeader\022*\n\003pid\030\002 \001(\0132\035"
+  ".greptime.v1.meta.ProcedureId\"\214\001\n\026Proced"
+  "ureStateResponse\0220\n\006header\030\001 \001(\0132 .grept"
+  "ime.v1.meta.ResponseHeader\0221\n\006status\030\002 \001"
+  "(\0162!.greptime.v1.meta.ProcedureStatus\022\r\n"
+  "\005error\030\003 \001(\t\"I\n\026ProcedureDetailRequest\022/"
+  "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques"
+  "tHeader\"\200\001\n\027ProcedureDetailResponse\0220\n\006h"
+  "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH"
+  "eader\0223\n\nprocedures\030\002 \003(\0132\037.greptime.v1."
+  "meta.ProcedureMeta*h\n\017ProcedureStatus\022\013\n"
+  "\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n\n\006Fa"
+  "iled\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013RollingBa"
+  "ck\020\0052\366\002\n\020ProcedureService\022Z\n\005query\022\'.gre"
+  "ptime.v1.meta.QueryProcedureRequest\032(.gr"
+  "eptime.v1.meta.ProcedureStateResponse\022J\n"
+  "\003ddl\022 .greptime.v1.meta.DdlTaskRequest\032!"
+  ".greptime.v1.meta.DdlTaskResponse\022Z\n\007mig"
+  "rate\022&.greptime.v1.meta.MigrateRegionReq"
+  "uest\032\'.greptime.v1.meta.MigrateRegionRes"
+  "ponse\022^\n\007details\022(.greptime.v1.meta.Proc"
+  "edureDetailRequest\032).greptime.v1.meta.Pr"
+  "ocedureDetailResponseB<Z:github.com/Grep"
+  "timeTeam/greptime-proto/go/greptime/v1/m"
+  "etab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
@@ -209,7 +212,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto = {
-    false, false, 1352, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
+    false, false, 1371, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     "greptime/v1/meta/procedure.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 5,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets,
@@ -271,7 +274,8 @@ ProcedureMeta::ProcedureMeta(const ProcedureMeta& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   ProcedureMeta* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.type_name_){}
+      decltype(_impl_.lock_keys_){from._impl_.lock_keys_}
+    , decltype(_impl_.type_name_){}
     , decltype(_impl_.error_){}
     , decltype(_impl_.id_){nullptr}
     , decltype(_impl_.start_time_ms_){}
@@ -310,7 +314,8 @@ inline void ProcedureMeta::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.type_name_){}
+      decltype(_impl_.lock_keys_){arena}
+    , decltype(_impl_.type_name_){}
     , decltype(_impl_.error_){}
     , decltype(_impl_.id_){nullptr}
     , decltype(_impl_.start_time_ms_){uint64_t{0u}}
@@ -339,6 +344,7 @@ ProcedureMeta::~ProcedureMeta() {
 
 inline void ProcedureMeta::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.lock_keys_.~RepeatedPtrField();
   _impl_.type_name_.Destroy();
   _impl_.error_.Destroy();
   if (this != internal_default_instance()) delete _impl_.id_;
@@ -354,6 +360,7 @@ void ProcedureMeta::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.lock_keys_.Clear();
   _impl_.type_name_.ClearToEmpty();
   _impl_.error_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.id_ != nullptr) {
@@ -415,9 +422,24 @@ const char* ProcedureMeta::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // string error = 6;
+      // repeated string lock_keys = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_lock_keys();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ProcedureMeta.lock_keys"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string error = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           auto str = _internal_mutable_error();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -490,14 +512,24 @@ uint8_t* ProcedureMeta::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_end_time_ms(), target);
   }
 
-  // string error = 6;
+  // repeated string lock_keys = 6;
+  for (int i = 0, n = this->_internal_lock_keys_size(); i < n; i++) {
+    const auto& s = this->_internal_lock_keys(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ProcedureMeta.lock_keys");
+    target = stream->WriteString(6, s, target);
+  }
+
+  // string error = 7;
   if (!this->_internal_error().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_error().data(), static_cast<int>(this->_internal_error().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "greptime.v1.meta.ProcedureMeta.error");
     target = stream->WriteStringMaybeAliased(
-        6, this->_internal_error(), target);
+        7, this->_internal_error(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -516,6 +548,14 @@ size_t ProcedureMeta::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // repeated string lock_keys = 6;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.lock_keys_.size());
+  for (int i = 0, n = _impl_.lock_keys_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.lock_keys_.Get(i));
+  }
+
   // string type_name = 2;
   if (!this->_internal_type_name().empty()) {
     total_size += 1 +
@@ -523,7 +563,7 @@ size_t ProcedureMeta::ByteSizeLong() const {
         this->_internal_type_name());
   }
 
-  // string error = 6;
+  // string error = 7;
   if (!this->_internal_error().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -571,6 +611,7 @@ void ProcedureMeta::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.lock_keys_.MergeFrom(from._impl_.lock_keys_);
   if (!from._internal_type_name().empty()) {
     _this->_internal_set_type_name(from._internal_type_name());
   }
@@ -609,6 +650,7 @@ void ProcedureMeta::InternalSwap(ProcedureMeta* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.lock_keys_.InternalSwap(&other->_impl_.lock_keys_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.type_name_, lhs_arena,
       &other->_impl_.type_name_, rhs_arena

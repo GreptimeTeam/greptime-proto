@@ -27,7 +27,8 @@ message ProcedureMeta {
     ProcedureStatus status = 3;
     uint64 start_time_ms = 4;
     uint64 end_time_ms = 5;
-    string error = 6;
+    repeated string lock_keys = 6;
+    string error = 7;
 }
 
 message QueryProcedureRequest {
