@@ -201,13 +201,13 @@ public final class Procedure {
     greptime.v1.meta.Procedure.ProcedureStatus getStatus();
 
     /**
-     * <code>uint64 start_time_ms = 4;</code>
+     * <code>int64 start_time_ms = 4;</code>
      * @return The startTimeMs.
      */
     long getStartTimeMs();
 
     /**
-     * <code>uint64 end_time_ms = 5;</code>
+     * <code>int64 end_time_ms = 5;</code>
      * @return The endTimeMs.
      */
     long getEndTimeMs();
@@ -326,12 +326,12 @@ public final class Procedure {
             }
             case 32: {
 
-              startTimeMs_ = input.readUInt64();
+              startTimeMs_ = input.readInt64();
               break;
             }
             case 40: {
 
-              endTimeMs_ = input.readUInt64();
+              endTimeMs_ = input.readInt64();
               break;
             }
             case 50: {
@@ -472,7 +472,7 @@ public final class Procedure {
     public static final int START_TIME_MS_FIELD_NUMBER = 4;
     private long startTimeMs_;
     /**
-     * <code>uint64 start_time_ms = 4;</code>
+     * <code>int64 start_time_ms = 4;</code>
      * @return The startTimeMs.
      */
     @java.lang.Override
@@ -483,7 +483,7 @@ public final class Procedure {
     public static final int END_TIME_MS_FIELD_NUMBER = 5;
     private long endTimeMs_;
     /**
-     * <code>uint64 end_time_ms = 5;</code>
+     * <code>int64 end_time_ms = 5;</code>
      * @return The endTimeMs.
      */
     @java.lang.Override
@@ -588,10 +588,10 @@ public final class Procedure {
         output.writeEnum(3, status_);
       }
       if (startTimeMs_ != 0L) {
-        output.writeUInt64(4, startTimeMs_);
+        output.writeInt64(4, startTimeMs_);
       }
       if (endTimeMs_ != 0L) {
-        output.writeUInt64(5, endTimeMs_);
+        output.writeInt64(5, endTimeMs_);
       }
       for (int i = 0; i < lockKeys_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, lockKeys_.getRaw(i));
@@ -621,11 +621,11 @@ public final class Procedure {
       }
       if (startTimeMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(4, startTimeMs_);
+          .computeInt64Size(4, startTimeMs_);
       }
       if (endTimeMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(5, endTimeMs_);
+          .computeInt64Size(5, endTimeMs_);
       }
       {
         int dataSize = 0;
@@ -1252,7 +1252,7 @@ public final class Procedure {
 
       private long startTimeMs_ ;
       /**
-       * <code>uint64 start_time_ms = 4;</code>
+       * <code>int64 start_time_ms = 4;</code>
        * @return The startTimeMs.
        */
       @java.lang.Override
@@ -1260,7 +1260,7 @@ public final class Procedure {
         return startTimeMs_;
       }
       /**
-       * <code>uint64 start_time_ms = 4;</code>
+       * <code>int64 start_time_ms = 4;</code>
        * @param value The startTimeMs to set.
        * @return This builder for chaining.
        */
@@ -1271,7 +1271,7 @@ public final class Procedure {
         return this;
       }
       /**
-       * <code>uint64 start_time_ms = 4;</code>
+       * <code>int64 start_time_ms = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearStartTimeMs() {
@@ -1283,7 +1283,7 @@ public final class Procedure {
 
       private long endTimeMs_ ;
       /**
-       * <code>uint64 end_time_ms = 5;</code>
+       * <code>int64 end_time_ms = 5;</code>
        * @return The endTimeMs.
        */
       @java.lang.Override
@@ -1291,7 +1291,7 @@ public final class Procedure {
         return endTimeMs_;
       }
       /**
-       * <code>uint64 end_time_ms = 5;</code>
+       * <code>int64 end_time_ms = 5;</code>
        * @param value The endTimeMs to set.
        * @return This builder for chaining.
        */
@@ -1302,7 +1302,7 @@ public final class Procedure {
         return this;
       }
       /**
-       * <code>uint64 end_time_ms = 5;</code>
+       * <code>int64 end_time_ms = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearEndTimeMs() {
@@ -4918,7 +4918,7 @@ public final class Procedure {
       "\022)\n\002id\030\001 \001(\0132\035.greptime.v1.meta.Procedur" +
       "eId\022\021\n\ttype_name\030\002 \001(\t\0221\n\006status\030\003 \001(\0162!" +
       ".greptime.v1.meta.ProcedureStatus\022\025\n\rsta" +
-      "rt_time_ms\030\004 \001(\004\022\023\n\013end_time_ms\030\005 \001(\004\022\021\n" +
+      "rt_time_ms\030\004 \001(\003\022\023\n\013end_time_ms\030\005 \001(\003\022\021\n" +
       "\tlock_keys\030\006 \003(\t\022\r\n\005error\030\007 \001(\t\"t\n\025Query" +
       "ProcedureRequest\022/\n\006header\030\001 \001(\0132\037.grept" +
       "ime.v1.meta.RequestHeader\022*\n\003pid\030\002 \001(\0132\035" +

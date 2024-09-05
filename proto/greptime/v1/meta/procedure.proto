@@ -25,8 +25,8 @@ message ProcedureMeta {
     ProcedureId id = 1;
     string type_name = 2;
     ProcedureStatus status = 3;
-    uint64 start_time_ms = 4;
-    uint64 end_time_ms = 5;
+    int64 start_time_ms = 4;
+    int64 end_time_ms = 5;
     repeated string lock_keys = 6;
     string error = 7;
 }

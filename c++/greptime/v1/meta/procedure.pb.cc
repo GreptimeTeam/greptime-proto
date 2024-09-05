@@ -29,8 +29,8 @@ PROTOBUF_CONSTEXPR ProcedureMeta::ProcedureMeta(
   , /*decltype(_impl_.type_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.error_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.id_)*/nullptr
-  , /*decltype(_impl_.start_time_ms_)*/uint64_t{0u}
-  , /*decltype(_impl_.end_time_ms_)*/uint64_t{0u}
+  , /*decltype(_impl_.start_time_ms_)*/int64_t{0}
+  , /*decltype(_impl_.end_time_ms_)*/int64_t{0}
   , /*decltype(_impl_.status_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ProcedureMetaDefaultTypeInternal {
@@ -176,7 +176,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "\022)\n\002id\030\001 \001(\0132\035.greptime.v1.meta.Procedur"
   "eId\022\021\n\ttype_name\030\002 \001(\t\0221\n\006status\030\003 \001(\0162!"
   ".greptime.v1.meta.ProcedureStatus\022\025\n\rsta"
-  "rt_time_ms\030\004 \001(\004\022\023\n\013end_time_ms\030\005 \001(\004\022\021\n"
+  "rt_time_ms\030\004 \001(\003\022\023\n\013end_time_ms\030\005 \001(\003\022\021\n"
   "\tlock_keys\030\006 \003(\t\022\r\n\005error\030\007 \001(\t\"t\n\025Query"
   "ProcedureRequest\022/\n\006header\030\001 \001(\0132\037.grept"
   "ime.v1.meta.RequestHeader\022*\n\003pid\030\002 \001(\0132\035"
@@ -318,8 +318,8 @@ inline void ProcedureMeta::SharedCtor(
     , decltype(_impl_.type_name_){}
     , decltype(_impl_.error_){}
     , decltype(_impl_.id_){nullptr}
-    , decltype(_impl_.start_time_ms_){uint64_t{0u}}
-    , decltype(_impl_.end_time_ms_){uint64_t{0u}}
+    , decltype(_impl_.start_time_ms_){int64_t{0}}
+    , decltype(_impl_.end_time_ms_){int64_t{0}}
     , decltype(_impl_.status_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -406,7 +406,7 @@ const char* ProcedureMeta::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // uint64 start_time_ms = 4;
+      // int64 start_time_ms = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _impl_.start_time_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -414,7 +414,7 @@ const char* ProcedureMeta::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // uint64 end_time_ms = 5;
+      // int64 end_time_ms = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           _impl_.end_time_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -500,16 +500,16 @@ uint8_t* ProcedureMeta::_InternalSerialize(
       3, this->_internal_status(), target);
   }
 
-  // uint64 start_time_ms = 4;
+  // int64 start_time_ms = 4;
   if (this->_internal_start_time_ms() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_start_time_ms(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(4, this->_internal_start_time_ms(), target);
   }
 
-  // uint64 end_time_ms = 5;
+  // int64 end_time_ms = 5;
   if (this->_internal_end_time_ms() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_end_time_ms(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(5, this->_internal_end_time_ms(), target);
   }
 
   // repeated string lock_keys = 6;
@@ -577,14 +577,14 @@ size_t ProcedureMeta::ByteSizeLong() const {
         *_impl_.id_);
   }
 
-  // uint64 start_time_ms = 4;
+  // int64 start_time_ms = 4;
   if (this->_internal_start_time_ms() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_start_time_ms());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_start_time_ms());
   }
 
-  // uint64 end_time_ms = 5;
+  // int64 end_time_ms = 5;
   if (this->_internal_end_time_ms() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_end_time_ms());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_end_time_ms());
   }
 
   // .greptime.v1.meta.ProcedureStatus status = 3;

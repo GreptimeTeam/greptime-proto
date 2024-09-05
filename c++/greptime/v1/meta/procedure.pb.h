@@ -310,22 +310,22 @@ class ProcedureMeta final :
       ::greptime::v1::meta::ProcedureId* id);
   ::greptime::v1::meta::ProcedureId* unsafe_arena_release_id();
 
-  // uint64 start_time_ms = 4;
+  // int64 start_time_ms = 4;
   void clear_start_time_ms();
-  uint64_t start_time_ms() const;
-  void set_start_time_ms(uint64_t value);
+  int64_t start_time_ms() const;
+  void set_start_time_ms(int64_t value);
   private:
-  uint64_t _internal_start_time_ms() const;
-  void _internal_set_start_time_ms(uint64_t value);
+  int64_t _internal_start_time_ms() const;
+  void _internal_set_start_time_ms(int64_t value);
   public:
 
-  // uint64 end_time_ms = 5;
+  // int64 end_time_ms = 5;
   void clear_end_time_ms();
-  uint64_t end_time_ms() const;
-  void set_end_time_ms(uint64_t value);
+  int64_t end_time_ms() const;
+  void set_end_time_ms(int64_t value);
   private:
-  uint64_t _internal_end_time_ms() const;
-  void _internal_set_end_time_ms(uint64_t value);
+  int64_t _internal_end_time_ms() const;
+  void _internal_set_end_time_ms(int64_t value);
   public:
 
   // .greptime.v1.meta.ProcedureStatus status = 3;
@@ -349,8 +349,8 @@ class ProcedureMeta final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr error_;
     ::greptime::v1::meta::ProcedureId* id_;
-    uint64_t start_time_ms_;
-    uint64_t end_time_ms_;
+    int64_t start_time_ms_;
+    int64_t end_time_ms_;
     int status_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1218,42 +1218,42 @@ inline void ProcedureMeta::set_status(::greptime::v1::meta::ProcedureStatus valu
   // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureMeta.status)
 }
 
-// uint64 start_time_ms = 4;
+// int64 start_time_ms = 4;
 inline void ProcedureMeta::clear_start_time_ms() {
-  _impl_.start_time_ms_ = uint64_t{0u};
+  _impl_.start_time_ms_ = int64_t{0};
 }
-inline uint64_t ProcedureMeta::_internal_start_time_ms() const {
+inline int64_t ProcedureMeta::_internal_start_time_ms() const {
   return _impl_.start_time_ms_;
 }
-inline uint64_t ProcedureMeta::start_time_ms() const {
+inline int64_t ProcedureMeta::start_time_ms() const {
   // @@protoc_insertion_point(field_get:greptime.v1.meta.ProcedureMeta.start_time_ms)
   return _internal_start_time_ms();
 }
-inline void ProcedureMeta::_internal_set_start_time_ms(uint64_t value) {
+inline void ProcedureMeta::_internal_set_start_time_ms(int64_t value) {
   
   _impl_.start_time_ms_ = value;
 }
-inline void ProcedureMeta::set_start_time_ms(uint64_t value) {
+inline void ProcedureMeta::set_start_time_ms(int64_t value) {
   _internal_set_start_time_ms(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureMeta.start_time_ms)
 }
 
-// uint64 end_time_ms = 5;
+// int64 end_time_ms = 5;
 inline void ProcedureMeta::clear_end_time_ms() {
-  _impl_.end_time_ms_ = uint64_t{0u};
+  _impl_.end_time_ms_ = int64_t{0};
 }
-inline uint64_t ProcedureMeta::_internal_end_time_ms() const {
+inline int64_t ProcedureMeta::_internal_end_time_ms() const {
   return _impl_.end_time_ms_;
 }
-inline uint64_t ProcedureMeta::end_time_ms() const {
+inline int64_t ProcedureMeta::end_time_ms() const {
   // @@protoc_insertion_point(field_get:greptime.v1.meta.ProcedureMeta.end_time_ms)
   return _internal_end_time_ms();
 }
-inline void ProcedureMeta::_internal_set_end_time_ms(uint64_t value) {
+inline void ProcedureMeta::_internal_set_end_time_ms(int64_t value) {
   
   _impl_.end_time_ms_ = value;
 }
-inline void ProcedureMeta::set_end_time_ms(uint64_t value) {
+inline void ProcedureMeta::set_end_time_ms(int64_t value) {
   _internal_set_end_time_ms(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.ProcedureMeta.end_time_ms)
 }
