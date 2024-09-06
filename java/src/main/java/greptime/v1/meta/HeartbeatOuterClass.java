@@ -3383,6 +3383,42 @@ public final class HeartbeatOuterClass {
      * @return The role.
      */
     greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole();
+
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 99;</code>
+     */
+    int getExtensionCount();
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 99;</code>
+     */
+    boolean containsExtension(
+        java.lang.String key);
+    /**
+     * Use {@link #getExtensionMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, com.google.protobuf.ByteString>
+    getExtension();
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 99;</code>
+     */
+    java.util.Map<java.lang.String, com.google.protobuf.ByteString>
+    getExtensionMap();
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 99;</code>
+     */
+
+    /* nullable */
+com.google.protobuf.ByteString getExtensionOrDefault(
+        java.lang.String key,
+        /* nullable */
+com.google.protobuf.ByteString defaultValue);
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 99;</code>
+     */
+
+    com.google.protobuf.ByteString getExtensionOrThrow(
+        java.lang.String key);
   }
   /**
    * Protobuf type {@code greptime.v1.meta.RegionStat}
@@ -3421,6 +3457,7 @@ public final class HeartbeatOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3463,6 +3500,19 @@ public final class HeartbeatOuterClass {
               role_ = rawValue;
               break;
             }
+            case 794: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                extension_ = com.google.protobuf.MapField.newMapField(
+                    ExtensionDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+              extension__ = input.readMessage(
+                  ExtensionDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extension_.getMutableMap().put(
+                  extension__.getKey(), extension__.getValue());
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3489,6 +3539,18 @@ public final class HeartbeatOuterClass {
       return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_RegionStat_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 99:
+          return internalGetExtension();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -3626,6 +3688,87 @@ public final class HeartbeatOuterClass {
       return result == null ? greptime.v1.meta.HeartbeatOuterClass.RegionRole.UNRECOGNIZED : result;
     }
 
+    public static final int EXTENSION_FIELD_NUMBER = 99;
+    private static final class ExtensionDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, com.google.protobuf.ByteString> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, com.google.protobuf.ByteString>newDefaultInstance(
+                  greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_RegionStat_ExtensionEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.BYTES,
+                  com.google.protobuf.ByteString.EMPTY);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, com.google.protobuf.ByteString> extension_;
+    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+    internalGetExtension() {
+      if (extension_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ExtensionDefaultEntryHolder.defaultEntry);
+      }
+      return extension_;
+    }
+
+    public int getExtensionCount() {
+      return internalGetExtension().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 99;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsExtension(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetExtension().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getExtensionMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtension() {
+      return getExtensionMap();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 99;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensionMap() {
+      return internalGetExtension().getMap();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 99;</code>
+     */
+    @java.lang.Override
+
+    public com.google.protobuf.ByteString getExtensionOrDefault(
+        java.lang.String key,
+        com.google.protobuf.ByteString defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
+          internalGetExtension().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; extension = 99;</code>
+     */
+    @java.lang.Override
+
+    public com.google.protobuf.ByteString getExtensionOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
+          internalGetExtension().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3658,6 +3801,12 @@ public final class HeartbeatOuterClass {
       if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
         output.writeEnum(7, role_);
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetExtension(),
+          ExtensionDefaultEntryHolder.defaultEntry,
+          99);
       unknownFields.writeTo(output);
     }
 
@@ -3690,6 +3839,16 @@ public final class HeartbeatOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(7, role_);
       }
+      for (java.util.Map.Entry<java.lang.String, com.google.protobuf.ByteString> entry
+           : internalGetExtension().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+        extension__ = ExtensionDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(99, extension__);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3716,6 +3875,8 @@ public final class HeartbeatOuterClass {
       if (!getEngine()
           .equals(other.getEngine())) return false;
       if (role_ != other.role_) return false;
+      if (!internalGetExtension().equals(
+          other.internalGetExtension())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3743,6 +3904,10 @@ public final class HeartbeatOuterClass {
       hash = (53 * hash) + getEngine().hashCode();
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + role_;
+      if (!internalGetExtension().getMap().isEmpty()) {
+        hash = (37 * hash) + EXTENSION_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetExtension().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3850,6 +4015,28 @@ public final class HeartbeatOuterClass {
         return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_RegionStat_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 99:
+            return internalGetExtension();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 99:
+            return internalGetMutableExtension();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -3888,6 +4075,7 @@ public final class HeartbeatOuterClass {
 
         role_ = 0;
 
+        internalGetMutableExtension().clear();
         return this;
       }
 
@@ -3914,12 +4102,15 @@ public final class HeartbeatOuterClass {
       @java.lang.Override
       public greptime.v1.meta.HeartbeatOuterClass.RegionStat buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.RegionStat result = new greptime.v1.meta.HeartbeatOuterClass.RegionStat(this);
+        int from_bitField0_ = bitField0_;
         result.regionId_ = regionId_;
         result.rcus_ = rcus_;
         result.wcus_ = wcus_;
         result.approximateBytes_ = approximateBytes_;
         result.engine_ = engine_;
         result.role_ = role_;
+        result.extension_ = internalGetExtension();
+        result.extension_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -3987,6 +4178,8 @@ public final class HeartbeatOuterClass {
         if (other.role_ != 0) {
           setRoleValue(other.getRoleValue());
         }
+        internalGetMutableExtension().mergeFrom(
+            other.internalGetExtension());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4015,6 +4208,7 @@ public final class HeartbeatOuterClass {
         }
         return this;
       }
+      private int bitField0_;
 
       private long regionId_ ;
       /**
@@ -4343,6 +4537,137 @@ public final class HeartbeatOuterClass {
         
         role_ = 0;
         onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, com.google.protobuf.ByteString> extension_;
+      private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+      internalGetExtension() {
+        if (extension_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ExtensionDefaultEntryHolder.defaultEntry);
+        }
+        return extension_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+      internalGetMutableExtension() {
+        onChanged();;
+        if (extension_ == null) {
+          extension_ = com.google.protobuf.MapField.newMapField(
+              ExtensionDefaultEntryHolder.defaultEntry);
+        }
+        if (!extension_.isMutable()) {
+          extension_ = extension_.copy();
+        }
+        return extension_;
+      }
+
+      public int getExtensionCount() {
+        return internalGetExtension().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extension = 99;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsExtension(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetExtension().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getExtensionMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtension() {
+        return getExtensionMap();
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extension = 99;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensionMap() {
+        return internalGetExtension().getMap();
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extension = 99;</code>
+       */
+      @java.lang.Override
+
+      public com.google.protobuf.ByteString getExtensionOrDefault(
+          java.lang.String key,
+          com.google.protobuf.ByteString defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
+            internalGetExtension().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extension = 99;</code>
+       */
+      @java.lang.Override
+
+      public com.google.protobuf.ByteString getExtensionOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
+            internalGetExtension().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearExtension() {
+        internalGetMutableExtension().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extension = 99;</code>
+       */
+
+      public Builder removeExtension(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableExtension().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.google.protobuf.ByteString>
+      getMutableExtension() {
+        return internalGetMutableExtension().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extension = 99;</code>
+       */
+      public Builder putExtension(
+          java.lang.String key,
+          com.google.protobuf.ByteString value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableExtension().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extension = 99;</code>
+       */
+
+      public Builder putAllExtension(
+          java.util.Map<java.lang.String, com.google.protobuf.ByteString> values) {
+        internalGetMutableExtension().getMutableMap()
+            .putAll(values);
         return this;
       }
       @java.lang.Override
@@ -9986,6 +10311,11 @@ public final class HeartbeatOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_RegionStat_ExtensionEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_RegionStat_ExtensionEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10037,36 +10367,39 @@ public final class HeartbeatOuterClass {
       "och\030\007 \001(\004\022(\n\004info\030\010 \001(\0132\032.greptime.v1.me" +
       "ta.NodeInfo\"F\n\010NodeInfo\022\017\n\007version\030\001 \001(\t" +
       "\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_time_ms\030\003 " +
-      "\001(\004\"\222\001\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n" +
+      "\001(\004\"\204\002\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n" +
       "\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate" +
       "_bytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001" +
-      "(\0162\034.greptime.v1.meta.RegionRole\"\265\001\n\021Hea" +
-      "rtbeatResponse\0220\n\006header\030\001 \001(\0132 .greptim" +
-      "e.v1.meta.ResponseHeader\0229\n\017mailbox_mess" +
-      "age\030\002 \001(\0132 .greptime.v1.meta.MailboxMess" +
-      "age\0223\n\014region_lease\030\003 \001(\0132\035.greptime.v1." +
-      "meta.RegionLease\"N\n\rGrantedRegion\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1" +
-      ".meta.RegionRole\"\222\001\n\013RegionLease\0220\n\007regi" +
-      "ons\030\001 \003(\0132\037.greptime.v1.meta.GrantedRegi" +
-      "on\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rleas" +
-      "e_seconds\030\003 \001(\004\022\034\n\024closeable_region_ids\030" +
-      "\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(" +
-      "\0132\037.greptime.v1.meta.RequestHeader\"m\n\021As" +
-      "kLeaderResponse\0220\n\006header\030\001 \001(\0132 .grepti" +
-      "me.v1.meta.ResponseHeader\022&\n\006leader\030\002 \001(" +
-      "\0132\026.greptime.v1.meta.Peer\"|\n\016MailboxMess" +
-      "age\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from" +
-      "\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005" +
-      " \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegio" +
-      "nRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHear" +
-      "tbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta.He" +
-      "artbeatRequest\032#.greptime.v1.meta.Heartb" +
-      "eatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptim" +
-      "e.v1.meta.AskLeaderRequest\032#.greptime.v1" +
-      ".meta.AskLeaderResponse\"\000B<Z:github.com/" +
-      "GreptimeTeam/greptime-proto/go/greptime/" +
-      "v1/metab\006proto3"
+      "(\0162\034.greptime.v1.meta.RegionRole\022>\n\texte" +
+      "nsion\030c \003(\0132+.greptime.v1.meta.RegionSta" +
+      "t.ExtensionEntry\0320\n\016ExtensionEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\265\001\n\021Heartbeat" +
+      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
+      "eta.ResponseHeader\0229\n\017mailbox_message\030\002 " +
+      "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n" +
+      "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R" +
+      "egionLease\"N\n\rGrantedRegion\022\021\n\tregion_id" +
+      "\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta." +
+      "RegionRole\"\222\001\n\013RegionLease\0220\n\007regions\030\001 " +
+      "\003(\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024" +
+      "duration_since_epoch\030\002 \001(\004\022\025\n\rlease_seco" +
+      "nds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"" +
+      "C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
+      "eptime.v1.meta.RequestHeader\"m\n\021AskLeade" +
+      "rResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1." +
+      "meta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.gr" +
+      "eptime.v1.meta.Peer\"|\n\016MailboxMessage\022\n\n" +
+      "\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t" +
+      "\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016" +
+      "\n\004json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegionRole\022" +
+      "\n\n\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHeartbeat\022" +
+      "Z\n\tHeartbeat\022\".greptime.v1.meta.Heartbea" +
+      "tRequest\032#.greptime.v1.meta.HeartbeatRes" +
+      "ponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.m" +
+      "eta.AskLeaderRequest\032#.greptime.v1.meta." +
+      "AskLeaderResponse\"\000B<Z:github.com/Grepti" +
+      "meTeam/greptime-proto/go/greptime/v1/met" +
+      "ab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10090,7 +10423,13 @@ public final class HeartbeatOuterClass {
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_descriptor,
-        new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "Engine", "Role", });
+        new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "Engine", "Role", "Extension", });
+    internal_static_greptime_v1_meta_RegionStat_ExtensionEntry_descriptor =
+      internal_static_greptime_v1_meta_RegionStat_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_meta_RegionStat_ExtensionEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_RegionStat_ExtensionEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
