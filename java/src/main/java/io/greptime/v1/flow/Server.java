@@ -4045,39 +4045,39 @@ java.lang.String defaultValue);
         int index);
 
     /**
-     * <code>map&lt;string, bytes&gt; extension = 4;</code>
+     * <code>map&lt;string, bytes&gt; extensions = 4;</code>
      */
-    int getExtensionCount();
+    int getExtensionsCount();
     /**
-     * <code>map&lt;string, bytes&gt; extension = 4;</code>
+     * <code>map&lt;string, bytes&gt; extensions = 4;</code>
      */
-    boolean containsExtension(
+    boolean containsExtensions(
         java.lang.String key);
     /**
-     * Use {@link #getExtensionMap()} instead.
+     * Use {@link #getExtensionsMap()} instead.
      */
     @java.lang.Deprecated
     java.util.Map<java.lang.String, com.google.protobuf.ByteString>
-    getExtension();
+    getExtensions();
     /**
-     * <code>map&lt;string, bytes&gt; extension = 4;</code>
+     * <code>map&lt;string, bytes&gt; extensions = 4;</code>
      */
     java.util.Map<java.lang.String, com.google.protobuf.ByteString>
-    getExtensionMap();
+    getExtensionsMap();
     /**
-     * <code>map&lt;string, bytes&gt; extension = 4;</code>
+     * <code>map&lt;string, bytes&gt; extensions = 4;</code>
      */
 
     /* nullable */
-com.google.protobuf.ByteString getExtensionOrDefault(
+com.google.protobuf.ByteString getExtensionsOrDefault(
         java.lang.String key,
         /* nullable */
 com.google.protobuf.ByteString defaultValue);
     /**
-     * <code>map&lt;string, bytes&gt; extension = 4;</code>
+     * <code>map&lt;string, bytes&gt; extensions = 4;</code>
      */
 
-    com.google.protobuf.ByteString getExtensionOrThrow(
+    com.google.protobuf.ByteString getExtensionsOrThrow(
         java.lang.String key);
   }
   /**
@@ -4156,15 +4156,15 @@ com.google.protobuf.ByteString defaultValue);
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                extension_ = com.google.protobuf.MapField.newMapField(
-                    ExtensionDefaultEntryHolder.defaultEntry);
+                extensions_ = com.google.protobuf.MapField.newMapField(
+                    ExtensionsDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000002;
               }
               com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
-              extension__ = input.readMessage(
-                  ExtensionDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              extension_.getMutableMap().put(
-                  extension__.getKey(), extension__.getValue());
+              extensions__ = input.readMessage(
+                  ExtensionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extensions_.getMutableMap().put(
+                  extensions__.getKey(), extensions__.getValue());
               break;
             }
             default: {
@@ -4202,7 +4202,7 @@ com.google.protobuf.ByteString defaultValue);
         int number) {
       switch (number) {
         case 4:
-          return internalGetExtension();
+          return internalGetExtensions();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -4313,81 +4313,81 @@ com.google.protobuf.ByteString defaultValue);
       return affectedFlows_.get(index);
     }
 
-    public static final int EXTENSION_FIELD_NUMBER = 4;
-    private static final class ExtensionDefaultEntryHolder {
+    public static final int EXTENSIONS_FIELD_NUMBER = 4;
+    private static final class ExtensionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, com.google.protobuf.ByteString> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, com.google.protobuf.ByteString>newDefaultInstance(
-                  io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_descriptor, 
+                  io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_FlowResponse_ExtensionsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.BYTES,
                   com.google.protobuf.ByteString.EMPTY);
     }
     private com.google.protobuf.MapField<
-        java.lang.String, com.google.protobuf.ByteString> extension_;
+        java.lang.String, com.google.protobuf.ByteString> extensions_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-    internalGetExtension() {
-      if (extension_ == null) {
+    internalGetExtensions() {
+      if (extensions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            ExtensionDefaultEntryHolder.defaultEntry);
+            ExtensionsDefaultEntryHolder.defaultEntry);
       }
-      return extension_;
+      return extensions_;
     }
 
-    public int getExtensionCount() {
-      return internalGetExtension().getMap().size();
+    public int getExtensionsCount() {
+      return internalGetExtensions().getMap().size();
     }
     /**
-     * <code>map&lt;string, bytes&gt; extension = 4;</code>
+     * <code>map&lt;string, bytes&gt; extensions = 4;</code>
      */
 
     @java.lang.Override
-    public boolean containsExtension(
+    public boolean containsExtensions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetExtension().getMap().containsKey(key);
+      return internalGetExtensions().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getExtensionMap()} instead.
+     * Use {@link #getExtensionsMap()} instead.
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtension() {
-      return getExtensionMap();
+    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensions() {
+      return getExtensionsMap();
     }
     /**
-     * <code>map&lt;string, bytes&gt; extension = 4;</code>
+     * <code>map&lt;string, bytes&gt; extensions = 4;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensionMap() {
-      return internalGetExtension().getMap();
+    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensionsMap() {
+      return internalGetExtensions().getMap();
     }
     /**
-     * <code>map&lt;string, bytes&gt; extension = 4;</code>
+     * <code>map&lt;string, bytes&gt; extensions = 4;</code>
      */
     @java.lang.Override
 
-    public com.google.protobuf.ByteString getExtensionOrDefault(
+    public com.google.protobuf.ByteString getExtensionsOrDefault(
         java.lang.String key,
         com.google.protobuf.ByteString defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
-          internalGetExtension().getMap();
+          internalGetExtensions().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, bytes&gt; extension = 4;</code>
+     * <code>map&lt;string, bytes&gt; extensions = 4;</code>
      */
     @java.lang.Override
 
-    public com.google.protobuf.ByteString getExtensionOrThrow(
+    public com.google.protobuf.ByteString getExtensionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
-          internalGetExtension().getMap();
+          internalGetExtensions().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
@@ -4420,8 +4420,8 @@ com.google.protobuf.ByteString defaultValue);
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
-          internalGetExtension(),
-          ExtensionDefaultEntryHolder.defaultEntry,
+          internalGetExtensions(),
+          ExtensionsDefaultEntryHolder.defaultEntry,
           4);
       unknownFields.writeTo(output);
     }
@@ -4445,14 +4445,14 @@ com.google.protobuf.ByteString defaultValue);
           .computeMessageSize(3, affectedFlows_.get(i));
       }
       for (java.util.Map.Entry<java.lang.String, com.google.protobuf.ByteString> entry
-           : internalGetExtension().getMap().entrySet()) {
+           : internalGetExtensions().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
-        extension__ = ExtensionDefaultEntryHolder.defaultEntry.newBuilderForType()
+        extensions__ = ExtensionsDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(4, extension__);
+            .computeMessageSize(4, extensions__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4478,8 +4478,8 @@ com.google.protobuf.ByteString defaultValue);
           != other.getAffectedRows()) return false;
       if (!getAffectedFlowsList()
           .equals(other.getAffectedFlowsList())) return false;
-      if (!internalGetExtension().equals(
-          other.internalGetExtension())) return false;
+      if (!internalGetExtensions().equals(
+          other.internalGetExtensions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4502,9 +4502,9 @@ com.google.protobuf.ByteString defaultValue);
         hash = (37 * hash) + AFFECTED_FLOWS_FIELD_NUMBER;
         hash = (53 * hash) + getAffectedFlowsList().hashCode();
       }
-      if (!internalGetExtension().getMap().isEmpty()) {
-        hash = (37 * hash) + EXTENSION_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetExtension().hashCode();
+      if (!internalGetExtensions().getMap().isEmpty()) {
+        hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetExtensions().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4618,7 +4618,7 @@ com.google.protobuf.ByteString defaultValue);
           int number) {
         switch (number) {
           case 4:
-            return internalGetExtension();
+            return internalGetExtensions();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -4629,7 +4629,7 @@ com.google.protobuf.ByteString defaultValue);
           int number) {
         switch (number) {
           case 4:
-            return internalGetMutableExtension();
+            return internalGetMutableExtensions();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -4676,7 +4676,7 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           affectedFlowsBuilder_.clear();
         }
-        internalGetMutableExtension().clear();
+        internalGetMutableExtensions().clear();
         return this;
       }
 
@@ -4719,8 +4719,8 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           result.affectedFlows_ = affectedFlowsBuilder_.build();
         }
-        result.extension_ = internalGetExtension();
-        result.extension_.makeImmutable();
+        result.extensions_ = internalGetExtensions();
+        result.extensions_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -4801,8 +4801,8 @@ com.google.protobuf.ByteString defaultValue);
             }
           }
         }
-        internalGetMutableExtension().mergeFrom(
-            other.internalGetExtension());
+        internalGetMutableExtensions().mergeFrom(
+            other.internalGetExtensions());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5296,99 +5296,99 @@ com.google.protobuf.ByteString defaultValue);
       }
 
       private com.google.protobuf.MapField<
-          java.lang.String, com.google.protobuf.ByteString> extension_;
+          java.lang.String, com.google.protobuf.ByteString> extensions_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-      internalGetExtension() {
-        if (extension_ == null) {
+      internalGetExtensions() {
+        if (extensions_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
-              ExtensionDefaultEntryHolder.defaultEntry);
+              ExtensionsDefaultEntryHolder.defaultEntry);
         }
-        return extension_;
+        return extensions_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-      internalGetMutableExtension() {
+      internalGetMutableExtensions() {
         onChanged();;
-        if (extension_ == null) {
-          extension_ = com.google.protobuf.MapField.newMapField(
-              ExtensionDefaultEntryHolder.defaultEntry);
+        if (extensions_ == null) {
+          extensions_ = com.google.protobuf.MapField.newMapField(
+              ExtensionsDefaultEntryHolder.defaultEntry);
         }
-        if (!extension_.isMutable()) {
-          extension_ = extension_.copy();
+        if (!extensions_.isMutable()) {
+          extensions_ = extensions_.copy();
         }
-        return extension_;
+        return extensions_;
       }
 
-      public int getExtensionCount() {
-        return internalGetExtension().getMap().size();
+      public int getExtensionsCount() {
+        return internalGetExtensions().getMap().size();
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 4;</code>
+       * <code>map&lt;string, bytes&gt; extensions = 4;</code>
        */
 
       @java.lang.Override
-      public boolean containsExtension(
+      public boolean containsExtensions(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
-        return internalGetExtension().getMap().containsKey(key);
+        return internalGetExtensions().getMap().containsKey(key);
       }
       /**
-       * Use {@link #getExtensionMap()} instead.
+       * Use {@link #getExtensionsMap()} instead.
        */
       @java.lang.Override
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtension() {
-        return getExtensionMap();
+      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensions() {
+        return getExtensionsMap();
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 4;</code>
+       * <code>map&lt;string, bytes&gt; extensions = 4;</code>
        */
       @java.lang.Override
 
-      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensionMap() {
-        return internalGetExtension().getMap();
+      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensionsMap() {
+        return internalGetExtensions().getMap();
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 4;</code>
+       * <code>map&lt;string, bytes&gt; extensions = 4;</code>
        */
       @java.lang.Override
 
-      public com.google.protobuf.ByteString getExtensionOrDefault(
+      public com.google.protobuf.ByteString getExtensionsOrDefault(
           java.lang.String key,
           com.google.protobuf.ByteString defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
-            internalGetExtension().getMap();
+            internalGetExtensions().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 4;</code>
+       * <code>map&lt;string, bytes&gt; extensions = 4;</code>
        */
       @java.lang.Override
 
-      public com.google.protobuf.ByteString getExtensionOrThrow(
+      public com.google.protobuf.ByteString getExtensionsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
-            internalGetExtension().getMap();
+            internalGetExtensions().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
 
-      public Builder clearExtension() {
-        internalGetMutableExtension().getMutableMap()
+      public Builder clearExtensions() {
+        internalGetMutableExtensions().getMutableMap()
             .clear();
         return this;
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 4;</code>
+       * <code>map&lt;string, bytes&gt; extensions = 4;</code>
        */
 
-      public Builder removeExtension(
+      public Builder removeExtensions(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
-        internalGetMutableExtension().getMutableMap()
+        internalGetMutableExtensions().getMutableMap()
             .remove(key);
         return this;
       }
@@ -5397,13 +5397,13 @@ com.google.protobuf.ByteString defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.ByteString>
-      getMutableExtension() {
-        return internalGetMutableExtension().getMutableMap();
+      getMutableExtensions() {
+        return internalGetMutableExtensions().getMutableMap();
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 4;</code>
+       * <code>map&lt;string, bytes&gt; extensions = 4;</code>
        */
-      public Builder putExtension(
+      public Builder putExtensions(
           java.lang.String key,
           com.google.protobuf.ByteString value) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -5411,17 +5411,17 @@ com.google.protobuf.ByteString defaultValue);
   throw new NullPointerException("map value");
 }
 
-        internalGetMutableExtension().getMutableMap()
+        internalGetMutableExtensions().getMutableMap()
             .put(key, value);
         return this;
       }
       /**
-       * <code>map&lt;string, bytes&gt; extension = 4;</code>
+       * <code>map&lt;string, bytes&gt; extensions = 4;</code>
        */
 
-      public Builder putAllExtension(
+      public Builder putAllExtensions(
           java.util.Map<java.lang.String, com.google.protobuf.ByteString> values) {
-        internalGetMutableExtension().getMutableMap()
+        internalGetMutableExtensions().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -8924,10 +8924,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_flow_FlowResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_descriptor;
+    internal_static_greptime_v1_flow_FlowResponse_ExtensionsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_fieldAccessorTable;
+      internal_static_greptime_v1_flow_FlowResponse_ExtensionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_flow_CreateRequest_descriptor;
   private static final 
@@ -8974,32 +8974,32 @@ java.lang.String defaultValue);
       "time.v1.flow.CreateRequestH\000\022-\n\004drop\030\002 \001" +
       "(\0132\035.greptime.v1.flow.DropRequestH\000\022,\n\005f" +
       "lush\030\003 \001(\0132\033.greptime.v1.flow.FlushFlowH" +
-      "\000B\006\n\004body\"\363\001\n\014FlowResponse\022+\n\006header\030\001 \001" +
+      "\000B\006\n\004body\"\366\001\n\014FlowResponse\022+\n\006header\030\001 \001" +
       "(\0132\033.greptime.v1.ResponseHeader\022\025\n\raffec" +
       "ted_rows\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023" +
-      ".greptime.v1.FlowId\022@\n\textension\030\004 \003(\0132-" +
-      ".greptime.v1.flow.FlowResponse.Extension" +
-      "Entry\0320\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007flo" +
-      "w_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n\020sourc" +
-      "e_table_ids\030\002 \003(\0132\024.greptime.v1.TableId\022" +
-      "/\n\017sink_table_name\030\003 \001(\0132\026.greptime.v1.T" +
-      "ableName\022\034\n\024create_if_not_exists\030\004 \001(\010\022." +
-      "\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Expir" +
-      "eAfter\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014" +
-      "flow_options\030\010 \003(\01320.greptime.v1.flow.Cr" +
-      "eateRequest.FlowOptionsEntry\0322\n\020FlowOpti" +
-      "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.grept" +
-      "ime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 " +
-      "\001(\0132\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022Han" +
-      "dleCreateRemove\022\035.greptime.v1.flow.FlowR" +
-      "equest\032\036.greptime.v1.flow.FlowResponse\022W" +
-      "\n\023HandleMirrorRequest\022 .greptime.v1.flow" +
-      ".InsertRequests\032\036.greptime.v1.flow.FlowR" +
-      "esponseBY\n\023io.greptime.v1.flowB\006ServerZ:" +
-      "github.com/GreptimeTeam/greptime-proto/g" +
-      "o/greptime/v1/flowb\006proto3"
+      ".greptime.v1.FlowId\022B\n\nextensions\030\004 \003(\0132" +
+      "..greptime.v1.flow.FlowResponse.Extensio" +
+      "nsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007" +
+      "flow_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n\020so" +
+      "urce_table_ids\030\002 \003(\0132\024.greptime.v1.Table" +
+      "Id\022/\n\017sink_table_name\030\003 \001(\0132\026.greptime.v" +
+      "1.TableName\022\034\n\024create_if_not_exists\030\004 \001(" +
+      "\010\022.\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Ex" +
+      "pireAfter\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022" +
+      "F\n\014flow_options\030\010 \003(\01320.greptime.v1.flow" +
+      ".CreateRequest.FlowOptionsEntry\0322\n\020FlowO" +
+      "ptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.gr" +
+      "eptime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id" +
+      "\030\001 \001(\0132\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022" +
+      "HandleCreateRemove\022\035.greptime.v1.flow.Fl" +
+      "owRequest\032\036.greptime.v1.flow.FlowRespons" +
+      "e\022W\n\023HandleMirrorRequest\022 .greptime.v1.f" +
+      "low.InsertRequests\032\036.greptime.v1.flow.Fl" +
+      "owResponseBY\n\023io.greptime.v1.flowB\006Serve" +
+      "rZ:github.com/GreptimeTeam/greptime-prot" +
+      "o/go/greptime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9043,12 +9043,12 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_FlowResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowResponse_descriptor,
-        new java.lang.String[] { "Header", "AffectedRows", "AffectedFlows", "Extension", });
-    internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_descriptor =
+        new java.lang.String[] { "Header", "AffectedRows", "AffectedFlows", "Extensions", });
+    internal_static_greptime_v1_flow_FlowResponse_ExtensionsEntry_descriptor =
       internal_static_greptime_v1_flow_FlowResponse_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_fieldAccessorTable = new
+    internal_static_greptime_v1_flow_FlowResponse_ExtensionsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_flow_FlowResponse_ExtensionEntry_descriptor,
+        internal_static_greptime_v1_flow_FlowResponse_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_CreateRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);

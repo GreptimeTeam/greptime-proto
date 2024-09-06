@@ -79,9 +79,9 @@ extern RegionLeaseDefaultTypeInternal _RegionLease_default_instance_;
 class RegionStat;
 struct RegionStatDefaultTypeInternal;
 extern RegionStatDefaultTypeInternal _RegionStat_default_instance_;
-class RegionStat_ExtensionEntry_DoNotUse;
-struct RegionStat_ExtensionEntry_DoNotUseDefaultTypeInternal;
-extern RegionStat_ExtensionEntry_DoNotUseDefaultTypeInternal _RegionStat_ExtensionEntry_DoNotUse_default_instance_;
+class RegionStat_ExtensionsEntry_DoNotUse;
+struct RegionStat_ExtensionsEntry_DoNotUseDefaultTypeInternal;
+extern RegionStat_ExtensionsEntry_DoNotUseDefaultTypeInternal _RegionStat_ExtensionsEntry_DoNotUse_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
@@ -95,7 +95,7 @@ template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(Arena*);
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
-template<> ::greptime::v1::meta::RegionStat_ExtensionEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat_ExtensionEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -587,23 +587,23 @@ class NodeInfo final :
 };
 // -------------------------------------------------------------------
 
-class RegionStat_ExtensionEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionStat_ExtensionEntry_DoNotUse, 
+class RegionStat_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionStat_ExtensionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionStat_ExtensionEntry_DoNotUse, 
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionStat_ExtensionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> SuperType;
-  RegionStat_ExtensionEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR RegionStat_ExtensionEntry_DoNotUse(
+  RegionStat_ExtensionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR RegionStat_ExtensionsEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit RegionStat_ExtensionEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const RegionStat_ExtensionEntry_DoNotUse& other);
-  static const RegionStat_ExtensionEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const RegionStat_ExtensionEntry_DoNotUse*>(&_RegionStat_ExtensionEntry_DoNotUse_default_instance_); }
+  explicit RegionStat_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const RegionStat_ExtensionsEntry_DoNotUse& other);
+  static const RegionStat_ExtensionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const RegionStat_ExtensionsEntry_DoNotUse*>(&_RegionStat_ExtensionsEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.RegionStat.ExtensionEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.RegionStat.ExtensionsEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
@@ -737,7 +737,7 @@ class RegionStat final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kExtensionFieldNumber = 99,
+    kExtensionsFieldNumber = 99,
     kEngineFieldNumber = 6,
     kRegionIdFieldNumber = 1,
     kRcusFieldNumber = 2,
@@ -745,22 +745,22 @@ class RegionStat final :
     kApproximateBytesFieldNumber = 4,
     kRoleFieldNumber = 7,
   };
-  // map<string, bytes> extension = 99;
-  int extension_size() const;
+  // map<string, bytes> extensions = 99;
+  int extensions_size() const;
   private:
-  int _internal_extension_size() const;
+  int _internal_extensions_size() const;
   public:
-  void clear_extension();
+  void clear_extensions();
   private:
   const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      _internal_extension() const;
+      _internal_extensions() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      _internal_mutable_extension();
+      _internal_mutable_extensions();
   public:
   const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      extension() const;
+      extensions() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      mutable_extension();
+      mutable_extensions();
 
   // string engine = 6;
   void clear_engine();
@@ -830,10 +830,10 @@ class RegionStat final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        RegionStat_ExtensionEntry_DoNotUse,
+        RegionStat_ExtensionsEntry_DoNotUse,
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extension_;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extensions_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
     uint64_t region_id_;
     int64_t rcus_;
@@ -2789,33 +2789,33 @@ inline void RegionStat::set_role(::greptime::v1::meta::RegionRole value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.role)
 }
 
-// map<string, bytes> extension = 99;
-inline int RegionStat::_internal_extension_size() const {
-  return _impl_.extension_.size();
+// map<string, bytes> extensions = 99;
+inline int RegionStat::_internal_extensions_size() const {
+  return _impl_.extensions_.size();
 }
-inline int RegionStat::extension_size() const {
-  return _internal_extension_size();
+inline int RegionStat::extensions_size() const {
+  return _internal_extensions_size();
 }
-inline void RegionStat::clear_extension() {
-  _impl_.extension_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-RegionStat::_internal_extension() const {
-  return _impl_.extension_.GetMap();
+inline void RegionStat::clear_extensions() {
+  _impl_.extensions_.Clear();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-RegionStat::extension() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.meta.RegionStat.extension)
-  return _internal_extension();
+RegionStat::_internal_extensions() const {
+  return _impl_.extensions_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+RegionStat::extensions() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.meta.RegionStat.extensions)
+  return _internal_extensions();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-RegionStat::_internal_mutable_extension() {
-  return _impl_.extension_.MutableMap();
+RegionStat::_internal_mutable_extensions() {
+  return _impl_.extensions_.MutableMap();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-RegionStat::mutable_extension() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.RegionStat.extension)
-  return _internal_mutable_extension();
+RegionStat::mutable_extensions() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.RegionStat.extensions)
+  return _internal_mutable_extensions();
 }
 
 // -------------------------------------------------------------------
