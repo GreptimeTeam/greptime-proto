@@ -74,9 +74,9 @@ extern FlowRequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _FlowRe
 class FlowResponse;
 struct FlowResponseDefaultTypeInternal;
 extern FlowResponseDefaultTypeInternal _FlowResponse_default_instance_;
-class FlowResponse_ExtensionEntry_DoNotUse;
-struct FlowResponse_ExtensionEntry_DoNotUseDefaultTypeInternal;
-extern FlowResponse_ExtensionEntry_DoNotUseDefaultTypeInternal _FlowResponse_ExtensionEntry_DoNotUse_default_instance_;
+class FlowResponse_ExtensionsEntry_DoNotUse;
+struct FlowResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal;
+extern FlowResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal _FlowResponse_ExtensionsEntry_DoNotUse_default_instance_;
 class FlushFlow;
 struct FlushFlowDefaultTypeInternal;
 extern FlushFlowDefaultTypeInternal _FlushFlow_default_instance_;
@@ -97,7 +97,7 @@ template<> ::greptime::v1::flow::FlowRequest* Arena::CreateMaybeMessage<::grepti
 template<> ::greptime::v1::flow::FlowRequestHeader* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowRequestHeader>(Arena*);
 template<> ::greptime::v1::flow::FlowRequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowRequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::flow::FlowResponse* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowResponse>(Arena*);
-template<> ::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::flow::FlushFlow* Arena::CreateMaybeMessage<::greptime::v1::flow::FlushFlow>(Arena*);
 template<> ::greptime::v1::flow::InsertRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::InsertRequest>(Arena*);
 template<> ::greptime::v1::flow::InsertRequests* Arena::CreateMaybeMessage<::greptime::v1::flow::InsertRequests>(Arena*);
@@ -882,23 +882,23 @@ class FlowRequest final :
 };
 // -------------------------------------------------------------------
 
-class FlowResponse_ExtensionEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowResponse_ExtensionEntry_DoNotUse, 
+class FlowResponse_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowResponse_ExtensionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowResponse_ExtensionEntry_DoNotUse, 
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowResponse_ExtensionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> SuperType;
-  FlowResponse_ExtensionEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR FlowResponse_ExtensionEntry_DoNotUse(
+  FlowResponse_ExtensionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR FlowResponse_ExtensionsEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit FlowResponse_ExtensionEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const FlowResponse_ExtensionEntry_DoNotUse& other);
-  static const FlowResponse_ExtensionEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const FlowResponse_ExtensionEntry_DoNotUse*>(&_FlowResponse_ExtensionEntry_DoNotUse_default_instance_); }
+  explicit FlowResponse_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const FlowResponse_ExtensionsEntry_DoNotUse& other);
+  static const FlowResponse_ExtensionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const FlowResponse_ExtensionsEntry_DoNotUse*>(&_FlowResponse_ExtensionsEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.FlowResponse.ExtensionEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.flow.FlowResponse.ExtensionsEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
@@ -1033,7 +1033,7 @@ class FlowResponse final :
 
   enum : int {
     kAffectedFlowsFieldNumber = 3,
-    kExtensionFieldNumber = 4,
+    kExtensionsFieldNumber = 4,
     kHeaderFieldNumber = 1,
     kAffectedRowsFieldNumber = 2,
   };
@@ -1055,22 +1055,22 @@ class FlowResponse final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::FlowId >&
       affected_flows() const;
 
-  // map<string, bytes> extension = 4;
-  int extension_size() const;
+  // map<string, bytes> extensions = 4;
+  int extensions_size() const;
   private:
-  int _internal_extension_size() const;
+  int _internal_extensions_size() const;
   public:
-  void clear_extension();
+  void clear_extensions();
   private:
   const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      _internal_extension() const;
+      _internal_extensions() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      _internal_mutable_extension();
+      _internal_mutable_extensions();
   public:
   const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      extension() const;
+      extensions() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      mutable_extension();
+      mutable_extensions();
 
   // .greptime.v1.ResponseHeader header = 1;
   bool has_header() const;
@@ -1109,10 +1109,10 @@ class FlowResponse final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::FlowId > affected_flows_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        FlowResponse_ExtensionEntry_DoNotUse,
+        FlowResponse_ExtensionsEntry_DoNotUse,
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extension_;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extensions_;
     ::greptime::v1::ResponseHeader* header_;
     uint64_t affected_rows_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2501,33 +2501,33 @@ FlowResponse::affected_flows() const {
   return _impl_.affected_flows_;
 }
 
-// map<string, bytes> extension = 4;
-inline int FlowResponse::_internal_extension_size() const {
-  return _impl_.extension_.size();
+// map<string, bytes> extensions = 4;
+inline int FlowResponse::_internal_extensions_size() const {
+  return _impl_.extensions_.size();
 }
-inline int FlowResponse::extension_size() const {
-  return _internal_extension_size();
+inline int FlowResponse::extensions_size() const {
+  return _internal_extensions_size();
 }
-inline void FlowResponse::clear_extension() {
-  _impl_.extension_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-FlowResponse::_internal_extension() const {
-  return _impl_.extension_.GetMap();
+inline void FlowResponse::clear_extensions() {
+  _impl_.extensions_.Clear();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-FlowResponse::extension() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.flow.FlowResponse.extension)
-  return _internal_extension();
+FlowResponse::_internal_extensions() const {
+  return _impl_.extensions_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+FlowResponse::extensions() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.flow.FlowResponse.extensions)
+  return _internal_extensions();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-FlowResponse::_internal_mutable_extension() {
-  return _impl_.extension_.MutableMap();
+FlowResponse::_internal_mutable_extensions() {
+  return _impl_.extensions_.MutableMap();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-FlowResponse::mutable_extension() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.flow.FlowResponse.extension)
-  return _internal_mutable_extension();
+FlowResponse::mutable_extensions() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.flow.FlowResponse.extensions)
+  return _internal_mutable_extensions();
 }
 
 // -------------------------------------------------------------------

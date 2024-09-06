@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/meta/common.pb.h"
@@ -76,6 +79,9 @@ extern RegionLeaseDefaultTypeInternal _RegionLease_default_instance_;
 class RegionStat;
 struct RegionStatDefaultTypeInternal;
 extern RegionStatDefaultTypeInternal _RegionStat_default_instance_;
+class RegionStat_ExtensionsEntry_DoNotUse;
+struct RegionStat_ExtensionsEntry_DoNotUseDefaultTypeInternal;
+extern RegionStat_ExtensionsEntry_DoNotUseDefaultTypeInternal _RegionStat_ExtensionsEntry_DoNotUse_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
@@ -89,6 +95,7 @@ template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(Arena*);
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
+template<> ::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -580,6 +587,32 @@ class NodeInfo final :
 };
 // -------------------------------------------------------------------
 
+class RegionStat_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionStat_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionStat_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> SuperType;
+  RegionStat_ExtensionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR RegionStat_ExtensionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit RegionStat_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const RegionStat_ExtensionsEntry_DoNotUse& other);
+  static const RegionStat_ExtensionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const RegionStat_ExtensionsEntry_DoNotUse*>(&_RegionStat_ExtensionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.RegionStat.ExtensionsEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class RegionStat final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.RegionStat) */ {
  public:
@@ -628,7 +661,7 @@ class RegionStat final :
                &_RegionStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(RegionStat& a, RegionStat& b) {
     a.Swap(&b);
@@ -689,6 +722,8 @@ class RegionStat final :
   protected:
   explicit RegionStat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -698,9 +733,11 @@ class RegionStat final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kExtensionsFieldNumber = 99,
     kEngineFieldNumber = 6,
     kRegionIdFieldNumber = 1,
     kRcusFieldNumber = 2,
@@ -708,6 +745,23 @@ class RegionStat final :
     kApproximateBytesFieldNumber = 4,
     kRoleFieldNumber = 7,
   };
+  // map<string, bytes> extensions = 99;
+  int extensions_size() const;
+  private:
+  int _internal_extensions_size() const;
+  public:
+  void clear_extensions();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_extensions();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_extensions();
+
   // string engine = 6;
   void clear_engine();
   const std::string& engine() const;
@@ -775,6 +829,11 @@ class RegionStat final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        RegionStat_ExtensionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extensions_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
     uint64_t region_id_;
     int64_t rcus_;
@@ -836,7 +895,7 @@ class HeartbeatResponse final :
                &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
@@ -1033,7 +1092,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -1192,7 +1251,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -1396,7 +1455,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -1553,7 +1612,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -1735,7 +1794,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -2576,6 +2635,8 @@ inline void NodeInfo::set_start_time_ms(uint64_t value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // RegionStat
 
 // uint64 region_id = 1;
@@ -2726,6 +2787,35 @@ inline void RegionStat::_internal_set_role(::greptime::v1::meta::RegionRole valu
 inline void RegionStat::set_role(::greptime::v1::meta::RegionRole value) {
   _internal_set_role(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.role)
+}
+
+// map<string, bytes> extensions = 99;
+inline int RegionStat::_internal_extensions_size() const {
+  return _impl_.extensions_.size();
+}
+inline int RegionStat::extensions_size() const {
+  return _internal_extensions_size();
+}
+inline void RegionStat::clear_extensions() {
+  _impl_.extensions_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+RegionStat::_internal_extensions() const {
+  return _impl_.extensions_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+RegionStat::extensions() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.meta.RegionStat.extensions)
+  return _internal_extensions();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+RegionStat::_internal_mutable_extensions() {
+  return _impl_.extensions_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+RegionStat::mutable_extensions() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.RegionStat.extensions)
+  return _internal_mutable_extensions();
 }
 
 // -------------------------------------------------------------------
@@ -3718,6 +3808,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -64,20 +64,20 @@ struct RegionRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RegionRequestDefaultTypeInternal _RegionRequest_default_instance_;
-PROTOBUF_CONSTEXPR RegionResponse_ExtensionEntry_DoNotUse::RegionResponse_ExtensionEntry_DoNotUse(
+PROTOBUF_CONSTEXPR RegionResponse_ExtensionsEntry_DoNotUse::RegionResponse_ExtensionsEntry_DoNotUse(
     ::_pbi::ConstantInitialized) {}
-struct RegionResponse_ExtensionEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR RegionResponse_ExtensionEntry_DoNotUseDefaultTypeInternal()
+struct RegionResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RegionResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~RegionResponse_ExtensionEntry_DoNotUseDefaultTypeInternal() {}
+  ~RegionResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal() {}
   union {
-    RegionResponse_ExtensionEntry_DoNotUse _instance;
+    RegionResponse_ExtensionsEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RegionResponse_ExtensionEntry_DoNotUseDefaultTypeInternal _RegionResponse_ExtensionEntry_DoNotUse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RegionResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal _RegionResponse_ExtensionsEntry_DoNotUse_default_instance_;
 PROTOBUF_CONSTEXPR RegionResponse::RegionResponse(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.extension_)*/{::_pbi::ConstantInitialized()}
+    /*decltype(_impl_.extensions_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.affected_rows_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -477,14 +477,14 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets[] PR
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionRequest, _impl_.body_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse, value_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse, value_),
   0,
   1,
   ~0u,  // no _has_bits_
@@ -495,7 +495,7 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets[] PR
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse, _impl_.affected_rows_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse, _impl_.extension_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::RegionResponse, _impl_.extensions_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::InsertRequests, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -703,7 +703,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 0, 8, -1, sizeof(::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse)},
   { 10, -1, -1, sizeof(::greptime::v1::region::RegionRequestHeader)},
   { 19, -1, -1, sizeof(::greptime::v1::region::RegionRequest)},
-  { 40, 48, -1, sizeof(::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse)},
+  { 40, 48, -1, sizeof(::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse)},
   { 50, -1, -1, sizeof(::greptime::v1::region::RegionResponse)},
   { 59, -1, -1, sizeof(::greptime::v1::region::InsertRequests)},
   { 66, -1, -1, sizeof(::greptime::v1::region::DeleteRequests)},
@@ -736,7 +736,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::region::_RegionRequestHeader_TracingContextEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::region::_RegionRequestHeader_default_instance_._instance,
   &::greptime::v1::region::_RegionRequest_default_instance_._instance,
-  &::greptime::v1::region::_RegionResponse_ExtensionEntry_DoNotUse_default_instance_._instance,
+  &::greptime::v1::region::_RegionResponse_ExtensionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::region::_RegionResponse_default_instance_._instance,
   &::greptime::v1::region::_InsertRequests_default_instance_._instance,
   &::greptime::v1::region::_DeleteRequests_default_instance_._instance,
@@ -794,66 +794,66 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "teRequestsH\000\0221\n\005drops\030\016 \001(\0132 .greptime.v"
   "1.region.DropRequestsH\000\0223\n\006alters\030\017 \001(\0132"
   "!.greptime.v1.region.AlterRequestsH\000B\006\n\004"
-  "body\"\314\001\n\016RegionResponse\022+\n\006header\030\001 \001(\0132"
+  "body\"\317\001\n\016RegionResponse\022+\n\006header\030\001 \001(\0132"
   "\033.greptime.v1.ResponseHeader\022\025\n\raffected"
-  "_rows\030\002 \001(\004\022D\n\textension\030\003 \003(\01321.greptim"
-  "e.v1.region.RegionResponse.ExtensionEntr"
-  "y\0320\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu"
-  "e\030\002 \001(\014:\0028\001\"E\n\016InsertRequests\0223\n\010request"
-  "s\030\001 \003(\0132!.greptime.v1.region.InsertReque"
-  "st\"E\n\016DeleteRequests\0223\n\010requests\030\001 \003(\0132!"
-  ".greptime.v1.region.DeleteRequest\"C\n\rIns"
-  "ertRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 "
-  "\001(\0132\021.greptime.v1.Rows\"C\n\rDeleteRequest\022"
-  "\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.grept"
-  "ime.v1.Rows\"h\n\014QueryRequest\0227\n\006header\030\001 "
-  "\001(\0132\'.greptime.v1.region.RegionRequestHe"
-  "ader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"E\n"
-  "\016CreateRequests\0223\n\010requests\030\001 \003(\0132!.grep"
-  "time.v1.region.CreateRequest\"\200\002\n\rCreateR"
-  "equest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001("
-  "\t\0228\n\013column_defs\030\003 \003(\0132#.greptime.v1.reg"
-  "ion.RegionColumnDef\022\023\n\013primary_key\030\004 \003(\r"
-  "\022\014\n\004path\030\005 \001(\t\022\?\n\007options\030\006 \003(\0132..grepti"
-  "me.v1.region.CreateRequest.OptionsEntry\032"
+  "_rows\030\002 \001(\004\022F\n\nextensions\030\003 \003(\01322.grepti"
+  "me.v1.region.RegionResponse.ExtensionsEn"
+  "try\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v"
+  "alue\030\002 \001(\014:\0028\001\"E\n\016InsertRequests\0223\n\010requ"
+  "ests\030\001 \003(\0132!.greptime.v1.region.InsertRe"
+  "quest\"E\n\016DeleteRequests\0223\n\010requests\030\001 \003("
+  "\0132!.greptime.v1.region.DeleteRequest\"C\n\r"
+  "InsertRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows"
+  "\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDeleteReque"
+  "st\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.gr"
+  "eptime.v1.Rows\"h\n\014QueryRequest\0227\n\006header"
+  "\030\001 \001(\0132\'.greptime.v1.region.RegionReques"
+  "tHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014"
+  "\"E\n\016CreateRequests\0223\n\010requests\030\001 \003(\0132!.g"
+  "reptime.v1.region.CreateRequest\"\200\002\n\rCrea"
+  "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002"
+  " \001(\t\0228\n\013column_defs\030\003 \003(\0132#.greptime.v1."
+  "region.RegionColumnDef\022\023\n\013primary_key\030\004 "
+  "\003(\r\022\014\n\004path\030\005 \001(\t\022\?\n\007options\030\006 \003(\0132..gre"
+  "ptime.v1.region.CreateRequest.OptionsEnt"
+  "ry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value"
+  "\030\002 \001(\t:\0028\001\"A\n\014DropRequests\0221\n\010requests\030\001"
+  " \003(\0132\037.greptime.v1.region.DropRequest\" \n"
+  "\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\"\255\001\n\013Open"
+  "Request\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001"
+  "(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,.grep"
+  "time.v1.region.OpenRequest.OptionsEntry\032"
   ".\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 "
-  "\001(\t:\0028\001\"A\n\014DropRequests\0221\n\010requests\030\001 \003("
-  "\0132\037.greptime.v1.region.DropRequest\" \n\013Dr"
-  "opRequest\022\021\n\tregion_id\030\001 \001(\004\"\255\001\n\013OpenReq"
-  "uest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022"
-  "\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,.greptim"
-  "e.v1.region.OpenRequest.OptionsEntry\032.\n\014"
-  "OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t"
-  ":\0028\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001(\004\""
-  "C\n\rAlterRequests\0222\n\010requests\030\001 \003(\0132 .gre"
-  "ptime.v1.region.AlterRequest\"\360\001\n\014AlterRe"
-  "quest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030"
-  "\002 \001(\0132\036.greptime.v1.region.AddColumnsH\000\022"
-  "7\n\014drop_columns\030\003 \001(\0132\037.greptime.v1.regi"
-  "on.DropColumnsH\000\022=\n\023change_column_types\030"
-  "\005 \001(\0132\036.greptime.v1.ChangeColumnTypesH\000\022"
-  "\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddCo"
-  "lumns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1"
-  ".region.AddColumn\"C\n\013DropColumns\0224\n\014drop"
-  "_columns\030\001 \003(\0132\036.greptime.v1.region.Drop"
-  "Column\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132"
-  "#.greptime.v1.region.RegionColumnDef\0220\n\010"
-  "location\030\003 \001(\0132\036.greptime.v1.AddColumnLo"
-  "cation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Fl"
-  "ushRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular"
-  "\"&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003"
-  "\"\231\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022."
-  "\n\007regular\030\002 \001(\0132\033.greptime.v1.region.Reg"
-  "ularH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime"
-  ".v1.region.StrictWindowH\000B\t\n\007options\"$\n\017"
-  "TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Re"
-  "gionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.grep"
-  "time.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006"
-  "Region\022O\n\006Handle\022!.greptime.v1.region.Re"
-  "gionRequest\032\".greptime.v1.region.RegionR"
-  "esponseB]\n\025io.greptime.v1.regionB\006Server"
-  "Z<github.com/GreptimeTeam/greptime-proto"
-  "/go/greptime/v1/regionb\006proto3"
+  "\001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001"
+  "(\004\"C\n\rAlterRequests\0222\n\010requests\030\001 \003(\0132 ."
+  "greptime.v1.region.AlterRequest\"\360\001\n\014Alte"
+  "rRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_colum"
+  "ns\030\002 \001(\0132\036.greptime.v1.region.AddColumns"
+  "H\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime.v1.r"
+  "egion.DropColumnsH\000\022=\n\023change_column_typ"
+  "es\030\005 \001(\0132\036.greptime.v1.ChangeColumnTypes"
+  "H\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAd"
+  "dColumns\0222\n\013add_columns\030\001 \003(\0132\035.greptime"
+  ".v1.region.AddColumn\"C\n\013DropColumns\0224\n\014d"
+  "rop_columns\030\001 \003(\0132\036.greptime.v1.region.D"
+  "ropColumn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001"
+  "(\0132#.greptime.v1.region.RegionColumnDef\022"
+  "0\n\010location\030\003 \001(\0132\036.greptime.v1.AddColum"
+  "nLocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n"
+  "\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regu"
+  "lar\"&\n\014StrictWindow\022\026\n\016window_seconds\030\001 "
+  "\001(\003\"\231\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001("
+  "\004\022.\n\007regular\030\002 \001(\0132\033.greptime.v1.region."
+  "RegularH\000\0229\n\rstrict_window\030\003 \001(\0132 .grept"
+  "ime.v1.region.StrictWindowH\000B\t\n\007options\""
+  "$\n\017TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n"
+  "\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.g"
+  "reptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2"
+  "Y\n\006Region\022O\n\006Handle\022!.greptime.v1.region"
+  ".RegionRequest\032\".greptime.v1.region.Regi"
+  "onResponseB]\n\025io.greptime.v1.regionB\006Ser"
+  "verZ<github.com/GreptimeTeam/greptime-pr"
+  "oto/go/greptime/v1/regionb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -862,7 +862,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 3510, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 3513, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 3, 30,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
@@ -2199,13 +2199,13 @@ void RegionRequest::InternalSwap(RegionRequest* other) {
 
 // ===================================================================
 
-RegionResponse_ExtensionEntry_DoNotUse::RegionResponse_ExtensionEntry_DoNotUse() {}
-RegionResponse_ExtensionEntry_DoNotUse::RegionResponse_ExtensionEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+RegionResponse_ExtensionsEntry_DoNotUse::RegionResponse_ExtensionsEntry_DoNotUse() {}
+RegionResponse_ExtensionsEntry_DoNotUse::RegionResponse_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
-void RegionResponse_ExtensionEntry_DoNotUse::MergeFrom(const RegionResponse_ExtensionEntry_DoNotUse& other) {
+void RegionResponse_ExtensionsEntry_DoNotUse::MergeFrom(const RegionResponse_ExtensionsEntry_DoNotUse& other) {
   MergeFromInternal(other);
 }
-::PROTOBUF_NAMESPACE_ID::Metadata RegionResponse_ExtensionEntry_DoNotUse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata RegionResponse_ExtensionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once,
       file_level_metadata_greptime_2fv1_2fregion_2fserver_2eproto[3]);
@@ -2241,13 +2241,13 @@ RegionResponse::RegionResponse(const RegionResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   RegionResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      /*decltype(_impl_.extension_)*/{}
+      /*decltype(_impl_.extensions_)*/{}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.affected_rows_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.extension_.MergeFrom(from._impl_.extension_);
+  _this->_impl_.extensions_.MergeFrom(from._impl_.extensions_);
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::ResponseHeader(*from._impl_.header_);
   }
@@ -2260,7 +2260,7 @@ inline void RegionResponse::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      /*decltype(_impl_.extension_)*/{::_pbi::ArenaInitialized(), arena}
+      /*decltype(_impl_.extensions_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.affected_rows_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -2279,14 +2279,14 @@ RegionResponse::~RegionResponse() {
 
 inline void RegionResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.extension_.Destruct();
-  _impl_.extension_.~MapField();
+  _impl_.extensions_.Destruct();
+  _impl_.extensions_.~MapField();
   if (this != internal_default_instance()) delete _impl_.header_;
 }
 
 void RegionResponse::ArenaDtor(void* object) {
   RegionResponse* _this = reinterpret_cast< RegionResponse* >(object);
-  _this->_impl_.extension_.Destruct();
+  _this->_impl_.extensions_.Destruct();
 }
 void RegionResponse::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
@@ -2298,7 +2298,7 @@ void RegionResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.extension_.Clear();
+  _impl_.extensions_.Clear();
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
@@ -2329,13 +2329,13 @@ const char* RegionResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // map<string, bytes> extension = 3;
+      // map<string, bytes> extensions = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&_impl_.extension_, ptr);
+            ptr = ctx->ParseMessage(&_impl_.extensions_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
@@ -2384,17 +2384,17 @@ uint8_t* RegionResponse::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_affected_rows(), target);
   }
 
-  // map<string, bytes> extension = 3;
-  if (!this->_internal_extension().empty()) {
+  // map<string, bytes> extensions = 3;
+  if (!this->_internal_extensions().empty()) {
     using MapType = ::_pb::Map<std::string, std::string>;
-    using WireHelper = RegionResponse_ExtensionEntry_DoNotUse::Funcs;
-    const auto& map_field = this->_internal_extension();
+    using WireHelper = RegionResponse_ExtensionsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_extensions();
     auto check_utf8 = [](const MapType::value_type& entry) {
       (void)entry;
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
         entry.first.data(), static_cast<int>(entry.first.length()),
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "greptime.v1.region.RegionResponse.ExtensionEntry.key");
+        "greptime.v1.region.RegionResponse.ExtensionsEntry.key");
     };
 
     if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
@@ -2426,13 +2426,13 @@ size_t RegionResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<string, bytes> extension = 3;
+  // map<string, bytes> extensions = 3;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_extension_size());
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_extensions_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-      it = this->_internal_extension().begin();
-      it != this->_internal_extension().end(); ++it) {
-    total_size += RegionResponse_ExtensionEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+      it = this->_internal_extensions().begin();
+      it != this->_internal_extensions().end(); ++it) {
+    total_size += RegionResponse_ExtensionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
   // .greptime.v1.ResponseHeader header = 1;
@@ -2465,7 +2465,7 @@ void RegionResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.extension_.MergeFrom(from._impl_.extension_);
+  _this->_impl_.extensions_.MergeFrom(from._impl_.extensions_);
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::ResponseHeader::MergeFrom(
         from._internal_header());
@@ -2490,7 +2490,7 @@ bool RegionResponse::IsInitialized() const {
 void RegionResponse::InternalSwap(RegionResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.extension_.InternalSwap(&other->_impl_.extension_);
+  _impl_.extensions_.InternalSwap(&other->_impl_.extensions_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(RegionResponse, _impl_.affected_rows_)
       + sizeof(RegionResponse::_impl_.affected_rows_)
@@ -7720,9 +7720,9 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::region::RegionRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::region::RegionRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::region::RegionRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse*
-Arena::CreateMaybeMessage< ::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::region::RegionResponse_ExtensionEntry_DoNotUse >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::region::RegionResponse*
 Arena::CreateMaybeMessage< ::greptime::v1::region::RegionResponse >(Arena* arena) {
