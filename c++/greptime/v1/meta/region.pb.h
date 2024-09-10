@@ -193,6 +193,7 @@ class MigrateRegionRequest final :
     kFromPeerFieldNumber = 4,
     kToPeerFieldNumber = 5,
     kReplayTimeoutSecsFieldNumber = 6,
+    kFlushTimeoutSecsFieldNumber = 7,
   };
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -248,6 +249,15 @@ class MigrateRegionRequest final :
   void _internal_set_replay_timeout_secs(uint32_t value);
   public:
 
+  // uint32 flush_timeout_secs = 7;
+  void clear_flush_timeout_secs();
+  uint32_t flush_timeout_secs() const;
+  void set_flush_timeout_secs(uint32_t value);
+  private:
+  uint32_t _internal_flush_timeout_secs() const;
+  void _internal_set_flush_timeout_secs(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.MigrateRegionRequest)
  private:
   class _Internal;
@@ -261,6 +271,7 @@ class MigrateRegionRequest final :
     uint64_t from_peer_;
     uint64_t to_peer_;
     uint32_t replay_timeout_secs_;
+    uint32_t flush_timeout_secs_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -617,6 +628,26 @@ inline void MigrateRegionRequest::_internal_set_replay_timeout_secs(uint32_t val
 inline void MigrateRegionRequest::set_replay_timeout_secs(uint32_t value) {
   _internal_set_replay_timeout_secs(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.replay_timeout_secs)
+}
+
+// uint32 flush_timeout_secs = 7;
+inline void MigrateRegionRequest::clear_flush_timeout_secs() {
+  _impl_.flush_timeout_secs_ = 0u;
+}
+inline uint32_t MigrateRegionRequest::_internal_flush_timeout_secs() const {
+  return _impl_.flush_timeout_secs_;
+}
+inline uint32_t MigrateRegionRequest::flush_timeout_secs() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MigrateRegionRequest.flush_timeout_secs)
+  return _internal_flush_timeout_secs();
+}
+inline void MigrateRegionRequest::_internal_set_flush_timeout_secs(uint32_t value) {
+  
+  _impl_.flush_timeout_secs_ = value;
+}
+inline void MigrateRegionRequest::set_flush_timeout_secs(uint32_t value) {
+  _internal_set_flush_timeout_secs(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.flush_timeout_secs)
 }
 
 // -------------------------------------------------------------------

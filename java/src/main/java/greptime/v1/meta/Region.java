@@ -56,6 +56,12 @@ public final class Region {
      * @return The replayTimeoutSecs.
      */
     int getReplayTimeoutSecs();
+
+    /**
+     * <code>uint32 flush_timeout_secs = 7;</code>
+     * @return The flushTimeoutSecs.
+     */
+    int getFlushTimeoutSecs();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.MigrateRegionRequest}
@@ -133,6 +139,11 @@ public final class Region {
             case 48: {
 
               replayTimeoutSecs_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+
+              flushTimeoutSecs_ = input.readUInt32();
               break;
             }
             default: {
@@ -239,6 +250,17 @@ public final class Region {
       return replayTimeoutSecs_;
     }
 
+    public static final int FLUSH_TIMEOUT_SECS_FIELD_NUMBER = 7;
+    private int flushTimeoutSecs_;
+    /**
+     * <code>uint32 flush_timeout_secs = 7;</code>
+     * @return The flushTimeoutSecs.
+     */
+    @java.lang.Override
+    public int getFlushTimeoutSecs() {
+      return flushTimeoutSecs_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -267,6 +289,9 @@ public final class Region {
       }
       if (replayTimeoutSecs_ != 0) {
         output.writeUInt32(6, replayTimeoutSecs_);
+      }
+      if (flushTimeoutSecs_ != 0) {
+        output.writeUInt32(7, flushTimeoutSecs_);
       }
       unknownFields.writeTo(output);
     }
@@ -297,6 +322,10 @@ public final class Region {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, replayTimeoutSecs_);
       }
+      if (flushTimeoutSecs_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(7, flushTimeoutSecs_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -325,6 +354,8 @@ public final class Region {
           != other.getToPeer()) return false;
       if (getReplayTimeoutSecs()
           != other.getReplayTimeoutSecs()) return false;
+      if (getFlushTimeoutSecs()
+          != other.getFlushTimeoutSecs()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -351,6 +382,8 @@ public final class Region {
           getToPeer());
       hash = (37 * hash) + REPLAY_TIMEOUT_SECS_FIELD_NUMBER;
       hash = (53 * hash) + getReplayTimeoutSecs();
+      hash = (37 * hash) + FLUSH_TIMEOUT_SECS_FIELD_NUMBER;
+      hash = (53 * hash) + getFlushTimeoutSecs();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -498,6 +531,8 @@ public final class Region {
 
         replayTimeoutSecs_ = 0;
 
+        flushTimeoutSecs_ = 0;
+
         return this;
       }
 
@@ -533,6 +568,7 @@ public final class Region {
         result.fromPeer_ = fromPeer_;
         result.toPeer_ = toPeer_;
         result.replayTimeoutSecs_ = replayTimeoutSecs_;
+        result.flushTimeoutSecs_ = flushTimeoutSecs_;
         onBuilt();
         return result;
       }
@@ -595,6 +631,9 @@ public final class Region {
         }
         if (other.getReplayTimeoutSecs() != 0) {
           setReplayTimeoutSecs(other.getReplayTimeoutSecs());
+        }
+        if (other.getFlushTimeoutSecs() != 0) {
+          setFlushTimeoutSecs(other.getFlushTimeoutSecs());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -864,6 +903,37 @@ public final class Region {
       public Builder clearReplayTimeoutSecs() {
         
         replayTimeoutSecs_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int flushTimeoutSecs_ ;
+      /**
+       * <code>uint32 flush_timeout_secs = 7;</code>
+       * @return The flushTimeoutSecs.
+       */
+      @java.lang.Override
+      public int getFlushTimeoutSecs() {
+        return flushTimeoutSecs_;
+      }
+      /**
+       * <code>uint32 flush_timeout_secs = 7;</code>
+       * @param value The flushTimeoutSecs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFlushTimeoutSecs(int value) {
+        
+        flushTimeoutSecs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 flush_timeout_secs = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFlushTimeoutSecs() {
+        
+        flushTimeoutSecs_ = 0;
         onChanged();
         return this;
       }
@@ -1767,15 +1837,16 @@ public final class Region {
     java.lang.String[] descriptorData = {
       "\n\035greptime/v1/meta/region.proto\022\020greptim" +
       "e.v1.meta\032\035greptime/v1/meta/common.proto" +
-      "\"\233\001\n\024MigrateRegionRequest\022/\n\006header\030\001 \001(" +
+      "\"\267\001\n\024MigrateRegionRequest\022/\n\006header\030\001 \001(" +
       "\0132\037.greptime.v1.meta.RequestHeader\022\021\n\tre" +
       "gion_id\030\003 \001(\004\022\021\n\tfrom_peer\030\004 \001(\004\022\017\n\007to_p" +
-      "eer\030\005 \001(\004\022\033\n\023replay_timeout_secs\030\006 \001(\r\"u" +
-      "\n\025MigrateRegionResponse\0220\n\006header\030\001 \001(\0132" +
-      " .greptime.v1.meta.ResponseHeader\022*\n\003pid" +
-      "\030\002 \001(\0132\035.greptime.v1.meta.ProcedureIdB<Z" +
-      ":github.com/GreptimeTeam/greptime-proto/" +
-      "go/greptime/v1/metab\006proto3"
+      "eer\030\005 \001(\004\022\033\n\023replay_timeout_secs\030\006 \001(\r\022\032" +
+      "\n\022flush_timeout_secs\030\007 \001(\r\"u\n\025MigrateReg" +
+      "ionResponse\0220\n\006header\030\001 \001(\0132 .greptime.v" +
+      "1.meta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.gre" +
+      "ptime.v1.meta.ProcedureIdB<Z:github.com/" +
+      "GreptimeTeam/greptime-proto/go/greptime/" +
+      "v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1787,7 +1858,7 @@ public final class Region {
     internal_static_greptime_v1_meta_MigrateRegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MigrateRegionRequest_descriptor,
-        new java.lang.String[] { "Header", "RegionId", "FromPeer", "ToPeer", "ReplayTimeoutSecs", });
+        new java.lang.String[] { "Header", "RegionId", "FromPeer", "ToPeer", "ReplayTimeoutSecs", "FlushTimeoutSecs", });
     internal_static_greptime_v1_meta_MigrateRegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_meta_MigrateRegionResponse_fieldAccessorTable = new

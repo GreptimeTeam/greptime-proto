@@ -26,6 +26,7 @@ message MigrateRegionRequest {
     uint64 from_peer = 4;
     uint64 to_peer = 5;
     uint32 replay_timeout_secs = 6;
+    uint32 flush_timeout_secs = 7;
 }
 
 message MigrateRegionResponse {
