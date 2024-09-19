@@ -26,6 +26,13 @@ enum OpType {
   DELETE = 0;
   // Put rows.
   PUT = 1;
+  // Notify manifest changes.
+  NOTIFY = 2;
+}
+
+// The manfeist notification content.
+message ManifestNotification {
+  uint64 version = 1;
 }
 
 // Mutation contains updates to a set of rows.
@@ -36,6 +43,8 @@ message Mutation {
   uint64 sequence = 2;
   // Row updates to write to the WAL.
   Rows rows = 3;
+  // The manifest change notification
+  ManifestNotification manifest_notification = 4;
 }
 
 // A WAL entry contains a list of mutations for a region to write.
