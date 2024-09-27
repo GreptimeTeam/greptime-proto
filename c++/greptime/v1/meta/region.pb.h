@@ -192,7 +192,7 @@ class MigrateRegionRequest final :
     kRegionIdFieldNumber = 3,
     kFromPeerFieldNumber = 4,
     kToPeerFieldNumber = 5,
-    kReplayTimeoutSecsFieldNumber = 6,
+    kTimeoutSecsFieldNumber = 6,
   };
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -239,13 +239,13 @@ class MigrateRegionRequest final :
   void _internal_set_to_peer(uint64_t value);
   public:
 
-  // uint32 replay_timeout_secs = 6;
-  void clear_replay_timeout_secs();
-  uint32_t replay_timeout_secs() const;
-  void set_replay_timeout_secs(uint32_t value);
+  // uint32 timeout_secs = 6;
+  void clear_timeout_secs();
+  uint32_t timeout_secs() const;
+  void set_timeout_secs(uint32_t value);
   private:
-  uint32_t _internal_replay_timeout_secs() const;
-  void _internal_set_replay_timeout_secs(uint32_t value);
+  uint32_t _internal_timeout_secs() const;
+  void _internal_set_timeout_secs(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.MigrateRegionRequest)
@@ -260,7 +260,7 @@ class MigrateRegionRequest final :
     uint64_t region_id_;
     uint64_t from_peer_;
     uint64_t to_peer_;
-    uint32_t replay_timeout_secs_;
+    uint32_t timeout_secs_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -599,24 +599,24 @@ inline void MigrateRegionRequest::set_to_peer(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.to_peer)
 }
 
-// uint32 replay_timeout_secs = 6;
-inline void MigrateRegionRequest::clear_replay_timeout_secs() {
-  _impl_.replay_timeout_secs_ = 0u;
+// uint32 timeout_secs = 6;
+inline void MigrateRegionRequest::clear_timeout_secs() {
+  _impl_.timeout_secs_ = 0u;
 }
-inline uint32_t MigrateRegionRequest::_internal_replay_timeout_secs() const {
-  return _impl_.replay_timeout_secs_;
+inline uint32_t MigrateRegionRequest::_internal_timeout_secs() const {
+  return _impl_.timeout_secs_;
 }
-inline uint32_t MigrateRegionRequest::replay_timeout_secs() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.MigrateRegionRequest.replay_timeout_secs)
-  return _internal_replay_timeout_secs();
+inline uint32_t MigrateRegionRequest::timeout_secs() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MigrateRegionRequest.timeout_secs)
+  return _internal_timeout_secs();
 }
-inline void MigrateRegionRequest::_internal_set_replay_timeout_secs(uint32_t value) {
+inline void MigrateRegionRequest::_internal_set_timeout_secs(uint32_t value) {
   
-  _impl_.replay_timeout_secs_ = value;
+  _impl_.timeout_secs_ = value;
 }
-inline void MigrateRegionRequest::set_replay_timeout_secs(uint32_t value) {
-  _internal_set_replay_timeout_secs(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.replay_timeout_secs)
+inline void MigrateRegionRequest::set_timeout_secs(uint32_t value) {
+  _internal_set_timeout_secs(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.MigrateRegionRequest.timeout_secs)
 }
 
 // -------------------------------------------------------------------
