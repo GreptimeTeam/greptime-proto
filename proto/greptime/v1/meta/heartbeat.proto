@@ -54,6 +54,10 @@ enum RegionRole {
   Leader = 0;
   // Readonly region.
   Follower = 1;
+  // A downgrading region, which is in the process of downgrading from Leader to Follower.
+  // 
+  // This role is used to prevent the region from being written during the downgrade process.
+  DowngradingLeader = 2;
 }
 
 message NodeInfo {

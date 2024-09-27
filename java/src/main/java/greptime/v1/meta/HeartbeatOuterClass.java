@@ -35,6 +35,16 @@ public final class HeartbeatOuterClass {
      * <code>Follower = 1;</code>
      */
     Follower(1),
+    /**
+     * <pre>
+     * A downgrading region, which is in the process of downgrading from Leader to Follower.
+     * 
+     * This role is used to prevent the region from being written during the downgrade process.
+     * </pre>
+     *
+     * <code>DowngradingLeader = 2;</code>
+     */
+    DowngradingLeader(2),
     UNRECOGNIZED(-1),
     ;
 
@@ -54,6 +64,16 @@ public final class HeartbeatOuterClass {
      * <code>Follower = 1;</code>
      */
     public static final int Follower_VALUE = 1;
+    /**
+     * <pre>
+     * A downgrading region, which is in the process of downgrading from Leader to Follower.
+     * 
+     * This role is used to prevent the region from being written during the downgrade process.
+     * </pre>
+     *
+     * <code>DowngradingLeader = 2;</code>
+     */
+    public static final int DowngradingLeader_VALUE = 2;
 
 
     public final int getNumber() {
@@ -82,6 +102,7 @@ public final class HeartbeatOuterClass {
       switch (value) {
         case 0: return Leader;
         case 1: return Follower;
+        case 2: return DowngradingLeader;
         default: return null;
       }
     }
@@ -10391,15 +10412,15 @@ com.google.protobuf.ByteString defaultValue);
       ".greptime.v1.meta.Peer\"|\n\016MailboxMessage" +
       "\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 " +
       "\001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(" +
-      "\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*&\n\nRegionRo" +
-      "le\022\n\n\006Leader\020\000\022\014\n\010Follower\020\0012\277\001\n\tHeartbe" +
-      "at\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heart" +
-      "beatRequest\032#.greptime.v1.meta.Heartbeat" +
-      "Response\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v" +
-      "1.meta.AskLeaderRequest\032#.greptime.v1.me" +
-      "ta.AskLeaderResponse\"\000B<Z:github.com/Gre" +
-      "ptimeTeam/greptime-proto/go/greptime/v1/" +
-      "metab\006proto3"
+      "\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRo" +
+      "le\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgrad" +
+      "ingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\"" +
+      ".greptime.v1.meta.HeartbeatRequest\032#.gre" +
+      "ptime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n" +
+      "\tAskLeader\022\".greptime.v1.meta.AskLeaderR" +
+      "equest\032#.greptime.v1.meta.AskLeaderRespo" +
+      "nse\"\000B<Z:github.com/GreptimeTeam/greptim" +
+      "e-proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
