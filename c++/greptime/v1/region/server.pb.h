@@ -3251,7 +3251,7 @@ class AlterRequest final :
     kAddColumns = 2,
     kDropColumns = 3,
     kChangeColumnTypes = 5,
-    kChangeFulltex = 6,
+    kChangeFulltext = 6,
     KIND_NOT_SET = 0,
   };
 
@@ -3338,7 +3338,7 @@ class AlterRequest final :
     kAddColumnsFieldNumber = 2,
     kDropColumnsFieldNumber = 3,
     kChangeColumnTypesFieldNumber = 5,
-    kChangeFulltexFieldNumber = 6,
+    kChangeFulltextFieldNumber = 6,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -3412,23 +3412,23 @@ class AlterRequest final :
       ::greptime::v1::ChangeColumnTypes* change_column_types);
   ::greptime::v1::ChangeColumnTypes* unsafe_arena_release_change_column_types();
 
-  // .greptime.v1.ChangeFulltext change_fulltex = 6;
-  bool has_change_fulltex() const;
+  // .greptime.v1.ChangeFulltext change_fulltext = 6;
+  bool has_change_fulltext() const;
   private:
-  bool _internal_has_change_fulltex() const;
+  bool _internal_has_change_fulltext() const;
   public:
-  void clear_change_fulltex();
-  const ::greptime::v1::ChangeFulltext& change_fulltex() const;
-  PROTOBUF_NODISCARD ::greptime::v1::ChangeFulltext* release_change_fulltex();
-  ::greptime::v1::ChangeFulltext* mutable_change_fulltex();
-  void set_allocated_change_fulltex(::greptime::v1::ChangeFulltext* change_fulltex);
+  void clear_change_fulltext();
+  const ::greptime::v1::ChangeFulltext& change_fulltext() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ChangeFulltext* release_change_fulltext();
+  ::greptime::v1::ChangeFulltext* mutable_change_fulltext();
+  void set_allocated_change_fulltext(::greptime::v1::ChangeFulltext* change_fulltext);
   private:
-  const ::greptime::v1::ChangeFulltext& _internal_change_fulltex() const;
-  ::greptime::v1::ChangeFulltext* _internal_mutable_change_fulltex();
+  const ::greptime::v1::ChangeFulltext& _internal_change_fulltext() const;
+  ::greptime::v1::ChangeFulltext* _internal_mutable_change_fulltext();
   public:
-  void unsafe_arena_set_allocated_change_fulltex(
-      ::greptime::v1::ChangeFulltext* change_fulltex);
-  ::greptime::v1::ChangeFulltext* unsafe_arena_release_change_fulltex();
+  void unsafe_arena_set_allocated_change_fulltext(
+      ::greptime::v1::ChangeFulltext* change_fulltext);
+  ::greptime::v1::ChangeFulltext* unsafe_arena_release_change_fulltext();
 
   void clear_kind();
   KindCase kind_case() const;
@@ -3438,7 +3438,7 @@ class AlterRequest final :
   void set_has_add_columns();
   void set_has_drop_columns();
   void set_has_change_column_types();
-  void set_has_change_fulltex();
+  void set_has_change_fulltext();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -3455,7 +3455,7 @@ class AlterRequest final :
       ::greptime::v1::region::AddColumns* add_columns_;
       ::greptime::v1::region::DropColumns* drop_columns_;
       ::greptime::v1::ChangeColumnTypes* change_column_types_;
-      ::greptime::v1::ChangeFulltext* change_fulltex_;
+      ::greptime::v1::ChangeFulltext* change_fulltext_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -7712,69 +7712,69 @@ inline ::greptime::v1::ChangeColumnTypes* AlterRequest::mutable_change_column_ty
   return _msg;
 }
 
-// .greptime.v1.ChangeFulltext change_fulltex = 6;
-inline bool AlterRequest::_internal_has_change_fulltex() const {
-  return kind_case() == kChangeFulltex;
+// .greptime.v1.ChangeFulltext change_fulltext = 6;
+inline bool AlterRequest::_internal_has_change_fulltext() const {
+  return kind_case() == kChangeFulltext;
 }
-inline bool AlterRequest::has_change_fulltex() const {
-  return _internal_has_change_fulltex();
+inline bool AlterRequest::has_change_fulltext() const {
+  return _internal_has_change_fulltext();
 }
-inline void AlterRequest::set_has_change_fulltex() {
-  _impl_._oneof_case_[0] = kChangeFulltex;
+inline void AlterRequest::set_has_change_fulltext() {
+  _impl_._oneof_case_[0] = kChangeFulltext;
 }
-inline ::greptime::v1::ChangeFulltext* AlterRequest::release_change_fulltex() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.change_fulltex)
-  if (_internal_has_change_fulltex()) {
+inline ::greptime::v1::ChangeFulltext* AlterRequest::release_change_fulltext() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.change_fulltext)
+  if (_internal_has_change_fulltext()) {
     clear_has_kind();
-    ::greptime::v1::ChangeFulltext* temp = _impl_.kind_.change_fulltex_;
+    ::greptime::v1::ChangeFulltext* temp = _impl_.kind_.change_fulltext_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.kind_.change_fulltex_ = nullptr;
+    _impl_.kind_.change_fulltext_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::greptime::v1::ChangeFulltext& AlterRequest::_internal_change_fulltex() const {
-  return _internal_has_change_fulltex()
-      ? *_impl_.kind_.change_fulltex_
+inline const ::greptime::v1::ChangeFulltext& AlterRequest::_internal_change_fulltext() const {
+  return _internal_has_change_fulltext()
+      ? *_impl_.kind_.change_fulltext_
       : reinterpret_cast< ::greptime::v1::ChangeFulltext&>(::greptime::v1::_ChangeFulltext_default_instance_);
 }
-inline const ::greptime::v1::ChangeFulltext& AlterRequest::change_fulltex() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.change_fulltex)
-  return _internal_change_fulltex();
+inline const ::greptime::v1::ChangeFulltext& AlterRequest::change_fulltext() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.change_fulltext)
+  return _internal_change_fulltext();
 }
-inline ::greptime::v1::ChangeFulltext* AlterRequest::unsafe_arena_release_change_fulltex() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.change_fulltex)
-  if (_internal_has_change_fulltex()) {
+inline ::greptime::v1::ChangeFulltext* AlterRequest::unsafe_arena_release_change_fulltext() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.change_fulltext)
+  if (_internal_has_change_fulltext()) {
     clear_has_kind();
-    ::greptime::v1::ChangeFulltext* temp = _impl_.kind_.change_fulltex_;
-    _impl_.kind_.change_fulltex_ = nullptr;
+    ::greptime::v1::ChangeFulltext* temp = _impl_.kind_.change_fulltext_;
+    _impl_.kind_.change_fulltext_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void AlterRequest::unsafe_arena_set_allocated_change_fulltex(::greptime::v1::ChangeFulltext* change_fulltex) {
+inline void AlterRequest::unsafe_arena_set_allocated_change_fulltext(::greptime::v1::ChangeFulltext* change_fulltext) {
   clear_kind();
-  if (change_fulltex) {
-    set_has_change_fulltex();
-    _impl_.kind_.change_fulltex_ = change_fulltex;
+  if (change_fulltext) {
+    set_has_change_fulltext();
+    _impl_.kind_.change_fulltext_ = change_fulltext;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.change_fulltex)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.change_fulltext)
 }
-inline ::greptime::v1::ChangeFulltext* AlterRequest::_internal_mutable_change_fulltex() {
-  if (!_internal_has_change_fulltex()) {
+inline ::greptime::v1::ChangeFulltext* AlterRequest::_internal_mutable_change_fulltext() {
+  if (!_internal_has_change_fulltext()) {
     clear_kind();
-    set_has_change_fulltex();
-    _impl_.kind_.change_fulltex_ = CreateMaybeMessage< ::greptime::v1::ChangeFulltext >(GetArenaForAllocation());
+    set_has_change_fulltext();
+    _impl_.kind_.change_fulltext_ = CreateMaybeMessage< ::greptime::v1::ChangeFulltext >(GetArenaForAllocation());
   }
-  return _impl_.kind_.change_fulltex_;
+  return _impl_.kind_.change_fulltext_;
 }
-inline ::greptime::v1::ChangeFulltext* AlterRequest::mutable_change_fulltex() {
-  ::greptime::v1::ChangeFulltext* _msg = _internal_mutable_change_fulltex();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.change_fulltex)
+inline ::greptime::v1::ChangeFulltext* AlterRequest::mutable_change_fulltext() {
+  ::greptime::v1::ChangeFulltext* _msg = _internal_mutable_change_fulltext();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.change_fulltext)
   return _msg;
 }
 
