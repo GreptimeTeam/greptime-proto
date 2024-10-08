@@ -213,6 +213,30 @@ inline bool ColumnDataType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ColumnDataType>(
     ColumnDataType_descriptor(), name, value);
 }
+enum JsonTypeExtension : int {
+  JSON_BINARY = 0,
+  JsonTypeExtension_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  JsonTypeExtension_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool JsonTypeExtension_IsValid(int value);
+constexpr JsonTypeExtension JsonTypeExtension_MIN = JSON_BINARY;
+constexpr JsonTypeExtension JsonTypeExtension_MAX = JSON_BINARY;
+constexpr int JsonTypeExtension_ARRAYSIZE = JsonTypeExtension_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* JsonTypeExtension_descriptor();
+template<typename T>
+inline const std::string& JsonTypeExtension_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, JsonTypeExtension>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function JsonTypeExtension_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    JsonTypeExtension_descriptor(), enum_t_value);
+}
+inline bool JsonTypeExtension_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, JsonTypeExtension* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<JsonTypeExtension>(
+    JsonTypeExtension_descriptor(), name, value);
+}
 // ===================================================================
 
 class QueryContext_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<QueryContext_ExtensionsEntry_DoNotUse, 
@@ -2764,6 +2788,7 @@ class ColumnDataTypeExtension final :
   }
   enum TypeExtCase {
     kDecimalType = 1,
+    kJsonType = 2,
     TYPE_EXT_NOT_SET = 0,
   };
 
@@ -2846,6 +2871,7 @@ class ColumnDataTypeExtension final :
 
   enum : int {
     kDecimalTypeFieldNumber = 1,
+    kJsonTypeFieldNumber = 2,
   };
   // .greptime.v1.DecimalTypeExtension decimal_type = 1;
   bool has_decimal_type() const;
@@ -2865,12 +2891,26 @@ class ColumnDataTypeExtension final :
       ::greptime::v1::DecimalTypeExtension* decimal_type);
   ::greptime::v1::DecimalTypeExtension* unsafe_arena_release_decimal_type();
 
+  // .greptime.v1.JsonTypeExtension json_type = 2;
+  bool has_json_type() const;
+  private:
+  bool _internal_has_json_type() const;
+  public:
+  void clear_json_type();
+  ::greptime::v1::JsonTypeExtension json_type() const;
+  void set_json_type(::greptime::v1::JsonTypeExtension value);
+  private:
+  ::greptime::v1::JsonTypeExtension _internal_json_type() const;
+  void _internal_set_json_type(::greptime::v1::JsonTypeExtension value);
+  public:
+
   void clear_type_ext();
   TypeExtCase type_ext_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.ColumnDataTypeExtension)
  private:
   class _Internal;
   void set_has_decimal_type();
+  void set_has_json_type();
 
   inline bool has_type_ext() const;
   inline void clear_has_type_ext();
@@ -2883,6 +2923,7 @@ class ColumnDataTypeExtension final :
       constexpr TypeExtUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::DecimalTypeExtension* decimal_type_;
+      int json_type_;
     } type_ext_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -4891,6 +4932,44 @@ inline ::greptime::v1::DecimalTypeExtension* ColumnDataTypeExtension::mutable_de
   return _msg;
 }
 
+// .greptime.v1.JsonTypeExtension json_type = 2;
+inline bool ColumnDataTypeExtension::_internal_has_json_type() const {
+  return type_ext_case() == kJsonType;
+}
+inline bool ColumnDataTypeExtension::has_json_type() const {
+  return _internal_has_json_type();
+}
+inline void ColumnDataTypeExtension::set_has_json_type() {
+  _impl_._oneof_case_[0] = kJsonType;
+}
+inline void ColumnDataTypeExtension::clear_json_type() {
+  if (_internal_has_json_type()) {
+    _impl_.type_ext_.json_type_ = 0;
+    clear_has_type_ext();
+  }
+}
+inline ::greptime::v1::JsonTypeExtension ColumnDataTypeExtension::_internal_json_type() const {
+  if (_internal_has_json_type()) {
+    return static_cast< ::greptime::v1::JsonTypeExtension >(_impl_.type_ext_.json_type_);
+  }
+  return static_cast< ::greptime::v1::JsonTypeExtension >(0);
+}
+inline ::greptime::v1::JsonTypeExtension ColumnDataTypeExtension::json_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDataTypeExtension.json_type)
+  return _internal_json_type();
+}
+inline void ColumnDataTypeExtension::_internal_set_json_type(::greptime::v1::JsonTypeExtension value) {
+  if (!_internal_has_json_type()) {
+    clear_type_ext();
+    set_has_json_type();
+  }
+  _impl_.type_ext_.json_type_ = value;
+}
+inline void ColumnDataTypeExtension::set_json_type(::greptime::v1::JsonTypeExtension value) {
+  _internal_set_json_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ColumnDataTypeExtension.json_type)
+}
+
 inline bool ColumnDataTypeExtension::has_type_ext() const {
   return type_ext_case() != TYPE_EXT_NOT_SET;
 }
@@ -5037,6 +5116,11 @@ template <> struct is_proto_enum< ::greptime::v1::ColumnDataType> : ::std::true_
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::ColumnDataType>() {
   return ::greptime::v1::ColumnDataType_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::JsonTypeExtension> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::JsonTypeExtension>() {
+  return ::greptime::v1::JsonTypeExtension_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

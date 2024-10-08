@@ -21,6 +21,16 @@ enum ProcedureStatus {
     RollingBack = 5;
 }
 
+message ProcedureMeta {
+    ProcedureId id = 1;
+    string type_name = 2;
+    ProcedureStatus status = 3;
+    int64 start_time_ms = 4;
+    int64 end_time_ms = 5;
+    repeated string lock_keys = 6;
+    string error = 7;
+}
+
 message QueryProcedureRequest {
     RequestHeader header = 1;
     ProcedureId pid = 2;
@@ -32,6 +42,15 @@ message ProcedureStateResponse {
     string error = 3;
 }
 
+message ProcedureDetailRequest {
+    RequestHeader header = 1;
+}
+
+message ProcedureDetailResponse {
+    ResponseHeader header = 1;
+    repeated ProcedureMeta procedures = 2;
+}
+
 service ProcedureService {
     // Query a submitted procedure state
     rpc query(QueryProcedureRequest) returns (ProcedureStateResponse);
@@ -41,4 +60,7 @@ service ProcedureService {
 
     // Submits a region migration task
     rpc migrate(MigrateRegionRequest) returns (MigrateRegionResponse);
+
+    // Query all submitted procedures details
+    rpc details(ProcedureDetailRequest) returns (ProcedureDetailResponse);
 }

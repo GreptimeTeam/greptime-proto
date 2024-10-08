@@ -59,7 +59,7 @@ message RegionRequest {
 message RegionResponse {
   ResponseHeader header = 1;
   uint64 affected_rows = 2;
-  map<string, bytes> extension = 3;
+  map<string, bytes> extensions = 3;
 }
 
 message InsertRequests { repeated InsertRequest requests = 1; }

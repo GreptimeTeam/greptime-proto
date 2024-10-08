@@ -62,7 +62,7 @@ message FlowResponse {
   uint64 affected_rows = 2;
   // affected flow ids
   repeated FlowId affected_flows = 3;
-  map<string, bytes> extension = 4;
+  map<string, bytes> extensions = 4;
 }
 
 // Create a flow

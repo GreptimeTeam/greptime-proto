@@ -182,6 +182,7 @@ gen_set_header!(UnlockRequest);
 gen_set_header!(DdlTaskRequest);
 gen_set_header!(MigrateRegionRequest);
 gen_set_header!(QueryProcedureRequest);
+gen_set_header!(ProcedureDetailRequest);
 
 #[cfg(test)]
 mod tests {

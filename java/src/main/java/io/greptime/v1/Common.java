@@ -464,6 +464,105 @@ public final class Common {
     // @@protoc_insertion_point(enum_scope:greptime.v1.ColumnDataType)
   }
 
+  /**
+   * Protobuf enum {@code greptime.v1.JsonTypeExtension}
+   */
+  public enum JsonTypeExtension
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>JSON_BINARY = 0;</code>
+     */
+    JSON_BINARY(0),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>JSON_BINARY = 0;</code>
+     */
+    public static final int JSON_BINARY_VALUE = 0;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static JsonTypeExtension valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static JsonTypeExtension forNumber(int value) {
+      switch (value) {
+        case 0: return JSON_BINARY;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<JsonTypeExtension>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        JsonTypeExtension> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<JsonTypeExtension>() {
+            public JsonTypeExtension findValueByNumber(int number) {
+              return JsonTypeExtension.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.greptime.v1.Common.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final JsonTypeExtension[] VALUES = values();
+
+    public static JsonTypeExtension valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private JsonTypeExtension(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.JsonTypeExtension)
+  }
+
   public interface QueryContextOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.QueryContext)
       com.google.protobuf.MessageOrBuilder {
@@ -11476,6 +11575,34 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Common.DecimalTypeExtensionOrBuilder getDecimalTypeOrBuilder();
 
+    /**
+     * <pre>
+     * Marks the binary column in proto is actually a JSON column.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+     * @return Whether the jsonType field is set.
+     */
+    boolean hasJsonType();
+    /**
+     * <pre>
+     * Marks the binary column in proto is actually a JSON column.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+     * @return The enum numeric value on the wire for jsonType.
+     */
+    int getJsonTypeValue();
+    /**
+     * <pre>
+     * Marks the binary column in proto is actually a JSON column.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+     * @return The jsonType.
+     */
+    io.greptime.v1.Common.JsonTypeExtension getJsonType();
+
     public io.greptime.v1.Common.ColumnDataTypeExtension.TypeExtCase getTypeExtCase();
   }
   /**
@@ -11541,6 +11668,12 @@ java.lang.String defaultValue);
               typeExtCase_ = 1;
               break;
             }
+            case 16: {
+              int rawValue = input.readEnum();
+              typeExtCase_ = 2;
+              typeExt_ = rawValue;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -11581,6 +11714,7 @@ java.lang.String defaultValue);
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       DECIMAL_TYPE(1),
+      JSON_TYPE(2),
       TYPEEXT_NOT_SET(0);
       private final int value;
       private TypeExtCase(int value) {
@@ -11599,6 +11733,7 @@ java.lang.String defaultValue);
       public static TypeExtCase forNumber(int value) {
         switch (value) {
           case 1: return DECIMAL_TYPE;
+          case 2: return JSON_TYPE;
           case 0: return TYPEEXT_NOT_SET;
           default: return null;
         }
@@ -11645,6 +11780,50 @@ java.lang.String defaultValue);
       return io.greptime.v1.Common.DecimalTypeExtension.getDefaultInstance();
     }
 
+    public static final int JSON_TYPE_FIELD_NUMBER = 2;
+    /**
+     * <pre>
+     * Marks the binary column in proto is actually a JSON column.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+     * @return Whether the jsonType field is set.
+     */
+    public boolean hasJsonType() {
+      return typeExtCase_ == 2;
+    }
+    /**
+     * <pre>
+     * Marks the binary column in proto is actually a JSON column.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+     * @return The enum numeric value on the wire for jsonType.
+     */
+    public int getJsonTypeValue() {
+      if (typeExtCase_ == 2) {
+        return (java.lang.Integer) typeExt_;
+      }
+      return 0;
+    }
+    /**
+     * <pre>
+     * Marks the binary column in proto is actually a JSON column.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+     * @return The jsonType.
+     */
+    public io.greptime.v1.Common.JsonTypeExtension getJsonType() {
+      if (typeExtCase_ == 2) {
+        @SuppressWarnings("deprecation")
+        io.greptime.v1.Common.JsonTypeExtension result = io.greptime.v1.Common.JsonTypeExtension.valueOf(
+            (java.lang.Integer) typeExt_);
+        return result == null ? io.greptime.v1.Common.JsonTypeExtension.UNRECOGNIZED : result;
+      }
+      return io.greptime.v1.Common.JsonTypeExtension.JSON_BINARY;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -11662,6 +11841,9 @@ java.lang.String defaultValue);
       if (typeExtCase_ == 1) {
         output.writeMessage(1, (io.greptime.v1.Common.DecimalTypeExtension) typeExt_);
       }
+      if (typeExtCase_ == 2) {
+        output.writeEnum(2, ((java.lang.Integer) typeExt_));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -11674,6 +11856,10 @@ java.lang.String defaultValue);
       if (typeExtCase_ == 1) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, (io.greptime.v1.Common.DecimalTypeExtension) typeExt_);
+      }
+      if (typeExtCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, ((java.lang.Integer) typeExt_));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -11696,6 +11882,10 @@ java.lang.String defaultValue);
           if (!getDecimalType()
               .equals(other.getDecimalType())) return false;
           break;
+        case 2:
+          if (getJsonTypeValue()
+              != other.getJsonTypeValue()) return false;
+          break;
         case 0:
         default:
       }
@@ -11714,6 +11904,10 @@ java.lang.String defaultValue);
         case 1:
           hash = (37 * hash) + DECIMAL_TYPE_FIELD_NUMBER;
           hash = (53 * hash) + getDecimalType().hashCode();
+          break;
+        case 2:
+          hash = (37 * hash) + JSON_TYPE_FIELD_NUMBER;
+          hash = (53 * hash) + getJsonTypeValue();
           break;
         case 0:
         default:
@@ -11890,6 +12084,9 @@ java.lang.String defaultValue);
             result.typeExt_ = decimalTypeBuilder_.build();
           }
         }
+        if (typeExtCase_ == 2) {
+          result.typeExt_ = typeExt_;
+        }
         result.typeExtCase_ = typeExtCase_;
         onBuilt();
         return result;
@@ -11942,6 +12139,10 @@ java.lang.String defaultValue);
         switch (other.getTypeExtCase()) {
           case DECIMAL_TYPE: {
             mergeDecimalType(other.getDecimalType());
+            break;
+          }
+          case JSON_TYPE: {
+            setJsonTypeValue(other.getJsonTypeValue());
             break;
           }
           case TYPEEXT_NOT_SET: {
@@ -12132,6 +12333,101 @@ java.lang.String defaultValue);
         typeExtCase_ = 1;
         onChanged();;
         return decimalTypeBuilder_;
+      }
+
+      /**
+       * <pre>
+       * Marks the binary column in proto is actually a JSON column.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @return Whether the jsonType field is set.
+       */
+      @java.lang.Override
+      public boolean hasJsonType() {
+        return typeExtCase_ == 2;
+      }
+      /**
+       * <pre>
+       * Marks the binary column in proto is actually a JSON column.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @return The enum numeric value on the wire for jsonType.
+       */
+      @java.lang.Override
+      public int getJsonTypeValue() {
+        if (typeExtCase_ == 2) {
+          return ((java.lang.Integer) typeExt_).intValue();
+        }
+        return 0;
+      }
+      /**
+       * <pre>
+       * Marks the binary column in proto is actually a JSON column.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @param value The enum numeric value on the wire for jsonType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJsonTypeValue(int value) {
+        typeExtCase_ = 2;
+        typeExt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Marks the binary column in proto is actually a JSON column.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @return The jsonType.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.JsonTypeExtension getJsonType() {
+        if (typeExtCase_ == 2) {
+          @SuppressWarnings("deprecation")
+          io.greptime.v1.Common.JsonTypeExtension result = io.greptime.v1.Common.JsonTypeExtension.valueOf(
+              (java.lang.Integer) typeExt_);
+          return result == null ? io.greptime.v1.Common.JsonTypeExtension.UNRECOGNIZED : result;
+        }
+        return io.greptime.v1.Common.JsonTypeExtension.JSON_BINARY;
+      }
+      /**
+       * <pre>
+       * Marks the binary column in proto is actually a JSON column.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @param value The jsonType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJsonType(io.greptime.v1.Common.JsonTypeExtension value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        typeExtCase_ = 2;
+        typeExt_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Marks the binary column in proto is actually a JSON column.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonTypeExtension json_type = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJsonType() {
+        if (typeExtCase_ == 2) {
+          typeExtCase_ = 0;
+          typeExt_ = null;
+          onChanged();
+        }
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -13925,29 +14221,31 @@ java.lang.String defaultValue);
       "2\024.greptime.v1.Metrics\"I\n\024IntervalMonthD" +
       "ayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013" +
       "nanoseconds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 " +
-      "\001(\003\022\n\n\002lo\030\002 \001(\003\"`\n\027ColumnDataTypeExtensi" +
-      "on\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v1.D" +
-      "ecimalTypeExtensionH\000B\n\n\010type_ext\"8\n\024Dec" +
-      "imalTypeExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005" +
-      "scale\030\002 \001(\005\"y\n\rColumnOptions\0228\n\007options\030" +
-      "\001 \003(\0132\'.greptime.v1.ColumnOptions.Option" +
-      "sEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\t:\0028\001*1\n\014SemanticType\022\007\n\003TAG\020\000\022" +
-      "\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\326\003\n\016ColumnData" +
-      "Type\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t" +
-      "\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT1" +
-      "6\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t" +
-      "\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n" +
-      "\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECON" +
-      "D\020\017\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022\031\n\025TIMEST" +
-      "AMP_MICROSECOND\020\021\022\030\n\024TIMESTAMP_NANOSECON" +
-      "D\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MILLISECOND" +
-      "\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIME_NANOSEC" +
-      "OND\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERV" +
-      "AL_DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO" +
-      "\020\031\022\016\n\nDECIMAL128\020\036BO\n\016io.greptime.v1B\006Co" +
-      "mmonZ5github.com/GreptimeTeam/greptime-p" +
-      "roto/go/greptime/v1b\006proto3"
+      "\001(\003\022\n\n\002lo\030\002 \001(\003\"\225\001\n\027ColumnDataTypeExtens" +
+      "ion\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v1." +
+      "DecimalTypeExtensionH\000\0223\n\tjson_type\030\002 \001(" +
+      "\0162\036.greptime.v1.JsonTypeExtensionH\000B\n\n\010t" +
+      "ype_ext\"8\n\024DecimalTypeExtension\022\021\n\tpreci" +
+      "sion\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005\"y\n\rColumnOptio" +
+      "ns\0228\n\007options\030\001 \003(\0132\'.greptime.v1.Column" +
+      "Options.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001*1\n\014Semantic" +
+      "Type\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*" +
+      "\326\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020" +
+      "\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UI" +
+      "NT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020" +
+      "\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022" +
+      "\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020T" +
+      "IMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MILLISECO" +
+      "ND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n\024TIMES" +
+      "TAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TI" +
+      "ME_MILLISECOND\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023" +
+      "\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_YEAR_MON" +
+      "TH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INTERVAL_" +
+      "MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036*$\n\021Json" +
+      "TypeExtension\022\017\n\013JSON_BINARY\020\000BO\n\016io.gre" +
+      "ptime.v1B\006CommonZ5github.com/GreptimeTea" +
+      "m/greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14054,7 +14352,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_ColumnDataTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDataTypeExtension_descriptor,
-        new java.lang.String[] { "DecimalType", "TypeExt", });
+        new java.lang.String[] { "DecimalType", "JsonType", "TypeExt", });
     internal_static_greptime_v1_DecimalTypeExtension_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_DecimalTypeExtension_fieldAccessorTable = new

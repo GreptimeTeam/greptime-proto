@@ -204,6 +204,49 @@ func (ColumnDataType) EnumDescriptor() ([]byte, []int) {
 	return file_greptime_v1_common_proto_rawDescGZIP(), []int{1}
 }
 
+type JsonTypeExtension int32
+
+const (
+	JsonTypeExtension_JSON_BINARY JsonTypeExtension = 0
+)
+
+// Enum value maps for JsonTypeExtension.
+var (
+	JsonTypeExtension_name = map[int32]string{
+		0: "JSON_BINARY",
+	}
+	JsonTypeExtension_value = map[string]int32{
+		"JSON_BINARY": 0,
+	}
+)
+
+func (x JsonTypeExtension) Enum() *JsonTypeExtension {
+	p := new(JsonTypeExtension)
+	*p = x
+	return p
+}
+
+func (x JsonTypeExtension) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (JsonTypeExtension) Descriptor() protoreflect.EnumDescriptor {
+	return file_greptime_v1_common_proto_enumTypes[2].Descriptor()
+}
+
+func (JsonTypeExtension) Type() protoreflect.EnumType {
+	return &file_greptime_v1_common_proto_enumTypes[2]
+}
+
+func (x JsonTypeExtension) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use JsonTypeExtension.Descriptor instead.
+func (JsonTypeExtension) EnumDescriptor() ([]byte, []int) {
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{2}
+}
+
 type QueryContext struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1050,6 +1093,7 @@ type ColumnDataTypeExtension struct {
 	// Types that are assignable to TypeExt:
 	//
 	//	*ColumnDataTypeExtension_DecimalType
+	//	*ColumnDataTypeExtension_JsonType
 	TypeExt isColumnDataTypeExtension_TypeExt `protobuf_oneof:"type_ext"`
 }
 
@@ -1099,6 +1143,13 @@ func (x *ColumnDataTypeExtension) GetDecimalType() *DecimalTypeExtension {
 	return nil
 }
 
+func (x *ColumnDataTypeExtension) GetJsonType() JsonTypeExtension {
+	if x, ok := x.GetTypeExt().(*ColumnDataTypeExtension_JsonType); ok {
+		return x.JsonType
+	}
+	return JsonTypeExtension_JSON_BINARY
+}
+
 type isColumnDataTypeExtension_TypeExt interface {
 	isColumnDataTypeExtension_TypeExt()
 }
@@ -1107,7 +1158,14 @@ type ColumnDataTypeExtension_DecimalType struct {
 	DecimalType *DecimalTypeExtension `protobuf:"bytes,1,opt,name=decimal_type,json=decimalType,proto3,oneof"`
 }
 
+type ColumnDataTypeExtension_JsonType struct {
+	// Marks the binary column in proto is actually a JSON column.
+	JsonType JsonTypeExtension `protobuf:"varint,2,opt,name=json_type,json=jsonType,proto3,enum=greptime.v1.JsonTypeExtension,oneof"`
+}
+
 func (*ColumnDataTypeExtension_DecimalType) isColumnDataTypeExtension_TypeExt() {}
+
+func (*ColumnDataTypeExtension_JsonType) isColumnDataTypeExtension_TypeExt() {}
 
 type DecimalTypeExtension struct {
 	state         protoimpl.MessageState
@@ -1329,13 +1387,17 @@ var file_greptime_v1_common_proto_rawDesc = []byte{
 	0x0b, 0x6e, 0x61, 0x6e, 0x6f, 0x73, 0x65, 0x63, 0x6f, 0x6e, 0x64, 0x73, 0x22, 0x2c, 0x0a, 0x0a,
 	0x44, 0x65, 0x63, 0x69, 0x6d, 0x61, 0x6c, 0x31, 0x32, 0x38, 0x12, 0x0e, 0x0a, 0x02, 0x68, 0x69,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x68, 0x69, 0x12, 0x0e, 0x0a, 0x02, 0x6c, 0x6f,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x6c, 0x6f, 0x22, 0x6d, 0x0a, 0x17, 0x43, 0x6f,
-	0x6c, 0x75, 0x6d, 0x6e, 0x44, 0x61, 0x74, 0x61, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78, 0x74, 0x65,
-	0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x46, 0x0a, 0x0c, 0x64, 0x65, 0x63, 0x69, 0x6d, 0x61, 0x6c,
-	0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x67, 0x72,
-	0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x63, 0x69, 0x6d, 0x61,
-	0x6c, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x48, 0x00,
-	0x52, 0x0b, 0x64, 0x65, 0x63, 0x69, 0x6d, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x42, 0x0a, 0x0a,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x6c, 0x6f, 0x22, 0xac, 0x01, 0x0a, 0x17, 0x43,
+	0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x44, 0x61, 0x74, 0x61, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78, 0x74,
+	0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x46, 0x0a, 0x0c, 0x64, 0x65, 0x63, 0x69, 0x6d, 0x61,
+	0x6c, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x67,
+	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x63, 0x69, 0x6d,
+	0x61, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x48,
+	0x00, 0x52, 0x0b, 0x64, 0x65, 0x63, 0x69, 0x6d, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x12, 0x3d,
+	0x0a, 0x09, 0x6a, 0x73, 0x6f, 0x6e, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x0e, 0x32, 0x1e, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e,
+	0x4a, 0x73, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f,
+	0x6e, 0x48, 0x00, 0x52, 0x08, 0x6a, 0x73, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x42, 0x0a, 0x0a,
 	0x08, 0x74, 0x79, 0x70, 0x65, 0x5f, 0x65, 0x78, 0x74, 0x22, 0x4a, 0x0a, 0x14, 0x44, 0x65, 0x63,
 	0x69, 0x6d, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f,
 	0x6e, 0x12, 0x1c, 0x0a, 0x09, 0x70, 0x72, 0x65, 0x63, 0x69, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x01,
@@ -1383,12 +1445,15 @@ var file_greptime_v1_common_proto_rawDesc = []byte{
 	0x49, 0x4d, 0x45, 0x10, 0x18, 0x12, 0x1b, 0x0a, 0x17, 0x49, 0x4e, 0x54, 0x45, 0x52, 0x56, 0x41,
 	0x4c, 0x5f, 0x4d, 0x4f, 0x4e, 0x54, 0x48, 0x5f, 0x44, 0x41, 0x59, 0x5f, 0x4e, 0x41, 0x4e, 0x4f,
 	0x10, 0x19, 0x12, 0x0e, 0x0a, 0x0a, 0x44, 0x45, 0x43, 0x49, 0x4d, 0x41, 0x4c, 0x31, 0x32, 0x38,
-	0x10, 0x1e, 0x42, 0x4f, 0x0a, 0x0e, 0x69, 0x6f, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
-	0x65, 0x2e, 0x76, 0x31, 0x42, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x5a, 0x35, 0x67, 0x69,
-	0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
-	0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65,
-	0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x10, 0x1e, 0x2a, 0x24, 0x0a, 0x11, 0x4a, 0x73, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78,
+	0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x0f, 0x0a, 0x0b, 0x4a, 0x53, 0x4f, 0x4e, 0x5f,
+	0x42, 0x49, 0x4e, 0x41, 0x52, 0x59, 0x10, 0x00, 0x42, 0x4f, 0x0a, 0x0e, 0x69, 0x6f, 0x2e, 0x67,
+	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x06, 0x43, 0x6f, 0x6d, 0x6d,
+	0x6f, 0x6e, 0x5a, 0x35, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47,
+	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70,
+	0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72,
+	0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
@@ -1403,48 +1468,50 @@ func file_greptime_v1_common_proto_rawDescGZIP() []byte {
 	return file_greptime_v1_common_proto_rawDescData
 }
 
-var file_greptime_v1_common_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_greptime_v1_common_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_greptime_v1_common_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_greptime_v1_common_proto_goTypes = []interface{}{
 	(SemanticType)(0),               // 0: greptime.v1.SemanticType
 	(ColumnDataType)(0),             // 1: greptime.v1.ColumnDataType
-	(*QueryContext)(nil),            // 2: greptime.v1.QueryContext
-	(*RequestHeader)(nil),           // 3: greptime.v1.RequestHeader
-	(*ResponseHeader)(nil),          // 4: greptime.v1.ResponseHeader
-	(*Status)(nil),                  // 5: greptime.v1.Status
-	(*AuthHeader)(nil),              // 6: greptime.v1.AuthHeader
-	(*Basic)(nil),                   // 7: greptime.v1.Basic
-	(*Token)(nil),                   // 8: greptime.v1.Token
-	(*TableName)(nil),               // 9: greptime.v1.TableName
-	(*AffectedRows)(nil),            // 10: greptime.v1.AffectedRows
-	(*Metrics)(nil),                 // 11: greptime.v1.Metrics
-	(*ExpireAfter)(nil),             // 12: greptime.v1.ExpireAfter
-	(*FlightMetadata)(nil),          // 13: greptime.v1.FlightMetadata
-	(*IntervalMonthDayNano)(nil),    // 14: greptime.v1.IntervalMonthDayNano
-	(*Decimal128)(nil),              // 15: greptime.v1.Decimal128
-	(*ColumnDataTypeExtension)(nil), // 16: greptime.v1.ColumnDataTypeExtension
-	(*DecimalTypeExtension)(nil),    // 17: greptime.v1.DecimalTypeExtension
-	(*ColumnOptions)(nil),           // 18: greptime.v1.ColumnOptions
-	nil,                             // 19: greptime.v1.QueryContext.ExtensionsEntry
-	nil,                             // 20: greptime.v1.RequestHeader.TracingContextEntry
-	nil,                             // 21: greptime.v1.ColumnOptions.OptionsEntry
+	(JsonTypeExtension)(0),          // 2: greptime.v1.JsonTypeExtension
+	(*QueryContext)(nil),            // 3: greptime.v1.QueryContext
+	(*RequestHeader)(nil),           // 4: greptime.v1.RequestHeader
+	(*ResponseHeader)(nil),          // 5: greptime.v1.ResponseHeader
+	(*Status)(nil),                  // 6: greptime.v1.Status
+	(*AuthHeader)(nil),              // 7: greptime.v1.AuthHeader
+	(*Basic)(nil),                   // 8: greptime.v1.Basic
+	(*Token)(nil),                   // 9: greptime.v1.Token
+	(*TableName)(nil),               // 10: greptime.v1.TableName
+	(*AffectedRows)(nil),            // 11: greptime.v1.AffectedRows
+	(*Metrics)(nil),                 // 12: greptime.v1.Metrics
+	(*ExpireAfter)(nil),             // 13: greptime.v1.ExpireAfter
+	(*FlightMetadata)(nil),          // 14: greptime.v1.FlightMetadata
+	(*IntervalMonthDayNano)(nil),    // 15: greptime.v1.IntervalMonthDayNano
+	(*Decimal128)(nil),              // 16: greptime.v1.Decimal128
+	(*ColumnDataTypeExtension)(nil), // 17: greptime.v1.ColumnDataTypeExtension
+	(*DecimalTypeExtension)(nil),    // 18: greptime.v1.DecimalTypeExtension
+	(*ColumnOptions)(nil),           // 19: greptime.v1.ColumnOptions
+	nil,                             // 20: greptime.v1.QueryContext.ExtensionsEntry
+	nil,                             // 21: greptime.v1.RequestHeader.TracingContextEntry
+	nil,                             // 22: greptime.v1.ColumnOptions.OptionsEntry
 }
 var file_greptime_v1_common_proto_depIdxs = []int32{
-	19, // 0: greptime.v1.QueryContext.extensions:type_name -> greptime.v1.QueryContext.ExtensionsEntry
-	6,  // 1: greptime.v1.RequestHeader.authorization:type_name -> greptime.v1.AuthHeader
-	20, // 2: greptime.v1.RequestHeader.tracing_context:type_name -> greptime.v1.RequestHeader.TracingContextEntry
-	5,  // 3: greptime.v1.ResponseHeader.status:type_name -> greptime.v1.Status
-	7,  // 4: greptime.v1.AuthHeader.basic:type_name -> greptime.v1.Basic
-	8,  // 5: greptime.v1.AuthHeader.token:type_name -> greptime.v1.Token
-	10, // 6: greptime.v1.FlightMetadata.affected_rows:type_name -> greptime.v1.AffectedRows
-	11, // 7: greptime.v1.FlightMetadata.metrics:type_name -> greptime.v1.Metrics
-	17, // 8: greptime.v1.ColumnDataTypeExtension.decimal_type:type_name -> greptime.v1.DecimalTypeExtension
-	21, // 9: greptime.v1.ColumnOptions.options:type_name -> greptime.v1.ColumnOptions.OptionsEntry
-	10, // [10:10] is the sub-list for method output_type
-	10, // [10:10] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	20, // 0: greptime.v1.QueryContext.extensions:type_name -> greptime.v1.QueryContext.ExtensionsEntry
+	7,  // 1: greptime.v1.RequestHeader.authorization:type_name -> greptime.v1.AuthHeader
+	21, // 2: greptime.v1.RequestHeader.tracing_context:type_name -> greptime.v1.RequestHeader.TracingContextEntry
+	6,  // 3: greptime.v1.ResponseHeader.status:type_name -> greptime.v1.Status
+	8,  // 4: greptime.v1.AuthHeader.basic:type_name -> greptime.v1.Basic
+	9,  // 5: greptime.v1.AuthHeader.token:type_name -> greptime.v1.Token
+	11, // 6: greptime.v1.FlightMetadata.affected_rows:type_name -> greptime.v1.AffectedRows
+	12, // 7: greptime.v1.FlightMetadata.metrics:type_name -> greptime.v1.Metrics
+	18, // 8: greptime.v1.ColumnDataTypeExtension.decimal_type:type_name -> greptime.v1.DecimalTypeExtension
+	2,  // 9: greptime.v1.ColumnDataTypeExtension.json_type:type_name -> greptime.v1.JsonTypeExtension
+	22, // 10: greptime.v1.ColumnOptions.options:type_name -> greptime.v1.ColumnOptions.OptionsEntry
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_greptime_v1_common_proto_init() }
@@ -1664,13 +1731,14 @@ func file_greptime_v1_common_proto_init() {
 	}
 	file_greptime_v1_common_proto_msgTypes[14].OneofWrappers = []interface{}{
 		(*ColumnDataTypeExtension_DecimalType)(nil),
+		(*ColumnDataTypeExtension_JsonType)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greptime_v1_common_proto_rawDesc,
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   0,

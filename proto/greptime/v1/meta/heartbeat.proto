@@ -77,6 +77,7 @@ message RegionStat {
   string engine = 6;
   // Region role
   RegionRole role = 7;
+  map<string, bytes> extensions = 99;
 }
 
 message HeartbeatResponse {

@@ -90,21 +90,21 @@ struct FlowRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowRequestDefaultTypeInternal _FlowRequest_default_instance_;
-PROTOBUF_CONSTEXPR FlowResponse_ExtensionEntry_DoNotUse::FlowResponse_ExtensionEntry_DoNotUse(
+PROTOBUF_CONSTEXPR FlowResponse_ExtensionsEntry_DoNotUse::FlowResponse_ExtensionsEntry_DoNotUse(
     ::_pbi::ConstantInitialized) {}
-struct FlowResponse_ExtensionEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR FlowResponse_ExtensionEntry_DoNotUseDefaultTypeInternal()
+struct FlowResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR FlowResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~FlowResponse_ExtensionEntry_DoNotUseDefaultTypeInternal() {}
+  ~FlowResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal() {}
   union {
-    FlowResponse_ExtensionEntry_DoNotUse _instance;
+    FlowResponse_ExtensionsEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowResponse_ExtensionEntry_DoNotUseDefaultTypeInternal _FlowResponse_ExtensionEntry_DoNotUse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal _FlowResponse_ExtensionsEntry_DoNotUse_default_instance_;
 PROTOBUF_CONSTEXPR FlowResponse::FlowResponse(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.affected_flows_)*/{}
-  , /*decltype(_impl_.extension_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.extensions_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.affected_rows_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -226,14 +226,14 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowRequest, _impl_.body_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse, value_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse, value_),
   0,
   1,
   ~0u,  // no _has_bits_
@@ -245,7 +245,7 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.affected_rows_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.affected_flows_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.extension_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse, _impl_.extensions_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -291,7 +291,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 18, -1, -1, sizeof(::greptime::v1::flow::InsertRequests)},
   { 25, -1, -1, sizeof(::greptime::v1::flow::InsertRequest)},
   { 33, -1, -1, sizeof(::greptime::v1::flow::FlowRequest)},
-  { 44, 52, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse)},
+  { 44, 52, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse)},
   { 54, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
   { 64, 72, -1, sizeof(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse)},
   { 74, -1, -1, sizeof(::greptime::v1::flow::CreateRequest)},
@@ -305,7 +305,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::flow::_InsertRequests_default_instance_._instance,
   &::greptime::v1::flow::_InsertRequest_default_instance_._instance,
   &::greptime::v1::flow::_FlowRequest_default_instance_._instance,
-  &::greptime::v1::flow::_FlowResponse_ExtensionEntry_DoNotUse_default_instance_._instance,
+  &::greptime::v1::flow::_FlowResponse_ExtensionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::flow::_FlowResponse_default_instance_._instance,
   &::greptime::v1::flow::_CreateRequest_FlowOptionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::flow::_CreateRequest_default_instance_._instance,
@@ -331,32 +331,32 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "time.v1.flow.CreateRequestH\000\022-\n\004drop\030\002 \001"
   "(\0132\035.greptime.v1.flow.DropRequestH\000\022,\n\005f"
   "lush\030\003 \001(\0132\033.greptime.v1.flow.FlushFlowH"
-  "\000B\006\n\004body\"\363\001\n\014FlowResponse\022+\n\006header\030\001 \001"
+  "\000B\006\n\004body\"\366\001\n\014FlowResponse\022+\n\006header\030\001 \001"
   "(\0132\033.greptime.v1.ResponseHeader\022\025\n\raffec"
   "ted_rows\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023"
-  ".greptime.v1.FlowId\022@\n\textension\030\004 \003(\0132-"
-  ".greptime.v1.flow.FlowResponse.Extension"
-  "Entry\0320\n\016ExtensionEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
-  "value\030\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007flo"
-  "w_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n\020sourc"
-  "e_table_ids\030\002 \003(\0132\024.greptime.v1.TableId\022"
-  "/\n\017sink_table_name\030\003 \001(\0132\026.greptime.v1.T"
-  "ableName\022\034\n\024create_if_not_exists\030\004 \001(\010\022."
-  "\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Expir"
-  "eAfter\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014"
-  "flow_options\030\010 \003(\01320.greptime.v1.flow.Cr"
-  "eateRequest.FlowOptionsEntry\0322\n\020FlowOpti"
-  "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001"
-  "\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.grept"
-  "ime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 "
-  "\001(\0132\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022Han"
-  "dleCreateRemove\022\035.greptime.v1.flow.FlowR"
-  "equest\032\036.greptime.v1.flow.FlowResponse\022W"
-  "\n\023HandleMirrorRequest\022 .greptime.v1.flow"
-  ".InsertRequests\032\036.greptime.v1.flow.FlowR"
-  "esponseBY\n\023io.greptime.v1.flowB\006ServerZ:"
-  "github.com/GreptimeTeam/greptime-proto/g"
-  "o/greptime/v1/flowb\006proto3"
+  ".greptime.v1.FlowId\022B\n\nextensions\030\004 \003(\0132"
+  "..greptime.v1.flow.FlowResponse.Extensio"
+  "nsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022"
+  "\r\n\005value\030\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007"
+  "flow_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n\020so"
+  "urce_table_ids\030\002 \003(\0132\024.greptime.v1.Table"
+  "Id\022/\n\017sink_table_name\030\003 \001(\0132\026.greptime.v"
+  "1.TableName\022\034\n\024create_if_not_exists\030\004 \001("
+  "\010\022.\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Ex"
+  "pireAfter\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022"
+  "F\n\014flow_options\030\010 \003(\01320.greptime.v1.flow"
+  ".CreateRequest.FlowOptionsEntry\0322\n\020FlowO"
+  "ptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:"
+  "\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.gr"
+  "eptime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id"
+  "\030\001 \001(\0132\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022"
+  "HandleCreateRemove\022\035.greptime.v1.flow.Fl"
+  "owRequest\032\036.greptime.v1.flow.FlowRespons"
+  "e\022W\n\023HandleMirrorRequest\022 .greptime.v1.f"
+  "low.InsertRequests\032\036.greptime.v1.flow.Fl"
+  "owResponseBY\n\023io.greptime.v1.flowB\006Serve"
+  "rZ:github.com/GreptimeTeam/greptime-prot"
+  "o/go/greptime/v1/flowb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -365,7 +365,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 1706, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 1709, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
     &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 11,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
@@ -1485,13 +1485,13 @@ void FlowRequest::InternalSwap(FlowRequest* other) {
 
 // ===================================================================
 
-FlowResponse_ExtensionEntry_DoNotUse::FlowResponse_ExtensionEntry_DoNotUse() {}
-FlowResponse_ExtensionEntry_DoNotUse::FlowResponse_ExtensionEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+FlowResponse_ExtensionsEntry_DoNotUse::FlowResponse_ExtensionsEntry_DoNotUse() {}
+FlowResponse_ExtensionsEntry_DoNotUse::FlowResponse_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
-void FlowResponse_ExtensionEntry_DoNotUse::MergeFrom(const FlowResponse_ExtensionEntry_DoNotUse& other) {
+void FlowResponse_ExtensionsEntry_DoNotUse::MergeFrom(const FlowResponse_ExtensionsEntry_DoNotUse& other) {
   MergeFromInternal(other);
 }
-::PROTOBUF_NAMESPACE_ID::Metadata FlowResponse_ExtensionEntry_DoNotUse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata FlowResponse_ExtensionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
       file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[5]);
@@ -1531,13 +1531,13 @@ FlowResponse::FlowResponse(const FlowResponse& from)
   FlowResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.affected_flows_){from._impl_.affected_flows_}
-    , /*decltype(_impl_.extension_)*/{}
+    , /*decltype(_impl_.extensions_)*/{}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.affected_rows_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.extension_.MergeFrom(from._impl_.extension_);
+  _this->_impl_.extensions_.MergeFrom(from._impl_.extensions_);
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::ResponseHeader(*from._impl_.header_);
   }
@@ -1551,7 +1551,7 @@ inline void FlowResponse::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.affected_flows_){arena}
-    , /*decltype(_impl_.extension_)*/{::_pbi::ArenaInitialized(), arena}
+    , /*decltype(_impl_.extensions_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.affected_rows_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -1571,14 +1571,14 @@ FlowResponse::~FlowResponse() {
 inline void FlowResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.affected_flows_.~RepeatedPtrField();
-  _impl_.extension_.Destruct();
-  _impl_.extension_.~MapField();
+  _impl_.extensions_.Destruct();
+  _impl_.extensions_.~MapField();
   if (this != internal_default_instance()) delete _impl_.header_;
 }
 
 void FlowResponse::ArenaDtor(void* object) {
   FlowResponse* _this = reinterpret_cast< FlowResponse* >(object);
-  _this->_impl_.extension_.Destruct();
+  _this->_impl_.extensions_.Destruct();
 }
 void FlowResponse::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
@@ -1591,7 +1591,7 @@ void FlowResponse::Clear() {
   (void) cached_has_bits;
 
   _impl_.affected_flows_.Clear();
-  _impl_.extension_.Clear();
+  _impl_.extensions_.Clear();
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
@@ -1635,13 +1635,13 @@ const char* FlowResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // map<string, bytes> extension = 4;
+      // map<string, bytes> extensions = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&_impl_.extension_, ptr);
+            ptr = ctx->ParseMessage(&_impl_.extensions_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
@@ -1698,17 +1698,17 @@ uint8_t* FlowResponse::_InternalSerialize(
         InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // map<string, bytes> extension = 4;
-  if (!this->_internal_extension().empty()) {
+  // map<string, bytes> extensions = 4;
+  if (!this->_internal_extensions().empty()) {
     using MapType = ::_pb::Map<std::string, std::string>;
-    using WireHelper = FlowResponse_ExtensionEntry_DoNotUse::Funcs;
-    const auto& map_field = this->_internal_extension();
+    using WireHelper = FlowResponse_ExtensionsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_extensions();
     auto check_utf8 = [](const MapType::value_type& entry) {
       (void)entry;
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
         entry.first.data(), static_cast<int>(entry.first.length()),
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "greptime.v1.flow.FlowResponse.ExtensionEntry.key");
+        "greptime.v1.flow.FlowResponse.ExtensionsEntry.key");
     };
 
     if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
@@ -1747,13 +1747,13 @@ size_t FlowResponse::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // map<string, bytes> extension = 4;
+  // map<string, bytes> extensions = 4;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_extension_size());
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_extensions_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-      it = this->_internal_extension().begin();
-      it != this->_internal_extension().end(); ++it) {
-    total_size += FlowResponse_ExtensionEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+      it = this->_internal_extensions().begin();
+      it != this->_internal_extensions().end(); ++it) {
+    total_size += FlowResponse_ExtensionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
   // .greptime.v1.ResponseHeader header = 1;
@@ -1787,7 +1787,7 @@ void FlowResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   (void) cached_has_bits;
 
   _this->_impl_.affected_flows_.MergeFrom(from._impl_.affected_flows_);
-  _this->_impl_.extension_.MergeFrom(from._impl_.extension_);
+  _this->_impl_.extensions_.MergeFrom(from._impl_.extensions_);
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::ResponseHeader::MergeFrom(
         from._internal_header());
@@ -1813,7 +1813,7 @@ void FlowResponse::InternalSwap(FlowResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.affected_flows_.InternalSwap(&other->_impl_.affected_flows_);
-  _impl_.extension_.InternalSwap(&other->_impl_.extension_);
+  _impl_.extensions_.InternalSwap(&other->_impl_.extensions_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(FlowResponse, _impl_.affected_rows_)
       + sizeof(FlowResponse::_impl_.affected_rows_)
@@ -2796,9 +2796,9 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::flow::FlowRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::flow::FlowRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::flow::FlowRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse*
-Arena::CreateMaybeMessage< ::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::flow::FlowResponse_ExtensionEntry_DoNotUse >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::flow::FlowResponse*
 Arena::CreateMaybeMessage< ::greptime::v1::flow::FlowResponse >(Arena* arena) {
