@@ -187,6 +187,31 @@ inline bool AddColumnLocation_LocationType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<AddColumnLocation_LocationType>(
     AddColumnLocation_LocationType_descriptor(), name, value);
 }
+enum Analyzer : int {
+  ENGLISH = 0,
+  CHINIESE = 1,
+  Analyzer_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Analyzer_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Analyzer_IsValid(int value);
+constexpr Analyzer Analyzer_MIN = ENGLISH;
+constexpr Analyzer Analyzer_MAX = CHINIESE;
+constexpr int Analyzer_ARRAYSIZE = Analyzer_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Analyzer_descriptor();
+template<typename T>
+inline const std::string& Analyzer_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Analyzer>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Analyzer_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Analyzer_descriptor(), enum_t_value);
+}
+inline bool Analyzer_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Analyzer* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Analyzer>(
+    Analyzer_descriptor(), name, value);
+}
 // ===================================================================
 
 class DdlRequest final :
@@ -3723,18 +3748,13 @@ class ChangeFulltext final :
   std::string* _internal_mutable_column_name();
   public:
 
-  // string analyzer = 3;
+  // .greptime.v1.Analyzer analyzer = 3;
   void clear_analyzer();
-  const std::string& analyzer() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_analyzer(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_analyzer();
-  PROTOBUF_NODISCARD std::string* release_analyzer();
-  void set_allocated_analyzer(std::string* analyzer);
+  ::greptime::v1::Analyzer analyzer() const;
+  void set_analyzer(::greptime::v1::Analyzer value);
   private:
-  const std::string& _internal_analyzer() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_analyzer(const std::string& value);
-  std::string* _internal_mutable_analyzer();
+  ::greptime::v1::Analyzer _internal_analyzer() const;
+  void _internal_set_analyzer(::greptime::v1::Analyzer value);
   public:
 
   // bool enable = 2;
@@ -3764,7 +3784,7 @@ class ChangeFulltext final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr analyzer_;
+    int analyzer_;
     bool enable_;
     bool case_sensitive_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -9400,54 +9420,24 @@ inline void ChangeFulltext::set_enable(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.ChangeFulltext.enable)
 }
 
-// string analyzer = 3;
+// .greptime.v1.Analyzer analyzer = 3;
 inline void ChangeFulltext::clear_analyzer() {
-  _impl_.analyzer_.ClearToEmpty();
+  _impl_.analyzer_ = 0;
 }
-inline const std::string& ChangeFulltext::analyzer() const {
+inline ::greptime::v1::Analyzer ChangeFulltext::_internal_analyzer() const {
+  return static_cast< ::greptime::v1::Analyzer >(_impl_.analyzer_);
+}
+inline ::greptime::v1::Analyzer ChangeFulltext::analyzer() const {
   // @@protoc_insertion_point(field_get:greptime.v1.ChangeFulltext.analyzer)
   return _internal_analyzer();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ChangeFulltext::set_analyzer(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.analyzer_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void ChangeFulltext::_internal_set_analyzer(::greptime::v1::Analyzer value) {
+  
+  _impl_.analyzer_ = value;
+}
+inline void ChangeFulltext::set_analyzer(::greptime::v1::Analyzer value) {
+  _internal_set_analyzer(value);
   // @@protoc_insertion_point(field_set:greptime.v1.ChangeFulltext.analyzer)
-}
-inline std::string* ChangeFulltext::mutable_analyzer() {
-  std::string* _s = _internal_mutable_analyzer();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.ChangeFulltext.analyzer)
-  return _s;
-}
-inline const std::string& ChangeFulltext::_internal_analyzer() const {
-  return _impl_.analyzer_.Get();
-}
-inline void ChangeFulltext::_internal_set_analyzer(const std::string& value) {
-  
-  _impl_.analyzer_.Set(value, GetArenaForAllocation());
-}
-inline std::string* ChangeFulltext::_internal_mutable_analyzer() {
-  
-  return _impl_.analyzer_.Mutable(GetArenaForAllocation());
-}
-inline std::string* ChangeFulltext::release_analyzer() {
-  // @@protoc_insertion_point(field_release:greptime.v1.ChangeFulltext.analyzer)
-  return _impl_.analyzer_.Release();
-}
-inline void ChangeFulltext::set_allocated_analyzer(std::string* analyzer) {
-  if (analyzer != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.analyzer_.SetAllocated(analyzer, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.analyzer_.IsDefault()) {
-    _impl_.analyzer_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ChangeFulltext.analyzer)
 }
 
 // bool case_sensitive = 4;
@@ -10492,6 +10482,11 @@ template <> struct is_proto_enum< ::greptime::v1::AddColumnLocation_LocationType
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::AddColumnLocation_LocationType>() {
   return ::greptime::v1::AddColumnLocation_LocationType_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::Analyzer> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::Analyzer>() {
+  return ::greptime::v1::Analyzer_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

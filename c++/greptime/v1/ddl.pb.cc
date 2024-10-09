@@ -292,7 +292,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR ChangeFulltext::ChangeFulltext(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.column_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.analyzer_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.analyzer_)*/0
   , /*decltype(_impl_.enable_)*/false
   , /*decltype(_impl_.case_sensitive_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -423,7 +423,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace v1
 }  // namespace greptime
 static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fddl_2eproto[26];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto[1];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fddl_2eproto = nullptr;
 
 const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -830,40 +830,41 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "umn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\013"
   "2\027.greptime.v1.DropColumn\"O\n\021ChangeColum"
   "nTypes\022:\n\023change_column_types\030\001 \003(\0132\035.gr"
-  "eptime.v1.ChangeColumnType\"_\n\016ChangeFull"
+  "eptime.v1.ChangeColumnType\"v\n\016ChangeFull"
   "text\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001("
-  "\010\022\020\n\010analyzer\030\003 \001(\t\022\026\n\016case_sensitive\030\004 "
-  "\001(\010\"%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001"
-  "(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.gr"
-  "eptime.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036."
-  "greptime.v1.AddColumnLocation\"\236\001\n\020Change"
-  "ColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013targe"
-  "t_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTyp"
-  "e\022C\n\025target_type_extension\030\003 \001(\0132$.grept"
-  "ime.v1.ColumnDataTypeExtension\"\032\n\nDropCo"
-  "lumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001("
-  "\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n"
-  "\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptim"
-  "e.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010"
-  "\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemantic"
-  "_type\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017"
-  "\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030\007 "
-  "\001(\0132$.greptime.v1.ColumnDataTypeExtensio"
-  "n\022+\n\007options\030\010 \001(\0132\032.greptime.v1.ColumnO"
-  "ptions\"\230\001\n\021AddColumnLocation\022B\n\rlocation"
-  "_type\030\001 \001(\0162+.greptime.v1.AddColumnLocat"
-  "ion.LocationType\022\031\n\021after_column_name\030\002 "
-  "\001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020"
-  "\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gre"
-  "ptimeTeam/greptime-proto/go/greptime/v1b"
-  "\006proto3"
+  "\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyz"
+  "er\022\026\n\016case_sensitive\030\004 \001(\010\"%\n\013RenameTabl"
+  "e\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*"
+  "\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnD"
+  "ef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.AddCo"
+  "lumnLocation\"\236\001\n\020ChangeColumnType\022\023\n\013col"
+  "umn_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.gr"
+  "eptime.v1.ColumnDataType\022C\n\025target_type_"
+  "extension\030\003 \001(\0132$.greptime.v1.ColumnData"
+  "TypeExtension\"\032\n\nDropColumn\022\014\n\004name\030\001 \001("
+  "\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id"
+  "\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tda"
+  "ta_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy"
+  "pe\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_const"
+  "raint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gre"
+  "ptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@"
+  "\n\022datatype_extension\030\007 \001(\0132$.greptime.v1"
+  ".ColumnDataTypeExtension\022+\n\007options\030\010 \001("
+  "\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021AddCol"
+  "umnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gre"
+  "ptime.v1.AddColumnLocation.LocationType\022"
+  "\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationTy"
+  "pe\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001*%\n\010Analyzer\022\013\n\007"
+  "ENGLISH\020\000\022\014\n\010CHINIESE\020\001BL\n\016io.greptime.v"
+  "1B\003DdlZ5github.com/GreptimeTeam/greptime"
+  "-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 4007, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 4069, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
     &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 26,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
@@ -899,6 +900,20 @@ constexpr AddColumnLocation_LocationType AddColumnLocation::LocationType_MIN;
 constexpr AddColumnLocation_LocationType AddColumnLocation::LocationType_MAX;
 constexpr int AddColumnLocation::LocationType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Analyzer_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fddl_2eproto);
+  return file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto[1];
+}
+bool Analyzer_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -6773,17 +6788,9 @@ ChangeFulltext::ChangeFulltext(const ChangeFulltext& from)
     _this->_impl_.column_name_.Set(from._internal_column_name(), 
       _this->GetArenaForAllocation());
   }
-  _impl_.analyzer_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.analyzer_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_analyzer().empty()) {
-    _this->_impl_.analyzer_.Set(from._internal_analyzer(), 
-      _this->GetArenaForAllocation());
-  }
-  ::memcpy(&_impl_.enable_, &from._impl_.enable_,
+  ::memcpy(&_impl_.analyzer_, &from._impl_.analyzer_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.case_sensitive_) -
-    reinterpret_cast<char*>(&_impl_.enable_)) + sizeof(_impl_.case_sensitive_));
+    reinterpret_cast<char*>(&_impl_.analyzer_)) + sizeof(_impl_.case_sensitive_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.ChangeFulltext)
 }
 
@@ -6793,7 +6800,7 @@ inline void ChangeFulltext::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.column_name_){}
-    , decltype(_impl_.analyzer_){}
+    , decltype(_impl_.analyzer_){0}
     , decltype(_impl_.enable_){false}
     , decltype(_impl_.case_sensitive_){false}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -6801,10 +6808,6 @@ inline void ChangeFulltext::SharedCtor(
   _impl_.column_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.column_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.analyzer_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.analyzer_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -6820,7 +6823,6 @@ ChangeFulltext::~ChangeFulltext() {
 inline void ChangeFulltext::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.column_name_.Destroy();
-  _impl_.analyzer_.Destroy();
 }
 
 void ChangeFulltext::SetCachedSize(int size) const {
@@ -6834,10 +6836,9 @@ void ChangeFulltext::Clear() {
   (void) cached_has_bits;
 
   _impl_.column_name_.ClearToEmpty();
-  _impl_.analyzer_.ClearToEmpty();
-  ::memset(&_impl_.enable_, 0, static_cast<size_t>(
+  ::memset(&_impl_.analyzer_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.case_sensitive_) -
-      reinterpret_cast<char*>(&_impl_.enable_)) + sizeof(_impl_.case_sensitive_));
+      reinterpret_cast<char*>(&_impl_.analyzer_)) + sizeof(_impl_.case_sensitive_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -6865,13 +6866,12 @@ const char* ChangeFulltext::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // string analyzer = 3;
+      // .greptime.v1.Analyzer analyzer = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_analyzer();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.ChangeFulltext.analyzer"));
+          _internal_set_analyzer(static_cast<::greptime::v1::Analyzer>(val));
         } else
           goto handle_unusual;
         continue;
@@ -6928,14 +6928,11 @@ uint8_t* ChangeFulltext::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_enable(), target);
   }
 
-  // string analyzer = 3;
-  if (!this->_internal_analyzer().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_analyzer().data(), static_cast<int>(this->_internal_analyzer().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "greptime.v1.ChangeFulltext.analyzer");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_analyzer(), target);
+  // .greptime.v1.Analyzer analyzer = 3;
+  if (this->_internal_analyzer() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_analyzer(), target);
   }
 
   // bool case_sensitive = 4;
@@ -6967,11 +6964,10 @@ size_t ChangeFulltext::ByteSizeLong() const {
         this->_internal_column_name());
   }
 
-  // string analyzer = 3;
-  if (!this->_internal_analyzer().empty()) {
+  // .greptime.v1.Analyzer analyzer = 3;
+  if (this->_internal_analyzer() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_analyzer());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_analyzer());
   }
 
   // bool enable = 2;
@@ -7005,7 +7001,7 @@ void ChangeFulltext::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   if (!from._internal_column_name().empty()) {
     _this->_internal_set_column_name(from._internal_column_name());
   }
-  if (!from._internal_analyzer().empty()) {
+  if (from._internal_analyzer() != 0) {
     _this->_internal_set_analyzer(from._internal_analyzer());
   }
   if (from._internal_enable() != 0) {
@@ -7037,16 +7033,12 @@ void ChangeFulltext::InternalSwap(ChangeFulltext* other) {
       &_impl_.column_name_, lhs_arena,
       &other->_impl_.column_name_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.analyzer_, lhs_arena,
-      &other->_impl_.analyzer_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ChangeFulltext, _impl_.case_sensitive_)
       + sizeof(ChangeFulltext::_impl_.case_sensitive_)
-      - PROTOBUF_FIELD_OFFSET(ChangeFulltext, _impl_.enable_)>(
-          reinterpret_cast<char*>(&_impl_.enable_),
-          reinterpret_cast<char*>(&other->_impl_.enable_));
+      - PROTOBUF_FIELD_OFFSET(ChangeFulltext, _impl_.analyzer_)>(
+          reinterpret_cast<char*>(&_impl_.analyzer_),
+          reinterpret_cast<char*>(&other->_impl_.analyzer_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ChangeFulltext::GetMetadata() const {

@@ -14,6 +14,114 @@ public final class Ddl {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * Protobuf enum {@code greptime.v1.Analyzer}
+   */
+  public enum Analyzer
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ENGLISH = 0;</code>
+     */
+    ENGLISH(0),
+    /**
+     * <code>CHINIESE = 1;</code>
+     */
+    CHINIESE(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>ENGLISH = 0;</code>
+     */
+    public static final int ENGLISH_VALUE = 0;
+    /**
+     * <code>CHINIESE = 1;</code>
+     */
+    public static final int CHINIESE_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Analyzer valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Analyzer forNumber(int value) {
+      switch (value) {
+        case 0: return ENGLISH;
+        case 1: return CHINIESE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Analyzer>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Analyzer> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Analyzer>() {
+            public Analyzer findValueByNumber(int number) {
+              return Analyzer.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Analyzer[] VALUES = values();
+
+    public static Analyzer valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Analyzer(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.Analyzer)
+  }
+
   public interface DdlRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.DdlRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -20260,16 +20368,15 @@ java.lang.String defaultValue);
     boolean getEnable();
 
     /**
-     * <code>string analyzer = 3;</code>
+     * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+     * @return The enum numeric value on the wire for analyzer.
+     */
+    int getAnalyzerValue();
+    /**
+     * <code>.greptime.v1.Analyzer analyzer = 3;</code>
      * @return The analyzer.
      */
-    java.lang.String getAnalyzer();
-    /**
-     * <code>string analyzer = 3;</code>
-     * @return The bytes for analyzer.
-     */
-    com.google.protobuf.ByteString
-        getAnalyzerBytes();
+    io.greptime.v1.Ddl.Analyzer getAnalyzer();
 
     /**
      * <code>bool case_sensitive = 4;</code>
@@ -20291,7 +20398,7 @@ java.lang.String defaultValue);
     }
     private ChangeFulltext() {
       columnName_ = "";
-      analyzer_ = "";
+      analyzer_ = 0;
     }
 
     @java.lang.Override
@@ -20335,10 +20442,10 @@ java.lang.String defaultValue);
               enable_ = input.readBool();
               break;
             }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 24: {
+              int rawValue = input.readEnum();
 
-              analyzer_ = s;
+              analyzer_ = rawValue;
               break;
             }
             case 32: {
@@ -20430,41 +20537,22 @@ java.lang.String defaultValue);
     }
 
     public static final int ANALYZER_FIELD_NUMBER = 3;
-    private volatile java.lang.Object analyzer_;
+    private int analyzer_;
     /**
-     * <code>string analyzer = 3;</code>
-     * @return The analyzer.
+     * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+     * @return The enum numeric value on the wire for analyzer.
      */
-    @java.lang.Override
-    public java.lang.String getAnalyzer() {
-      java.lang.Object ref = analyzer_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        analyzer_ = s;
-        return s;
-      }
+    @java.lang.Override public int getAnalyzerValue() {
+      return analyzer_;
     }
     /**
-     * <code>string analyzer = 3;</code>
-     * @return The bytes for analyzer.
+     * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+     * @return The analyzer.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAnalyzerBytes() {
-      java.lang.Object ref = analyzer_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        analyzer_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    @java.lang.Override public io.greptime.v1.Ddl.Analyzer getAnalyzer() {
+      @SuppressWarnings("deprecation")
+      io.greptime.v1.Ddl.Analyzer result = io.greptime.v1.Ddl.Analyzer.valueOf(analyzer_);
+      return result == null ? io.greptime.v1.Ddl.Analyzer.UNRECOGNIZED : result;
     }
 
     public static final int CASE_SENSITIVE_FIELD_NUMBER = 4;
@@ -20498,8 +20586,8 @@ java.lang.String defaultValue);
       if (enable_ != false) {
         output.writeBool(2, enable_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(analyzer_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, analyzer_);
+      if (analyzer_ != io.greptime.v1.Ddl.Analyzer.ENGLISH.getNumber()) {
+        output.writeEnum(3, analyzer_);
       }
       if (caseSensitive_ != false) {
         output.writeBool(4, caseSensitive_);
@@ -20520,8 +20608,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, enable_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(analyzer_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, analyzer_);
+      if (analyzer_ != io.greptime.v1.Ddl.Analyzer.ENGLISH.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, analyzer_);
       }
       if (caseSensitive_ != false) {
         size += com.google.protobuf.CodedOutputStream
@@ -20546,8 +20635,7 @@ java.lang.String defaultValue);
           .equals(other.getColumnName())) return false;
       if (getEnable()
           != other.getEnable()) return false;
-      if (!getAnalyzer()
-          .equals(other.getAnalyzer())) return false;
+      if (analyzer_ != other.analyzer_) return false;
       if (getCaseSensitive()
           != other.getCaseSensitive()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -20567,7 +20655,7 @@ java.lang.String defaultValue);
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getEnable());
       hash = (37 * hash) + ANALYZER_FIELD_NUMBER;
-      hash = (53 * hash) + getAnalyzer().hashCode();
+      hash = (53 * hash) + analyzer_;
       hash = (37 * hash) + CASE_SENSITIVE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCaseSensitive());
@@ -20708,7 +20796,7 @@ java.lang.String defaultValue);
 
         enable_ = false;
 
-        analyzer_ = "";
+        analyzer_ = 0;
 
         caseSensitive_ = false;
 
@@ -20797,9 +20885,8 @@ java.lang.String defaultValue);
         if (other.getEnable() != false) {
           setEnable(other.getEnable());
         }
-        if (!other.getAnalyzer().isEmpty()) {
-          analyzer_ = other.analyzer_;
-          onChanged();
+        if (other.analyzer_ != 0) {
+          setAnalyzerValue(other.getAnalyzerValue());
         }
         if (other.getCaseSensitive() != false) {
           setCaseSensitive(other.getCaseSensitive());
@@ -20940,78 +21027,56 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.lang.Object analyzer_ = "";
+      private int analyzer_ = 0;
       /**
-       * <code>string analyzer = 3;</code>
-       * @return The analyzer.
+       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+       * @return The enum numeric value on the wire for analyzer.
        */
-      public java.lang.String getAnalyzer() {
-        java.lang.Object ref = analyzer_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          analyzer_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override public int getAnalyzerValue() {
+        return analyzer_;
       }
       /**
-       * <code>string analyzer = 3;</code>
-       * @return The bytes for analyzer.
-       */
-      public com.google.protobuf.ByteString
-          getAnalyzerBytes() {
-        java.lang.Object ref = analyzer_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          analyzer_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string analyzer = 3;</code>
-       * @param value The analyzer to set.
+       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+       * @param value The enum numeric value on the wire for analyzer to set.
        * @return This builder for chaining.
        */
-      public Builder setAnalyzer(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setAnalyzerValue(int value) {
+        
         analyzer_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string analyzer = 3;</code>
+       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+       * @return The analyzer.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.Analyzer getAnalyzer() {
+        @SuppressWarnings("deprecation")
+        io.greptime.v1.Ddl.Analyzer result = io.greptime.v1.Ddl.Analyzer.valueOf(analyzer_);
+        return result == null ? io.greptime.v1.Ddl.Analyzer.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+       * @param value The analyzer to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAnalyzer(io.greptime.v1.Ddl.Analyzer value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        analyzer_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearAnalyzer() {
         
-        analyzer_ = getDefaultInstance().getAnalyzer();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string analyzer = 3;</code>
-       * @param value The bytes for analyzer to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAnalyzerBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        analyzer_ = value;
+        analyzer_ = 0;
         onChanged();
         return this;
       }
@@ -27528,33 +27593,34 @@ java.lang.String defaultValue);
       "umn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\013" +
       "2\027.greptime.v1.DropColumn\"O\n\021ChangeColum" +
       "nTypes\022:\n\023change_column_types\030\001 \003(\0132\035.gr" +
-      "eptime.v1.ChangeColumnType\"_\n\016ChangeFull" +
+      "eptime.v1.ChangeColumnType\"v\n\016ChangeFull" +
       "text\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(" +
-      "\010\022\020\n\010analyzer\030\003 \001(\t\022\026\n\016case_sensitive\030\004 " +
-      "\001(\010\"%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001" +
-      "(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.gr" +
-      "eptime.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036." +
-      "greptime.v1.AddColumnLocation\"\236\001\n\020Change" +
-      "ColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013targe" +
-      "t_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTyp" +
-      "e\022C\n\025target_type_extension\030\003 \001(\0132$.grept" +
-      "ime.v1.ColumnDataTypeExtension\"\032\n\nDropCo" +
-      "lumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(" +
-      "\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n" +
-      "\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptim" +
-      "e.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010" +
-      "\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemantic" +
-      "_type\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017" +
-      "\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030\007 " +
-      "\001(\0132$.greptime.v1.ColumnDataTypeExtensio" +
-      "n\022+\n\007options\030\010 \001(\0132\032.greptime.v1.ColumnO" +
-      "ptions\"\230\001\n\021AddColumnLocation\022B\n\rlocation" +
-      "_type\030\001 \001(\0162+.greptime.v1.AddColumnLocat" +
-      "ion.LocationType\022\031\n\021after_column_name\030\002 " +
-      "\001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020" +
-      "\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gre" +
-      "ptimeTeam/greptime-proto/go/greptime/v1b" +
-      "\006proto3"
+      "\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyz" +
+      "er\022\026\n\016case_sensitive\030\004 \001(\010\"%\n\013RenameTabl" +
+      "e\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*" +
+      "\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnD" +
+      "ef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.AddCo" +
+      "lumnLocation\"\236\001\n\020ChangeColumnType\022\023\n\013col" +
+      "umn_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.gr" +
+      "eptime.v1.ColumnDataType\022C\n\025target_type_" +
+      "extension\030\003 \001(\0132$.greptime.v1.ColumnData" +
+      "TypeExtension\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(" +
+      "\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id" +
+      "\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tda" +
+      "ta_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy" +
+      "pe\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_const" +
+      "raint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gre" +
+      "ptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@" +
+      "\n\022datatype_extension\030\007 \001(\0132$.greptime.v1" +
+      ".ColumnDataTypeExtension\022+\n\007options\030\010 \001(" +
+      "\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021AddCol" +
+      "umnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gre" +
+      "ptime.v1.AddColumnLocation.LocationType\022" +
+      "\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationTy" +
+      "pe\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001*%\n\010Analyzer\022\013\n\007" +
+      "ENGLISH\020\000\022\014\n\010CHINIESE\020\001BL\n\016io.greptime.v" +
+      "1B\003DdlZ5github.com/GreptimeTeam/greptime" +
+      "-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
