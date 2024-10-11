@@ -3748,7 +3748,11 @@ class ChangeFulltext final :
   std::string* _internal_mutable_column_name();
   public:
 
-  // .greptime.v1.Analyzer analyzer = 3;
+  // optional .greptime.v1.Analyzer analyzer = 3;
+  bool has_analyzer() const;
+  private:
+  bool _internal_has_analyzer() const;
+  public:
   void clear_analyzer();
   ::greptime::v1::Analyzer analyzer() const;
   void set_analyzer(::greptime::v1::Analyzer value);
@@ -3757,7 +3761,11 @@ class ChangeFulltext final :
   void _internal_set_analyzer(::greptime::v1::Analyzer value);
   public:
 
-  // bool enable = 2;
+  // optional bool enable = 2;
+  bool has_enable() const;
+  private:
+  bool _internal_has_enable() const;
+  public:
   void clear_enable();
   bool enable() const;
   void set_enable(bool value);
@@ -3766,7 +3774,11 @@ class ChangeFulltext final :
   void _internal_set_enable(bool value);
   public:
 
-  // bool case_sensitive = 4;
+  // optional bool case_sensitive = 4;
+  bool has_case_sensitive() const;
+  private:
+  bool _internal_has_case_sensitive() const;
+  public:
   void clear_case_sensitive();
   bool case_sensitive() const;
   void set_case_sensitive(bool value);
@@ -3783,11 +3795,12 @@ class ChangeFulltext final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
     int analyzer_;
     bool enable_;
     bool case_sensitive_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
@@ -9400,9 +9413,17 @@ inline void ChangeFulltext::set_allocated_column_name(std::string* column_name) 
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ChangeFulltext.column_name)
 }
 
-// bool enable = 2;
+// optional bool enable = 2;
+inline bool ChangeFulltext::_internal_has_enable() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool ChangeFulltext::has_enable() const {
+  return _internal_has_enable();
+}
 inline void ChangeFulltext::clear_enable() {
   _impl_.enable_ = false;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline bool ChangeFulltext::_internal_enable() const {
   return _impl_.enable_;
@@ -9412,7 +9433,7 @@ inline bool ChangeFulltext::enable() const {
   return _internal_enable();
 }
 inline void ChangeFulltext::_internal_set_enable(bool value) {
-  
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.enable_ = value;
 }
 inline void ChangeFulltext::set_enable(bool value) {
@@ -9420,9 +9441,17 @@ inline void ChangeFulltext::set_enable(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.ChangeFulltext.enable)
 }
 
-// .greptime.v1.Analyzer analyzer = 3;
+// optional .greptime.v1.Analyzer analyzer = 3;
+inline bool ChangeFulltext::_internal_has_analyzer() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool ChangeFulltext::has_analyzer() const {
+  return _internal_has_analyzer();
+}
 inline void ChangeFulltext::clear_analyzer() {
   _impl_.analyzer_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline ::greptime::v1::Analyzer ChangeFulltext::_internal_analyzer() const {
   return static_cast< ::greptime::v1::Analyzer >(_impl_.analyzer_);
@@ -9432,7 +9461,7 @@ inline ::greptime::v1::Analyzer ChangeFulltext::analyzer() const {
   return _internal_analyzer();
 }
 inline void ChangeFulltext::_internal_set_analyzer(::greptime::v1::Analyzer value) {
-  
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.analyzer_ = value;
 }
 inline void ChangeFulltext::set_analyzer(::greptime::v1::Analyzer value) {
@@ -9440,9 +9469,17 @@ inline void ChangeFulltext::set_analyzer(::greptime::v1::Analyzer value) {
   // @@protoc_insertion_point(field_set:greptime.v1.ChangeFulltext.analyzer)
 }
 
-// bool case_sensitive = 4;
+// optional bool case_sensitive = 4;
+inline bool ChangeFulltext::_internal_has_case_sensitive() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool ChangeFulltext::has_case_sensitive() const {
+  return _internal_has_case_sensitive();
+}
 inline void ChangeFulltext::clear_case_sensitive() {
   _impl_.case_sensitive_ = false;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool ChangeFulltext::_internal_case_sensitive() const {
   return _impl_.case_sensitive_;
@@ -9452,7 +9489,7 @@ inline bool ChangeFulltext::case_sensitive() const {
   return _internal_case_sensitive();
 }
 inline void ChangeFulltext::_internal_set_case_sensitive(bool value) {
-  
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.case_sensitive_ = value;
 }
 inline void ChangeFulltext::set_case_sensitive(bool value) {

@@ -20362,24 +20362,39 @@ java.lang.String defaultValue);
         getColumnNameBytes();
 
     /**
-     * <code>bool enable = 2;</code>
+     * <code>optional bool enable = 2;</code>
+     * @return Whether the enable field is set.
+     */
+    boolean hasEnable();
+    /**
+     * <code>optional bool enable = 2;</code>
      * @return The enable.
      */
     boolean getEnable();
 
     /**
-     * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+     * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
+     * @return Whether the analyzer field is set.
+     */
+    boolean hasAnalyzer();
+    /**
+     * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
      * @return The enum numeric value on the wire for analyzer.
      */
     int getAnalyzerValue();
     /**
-     * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+     * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
      * @return The analyzer.
      */
     io.greptime.v1.Ddl.Analyzer getAnalyzer();
 
     /**
-     * <code>bool case_sensitive = 4;</code>
+     * <code>optional bool case_sensitive = 4;</code>
+     * @return Whether the caseSensitive field is set.
+     */
+    boolean hasCaseSensitive();
+    /**
+     * <code>optional bool case_sensitive = 4;</code>
      * @return The caseSensitive.
      */
     boolean getCaseSensitive();
@@ -20421,6 +20436,7 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -20438,18 +20454,18 @@ java.lang.String defaultValue);
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000001;
               enable_ = input.readBool();
               break;
             }
             case 24: {
               int rawValue = input.readEnum();
-
+              bitField0_ |= 0x00000002;
               analyzer_ = rawValue;
               break;
             }
             case 32: {
-
+              bitField0_ |= 0x00000004;
               caseSensitive_ = input.readBool();
               break;
             }
@@ -20487,6 +20503,7 @@ java.lang.String defaultValue);
               io.greptime.v1.Ddl.ChangeFulltext.class, io.greptime.v1.Ddl.ChangeFulltext.Builder.class);
     }
 
+    private int bitField0_;
     public static final int COLUMN_NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object columnName_;
     /**
@@ -20528,7 +20545,15 @@ java.lang.String defaultValue);
     public static final int ENABLE_FIELD_NUMBER = 2;
     private boolean enable_;
     /**
-     * <code>bool enable = 2;</code>
+     * <code>optional bool enable = 2;</code>
+     * @return Whether the enable field is set.
+     */
+    @java.lang.Override
+    public boolean hasEnable() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional bool enable = 2;</code>
      * @return The enable.
      */
     @java.lang.Override
@@ -20539,14 +20564,21 @@ java.lang.String defaultValue);
     public static final int ANALYZER_FIELD_NUMBER = 3;
     private int analyzer_;
     /**
-     * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+     * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
+     * @return Whether the analyzer field is set.
+     */
+    @java.lang.Override public boolean hasAnalyzer() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
      * @return The enum numeric value on the wire for analyzer.
      */
     @java.lang.Override public int getAnalyzerValue() {
       return analyzer_;
     }
     /**
-     * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+     * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
      * @return The analyzer.
      */
     @java.lang.Override public io.greptime.v1.Ddl.Analyzer getAnalyzer() {
@@ -20558,7 +20590,15 @@ java.lang.String defaultValue);
     public static final int CASE_SENSITIVE_FIELD_NUMBER = 4;
     private boolean caseSensitive_;
     /**
-     * <code>bool case_sensitive = 4;</code>
+     * <code>optional bool case_sensitive = 4;</code>
+     * @return Whether the caseSensitive field is set.
+     */
+    @java.lang.Override
+    public boolean hasCaseSensitive() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional bool case_sensitive = 4;</code>
      * @return The caseSensitive.
      */
     @java.lang.Override
@@ -20583,13 +20623,13 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, columnName_);
       }
-      if (enable_ != false) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeBool(2, enable_);
       }
-      if (analyzer_ != io.greptime.v1.Ddl.Analyzer.ENGLISH.getNumber()) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(3, analyzer_);
       }
-      if (caseSensitive_ != false) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeBool(4, caseSensitive_);
       }
       unknownFields.writeTo(output);
@@ -20604,15 +20644,15 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, columnName_);
       }
-      if (enable_ != false) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, enable_);
       }
-      if (analyzer_ != io.greptime.v1.Ddl.Analyzer.ENGLISH.getNumber()) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, analyzer_);
       }
-      if (caseSensitive_ != false) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, caseSensitive_);
       }
@@ -20633,11 +20673,20 @@ java.lang.String defaultValue);
 
       if (!getColumnName()
           .equals(other.getColumnName())) return false;
-      if (getEnable()
-          != other.getEnable()) return false;
-      if (analyzer_ != other.analyzer_) return false;
-      if (getCaseSensitive()
-          != other.getCaseSensitive()) return false;
+      if (hasEnable() != other.hasEnable()) return false;
+      if (hasEnable()) {
+        if (getEnable()
+            != other.getEnable()) return false;
+      }
+      if (hasAnalyzer() != other.hasAnalyzer()) return false;
+      if (hasAnalyzer()) {
+        if (analyzer_ != other.analyzer_) return false;
+      }
+      if (hasCaseSensitive() != other.hasCaseSensitive()) return false;
+      if (hasCaseSensitive()) {
+        if (getCaseSensitive()
+            != other.getCaseSensitive()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -20651,14 +20700,20 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + COLUMN_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getColumnName().hashCode();
-      hash = (37 * hash) + ENABLE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getEnable());
-      hash = (37 * hash) + ANALYZER_FIELD_NUMBER;
-      hash = (53 * hash) + analyzer_;
-      hash = (37 * hash) + CASE_SENSITIVE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getCaseSensitive());
+      if (hasEnable()) {
+        hash = (37 * hash) + ENABLE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getEnable());
+      }
+      if (hasAnalyzer()) {
+        hash = (37 * hash) + ANALYZER_FIELD_NUMBER;
+        hash = (53 * hash) + analyzer_;
+      }
+      if (hasCaseSensitive()) {
+        hash = (37 * hash) + CASE_SENSITIVE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getCaseSensitive());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -20795,11 +20850,11 @@ java.lang.String defaultValue);
         columnName_ = "";
 
         enable_ = false;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         analyzer_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         caseSensitive_ = false;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -20826,10 +20881,22 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Ddl.ChangeFulltext buildPartial() {
         io.greptime.v1.Ddl.ChangeFulltext result = new io.greptime.v1.Ddl.ChangeFulltext(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.columnName_ = columnName_;
-        result.enable_ = enable_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.enable_ = enable_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.analyzer_ = analyzer_;
-        result.caseSensitive_ = caseSensitive_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.caseSensitive_ = caseSensitive_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -20882,13 +20949,13 @@ java.lang.String defaultValue);
           columnName_ = other.columnName_;
           onChanged();
         }
-        if (other.getEnable() != false) {
+        if (other.hasEnable()) {
           setEnable(other.getEnable());
         }
-        if (other.analyzer_ != 0) {
-          setAnalyzerValue(other.getAnalyzerValue());
+        if (other.hasAnalyzer()) {
+          setAnalyzer(other.getAnalyzer());
         }
-        if (other.getCaseSensitive() != false) {
+        if (other.hasCaseSensitive()) {
           setCaseSensitive(other.getCaseSensitive());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -20919,6 +20986,7 @@ java.lang.String defaultValue);
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object columnName_ = "";
       /**
@@ -20998,7 +21066,15 @@ java.lang.String defaultValue);
 
       private boolean enable_ ;
       /**
-       * <code>bool enable = 2;</code>
+       * <code>optional bool enable = 2;</code>
+       * @return Whether the enable field is set.
+       */
+      @java.lang.Override
+      public boolean hasEnable() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional bool enable = 2;</code>
        * @return The enable.
        */
       @java.lang.Override
@@ -21006,22 +21082,22 @@ java.lang.String defaultValue);
         return enable_;
       }
       /**
-       * <code>bool enable = 2;</code>
+       * <code>optional bool enable = 2;</code>
        * @param value The enable to set.
        * @return This builder for chaining.
        */
       public Builder setEnable(boolean value) {
-        
+        bitField0_ |= 0x00000001;
         enable_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool enable = 2;</code>
+       * <code>optional bool enable = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearEnable() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         enable_ = false;
         onChanged();
         return this;
@@ -21029,25 +21105,32 @@ java.lang.String defaultValue);
 
       private int analyzer_ = 0;
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+       * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
+       * @return Whether the analyzer field is set.
+       */
+      @java.lang.Override public boolean hasAnalyzer() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
        * @return The enum numeric value on the wire for analyzer.
        */
       @java.lang.Override public int getAnalyzerValue() {
         return analyzer_;
       }
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+       * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
        * @param value The enum numeric value on the wire for analyzer to set.
        * @return This builder for chaining.
        */
       public Builder setAnalyzerValue(int value) {
-        
+        bitField0_ |= 0x00000002;
         analyzer_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+       * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
        * @return The analyzer.
        */
       @java.lang.Override
@@ -21057,7 +21140,7 @@ java.lang.String defaultValue);
         return result == null ? io.greptime.v1.Ddl.Analyzer.UNRECOGNIZED : result;
       }
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+       * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
        * @param value The analyzer to set.
        * @return This builder for chaining.
        */
@@ -21065,17 +21148,17 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         analyzer_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 3;</code>
+       * <code>optional .greptime.v1.Analyzer analyzer = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearAnalyzer() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         analyzer_ = 0;
         onChanged();
         return this;
@@ -21083,7 +21166,15 @@ java.lang.String defaultValue);
 
       private boolean caseSensitive_ ;
       /**
-       * <code>bool case_sensitive = 4;</code>
+       * <code>optional bool case_sensitive = 4;</code>
+       * @return Whether the caseSensitive field is set.
+       */
+      @java.lang.Override
+      public boolean hasCaseSensitive() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional bool case_sensitive = 4;</code>
        * @return The caseSensitive.
        */
       @java.lang.Override
@@ -21091,22 +21182,22 @@ java.lang.String defaultValue);
         return caseSensitive_;
       }
       /**
-       * <code>bool case_sensitive = 4;</code>
+       * <code>optional bool case_sensitive = 4;</code>
        * @param value The caseSensitive to set.
        * @return This builder for chaining.
        */
       public Builder setCaseSensitive(boolean value) {
-        
+        bitField0_ |= 0x00000004;
         caseSensitive_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool case_sensitive = 4;</code>
+       * <code>optional bool case_sensitive = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearCaseSensitive() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         caseSensitive_ = false;
         onChanged();
         return this;
@@ -27593,34 +27684,36 @@ java.lang.String defaultValue);
       "umn\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\013" +
       "2\027.greptime.v1.DropColumn\"O\n\021ChangeColum" +
       "nTypes\022:\n\023change_column_types\030\001 \003(\0132\035.gr" +
-      "eptime.v1.ChangeColumnType\"v\n\016ChangeFull" +
-      "text\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(" +
-      "\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyz" +
-      "er\022\026\n\016case_sensitive\030\004 \001(\010\"%\n\013RenameTabl" +
-      "e\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*" +
-      "\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnD" +
-      "ef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.AddCo" +
-      "lumnLocation\"\236\001\n\020ChangeColumnType\022\023\n\013col" +
-      "umn_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.gr" +
-      "eptime.v1.ColumnDataType\022C\n\025target_type_" +
-      "extension\030\003 \001(\0132$.greptime.v1.ColumnData" +
-      "TypeExtension\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(" +
-      "\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id" +
-      "\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tda" +
-      "ta_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy" +
-      "pe\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_const" +
-      "raint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gre" +
-      "ptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@" +
-      "\n\022datatype_extension\030\007 \001(\0132$.greptime.v1" +
-      ".ColumnDataTypeExtension\022+\n\007options\030\010 \001(" +
-      "\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021AddCol" +
-      "umnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gre" +
-      "ptime.v1.AddColumnLocation.LocationType\022" +
-      "\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationTy" +
-      "pe\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001*%\n\010Analyzer\022\013\n\007" +
-      "ENGLISH\020\000\022\014\n\010CHINIESE\020\001BL\n\016io.greptime.v" +
-      "1B\003DdlZ5github.com/GreptimeTeam/greptime" +
-      "-proto/go/greptime/v1b\006proto3"
+      "eptime.v1.ChangeColumnType\"\260\001\n\016ChangeFul" +
+      "ltext\022\023\n\013column_name\030\001 \001(\t\022\023\n\006enable\030\002 \001" +
+      "(\010H\000\210\001\001\022,\n\010analyzer\030\003 \001(\0162\025.greptime.v1." +
+      "AnalyzerH\001\210\001\001\022\033\n\016case_sensitive\030\004 \001(\010H\002\210" +
+      "\001\001B\t\n\007_enableB\013\n\t_analyzerB\021\n\017_case_sens" +
+      "itive\"%\n\013RenameTable\022\026\n\016new_table_name\030\001" +
+      " \001(\t\"i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026." +
+      "greptime.v1.ColumnDef\0220\n\010location\030\003 \001(\0132" +
+      "\036.greptime.v1.AddColumnLocation\"\236\001\n\020Chan" +
+      "geColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013tar" +
+      "get_type\030\002 \001(\0162\033.greptime.v1.ColumnDataT" +
+      "ype\022C\n\025target_type_extension\030\003 \001(\0132$.gre" +
+      "ptime.v1.ColumnDataTypeExtension\"\032\n\nDrop" +
+      "Column\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 " +
+      "\001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022" +
+      "\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.grept" +
+      "ime.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001" +
+      "(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemant" +
+      "ic_type\030\005 \001(\0162\031.greptime.v1.SemanticType" +
+      "\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030" +
+      "\007 \001(\0132$.greptime.v1.ColumnDataTypeExtens" +
+      "ion\022+\n\007options\030\010 \001(\0132\032.greptime.v1.Colum" +
+      "nOptions\"\230\001\n\021AddColumnLocation\022B\n\rlocati" +
+      "on_type\030\001 \001(\0162+.greptime.v1.AddColumnLoc" +
+      "ation.LocationType\022\031\n\021after_column_name\030" +
+      "\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTE" +
+      "R\020\001*%\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\014\n\010CHINIESE" +
+      "\020\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gr" +
+      "eptimeTeam/greptime-proto/go/greptime/v1" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27734,7 +27827,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_ChangeFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ChangeFulltext_descriptor,
-        new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", });
+        new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", "Enable", "Analyzer", "CaseSensitive", });
     internal_static_greptime_v1_RenameTable_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_RenameTable_fieldAccessorTable = new
