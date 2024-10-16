@@ -24,9 +24,9 @@ public final class Ddl {
      */
     ENGLISH(0),
     /**
-     * <code>CHINIESE = 1;</code>
+     * <code>CHINESE = 1;</code>
      */
-    CHINIESE(1),
+    CHINESE(1),
     UNRECOGNIZED(-1),
     ;
 
@@ -35,9 +35,9 @@ public final class Ddl {
      */
     public static final int ENGLISH_VALUE = 0;
     /**
-     * <code>CHINIESE = 1;</code>
+     * <code>CHINESE = 1;</code>
      */
-    public static final int CHINIESE_VALUE = 1;
+    public static final int CHINESE_VALUE = 1;
 
 
     public final int getNumber() {
@@ -65,7 +65,7 @@ public final class Ddl {
     public static Analyzer forNumber(int value) {
       switch (value) {
         case 0: return ENGLISH;
-        case 1: return CHINIESE;
+        case 1: return CHINESE;
         default: return null;
       }
     }
@@ -27710,10 +27710,10 @@ java.lang.String defaultValue);
       "on_type\030\001 \001(\0162+.greptime.v1.AddColumnLoc" +
       "ation.LocationType\022\031\n\021after_column_name\030" +
       "\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTE" +
-      "R\020\001*%\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\014\n\010CHINIESE" +
-      "\020\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gr" +
-      "eptimeTeam/greptime-proto/go/greptime/v1" +
-      "b\006proto3"
+      "R\020\001*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020" +
+      "\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gre" +
+      "ptimeTeam/greptime-proto/go/greptime/v1b" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

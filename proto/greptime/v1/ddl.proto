@@ -149,7 +149,7 @@ message ChangeColumnTypes { repeated ChangeColumnType change_column_types = 1; }
 
 enum Analyzer {
     ENGLISH = 0;
-    CHINIESE = 1;
+    CHINESE = 1;
 }
 
 message ChangeFulltext {

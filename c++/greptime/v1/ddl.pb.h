@@ -189,13 +189,13 @@ inline bool AddColumnLocation_LocationType_Parse(
 }
 enum Analyzer : int {
   ENGLISH = 0,
-  CHINIESE = 1,
+  CHINESE = 1,
   Analyzer_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   Analyzer_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool Analyzer_IsValid(int value);
 constexpr Analyzer Analyzer_MIN = ENGLISH;
-constexpr Analyzer Analyzer_MAX = CHINIESE;
+constexpr Analyzer Analyzer_MAX = CHINESE;
 constexpr int Analyzer_ARRAYSIZE = Analyzer_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Analyzer_descriptor();

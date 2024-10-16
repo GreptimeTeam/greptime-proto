@@ -861,17 +861,17 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "on_type\030\001 \001(\0162+.greptime.v1.AddColumnLoc"
   "ation.LocationType\022\031\n\021after_column_name\030"
   "\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTE"
-  "R\020\001*%\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\014\n\010CHINIESE"
-  "\020\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gr"
-  "eptimeTeam/greptime-proto/go/greptime/v1"
-  "b\006proto3"
+  "R\020\001*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020"
+  "\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gre"
+  "ptimeTeam/greptime-proto/go/greptime/v1b"
+  "\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 4128, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 4127, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
     &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 26,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
