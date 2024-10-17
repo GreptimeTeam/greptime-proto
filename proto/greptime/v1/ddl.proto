@@ -161,6 +161,10 @@ message ChangeColumnType {
 }
 
 message ChangeTableOptions {
+    repeated ChangeTableOption change_table_options = 1;
+}
+
+message ChangeTableOption {
   string key = 1;
   string value = 2;
 }
