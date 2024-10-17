@@ -3251,7 +3251,7 @@ class AlterRequest final :
     kAddColumns = 2,
     kDropColumns = 3,
     kChangeColumnTypes = 5,
-    kChangeTableAttributes = 6,
+    kChangeTableOptions = 6,
     KIND_NOT_SET = 0,
   };
 
@@ -3338,7 +3338,7 @@ class AlterRequest final :
     kAddColumnsFieldNumber = 2,
     kDropColumnsFieldNumber = 3,
     kChangeColumnTypesFieldNumber = 5,
-    kChangeTableAttributesFieldNumber = 6,
+    kChangeTableOptionsFieldNumber = 6,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -3412,23 +3412,23 @@ class AlterRequest final :
       ::greptime::v1::ChangeColumnTypes* change_column_types);
   ::greptime::v1::ChangeColumnTypes* unsafe_arena_release_change_column_types();
 
-  // .greptime.v1.ChangeTableAttributes change_table_attributes = 6;
-  bool has_change_table_attributes() const;
+  // .greptime.v1.ChangeTableOptions change_table_options = 6;
+  bool has_change_table_options() const;
   private:
-  bool _internal_has_change_table_attributes() const;
+  bool _internal_has_change_table_options() const;
   public:
-  void clear_change_table_attributes();
-  const ::greptime::v1::ChangeTableAttributes& change_table_attributes() const;
-  PROTOBUF_NODISCARD ::greptime::v1::ChangeTableAttributes* release_change_table_attributes();
-  ::greptime::v1::ChangeTableAttributes* mutable_change_table_attributes();
-  void set_allocated_change_table_attributes(::greptime::v1::ChangeTableAttributes* change_table_attributes);
+  void clear_change_table_options();
+  const ::greptime::v1::ChangeTableOptions& change_table_options() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ChangeTableOptions* release_change_table_options();
+  ::greptime::v1::ChangeTableOptions* mutable_change_table_options();
+  void set_allocated_change_table_options(::greptime::v1::ChangeTableOptions* change_table_options);
   private:
-  const ::greptime::v1::ChangeTableAttributes& _internal_change_table_attributes() const;
-  ::greptime::v1::ChangeTableAttributes* _internal_mutable_change_table_attributes();
+  const ::greptime::v1::ChangeTableOptions& _internal_change_table_options() const;
+  ::greptime::v1::ChangeTableOptions* _internal_mutable_change_table_options();
   public:
-  void unsafe_arena_set_allocated_change_table_attributes(
-      ::greptime::v1::ChangeTableAttributes* change_table_attributes);
-  ::greptime::v1::ChangeTableAttributes* unsafe_arena_release_change_table_attributes();
+  void unsafe_arena_set_allocated_change_table_options(
+      ::greptime::v1::ChangeTableOptions* change_table_options);
+  ::greptime::v1::ChangeTableOptions* unsafe_arena_release_change_table_options();
 
   void clear_kind();
   KindCase kind_case() const;
@@ -3438,7 +3438,7 @@ class AlterRequest final :
   void set_has_add_columns();
   void set_has_drop_columns();
   void set_has_change_column_types();
-  void set_has_change_table_attributes();
+  void set_has_change_table_options();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -3455,7 +3455,7 @@ class AlterRequest final :
       ::greptime::v1::region::AddColumns* add_columns_;
       ::greptime::v1::region::DropColumns* drop_columns_;
       ::greptime::v1::ChangeColumnTypes* change_column_types_;
-      ::greptime::v1::ChangeTableAttributes* change_table_attributes_;
+      ::greptime::v1::ChangeTableOptions* change_table_options_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -7712,69 +7712,69 @@ inline ::greptime::v1::ChangeColumnTypes* AlterRequest::mutable_change_column_ty
   return _msg;
 }
 
-// .greptime.v1.ChangeTableAttributes change_table_attributes = 6;
-inline bool AlterRequest::_internal_has_change_table_attributes() const {
-  return kind_case() == kChangeTableAttributes;
+// .greptime.v1.ChangeTableOptions change_table_options = 6;
+inline bool AlterRequest::_internal_has_change_table_options() const {
+  return kind_case() == kChangeTableOptions;
 }
-inline bool AlterRequest::has_change_table_attributes() const {
-  return _internal_has_change_table_attributes();
+inline bool AlterRequest::has_change_table_options() const {
+  return _internal_has_change_table_options();
 }
-inline void AlterRequest::set_has_change_table_attributes() {
-  _impl_._oneof_case_[0] = kChangeTableAttributes;
+inline void AlterRequest::set_has_change_table_options() {
+  _impl_._oneof_case_[0] = kChangeTableOptions;
 }
-inline ::greptime::v1::ChangeTableAttributes* AlterRequest::release_change_table_attributes() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.change_table_attributes)
-  if (_internal_has_change_table_attributes()) {
+inline ::greptime::v1::ChangeTableOptions* AlterRequest::release_change_table_options() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.change_table_options)
+  if (_internal_has_change_table_options()) {
     clear_has_kind();
-    ::greptime::v1::ChangeTableAttributes* temp = _impl_.kind_.change_table_attributes_;
+    ::greptime::v1::ChangeTableOptions* temp = _impl_.kind_.change_table_options_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.kind_.change_table_attributes_ = nullptr;
+    _impl_.kind_.change_table_options_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::greptime::v1::ChangeTableAttributes& AlterRequest::_internal_change_table_attributes() const {
-  return _internal_has_change_table_attributes()
-      ? *_impl_.kind_.change_table_attributes_
-      : reinterpret_cast< ::greptime::v1::ChangeTableAttributes&>(::greptime::v1::_ChangeTableAttributes_default_instance_);
+inline const ::greptime::v1::ChangeTableOptions& AlterRequest::_internal_change_table_options() const {
+  return _internal_has_change_table_options()
+      ? *_impl_.kind_.change_table_options_
+      : reinterpret_cast< ::greptime::v1::ChangeTableOptions&>(::greptime::v1::_ChangeTableOptions_default_instance_);
 }
-inline const ::greptime::v1::ChangeTableAttributes& AlterRequest::change_table_attributes() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.change_table_attributes)
-  return _internal_change_table_attributes();
+inline const ::greptime::v1::ChangeTableOptions& AlterRequest::change_table_options() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.change_table_options)
+  return _internal_change_table_options();
 }
-inline ::greptime::v1::ChangeTableAttributes* AlterRequest::unsafe_arena_release_change_table_attributes() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.change_table_attributes)
-  if (_internal_has_change_table_attributes()) {
+inline ::greptime::v1::ChangeTableOptions* AlterRequest::unsafe_arena_release_change_table_options() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.change_table_options)
+  if (_internal_has_change_table_options()) {
     clear_has_kind();
-    ::greptime::v1::ChangeTableAttributes* temp = _impl_.kind_.change_table_attributes_;
-    _impl_.kind_.change_table_attributes_ = nullptr;
+    ::greptime::v1::ChangeTableOptions* temp = _impl_.kind_.change_table_options_;
+    _impl_.kind_.change_table_options_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void AlterRequest::unsafe_arena_set_allocated_change_table_attributes(::greptime::v1::ChangeTableAttributes* change_table_attributes) {
+inline void AlterRequest::unsafe_arena_set_allocated_change_table_options(::greptime::v1::ChangeTableOptions* change_table_options) {
   clear_kind();
-  if (change_table_attributes) {
-    set_has_change_table_attributes();
-    _impl_.kind_.change_table_attributes_ = change_table_attributes;
+  if (change_table_options) {
+    set_has_change_table_options();
+    _impl_.kind_.change_table_options_ = change_table_options;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.change_table_attributes)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.change_table_options)
 }
-inline ::greptime::v1::ChangeTableAttributes* AlterRequest::_internal_mutable_change_table_attributes() {
-  if (!_internal_has_change_table_attributes()) {
+inline ::greptime::v1::ChangeTableOptions* AlterRequest::_internal_mutable_change_table_options() {
+  if (!_internal_has_change_table_options()) {
     clear_kind();
-    set_has_change_table_attributes();
-    _impl_.kind_.change_table_attributes_ = CreateMaybeMessage< ::greptime::v1::ChangeTableAttributes >(GetArenaForAllocation());
+    set_has_change_table_options();
+    _impl_.kind_.change_table_options_ = CreateMaybeMessage< ::greptime::v1::ChangeTableOptions >(GetArenaForAllocation());
   }
-  return _impl_.kind_.change_table_attributes_;
+  return _impl_.kind_.change_table_options_;
 }
-inline ::greptime::v1::ChangeTableAttributes* AlterRequest::mutable_change_table_attributes() {
-  ::greptime::v1::ChangeTableAttributes* _msg = _internal_mutable_change_table_attributes();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.change_table_attributes)
+inline ::greptime::v1::ChangeTableOptions* AlterRequest::mutable_change_table_options() {
+  ::greptime::v1::ChangeTableOptions* _msg = _internal_mutable_change_table_options();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.change_table_options)
   return _msg;
 }
 

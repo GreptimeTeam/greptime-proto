@@ -11738,19 +11738,19 @@ java.lang.String defaultValue);
     io.greptime.v1.Ddl.ChangeColumnTypesOrBuilder getChangeColumnTypesOrBuilder();
 
     /**
-     * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
-     * @return Whether the changeTableAttributes field is set.
+     * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
+     * @return Whether the changeTableOptions field is set.
      */
-    boolean hasChangeTableAttributes();
+    boolean hasChangeTableOptions();
     /**
-     * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
-     * @return The changeTableAttributes.
+     * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
+     * @return The changeTableOptions.
      */
-    io.greptime.v1.Ddl.ChangeTableAttributes getChangeTableAttributes();
+    io.greptime.v1.Ddl.ChangeTableOptions getChangeTableOptions();
     /**
-     * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
+     * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
      */
-    io.greptime.v1.Ddl.ChangeTableAttributesOrBuilder getChangeTableAttributesOrBuilder();
+    io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder getChangeTableOptionsOrBuilder();
 
     public io.greptime.v1.Ddl.AlterExpr.KindCase getKindCase();
   }
@@ -11877,14 +11877,14 @@ java.lang.String defaultValue);
               break;
             }
             case 66: {
-              io.greptime.v1.Ddl.ChangeTableAttributes.Builder subBuilder = null;
+              io.greptime.v1.Ddl.ChangeTableOptions.Builder subBuilder = null;
               if (kindCase_ == 8) {
-                subBuilder = ((io.greptime.v1.Ddl.ChangeTableAttributes) kind_).toBuilder();
+                subBuilder = ((io.greptime.v1.Ddl.ChangeTableOptions) kind_).toBuilder();
               }
               kind_ =
-                  input.readMessage(io.greptime.v1.Ddl.ChangeTableAttributes.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.Ddl.ChangeTableOptions.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Ddl.ChangeTableAttributes) kind_);
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.ChangeTableOptions) kind_);
                 kind_ = subBuilder.buildPartial();
               }
               kindCase_ = 8;
@@ -11933,7 +11933,7 @@ java.lang.String defaultValue);
       DROP_COLUMNS(5),
       RENAME_TABLE(6),
       CHANGE_COLUMN_TYPES(7),
-      CHANGE_TABLEATTRIBUTES(8),
+      CHANGE_TABLE_OPTIONS(8),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -11955,7 +11955,7 @@ java.lang.String defaultValue);
           case 5: return DROP_COLUMNS;
           case 6: return RENAME_TABLE;
           case 7: return CHANGE_COLUMN_TYPES;
-          case 8: return CHANGE_TABLEATTRIBUTES;
+          case 8: return CHANGE_TABLE_OPTIONS;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -12209,35 +12209,35 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.ChangeColumnTypes.getDefaultInstance();
     }
 
-    public static final int CHANGE_TABLEATTRIBUTES_FIELD_NUMBER = 8;
+    public static final int CHANGE_TABLE_OPTIONS_FIELD_NUMBER = 8;
     /**
-     * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
-     * @return Whether the changeTableAttributes field is set.
+     * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
+     * @return Whether the changeTableOptions field is set.
      */
     @java.lang.Override
-    public boolean hasChangeTableAttributes() {
+    public boolean hasChangeTableOptions() {
       return kindCase_ == 8;
     }
     /**
-     * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
-     * @return The changeTableAttributes.
+     * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
+     * @return The changeTableOptions.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.ChangeTableAttributes getChangeTableAttributes() {
+    public io.greptime.v1.Ddl.ChangeTableOptions getChangeTableOptions() {
       if (kindCase_ == 8) {
-         return (io.greptime.v1.Ddl.ChangeTableAttributes) kind_;
+         return (io.greptime.v1.Ddl.ChangeTableOptions) kind_;
       }
-      return io.greptime.v1.Ddl.ChangeTableAttributes.getDefaultInstance();
+      return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
+     * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.ChangeTableAttributesOrBuilder getChangeTableAttributesOrBuilder() {
+    public io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder getChangeTableOptionsOrBuilder() {
       if (kindCase_ == 8) {
-         return (io.greptime.v1.Ddl.ChangeTableAttributes) kind_;
+         return (io.greptime.v1.Ddl.ChangeTableOptions) kind_;
       }
-      return io.greptime.v1.Ddl.ChangeTableAttributes.getDefaultInstance();
+      return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12276,7 +12276,7 @@ java.lang.String defaultValue);
         output.writeMessage(7, (io.greptime.v1.Ddl.ChangeColumnTypes) kind_);
       }
       if (kindCase_ == 8) {
-        output.writeMessage(8, (io.greptime.v1.Ddl.ChangeTableAttributes) kind_);
+        output.writeMessage(8, (io.greptime.v1.Ddl.ChangeTableOptions) kind_);
       }
       unknownFields.writeTo(output);
     }
@@ -12314,7 +12314,7 @@ java.lang.String defaultValue);
       }
       if (kindCase_ == 8) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, (io.greptime.v1.Ddl.ChangeTableAttributes) kind_);
+          .computeMessageSize(8, (io.greptime.v1.Ddl.ChangeTableOptions) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12356,8 +12356,8 @@ java.lang.String defaultValue);
               .equals(other.getChangeColumnTypes())) return false;
           break;
         case 8:
-          if (!getChangeTableAttributes()
-              .equals(other.getChangeTableAttributes())) return false;
+          if (!getChangeTableOptions()
+              .equals(other.getChangeTableOptions())) return false;
           break;
         case 0:
         default:
@@ -12397,8 +12397,8 @@ java.lang.String defaultValue);
           hash = (53 * hash) + getChangeColumnTypes().hashCode();
           break;
         case 8:
-          hash = (37 * hash) + CHANGE_TABLEATTRIBUTES_FIELD_NUMBER;
-          hash = (53 * hash) + getChangeTableAttributes().hashCode();
+          hash = (37 * hash) + CHANGE_TABLE_OPTIONS_FIELD_NUMBER;
+          hash = (53 * hash) + getChangeTableOptions().hashCode();
           break;
         case 0:
         default:
@@ -12602,10 +12602,10 @@ java.lang.String defaultValue);
           }
         }
         if (kindCase_ == 8) {
-          if (changeTableAttributesBuilder_ == null) {
+          if (changeTableOptionsBuilder_ == null) {
             result.kind_ = kind_;
           } else {
-            result.kind_ = changeTableAttributesBuilder_.build();
+            result.kind_ = changeTableOptionsBuilder_.build();
           }
         }
         result.kindCase_ = kindCase_;
@@ -12686,8 +12686,8 @@ java.lang.String defaultValue);
             mergeChangeColumnTypes(other.getChangeColumnTypes());
             break;
           }
-          case CHANGE_TABLEATTRIBUTES: {
-            mergeChangeTableAttributes(other.getChangeTableAttributes());
+          case CHANGE_TABLE_OPTIONS: {
+            mergeChangeTableOptions(other.getChangeTableOptions());
             break;
           }
           case KIND_NOT_SET: {
@@ -13535,71 +13535,71 @@ java.lang.String defaultValue);
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.ChangeTableAttributes, io.greptime.v1.Ddl.ChangeTableAttributes.Builder, io.greptime.v1.Ddl.ChangeTableAttributesOrBuilder> changeTableAttributesBuilder_;
+          io.greptime.v1.Ddl.ChangeTableOptions, io.greptime.v1.Ddl.ChangeTableOptions.Builder, io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder> changeTableOptionsBuilder_;
       /**
-       * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
-       * @return Whether the changeTableAttributes field is set.
+       * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
+       * @return Whether the changeTableOptions field is set.
        */
       @java.lang.Override
-      public boolean hasChangeTableAttributes() {
+      public boolean hasChangeTableOptions() {
         return kindCase_ == 8;
       }
       /**
-       * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
-       * @return The changeTableAttributes.
+       * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
+       * @return The changeTableOptions.
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.ChangeTableAttributes getChangeTableAttributes() {
-        if (changeTableAttributesBuilder_ == null) {
+      public io.greptime.v1.Ddl.ChangeTableOptions getChangeTableOptions() {
+        if (changeTableOptionsBuilder_ == null) {
           if (kindCase_ == 8) {
-            return (io.greptime.v1.Ddl.ChangeTableAttributes) kind_;
+            return (io.greptime.v1.Ddl.ChangeTableOptions) kind_;
           }
-          return io.greptime.v1.Ddl.ChangeTableAttributes.getDefaultInstance();
+          return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
         } else {
           if (kindCase_ == 8) {
-            return changeTableAttributesBuilder_.getMessage();
+            return changeTableOptionsBuilder_.getMessage();
           }
-          return io.greptime.v1.Ddl.ChangeTableAttributes.getDefaultInstance();
+          return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
+       * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
        */
-      public Builder setChangeTableAttributes(io.greptime.v1.Ddl.ChangeTableAttributes value) {
-        if (changeTableAttributesBuilder_ == null) {
+      public Builder setChangeTableOptions(io.greptime.v1.Ddl.ChangeTableOptions value) {
+        if (changeTableOptionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           kind_ = value;
           onChanged();
         } else {
-          changeTableAttributesBuilder_.setMessage(value);
+          changeTableOptionsBuilder_.setMessage(value);
         }
         kindCase_ = 8;
         return this;
       }
       /**
-       * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
+       * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
        */
-      public Builder setChangeTableAttributes(
-          io.greptime.v1.Ddl.ChangeTableAttributes.Builder builderForValue) {
-        if (changeTableAttributesBuilder_ == null) {
+      public Builder setChangeTableOptions(
+          io.greptime.v1.Ddl.ChangeTableOptions.Builder builderForValue) {
+        if (changeTableOptionsBuilder_ == null) {
           kind_ = builderForValue.build();
           onChanged();
         } else {
-          changeTableAttributesBuilder_.setMessage(builderForValue.build());
+          changeTableOptionsBuilder_.setMessage(builderForValue.build());
         }
         kindCase_ = 8;
         return this;
       }
       /**
-       * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
+       * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
        */
-      public Builder mergeChangeTableAttributes(io.greptime.v1.Ddl.ChangeTableAttributes value) {
-        if (changeTableAttributesBuilder_ == null) {
+      public Builder mergeChangeTableOptions(io.greptime.v1.Ddl.ChangeTableOptions value) {
+        if (changeTableOptionsBuilder_ == null) {
           if (kindCase_ == 8 &&
-              kind_ != io.greptime.v1.Ddl.ChangeTableAttributes.getDefaultInstance()) {
-            kind_ = io.greptime.v1.Ddl.ChangeTableAttributes.newBuilder((io.greptime.v1.Ddl.ChangeTableAttributes) kind_)
+              kind_ != io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.ChangeTableOptions.newBuilder((io.greptime.v1.Ddl.ChangeTableOptions) kind_)
                 .mergeFrom(value).buildPartial();
           } else {
             kind_ = value;
@@ -13607,19 +13607,19 @@ java.lang.String defaultValue);
           onChanged();
         } else {
           if (kindCase_ == 8) {
-            changeTableAttributesBuilder_.mergeFrom(value);
+            changeTableOptionsBuilder_.mergeFrom(value);
           } else {
-            changeTableAttributesBuilder_.setMessage(value);
+            changeTableOptionsBuilder_.setMessage(value);
           }
         }
         kindCase_ = 8;
         return this;
       }
       /**
-       * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
+       * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
        */
-      public Builder clearChangeTableAttributes() {
-        if (changeTableAttributesBuilder_ == null) {
+      public Builder clearChangeTableOptions() {
+        if (changeTableOptionsBuilder_ == null) {
           if (kindCase_ == 8) {
             kindCase_ = 0;
             kind_ = null;
@@ -13630,50 +13630,50 @@ java.lang.String defaultValue);
             kindCase_ = 0;
             kind_ = null;
           }
-          changeTableAttributesBuilder_.clear();
+          changeTableOptionsBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
+       * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
        */
-      public io.greptime.v1.Ddl.ChangeTableAttributes.Builder getChangeTableAttributesBuilder() {
-        return getChangeTableAttributesFieldBuilder().getBuilder();
+      public io.greptime.v1.Ddl.ChangeTableOptions.Builder getChangeTableOptionsBuilder() {
+        return getChangeTableOptionsFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
+       * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.ChangeTableAttributesOrBuilder getChangeTableAttributesOrBuilder() {
-        if ((kindCase_ == 8) && (changeTableAttributesBuilder_ != null)) {
-          return changeTableAttributesBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder getChangeTableOptionsOrBuilder() {
+        if ((kindCase_ == 8) && (changeTableOptionsBuilder_ != null)) {
+          return changeTableOptionsBuilder_.getMessageOrBuilder();
         } else {
           if (kindCase_ == 8) {
-            return (io.greptime.v1.Ddl.ChangeTableAttributes) kind_;
+            return (io.greptime.v1.Ddl.ChangeTableOptions) kind_;
           }
-          return io.greptime.v1.Ddl.ChangeTableAttributes.getDefaultInstance();
+          return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.ChangeTableAttributes change_tableAttributes = 8;</code>
+       * <code>.greptime.v1.ChangeTableOptions change_table_options = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.ChangeTableAttributes, io.greptime.v1.Ddl.ChangeTableAttributes.Builder, io.greptime.v1.Ddl.ChangeTableAttributesOrBuilder> 
-          getChangeTableAttributesFieldBuilder() {
-        if (changeTableAttributesBuilder_ == null) {
+          io.greptime.v1.Ddl.ChangeTableOptions, io.greptime.v1.Ddl.ChangeTableOptions.Builder, io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder> 
+          getChangeTableOptionsFieldBuilder() {
+        if (changeTableOptionsBuilder_ == null) {
           if (!(kindCase_ == 8)) {
-            kind_ = io.greptime.v1.Ddl.ChangeTableAttributes.getDefaultInstance();
+            kind_ = io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
           }
-          changeTableAttributesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.ChangeTableAttributes, io.greptime.v1.Ddl.ChangeTableAttributes.Builder, io.greptime.v1.Ddl.ChangeTableAttributesOrBuilder>(
-                  (io.greptime.v1.Ddl.ChangeTableAttributes) kind_,
+          changeTableOptionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.ChangeTableOptions, io.greptime.v1.Ddl.ChangeTableOptions.Builder, io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder>(
+                  (io.greptime.v1.Ddl.ChangeTableOptions) kind_,
                   getParentForChildren(),
                   isClean());
           kind_ = null;
         }
         kindCase_ = 8;
         onChanged();;
-        return changeTableAttributesBuilder_;
+        return changeTableOptionsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -22513,56 +22513,56 @@ java.lang.String defaultValue);
 
   }
 
-  public interface ChangeTableAttributesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.ChangeTableAttributes)
+  public interface ChangeTableOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.ChangeTableOptions)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string attr_name = 1;</code>
-     * @return The attrName.
+     * <code>string key = 1;</code>
+     * @return The key.
      */
-    java.lang.String getAttrName();
+    java.lang.String getKey();
     /**
-     * <code>string attr_name = 1;</code>
-     * @return The bytes for attrName.
+     * <code>string key = 1;</code>
+     * @return The bytes for key.
      */
     com.google.protobuf.ByteString
-        getAttrNameBytes();
+        getKeyBytes();
 
     /**
-     * <code>string attr_value = 2;</code>
-     * @return The attrValue.
+     * <code>string value = 2;</code>
+     * @return The value.
      */
-    java.lang.String getAttrValue();
+    java.lang.String getValue();
     /**
-     * <code>string attr_value = 2;</code>
-     * @return The bytes for attrValue.
+     * <code>string value = 2;</code>
+     * @return The bytes for value.
      */
     com.google.protobuf.ByteString
-        getAttrValueBytes();
+        getValueBytes();
   }
   /**
-   * Protobuf type {@code greptime.v1.ChangeTableAttributes}
+   * Protobuf type {@code greptime.v1.ChangeTableOptions}
    */
-  public static final class ChangeTableAttributes extends
+  public static final class ChangeTableOptions extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.ChangeTableAttributes)
-      ChangeTableAttributesOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.ChangeTableOptions)
+      ChangeTableOptionsOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ChangeTableAttributes.newBuilder() to construct.
-    private ChangeTableAttributes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ChangeTableOptions.newBuilder() to construct.
+    private ChangeTableOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ChangeTableAttributes() {
-      attrName_ = "";
-      attrValue_ = "";
+    private ChangeTableOptions() {
+      key_ = "";
+      value_ = "";
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ChangeTableAttributes();
+      return new ChangeTableOptions();
     }
 
     @java.lang.Override
@@ -22570,7 +22570,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ChangeTableAttributes(
+    private ChangeTableOptions(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -22591,13 +22591,13 @@ java.lang.String defaultValue);
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              attrName_ = s;
+              key_ = s;
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              attrValue_ = s;
+              value_ = s;
               break;
             }
             default: {
@@ -22623,87 +22623,87 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableAttributes_descriptor;
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableOptions_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableAttributes_fieldAccessorTable
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableOptions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Ddl.ChangeTableAttributes.class, io.greptime.v1.Ddl.ChangeTableAttributes.Builder.class);
+              io.greptime.v1.Ddl.ChangeTableOptions.class, io.greptime.v1.Ddl.ChangeTableOptions.Builder.class);
     }
 
-    public static final int ATTR_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object attrName_;
+    public static final int KEY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object key_;
     /**
-     * <code>string attr_name = 1;</code>
-     * @return The attrName.
+     * <code>string key = 1;</code>
+     * @return The key.
      */
     @java.lang.Override
-    public java.lang.String getAttrName() {
-      java.lang.Object ref = attrName_;
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        attrName_ = s;
+        key_ = s;
         return s;
       }
     }
     /**
-     * <code>string attr_name = 1;</code>
-     * @return The bytes for attrName.
+     * <code>string key = 1;</code>
+     * @return The bytes for key.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getAttrNameBytes() {
-      java.lang.Object ref = attrName_;
+        getKeyBytes() {
+      java.lang.Object ref = key_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        attrName_ = b;
+        key_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int ATTR_VALUE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object attrValue_;
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object value_;
     /**
-     * <code>string attr_value = 2;</code>
-     * @return The attrValue.
+     * <code>string value = 2;</code>
+     * @return The value.
      */
     @java.lang.Override
-    public java.lang.String getAttrValue() {
-      java.lang.Object ref = attrValue_;
+    public java.lang.String getValue() {
+      java.lang.Object ref = value_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        attrValue_ = s;
+        value_ = s;
         return s;
       }
     }
     /**
-     * <code>string attr_value = 2;</code>
-     * @return The bytes for attrValue.
+     * <code>string value = 2;</code>
+     * @return The bytes for value.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getAttrValueBytes() {
-      java.lang.Object ref = attrValue_;
+        getValueBytes() {
+      java.lang.Object ref = value_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        attrValue_ = b;
+        value_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -22724,11 +22724,11 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(attrName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, attrName_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(attrValue_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, attrValue_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
       }
       unknownFields.writeTo(output);
     }
@@ -22739,11 +22739,11 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(attrName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, attrName_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(attrValue_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, attrValue_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -22755,15 +22755,15 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.Ddl.ChangeTableAttributes)) {
+      if (!(obj instanceof io.greptime.v1.Ddl.ChangeTableOptions)) {
         return super.equals(obj);
       }
-      io.greptime.v1.Ddl.ChangeTableAttributes other = (io.greptime.v1.Ddl.ChangeTableAttributes) obj;
+      io.greptime.v1.Ddl.ChangeTableOptions other = (io.greptime.v1.Ddl.ChangeTableOptions) obj;
 
-      if (!getAttrName()
-          .equals(other.getAttrName())) return false;
-      if (!getAttrValue()
-          .equals(other.getAttrValue())) return false;
+      if (!getKey()
+          .equals(other.getKey())) return false;
+      if (!getValue()
+          .equals(other.getValue())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -22775,78 +22775,78 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ATTR_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getAttrName().hashCode();
-      hash = (37 * hash) + ATTR_VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + getAttrValue().hashCode();
+      hash = (37 * hash) + KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getKey().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(byte[] data)
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseDelimitedFrom(
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.ChangeTableAttributes parseFrom(
+    public static io.greptime.v1.Ddl.ChangeTableOptions parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -22859,7 +22859,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.Ddl.ChangeTableAttributes prototype) {
+    public static Builder newBuilder(io.greptime.v1.Ddl.ChangeTableOptions prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -22875,26 +22875,26 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.ChangeTableAttributes}
+     * Protobuf type {@code greptime.v1.ChangeTableOptions}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.ChangeTableAttributes)
-        io.greptime.v1.Ddl.ChangeTableAttributesOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.ChangeTableOptions)
+        io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableAttributes_descriptor;
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableOptions_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableAttributes_fieldAccessorTable
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableOptions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Ddl.ChangeTableAttributes.class, io.greptime.v1.Ddl.ChangeTableAttributes.Builder.class);
+                io.greptime.v1.Ddl.ChangeTableOptions.class, io.greptime.v1.Ddl.ChangeTableOptions.Builder.class);
       }
 
-      // Construct using io.greptime.v1.Ddl.ChangeTableAttributes.newBuilder()
+      // Construct using io.greptime.v1.Ddl.ChangeTableOptions.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -22912,9 +22912,9 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        attrName_ = "";
+        key_ = "";
 
-        attrValue_ = "";
+        value_ = "";
 
         return this;
       }
@@ -22922,17 +22922,17 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableAttributes_descriptor;
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_ChangeTableOptions_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.ChangeTableAttributes getDefaultInstanceForType() {
-        return io.greptime.v1.Ddl.ChangeTableAttributes.getDefaultInstance();
+      public io.greptime.v1.Ddl.ChangeTableOptions getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.ChangeTableAttributes build() {
-        io.greptime.v1.Ddl.ChangeTableAttributes result = buildPartial();
+      public io.greptime.v1.Ddl.ChangeTableOptions build() {
+        io.greptime.v1.Ddl.ChangeTableOptions result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -22940,10 +22940,10 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.ChangeTableAttributes buildPartial() {
-        io.greptime.v1.Ddl.ChangeTableAttributes result = new io.greptime.v1.Ddl.ChangeTableAttributes(this);
-        result.attrName_ = attrName_;
-        result.attrValue_ = attrValue_;
+      public io.greptime.v1.Ddl.ChangeTableOptions buildPartial() {
+        io.greptime.v1.Ddl.ChangeTableOptions result = new io.greptime.v1.Ddl.ChangeTableOptions(this);
+        result.key_ = key_;
+        result.value_ = value_;
         onBuilt();
         return result;
       }
@@ -22982,22 +22982,22 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Ddl.ChangeTableAttributes) {
-          return mergeFrom((io.greptime.v1.Ddl.ChangeTableAttributes)other);
+        if (other instanceof io.greptime.v1.Ddl.ChangeTableOptions) {
+          return mergeFrom((io.greptime.v1.Ddl.ChangeTableOptions)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.Ddl.ChangeTableAttributes other) {
-        if (other == io.greptime.v1.Ddl.ChangeTableAttributes.getDefaultInstance()) return this;
-        if (!other.getAttrName().isEmpty()) {
-          attrName_ = other.attrName_;
+      public Builder mergeFrom(io.greptime.v1.Ddl.ChangeTableOptions other) {
+        if (other == io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance()) return this;
+        if (!other.getKey().isEmpty()) {
+          key_ = other.key_;
           onChanged();
         }
-        if (!other.getAttrValue().isEmpty()) {
-          attrValue_ = other.attrValue_;
+        if (!other.getValue().isEmpty()) {
+          value_ = other.value_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -23015,11 +23015,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Ddl.ChangeTableAttributes parsedMessage = null;
+        io.greptime.v1.Ddl.ChangeTableOptions parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Ddl.ChangeTableAttributes) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.Ddl.ChangeTableOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -23029,154 +23029,154 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private java.lang.Object attrName_ = "";
+      private java.lang.Object key_ = "";
       /**
-       * <code>string attr_name = 1;</code>
-       * @return The attrName.
+       * <code>string key = 1;</code>
+       * @return The key.
        */
-      public java.lang.String getAttrName() {
-        java.lang.Object ref = attrName_;
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          attrName_ = s;
+          key_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string attr_name = 1;</code>
-       * @return The bytes for attrName.
+       * <code>string key = 1;</code>
+       * @return The bytes for key.
        */
       public com.google.protobuf.ByteString
-          getAttrNameBytes() {
-        java.lang.Object ref = attrName_;
+          getKeyBytes() {
+        java.lang.Object ref = key_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          attrName_ = b;
+          key_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string attr_name = 1;</code>
-       * @param value The attrName to set.
+       * <code>string key = 1;</code>
+       * @param value The key to set.
        * @return This builder for chaining.
        */
-      public Builder setAttrName(
+      public Builder setKey(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        attrName_ = value;
+        key_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string attr_name = 1;</code>
+       * <code>string key = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearAttrName() {
+      public Builder clearKey() {
         
-        attrName_ = getDefaultInstance().getAttrName();
+        key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
       }
       /**
-       * <code>string attr_name = 1;</code>
-       * @param value The bytes for attrName to set.
+       * <code>string key = 1;</code>
+       * @param value The bytes for key to set.
        * @return This builder for chaining.
        */
-      public Builder setAttrNameBytes(
+      public Builder setKeyBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        attrName_ = value;
+        key_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object attrValue_ = "";
+      private java.lang.Object value_ = "";
       /**
-       * <code>string attr_value = 2;</code>
-       * @return The attrValue.
+       * <code>string value = 2;</code>
+       * @return The value.
        */
-      public java.lang.String getAttrValue() {
-        java.lang.Object ref = attrValue_;
+      public java.lang.String getValue() {
+        java.lang.Object ref = value_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          attrValue_ = s;
+          value_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string attr_value = 2;</code>
-       * @return The bytes for attrValue.
+       * <code>string value = 2;</code>
+       * @return The bytes for value.
        */
       public com.google.protobuf.ByteString
-          getAttrValueBytes() {
-        java.lang.Object ref = attrValue_;
+          getValueBytes() {
+        java.lang.Object ref = value_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          attrValue_ = b;
+          value_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string attr_value = 2;</code>
-       * @param value The attrValue to set.
+       * <code>string value = 2;</code>
+       * @param value The value to set.
        * @return This builder for chaining.
        */
-      public Builder setAttrValue(
+      public Builder setValue(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        attrValue_ = value;
+        value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string attr_value = 2;</code>
+       * <code>string value = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearAttrValue() {
+      public Builder clearValue() {
         
-        attrValue_ = getDefaultInstance().getAttrValue();
+        value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
       }
       /**
-       * <code>string attr_value = 2;</code>
-       * @param value The bytes for attrValue to set.
+       * <code>string value = 2;</code>
+       * @param value The bytes for value to set.
        * @return This builder for chaining.
        */
-      public Builder setAttrValueBytes(
+      public Builder setValueBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        attrValue_ = value;
+        value_ = value;
         onChanged();
         return this;
       }
@@ -23193,41 +23193,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.ChangeTableAttributes)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.ChangeTableOptions)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.ChangeTableAttributes)
-    private static final io.greptime.v1.Ddl.ChangeTableAttributes DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.ChangeTableOptions)
+    private static final io.greptime.v1.Ddl.ChangeTableOptions DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.ChangeTableAttributes();
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.ChangeTableOptions();
     }
 
-    public static io.greptime.v1.Ddl.ChangeTableAttributes getDefaultInstance() {
+    public static io.greptime.v1.Ddl.ChangeTableOptions getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ChangeTableAttributes>
-        PARSER = new com.google.protobuf.AbstractParser<ChangeTableAttributes>() {
+    private static final com.google.protobuf.Parser<ChangeTableOptions>
+        PARSER = new com.google.protobuf.AbstractParser<ChangeTableOptions>() {
       @java.lang.Override
-      public ChangeTableAttributes parsePartialFrom(
+      public ChangeTableOptions parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ChangeTableAttributes(input, extensionRegistry);
+        return new ChangeTableOptions(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ChangeTableAttributes> parser() {
+    public static com.google.protobuf.Parser<ChangeTableOptions> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ChangeTableAttributes> getParserForType() {
+    public com.google.protobuf.Parser<ChangeTableOptions> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.Ddl.ChangeTableAttributes getDefaultInstanceForType() {
+    public io.greptime.v1.Ddl.ChangeTableOptions getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -27274,10 +27274,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_ChangeColumnType_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_ChangeTableAttributes_descriptor;
+    internal_static_greptime_v1_ChangeTableOptions_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_ChangeTableAttributes_fieldAccessorTable;
+      internal_static_greptime_v1_ChangeTableOptions_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_DropColumn_descriptor;
   private static final 
@@ -27358,60 +27358,60 @@ java.lang.String defaultValue);
       "ime.v1.CreateTableExpr.TableOptionsEntry" +
       "\022&\n\010table_id\030\n \001(\0132\024.greptime.v1.TableId" +
       "\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\353\002\n\tAlterE" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\346\002\n\tAlterE" +
       "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
       "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_column" +
       "s\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014dr" +
       "op_columns\030\005 \001(\0132\030.greptime.v1.DropColum" +
       "nsH\000\0220\n\014rename_table\030\006 \001(\0132\030.greptime.v1" +
       ".RenameTableH\000\022=\n\023change_column_types\030\007 " +
-      "\001(\0132\036.greptime.v1.ChangeColumnTypesH\000\022D\n" +
-      "\026change_tableAttributes\030\010 \001(\0132\".greptime" +
-      ".v1.ChangeTableAttributesH\000B\006\n\004kind\"\216\001\n\r" +
-      "DropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013s" +
-      "chema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010" +
-      "table_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016" +
-      "drop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDatabaseE" +
-      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
-      "\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022=\n\007" +
-      "options\030\004 \003(\0132,.greptime.v1.CreateDataba" +
-      "seExpr.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateT" +
+      "\001(\0132\036.greptime.v1.ChangeColumnTypesH\000\022?\n" +
+      "\024change_table_options\030\010 \001(\0132\037.greptime.v" +
+      "1.ChangeTableOptionsH\000B\006\n\004kind\"\216\001\n\rDropT" +
       "ableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema" +
       "_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table" +
-      "_id\030\004 \001(\0132\024.greptime.v1.TableId\"U\n\020DropD" +
-      "atabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
-      "ema_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9" +
-      "\n\nAddColumns\022+\n\013add_columns\030\001 \003(\0132\026.grep" +
-      "time.v1.AddColumn\"<\n\013DropColumns\022-\n\014drop" +
-      "_columns\030\001 \003(\0132\027.greptime.v1.DropColumn\"" +
-      "O\n\021ChangeColumnTypes\022:\n\023change_column_ty" +
-      "pes\030\001 \003(\0132\035.greptime.v1.ChangeColumnType" +
-      "\"%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"" +
-      "i\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.grept" +
-      "ime.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.gre" +
-      "ptime.v1.AddColumnLocation\"\236\001\n\020ChangeCol" +
-      "umnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013target_t" +
-      "ype\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022C" +
-      "\n\025target_type_extension\030\003 \001(\0132$.greptime" +
-      ".v1.ColumnDataTypeExtension\">\n\025ChangeTab" +
-      "leAttributes\022\021\n\tattr_name\030\001 \001(\t\022\022\n\nattr_" +
-      "value\030\002 \001(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"" +
-      "\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001" +
-      " \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata" +
-      "_type\030\002 \001(\0162\033.greptime.v1.ColumnDataType" +
-      "\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constra" +
-      "int\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.grept" +
-      "ime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022" +
-      "datatype_extension\030\007 \001(\0132$.greptime.v1.C" +
-      "olumnDataTypeExtension\022+\n\007options\030\010 \001(\0132" +
-      "\032.greptime.v1.ColumnOptions\"\230\001\n\021AddColum" +
-      "nLocation\022B\n\rlocation_type\030\001 \001(\0162+.grept" +
-      "ime.v1.AddColumnLocation.LocationType\022\031\n" +
-      "\021after_column_name\030\002 \001(\t\"$\n\014LocationType" +
-      "\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001BL\n\016io.greptime.v1" +
-      "B\003DdlZ5github.com/GreptimeTeam/greptime-" +
-      "proto/go/greptime/v1b\006proto3"
+      "_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016drop_" +
+      "if_exists\030\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024" +
+      "\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(" +
+      "\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022=\n\007optio" +
+      "ns\030\004 \003(\0132,.greptime.v1.CreateDatabaseExp" +
+      "r.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTableE" +
+      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
+      "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004" +
+      " \001(\0132\024.greptime.v1.TableId\"U\n\020DropDataba" +
+      "seExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_n" +
+      "ame\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAdd" +
+      "Columns\022+\n\013add_columns\030\001 \003(\0132\026.greptime." +
+      "v1.AddColumn\"<\n\013DropColumns\022-\n\014drop_colu" +
+      "mns\030\001 \003(\0132\027.greptime.v1.DropColumn\"O\n\021Ch" +
+      "angeColumnTypes\022:\n\023change_column_types\030\001" +
+      " \003(\0132\035.greptime.v1.ChangeColumnType\"%\n\013R" +
+      "enameTable\022\026\n\016new_table_name\030\001 \001(\t\"i\n\tAd" +
+      "dColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v" +
+      "1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.greptime" +
+      ".v1.AddColumnLocation\"\236\001\n\020ChangeColumnTy" +
+      "pe\022\023\n\013column_name\030\001 \001(\t\0220\n\013target_type\030\002" +
+      " \001(\0162\033.greptime.v1.ColumnDataType\022C\n\025tar" +
+      "get_type_extension\030\003 \001(\0132$.greptime.v1.C" +
+      "olumnDataTypeExtension\"0\n\022ChangeTableOpt" +
+      "ions\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\032\n\nDrop" +
+      "Column\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 " +
+      "\001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022" +
+      "\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.grept" +
+      "ime.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001" +
+      "(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemant" +
+      "ic_type\030\005 \001(\0162\031.greptime.v1.SemanticType" +
+      "\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030" +
+      "\007 \001(\0132$.greptime.v1.ColumnDataTypeExtens" +
+      "ion\022+\n\007options\030\010 \001(\0132\032.greptime.v1.Colum" +
+      "nOptions\"\230\001\n\021AddColumnLocation\022B\n\rlocati" +
+      "on_type\030\001 \001(\0162+.greptime.v1.AddColumnLoc" +
+      "ation.LocationType\022\031\n\021after_column_name\030" +
+      "\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTE" +
+      "R\020\001BL\n\016io.greptime.v1B\003DdlZ5github.com/G" +
+      "reptimeTeam/greptime-proto/go/greptime/v" +
+      "1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27471,7 +27471,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_AlterExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ChangeColumnTypes", "ChangeTableAttributes", "Kind", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ChangeColumnTypes", "ChangeTableOptions", "Kind", });
     internal_static_greptime_v1_DropTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_DropTableExpr_fieldAccessorTable = new
@@ -27538,12 +27538,12 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ChangeColumnType_descriptor,
         new java.lang.String[] { "ColumnName", "TargetType", "TargetTypeExtension", });
-    internal_static_greptime_v1_ChangeTableAttributes_descriptor =
+    internal_static_greptime_v1_ChangeTableOptions_descriptor =
       getDescriptor().getMessageTypes().get(17);
-    internal_static_greptime_v1_ChangeTableAttributes_fieldAccessorTable = new
+    internal_static_greptime_v1_ChangeTableOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_ChangeTableAttributes_descriptor,
-        new java.lang.String[] { "AttrName", "AttrValue", });
+        internal_static_greptime_v1_ChangeTableOptions_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_DropColumn_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_DropColumn_fieldAccessorTable = new
