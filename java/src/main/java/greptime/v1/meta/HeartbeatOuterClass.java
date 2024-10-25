@@ -37,9 +37,10 @@ public final class HeartbeatOuterClass {
     Follower(1),
     /**
      * <pre>
-     * A downgrading region, which is in the process of downgrading from Leader to Follower.
-     * 
-     * This role is used to prevent the region from being written during the downgrade process.
+     * A downgrading region, which is in the process of downgrading from Leader to
+     * Follower.
+     * This role is used to prevent the region from being written during the
+     * downgrade process.
      * </pre>
      *
      * <code>DowngradingLeader = 2;</code>
@@ -66,9 +67,10 @@ public final class HeartbeatOuterClass {
     public static final int Follower_VALUE = 1;
     /**
      * <pre>
-     * A downgrading region, which is in the process of downgrading from Leader to Follower.
-     * 
-     * This role is used to prevent the region from being written during the downgrade process.
+     * A downgrading region, which is in the process of downgrading from Leader to
+     * Follower.
+     * This role is used to prevent the region from being written during the
+     * downgrade process.
      * </pre>
      *
      * <code>DowngradingLeader = 2;</code>
@@ -337,6 +339,21 @@ public final class HeartbeatOuterClass {
      * <code>.greptime.v1.meta.NodeInfo info = 8;</code>
      */
     greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+     * @return Whether the flowStat field is set.
+     */
+    boolean hasFlowStat();
+    /**
+     * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+     * @return The flowStat.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.FlowStat getFlowStat();
+    /**
+     * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+     */
+    greptime.v1.meta.HeartbeatOuterClass.FlowStatOrBuilder getFlowStatOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.HeartbeatRequest}
@@ -465,6 +482,19 @@ public final class HeartbeatOuterClass {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(info_);
                 info_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 74: {
+              greptime.v1.meta.HeartbeatOuterClass.FlowStat.Builder subBuilder = null;
+              if (flowStat_ != null) {
+                subBuilder = flowStat_.toBuilder();
+              }
+              flowStat_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.FlowStat.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(flowStat_);
+                flowStat_ = subBuilder.buildPartial();
               }
 
               break;
@@ -762,6 +792,32 @@ public final class HeartbeatOuterClass {
       return getInfo();
     }
 
+    public static final int FLOW_STAT_FIELD_NUMBER = 9;
+    private greptime.v1.meta.HeartbeatOuterClass.FlowStat flowStat_;
+    /**
+     * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+     * @return Whether the flowStat field is set.
+     */
+    @java.lang.Override
+    public boolean hasFlowStat() {
+      return flowStat_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+     * @return The flowStat.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FlowStat getFlowStat() {
+      return flowStat_ == null ? greptime.v1.meta.HeartbeatOuterClass.FlowStat.getDefaultInstance() : flowStat_;
+    }
+    /**
+     * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FlowStatOrBuilder getFlowStatOrBuilder() {
+      return getFlowStat();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -799,6 +855,9 @@ public final class HeartbeatOuterClass {
       }
       if (info_ != null) {
         output.writeMessage(8, getInfo());
+      }
+      if (flowStat_ != null) {
+        output.writeMessage(9, getFlowStat());
       }
       unknownFields.writeTo(output);
     }
@@ -840,6 +899,10 @@ public final class HeartbeatOuterClass {
       if (info_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getInfo());
+      }
+      if (flowStat_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getFlowStat());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -887,6 +950,11 @@ public final class HeartbeatOuterClass {
         if (!getInfo()
             .equals(other.getInfo())) return false;
       }
+      if (hasFlowStat() != other.hasFlowStat()) return false;
+      if (hasFlowStat()) {
+        if (!getFlowStat()
+            .equals(other.getFlowStat())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -927,6 +995,10 @@ public final class HeartbeatOuterClass {
       if (hasInfo()) {
         hash = (37 * hash) + INFO_FIELD_NUMBER;
         hash = (53 * hash) + getInfo().hashCode();
+      }
+      if (hasFlowStat()) {
+        hash = (37 * hash) + FLOW_STAT_FIELD_NUMBER;
+        hash = (53 * hash) + getFlowStat().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1102,6 +1174,12 @@ public final class HeartbeatOuterClass {
           info_ = null;
           infoBuilder_ = null;
         }
+        if (flowStatBuilder_ == null) {
+          flowStat_ = null;
+        } else {
+          flowStat_ = null;
+          flowStatBuilder_ = null;
+        }
         return this;
       }
 
@@ -1164,6 +1242,11 @@ public final class HeartbeatOuterClass {
           result.info_ = info_;
         } else {
           result.info_ = infoBuilder_.build();
+        }
+        if (flowStatBuilder_ == null) {
+          result.flowStat_ = flowStat_;
+        } else {
+          result.flowStat_ = flowStatBuilder_.build();
         }
         onBuilt();
         return result;
@@ -1259,6 +1342,9 @@ public final class HeartbeatOuterClass {
         }
         if (other.hasInfo()) {
           mergeInfo(other.getInfo());
+        }
+        if (other.hasFlowStat()) {
+          mergeFlowStat(other.getFlowStat());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2389,6 +2475,125 @@ public final class HeartbeatOuterClass {
           info_ = null;
         }
         return infoBuilder_;
+      }
+
+      private greptime.v1.meta.HeartbeatOuterClass.FlowStat flowStat_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.FlowStat, greptime.v1.meta.HeartbeatOuterClass.FlowStat.Builder, greptime.v1.meta.HeartbeatOuterClass.FlowStatOrBuilder> flowStatBuilder_;
+      /**
+       * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+       * @return Whether the flowStat field is set.
+       */
+      public boolean hasFlowStat() {
+        return flowStatBuilder_ != null || flowStat_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+       * @return The flowStat.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.FlowStat getFlowStat() {
+        if (flowStatBuilder_ == null) {
+          return flowStat_ == null ? greptime.v1.meta.HeartbeatOuterClass.FlowStat.getDefaultInstance() : flowStat_;
+        } else {
+          return flowStatBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+       */
+      public Builder setFlowStat(greptime.v1.meta.HeartbeatOuterClass.FlowStat value) {
+        if (flowStatBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          flowStat_ = value;
+          onChanged();
+        } else {
+          flowStatBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+       */
+      public Builder setFlowStat(
+          greptime.v1.meta.HeartbeatOuterClass.FlowStat.Builder builderForValue) {
+        if (flowStatBuilder_ == null) {
+          flowStat_ = builderForValue.build();
+          onChanged();
+        } else {
+          flowStatBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+       */
+      public Builder mergeFlowStat(greptime.v1.meta.HeartbeatOuterClass.FlowStat value) {
+        if (flowStatBuilder_ == null) {
+          if (flowStat_ != null) {
+            flowStat_ =
+              greptime.v1.meta.HeartbeatOuterClass.FlowStat.newBuilder(flowStat_).mergeFrom(value).buildPartial();
+          } else {
+            flowStat_ = value;
+          }
+          onChanged();
+        } else {
+          flowStatBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+       */
+      public Builder clearFlowStat() {
+        if (flowStatBuilder_ == null) {
+          flowStat_ = null;
+          onChanged();
+        } else {
+          flowStat_ = null;
+          flowStatBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.FlowStat.Builder getFlowStatBuilder() {
+        
+        onChanged();
+        return getFlowStatFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.FlowStatOrBuilder getFlowStatOrBuilder() {
+        if (flowStatBuilder_ != null) {
+          return flowStatBuilder_.getMessageOrBuilder();
+        } else {
+          return flowStat_ == null ?
+              greptime.v1.meta.HeartbeatOuterClass.FlowStat.getDefaultInstance() : flowStat_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.FlowStat, greptime.v1.meta.HeartbeatOuterClass.FlowStat.Builder, greptime.v1.meta.HeartbeatOuterClass.FlowStatOrBuilder> 
+          getFlowStatFieldBuilder() {
+        if (flowStatBuilder_ == null) {
+          flowStatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.FlowStat, greptime.v1.meta.HeartbeatOuterClass.FlowStat.Builder, greptime.v1.meta.HeartbeatOuterClass.FlowStatOrBuilder>(
+                  getFlowStat(),
+                  getParentForChildren(),
+                  isClean());
+          flowStat_ = null;
+        }
+        return flowStatBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4739,6 +4944,810 @@ com.google.protobuf.ByteString defaultValue);
 
     @java.lang.Override
     public greptime.v1.meta.HeartbeatOuterClass.RegionStat getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FlowStatOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.FlowStat)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Each flow's in mem state's size in bytes
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     */
+    int getFlowStatSizeCount();
+    /**
+     * <pre>
+     * Each flow's in mem state's size in bytes
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     */
+    boolean containsFlowStatSize(
+        long key);
+    /**
+     * Use {@link #getFlowStatSizeMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Long, java.lang.Long>
+    getFlowStatSize();
+    /**
+     * <pre>
+     * Each flow's in mem state's size in bytes
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     */
+    java.util.Map<java.lang.Long, java.lang.Long>
+    getFlowStatSizeMap();
+    /**
+     * <pre>
+     * Each flow's in mem state's size in bytes
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     */
+
+    long getFlowStatSizeOrDefault(
+        long key,
+        long defaultValue);
+    /**
+     * <pre>
+     * Each flow's in mem state's size in bytes
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     */
+
+    long getFlowStatSizeOrThrow(
+        long key);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.FlowStat}
+   */
+  public static final class FlowStat extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.FlowStat)
+      FlowStatOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FlowStat.newBuilder() to construct.
+    private FlowStat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FlowStat() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FlowStat();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FlowStat(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                flowStatSize_ = com.google.protobuf.MapField.newMapField(
+                    FlowStatSizeDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              flowStatSize__ = input.readMessage(
+                  FlowStatSizeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              flowStatSize_.getMutableMap().put(
+                  flowStatSize__.getKey(), flowStatSize__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlowStat_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 1:
+          return internalGetFlowStatSize();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlowStat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.HeartbeatOuterClass.FlowStat.class, greptime.v1.meta.HeartbeatOuterClass.FlowStat.Builder.class);
+    }
+
+    public static final int FLOW_STAT_SIZE_FIELD_NUMBER = 1;
+    private static final class FlowStatSizeDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.Long, java.lang.Long> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.Long, java.lang.Long>newDefaultInstance(
+                  greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.UINT64,
+                  0L,
+                  com.google.protobuf.WireFormat.FieldType.UINT64,
+                  0L);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.Long, java.lang.Long> flowStatSize_;
+    private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+    internalGetFlowStatSize() {
+      if (flowStatSize_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            FlowStatSizeDefaultEntryHolder.defaultEntry);
+      }
+      return flowStatSize_;
+    }
+
+    public int getFlowStatSizeCount() {
+      return internalGetFlowStatSize().getMap().size();
+    }
+    /**
+     * <pre>
+     * Each flow's in mem state's size in bytes
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsFlowStatSize(
+        long key) {
+      
+      return internalGetFlowStatSize().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getFlowStatSizeMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Long, java.lang.Long> getFlowStatSize() {
+      return getFlowStatSizeMap();
+    }
+    /**
+     * <pre>
+     * Each flow's in mem state's size in bytes
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Long, java.lang.Long> getFlowStatSizeMap() {
+      return internalGetFlowStatSize().getMap();
+    }
+    /**
+     * <pre>
+     * Each flow's in mem state's size in bytes
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     */
+    @java.lang.Override
+
+    public long getFlowStatSizeOrDefault(
+        long key,
+        long defaultValue) {
+      
+      java.util.Map<java.lang.Long, java.lang.Long> map =
+          internalGetFlowStatSize().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Each flow's in mem state's size in bytes
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     */
+    @java.lang.Override
+
+    public long getFlowStatSizeOrThrow(
+        long key) {
+      
+      java.util.Map<java.lang.Long, java.lang.Long> map =
+          internalGetFlowStatSize().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      com.google.protobuf.GeneratedMessageV3
+        .serializeLongMapTo(
+          output,
+          internalGetFlowStatSize(),
+          FlowStatSizeDefaultEntryHolder.defaultEntry,
+          1);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (java.util.Map.Entry<java.lang.Long, java.lang.Long> entry
+           : internalGetFlowStatSize().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+        flowStatSize__ = FlowStatSizeDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, flowStatSize__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.FlowStat)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.HeartbeatOuterClass.FlowStat other = (greptime.v1.meta.HeartbeatOuterClass.FlowStat) obj;
+
+      if (!internalGetFlowStatSize().equals(
+          other.internalGetFlowStatSize())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (!internalGetFlowStatSize().getMap().isEmpty()) {
+        hash = (37 * hash) + FLOW_STAT_SIZE_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetFlowStatSize().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.FlowStat prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.FlowStat}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.FlowStat)
+        greptime.v1.meta.HeartbeatOuterClass.FlowStatOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlowStat_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetFlowStatSize();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMutableFlowStatSize();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlowStat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.HeartbeatOuterClass.FlowStat.class, greptime.v1.meta.HeartbeatOuterClass.FlowStat.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.FlowStat.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        internalGetMutableFlowStatSize().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlowStat_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FlowStat getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.FlowStat.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FlowStat build() {
+        greptime.v1.meta.HeartbeatOuterClass.FlowStat result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FlowStat buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.FlowStat result = new greptime.v1.meta.HeartbeatOuterClass.FlowStat(this);
+        int from_bitField0_ = bitField0_;
+        result.flowStatSize_ = internalGetFlowStatSize();
+        result.flowStatSize_.makeImmutable();
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.FlowStat) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.FlowStat)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.FlowStat other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.FlowStat.getDefaultInstance()) return this;
+        internalGetMutableFlowStatSize().mergeFrom(
+            other.internalGetFlowStatSize());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.HeartbeatOuterClass.FlowStat parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.FlowStat) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.MapField<
+          java.lang.Long, java.lang.Long> flowStatSize_;
+      private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      internalGetFlowStatSize() {
+        if (flowStatSize_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              FlowStatSizeDefaultEntryHolder.defaultEntry);
+        }
+        return flowStatSize_;
+      }
+      private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      internalGetMutableFlowStatSize() {
+        onChanged();;
+        if (flowStatSize_ == null) {
+          flowStatSize_ = com.google.protobuf.MapField.newMapField(
+              FlowStatSizeDefaultEntryHolder.defaultEntry);
+        }
+        if (!flowStatSize_.isMutable()) {
+          flowStatSize_ = flowStatSize_.copy();
+        }
+        return flowStatSize_;
+      }
+
+      public int getFlowStatSizeCount() {
+        return internalGetFlowStatSize().getMap().size();
+      }
+      /**
+       * <pre>
+       * Each flow's in mem state's size in bytes
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsFlowStatSize(
+          long key) {
+        
+        return internalGetFlowStatSize().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getFlowStatSizeMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Long, java.lang.Long> getFlowStatSize() {
+        return getFlowStatSizeMap();
+      }
+      /**
+       * <pre>
+       * Each flow's in mem state's size in bytes
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.Long, java.lang.Long> getFlowStatSizeMap() {
+        return internalGetFlowStatSize().getMap();
+      }
+      /**
+       * <pre>
+       * Each flow's in mem state's size in bytes
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       */
+      @java.lang.Override
+
+      public long getFlowStatSizeOrDefault(
+          long key,
+          long defaultValue) {
+        
+        java.util.Map<java.lang.Long, java.lang.Long> map =
+            internalGetFlowStatSize().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * Each flow's in mem state's size in bytes
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       */
+      @java.lang.Override
+
+      public long getFlowStatSizeOrThrow(
+          long key) {
+        
+        java.util.Map<java.lang.Long, java.lang.Long> map =
+            internalGetFlowStatSize().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearFlowStatSize() {
+        internalGetMutableFlowStatSize().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * Each flow's in mem state's size in bytes
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       */
+
+      public Builder removeFlowStatSize(
+          long key) {
+        
+        internalGetMutableFlowStatSize().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Long, java.lang.Long>
+      getMutableFlowStatSize() {
+        return internalGetMutableFlowStatSize().getMutableMap();
+      }
+      /**
+       * <pre>
+       * Each flow's in mem state's size in bytes
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       */
+      public Builder putFlowStatSize(
+          long key,
+          long value) {
+        
+        
+        internalGetMutableFlowStatSize().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Each flow's in mem state's size in bytes
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       */
+
+      public Builder putAllFlowStatSize(
+          java.util.Map<java.lang.Long, java.lang.Long> values) {
+        internalGetMutableFlowStatSize().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.FlowStat)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.FlowStat)
+    private static final greptime.v1.meta.HeartbeatOuterClass.FlowStat DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.FlowStat();
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.FlowStat getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FlowStat>
+        PARSER = new com.google.protobuf.AbstractParser<FlowStat>() {
+      @java.lang.Override
+      public FlowStat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FlowStat(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FlowStat> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FlowStat> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FlowStat getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10337,6 +11346,16 @@ com.google.protobuf.ByteString defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_RegionStat_ExtensionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_FlowStat_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_FlowStat_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10377,7 +11396,7 @@ com.google.protobuf.ByteString defaultValue);
     java.lang.String[] descriptorData = {
       "\n greptime/v1/meta/heartbeat.proto\022\020grep" +
       "time.v1.meta\032\035greptime/v1/meta/common.pr" +
-      "oto\"\355\002\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
+      "oto\"\234\003\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
       "2\037.greptime.v1.meta.RequestHeader\022$\n\004pee" +
       "r\030\002 \001(\0132\026.greptime.v1.meta.Peer\0227\n\017repor" +
       "t_interval\030\003 \001(\0132\036.greptime.v1.meta.Time" +
@@ -10386,41 +11405,46 @@ com.google.protobuf.ByteString defaultValue);
       "\005 \001(\0132 .greptime.v1.meta.MailboxMessage\022" +
       "\034\n\024duration_since_epoch\030\006 \001(\004\022\022\n\nnode_ep" +
       "och\030\007 \001(\004\022(\n\004info\030\010 \001(\0132\032.greptime.v1.me" +
-      "ta.NodeInfo\"F\n\010NodeInfo\022\017\n\007version\030\001 \001(\t" +
-      "\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_time_ms\030\003 " +
-      "\001(\004\"\207\002\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n" +
-      "\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate" +
-      "_bytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001" +
-      "(\0162\034.greptime.v1.meta.RegionRole\022@\n\nexte" +
-      "nsions\030c \003(\0132,.greptime.v1.meta.RegionSt" +
-      "at.ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\265\001\n\021Heartb" +
-      "eatResponse\0220\n\006header\030\001 \001(\0132 .greptime.v" +
-      "1.meta.ResponseHeader\0229\n\017mailbox_message" +
-      "\030\002 \001(\0132 .greptime.v1.meta.MailboxMessage" +
-      "\0223\n\014region_lease\030\003 \001(\0132\035.greptime.v1.met" +
-      "a.RegionLease\"N\n\rGrantedRegion\022\021\n\tregion" +
-      "_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.me" +
-      "ta.RegionRole\"\222\001\n\013RegionLease\0220\n\007regions" +
-      "\030\001 \003(\0132\037.greptime.v1.meta.GrantedRegion\022" +
-      "\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_s" +
-      "econds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003" +
-      "(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037" +
-      ".greptime.v1.meta.RequestHeader\"m\n\021AskLe" +
-      "aderResponse\0220\n\006header\030\001 \001(\0132 .greptime." +
-      "v1.meta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026" +
-      ".greptime.v1.meta.Peer\"|\n\016MailboxMessage" +
-      "\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 " +
-      "\001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(" +
-      "\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRo" +
-      "le\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgrad" +
-      "ingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\"" +
-      ".greptime.v1.meta.HeartbeatRequest\032#.gre" +
-      "ptime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n" +
-      "\tAskLeader\022\".greptime.v1.meta.AskLeaderR" +
-      "equest\032#.greptime.v1.meta.AskLeaderRespo" +
-      "nse\"\000B<Z:github.com/GreptimeTeam/greptim" +
-      "e-proto/go/greptime/v1/metab\006proto3"
+      "ta.NodeInfo\022-\n\tflow_stat\030\t \001(\0132\032.greptim" +
+      "e.v1.meta.FlowStat\"F\n\010NodeInfo\022\017\n\007versio" +
+      "n\030\001 \001(\t\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_tim" +
+      "e_ms\030\003 \001(\004\"\207\002\n\nRegionStat\022\021\n\tregion_id\030\001" +
+      " \001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021appr" +
+      "oximate_bytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004r" +
+      "ole\030\007 \001(\0162\034.greptime.v1.meta.RegionRole\022" +
+      "@\n\nextensions\030c \003(\0132,.greptime.v1.meta.R" +
+      "egionStat.ExtensionsEntry\0321\n\017ExtensionsE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\205\001\n" +
+      "\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132,.grep" +
+      "time.v1.meta.FlowStat.FlowStatSizeEntry\032" +
+      "3\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\004\022\r\n\005val" +
+      "ue\030\002 \001(\004:\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006he" +
+      "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
+      "ader\0229\n\017mailbox_message\030\002 \001(\0132 .greptime" +
+      ".v1.meta.MailboxMessage\0223\n\014region_lease\030" +
+      "\003 \001(\0132\035.greptime.v1.meta.RegionLease\"N\n\r" +
+      "GrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role" +
+      "\030\002 \001(\0162\034.greptime.v1.meta.RegionRole\"\222\001\n" +
+      "\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.greptime" +
+      ".v1.meta.GrantedRegion\022\034\n\024duration_since" +
+      "_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024c" +
+      "loseable_region_ids\030\004 \003(\004\"C\n\020AskLeaderRe" +
+      "quest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta" +
+      ".RequestHeader\"m\n\021AskLeaderResponse\0220\n\006h" +
+      "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH" +
+      "eader\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.meta" +
+      ".Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007s" +
+      "ubject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030" +
+      "\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000" +
+      "B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n" +
+      "\010Follower\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tH" +
+      "eartbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta" +
+      ".HeartbeatRequest\032#.greptime.v1.meta.Hea" +
+      "rtbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".grep" +
+      "time.v1.meta.AskLeaderRequest\032#.greptime" +
+      ".v1.meta.AskLeaderResponse\"\000B<Z:github.c" +
+      "om/GreptimeTeam/greptime-proto/go/grepti" +
+      "me/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10432,7 +11456,7 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_HeartbeatRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatRequest_descriptor,
-        new java.lang.String[] { "Header", "Peer", "ReportInterval", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", "Info", });
+        new java.lang.String[] { "Header", "Peer", "ReportInterval", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", "Info", "FlowStat", });
     internal_static_greptime_v1_meta_NodeInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_meta_NodeInfo_fieldAccessorTable = new
@@ -10451,38 +11475,50 @@ com.google.protobuf.ByteString defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
+    internal_static_greptime_v1_meta_FlowStat_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_greptime_v1_meta_FlowStat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_FlowStat_descriptor,
+        new java.lang.String[] { "FlowStatSize", });
+    internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_descriptor =
+      internal_static_greptime_v1_meta_FlowStat_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatResponse_descriptor,
         new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", });
     internal_static_greptime_v1_meta_GrantedRegion_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_GrantedRegion_descriptor,
         new java.lang.String[] { "RegionId", "Role", });
     internal_static_greptime_v1_meta_RegionLease_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_meta_RegionLease_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionLease_descriptor,
         new java.lang.String[] { "Regions", "DurationSinceEpoch", "LeaseSeconds", "CloseableRegionIds", });
     internal_static_greptime_v1_meta_AskLeaderRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_AskLeaderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderRequest_descriptor,
         new java.lang.String[] { "Header", });
     internal_static_greptime_v1_meta_AskLeaderResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_meta_AskLeaderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderResponse_descriptor,
         new java.lang.String[] { "Header", "Leader", });
     internal_static_greptime_v1_meta_MailboxMessage_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_meta_MailboxMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MailboxMessage_descriptor,
