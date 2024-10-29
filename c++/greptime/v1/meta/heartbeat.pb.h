@@ -877,13 +877,13 @@ class RegionStat final :
 // -------------------------------------------------------------------
 
 class FlowStat_FlowStatSizeEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowStat_FlowStatSizeEntry_DoNotUse, 
-    uint64_t, uint64_t,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    uint32_t, uint64_t,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> {
 public:
   typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowStat_FlowStatSizeEntry_DoNotUse, 
-    uint64_t, uint64_t,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    uint32_t, uint64_t,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> SuperType;
   FlowStat_FlowStatSizeEntry_DoNotUse();
   explicit PROTOBUF_CONSTEXPR FlowStat_FlowStatSizeEntry_DoNotUse(
@@ -1026,21 +1026,21 @@ class FlowStat final :
   enum : int {
     kFlowStatSizeFieldNumber = 1,
   };
-  // map<uint64, uint64> flow_stat_size = 1;
+  // map<uint32, uint64> flow_stat_size = 1;
   int flow_stat_size_size() const;
   private:
   int _internal_flow_stat_size_size() const;
   public:
   void clear_flow_stat_size();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >&
       _internal_flow_stat_size() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+  ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >*
       _internal_mutable_flow_stat_size();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >&
       flow_stat_size() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+  ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >*
       mutable_flow_stat_size();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.FlowStat)
@@ -1053,8 +1053,8 @@ class FlowStat final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
         FlowStat_FlowStatSizeEntry_DoNotUse,
-        uint64_t, uint64_t,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+        uint32_t, uint64_t,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> flow_stat_size_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -3130,7 +3130,7 @@ RegionStat::mutable_extensions() {
 
 // FlowStat
 
-// map<uint64, uint64> flow_stat_size = 1;
+// map<uint32, uint64> flow_stat_size = 1;
 inline int FlowStat::_internal_flow_stat_size_size() const {
   return _impl_.flow_stat_size_.size();
 }
@@ -3140,20 +3140,20 @@ inline int FlowStat::flow_stat_size_size() const {
 inline void FlowStat::clear_flow_stat_size() {
   _impl_.flow_stat_size_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >&
 FlowStat::_internal_flow_stat_size() const {
   return _impl_.flow_stat_size_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >&
 FlowStat::flow_stat_size() const {
   // @@protoc_insertion_point(field_map:greptime.v1.meta.FlowStat.flow_stat_size)
   return _internal_flow_stat_size();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >*
 FlowStat::_internal_mutable_flow_stat_size() {
   return _impl_.flow_stat_size_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >*
 FlowStat::mutable_flow_stat_size() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.FlowStat.flow_stat_size)
   return _internal_mutable_flow_stat_size();

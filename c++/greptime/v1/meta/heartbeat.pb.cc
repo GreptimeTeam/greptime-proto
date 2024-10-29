@@ -387,7 +387,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\205\001\n"
   "\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132,.grep"
   "time.v1.meta.FlowStat.FlowStatSizeEntry\032"
-  "3\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\004\022\r\n\005val"
+  "3\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005val"
   "ue\030\002 \001(\004:\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006he"
   "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe"
   "ader\0229\n\017mailbox_message\030\002 \001(\0132 .greptime"
@@ -1749,7 +1749,7 @@ const char* FlowStat::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // map<uint64, uint64> flow_stat_size = 1;
+      // map<uint32, uint64> flow_stat_size = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
@@ -1791,9 +1791,9 @@ uint8_t* FlowStat::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // map<uint64, uint64> flow_stat_size = 1;
+  // map<uint32, uint64> flow_stat_size = 1;
   if (!this->_internal_flow_stat_size().empty()) {
-    using MapType = ::_pb::Map<uint64_t, uint64_t>;
+    using MapType = ::_pb::Map<uint32_t, uint64_t>;
     using WireHelper = FlowStat_FlowStatSizeEntry_DoNotUse::Funcs;
     const auto& map_field = this->_internal_flow_stat_size();
 
@@ -1824,10 +1824,10 @@ size_t FlowStat::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<uint64, uint64> flow_stat_size = 1;
+  // map<uint32, uint64> flow_stat_size = 1;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_flow_stat_size_size());
-  for (::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >::const_iterator
+  for (::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >::const_iterator
       it = this->_internal_flow_stat_size().begin();
       it != this->_internal_flow_stat_size().end(); ++it) {
     total_size += FlowStat_FlowStatSizeEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);

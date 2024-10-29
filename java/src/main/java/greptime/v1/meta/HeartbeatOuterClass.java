@@ -4956,56 +4956,66 @@ com.google.protobuf.ByteString defaultValue);
     /**
      * <pre>
      * Each flow's in mem state's size in bytes
+     * due to protobuf's key can't be a message, so we use uint32 as the key which
+     * is [`FlowId`]'s inner field `id`
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
      */
     int getFlowStatSizeCount();
     /**
      * <pre>
      * Each flow's in mem state's size in bytes
+     * due to protobuf's key can't be a message, so we use uint32 as the key which
+     * is [`FlowId`]'s inner field `id`
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
      */
     boolean containsFlowStatSize(
-        long key);
+        int key);
     /**
      * Use {@link #getFlowStatSizeMap()} instead.
      */
     @java.lang.Deprecated
-    java.util.Map<java.lang.Long, java.lang.Long>
+    java.util.Map<java.lang.Integer, java.lang.Long>
     getFlowStatSize();
     /**
      * <pre>
      * Each flow's in mem state's size in bytes
+     * due to protobuf's key can't be a message, so we use uint32 as the key which
+     * is [`FlowId`]'s inner field `id`
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
      */
-    java.util.Map<java.lang.Long, java.lang.Long>
+    java.util.Map<java.lang.Integer, java.lang.Long>
     getFlowStatSizeMap();
     /**
      * <pre>
      * Each flow's in mem state's size in bytes
+     * due to protobuf's key can't be a message, so we use uint32 as the key which
+     * is [`FlowId`]'s inner field `id`
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
      */
 
     long getFlowStatSizeOrDefault(
-        long key,
+        int key,
         long defaultValue);
     /**
      * <pre>
      * Each flow's in mem state's size in bytes
+     * due to protobuf's key can't be a message, so we use uint32 as the key which
+     * is [`FlowId`]'s inner field `id`
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
      */
 
     long getFlowStatSizeOrThrow(
-        long key);
+        int key);
   }
   /**
    * Protobuf type {@code greptime.v1.meta.FlowStat}
@@ -5059,7 +5069,7 @@ com.google.protobuf.ByteString defaultValue);
                     FlowStatSizeDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000001;
               }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
               flowStatSize__ = input.readMessage(
                   FlowStatSizeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               flowStatSize_.getMutableMap().put(
@@ -5115,18 +5125,18 @@ com.google.protobuf.ByteString defaultValue);
     public static final int FLOW_STAT_SIZE_FIELD_NUMBER = 1;
     private static final class FlowStatSizeDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          java.lang.Long, java.lang.Long> defaultEntry =
+          java.lang.Integer, java.lang.Long> defaultEntry =
               com.google.protobuf.MapEntry
-              .<java.lang.Long, java.lang.Long>newDefaultInstance(
+              .<java.lang.Integer, java.lang.Long>newDefaultInstance(
                   greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.UINT64,
-                  0L,
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
                   com.google.protobuf.WireFormat.FieldType.UINT64,
                   0L);
     }
     private com.google.protobuf.MapField<
-        java.lang.Long, java.lang.Long> flowStatSize_;
-    private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        java.lang.Integer, java.lang.Long> flowStatSize_;
+    private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
     internalGetFlowStatSize() {
       if (flowStatSize_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -5141,14 +5151,16 @@ com.google.protobuf.ByteString defaultValue);
     /**
      * <pre>
      * Each flow's in mem state's size in bytes
+     * due to protobuf's key can't be a message, so we use uint32 as the key which
+     * is [`FlowId`]'s inner field `id`
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
      */
 
     @java.lang.Override
     public boolean containsFlowStatSize(
-        long key) {
+        int key) {
       
       return internalGetFlowStatSize().getMap().containsKey(key);
     }
@@ -5157,51 +5169,57 @@ com.google.protobuf.ByteString defaultValue);
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.Long, java.lang.Long> getFlowStatSize() {
+    public java.util.Map<java.lang.Integer, java.lang.Long> getFlowStatSize() {
       return getFlowStatSizeMap();
     }
     /**
      * <pre>
      * Each flow's in mem state's size in bytes
+     * due to protobuf's key can't be a message, so we use uint32 as the key which
+     * is [`FlowId`]'s inner field `id`
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.Long, java.lang.Long> getFlowStatSizeMap() {
+    public java.util.Map<java.lang.Integer, java.lang.Long> getFlowStatSizeMap() {
       return internalGetFlowStatSize().getMap();
     }
     /**
      * <pre>
      * Each flow's in mem state's size in bytes
+     * due to protobuf's key can't be a message, so we use uint32 as the key which
+     * is [`FlowId`]'s inner field `id`
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
      */
     @java.lang.Override
 
     public long getFlowStatSizeOrDefault(
-        long key,
+        int key,
         long defaultValue) {
       
-      java.util.Map<java.lang.Long, java.lang.Long> map =
+      java.util.Map<java.lang.Integer, java.lang.Long> map =
           internalGetFlowStatSize().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
      * <pre>
      * Each flow's in mem state's size in bytes
+     * due to protobuf's key can't be a message, so we use uint32 as the key which
+     * is [`FlowId`]'s inner field `id`
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+     * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
      */
     @java.lang.Override
 
     public long getFlowStatSizeOrThrow(
-        long key) {
+        int key) {
       
-      java.util.Map<java.lang.Long, java.lang.Long> map =
+      java.util.Map<java.lang.Integer, java.lang.Long> map =
           internalGetFlowStatSize().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
@@ -5224,7 +5242,7 @@ com.google.protobuf.ByteString defaultValue);
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       com.google.protobuf.GeneratedMessageV3
-        .serializeLongMapTo(
+        .serializeIntegerMapTo(
           output,
           internalGetFlowStatSize(),
           FlowStatSizeDefaultEntryHolder.defaultEntry,
@@ -5238,9 +5256,9 @@ com.google.protobuf.ByteString defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<java.lang.Long, java.lang.Long> entry
+      for (java.util.Map.Entry<java.lang.Integer, java.lang.Long> entry
            : internalGetFlowStatSize().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+        com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
         flowStatSize__ = FlowStatSizeDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -5546,8 +5564,8 @@ com.google.protobuf.ByteString defaultValue);
       private int bitField0_;
 
       private com.google.protobuf.MapField<
-          java.lang.Long, java.lang.Long> flowStatSize_;
-      private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+          java.lang.Integer, java.lang.Long> flowStatSize_;
+      private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
       internalGetFlowStatSize() {
         if (flowStatSize_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -5555,7 +5573,7 @@ com.google.protobuf.ByteString defaultValue);
         }
         return flowStatSize_;
       }
-      private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
       internalGetMutableFlowStatSize() {
         onChanged();;
         if (flowStatSize_ == null) {
@@ -5574,14 +5592,16 @@ com.google.protobuf.ByteString defaultValue);
       /**
        * <pre>
        * Each flow's in mem state's size in bytes
+       * due to protobuf's key can't be a message, so we use uint32 as the key which
+       * is [`FlowId`]'s inner field `id`
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
        */
 
       @java.lang.Override
       public boolean containsFlowStatSize(
-          long key) {
+          int key) {
         
         return internalGetFlowStatSize().getMap().containsKey(key);
       }
@@ -5590,51 +5610,57 @@ com.google.protobuf.ByteString defaultValue);
        */
       @java.lang.Override
       @java.lang.Deprecated
-      public java.util.Map<java.lang.Long, java.lang.Long> getFlowStatSize() {
+      public java.util.Map<java.lang.Integer, java.lang.Long> getFlowStatSize() {
         return getFlowStatSizeMap();
       }
       /**
        * <pre>
        * Each flow's in mem state's size in bytes
+       * due to protobuf's key can't be a message, so we use uint32 as the key which
+       * is [`FlowId`]'s inner field `id`
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
        */
       @java.lang.Override
 
-      public java.util.Map<java.lang.Long, java.lang.Long> getFlowStatSizeMap() {
+      public java.util.Map<java.lang.Integer, java.lang.Long> getFlowStatSizeMap() {
         return internalGetFlowStatSize().getMap();
       }
       /**
        * <pre>
        * Each flow's in mem state's size in bytes
+       * due to protobuf's key can't be a message, so we use uint32 as the key which
+       * is [`FlowId`]'s inner field `id`
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
        */
       @java.lang.Override
 
       public long getFlowStatSizeOrDefault(
-          long key,
+          int key,
           long defaultValue) {
         
-        java.util.Map<java.lang.Long, java.lang.Long> map =
+        java.util.Map<java.lang.Integer, java.lang.Long> map =
             internalGetFlowStatSize().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
        * <pre>
        * Each flow's in mem state's size in bytes
+       * due to protobuf's key can't be a message, so we use uint32 as the key which
+       * is [`FlowId`]'s inner field `id`
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
        */
       @java.lang.Override
 
       public long getFlowStatSizeOrThrow(
-          long key) {
+          int key) {
         
-        java.util.Map<java.lang.Long, java.lang.Long> map =
+        java.util.Map<java.lang.Integer, java.lang.Long> map =
             internalGetFlowStatSize().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
@@ -5650,13 +5676,15 @@ com.google.protobuf.ByteString defaultValue);
       /**
        * <pre>
        * Each flow's in mem state's size in bytes
+       * due to protobuf's key can't be a message, so we use uint32 as the key which
+       * is [`FlowId`]'s inner field `id`
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
        */
 
       public Builder removeFlowStatSize(
-          long key) {
+          int key) {
         
         internalGetMutableFlowStatSize().getMutableMap()
             .remove(key);
@@ -5666,19 +5694,21 @@ com.google.protobuf.ByteString defaultValue);
        * Use alternate mutation accessors instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.Long, java.lang.Long>
+      public java.util.Map<java.lang.Integer, java.lang.Long>
       getMutableFlowStatSize() {
         return internalGetMutableFlowStatSize().getMutableMap();
       }
       /**
        * <pre>
        * Each flow's in mem state's size in bytes
+       * due to protobuf's key can't be a message, so we use uint32 as the key which
+       * is [`FlowId`]'s inner field `id`
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
        */
       public Builder putFlowStatSize(
-          long key,
+          int key,
           long value) {
         
         
@@ -5689,13 +5719,15 @@ com.google.protobuf.ByteString defaultValue);
       /**
        * <pre>
        * Each flow's in mem state's size in bytes
+       * due to protobuf's key can't be a message, so we use uint32 as the key which
+       * is [`FlowId`]'s inner field `id`
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; flow_stat_size = 1;</code>
+       * <code>map&lt;uint32, uint64&gt; flow_stat_size = 1;</code>
        */
 
       public Builder putAllFlowStatSize(
-          java.util.Map<java.lang.Long, java.lang.Long> values) {
+          java.util.Map<java.lang.Integer, java.lang.Long> values) {
         internalGetMutableFlowStatSize().getMutableMap()
             .putAll(values);
         return this;
@@ -11417,7 +11449,7 @@ com.google.protobuf.ByteString defaultValue);
       "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\205\001\n" +
       "\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132,.grep" +
       "time.v1.meta.FlowStat.FlowStatSizeEntry\032" +
-      "3\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\004\022\r\n\005val" +
+      "3\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005val" +
       "ue\030\002 \001(\004:\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006he" +
       "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
       "ader\0229\n\017mailbox_message\030\002 \001(\0132 .greptime" +
