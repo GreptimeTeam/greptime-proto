@@ -117,6 +117,7 @@ enum ColumnDataType {
   INTERVAL_DAY_TIME = 24;
   INTERVAL_MONTH_DAY_NANO = 25;
   DECIMAL128 = 30;
+  JSON = 31;
 }
 
 message IntervalMonthDayNano {
