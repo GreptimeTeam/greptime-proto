@@ -89,7 +89,7 @@ message RegionStat {
 
 message FlowStat {
   // Each flow's in mem state's size in bytes
-  map<uint64, uint64> flow_stat_size = 1;
+  map<FlowId, uint64> flow_stat_size = 1;
 }
 
 message HeartbeatResponse {
