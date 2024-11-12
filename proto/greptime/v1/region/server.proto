@@ -129,6 +129,7 @@ message AlterRequest {
     DropColumns drop_columns = 3;
     ChangeColumnTypes change_column_types = 5;
     ChangeTableOptions change_table_options = 6;
+    ChangeColumnFulltext change_column_fulltext = 7;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;
