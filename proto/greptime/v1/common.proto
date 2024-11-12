@@ -118,6 +118,7 @@ enum ColumnDataType {
   INTERVAL_MONTH_DAY_NANO = 25;
   DECIMAL128 = 30;
   JSON = 31;
+  VECTOR = 32;
 }
 
 message IntervalMonthDayNano {
@@ -138,6 +139,7 @@ message ColumnDataTypeExtension {
     DecimalTypeExtension decimal_type = 1;
     // Marks the binary column in proto is actually a JSON column.
     JsonTypeExtension json_type = 2;
+    VectorTypeExtension vector_type = 3;
   }
 }
 
@@ -148,6 +150,10 @@ message DecimalTypeExtension {
 
 enum JsonTypeExtension {
   JSON_BINARY = 0;
+}
+
+message VectorTypeExtension {
+  uint32 dim = 1;
 }
 
 // Additional options for the column.
