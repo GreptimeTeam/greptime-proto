@@ -79,6 +79,8 @@ message CreateRequest {
   string comment = 6;
   string sql = 7;
   map<string, string> flow_options = 8;
+  // Set to true if the flow should be created or replaced.
+  bool is_create_or_replace = 9;
 }
 
 message DropRequest { FlowId flow_id = 1; }
