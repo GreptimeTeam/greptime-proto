@@ -5628,6 +5628,16 @@ java.lang.String defaultValue);
 
     java.lang.String getFlowOptionsOrThrow(
         java.lang.String key);
+
+    /**
+     * <pre>
+     * Set to true if the flow should be created or replaced.
+     * </pre>
+     *
+     * <code>bool is_create_or_replace = 9;</code>
+     * @return The isCreateOrReplace.
+     */
+    boolean getIsCreateOrReplace();
   }
   /**
    * <pre>
@@ -5760,6 +5770,11 @@ java.lang.String defaultValue);
                   FlowOptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               flowOptions_.getMutableMap().put(
                   flowOptions__.getKey(), flowOptions__.getValue());
+              break;
+            }
+            case 72: {
+
+              isCreateOrReplace_ = input.readBool();
               break;
             }
             default: {
@@ -6109,6 +6124,21 @@ java.lang.String defaultValue);
       return map.get(key);
     }
 
+    public static final int IS_CREATE_OR_REPLACE_FIELD_NUMBER = 9;
+    private boolean isCreateOrReplace_;
+    /**
+     * <pre>
+     * Set to true if the flow should be created or replaced.
+     * </pre>
+     *
+     * <code>bool is_create_or_replace = 9;</code>
+     * @return The isCreateOrReplace.
+     */
+    @java.lang.Override
+    public boolean getIsCreateOrReplace() {
+      return isCreateOrReplace_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6150,6 +6180,9 @@ java.lang.String defaultValue);
           internalGetFlowOptions(),
           FlowOptionsDefaultEntryHolder.defaultEntry,
           8);
+      if (isCreateOrReplace_ != false) {
+        output.writeBool(9, isCreateOrReplace_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6195,6 +6228,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(8, flowOptions__);
       }
+      if (isCreateOrReplace_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, isCreateOrReplace_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6235,6 +6272,8 @@ java.lang.String defaultValue);
           .equals(other.getSql())) return false;
       if (!internalGetFlowOptions().equals(
           other.internalGetFlowOptions())) return false;
+      if (getIsCreateOrReplace()
+          != other.getIsCreateOrReplace()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6273,6 +6312,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + FLOW_OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetFlowOptions().hashCode();
       }
+      hash = (37 * hash) + IS_CREATE_OR_REPLACE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsCreateOrReplace());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6466,6 +6508,8 @@ java.lang.String defaultValue);
         sql_ = "";
 
         internalGetMutableFlowOptions().clear();
+        isCreateOrReplace_ = false;
+
         return this;
       }
 
@@ -6522,6 +6566,7 @@ java.lang.String defaultValue);
         result.sql_ = sql_;
         result.flowOptions_ = internalGetFlowOptions();
         result.flowOptions_.makeImmutable();
+        result.isCreateOrReplace_ = isCreateOrReplace_;
         onBuilt();
         return result;
       }
@@ -6618,6 +6663,9 @@ java.lang.String defaultValue);
         }
         internalGetMutableFlowOptions().mergeFrom(
             other.internalGetFlowOptions());
+        if (other.getIsCreateOrReplace() != false) {
+          setIsCreateOrReplace(other.getIsCreateOrReplace());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7592,6 +7640,49 @@ java.lang.String defaultValue);
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableFlowOptions().getMutableMap()
             .putAll(values);
+        return this;
+      }
+
+      private boolean isCreateOrReplace_ ;
+      /**
+       * <pre>
+       * Set to true if the flow should be created or replaced.
+       * </pre>
+       *
+       * <code>bool is_create_or_replace = 9;</code>
+       * @return The isCreateOrReplace.
+       */
+      @java.lang.Override
+      public boolean getIsCreateOrReplace() {
+        return isCreateOrReplace_;
+      }
+      /**
+       * <pre>
+       * Set to true if the flow should be created or replaced.
+       * </pre>
+       *
+       * <code>bool is_create_or_replace = 9;</code>
+       * @param value The isCreateOrReplace to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsCreateOrReplace(boolean value) {
+        
+        isCreateOrReplace_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Set to true if the flow should be created or replaced.
+       * </pre>
+       *
+       * <code>bool is_create_or_replace = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsCreateOrReplace() {
+        
+        isCreateOrReplace_ = false;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -8980,7 +9071,7 @@ java.lang.String defaultValue);
       ".greptime.v1.FlowId\022B\n\nextensions\030\004 \003(\0132" +
       "..greptime.v1.flow.FlowResponse.Extensio" +
       "nsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\014:\0028\001\"\376\002\n\rCreateRequest\022$\n\007" +
+      "\r\n\005value\030\002 \001(\014:\0028\001\"\234\003\n\rCreateRequest\022$\n\007" +
       "flow_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n\020so" +
       "urce_table_ids\030\002 \003(\0132\024.greptime.v1.Table" +
       "Id\022/\n\017sink_table_name\030\003 \001(\0132\026.greptime.v" +
@@ -8988,18 +9079,19 @@ java.lang.String defaultValue);
       "\010\022.\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Ex" +
       "pireAfter\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022" +
       "F\n\014flow_options\030\010 \003(\01320.greptime.v1.flow" +
-      ".CreateRequest.FlowOptionsEntry\0322\n\020FlowO" +
-      "ptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.gr" +
-      "eptime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id" +
-      "\030\001 \001(\0132\023.greptime.v1.FlowId2\264\001\n\004Flow\022S\n\022" +
-      "HandleCreateRemove\022\035.greptime.v1.flow.Fl" +
-      "owRequest\032\036.greptime.v1.flow.FlowRespons" +
-      "e\022W\n\023HandleMirrorRequest\022 .greptime.v1.f" +
-      "low.InsertRequests\032\036.greptime.v1.flow.Fl" +
-      "owResponseBY\n\023io.greptime.v1.flowB\006Serve" +
-      "rZ:github.com/GreptimeTeam/greptime-prot" +
-      "o/go/greptime/v1/flowb\006proto3"
+      ".CreateRequest.FlowOptionsEntry\022\034\n\024is_cr" +
+      "eate_or_replace\030\t \001(\010\0322\n\020FlowOptionsEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013Dro" +
+      "pRequest\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1." +
+      "FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 \001(\0132\023.g" +
+      "reptime.v1.FlowId2\264\001\n\004Flow\022S\n\022HandleCrea" +
+      "teRemove\022\035.greptime.v1.flow.FlowRequest\032" +
+      "\036.greptime.v1.flow.FlowResponse\022W\n\023Handl" +
+      "eMirrorRequest\022 .greptime.v1.flow.Insert" +
+      "Requests\032\036.greptime.v1.flow.FlowResponse" +
+      "BY\n\023io.greptime.v1.flowB\006ServerZ:github." +
+      "com/GreptimeTeam/greptime-proto/go/grept" +
+      "ime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9055,7 +9147,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
-        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireAfter", "Comment", "Sql", "FlowOptions", });
+        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireAfter", "Comment", "Sql", "FlowOptions", "IsCreateOrReplace", });
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor =
       internal_static_greptime_v1_flow_CreateRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_fieldAccessorTable = new
