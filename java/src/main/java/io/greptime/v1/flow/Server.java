@@ -5634,10 +5634,10 @@ java.lang.String defaultValue);
      * Set to true if the flow should be created or replaced.
      * </pre>
      *
-     * <code>bool is_replace = 9;</code>
-     * @return The isReplace.
+     * <code>bool or_replace = 9;</code>
+     * @return The orReplace.
      */
-    boolean getIsReplace();
+    boolean getOrReplace();
   }
   /**
    * <pre>
@@ -5774,7 +5774,7 @@ java.lang.String defaultValue);
             }
             case 72: {
 
-              isReplace_ = input.readBool();
+              orReplace_ = input.readBool();
               break;
             }
             default: {
@@ -6124,19 +6124,19 @@ java.lang.String defaultValue);
       return map.get(key);
     }
 
-    public static final int IS_REPLACE_FIELD_NUMBER = 9;
-    private boolean isReplace_;
+    public static final int OR_REPLACE_FIELD_NUMBER = 9;
+    private boolean orReplace_;
     /**
      * <pre>
      * Set to true if the flow should be created or replaced.
      * </pre>
      *
-     * <code>bool is_replace = 9;</code>
-     * @return The isReplace.
+     * <code>bool or_replace = 9;</code>
+     * @return The orReplace.
      */
     @java.lang.Override
-    public boolean getIsReplace() {
-      return isReplace_;
+    public boolean getOrReplace() {
+      return orReplace_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6180,8 +6180,8 @@ java.lang.String defaultValue);
           internalGetFlowOptions(),
           FlowOptionsDefaultEntryHolder.defaultEntry,
           8);
-      if (isReplace_ != false) {
-        output.writeBool(9, isReplace_);
+      if (orReplace_ != false) {
+        output.writeBool(9, orReplace_);
       }
       unknownFields.writeTo(output);
     }
@@ -6228,9 +6228,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(8, flowOptions__);
       }
-      if (isReplace_ != false) {
+      if (orReplace_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(9, isReplace_);
+          .computeBoolSize(9, orReplace_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6272,8 +6272,8 @@ java.lang.String defaultValue);
           .equals(other.getSql())) return false;
       if (!internalGetFlowOptions().equals(
           other.internalGetFlowOptions())) return false;
-      if (getIsReplace()
-          != other.getIsReplace()) return false;
+      if (getOrReplace()
+          != other.getOrReplace()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6312,9 +6312,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + FLOW_OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetFlowOptions().hashCode();
       }
-      hash = (37 * hash) + IS_REPLACE_FIELD_NUMBER;
+      hash = (37 * hash) + OR_REPLACE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsReplace());
+          getOrReplace());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6508,7 +6508,7 @@ java.lang.String defaultValue);
         sql_ = "";
 
         internalGetMutableFlowOptions().clear();
-        isReplace_ = false;
+        orReplace_ = false;
 
         return this;
       }
@@ -6566,7 +6566,7 @@ java.lang.String defaultValue);
         result.sql_ = sql_;
         result.flowOptions_ = internalGetFlowOptions();
         result.flowOptions_.makeImmutable();
-        result.isReplace_ = isReplace_;
+        result.orReplace_ = orReplace_;
         onBuilt();
         return result;
       }
@@ -6663,8 +6663,8 @@ java.lang.String defaultValue);
         }
         internalGetMutableFlowOptions().mergeFrom(
             other.internalGetFlowOptions());
-        if (other.getIsReplace() != false) {
-          setIsReplace(other.getIsReplace());
+        if (other.getOrReplace() != false) {
+          setOrReplace(other.getOrReplace());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7643,31 +7643,31 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private boolean isReplace_ ;
+      private boolean orReplace_ ;
       /**
        * <pre>
        * Set to true if the flow should be created or replaced.
        * </pre>
        *
-       * <code>bool is_replace = 9;</code>
-       * @return The isReplace.
+       * <code>bool or_replace = 9;</code>
+       * @return The orReplace.
        */
       @java.lang.Override
-      public boolean getIsReplace() {
-        return isReplace_;
+      public boolean getOrReplace() {
+        return orReplace_;
       }
       /**
        * <pre>
        * Set to true if the flow should be created or replaced.
        * </pre>
        *
-       * <code>bool is_replace = 9;</code>
-       * @param value The isReplace to set.
+       * <code>bool or_replace = 9;</code>
+       * @param value The orReplace to set.
        * @return This builder for chaining.
        */
-      public Builder setIsReplace(boolean value) {
+      public Builder setOrReplace(boolean value) {
         
-        isReplace_ = value;
+        orReplace_ = value;
         onChanged();
         return this;
       }
@@ -7676,12 +7676,12 @@ java.lang.String defaultValue);
        * Set to true if the flow should be created or replaced.
        * </pre>
        *
-       * <code>bool is_replace = 9;</code>
+       * <code>bool or_replace = 9;</code>
        * @return This builder for chaining.
        */
-      public Builder clearIsReplace() {
+      public Builder clearOrReplace() {
         
-        isReplace_ = false;
+        orReplace_ = false;
         onChanged();
         return this;
       }
@@ -9079,7 +9079,7 @@ java.lang.String defaultValue);
       "\010\022.\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Ex" +
       "pireAfter\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022" +
       "F\n\014flow_options\030\010 \003(\01320.greptime.v1.flow" +
-      ".CreateRequest.FlowOptionsEntry\022\022\n\nis_re" +
+      ".CreateRequest.FlowOptionsEntry\022\022\n\nor_re" +
       "place\030\t \001(\010\0322\n\020FlowOptionsEntry\022\013\n\003key\030\001" +
       " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013DropRequest\022$" +
       "\n\007flow_id\030\001 \001(\0132\023.greptime.v1.FlowId\"1\n\t" +
@@ -9147,7 +9147,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
-        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireAfter", "Comment", "Sql", "FlowOptions", "IsReplace", });
+        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireAfter", "Comment", "Sql", "FlowOptions", "OrReplace", });
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor =
       internal_static_greptime_v1_flow_CreateRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_fieldAccessorTable = new
