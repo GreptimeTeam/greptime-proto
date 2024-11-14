@@ -832,8 +832,8 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "rRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_colum"
   "ns\030\002 \001(\0132\036.greptime.v1.region.AddColumns"
   "H\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime.v1.r"
-  "egion.DropColumnsH\000\022=\n\023change_column_typ"
-  "es\030\005 \001(\0132\036.greptime.v1.ChangeColumnTypes"
+  "egion.DropColumnsH\000\022=\n\023modify_column_typ"
+  "es\030\005 \001(\0132\036.greptime.v1.ModifyColumnTypes"
   "H\000\022\?\n\024change_table_options\030\006 \001(\0132\037.grept"
   "ime.v1.ChangeTableOptionsH\000\022C\n\026change_co"
   "lumn_fulltext\030\007 \001(\0132!.greptime.v1.Change"
@@ -5329,7 +5329,7 @@ class AlterRequest::_Internal {
  public:
   static const ::greptime::v1::region::AddColumns& add_columns(const AlterRequest* msg);
   static const ::greptime::v1::region::DropColumns& drop_columns(const AlterRequest* msg);
-  static const ::greptime::v1::ChangeColumnTypes& change_column_types(const AlterRequest* msg);
+  static const ::greptime::v1::ModifyColumnTypes& modify_column_types(const AlterRequest* msg);
   static const ::greptime::v1::ChangeTableOptions& change_table_options(const AlterRequest* msg);
   static const ::greptime::v1::ChangeColumnFulltext& change_column_fulltext(const AlterRequest* msg);
 };
@@ -5342,9 +5342,9 @@ const ::greptime::v1::region::DropColumns&
 AlterRequest::_Internal::drop_columns(const AlterRequest* msg) {
   return *msg->_impl_.kind_.drop_columns_;
 }
-const ::greptime::v1::ChangeColumnTypes&
-AlterRequest::_Internal::change_column_types(const AlterRequest* msg) {
-  return *msg->_impl_.kind_.change_column_types_;
+const ::greptime::v1::ModifyColumnTypes&
+AlterRequest::_Internal::modify_column_types(const AlterRequest* msg) {
+  return *msg->_impl_.kind_.modify_column_types_;
 }
 const ::greptime::v1::ChangeTableOptions&
 AlterRequest::_Internal::change_table_options(const AlterRequest* msg) {
@@ -5384,26 +5384,26 @@ void AlterRequest::set_allocated_drop_columns(::greptime::v1::region::DropColumn
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.drop_columns)
 }
-void AlterRequest::set_allocated_change_column_types(::greptime::v1::ChangeColumnTypes* change_column_types) {
+void AlterRequest::set_allocated_modify_column_types(::greptime::v1::ModifyColumnTypes* modify_column_types) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_kind();
-  if (change_column_types) {
+  if (modify_column_types) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(change_column_types));
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(modify_column_types));
     if (message_arena != submessage_arena) {
-      change_column_types = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, change_column_types, submessage_arena);
+      modify_column_types = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, modify_column_types, submessage_arena);
     }
-    set_has_change_column_types();
-    _impl_.kind_.change_column_types_ = change_column_types;
+    set_has_modify_column_types();
+    _impl_.kind_.modify_column_types_ = modify_column_types;
   }
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.change_column_types)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.modify_column_types)
 }
-void AlterRequest::clear_change_column_types() {
-  if (_internal_has_change_column_types()) {
+void AlterRequest::clear_modify_column_types() {
+  if (_internal_has_modify_column_types()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.kind_.change_column_types_;
+      delete _impl_.kind_.modify_column_types_;
     }
     clear_has_kind();
   }
@@ -5488,9 +5488,9 @@ AlterRequest::AlterRequest(const AlterRequest& from)
           from._internal_drop_columns());
       break;
     }
-    case kChangeColumnTypes: {
-      _this->_internal_mutable_change_column_types()->::greptime::v1::ChangeColumnTypes::MergeFrom(
-          from._internal_change_column_types());
+    case kModifyColumnTypes: {
+      _this->_internal_mutable_modify_column_types()->::greptime::v1::ModifyColumnTypes::MergeFrom(
+          from._internal_modify_column_types());
       break;
     }
     case kChangeTableOptions: {
@@ -5559,9 +5559,9 @@ void AlterRequest::clear_kind() {
       }
       break;
     }
-    case kChangeColumnTypes: {
+    case kModifyColumnTypes: {
       if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.kind_.change_column_types_;
+        delete _impl_.kind_.modify_column_types_;
       }
       break;
     }
@@ -5636,10 +5636,10 @@ const char* AlterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.ChangeColumnTypes change_column_types = 5;
+      // .greptime.v1.ModifyColumnTypes modify_column_types = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
-          ptr = ctx->ParseMessage(_internal_mutable_change_column_types(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_modify_column_types(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5715,11 +5715,11 @@ uint8_t* AlterRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_schema_version(), target);
   }
 
-  // .greptime.v1.ChangeColumnTypes change_column_types = 5;
-  if (_internal_has_change_column_types()) {
+  // .greptime.v1.ModifyColumnTypes modify_column_types = 5;
+  if (_internal_has_modify_column_types()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, _Internal::change_column_types(this),
-        _Internal::change_column_types(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(5, _Internal::modify_column_types(this),
+        _Internal::modify_column_types(this).GetCachedSize(), target, stream);
   }
 
   // .greptime.v1.ChangeTableOptions change_table_options = 6;
@@ -5777,11 +5777,11 @@ size_t AlterRequest::ByteSizeLong() const {
           *_impl_.kind_.drop_columns_);
       break;
     }
-    // .greptime.v1.ChangeColumnTypes change_column_types = 5;
-    case kChangeColumnTypes: {
+    // .greptime.v1.ModifyColumnTypes modify_column_types = 5;
+    case kModifyColumnTypes: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.kind_.change_column_types_);
+          *_impl_.kind_.modify_column_types_);
       break;
     }
     // .greptime.v1.ChangeTableOptions change_table_options = 6;
@@ -5837,9 +5837,9 @@ void AlterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
           from._internal_drop_columns());
       break;
     }
-    case kChangeColumnTypes: {
-      _this->_internal_mutable_change_column_types()->::greptime::v1::ChangeColumnTypes::MergeFrom(
-          from._internal_change_column_types());
+    case kModifyColumnTypes: {
+      _this->_internal_mutable_modify_column_types()->::greptime::v1::ModifyColumnTypes::MergeFrom(
+          from._internal_modify_column_types());
       break;
     }
     case kChangeTableOptions: {
