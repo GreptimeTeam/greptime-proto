@@ -1282,6 +1282,7 @@ class CreateRequest final :
     kSinkTableNameFieldNumber = 3,
     kExpireAfterFieldNumber = 5,
     kCreateIfNotExistsFieldNumber = 4,
+    kOrReplaceFieldNumber = 9,
   };
   // repeated .greptime.v1.TableId source_table_ids = 2;
   int source_table_ids_size() const;
@@ -1409,6 +1410,15 @@ class CreateRequest final :
   void _internal_set_create_if_not_exists(bool value);
   public:
 
+  // bool or_replace = 9;
+  void clear_or_replace();
+  bool or_replace() const;
+  void set_or_replace(bool value);
+  private:
+  bool _internal_or_replace() const;
+  void _internal_set_or_replace(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.flow.CreateRequest)
  private:
   class _Internal;
@@ -1429,6 +1439,7 @@ class CreateRequest final :
     ::greptime::v1::TableName* sink_table_name_;
     ::greptime::v1::ExpireAfter* expire_after_;
     bool create_if_not_exists_;
+    bool or_replace_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2975,6 +2986,26 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
 CreateRequest::mutable_flow_options() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.flow.CreateRequest.flow_options)
   return _internal_mutable_flow_options();
+}
+
+// bool or_replace = 9;
+inline void CreateRequest::clear_or_replace() {
+  _impl_.or_replace_ = false;
+}
+inline bool CreateRequest::_internal_or_replace() const {
+  return _impl_.or_replace_;
+}
+inline bool CreateRequest::or_replace() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.or_replace)
+  return _internal_or_replace();
+}
+inline void CreateRequest::_internal_set_or_replace(bool value) {
+  
+  _impl_.or_replace_ = value;
+}
+inline void CreateRequest::set_or_replace(bool value) {
+  _internal_set_or_replace(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.CreateRequest.or_replace)
 }
 
 // -------------------------------------------------------------------
