@@ -842,7 +842,7 @@ type AlterExpr struct {
 	//	*AlterExpr_AddColumns
 	//	*AlterExpr_DropColumns
 	//	*AlterExpr_RenameTable
-	//	*AlterExpr_ChangeColumnTypes
+	//	*AlterExpr_ModifyColumnTypes
 	//	*AlterExpr_ChangeTableOptions
 	//	*AlterExpr_ChangeColumnFulltext
 	Kind isAlterExpr_Kind `protobuf_oneof:"kind"`
@@ -929,9 +929,9 @@ func (x *AlterExpr) GetRenameTable() *RenameTable {
 	return nil
 }
 
-func (x *AlterExpr) GetChangeColumnTypes() *ChangeColumnTypes {
-	if x, ok := x.GetKind().(*AlterExpr_ChangeColumnTypes); ok {
-		return x.ChangeColumnTypes
+func (x *AlterExpr) GetModifyColumnTypes() *ModifyColumnTypes {
+	if x, ok := x.GetKind().(*AlterExpr_ModifyColumnTypes); ok {
+		return x.ModifyColumnTypes
 	}
 	return nil
 }
@@ -966,8 +966,8 @@ type AlterExpr_RenameTable struct {
 	RenameTable *RenameTable `protobuf:"bytes,6,opt,name=rename_table,json=renameTable,proto3,oneof"`
 }
 
-type AlterExpr_ChangeColumnTypes struct {
-	ChangeColumnTypes *ChangeColumnTypes `protobuf:"bytes,7,opt,name=change_column_types,json=changeColumnTypes,proto3,oneof"`
+type AlterExpr_ModifyColumnTypes struct {
+	ModifyColumnTypes *ModifyColumnTypes `protobuf:"bytes,7,opt,name=modify_column_types,json=modifyColumnTypes,proto3,oneof"`
 }
 
 type AlterExpr_ChangeTableOptions struct {
@@ -984,7 +984,7 @@ func (*AlterExpr_DropColumns) isAlterExpr_Kind() {}
 
 func (*AlterExpr_RenameTable) isAlterExpr_Kind() {}
 
-func (*AlterExpr_ChangeColumnTypes) isAlterExpr_Kind() {}
+func (*AlterExpr_ModifyColumnTypes) isAlterExpr_Kind() {}
 
 func (*AlterExpr_ChangeTableOptions) isAlterExpr_Kind() {}
 
@@ -1368,16 +1368,16 @@ func (x *DropColumns) GetDropColumns() []*DropColumn {
 	return nil
 }
 
-type ChangeColumnTypes struct {
+type ModifyColumnTypes struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ChangeColumnTypes []*ChangeColumnType `protobuf:"bytes,1,rep,name=change_column_types,json=changeColumnTypes,proto3" json:"change_column_types,omitempty"`
+	ModifyColumnTypes []*ModifyColumnType `protobuf:"bytes,1,rep,name=modify_column_types,json=modifyColumnTypes,proto3" json:"modify_column_types,omitempty"`
 }
 
-func (x *ChangeColumnTypes) Reset() {
-	*x = ChangeColumnTypes{}
+func (x *ModifyColumnTypes) Reset() {
+	*x = ModifyColumnTypes{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_greptime_v1_ddl_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1385,13 +1385,13 @@ func (x *ChangeColumnTypes) Reset() {
 	}
 }
 
-func (x *ChangeColumnTypes) String() string {
+func (x *ModifyColumnTypes) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChangeColumnTypes) ProtoMessage() {}
+func (*ModifyColumnTypes) ProtoMessage() {}
 
-func (x *ChangeColumnTypes) ProtoReflect() protoreflect.Message {
+func (x *ModifyColumnTypes) ProtoReflect() protoreflect.Message {
 	mi := &file_greptime_v1_ddl_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1403,14 +1403,14 @@ func (x *ChangeColumnTypes) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChangeColumnTypes.ProtoReflect.Descriptor instead.
-func (*ChangeColumnTypes) Descriptor() ([]byte, []int) {
+// Deprecated: Use ModifyColumnTypes.ProtoReflect.Descriptor instead.
+func (*ModifyColumnTypes) Descriptor() ([]byte, []int) {
 	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{13}
 }
 
-func (x *ChangeColumnTypes) GetChangeColumnTypes() []*ChangeColumnType {
+func (x *ModifyColumnTypes) GetModifyColumnTypes() []*ModifyColumnType {
 	if x != nil {
-		return x.ChangeColumnTypes
+		return x.ModifyColumnTypes
 	}
 	return nil
 }
@@ -1517,7 +1517,7 @@ func (x *AddColumn) GetLocation() *AddColumnLocation {
 	return nil
 }
 
-type ChangeColumnType struct {
+type ModifyColumnType struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1527,8 +1527,8 @@ type ChangeColumnType struct {
 	TargetTypeExtension *ColumnDataTypeExtension `protobuf:"bytes,3,opt,name=target_type_extension,json=targetTypeExtension,proto3" json:"target_type_extension,omitempty"`
 }
 
-func (x *ChangeColumnType) Reset() {
-	*x = ChangeColumnType{}
+func (x *ModifyColumnType) Reset() {
+	*x = ModifyColumnType{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_greptime_v1_ddl_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1536,13 +1536,13 @@ func (x *ChangeColumnType) Reset() {
 	}
 }
 
-func (x *ChangeColumnType) String() string {
+func (x *ModifyColumnType) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChangeColumnType) ProtoMessage() {}
+func (*ModifyColumnType) ProtoMessage() {}
 
-func (x *ChangeColumnType) ProtoReflect() protoreflect.Message {
+func (x *ModifyColumnType) ProtoReflect() protoreflect.Message {
 	mi := &file_greptime_v1_ddl_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1554,26 +1554,26 @@ func (x *ChangeColumnType) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChangeColumnType.ProtoReflect.Descriptor instead.
-func (*ChangeColumnType) Descriptor() ([]byte, []int) {
+// Deprecated: Use ModifyColumnType.ProtoReflect.Descriptor instead.
+func (*ModifyColumnType) Descriptor() ([]byte, []int) {
 	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{16}
 }
 
-func (x *ChangeColumnType) GetColumnName() string {
+func (x *ModifyColumnType) GetColumnName() string {
 	if x != nil {
 		return x.ColumnName
 	}
 	return ""
 }
 
-func (x *ChangeColumnType) GetTargetType() ColumnDataType {
+func (x *ModifyColumnType) GetTargetType() ColumnDataType {
 	if x != nil {
 		return x.TargetType
 	}
 	return ColumnDataType_BOOLEAN
 }
 
-func (x *ChangeColumnType) GetTargetTypeExtension() *ColumnDataTypeExtension {
+func (x *ModifyColumnType) GetTargetTypeExtension() *ColumnDataTypeExtension {
 	if x != nil {
 		return x.TargetTypeExtension
 	}
@@ -2230,12 +2230,12 @@ var file_greptime_v1_ddl_proto_rawDesc = []byte{
 	0x72, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x5f, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x18, 0x06, 0x20, 0x01,
 	0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31,
 	0x2e, 0x52, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x48, 0x00, 0x52, 0x0b,
-	0x72, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x12, 0x50, 0x0a, 0x13, 0x63,
-	0x68, 0x61, 0x6e, 0x67, 0x65, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x5f, 0x74, 0x79, 0x70,
+	0x72, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x12, 0x50, 0x0a, 0x13, 0x6d,
+	0x6f, 0x64, 0x69, 0x66, 0x79, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x5f, 0x74, 0x79, 0x70,
 	0x65, 0x73, 0x18, 0x07, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74,
-	0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x43, 0x6f, 0x6c,
-	0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x73, 0x48, 0x00, 0x52, 0x11, 0x63, 0x68, 0x61, 0x6e,
-	0x67, 0x65, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x73, 0x12, 0x53, 0x0a,
+	0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x6f, 0x64, 0x69, 0x66, 0x79, 0x43, 0x6f, 0x6c,
+	0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x73, 0x48, 0x00, 0x52, 0x11, 0x6d, 0x6f, 0x64, 0x69,
+	0x66, 0x79, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x73, 0x12, 0x53, 0x0a,
 	0x14, 0x63, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x5f, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x6f, 0x70,
 	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x67, 0x72,
 	0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65,
@@ -2304,13 +2304,13 @@ var file_greptime_v1_ddl_proto_rawDesc = []byte{
 	0x3a, 0x0a, 0x0c, 0x64, 0x72, 0x6f, 0x70, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x18,
 	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65,
 	0x2e, 0x76, 0x31, 0x2e, 0x44, 0x72, 0x6f, 0x70, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x52, 0x0b,
-	0x64, 0x72, 0x6f, 0x70, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x22, 0x62, 0x0a, 0x11, 0x43,
-	0x68, 0x61, 0x6e, 0x67, 0x65, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x73,
-	0x12, 0x4d, 0x0a, 0x13, 0x63, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d,
+	0x64, 0x72, 0x6f, 0x70, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x22, 0x62, 0x0a, 0x11, 0x4d,
+	0x6f, 0x64, 0x69, 0x66, 0x79, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x73,
+	0x12, 0x4d, 0x0a, 0x13, 0x6d, 0x6f, 0x64, 0x69, 0x66, 0x79, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d,
 	0x6e, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1d, 0x2e,
-	0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x68, 0x61, 0x6e,
-	0x67, 0x65, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x11, 0x63, 0x68,
-	0x61, 0x6e, 0x67, 0x65, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x73, 0x22,
+	0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x6f, 0x64, 0x69,
+	0x66, 0x79, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x11, 0x6d, 0x6f,
+	0x64, 0x69, 0x66, 0x79, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x73, 0x22,
 	0x33, 0x0a, 0x0b, 0x52, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x12, 0x24,
 	0x0a, 0x0e, 0x6e, 0x65, 0x77, 0x5f, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x6e, 0x61, 0x6d, 0x65,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x6e, 0x65, 0x77, 0x54, 0x61, 0x62, 0x6c, 0x65,
@@ -2322,7 +2322,7 @@ var file_greptime_v1_ddl_proto_rawDesc = []byte{
 	0x74, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x67, 0x72, 0x65,
 	0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x41, 0x64, 0x64, 0x43, 0x6f, 0x6c, 0x75,
 	0x6d, 0x6e, 0x4c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x08, 0x6c, 0x6f, 0x63, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x22, 0xcb, 0x01, 0x0a, 0x10, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x43,
+	0x74, 0x69, 0x6f, 0x6e, 0x22, 0xcb, 0x01, 0x0a, 0x10, 0x4d, 0x6f, 0x64, 0x69, 0x66, 0x79, 0x43,
 	0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x6f, 0x6c,
 	0x75, 0x6d, 0x6e, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a,
 	0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x3c, 0x0a, 0x0b, 0x74, 0x61,
@@ -2439,10 +2439,10 @@ var file_greptime_v1_ddl_proto_goTypes = []interface{}{
 	(*DropDatabaseExpr)(nil),            // 12: greptime.v1.DropDatabaseExpr
 	(*AddColumns)(nil),                  // 13: greptime.v1.AddColumns
 	(*DropColumns)(nil),                 // 14: greptime.v1.DropColumns
-	(*ChangeColumnTypes)(nil),           // 15: greptime.v1.ChangeColumnTypes
+	(*ModifyColumnTypes)(nil),           // 15: greptime.v1.ModifyColumnTypes
 	(*RenameTable)(nil),                 // 16: greptime.v1.RenameTable
 	(*AddColumn)(nil),                   // 17: greptime.v1.AddColumn
-	(*ChangeColumnType)(nil),            // 18: greptime.v1.ChangeColumnType
+	(*ModifyColumnType)(nil),            // 18: greptime.v1.ModifyColumnType
 	(*ChangeTableOptions)(nil),          // 19: greptime.v1.ChangeTableOptions
 	(*ChangeTableOption)(nil),           // 20: greptime.v1.ChangeTableOption
 	(*DropColumn)(nil),                  // 21: greptime.v1.DropColumn
@@ -2484,7 +2484,7 @@ var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	13, // 19: greptime.v1.AlterExpr.add_columns:type_name -> greptime.v1.AddColumns
 	14, // 20: greptime.v1.AlterExpr.drop_columns:type_name -> greptime.v1.DropColumns
 	16, // 21: greptime.v1.AlterExpr.rename_table:type_name -> greptime.v1.RenameTable
-	15, // 22: greptime.v1.AlterExpr.change_column_types:type_name -> greptime.v1.ChangeColumnTypes
+	15, // 22: greptime.v1.AlterExpr.modify_column_types:type_name -> greptime.v1.ModifyColumnTypes
 	19, // 23: greptime.v1.AlterExpr.change_table_options:type_name -> greptime.v1.ChangeTableOptions
 	26, // 24: greptime.v1.AlterExpr.change_column_fulltext:type_name -> greptime.v1.ChangeColumnFulltext
 	22, // 25: greptime.v1.DropTableExpr.table_id:type_name -> greptime.v1.TableId
@@ -2492,11 +2492,11 @@ var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	22, // 27: greptime.v1.TruncateTableExpr.table_id:type_name -> greptime.v1.TableId
 	17, // 28: greptime.v1.AddColumns.add_columns:type_name -> greptime.v1.AddColumn
 	21, // 29: greptime.v1.DropColumns.drop_columns:type_name -> greptime.v1.DropColumn
-	18, // 30: greptime.v1.ChangeColumnTypes.change_column_types:type_name -> greptime.v1.ChangeColumnType
+	18, // 30: greptime.v1.ModifyColumnTypes.modify_column_types:type_name -> greptime.v1.ModifyColumnType
 	24, // 31: greptime.v1.AddColumn.column_def:type_name -> greptime.v1.ColumnDef
 	25, // 32: greptime.v1.AddColumn.location:type_name -> greptime.v1.AddColumnLocation
-	32, // 33: greptime.v1.ChangeColumnType.target_type:type_name -> greptime.v1.ColumnDataType
-	33, // 34: greptime.v1.ChangeColumnType.target_type_extension:type_name -> greptime.v1.ColumnDataTypeExtension
+	32, // 33: greptime.v1.ModifyColumnType.target_type:type_name -> greptime.v1.ColumnDataType
+	33, // 34: greptime.v1.ModifyColumnType.target_type_extension:type_name -> greptime.v1.ColumnDataTypeExtension
 	20, // 35: greptime.v1.ChangeTableOptions.change_table_options:type_name -> greptime.v1.ChangeTableOption
 	32, // 36: greptime.v1.ColumnDef.data_type:type_name -> greptime.v1.ColumnDataType
 	34, // 37: greptime.v1.ColumnDef.semantic_type:type_name -> greptime.v1.SemanticType
@@ -2675,7 +2675,7 @@ func file_greptime_v1_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_ddl_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ChangeColumnTypes); i {
+			switch v := v.(*ModifyColumnTypes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2711,7 +2711,7 @@ func file_greptime_v1_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_ddl_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ChangeColumnType); i {
+			switch v := v.(*ModifyColumnType); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2834,7 +2834,7 @@ func file_greptime_v1_ddl_proto_init() {
 		(*AlterExpr_AddColumns)(nil),
 		(*AlterExpr_DropColumns)(nil),
 		(*AlterExpr_RenameTable)(nil),
-		(*AlterExpr_ChangeColumnTypes)(nil),
+		(*AlterExpr_ModifyColumnTypes)(nil),
 		(*AlterExpr_ChangeTableOptions)(nil),
 		(*AlterExpr_ChangeColumnFulltext)(nil),
 	}

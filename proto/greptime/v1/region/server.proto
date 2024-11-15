@@ -127,7 +127,7 @@ message AlterRequest {
   oneof kind {
     AddColumns add_columns = 2;
     DropColumns drop_columns = 3;
-    ChangeColumnTypes change_column_types = 5;
+    ModifyColumnTypes modify_column_types = 5;
     ChangeTableOptions change_table_options = 6;
     ChangeColumnFulltext change_column_fulltext = 7;
   }
