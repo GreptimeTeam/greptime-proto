@@ -1092,23 +1092,23 @@ class AlterTableTask final :
   enum : int {
     kAlterTableFieldNumber = 1,
   };
-  // .greptime.v1.AlterExpr alter_table = 1;
+  // .greptime.v1.AlterTableExpr alter_table = 1;
   bool has_alter_table() const;
   private:
   bool _internal_has_alter_table() const;
   public:
   void clear_alter_table();
-  const ::greptime::v1::AlterExpr& alter_table() const;
-  PROTOBUF_NODISCARD ::greptime::v1::AlterExpr* release_alter_table();
-  ::greptime::v1::AlterExpr* mutable_alter_table();
-  void set_allocated_alter_table(::greptime::v1::AlterExpr* alter_table);
+  const ::greptime::v1::AlterTableExpr& alter_table() const;
+  PROTOBUF_NODISCARD ::greptime::v1::AlterTableExpr* release_alter_table();
+  ::greptime::v1::AlterTableExpr* mutable_alter_table();
+  void set_allocated_alter_table(::greptime::v1::AlterTableExpr* alter_table);
   private:
-  const ::greptime::v1::AlterExpr& _internal_alter_table() const;
-  ::greptime::v1::AlterExpr* _internal_mutable_alter_table();
+  const ::greptime::v1::AlterTableExpr& _internal_alter_table() const;
+  ::greptime::v1::AlterTableExpr* _internal_mutable_alter_table();
   public:
   void unsafe_arena_set_allocated_alter_table(
-      ::greptime::v1::AlterExpr* alter_table);
-  ::greptime::v1::AlterExpr* unsafe_arena_release_alter_table();
+      ::greptime::v1::AlterTableExpr* alter_table);
+  ::greptime::v1::AlterTableExpr* unsafe_arena_release_alter_table();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.AlterTableTask)
  private:
@@ -1118,7 +1118,7 @@ class AlterTableTask final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::greptime::v1::AlterExpr* alter_table_;
+    ::greptime::v1::AlterTableExpr* alter_table_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3367,24 +3367,24 @@ DropTableTasks::tasks() const {
 
 // AlterTableTask
 
-// .greptime.v1.AlterExpr alter_table = 1;
+// .greptime.v1.AlterTableExpr alter_table = 1;
 inline bool AlterTableTask::_internal_has_alter_table() const {
   return this != internal_default_instance() && _impl_.alter_table_ != nullptr;
 }
 inline bool AlterTableTask::has_alter_table() const {
   return _internal_has_alter_table();
 }
-inline const ::greptime::v1::AlterExpr& AlterTableTask::_internal_alter_table() const {
-  const ::greptime::v1::AlterExpr* p = _impl_.alter_table_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::AlterExpr&>(
-      ::greptime::v1::_AlterExpr_default_instance_);
+inline const ::greptime::v1::AlterTableExpr& AlterTableTask::_internal_alter_table() const {
+  const ::greptime::v1::AlterTableExpr* p = _impl_.alter_table_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::AlterTableExpr&>(
+      ::greptime::v1::_AlterTableExpr_default_instance_);
 }
-inline const ::greptime::v1::AlterExpr& AlterTableTask::alter_table() const {
+inline const ::greptime::v1::AlterTableExpr& AlterTableTask::alter_table() const {
   // @@protoc_insertion_point(field_get:greptime.v1.meta.AlterTableTask.alter_table)
   return _internal_alter_table();
 }
 inline void AlterTableTask::unsafe_arena_set_allocated_alter_table(
-    ::greptime::v1::AlterExpr* alter_table) {
+    ::greptime::v1::AlterTableExpr* alter_table) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.alter_table_);
   }
@@ -3396,9 +3396,9 @@ inline void AlterTableTask::unsafe_arena_set_allocated_alter_table(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.AlterTableTask.alter_table)
 }
-inline ::greptime::v1::AlterExpr* AlterTableTask::release_alter_table() {
+inline ::greptime::v1::AlterTableExpr* AlterTableTask::release_alter_table() {
   
-  ::greptime::v1::AlterExpr* temp = _impl_.alter_table_;
+  ::greptime::v1::AlterTableExpr* temp = _impl_.alter_table_;
   _impl_.alter_table_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -3411,27 +3411,27 @@ inline ::greptime::v1::AlterExpr* AlterTableTask::release_alter_table() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::AlterExpr* AlterTableTask::unsafe_arena_release_alter_table() {
+inline ::greptime::v1::AlterTableExpr* AlterTableTask::unsafe_arena_release_alter_table() {
   // @@protoc_insertion_point(field_release:greptime.v1.meta.AlterTableTask.alter_table)
   
-  ::greptime::v1::AlterExpr* temp = _impl_.alter_table_;
+  ::greptime::v1::AlterTableExpr* temp = _impl_.alter_table_;
   _impl_.alter_table_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::AlterExpr* AlterTableTask::_internal_mutable_alter_table() {
+inline ::greptime::v1::AlterTableExpr* AlterTableTask::_internal_mutable_alter_table() {
   
   if (_impl_.alter_table_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::AlterExpr>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::greptime::v1::AlterTableExpr>(GetArenaForAllocation());
     _impl_.alter_table_ = p;
   }
   return _impl_.alter_table_;
 }
-inline ::greptime::v1::AlterExpr* AlterTableTask::mutable_alter_table() {
-  ::greptime::v1::AlterExpr* _msg = _internal_mutable_alter_table();
+inline ::greptime::v1::AlterTableExpr* AlterTableTask::mutable_alter_table() {
+  ::greptime::v1::AlterTableExpr* _msg = _internal_mutable_alter_table();
   // @@protoc_insertion_point(field_mutable:greptime.v1.meta.AlterTableTask.alter_table)
   return _msg;
 }
-inline void AlterTableTask::set_allocated_alter_table(::greptime::v1::AlterExpr* alter_table) {
+inline void AlterTableTask::set_allocated_alter_table(::greptime::v1::AlterTableExpr* alter_table) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.alter_table_);

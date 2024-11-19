@@ -411,51 +411,51 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto[] PROTOB
   "bleTask\"\?\n\rDropTableTask\022.\n\ndrop_table\030\001"
   " \001(\0132\032.greptime.v1.DropTableExpr\"@\n\016Drop"
   "TableTasks\022.\n\005tasks\030\001 \003(\0132\037.greptime.v1."
-  "meta.DropTableTask\"=\n\016AlterTableTask\022+\n\013"
-  "alter_table\030\001 \001(\0132\026.greptime.v1.AlterExp"
-  "r\"B\n\017AlterTableTasks\022/\n\005tasks\030\001 \003(\0132 .gr"
-  "eptime.v1.meta.AlterTableTask\"K\n\021Truncat"
-  "eTableTask\0226\n\016truncate_table\030\001 \001(\0132\036.gre"
-  "ptime.v1.TruncateTableExpr\"H\n\020DropDataba"
-  "seTask\0224\n\rdrop_database\030\001 \001(\0132\035.greptime"
-  ".v1.DropDatabaseExpr\"B\n\016CreateFlowTask\0220"
-  "\n\013create_flow\030\001 \001(\0132\033.greptime.v1.Create"
-  "FlowExpr\"<\n\014DropFlowTask\022,\n\tdrop_flow\030\001 "
-  "\001(\0132\031.greptime.v1.DropFlowExpr\"U\n\016Create"
-  "ViewTask\0220\n\013create_view\030\001 \001(\0132\033.greptime"
-  ".v1.CreateViewExpr\022\021\n\tview_info\030\002 \001(\014\"<\n"
-  "\014DropViewTask\022,\n\tdrop_view\030\001 \001(\0132\031.grept"
-  "ime.v1.DropViewExpr\"\261\007\n\016DdlTaskRequest\022/"
-  "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques"
-  "tHeader\0220\n\rquery_context\030@ \001(\0132\031.greptim"
-  "e.v1.QueryContext\022>\n\021create_table_task\030\002"
-  " \001(\0132!.greptime.v1.meta.CreateTableTaskH"
-  "\000\022:\n\017drop_table_task\030\003 \001(\0132\037.greptime.v1"
-  ".meta.DropTableTaskH\000\022<\n\020alter_table_tas"
-  "k\030\004 \001(\0132 .greptime.v1.meta.AlterTableTas"
-  "kH\000\022B\n\023truncate_table_task\030\005 \001(\0132#.grept"
-  "ime.v1.meta.TruncateTableTaskH\000\022@\n\022creat"
-  "e_table_tasks\030\006 \001(\0132\".greptime.v1.meta.C"
-  "reateTableTasksH\000\022<\n\020drop_table_tasks\030\007 "
-  "\001(\0132 .greptime.v1.meta.DropTableTasksH\000\022"
-  ">\n\021alter_table_tasks\030\010 \001(\0132!.greptime.v1"
-  ".meta.AlterTableTasksH\000\022@\n\022drop_database"
-  "_task\030\t \001(\0132\".greptime.v1.meta.DropDatab"
-  "aseTaskH\000\022D\n\024create_database_task\030\n \001(\0132"
-  "$.greptime.v1.meta.CreateDatabaseTaskH\000\022"
-  "<\n\020create_flow_task\030\013 \001(\0132 .greptime.v1."
-  "meta.CreateFlowTaskH\000\0228\n\016drop_flow_task\030"
-  "\014 \001(\0132\036.greptime.v1.meta.DropFlowTaskH\000\022"
-  "<\n\020create_view_task\030\r \001(\0132 .greptime.v1."
-  "meta.CreateViewTaskH\000\0228\n\016drop_view_task\030"
-  "\016 \001(\0132\036.greptime.v1.meta.DropViewTaskH\000B"
-  "\006\n\004task\"\230\001\n\017DdlTaskResponse\0220\n\006header\030\001 "
-  "\001(\0132 .greptime.v1.meta.ResponseHeader\022*\n"
-  "\003pid\030\002 \001(\0132\035.greptime.v1.meta.ProcedureI"
-  "d\022\'\n\ttable_ids\030\005 \003(\0132\024.greptime.v1.Table"
-  "Id*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop\020\001B"
-  "<Z:github.com/GreptimeTeam/greptime-prot"
-  "o/go/greptime/v1/metab\006proto3"
+  "meta.DropTableTask\"B\n\016AlterTableTask\0220\n\013"
+  "alter_table\030\001 \001(\0132\033.greptime.v1.AlterTab"
+  "leExpr\"B\n\017AlterTableTasks\022/\n\005tasks\030\001 \003(\013"
+  "2 .greptime.v1.meta.AlterTableTask\"K\n\021Tr"
+  "uncateTableTask\0226\n\016truncate_table\030\001 \001(\0132"
+  "\036.greptime.v1.TruncateTableExpr\"H\n\020DropD"
+  "atabaseTask\0224\n\rdrop_database\030\001 \001(\0132\035.gre"
+  "ptime.v1.DropDatabaseExpr\"B\n\016CreateFlowT"
+  "ask\0220\n\013create_flow\030\001 \001(\0132\033.greptime.v1.C"
+  "reateFlowExpr\"<\n\014DropFlowTask\022,\n\tdrop_fl"
+  "ow\030\001 \001(\0132\031.greptime.v1.DropFlowExpr\"U\n\016C"
+  "reateViewTask\0220\n\013create_view\030\001 \001(\0132\033.gre"
+  "ptime.v1.CreateViewExpr\022\021\n\tview_info\030\002 \001"
+  "(\014\"<\n\014DropViewTask\022,\n\tdrop_view\030\001 \001(\0132\031."
+  "greptime.v1.DropViewExpr\"\261\007\n\016DdlTaskRequ"
+  "est\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.R"
+  "equestHeader\0220\n\rquery_context\030@ \001(\0132\031.gr"
+  "eptime.v1.QueryContext\022>\n\021create_table_t"
+  "ask\030\002 \001(\0132!.greptime.v1.meta.CreateTable"
+  "TaskH\000\022:\n\017drop_table_task\030\003 \001(\0132\037.grepti"
+  "me.v1.meta.DropTableTaskH\000\022<\n\020alter_tabl"
+  "e_task\030\004 \001(\0132 .greptime.v1.meta.AlterTab"
+  "leTaskH\000\022B\n\023truncate_table_task\030\005 \001(\0132#."
+  "greptime.v1.meta.TruncateTableTaskH\000\022@\n\022"
+  "create_table_tasks\030\006 \001(\0132\".greptime.v1.m"
+  "eta.CreateTableTasksH\000\022<\n\020drop_table_tas"
+  "ks\030\007 \001(\0132 .greptime.v1.meta.DropTableTas"
+  "ksH\000\022>\n\021alter_table_tasks\030\010 \001(\0132!.grepti"
+  "me.v1.meta.AlterTableTasksH\000\022@\n\022drop_dat"
+  "abase_task\030\t \001(\0132\".greptime.v1.meta.Drop"
+  "DatabaseTaskH\000\022D\n\024create_database_task\030\n"
+  " \001(\0132$.greptime.v1.meta.CreateDatabaseTa"
+  "skH\000\022<\n\020create_flow_task\030\013 \001(\0132 .greptim"
+  "e.v1.meta.CreateFlowTaskH\000\0228\n\016drop_flow_"
+  "task\030\014 \001(\0132\036.greptime.v1.meta.DropFlowTa"
+  "skH\000\022<\n\020create_view_task\030\r \001(\0132 .greptim"
+  "e.v1.meta.CreateViewTaskH\000\0228\n\016drop_view_"
+  "task\030\016 \001(\0132\036.greptime.v1.meta.DropViewTa"
+  "skH\000B\006\n\004task\"\230\001\n\017DdlTaskResponse\0220\n\006head"
+  "er\030\001 \001(\0132 .greptime.v1.meta.ResponseHead"
+  "er\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.Proce"
+  "dureId\022\'\n\ttable_ids\030\005 \003(\0132\024.greptime.v1."
+  "TableId*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Dr"
+  "op\020\001B<Z:github.com/GreptimeTeam/greptime"
+  "-proto/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps[4] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -465,7 +465,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto = {
-    false, false, 2349, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
+    false, false, 2354, descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto,
     "greptime/v1/meta/ddl.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto_deps, 4, 15,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto::offsets,
@@ -1551,10 +1551,10 @@ void DropTableTasks::InternalSwap(DropTableTasks* other) {
 
 class AlterTableTask::_Internal {
  public:
-  static const ::greptime::v1::AlterExpr& alter_table(const AlterTableTask* msg);
+  static const ::greptime::v1::AlterTableExpr& alter_table(const AlterTableTask* msg);
 };
 
-const ::greptime::v1::AlterExpr&
+const ::greptime::v1::AlterTableExpr&
 AlterTableTask::_Internal::alter_table(const AlterTableTask* msg) {
   return *msg->_impl_.alter_table_;
 }
@@ -1579,7 +1579,7 @@ AlterTableTask::AlterTableTask(const AlterTableTask& from)
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_alter_table()) {
-    _this->_impl_.alter_table_ = new ::greptime::v1::AlterExpr(*from._impl_.alter_table_);
+    _this->_impl_.alter_table_ = new ::greptime::v1::AlterTableExpr(*from._impl_.alter_table_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.AlterTableTask)
 }
@@ -1631,7 +1631,7 @@ const char* AlterTableTask::_InternalParse(const char* ptr, ::_pbi::ParseContext
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .greptime.v1.AlterExpr alter_table = 1;
+      // .greptime.v1.AlterTableExpr alter_table = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_alter_table(), ptr);
@@ -1668,7 +1668,7 @@ uint8_t* AlterTableTask::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .greptime.v1.AlterExpr alter_table = 1;
+  // .greptime.v1.AlterTableExpr alter_table = 1;
   if (this->_internal_has_alter_table()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, _Internal::alter_table(this),
@@ -1691,7 +1691,7 @@ size_t AlterTableTask::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .greptime.v1.AlterExpr alter_table = 1;
+  // .greptime.v1.AlterTableExpr alter_table = 1;
   if (this->_internal_has_alter_table()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1717,7 +1717,7 @@ void AlterTableTask::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   (void) cached_has_bits;
 
   if (from._internal_has_alter_table()) {
-    _this->_internal_mutable_alter_table()->::greptime::v1::AlterExpr::MergeFrom(
+    _this->_internal_mutable_alter_table()->::greptime::v1::AlterTableExpr::MergeFrom(
         from._internal_alter_table());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);

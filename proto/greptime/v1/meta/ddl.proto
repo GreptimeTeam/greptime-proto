@@ -47,7 +47,7 @@ message DropTableTask{
 message DropTableTasks { repeated DropTableTask tasks = 1; }
 
 message AlterTableTask{
-    AlterExpr alter_table = 1;
+    AlterTableExpr alter_table = 1;
 }
 
 message AlterTableTasks { repeated AlterTableTask tasks = 1; }

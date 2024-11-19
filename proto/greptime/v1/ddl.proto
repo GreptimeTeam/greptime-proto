@@ -30,13 +30,14 @@ message DdlRequest {
   oneof expr {
     CreateDatabaseExpr create_database = 1;
     CreateTableExpr create_table = 2;
-    AlterExpr alter = 3;
+    AlterTableExpr alter_table = 3;
     DropTableExpr drop_table = 4;
     TruncateTableExpr truncate_table = 7;
     CreateFlowExpr create_flow = 8;
     DropFlowExpr drop_flow = 9;
     CreateViewExpr create_view = 10;
     DropViewExpr drop_view = 11;
+    AlterDatabaseExpr alter_database = 12;
   }
 }
 
@@ -100,7 +101,7 @@ message CreateTableExpr {
   string engine = 12;
 }
 
-message AlterExpr {
+message AlterTableExpr {
   string catalog_name = 1;
   string schema_name = 2;
   string table_name = 3;
@@ -163,11 +164,15 @@ message ModifyColumnType {
   ColumnDataTypeExtension target_type_extension = 3;
 }
 
-message SetTableOptions {
-    repeated TableOption table_options = 1;
+message SetDatabaseOptions {
+    repeated Option database_options = 1;
 }
 
-message TableOption {
+message SetTableOptions {
+    repeated Option table_options = 1;
+}
+
+message Option {
   string key = 1;
   string value = 2;
 }
@@ -220,4 +225,13 @@ message SetColumnFulltext {
 
 message UnsetColumnFulltext {
     string column_name = 1;
+}
+
+message AlterDatabaseExpr {
+    string catalog_name = 1;
+    string schema_name = 2;
+    map<string, string> options = 3;
+    oneof kind {
+        SetDatabaseOptions set_database_options = 4;
+    }
 }
