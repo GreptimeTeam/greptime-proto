@@ -9276,59 +9276,49 @@ public final class Ddl {
 
   }
 
-  public interface AlterDatabaseTasksOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.AlterDatabaseTasks)
+  public interface AlterDatabaseTaskOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.AlterDatabaseTask)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+     * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
+     * @return Whether the task field is set.
      */
-    java.util.List<io.greptime.v1.Ddl.AlterDatabaseExpr> 
-        getTasksList();
+    boolean hasTask();
     /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+     * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
+     * @return The task.
      */
-    io.greptime.v1.Ddl.AlterDatabaseExpr getTasks(int index);
+    io.greptime.v1.Ddl.AlterDatabaseExpr getTask();
     /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+     * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
      */
-    int getTasksCount();
-    /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-     */
-    java.util.List<? extends io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder> 
-        getTasksOrBuilderList();
-    /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-     */
-    io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getTasksOrBuilder(
-        int index);
+    io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getTaskOrBuilder();
   }
   /**
    * <pre>
    * Alter database tasks
    * </pre>
    *
-   * Protobuf type {@code greptime.v1.meta.AlterDatabaseTasks}
+   * Protobuf type {@code greptime.v1.meta.AlterDatabaseTask}
    */
-  public static final class AlterDatabaseTasks extends
+  public static final class AlterDatabaseTask extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.meta.AlterDatabaseTasks)
-      AlterDatabaseTasksOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.AlterDatabaseTask)
+      AlterDatabaseTaskOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use AlterDatabaseTasks.newBuilder() to construct.
-    private AlterDatabaseTasks(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use AlterDatabaseTask.newBuilder() to construct.
+    private AlterDatabaseTask(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private AlterDatabaseTasks() {
-      tasks_ = java.util.Collections.emptyList();
+    private AlterDatabaseTask() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new AlterDatabaseTasks();
+      return new AlterDatabaseTask();
     }
 
     @java.lang.Override
@@ -9336,7 +9326,7 @@ public final class Ddl {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AlterDatabaseTasks(
+    private AlterDatabaseTask(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9344,7 +9334,6 @@ public final class Ddl {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -9356,12 +9345,16 @@ public final class Ddl {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                tasks_ = new java.util.ArrayList<io.greptime.v1.Ddl.AlterDatabaseExpr>();
-                mutable_bitField0_ |= 0x00000001;
+              io.greptime.v1.Ddl.AlterDatabaseExpr.Builder subBuilder = null;
+              if (task_ != null) {
+                subBuilder = task_.toBuilder();
               }
-              tasks_.add(
-                  input.readMessage(io.greptime.v1.Ddl.AlterDatabaseExpr.parser(), extensionRegistry));
+              task_ = input.readMessage(io.greptime.v1.Ddl.AlterDatabaseExpr.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(task_);
+                task_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -9381,64 +9374,47 @@ public final class Ddl {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          tasks_ = java.util.Collections.unmodifiableList(tasks_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTasks_descriptor;
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTask_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTasks_fieldAccessorTable
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTask_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              greptime.v1.meta.Ddl.AlterDatabaseTasks.class, greptime.v1.meta.Ddl.AlterDatabaseTasks.Builder.class);
+              greptime.v1.meta.Ddl.AlterDatabaseTask.class, greptime.v1.meta.Ddl.AlterDatabaseTask.Builder.class);
     }
 
-    public static final int TASKS_FIELD_NUMBER = 1;
-    private java.util.List<io.greptime.v1.Ddl.AlterDatabaseExpr> tasks_;
+    public static final int TASK_FIELD_NUMBER = 1;
+    private io.greptime.v1.Ddl.AlterDatabaseExpr task_;
     /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+     * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
+     * @return Whether the task field is set.
      */
     @java.lang.Override
-    public java.util.List<io.greptime.v1.Ddl.AlterDatabaseExpr> getTasksList() {
-      return tasks_;
+    public boolean hasTask() {
+      return task_ != null;
     }
     /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+     * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
+     * @return The task.
      */
     @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder> 
-        getTasksOrBuilderList() {
-      return tasks_;
+    public io.greptime.v1.Ddl.AlterDatabaseExpr getTask() {
+      return task_ == null ? io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance() : task_;
     }
     /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+     * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
      */
     @java.lang.Override
-    public int getTasksCount() {
-      return tasks_.size();
-    }
-    /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.AlterDatabaseExpr getTasks(int index) {
-      return tasks_.get(index);
-    }
-    /**
-     * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getTasksOrBuilder(
-        int index) {
-      return tasks_.get(index);
+    public io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getTaskOrBuilder() {
+      return getTask();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9455,8 +9431,8 @@ public final class Ddl {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < tasks_.size(); i++) {
-        output.writeMessage(1, tasks_.get(i));
+      if (task_ != null) {
+        output.writeMessage(1, getTask());
       }
       unknownFields.writeTo(output);
     }
@@ -9467,9 +9443,9 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < tasks_.size(); i++) {
+      if (task_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, tasks_.get(i));
+          .computeMessageSize(1, getTask());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9481,13 +9457,16 @@ public final class Ddl {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof greptime.v1.meta.Ddl.AlterDatabaseTasks)) {
+      if (!(obj instanceof greptime.v1.meta.Ddl.AlterDatabaseTask)) {
         return super.equals(obj);
       }
-      greptime.v1.meta.Ddl.AlterDatabaseTasks other = (greptime.v1.meta.Ddl.AlterDatabaseTasks) obj;
+      greptime.v1.meta.Ddl.AlterDatabaseTask other = (greptime.v1.meta.Ddl.AlterDatabaseTask) obj;
 
-      if (!getTasksList()
-          .equals(other.getTasksList())) return false;
+      if (hasTask() != other.hasTask()) return false;
+      if (hasTask()) {
+        if (!getTask()
+            .equals(other.getTask())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9499,78 +9478,78 @@ public final class Ddl {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getTasksCount() > 0) {
-        hash = (37 * hash) + TASKS_FIELD_NUMBER;
-        hash = (53 * hash) + getTasksList().hashCode();
+      if (hasTask()) {
+        hash = (37 * hash) + TASK_FIELD_NUMBER;
+        hash = (53 * hash) + getTask().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(byte[] data)
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(java.io.InputStream input)
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseDelimitedFrom(java.io.InputStream input)
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseDelimitedFrom(
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks parseFrom(
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9583,7 +9562,7 @@ public final class Ddl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(greptime.v1.meta.Ddl.AlterDatabaseTasks prototype) {
+    public static Builder newBuilder(greptime.v1.meta.Ddl.AlterDatabaseTask prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -9603,26 +9582,26 @@ public final class Ddl {
      * Alter database tasks
      * </pre>
      *
-     * Protobuf type {@code greptime.v1.meta.AlterDatabaseTasks}
+     * Protobuf type {@code greptime.v1.meta.AlterDatabaseTask}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.AlterDatabaseTasks)
-        greptime.v1.meta.Ddl.AlterDatabaseTasksOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.AlterDatabaseTask)
+        greptime.v1.meta.Ddl.AlterDatabaseTaskOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTasks_descriptor;
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTask_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTasks_fieldAccessorTable
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTask_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                greptime.v1.meta.Ddl.AlterDatabaseTasks.class, greptime.v1.meta.Ddl.AlterDatabaseTasks.Builder.class);
+                greptime.v1.meta.Ddl.AlterDatabaseTask.class, greptime.v1.meta.Ddl.AlterDatabaseTask.Builder.class);
       }
 
-      // Construct using greptime.v1.meta.Ddl.AlterDatabaseTasks.newBuilder()
+      // Construct using greptime.v1.meta.Ddl.AlterDatabaseTask.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9635,17 +9614,16 @@ public final class Ddl {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getTasksFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (tasksBuilder_ == null) {
-          tasks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (taskBuilder_ == null) {
+          task_ = null;
         } else {
-          tasksBuilder_.clear();
+          task_ = null;
+          taskBuilder_ = null;
         }
         return this;
       }
@@ -9653,17 +9631,17 @@ public final class Ddl {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTasks_descriptor;
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_AlterDatabaseTask_descriptor;
       }
 
       @java.lang.Override
-      public greptime.v1.meta.Ddl.AlterDatabaseTasks getDefaultInstanceForType() {
-        return greptime.v1.meta.Ddl.AlterDatabaseTasks.getDefaultInstance();
+      public greptime.v1.meta.Ddl.AlterDatabaseTask getDefaultInstanceForType() {
+        return greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance();
       }
 
       @java.lang.Override
-      public greptime.v1.meta.Ddl.AlterDatabaseTasks build() {
-        greptime.v1.meta.Ddl.AlterDatabaseTasks result = buildPartial();
+      public greptime.v1.meta.Ddl.AlterDatabaseTask build() {
+        greptime.v1.meta.Ddl.AlterDatabaseTask result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -9671,17 +9649,12 @@ public final class Ddl {
       }
 
       @java.lang.Override
-      public greptime.v1.meta.Ddl.AlterDatabaseTasks buildPartial() {
-        greptime.v1.meta.Ddl.AlterDatabaseTasks result = new greptime.v1.meta.Ddl.AlterDatabaseTasks(this);
-        int from_bitField0_ = bitField0_;
-        if (tasksBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            tasks_ = java.util.Collections.unmodifiableList(tasks_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.tasks_ = tasks_;
+      public greptime.v1.meta.Ddl.AlterDatabaseTask buildPartial() {
+        greptime.v1.meta.Ddl.AlterDatabaseTask result = new greptime.v1.meta.Ddl.AlterDatabaseTask(this);
+        if (taskBuilder_ == null) {
+          result.task_ = task_;
         } else {
-          result.tasks_ = tasksBuilder_.build();
+          result.task_ = taskBuilder_.build();
         }
         onBuilt();
         return result;
@@ -9721,41 +9694,18 @@ public final class Ddl {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.meta.Ddl.AlterDatabaseTasks) {
-          return mergeFrom((greptime.v1.meta.Ddl.AlterDatabaseTasks)other);
+        if (other instanceof greptime.v1.meta.Ddl.AlterDatabaseTask) {
+          return mergeFrom((greptime.v1.meta.Ddl.AlterDatabaseTask)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(greptime.v1.meta.Ddl.AlterDatabaseTasks other) {
-        if (other == greptime.v1.meta.Ddl.AlterDatabaseTasks.getDefaultInstance()) return this;
-        if (tasksBuilder_ == null) {
-          if (!other.tasks_.isEmpty()) {
-            if (tasks_.isEmpty()) {
-              tasks_ = other.tasks_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureTasksIsMutable();
-              tasks_.addAll(other.tasks_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.tasks_.isEmpty()) {
-            if (tasksBuilder_.isEmpty()) {
-              tasksBuilder_.dispose();
-              tasksBuilder_ = null;
-              tasks_ = other.tasks_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              tasksBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getTasksFieldBuilder() : null;
-            } else {
-              tasksBuilder_.addAllMessages(other.tasks_);
-            }
-          }
+      public Builder mergeFrom(greptime.v1.meta.Ddl.AlterDatabaseTask other) {
+        if (other == greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance()) return this;
+        if (other.hasTask()) {
+          mergeTask(other.getTask());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9772,11 +9722,11 @@ public final class Ddl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        greptime.v1.meta.Ddl.AlterDatabaseTasks parsedMessage = null;
+        greptime.v1.meta.Ddl.AlterDatabaseTask parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.meta.Ddl.AlterDatabaseTasks) e.getUnfinishedMessage();
+          parsedMessage = (greptime.v1.meta.Ddl.AlterDatabaseTask) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -9785,246 +9735,124 @@ public final class Ddl {
         }
         return this;
       }
-      private int bitField0_;
 
-      private java.util.List<io.greptime.v1.Ddl.AlterDatabaseExpr> tasks_ =
-        java.util.Collections.emptyList();
-      private void ensureTasksIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          tasks_ = new java.util.ArrayList<io.greptime.v1.Ddl.AlterDatabaseExpr>(tasks_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Ddl.AlterDatabaseExpr, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder, io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder> tasksBuilder_;
-
+      private io.greptime.v1.Ddl.AlterDatabaseExpr task_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.AlterDatabaseExpr, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder, io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder> taskBuilder_;
       /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+       * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
+       * @return Whether the task field is set.
        */
-      public java.util.List<io.greptime.v1.Ddl.AlterDatabaseExpr> getTasksList() {
-        if (tasksBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(tasks_);
+      public boolean hasTask() {
+        return taskBuilder_ != null || task_ != null;
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
+       * @return The task.
+       */
+      public io.greptime.v1.Ddl.AlterDatabaseExpr getTask() {
+        if (taskBuilder_ == null) {
+          return task_ == null ? io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance() : task_;
         } else {
-          return tasksBuilder_.getMessageList();
+          return taskBuilder_.getMessage();
         }
       }
       /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+       * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
        */
-      public int getTasksCount() {
-        if (tasksBuilder_ == null) {
-          return tasks_.size();
-        } else {
-          return tasksBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public io.greptime.v1.Ddl.AlterDatabaseExpr getTasks(int index) {
-        if (tasksBuilder_ == null) {
-          return tasks_.get(index);
-        } else {
-          return tasksBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public Builder setTasks(
-          int index, io.greptime.v1.Ddl.AlterDatabaseExpr value) {
-        if (tasksBuilder_ == null) {
+      public Builder setTask(io.greptime.v1.Ddl.AlterDatabaseExpr value) {
+        if (taskBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureTasksIsMutable();
-          tasks_.set(index, value);
+          task_ = value;
           onChanged();
         } else {
-          tasksBuilder_.setMessage(index, value);
+          taskBuilder_.setMessage(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+       * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
        */
-      public Builder setTasks(
-          int index, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder builderForValue) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          tasks_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          tasksBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public Builder addTasks(io.greptime.v1.Ddl.AlterDatabaseExpr value) {
-        if (tasksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTasksIsMutable();
-          tasks_.add(value);
-          onChanged();
-        } else {
-          tasksBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public Builder addTasks(
-          int index, io.greptime.v1.Ddl.AlterDatabaseExpr value) {
-        if (tasksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTasksIsMutable();
-          tasks_.add(index, value);
-          onChanged();
-        } else {
-          tasksBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public Builder addTasks(
+      public Builder setTask(
           io.greptime.v1.Ddl.AlterDatabaseExpr.Builder builderForValue) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          tasks_.add(builderForValue.build());
+        if (taskBuilder_ == null) {
+          task_ = builderForValue.build();
           onChanged();
         } else {
-          tasksBuilder_.addMessage(builderForValue.build());
+          taskBuilder_.setMessage(builderForValue.build());
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+       * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
        */
-      public Builder addTasks(
-          int index, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder builderForValue) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          tasks_.add(index, builderForValue.build());
+      public Builder mergeTask(io.greptime.v1.Ddl.AlterDatabaseExpr value) {
+        if (taskBuilder_ == null) {
+          if (task_ != null) {
+            task_ =
+              io.greptime.v1.Ddl.AlterDatabaseExpr.newBuilder(task_).mergeFrom(value).buildPartial();
+          } else {
+            task_ = value;
+          }
           onChanged();
         } else {
-          tasksBuilder_.addMessage(index, builderForValue.build());
+          taskBuilder_.mergeFrom(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+       * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
        */
-      public Builder addAllTasks(
-          java.lang.Iterable<? extends io.greptime.v1.Ddl.AlterDatabaseExpr> values) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, tasks_);
+      public Builder clearTask() {
+        if (taskBuilder_ == null) {
+          task_ = null;
           onChanged();
         } else {
-          tasksBuilder_.addAllMessages(values);
+          task_ = null;
+          taskBuilder_ = null;
         }
+
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+       * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
        */
-      public Builder clearTasks() {
-        if (tasksBuilder_ == null) {
-          tasks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
+      public io.greptime.v1.Ddl.AlterDatabaseExpr.Builder getTaskBuilder() {
+        
+        onChanged();
+        return getTaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
+       */
+      public io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getTaskOrBuilder() {
+        if (taskBuilder_ != null) {
+          return taskBuilder_.getMessageOrBuilder();
         } else {
-          tasksBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public Builder removeTasks(int index) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          tasks_.remove(index);
-          onChanged();
-        } else {
-          tasksBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public io.greptime.v1.Ddl.AlterDatabaseExpr.Builder getTasksBuilder(
-          int index) {
-        return getTasksFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getTasksOrBuilder(
-          int index) {
-        if (tasksBuilder_ == null) {
-          return tasks_.get(index);  } else {
-          return tasksBuilder_.getMessageOrBuilder(index);
+          return task_ == null ?
+              io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance() : task_;
         }
       }
       /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
+       * <code>.greptime.v1.AlterDatabaseExpr task = 1;</code>
        */
-      public java.util.List<? extends io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder> 
-           getTasksOrBuilderList() {
-        if (tasksBuilder_ != null) {
-          return tasksBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(tasks_);
-        }
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public io.greptime.v1.Ddl.AlterDatabaseExpr.Builder addTasksBuilder() {
-        return getTasksFieldBuilder().addBuilder(
-            io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public io.greptime.v1.Ddl.AlterDatabaseExpr.Builder addTasksBuilder(
-          int index) {
-        return getTasksFieldBuilder().addBuilder(
-            index, io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .greptime.v1.AlterDatabaseExpr tasks = 1;</code>
-       */
-      public java.util.List<io.greptime.v1.Ddl.AlterDatabaseExpr.Builder> 
-           getTasksBuilderList() {
-        return getTasksFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
+      private com.google.protobuf.SingleFieldBuilderV3<
           io.greptime.v1.Ddl.AlterDatabaseExpr, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder, io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder> 
-          getTasksFieldBuilder() {
-        if (tasksBuilder_ == null) {
-          tasksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          getTaskFieldBuilder() {
+        if (taskBuilder_ == null) {
+          taskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.Ddl.AlterDatabaseExpr, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder, io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder>(
-                  tasks_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  getTask(),
                   getParentForChildren(),
                   isClean());
-          tasks_ = null;
+          task_ = null;
         }
-        return tasksBuilder_;
+        return taskBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -10039,41 +9867,41 @@ public final class Ddl {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.AlterDatabaseTasks)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.AlterDatabaseTask)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.meta.AlterDatabaseTasks)
-    private static final greptime.v1.meta.Ddl.AlterDatabaseTasks DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.AlterDatabaseTask)
+    private static final greptime.v1.meta.Ddl.AlterDatabaseTask DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.AlterDatabaseTasks();
+      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.AlterDatabaseTask();
     }
 
-    public static greptime.v1.meta.Ddl.AlterDatabaseTasks getDefaultInstance() {
+    public static greptime.v1.meta.Ddl.AlterDatabaseTask getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<AlterDatabaseTasks>
-        PARSER = new com.google.protobuf.AbstractParser<AlterDatabaseTasks>() {
+    private static final com.google.protobuf.Parser<AlterDatabaseTask>
+        PARSER = new com.google.protobuf.AbstractParser<AlterDatabaseTask>() {
       @java.lang.Override
-      public AlterDatabaseTasks parsePartialFrom(
+      public AlterDatabaseTask parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AlterDatabaseTasks(input, extensionRegistry);
+        return new AlterDatabaseTask(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<AlterDatabaseTasks> parser() {
+    public static com.google.protobuf.Parser<AlterDatabaseTask> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AlterDatabaseTasks> getParserForType() {
+    public com.google.protobuf.Parser<AlterDatabaseTask> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public greptime.v1.meta.Ddl.AlterDatabaseTasks getDefaultInstanceForType() {
+    public greptime.v1.meta.Ddl.AlterDatabaseTask getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10309,19 +10137,19 @@ public final class Ddl {
     greptime.v1.meta.Ddl.DropViewTaskOrBuilder getDropViewTaskOrBuilder();
 
     /**
-     * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
-     * @return Whether the alterDatabaseTasks field is set.
+     * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
+     * @return Whether the alterDatabaseTask field is set.
      */
-    boolean hasAlterDatabaseTasks();
+    boolean hasAlterDatabaseTask();
     /**
-     * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
-     * @return The alterDatabaseTasks.
+     * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
+     * @return The alterDatabaseTask.
      */
-    greptime.v1.meta.Ddl.AlterDatabaseTasks getAlterDatabaseTasks();
+    greptime.v1.meta.Ddl.AlterDatabaseTask getAlterDatabaseTask();
     /**
-     * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
+     * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
      */
-    greptime.v1.meta.Ddl.AlterDatabaseTasksOrBuilder getAlterDatabaseTasksOrBuilder();
+    greptime.v1.meta.Ddl.AlterDatabaseTaskOrBuilder getAlterDatabaseTaskOrBuilder();
 
     public greptime.v1.meta.Ddl.DdlTaskRequest.TaskCase getTaskCase();
   }
@@ -10566,14 +10394,14 @@ public final class Ddl {
               break;
             }
             case 122: {
-              greptime.v1.meta.Ddl.AlterDatabaseTasks.Builder subBuilder = null;
+              greptime.v1.meta.Ddl.AlterDatabaseTask.Builder subBuilder = null;
               if (taskCase_ == 15) {
-                subBuilder = ((greptime.v1.meta.Ddl.AlterDatabaseTasks) task_).toBuilder();
+                subBuilder = ((greptime.v1.meta.Ddl.AlterDatabaseTask) task_).toBuilder();
               }
               task_ =
-                  input.readMessage(greptime.v1.meta.Ddl.AlterDatabaseTasks.parser(), extensionRegistry);
+                  input.readMessage(greptime.v1.meta.Ddl.AlterDatabaseTask.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((greptime.v1.meta.Ddl.AlterDatabaseTasks) task_);
+                subBuilder.mergeFrom((greptime.v1.meta.Ddl.AlterDatabaseTask) task_);
                 task_ = subBuilder.buildPartial();
               }
               taskCase_ = 15;
@@ -10644,7 +10472,7 @@ public final class Ddl {
       DROP_FLOW_TASK(12),
       CREATE_VIEW_TASK(13),
       DROP_VIEW_TASK(14),
-      ALTER_DATABASE_TASKS(15),
+      ALTER_DATABASE_TASK(15),
       TASK_NOT_SET(0);
       private final int value;
       private TaskCase(int value) {
@@ -10675,7 +10503,7 @@ public final class Ddl {
           case 12: return DROP_FLOW_TASK;
           case 13: return CREATE_VIEW_TASK;
           case 14: return DROP_VIEW_TASK;
-          case 15: return ALTER_DATABASE_TASKS;
+          case 15: return ALTER_DATABASE_TASK;
           case 0: return TASK_NOT_SET;
           default: return null;
         }
@@ -11146,35 +10974,35 @@ public final class Ddl {
       return greptime.v1.meta.Ddl.DropViewTask.getDefaultInstance();
     }
 
-    public static final int ALTER_DATABASE_TASKS_FIELD_NUMBER = 15;
+    public static final int ALTER_DATABASE_TASK_FIELD_NUMBER = 15;
     /**
-     * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
-     * @return Whether the alterDatabaseTasks field is set.
+     * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
+     * @return Whether the alterDatabaseTask field is set.
      */
     @java.lang.Override
-    public boolean hasAlterDatabaseTasks() {
+    public boolean hasAlterDatabaseTask() {
       return taskCase_ == 15;
     }
     /**
-     * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
-     * @return The alterDatabaseTasks.
+     * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
+     * @return The alterDatabaseTask.
      */
     @java.lang.Override
-    public greptime.v1.meta.Ddl.AlterDatabaseTasks getAlterDatabaseTasks() {
+    public greptime.v1.meta.Ddl.AlterDatabaseTask getAlterDatabaseTask() {
       if (taskCase_ == 15) {
-         return (greptime.v1.meta.Ddl.AlterDatabaseTasks) task_;
+         return (greptime.v1.meta.Ddl.AlterDatabaseTask) task_;
       }
-      return greptime.v1.meta.Ddl.AlterDatabaseTasks.getDefaultInstance();
+      return greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
+     * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
      */
     @java.lang.Override
-    public greptime.v1.meta.Ddl.AlterDatabaseTasksOrBuilder getAlterDatabaseTasksOrBuilder() {
+    public greptime.v1.meta.Ddl.AlterDatabaseTaskOrBuilder getAlterDatabaseTaskOrBuilder() {
       if (taskCase_ == 15) {
-         return (greptime.v1.meta.Ddl.AlterDatabaseTasks) task_;
+         return (greptime.v1.meta.Ddl.AlterDatabaseTask) task_;
       }
-      return greptime.v1.meta.Ddl.AlterDatabaseTasks.getDefaultInstance();
+      return greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11234,7 +11062,7 @@ public final class Ddl {
         output.writeMessage(14, (greptime.v1.meta.Ddl.DropViewTask) task_);
       }
       if (taskCase_ == 15) {
-        output.writeMessage(15, (greptime.v1.meta.Ddl.AlterDatabaseTasks) task_);
+        output.writeMessage(15, (greptime.v1.meta.Ddl.AlterDatabaseTask) task_);
       }
       if (queryContext_ != null) {
         output.writeMessage(64, getQueryContext());
@@ -11306,7 +11134,7 @@ public final class Ddl {
       }
       if (taskCase_ == 15) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(15, (greptime.v1.meta.Ddl.AlterDatabaseTasks) task_);
+          .computeMessageSize(15, (greptime.v1.meta.Ddl.AlterDatabaseTask) task_);
       }
       if (queryContext_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -11392,8 +11220,8 @@ public final class Ddl {
               .equals(other.getDropViewTask())) return false;
           break;
         case 15:
-          if (!getAlterDatabaseTasks()
-              .equals(other.getAlterDatabaseTasks())) return false;
+          if (!getAlterDatabaseTask()
+              .equals(other.getAlterDatabaseTask())) return false;
           break;
         case 0:
         default:
@@ -11471,8 +11299,8 @@ public final class Ddl {
           hash = (53 * hash) + getDropViewTask().hashCode();
           break;
         case 15:
-          hash = (37 * hash) + ALTER_DATABASE_TASKS_FIELD_NUMBER;
-          hash = (53 * hash) + getAlterDatabaseTasks().hashCode();
+          hash = (37 * hash) + ALTER_DATABASE_TASK_FIELD_NUMBER;
+          hash = (53 * hash) + getAlterDatabaseTask().hashCode();
           break;
         case 0:
         default:
@@ -11752,10 +11580,10 @@ public final class Ddl {
           }
         }
         if (taskCase_ == 15) {
-          if (alterDatabaseTasksBuilder_ == null) {
+          if (alterDatabaseTaskBuilder_ == null) {
             result.task_ = task_;
           } else {
-            result.task_ = alterDatabaseTasksBuilder_.build();
+            result.task_ = alterDatabaseTaskBuilder_.build();
           }
         }
         result.taskCase_ = taskCase_;
@@ -11866,8 +11694,8 @@ public final class Ddl {
             mergeDropViewTask(other.getDropViewTask());
             break;
           }
-          case ALTER_DATABASE_TASKS: {
-            mergeAlterDatabaseTasks(other.getAlterDatabaseTasks());
+          case ALTER_DATABASE_TASK: {
+            mergeAlterDatabaseTask(other.getAlterDatabaseTask());
             break;
           }
           case TASK_NOT_SET: {
@@ -14003,71 +13831,71 @@ public final class Ddl {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Ddl.AlterDatabaseTasks, greptime.v1.meta.Ddl.AlterDatabaseTasks.Builder, greptime.v1.meta.Ddl.AlterDatabaseTasksOrBuilder> alterDatabaseTasksBuilder_;
+          greptime.v1.meta.Ddl.AlterDatabaseTask, greptime.v1.meta.Ddl.AlterDatabaseTask.Builder, greptime.v1.meta.Ddl.AlterDatabaseTaskOrBuilder> alterDatabaseTaskBuilder_;
       /**
-       * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
-       * @return Whether the alterDatabaseTasks field is set.
+       * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
+       * @return Whether the alterDatabaseTask field is set.
        */
       @java.lang.Override
-      public boolean hasAlterDatabaseTasks() {
+      public boolean hasAlterDatabaseTask() {
         return taskCase_ == 15;
       }
       /**
-       * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
-       * @return The alterDatabaseTasks.
+       * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
+       * @return The alterDatabaseTask.
        */
       @java.lang.Override
-      public greptime.v1.meta.Ddl.AlterDatabaseTasks getAlterDatabaseTasks() {
-        if (alterDatabaseTasksBuilder_ == null) {
+      public greptime.v1.meta.Ddl.AlterDatabaseTask getAlterDatabaseTask() {
+        if (alterDatabaseTaskBuilder_ == null) {
           if (taskCase_ == 15) {
-            return (greptime.v1.meta.Ddl.AlterDatabaseTasks) task_;
+            return (greptime.v1.meta.Ddl.AlterDatabaseTask) task_;
           }
-          return greptime.v1.meta.Ddl.AlterDatabaseTasks.getDefaultInstance();
+          return greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance();
         } else {
           if (taskCase_ == 15) {
-            return alterDatabaseTasksBuilder_.getMessage();
+            return alterDatabaseTaskBuilder_.getMessage();
           }
-          return greptime.v1.meta.Ddl.AlterDatabaseTasks.getDefaultInstance();
+          return greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
+       * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
        */
-      public Builder setAlterDatabaseTasks(greptime.v1.meta.Ddl.AlterDatabaseTasks value) {
-        if (alterDatabaseTasksBuilder_ == null) {
+      public Builder setAlterDatabaseTask(greptime.v1.meta.Ddl.AlterDatabaseTask value) {
+        if (alterDatabaseTaskBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           task_ = value;
           onChanged();
         } else {
-          alterDatabaseTasksBuilder_.setMessage(value);
+          alterDatabaseTaskBuilder_.setMessage(value);
         }
         taskCase_ = 15;
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
+       * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
        */
-      public Builder setAlterDatabaseTasks(
-          greptime.v1.meta.Ddl.AlterDatabaseTasks.Builder builderForValue) {
-        if (alterDatabaseTasksBuilder_ == null) {
+      public Builder setAlterDatabaseTask(
+          greptime.v1.meta.Ddl.AlterDatabaseTask.Builder builderForValue) {
+        if (alterDatabaseTaskBuilder_ == null) {
           task_ = builderForValue.build();
           onChanged();
         } else {
-          alterDatabaseTasksBuilder_.setMessage(builderForValue.build());
+          alterDatabaseTaskBuilder_.setMessage(builderForValue.build());
         }
         taskCase_ = 15;
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
+       * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
        */
-      public Builder mergeAlterDatabaseTasks(greptime.v1.meta.Ddl.AlterDatabaseTasks value) {
-        if (alterDatabaseTasksBuilder_ == null) {
+      public Builder mergeAlterDatabaseTask(greptime.v1.meta.Ddl.AlterDatabaseTask value) {
+        if (alterDatabaseTaskBuilder_ == null) {
           if (taskCase_ == 15 &&
-              task_ != greptime.v1.meta.Ddl.AlterDatabaseTasks.getDefaultInstance()) {
-            task_ = greptime.v1.meta.Ddl.AlterDatabaseTasks.newBuilder((greptime.v1.meta.Ddl.AlterDatabaseTasks) task_)
+              task_ != greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance()) {
+            task_ = greptime.v1.meta.Ddl.AlterDatabaseTask.newBuilder((greptime.v1.meta.Ddl.AlterDatabaseTask) task_)
                 .mergeFrom(value).buildPartial();
           } else {
             task_ = value;
@@ -14075,19 +13903,19 @@ public final class Ddl {
           onChanged();
         } else {
           if (taskCase_ == 15) {
-            alterDatabaseTasksBuilder_.mergeFrom(value);
+            alterDatabaseTaskBuilder_.mergeFrom(value);
           } else {
-            alterDatabaseTasksBuilder_.setMessage(value);
+            alterDatabaseTaskBuilder_.setMessage(value);
           }
         }
         taskCase_ = 15;
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
+       * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
        */
-      public Builder clearAlterDatabaseTasks() {
-        if (alterDatabaseTasksBuilder_ == null) {
+      public Builder clearAlterDatabaseTask() {
+        if (alterDatabaseTaskBuilder_ == null) {
           if (taskCase_ == 15) {
             taskCase_ = 0;
             task_ = null;
@@ -14098,50 +13926,50 @@ public final class Ddl {
             taskCase_ = 0;
             task_ = null;
           }
-          alterDatabaseTasksBuilder_.clear();
+          alterDatabaseTaskBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
+       * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
        */
-      public greptime.v1.meta.Ddl.AlterDatabaseTasks.Builder getAlterDatabaseTasksBuilder() {
-        return getAlterDatabaseTasksFieldBuilder().getBuilder();
+      public greptime.v1.meta.Ddl.AlterDatabaseTask.Builder getAlterDatabaseTaskBuilder() {
+        return getAlterDatabaseTaskFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
+       * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
        */
       @java.lang.Override
-      public greptime.v1.meta.Ddl.AlterDatabaseTasksOrBuilder getAlterDatabaseTasksOrBuilder() {
-        if ((taskCase_ == 15) && (alterDatabaseTasksBuilder_ != null)) {
-          return alterDatabaseTasksBuilder_.getMessageOrBuilder();
+      public greptime.v1.meta.Ddl.AlterDatabaseTaskOrBuilder getAlterDatabaseTaskOrBuilder() {
+        if ((taskCase_ == 15) && (alterDatabaseTaskBuilder_ != null)) {
+          return alterDatabaseTaskBuilder_.getMessageOrBuilder();
         } else {
           if (taskCase_ == 15) {
-            return (greptime.v1.meta.Ddl.AlterDatabaseTasks) task_;
+            return (greptime.v1.meta.Ddl.AlterDatabaseTask) task_;
           }
-          return greptime.v1.meta.Ddl.AlterDatabaseTasks.getDefaultInstance();
+          return greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.meta.AlterDatabaseTasks alter_database_tasks = 15;</code>
+       * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Ddl.AlterDatabaseTasks, greptime.v1.meta.Ddl.AlterDatabaseTasks.Builder, greptime.v1.meta.Ddl.AlterDatabaseTasksOrBuilder> 
-          getAlterDatabaseTasksFieldBuilder() {
-        if (alterDatabaseTasksBuilder_ == null) {
+          greptime.v1.meta.Ddl.AlterDatabaseTask, greptime.v1.meta.Ddl.AlterDatabaseTask.Builder, greptime.v1.meta.Ddl.AlterDatabaseTaskOrBuilder> 
+          getAlterDatabaseTaskFieldBuilder() {
+        if (alterDatabaseTaskBuilder_ == null) {
           if (!(taskCase_ == 15)) {
-            task_ = greptime.v1.meta.Ddl.AlterDatabaseTasks.getDefaultInstance();
+            task_ = greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance();
           }
-          alterDatabaseTasksBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              greptime.v1.meta.Ddl.AlterDatabaseTasks, greptime.v1.meta.Ddl.AlterDatabaseTasks.Builder, greptime.v1.meta.Ddl.AlterDatabaseTasksOrBuilder>(
-                  (greptime.v1.meta.Ddl.AlterDatabaseTasks) task_,
+          alterDatabaseTaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Ddl.AlterDatabaseTask, greptime.v1.meta.Ddl.AlterDatabaseTask.Builder, greptime.v1.meta.Ddl.AlterDatabaseTaskOrBuilder>(
+                  (greptime.v1.meta.Ddl.AlterDatabaseTask) task_,
                   getParentForChildren(),
                   isClean());
           task_ = null;
         }
         taskCase_ = 15;
         onChanged();;
-        return alterDatabaseTasksBuilder_;
+        return alterDatabaseTaskBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -15575,10 +15403,10 @@ public final class Ddl {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_DropViewTask_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_AlterDatabaseTasks_descriptor;
+    internal_static_greptime_v1_meta_AlterDatabaseTask_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_AlterDatabaseTasks_fieldAccessorTable;
+      internal_static_greptime_v1_meta_AlterDatabaseTask_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_DdlTaskRequest_descriptor;
   private static final 
@@ -15626,41 +15454,41 @@ public final class Ddl {
       "reateViewTask\0220\n\013create_view\030\001 \001(\0132\033.gre" +
       "ptime.v1.CreateViewExpr\022\021\n\tview_info\030\002 \001" +
       "(\014\"<\n\014DropViewTask\022,\n\tdrop_view\030\001 \001(\0132\031." +
-      "greptime.v1.DropViewExpr\"C\n\022AlterDatabas" +
-      "eTasks\022-\n\005tasks\030\001 \003(\0132\036.greptime.v1.Alte" +
-      "rDatabaseExpr\"\367\007\n\016DdlTaskRequest\022/\n\006head" +
-      "er\030\001 \001(\0132\037.greptime.v1.meta.RequestHeade" +
-      "r\0220\n\rquery_context\030@ \001(\0132\031.greptime.v1.Q" +
-      "ueryContext\022>\n\021create_table_task\030\002 \001(\0132!" +
-      ".greptime.v1.meta.CreateTableTaskH\000\022:\n\017d" +
-      "rop_table_task\030\003 \001(\0132\037.greptime.v1.meta." +
-      "DropTableTaskH\000\022<\n\020alter_table_task\030\004 \001(" +
-      "\0132 .greptime.v1.meta.AlterTableTaskH\000\022B\n" +
-      "\023truncate_table_task\030\005 \001(\0132#.greptime.v1" +
-      ".meta.TruncateTableTaskH\000\022@\n\022create_tabl" +
-      "e_tasks\030\006 \001(\0132\".greptime.v1.meta.CreateT" +
-      "ableTasksH\000\022<\n\020drop_table_tasks\030\007 \001(\0132 ." +
-      "greptime.v1.meta.DropTableTasksH\000\022>\n\021alt" +
-      "er_table_tasks\030\010 \001(\0132!.greptime.v1.meta." +
-      "AlterTableTasksH\000\022@\n\022drop_database_task\030" +
-      "\t \001(\0132\".greptime.v1.meta.DropDatabaseTas" +
-      "kH\000\022D\n\024create_database_task\030\n \001(\0132$.grep" +
-      "time.v1.meta.CreateDatabaseTaskH\000\022<\n\020cre" +
-      "ate_flow_task\030\013 \001(\0132 .greptime.v1.meta.C" +
-      "reateFlowTaskH\000\0228\n\016drop_flow_task\030\014 \001(\0132" +
-      "\036.greptime.v1.meta.DropFlowTaskH\000\022<\n\020cre" +
-      "ate_view_task\030\r \001(\0132 .greptime.v1.meta.C" +
-      "reateViewTaskH\000\0228\n\016drop_view_task\030\016 \001(\0132" +
-      "\036.greptime.v1.meta.DropViewTaskH\000\022D\n\024alt" +
-      "er_database_tasks\030\017 \001(\0132$.greptime.v1.me" +
-      "ta.AlterDatabaseTasksH\000B\006\n\004task\"\230\001\n\017DdlT" +
-      "askResponse\0220\n\006header\030\001 \001(\0132 .greptime.v" +
-      "1.meta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.gre" +
-      "ptime.v1.meta.ProcedureId\022\'\n\ttable_ids\030\005" +
-      " \003(\0132\024.greptime.v1.TableId*#\n\013DdlTaskTyp" +
-      "e\022\n\n\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/Gr" +
-      "eptimeTeam/greptime-proto/go/greptime/v1" +
-      "/metab\006proto3"
+      "greptime.v1.DropViewExpr\"A\n\021AlterDatabas" +
+      "eTask\022,\n\004task\030\001 \001(\0132\036.greptime.v1.AlterD" +
+      "atabaseExpr\"\365\007\n\016DdlTaskRequest\022/\n\006header" +
+      "\030\001 \001(\0132\037.greptime.v1.meta.RequestHeader\022" +
+      "0\n\rquery_context\030@ \001(\0132\031.greptime.v1.Que" +
+      "ryContext\022>\n\021create_table_task\030\002 \001(\0132!.g" +
+      "reptime.v1.meta.CreateTableTaskH\000\022:\n\017dro" +
+      "p_table_task\030\003 \001(\0132\037.greptime.v1.meta.Dr" +
+      "opTableTaskH\000\022<\n\020alter_table_task\030\004 \001(\0132" +
+      " .greptime.v1.meta.AlterTableTaskH\000\022B\n\023t" +
+      "runcate_table_task\030\005 \001(\0132#.greptime.v1.m" +
+      "eta.TruncateTableTaskH\000\022@\n\022create_table_" +
+      "tasks\030\006 \001(\0132\".greptime.v1.meta.CreateTab" +
+      "leTasksH\000\022<\n\020drop_table_tasks\030\007 \001(\0132 .gr" +
+      "eptime.v1.meta.DropTableTasksH\000\022>\n\021alter" +
+      "_table_tasks\030\010 \001(\0132!.greptime.v1.meta.Al" +
+      "terTableTasksH\000\022@\n\022drop_database_task\030\t " +
+      "\001(\0132\".greptime.v1.meta.DropDatabaseTaskH" +
+      "\000\022D\n\024create_database_task\030\n \001(\0132$.grepti" +
+      "me.v1.meta.CreateDatabaseTaskH\000\022<\n\020creat" +
+      "e_flow_task\030\013 \001(\0132 .greptime.v1.meta.Cre" +
+      "ateFlowTaskH\000\0228\n\016drop_flow_task\030\014 \001(\0132\036." +
+      "greptime.v1.meta.DropFlowTaskH\000\022<\n\020creat" +
+      "e_view_task\030\r \001(\0132 .greptime.v1.meta.Cre" +
+      "ateViewTaskH\000\0228\n\016drop_view_task\030\016 \001(\0132\036." +
+      "greptime.v1.meta.DropViewTaskH\000\022B\n\023alter" +
+      "_database_task\030\017 \001(\0132#.greptime.v1.meta." +
+      "AlterDatabaseTaskH\000B\006\n\004task\"\230\001\n\017DdlTaskR" +
+      "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me" +
+      "ta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.greptim" +
+      "e.v1.meta.ProcedureId\022\'\n\ttable_ids\030\005 \003(\013" +
+      "2\024.greptime.v1.TableId*#\n\013DdlTaskType\022\n\n" +
+      "\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/Grepti" +
+      "meTeam/greptime-proto/go/greptime/v1/met" +
+      "ab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15748,18 +15576,18 @@ public final class Ddl {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DropViewTask_descriptor,
         new java.lang.String[] { "DropView", });
-    internal_static_greptime_v1_meta_AlterDatabaseTasks_descriptor =
+    internal_static_greptime_v1_meta_AlterDatabaseTask_descriptor =
       getDescriptor().getMessageTypes().get(13);
-    internal_static_greptime_v1_meta_AlterDatabaseTasks_fieldAccessorTable = new
+    internal_static_greptime_v1_meta_AlterDatabaseTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_AlterDatabaseTasks_descriptor,
-        new java.lang.String[] { "Tasks", });
+        internal_static_greptime_v1_meta_AlterDatabaseTask_descriptor,
+        new java.lang.String[] { "Task", });
     internal_static_greptime_v1_meta_DdlTaskRequest_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskRequest_descriptor,
-        new java.lang.String[] { "Header", "QueryContext", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTasks", "Task", });
+        new java.lang.String[] { "Header", "QueryContext", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTask", "Task", });
     internal_static_greptime_v1_meta_DdlTaskResponse_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable = new

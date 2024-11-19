@@ -80,8 +80,8 @@ message DropViewTask {
 }
 
 // Alter database tasks
-message AlterDatabaseTasks {
-    repeated AlterDatabaseExpr tasks = 1;
+message AlterDatabaseTask {
+    AlterDatabaseExpr task = 1;
 }
 
 message DdlTaskRequest {
@@ -102,7 +102,7 @@ message DdlTaskRequest {
         DropFlowTask drop_flow_task = 12;
         CreateViewTask create_view_task = 13;
         DropViewTask drop_view_task = 14;
-        AlterDatabaseTasks alter_database_tasks = 15;
+        AlterDatabaseTask alter_database_task = 15;
      }
 }
 
