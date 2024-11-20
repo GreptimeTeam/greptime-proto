@@ -109,9 +109,10 @@ message AlterExpr {
     DropColumns drop_columns = 5;
     RenameTable rename_table = 6;
     ModifyColumnTypes modify_column_types = 7;
-    ChangeTableOptions change_table_options = 8;
+    SetTableOptions set_table_options = 8;
     SetColumnFulltext set_column_fulltext = 9;
     UnsetColumnFulltext unset_column_fulltext = 10;
+    UnsetTableOptions unset_table_options = 11;
   }
 }
 
@@ -162,13 +163,17 @@ message ModifyColumnType {
   ColumnDataTypeExtension target_type_extension = 3;
 }
 
-message ChangeTableOptions {
-    repeated ChangeTableOption change_table_options = 1;
+message SetTableOptions {
+    repeated TableOption table_options = 1;
 }
 
-message ChangeTableOption {
+message TableOption {
   string key = 1;
   string value = 2;
+}
+
+message UnsetTableOptions {
+    repeated string keys = 1;
 }
 
 message DropColumn { string name = 1; }
