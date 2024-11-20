@@ -144,6 +144,9 @@ extern TruncateTableExprDefaultTypeInternal _TruncateTableExpr_default_instance_
 class UnsetColumnFulltext;
 struct UnsetColumnFulltextDefaultTypeInternal;
 extern UnsetColumnFulltextDefaultTypeInternal _UnsetColumnFulltext_default_instance_;
+class UnsetDatabaseOptions;
+struct UnsetDatabaseOptionsDefaultTypeInternal;
+extern UnsetDatabaseOptionsDefaultTypeInternal _UnsetDatabaseOptions_default_instance_;
 class UnsetTableOptions;
 struct UnsetTableOptionsDefaultTypeInternal;
 extern UnsetTableOptionsDefaultTypeInternal _UnsetTableOptions_default_instance_;
@@ -181,6 +184,7 @@ template<> ::greptime::v1::SetTableOptions* Arena::CreateMaybeMessage<::greptime
 template<> ::greptime::v1::TableId* Arena::CreateMaybeMessage<::greptime::v1::TableId>(Arena*);
 template<> ::greptime::v1::TruncateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::TruncateTableExpr>(Arena*);
 template<> ::greptime::v1::UnsetColumnFulltext* Arena::CreateMaybeMessage<::greptime::v1::UnsetColumnFulltext>(Arena*);
+template<> ::greptime::v1::UnsetDatabaseOptions* Arena::CreateMaybeMessage<::greptime::v1::UnsetDatabaseOptions>(Arena*);
 template<> ::greptime::v1::UnsetTableOptions* Arena::CreateMaybeMessage<::greptime::v1::UnsetTableOptions>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -4234,24 +4238,24 @@ class ModifyColumnType final :
 };
 // -------------------------------------------------------------------
 
-class SetDatabaseOptions final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SetDatabaseOptions) */ {
+class Option final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Option) */ {
  public:
-  inline SetDatabaseOptions() : SetDatabaseOptions(nullptr) {}
-  ~SetDatabaseOptions() override;
-  explicit PROTOBUF_CONSTEXPR SetDatabaseOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Option() : Option(nullptr) {}
+  ~Option() override;
+  explicit PROTOBUF_CONSTEXPR Option(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SetDatabaseOptions(const SetDatabaseOptions& from);
-  SetDatabaseOptions(SetDatabaseOptions&& from) noexcept
-    : SetDatabaseOptions() {
+  Option(const Option& from);
+  Option(Option&& from) noexcept
+    : Option() {
     *this = ::std::move(from);
   }
 
-  inline SetDatabaseOptions& operator=(const SetDatabaseOptions& from) {
+  inline Option& operator=(const Option& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SetDatabaseOptions& operator=(SetDatabaseOptions&& from) noexcept {
+  inline Option& operator=(Option&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -4274,20 +4278,20 @@ class SetDatabaseOptions final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SetDatabaseOptions& default_instance() {
+  static const Option& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SetDatabaseOptions* internal_default_instance() {
-    return reinterpret_cast<const SetDatabaseOptions*>(
-               &_SetDatabaseOptions_default_instance_);
+  static inline const Option* internal_default_instance() {
+    return reinterpret_cast<const Option*>(
+               &_Option_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     20;
 
-  friend void swap(SetDatabaseOptions& a, SetDatabaseOptions& b) {
+  friend void swap(Option& a, Option& b) {
     a.Swap(&b);
   }
-  inline void Swap(SetDatabaseOptions* other) {
+  inline void Swap(Option* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -4300,7 +4304,7 @@ class SetDatabaseOptions final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SetDatabaseOptions* other) {
+  void UnsafeArenaSwap(Option* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -4308,14 +4312,14 @@ class SetDatabaseOptions final :
 
   // implements Message ----------------------------------------------
 
-  SetDatabaseOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SetDatabaseOptions>(arena);
+  Option* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Option>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SetDatabaseOptions& from);
+  void CopyFrom(const Option& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const SetDatabaseOptions& from) {
-    SetDatabaseOptions::MergeImpl(*this, from);
+  void MergeFrom( const Option& from) {
+    Option::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -4333,15 +4337,15 @@ class SetDatabaseOptions final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SetDatabaseOptions* other);
+  void InternalSwap(Option* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.SetDatabaseOptions";
+    return "greptime.v1.Option";
   }
   protected:
-  explicit SetDatabaseOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit Option(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -4355,27 +4359,38 @@ class SetDatabaseOptions final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kDatabaseOptionsFieldNumber = 1,
+    kKeyFieldNumber = 1,
+    kValueFieldNumber = 2,
   };
-  // repeated .greptime.v1.Option database_options = 1;
-  int database_options_size() const;
+  // string key = 1;
+  void clear_key();
+  const std::string& key() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_key(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_key();
+  PROTOBUF_NODISCARD std::string* release_key();
+  void set_allocated_key(std::string* key);
   private:
-  int _internal_database_options_size() const;
+  const std::string& _internal_key() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
+  std::string* _internal_mutable_key();
   public:
-  void clear_database_options();
-  ::greptime::v1::Option* mutable_database_options(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >*
-      mutable_database_options();
-  private:
-  const ::greptime::v1::Option& _internal_database_options(int index) const;
-  ::greptime::v1::Option* _internal_add_database_options();
-  public:
-  const ::greptime::v1::Option& database_options(int index) const;
-  ::greptime::v1::Option* add_database_options();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >&
-      database_options() const;
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.SetDatabaseOptions)
+  // string value = 2;
+  void clear_value();
+  const std::string& value() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_value(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_value();
+  PROTOBUF_NODISCARD std::string* release_value();
+  void set_allocated_value(std::string* value);
+  private:
+  const std::string& _internal_value() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_value(const std::string& value);
+  std::string* _internal_mutable_value();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.Option)
  private:
   class _Internal;
 
@@ -4383,7 +4398,8 @@ class SetDatabaseOptions final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option > database_options_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -4548,175 +4564,6 @@ class SetTableOptions final :
 };
 // -------------------------------------------------------------------
 
-class Option final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Option) */ {
- public:
-  inline Option() : Option(nullptr) {}
-  ~Option() override;
-  explicit PROTOBUF_CONSTEXPR Option(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  Option(const Option& from);
-  Option(Option&& from) noexcept
-    : Option() {
-    *this = ::std::move(from);
-  }
-
-  inline Option& operator=(const Option& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Option& operator=(Option&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Option& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Option* internal_default_instance() {
-    return reinterpret_cast<const Option*>(
-               &_Option_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    22;
-
-  friend void swap(Option& a, Option& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Option* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Option* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Option* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<Option>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Option& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Option& from) {
-    Option::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Option* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.Option";
-  }
-  protected:
-  explicit Option(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kKeyFieldNumber = 1,
-    kValueFieldNumber = 2,
-  };
-  // string key = 1;
-  void clear_key();
-  const std::string& key() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_key(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_key();
-  PROTOBUF_NODISCARD std::string* release_key();
-  void set_allocated_key(std::string* key);
-  private:
-  const std::string& _internal_key() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
-  std::string* _internal_mutable_key();
-  public:
-
-  // string value = 2;
-  void clear_value();
-  const std::string& value() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_value(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_value();
-  PROTOBUF_NODISCARD std::string* release_value();
-  void set_allocated_value(std::string* value);
-  private:
-  const std::string& _internal_value() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_value(const std::string& value);
-  std::string* _internal_mutable_value();
-  public:
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.Option)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
-};
-// -------------------------------------------------------------------
-
 class UnsetTableOptions final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.UnsetTableOptions) */ {
  public:
@@ -4765,7 +4612,7 @@ class UnsetTableOptions final :
                &_UnsetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    22;
 
   friend void swap(UnsetTableOptions& a, UnsetTableOptions& b) {
     a.Swap(&b);
@@ -4928,7 +4775,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    23;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -5081,7 +4928,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    24;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -5229,7 +5076,7 @@ class FlowId final :
                &_FlowId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    25;
 
   friend void swap(FlowId& a, FlowId& b) {
     a.Swap(&b);
@@ -5377,7 +5224,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    26;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -5635,7 +5482,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    27;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -5829,7 +5676,7 @@ class SetColumnFulltext final :
                &_SetColumnFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    28;
 
   friend void swap(SetColumnFulltext& a, SetColumnFulltext& b) {
     a.Swap(&b);
@@ -6015,7 +5862,7 @@ class UnsetColumnFulltext final :
                &_UnsetColumnFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    29;
 
   friend void swap(UnsetColumnFulltext& a, UnsetColumnFulltext& b) {
     a.Swap(&b);
@@ -6164,7 +6011,8 @@ class AlterDatabaseExpr final :
     return *internal_default_instance();
   }
   enum KindCase {
-    kSetDatabaseOptions = 4,
+    kSetDatabaseOptions = 3,
+    kUnsetDatabaseOptions = 4,
     KIND_NOT_SET = 0,
   };
 
@@ -6173,7 +6021,7 @@ class AlterDatabaseExpr final :
                &_AlterDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    30;
 
   friend void swap(AlterDatabaseExpr& a, AlterDatabaseExpr& b) {
     a.Swap(&b);
@@ -6248,7 +6096,8 @@ class AlterDatabaseExpr final :
   enum : int {
     kCatalogNameFieldNumber = 1,
     kSchemaNameFieldNumber = 2,
-    kSetDatabaseOptionsFieldNumber = 4,
+    kSetDatabaseOptionsFieldNumber = 3,
+    kUnsetDatabaseOptionsFieldNumber = 4,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -6278,7 +6127,7 @@ class AlterDatabaseExpr final :
   std::string* _internal_mutable_schema_name();
   public:
 
-  // .greptime.v1.SetDatabaseOptions set_database_options = 4;
+  // .greptime.v1.SetDatabaseOptions set_database_options = 3;
   bool has_set_database_options() const;
   private:
   bool _internal_has_set_database_options() const;
@@ -6296,12 +6145,31 @@ class AlterDatabaseExpr final :
       ::greptime::v1::SetDatabaseOptions* set_database_options);
   ::greptime::v1::SetDatabaseOptions* unsafe_arena_release_set_database_options();
 
+  // .greptime.v1.UnsetDatabaseOptions unset_database_options = 4;
+  bool has_unset_database_options() const;
+  private:
+  bool _internal_has_unset_database_options() const;
+  public:
+  void clear_unset_database_options();
+  const ::greptime::v1::UnsetDatabaseOptions& unset_database_options() const;
+  PROTOBUF_NODISCARD ::greptime::v1::UnsetDatabaseOptions* release_unset_database_options();
+  ::greptime::v1::UnsetDatabaseOptions* mutable_unset_database_options();
+  void set_allocated_unset_database_options(::greptime::v1::UnsetDatabaseOptions* unset_database_options);
+  private:
+  const ::greptime::v1::UnsetDatabaseOptions& _internal_unset_database_options() const;
+  ::greptime::v1::UnsetDatabaseOptions* _internal_mutable_unset_database_options();
+  public:
+  void unsafe_arena_set_allocated_unset_database_options(
+      ::greptime::v1::UnsetDatabaseOptions* unset_database_options);
+  ::greptime::v1::UnsetDatabaseOptions* unsafe_arena_release_unset_database_options();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.AlterDatabaseExpr)
  private:
   class _Internal;
   void set_has_set_database_options();
+  void set_has_unset_database_options();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -6316,10 +6184,331 @@ class AlterDatabaseExpr final :
       constexpr KindUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::SetDatabaseOptions* set_database_options_;
+      ::greptime::v1::UnsetDatabaseOptions* unset_database_options_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
 
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SetDatabaseOptions final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SetDatabaseOptions) */ {
+ public:
+  inline SetDatabaseOptions() : SetDatabaseOptions(nullptr) {}
+  ~SetDatabaseOptions() override;
+  explicit PROTOBUF_CONSTEXPR SetDatabaseOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SetDatabaseOptions(const SetDatabaseOptions& from);
+  SetDatabaseOptions(SetDatabaseOptions&& from) noexcept
+    : SetDatabaseOptions() {
+    *this = ::std::move(from);
+  }
+
+  inline SetDatabaseOptions& operator=(const SetDatabaseOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SetDatabaseOptions& operator=(SetDatabaseOptions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SetDatabaseOptions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SetDatabaseOptions* internal_default_instance() {
+    return reinterpret_cast<const SetDatabaseOptions*>(
+               &_SetDatabaseOptions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    31;
+
+  friend void swap(SetDatabaseOptions& a, SetDatabaseOptions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SetDatabaseOptions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SetDatabaseOptions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SetDatabaseOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SetDatabaseOptions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SetDatabaseOptions& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SetDatabaseOptions& from) {
+    SetDatabaseOptions::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SetDatabaseOptions* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.SetDatabaseOptions";
+  }
+  protected:
+  explicit SetDatabaseOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSetDatabaseOptionsFieldNumber = 1,
+  };
+  // repeated .greptime.v1.Option set_database_options = 1;
+  int set_database_options_size() const;
+  private:
+  int _internal_set_database_options_size() const;
+  public:
+  void clear_set_database_options();
+  ::greptime::v1::Option* mutable_set_database_options(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >*
+      mutable_set_database_options();
+  private:
+  const ::greptime::v1::Option& _internal_set_database_options(int index) const;
+  ::greptime::v1::Option* _internal_add_set_database_options();
+  public:
+  const ::greptime::v1::Option& set_database_options(int index) const;
+  ::greptime::v1::Option* add_set_database_options();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >&
+      set_database_options() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.SetDatabaseOptions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option > set_database_options_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UnsetDatabaseOptions final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.UnsetDatabaseOptions) */ {
+ public:
+  inline UnsetDatabaseOptions() : UnsetDatabaseOptions(nullptr) {}
+  ~UnsetDatabaseOptions() override;
+  explicit PROTOBUF_CONSTEXPR UnsetDatabaseOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  UnsetDatabaseOptions(const UnsetDatabaseOptions& from);
+  UnsetDatabaseOptions(UnsetDatabaseOptions&& from) noexcept
+    : UnsetDatabaseOptions() {
+    *this = ::std::move(from);
+  }
+
+  inline UnsetDatabaseOptions& operator=(const UnsetDatabaseOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UnsetDatabaseOptions& operator=(UnsetDatabaseOptions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const UnsetDatabaseOptions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const UnsetDatabaseOptions* internal_default_instance() {
+    return reinterpret_cast<const UnsetDatabaseOptions*>(
+               &_UnsetDatabaseOptions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    32;
+
+  friend void swap(UnsetDatabaseOptions& a, UnsetDatabaseOptions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UnsetDatabaseOptions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UnsetDatabaseOptions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  UnsetDatabaseOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<UnsetDatabaseOptions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const UnsetDatabaseOptions& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const UnsetDatabaseOptions& from) {
+    UnsetDatabaseOptions::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UnsetDatabaseOptions* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.UnsetDatabaseOptions";
+  }
+  protected:
+  explicit UnsetDatabaseOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeysFieldNumber = 1,
+  };
+  // repeated string keys = 1;
+  int keys_size() const;
+  private:
+  int _internal_keys_size() const;
+  public:
+  void clear_keys();
+  const std::string& keys(int index) const;
+  std::string* mutable_keys(int index);
+  void set_keys(int index, const std::string& value);
+  void set_keys(int index, std::string&& value);
+  void set_keys(int index, const char* value);
+  void set_keys(int index, const char* value, size_t size);
+  std::string* add_keys();
+  void add_keys(const std::string& value);
+  void add_keys(std::string&& value);
+  void add_keys(const char* value);
+  void add_keys(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& keys() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_keys();
+  private:
+  const std::string& _internal_keys(int index) const;
+  std::string* _internal_add_keys();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.UnsetDatabaseOptions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> keys_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
@@ -11158,94 +11347,6 @@ inline void ModifyColumnType::set_allocated_target_type_extension(::greptime::v1
 
 // -------------------------------------------------------------------
 
-// SetDatabaseOptions
-
-// repeated .greptime.v1.Option database_options = 1;
-inline int SetDatabaseOptions::_internal_database_options_size() const {
-  return _impl_.database_options_.size();
-}
-inline int SetDatabaseOptions::database_options_size() const {
-  return _internal_database_options_size();
-}
-inline void SetDatabaseOptions::clear_database_options() {
-  _impl_.database_options_.Clear();
-}
-inline ::greptime::v1::Option* SetDatabaseOptions::mutable_database_options(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.SetDatabaseOptions.database_options)
-  return _impl_.database_options_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >*
-SetDatabaseOptions::mutable_database_options() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.SetDatabaseOptions.database_options)
-  return &_impl_.database_options_;
-}
-inline const ::greptime::v1::Option& SetDatabaseOptions::_internal_database_options(int index) const {
-  return _impl_.database_options_.Get(index);
-}
-inline const ::greptime::v1::Option& SetDatabaseOptions::database_options(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.SetDatabaseOptions.database_options)
-  return _internal_database_options(index);
-}
-inline ::greptime::v1::Option* SetDatabaseOptions::_internal_add_database_options() {
-  return _impl_.database_options_.Add();
-}
-inline ::greptime::v1::Option* SetDatabaseOptions::add_database_options() {
-  ::greptime::v1::Option* _add = _internal_add_database_options();
-  // @@protoc_insertion_point(field_add:greptime.v1.SetDatabaseOptions.database_options)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >&
-SetDatabaseOptions::database_options() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.SetDatabaseOptions.database_options)
-  return _impl_.database_options_;
-}
-
-// -------------------------------------------------------------------
-
-// SetTableOptions
-
-// repeated .greptime.v1.Option table_options = 1;
-inline int SetTableOptions::_internal_table_options_size() const {
-  return _impl_.table_options_.size();
-}
-inline int SetTableOptions::table_options_size() const {
-  return _internal_table_options_size();
-}
-inline void SetTableOptions::clear_table_options() {
-  _impl_.table_options_.Clear();
-}
-inline ::greptime::v1::Option* SetTableOptions::mutable_table_options(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.SetTableOptions.table_options)
-  return _impl_.table_options_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >*
-SetTableOptions::mutable_table_options() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.SetTableOptions.table_options)
-  return &_impl_.table_options_;
-}
-inline const ::greptime::v1::Option& SetTableOptions::_internal_table_options(int index) const {
-  return _impl_.table_options_.Get(index);
-}
-inline const ::greptime::v1::Option& SetTableOptions::table_options(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.SetTableOptions.table_options)
-  return _internal_table_options(index);
-}
-inline ::greptime::v1::Option* SetTableOptions::_internal_add_table_options() {
-  return _impl_.table_options_.Add();
-}
-inline ::greptime::v1::Option* SetTableOptions::add_table_options() {
-  ::greptime::v1::Option* _add = _internal_add_table_options();
-  // @@protoc_insertion_point(field_add:greptime.v1.SetTableOptions.table_options)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >&
-SetTableOptions::table_options() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.SetTableOptions.table_options)
-  return _impl_.table_options_;
-}
-
-// -------------------------------------------------------------------
-
 // Option
 
 // string key = 1;
@@ -11346,6 +11447,50 @@ inline void Option::set_allocated_value(std::string* value) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Option.value)
+}
+
+// -------------------------------------------------------------------
+
+// SetTableOptions
+
+// repeated .greptime.v1.Option table_options = 1;
+inline int SetTableOptions::_internal_table_options_size() const {
+  return _impl_.table_options_.size();
+}
+inline int SetTableOptions::table_options_size() const {
+  return _internal_table_options_size();
+}
+inline void SetTableOptions::clear_table_options() {
+  _impl_.table_options_.Clear();
+}
+inline ::greptime::v1::Option* SetTableOptions::mutable_table_options(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SetTableOptions.table_options)
+  return _impl_.table_options_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >*
+SetTableOptions::mutable_table_options() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.SetTableOptions.table_options)
+  return &_impl_.table_options_;
+}
+inline const ::greptime::v1::Option& SetTableOptions::_internal_table_options(int index) const {
+  return _impl_.table_options_.Get(index);
+}
+inline const ::greptime::v1::Option& SetTableOptions::table_options(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetTableOptions.table_options)
+  return _internal_table_options(index);
+}
+inline ::greptime::v1::Option* SetTableOptions::_internal_add_table_options() {
+  return _impl_.table_options_.Add();
+}
+inline ::greptime::v1::Option* SetTableOptions::add_table_options() {
+  ::greptime::v1::Option* _add = _internal_add_table_options();
+  // @@protoc_insertion_point(field_add:greptime.v1.SetTableOptions.table_options)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >&
+SetTableOptions::table_options() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.SetTableOptions.table_options)
+  return _impl_.table_options_;
 }
 
 // -------------------------------------------------------------------
@@ -12259,7 +12404,7 @@ inline void AlterDatabaseExpr::set_allocated_schema_name(std::string* schema_nam
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.AlterDatabaseExpr.schema_name)
 }
 
-// .greptime.v1.SetDatabaseOptions set_database_options = 4;
+// .greptime.v1.SetDatabaseOptions set_database_options = 3;
 inline bool AlterDatabaseExpr::_internal_has_set_database_options() const {
   return kind_case() == kSetDatabaseOptions;
 }
@@ -12333,6 +12478,80 @@ inline ::greptime::v1::SetDatabaseOptions* AlterDatabaseExpr::mutable_set_databa
   return _msg;
 }
 
+// .greptime.v1.UnsetDatabaseOptions unset_database_options = 4;
+inline bool AlterDatabaseExpr::_internal_has_unset_database_options() const {
+  return kind_case() == kUnsetDatabaseOptions;
+}
+inline bool AlterDatabaseExpr::has_unset_database_options() const {
+  return _internal_has_unset_database_options();
+}
+inline void AlterDatabaseExpr::set_has_unset_database_options() {
+  _impl_._oneof_case_[0] = kUnsetDatabaseOptions;
+}
+inline void AlterDatabaseExpr::clear_unset_database_options() {
+  if (_internal_has_unset_database_options()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.unset_database_options_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::greptime::v1::UnsetDatabaseOptions* AlterDatabaseExpr::release_unset_database_options() {
+  // @@protoc_insertion_point(field_release:greptime.v1.AlterDatabaseExpr.unset_database_options)
+  if (_internal_has_unset_database_options()) {
+    clear_has_kind();
+    ::greptime::v1::UnsetDatabaseOptions* temp = _impl_.kind_.unset_database_options_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.unset_database_options_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::UnsetDatabaseOptions& AlterDatabaseExpr::_internal_unset_database_options() const {
+  return _internal_has_unset_database_options()
+      ? *_impl_.kind_.unset_database_options_
+      : reinterpret_cast< ::greptime::v1::UnsetDatabaseOptions&>(::greptime::v1::_UnsetDatabaseOptions_default_instance_);
+}
+inline const ::greptime::v1::UnsetDatabaseOptions& AlterDatabaseExpr::unset_database_options() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AlterDatabaseExpr.unset_database_options)
+  return _internal_unset_database_options();
+}
+inline ::greptime::v1::UnsetDatabaseOptions* AlterDatabaseExpr::unsafe_arena_release_unset_database_options() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.AlterDatabaseExpr.unset_database_options)
+  if (_internal_has_unset_database_options()) {
+    clear_has_kind();
+    ::greptime::v1::UnsetDatabaseOptions* temp = _impl_.kind_.unset_database_options_;
+    _impl_.kind_.unset_database_options_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterDatabaseExpr::unsafe_arena_set_allocated_unset_database_options(::greptime::v1::UnsetDatabaseOptions* unset_database_options) {
+  clear_kind();
+  if (unset_database_options) {
+    set_has_unset_database_options();
+    _impl_.kind_.unset_database_options_ = unset_database_options;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.AlterDatabaseExpr.unset_database_options)
+}
+inline ::greptime::v1::UnsetDatabaseOptions* AlterDatabaseExpr::_internal_mutable_unset_database_options() {
+  if (!_internal_has_unset_database_options()) {
+    clear_kind();
+    set_has_unset_database_options();
+    _impl_.kind_.unset_database_options_ = CreateMaybeMessage< ::greptime::v1::UnsetDatabaseOptions >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.unset_database_options_;
+}
+inline ::greptime::v1::UnsetDatabaseOptions* AlterDatabaseExpr::mutable_unset_database_options() {
+  ::greptime::v1::UnsetDatabaseOptions* _msg = _internal_mutable_unset_database_options();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.AlterDatabaseExpr.unset_database_options)
+  return _msg;
+}
+
 inline bool AlterDatabaseExpr::has_kind() const {
   return kind_case() != KIND_NOT_SET;
 }
@@ -12342,9 +12561,134 @@ inline void AlterDatabaseExpr::clear_has_kind() {
 inline AlterDatabaseExpr::KindCase AlterDatabaseExpr::kind_case() const {
   return AlterDatabaseExpr::KindCase(_impl_._oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// SetDatabaseOptions
+
+// repeated .greptime.v1.Option set_database_options = 1;
+inline int SetDatabaseOptions::_internal_set_database_options_size() const {
+  return _impl_.set_database_options_.size();
+}
+inline int SetDatabaseOptions::set_database_options_size() const {
+  return _internal_set_database_options_size();
+}
+inline void SetDatabaseOptions::clear_set_database_options() {
+  _impl_.set_database_options_.Clear();
+}
+inline ::greptime::v1::Option* SetDatabaseOptions::mutable_set_database_options(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SetDatabaseOptions.set_database_options)
+  return _impl_.set_database_options_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >*
+SetDatabaseOptions::mutable_set_database_options() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.SetDatabaseOptions.set_database_options)
+  return &_impl_.set_database_options_;
+}
+inline const ::greptime::v1::Option& SetDatabaseOptions::_internal_set_database_options(int index) const {
+  return _impl_.set_database_options_.Get(index);
+}
+inline const ::greptime::v1::Option& SetDatabaseOptions::set_database_options(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetDatabaseOptions.set_database_options)
+  return _internal_set_database_options(index);
+}
+inline ::greptime::v1::Option* SetDatabaseOptions::_internal_add_set_database_options() {
+  return _impl_.set_database_options_.Add();
+}
+inline ::greptime::v1::Option* SetDatabaseOptions::add_set_database_options() {
+  ::greptime::v1::Option* _add = _internal_add_set_database_options();
+  // @@protoc_insertion_point(field_add:greptime.v1.SetDatabaseOptions.set_database_options)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Option >&
+SetDatabaseOptions::set_database_options() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.SetDatabaseOptions.set_database_options)
+  return _impl_.set_database_options_;
+}
+
+// -------------------------------------------------------------------
+
+// UnsetDatabaseOptions
+
+// repeated string keys = 1;
+inline int UnsetDatabaseOptions::_internal_keys_size() const {
+  return _impl_.keys_.size();
+}
+inline int UnsetDatabaseOptions::keys_size() const {
+  return _internal_keys_size();
+}
+inline void UnsetDatabaseOptions::clear_keys() {
+  _impl_.keys_.Clear();
+}
+inline std::string* UnsetDatabaseOptions::add_keys() {
+  std::string* _s = _internal_add_keys();
+  // @@protoc_insertion_point(field_add_mutable:greptime.v1.UnsetDatabaseOptions.keys)
+  return _s;
+}
+inline const std::string& UnsetDatabaseOptions::_internal_keys(int index) const {
+  return _impl_.keys_.Get(index);
+}
+inline const std::string& UnsetDatabaseOptions::keys(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.UnsetDatabaseOptions.keys)
+  return _internal_keys(index);
+}
+inline std::string* UnsetDatabaseOptions::mutable_keys(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.UnsetDatabaseOptions.keys)
+  return _impl_.keys_.Mutable(index);
+}
+inline void UnsetDatabaseOptions::set_keys(int index, const std::string& value) {
+  _impl_.keys_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.UnsetDatabaseOptions.keys)
+}
+inline void UnsetDatabaseOptions::set_keys(int index, std::string&& value) {
+  _impl_.keys_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:greptime.v1.UnsetDatabaseOptions.keys)
+}
+inline void UnsetDatabaseOptions::set_keys(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.keys_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:greptime.v1.UnsetDatabaseOptions.keys)
+}
+inline void UnsetDatabaseOptions::set_keys(int index, const char* value, size_t size) {
+  _impl_.keys_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:greptime.v1.UnsetDatabaseOptions.keys)
+}
+inline std::string* UnsetDatabaseOptions::_internal_add_keys() {
+  return _impl_.keys_.Add();
+}
+inline void UnsetDatabaseOptions::add_keys(const std::string& value) {
+  _impl_.keys_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.UnsetDatabaseOptions.keys)
+}
+inline void UnsetDatabaseOptions::add_keys(std::string&& value) {
+  _impl_.keys_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:greptime.v1.UnsetDatabaseOptions.keys)
+}
+inline void UnsetDatabaseOptions::add_keys(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.keys_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:greptime.v1.UnsetDatabaseOptions.keys)
+}
+inline void UnsetDatabaseOptions::add_keys(const char* value, size_t size) {
+  _impl_.keys_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:greptime.v1.UnsetDatabaseOptions.keys)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+UnsetDatabaseOptions::keys() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.UnsetDatabaseOptions.keys)
+  return _impl_.keys_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+UnsetDatabaseOptions::mutable_keys() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.UnsetDatabaseOptions.keys)
+  return &_impl_.keys_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
