@@ -230,7 +230,6 @@ message UnsetColumnFulltext {
 message AlterDatabaseExpr {
     string catalog_name = 1;
     string schema_name = 2;
-    map<string, string> options = 3;
     oneof kind {
         SetDatabaseOptions set_database_options = 4;
     }

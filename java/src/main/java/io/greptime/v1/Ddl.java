@@ -31849,42 +31849,6 @@ java.lang.String defaultValue);
         getSchemaNameBytes();
 
     /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
-     */
-    int getOptionsCount();
-    /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
-     */
-    boolean containsOptions(
-        java.lang.String key);
-    /**
-     * Use {@link #getOptionsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getOptions();
-    /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getOptionsMap();
-    /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
-     */
-
-    /* nullable */
-java.lang.String getOptionsOrDefault(
-        java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
-     */
-
-    java.lang.String getOptionsOrThrow(
-        java.lang.String key);
-
-    /**
      * <code>.greptime.v1.SetDatabaseOptions set_database_options = 4;</code>
      * @return Whether the setDatabaseOptions field is set.
      */
@@ -31938,7 +31902,6 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -31959,19 +31922,6 @@ java.lang.String defaultValue);
               java.lang.String s = input.readStringRequireUtf8();
 
               schemaName_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                options_ = com.google.protobuf.MapField.newMapField(
-                    OptionsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              options__ = input.readMessage(
-                  OptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              options_.getMutableMap().put(
-                  options__.getKey(), options__.getValue());
               break;
             }
             case 34: {
@@ -32014,18 +31964,6 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterDatabaseExpr_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 3:
-          return internalGetOptions();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -32149,87 +32087,6 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int OPTIONS_FIELD_NUMBER = 3;
-    private static final class OptionsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  io.greptime.v1.Ddl.internal_static_greptime_v1_AlterDatabaseExpr_OptionsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> options_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetOptions() {
-      if (options_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            OptionsDefaultEntryHolder.defaultEntry);
-      }
-      return options_;
-    }
-
-    public int getOptionsCount() {
-      return internalGetOptions().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
-     */
-
-    @java.lang.Override
-    public boolean containsOptions(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetOptions().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getOptionsMap()} instead.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getOptions() {
-      return getOptionsMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.String, java.lang.String> getOptionsMap() {
-      return internalGetOptions().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
-     */
-    @java.lang.Override
-
-    public java.lang.String getOptionsOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetOptions().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; options = 3;</code>
-     */
-    @java.lang.Override
-
-    public java.lang.String getOptionsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetOptions().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     public static final int SET_DATABASE_OPTIONS_FIELD_NUMBER = 4;
     /**
      * <code>.greptime.v1.SetDatabaseOptions set_database_options = 4;</code>
@@ -32281,12 +32138,6 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetOptions(),
-          OptionsDefaultEntryHolder.defaultEntry,
-          3);
       if (kindCase_ == 4) {
         output.writeMessage(4, (io.greptime.v1.Ddl.SetDatabaseOptions) kind_);
       }
@@ -32304,16 +32155,6 @@ java.lang.String defaultValue);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
-      }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetOptions().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        options__ = OptionsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(3, options__);
       }
       if (kindCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
@@ -32338,8 +32179,6 @@ java.lang.String defaultValue);
           .equals(other.getCatalogName())) return false;
       if (!getSchemaName()
           .equals(other.getSchemaName())) return false;
-      if (!internalGetOptions().equals(
-          other.internalGetOptions())) return false;
       if (!getKindCase().equals(other.getKindCase())) return false;
       switch (kindCase_) {
         case 4:
@@ -32364,10 +32203,6 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getCatalogName().hashCode();
       hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getSchemaName().hashCode();
-      if (!internalGetOptions().getMap().isEmpty()) {
-        hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetOptions().hashCode();
-      }
       switch (kindCase_) {
         case 4:
           hash = (37 * hash) + SET_DATABASE_OPTIONS_FIELD_NUMBER;
@@ -32483,28 +32318,6 @@ java.lang.String defaultValue);
         return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterDatabaseExpr_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 3:
-            return internalGetOptions();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 3:
-            return internalGetMutableOptions();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -32535,7 +32348,6 @@ java.lang.String defaultValue);
 
         schemaName_ = "";
 
-        internalGetMutableOptions().clear();
         kindCase_ = 0;
         kind_ = null;
         return this;
@@ -32564,11 +32376,8 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Ddl.AlterDatabaseExpr buildPartial() {
         io.greptime.v1.Ddl.AlterDatabaseExpr result = new io.greptime.v1.Ddl.AlterDatabaseExpr(this);
-        int from_bitField0_ = bitField0_;
         result.catalogName_ = catalogName_;
         result.schemaName_ = schemaName_;
-        result.options_ = internalGetOptions();
-        result.options_.makeImmutable();
         if (kindCase_ == 4) {
           if (setDatabaseOptionsBuilder_ == null) {
             result.kind_ = kind_;
@@ -32633,8 +32442,6 @@ java.lang.String defaultValue);
           schemaName_ = other.schemaName_;
           onChanged();
         }
-        internalGetMutableOptions().mergeFrom(
-            other.internalGetOptions());
         switch (other.getKindCase()) {
           case SET_DATABASE_OPTIONS: {
             mergeSetDatabaseOptions(other.getSetDatabaseOptions());
@@ -32687,7 +32494,6 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private int bitField0_;
 
       private java.lang.Object catalogName_ = "";
       /**
@@ -32838,137 +32644,6 @@ java.lang.String defaultValue);
         
         schemaName_ = value;
         onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> options_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetOptions() {
-        if (options_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              OptionsDefaultEntryHolder.defaultEntry);
-        }
-        return options_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableOptions() {
-        onChanged();;
-        if (options_ == null) {
-          options_ = com.google.protobuf.MapField.newMapField(
-              OptionsDefaultEntryHolder.defaultEntry);
-        }
-        if (!options_.isMutable()) {
-          options_ = options_.copy();
-        }
-        return options_;
-      }
-
-      public int getOptionsCount() {
-        return internalGetOptions().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
-       */
-
-      @java.lang.Override
-      public boolean containsOptions(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        return internalGetOptions().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getOptionsMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getOptions() {
-        return getOptionsMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
-       */
-      @java.lang.Override
-
-      public java.util.Map<java.lang.String, java.lang.String> getOptionsMap() {
-        return internalGetOptions().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
-       */
-      @java.lang.Override
-
-      public java.lang.String getOptionsOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetOptions().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
-       */
-      @java.lang.Override
-
-      public java.lang.String getOptionsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetOptions().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearOptions() {
-        internalGetMutableOptions().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
-       */
-
-      public Builder removeOptions(
-          java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        internalGetMutableOptions().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableOptions() {
-        return internalGetMutableOptions().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
-       */
-      public Builder putOptions(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
-        internalGetMutableOptions().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; options = 3;</code>
-       */
-
-      public Builder putAllOptions(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableOptions().getMutableMap()
-            .putAll(values);
         return this;
       }
 
@@ -33326,11 +33001,6 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_AlterDatabaseExpr_OptionsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_AlterDatabaseExpr_OptionsEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33451,16 +33121,14 @@ java.lang.String defaultValue);
       "\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n" +
       "\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026" +
       "\n\016case_sensitive\030\004 \001(\010\"*\n\023UnsetColumnFul" +
-      "ltext\022\023\n\013column_name\030\001 \001(\t\"\365\001\n\021AlterData" +
+      "ltext\022\023\n\013column_name\030\001 \001(\t\"\207\001\n\021AlterData" +
       "baseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema" +
-      "_name\030\002 \001(\t\022<\n\007options\030\003 \003(\0132+.greptime." +
-      "v1.AlterDatabaseExpr.OptionsEntry\022?\n\024set" +
-      "_database_options\030\004 \001(\0132\037.greptime.v1.Se" +
-      "tDatabaseOptionsH\000\032.\n\014OptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\006\n\004kind*$\n\010An" +
-      "alyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001BL\n\016io.g" +
-      "reptime.v1B\003DdlZ5github.com/GreptimeTeam" +
-      "/greptime-proto/go/greptime/v1b\006proto3"
+      "_name\030\002 \001(\t\022?\n\024set_database_options\030\004 \001(" +
+      "\0132\037.greptime.v1.SetDatabaseOptionsH\000B\006\n\004" +
+      "kind*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE" +
+      "\020\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gr" +
+      "eptimeTeam/greptime-proto/go/greptime/v1" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -33658,13 +33326,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterDatabaseExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "Options", "SetDatabaseOptions", "Kind", });
-    internal_static_greptime_v1_AlterDatabaseExpr_OptionsEntry_descriptor =
-      internal_static_greptime_v1_AlterDatabaseExpr_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_AlterDatabaseExpr_OptionsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_AlterDatabaseExpr_OptionsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "SetDatabaseOptions", "Kind", });
     io.greptime.v1.Common.getDescriptor();
   }
 

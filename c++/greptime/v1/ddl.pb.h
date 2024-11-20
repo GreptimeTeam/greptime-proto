@@ -63,9 +63,6 @@ extern AddColumnsDefaultTypeInternal _AddColumns_default_instance_;
 class AlterDatabaseExpr;
 struct AlterDatabaseExprDefaultTypeInternal;
 extern AlterDatabaseExprDefaultTypeInternal _AlterDatabaseExpr_default_instance_;
-class AlterDatabaseExpr_OptionsEntry_DoNotUse;
-struct AlterDatabaseExpr_OptionsEntry_DoNotUseDefaultTypeInternal;
-extern AlterDatabaseExpr_OptionsEntry_DoNotUseDefaultTypeInternal _AlterDatabaseExpr_OptionsEntry_DoNotUse_default_instance_;
 class AlterTableExpr;
 struct AlterTableExprDefaultTypeInternal;
 extern AlterTableExprDefaultTypeInternal _AlterTableExpr_default_instance_;
@@ -157,7 +154,6 @@ template<> ::greptime::v1::AddColumn* Arena::CreateMaybeMessage<::greptime::v1::
 template<> ::greptime::v1::AddColumnLocation* Arena::CreateMaybeMessage<::greptime::v1::AddColumnLocation>(Arena*);
 template<> ::greptime::v1::AddColumns* Arena::CreateMaybeMessage<::greptime::v1::AddColumns>(Arena*);
 template<> ::greptime::v1::AlterDatabaseExpr* Arena::CreateMaybeMessage<::greptime::v1::AlterDatabaseExpr>(Arena*);
-template<> ::greptime::v1::AlterDatabaseExpr_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::AlterDatabaseExpr_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::AlterTableExpr* Arena::CreateMaybeMessage<::greptime::v1::AlterTableExpr>(Arena*);
 template<> ::greptime::v1::ColumnDef* Arena::CreateMaybeMessage<::greptime::v1::ColumnDef>(Arena*);
 template<> ::greptime::v1::CreateDatabaseExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateDatabaseExpr>(Arena*);
@@ -6124,34 +6120,6 @@ class UnsetColumnFulltext final :
 };
 // -------------------------------------------------------------------
 
-class AlterDatabaseExpr_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<AlterDatabaseExpr_OptionsEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<AlterDatabaseExpr_OptionsEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  AlterDatabaseExpr_OptionsEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR AlterDatabaseExpr_OptionsEntry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit AlterDatabaseExpr_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const AlterDatabaseExpr_OptionsEntry_DoNotUse& other);
-  static const AlterDatabaseExpr_OptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const AlterDatabaseExpr_OptionsEntry_DoNotUse*>(&_AlterDatabaseExpr_OptionsEntry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.AlterDatabaseExpr.OptionsEntry.key");
- }
-  static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.AlterDatabaseExpr.OptionsEntry.value");
- }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
-};
-
-// -------------------------------------------------------------------
-
 class AlterDatabaseExpr final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.AlterDatabaseExpr) */ {
  public:
@@ -6205,7 +6173,7 @@ class AlterDatabaseExpr final :
                &_AlterDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    31;
 
   friend void swap(AlterDatabaseExpr& a, AlterDatabaseExpr& b) {
     a.Swap(&b);
@@ -6266,8 +6234,6 @@ class AlterDatabaseExpr final :
   protected:
   explicit AlterDatabaseExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -6277,32 +6243,13 @@ class AlterDatabaseExpr final :
 
   // nested types ----------------------------------------------------
 
-
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOptionsFieldNumber = 3,
     kCatalogNameFieldNumber = 1,
     kSchemaNameFieldNumber = 2,
     kSetDatabaseOptionsFieldNumber = 4,
   };
-  // map<string, string> options = 3;
-  int options_size() const;
-  private:
-  int _internal_options_size() const;
-  public:
-  void clear_options();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      _internal_options() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      _internal_mutable_options();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      options() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      mutable_options();
-
   // string catalog_name = 1;
   void clear_catalog_name();
   const std::string& catalog_name() const;
@@ -6363,11 +6310,6 @@ class AlterDatabaseExpr final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        AlterDatabaseExpr_OptionsEntry_DoNotUse,
-        std::string, std::string,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     union KindUnion {
@@ -12215,8 +12157,6 @@ inline void UnsetColumnFulltext::set_allocated_column_name(std::string* column_n
 
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
 // AlterDatabaseExpr
 
 // string catalog_name = 1;
@@ -12319,35 +12259,6 @@ inline void AlterDatabaseExpr::set_allocated_schema_name(std::string* schema_nam
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.AlterDatabaseExpr.schema_name)
 }
 
-// map<string, string> options = 3;
-inline int AlterDatabaseExpr::_internal_options_size() const {
-  return _impl_.options_.size();
-}
-inline int AlterDatabaseExpr::options_size() const {
-  return _internal_options_size();
-}
-inline void AlterDatabaseExpr::clear_options() {
-  _impl_.options_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-AlterDatabaseExpr::_internal_options() const {
-  return _impl_.options_.GetMap();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-AlterDatabaseExpr::options() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.AlterDatabaseExpr.options)
-  return _internal_options();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-AlterDatabaseExpr::_internal_mutable_options() {
-  return _impl_.options_.MutableMap();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-AlterDatabaseExpr::mutable_options() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.AlterDatabaseExpr.options)
-  return _internal_mutable_options();
-}
-
 // .greptime.v1.SetDatabaseOptions set_database_options = 4;
 inline bool AlterDatabaseExpr::_internal_has_set_database_options() const {
   return kind_case() == kSetDatabaseOptions;
@@ -12434,8 +12345,6 @@ inline AlterDatabaseExpr::KindCase AlterDatabaseExpr::kind_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
