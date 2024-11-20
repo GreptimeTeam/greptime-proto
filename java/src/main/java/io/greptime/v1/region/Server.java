@@ -16434,19 +16434,19 @@ java.lang.String defaultValue);
     io.greptime.v1.Ddl.ModifyColumnTypesOrBuilder getModifyColumnTypesOrBuilder();
 
     /**
-     * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
-     * @return Whether the changeTableOptions field is set.
+     * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
+     * @return Whether the setTableOptions field is set.
      */
-    boolean hasChangeTableOptions();
+    boolean hasSetTableOptions();
     /**
-     * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
-     * @return The changeTableOptions.
+     * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
+     * @return The setTableOptions.
      */
-    io.greptime.v1.Ddl.ChangeTableOptions getChangeTableOptions();
+    io.greptime.v1.Ddl.SetTableOptions getSetTableOptions();
     /**
-     * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
+     * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
      */
-    io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder getChangeTableOptionsOrBuilder();
+    io.greptime.v1.Ddl.SetTableOptionsOrBuilder getSetTableOptionsOrBuilder();
 
     /**
      * <code>.greptime.v1.SetColumnFulltext set_column_fulltext = 7;</code>
@@ -16477,6 +16477,21 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.UnsetColumnFulltext unset_column_fulltext = 8;</code>
      */
     io.greptime.v1.Ddl.UnsetColumnFulltextOrBuilder getUnsetColumnFulltextOrBuilder();
+
+    /**
+     * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+     * @return Whether the unsetTableOptions field is set.
+     */
+    boolean hasUnsetTableOptions();
+    /**
+     * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+     * @return The unsetTableOptions.
+     */
+    io.greptime.v1.Ddl.UnsetTableOptions getUnsetTableOptions();
+    /**
+     * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+     */
+    io.greptime.v1.Ddl.UnsetTableOptionsOrBuilder getUnsetTableOptionsOrBuilder();
 
     /**
      * <pre>
@@ -16588,14 +16603,14 @@ java.lang.String defaultValue);
               break;
             }
             case 50: {
-              io.greptime.v1.Ddl.ChangeTableOptions.Builder subBuilder = null;
+              io.greptime.v1.Ddl.SetTableOptions.Builder subBuilder = null;
               if (kindCase_ == 6) {
-                subBuilder = ((io.greptime.v1.Ddl.ChangeTableOptions) kind_).toBuilder();
+                subBuilder = ((io.greptime.v1.Ddl.SetTableOptions) kind_).toBuilder();
               }
               kind_ =
-                  input.readMessage(io.greptime.v1.Ddl.ChangeTableOptions.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.Ddl.SetTableOptions.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Ddl.ChangeTableOptions) kind_);
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.SetTableOptions) kind_);
                 kind_ = subBuilder.buildPartial();
               }
               kindCase_ = 6;
@@ -16627,6 +16642,20 @@ java.lang.String defaultValue);
                 kind_ = subBuilder.buildPartial();
               }
               kindCase_ = 8;
+              break;
+            }
+            case 74: {
+              io.greptime.v1.Ddl.UnsetTableOptions.Builder subBuilder = null;
+              if (kindCase_ == 9) {
+                subBuilder = ((io.greptime.v1.Ddl.UnsetTableOptions) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.Ddl.UnsetTableOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.UnsetTableOptions) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 9;
               break;
             }
             default: {
@@ -16671,9 +16700,10 @@ java.lang.String defaultValue);
       ADD_COLUMNS(2),
       DROP_COLUMNS(3),
       MODIFY_COLUMN_TYPES(5),
-      CHANGE_TABLE_OPTIONS(6),
+      SET_TABLE_OPTIONS(6),
       SET_COLUMN_FULLTEXT(7),
       UNSET_COLUMN_FULLTEXT(8),
+      UNSET_TABLE_OPTIONS(9),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -16694,9 +16724,10 @@ java.lang.String defaultValue);
           case 2: return ADD_COLUMNS;
           case 3: return DROP_COLUMNS;
           case 5: return MODIFY_COLUMN_TYPES;
-          case 6: return CHANGE_TABLE_OPTIONS;
+          case 6: return SET_TABLE_OPTIONS;
           case 7: return SET_COLUMN_FULLTEXT;
           case 8: return UNSET_COLUMN_FULLTEXT;
+          case 9: return UNSET_TABLE_OPTIONS;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -16816,35 +16847,35 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.ModifyColumnTypes.getDefaultInstance();
     }
 
-    public static final int CHANGE_TABLE_OPTIONS_FIELD_NUMBER = 6;
+    public static final int SET_TABLE_OPTIONS_FIELD_NUMBER = 6;
     /**
-     * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
-     * @return Whether the changeTableOptions field is set.
+     * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
+     * @return Whether the setTableOptions field is set.
      */
     @java.lang.Override
-    public boolean hasChangeTableOptions() {
+    public boolean hasSetTableOptions() {
       return kindCase_ == 6;
     }
     /**
-     * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
-     * @return The changeTableOptions.
+     * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
+     * @return The setTableOptions.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.ChangeTableOptions getChangeTableOptions() {
+    public io.greptime.v1.Ddl.SetTableOptions getSetTableOptions() {
       if (kindCase_ == 6) {
-         return (io.greptime.v1.Ddl.ChangeTableOptions) kind_;
+         return (io.greptime.v1.Ddl.SetTableOptions) kind_;
       }
-      return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
+      return io.greptime.v1.Ddl.SetTableOptions.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
+     * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder getChangeTableOptionsOrBuilder() {
+    public io.greptime.v1.Ddl.SetTableOptionsOrBuilder getSetTableOptionsOrBuilder() {
       if (kindCase_ == 6) {
-         return (io.greptime.v1.Ddl.ChangeTableOptions) kind_;
+         return (io.greptime.v1.Ddl.SetTableOptions) kind_;
       }
-      return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
+      return io.greptime.v1.Ddl.SetTableOptions.getDefaultInstance();
     }
 
     public static final int SET_COLUMN_FULLTEXT_FIELD_NUMBER = 7;
@@ -16909,6 +16940,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.UnsetColumnFulltext.getDefaultInstance();
     }
 
+    public static final int UNSET_TABLE_OPTIONS_FIELD_NUMBER = 9;
+    /**
+     * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+     * @return Whether the unsetTableOptions field is set.
+     */
+    @java.lang.Override
+    public boolean hasUnsetTableOptions() {
+      return kindCase_ == 9;
+    }
+    /**
+     * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+     * @return The unsetTableOptions.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetTableOptions getUnsetTableOptions() {
+      if (kindCase_ == 9) {
+         return (io.greptime.v1.Ddl.UnsetTableOptions) kind_;
+      }
+      return io.greptime.v1.Ddl.UnsetTableOptions.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetTableOptionsOrBuilder getUnsetTableOptionsOrBuilder() {
+      if (kindCase_ == 9) {
+         return (io.greptime.v1.Ddl.UnsetTableOptions) kind_;
+      }
+      return io.greptime.v1.Ddl.UnsetTableOptions.getDefaultInstance();
+    }
+
     public static final int SCHEMA_VERSION_FIELD_NUMBER = 4;
     private long schemaVersion_;
     /**
@@ -16954,13 +17016,16 @@ java.lang.String defaultValue);
         output.writeMessage(5, (io.greptime.v1.Ddl.ModifyColumnTypes) kind_);
       }
       if (kindCase_ == 6) {
-        output.writeMessage(6, (io.greptime.v1.Ddl.ChangeTableOptions) kind_);
+        output.writeMessage(6, (io.greptime.v1.Ddl.SetTableOptions) kind_);
       }
       if (kindCase_ == 7) {
         output.writeMessage(7, (io.greptime.v1.Ddl.SetColumnFulltext) kind_);
       }
       if (kindCase_ == 8) {
         output.writeMessage(8, (io.greptime.v1.Ddl.UnsetColumnFulltext) kind_);
+      }
+      if (kindCase_ == 9) {
+        output.writeMessage(9, (io.greptime.v1.Ddl.UnsetTableOptions) kind_);
       }
       unknownFields.writeTo(output);
     }
@@ -16993,7 +17058,7 @@ java.lang.String defaultValue);
       }
       if (kindCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, (io.greptime.v1.Ddl.ChangeTableOptions) kind_);
+          .computeMessageSize(6, (io.greptime.v1.Ddl.SetTableOptions) kind_);
       }
       if (kindCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
@@ -17002,6 +17067,10 @@ java.lang.String defaultValue);
       if (kindCase_ == 8) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, (io.greptime.v1.Ddl.UnsetColumnFulltext) kind_);
+      }
+      if (kindCase_ == 9) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, (io.greptime.v1.Ddl.UnsetTableOptions) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17037,8 +17106,8 @@ java.lang.String defaultValue);
               .equals(other.getModifyColumnTypes())) return false;
           break;
         case 6:
-          if (!getChangeTableOptions()
-              .equals(other.getChangeTableOptions())) return false;
+          if (!getSetTableOptions()
+              .equals(other.getSetTableOptions())) return false;
           break;
         case 7:
           if (!getSetColumnFulltext()
@@ -17047,6 +17116,10 @@ java.lang.String defaultValue);
         case 8:
           if (!getUnsetColumnFulltext()
               .equals(other.getUnsetColumnFulltext())) return false;
+          break;
+        case 9:
+          if (!getUnsetTableOptions()
+              .equals(other.getUnsetTableOptions())) return false;
           break;
         case 0:
         default:
@@ -17082,8 +17155,8 @@ java.lang.String defaultValue);
           hash = (53 * hash) + getModifyColumnTypes().hashCode();
           break;
         case 6:
-          hash = (37 * hash) + CHANGE_TABLE_OPTIONS_FIELD_NUMBER;
-          hash = (53 * hash) + getChangeTableOptions().hashCode();
+          hash = (37 * hash) + SET_TABLE_OPTIONS_FIELD_NUMBER;
+          hash = (53 * hash) + getSetTableOptions().hashCode();
           break;
         case 7:
           hash = (37 * hash) + SET_COLUMN_FULLTEXT_FIELD_NUMBER;
@@ -17092,6 +17165,10 @@ java.lang.String defaultValue);
         case 8:
           hash = (37 * hash) + UNSET_COLUMN_FULLTEXT_FIELD_NUMBER;
           hash = (53 * hash) + getUnsetColumnFulltext().hashCode();
+          break;
+        case 9:
+          hash = (37 * hash) + UNSET_TABLE_OPTIONS_FIELD_NUMBER;
+          hash = (53 * hash) + getUnsetTableOptions().hashCode();
           break;
         case 0:
         default:
@@ -17284,10 +17361,10 @@ java.lang.String defaultValue);
           }
         }
         if (kindCase_ == 6) {
-          if (changeTableOptionsBuilder_ == null) {
+          if (setTableOptionsBuilder_ == null) {
             result.kind_ = kind_;
           } else {
-            result.kind_ = changeTableOptionsBuilder_.build();
+            result.kind_ = setTableOptionsBuilder_.build();
           }
         }
         if (kindCase_ == 7) {
@@ -17302,6 +17379,13 @@ java.lang.String defaultValue);
             result.kind_ = kind_;
           } else {
             result.kind_ = unsetColumnFulltextBuilder_.build();
+          }
+        }
+        if (kindCase_ == 9) {
+          if (unsetTableOptionsBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = unsetTableOptionsBuilder_.build();
           }
         }
         result.schemaVersion_ = schemaVersion_;
@@ -17373,8 +17457,8 @@ java.lang.String defaultValue);
             mergeModifyColumnTypes(other.getModifyColumnTypes());
             break;
           }
-          case CHANGE_TABLE_OPTIONS: {
-            mergeChangeTableOptions(other.getChangeTableOptions());
+          case SET_TABLE_OPTIONS: {
+            mergeSetTableOptions(other.getSetTableOptions());
             break;
           }
           case SET_COLUMN_FULLTEXT: {
@@ -17383,6 +17467,10 @@ java.lang.String defaultValue);
           }
           case UNSET_COLUMN_FULLTEXT: {
             mergeUnsetColumnFulltext(other.getUnsetColumnFulltext());
+            break;
+          }
+          case UNSET_TABLE_OPTIONS: {
+            mergeUnsetTableOptions(other.getUnsetTableOptions());
             break;
           }
           case KIND_NOT_SET: {
@@ -17891,71 +17979,71 @@ java.lang.String defaultValue);
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.ChangeTableOptions, io.greptime.v1.Ddl.ChangeTableOptions.Builder, io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder> changeTableOptionsBuilder_;
+          io.greptime.v1.Ddl.SetTableOptions, io.greptime.v1.Ddl.SetTableOptions.Builder, io.greptime.v1.Ddl.SetTableOptionsOrBuilder> setTableOptionsBuilder_;
       /**
-       * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
-       * @return Whether the changeTableOptions field is set.
+       * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
+       * @return Whether the setTableOptions field is set.
        */
       @java.lang.Override
-      public boolean hasChangeTableOptions() {
+      public boolean hasSetTableOptions() {
         return kindCase_ == 6;
       }
       /**
-       * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
-       * @return The changeTableOptions.
+       * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
+       * @return The setTableOptions.
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.ChangeTableOptions getChangeTableOptions() {
-        if (changeTableOptionsBuilder_ == null) {
+      public io.greptime.v1.Ddl.SetTableOptions getSetTableOptions() {
+        if (setTableOptionsBuilder_ == null) {
           if (kindCase_ == 6) {
-            return (io.greptime.v1.Ddl.ChangeTableOptions) kind_;
+            return (io.greptime.v1.Ddl.SetTableOptions) kind_;
           }
-          return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
+          return io.greptime.v1.Ddl.SetTableOptions.getDefaultInstance();
         } else {
           if (kindCase_ == 6) {
-            return changeTableOptionsBuilder_.getMessage();
+            return setTableOptionsBuilder_.getMessage();
           }
-          return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
+          return io.greptime.v1.Ddl.SetTableOptions.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
+       * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
        */
-      public Builder setChangeTableOptions(io.greptime.v1.Ddl.ChangeTableOptions value) {
-        if (changeTableOptionsBuilder_ == null) {
+      public Builder setSetTableOptions(io.greptime.v1.Ddl.SetTableOptions value) {
+        if (setTableOptionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           kind_ = value;
           onChanged();
         } else {
-          changeTableOptionsBuilder_.setMessage(value);
+          setTableOptionsBuilder_.setMessage(value);
         }
         kindCase_ = 6;
         return this;
       }
       /**
-       * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
+       * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
        */
-      public Builder setChangeTableOptions(
-          io.greptime.v1.Ddl.ChangeTableOptions.Builder builderForValue) {
-        if (changeTableOptionsBuilder_ == null) {
+      public Builder setSetTableOptions(
+          io.greptime.v1.Ddl.SetTableOptions.Builder builderForValue) {
+        if (setTableOptionsBuilder_ == null) {
           kind_ = builderForValue.build();
           onChanged();
         } else {
-          changeTableOptionsBuilder_.setMessage(builderForValue.build());
+          setTableOptionsBuilder_.setMessage(builderForValue.build());
         }
         kindCase_ = 6;
         return this;
       }
       /**
-       * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
+       * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
        */
-      public Builder mergeChangeTableOptions(io.greptime.v1.Ddl.ChangeTableOptions value) {
-        if (changeTableOptionsBuilder_ == null) {
+      public Builder mergeSetTableOptions(io.greptime.v1.Ddl.SetTableOptions value) {
+        if (setTableOptionsBuilder_ == null) {
           if (kindCase_ == 6 &&
-              kind_ != io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance()) {
-            kind_ = io.greptime.v1.Ddl.ChangeTableOptions.newBuilder((io.greptime.v1.Ddl.ChangeTableOptions) kind_)
+              kind_ != io.greptime.v1.Ddl.SetTableOptions.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.SetTableOptions.newBuilder((io.greptime.v1.Ddl.SetTableOptions) kind_)
                 .mergeFrom(value).buildPartial();
           } else {
             kind_ = value;
@@ -17963,19 +18051,19 @@ java.lang.String defaultValue);
           onChanged();
         } else {
           if (kindCase_ == 6) {
-            changeTableOptionsBuilder_.mergeFrom(value);
+            setTableOptionsBuilder_.mergeFrom(value);
           } else {
-            changeTableOptionsBuilder_.setMessage(value);
+            setTableOptionsBuilder_.setMessage(value);
           }
         }
         kindCase_ = 6;
         return this;
       }
       /**
-       * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
+       * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
        */
-      public Builder clearChangeTableOptions() {
-        if (changeTableOptionsBuilder_ == null) {
+      public Builder clearSetTableOptions() {
+        if (setTableOptionsBuilder_ == null) {
           if (kindCase_ == 6) {
             kindCase_ = 0;
             kind_ = null;
@@ -17986,50 +18074,50 @@ java.lang.String defaultValue);
             kindCase_ = 0;
             kind_ = null;
           }
-          changeTableOptionsBuilder_.clear();
+          setTableOptionsBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
+       * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
        */
-      public io.greptime.v1.Ddl.ChangeTableOptions.Builder getChangeTableOptionsBuilder() {
-        return getChangeTableOptionsFieldBuilder().getBuilder();
+      public io.greptime.v1.Ddl.SetTableOptions.Builder getSetTableOptionsBuilder() {
+        return getSetTableOptionsFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
+       * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder getChangeTableOptionsOrBuilder() {
-        if ((kindCase_ == 6) && (changeTableOptionsBuilder_ != null)) {
-          return changeTableOptionsBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Ddl.SetTableOptionsOrBuilder getSetTableOptionsOrBuilder() {
+        if ((kindCase_ == 6) && (setTableOptionsBuilder_ != null)) {
+          return setTableOptionsBuilder_.getMessageOrBuilder();
         } else {
           if (kindCase_ == 6) {
-            return (io.greptime.v1.Ddl.ChangeTableOptions) kind_;
+            return (io.greptime.v1.Ddl.SetTableOptions) kind_;
           }
-          return io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
+          return io.greptime.v1.Ddl.SetTableOptions.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.ChangeTableOptions change_table_options = 6;</code>
+       * <code>.greptime.v1.SetTableOptions set_table_options = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.ChangeTableOptions, io.greptime.v1.Ddl.ChangeTableOptions.Builder, io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder> 
-          getChangeTableOptionsFieldBuilder() {
-        if (changeTableOptionsBuilder_ == null) {
+          io.greptime.v1.Ddl.SetTableOptions, io.greptime.v1.Ddl.SetTableOptions.Builder, io.greptime.v1.Ddl.SetTableOptionsOrBuilder> 
+          getSetTableOptionsFieldBuilder() {
+        if (setTableOptionsBuilder_ == null) {
           if (!(kindCase_ == 6)) {
-            kind_ = io.greptime.v1.Ddl.ChangeTableOptions.getDefaultInstance();
+            kind_ = io.greptime.v1.Ddl.SetTableOptions.getDefaultInstance();
           }
-          changeTableOptionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.ChangeTableOptions, io.greptime.v1.Ddl.ChangeTableOptions.Builder, io.greptime.v1.Ddl.ChangeTableOptionsOrBuilder>(
-                  (io.greptime.v1.Ddl.ChangeTableOptions) kind_,
+          setTableOptionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.SetTableOptions, io.greptime.v1.Ddl.SetTableOptions.Builder, io.greptime.v1.Ddl.SetTableOptionsOrBuilder>(
+                  (io.greptime.v1.Ddl.SetTableOptions) kind_,
                   getParentForChildren(),
                   isClean());
           kind_ = null;
         }
         kindCase_ = 6;
         onChanged();;
-        return changeTableOptionsBuilder_;
+        return setTableOptionsBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -18314,6 +18402,148 @@ java.lang.String defaultValue);
         kindCase_ = 8;
         onChanged();;
         return unsetColumnFulltextBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.UnsetTableOptions, io.greptime.v1.Ddl.UnsetTableOptions.Builder, io.greptime.v1.Ddl.UnsetTableOptionsOrBuilder> unsetTableOptionsBuilder_;
+      /**
+       * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+       * @return Whether the unsetTableOptions field is set.
+       */
+      @java.lang.Override
+      public boolean hasUnsetTableOptions() {
+        return kindCase_ == 9;
+      }
+      /**
+       * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+       * @return The unsetTableOptions.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetTableOptions getUnsetTableOptions() {
+        if (unsetTableOptionsBuilder_ == null) {
+          if (kindCase_ == 9) {
+            return (io.greptime.v1.Ddl.UnsetTableOptions) kind_;
+          }
+          return io.greptime.v1.Ddl.UnsetTableOptions.getDefaultInstance();
+        } else {
+          if (kindCase_ == 9) {
+            return unsetTableOptionsBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.UnsetTableOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+       */
+      public Builder setUnsetTableOptions(io.greptime.v1.Ddl.UnsetTableOptions value) {
+        if (unsetTableOptionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          unsetTableOptionsBuilder_.setMessage(value);
+        }
+        kindCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+       */
+      public Builder setUnsetTableOptions(
+          io.greptime.v1.Ddl.UnsetTableOptions.Builder builderForValue) {
+        if (unsetTableOptionsBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          unsetTableOptionsBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+       */
+      public Builder mergeUnsetTableOptions(io.greptime.v1.Ddl.UnsetTableOptions value) {
+        if (unsetTableOptionsBuilder_ == null) {
+          if (kindCase_ == 9 &&
+              kind_ != io.greptime.v1.Ddl.UnsetTableOptions.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.UnsetTableOptions.newBuilder((io.greptime.v1.Ddl.UnsetTableOptions) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 9) {
+            unsetTableOptionsBuilder_.mergeFrom(value);
+          } else {
+            unsetTableOptionsBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+       */
+      public Builder clearUnsetTableOptions() {
+        if (unsetTableOptionsBuilder_ == null) {
+          if (kindCase_ == 9) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 9) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          unsetTableOptionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+       */
+      public io.greptime.v1.Ddl.UnsetTableOptions.Builder getUnsetTableOptionsBuilder() {
+        return getUnsetTableOptionsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetTableOptionsOrBuilder getUnsetTableOptionsOrBuilder() {
+        if ((kindCase_ == 9) && (unsetTableOptionsBuilder_ != null)) {
+          return unsetTableOptionsBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 9) {
+            return (io.greptime.v1.Ddl.UnsetTableOptions) kind_;
+          }
+          return io.greptime.v1.Ddl.UnsetTableOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.UnsetTableOptions unset_table_options = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.UnsetTableOptions, io.greptime.v1.Ddl.UnsetTableOptions.Builder, io.greptime.v1.Ddl.UnsetTableOptionsOrBuilder> 
+          getUnsetTableOptionsFieldBuilder() {
+        if (unsetTableOptionsBuilder_ == null) {
+          if (!(kindCase_ == 9)) {
+            kind_ = io.greptime.v1.Ddl.UnsetTableOptions.getDefaultInstance();
+          }
+          unsetTableOptionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.UnsetTableOptions, io.greptime.v1.Ddl.UnsetTableOptions.Builder, io.greptime.v1.Ddl.UnsetTableOptionsOrBuilder>(
+                  (io.greptime.v1.Ddl.UnsetTableOptions) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 9;
+        onChanged();;
+        return unsetTableOptionsBuilder_;
       }
 
       private long schemaVersion_ ;
@@ -25254,39 +25484,41 @@ java.lang.String defaultValue);
       ".\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
       "\001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001" +
       "(\004\"C\n\rAlterRequests\0222\n\010requests\030\001 \003(\0132 ." +
-      "greptime.v1.region.AlterRequest\"\263\003\n\014Alte" +
+      "greptime.v1.region.AlterRequest\"\354\003\n\014Alte" +
       "rRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_colum" +
       "ns\030\002 \001(\0132\036.greptime.v1.region.AddColumns" +
       "H\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime.v1.r" +
       "egion.DropColumnsH\000\022=\n\023modify_column_typ" +
       "es\030\005 \001(\0132\036.greptime.v1.ModifyColumnTypes" +
-      "H\000\022?\n\024change_table_options\030\006 \001(\0132\037.grept" +
-      "ime.v1.ChangeTableOptionsH\000\022=\n\023set_colum" +
-      "n_fulltext\030\007 \001(\0132\036.greptime.v1.SetColumn" +
-      "FulltextH\000\022A\n\025unset_column_fulltext\030\010 \001(" +
-      "\0132 .greptime.v1.UnsetColumnFulltextH\000\022\026\n" +
-      "\016schema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddColu" +
-      "mns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1.r" +
-      "egion.AddColumn\"C\n\013DropColumns\0224\n\014drop_c" +
-      "olumns\030\001 \003(\0132\036.greptime.v1.region.DropCo" +
-      "lumn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#." +
-      "greptime.v1.region.RegionColumnDef\0220\n\010lo" +
-      "cation\030\003 \001(\0132\036.greptime.v1.AddColumnLoca" +
-      "tion\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Flus" +
-      "hRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"&" +
-      "\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003\"\231" +
-      "\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007" +
-      "regular\030\002 \001(\0132\033.greptime.v1.region.Regul" +
-      "arH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime.v" +
-      "1.region.StrictWindowH\000B\t\n\007options\"$\n\017Tr" +
-      "uncateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Regi" +
-      "onColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.grepti" +
-      "me.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006Re" +
-      "gion\022O\n\006Handle\022!.greptime.v1.region.Regi" +
-      "onRequest\032\".greptime.v1.region.RegionRes" +
-      "ponseB]\n\025io.greptime.v1.regionB\006ServerZ<" +
-      "github.com/GreptimeTeam/greptime-proto/g" +
-      "o/greptime/v1/regionb\006proto3"
+      "H\000\0229\n\021set_table_options\030\006 \001(\0132\034.greptime" +
+      ".v1.SetTableOptionsH\000\022=\n\023set_column_full" +
+      "text\030\007 \001(\0132\036.greptime.v1.SetColumnFullte" +
+      "xtH\000\022A\n\025unset_column_fulltext\030\010 \001(\0132 .gr" +
+      "eptime.v1.UnsetColumnFulltextH\000\022=\n\023unset" +
+      "_table_options\030\t \001(\0132\036.greptime.v1.Unset" +
+      "TableOptionsH\000\022\026\n\016schema_version\030\004 \001(\004B\006" +
+      "\n\004kind\"@\n\nAddColumns\0222\n\013add_columns\030\001 \003(" +
+      "\0132\035.greptime.v1.region.AddColumn\"C\n\013Drop" +
+      "Columns\0224\n\014drop_columns\030\001 \003(\0132\036.greptime" +
+      ".v1.region.DropColumn\"v\n\tAddColumn\0227\n\nco" +
+      "lumn_def\030\001 \001(\0132#.greptime.v1.region.Regi" +
+      "onColumnDef\0220\n\010location\030\003 \001(\0132\036.greptime" +
+      ".v1.AddColumnLocation\"\032\n\nDropColumn\022\014\n\004n" +
+      "ame\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001" +
+      " \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n\016windo" +
+      "w_seconds\030\001 \001(\003\"\231\001\n\016CompactRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.greptim" +
+      "e.v1.region.RegularH\000\0229\n\rstrict_window\030\003" +
+      " \001(\0132 .greptime.v1.region.StrictWindowH\000" +
+      "B\t\n\007options\"$\n\017TruncateRequest\022\021\n\tregion" +
+      "_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_d" +
+      "ef\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcolu" +
+      "mn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.grepti" +
+      "me.v1.region.RegionRequest\032\".greptime.v1" +
+      ".region.RegionResponseB]\n\025io.greptime.v1" +
+      ".regionB\006ServerZ<github.com/GreptimeTeam" +
+      "/greptime-proto/go/greptime/v1/regionb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25414,7 +25646,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_AlterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AlterRequest_descriptor,
-        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "ModifyColumnTypes", "ChangeTableOptions", "SetColumnFulltext", "UnsetColumnFulltext", "SchemaVersion", "Kind", });
+        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "ModifyColumnTypes", "SetTableOptions", "SetColumnFulltext", "UnsetColumnFulltext", "UnsetTableOptions", "SchemaVersion", "Kind", });
     internal_static_greptime_v1_region_AddColumns_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_region_AddColumns_fieldAccessorTable = new
