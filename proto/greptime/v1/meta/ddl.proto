@@ -47,7 +47,7 @@ message DropTableTask{
 message DropTableTasks { repeated DropTableTask tasks = 1; }
 
 message AlterTableTask{
-    AlterExpr alter_table = 1;
+    AlterTableExpr alter_table = 1;
 }
 
 message AlterTableTasks { repeated AlterTableTask tasks = 1; }
@@ -79,6 +79,11 @@ message DropViewTask {
     DropViewExpr drop_view = 1;
 }
 
+// Alter database tasks
+message AlterDatabaseTask {
+    AlterDatabaseExpr task = 1;
+}
+
 message DdlTaskRequest {
     RequestHeader header = 1;
     QueryContext query_context = 64;
@@ -97,6 +102,7 @@ message DdlTaskRequest {
         DropFlowTask drop_flow_task = 12;
         CreateViewTask create_view_task = 13;
         DropViewTask drop_view_task = 14;
+        AlterDatabaseTask alter_database_task = 15;
      }
 }
 

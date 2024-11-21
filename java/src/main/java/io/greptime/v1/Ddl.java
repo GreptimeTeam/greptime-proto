@@ -157,19 +157,19 @@ public final class Ddl {
     io.greptime.v1.Ddl.CreateTableExprOrBuilder getCreateTableOrBuilder();
 
     /**
-     * <code>.greptime.v1.AlterExpr alter = 3;</code>
-     * @return Whether the alter field is set.
+     * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
+     * @return Whether the alterTable field is set.
      */
-    boolean hasAlter();
+    boolean hasAlterTable();
     /**
-     * <code>.greptime.v1.AlterExpr alter = 3;</code>
-     * @return The alter.
+     * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
+     * @return The alterTable.
      */
-    io.greptime.v1.Ddl.AlterExpr getAlter();
+    io.greptime.v1.Ddl.AlterTableExpr getAlterTable();
     /**
-     * <code>.greptime.v1.AlterExpr alter = 3;</code>
+     * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
      */
-    io.greptime.v1.Ddl.AlterExprOrBuilder getAlterOrBuilder();
+    io.greptime.v1.Ddl.AlterTableExprOrBuilder getAlterTableOrBuilder();
 
     /**
      * <code>.greptime.v1.DropTableExpr drop_table = 4;</code>
@@ -261,6 +261,21 @@ public final class Ddl {
      */
     io.greptime.v1.Ddl.DropViewExprOrBuilder getDropViewOrBuilder();
 
+    /**
+     * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+     * @return Whether the alterDatabase field is set.
+     */
+    boolean hasAlterDatabase();
+    /**
+     * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+     * @return The alterDatabase.
+     */
+    io.greptime.v1.Ddl.AlterDatabaseExpr getAlterDatabase();
+    /**
+     * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+     */
+    io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getAlterDatabaseOrBuilder();
+
     public io.greptime.v1.Ddl.DdlRequest.ExprCase getExprCase();
   }
   /**
@@ -344,14 +359,14 @@ public final class Ddl {
               break;
             }
             case 26: {
-              io.greptime.v1.Ddl.AlterExpr.Builder subBuilder = null;
+              io.greptime.v1.Ddl.AlterTableExpr.Builder subBuilder = null;
               if (exprCase_ == 3) {
-                subBuilder = ((io.greptime.v1.Ddl.AlterExpr) expr_).toBuilder();
+                subBuilder = ((io.greptime.v1.Ddl.AlterTableExpr) expr_).toBuilder();
               }
               expr_ =
-                  input.readMessage(io.greptime.v1.Ddl.AlterExpr.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.Ddl.AlterTableExpr.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Ddl.AlterExpr) expr_);
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.AlterTableExpr) expr_);
                 expr_ = subBuilder.buildPartial();
               }
               exprCase_ = 3;
@@ -441,6 +456,20 @@ public final class Ddl {
               exprCase_ = 11;
               break;
             }
+            case 98: {
+              io.greptime.v1.Ddl.AlterDatabaseExpr.Builder subBuilder = null;
+              if (exprCase_ == 12) {
+                subBuilder = ((io.greptime.v1.Ddl.AlterDatabaseExpr) expr_).toBuilder();
+              }
+              expr_ =
+                  input.readMessage(io.greptime.v1.Ddl.AlterDatabaseExpr.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.AlterDatabaseExpr) expr_);
+                expr_ = subBuilder.buildPartial();
+              }
+              exprCase_ = 12;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -482,13 +511,14 @@ public final class Ddl {
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       CREATE_DATABASE(1),
       CREATE_TABLE(2),
-      ALTER(3),
+      ALTER_TABLE(3),
       DROP_TABLE(4),
       TRUNCATE_TABLE(7),
       CREATE_FLOW(8),
       DROP_FLOW(9),
       CREATE_VIEW(10),
       DROP_VIEW(11),
+      ALTER_DATABASE(12),
       EXPR_NOT_SET(0);
       private final int value;
       private ExprCase(int value) {
@@ -508,13 +538,14 @@ public final class Ddl {
         switch (value) {
           case 1: return CREATE_DATABASE;
           case 2: return CREATE_TABLE;
-          case 3: return ALTER;
+          case 3: return ALTER_TABLE;
           case 4: return DROP_TABLE;
           case 7: return TRUNCATE_TABLE;
           case 8: return CREATE_FLOW;
           case 9: return DROP_FLOW;
           case 10: return CREATE_VIEW;
           case 11: return DROP_VIEW;
+          case 12: return ALTER_DATABASE;
           case 0: return EXPR_NOT_SET;
           default: return null;
         }
@@ -592,35 +623,35 @@ public final class Ddl {
       return io.greptime.v1.Ddl.CreateTableExpr.getDefaultInstance();
     }
 
-    public static final int ALTER_FIELD_NUMBER = 3;
+    public static final int ALTER_TABLE_FIELD_NUMBER = 3;
     /**
-     * <code>.greptime.v1.AlterExpr alter = 3;</code>
-     * @return Whether the alter field is set.
+     * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
+     * @return Whether the alterTable field is set.
      */
     @java.lang.Override
-    public boolean hasAlter() {
+    public boolean hasAlterTable() {
       return exprCase_ == 3;
     }
     /**
-     * <code>.greptime.v1.AlterExpr alter = 3;</code>
-     * @return The alter.
+     * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
+     * @return The alterTable.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.AlterExpr getAlter() {
+    public io.greptime.v1.Ddl.AlterTableExpr getAlterTable() {
       if (exprCase_ == 3) {
-         return (io.greptime.v1.Ddl.AlterExpr) expr_;
+         return (io.greptime.v1.Ddl.AlterTableExpr) expr_;
       }
-      return io.greptime.v1.Ddl.AlterExpr.getDefaultInstance();
+      return io.greptime.v1.Ddl.AlterTableExpr.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.AlterExpr alter = 3;</code>
+     * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.AlterExprOrBuilder getAlterOrBuilder() {
+    public io.greptime.v1.Ddl.AlterTableExprOrBuilder getAlterTableOrBuilder() {
       if (exprCase_ == 3) {
-         return (io.greptime.v1.Ddl.AlterExpr) expr_;
+         return (io.greptime.v1.Ddl.AlterTableExpr) expr_;
       }
-      return io.greptime.v1.Ddl.AlterExpr.getDefaultInstance();
+      return io.greptime.v1.Ddl.AlterTableExpr.getDefaultInstance();
     }
 
     public static final int DROP_TABLE_FIELD_NUMBER = 4;
@@ -809,6 +840,37 @@ public final class Ddl {
       return io.greptime.v1.Ddl.DropViewExpr.getDefaultInstance();
     }
 
+    public static final int ALTER_DATABASE_FIELD_NUMBER = 12;
+    /**
+     * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+     * @return Whether the alterDatabase field is set.
+     */
+    @java.lang.Override
+    public boolean hasAlterDatabase() {
+      return exprCase_ == 12;
+    }
+    /**
+     * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+     * @return The alterDatabase.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.AlterDatabaseExpr getAlterDatabase() {
+      if (exprCase_ == 12) {
+         return (io.greptime.v1.Ddl.AlterDatabaseExpr) expr_;
+      }
+      return io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getAlterDatabaseOrBuilder() {
+      if (exprCase_ == 12) {
+         return (io.greptime.v1.Ddl.AlterDatabaseExpr) expr_;
+      }
+      return io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -830,7 +892,7 @@ public final class Ddl {
         output.writeMessage(2, (io.greptime.v1.Ddl.CreateTableExpr) expr_);
       }
       if (exprCase_ == 3) {
-        output.writeMessage(3, (io.greptime.v1.Ddl.AlterExpr) expr_);
+        output.writeMessage(3, (io.greptime.v1.Ddl.AlterTableExpr) expr_);
       }
       if (exprCase_ == 4) {
         output.writeMessage(4, (io.greptime.v1.Ddl.DropTableExpr) expr_);
@@ -849,6 +911,9 @@ public final class Ddl {
       }
       if (exprCase_ == 11) {
         output.writeMessage(11, (io.greptime.v1.Ddl.DropViewExpr) expr_);
+      }
+      if (exprCase_ == 12) {
+        output.writeMessage(12, (io.greptime.v1.Ddl.AlterDatabaseExpr) expr_);
       }
       unknownFields.writeTo(output);
     }
@@ -869,7 +934,7 @@ public final class Ddl {
       }
       if (exprCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (io.greptime.v1.Ddl.AlterExpr) expr_);
+          .computeMessageSize(3, (io.greptime.v1.Ddl.AlterTableExpr) expr_);
       }
       if (exprCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
@@ -894,6 +959,10 @@ public final class Ddl {
       if (exprCase_ == 11) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, (io.greptime.v1.Ddl.DropViewExpr) expr_);
+      }
+      if (exprCase_ == 12) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, (io.greptime.v1.Ddl.AlterDatabaseExpr) expr_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -921,8 +990,8 @@ public final class Ddl {
               .equals(other.getCreateTable())) return false;
           break;
         case 3:
-          if (!getAlter()
-              .equals(other.getAlter())) return false;
+          if (!getAlterTable()
+              .equals(other.getAlterTable())) return false;
           break;
         case 4:
           if (!getDropTable()
@@ -948,6 +1017,10 @@ public final class Ddl {
           if (!getDropView()
               .equals(other.getDropView())) return false;
           break;
+        case 12:
+          if (!getAlterDatabase()
+              .equals(other.getAlterDatabase())) return false;
+          break;
         case 0:
         default:
       }
@@ -972,8 +1045,8 @@ public final class Ddl {
           hash = (53 * hash) + getCreateTable().hashCode();
           break;
         case 3:
-          hash = (37 * hash) + ALTER_FIELD_NUMBER;
-          hash = (53 * hash) + getAlter().hashCode();
+          hash = (37 * hash) + ALTER_TABLE_FIELD_NUMBER;
+          hash = (53 * hash) + getAlterTable().hashCode();
           break;
         case 4:
           hash = (37 * hash) + DROP_TABLE_FIELD_NUMBER;
@@ -998,6 +1071,10 @@ public final class Ddl {
         case 11:
           hash = (37 * hash) + DROP_VIEW_FIELD_NUMBER;
           hash = (53 * hash) + getDropView().hashCode();
+          break;
+        case 12:
+          hash = (37 * hash) + ALTER_DATABASE_FIELD_NUMBER;
+          hash = (53 * hash) + getAlterDatabase().hashCode();
           break;
         case 0:
         default:
@@ -1185,10 +1262,10 @@ public final class Ddl {
           }
         }
         if (exprCase_ == 3) {
-          if (alterBuilder_ == null) {
+          if (alterTableBuilder_ == null) {
             result.expr_ = expr_;
           } else {
-            result.expr_ = alterBuilder_.build();
+            result.expr_ = alterTableBuilder_.build();
           }
         }
         if (exprCase_ == 4) {
@@ -1231,6 +1308,13 @@ public final class Ddl {
             result.expr_ = expr_;
           } else {
             result.expr_ = dropViewBuilder_.build();
+          }
+        }
+        if (exprCase_ == 12) {
+          if (alterDatabaseBuilder_ == null) {
+            result.expr_ = expr_;
+          } else {
+            result.expr_ = alterDatabaseBuilder_.build();
           }
         }
         result.exprCase_ = exprCase_;
@@ -1291,8 +1375,8 @@ public final class Ddl {
             mergeCreateTable(other.getCreateTable());
             break;
           }
-          case ALTER: {
-            mergeAlter(other.getAlter());
+          case ALTER_TABLE: {
+            mergeAlterTable(other.getAlterTable());
             break;
           }
           case DROP_TABLE: {
@@ -1317,6 +1401,10 @@ public final class Ddl {
           }
           case DROP_VIEW: {
             mergeDropView(other.getDropView());
+            break;
+          }
+          case ALTER_DATABASE: {
+            mergeAlterDatabase(other.getAlterDatabase());
             break;
           }
           case EXPR_NOT_SET: {
@@ -1652,71 +1740,71 @@ public final class Ddl {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.AlterExpr, io.greptime.v1.Ddl.AlterExpr.Builder, io.greptime.v1.Ddl.AlterExprOrBuilder> alterBuilder_;
+          io.greptime.v1.Ddl.AlterTableExpr, io.greptime.v1.Ddl.AlterTableExpr.Builder, io.greptime.v1.Ddl.AlterTableExprOrBuilder> alterTableBuilder_;
       /**
-       * <code>.greptime.v1.AlterExpr alter = 3;</code>
-       * @return Whether the alter field is set.
+       * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
+       * @return Whether the alterTable field is set.
        */
       @java.lang.Override
-      public boolean hasAlter() {
+      public boolean hasAlterTable() {
         return exprCase_ == 3;
       }
       /**
-       * <code>.greptime.v1.AlterExpr alter = 3;</code>
-       * @return The alter.
+       * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
+       * @return The alterTable.
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.AlterExpr getAlter() {
-        if (alterBuilder_ == null) {
+      public io.greptime.v1.Ddl.AlterTableExpr getAlterTable() {
+        if (alterTableBuilder_ == null) {
           if (exprCase_ == 3) {
-            return (io.greptime.v1.Ddl.AlterExpr) expr_;
+            return (io.greptime.v1.Ddl.AlterTableExpr) expr_;
           }
-          return io.greptime.v1.Ddl.AlterExpr.getDefaultInstance();
+          return io.greptime.v1.Ddl.AlterTableExpr.getDefaultInstance();
         } else {
           if (exprCase_ == 3) {
-            return alterBuilder_.getMessage();
+            return alterTableBuilder_.getMessage();
           }
-          return io.greptime.v1.Ddl.AlterExpr.getDefaultInstance();
+          return io.greptime.v1.Ddl.AlterTableExpr.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.AlterExpr alter = 3;</code>
+       * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
        */
-      public Builder setAlter(io.greptime.v1.Ddl.AlterExpr value) {
-        if (alterBuilder_ == null) {
+      public Builder setAlterTable(io.greptime.v1.Ddl.AlterTableExpr value) {
+        if (alterTableBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           expr_ = value;
           onChanged();
         } else {
-          alterBuilder_.setMessage(value);
+          alterTableBuilder_.setMessage(value);
         }
         exprCase_ = 3;
         return this;
       }
       /**
-       * <code>.greptime.v1.AlterExpr alter = 3;</code>
+       * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
        */
-      public Builder setAlter(
-          io.greptime.v1.Ddl.AlterExpr.Builder builderForValue) {
-        if (alterBuilder_ == null) {
+      public Builder setAlterTable(
+          io.greptime.v1.Ddl.AlterTableExpr.Builder builderForValue) {
+        if (alterTableBuilder_ == null) {
           expr_ = builderForValue.build();
           onChanged();
         } else {
-          alterBuilder_.setMessage(builderForValue.build());
+          alterTableBuilder_.setMessage(builderForValue.build());
         }
         exprCase_ = 3;
         return this;
       }
       /**
-       * <code>.greptime.v1.AlterExpr alter = 3;</code>
+       * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
        */
-      public Builder mergeAlter(io.greptime.v1.Ddl.AlterExpr value) {
-        if (alterBuilder_ == null) {
+      public Builder mergeAlterTable(io.greptime.v1.Ddl.AlterTableExpr value) {
+        if (alterTableBuilder_ == null) {
           if (exprCase_ == 3 &&
-              expr_ != io.greptime.v1.Ddl.AlterExpr.getDefaultInstance()) {
-            expr_ = io.greptime.v1.Ddl.AlterExpr.newBuilder((io.greptime.v1.Ddl.AlterExpr) expr_)
+              expr_ != io.greptime.v1.Ddl.AlterTableExpr.getDefaultInstance()) {
+            expr_ = io.greptime.v1.Ddl.AlterTableExpr.newBuilder((io.greptime.v1.Ddl.AlterTableExpr) expr_)
                 .mergeFrom(value).buildPartial();
           } else {
             expr_ = value;
@@ -1724,19 +1812,19 @@ public final class Ddl {
           onChanged();
         } else {
           if (exprCase_ == 3) {
-            alterBuilder_.mergeFrom(value);
+            alterTableBuilder_.mergeFrom(value);
           } else {
-            alterBuilder_.setMessage(value);
+            alterTableBuilder_.setMessage(value);
           }
         }
         exprCase_ = 3;
         return this;
       }
       /**
-       * <code>.greptime.v1.AlterExpr alter = 3;</code>
+       * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
        */
-      public Builder clearAlter() {
-        if (alterBuilder_ == null) {
+      public Builder clearAlterTable() {
+        if (alterTableBuilder_ == null) {
           if (exprCase_ == 3) {
             exprCase_ = 0;
             expr_ = null;
@@ -1747,50 +1835,50 @@ public final class Ddl {
             exprCase_ = 0;
             expr_ = null;
           }
-          alterBuilder_.clear();
+          alterTableBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.greptime.v1.AlterExpr alter = 3;</code>
+       * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
        */
-      public io.greptime.v1.Ddl.AlterExpr.Builder getAlterBuilder() {
-        return getAlterFieldBuilder().getBuilder();
+      public io.greptime.v1.Ddl.AlterTableExpr.Builder getAlterTableBuilder() {
+        return getAlterTableFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.AlterExpr alter = 3;</code>
+       * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.AlterExprOrBuilder getAlterOrBuilder() {
-        if ((exprCase_ == 3) && (alterBuilder_ != null)) {
-          return alterBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Ddl.AlterTableExprOrBuilder getAlterTableOrBuilder() {
+        if ((exprCase_ == 3) && (alterTableBuilder_ != null)) {
+          return alterTableBuilder_.getMessageOrBuilder();
         } else {
           if (exprCase_ == 3) {
-            return (io.greptime.v1.Ddl.AlterExpr) expr_;
+            return (io.greptime.v1.Ddl.AlterTableExpr) expr_;
           }
-          return io.greptime.v1.Ddl.AlterExpr.getDefaultInstance();
+          return io.greptime.v1.Ddl.AlterTableExpr.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.AlterExpr alter = 3;</code>
+       * <code>.greptime.v1.AlterTableExpr alter_table = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.AlterExpr, io.greptime.v1.Ddl.AlterExpr.Builder, io.greptime.v1.Ddl.AlterExprOrBuilder> 
-          getAlterFieldBuilder() {
-        if (alterBuilder_ == null) {
+          io.greptime.v1.Ddl.AlterTableExpr, io.greptime.v1.Ddl.AlterTableExpr.Builder, io.greptime.v1.Ddl.AlterTableExprOrBuilder> 
+          getAlterTableFieldBuilder() {
+        if (alterTableBuilder_ == null) {
           if (!(exprCase_ == 3)) {
-            expr_ = io.greptime.v1.Ddl.AlterExpr.getDefaultInstance();
+            expr_ = io.greptime.v1.Ddl.AlterTableExpr.getDefaultInstance();
           }
-          alterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.AlterExpr, io.greptime.v1.Ddl.AlterExpr.Builder, io.greptime.v1.Ddl.AlterExprOrBuilder>(
-                  (io.greptime.v1.Ddl.AlterExpr) expr_,
+          alterTableBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.AlterTableExpr, io.greptime.v1.Ddl.AlterTableExpr.Builder, io.greptime.v1.Ddl.AlterTableExprOrBuilder>(
+                  (io.greptime.v1.Ddl.AlterTableExpr) expr_,
                   getParentForChildren(),
                   isClean());
           expr_ = null;
         }
         exprCase_ = 3;
         onChanged();;
-        return alterBuilder_;
+        return alterTableBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2643,6 +2731,148 @@ public final class Ddl {
         exprCase_ = 11;
         onChanged();;
         return dropViewBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.AlterDatabaseExpr, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder, io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder> alterDatabaseBuilder_;
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+       * @return Whether the alterDatabase field is set.
+       */
+      @java.lang.Override
+      public boolean hasAlterDatabase() {
+        return exprCase_ == 12;
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+       * @return The alterDatabase.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.AlterDatabaseExpr getAlterDatabase() {
+        if (alterDatabaseBuilder_ == null) {
+          if (exprCase_ == 12) {
+            return (io.greptime.v1.Ddl.AlterDatabaseExpr) expr_;
+          }
+          return io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance();
+        } else {
+          if (exprCase_ == 12) {
+            return alterDatabaseBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+       */
+      public Builder setAlterDatabase(io.greptime.v1.Ddl.AlterDatabaseExpr value) {
+        if (alterDatabaseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          expr_ = value;
+          onChanged();
+        } else {
+          alterDatabaseBuilder_.setMessage(value);
+        }
+        exprCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+       */
+      public Builder setAlterDatabase(
+          io.greptime.v1.Ddl.AlterDatabaseExpr.Builder builderForValue) {
+        if (alterDatabaseBuilder_ == null) {
+          expr_ = builderForValue.build();
+          onChanged();
+        } else {
+          alterDatabaseBuilder_.setMessage(builderForValue.build());
+        }
+        exprCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+       */
+      public Builder mergeAlterDatabase(io.greptime.v1.Ddl.AlterDatabaseExpr value) {
+        if (alterDatabaseBuilder_ == null) {
+          if (exprCase_ == 12 &&
+              expr_ != io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance()) {
+            expr_ = io.greptime.v1.Ddl.AlterDatabaseExpr.newBuilder((io.greptime.v1.Ddl.AlterDatabaseExpr) expr_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            expr_ = value;
+          }
+          onChanged();
+        } else {
+          if (exprCase_ == 12) {
+            alterDatabaseBuilder_.mergeFrom(value);
+          } else {
+            alterDatabaseBuilder_.setMessage(value);
+          }
+        }
+        exprCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+       */
+      public Builder clearAlterDatabase() {
+        if (alterDatabaseBuilder_ == null) {
+          if (exprCase_ == 12) {
+            exprCase_ = 0;
+            expr_ = null;
+            onChanged();
+          }
+        } else {
+          if (exprCase_ == 12) {
+            exprCase_ = 0;
+            expr_ = null;
+          }
+          alterDatabaseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+       */
+      public io.greptime.v1.Ddl.AlterDatabaseExpr.Builder getAlterDatabaseBuilder() {
+        return getAlterDatabaseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getAlterDatabaseOrBuilder() {
+        if ((exprCase_ == 12) && (alterDatabaseBuilder_ != null)) {
+          return alterDatabaseBuilder_.getMessageOrBuilder();
+        } else {
+          if (exprCase_ == 12) {
+            return (io.greptime.v1.Ddl.AlterDatabaseExpr) expr_;
+          }
+          return io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.AlterDatabaseExpr, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder, io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder> 
+          getAlterDatabaseFieldBuilder() {
+        if (alterDatabaseBuilder_ == null) {
+          if (!(exprCase_ == 12)) {
+            expr_ = io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance();
+          }
+          alterDatabaseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.AlterDatabaseExpr, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder, io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder>(
+                  (io.greptime.v1.Ddl.AlterDatabaseExpr) expr_,
+                  getParentForChildren(),
+                  isClean());
+          expr_ = null;
+        }
+        exprCase_ = 12;
+        onChanged();;
+        return alterDatabaseBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -11745,8 +11975,8 @@ java.lang.String defaultValue);
 
   }
 
-  public interface AlterExprOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.AlterExpr)
+  public interface AlterTableExprOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.AlterTableExpr)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11905,21 +12135,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Ddl.UnsetTableOptionsOrBuilder getUnsetTableOptionsOrBuilder();
 
-    public io.greptime.v1.Ddl.AlterExpr.KindCase getKindCase();
+    public io.greptime.v1.Ddl.AlterTableExpr.KindCase getKindCase();
   }
   /**
-   * Protobuf type {@code greptime.v1.AlterExpr}
+   * Protobuf type {@code greptime.v1.AlterTableExpr}
    */
-  public static final class AlterExpr extends
+  public static final class AlterTableExpr extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.AlterExpr)
-      AlterExprOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.AlterTableExpr)
+      AlterTableExprOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use AlterExpr.newBuilder() to construct.
-    private AlterExpr(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use AlterTableExpr.newBuilder() to construct.
+    private AlterTableExpr(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private AlterExpr() {
+    private AlterTableExpr() {
       catalogName_ = "";
       schemaName_ = "";
       tableName_ = "";
@@ -11929,7 +12159,7 @@ java.lang.String defaultValue);
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new AlterExpr();
+      return new AlterTableExpr();
     }
 
     @java.lang.Override
@@ -11937,7 +12167,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AlterExpr(
+    private AlterTableExpr(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12108,15 +12338,15 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterExpr_descriptor;
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterTableExpr_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterExpr_fieldAccessorTable
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterTableExpr_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Ddl.AlterExpr.class, io.greptime.v1.Ddl.AlterExpr.Builder.class);
+              io.greptime.v1.Ddl.AlterTableExpr.class, io.greptime.v1.Ddl.AlterTableExpr.Builder.class);
     }
 
     private int kindCase_ = 0;
@@ -12641,10 +12871,10 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.Ddl.AlterExpr)) {
+      if (!(obj instanceof io.greptime.v1.Ddl.AlterTableExpr)) {
         return super.equals(obj);
       }
-      io.greptime.v1.Ddl.AlterExpr other = (io.greptime.v1.Ddl.AlterExpr) obj;
+      io.greptime.v1.Ddl.AlterTableExpr other = (io.greptime.v1.Ddl.AlterTableExpr) obj;
 
       if (!getCatalogName()
           .equals(other.getCatalogName())) return false;
@@ -12747,69 +12977,69 @@ java.lang.String defaultValue);
       return hash;
     }
 
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(byte[] data)
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.Ddl.AlterTableExpr parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseDelimitedFrom(
+    public static io.greptime.v1.Ddl.AlterTableExpr parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Ddl.AlterExpr parseFrom(
+    public static io.greptime.v1.Ddl.AlterTableExpr parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12822,7 +13052,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.Ddl.AlterExpr prototype) {
+    public static Builder newBuilder(io.greptime.v1.Ddl.AlterTableExpr prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -12838,26 +13068,26 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.AlterExpr}
+     * Protobuf type {@code greptime.v1.AlterTableExpr}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.AlterExpr)
-        io.greptime.v1.Ddl.AlterExprOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.AlterTableExpr)
+        io.greptime.v1.Ddl.AlterTableExprOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterExpr_descriptor;
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterTableExpr_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterExpr_fieldAccessorTable
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterTableExpr_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Ddl.AlterExpr.class, io.greptime.v1.Ddl.AlterExpr.Builder.class);
+                io.greptime.v1.Ddl.AlterTableExpr.class, io.greptime.v1.Ddl.AlterTableExpr.Builder.class);
       }
 
-      // Construct using io.greptime.v1.Ddl.AlterExpr.newBuilder()
+      // Construct using io.greptime.v1.Ddl.AlterTableExpr.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12889,17 +13119,17 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterExpr_descriptor;
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterTableExpr_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.AlterExpr getDefaultInstanceForType() {
-        return io.greptime.v1.Ddl.AlterExpr.getDefaultInstance();
+      public io.greptime.v1.Ddl.AlterTableExpr getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.AlterTableExpr.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.AlterExpr build() {
-        io.greptime.v1.Ddl.AlterExpr result = buildPartial();
+      public io.greptime.v1.Ddl.AlterTableExpr build() {
+        io.greptime.v1.Ddl.AlterTableExpr result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -12907,8 +13137,8 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.Ddl.AlterExpr buildPartial() {
-        io.greptime.v1.Ddl.AlterExpr result = new io.greptime.v1.Ddl.AlterExpr(this);
+      public io.greptime.v1.Ddl.AlterTableExpr buildPartial() {
+        io.greptime.v1.Ddl.AlterTableExpr result = new io.greptime.v1.Ddl.AlterTableExpr(this);
         result.catalogName_ = catalogName_;
         result.schemaName_ = schemaName_;
         result.tableName_ = tableName_;
@@ -13007,16 +13237,16 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Ddl.AlterExpr) {
-          return mergeFrom((io.greptime.v1.Ddl.AlterExpr)other);
+        if (other instanceof io.greptime.v1.Ddl.AlterTableExpr) {
+          return mergeFrom((io.greptime.v1.Ddl.AlterTableExpr)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.Ddl.AlterExpr other) {
-        if (other == io.greptime.v1.Ddl.AlterExpr.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.Ddl.AlterTableExpr other) {
+        if (other == io.greptime.v1.Ddl.AlterTableExpr.getDefaultInstance()) return this;
         if (!other.getCatalogName().isEmpty()) {
           catalogName_ = other.catalogName_;
           onChanged();
@@ -13081,11 +13311,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Ddl.AlterExpr parsedMessage = null;
+        io.greptime.v1.Ddl.AlterTableExpr parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Ddl.AlterExpr) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.Ddl.AlterTableExpr) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14486,41 +14716,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.AlterExpr)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.AlterTableExpr)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.AlterExpr)
-    private static final io.greptime.v1.Ddl.AlterExpr DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.AlterTableExpr)
+    private static final io.greptime.v1.Ddl.AlterTableExpr DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.AlterExpr();
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.AlterTableExpr();
     }
 
-    public static io.greptime.v1.Ddl.AlterExpr getDefaultInstance() {
+    public static io.greptime.v1.Ddl.AlterTableExpr getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<AlterExpr>
-        PARSER = new com.google.protobuf.AbstractParser<AlterExpr>() {
+    private static final com.google.protobuf.Parser<AlterTableExpr>
+        PARSER = new com.google.protobuf.AbstractParser<AlterTableExpr>() {
       @java.lang.Override
-      public AlterExpr parsePartialFrom(
+      public AlterTableExpr parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AlterExpr(input, extensionRegistry);
+        return new AlterTableExpr(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<AlterExpr> parser() {
+    public static com.google.protobuf.Parser<AlterTableExpr> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AlterExpr> getParserForType() {
+    public com.google.protobuf.Parser<AlterTableExpr> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.Ddl.AlterExpr getDefaultInstanceForType() {
+    public io.greptime.v1.Ddl.AlterTableExpr getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -23311,32 +23541,752 @@ java.lang.String defaultValue);
 
   }
 
+  public interface OptionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.Option)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string key = 1;</code>
+     * @return The key.
+     */
+    java.lang.String getKey();
+    /**
+     * <code>string key = 1;</code>
+     * @return The bytes for key.
+     */
+    com.google.protobuf.ByteString
+        getKeyBytes();
+
+    /**
+     * <code>string value = 2;</code>
+     * @return The value.
+     */
+    java.lang.String getValue();
+    /**
+     * <code>string value = 2;</code>
+     * @return The bytes for value.
+     */
+    com.google.protobuf.ByteString
+        getValueBytes();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.Option}
+   */
+  public static final class Option extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.Option)
+      OptionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Option.newBuilder() to construct.
+    private Option(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Option() {
+      key_ = "";
+      value_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Option();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Option(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              key_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              value_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_Option_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_Option_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.Option.class, io.greptime.v1.Ddl.Option.Builder.class);
+    }
+
+    public static final int KEY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object key_;
+    /**
+     * <code>string key = 1;</code>
+     * @return The key.
+     */
+    @java.lang.Override
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string key = 1;</code>
+     * @return The bytes for key.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object value_;
+    /**
+     * <code>string value = 2;</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public java.lang.String getValue() {
+      java.lang.Object ref = value_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        value_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string value = 2;</code>
+     * @return The bytes for value.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getValueBytes() {
+      java.lang.Object ref = value_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        value_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.Option)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.Option other = (io.greptime.v1.Ddl.Option) obj;
+
+      if (!getKey()
+          .equals(other.getKey())) return false;
+      if (!getValue()
+          .equals(other.getValue())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getKey().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.Option parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.Option parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Option parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.Option parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Option parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.Option parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Option parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.Option parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Option parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.Option parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Option parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.Option parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.Option prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.Option}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.Option)
+        io.greptime.v1.Ddl.OptionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_Option_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_Option_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.Option.class, io.greptime.v1.Ddl.Option.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.Option.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        key_ = "";
+
+        value_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_Option_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.Option getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.Option.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.Option build() {
+        io.greptime.v1.Ddl.Option result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.Option buildPartial() {
+        io.greptime.v1.Ddl.Option result = new io.greptime.v1.Ddl.Option(this);
+        result.key_ = key_;
+        result.value_ = value_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.Option) {
+          return mergeFrom((io.greptime.v1.Ddl.Option)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.Option other) {
+        if (other == io.greptime.v1.Ddl.Option.getDefaultInstance()) return this;
+        if (!other.getKey().isEmpty()) {
+          key_ = other.key_;
+          onChanged();
+        }
+        if (!other.getValue().isEmpty()) {
+          value_ = other.value_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.Option parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.Option) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object key_ = "";
+      /**
+       * <code>string key = 1;</code>
+       * @return The key.
+       */
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @return The bytes for key.
+       */
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @param value The key to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        key_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKey() {
+        
+        key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @param value The bytes for key to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        key_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object value_ = "";
+      /**
+       * <code>string value = 2;</code>
+       * @return The value.
+       */
+      public java.lang.String getValue() {
+        java.lang.Object ref = value_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          value_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string value = 2;</code>
+       * @return The bytes for value.
+       */
+      public com.google.protobuf.ByteString
+          getValueBytes() {
+        java.lang.Object ref = value_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          value_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string value = 2;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string value = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        
+        value_ = getDefaultInstance().getValue();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string value = 2;</code>
+       * @param value The bytes for value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.Option)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.Option)
+    private static final io.greptime.v1.Ddl.Option DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.Option();
+    }
+
+    public static io.greptime.v1.Ddl.Option getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Option>
+        PARSER = new com.google.protobuf.AbstractParser<Option>() {
+      @java.lang.Override
+      public Option parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Option(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Option> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Option> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.Option getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface SetTableOptionsOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.SetTableOptions)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
-    java.util.List<io.greptime.v1.Ddl.TableOption> 
+    java.util.List<io.greptime.v1.Ddl.Option> 
         getTableOptionsList();
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
-    io.greptime.v1.Ddl.TableOption getTableOptions(int index);
+    io.greptime.v1.Ddl.Option getTableOptions(int index);
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
     int getTableOptionsCount();
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
-    java.util.List<? extends io.greptime.v1.Ddl.TableOptionOrBuilder> 
+    java.util.List<? extends io.greptime.v1.Ddl.OptionOrBuilder> 
         getTableOptionsOrBuilderList();
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
-    io.greptime.v1.Ddl.TableOptionOrBuilder getTableOptionsOrBuilder(
+    io.greptime.v1.Ddl.OptionOrBuilder getTableOptionsOrBuilder(
         int index);
   }
   /**
@@ -23388,11 +24338,11 @@ java.lang.String defaultValue);
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                tableOptions_ = new java.util.ArrayList<io.greptime.v1.Ddl.TableOption>();
+                tableOptions_ = new java.util.ArrayList<io.greptime.v1.Ddl.Option>();
                 mutable_bitField0_ |= 0x00000001;
               }
               tableOptions_.add(
-                  input.readMessage(io.greptime.v1.Ddl.TableOption.parser(), extensionRegistry));
+                  input.readMessage(io.greptime.v1.Ddl.Option.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -23433,41 +24383,41 @@ java.lang.String defaultValue);
     }
 
     public static final int TABLE_OPTIONS_FIELD_NUMBER = 1;
-    private java.util.List<io.greptime.v1.Ddl.TableOption> tableOptions_;
+    private java.util.List<io.greptime.v1.Ddl.Option> tableOptions_;
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<io.greptime.v1.Ddl.TableOption> getTableOptionsList() {
+    public java.util.List<io.greptime.v1.Ddl.Option> getTableOptionsList() {
       return tableOptions_;
     }
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends io.greptime.v1.Ddl.TableOptionOrBuilder> 
+    public java.util.List<? extends io.greptime.v1.Ddl.OptionOrBuilder> 
         getTableOptionsOrBuilderList() {
       return tableOptions_;
     }
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
     @java.lang.Override
     public int getTableOptionsCount() {
       return tableOptions_.size();
     }
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.TableOption getTableOptions(int index) {
+    public io.greptime.v1.Ddl.Option getTableOptions(int index) {
       return tableOptions_.get(index);
     }
     /**
-     * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+     * <code>repeated .greptime.v1.Option table_options = 1;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.TableOptionOrBuilder getTableOptionsOrBuilder(
+    public io.greptime.v1.Ddl.OptionOrBuilder getTableOptionsOrBuilder(
         int index) {
       return tableOptions_.get(index);
     }
@@ -23814,22 +24764,22 @@ java.lang.String defaultValue);
       }
       private int bitField0_;
 
-      private java.util.List<io.greptime.v1.Ddl.TableOption> tableOptions_ =
+      private java.util.List<io.greptime.v1.Ddl.Option> tableOptions_ =
         java.util.Collections.emptyList();
       private void ensureTableOptionsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          tableOptions_ = new java.util.ArrayList<io.greptime.v1.Ddl.TableOption>(tableOptions_);
+          tableOptions_ = new java.util.ArrayList<io.greptime.v1.Ddl.Option>(tableOptions_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Ddl.TableOption, io.greptime.v1.Ddl.TableOption.Builder, io.greptime.v1.Ddl.TableOptionOrBuilder> tableOptionsBuilder_;
+          io.greptime.v1.Ddl.Option, io.greptime.v1.Ddl.Option.Builder, io.greptime.v1.Ddl.OptionOrBuilder> tableOptionsBuilder_;
 
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
-      public java.util.List<io.greptime.v1.Ddl.TableOption> getTableOptionsList() {
+      public java.util.List<io.greptime.v1.Ddl.Option> getTableOptionsList() {
         if (tableOptionsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(tableOptions_);
         } else {
@@ -23837,7 +24787,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
       public int getTableOptionsCount() {
         if (tableOptionsBuilder_ == null) {
@@ -23847,9 +24797,9 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
-      public io.greptime.v1.Ddl.TableOption getTableOptions(int index) {
+      public io.greptime.v1.Ddl.Option getTableOptions(int index) {
         if (tableOptionsBuilder_ == null) {
           return tableOptions_.get(index);
         } else {
@@ -23857,10 +24807,10 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
       public Builder setTableOptions(
-          int index, io.greptime.v1.Ddl.TableOption value) {
+          int index, io.greptime.v1.Ddl.Option value) {
         if (tableOptionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -23874,10 +24824,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
       public Builder setTableOptions(
-          int index, io.greptime.v1.Ddl.TableOption.Builder builderForValue) {
+          int index, io.greptime.v1.Ddl.Option.Builder builderForValue) {
         if (tableOptionsBuilder_ == null) {
           ensureTableOptionsIsMutable();
           tableOptions_.set(index, builderForValue.build());
@@ -23888,9 +24838,9 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
-      public Builder addTableOptions(io.greptime.v1.Ddl.TableOption value) {
+      public Builder addTableOptions(io.greptime.v1.Ddl.Option value) {
         if (tableOptionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -23904,10 +24854,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
       public Builder addTableOptions(
-          int index, io.greptime.v1.Ddl.TableOption value) {
+          int index, io.greptime.v1.Ddl.Option value) {
         if (tableOptionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -23921,10 +24871,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
       public Builder addTableOptions(
-          io.greptime.v1.Ddl.TableOption.Builder builderForValue) {
+          io.greptime.v1.Ddl.Option.Builder builderForValue) {
         if (tableOptionsBuilder_ == null) {
           ensureTableOptionsIsMutable();
           tableOptions_.add(builderForValue.build());
@@ -23935,10 +24885,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
       public Builder addTableOptions(
-          int index, io.greptime.v1.Ddl.TableOption.Builder builderForValue) {
+          int index, io.greptime.v1.Ddl.Option.Builder builderForValue) {
         if (tableOptionsBuilder_ == null) {
           ensureTableOptionsIsMutable();
           tableOptions_.add(index, builderForValue.build());
@@ -23949,10 +24899,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
       public Builder addAllTableOptions(
-          java.lang.Iterable<? extends io.greptime.v1.Ddl.TableOption> values) {
+          java.lang.Iterable<? extends io.greptime.v1.Ddl.Option> values) {
         if (tableOptionsBuilder_ == null) {
           ensureTableOptionsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -23964,7 +24914,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
       public Builder clearTableOptions() {
         if (tableOptionsBuilder_ == null) {
@@ -23977,7 +24927,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
       public Builder removeTableOptions(int index) {
         if (tableOptionsBuilder_ == null) {
@@ -23990,16 +24940,16 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
-      public io.greptime.v1.Ddl.TableOption.Builder getTableOptionsBuilder(
+      public io.greptime.v1.Ddl.Option.Builder getTableOptionsBuilder(
           int index) {
         return getTableOptionsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
-      public io.greptime.v1.Ddl.TableOptionOrBuilder getTableOptionsOrBuilder(
+      public io.greptime.v1.Ddl.OptionOrBuilder getTableOptionsOrBuilder(
           int index) {
         if (tableOptionsBuilder_ == null) {
           return tableOptions_.get(index);  } else {
@@ -24007,9 +24957,9 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
-      public java.util.List<? extends io.greptime.v1.Ddl.TableOptionOrBuilder> 
+      public java.util.List<? extends io.greptime.v1.Ddl.OptionOrBuilder> 
            getTableOptionsOrBuilderList() {
         if (tableOptionsBuilder_ != null) {
           return tableOptionsBuilder_.getMessageOrBuilderList();
@@ -24018,33 +24968,33 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
-      public io.greptime.v1.Ddl.TableOption.Builder addTableOptionsBuilder() {
+      public io.greptime.v1.Ddl.Option.Builder addTableOptionsBuilder() {
         return getTableOptionsFieldBuilder().addBuilder(
-            io.greptime.v1.Ddl.TableOption.getDefaultInstance());
+            io.greptime.v1.Ddl.Option.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
-      public io.greptime.v1.Ddl.TableOption.Builder addTableOptionsBuilder(
+      public io.greptime.v1.Ddl.Option.Builder addTableOptionsBuilder(
           int index) {
         return getTableOptionsFieldBuilder().addBuilder(
-            index, io.greptime.v1.Ddl.TableOption.getDefaultInstance());
+            index, io.greptime.v1.Ddl.Option.getDefaultInstance());
       }
       /**
-       * <code>repeated .greptime.v1.TableOption table_options = 1;</code>
+       * <code>repeated .greptime.v1.Option table_options = 1;</code>
        */
-      public java.util.List<io.greptime.v1.Ddl.TableOption.Builder> 
+      public java.util.List<io.greptime.v1.Ddl.Option.Builder> 
            getTableOptionsBuilderList() {
         return getTableOptionsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.greptime.v1.Ddl.TableOption, io.greptime.v1.Ddl.TableOption.Builder, io.greptime.v1.Ddl.TableOptionOrBuilder> 
+          io.greptime.v1.Ddl.Option, io.greptime.v1.Ddl.Option.Builder, io.greptime.v1.Ddl.OptionOrBuilder> 
           getTableOptionsFieldBuilder() {
         if (tableOptionsBuilder_ == null) {
           tableOptionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.greptime.v1.Ddl.TableOption, io.greptime.v1.Ddl.TableOption.Builder, io.greptime.v1.Ddl.TableOptionOrBuilder>(
+              io.greptime.v1.Ddl.Option, io.greptime.v1.Ddl.Option.Builder, io.greptime.v1.Ddl.OptionOrBuilder>(
                   tableOptions_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -24101,726 +25051,6 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.Ddl.SetTableOptions getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface TableOptionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.TableOption)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string key = 1;</code>
-     * @return The key.
-     */
-    java.lang.String getKey();
-    /**
-     * <code>string key = 1;</code>
-     * @return The bytes for key.
-     */
-    com.google.protobuf.ByteString
-        getKeyBytes();
-
-    /**
-     * <code>string value = 2;</code>
-     * @return The value.
-     */
-    java.lang.String getValue();
-    /**
-     * <code>string value = 2;</code>
-     * @return The bytes for value.
-     */
-    com.google.protobuf.ByteString
-        getValueBytes();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.TableOption}
-   */
-  public static final class TableOption extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.TableOption)
-      TableOptionOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use TableOption.newBuilder() to construct.
-    private TableOption(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private TableOption() {
-      key_ = "";
-      value_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new TableOption();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TableOption(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              key_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              value_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_TableOption_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_TableOption_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Ddl.TableOption.class, io.greptime.v1.Ddl.TableOption.Builder.class);
-    }
-
-    public static final int KEY_FIELD_NUMBER = 1;
-    private volatile java.lang.Object key_;
-    /**
-     * <code>string key = 1;</code>
-     * @return The key.
-     */
-    @java.lang.Override
-    public java.lang.String getKey() {
-      java.lang.Object ref = key_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        key_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string key = 1;</code>
-     * @return The bytes for key.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getKeyBytes() {
-      java.lang.Object ref = key_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        key_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int VALUE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object value_;
-    /**
-     * <code>string value = 2;</code>
-     * @return The value.
-     */
-    @java.lang.Override
-    public java.lang.String getValue() {
-      java.lang.Object ref = value_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        value_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string value = 2;</code>
-     * @return The bytes for value.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getValueBytes() {
-      java.lang.Object ref = value_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        value_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Ddl.TableOption)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Ddl.TableOption other = (io.greptime.v1.Ddl.TableOption) obj;
-
-      if (!getKey()
-          .equals(other.getKey())) return false;
-      if (!getValue()
-          .equals(other.getValue())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + KEY_FIELD_NUMBER;
-      hash = (53 * hash) + getKey().hashCode();
-      hash = (37 * hash) + VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + getValue().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Ddl.TableOption parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Ddl.TableOption parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Ddl.TableOption prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.TableOption}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.TableOption)
-        io.greptime.v1.Ddl.TableOptionOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_TableOption_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_TableOption_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Ddl.TableOption.class, io.greptime.v1.Ddl.TableOption.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Ddl.TableOption.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        key_ = "";
-
-        value_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_TableOption_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Ddl.TableOption getDefaultInstanceForType() {
-        return io.greptime.v1.Ddl.TableOption.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Ddl.TableOption build() {
-        io.greptime.v1.Ddl.TableOption result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Ddl.TableOption buildPartial() {
-        io.greptime.v1.Ddl.TableOption result = new io.greptime.v1.Ddl.TableOption(this);
-        result.key_ = key_;
-        result.value_ = value_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Ddl.TableOption) {
-          return mergeFrom((io.greptime.v1.Ddl.TableOption)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Ddl.TableOption other) {
-        if (other == io.greptime.v1.Ddl.TableOption.getDefaultInstance()) return this;
-        if (!other.getKey().isEmpty()) {
-          key_ = other.key_;
-          onChanged();
-        }
-        if (!other.getValue().isEmpty()) {
-          value_ = other.value_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Ddl.TableOption parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Ddl.TableOption) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object key_ = "";
-      /**
-       * <code>string key = 1;</code>
-       * @return The key.
-       */
-      public java.lang.String getKey() {
-        java.lang.Object ref = key_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          key_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string key = 1;</code>
-       * @return The bytes for key.
-       */
-      public com.google.protobuf.ByteString
-          getKeyBytes() {
-        java.lang.Object ref = key_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          key_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string key = 1;</code>
-       * @param value The key to set.
-       * @return This builder for chaining.
-       */
-      public Builder setKey(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        key_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string key = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearKey() {
-        
-        key_ = getDefaultInstance().getKey();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string key = 1;</code>
-       * @param value The bytes for key to set.
-       * @return This builder for chaining.
-       */
-      public Builder setKeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        key_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object value_ = "";
-      /**
-       * <code>string value = 2;</code>
-       * @return The value.
-       */
-      public java.lang.String getValue() {
-        java.lang.Object ref = value_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          value_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string value = 2;</code>
-       * @return The bytes for value.
-       */
-      public com.google.protobuf.ByteString
-          getValueBytes() {
-        java.lang.Object ref = value_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          value_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string value = 2;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
-       */
-      public Builder setValue(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        value_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string value = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearValue() {
-        
-        value_ = getDefaultInstance().getValue();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string value = 2;</code>
-       * @param value The bytes for value to set.
-       * @return This builder for chaining.
-       */
-      public Builder setValueBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        value_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.TableOption)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.TableOption)
-    private static final io.greptime.v1.Ddl.TableOption DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.TableOption();
-    }
-
-    public static io.greptime.v1.Ddl.TableOption getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<TableOption>
-        PARSER = new com.google.protobuf.AbstractParser<TableOption>() {
-      @java.lang.Override
-      public TableOption parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TableOption(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<TableOption> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TableOption> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TableOption getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -30795,6 +31025,2692 @@ java.lang.String defaultValue);
 
   }
 
+  public interface AlterDatabaseExprOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.AlterDatabaseExpr)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    java.lang.String getCatalogName();
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    com.google.protobuf.ByteString
+        getCatalogNameBytes();
+
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    java.lang.String getSchemaName();
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    com.google.protobuf.ByteString
+        getSchemaNameBytes();
+
+    /**
+     * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+     * @return Whether the setDatabaseOptions field is set.
+     */
+    boolean hasSetDatabaseOptions();
+    /**
+     * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+     * @return The setDatabaseOptions.
+     */
+    io.greptime.v1.Ddl.SetDatabaseOptions getSetDatabaseOptions();
+    /**
+     * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+     */
+    io.greptime.v1.Ddl.SetDatabaseOptionsOrBuilder getSetDatabaseOptionsOrBuilder();
+
+    /**
+     * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+     * @return Whether the unsetDatabaseOptions field is set.
+     */
+    boolean hasUnsetDatabaseOptions();
+    /**
+     * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+     * @return The unsetDatabaseOptions.
+     */
+    io.greptime.v1.Ddl.UnsetDatabaseOptions getUnsetDatabaseOptions();
+    /**
+     * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+     */
+    io.greptime.v1.Ddl.UnsetDatabaseOptionsOrBuilder getUnsetDatabaseOptionsOrBuilder();
+
+    public io.greptime.v1.Ddl.AlterDatabaseExpr.KindCase getKindCase();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.AlterDatabaseExpr}
+   */
+  public static final class AlterDatabaseExpr extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.AlterDatabaseExpr)
+      AlterDatabaseExprOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AlterDatabaseExpr.newBuilder() to construct.
+    private AlterDatabaseExpr(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AlterDatabaseExpr() {
+      catalogName_ = "";
+      schemaName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AlterDatabaseExpr();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AlterDatabaseExpr(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              catalogName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              schemaName_ = s;
+              break;
+            }
+            case 26: {
+              io.greptime.v1.Ddl.SetDatabaseOptions.Builder subBuilder = null;
+              if (kindCase_ == 3) {
+                subBuilder = ((io.greptime.v1.Ddl.SetDatabaseOptions) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.Ddl.SetDatabaseOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.SetDatabaseOptions) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 3;
+              break;
+            }
+            case 34: {
+              io.greptime.v1.Ddl.UnsetDatabaseOptions.Builder subBuilder = null;
+              if (kindCase_ == 4) {
+                subBuilder = ((io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.Ddl.UnsetDatabaseOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 4;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterDatabaseExpr_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.AlterDatabaseExpr.class, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder.class);
+    }
+
+    private int kindCase_ = 0;
+    private java.lang.Object kind_;
+    public enum KindCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      SET_DATABASE_OPTIONS(3),
+      UNSET_DATABASE_OPTIONS(4),
+      KIND_NOT_SET(0);
+      private final int value;
+      private KindCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static KindCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static KindCase forNumber(int value) {
+        switch (value) {
+          case 3: return SET_DATABASE_OPTIONS;
+          case 4: return UNSET_DATABASE_OPTIONS;
+          case 0: return KIND_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public KindCase
+    getKindCase() {
+      return KindCase.forNumber(
+          kindCase_);
+    }
+
+    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalogName_;
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalogName() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalogName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogNameBytes() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalogName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCHEMA_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object schemaName_;
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    @java.lang.Override
+    public java.lang.String getSchemaName() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        schemaName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSchemaNameBytes() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        schemaName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SET_DATABASE_OPTIONS_FIELD_NUMBER = 3;
+    /**
+     * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+     * @return Whether the setDatabaseOptions field is set.
+     */
+    @java.lang.Override
+    public boolean hasSetDatabaseOptions() {
+      return kindCase_ == 3;
+    }
+    /**
+     * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+     * @return The setDatabaseOptions.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetDatabaseOptions getSetDatabaseOptions() {
+      if (kindCase_ == 3) {
+         return (io.greptime.v1.Ddl.SetDatabaseOptions) kind_;
+      }
+      return io.greptime.v1.Ddl.SetDatabaseOptions.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetDatabaseOptionsOrBuilder getSetDatabaseOptionsOrBuilder() {
+      if (kindCase_ == 3) {
+         return (io.greptime.v1.Ddl.SetDatabaseOptions) kind_;
+      }
+      return io.greptime.v1.Ddl.SetDatabaseOptions.getDefaultInstance();
+    }
+
+    public static final int UNSET_DATABASE_OPTIONS_FIELD_NUMBER = 4;
+    /**
+     * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+     * @return Whether the unsetDatabaseOptions field is set.
+     */
+    @java.lang.Override
+    public boolean hasUnsetDatabaseOptions() {
+      return kindCase_ == 4;
+    }
+    /**
+     * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+     * @return The unsetDatabaseOptions.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetDatabaseOptions getUnsetDatabaseOptions() {
+      if (kindCase_ == 4) {
+         return (io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_;
+      }
+      return io.greptime.v1.Ddl.UnsetDatabaseOptions.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetDatabaseOptionsOrBuilder getUnsetDatabaseOptionsOrBuilder() {
+      if (kindCase_ == 4) {
+         return (io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_;
+      }
+      return io.greptime.v1.Ddl.UnsetDatabaseOptions.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
+      }
+      if (kindCase_ == 3) {
+        output.writeMessage(3, (io.greptime.v1.Ddl.SetDatabaseOptions) kind_);
+      }
+      if (kindCase_ == 4) {
+        output.writeMessage(4, (io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
+      }
+      if (kindCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (io.greptime.v1.Ddl.SetDatabaseOptions) kind_);
+      }
+      if (kindCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.AlterDatabaseExpr)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.AlterDatabaseExpr other = (io.greptime.v1.Ddl.AlterDatabaseExpr) obj;
+
+      if (!getCatalogName()
+          .equals(other.getCatalogName())) return false;
+      if (!getSchemaName()
+          .equals(other.getSchemaName())) return false;
+      if (!getKindCase().equals(other.getKindCase())) return false;
+      switch (kindCase_) {
+        case 3:
+          if (!getSetDatabaseOptions()
+              .equals(other.getSetDatabaseOptions())) return false;
+          break;
+        case 4:
+          if (!getUnsetDatabaseOptions()
+              .equals(other.getUnsetDatabaseOptions())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalogName().hashCode();
+      hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getSchemaName().hashCode();
+      switch (kindCase_) {
+        case 3:
+          hash = (37 * hash) + SET_DATABASE_OPTIONS_FIELD_NUMBER;
+          hash = (53 * hash) + getSetDatabaseOptions().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + UNSET_DATABASE_OPTIONS_FIELD_NUMBER;
+          hash = (53 * hash) + getUnsetDatabaseOptions().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.AlterDatabaseExpr prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.AlterDatabaseExpr}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.AlterDatabaseExpr)
+        io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterDatabaseExpr_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.AlterDatabaseExpr.class, io.greptime.v1.Ddl.AlterDatabaseExpr.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.AlterDatabaseExpr.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        catalogName_ = "";
+
+        schemaName_ = "";
+
+        kindCase_ = 0;
+        kind_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_AlterDatabaseExpr_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.AlterDatabaseExpr getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.AlterDatabaseExpr build() {
+        io.greptime.v1.Ddl.AlterDatabaseExpr result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.AlterDatabaseExpr buildPartial() {
+        io.greptime.v1.Ddl.AlterDatabaseExpr result = new io.greptime.v1.Ddl.AlterDatabaseExpr(this);
+        result.catalogName_ = catalogName_;
+        result.schemaName_ = schemaName_;
+        if (kindCase_ == 3) {
+          if (setDatabaseOptionsBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = setDatabaseOptionsBuilder_.build();
+          }
+        }
+        if (kindCase_ == 4) {
+          if (unsetDatabaseOptionsBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = unsetDatabaseOptionsBuilder_.build();
+          }
+        }
+        result.kindCase_ = kindCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.AlterDatabaseExpr) {
+          return mergeFrom((io.greptime.v1.Ddl.AlterDatabaseExpr)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.AlterDatabaseExpr other) {
+        if (other == io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance()) return this;
+        if (!other.getCatalogName().isEmpty()) {
+          catalogName_ = other.catalogName_;
+          onChanged();
+        }
+        if (!other.getSchemaName().isEmpty()) {
+          schemaName_ = other.schemaName_;
+          onChanged();
+        }
+        switch (other.getKindCase()) {
+          case SET_DATABASE_OPTIONS: {
+            mergeSetDatabaseOptions(other.getSetDatabaseOptions());
+            break;
+          }
+          case UNSET_DATABASE_OPTIONS: {
+            mergeUnsetDatabaseOptions(other.getUnsetDatabaseOptions());
+            break;
+          }
+          case KIND_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.AlterDatabaseExpr parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.AlterDatabaseExpr) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int kindCase_ = 0;
+      private java.lang.Object kind_;
+      public KindCase
+          getKindCase() {
+        return KindCase.forNumber(
+            kindCase_);
+      }
+
+      public Builder clearKind() {
+        kindCase_ = 0;
+        kind_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private java.lang.Object catalogName_ = "";
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The catalogName.
+       */
+      public java.lang.String getCatalogName() {
+        java.lang.Object ref = catalogName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalogName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The bytes for catalogName.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogNameBytes() {
+        java.lang.Object ref = catalogName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalogName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalogName() {
+        
+        catalogName_ = getDefaultInstance().getCatalogName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The bytes for catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object schemaName_ = "";
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The schemaName.
+       */
+      public java.lang.String getSchemaName() {
+        java.lang.Object ref = schemaName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          schemaName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The bytes for schemaName.
+       */
+      public com.google.protobuf.ByteString
+          getSchemaNameBytes() {
+        java.lang.Object ref = schemaName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          schemaName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSchemaName() {
+        
+        schemaName_ = getDefaultInstance().getSchemaName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The bytes for schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.SetDatabaseOptions, io.greptime.v1.Ddl.SetDatabaseOptions.Builder, io.greptime.v1.Ddl.SetDatabaseOptionsOrBuilder> setDatabaseOptionsBuilder_;
+      /**
+       * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+       * @return Whether the setDatabaseOptions field is set.
+       */
+      @java.lang.Override
+      public boolean hasSetDatabaseOptions() {
+        return kindCase_ == 3;
+      }
+      /**
+       * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+       * @return The setDatabaseOptions.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetDatabaseOptions getSetDatabaseOptions() {
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (kindCase_ == 3) {
+            return (io.greptime.v1.Ddl.SetDatabaseOptions) kind_;
+          }
+          return io.greptime.v1.Ddl.SetDatabaseOptions.getDefaultInstance();
+        } else {
+          if (kindCase_ == 3) {
+            return setDatabaseOptionsBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.SetDatabaseOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+       */
+      public Builder setSetDatabaseOptions(io.greptime.v1.Ddl.SetDatabaseOptions value) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.setMessage(value);
+        }
+        kindCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+       */
+      public Builder setSetDatabaseOptions(
+          io.greptime.v1.Ddl.SetDatabaseOptions.Builder builderForValue) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+       */
+      public Builder mergeSetDatabaseOptions(io.greptime.v1.Ddl.SetDatabaseOptions value) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (kindCase_ == 3 &&
+              kind_ != io.greptime.v1.Ddl.SetDatabaseOptions.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.SetDatabaseOptions.newBuilder((io.greptime.v1.Ddl.SetDatabaseOptions) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 3) {
+            setDatabaseOptionsBuilder_.mergeFrom(value);
+          } else {
+            setDatabaseOptionsBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+       */
+      public Builder clearSetDatabaseOptions() {
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (kindCase_ == 3) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 3) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          setDatabaseOptionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+       */
+      public io.greptime.v1.Ddl.SetDatabaseOptions.Builder getSetDatabaseOptionsBuilder() {
+        return getSetDatabaseOptionsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetDatabaseOptionsOrBuilder getSetDatabaseOptionsOrBuilder() {
+        if ((kindCase_ == 3) && (setDatabaseOptionsBuilder_ != null)) {
+          return setDatabaseOptionsBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 3) {
+            return (io.greptime.v1.Ddl.SetDatabaseOptions) kind_;
+          }
+          return io.greptime.v1.Ddl.SetDatabaseOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SetDatabaseOptions set_database_options = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.SetDatabaseOptions, io.greptime.v1.Ddl.SetDatabaseOptions.Builder, io.greptime.v1.Ddl.SetDatabaseOptionsOrBuilder> 
+          getSetDatabaseOptionsFieldBuilder() {
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (!(kindCase_ == 3)) {
+            kind_ = io.greptime.v1.Ddl.SetDatabaseOptions.getDefaultInstance();
+          }
+          setDatabaseOptionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.SetDatabaseOptions, io.greptime.v1.Ddl.SetDatabaseOptions.Builder, io.greptime.v1.Ddl.SetDatabaseOptionsOrBuilder>(
+                  (io.greptime.v1.Ddl.SetDatabaseOptions) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 3;
+        onChanged();;
+        return setDatabaseOptionsBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.UnsetDatabaseOptions, io.greptime.v1.Ddl.UnsetDatabaseOptions.Builder, io.greptime.v1.Ddl.UnsetDatabaseOptionsOrBuilder> unsetDatabaseOptionsBuilder_;
+      /**
+       * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+       * @return Whether the unsetDatabaseOptions field is set.
+       */
+      @java.lang.Override
+      public boolean hasUnsetDatabaseOptions() {
+        return kindCase_ == 4;
+      }
+      /**
+       * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+       * @return The unsetDatabaseOptions.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetDatabaseOptions getUnsetDatabaseOptions() {
+        if (unsetDatabaseOptionsBuilder_ == null) {
+          if (kindCase_ == 4) {
+            return (io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_;
+          }
+          return io.greptime.v1.Ddl.UnsetDatabaseOptions.getDefaultInstance();
+        } else {
+          if (kindCase_ == 4) {
+            return unsetDatabaseOptionsBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.UnsetDatabaseOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+       */
+      public Builder setUnsetDatabaseOptions(io.greptime.v1.Ddl.UnsetDatabaseOptions value) {
+        if (unsetDatabaseOptionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          unsetDatabaseOptionsBuilder_.setMessage(value);
+        }
+        kindCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+       */
+      public Builder setUnsetDatabaseOptions(
+          io.greptime.v1.Ddl.UnsetDatabaseOptions.Builder builderForValue) {
+        if (unsetDatabaseOptionsBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          unsetDatabaseOptionsBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+       */
+      public Builder mergeUnsetDatabaseOptions(io.greptime.v1.Ddl.UnsetDatabaseOptions value) {
+        if (unsetDatabaseOptionsBuilder_ == null) {
+          if (kindCase_ == 4 &&
+              kind_ != io.greptime.v1.Ddl.UnsetDatabaseOptions.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.UnsetDatabaseOptions.newBuilder((io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 4) {
+            unsetDatabaseOptionsBuilder_.mergeFrom(value);
+          } else {
+            unsetDatabaseOptionsBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+       */
+      public Builder clearUnsetDatabaseOptions() {
+        if (unsetDatabaseOptionsBuilder_ == null) {
+          if (kindCase_ == 4) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 4) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          unsetDatabaseOptionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+       */
+      public io.greptime.v1.Ddl.UnsetDatabaseOptions.Builder getUnsetDatabaseOptionsBuilder() {
+        return getUnsetDatabaseOptionsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetDatabaseOptionsOrBuilder getUnsetDatabaseOptionsOrBuilder() {
+        if ((kindCase_ == 4) && (unsetDatabaseOptionsBuilder_ != null)) {
+          return unsetDatabaseOptionsBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 4) {
+            return (io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_;
+          }
+          return io.greptime.v1.Ddl.UnsetDatabaseOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.UnsetDatabaseOptions unset_database_options = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.UnsetDatabaseOptions, io.greptime.v1.Ddl.UnsetDatabaseOptions.Builder, io.greptime.v1.Ddl.UnsetDatabaseOptionsOrBuilder> 
+          getUnsetDatabaseOptionsFieldBuilder() {
+        if (unsetDatabaseOptionsBuilder_ == null) {
+          if (!(kindCase_ == 4)) {
+            kind_ = io.greptime.v1.Ddl.UnsetDatabaseOptions.getDefaultInstance();
+          }
+          unsetDatabaseOptionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.UnsetDatabaseOptions, io.greptime.v1.Ddl.UnsetDatabaseOptions.Builder, io.greptime.v1.Ddl.UnsetDatabaseOptionsOrBuilder>(
+                  (io.greptime.v1.Ddl.UnsetDatabaseOptions) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 4;
+        onChanged();;
+        return unsetDatabaseOptionsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.AlterDatabaseExpr)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.AlterDatabaseExpr)
+    private static final io.greptime.v1.Ddl.AlterDatabaseExpr DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.AlterDatabaseExpr();
+    }
+
+    public static io.greptime.v1.Ddl.AlterDatabaseExpr getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AlterDatabaseExpr>
+        PARSER = new com.google.protobuf.AbstractParser<AlterDatabaseExpr>() {
+      @java.lang.Override
+      public AlterDatabaseExpr parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AlterDatabaseExpr(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AlterDatabaseExpr> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AlterDatabaseExpr> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.AlterDatabaseExpr getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SetDatabaseOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.SetDatabaseOptions)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    java.util.List<io.greptime.v1.Ddl.Option> 
+        getSetDatabaseOptionsList();
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    io.greptime.v1.Ddl.Option getSetDatabaseOptions(int index);
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    int getSetDatabaseOptionsCount();
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    java.util.List<? extends io.greptime.v1.Ddl.OptionOrBuilder> 
+        getSetDatabaseOptionsOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    io.greptime.v1.Ddl.OptionOrBuilder getSetDatabaseOptionsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.SetDatabaseOptions}
+   */
+  public static final class SetDatabaseOptions extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.SetDatabaseOptions)
+      SetDatabaseOptionsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SetDatabaseOptions.newBuilder() to construct.
+    private SetDatabaseOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SetDatabaseOptions() {
+      setDatabaseOptions_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SetDatabaseOptions();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SetDatabaseOptions(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                setDatabaseOptions_ = new java.util.ArrayList<io.greptime.v1.Ddl.Option>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              setDatabaseOptions_.add(
+                  input.readMessage(io.greptime.v1.Ddl.Option.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          setDatabaseOptions_ = java.util.Collections.unmodifiableList(setDatabaseOptions_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_SetDatabaseOptions_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_SetDatabaseOptions_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.SetDatabaseOptions.class, io.greptime.v1.Ddl.SetDatabaseOptions.Builder.class);
+    }
+
+    public static final int SET_DATABASE_OPTIONS_FIELD_NUMBER = 1;
+    private java.util.List<io.greptime.v1.Ddl.Option> setDatabaseOptions_;
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.Ddl.Option> getSetDatabaseOptionsList() {
+      return setDatabaseOptions_;
+    }
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.Ddl.OptionOrBuilder> 
+        getSetDatabaseOptionsOrBuilderList() {
+      return setDatabaseOptions_;
+    }
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    @java.lang.Override
+    public int getSetDatabaseOptionsCount() {
+      return setDatabaseOptions_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.Option getSetDatabaseOptions(int index) {
+      return setDatabaseOptions_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.OptionOrBuilder getSetDatabaseOptionsOrBuilder(
+        int index) {
+      return setDatabaseOptions_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < setDatabaseOptions_.size(); i++) {
+        output.writeMessage(1, setDatabaseOptions_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < setDatabaseOptions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, setDatabaseOptions_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.SetDatabaseOptions)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.SetDatabaseOptions other = (io.greptime.v1.Ddl.SetDatabaseOptions) obj;
+
+      if (!getSetDatabaseOptionsList()
+          .equals(other.getSetDatabaseOptionsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getSetDatabaseOptionsCount() > 0) {
+        hash = (37 * hash) + SET_DATABASE_OPTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getSetDatabaseOptionsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.SetDatabaseOptions parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.SetDatabaseOptions prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.SetDatabaseOptions}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.SetDatabaseOptions)
+        io.greptime.v1.Ddl.SetDatabaseOptionsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_SetDatabaseOptions_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_SetDatabaseOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.SetDatabaseOptions.class, io.greptime.v1.Ddl.SetDatabaseOptions.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.SetDatabaseOptions.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSetDatabaseOptionsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (setDatabaseOptionsBuilder_ == null) {
+          setDatabaseOptions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          setDatabaseOptionsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_SetDatabaseOptions_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetDatabaseOptions getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.SetDatabaseOptions.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetDatabaseOptions build() {
+        io.greptime.v1.Ddl.SetDatabaseOptions result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetDatabaseOptions buildPartial() {
+        io.greptime.v1.Ddl.SetDatabaseOptions result = new io.greptime.v1.Ddl.SetDatabaseOptions(this);
+        int from_bitField0_ = bitField0_;
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            setDatabaseOptions_ = java.util.Collections.unmodifiableList(setDatabaseOptions_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.setDatabaseOptions_ = setDatabaseOptions_;
+        } else {
+          result.setDatabaseOptions_ = setDatabaseOptionsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.SetDatabaseOptions) {
+          return mergeFrom((io.greptime.v1.Ddl.SetDatabaseOptions)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.SetDatabaseOptions other) {
+        if (other == io.greptime.v1.Ddl.SetDatabaseOptions.getDefaultInstance()) return this;
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (!other.setDatabaseOptions_.isEmpty()) {
+            if (setDatabaseOptions_.isEmpty()) {
+              setDatabaseOptions_ = other.setDatabaseOptions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureSetDatabaseOptionsIsMutable();
+              setDatabaseOptions_.addAll(other.setDatabaseOptions_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.setDatabaseOptions_.isEmpty()) {
+            if (setDatabaseOptionsBuilder_.isEmpty()) {
+              setDatabaseOptionsBuilder_.dispose();
+              setDatabaseOptionsBuilder_ = null;
+              setDatabaseOptions_ = other.setDatabaseOptions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              setDatabaseOptionsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getSetDatabaseOptionsFieldBuilder() : null;
+            } else {
+              setDatabaseOptionsBuilder_.addAllMessages(other.setDatabaseOptions_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.SetDatabaseOptions parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.SetDatabaseOptions) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<io.greptime.v1.Ddl.Option> setDatabaseOptions_ =
+        java.util.Collections.emptyList();
+      private void ensureSetDatabaseOptionsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          setDatabaseOptions_ = new java.util.ArrayList<io.greptime.v1.Ddl.Option>(setDatabaseOptions_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Ddl.Option, io.greptime.v1.Ddl.Option.Builder, io.greptime.v1.Ddl.OptionOrBuilder> setDatabaseOptionsBuilder_;
+
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.Ddl.Option> getSetDatabaseOptionsList() {
+        if (setDatabaseOptionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(setDatabaseOptions_);
+        } else {
+          return setDatabaseOptionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public int getSetDatabaseOptionsCount() {
+        if (setDatabaseOptionsBuilder_ == null) {
+          return setDatabaseOptions_.size();
+        } else {
+          return setDatabaseOptionsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public io.greptime.v1.Ddl.Option getSetDatabaseOptions(int index) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          return setDatabaseOptions_.get(index);
+        } else {
+          return setDatabaseOptionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public Builder setSetDatabaseOptions(
+          int index, io.greptime.v1.Ddl.Option value) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSetDatabaseOptionsIsMutable();
+          setDatabaseOptions_.set(index, value);
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public Builder setSetDatabaseOptions(
+          int index, io.greptime.v1.Ddl.Option.Builder builderForValue) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          ensureSetDatabaseOptionsIsMutable();
+          setDatabaseOptions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public Builder addSetDatabaseOptions(io.greptime.v1.Ddl.Option value) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSetDatabaseOptionsIsMutable();
+          setDatabaseOptions_.add(value);
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public Builder addSetDatabaseOptions(
+          int index, io.greptime.v1.Ddl.Option value) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSetDatabaseOptionsIsMutable();
+          setDatabaseOptions_.add(index, value);
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public Builder addSetDatabaseOptions(
+          io.greptime.v1.Ddl.Option.Builder builderForValue) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          ensureSetDatabaseOptionsIsMutable();
+          setDatabaseOptions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public Builder addSetDatabaseOptions(
+          int index, io.greptime.v1.Ddl.Option.Builder builderForValue) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          ensureSetDatabaseOptionsIsMutable();
+          setDatabaseOptions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public Builder addAllSetDatabaseOptions(
+          java.lang.Iterable<? extends io.greptime.v1.Ddl.Option> values) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          ensureSetDatabaseOptionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, setDatabaseOptions_);
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public Builder clearSetDatabaseOptions() {
+        if (setDatabaseOptionsBuilder_ == null) {
+          setDatabaseOptions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public Builder removeSetDatabaseOptions(int index) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          ensureSetDatabaseOptionsIsMutable();
+          setDatabaseOptions_.remove(index);
+          onChanged();
+        } else {
+          setDatabaseOptionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public io.greptime.v1.Ddl.Option.Builder getSetDatabaseOptionsBuilder(
+          int index) {
+        return getSetDatabaseOptionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public io.greptime.v1.Ddl.OptionOrBuilder getSetDatabaseOptionsOrBuilder(
+          int index) {
+        if (setDatabaseOptionsBuilder_ == null) {
+          return setDatabaseOptions_.get(index);  } else {
+          return setDatabaseOptionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.Ddl.OptionOrBuilder> 
+           getSetDatabaseOptionsOrBuilderList() {
+        if (setDatabaseOptionsBuilder_ != null) {
+          return setDatabaseOptionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(setDatabaseOptions_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public io.greptime.v1.Ddl.Option.Builder addSetDatabaseOptionsBuilder() {
+        return getSetDatabaseOptionsFieldBuilder().addBuilder(
+            io.greptime.v1.Ddl.Option.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public io.greptime.v1.Ddl.Option.Builder addSetDatabaseOptionsBuilder(
+          int index) {
+        return getSetDatabaseOptionsFieldBuilder().addBuilder(
+            index, io.greptime.v1.Ddl.Option.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.Option set_database_options = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.Ddl.Option.Builder> 
+           getSetDatabaseOptionsBuilderList() {
+        return getSetDatabaseOptionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Ddl.Option, io.greptime.v1.Ddl.Option.Builder, io.greptime.v1.Ddl.OptionOrBuilder> 
+          getSetDatabaseOptionsFieldBuilder() {
+        if (setDatabaseOptionsBuilder_ == null) {
+          setDatabaseOptionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.Ddl.Option, io.greptime.v1.Ddl.Option.Builder, io.greptime.v1.Ddl.OptionOrBuilder>(
+                  setDatabaseOptions_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          setDatabaseOptions_ = null;
+        }
+        return setDatabaseOptionsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.SetDatabaseOptions)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.SetDatabaseOptions)
+    private static final io.greptime.v1.Ddl.SetDatabaseOptions DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.SetDatabaseOptions();
+    }
+
+    public static io.greptime.v1.Ddl.SetDatabaseOptions getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SetDatabaseOptions>
+        PARSER = new com.google.protobuf.AbstractParser<SetDatabaseOptions>() {
+      @java.lang.Override
+      public SetDatabaseOptions parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SetDatabaseOptions(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SetDatabaseOptions> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SetDatabaseOptions> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetDatabaseOptions getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UnsetDatabaseOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.UnsetDatabaseOptions)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string keys = 1;</code>
+     * @return A list containing the keys.
+     */
+    java.util.List<java.lang.String>
+        getKeysList();
+    /**
+     * <code>repeated string keys = 1;</code>
+     * @return The count of keys.
+     */
+    int getKeysCount();
+    /**
+     * <code>repeated string keys = 1;</code>
+     * @param index The index of the element to return.
+     * @return The keys at the given index.
+     */
+    java.lang.String getKeys(int index);
+    /**
+     * <code>repeated string keys = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the keys at the given index.
+     */
+    com.google.protobuf.ByteString
+        getKeysBytes(int index);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.UnsetDatabaseOptions}
+   */
+  public static final class UnsetDatabaseOptions extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.UnsetDatabaseOptions)
+      UnsetDatabaseOptionsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UnsetDatabaseOptions.newBuilder() to construct.
+    private UnsetDatabaseOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UnsetDatabaseOptions() {
+      keys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UnsetDatabaseOptions();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UnsetDatabaseOptions(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                keys_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              keys_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          keys_ = keys_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetDatabaseOptions_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.UnsetDatabaseOptions.class, io.greptime.v1.Ddl.UnsetDatabaseOptions.Builder.class);
+    }
+
+    public static final int KEYS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList keys_;
+    /**
+     * <code>repeated string keys = 1;</code>
+     * @return A list containing the keys.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getKeysList() {
+      return keys_;
+    }
+    /**
+     * <code>repeated string keys = 1;</code>
+     * @return The count of keys.
+     */
+    public int getKeysCount() {
+      return keys_.size();
+    }
+    /**
+     * <code>repeated string keys = 1;</code>
+     * @param index The index of the element to return.
+     * @return The keys at the given index.
+     */
+    public java.lang.String getKeys(int index) {
+      return keys_.get(index);
+    }
+    /**
+     * <code>repeated string keys = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the keys at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getKeysBytes(int index) {
+      return keys_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < keys_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keys_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < keys_.size(); i++) {
+          dataSize += computeStringSizeNoTag(keys_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getKeysList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.UnsetDatabaseOptions)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.UnsetDatabaseOptions other = (io.greptime.v1.Ddl.UnsetDatabaseOptions) obj;
+
+      if (!getKeysList()
+          .equals(other.getKeysList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getKeysCount() > 0) {
+        hash = (37 * hash) + KEYS_FIELD_NUMBER;
+        hash = (53 * hash) + getKeysList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.UnsetDatabaseOptions prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.UnsetDatabaseOptions}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.UnsetDatabaseOptions)
+        io.greptime.v1.Ddl.UnsetDatabaseOptionsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetDatabaseOptions_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.UnsetDatabaseOptions.class, io.greptime.v1.Ddl.UnsetDatabaseOptions.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.UnsetDatabaseOptions.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        keys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetDatabaseOptions_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetDatabaseOptions getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.UnsetDatabaseOptions.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetDatabaseOptions build() {
+        io.greptime.v1.Ddl.UnsetDatabaseOptions result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetDatabaseOptions buildPartial() {
+        io.greptime.v1.Ddl.UnsetDatabaseOptions result = new io.greptime.v1.Ddl.UnsetDatabaseOptions(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          keys_ = keys_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.keys_ = keys_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.UnsetDatabaseOptions) {
+          return mergeFrom((io.greptime.v1.Ddl.UnsetDatabaseOptions)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.UnsetDatabaseOptions other) {
+        if (other == io.greptime.v1.Ddl.UnsetDatabaseOptions.getDefaultInstance()) return this;
+        if (!other.keys_.isEmpty()) {
+          if (keys_.isEmpty()) {
+            keys_ = other.keys_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureKeysIsMutable();
+            keys_.addAll(other.keys_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.UnsetDatabaseOptions parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.UnsetDatabaseOptions) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList keys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureKeysIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          keys_ = new com.google.protobuf.LazyStringArrayList(keys_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string keys = 1;</code>
+       * @return A list containing the keys.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getKeysList() {
+        return keys_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string keys = 1;</code>
+       * @return The count of keys.
+       */
+      public int getKeysCount() {
+        return keys_.size();
+      }
+      /**
+       * <code>repeated string keys = 1;</code>
+       * @param index The index of the element to return.
+       * @return The keys at the given index.
+       */
+      public java.lang.String getKeys(int index) {
+        return keys_.get(index);
+      }
+      /**
+       * <code>repeated string keys = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the keys at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getKeysBytes(int index) {
+        return keys_.getByteString(index);
+      }
+      /**
+       * <code>repeated string keys = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The keys to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeys(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureKeysIsMutable();
+        keys_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string keys = 1;</code>
+       * @param value The keys to add.
+       * @return This builder for chaining.
+       */
+      public Builder addKeys(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureKeysIsMutable();
+        keys_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string keys = 1;</code>
+       * @param values The keys to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllKeys(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureKeysIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, keys_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string keys = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKeys() {
+        keys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string keys = 1;</code>
+       * @param value The bytes of the keys to add.
+       * @return This builder for chaining.
+       */
+      public Builder addKeysBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureKeysIsMutable();
+        keys_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.UnsetDatabaseOptions)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.UnsetDatabaseOptions)
+    private static final io.greptime.v1.Ddl.UnsetDatabaseOptions DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.UnsetDatabaseOptions();
+    }
+
+    public static io.greptime.v1.Ddl.UnsetDatabaseOptions getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UnsetDatabaseOptions>
+        PARSER = new com.google.protobuf.AbstractParser<UnsetDatabaseOptions>() {
+      @java.lang.Override
+      public UnsetDatabaseOptions parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UnsetDatabaseOptions(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UnsetDatabaseOptions> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UnsetDatabaseOptions> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetDatabaseOptions getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_DdlRequest_descriptor;
   private static final 
@@ -30836,10 +33752,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_CreateTableExpr_TableOptionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_AlterExpr_descriptor;
+    internal_static_greptime_v1_AlterTableExpr_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_AlterExpr_fieldAccessorTable;
+      internal_static_greptime_v1_AlterTableExpr_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_DropTableExpr_descriptor;
   private static final 
@@ -30896,15 +33812,15 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_ModifyColumnType_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_Option_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_Option_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_SetTableOptions_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_SetTableOptions_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_TableOption_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_TableOption_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_UnsetTableOptions_descriptor;
   private static final 
@@ -30945,6 +33861,21 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_UnsetColumnFulltext_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_AlterDatabaseExpr_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_SetDatabaseOptions_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_SetDatabaseOptions_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_UnsetDatabaseOptions_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -30955,117 +33886,126 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\025greptime/v1/ddl.proto\022\013greptime.v1\032\030gr" +
-      "eptime/v1/common.proto\"\343\003\n\nDdlRequest\022:\n" +
+      "eptime/v1/common.proto\"\250\004\n\nDdlRequest\022:\n" +
       "\017create_database\030\001 \001(\0132\037.greptime.v1.Cre" +
       "ateDatabaseExprH\000\0224\n\014create_table\030\002 \001(\0132" +
-      "\034.greptime.v1.CreateTableExprH\000\022\'\n\005alter" +
-      "\030\003 \001(\0132\026.greptime.v1.AlterExprH\000\0220\n\ndrop" +
-      "_table\030\004 \001(\0132\032.greptime.v1.DropTableExpr" +
-      "H\000\0228\n\016truncate_table\030\007 \001(\0132\036.greptime.v1" +
-      ".TruncateTableExprH\000\0222\n\013create_flow\030\010 \001(" +
-      "\0132\033.greptime.v1.CreateFlowExprH\000\022.\n\tdrop" +
-      "_flow\030\t \001(\0132\031.greptime.v1.DropFlowExprH\000" +
-      "\0222\n\013create_view\030\n \001(\0132\033.greptime.v1.Crea" +
-      "teViewExprH\000\022.\n\tdrop_view\030\013 \001(\0132\031.grepti" +
-      "me.v1.DropViewExprH\000B\006\n\004expr\"\226\003\n\016CreateF" +
-      "lowExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_na" +
-      "me\030\002 \001(\t\0222\n\022source_table_names\030\003 \003(\0132\026.g" +
-      "reptime.v1.TableName\022/\n\017sink_table_name\030" +
-      "\004 \001(\0132\026.greptime.v1.TableName\022\022\n\nor_repl" +
-      "ace\030\005 \001(\010\022\034\n\024create_if_not_exists\030\006 \001(\010\022" +
-      ".\n\014expire_after\030\007 \001(\0132\030.greptime.v1.Expi" +
-      "reAfter\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n" +
-      "\014flow_options\030\n \003(\0132,.greptime.v1.Create" +
-      "FlowExpr.FlowOptionsEntry\0322\n\020FlowOptions" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u\n" +
-      "\014DropFlowExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tf" +
-      "low_name\030\002 \001(\t\022$\n\007flow_id\030\003 \001(\0132\023.grepti" +
-      "me.v1.FlowId\022\026\n\016drop_if_exists\030\005 \001(\010\"\376\001\n" +
-      "\016CreateViewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
-      "\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022\024\n" +
-      "\014logical_plan\030\004 \001(\014\022\034\n\024create_if_not_exi" +
-      "sts\030\005 \001(\010\022\022\n\nor_replace\030\006 \001(\010\022+\n\013table_n" +
-      "ames\030\007 \003(\0132\026.greptime.v1.TableName\022\017\n\007co" +
-      "lumns\030\010 \003(\t\022\024\n\014plan_columns\030\t \003(\t\022\022\n\ndef" +
-      "inition\030\n \001(\t\"\213\001\n\014DropViewExpr\022\024\n\014catalo" +
-      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tvie" +
-      "w_name\030\003 \001(\t\022%\n\007view_id\030\004 \001(\0132\024.greptime" +
-      ".v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017" +
-      "CreateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n" +
-      "\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014" +
-      "\n\004desc\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.grep" +
-      "time.v1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n" +
-      "\014primary_keys\030\007 \003(\t\022\034\n\024create_if_not_exi" +
-      "sts\030\010 \001(\010\022E\n\rtable_options\030\t \003(\0132..grept" +
-      "ime.v1.CreateTableExpr.TableOptionsEntry" +
-      "\022&\n\010table_id\030\n \001(\0132\024.greptime.v1.TableId" +
-      "\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\241\004\n\tAlterE" +
-      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
-      "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_column" +
-      "s\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014dr" +
-      "op_columns\030\005 \001(\0132\030.greptime.v1.DropColum" +
-      "nsH\000\0220\n\014rename_table\030\006 \001(\0132\030.greptime.v1" +
-      ".RenameTableH\000\022=\n\023modify_column_types\030\007 " +
-      "\001(\0132\036.greptime.v1.ModifyColumnTypesH\000\0229\n" +
-      "\021set_table_options\030\010 \001(\0132\034.greptime.v1.S" +
-      "etTableOptionsH\000\022=\n\023set_column_fulltext\030" +
-      "\t \001(\0132\036.greptime.v1.SetColumnFulltextH\000\022" +
-      "A\n\025unset_column_fulltext\030\n \001(\0132 .greptim" +
-      "e.v1.UnsetColumnFulltextH\000\022=\n\023unset_tabl" +
-      "e_options\030\013 \001(\0132\036.greptime.v1.UnsetTable" +
-      "OptionsH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014c" +
-      "atalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022" +
-      "\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.g" +
-      "reptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001" +
-      "(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_nam" +
-      "e\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_i" +
-      "f_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.gr" +
-      "eptime.v1.CreateDatabaseExpr.OptionsEntr" +
-      "y\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalo" +
-      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntab" +
-      "le_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grepti" +
-      "me.v1.TableId\"U\n\020DropDatabaseExpr\022\024\n\014cat" +
-      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016" +
-      "drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013ad" +
-      "d_columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"" +
-      "<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.g" +
-      "reptime.v1.DropColumn\"O\n\021ModifyColumnTyp" +
-      "es\022:\n\023modify_column_types\030\001 \003(\0132\035.grepti" +
-      "me.v1.ModifyColumnType\"%\n\013RenameTable\022\026\n" +
-      "\016new_table_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\nco" +
-      "lumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220" +
-      "\n\010location\030\003 \001(\0132\036.greptime.v1.AddColumn" +
-      "Location\"\236\001\n\020ModifyColumnType\022\023\n\013column_" +
-      "name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.grepti" +
-      "me.v1.ColumnDataType\022C\n\025target_type_exte" +
-      "nsion\030\003 \001(\0132$.greptime.v1.ColumnDataType" +
-      "Extension\"B\n\017SetTableOptions\022/\n\rtable_op" +
-      "tions\030\001 \003(\0132\030.greptime.v1.TableOption\")\n" +
-      "\013TableOption\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
-      "\"!\n\021UnsetTableOptions\022\014\n\004keys\030\001 \003(\t\"\032\n\nD" +
-      "ropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id" +
-      "\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnD" +
-      "ef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.gr" +
-      "eptime.v1.ColumnDataType\022\023\n\013is_nullable\030" +
-      "\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsem" +
-      "antic_type\030\005 \001(\0162\031.greptime.v1.SemanticT" +
-      "ype\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extensi" +
-      "on\030\007 \001(\0132$.greptime.v1.ColumnDataTypeExt" +
-      "ension\022+\n\007options\030\010 \001(\0132\032.greptime.v1.Co" +
-      "lumnOptions\"\230\001\n\021AddColumnLocation\022B\n\rloc" +
-      "ation_type\030\001 \001(\0162+.greptime.v1.AddColumn" +
-      "Location.LocationType\022\031\n\021after_column_na" +
-      "me\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005A" +
-      "FTER\020\001\"y\n\021SetColumnFulltext\022\023\n\013column_na" +
-      "me\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010analyzer\030\003 \001" +
-      "(\0162\025.greptime.v1.Analyzer\022\026\n\016case_sensit" +
-      "ive\030\004 \001(\010\"*\n\023UnsetColumnFulltext\022\023\n\013colu" +
-      "mn_name\030\001 \001(\t*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013" +
-      "\n\007CHINESE\020\001BL\n\016io.greptime.v1B\003DdlZ5gith" +
-      "ub.com/GreptimeTeam/greptime-proto/go/gr" +
-      "eptime/v1b\006proto3"
+      "\034.greptime.v1.CreateTableExprH\000\0222\n\013alter" +
+      "_table\030\003 \001(\0132\033.greptime.v1.AlterTableExp" +
+      "rH\000\0220\n\ndrop_table\030\004 \001(\0132\032.greptime.v1.Dr" +
+      "opTableExprH\000\0228\n\016truncate_table\030\007 \001(\0132\036." +
+      "greptime.v1.TruncateTableExprH\000\0222\n\013creat" +
+      "e_flow\030\010 \001(\0132\033.greptime.v1.CreateFlowExp" +
+      "rH\000\022.\n\tdrop_flow\030\t \001(\0132\031.greptime.v1.Dro" +
+      "pFlowExprH\000\0222\n\013create_view\030\n \001(\0132\033.grept" +
+      "ime.v1.CreateViewExprH\000\022.\n\tdrop_view\030\013 \001" +
+      "(\0132\031.greptime.v1.DropViewExprH\000\0228\n\016alter" +
+      "_database\030\014 \001(\0132\036.greptime.v1.AlterDatab" +
+      "aseExprH\000B\006\n\004expr\"\226\003\n\016CreateFlowExpr\022\024\n\014" +
+      "catalog_name\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\0222\n" +
+      "\022source_table_names\030\003 \003(\0132\026.greptime.v1." +
+      "TableName\022/\n\017sink_table_name\030\004 \001(\0132\026.gre" +
+      "ptime.v1.TableName\022\022\n\nor_replace\030\005 \001(\010\022\034" +
+      "\n\024create_if_not_exists\030\006 \001(\010\022.\n\014expire_a" +
+      "fter\030\007 \001(\0132\030.greptime.v1.ExpireAfter\022\017\n\007" +
+      "comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n\014flow_optio" +
+      "ns\030\n \003(\0132,.greptime.v1.CreateFlowExpr.Fl" +
+      "owOptionsEntry\0322\n\020FlowOptionsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u\n\014DropFlowEx" +
+      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_name\030\002 " +
+      "\001(\t\022$\n\007flow_id\030\003 \001(\0132\023.greptime.v1.FlowI" +
+      "d\022\026\n\016drop_if_exists\030\005 \001(\010\"\376\001\n\016CreateView" +
+      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
+      "e\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022\024\n\014logical_pl" +
+      "an\030\004 \001(\014\022\034\n\024create_if_not_exists\030\005 \001(\010\022\022" +
+      "\n\nor_replace\030\006 \001(\010\022+\n\013table_names\030\007 \003(\0132" +
+      "\026.greptime.v1.TableName\022\017\n\007columns\030\010 \003(\t" +
+      "\022\024\n\014plan_columns\030\t \003(\t\022\022\n\ndefinition\030\n \001" +
+      "(\t\"\213\001\n\014DropViewExpr\022\024\n\014catalog_name\030\001 \001(" +
+      "\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(" +
+      "\t\022%\n\007view_id\030\004 \001(\0132\024.greptime.v1.TableId" +
+      "\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017CreateTable" +
+      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
+      "e\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(" +
+      "\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v1.Col" +
+      "umnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014primary_ke" +
+      "ys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001(\010\022E" +
+      "\n\rtable_options\030\t \003(\0132..greptime.v1.Crea" +
+      "teTableExpr.TableOptionsEntry\022&\n\010table_i" +
+      "d\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006engine\030" +
+      "\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001\"\246\004\n\016AlterTableExpr\022\024\n" +
+      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
+      "\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(" +
+      "\0132\027.greptime.v1.AddColumnsH\000\0220\n\014drop_col" +
+      "umns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220" +
+      "\n\014rename_table\030\006 \001(\0132\030.greptime.v1.Renam" +
+      "eTableH\000\022=\n\023modify_column_types\030\007 \001(\0132\036." +
+      "greptime.v1.ModifyColumnTypesH\000\0229\n\021set_t" +
+      "able_options\030\010 \001(\0132\034.greptime.v1.SetTabl" +
+      "eOptionsH\000\022=\n\023set_column_fulltext\030\t \001(\0132" +
+      "\036.greptime.v1.SetColumnFulltextH\000\022A\n\025uns" +
+      "et_column_fulltext\030\n \001(\0132 .greptime.v1.U" +
+      "nsetColumnFulltextH\000\022=\n\023unset_table_opti" +
+      "ons\030\013 \001(\0132\036.greptime.v1.UnsetTableOption" +
+      "sH\000B\006\n\004kind\"\216\001\n\rDropTableExpr\022\024\n\014catalog" +
+      "_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntabl" +
+      "e_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptim" +
+      "e.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n" +
+      "\022CreateDatabaseExpr\022\024\n\014catalog_name\030\001 \001(" +
+      "\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_if_not_" +
+      "exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.greptime" +
+      ".v1.CreateDatabaseExpr.OptionsEntry\032.\n\014O" +
+      "ptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\"z\n\021TruncateTableExpr\022\024\n\014catalog_name" +
+      "\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_nam" +
+      "e\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1." +
+      "TableId\"U\n\020DropDatabaseExpr\022\024\n\014catalog_n" +
+      "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_i" +
+      "f_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_colu" +
+      "mns\030\001 \003(\0132\026.greptime.v1.AddColumn\"<\n\013Dro" +
+      "pColumns\022-\n\014drop_columns\030\001 \003(\0132\027.greptim" +
+      "e.v1.DropColumn\"O\n\021ModifyColumnTypes\022:\n\023" +
+      "modify_column_types\030\001 \003(\0132\035.greptime.v1." +
+      "ModifyColumnType\"%\n\013RenameTable\022\026\n\016new_t" +
+      "able_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_d" +
+      "ef\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010loca" +
+      "tion\030\003 \001(\0132\036.greptime.v1.AddColumnLocati" +
+      "on\"\236\001\n\020ModifyColumnType\022\023\n\013column_name\030\001" +
+      " \001(\t\0220\n\013target_type\030\002 \001(\0162\033.greptime.v1." +
+      "ColumnDataType\022C\n\025target_type_extension\030" +
+      "\003 \001(\0132$.greptime.v1.ColumnDataTypeExtens" +
+      "ion\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
+      "\t\"=\n\017SetTableOptions\022*\n\rtable_options\030\001 " +
+      "\003(\0132\023.greptime.v1.Option\"!\n\021UnsetTableOp" +
+      "tions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004nam" +
+      "e\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId" +
+      "\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t" +
+      "\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1.Column" +
+      "DataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default" +
+      "_constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\016" +
+      "2\031.greptime.v1.SemanticType\022\017\n\007comment\030\006" +
+      " \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grept" +
+      "ime.v1.ColumnDataTypeExtension\022+\n\007option" +
+      "s\030\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021" +
+      "AddColumnLocation\022B\n\rlocation_type\030\001 \001(\016" +
+      "2+.greptime.v1.AddColumnLocation.Locatio" +
+      "nType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Loca" +
+      "tionType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"y\n\021SetCol" +
+      "umnFulltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enab" +
+      "le\030\002 \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1" +
+      ".Analyzer\022\026\n\016case_sensitive\030\004 \001(\010\"*\n\023Uns" +
+      "etColumnFulltext\022\023\n\013column_name\030\001 \001(\t\"\314\001" +
+      "\n\021AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(" +
+      "\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_database_o" +
+      "ptions\030\003 \001(\0132\037.greptime.v1.SetDatabaseOp" +
+      "tionsH\000\022C\n\026unset_database_options\030\004 \001(\0132" +
+      "!.greptime.v1.UnsetDatabaseOptionsH\000B\006\n\004" +
+      "kind\"G\n\022SetDatabaseOptions\0221\n\024set_databa" +
+      "se_options\030\001 \003(\0132\023.greptime.v1.Option\"$\n" +
+      "\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t*$\n\010A" +
+      "nalyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001BL\n\016io." +
+      "greptime.v1B\003DdlZ5github.com/GreptimeTea" +
+      "m/greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -31077,7 +34017,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_DdlRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DdlRequest_descriptor,
-        new java.lang.String[] { "CreateDatabase", "CreateTable", "Alter", "DropTable", "TruncateTable", "CreateFlow", "DropFlow", "CreateView", "DropView", "Expr", });
+        new java.lang.String[] { "CreateDatabase", "CreateTable", "AlterTable", "DropTable", "TruncateTable", "CreateFlow", "DropFlow", "CreateView", "DropView", "AlterDatabase", "Expr", });
     internal_static_greptime_v1_CreateFlowExpr_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_CreateFlowExpr_fieldAccessorTable = new
@@ -31120,11 +34060,11 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTableExpr_TableOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_AlterExpr_descriptor =
+    internal_static_greptime_v1_AlterTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_greptime_v1_AlterExpr_fieldAccessorTable = new
+    internal_static_greptime_v1_AlterTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_AlterExpr_descriptor,
+        internal_static_greptime_v1_AlterTableExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ModifyColumnTypes", "SetTableOptions", "SetColumnFulltext", "UnsetColumnFulltext", "UnsetTableOptions", "Kind", });
     internal_static_greptime_v1_DropTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(7);
@@ -31192,18 +34132,18 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ModifyColumnType_descriptor,
         new java.lang.String[] { "ColumnName", "TargetType", "TargetTypeExtension", });
-    internal_static_greptime_v1_SetTableOptions_descriptor =
+    internal_static_greptime_v1_Option_descriptor =
       getDescriptor().getMessageTypes().get(17);
+    internal_static_greptime_v1_Option_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_Option_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_greptime_v1_SetTableOptions_descriptor =
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_SetTableOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetTableOptions_descriptor,
         new java.lang.String[] { "TableOptions", });
-    internal_static_greptime_v1_TableOption_descriptor =
-      getDescriptor().getMessageTypes().get(18);
-    internal_static_greptime_v1_TableOption_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_TableOption_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_UnsetTableOptions_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_greptime_v1_UnsetTableOptions_fieldAccessorTable = new
@@ -31252,6 +34192,24 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetColumnFulltext_descriptor,
         new java.lang.String[] { "ColumnName", });
+    internal_static_greptime_v1_AlterDatabaseExpr_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_AlterDatabaseExpr_descriptor,
+        new java.lang.String[] { "CatalogName", "SchemaName", "SetDatabaseOptions", "UnsetDatabaseOptions", "Kind", });
+    internal_static_greptime_v1_SetDatabaseOptions_descriptor =
+      getDescriptor().getMessageTypes().get(28);
+    internal_static_greptime_v1_SetDatabaseOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_SetDatabaseOptions_descriptor,
+        new java.lang.String[] { "SetDatabaseOptions", });
+    internal_static_greptime_v1_UnsetDatabaseOptions_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_UnsetDatabaseOptions_descriptor,
+        new java.lang.String[] { "Keys", });
     io.greptime.v1.Common.getDescriptor();
   }
 
