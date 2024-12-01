@@ -830,41 +830,40 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   ".\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 "
   "\001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001"
   "(\004\"C\n\rAlterRequests\0222\n\010requests\030\001 \003(\0132 ."
-  "greptime.v1.region.AlterRequest\"\354\003\n\014Alte"
+  "greptime.v1.region.AlterRequest\"\306\003\n\014Alte"
   "rRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_colum"
   "ns\030\002 \001(\0132\036.greptime.v1.region.AddColumns"
   "H\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime.v1.r"
   "egion.DropColumnsH\000\022=\n\023modify_column_typ"
   "es\030\005 \001(\0132\036.greptime.v1.ModifyColumnTypes"
   "H\000\0229\n\021set_table_options\030\006 \001(\0132\034.greptime"
-  ".v1.SetTableOptionsH\000\022=\n\023set_column_full"
-  "text\030\007 \001(\0132\036.greptime.v1.SetColumnFullte"
-  "xtH\000\022A\n\025unset_column_fulltext\030\010 \001(\0132 .gr"
-  "eptime.v1.UnsetColumnFulltextH\000\022=\n\023unset"
-  "_table_options\030\t \001(\0132\036.greptime.v1.Unset"
-  "TableOptionsH\000\022\026\n\016schema_version\030\004 \001(\004B\006"
-  "\n\004kind\"@\n\nAddColumns\0222\n\013add_columns\030\001 \003("
-  "\0132\035.greptime.v1.region.AddColumn\"C\n\013Drop"
-  "Columns\0224\n\014drop_columns\030\001 \003(\0132\036.greptime"
-  ".v1.region.DropColumn\"v\n\tAddColumn\0227\n\nco"
-  "lumn_def\030\001 \001(\0132#.greptime.v1.region.Regi"
-  "onColumnDef\0220\n\010location\030\003 \001(\0132\036.greptime"
-  ".v1.AddColumnLocation\"\032\n\nDropColumn\022\014\n\004n"
-  "ame\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001"
-  " \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n\016windo"
-  "w_seconds\030\001 \001(\003\"\231\001\n\016CompactRequest\022\021\n\tre"
-  "gion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.greptim"
-  "e.v1.region.RegularH\000\0229\n\rstrict_window\030\003"
-  " \001(\0132 .greptime.v1.region.StrictWindowH\000"
-  "B\t\n\007options\"$\n\017TruncateRequest\022\021\n\tregion"
-  "_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_d"
-  "ef\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcolu"
-  "mn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.grepti"
-  "me.v1.region.RegionRequest\032\".greptime.v1"
-  ".region.RegionResponseB]\n\025io.greptime.v1"
-  ".regionB\006ServerZ<github.com/GreptimeTeam"
-  "/greptime-proto/go/greptime/v1/regionb\006p"
-  "roto3"
+  ".v1.SetTableOptionsH\000\022=\n\023unset_table_opt"
+  "ions\030\t \001(\0132\036.greptime.v1.UnsetTableOptio"
+  "nsH\000\022*\n\tset_index\030\n \001(\0132\025.greptime.v1.Se"
+  "tIndexH\000\022.\n\013unset_index\030\013 \001(\0132\027.greptime"
+  ".v1.UnsetIndexH\000\022\026\n\016schema_version\030\004 \001(\004"
+  "B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_columns\030\001 "
+  "\003(\0132\035.greptime.v1.region.AddColumn\"C\n\013Dr"
+  "opColumns\0224\n\014drop_columns\030\001 \003(\0132\036.grepti"
+  "me.v1.region.DropColumn\"v\n\tAddColumn\0227\n\n"
+  "column_def\030\001 \001(\0132#.greptime.v1.region.Re"
+  "gionColumnDef\0220\n\010location\030\003 \001(\0132\036.grepti"
+  "me.v1.AddColumnLocation\"\032\n\nDropColumn\022\014\n"
+  "\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id"
+  "\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n\016win"
+  "dow_seconds\030\001 \001(\003\"\231\001\n\016CompactRequest\022\021\n\t"
+  "region_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.grept"
+  "ime.v1.region.RegularH\000\0229\n\rstrict_window"
+  "\030\003 \001(\0132 .greptime.v1.region.StrictWindow"
+  "H\000B\t\n\007options\"$\n\017TruncateRequest\022\021\n\tregi"
+  "on_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn"
+  "_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tco"
+  "lumn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.grep"
+  "time.v1.region.RegionRequest\032\".greptime."
+  "v1.region.RegionResponseB]\n\025io.greptime."
+  "v1.regionB\006ServerZ<github.com/GreptimeTe"
+  "am/greptime-proto/go/greptime/v1/regionb"
+  "\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -873,7 +872,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 3765, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 3727, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 3, 30,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
@@ -5336,9 +5335,9 @@ class AlterRequest::_Internal {
   static const ::greptime::v1::region::DropColumns& drop_columns(const AlterRequest* msg);
   static const ::greptime::v1::ModifyColumnTypes& modify_column_types(const AlterRequest* msg);
   static const ::greptime::v1::SetTableOptions& set_table_options(const AlterRequest* msg);
-  static const ::greptime::v1::SetColumnFulltext& set_column_fulltext(const AlterRequest* msg);
-  static const ::greptime::v1::UnsetColumnFulltext& unset_column_fulltext(const AlterRequest* msg);
   static const ::greptime::v1::UnsetTableOptions& unset_table_options(const AlterRequest* msg);
+  static const ::greptime::v1::SetIndex& set_index(const AlterRequest* msg);
+  static const ::greptime::v1::UnsetIndex& unset_index(const AlterRequest* msg);
 };
 
 const ::greptime::v1::region::AddColumns&
@@ -5357,17 +5356,17 @@ const ::greptime::v1::SetTableOptions&
 AlterRequest::_Internal::set_table_options(const AlterRequest* msg) {
   return *msg->_impl_.kind_.set_table_options_;
 }
-const ::greptime::v1::SetColumnFulltext&
-AlterRequest::_Internal::set_column_fulltext(const AlterRequest* msg) {
-  return *msg->_impl_.kind_.set_column_fulltext_;
-}
-const ::greptime::v1::UnsetColumnFulltext&
-AlterRequest::_Internal::unset_column_fulltext(const AlterRequest* msg) {
-  return *msg->_impl_.kind_.unset_column_fulltext_;
-}
 const ::greptime::v1::UnsetTableOptions&
 AlterRequest::_Internal::unset_table_options(const AlterRequest* msg) {
   return *msg->_impl_.kind_.unset_table_options_;
+}
+const ::greptime::v1::SetIndex&
+AlterRequest::_Internal::set_index(const AlterRequest* msg) {
+  return *msg->_impl_.kind_.set_index_;
+}
+const ::greptime::v1::UnsetIndex&
+AlterRequest::_Internal::unset_index(const AlterRequest* msg) {
+  return *msg->_impl_.kind_.unset_index_;
 }
 void AlterRequest::set_allocated_add_columns(::greptime::v1::region::AddColumns* add_columns) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -5447,54 +5446,6 @@ void AlterRequest::clear_set_table_options() {
     clear_has_kind();
   }
 }
-void AlterRequest::set_allocated_set_column_fulltext(::greptime::v1::SetColumnFulltext* set_column_fulltext) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_kind();
-  if (set_column_fulltext) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(set_column_fulltext));
-    if (message_arena != submessage_arena) {
-      set_column_fulltext = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, set_column_fulltext, submessage_arena);
-    }
-    set_has_set_column_fulltext();
-    _impl_.kind_.set_column_fulltext_ = set_column_fulltext;
-  }
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.set_column_fulltext)
-}
-void AlterRequest::clear_set_column_fulltext() {
-  if (_internal_has_set_column_fulltext()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.kind_.set_column_fulltext_;
-    }
-    clear_has_kind();
-  }
-}
-void AlterRequest::set_allocated_unset_column_fulltext(::greptime::v1::UnsetColumnFulltext* unset_column_fulltext) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_kind();
-  if (unset_column_fulltext) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(unset_column_fulltext));
-    if (message_arena != submessage_arena) {
-      unset_column_fulltext = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, unset_column_fulltext, submessage_arena);
-    }
-    set_has_unset_column_fulltext();
-    _impl_.kind_.unset_column_fulltext_ = unset_column_fulltext;
-  }
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.unset_column_fulltext)
-}
-void AlterRequest::clear_unset_column_fulltext() {
-  if (_internal_has_unset_column_fulltext()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.kind_.unset_column_fulltext_;
-    }
-    clear_has_kind();
-  }
-}
 void AlterRequest::set_allocated_unset_table_options(::greptime::v1::UnsetTableOptions* unset_table_options) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_kind();
@@ -5515,6 +5466,54 @@ void AlterRequest::clear_unset_table_options() {
   if (_internal_has_unset_table_options()) {
     if (GetArenaForAllocation() == nullptr) {
       delete _impl_.kind_.unset_table_options_;
+    }
+    clear_has_kind();
+  }
+}
+void AlterRequest::set_allocated_set_index(::greptime::v1::SetIndex* set_index) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_kind();
+  if (set_index) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(set_index));
+    if (message_arena != submessage_arena) {
+      set_index = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, set_index, submessage_arena);
+    }
+    set_has_set_index();
+    _impl_.kind_.set_index_ = set_index;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.set_index)
+}
+void AlterRequest::clear_set_index() {
+  if (_internal_has_set_index()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.set_index_;
+    }
+    clear_has_kind();
+  }
+}
+void AlterRequest::set_allocated_unset_index(::greptime::v1::UnsetIndex* unset_index) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_kind();
+  if (unset_index) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(unset_index));
+    if (message_arena != submessage_arena) {
+      unset_index = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, unset_index, submessage_arena);
+    }
+    set_has_unset_index();
+    _impl_.kind_.unset_index_ = unset_index;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.unset_index)
+}
+void AlterRequest::clear_unset_index() {
+  if (_internal_has_unset_index()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.unset_index_;
     }
     clear_has_kind();
   }
@@ -5561,19 +5560,19 @@ AlterRequest::AlterRequest(const AlterRequest& from)
           from._internal_set_table_options());
       break;
     }
-    case kSetColumnFulltext: {
-      _this->_internal_mutable_set_column_fulltext()->::greptime::v1::SetColumnFulltext::MergeFrom(
-          from._internal_set_column_fulltext());
-      break;
-    }
-    case kUnsetColumnFulltext: {
-      _this->_internal_mutable_unset_column_fulltext()->::greptime::v1::UnsetColumnFulltext::MergeFrom(
-          from._internal_unset_column_fulltext());
-      break;
-    }
     case kUnsetTableOptions: {
       _this->_internal_mutable_unset_table_options()->::greptime::v1::UnsetTableOptions::MergeFrom(
           from._internal_unset_table_options());
+      break;
+    }
+    case kSetIndex: {
+      _this->_internal_mutable_set_index()->::greptime::v1::SetIndex::MergeFrom(
+          from._internal_set_index());
+      break;
+    }
+    case kUnsetIndex: {
+      _this->_internal_mutable_unset_index()->::greptime::v1::UnsetIndex::MergeFrom(
+          from._internal_unset_index());
       break;
     }
     case KIND_NOT_SET: {
@@ -5644,21 +5643,21 @@ void AlterRequest::clear_kind() {
       }
       break;
     }
-    case kSetColumnFulltext: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.kind_.set_column_fulltext_;
-      }
-      break;
-    }
-    case kUnsetColumnFulltext: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.kind_.unset_column_fulltext_;
-      }
-      break;
-    }
     case kUnsetTableOptions: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.kind_.unset_table_options_;
+      }
+      break;
+    }
+    case kSetIndex: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.kind_.set_index_;
+      }
+      break;
+    }
+    case kUnsetIndex: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.kind_.unset_index_;
       }
       break;
     }
@@ -5737,26 +5736,26 @@ const char* AlterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.SetColumnFulltext set_column_fulltext = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
-          ptr = ctx->ParseMessage(_internal_mutable_set_column_fulltext(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .greptime.v1.UnsetColumnFulltext unset_column_fulltext = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
-          ptr = ctx->ParseMessage(_internal_mutable_unset_column_fulltext(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
       // .greptime.v1.UnsetTableOptions unset_table_options = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
           ptr = ctx->ParseMessage(_internal_mutable_unset_table_options(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.SetIndex set_index = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_set_index(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.UnsetIndex unset_index = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          ptr = ctx->ParseMessage(_internal_mutable_unset_index(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5830,25 +5829,25 @@ uint8_t* AlterRequest::_InternalSerialize(
         _Internal::set_table_options(this).GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.SetColumnFulltext set_column_fulltext = 7;
-  if (_internal_has_set_column_fulltext()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(7, _Internal::set_column_fulltext(this),
-        _Internal::set_column_fulltext(this).GetCachedSize(), target, stream);
-  }
-
-  // .greptime.v1.UnsetColumnFulltext unset_column_fulltext = 8;
-  if (_internal_has_unset_column_fulltext()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(8, _Internal::unset_column_fulltext(this),
-        _Internal::unset_column_fulltext(this).GetCachedSize(), target, stream);
-  }
-
   // .greptime.v1.UnsetTableOptions unset_table_options = 9;
   if (_internal_has_unset_table_options()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(9, _Internal::unset_table_options(this),
         _Internal::unset_table_options(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.SetIndex set_index = 10;
+  if (_internal_has_set_index()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(10, _Internal::set_index(this),
+        _Internal::set_index(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.UnsetIndex unset_index = 11;
+  if (_internal_has_unset_index()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(11, _Internal::unset_index(this),
+        _Internal::unset_index(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -5906,25 +5905,25 @@ size_t AlterRequest::ByteSizeLong() const {
           *_impl_.kind_.set_table_options_);
       break;
     }
-    // .greptime.v1.SetColumnFulltext set_column_fulltext = 7;
-    case kSetColumnFulltext: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.kind_.set_column_fulltext_);
-      break;
-    }
-    // .greptime.v1.UnsetColumnFulltext unset_column_fulltext = 8;
-    case kUnsetColumnFulltext: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.kind_.unset_column_fulltext_);
-      break;
-    }
     // .greptime.v1.UnsetTableOptions unset_table_options = 9;
     case kUnsetTableOptions: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *_impl_.kind_.unset_table_options_);
+      break;
+    }
+    // .greptime.v1.SetIndex set_index = 10;
+    case kSetIndex: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.kind_.set_index_);
+      break;
+    }
+    // .greptime.v1.UnsetIndex unset_index = 11;
+    case kUnsetIndex: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.kind_.unset_index_);
       break;
     }
     case KIND_NOT_SET: {
@@ -5976,19 +5975,19 @@ void AlterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
           from._internal_set_table_options());
       break;
     }
-    case kSetColumnFulltext: {
-      _this->_internal_mutable_set_column_fulltext()->::greptime::v1::SetColumnFulltext::MergeFrom(
-          from._internal_set_column_fulltext());
-      break;
-    }
-    case kUnsetColumnFulltext: {
-      _this->_internal_mutable_unset_column_fulltext()->::greptime::v1::UnsetColumnFulltext::MergeFrom(
-          from._internal_unset_column_fulltext());
-      break;
-    }
     case kUnsetTableOptions: {
       _this->_internal_mutable_unset_table_options()->::greptime::v1::UnsetTableOptions::MergeFrom(
           from._internal_unset_table_options());
+      break;
+    }
+    case kSetIndex: {
+      _this->_internal_mutable_set_index()->::greptime::v1::SetIndex::MergeFrom(
+          from._internal_set_index());
+      break;
+    }
+    case kUnsetIndex: {
+      _this->_internal_mutable_unset_index()->::greptime::v1::UnsetIndex::MergeFrom(
+          from._internal_unset_index());
       break;
     }
     case KIND_NOT_SET: {
