@@ -3252,9 +3252,9 @@ class AlterRequest final :
     kDropColumns = 3,
     kModifyColumnTypes = 5,
     kSetTableOptions = 6,
-    kSetColumnFulltext = 7,
-    kUnsetColumnFulltext = 8,
     kUnsetTableOptions = 9,
+    kSetIndex = 10,
+    kUnsetIndex = 11,
     KIND_NOT_SET = 0,
   };
 
@@ -3342,9 +3342,9 @@ class AlterRequest final :
     kDropColumnsFieldNumber = 3,
     kModifyColumnTypesFieldNumber = 5,
     kSetTableOptionsFieldNumber = 6,
-    kSetColumnFulltextFieldNumber = 7,
-    kUnsetColumnFulltextFieldNumber = 8,
     kUnsetTableOptionsFieldNumber = 9,
+    kSetIndexFieldNumber = 10,
+    kUnsetIndexFieldNumber = 11,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -3436,42 +3436,6 @@ class AlterRequest final :
       ::greptime::v1::SetTableOptions* set_table_options);
   ::greptime::v1::SetTableOptions* unsafe_arena_release_set_table_options();
 
-  // .greptime.v1.SetColumnFulltext set_column_fulltext = 7;
-  bool has_set_column_fulltext() const;
-  private:
-  bool _internal_has_set_column_fulltext() const;
-  public:
-  void clear_set_column_fulltext();
-  const ::greptime::v1::SetColumnFulltext& set_column_fulltext() const;
-  PROTOBUF_NODISCARD ::greptime::v1::SetColumnFulltext* release_set_column_fulltext();
-  ::greptime::v1::SetColumnFulltext* mutable_set_column_fulltext();
-  void set_allocated_set_column_fulltext(::greptime::v1::SetColumnFulltext* set_column_fulltext);
-  private:
-  const ::greptime::v1::SetColumnFulltext& _internal_set_column_fulltext() const;
-  ::greptime::v1::SetColumnFulltext* _internal_mutable_set_column_fulltext();
-  public:
-  void unsafe_arena_set_allocated_set_column_fulltext(
-      ::greptime::v1::SetColumnFulltext* set_column_fulltext);
-  ::greptime::v1::SetColumnFulltext* unsafe_arena_release_set_column_fulltext();
-
-  // .greptime.v1.UnsetColumnFulltext unset_column_fulltext = 8;
-  bool has_unset_column_fulltext() const;
-  private:
-  bool _internal_has_unset_column_fulltext() const;
-  public:
-  void clear_unset_column_fulltext();
-  const ::greptime::v1::UnsetColumnFulltext& unset_column_fulltext() const;
-  PROTOBUF_NODISCARD ::greptime::v1::UnsetColumnFulltext* release_unset_column_fulltext();
-  ::greptime::v1::UnsetColumnFulltext* mutable_unset_column_fulltext();
-  void set_allocated_unset_column_fulltext(::greptime::v1::UnsetColumnFulltext* unset_column_fulltext);
-  private:
-  const ::greptime::v1::UnsetColumnFulltext& _internal_unset_column_fulltext() const;
-  ::greptime::v1::UnsetColumnFulltext* _internal_mutable_unset_column_fulltext();
-  public:
-  void unsafe_arena_set_allocated_unset_column_fulltext(
-      ::greptime::v1::UnsetColumnFulltext* unset_column_fulltext);
-  ::greptime::v1::UnsetColumnFulltext* unsafe_arena_release_unset_column_fulltext();
-
   // .greptime.v1.UnsetTableOptions unset_table_options = 9;
   bool has_unset_table_options() const;
   private:
@@ -3490,6 +3454,42 @@ class AlterRequest final :
       ::greptime::v1::UnsetTableOptions* unset_table_options);
   ::greptime::v1::UnsetTableOptions* unsafe_arena_release_unset_table_options();
 
+  // .greptime.v1.SetIndex set_index = 10;
+  bool has_set_index() const;
+  private:
+  bool _internal_has_set_index() const;
+  public:
+  void clear_set_index();
+  const ::greptime::v1::SetIndex& set_index() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SetIndex* release_set_index();
+  ::greptime::v1::SetIndex* mutable_set_index();
+  void set_allocated_set_index(::greptime::v1::SetIndex* set_index);
+  private:
+  const ::greptime::v1::SetIndex& _internal_set_index() const;
+  ::greptime::v1::SetIndex* _internal_mutable_set_index();
+  public:
+  void unsafe_arena_set_allocated_set_index(
+      ::greptime::v1::SetIndex* set_index);
+  ::greptime::v1::SetIndex* unsafe_arena_release_set_index();
+
+  // .greptime.v1.UnsetIndex unset_index = 11;
+  bool has_unset_index() const;
+  private:
+  bool _internal_has_unset_index() const;
+  public:
+  void clear_unset_index();
+  const ::greptime::v1::UnsetIndex& unset_index() const;
+  PROTOBUF_NODISCARD ::greptime::v1::UnsetIndex* release_unset_index();
+  ::greptime::v1::UnsetIndex* mutable_unset_index();
+  void set_allocated_unset_index(::greptime::v1::UnsetIndex* unset_index);
+  private:
+  const ::greptime::v1::UnsetIndex& _internal_unset_index() const;
+  ::greptime::v1::UnsetIndex* _internal_mutable_unset_index();
+  public:
+  void unsafe_arena_set_allocated_unset_index(
+      ::greptime::v1::UnsetIndex* unset_index);
+  ::greptime::v1::UnsetIndex* unsafe_arena_release_unset_index();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.AlterRequest)
@@ -3499,9 +3499,9 @@ class AlterRequest final :
   void set_has_drop_columns();
   void set_has_modify_column_types();
   void set_has_set_table_options();
-  void set_has_set_column_fulltext();
-  void set_has_unset_column_fulltext();
   void set_has_unset_table_options();
+  void set_has_set_index();
+  void set_has_unset_index();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -3519,9 +3519,9 @@ class AlterRequest final :
       ::greptime::v1::region::DropColumns* drop_columns_;
       ::greptime::v1::ModifyColumnTypes* modify_column_types_;
       ::greptime::v1::SetTableOptions* set_table_options_;
-      ::greptime::v1::SetColumnFulltext* set_column_fulltext_;
-      ::greptime::v1::UnsetColumnFulltext* unset_column_fulltext_;
       ::greptime::v1::UnsetTableOptions* unset_table_options_;
+      ::greptime::v1::SetIndex* set_index_;
+      ::greptime::v1::UnsetIndex* unset_index_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -7844,138 +7844,6 @@ inline ::greptime::v1::SetTableOptions* AlterRequest::mutable_set_table_options(
   return _msg;
 }
 
-// .greptime.v1.SetColumnFulltext set_column_fulltext = 7;
-inline bool AlterRequest::_internal_has_set_column_fulltext() const {
-  return kind_case() == kSetColumnFulltext;
-}
-inline bool AlterRequest::has_set_column_fulltext() const {
-  return _internal_has_set_column_fulltext();
-}
-inline void AlterRequest::set_has_set_column_fulltext() {
-  _impl_._oneof_case_[0] = kSetColumnFulltext;
-}
-inline ::greptime::v1::SetColumnFulltext* AlterRequest::release_set_column_fulltext() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.set_column_fulltext)
-  if (_internal_has_set_column_fulltext()) {
-    clear_has_kind();
-    ::greptime::v1::SetColumnFulltext* temp = _impl_.kind_.set_column_fulltext_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.set_column_fulltext_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::greptime::v1::SetColumnFulltext& AlterRequest::_internal_set_column_fulltext() const {
-  return _internal_has_set_column_fulltext()
-      ? *_impl_.kind_.set_column_fulltext_
-      : reinterpret_cast< ::greptime::v1::SetColumnFulltext&>(::greptime::v1::_SetColumnFulltext_default_instance_);
-}
-inline const ::greptime::v1::SetColumnFulltext& AlterRequest::set_column_fulltext() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.set_column_fulltext)
-  return _internal_set_column_fulltext();
-}
-inline ::greptime::v1::SetColumnFulltext* AlterRequest::unsafe_arena_release_set_column_fulltext() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.set_column_fulltext)
-  if (_internal_has_set_column_fulltext()) {
-    clear_has_kind();
-    ::greptime::v1::SetColumnFulltext* temp = _impl_.kind_.set_column_fulltext_;
-    _impl_.kind_.set_column_fulltext_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void AlterRequest::unsafe_arena_set_allocated_set_column_fulltext(::greptime::v1::SetColumnFulltext* set_column_fulltext) {
-  clear_kind();
-  if (set_column_fulltext) {
-    set_has_set_column_fulltext();
-    _impl_.kind_.set_column_fulltext_ = set_column_fulltext;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.set_column_fulltext)
-}
-inline ::greptime::v1::SetColumnFulltext* AlterRequest::_internal_mutable_set_column_fulltext() {
-  if (!_internal_has_set_column_fulltext()) {
-    clear_kind();
-    set_has_set_column_fulltext();
-    _impl_.kind_.set_column_fulltext_ = CreateMaybeMessage< ::greptime::v1::SetColumnFulltext >(GetArenaForAllocation());
-  }
-  return _impl_.kind_.set_column_fulltext_;
-}
-inline ::greptime::v1::SetColumnFulltext* AlterRequest::mutable_set_column_fulltext() {
-  ::greptime::v1::SetColumnFulltext* _msg = _internal_mutable_set_column_fulltext();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.set_column_fulltext)
-  return _msg;
-}
-
-// .greptime.v1.UnsetColumnFulltext unset_column_fulltext = 8;
-inline bool AlterRequest::_internal_has_unset_column_fulltext() const {
-  return kind_case() == kUnsetColumnFulltext;
-}
-inline bool AlterRequest::has_unset_column_fulltext() const {
-  return _internal_has_unset_column_fulltext();
-}
-inline void AlterRequest::set_has_unset_column_fulltext() {
-  _impl_._oneof_case_[0] = kUnsetColumnFulltext;
-}
-inline ::greptime::v1::UnsetColumnFulltext* AlterRequest::release_unset_column_fulltext() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.unset_column_fulltext)
-  if (_internal_has_unset_column_fulltext()) {
-    clear_has_kind();
-    ::greptime::v1::UnsetColumnFulltext* temp = _impl_.kind_.unset_column_fulltext_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.unset_column_fulltext_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::greptime::v1::UnsetColumnFulltext& AlterRequest::_internal_unset_column_fulltext() const {
-  return _internal_has_unset_column_fulltext()
-      ? *_impl_.kind_.unset_column_fulltext_
-      : reinterpret_cast< ::greptime::v1::UnsetColumnFulltext&>(::greptime::v1::_UnsetColumnFulltext_default_instance_);
-}
-inline const ::greptime::v1::UnsetColumnFulltext& AlterRequest::unset_column_fulltext() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.unset_column_fulltext)
-  return _internal_unset_column_fulltext();
-}
-inline ::greptime::v1::UnsetColumnFulltext* AlterRequest::unsafe_arena_release_unset_column_fulltext() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.unset_column_fulltext)
-  if (_internal_has_unset_column_fulltext()) {
-    clear_has_kind();
-    ::greptime::v1::UnsetColumnFulltext* temp = _impl_.kind_.unset_column_fulltext_;
-    _impl_.kind_.unset_column_fulltext_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void AlterRequest::unsafe_arena_set_allocated_unset_column_fulltext(::greptime::v1::UnsetColumnFulltext* unset_column_fulltext) {
-  clear_kind();
-  if (unset_column_fulltext) {
-    set_has_unset_column_fulltext();
-    _impl_.kind_.unset_column_fulltext_ = unset_column_fulltext;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.unset_column_fulltext)
-}
-inline ::greptime::v1::UnsetColumnFulltext* AlterRequest::_internal_mutable_unset_column_fulltext() {
-  if (!_internal_has_unset_column_fulltext()) {
-    clear_kind();
-    set_has_unset_column_fulltext();
-    _impl_.kind_.unset_column_fulltext_ = CreateMaybeMessage< ::greptime::v1::UnsetColumnFulltext >(GetArenaForAllocation());
-  }
-  return _impl_.kind_.unset_column_fulltext_;
-}
-inline ::greptime::v1::UnsetColumnFulltext* AlterRequest::mutable_unset_column_fulltext() {
-  ::greptime::v1::UnsetColumnFulltext* _msg = _internal_mutable_unset_column_fulltext();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.unset_column_fulltext)
-  return _msg;
-}
-
 // .greptime.v1.UnsetTableOptions unset_table_options = 9;
 inline bool AlterRequest::_internal_has_unset_table_options() const {
   return kind_case() == kUnsetTableOptions;
@@ -8039,6 +7907,138 @@ inline ::greptime::v1::UnsetTableOptions* AlterRequest::_internal_mutable_unset_
 inline ::greptime::v1::UnsetTableOptions* AlterRequest::mutable_unset_table_options() {
   ::greptime::v1::UnsetTableOptions* _msg = _internal_mutable_unset_table_options();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.unset_table_options)
+  return _msg;
+}
+
+// .greptime.v1.SetIndex set_index = 10;
+inline bool AlterRequest::_internal_has_set_index() const {
+  return kind_case() == kSetIndex;
+}
+inline bool AlterRequest::has_set_index() const {
+  return _internal_has_set_index();
+}
+inline void AlterRequest::set_has_set_index() {
+  _impl_._oneof_case_[0] = kSetIndex;
+}
+inline ::greptime::v1::SetIndex* AlterRequest::release_set_index() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.set_index)
+  if (_internal_has_set_index()) {
+    clear_has_kind();
+    ::greptime::v1::SetIndex* temp = _impl_.kind_.set_index_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.set_index_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::SetIndex& AlterRequest::_internal_set_index() const {
+  return _internal_has_set_index()
+      ? *_impl_.kind_.set_index_
+      : reinterpret_cast< ::greptime::v1::SetIndex&>(::greptime::v1::_SetIndex_default_instance_);
+}
+inline const ::greptime::v1::SetIndex& AlterRequest::set_index() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.set_index)
+  return _internal_set_index();
+}
+inline ::greptime::v1::SetIndex* AlterRequest::unsafe_arena_release_set_index() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.set_index)
+  if (_internal_has_set_index()) {
+    clear_has_kind();
+    ::greptime::v1::SetIndex* temp = _impl_.kind_.set_index_;
+    _impl_.kind_.set_index_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterRequest::unsafe_arena_set_allocated_set_index(::greptime::v1::SetIndex* set_index) {
+  clear_kind();
+  if (set_index) {
+    set_has_set_index();
+    _impl_.kind_.set_index_ = set_index;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.set_index)
+}
+inline ::greptime::v1::SetIndex* AlterRequest::_internal_mutable_set_index() {
+  if (!_internal_has_set_index()) {
+    clear_kind();
+    set_has_set_index();
+    _impl_.kind_.set_index_ = CreateMaybeMessage< ::greptime::v1::SetIndex >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.set_index_;
+}
+inline ::greptime::v1::SetIndex* AlterRequest::mutable_set_index() {
+  ::greptime::v1::SetIndex* _msg = _internal_mutable_set_index();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.set_index)
+  return _msg;
+}
+
+// .greptime.v1.UnsetIndex unset_index = 11;
+inline bool AlterRequest::_internal_has_unset_index() const {
+  return kind_case() == kUnsetIndex;
+}
+inline bool AlterRequest::has_unset_index() const {
+  return _internal_has_unset_index();
+}
+inline void AlterRequest::set_has_unset_index() {
+  _impl_._oneof_case_[0] = kUnsetIndex;
+}
+inline ::greptime::v1::UnsetIndex* AlterRequest::release_unset_index() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.unset_index)
+  if (_internal_has_unset_index()) {
+    clear_has_kind();
+    ::greptime::v1::UnsetIndex* temp = _impl_.kind_.unset_index_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.unset_index_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::UnsetIndex& AlterRequest::_internal_unset_index() const {
+  return _internal_has_unset_index()
+      ? *_impl_.kind_.unset_index_
+      : reinterpret_cast< ::greptime::v1::UnsetIndex&>(::greptime::v1::_UnsetIndex_default_instance_);
+}
+inline const ::greptime::v1::UnsetIndex& AlterRequest::unset_index() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.unset_index)
+  return _internal_unset_index();
+}
+inline ::greptime::v1::UnsetIndex* AlterRequest::unsafe_arena_release_unset_index() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.unset_index)
+  if (_internal_has_unset_index()) {
+    clear_has_kind();
+    ::greptime::v1::UnsetIndex* temp = _impl_.kind_.unset_index_;
+    _impl_.kind_.unset_index_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterRequest::unsafe_arena_set_allocated_unset_index(::greptime::v1::UnsetIndex* unset_index) {
+  clear_kind();
+  if (unset_index) {
+    set_has_unset_index();
+    _impl_.kind_.unset_index_ = unset_index;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.unset_index)
+}
+inline ::greptime::v1::UnsetIndex* AlterRequest::_internal_mutable_unset_index() {
+  if (!_internal_has_unset_index()) {
+    clear_kind();
+    set_has_unset_index();
+    _impl_.kind_.unset_index_ = CreateMaybeMessage< ::greptime::v1::UnsetIndex >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.unset_index_;
+}
+inline ::greptime::v1::UnsetIndex* AlterRequest::mutable_unset_index() {
+  ::greptime::v1::UnsetIndex* _msg = _internal_mutable_unset_index();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.unset_index)
   return _msg;
 }
 

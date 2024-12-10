@@ -129,9 +129,9 @@ message AlterRequest {
     DropColumns drop_columns = 3;
     ModifyColumnTypes modify_column_types = 5;
     SetTableOptions set_table_options = 6;
-    SetColumnFulltext set_column_fulltext = 7;
-    UnsetColumnFulltext unset_column_fulltext = 8;
     UnsetTableOptions unset_table_options = 9;
+    SetIndex set_index = 10;
+    UnsetIndex unset_index = 11;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;
