@@ -30,6 +30,10 @@ fn main() {
             "region.RegionRequest.body",
             "#[derive(strum_macros::AsRefStr)]",
         )
+        .message_attribute(
+            "QueryContext",
+            "#[derive(::serde::Serialize, ::serde::Deserialize)]",
+        )
         .compile(
             &[
                 "proto/greptime/v1/database.proto",
