@@ -3375,6 +3375,7 @@ class AddColumns final :
 
   enum : int {
     kAddColumnsFieldNumber = 1,
+    kAddIfNotExistsFieldNumber = 2,
   };
   // repeated .greptime.v1.AddColumn add_columns = 1;
   int add_columns_size() const;
@@ -3394,6 +3395,15 @@ class AddColumns final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::AddColumn >&
       add_columns() const;
 
+  // bool add_if_not_exists = 2;
+  void clear_add_if_not_exists();
+  bool add_if_not_exists() const;
+  void set_add_if_not_exists(bool value);
+  private:
+  bool _internal_add_if_not_exists() const;
+  void _internal_set_add_if_not_exists(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.AddColumns)
  private:
   class _Internal;
@@ -3403,6 +3413,7 @@ class AddColumns final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::AddColumn > add_columns_;
+    bool add_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -10858,6 +10869,26 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::AddColum
 AddColumns::add_columns() const {
   // @@protoc_insertion_point(field_list:greptime.v1.AddColumns.add_columns)
   return _impl_.add_columns_;
+}
+
+// bool add_if_not_exists = 2;
+inline void AddColumns::clear_add_if_not_exists() {
+  _impl_.add_if_not_exists_ = false;
+}
+inline bool AddColumns::_internal_add_if_not_exists() const {
+  return _impl_.add_if_not_exists_;
+}
+inline bool AddColumns::add_if_not_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AddColumns.add_if_not_exists)
+  return _internal_add_if_not_exists();
+}
+inline void AddColumns::_internal_set_add_if_not_exists(bool value) {
+  
+  _impl_.add_if_not_exists_ = value;
+}
+inline void AddColumns::set_add_if_not_exists(bool value) {
+  _internal_set_add_if_not_exists(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.AddColumns.add_if_not_exists)
 }
 
 // -------------------------------------------------------------------
