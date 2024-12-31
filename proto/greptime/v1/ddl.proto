@@ -145,7 +145,10 @@ message DropDatabaseExpr {
   bool drop_if_exists = 3;
 }
 
-message AddColumns { repeated AddColumn add_columns = 1; }
+message AddColumns {
+  repeated AddColumn add_columns = 1;
+  bool add_if_not_exists = 2;
+}
 
 message DropColumns { repeated DropColumn drop_columns = 1; }
 
