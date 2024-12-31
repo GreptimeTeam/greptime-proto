@@ -3375,7 +3375,6 @@ class AddColumns final :
 
   enum : int {
     kAddColumnsFieldNumber = 1,
-    kAddIfNotExistsFieldNumber = 2,
   };
   // repeated .greptime.v1.AddColumn add_columns = 1;
   int add_columns_size() const;
@@ -3395,15 +3394,6 @@ class AddColumns final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::AddColumn >&
       add_columns() const;
 
-  // bool add_if_not_exists = 2;
-  void clear_add_if_not_exists();
-  bool add_if_not_exists() const;
-  void set_add_if_not_exists(bool value);
-  private:
-  bool _internal_add_if_not_exists() const;
-  void _internal_set_add_if_not_exists(bool value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.AddColumns)
  private:
   class _Internal;
@@ -3413,7 +3403,6 @@ class AddColumns final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::AddColumn > add_columns_;
-    bool add_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -4011,6 +4000,7 @@ class AddColumn final :
   enum : int {
     kColumnDefFieldNumber = 1,
     kLocationFieldNumber = 3,
+    kAddIfNotExistsFieldNumber = 4,
   };
   // .greptime.v1.ColumnDef column_def = 1;
   bool has_column_def() const;
@@ -4048,6 +4038,15 @@ class AddColumn final :
       ::greptime::v1::AddColumnLocation* location);
   ::greptime::v1::AddColumnLocation* unsafe_arena_release_location();
 
+  // bool add_if_not_exists = 4;
+  void clear_add_if_not_exists();
+  bool add_if_not_exists() const;
+  void set_add_if_not_exists(bool value);
+  private:
+  bool _internal_add_if_not_exists() const;
+  void _internal_set_add_if_not_exists(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.AddColumn)
  private:
   class _Internal;
@@ -4058,6 +4057,7 @@ class AddColumn final :
   struct Impl_ {
     ::greptime::v1::ColumnDef* column_def_;
     ::greptime::v1::AddColumnLocation* location_;
+    bool add_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -10871,26 +10871,6 @@ AddColumns::add_columns() const {
   return _impl_.add_columns_;
 }
 
-// bool add_if_not_exists = 2;
-inline void AddColumns::clear_add_if_not_exists() {
-  _impl_.add_if_not_exists_ = false;
-}
-inline bool AddColumns::_internal_add_if_not_exists() const {
-  return _impl_.add_if_not_exists_;
-}
-inline bool AddColumns::add_if_not_exists() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.AddColumns.add_if_not_exists)
-  return _internal_add_if_not_exists();
-}
-inline void AddColumns::_internal_set_add_if_not_exists(bool value) {
-  
-  _impl_.add_if_not_exists_ = value;
-}
-inline void AddColumns::set_add_if_not_exists(bool value) {
-  _internal_set_add_if_not_exists(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.AddColumns.add_if_not_exists)
-}
-
 // -------------------------------------------------------------------
 
 // DropColumns
@@ -11215,6 +11195,26 @@ inline void AddColumn::set_allocated_location(::greptime::v1::AddColumnLocation*
   }
   _impl_.location_ = location;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.AddColumn.location)
+}
+
+// bool add_if_not_exists = 4;
+inline void AddColumn::clear_add_if_not_exists() {
+  _impl_.add_if_not_exists_ = false;
+}
+inline bool AddColumn::_internal_add_if_not_exists() const {
+  return _impl_.add_if_not_exists_;
+}
+inline bool AddColumn::add_if_not_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AddColumn.add_if_not_exists)
+  return _internal_add_if_not_exists();
+}
+inline void AddColumn::_internal_set_add_if_not_exists(bool value) {
+  
+  _impl_.add_if_not_exists_ = value;
+}
+inline void AddColumn::set_add_if_not_exists(bool value) {
+  _internal_set_add_if_not_exists(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.AddColumn.add_if_not_exists)
 }
 
 // -------------------------------------------------------------------
