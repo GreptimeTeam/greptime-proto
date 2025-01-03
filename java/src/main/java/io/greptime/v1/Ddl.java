@@ -21868,6 +21868,12 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.AddColumnLocation location = 3;</code>
      */
     io.greptime.v1.Ddl.AddColumnLocationOrBuilder getLocationOrBuilder();
+
+    /**
+     * <code>bool add_if_not_exists = 4;</code>
+     * @return The addIfNotExists.
+     */
+    boolean getAddIfNotExists();
   }
   /**
    * Protobuf type {@code greptime.v1.AddColumn}
@@ -21938,6 +21944,11 @@ java.lang.String defaultValue);
                 location_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 32: {
+
+              addIfNotExists_ = input.readBool();
               break;
             }
             default: {
@@ -22026,6 +22037,17 @@ java.lang.String defaultValue);
       return getLocation();
     }
 
+    public static final int ADD_IF_NOT_EXISTS_FIELD_NUMBER = 4;
+    private boolean addIfNotExists_;
+    /**
+     * <code>bool add_if_not_exists = 4;</code>
+     * @return The addIfNotExists.
+     */
+    @java.lang.Override
+    public boolean getAddIfNotExists() {
+      return addIfNotExists_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -22046,6 +22068,9 @@ java.lang.String defaultValue);
       if (location_ != null) {
         output.writeMessage(3, getLocation());
       }
+      if (addIfNotExists_ != false) {
+        output.writeBool(4, addIfNotExists_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -22062,6 +22087,10 @@ java.lang.String defaultValue);
       if (location_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getLocation());
+      }
+      if (addIfNotExists_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, addIfNotExists_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -22088,6 +22117,8 @@ java.lang.String defaultValue);
         if (!getLocation()
             .equals(other.getLocation())) return false;
       }
+      if (getAddIfNotExists()
+          != other.getAddIfNotExists()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -22107,6 +22138,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + LOCATION_FIELD_NUMBER;
         hash = (53 * hash) + getLocation().hashCode();
       }
+      hash = (37 * hash) + ADD_IF_NOT_EXISTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getAddIfNotExists());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -22252,6 +22286,8 @@ java.lang.String defaultValue);
           location_ = null;
           locationBuilder_ = null;
         }
+        addIfNotExists_ = false;
+
         return this;
       }
 
@@ -22288,6 +22324,7 @@ java.lang.String defaultValue);
         } else {
           result.location_ = locationBuilder_.build();
         }
+        result.addIfNotExists_ = addIfNotExists_;
         onBuilt();
         return result;
       }
@@ -22341,6 +22378,9 @@ java.lang.String defaultValue);
         }
         if (other.hasLocation()) {
           mergeLocation(other.getLocation());
+        }
+        if (other.getAddIfNotExists() != false) {
+          setAddIfNotExists(other.getAddIfNotExists());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -22607,6 +22647,37 @@ java.lang.String defaultValue);
           location_ = null;
         }
         return locationBuilder_;
+      }
+
+      private boolean addIfNotExists_ ;
+      /**
+       * <code>bool add_if_not_exists = 4;</code>
+       * @return The addIfNotExists.
+       */
+      @java.lang.Override
+      public boolean getAddIfNotExists() {
+        return addIfNotExists_;
+      }
+      /**
+       * <code>bool add_if_not_exists = 4;</code>
+       * @param value The addIfNotExists to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddIfNotExists(boolean value) {
+        
+        addIfNotExists_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool add_if_not_exists = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAddIfNotExists() {
+        
+        addIfNotExists_ = false;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -33967,45 +34038,46 @@ java.lang.String defaultValue);
       "e.v1.DropColumn\"O\n\021ModifyColumnTypes\022:\n\023" +
       "modify_column_types\030\001 \003(\0132\035.greptime.v1." +
       "ModifyColumnType\"%\n\013RenameTable\022\026\n\016new_t" +
-      "able_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_d" +
-      "ef\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010loca" +
-      "tion\030\003 \001(\0132\036.greptime.v1.AddColumnLocati" +
-      "on\"\236\001\n\020ModifyColumnType\022\023\n\013column_name\030\001" +
-      " \001(\t\0220\n\013target_type\030\002 \001(\0162\033.greptime.v1." +
-      "ColumnDataType\022C\n\025target_type_extension\030" +
-      "\003 \001(\0132$.greptime.v1.ColumnDataTypeExtens" +
-      "ion\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t\"=\n\017SetTableOptions\022*\n\rtable_options\030\001 " +
-      "\003(\0132\023.greptime.v1.Option\"!\n\021UnsetTableOp" +
-      "tions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004nam" +
-      "e\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId" +
-      "\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t" +
-      "\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1.Column" +
-      "DataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default" +
-      "_constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\016" +
-      "2\031.greptime.v1.SemanticType\022\017\n\007comment\030\006" +
-      " \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grept" +
-      "ime.v1.ColumnDataTypeExtension\022+\n\007option" +
-      "s\030\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021" +
-      "AddColumnLocation\022B\n\rlocation_type\030\001 \001(\016" +
-      "2+.greptime.v1.AddColumnLocation.Locatio" +
-      "nType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Loca" +
-      "tionType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"y\n\021SetCol" +
-      "umnFulltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enab" +
-      "le\030\002 \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1" +
-      ".Analyzer\022\026\n\016case_sensitive\030\004 \001(\010\"*\n\023Uns" +
-      "etColumnFulltext\022\023\n\013column_name\030\001 \001(\t\"\314\001" +
-      "\n\021AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(" +
-      "\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_database_o" +
-      "ptions\030\003 \001(\0132\037.greptime.v1.SetDatabaseOp" +
-      "tionsH\000\022C\n\026unset_database_options\030\004 \001(\0132" +
-      "!.greptime.v1.UnsetDatabaseOptionsH\000B\006\n\004" +
-      "kind\"G\n\022SetDatabaseOptions\0221\n\024set_databa" +
-      "se_options\030\001 \003(\0132\023.greptime.v1.Option\"$\n" +
-      "\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t*$\n\010A" +
-      "nalyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001BL\n\016io." +
-      "greptime.v1B\003DdlZ5github.com/GreptimeTea" +
-      "m/greptime-proto/go/greptime/v1b\006proto3"
+      "able_name\030\001 \001(\t\"\204\001\n\tAddColumn\022*\n\ncolumn_" +
+      "def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010loc" +
+      "ation\030\003 \001(\0132\036.greptime.v1.AddColumnLocat" +
+      "ion\022\031\n\021add_if_not_exists\030\004 \001(\010\"\236\001\n\020Modif" +
+      "yColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013targ" +
+      "et_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy" +
+      "pe\022C\n\025target_type_extension\030\003 \001(\0132$.grep" +
+      "time.v1.ColumnDataTypeExtension\"$\n\006Optio" +
+      "n\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetTabl" +
+      "eOptions\022*\n\rtable_options\030\001 \003(\0132\023.grepti" +
+      "me.v1.Option\"!\n\021UnsetTableOptions\022\014\n\004key" +
+      "s\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007T" +
+      "ableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r" +
+      "\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_typ" +
+      "e\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013" +
+      "is_nullable\030\003 \001(\010\022\032\n\022default_constraint\030" +
+      "\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime." +
+      "v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022data" +
+      "type_extension\030\007 \001(\0132$.greptime.v1.Colum" +
+      "nDataTypeExtension\022+\n\007options\030\010 \001(\0132\032.gr" +
+      "eptime.v1.ColumnOptions\"\230\001\n\021AddColumnLoc" +
+      "ation\022B\n\rlocation_type\030\001 \001(\0162+.greptime." +
+      "v1.AddColumnLocation.LocationType\022\031\n\021aft" +
+      "er_column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005" +
+      "FIRST\020\000\022\t\n\005AFTER\020\001\"y\n\021SetColumnFulltext\022" +
+      "\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010" +
+      "analyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n" +
+      "\016case_sensitive\030\004 \001(\010\"*\n\023UnsetColumnFull" +
+      "text\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterDatab" +
+      "aseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
+      "name\030\002 \001(\t\022?\n\024set_database_options\030\003 \001(\013" +
+      "2\037.greptime.v1.SetDatabaseOptionsH\000\022C\n\026u" +
+      "nset_database_options\030\004 \001(\0132!.greptime.v" +
+      "1.UnsetDatabaseOptionsH\000B\006\n\004kind\"G\n\022SetD" +
+      "atabaseOptions\0221\n\024set_database_options\030\001" +
+      " \003(\0132\023.greptime.v1.Option\"$\n\024UnsetDataba" +
+      "seOptions\022\014\n\004keys\030\001 \003(\t*$\n\010Analyzer\022\013\n\007E" +
+      "NGLISH\020\000\022\013\n\007CHINESE\020\001BL\n\016io.greptime.v1B" +
+      "\003DdlZ5github.com/GreptimeTeam/greptime-p" +
+      "roto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -34125,7 +34197,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_AddColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumn_descriptor,
-        new java.lang.String[] { "ColumnDef", "Location", });
+        new java.lang.String[] { "ColumnDef", "Location", "AddIfNotExists", });
     internal_static_greptime_v1_ModifyColumnType_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_ModifyColumnType_fieldAccessorTable = new

@@ -4000,6 +4000,7 @@ class AddColumn final :
   enum : int {
     kColumnDefFieldNumber = 1,
     kLocationFieldNumber = 3,
+    kAddIfNotExistsFieldNumber = 4,
   };
   // .greptime.v1.ColumnDef column_def = 1;
   bool has_column_def() const;
@@ -4037,6 +4038,15 @@ class AddColumn final :
       ::greptime::v1::AddColumnLocation* location);
   ::greptime::v1::AddColumnLocation* unsafe_arena_release_location();
 
+  // bool add_if_not_exists = 4;
+  void clear_add_if_not_exists();
+  bool add_if_not_exists() const;
+  void set_add_if_not_exists(bool value);
+  private:
+  bool _internal_add_if_not_exists() const;
+  void _internal_set_add_if_not_exists(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.AddColumn)
  private:
   class _Internal;
@@ -4047,6 +4057,7 @@ class AddColumn final :
   struct Impl_ {
     ::greptime::v1::ColumnDef* column_def_;
     ::greptime::v1::AddColumnLocation* location_;
+    bool add_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -11184,6 +11195,26 @@ inline void AddColumn::set_allocated_location(::greptime::v1::AddColumnLocation*
   }
   _impl_.location_ = location;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.AddColumn.location)
+}
+
+// bool add_if_not_exists = 4;
+inline void AddColumn::clear_add_if_not_exists() {
+  _impl_.add_if_not_exists_ = false;
+}
+inline bool AddColumn::_internal_add_if_not_exists() const {
+  return _impl_.add_if_not_exists_;
+}
+inline bool AddColumn::add_if_not_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AddColumn.add_if_not_exists)
+  return _internal_add_if_not_exists();
+}
+inline void AddColumn::_internal_set_add_if_not_exists(bool value) {
+  
+  _impl_.add_if_not_exists_ = value;
+}
+inline void AddColumn::set_add_if_not_exists(bool value) {
+  _internal_set_add_if_not_exists(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.AddColumn.add_if_not_exists)
 }
 
 // -------------------------------------------------------------------

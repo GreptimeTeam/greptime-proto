@@ -306,6 +306,7 @@ PROTOBUF_CONSTEXPR AddColumn::AddColumn(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.column_def_)*/nullptr
   , /*decltype(_impl_.location_)*/nullptr
+  , /*decltype(_impl_.add_if_not_exists_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct AddColumnDefaultTypeInternal {
   PROTOBUF_CONSTEXPR AddColumnDefaultTypeInternal()
@@ -733,6 +734,7 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn, _impl_.column_def_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn, _impl_.location_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::AddColumn, _impl_.add_if_not_exists_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ModifyColumnType, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -870,20 +872,20 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 189, -1, -1, sizeof(::greptime::v1::ModifyColumnTypes)},
   { 196, -1, -1, sizeof(::greptime::v1::RenameTable)},
   { 203, -1, -1, sizeof(::greptime::v1::AddColumn)},
-  { 211, -1, -1, sizeof(::greptime::v1::ModifyColumnType)},
-  { 220, -1, -1, sizeof(::greptime::v1::Option)},
-  { 228, -1, -1, sizeof(::greptime::v1::SetTableOptions)},
-  { 235, -1, -1, sizeof(::greptime::v1::UnsetTableOptions)},
-  { 242, -1, -1, sizeof(::greptime::v1::DropColumn)},
-  { 249, -1, -1, sizeof(::greptime::v1::TableId)},
-  { 256, -1, -1, sizeof(::greptime::v1::FlowId)},
-  { 263, -1, -1, sizeof(::greptime::v1::ColumnDef)},
-  { 277, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
-  { 285, -1, -1, sizeof(::greptime::v1::SetColumnFulltext)},
-  { 295, -1, -1, sizeof(::greptime::v1::UnsetColumnFulltext)},
-  { 302, -1, -1, sizeof(::greptime::v1::AlterDatabaseExpr)},
-  { 313, -1, -1, sizeof(::greptime::v1::SetDatabaseOptions)},
-  { 320, -1, -1, sizeof(::greptime::v1::UnsetDatabaseOptions)},
+  { 212, -1, -1, sizeof(::greptime::v1::ModifyColumnType)},
+  { 221, -1, -1, sizeof(::greptime::v1::Option)},
+  { 229, -1, -1, sizeof(::greptime::v1::SetTableOptions)},
+  { 236, -1, -1, sizeof(::greptime::v1::UnsetTableOptions)},
+  { 243, -1, -1, sizeof(::greptime::v1::DropColumn)},
+  { 250, -1, -1, sizeof(::greptime::v1::TableId)},
+  { 257, -1, -1, sizeof(::greptime::v1::FlowId)},
+  { 264, -1, -1, sizeof(::greptime::v1::ColumnDef)},
+  { 278, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
+  { 286, -1, -1, sizeof(::greptime::v1::SetColumnFulltext)},
+  { 296, -1, -1, sizeof(::greptime::v1::UnsetColumnFulltext)},
+  { 303, -1, -1, sizeof(::greptime::v1::AlterDatabaseExpr)},
+  { 314, -1, -1, sizeof(::greptime::v1::SetDatabaseOptions)},
+  { 321, -1, -1, sizeof(::greptime::v1::UnsetDatabaseOptions)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1005,52 +1007,53 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "e.v1.DropColumn\"O\n\021ModifyColumnTypes\022:\n\023"
   "modify_column_types\030\001 \003(\0132\035.greptime.v1."
   "ModifyColumnType\"%\n\013RenameTable\022\026\n\016new_t"
-  "able_name\030\001 \001(\t\"i\n\tAddColumn\022*\n\ncolumn_d"
-  "ef\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010loca"
-  "tion\030\003 \001(\0132\036.greptime.v1.AddColumnLocati"
-  "on\"\236\001\n\020ModifyColumnType\022\023\n\013column_name\030\001"
-  " \001(\t\0220\n\013target_type\030\002 \001(\0162\033.greptime.v1."
-  "ColumnDataType\022C\n\025target_type_extension\030"
-  "\003 \001(\0132$.greptime.v1.ColumnDataTypeExtens"
-  "ion\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001("
-  "\t\"=\n\017SetTableOptions\022*\n\rtable_options\030\001 "
-  "\003(\0132\023.greptime.v1.Option\"!\n\021UnsetTableOp"
-  "tions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004nam"
-  "e\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId"
-  "\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t"
-  "\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1.Column"
-  "DataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default"
-  "_constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\016"
-  "2\031.greptime.v1.SemanticType\022\017\n\007comment\030\006"
-  " \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grept"
-  "ime.v1.ColumnDataTypeExtension\022+\n\007option"
-  "s\030\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021"
-  "AddColumnLocation\022B\n\rlocation_type\030\001 \001(\016"
-  "2+.greptime.v1.AddColumnLocation.Locatio"
-  "nType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Loca"
-  "tionType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"y\n\021SetCol"
-  "umnFulltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enab"
-  "le\030\002 \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1"
-  ".Analyzer\022\026\n\016case_sensitive\030\004 \001(\010\"*\n\023Uns"
-  "etColumnFulltext\022\023\n\013column_name\030\001 \001(\t\"\314\001"
-  "\n\021AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001("
-  "\t\022\023\n\013schema_name\030\002 \001(\t\022\?\n\024set_database_o"
-  "ptions\030\003 \001(\0132\037.greptime.v1.SetDatabaseOp"
-  "tionsH\000\022C\n\026unset_database_options\030\004 \001(\0132"
-  "!.greptime.v1.UnsetDatabaseOptionsH\000B\006\n\004"
-  "kind\"G\n\022SetDatabaseOptions\0221\n\024set_databa"
-  "se_options\030\001 \003(\0132\023.greptime.v1.Option\"$\n"
-  "\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t*$\n\010A"
-  "nalyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001BL\n\016io."
-  "greptime.v1B\003DdlZ5github.com/GreptimeTea"
-  "m/greptime-proto/go/greptime/v1b\006proto3"
+  "able_name\030\001 \001(\t\"\204\001\n\tAddColumn\022*\n\ncolumn_"
+  "def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010loc"
+  "ation\030\003 \001(\0132\036.greptime.v1.AddColumnLocat"
+  "ion\022\031\n\021add_if_not_exists\030\004 \001(\010\"\236\001\n\020Modif"
+  "yColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013targ"
+  "et_type\030\002 \001(\0162\033.greptime.v1.ColumnDataTy"
+  "pe\022C\n\025target_type_extension\030\003 \001(\0132$.grep"
+  "time.v1.ColumnDataTypeExtension\"$\n\006Optio"
+  "n\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetTabl"
+  "eOptions\022*\n\rtable_options\030\001 \003(\0132\023.grepti"
+  "me.v1.Option\"!\n\021UnsetTableOptions\022\014\n\004key"
+  "s\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007T"
+  "ableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r"
+  "\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_typ"
+  "e\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013"
+  "is_nullable\030\003 \001(\010\022\032\n\022default_constraint\030"
+  "\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime."
+  "v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022data"
+  "type_extension\030\007 \001(\0132$.greptime.v1.Colum"
+  "nDataTypeExtension\022+\n\007options\030\010 \001(\0132\032.gr"
+  "eptime.v1.ColumnOptions\"\230\001\n\021AddColumnLoc"
+  "ation\022B\n\rlocation_type\030\001 \001(\0162+.greptime."
+  "v1.AddColumnLocation.LocationType\022\031\n\021aft"
+  "er_column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005"
+  "FIRST\020\000\022\t\n\005AFTER\020\001\"y\n\021SetColumnFulltext\022"
+  "\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010"
+  "analyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n"
+  "\016case_sensitive\030\004 \001(\010\"*\n\023UnsetColumnFull"
+  "text\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterDatab"
+  "aseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_"
+  "name\030\002 \001(\t\022\?\n\024set_database_options\030\003 \001(\013"
+  "2\037.greptime.v1.SetDatabaseOptionsH\000\022C\n\026u"
+  "nset_database_options\030\004 \001(\0132!.greptime.v"
+  "1.UnsetDatabaseOptionsH\000B\006\n\004kind\"G\n\022SetD"
+  "atabaseOptions\0221\n\024set_database_options\030\001"
+  " \003(\0132\023.greptime.v1.Option\"$\n\024UnsetDataba"
+  "seOptions\022\014\n\004keys\030\001 \003(\t*$\n\010Analyzer\022\013\n\007E"
+  "NGLISH\020\000\022\013\n\007CHINESE\020\001BL\n\016io.greptime.v1B"
+  "\003DdlZ5github.com/GreptimeTeam/greptime-p"
+  "roto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 4839, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 4867, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
     &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 33,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
@@ -7406,6 +7409,7 @@ AddColumn::AddColumn(const AddColumn& from)
   new (&_impl_) Impl_{
       decltype(_impl_.column_def_){nullptr}
     , decltype(_impl_.location_){nullptr}
+    , decltype(_impl_.add_if_not_exists_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -7415,6 +7419,7 @@ AddColumn::AddColumn(const AddColumn& from)
   if (from._internal_has_location()) {
     _this->_impl_.location_ = new ::greptime::v1::AddColumnLocation(*from._impl_.location_);
   }
+  _this->_impl_.add_if_not_exists_ = from._impl_.add_if_not_exists_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.AddColumn)
 }
 
@@ -7425,6 +7430,7 @@ inline void AddColumn::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.column_def_){nullptr}
     , decltype(_impl_.location_){nullptr}
+    , decltype(_impl_.add_if_not_exists_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -7462,6 +7468,7 @@ void AddColumn::Clear() {
     delete _impl_.location_;
   }
   _impl_.location_ = nullptr;
+  _impl_.add_if_not_exists_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -7483,6 +7490,14 @@ const char* AddColumn::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_location(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool add_if_not_exists = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.add_if_not_exists_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -7530,6 +7545,12 @@ uint8_t* AddColumn::_InternalSerialize(
         _Internal::location(this).GetCachedSize(), target, stream);
   }
 
+  // bool add_if_not_exists = 4;
+  if (this->_internal_add_if_not_exists() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_add_if_not_exists(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -7560,6 +7581,11 @@ size_t AddColumn::ByteSizeLong() const {
         *_impl_.location_);
   }
 
+  // bool add_if_not_exists = 4;
+  if (this->_internal_add_if_not_exists() != 0) {
+    total_size += 1 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -7586,6 +7612,9 @@ void AddColumn::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
     _this->_internal_mutable_location()->::greptime::v1::AddColumnLocation::MergeFrom(
         from._internal_location());
   }
+  if (from._internal_add_if_not_exists() != 0) {
+    _this->_internal_set_add_if_not_exists(from._internal_add_if_not_exists());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -7604,8 +7633,8 @@ void AddColumn::InternalSwap(AddColumn* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(AddColumn, _impl_.location_)
-      + sizeof(AddColumn::_impl_.location_)
+      PROTOBUF_FIELD_OFFSET(AddColumn, _impl_.add_if_not_exists_)
+      + sizeof(AddColumn::_impl_.add_if_not_exists_)
       - PROTOBUF_FIELD_OFFSET(AddColumn, _impl_.column_def_)>(
           reinterpret_cast<char*>(&_impl_.column_def_),
           reinterpret_cast<char*>(&other->_impl_.column_def_));
