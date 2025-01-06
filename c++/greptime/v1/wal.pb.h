@@ -88,6 +88,31 @@ inline bool OpType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<OpType>(
     OpType_descriptor(), name, value);
 }
+enum PrimaryKeyEncoding : int {
+  FULL = 0,
+  SPARSE = 1,
+  PrimaryKeyEncoding_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  PrimaryKeyEncoding_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool PrimaryKeyEncoding_IsValid(int value);
+constexpr PrimaryKeyEncoding PrimaryKeyEncoding_MIN = FULL;
+constexpr PrimaryKeyEncoding PrimaryKeyEncoding_MAX = SPARSE;
+constexpr int PrimaryKeyEncoding_ARRAYSIZE = PrimaryKeyEncoding_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PrimaryKeyEncoding_descriptor();
+template<typename T>
+inline const std::string& PrimaryKeyEncoding_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, PrimaryKeyEncoding>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function PrimaryKeyEncoding_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    PrimaryKeyEncoding_descriptor(), enum_t_value);
+}
+inline bool PrimaryKeyEncoding_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PrimaryKeyEncoding* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<PrimaryKeyEncoding>(
+    PrimaryKeyEncoding_descriptor(), name, value);
+}
 // ===================================================================
 
 class Mutation final :
@@ -214,6 +239,7 @@ class Mutation final :
     kRowsFieldNumber = 3,
     kSequenceFieldNumber = 2,
     kOpTypeFieldNumber = 1,
+    kPrimaryKeyEncodingFieldNumber = 4,
   };
   // .greptime.v1.Rows rows = 3;
   bool has_rows() const;
@@ -251,6 +277,15 @@ class Mutation final :
   void _internal_set_op_type(::greptime::v1::OpType value);
   public:
 
+  // .greptime.v1.PrimaryKeyEncoding primary_key_encoding = 4;
+  void clear_primary_key_encoding();
+  ::greptime::v1::PrimaryKeyEncoding primary_key_encoding() const;
+  void set_primary_key_encoding(::greptime::v1::PrimaryKeyEncoding value);
+  private:
+  ::greptime::v1::PrimaryKeyEncoding _internal_primary_key_encoding() const;
+  void _internal_set_primary_key_encoding(::greptime::v1::PrimaryKeyEncoding value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.Mutation)
  private:
   class _Internal;
@@ -262,6 +297,7 @@ class Mutation final :
     ::greptime::v1::Rows* rows_;
     uint64_t sequence_;
     int op_type_;
+    int primary_key_encoding_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -560,6 +596,26 @@ inline void Mutation::set_allocated_rows(::greptime::v1::Rows* rows) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Mutation.rows)
 }
 
+// .greptime.v1.PrimaryKeyEncoding primary_key_encoding = 4;
+inline void Mutation::clear_primary_key_encoding() {
+  _impl_.primary_key_encoding_ = 0;
+}
+inline ::greptime::v1::PrimaryKeyEncoding Mutation::_internal_primary_key_encoding() const {
+  return static_cast< ::greptime::v1::PrimaryKeyEncoding >(_impl_.primary_key_encoding_);
+}
+inline ::greptime::v1::PrimaryKeyEncoding Mutation::primary_key_encoding() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Mutation.primary_key_encoding)
+  return _internal_primary_key_encoding();
+}
+inline void Mutation::_internal_set_primary_key_encoding(::greptime::v1::PrimaryKeyEncoding value) {
+  
+  _impl_.primary_key_encoding_ = value;
+}
+inline void Mutation::set_primary_key_encoding(::greptime::v1::PrimaryKeyEncoding value) {
+  _internal_set_primary_key_encoding(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Mutation.primary_key_encoding)
+}
+
 // -------------------------------------------------------------------
 
 // WalEntry
@@ -621,6 +677,11 @@ template <> struct is_proto_enum< ::greptime::v1::OpType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::OpType>() {
   return ::greptime::v1::OpType_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::PrimaryKeyEncoding> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::PrimaryKeyEncoding>() {
+  return ::greptime::v1::PrimaryKeyEncoding_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
