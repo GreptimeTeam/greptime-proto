@@ -26,6 +26,7 @@ PROTOBUF_CONSTEXPR Mutation::Mutation(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.rows_)*/nullptr
   , /*decltype(_impl_.sequence_)*/uint64_t{0u}
+  , /*decltype(_impl_.write_hint_)*/uint64_t{0u}
   , /*decltype(_impl_.op_type_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MutationDefaultTypeInternal {
@@ -66,6 +67,7 @@ const uint32_t TableStruct_greptime_2fv1_2fwal_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Mutation, _impl_.op_type_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Mutation, _impl_.sequence_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Mutation, _impl_.rows_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Mutation, _impl_.write_hint_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::WalEntry, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -76,7 +78,7 @@ const uint32_t TableStruct_greptime_2fv1_2fwal_2eproto::offsets[] PROTOBUF_SECTI
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::Mutation)},
-  { 9, -1, -1, sizeof(::greptime::v1::WalEntry)},
+  { 10, -1, -1, sizeof(::greptime::v1::WalEntry)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -86,20 +88,21 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fwal_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\025gr"
-  "eptime/v1/row.proto\"c\n\010Mutation\022$\n\007op_ty"
+  "eptime/v1/row.proto\"w\n\010Mutation\022$\n\007op_ty"
   "pe\030\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010sequenc"
   "e\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Rows"
-  "\"4\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grepti"
-  "me.v1.Mutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003"
-  "PUT\020\001B7Z5github.com/GreptimeTeam/greptim"
-  "e-proto/go/greptime/v1b\006proto3"
+  "\022\022\n\nwrite_hint\030\004 \001(\004\"4\n\010WalEntry\022(\n\tmuta"
+  "tions\030\001 \003(\0132\025.greptime.v1.Mutation*\035\n\006Op"
+  "Type\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001B7Z5github.com/"
+  "GreptimeTeam/greptime-proto/go/greptime/"
+  "v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fwal_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2frow_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fwal_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fwal_2eproto = {
-    false, false, 310, descriptor_table_protodef_greptime_2fv1_2fwal_2eproto,
+    false, false, 330, descriptor_table_protodef_greptime_2fv1_2fwal_2eproto,
     "greptime/v1/wal.proto",
     &descriptor_table_greptime_2fv1_2fwal_2eproto_once, descriptor_table_greptime_2fv1_2fwal_2eproto_deps, 1, 2,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fwal_2eproto::offsets,
@@ -158,6 +161,7 @@ Mutation::Mutation(const Mutation& from)
   new (&_impl_) Impl_{
       decltype(_impl_.rows_){nullptr}
     , decltype(_impl_.sequence_){}
+    , decltype(_impl_.write_hint_){}
     , decltype(_impl_.op_type_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -178,6 +182,7 @@ inline void Mutation::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.rows_){nullptr}
     , decltype(_impl_.sequence_){uint64_t{0u}}
+    , decltype(_impl_.write_hint_){uint64_t{0u}}
     , decltype(_impl_.op_type_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -248,6 +253,14 @@ const char* Mutation::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
         } else
           goto handle_unusual;
         continue;
+      // uint64 write_hint = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.write_hint_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -297,6 +310,12 @@ uint8_t* Mutation::_InternalSerialize(
         _Internal::rows(this).GetCachedSize(), target, stream);
   }
 
+  // uint64 write_hint = 4;
+  if (this->_internal_write_hint() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_write_hint(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -323,6 +342,11 @@ size_t Mutation::ByteSizeLong() const {
   // uint64 sequence = 2;
   if (this->_internal_sequence() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_sequence());
+  }
+
+  // uint64 write_hint = 4;
+  if (this->_internal_write_hint() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_write_hint());
   }
 
   // .greptime.v1.OpType op_type = 1;
@@ -355,6 +379,9 @@ void Mutation::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTO
   }
   if (from._internal_sequence() != 0) {
     _this->_internal_set_sequence(from._internal_sequence());
+  }
+  if (from._internal_write_hint() != 0) {
+    _this->_internal_set_write_hint(from._internal_write_hint());
   }
   if (from._internal_op_type() != 0) {
     _this->_internal_set_op_type(from._internal_op_type());

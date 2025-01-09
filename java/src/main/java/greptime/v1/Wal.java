@@ -201,6 +201,16 @@ public final class Wal {
      * <code>.greptime.v1.Rows rows = 3;</code>
      */
     io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder();
+
+    /**
+     * <pre>
+     * Write hint of the mutation.
+     * </pre>
+     *
+     * <code>uint64 write_hint = 4;</code>
+     * @return The writeHint.
+     */
+    long getWriteHint();
   }
   /**
    * <pre>
@@ -274,6 +284,11 @@ public final class Wal {
                 rows_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 32: {
+
+              writeHint_ = input.readUInt64();
               break;
             }
             default: {
@@ -390,6 +405,21 @@ public final class Wal {
       return getRows();
     }
 
+    public static final int WRITE_HINT_FIELD_NUMBER = 4;
+    private long writeHint_;
+    /**
+     * <pre>
+     * Write hint of the mutation.
+     * </pre>
+     *
+     * <code>uint64 write_hint = 4;</code>
+     * @return The writeHint.
+     */
+    @java.lang.Override
+    public long getWriteHint() {
+      return writeHint_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -413,6 +443,9 @@ public final class Wal {
       if (rows_ != null) {
         output.writeMessage(3, getRows());
       }
+      if (writeHint_ != 0L) {
+        output.writeUInt64(4, writeHint_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -433,6 +466,10 @@ public final class Wal {
       if (rows_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getRows());
+      }
+      if (writeHint_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, writeHint_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -457,6 +494,8 @@ public final class Wal {
         if (!getRows()
             .equals(other.getRows())) return false;
       }
+      if (getWriteHint()
+          != other.getWriteHint()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -477,6 +516,9 @@ public final class Wal {
         hash = (37 * hash) + ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getRows().hashCode();
       }
+      hash = (37 * hash) + WRITE_HINT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getWriteHint());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -624,6 +666,8 @@ public final class Wal {
           rows_ = null;
           rowsBuilder_ = null;
         }
+        writeHint_ = 0L;
+
         return this;
       }
 
@@ -657,6 +701,7 @@ public final class Wal {
         } else {
           result.rows_ = rowsBuilder_.build();
         }
+        result.writeHint_ = writeHint_;
         onBuilt();
         return result;
       }
@@ -713,6 +758,9 @@ public final class Wal {
         }
         if (other.hasRows()) {
           mergeRows(other.getRows());
+        }
+        if (other.getWriteHint() != 0L) {
+          setWriteHint(other.getWriteHint());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1013,6 +1061,49 @@ public final class Wal {
           rows_ = null;
         }
         return rowsBuilder_;
+      }
+
+      private long writeHint_ ;
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>uint64 write_hint = 4;</code>
+       * @return The writeHint.
+       */
+      @java.lang.Override
+      public long getWriteHint() {
+        return writeHint_;
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>uint64 write_hint = 4;</code>
+       * @param value The writeHint to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWriteHint(long value) {
+        
+        writeHint_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>uint64 write_hint = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWriteHint() {
+        
+        writeHint_ = 0L;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2002,13 +2093,14 @@ public final class Wal {
   static {
     java.lang.String[] descriptorData = {
       "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\025gr" +
-      "eptime/v1/row.proto\"c\n\010Mutation\022$\n\007op_ty" +
+      "eptime/v1/row.proto\"w\n\010Mutation\022$\n\007op_ty" +
       "pe\030\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010sequenc" +
       "e\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Rows" +
-      "\"4\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grepti" +
-      "me.v1.Mutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003" +
-      "PUT\020\001B7Z5github.com/GreptimeTeam/greptim" +
-      "e-proto/go/greptime/v1b\006proto3"
+      "\022\022\n\nwrite_hint\030\004 \001(\004\"4\n\010WalEntry\022(\n\tmuta" +
+      "tions\030\001 \003(\0132\025.greptime.v1.Mutation*\035\n\006Op" +
+      "Type\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001B7Z5github.com/" +
+      "GreptimeTeam/greptime-proto/go/greptime/" +
+      "v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2020,7 +2112,7 @@ public final class Wal {
     internal_static_greptime_v1_Mutation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Mutation_descriptor,
-        new java.lang.String[] { "OpType", "Sequence", "Rows", });
+        new java.lang.String[] { "OpType", "Sequence", "Rows", "WriteHint", });
     internal_static_greptime_v1_WalEntry_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_WalEntry_fieldAccessorTable = new

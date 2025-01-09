@@ -36,6 +36,8 @@ message Mutation {
   uint64 sequence = 2;
   // Row updates to write to the WAL.
   Rows rows = 3;
+  // Write hint of the mutation.
+  uint64 write_hint = 4;
 }
 
 // A WAL entry contains a list of mutations for a region to write.

@@ -213,6 +213,7 @@ class Mutation final :
   enum : int {
     kRowsFieldNumber = 3,
     kSequenceFieldNumber = 2,
+    kWriteHintFieldNumber = 4,
     kOpTypeFieldNumber = 1,
   };
   // .greptime.v1.Rows rows = 3;
@@ -242,6 +243,15 @@ class Mutation final :
   void _internal_set_sequence(uint64_t value);
   public:
 
+  // uint64 write_hint = 4;
+  void clear_write_hint();
+  uint64_t write_hint() const;
+  void set_write_hint(uint64_t value);
+  private:
+  uint64_t _internal_write_hint() const;
+  void _internal_set_write_hint(uint64_t value);
+  public:
+
   // .greptime.v1.OpType op_type = 1;
   void clear_op_type();
   ::greptime::v1::OpType op_type() const;
@@ -261,6 +271,7 @@ class Mutation final :
   struct Impl_ {
     ::greptime::v1::Rows* rows_;
     uint64_t sequence_;
+    uint64_t write_hint_;
     int op_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -558,6 +569,26 @@ inline void Mutation::set_allocated_rows(::greptime::v1::Rows* rows) {
   }
   _impl_.rows_ = rows;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Mutation.rows)
+}
+
+// uint64 write_hint = 4;
+inline void Mutation::clear_write_hint() {
+  _impl_.write_hint_ = uint64_t{0u};
+}
+inline uint64_t Mutation::_internal_write_hint() const {
+  return _impl_.write_hint_;
+}
+inline uint64_t Mutation::write_hint() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Mutation.write_hint)
+  return _internal_write_hint();
+}
+inline void Mutation::_internal_set_write_hint(uint64_t value) {
+  
+  _impl_.write_hint_ = value;
+}
+inline void Mutation::set_write_hint(uint64_t value) {
+  _internal_set_write_hint(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Mutation.write_hint)
 }
 
 // -------------------------------------------------------------------
