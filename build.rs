@@ -43,6 +43,7 @@ fn main() {
                 "proto/greptime/v1/meta/procedure.proto",
                 "proto/greptime/v1/region/server.proto",
                 "proto/greptime/v1/flow/server.proto",
+                "proto/greptime/v1/index/bloom_filter.proto",
                 "proto/greptime/v1/index/inverted_index.proto",
                 "proto/prometheus/remote/remote.proto",
                 "proto/substrait_extension/promql_plan.proto",

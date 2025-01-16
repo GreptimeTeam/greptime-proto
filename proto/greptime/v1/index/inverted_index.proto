@@ -16,8 +16,6 @@ syntax = "proto3";
 
 package greptime.v1.index;
 
-option java_package = "io.greptime.v1.index";
-option java_outer_classname = "Index";
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/index";
 
 // InvertedIndexMetas defines the metadata for an inverted index
