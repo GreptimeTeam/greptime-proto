@@ -167,14 +167,13 @@ const char descriptor_table_protodef_greptime_2fv1_2findex_2finverted_5findex_2e
   "4\n\005stats\030\010 \001(\0132%.greptime.v1.index.Inver"
   "tedIndexStats\"f\n\022InvertedIndexStats\022\022\n\nn"
   "ull_count\030\001 \001(\004\022\026\n\016distinct_count\030\002 \001(\004\022"
-  "\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax_value\030\004 \001(\014BZ\n"
-  "\024io.greptime.v1.indexB\005IndexZ;github.com"
-  "/GreptimeTeam/greptime-proto/go/greptime"
-  "/v1/indexb\006proto3"
+  "\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax_value\030\004 \001(\014B=Z"
+  ";github.com/GreptimeTeam/greptime-proto/"
+  "go/greptime/v1/indexb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto = {
-    false, false, 737, descriptor_table_protodef_greptime_2fv1_2findex_2finverted_5findex_2eproto,
+    false, false, 708, descriptor_table_protodef_greptime_2fv1_2findex_2finverted_5findex_2eproto,
     "greptime/v1/index/inverted_index.proto",
     &descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto_once, nullptr, 0, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2findex_2finverted_5findex_2eproto::offsets,
