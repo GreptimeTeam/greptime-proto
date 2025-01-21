@@ -39,6 +39,14 @@ public final class Wal {
      * <code>PUT = 1;</code>
      */
     PUT(1),
+    /**
+     * <pre>
+     * Notify manifest changes.
+     * </pre>
+     *
+     * <code>NOTIFY = 2;</code>
+     */
+    NOTIFY(2),
     UNRECOGNIZED(-1),
     ;
 
@@ -58,6 +66,14 @@ public final class Wal {
      * <code>PUT = 1;</code>
      */
     public static final int PUT_VALUE = 1;
+    /**
+     * <pre>
+     * Notify manifest changes.
+     * </pre>
+     *
+     * <code>NOTIFY = 2;</code>
+     */
+    public static final int NOTIFY_VALUE = 2;
 
 
     public final int getNumber() {
@@ -86,6 +102,7 @@ public final class Wal {
       switch (value) {
         case 0: return DELETE;
         case 1: return PUT;
+        case 2: return NOTIFY;
         default: return null;
       }
     }
@@ -140,6 +157,505 @@ public final class Wal {
     }
 
     // @@protoc_insertion_point(enum_scope:greptime.v1.OpType)
+  }
+
+  public interface ManifestNotificationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.ManifestNotification)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 version = 1;</code>
+     * @return The version.
+     */
+    long getVersion();
+  }
+  /**
+   * <pre>
+   * The manfeist notification content.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.ManifestNotification}
+   */
+  public static final class ManifestNotification extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.ManifestNotification)
+      ManifestNotificationOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ManifestNotification.newBuilder() to construct.
+    private ManifestNotification(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ManifestNotification() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ManifestNotification();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ManifestNotification(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              version_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.Wal.internal_static_greptime_v1_ManifestNotification_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.Wal.internal_static_greptime_v1_ManifestNotification_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.Wal.ManifestNotification.class, greptime.v1.Wal.ManifestNotification.Builder.class);
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 1;
+    private long version_;
+    /**
+     * <code>uint64 version = 1;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public long getVersion() {
+      return version_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (version_ != 0L) {
+        output.writeUInt64(1, version_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (version_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, version_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.Wal.ManifestNotification)) {
+        return super.equals(obj);
+      }
+      greptime.v1.Wal.ManifestNotification other = (greptime.v1.Wal.ManifestNotification) obj;
+
+      if (getVersion()
+          != other.getVersion()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getVersion());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.Wal.ManifestNotification parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.Wal.ManifestNotification parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.Wal.ManifestNotification prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The manfeist notification content.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.ManifestNotification}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.ManifestNotification)
+        greptime.v1.Wal.ManifestNotificationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.Wal.internal_static_greptime_v1_ManifestNotification_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.Wal.internal_static_greptime_v1_ManifestNotification_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.Wal.ManifestNotification.class, greptime.v1.Wal.ManifestNotification.Builder.class);
+      }
+
+      // Construct using greptime.v1.Wal.ManifestNotification.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        version_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.Wal.internal_static_greptime_v1_ManifestNotification_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.Wal.ManifestNotification getDefaultInstanceForType() {
+        return greptime.v1.Wal.ManifestNotification.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.Wal.ManifestNotification build() {
+        greptime.v1.Wal.ManifestNotification result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.Wal.ManifestNotification buildPartial() {
+        greptime.v1.Wal.ManifestNotification result = new greptime.v1.Wal.ManifestNotification(this);
+        result.version_ = version_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.Wal.ManifestNotification) {
+          return mergeFrom((greptime.v1.Wal.ManifestNotification)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.Wal.ManifestNotification other) {
+        if (other == greptime.v1.Wal.ManifestNotification.getDefaultInstance()) return this;
+        if (other.getVersion() != 0L) {
+          setVersion(other.getVersion());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.Wal.ManifestNotification parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.Wal.ManifestNotification) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long version_ ;
+      /**
+       * <code>uint64 version = 1;</code>
+       * @return The version.
+       */
+      @java.lang.Override
+      public long getVersion() {
+        return version_;
+      }
+      /**
+       * <code>uint64 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(long value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 version = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.ManifestNotification)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.ManifestNotification)
+    private static final greptime.v1.Wal.ManifestNotification DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.Wal.ManifestNotification();
+    }
+
+    public static greptime.v1.Wal.ManifestNotification getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ManifestNotification>
+        PARSER = new com.google.protobuf.AbstractParser<ManifestNotification>() {
+      @java.lang.Override
+      public ManifestNotification parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ManifestNotification(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ManifestNotification> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ManifestNotification> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.Wal.ManifestNotification getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface MutationOrBuilder extends
@@ -201,6 +717,33 @@ public final class Wal {
      * <code>.greptime.v1.Rows rows = 3;</code>
      */
     io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder();
+
+    /**
+     * <pre>
+     * The manifest change notification
+     * </pre>
+     *
+     * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+     * @return Whether the manifestNotification field is set.
+     */
+    boolean hasManifestNotification();
+    /**
+     * <pre>
+     * The manifest change notification
+     * </pre>
+     *
+     * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+     * @return The manifestNotification.
+     */
+    greptime.v1.Wal.ManifestNotification getManifestNotification();
+    /**
+     * <pre>
+     * The manifest change notification
+     * </pre>
+     *
+     * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+     */
+    greptime.v1.Wal.ManifestNotificationOrBuilder getManifestNotificationOrBuilder();
   }
   /**
    * <pre>
@@ -272,6 +815,19 @@ public final class Wal {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(rows_);
                 rows_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              greptime.v1.Wal.ManifestNotification.Builder subBuilder = null;
+              if (manifestNotification_ != null) {
+                subBuilder = manifestNotification_.toBuilder();
+              }
+              manifestNotification_ = input.readMessage(greptime.v1.Wal.ManifestNotification.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(manifestNotification_);
+                manifestNotification_ = subBuilder.buildPartial();
               }
 
               break;
@@ -390,6 +946,44 @@ public final class Wal {
       return getRows();
     }
 
+    public static final int MANIFEST_NOTIFICATION_FIELD_NUMBER = 4;
+    private greptime.v1.Wal.ManifestNotification manifestNotification_;
+    /**
+     * <pre>
+     * The manifest change notification
+     * </pre>
+     *
+     * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+     * @return Whether the manifestNotification field is set.
+     */
+    @java.lang.Override
+    public boolean hasManifestNotification() {
+      return manifestNotification_ != null;
+    }
+    /**
+     * <pre>
+     * The manifest change notification
+     * </pre>
+     *
+     * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+     * @return The manifestNotification.
+     */
+    @java.lang.Override
+    public greptime.v1.Wal.ManifestNotification getManifestNotification() {
+      return manifestNotification_ == null ? greptime.v1.Wal.ManifestNotification.getDefaultInstance() : manifestNotification_;
+    }
+    /**
+     * <pre>
+     * The manifest change notification
+     * </pre>
+     *
+     * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.Wal.ManifestNotificationOrBuilder getManifestNotificationOrBuilder() {
+      return getManifestNotification();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -413,6 +1007,9 @@ public final class Wal {
       if (rows_ != null) {
         output.writeMessage(3, getRows());
       }
+      if (manifestNotification_ != null) {
+        output.writeMessage(4, getManifestNotification());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -433,6 +1030,10 @@ public final class Wal {
       if (rows_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getRows());
+      }
+      if (manifestNotification_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getManifestNotification());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -457,6 +1058,11 @@ public final class Wal {
         if (!getRows()
             .equals(other.getRows())) return false;
       }
+      if (hasManifestNotification() != other.hasManifestNotification()) return false;
+      if (hasManifestNotification()) {
+        if (!getManifestNotification()
+            .equals(other.getManifestNotification())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -476,6 +1082,10 @@ public final class Wal {
       if (hasRows()) {
         hash = (37 * hash) + ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getRows().hashCode();
+      }
+      if (hasManifestNotification()) {
+        hash = (37 * hash) + MANIFEST_NOTIFICATION_FIELD_NUMBER;
+        hash = (53 * hash) + getManifestNotification().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -624,6 +1234,12 @@ public final class Wal {
           rows_ = null;
           rowsBuilder_ = null;
         }
+        if (manifestNotificationBuilder_ == null) {
+          manifestNotification_ = null;
+        } else {
+          manifestNotification_ = null;
+          manifestNotificationBuilder_ = null;
+        }
         return this;
       }
 
@@ -656,6 +1272,11 @@ public final class Wal {
           result.rows_ = rows_;
         } else {
           result.rows_ = rowsBuilder_.build();
+        }
+        if (manifestNotificationBuilder_ == null) {
+          result.manifestNotification_ = manifestNotification_;
+        } else {
+          result.manifestNotification_ = manifestNotificationBuilder_.build();
         }
         onBuilt();
         return result;
@@ -713,6 +1334,9 @@ public final class Wal {
         }
         if (other.hasRows()) {
           mergeRows(other.getRows());
+        }
+        if (other.hasManifestNotification()) {
+          mergeManifestNotification(other.getManifestNotification());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1013,6 +1637,161 @@ public final class Wal {
           rows_ = null;
         }
         return rowsBuilder_;
+      }
+
+      private greptime.v1.Wal.ManifestNotification manifestNotification_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.Wal.ManifestNotification, greptime.v1.Wal.ManifestNotification.Builder, greptime.v1.Wal.ManifestNotificationOrBuilder> manifestNotificationBuilder_;
+      /**
+       * <pre>
+       * The manifest change notification
+       * </pre>
+       *
+       * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+       * @return Whether the manifestNotification field is set.
+       */
+      public boolean hasManifestNotification() {
+        return manifestNotificationBuilder_ != null || manifestNotification_ != null;
+      }
+      /**
+       * <pre>
+       * The manifest change notification
+       * </pre>
+       *
+       * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+       * @return The manifestNotification.
+       */
+      public greptime.v1.Wal.ManifestNotification getManifestNotification() {
+        if (manifestNotificationBuilder_ == null) {
+          return manifestNotification_ == null ? greptime.v1.Wal.ManifestNotification.getDefaultInstance() : manifestNotification_;
+        } else {
+          return manifestNotificationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The manifest change notification
+       * </pre>
+       *
+       * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+       */
+      public Builder setManifestNotification(greptime.v1.Wal.ManifestNotification value) {
+        if (manifestNotificationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          manifestNotification_ = value;
+          onChanged();
+        } else {
+          manifestNotificationBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The manifest change notification
+       * </pre>
+       *
+       * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+       */
+      public Builder setManifestNotification(
+          greptime.v1.Wal.ManifestNotification.Builder builderForValue) {
+        if (manifestNotificationBuilder_ == null) {
+          manifestNotification_ = builderForValue.build();
+          onChanged();
+        } else {
+          manifestNotificationBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The manifest change notification
+       * </pre>
+       *
+       * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+       */
+      public Builder mergeManifestNotification(greptime.v1.Wal.ManifestNotification value) {
+        if (manifestNotificationBuilder_ == null) {
+          if (manifestNotification_ != null) {
+            manifestNotification_ =
+              greptime.v1.Wal.ManifestNotification.newBuilder(manifestNotification_).mergeFrom(value).buildPartial();
+          } else {
+            manifestNotification_ = value;
+          }
+          onChanged();
+        } else {
+          manifestNotificationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The manifest change notification
+       * </pre>
+       *
+       * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+       */
+      public Builder clearManifestNotification() {
+        if (manifestNotificationBuilder_ == null) {
+          manifestNotification_ = null;
+          onChanged();
+        } else {
+          manifestNotification_ = null;
+          manifestNotificationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The manifest change notification
+       * </pre>
+       *
+       * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+       */
+      public greptime.v1.Wal.ManifestNotification.Builder getManifestNotificationBuilder() {
+        
+        onChanged();
+        return getManifestNotificationFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The manifest change notification
+       * </pre>
+       *
+       * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+       */
+      public greptime.v1.Wal.ManifestNotificationOrBuilder getManifestNotificationOrBuilder() {
+        if (manifestNotificationBuilder_ != null) {
+          return manifestNotificationBuilder_.getMessageOrBuilder();
+        } else {
+          return manifestNotification_ == null ?
+              greptime.v1.Wal.ManifestNotification.getDefaultInstance() : manifestNotification_;
+        }
+      }
+      /**
+       * <pre>
+       * The manifest change notification
+       * </pre>
+       *
+       * <code>.greptime.v1.ManifestNotification manifest_notification = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.Wal.ManifestNotification, greptime.v1.Wal.ManifestNotification.Builder, greptime.v1.Wal.ManifestNotificationOrBuilder> 
+          getManifestNotificationFieldBuilder() {
+        if (manifestNotificationBuilder_ == null) {
+          manifestNotificationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.Wal.ManifestNotification, greptime.v1.Wal.ManifestNotification.Builder, greptime.v1.Wal.ManifestNotificationOrBuilder>(
+                  getManifestNotification(),
+                  getParentForChildren(),
+                  isClean());
+          manifestNotification_ = null;
+        }
+        return manifestNotificationBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1983,6 +2762,11 @@ public final class Wal {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_ManifestNotification_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_ManifestNotification_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_Mutation_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -2002,12 +2786,15 @@ public final class Wal {
   static {
     java.lang.String[] descriptorData = {
       "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\025gr" +
-      "eptime/v1/row.proto\"c\n\010Mutation\022$\n\007op_ty" +
-      "pe\030\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010sequenc" +
-      "e\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Rows" +
-      "\"4\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grepti" +
-      "me.v1.Mutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003" +
-      "PUT\020\001B7Z5github.com/GreptimeTeam/greptim" +
+      "eptime/v1/row.proto\"\'\n\024ManifestNotificat" +
+      "ion\022\017\n\007version\030\001 \001(\004\"\245\001\n\010Mutation\022$\n\007op_" +
+      "type\030\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010seque" +
+      "nce\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Ro" +
+      "ws\022@\n\025manifest_notification\030\004 \001(\0132!.grep" +
+      "time.v1.ManifestNotification\"4\n\010WalEntry" +
+      "\022(\n\tmutations\030\001 \003(\0132\025.greptime.v1.Mutati" +
+      "on*)\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001\022\n\n\006NOT" +
+      "IFY\020\002B7Z5github.com/GreptimeTeam/greptim" +
       "e-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
@@ -2015,14 +2802,20 @@ public final class Wal {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.greptime.v1.RowData.getDescriptor(),
         });
-    internal_static_greptime_v1_Mutation_descriptor =
+    internal_static_greptime_v1_ManifestNotification_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_greptime_v1_ManifestNotification_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_ManifestNotification_descriptor,
+        new java.lang.String[] { "Version", });
+    internal_static_greptime_v1_Mutation_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_Mutation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Mutation_descriptor,
-        new java.lang.String[] { "OpType", "Sequence", "Rows", });
+        new java.lang.String[] { "OpType", "Sequence", "Rows", "ManifestNotification", });
     internal_static_greptime_v1_WalEntry_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_WalEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_WalEntry_descriptor,
