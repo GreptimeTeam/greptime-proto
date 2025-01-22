@@ -27,7 +27,7 @@ fn main() {
             "region.RegionRequest.body",
             "#[derive(strum_macros::AsRefStr)]",
         )
-        .compile(
+        .compile_protos(
             &[
                 "proto/greptime/v1/database.proto",
                 "proto/greptime/v1/health.proto",
