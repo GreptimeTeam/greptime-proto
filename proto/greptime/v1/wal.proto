@@ -28,6 +28,17 @@ enum OpType {
   PUT = 1;
 }
 
+// Encoding of primary key.
+enum PrimaryKeyEncoding {
+  DENSE = 0;
+  SPARSE = 1;
+}
+
+// Write hint of the mutation.
+message WriteHint {
+  PrimaryKeyEncoding primary_key_encoding = 1;
+}
+
 // Mutation contains updates to a set of rows.
 message Mutation {
   // Type of this mutation.
@@ -36,6 +47,8 @@ message Mutation {
   uint64 sequence = 2;
   // Row updates to write to the WAL.
   Rows rows = 3;
+  // Write hint of the mutation.
+  WriteHint write_hint = 4;
 }
 
 // A WAL entry contains a list of mutations for a region to write.

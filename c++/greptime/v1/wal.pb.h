@@ -54,11 +54,15 @@ extern MutationDefaultTypeInternal _Mutation_default_instance_;
 class WalEntry;
 struct WalEntryDefaultTypeInternal;
 extern WalEntryDefaultTypeInternal _WalEntry_default_instance_;
+class WriteHint;
+struct WriteHintDefaultTypeInternal;
+extern WriteHintDefaultTypeInternal _WriteHint_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::Mutation* Arena::CreateMaybeMessage<::greptime::v1::Mutation>(Arena*);
 template<> ::greptime::v1::WalEntry* Arena::CreateMaybeMessage<::greptime::v1::WalEntry>(Arena*);
+template<> ::greptime::v1::WriteHint* Arena::CreateMaybeMessage<::greptime::v1::WriteHint>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -88,7 +92,180 @@ inline bool OpType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<OpType>(
     OpType_descriptor(), name, value);
 }
+enum PrimaryKeyEncoding : int {
+  DENSE = 0,
+  SPARSE = 1,
+  PrimaryKeyEncoding_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  PrimaryKeyEncoding_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool PrimaryKeyEncoding_IsValid(int value);
+constexpr PrimaryKeyEncoding PrimaryKeyEncoding_MIN = DENSE;
+constexpr PrimaryKeyEncoding PrimaryKeyEncoding_MAX = SPARSE;
+constexpr int PrimaryKeyEncoding_ARRAYSIZE = PrimaryKeyEncoding_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PrimaryKeyEncoding_descriptor();
+template<typename T>
+inline const std::string& PrimaryKeyEncoding_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, PrimaryKeyEncoding>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function PrimaryKeyEncoding_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    PrimaryKeyEncoding_descriptor(), enum_t_value);
+}
+inline bool PrimaryKeyEncoding_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PrimaryKeyEncoding* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<PrimaryKeyEncoding>(
+    PrimaryKeyEncoding_descriptor(), name, value);
+}
 // ===================================================================
+
+class WriteHint final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.WriteHint) */ {
+ public:
+  inline WriteHint() : WriteHint(nullptr) {}
+  ~WriteHint() override;
+  explicit PROTOBUF_CONSTEXPR WriteHint(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  WriteHint(const WriteHint& from);
+  WriteHint(WriteHint&& from) noexcept
+    : WriteHint() {
+    *this = ::std::move(from);
+  }
+
+  inline WriteHint& operator=(const WriteHint& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline WriteHint& operator=(WriteHint&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const WriteHint& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const WriteHint* internal_default_instance() {
+    return reinterpret_cast<const WriteHint*>(
+               &_WriteHint_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(WriteHint& a, WriteHint& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(WriteHint* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(WriteHint* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  WriteHint* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<WriteHint>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const WriteHint& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const WriteHint& from) {
+    WriteHint::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(WriteHint* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.WriteHint";
+  }
+  protected:
+  explicit WriteHint(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPrimaryKeyEncodingFieldNumber = 1,
+  };
+  // .greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;
+  void clear_primary_key_encoding();
+  ::greptime::v1::PrimaryKeyEncoding primary_key_encoding() const;
+  void set_primary_key_encoding(::greptime::v1::PrimaryKeyEncoding value);
+  private:
+  ::greptime::v1::PrimaryKeyEncoding _internal_primary_key_encoding() const;
+  void _internal_set_primary_key_encoding(::greptime::v1::PrimaryKeyEncoding value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.WriteHint)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int primary_key_encoding_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fwal_2eproto;
+};
+// -------------------------------------------------------------------
 
 class Mutation final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Mutation) */ {
@@ -138,7 +315,7 @@ class Mutation final :
                &_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(Mutation& a, Mutation& b) {
     a.Swap(&b);
@@ -212,6 +389,7 @@ class Mutation final :
 
   enum : int {
     kRowsFieldNumber = 3,
+    kWriteHintFieldNumber = 4,
     kSequenceFieldNumber = 2,
     kOpTypeFieldNumber = 1,
   };
@@ -232,6 +410,24 @@ class Mutation final :
   void unsafe_arena_set_allocated_rows(
       ::greptime::v1::Rows* rows);
   ::greptime::v1::Rows* unsafe_arena_release_rows();
+
+  // .greptime.v1.WriteHint write_hint = 4;
+  bool has_write_hint() const;
+  private:
+  bool _internal_has_write_hint() const;
+  public:
+  void clear_write_hint();
+  const ::greptime::v1::WriteHint& write_hint() const;
+  PROTOBUF_NODISCARD ::greptime::v1::WriteHint* release_write_hint();
+  ::greptime::v1::WriteHint* mutable_write_hint();
+  void set_allocated_write_hint(::greptime::v1::WriteHint* write_hint);
+  private:
+  const ::greptime::v1::WriteHint& _internal_write_hint() const;
+  ::greptime::v1::WriteHint* _internal_mutable_write_hint();
+  public:
+  void unsafe_arena_set_allocated_write_hint(
+      ::greptime::v1::WriteHint* write_hint);
+  ::greptime::v1::WriteHint* unsafe_arena_release_write_hint();
 
   // uint64 sequence = 2;
   void clear_sequence();
@@ -260,6 +456,7 @@ class Mutation final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::Rows* rows_;
+    ::greptime::v1::WriteHint* write_hint_;
     uint64_t sequence_;
     int op_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -317,7 +514,7 @@ class WalEntry final :
                &_WalEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(WalEntry& a, WalEntry& b) {
     a.Swap(&b);
@@ -433,6 +630,30 @@ class WalEntry final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// WriteHint
+
+// .greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;
+inline void WriteHint::clear_primary_key_encoding() {
+  _impl_.primary_key_encoding_ = 0;
+}
+inline ::greptime::v1::PrimaryKeyEncoding WriteHint::_internal_primary_key_encoding() const {
+  return static_cast< ::greptime::v1::PrimaryKeyEncoding >(_impl_.primary_key_encoding_);
+}
+inline ::greptime::v1::PrimaryKeyEncoding WriteHint::primary_key_encoding() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.WriteHint.primary_key_encoding)
+  return _internal_primary_key_encoding();
+}
+inline void WriteHint::_internal_set_primary_key_encoding(::greptime::v1::PrimaryKeyEncoding value) {
+  
+  _impl_.primary_key_encoding_ = value;
+}
+inline void WriteHint::set_primary_key_encoding(::greptime::v1::PrimaryKeyEncoding value) {
+  _internal_set_primary_key_encoding(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.WriteHint.primary_key_encoding)
+}
+
+// -------------------------------------------------------------------
+
 // Mutation
 
 // .greptime.v1.OpType op_type = 1;
@@ -560,6 +781,96 @@ inline void Mutation::set_allocated_rows(::greptime::v1::Rows* rows) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Mutation.rows)
 }
 
+// .greptime.v1.WriteHint write_hint = 4;
+inline bool Mutation::_internal_has_write_hint() const {
+  return this != internal_default_instance() && _impl_.write_hint_ != nullptr;
+}
+inline bool Mutation::has_write_hint() const {
+  return _internal_has_write_hint();
+}
+inline void Mutation::clear_write_hint() {
+  if (GetArenaForAllocation() == nullptr && _impl_.write_hint_ != nullptr) {
+    delete _impl_.write_hint_;
+  }
+  _impl_.write_hint_ = nullptr;
+}
+inline const ::greptime::v1::WriteHint& Mutation::_internal_write_hint() const {
+  const ::greptime::v1::WriteHint* p = _impl_.write_hint_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::WriteHint&>(
+      ::greptime::v1::_WriteHint_default_instance_);
+}
+inline const ::greptime::v1::WriteHint& Mutation::write_hint() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Mutation.write_hint)
+  return _internal_write_hint();
+}
+inline void Mutation::unsafe_arena_set_allocated_write_hint(
+    ::greptime::v1::WriteHint* write_hint) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.write_hint_);
+  }
+  _impl_.write_hint_ = write_hint;
+  if (write_hint) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.Mutation.write_hint)
+}
+inline ::greptime::v1::WriteHint* Mutation::release_write_hint() {
+  
+  ::greptime::v1::WriteHint* temp = _impl_.write_hint_;
+  _impl_.write_hint_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::WriteHint* Mutation::unsafe_arena_release_write_hint() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Mutation.write_hint)
+  
+  ::greptime::v1::WriteHint* temp = _impl_.write_hint_;
+  _impl_.write_hint_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::WriteHint* Mutation::_internal_mutable_write_hint() {
+  
+  if (_impl_.write_hint_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::WriteHint>(GetArenaForAllocation());
+    _impl_.write_hint_ = p;
+  }
+  return _impl_.write_hint_;
+}
+inline ::greptime::v1::WriteHint* Mutation::mutable_write_hint() {
+  ::greptime::v1::WriteHint* _msg = _internal_mutable_write_hint();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Mutation.write_hint)
+  return _msg;
+}
+inline void Mutation::set_allocated_write_hint(::greptime::v1::WriteHint* write_hint) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.write_hint_;
+  }
+  if (write_hint) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(write_hint);
+    if (message_arena != submessage_arena) {
+      write_hint = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, write_hint, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.write_hint_ = write_hint;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Mutation.write_hint)
+}
+
 // -------------------------------------------------------------------
 
 // WalEntry
@@ -609,6 +920,8 @@ WalEntry::mutations() const {
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -621,6 +934,11 @@ template <> struct is_proto_enum< ::greptime::v1::OpType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::OpType>() {
   return ::greptime::v1::OpType_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::PrimaryKeyEncoding> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::PrimaryKeyEncoding>() {
+  return ::greptime::v1::PrimaryKeyEncoding_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

@@ -142,6 +142,653 @@ public final class Wal {
     // @@protoc_insertion_point(enum_scope:greptime.v1.OpType)
   }
 
+  /**
+   * <pre>
+   * Encoding of primary key.
+   * </pre>
+   *
+   * Protobuf enum {@code greptime.v1.PrimaryKeyEncoding}
+   */
+  public enum PrimaryKeyEncoding
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>DENSE = 0;</code>
+     */
+    DENSE(0),
+    /**
+     * <code>SPARSE = 1;</code>
+     */
+    SPARSE(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>DENSE = 0;</code>
+     */
+    public static final int DENSE_VALUE = 0;
+    /**
+     * <code>SPARSE = 1;</code>
+     */
+    public static final int SPARSE_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static PrimaryKeyEncoding valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static PrimaryKeyEncoding forNumber(int value) {
+      switch (value) {
+        case 0: return DENSE;
+        case 1: return SPARSE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<PrimaryKeyEncoding>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        PrimaryKeyEncoding> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<PrimaryKeyEncoding>() {
+            public PrimaryKeyEncoding findValueByNumber(int number) {
+              return PrimaryKeyEncoding.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return greptime.v1.Wal.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final PrimaryKeyEncoding[] VALUES = values();
+
+    public static PrimaryKeyEncoding valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private PrimaryKeyEncoding(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.PrimaryKeyEncoding)
+  }
+
+  public interface WriteHintOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.WriteHint)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;</code>
+     * @return The enum numeric value on the wire for primaryKeyEncoding.
+     */
+    int getPrimaryKeyEncodingValue();
+    /**
+     * <code>.greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;</code>
+     * @return The primaryKeyEncoding.
+     */
+    greptime.v1.Wal.PrimaryKeyEncoding getPrimaryKeyEncoding();
+  }
+  /**
+   * <pre>
+   * Write hint of the mutation.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.WriteHint}
+   */
+  public static final class WriteHint extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.WriteHint)
+      WriteHintOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use WriteHint.newBuilder() to construct.
+    private WriteHint(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private WriteHint() {
+      primaryKeyEncoding_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new WriteHint();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WriteHint(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              primaryKeyEncoding_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.Wal.internal_static_greptime_v1_WriteHint_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.Wal.internal_static_greptime_v1_WriteHint_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.Wal.WriteHint.class, greptime.v1.Wal.WriteHint.Builder.class);
+    }
+
+    public static final int PRIMARY_KEY_ENCODING_FIELD_NUMBER = 1;
+    private int primaryKeyEncoding_;
+    /**
+     * <code>.greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;</code>
+     * @return The enum numeric value on the wire for primaryKeyEncoding.
+     */
+    @java.lang.Override public int getPrimaryKeyEncodingValue() {
+      return primaryKeyEncoding_;
+    }
+    /**
+     * <code>.greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;</code>
+     * @return The primaryKeyEncoding.
+     */
+    @java.lang.Override public greptime.v1.Wal.PrimaryKeyEncoding getPrimaryKeyEncoding() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.Wal.PrimaryKeyEncoding result = greptime.v1.Wal.PrimaryKeyEncoding.valueOf(primaryKeyEncoding_);
+      return result == null ? greptime.v1.Wal.PrimaryKeyEncoding.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (primaryKeyEncoding_ != greptime.v1.Wal.PrimaryKeyEncoding.DENSE.getNumber()) {
+        output.writeEnum(1, primaryKeyEncoding_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (primaryKeyEncoding_ != greptime.v1.Wal.PrimaryKeyEncoding.DENSE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, primaryKeyEncoding_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.Wal.WriteHint)) {
+        return super.equals(obj);
+      }
+      greptime.v1.Wal.WriteHint other = (greptime.v1.Wal.WriteHint) obj;
+
+      if (primaryKeyEncoding_ != other.primaryKeyEncoding_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PRIMARY_KEY_ENCODING_FIELD_NUMBER;
+      hash = (53 * hash) + primaryKeyEncoding_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.Wal.WriteHint parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.Wal.WriteHint parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.Wal.WriteHint parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.Wal.WriteHint parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.Wal.WriteHint parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.Wal.WriteHint parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.Wal.WriteHint parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.Wal.WriteHint parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.Wal.WriteHint parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.Wal.WriteHint parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.Wal.WriteHint parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.Wal.WriteHint parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.Wal.WriteHint prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Write hint of the mutation.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.WriteHint}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.WriteHint)
+        greptime.v1.Wal.WriteHintOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.Wal.internal_static_greptime_v1_WriteHint_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.Wal.internal_static_greptime_v1_WriteHint_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.Wal.WriteHint.class, greptime.v1.Wal.WriteHint.Builder.class);
+      }
+
+      // Construct using greptime.v1.Wal.WriteHint.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        primaryKeyEncoding_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.Wal.internal_static_greptime_v1_WriteHint_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.Wal.WriteHint getDefaultInstanceForType() {
+        return greptime.v1.Wal.WriteHint.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.Wal.WriteHint build() {
+        greptime.v1.Wal.WriteHint result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.Wal.WriteHint buildPartial() {
+        greptime.v1.Wal.WriteHint result = new greptime.v1.Wal.WriteHint(this);
+        result.primaryKeyEncoding_ = primaryKeyEncoding_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.Wal.WriteHint) {
+          return mergeFrom((greptime.v1.Wal.WriteHint)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.Wal.WriteHint other) {
+        if (other == greptime.v1.Wal.WriteHint.getDefaultInstance()) return this;
+        if (other.primaryKeyEncoding_ != 0) {
+          setPrimaryKeyEncodingValue(other.getPrimaryKeyEncodingValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.Wal.WriteHint parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.Wal.WriteHint) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int primaryKeyEncoding_ = 0;
+      /**
+       * <code>.greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;</code>
+       * @return The enum numeric value on the wire for primaryKeyEncoding.
+       */
+      @java.lang.Override public int getPrimaryKeyEncodingValue() {
+        return primaryKeyEncoding_;
+      }
+      /**
+       * <code>.greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;</code>
+       * @param value The enum numeric value on the wire for primaryKeyEncoding to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPrimaryKeyEncodingValue(int value) {
+        
+        primaryKeyEncoding_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;</code>
+       * @return The primaryKeyEncoding.
+       */
+      @java.lang.Override
+      public greptime.v1.Wal.PrimaryKeyEncoding getPrimaryKeyEncoding() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.Wal.PrimaryKeyEncoding result = greptime.v1.Wal.PrimaryKeyEncoding.valueOf(primaryKeyEncoding_);
+        return result == null ? greptime.v1.Wal.PrimaryKeyEncoding.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;</code>
+       * @param value The primaryKeyEncoding to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPrimaryKeyEncoding(greptime.v1.Wal.PrimaryKeyEncoding value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        primaryKeyEncoding_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.PrimaryKeyEncoding primary_key_encoding = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPrimaryKeyEncoding() {
+        
+        primaryKeyEncoding_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.WriteHint)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.WriteHint)
+    private static final greptime.v1.Wal.WriteHint DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.Wal.WriteHint();
+    }
+
+    public static greptime.v1.Wal.WriteHint getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<WriteHint>
+        PARSER = new com.google.protobuf.AbstractParser<WriteHint>() {
+      @java.lang.Override
+      public WriteHint parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WriteHint(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<WriteHint> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WriteHint> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.Wal.WriteHint getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MutationOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.Mutation)
       com.google.protobuf.MessageOrBuilder {
@@ -201,6 +848,33 @@ public final class Wal {
      * <code>.greptime.v1.Rows rows = 3;</code>
      */
     io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder();
+
+    /**
+     * <pre>
+     * Write hint of the mutation.
+     * </pre>
+     *
+     * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+     * @return Whether the writeHint field is set.
+     */
+    boolean hasWriteHint();
+    /**
+     * <pre>
+     * Write hint of the mutation.
+     * </pre>
+     *
+     * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+     * @return The writeHint.
+     */
+    greptime.v1.Wal.WriteHint getWriteHint();
+    /**
+     * <pre>
+     * Write hint of the mutation.
+     * </pre>
+     *
+     * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+     */
+    greptime.v1.Wal.WriteHintOrBuilder getWriteHintOrBuilder();
   }
   /**
    * <pre>
@@ -272,6 +946,19 @@ public final class Wal {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(rows_);
                 rows_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              greptime.v1.Wal.WriteHint.Builder subBuilder = null;
+              if (writeHint_ != null) {
+                subBuilder = writeHint_.toBuilder();
+              }
+              writeHint_ = input.readMessage(greptime.v1.Wal.WriteHint.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(writeHint_);
+                writeHint_ = subBuilder.buildPartial();
               }
 
               break;
@@ -390,6 +1077,44 @@ public final class Wal {
       return getRows();
     }
 
+    public static final int WRITE_HINT_FIELD_NUMBER = 4;
+    private greptime.v1.Wal.WriteHint writeHint_;
+    /**
+     * <pre>
+     * Write hint of the mutation.
+     * </pre>
+     *
+     * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+     * @return Whether the writeHint field is set.
+     */
+    @java.lang.Override
+    public boolean hasWriteHint() {
+      return writeHint_ != null;
+    }
+    /**
+     * <pre>
+     * Write hint of the mutation.
+     * </pre>
+     *
+     * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+     * @return The writeHint.
+     */
+    @java.lang.Override
+    public greptime.v1.Wal.WriteHint getWriteHint() {
+      return writeHint_ == null ? greptime.v1.Wal.WriteHint.getDefaultInstance() : writeHint_;
+    }
+    /**
+     * <pre>
+     * Write hint of the mutation.
+     * </pre>
+     *
+     * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.Wal.WriteHintOrBuilder getWriteHintOrBuilder() {
+      return getWriteHint();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -413,6 +1138,9 @@ public final class Wal {
       if (rows_ != null) {
         output.writeMessage(3, getRows());
       }
+      if (writeHint_ != null) {
+        output.writeMessage(4, getWriteHint());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -433,6 +1161,10 @@ public final class Wal {
       if (rows_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getRows());
+      }
+      if (writeHint_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getWriteHint());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -457,6 +1189,11 @@ public final class Wal {
         if (!getRows()
             .equals(other.getRows())) return false;
       }
+      if (hasWriteHint() != other.hasWriteHint()) return false;
+      if (hasWriteHint()) {
+        if (!getWriteHint()
+            .equals(other.getWriteHint())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -476,6 +1213,10 @@ public final class Wal {
       if (hasRows()) {
         hash = (37 * hash) + ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getRows().hashCode();
+      }
+      if (hasWriteHint()) {
+        hash = (37 * hash) + WRITE_HINT_FIELD_NUMBER;
+        hash = (53 * hash) + getWriteHint().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -624,6 +1365,12 @@ public final class Wal {
           rows_ = null;
           rowsBuilder_ = null;
         }
+        if (writeHintBuilder_ == null) {
+          writeHint_ = null;
+        } else {
+          writeHint_ = null;
+          writeHintBuilder_ = null;
+        }
         return this;
       }
 
@@ -656,6 +1403,11 @@ public final class Wal {
           result.rows_ = rows_;
         } else {
           result.rows_ = rowsBuilder_.build();
+        }
+        if (writeHintBuilder_ == null) {
+          result.writeHint_ = writeHint_;
+        } else {
+          result.writeHint_ = writeHintBuilder_.build();
         }
         onBuilt();
         return result;
@@ -713,6 +1465,9 @@ public final class Wal {
         }
         if (other.hasRows()) {
           mergeRows(other.getRows());
+        }
+        if (other.hasWriteHint()) {
+          mergeWriteHint(other.getWriteHint());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1013,6 +1768,161 @@ public final class Wal {
           rows_ = null;
         }
         return rowsBuilder_;
+      }
+
+      private greptime.v1.Wal.WriteHint writeHint_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.Wal.WriteHint, greptime.v1.Wal.WriteHint.Builder, greptime.v1.Wal.WriteHintOrBuilder> writeHintBuilder_;
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+       * @return Whether the writeHint field is set.
+       */
+      public boolean hasWriteHint() {
+        return writeHintBuilder_ != null || writeHint_ != null;
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+       * @return The writeHint.
+       */
+      public greptime.v1.Wal.WriteHint getWriteHint() {
+        if (writeHintBuilder_ == null) {
+          return writeHint_ == null ? greptime.v1.Wal.WriteHint.getDefaultInstance() : writeHint_;
+        } else {
+          return writeHintBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+       */
+      public Builder setWriteHint(greptime.v1.Wal.WriteHint value) {
+        if (writeHintBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          writeHint_ = value;
+          onChanged();
+        } else {
+          writeHintBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+       */
+      public Builder setWriteHint(
+          greptime.v1.Wal.WriteHint.Builder builderForValue) {
+        if (writeHintBuilder_ == null) {
+          writeHint_ = builderForValue.build();
+          onChanged();
+        } else {
+          writeHintBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+       */
+      public Builder mergeWriteHint(greptime.v1.Wal.WriteHint value) {
+        if (writeHintBuilder_ == null) {
+          if (writeHint_ != null) {
+            writeHint_ =
+              greptime.v1.Wal.WriteHint.newBuilder(writeHint_).mergeFrom(value).buildPartial();
+          } else {
+            writeHint_ = value;
+          }
+          onChanged();
+        } else {
+          writeHintBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+       */
+      public Builder clearWriteHint() {
+        if (writeHintBuilder_ == null) {
+          writeHint_ = null;
+          onChanged();
+        } else {
+          writeHint_ = null;
+          writeHintBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+       */
+      public greptime.v1.Wal.WriteHint.Builder getWriteHintBuilder() {
+        
+        onChanged();
+        return getWriteHintFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+       */
+      public greptime.v1.Wal.WriteHintOrBuilder getWriteHintOrBuilder() {
+        if (writeHintBuilder_ != null) {
+          return writeHintBuilder_.getMessageOrBuilder();
+        } else {
+          return writeHint_ == null ?
+              greptime.v1.Wal.WriteHint.getDefaultInstance() : writeHint_;
+        }
+      }
+      /**
+       * <pre>
+       * Write hint of the mutation.
+       * </pre>
+       *
+       * <code>.greptime.v1.WriteHint write_hint = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.Wal.WriteHint, greptime.v1.Wal.WriteHint.Builder, greptime.v1.Wal.WriteHintOrBuilder> 
+          getWriteHintFieldBuilder() {
+        if (writeHintBuilder_ == null) {
+          writeHintBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.Wal.WriteHint, greptime.v1.Wal.WriteHint.Builder, greptime.v1.Wal.WriteHintOrBuilder>(
+                  getWriteHint(),
+                  getParentForChildren(),
+                  isClean());
+          writeHint_ = null;
+        }
+        return writeHintBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1983,6 +2893,11 @@ public final class Wal {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_WriteHint_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_WriteHint_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_Mutation_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -2002,27 +2917,37 @@ public final class Wal {
   static {
     java.lang.String[] descriptorData = {
       "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\025gr" +
-      "eptime/v1/row.proto\"c\n\010Mutation\022$\n\007op_ty" +
-      "pe\030\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010sequenc" +
-      "e\030\002 \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Rows" +
-      "\"4\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grepti" +
-      "me.v1.Mutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003" +
-      "PUT\020\001B7Z5github.com/GreptimeTeam/greptim" +
-      "e-proto/go/greptime/v1b\006proto3"
+      "eptime/v1/row.proto\"J\n\tWriteHint\022=\n\024prim" +
+      "ary_key_encoding\030\001 \001(\0162\037.greptime.v1.Pri" +
+      "maryKeyEncoding\"\217\001\n\010Mutation\022$\n\007op_type\030" +
+      "\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010sequence\030\002" +
+      " \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Rows\022*\n" +
+      "\nwrite_hint\030\004 \001(\0132\026.greptime.v1.WriteHin" +
+      "t\"4\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grept" +
+      "ime.v1.Mutation*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007\n" +
+      "\003PUT\020\001*+\n\022PrimaryKeyEncoding\022\t\n\005DENSE\020\000\022" +
+      "\n\n\006SPARSE\020\001B7Z5github.com/GreptimeTeam/g" +
+      "reptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.greptime.v1.RowData.getDescriptor(),
         });
-    internal_static_greptime_v1_Mutation_descriptor =
+    internal_static_greptime_v1_WriteHint_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_greptime_v1_WriteHint_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_WriteHint_descriptor,
+        new java.lang.String[] { "PrimaryKeyEncoding", });
+    internal_static_greptime_v1_Mutation_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_Mutation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Mutation_descriptor,
-        new java.lang.String[] { "OpType", "Sequence", "Rows", });
+        new java.lang.String[] { "OpType", "Sequence", "Rows", "WriteHint", });
     internal_static_greptime_v1_WalEntry_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_WalEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_WalEntry_descriptor,
