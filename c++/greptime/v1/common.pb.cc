@@ -39,6 +39,7 @@ PROTOBUF_CONSTEXPR QueryContext::QueryContext(
   , /*decltype(_impl_.current_catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.current_schema_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.timezone_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.seq_snapshot_)*/nullptr
   , /*decltype(_impl_.channel_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct QueryContextDefaultTypeInternal {
@@ -50,6 +51,30 @@ struct QueryContextDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QueryContextDefaultTypeInternal _QueryContext_default_instance_;
+PROTOBUF_CONSTEXPR SequenceSnapshot_SeqSnapshotEntry_DoNotUse::SequenceSnapshot_SeqSnapshotEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
+struct SequenceSnapshot_SeqSnapshotEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SequenceSnapshot_SeqSnapshotEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SequenceSnapshot_SeqSnapshotEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    SequenceSnapshot_SeqSnapshotEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SequenceSnapshot_SeqSnapshotEntry_DoNotUseDefaultTypeInternal _SequenceSnapshot_SeqSnapshotEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR SequenceSnapshot::SequenceSnapshot(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.seq_snapshot_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct SequenceSnapshotDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SequenceSnapshotDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SequenceSnapshotDefaultTypeInternal() {}
+  union {
+    SequenceSnapshot _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SequenceSnapshotDefaultTypeInternal _SequenceSnapshot_default_instance_;
 PROTOBUF_CONSTEXPR RequestHeader_TracingContextEntry_DoNotUse::RequestHeader_TracingContextEntry_DoNotUse(
     ::_pbi::ConstantInitialized) {}
 struct RequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal {
@@ -311,7 +336,7 @@ struct ColumnOptionsDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ColumnOptionsDefaultTypeInternal _ColumnOptions_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fcommon_2eproto[21];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fcommon_2eproto[23];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fcommon_2eproto[3];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fcommon_2eproto = nullptr;
 
@@ -337,6 +362,24 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::QueryContext, _impl_.timezone_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::QueryContext, _impl_.extensions_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::QueryContext, _impl_.channel_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::QueryContext, _impl_.seq_snapshot_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::SequenceSnapshot, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::SequenceSnapshot, _impl_.seq_snapshot_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -499,30 +542,34 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse)},
   { 10, -1, -1, sizeof(::greptime::v1::QueryContext)},
-  { 21, 29, -1, sizeof(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse)},
-  { 31, -1, -1, sizeof(::greptime::v1::RequestHeader)},
-  { 43, -1, -1, sizeof(::greptime::v1::ResponseHeader)},
-  { 50, -1, -1, sizeof(::greptime::v1::Status)},
-  { 58, -1, -1, sizeof(::greptime::v1::AuthHeader)},
-  { 67, -1, -1, sizeof(::greptime::v1::Basic)},
-  { 75, -1, -1, sizeof(::greptime::v1::Token)},
-  { 82, -1, -1, sizeof(::greptime::v1::TableName)},
-  { 91, -1, -1, sizeof(::greptime::v1::AffectedRows)},
-  { 98, -1, -1, sizeof(::greptime::v1::Metrics)},
-  { 105, -1, -1, sizeof(::greptime::v1::ExpireAfter)},
-  { 112, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
-  { 120, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
-  { 129, -1, -1, sizeof(::greptime::v1::Decimal128)},
-  { 137, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
-  { 147, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
-  { 155, -1, -1, sizeof(::greptime::v1::VectorTypeExtension)},
-  { 162, 170, -1, sizeof(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse)},
-  { 172, -1, -1, sizeof(::greptime::v1::ColumnOptions)},
+  { 22, 30, -1, sizeof(::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse)},
+  { 32, -1, -1, sizeof(::greptime::v1::SequenceSnapshot)},
+  { 39, 47, -1, sizeof(::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse)},
+  { 49, -1, -1, sizeof(::greptime::v1::RequestHeader)},
+  { 61, -1, -1, sizeof(::greptime::v1::ResponseHeader)},
+  { 68, -1, -1, sizeof(::greptime::v1::Status)},
+  { 76, -1, -1, sizeof(::greptime::v1::AuthHeader)},
+  { 85, -1, -1, sizeof(::greptime::v1::Basic)},
+  { 93, -1, -1, sizeof(::greptime::v1::Token)},
+  { 100, -1, -1, sizeof(::greptime::v1::TableName)},
+  { 109, -1, -1, sizeof(::greptime::v1::AffectedRows)},
+  { 116, -1, -1, sizeof(::greptime::v1::Metrics)},
+  { 123, -1, -1, sizeof(::greptime::v1::ExpireAfter)},
+  { 130, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
+  { 138, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
+  { 147, -1, -1, sizeof(::greptime::v1::Decimal128)},
+  { 155, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
+  { 165, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
+  { 173, -1, -1, sizeof(::greptime::v1::VectorTypeExtension)},
+  { 180, 188, -1, sizeof(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse)},
+  { 190, -1, -1, sizeof(::greptime::v1::ColumnOptions)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_QueryContext_ExtensionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::_QueryContext_default_instance_._instance,
+  &::greptime::v1::_SequenceSnapshot_SeqSnapshotEntry_DoNotUse_default_instance_._instance,
+  &::greptime::v1::_SequenceSnapshot_default_instance_._instance,
   &::greptime::v1::_RequestHeader_TracingContextEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::_RequestHeader_default_instance_._instance,
   &::greptime::v1::_ResponseHeader_default_instance_._instance,
@@ -546,68 +593,73 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030greptime/v1/common.proto\022\013greptime.v1\""
-  "\324\001\n\014QueryContext\022\027\n\017current_catalog\030\001 \001("
+  "\211\002\n\014QueryContext\022\027\n\017current_catalog\030\001 \001("
   "\t\022\026\n\016current_schema\030\002 \001(\t\022\020\n\010timezone\030\004 "
   "\001(\t\022=\n\nextensions\030\005 \003(\0132).greptime.v1.Qu"
   "eryContext.ExtensionsEntry\022\017\n\007channel\030\006 "
-  "\001(\r\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v"
-  "alue\030\002 \001(\t:\0028\001\"\202\002\n\rRequestHeader\022\017\n\007cata"
-  "log\030\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthorizati"
-  "on\030\003 \001(\0132\027.greptime.v1.AuthHeader\022\016\n\006dbn"
-  "ame\030\004 \001(\t\022G\n\017tracing_context\030\005 \003(\0132..gre"
-  "ptime.v1.RequestHeader.TracingContextEnt"
-  "ry\022\020\n\010timezone\030\006 \001(\t\0325\n\023TracingContextEn"
-  "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"5\n\016R"
-  "esponseHeader\022#\n\006status\030\001 \001(\0132\023.greptime"
-  ".v1.Status\".\n\006Status\022\023\n\013status_code\030\001 \001("
-  "\r\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basi"
-  "c\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005token\030\002"
-  " \001(\0132\022.greptime.v1.TokenH\000B\r\n\013auth_schem"
-  "e\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010password"
-  "\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"J\n\tTableN"
-  "ame\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name"
-  "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"\035\n\014AffectedRo"
-  "ws\022\r\n\005value\030\001 \001(\r\"\032\n\007Metrics\022\017\n\007metrics\030"
-  "\001 \001(\014\"\034\n\013ExpireAfter\022\r\n\005value\030\001 \001(\003\"i\n\016F"
-  "lightMetadata\0220\n\raffected_rows\030\001 \001(\0132\031.g"
-  "reptime.v1.AffectedRows\022%\n\007metrics\030\002 \001(\013"
-  "2\024.greptime.v1.Metrics\"I\n\024IntervalMonthD"
-  "ayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013"
-  "nanoseconds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 "
-  "\001(\003\022\n\n\002lo\030\002 \001(\003\"\316\001\n\027ColumnDataTypeExtens"
-  "ion\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v1."
-  "DecimalTypeExtensionH\000\0223\n\tjson_type\030\002 \001("
-  "\0162\036.greptime.v1.JsonTypeExtensionH\000\0227\n\013v"
-  "ector_type\030\003 \001(\0132 .greptime.v1.VectorTyp"
-  "eExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTypeE"
-  "xtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001"
-  "(\005\"\"\n\023VectorTypeExtension\022\013\n\003dim\030\001 \001(\r\"y"
-  "\n\rColumnOptions\0228\n\007options\030\001 \003(\0132\'.grept"
-  "ime.v1.ColumnOptions.OptionsEntry\032.\n\014Opt"
-  "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028"
-  "\001*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n"
-  "\tTIMESTAMP\020\002*\354\003\n\016ColumnDataType\022\013\n\007BOOLE"
-  "AN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005"
-  "INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32"
-  "\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n"
-  "\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DA"
-  "TETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMEST"
-  "AMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECO"
-  "ND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_S"
-  "ECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MI"
-  "CROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTE"
-  "RVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030"
-  "\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL"
-  "128\020\036\022\010\n\004JSON\020\037\022\n\n\006VECTOR\020 *$\n\021JsonTypeE"
-  "xtension\022\017\n\013JSON_BINARY\020\000BO\n\016io.greptime"
-  ".v1B\006CommonZ5github.com/GreptimeTeam/gre"
-  "ptime-proto/go/greptime/v1b\006proto3"
+  "\001(\r\0223\n\014seq_snapshot\030\007 \001(\0132\035.greptime.v1."
+  "SequenceSnapshot\0321\n\017ExtensionsEntry\022\013\n\003k"
+  "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\214\001\n\020Sequence"
+  "Snapshot\022D\n\014seq_snapshot\030\007 \003(\0132..greptim"
+  "e.v1.SequenceSnapshot.SeqSnapshotEntry\0322"
+  "\n\020SeqSnapshotEntry\022\013\n\003key\030\001 \001(\004\022\r\n\005value"
+  "\030\002 \001(\004:\0028\001\"\202\002\n\rRequestHeader\022\017\n\007catalog\030"
+  "\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthorization\030\003"
+  " \001(\0132\027.greptime.v1.AuthHeader\022\016\n\006dbname\030"
+  "\004 \001(\t\022G\n\017tracing_context\030\005 \003(\0132..greptim"
+  "e.v1.RequestHeader.TracingContextEntry\022\020"
+  "\n\010timezone\030\006 \001(\t\0325\n\023TracingContextEntry\022"
+  "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"5\n\016Respo"
+  "nseHeader\022#\n\006status\030\001 \001(\0132\023.greptime.v1."
+  "Status\".\n\006Status\022\023\n\013status_code\030\001 \001(\r\022\017\n"
+  "\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005basic\030\001 "
+  "\001(\0132\022.greptime.v1.BasicH\000\022#\n\005token\030\002 \001(\013"
+  "2\022.greptime.v1.TokenH\000B\r\n\013auth_scheme\"+\n"
+  "\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001"
+  "(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"J\n\tTableName\022"
+  "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001"
+  "(\t\022\022\n\ntable_name\030\003 \001(\t\"\035\n\014AffectedRows\022\r"
+  "\n\005value\030\001 \001(\r\"\032\n\007Metrics\022\017\n\007metrics\030\001 \001("
+  "\014\"\034\n\013ExpireAfter\022\r\n\005value\030\001 \001(\003\"i\n\016Fligh"
+  "tMetadata\0220\n\raffected_rows\030\001 \001(\0132\031.grept"
+  "ime.v1.AffectedRows\022%\n\007metrics\030\002 \001(\0132\024.g"
+  "reptime.v1.Metrics\"I\n\024IntervalMonthDayNa"
+  "no\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nano"
+  "seconds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022"
+  "\n\n\002lo\030\002 \001(\003\"\316\001\n\027ColumnDataTypeExtension\022"
+  "9\n\014decimal_type\030\001 \001(\0132!.greptime.v1.Deci"
+  "malTypeExtensionH\000\0223\n\tjson_type\030\002 \001(\0162\036."
+  "greptime.v1.JsonTypeExtensionH\000\0227\n\013vecto"
+  "r_type\030\003 \001(\0132 .greptime.v1.VectorTypeExt"
+  "ensionH\000B\n\n\010type_ext\"8\n\024DecimalTypeExten"
+  "sion\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005\"\""
+  "\n\023VectorTypeExtension\022\013\n\003dim\030\001 \001(\r\"y\n\rCo"
+  "lumnOptions\0228\n\007options\030\001 \003(\0132\'.greptime."
+  "v1.ColumnOptions.OptionsEntry\032.\n\014Options"
+  "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001*1\n"
+  "\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIM"
+  "ESTAMP\020\002*\354\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000"
+  "\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT6"
+  "4\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n"
+  "\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006"
+  "BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETI"
+  "ME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_"
+  "MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021"
+  "\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECON"
+  "D\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROS"
+  "ECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL"
+  "_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027"
+  "INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020"
+  "\036\022\010\n\004JSON\020\037\022\n\n\006VECTOR\020 *$\n\021JsonTypeExten"
+  "sion\022\017\n\013JSON_BINARY\020\000BO\n\016io.greptime.v1B"
+  "\006CommonZ5github.com/GreptimeTeam/greptim"
+  "e-proto/go/greptime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 2274, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 2470, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
-    &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 21,
+    &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 23,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fcommon_2eproto, file_level_enum_descriptors_greptime_2fv1_2fcommon_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fcommon_2eproto,
@@ -708,8 +760,13 @@ void QueryContext_ExtensionsEntry_DoNotUse::MergeFrom(const QueryContext_Extensi
 
 class QueryContext::_Internal {
  public:
+  static const ::greptime::v1::SequenceSnapshot& seq_snapshot(const QueryContext* msg);
 };
 
+const ::greptime::v1::SequenceSnapshot&
+QueryContext::_Internal::seq_snapshot(const QueryContext* msg) {
+  return *msg->_impl_.seq_snapshot_;
+}
 QueryContext::QueryContext(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -727,6 +784,7 @@ QueryContext::QueryContext(const QueryContext& from)
     , decltype(_impl_.current_catalog_){}
     , decltype(_impl_.current_schema_){}
     , decltype(_impl_.timezone_){}
+    , decltype(_impl_.seq_snapshot_){nullptr}
     , decltype(_impl_.channel_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -756,6 +814,9 @@ QueryContext::QueryContext(const QueryContext& from)
     _this->_impl_.timezone_.Set(from._internal_timezone(), 
       _this->GetArenaForAllocation());
   }
+  if (from._internal_has_seq_snapshot()) {
+    _this->_impl_.seq_snapshot_ = new ::greptime::v1::SequenceSnapshot(*from._impl_.seq_snapshot_);
+  }
   _this->_impl_.channel_ = from._impl_.channel_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.QueryContext)
 }
@@ -769,6 +830,7 @@ inline void QueryContext::SharedCtor(
     , decltype(_impl_.current_catalog_){}
     , decltype(_impl_.current_schema_){}
     , decltype(_impl_.timezone_){}
+    , decltype(_impl_.seq_snapshot_){nullptr}
     , decltype(_impl_.channel_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -803,6 +865,7 @@ inline void QueryContext::SharedDtor() {
   _impl_.current_catalog_.Destroy();
   _impl_.current_schema_.Destroy();
   _impl_.timezone_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.seq_snapshot_;
 }
 
 void QueryContext::ArenaDtor(void* object) {
@@ -823,6 +886,10 @@ void QueryContext::Clear() {
   _impl_.current_catalog_.ClearToEmpty();
   _impl_.current_schema_.ClearToEmpty();
   _impl_.timezone_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.seq_snapshot_ != nullptr) {
+    delete _impl_.seq_snapshot_;
+  }
+  _impl_.seq_snapshot_ = nullptr;
   _impl_.channel_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -880,6 +947,14 @@ const char* QueryContext::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           _impl_.channel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.SequenceSnapshot seq_snapshot = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_seq_snapshot(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -979,6 +1054,13 @@ uint8_t* QueryContext::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_channel(), target);
   }
 
+  // .greptime.v1.SequenceSnapshot seq_snapshot = 7;
+  if (this->_internal_has_seq_snapshot()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, _Internal::seq_snapshot(this),
+        _Internal::seq_snapshot(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1025,6 +1107,13 @@ size_t QueryContext::ByteSizeLong() const {
         this->_internal_timezone());
   }
 
+  // .greptime.v1.SequenceSnapshot seq_snapshot = 7;
+  if (this->_internal_has_seq_snapshot()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.seq_snapshot_);
+  }
+
   // uint32 channel = 6;
   if (this->_internal_channel() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_channel());
@@ -1057,6 +1146,10 @@ void QueryContext::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   }
   if (!from._internal_timezone().empty()) {
     _this->_internal_set_timezone(from._internal_timezone());
+  }
+  if (from._internal_has_seq_snapshot()) {
+    _this->_internal_mutable_seq_snapshot()->::greptime::v1::SequenceSnapshot::MergeFrom(
+        from._internal_seq_snapshot());
   }
   if (from._internal_channel() != 0) {
     _this->_internal_set_channel(from._internal_channel());
@@ -1093,13 +1186,238 @@ void QueryContext::InternalSwap(QueryContext* other) {
       &_impl_.timezone_, lhs_arena,
       &other->_impl_.timezone_, rhs_arena
   );
-  swap(_impl_.channel_, other->_impl_.channel_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(QueryContext, _impl_.channel_)
+      + sizeof(QueryContext::_impl_.channel_)
+      - PROTOBUF_FIELD_OFFSET(QueryContext, _impl_.seq_snapshot_)>(
+          reinterpret_cast<char*>(&_impl_.seq_snapshot_),
+          reinterpret_cast<char*>(&other->_impl_.seq_snapshot_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata QueryContext::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
       file_level_metadata_greptime_2fv1_2fcommon_2eproto[1]);
+}
+
+// ===================================================================
+
+SequenceSnapshot_SeqSnapshotEntry_DoNotUse::SequenceSnapshot_SeqSnapshotEntry_DoNotUse() {}
+SequenceSnapshot_SeqSnapshotEntry_DoNotUse::SequenceSnapshot_SeqSnapshotEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void SequenceSnapshot_SeqSnapshotEntry_DoNotUse::MergeFrom(const SequenceSnapshot_SeqSnapshotEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata SequenceSnapshot_SeqSnapshotEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[2]);
+}
+
+// ===================================================================
+
+class SequenceSnapshot::_Internal {
+ public:
+};
+
+SequenceSnapshot::SequenceSnapshot(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &SequenceSnapshot::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.SequenceSnapshot)
+}
+SequenceSnapshot::SequenceSnapshot(const SequenceSnapshot& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  SequenceSnapshot* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.seq_snapshot_)*/{}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.seq_snapshot_.MergeFrom(from._impl_.seq_snapshot_);
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.SequenceSnapshot)
+}
+
+inline void SequenceSnapshot::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.seq_snapshot_)*/{::_pbi::ArenaInitialized(), arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+SequenceSnapshot::~SequenceSnapshot() {
+  // @@protoc_insertion_point(destructor:greptime.v1.SequenceSnapshot)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void SequenceSnapshot::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.seq_snapshot_.Destruct();
+  _impl_.seq_snapshot_.~MapField();
+}
+
+void SequenceSnapshot::ArenaDtor(void* object) {
+  SequenceSnapshot* _this = reinterpret_cast< SequenceSnapshot* >(object);
+  _this->_impl_.seq_snapshot_.Destruct();
+}
+void SequenceSnapshot::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void SequenceSnapshot::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.SequenceSnapshot)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.seq_snapshot_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SequenceSnapshot::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // map<uint64, uint64> seq_snapshot = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&_impl_.seq_snapshot_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SequenceSnapshot::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.SequenceSnapshot)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<uint64, uint64> seq_snapshot = 7;
+  if (!this->_internal_seq_snapshot().empty()) {
+    using MapType = ::_pb::Map<uint64_t, uint64_t>;
+    using WireHelper = SequenceSnapshot_SeqSnapshotEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_seq_snapshot();
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterFlat<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(7, entry.first, entry.second, target, stream);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(7, entry.first, entry.second, target, stream);
+      }
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.SequenceSnapshot)
+  return target;
+}
+
+size_t SequenceSnapshot::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.SequenceSnapshot)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<uint64, uint64> seq_snapshot = 7;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_seq_snapshot_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >::const_iterator
+      it = this->_internal_seq_snapshot().begin();
+      it != this->_internal_seq_snapshot().end(); ++it) {
+    total_size += SequenceSnapshot_SeqSnapshotEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SequenceSnapshot::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    SequenceSnapshot::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SequenceSnapshot::GetClassData() const { return &_class_data_; }
+
+
+void SequenceSnapshot::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<SequenceSnapshot*>(&to_msg);
+  auto& from = static_cast<const SequenceSnapshot&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.SequenceSnapshot)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.seq_snapshot_.MergeFrom(from._impl_.seq_snapshot_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SequenceSnapshot::CopyFrom(const SequenceSnapshot& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.SequenceSnapshot)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SequenceSnapshot::IsInitialized() const {
+  return true;
+}
+
+void SequenceSnapshot::InternalSwap(SequenceSnapshot* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.seq_snapshot_.InternalSwap(&other->_impl_.seq_snapshot_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SequenceSnapshot::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[3]);
 }
 
 // ===================================================================
@@ -1113,7 +1431,7 @@ void RequestHeader_TracingContextEntry_DoNotUse::MergeFrom(const RequestHeader_T
 ::PROTOBUF_NAMESPACE_ID::Metadata RequestHeader_TracingContextEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[2]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[4]);
 }
 
 // ===================================================================
@@ -1576,7 +1894,7 @@ void RequestHeader::InternalSwap(RequestHeader* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata RequestHeader::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[3]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[5]);
 }
 
 // ===================================================================
@@ -1769,7 +2087,7 @@ void ResponseHeader::InternalSwap(ResponseHeader* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ResponseHeader::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[4]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[6]);
 }
 
 // ===================================================================
@@ -1999,7 +2317,7 @@ void Status::InternalSwap(Status* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Status::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[5]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[7]);
 }
 
 // ===================================================================
@@ -2304,7 +2622,7 @@ void AuthHeader::InternalSwap(AuthHeader* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AuthHeader::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[6]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[8]);
 }
 
 // ===================================================================
@@ -2557,7 +2875,7 @@ void Basic::InternalSwap(Basic* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Basic::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[7]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[9]);
 }
 
 // ===================================================================
@@ -2760,7 +3078,7 @@ void Token::InternalSwap(Token* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Token::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[8]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[10]);
 }
 
 // ===================================================================
@@ -3063,7 +3381,7 @@ void TableName::InternalSwap(TableName* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata TableName::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[9]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[11]);
 }
 
 // ===================================================================
@@ -3241,7 +3559,7 @@ void AffectedRows::InternalSwap(AffectedRows* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AffectedRows::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[10]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[12]);
 }
 
 // ===================================================================
@@ -3439,7 +3757,7 @@ void Metrics::InternalSwap(Metrics* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Metrics::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[11]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[13]);
 }
 
 // ===================================================================
@@ -3617,7 +3935,7 @@ void ExpireAfter::InternalSwap(ExpireAfter* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ExpireAfter::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[12]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[14]);
 }
 
 // ===================================================================
@@ -3856,7 +4174,7 @@ void FlightMetadata::InternalSwap(FlightMetadata* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FlightMetadata::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[13]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[15]);
 }
 
 // ===================================================================
@@ -4091,7 +4409,7 @@ void IntervalMonthDayNano::InternalSwap(IntervalMonthDayNano* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata IntervalMonthDayNano::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[14]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[16]);
 }
 
 // ===================================================================
@@ -4302,7 +4620,7 @@ void Decimal128::InternalSwap(Decimal128* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Decimal128::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[15]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[17]);
 }
 
 // ===================================================================
@@ -4641,7 +4959,7 @@ void ColumnDataTypeExtension::InternalSwap(ColumnDataTypeExtension* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnDataTypeExtension::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[16]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[18]);
 }
 
 // ===================================================================
@@ -4852,7 +5170,7 @@ void DecimalTypeExtension::InternalSwap(DecimalTypeExtension* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DecimalTypeExtension::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[17]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[19]);
 }
 
 // ===================================================================
@@ -5030,7 +5348,7 @@ void VectorTypeExtension::InternalSwap(VectorTypeExtension* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata VectorTypeExtension::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[18]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[20]);
 }
 
 // ===================================================================
@@ -5044,7 +5362,7 @@ void ColumnOptions_OptionsEntry_DoNotUse::MergeFrom(const ColumnOptions_OptionsE
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnOptions_OptionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[19]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[21]);
 }
 
 // ===================================================================
@@ -5263,7 +5581,7 @@ void ColumnOptions::InternalSwap(ColumnOptions* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnOptions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[20]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[22]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -5277,6 +5595,14 @@ Arena::CreateMaybeMessage< ::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse
 template<> PROTOBUF_NOINLINE ::greptime::v1::QueryContext*
 Arena::CreateMaybeMessage< ::greptime::v1::QueryContext >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::QueryContext >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::SequenceSnapshot*
+Arena::CreateMaybeMessage< ::greptime::v1::SequenceSnapshot >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::SequenceSnapshot >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse*
 Arena::CreateMaybeMessage< ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse >(Arena* arena) {
