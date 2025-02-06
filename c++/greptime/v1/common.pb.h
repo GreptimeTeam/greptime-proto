@@ -101,12 +101,12 @@ extern RequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _RequestHea
 class ResponseHeader;
 struct ResponseHeaderDefaultTypeInternal;
 extern ResponseHeaderDefaultTypeInternal _ResponseHeader_default_instance_;
-class SequenceSnapshot;
-struct SequenceSnapshotDefaultTypeInternal;
-extern SequenceSnapshotDefaultTypeInternal _SequenceSnapshot_default_instance_;
-class SequenceSnapshot_SeqSnapshotEntry_DoNotUse;
-struct SequenceSnapshot_SeqSnapshotEntry_DoNotUseDefaultTypeInternal;
-extern SequenceSnapshot_SeqSnapshotEntry_DoNotUseDefaultTypeInternal _SequenceSnapshot_SeqSnapshotEntry_DoNotUse_default_instance_;
+class SnapshotSequence;
+struct SnapshotSequenceDefaultTypeInternal;
+extern SnapshotSequenceDefaultTypeInternal _SnapshotSequence_default_instance_;
+class SnapshotSequence_SnapshotSeqEntry_DoNotUse;
+struct SnapshotSequence_SnapshotSeqEntry_DoNotUseDefaultTypeInternal;
+extern SnapshotSequence_SnapshotSeqEntry_DoNotUseDefaultTypeInternal _SnapshotSequence_SnapshotSeqEntry_DoNotUse_default_instance_;
 class Status;
 struct StatusDefaultTypeInternal;
 extern StatusDefaultTypeInternal _Status_default_instance_;
@@ -139,8 +139,8 @@ template<> ::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse* Arena::CreateM
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
 template<> ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::ResponseHeader>(Arena*);
-template<> ::greptime::v1::SequenceSnapshot* Arena::CreateMaybeMessage<::greptime::v1::SequenceSnapshot>(Arena*);
-template<> ::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::SequenceSnapshot_SeqSnapshotEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::SnapshotSequence* Arena::CreateMaybeMessage<::greptime::v1::SnapshotSequence>(Arena*);
+template<> ::greptime::v1::SnapshotSequence_SnapshotSeqEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::SnapshotSequence_SnapshotSeqEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::Status* Arena::CreateMaybeMessage<::greptime::v1::Status>(Arena*);
 template<> ::greptime::v1::TableName* Arena::CreateMaybeMessage<::greptime::v1::TableName>(Arena*);
 template<> ::greptime::v1::Token* Arena::CreateMaybeMessage<::greptime::v1::Token>(Arena*);
@@ -409,7 +409,7 @@ class QueryContext final :
     kCurrentCatalogFieldNumber = 1,
     kCurrentSchemaFieldNumber = 2,
     kTimezoneFieldNumber = 4,
-    kSeqSnapshotFieldNumber = 7,
+    kSnapshotSeqFieldNumber = 7,
     kChannelFieldNumber = 6,
   };
   // map<string, string> extensions = 5;
@@ -471,23 +471,23 @@ class QueryContext final :
   std::string* _internal_mutable_timezone();
   public:
 
-  // .greptime.v1.SequenceSnapshot seq_snapshot = 7;
-  bool has_seq_snapshot() const;
+  // .greptime.v1.SnapshotSequence snapshot_seq = 7;
+  bool has_snapshot_seq() const;
   private:
-  bool _internal_has_seq_snapshot() const;
+  bool _internal_has_snapshot_seq() const;
   public:
-  void clear_seq_snapshot();
-  const ::greptime::v1::SequenceSnapshot& seq_snapshot() const;
-  PROTOBUF_NODISCARD ::greptime::v1::SequenceSnapshot* release_seq_snapshot();
-  ::greptime::v1::SequenceSnapshot* mutable_seq_snapshot();
-  void set_allocated_seq_snapshot(::greptime::v1::SequenceSnapshot* seq_snapshot);
+  void clear_snapshot_seq();
+  const ::greptime::v1::SnapshotSequence& snapshot_seq() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SnapshotSequence* release_snapshot_seq();
+  ::greptime::v1::SnapshotSequence* mutable_snapshot_seq();
+  void set_allocated_snapshot_seq(::greptime::v1::SnapshotSequence* snapshot_seq);
   private:
-  const ::greptime::v1::SequenceSnapshot& _internal_seq_snapshot() const;
-  ::greptime::v1::SequenceSnapshot* _internal_mutable_seq_snapshot();
+  const ::greptime::v1::SnapshotSequence& _internal_snapshot_seq() const;
+  ::greptime::v1::SnapshotSequence* _internal_mutable_snapshot_seq();
   public:
-  void unsafe_arena_set_allocated_seq_snapshot(
-      ::greptime::v1::SequenceSnapshot* seq_snapshot);
-  ::greptime::v1::SequenceSnapshot* unsafe_arena_release_seq_snapshot();
+  void unsafe_arena_set_allocated_snapshot_seq(
+      ::greptime::v1::SnapshotSequence* snapshot_seq);
+  ::greptime::v1::SnapshotSequence* unsafe_arena_release_snapshot_seq();
 
   // uint32 channel = 6;
   void clear_channel();
@@ -514,7 +514,7 @@ class QueryContext final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_catalog_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_schema_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr timezone_;
-    ::greptime::v1::SequenceSnapshot* seq_snapshot_;
+    ::greptime::v1::SnapshotSequence* snapshot_seq_;
     uint32_t channel_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -523,21 +523,21 @@ class QueryContext final :
 };
 // -------------------------------------------------------------------
 
-class SequenceSnapshot_SeqSnapshotEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<SequenceSnapshot_SeqSnapshotEntry_DoNotUse, 
+class SnapshotSequence_SnapshotSeqEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<SnapshotSequence_SnapshotSeqEntry_DoNotUse, 
     uint64_t, uint64_t,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<SequenceSnapshot_SeqSnapshotEntry_DoNotUse, 
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<SnapshotSequence_SnapshotSeqEntry_DoNotUse, 
     uint64_t, uint64_t,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> SuperType;
-  SequenceSnapshot_SeqSnapshotEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR SequenceSnapshot_SeqSnapshotEntry_DoNotUse(
+  SnapshotSequence_SnapshotSeqEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR SnapshotSequence_SnapshotSeqEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit SequenceSnapshot_SeqSnapshotEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const SequenceSnapshot_SeqSnapshotEntry_DoNotUse& other);
-  static const SequenceSnapshot_SeqSnapshotEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const SequenceSnapshot_SeqSnapshotEntry_DoNotUse*>(&_SequenceSnapshot_SeqSnapshotEntry_DoNotUse_default_instance_); }
+  explicit SnapshotSequence_SnapshotSeqEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const SnapshotSequence_SnapshotSeqEntry_DoNotUse& other);
+  static const SnapshotSequence_SnapshotSeqEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const SnapshotSequence_SnapshotSeqEntry_DoNotUse*>(&_SnapshotSequence_SnapshotSeqEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(void*) { return true; }
   static bool ValidateValue(void*) { return true; }
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
@@ -547,24 +547,24 @@ public:
 
 // -------------------------------------------------------------------
 
-class SequenceSnapshot final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SequenceSnapshot) */ {
+class SnapshotSequence final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SnapshotSequence) */ {
  public:
-  inline SequenceSnapshot() : SequenceSnapshot(nullptr) {}
-  ~SequenceSnapshot() override;
-  explicit PROTOBUF_CONSTEXPR SequenceSnapshot(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SnapshotSequence() : SnapshotSequence(nullptr) {}
+  ~SnapshotSequence() override;
+  explicit PROTOBUF_CONSTEXPR SnapshotSequence(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SequenceSnapshot(const SequenceSnapshot& from);
-  SequenceSnapshot(SequenceSnapshot&& from) noexcept
-    : SequenceSnapshot() {
+  SnapshotSequence(const SnapshotSequence& from);
+  SnapshotSequence(SnapshotSequence&& from) noexcept
+    : SnapshotSequence() {
     *this = ::std::move(from);
   }
 
-  inline SequenceSnapshot& operator=(const SequenceSnapshot& from) {
+  inline SnapshotSequence& operator=(const SnapshotSequence& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SequenceSnapshot& operator=(SequenceSnapshot&& from) noexcept {
+  inline SnapshotSequence& operator=(SnapshotSequence&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -587,20 +587,20 @@ class SequenceSnapshot final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SequenceSnapshot& default_instance() {
+  static const SnapshotSequence& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SequenceSnapshot* internal_default_instance() {
-    return reinterpret_cast<const SequenceSnapshot*>(
-               &_SequenceSnapshot_default_instance_);
+  static inline const SnapshotSequence* internal_default_instance() {
+    return reinterpret_cast<const SnapshotSequence*>(
+               &_SnapshotSequence_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     3;
 
-  friend void swap(SequenceSnapshot& a, SequenceSnapshot& b) {
+  friend void swap(SnapshotSequence& a, SnapshotSequence& b) {
     a.Swap(&b);
   }
-  inline void Swap(SequenceSnapshot* other) {
+  inline void Swap(SnapshotSequence* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -613,7 +613,7 @@ class SequenceSnapshot final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SequenceSnapshot* other) {
+  void UnsafeArenaSwap(SnapshotSequence* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -621,14 +621,14 @@ class SequenceSnapshot final :
 
   // implements Message ----------------------------------------------
 
-  SequenceSnapshot* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SequenceSnapshot>(arena);
+  SnapshotSequence* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SnapshotSequence>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SequenceSnapshot& from);
+  void CopyFrom(const SnapshotSequence& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const SequenceSnapshot& from) {
-    SequenceSnapshot::MergeImpl(*this, from);
+  void MergeFrom( const SnapshotSequence& from) {
+    SnapshotSequence::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -646,15 +646,15 @@ class SequenceSnapshot final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SequenceSnapshot* other);
+  void InternalSwap(SnapshotSequence* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.SequenceSnapshot";
+    return "greptime.v1.SnapshotSequence";
   }
   protected:
-  explicit SequenceSnapshot(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SnapshotSequence(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -671,26 +671,26 @@ class SequenceSnapshot final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSeqSnapshotFieldNumber = 7,
+    kSnapshotSeqFieldNumber = 7,
   };
-  // map<uint64, uint64> seq_snapshot = 7;
-  int seq_snapshot_size() const;
+  // map<uint64, uint64> snapshot_seq = 7;
+  int snapshot_seq_size() const;
   private:
-  int _internal_seq_snapshot_size() const;
+  int _internal_snapshot_seq_size() const;
   public:
-  void clear_seq_snapshot();
+  void clear_snapshot_seq();
   private:
   const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
-      _internal_seq_snapshot() const;
+      _internal_snapshot_seq() const;
   ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
-      _internal_mutable_seq_snapshot();
+      _internal_mutable_snapshot_seq();
   public:
   const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
-      seq_snapshot() const;
+      snapshot_seq() const;
   ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
-      mutable_seq_snapshot();
+      mutable_snapshot_seq();
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.SequenceSnapshot)
+  // @@protoc_insertion_point(class_scope:greptime.v1.SnapshotSequence)
  private:
   class _Internal;
 
@@ -699,10 +699,10 @@ class SequenceSnapshot final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        SequenceSnapshot_SeqSnapshotEntry_DoNotUse,
+        SnapshotSequence_SnapshotSeqEntry_DoNotUse,
         uint64_t, uint64_t,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> seq_snapshot_;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> snapshot_seq_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3885,45 +3885,45 @@ inline void QueryContext::set_channel(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.QueryContext.channel)
 }
 
-// .greptime.v1.SequenceSnapshot seq_snapshot = 7;
-inline bool QueryContext::_internal_has_seq_snapshot() const {
-  return this != internal_default_instance() && _impl_.seq_snapshot_ != nullptr;
+// .greptime.v1.SnapshotSequence snapshot_seq = 7;
+inline bool QueryContext::_internal_has_snapshot_seq() const {
+  return this != internal_default_instance() && _impl_.snapshot_seq_ != nullptr;
 }
-inline bool QueryContext::has_seq_snapshot() const {
-  return _internal_has_seq_snapshot();
+inline bool QueryContext::has_snapshot_seq() const {
+  return _internal_has_snapshot_seq();
 }
-inline void QueryContext::clear_seq_snapshot() {
-  if (GetArenaForAllocation() == nullptr && _impl_.seq_snapshot_ != nullptr) {
-    delete _impl_.seq_snapshot_;
+inline void QueryContext::clear_snapshot_seq() {
+  if (GetArenaForAllocation() == nullptr && _impl_.snapshot_seq_ != nullptr) {
+    delete _impl_.snapshot_seq_;
   }
-  _impl_.seq_snapshot_ = nullptr;
+  _impl_.snapshot_seq_ = nullptr;
 }
-inline const ::greptime::v1::SequenceSnapshot& QueryContext::_internal_seq_snapshot() const {
-  const ::greptime::v1::SequenceSnapshot* p = _impl_.seq_snapshot_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::SequenceSnapshot&>(
-      ::greptime::v1::_SequenceSnapshot_default_instance_);
+inline const ::greptime::v1::SnapshotSequence& QueryContext::_internal_snapshot_seq() const {
+  const ::greptime::v1::SnapshotSequence* p = _impl_.snapshot_seq_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::SnapshotSequence&>(
+      ::greptime::v1::_SnapshotSequence_default_instance_);
 }
-inline const ::greptime::v1::SequenceSnapshot& QueryContext::seq_snapshot() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.QueryContext.seq_snapshot)
-  return _internal_seq_snapshot();
+inline const ::greptime::v1::SnapshotSequence& QueryContext::snapshot_seq() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.QueryContext.snapshot_seq)
+  return _internal_snapshot_seq();
 }
-inline void QueryContext::unsafe_arena_set_allocated_seq_snapshot(
-    ::greptime::v1::SequenceSnapshot* seq_snapshot) {
+inline void QueryContext::unsafe_arena_set_allocated_snapshot_seq(
+    ::greptime::v1::SnapshotSequence* snapshot_seq) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.seq_snapshot_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.snapshot_seq_);
   }
-  _impl_.seq_snapshot_ = seq_snapshot;
-  if (seq_snapshot) {
+  _impl_.snapshot_seq_ = snapshot_seq;
+  if (snapshot_seq) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.QueryContext.seq_snapshot)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.QueryContext.snapshot_seq)
 }
-inline ::greptime::v1::SequenceSnapshot* QueryContext::release_seq_snapshot() {
+inline ::greptime::v1::SnapshotSequence* QueryContext::release_snapshot_seq() {
   
-  ::greptime::v1::SequenceSnapshot* temp = _impl_.seq_snapshot_;
-  _impl_.seq_snapshot_ = nullptr;
+  ::greptime::v1::SnapshotSequence* temp = _impl_.snapshot_seq_;
+  _impl_.snapshot_seq_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -3935,79 +3935,79 @@ inline ::greptime::v1::SequenceSnapshot* QueryContext::release_seq_snapshot() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::SequenceSnapshot* QueryContext::unsafe_arena_release_seq_snapshot() {
-  // @@protoc_insertion_point(field_release:greptime.v1.QueryContext.seq_snapshot)
+inline ::greptime::v1::SnapshotSequence* QueryContext::unsafe_arena_release_snapshot_seq() {
+  // @@protoc_insertion_point(field_release:greptime.v1.QueryContext.snapshot_seq)
   
-  ::greptime::v1::SequenceSnapshot* temp = _impl_.seq_snapshot_;
-  _impl_.seq_snapshot_ = nullptr;
+  ::greptime::v1::SnapshotSequence* temp = _impl_.snapshot_seq_;
+  _impl_.snapshot_seq_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::SequenceSnapshot* QueryContext::_internal_mutable_seq_snapshot() {
+inline ::greptime::v1::SnapshotSequence* QueryContext::_internal_mutable_snapshot_seq() {
   
-  if (_impl_.seq_snapshot_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::SequenceSnapshot>(GetArenaForAllocation());
-    _impl_.seq_snapshot_ = p;
+  if (_impl_.snapshot_seq_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::SnapshotSequence>(GetArenaForAllocation());
+    _impl_.snapshot_seq_ = p;
   }
-  return _impl_.seq_snapshot_;
+  return _impl_.snapshot_seq_;
 }
-inline ::greptime::v1::SequenceSnapshot* QueryContext::mutable_seq_snapshot() {
-  ::greptime::v1::SequenceSnapshot* _msg = _internal_mutable_seq_snapshot();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.QueryContext.seq_snapshot)
+inline ::greptime::v1::SnapshotSequence* QueryContext::mutable_snapshot_seq() {
+  ::greptime::v1::SnapshotSequence* _msg = _internal_mutable_snapshot_seq();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.QueryContext.snapshot_seq)
   return _msg;
 }
-inline void QueryContext::set_allocated_seq_snapshot(::greptime::v1::SequenceSnapshot* seq_snapshot) {
+inline void QueryContext::set_allocated_snapshot_seq(::greptime::v1::SnapshotSequence* snapshot_seq) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete _impl_.seq_snapshot_;
+    delete _impl_.snapshot_seq_;
   }
-  if (seq_snapshot) {
+  if (snapshot_seq) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(seq_snapshot);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(snapshot_seq);
     if (message_arena != submessage_arena) {
-      seq_snapshot = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, seq_snapshot, submessage_arena);
+      snapshot_seq = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, snapshot_seq, submessage_arena);
     }
     
   } else {
     
   }
-  _impl_.seq_snapshot_ = seq_snapshot;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.QueryContext.seq_snapshot)
+  _impl_.snapshot_seq_ = snapshot_seq;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.QueryContext.snapshot_seq)
 }
 
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
 
-// SequenceSnapshot
+// SnapshotSequence
 
-// map<uint64, uint64> seq_snapshot = 7;
-inline int SequenceSnapshot::_internal_seq_snapshot_size() const {
-  return _impl_.seq_snapshot_.size();
+// map<uint64, uint64> snapshot_seq = 7;
+inline int SnapshotSequence::_internal_snapshot_seq_size() const {
+  return _impl_.snapshot_seq_.size();
 }
-inline int SequenceSnapshot::seq_snapshot_size() const {
-  return _internal_seq_snapshot_size();
+inline int SnapshotSequence::snapshot_seq_size() const {
+  return _internal_snapshot_seq_size();
 }
-inline void SequenceSnapshot::clear_seq_snapshot() {
-  _impl_.seq_snapshot_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
-SequenceSnapshot::_internal_seq_snapshot() const {
-  return _impl_.seq_snapshot_.GetMap();
+inline void SnapshotSequence::clear_snapshot_seq() {
+  _impl_.snapshot_seq_.Clear();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
-SequenceSnapshot::seq_snapshot() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.SequenceSnapshot.seq_snapshot)
-  return _internal_seq_snapshot();
+SnapshotSequence::_internal_snapshot_seq() const {
+  return _impl_.snapshot_seq_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+SnapshotSequence::snapshot_seq() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.SnapshotSequence.snapshot_seq)
+  return _internal_snapshot_seq();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
-SequenceSnapshot::_internal_mutable_seq_snapshot() {
-  return _impl_.seq_snapshot_.MutableMap();
+SnapshotSequence::_internal_mutable_snapshot_seq() {
+  return _impl_.snapshot_seq_.MutableMap();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
-SequenceSnapshot::mutable_seq_snapshot() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.SequenceSnapshot.seq_snapshot)
-  return _internal_mutable_seq_snapshot();
+SnapshotSequence::mutable_snapshot_seq() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.SnapshotSequence.snapshot_seq)
+  return _internal_mutable_snapshot_seq();
 }
 
 // -------------------------------------------------------------------

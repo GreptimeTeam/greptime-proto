@@ -664,19 +664,19 @@ java.lang.String defaultValue);
     int getChannel();
 
     /**
-     * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
-     * @return Whether the seqSnapshot field is set.
+     * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
+     * @return Whether the snapshotSeq field is set.
      */
-    boolean hasSeqSnapshot();
+    boolean hasSnapshotSeq();
     /**
-     * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
-     * @return The seqSnapshot.
+     * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
+     * @return The snapshotSeq.
      */
-    io.greptime.v1.Common.SequenceSnapshot getSeqSnapshot();
+    io.greptime.v1.Common.SnapshotSequence getSnapshotSeq();
     /**
-     * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
+     * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
      */
-    io.greptime.v1.Common.SequenceSnapshotOrBuilder getSeqSnapshotOrBuilder();
+    io.greptime.v1.Common.SnapshotSequenceOrBuilder getSnapshotSeqOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.QueryContext}
@@ -764,14 +764,14 @@ java.lang.String defaultValue);
               break;
             }
             case 58: {
-              io.greptime.v1.Common.SequenceSnapshot.Builder subBuilder = null;
-              if (seqSnapshot_ != null) {
-                subBuilder = seqSnapshot_.toBuilder();
+              io.greptime.v1.Common.SnapshotSequence.Builder subBuilder = null;
+              if (snapshotSeq_ != null) {
+                subBuilder = snapshotSeq_.toBuilder();
               }
-              seqSnapshot_ = input.readMessage(io.greptime.v1.Common.SequenceSnapshot.parser(), extensionRegistry);
+              snapshotSeq_ = input.readMessage(io.greptime.v1.Common.SnapshotSequence.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(seqSnapshot_);
-                seqSnapshot_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(snapshotSeq_);
+                snapshotSeq_ = subBuilder.buildPartial();
               }
 
               break;
@@ -1028,30 +1028,30 @@ java.lang.String defaultValue);
       return channel_;
     }
 
-    public static final int SEQ_SNAPSHOT_FIELD_NUMBER = 7;
-    private io.greptime.v1.Common.SequenceSnapshot seqSnapshot_;
+    public static final int SNAPSHOT_SEQ_FIELD_NUMBER = 7;
+    private io.greptime.v1.Common.SnapshotSequence snapshotSeq_;
     /**
-     * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
-     * @return Whether the seqSnapshot field is set.
+     * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
+     * @return Whether the snapshotSeq field is set.
      */
     @java.lang.Override
-    public boolean hasSeqSnapshot() {
-      return seqSnapshot_ != null;
+    public boolean hasSnapshotSeq() {
+      return snapshotSeq_ != null;
     }
     /**
-     * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
-     * @return The seqSnapshot.
+     * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
+     * @return The snapshotSeq.
      */
     @java.lang.Override
-    public io.greptime.v1.Common.SequenceSnapshot getSeqSnapshot() {
-      return seqSnapshot_ == null ? io.greptime.v1.Common.SequenceSnapshot.getDefaultInstance() : seqSnapshot_;
+    public io.greptime.v1.Common.SnapshotSequence getSnapshotSeq() {
+      return snapshotSeq_ == null ? io.greptime.v1.Common.SnapshotSequence.getDefaultInstance() : snapshotSeq_;
     }
     /**
-     * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
+     * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Common.SequenceSnapshotOrBuilder getSeqSnapshotOrBuilder() {
-      return getSeqSnapshot();
+    public io.greptime.v1.Common.SnapshotSequenceOrBuilder getSnapshotSeqOrBuilder() {
+      return getSnapshotSeq();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1086,8 +1086,8 @@ java.lang.String defaultValue);
       if (channel_ != 0) {
         output.writeUInt32(6, channel_);
       }
-      if (seqSnapshot_ != null) {
-        output.writeMessage(7, getSeqSnapshot());
+      if (snapshotSeq_ != null) {
+        output.writeMessage(7, getSnapshotSeq());
       }
       unknownFields.writeTo(output);
     }
@@ -1121,9 +1121,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, channel_);
       }
-      if (seqSnapshot_ != null) {
+      if (snapshotSeq_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, getSeqSnapshot());
+          .computeMessageSize(7, getSnapshotSeq());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1150,10 +1150,10 @@ java.lang.String defaultValue);
           other.internalGetExtensions())) return false;
       if (getChannel()
           != other.getChannel()) return false;
-      if (hasSeqSnapshot() != other.hasSeqSnapshot()) return false;
-      if (hasSeqSnapshot()) {
-        if (!getSeqSnapshot()
-            .equals(other.getSeqSnapshot())) return false;
+      if (hasSnapshotSeq() != other.hasSnapshotSeq()) return false;
+      if (hasSnapshotSeq()) {
+        if (!getSnapshotSeq()
+            .equals(other.getSnapshotSeq())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -1178,9 +1178,9 @@ java.lang.String defaultValue);
       }
       hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
       hash = (53 * hash) + getChannel();
-      if (hasSeqSnapshot()) {
-        hash = (37 * hash) + SEQ_SNAPSHOT_FIELD_NUMBER;
-        hash = (53 * hash) + getSeqSnapshot().hashCode();
+      if (hasSnapshotSeq()) {
+        hash = (37 * hash) + SNAPSHOT_SEQ_FIELD_NUMBER;
+        hash = (53 * hash) + getSnapshotSeq().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1346,11 +1346,11 @@ java.lang.String defaultValue);
         internalGetMutableExtensions().clear();
         channel_ = 0;
 
-        if (seqSnapshotBuilder_ == null) {
-          seqSnapshot_ = null;
+        if (snapshotSeqBuilder_ == null) {
+          snapshotSeq_ = null;
         } else {
-          seqSnapshot_ = null;
-          seqSnapshotBuilder_ = null;
+          snapshotSeq_ = null;
+          snapshotSeqBuilder_ = null;
         }
         return this;
       }
@@ -1385,10 +1385,10 @@ java.lang.String defaultValue);
         result.extensions_ = internalGetExtensions();
         result.extensions_.makeImmutable();
         result.channel_ = channel_;
-        if (seqSnapshotBuilder_ == null) {
-          result.seqSnapshot_ = seqSnapshot_;
+        if (snapshotSeqBuilder_ == null) {
+          result.snapshotSeq_ = snapshotSeq_;
         } else {
-          result.seqSnapshot_ = seqSnapshotBuilder_.build();
+          result.snapshotSeq_ = snapshotSeqBuilder_.build();
         }
         onBuilt();
         return result;
@@ -1455,8 +1455,8 @@ java.lang.String defaultValue);
         if (other.getChannel() != 0) {
           setChannel(other.getChannel());
         }
-        if (other.hasSeqSnapshot()) {
-          mergeSeqSnapshot(other.getSeqSnapshot());
+        if (other.hasSnapshotSeq()) {
+          mergeSnapshotSeq(other.getSnapshotSeq());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1878,123 +1878,123 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private io.greptime.v1.Common.SequenceSnapshot seqSnapshot_;
+      private io.greptime.v1.Common.SnapshotSequence snapshotSeq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Common.SequenceSnapshot, io.greptime.v1.Common.SequenceSnapshot.Builder, io.greptime.v1.Common.SequenceSnapshotOrBuilder> seqSnapshotBuilder_;
+          io.greptime.v1.Common.SnapshotSequence, io.greptime.v1.Common.SnapshotSequence.Builder, io.greptime.v1.Common.SnapshotSequenceOrBuilder> snapshotSeqBuilder_;
       /**
-       * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
-       * @return Whether the seqSnapshot field is set.
+       * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
+       * @return Whether the snapshotSeq field is set.
        */
-      public boolean hasSeqSnapshot() {
-        return seqSnapshotBuilder_ != null || seqSnapshot_ != null;
+      public boolean hasSnapshotSeq() {
+        return snapshotSeqBuilder_ != null || snapshotSeq_ != null;
       }
       /**
-       * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
-       * @return The seqSnapshot.
+       * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
+       * @return The snapshotSeq.
        */
-      public io.greptime.v1.Common.SequenceSnapshot getSeqSnapshot() {
-        if (seqSnapshotBuilder_ == null) {
-          return seqSnapshot_ == null ? io.greptime.v1.Common.SequenceSnapshot.getDefaultInstance() : seqSnapshot_;
+      public io.greptime.v1.Common.SnapshotSequence getSnapshotSeq() {
+        if (snapshotSeqBuilder_ == null) {
+          return snapshotSeq_ == null ? io.greptime.v1.Common.SnapshotSequence.getDefaultInstance() : snapshotSeq_;
         } else {
-          return seqSnapshotBuilder_.getMessage();
+          return snapshotSeqBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
+       * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
        */
-      public Builder setSeqSnapshot(io.greptime.v1.Common.SequenceSnapshot value) {
-        if (seqSnapshotBuilder_ == null) {
+      public Builder setSnapshotSeq(io.greptime.v1.Common.SnapshotSequence value) {
+        if (snapshotSeqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          seqSnapshot_ = value;
+          snapshotSeq_ = value;
           onChanged();
         } else {
-          seqSnapshotBuilder_.setMessage(value);
+          snapshotSeqBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
+       * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
        */
-      public Builder setSeqSnapshot(
-          io.greptime.v1.Common.SequenceSnapshot.Builder builderForValue) {
-        if (seqSnapshotBuilder_ == null) {
-          seqSnapshot_ = builderForValue.build();
+      public Builder setSnapshotSeq(
+          io.greptime.v1.Common.SnapshotSequence.Builder builderForValue) {
+        if (snapshotSeqBuilder_ == null) {
+          snapshotSeq_ = builderForValue.build();
           onChanged();
         } else {
-          seqSnapshotBuilder_.setMessage(builderForValue.build());
+          snapshotSeqBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
+       * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
        */
-      public Builder mergeSeqSnapshot(io.greptime.v1.Common.SequenceSnapshot value) {
-        if (seqSnapshotBuilder_ == null) {
-          if (seqSnapshot_ != null) {
-            seqSnapshot_ =
-              io.greptime.v1.Common.SequenceSnapshot.newBuilder(seqSnapshot_).mergeFrom(value).buildPartial();
+      public Builder mergeSnapshotSeq(io.greptime.v1.Common.SnapshotSequence value) {
+        if (snapshotSeqBuilder_ == null) {
+          if (snapshotSeq_ != null) {
+            snapshotSeq_ =
+              io.greptime.v1.Common.SnapshotSequence.newBuilder(snapshotSeq_).mergeFrom(value).buildPartial();
           } else {
-            seqSnapshot_ = value;
+            snapshotSeq_ = value;
           }
           onChanged();
         } else {
-          seqSnapshotBuilder_.mergeFrom(value);
+          snapshotSeqBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
+       * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
        */
-      public Builder clearSeqSnapshot() {
-        if (seqSnapshotBuilder_ == null) {
-          seqSnapshot_ = null;
+      public Builder clearSnapshotSeq() {
+        if (snapshotSeqBuilder_ == null) {
+          snapshotSeq_ = null;
           onChanged();
         } else {
-          seqSnapshot_ = null;
-          seqSnapshotBuilder_ = null;
+          snapshotSeq_ = null;
+          snapshotSeqBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
+       * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
        */
-      public io.greptime.v1.Common.SequenceSnapshot.Builder getSeqSnapshotBuilder() {
+      public io.greptime.v1.Common.SnapshotSequence.Builder getSnapshotSeqBuilder() {
         
         onChanged();
-        return getSeqSnapshotFieldBuilder().getBuilder();
+        return getSnapshotSeqFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
+       * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
        */
-      public io.greptime.v1.Common.SequenceSnapshotOrBuilder getSeqSnapshotOrBuilder() {
-        if (seqSnapshotBuilder_ != null) {
-          return seqSnapshotBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Common.SnapshotSequenceOrBuilder getSnapshotSeqOrBuilder() {
+        if (snapshotSeqBuilder_ != null) {
+          return snapshotSeqBuilder_.getMessageOrBuilder();
         } else {
-          return seqSnapshot_ == null ?
-              io.greptime.v1.Common.SequenceSnapshot.getDefaultInstance() : seqSnapshot_;
+          return snapshotSeq_ == null ?
+              io.greptime.v1.Common.SnapshotSequence.getDefaultInstance() : snapshotSeq_;
         }
       }
       /**
-       * <code>.greptime.v1.SequenceSnapshot seq_snapshot = 7;</code>
+       * <code>.greptime.v1.SnapshotSequence snapshot_seq = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Common.SequenceSnapshot, io.greptime.v1.Common.SequenceSnapshot.Builder, io.greptime.v1.Common.SequenceSnapshotOrBuilder> 
-          getSeqSnapshotFieldBuilder() {
-        if (seqSnapshotBuilder_ == null) {
-          seqSnapshotBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Common.SequenceSnapshot, io.greptime.v1.Common.SequenceSnapshot.Builder, io.greptime.v1.Common.SequenceSnapshotOrBuilder>(
-                  getSeqSnapshot(),
+          io.greptime.v1.Common.SnapshotSequence, io.greptime.v1.Common.SnapshotSequence.Builder, io.greptime.v1.Common.SnapshotSequenceOrBuilder> 
+          getSnapshotSeqFieldBuilder() {
+        if (snapshotSeqBuilder_ == null) {
+          snapshotSeqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.SnapshotSequence, io.greptime.v1.Common.SnapshotSequence.Builder, io.greptime.v1.Common.SnapshotSequenceOrBuilder>(
+                  getSnapshotSeq(),
                   getParentForChildren(),
                   isClean());
-          seqSnapshot_ = null;
+          snapshotSeq_ = null;
         }
-        return seqSnapshotBuilder_;
+        return snapshotSeqBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2049,94 +2049,94 @@ java.lang.String defaultValue);
 
   }
 
-  public interface SequenceSnapshotOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.SequenceSnapshot)
+  public interface SnapshotSequenceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.SnapshotSequence)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
+     * read should only container data that was committed before (and include) the
      * given sequence number
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+     * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
      */
-    int getSeqSnapshotCount();
+    int getSnapshotSeqCount();
     /**
      * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
+     * read should only container data that was committed before (and include) the
      * given sequence number
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+     * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
      */
-    boolean containsSeqSnapshot(
+    boolean containsSnapshotSeq(
         long key);
     /**
-     * Use {@link #getSeqSnapshotMap()} instead.
+     * Use {@link #getSnapshotSeqMap()} instead.
      */
     @java.lang.Deprecated
     java.util.Map<java.lang.Long, java.lang.Long>
-    getSeqSnapshot();
+    getSnapshotSeq();
     /**
      * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
+     * read should only container data that was committed before (and include) the
      * given sequence number
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+     * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
      */
     java.util.Map<java.lang.Long, java.lang.Long>
-    getSeqSnapshotMap();
+    getSnapshotSeqMap();
     /**
      * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
+     * read should only container data that was committed before (and include) the
      * given sequence number
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+     * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
      */
 
-    long getSeqSnapshotOrDefault(
+    long getSnapshotSeqOrDefault(
         long key,
         long defaultValue);
     /**
      * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
+     * read should only container data that was committed before (and include) the
      * given sequence number
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+     * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
      */
 
-    long getSeqSnapshotOrThrow(
+    long getSnapshotSeqOrThrow(
         long key);
   }
   /**
-   * Protobuf type {@code greptime.v1.SequenceSnapshot}
+   * Protobuf type {@code greptime.v1.SnapshotSequence}
    */
-  public static final class SequenceSnapshot extends
+  public static final class SnapshotSequence extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.SequenceSnapshot)
-      SequenceSnapshotOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.SnapshotSequence)
+      SnapshotSequenceOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use SequenceSnapshot.newBuilder() to construct.
-    private SequenceSnapshot(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use SnapshotSequence.newBuilder() to construct.
+    private SnapshotSequence(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private SequenceSnapshot() {
+    private SnapshotSequence() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new SequenceSnapshot();
+      return new SnapshotSequence();
     }
 
     @java.lang.Override
@@ -2144,7 +2144,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SequenceSnapshot(
+    private SnapshotSequence(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2165,15 +2165,15 @@ java.lang.String defaultValue);
               break;
             case 58: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                seqSnapshot_ = com.google.protobuf.MapField.newMapField(
-                    SeqSnapshotDefaultEntryHolder.defaultEntry);
+                snapshotSeq_ = com.google.protobuf.MapField.newMapField(
+                    SnapshotSeqDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000001;
               }
               com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              seqSnapshot__ = input.readMessage(
-                  SeqSnapshotDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              seqSnapshot_.getMutableMap().put(
-                  seqSnapshot__.getKey(), seqSnapshot__.getValue());
+              snapshotSeq__ = input.readMessage(
+                  SnapshotSeqDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              snapshotSeq_.getMutableMap().put(
+                  snapshotSeq__.getKey(), snapshotSeq__.getValue());
               break;
             }
             default: {
@@ -2199,7 +2199,7 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshot_descriptor;
+      return io.greptime.v1.Common.internal_static_greptime_v1_SnapshotSequence_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -2208,7 +2208,7 @@ java.lang.String defaultValue);
         int number) {
       switch (number) {
         case 7:
-          return internalGetSeqSnapshot();
+          return internalGetSnapshotSeq();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -2217,110 +2217,110 @@ java.lang.String defaultValue);
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshot_fieldAccessorTable
+      return io.greptime.v1.Common.internal_static_greptime_v1_SnapshotSequence_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Common.SequenceSnapshot.class, io.greptime.v1.Common.SequenceSnapshot.Builder.class);
+              io.greptime.v1.Common.SnapshotSequence.class, io.greptime.v1.Common.SnapshotSequence.Builder.class);
     }
 
-    public static final int SEQ_SNAPSHOT_FIELD_NUMBER = 7;
-    private static final class SeqSnapshotDefaultEntryHolder {
+    public static final int SNAPSHOT_SEQ_FIELD_NUMBER = 7;
+    private static final class SnapshotSeqDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.Long, java.lang.Long> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.Long, java.lang.Long>newDefaultInstance(
-                  io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshot_SeqSnapshotEntry_descriptor, 
+                  io.greptime.v1.Common.internal_static_greptime_v1_SnapshotSequence_SnapshotSeqEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.UINT64,
                   0L,
                   com.google.protobuf.WireFormat.FieldType.UINT64,
                   0L);
     }
     private com.google.protobuf.MapField<
-        java.lang.Long, java.lang.Long> seqSnapshot_;
+        java.lang.Long, java.lang.Long> snapshotSeq_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-    internalGetSeqSnapshot() {
-      if (seqSnapshot_ == null) {
+    internalGetSnapshotSeq() {
+      if (snapshotSeq_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            SeqSnapshotDefaultEntryHolder.defaultEntry);
+            SnapshotSeqDefaultEntryHolder.defaultEntry);
       }
-      return seqSnapshot_;
+      return snapshotSeq_;
     }
 
-    public int getSeqSnapshotCount() {
-      return internalGetSeqSnapshot().getMap().size();
+    public int getSnapshotSeqCount() {
+      return internalGetSnapshotSeq().getMap().size();
     }
     /**
      * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
+     * read should only container data that was committed before (and include) the
      * given sequence number
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+     * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
      */
 
     @java.lang.Override
-    public boolean containsSeqSnapshot(
+    public boolean containsSnapshotSeq(
         long key) {
       
-      return internalGetSeqSnapshot().getMap().containsKey(key);
+      return internalGetSnapshotSeq().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getSeqSnapshotMap()} instead.
+     * Use {@link #getSnapshotSeqMap()} instead.
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.Long, java.lang.Long> getSeqSnapshot() {
-      return getSeqSnapshotMap();
+    public java.util.Map<java.lang.Long, java.lang.Long> getSnapshotSeq() {
+      return getSnapshotSeqMap();
     }
     /**
      * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
+     * read should only container data that was committed before (and include) the
      * given sequence number
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+     * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.Long, java.lang.Long> getSeqSnapshotMap() {
-      return internalGetSeqSnapshot().getMap();
+    public java.util.Map<java.lang.Long, java.lang.Long> getSnapshotSeqMap() {
+      return internalGetSnapshotSeq().getMap();
     }
     /**
      * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
+     * read should only container data that was committed before (and include) the
      * given sequence number
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+     * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
      */
     @java.lang.Override
 
-    public long getSeqSnapshotOrDefault(
+    public long getSnapshotSeqOrDefault(
         long key,
         long defaultValue) {
       
       java.util.Map<java.lang.Long, java.lang.Long> map =
-          internalGetSeqSnapshot().getMap();
+          internalGetSnapshotSeq().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
      * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
+     * read should only container data that was committed before (and include) the
      * given sequence number
      * </pre>
      *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+     * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
      */
     @java.lang.Override
 
-    public long getSeqSnapshotOrThrow(
+    public long getSnapshotSeqOrThrow(
         long key) {
       
       java.util.Map<java.lang.Long, java.lang.Long> map =
-          internalGetSeqSnapshot().getMap();
+          internalGetSnapshotSeq().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
@@ -2344,8 +2344,8 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3
         .serializeLongMapTo(
           output,
-          internalGetSeqSnapshot(),
-          SeqSnapshotDefaultEntryHolder.defaultEntry,
+          internalGetSnapshotSeq(),
+          SnapshotSeqDefaultEntryHolder.defaultEntry,
           7);
       unknownFields.writeTo(output);
     }
@@ -2357,14 +2357,14 @@ java.lang.String defaultValue);
 
       size = 0;
       for (java.util.Map.Entry<java.lang.Long, java.lang.Long> entry
-           : internalGetSeqSnapshot().getMap().entrySet()) {
+           : internalGetSnapshotSeq().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-        seqSnapshot__ = SeqSnapshotDefaultEntryHolder.defaultEntry.newBuilderForType()
+        snapshotSeq__ = SnapshotSeqDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(7, seqSnapshot__);
+            .computeMessageSize(7, snapshotSeq__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2376,13 +2376,13 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.Common.SequenceSnapshot)) {
+      if (!(obj instanceof io.greptime.v1.Common.SnapshotSequence)) {
         return super.equals(obj);
       }
-      io.greptime.v1.Common.SequenceSnapshot other = (io.greptime.v1.Common.SequenceSnapshot) obj;
+      io.greptime.v1.Common.SnapshotSequence other = (io.greptime.v1.Common.SnapshotSequence) obj;
 
-      if (!internalGetSeqSnapshot().equals(
-          other.internalGetSeqSnapshot())) return false;
+      if (!internalGetSnapshotSeq().equals(
+          other.internalGetSnapshotSeq())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2394,78 +2394,78 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetSeqSnapshot().getMap().isEmpty()) {
-        hash = (37 * hash) + SEQ_SNAPSHOT_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSeqSnapshot().hashCode();
+      if (!internalGetSnapshotSeq().getMap().isEmpty()) {
+        hash = (37 * hash) + SNAPSHOT_SEQ_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetSnapshotSeq().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(byte[] data)
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.Common.SnapshotSequence parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseDelimitedFrom(
+    public static io.greptime.v1.Common.SnapshotSequence parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Common.SequenceSnapshot parseFrom(
+    public static io.greptime.v1.Common.SnapshotSequence parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2478,7 +2478,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.Common.SequenceSnapshot prototype) {
+    public static Builder newBuilder(io.greptime.v1.Common.SnapshotSequence prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2494,15 +2494,15 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.SequenceSnapshot}
+     * Protobuf type {@code greptime.v1.SnapshotSequence}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.SequenceSnapshot)
-        io.greptime.v1.Common.SequenceSnapshotOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.SnapshotSequence)
+        io.greptime.v1.Common.SnapshotSequenceOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshot_descriptor;
+        return io.greptime.v1.Common.internal_static_greptime_v1_SnapshotSequence_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -2510,7 +2510,7 @@ java.lang.String defaultValue);
           int number) {
         switch (number) {
           case 7:
-            return internalGetSeqSnapshot();
+            return internalGetSnapshotSeq();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -2521,7 +2521,7 @@ java.lang.String defaultValue);
           int number) {
         switch (number) {
           case 7:
-            return internalGetMutableSeqSnapshot();
+            return internalGetMutableSnapshotSeq();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -2530,12 +2530,12 @@ java.lang.String defaultValue);
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshot_fieldAccessorTable
+        return io.greptime.v1.Common.internal_static_greptime_v1_SnapshotSequence_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Common.SequenceSnapshot.class, io.greptime.v1.Common.SequenceSnapshot.Builder.class);
+                io.greptime.v1.Common.SnapshotSequence.class, io.greptime.v1.Common.SnapshotSequence.Builder.class);
       }
 
-      // Construct using io.greptime.v1.Common.SequenceSnapshot.newBuilder()
+      // Construct using io.greptime.v1.Common.SnapshotSequence.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2553,24 +2553,24 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        internalGetMutableSeqSnapshot().clear();
+        internalGetMutableSnapshotSeq().clear();
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshot_descriptor;
+        return io.greptime.v1.Common.internal_static_greptime_v1_SnapshotSequence_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.Common.SequenceSnapshot getDefaultInstanceForType() {
-        return io.greptime.v1.Common.SequenceSnapshot.getDefaultInstance();
+      public io.greptime.v1.Common.SnapshotSequence getDefaultInstanceForType() {
+        return io.greptime.v1.Common.SnapshotSequence.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.Common.SequenceSnapshot build() {
-        io.greptime.v1.Common.SequenceSnapshot result = buildPartial();
+      public io.greptime.v1.Common.SnapshotSequence build() {
+        io.greptime.v1.Common.SnapshotSequence result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2578,11 +2578,11 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.Common.SequenceSnapshot buildPartial() {
-        io.greptime.v1.Common.SequenceSnapshot result = new io.greptime.v1.Common.SequenceSnapshot(this);
+      public io.greptime.v1.Common.SnapshotSequence buildPartial() {
+        io.greptime.v1.Common.SnapshotSequence result = new io.greptime.v1.Common.SnapshotSequence(this);
         int from_bitField0_ = bitField0_;
-        result.seqSnapshot_ = internalGetSeqSnapshot();
-        result.seqSnapshot_.makeImmutable();
+        result.snapshotSeq_ = internalGetSnapshotSeq();
+        result.snapshotSeq_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -2621,18 +2621,18 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Common.SequenceSnapshot) {
-          return mergeFrom((io.greptime.v1.Common.SequenceSnapshot)other);
+        if (other instanceof io.greptime.v1.Common.SnapshotSequence) {
+          return mergeFrom((io.greptime.v1.Common.SnapshotSequence)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.Common.SequenceSnapshot other) {
-        if (other == io.greptime.v1.Common.SequenceSnapshot.getDefaultInstance()) return this;
-        internalGetMutableSeqSnapshot().mergeFrom(
-            other.internalGetSeqSnapshot());
+      public Builder mergeFrom(io.greptime.v1.Common.SnapshotSequence other) {
+        if (other == io.greptime.v1.Common.SnapshotSequence.getDefaultInstance()) return this;
+        internalGetMutableSnapshotSeq().mergeFrom(
+            other.internalGetSnapshotSeq());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2648,11 +2648,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Common.SequenceSnapshot parsedMessage = null;
+        io.greptime.v1.Common.SnapshotSequence parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Common.SequenceSnapshot) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.Common.SnapshotSequence) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2664,129 +2664,129 @@ java.lang.String defaultValue);
       private int bitField0_;
 
       private com.google.protobuf.MapField<
-          java.lang.Long, java.lang.Long> seqSnapshot_;
+          java.lang.Long, java.lang.Long> snapshotSeq_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetSeqSnapshot() {
-        if (seqSnapshot_ == null) {
+      internalGetSnapshotSeq() {
+        if (snapshotSeq_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
-              SeqSnapshotDefaultEntryHolder.defaultEntry);
+              SnapshotSeqDefaultEntryHolder.defaultEntry);
         }
-        return seqSnapshot_;
+        return snapshotSeq_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableSeqSnapshot() {
+      internalGetMutableSnapshotSeq() {
         onChanged();;
-        if (seqSnapshot_ == null) {
-          seqSnapshot_ = com.google.protobuf.MapField.newMapField(
-              SeqSnapshotDefaultEntryHolder.defaultEntry);
+        if (snapshotSeq_ == null) {
+          snapshotSeq_ = com.google.protobuf.MapField.newMapField(
+              SnapshotSeqDefaultEntryHolder.defaultEntry);
         }
-        if (!seqSnapshot_.isMutable()) {
-          seqSnapshot_ = seqSnapshot_.copy();
+        if (!snapshotSeq_.isMutable()) {
+          snapshotSeq_ = snapshotSeq_.copy();
         }
-        return seqSnapshot_;
+        return snapshotSeq_;
       }
 
-      public int getSeqSnapshotCount() {
-        return internalGetSeqSnapshot().getMap().size();
+      public int getSnapshotSeqCount() {
+        return internalGetSnapshotSeq().getMap().size();
       }
       /**
        * <pre>
        * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-       * read should only container data that was committed before(and include) the
+       * read should only container data that was committed before (and include) the
        * given sequence number
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+       * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
        */
 
       @java.lang.Override
-      public boolean containsSeqSnapshot(
+      public boolean containsSnapshotSeq(
           long key) {
         
-        return internalGetSeqSnapshot().getMap().containsKey(key);
+        return internalGetSnapshotSeq().getMap().containsKey(key);
       }
       /**
-       * Use {@link #getSeqSnapshotMap()} instead.
+       * Use {@link #getSnapshotSeqMap()} instead.
        */
       @java.lang.Override
       @java.lang.Deprecated
-      public java.util.Map<java.lang.Long, java.lang.Long> getSeqSnapshot() {
-        return getSeqSnapshotMap();
+      public java.util.Map<java.lang.Long, java.lang.Long> getSnapshotSeq() {
+        return getSnapshotSeqMap();
       }
       /**
        * <pre>
        * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-       * read should only container data that was committed before(and include) the
+       * read should only container data that was committed before (and include) the
        * given sequence number
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+       * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
        */
       @java.lang.Override
 
-      public java.util.Map<java.lang.Long, java.lang.Long> getSeqSnapshotMap() {
-        return internalGetSeqSnapshot().getMap();
+      public java.util.Map<java.lang.Long, java.lang.Long> getSnapshotSeqMap() {
+        return internalGetSnapshotSeq().getMap();
       }
       /**
        * <pre>
        * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-       * read should only container data that was committed before(and include) the
+       * read should only container data that was committed before (and include) the
        * given sequence number
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+       * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
        */
       @java.lang.Override
 
-      public long getSeqSnapshotOrDefault(
+      public long getSnapshotSeqOrDefault(
           long key,
           long defaultValue) {
         
         java.util.Map<java.lang.Long, java.lang.Long> map =
-            internalGetSeqSnapshot().getMap();
+            internalGetSnapshotSeq().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
        * <pre>
        * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-       * read should only container data that was committed before(and include) the
+       * read should only container data that was committed before (and include) the
        * given sequence number
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+       * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
        */
       @java.lang.Override
 
-      public long getSeqSnapshotOrThrow(
+      public long getSnapshotSeqOrThrow(
           long key) {
         
         java.util.Map<java.lang.Long, java.lang.Long> map =
-            internalGetSeqSnapshot().getMap();
+            internalGetSnapshotSeq().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
 
-      public Builder clearSeqSnapshot() {
-        internalGetMutableSeqSnapshot().getMutableMap()
+      public Builder clearSnapshotSeq() {
+        internalGetMutableSnapshotSeq().getMutableMap()
             .clear();
         return this;
       }
       /**
        * <pre>
        * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-       * read should only container data that was committed before(and include) the
+       * read should only container data that was committed before (and include) the
        * given sequence number
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+       * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
        */
 
-      public Builder removeSeqSnapshot(
+      public Builder removeSnapshotSeq(
           long key) {
         
-        internalGetMutableSeqSnapshot().getMutableMap()
+        internalGetMutableSnapshotSeq().getMutableMap()
             .remove(key);
         return this;
       }
@@ -2795,40 +2795,40 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableSeqSnapshot() {
-        return internalGetMutableSeqSnapshot().getMutableMap();
+      getMutableSnapshotSeq() {
+        return internalGetMutableSnapshotSeq().getMutableMap();
       }
       /**
        * <pre>
        * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-       * read should only container data that was committed before(and include) the
+       * read should only container data that was committed before (and include) the
        * given sequence number
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+       * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
        */
-      public Builder putSeqSnapshot(
+      public Builder putSnapshotSeq(
           long key,
           long value) {
         
         
-        internalGetMutableSeqSnapshot().getMutableMap()
+        internalGetMutableSnapshotSeq().getMutableMap()
             .put(key, value);
         return this;
       }
       /**
        * <pre>
        * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-       * read should only container data that was committed before(and include) the
+       * read should only container data that was committed before (and include) the
        * given sequence number
        * </pre>
        *
-       * <code>map&lt;uint64, uint64&gt; seq_snapshot = 7;</code>
+       * <code>map&lt;uint64, uint64&gt; snapshot_seq = 7;</code>
        */
 
-      public Builder putAllSeqSnapshot(
+      public Builder putAllSnapshotSeq(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
-        internalGetMutableSeqSnapshot().getMutableMap()
+        internalGetMutableSnapshotSeq().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -2845,41 +2845,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.SequenceSnapshot)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.SnapshotSequence)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.SequenceSnapshot)
-    private static final io.greptime.v1.Common.SequenceSnapshot DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.SnapshotSequence)
+    private static final io.greptime.v1.Common.SnapshotSequence DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Common.SequenceSnapshot();
+      DEFAULT_INSTANCE = new io.greptime.v1.Common.SnapshotSequence();
     }
 
-    public static io.greptime.v1.Common.SequenceSnapshot getDefaultInstance() {
+    public static io.greptime.v1.Common.SnapshotSequence getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<SequenceSnapshot>
-        PARSER = new com.google.protobuf.AbstractParser<SequenceSnapshot>() {
+    private static final com.google.protobuf.Parser<SnapshotSequence>
+        PARSER = new com.google.protobuf.AbstractParser<SnapshotSequence>() {
       @java.lang.Override
-      public SequenceSnapshot parsePartialFrom(
+      public SnapshotSequence parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SequenceSnapshot(input, extensionRegistry);
+        return new SnapshotSequence(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<SequenceSnapshot> parser() {
+    public static com.google.protobuf.Parser<SnapshotSequence> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<SequenceSnapshot> getParserForType() {
+    public com.google.protobuf.Parser<SnapshotSequence> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.Common.SequenceSnapshot getDefaultInstanceForType() {
+    public io.greptime.v1.Common.SnapshotSequence getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15871,15 +15871,15 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_QueryContext_ExtensionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_SequenceSnapshot_descriptor;
+    internal_static_greptime_v1_SnapshotSequence_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_SequenceSnapshot_fieldAccessorTable;
+      internal_static_greptime_v1_SnapshotSequence_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_SequenceSnapshot_SeqSnapshotEntry_descriptor;
+    internal_static_greptime_v1_SnapshotSequence_SnapshotSeqEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_SequenceSnapshot_SeqSnapshotEntry_fieldAccessorTable;
+      internal_static_greptime_v1_SnapshotSequence_SnapshotSeqEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_RequestHeader_descriptor;
   private static final 
@@ -15989,12 +15989,12 @@ java.lang.String defaultValue);
       "\t\022\026\n\016current_schema\030\002 \001(\t\022\020\n\010timezone\030\004 " +
       "\001(\t\022=\n\nextensions\030\005 \003(\0132).greptime.v1.Qu" +
       "eryContext.ExtensionsEntry\022\017\n\007channel\030\006 " +
-      "\001(\r\0223\n\014seq_snapshot\030\007 \001(\0132\035.greptime.v1." +
-      "SequenceSnapshot\0321\n\017ExtensionsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\214\001\n\020Sequence" +
-      "Snapshot\022D\n\014seq_snapshot\030\007 \003(\0132..greptim" +
-      "e.v1.SequenceSnapshot.SeqSnapshotEntry\0322" +
-      "\n\020SeqSnapshotEntry\022\013\n\003key\030\001 \001(\004\022\r\n\005value" +
+      "\001(\r\0223\n\014snapshot_seq\030\007 \001(\0132\035.greptime.v1." +
+      "SnapshotSequence\0321\n\017ExtensionsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\214\001\n\020Snapshot" +
+      "Sequence\022D\n\014snapshot_seq\030\007 \003(\0132..greptim" +
+      "e.v1.SnapshotSequence.SnapshotSeqEntry\0322" +
+      "\n\020SnapshotSeqEntry\022\013\n\003key\030\001 \001(\004\022\r\n\005value" +
       "\030\002 \001(\004:\0028\001\"\202\002\n\rRequestHeader\022\017\n\007catalog\030" +
       "\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthorization\030\003" +
       " \001(\0132\027.greptime.v1.AuthHeader\022\016\n\006dbname\030" +
@@ -16056,24 +16056,24 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_QueryContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_QueryContext_descriptor,
-        new java.lang.String[] { "CurrentCatalog", "CurrentSchema", "Timezone", "Extensions", "Channel", "SeqSnapshot", });
+        new java.lang.String[] { "CurrentCatalog", "CurrentSchema", "Timezone", "Extensions", "Channel", "SnapshotSeq", });
     internal_static_greptime_v1_QueryContext_ExtensionsEntry_descriptor =
       internal_static_greptime_v1_QueryContext_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_QueryContext_ExtensionsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_QueryContext_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_SequenceSnapshot_descriptor =
+    internal_static_greptime_v1_SnapshotSequence_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_greptime_v1_SequenceSnapshot_fieldAccessorTable = new
+    internal_static_greptime_v1_SnapshotSequence_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_SequenceSnapshot_descriptor,
-        new java.lang.String[] { "SeqSnapshot", });
-    internal_static_greptime_v1_SequenceSnapshot_SeqSnapshotEntry_descriptor =
-      internal_static_greptime_v1_SequenceSnapshot_descriptor.getNestedTypes().get(0);
-    internal_static_greptime_v1_SequenceSnapshot_SeqSnapshotEntry_fieldAccessorTable = new
+        internal_static_greptime_v1_SnapshotSequence_descriptor,
+        new java.lang.String[] { "SnapshotSeq", });
+    internal_static_greptime_v1_SnapshotSequence_SnapshotSeqEntry_descriptor =
+      internal_static_greptime_v1_SnapshotSequence_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_SnapshotSequence_SnapshotSeqEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_SequenceSnapshot_SeqSnapshotEntry_descriptor,
+        internal_static_greptime_v1_SnapshotSequence_SnapshotSeqEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_RequestHeader_descriptor =
       getDescriptor().getMessageTypes().get(2);
