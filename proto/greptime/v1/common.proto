@@ -26,6 +26,7 @@ message QueryContext {
   string timezone = 4;
   map<string, string> extensions = 5;
   uint32 channel = 6;
+  map<uint64, uint64> seq_snapshots = 7;
 }
 
 message RequestHeader {
