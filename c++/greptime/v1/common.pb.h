@@ -92,6 +92,9 @@ extern QueryContextDefaultTypeInternal _QueryContext_default_instance_;
 class QueryContext_ExtensionsEntry_DoNotUse;
 struct QueryContext_ExtensionsEntry_DoNotUseDefaultTypeInternal;
 extern QueryContext_ExtensionsEntry_DoNotUseDefaultTypeInternal _QueryContext_ExtensionsEntry_DoNotUse_default_instance_;
+class QueryContext_SeqSnapshotsEntry_DoNotUse;
+struct QueryContext_SeqSnapshotsEntry_DoNotUseDefaultTypeInternal;
+extern QueryContext_SeqSnapshotsEntry_DoNotUseDefaultTypeInternal _QueryContext_SeqSnapshotsEntry_DoNotUse_default_instance_;
 class RequestHeader;
 struct RequestHeaderDefaultTypeInternal;
 extern RequestHeaderDefaultTypeInternal _RequestHeader_default_instance_;
@@ -130,6 +133,7 @@ template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::Metrics* Arena::CreateMaybeMessage<::greptime::v1::Metrics>(Arena*);
 template<> ::greptime::v1::QueryContext* Arena::CreateMaybeMessage<::greptime::v1::QueryContext>(Arena*);
 template<> ::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::QueryContext_SeqSnapshotsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::QueryContext_SeqSnapshotsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
 template<> ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::ResponseHeader>(Arena*);
@@ -273,6 +277,30 @@ public:
 
 // -------------------------------------------------------------------
 
+class QueryContext_SeqSnapshotsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<QueryContext_SeqSnapshotsEntry_DoNotUse, 
+    uint64_t, uint64_t,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<QueryContext_SeqSnapshotsEntry_DoNotUse, 
+    uint64_t, uint64_t,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> SuperType;
+  QueryContext_SeqSnapshotsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR QueryContext_SeqSnapshotsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit QueryContext_SeqSnapshotsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const QueryContext_SeqSnapshotsEntry_DoNotUse& other);
+  static const QueryContext_SeqSnapshotsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const QueryContext_SeqSnapshotsEntry_DoNotUse*>(&_QueryContext_SeqSnapshotsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(void*) { return true; }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class QueryContext final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.QueryContext) */ {
  public:
@@ -321,7 +349,7 @@ class QueryContext final :
                &_QueryContext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(QueryContext& a, QueryContext& b) {
     a.Swap(&b);
@@ -398,6 +426,7 @@ class QueryContext final :
 
   enum : int {
     kExtensionsFieldNumber = 5,
+    kSeqSnapshotsFieldNumber = 7,
     kCurrentCatalogFieldNumber = 1,
     kCurrentSchemaFieldNumber = 2,
     kTimezoneFieldNumber = 4,
@@ -419,6 +448,23 @@ class QueryContext final :
       extensions() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
       mutable_extensions();
+
+  // map<uint64, uint64> seq_snapshots = 7;
+  int seq_snapshots_size() const;
+  private:
+  int _internal_seq_snapshots_size() const;
+  public:
+  void clear_seq_snapshots();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+      _internal_seq_snapshots() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+      _internal_mutable_seq_snapshots();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+      seq_snapshots() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+      mutable_seq_snapshots();
 
   // string current_catalog = 1;
   void clear_current_catalog();
@@ -484,6 +530,11 @@ class QueryContext final :
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> extensions_;
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        QueryContext_SeqSnapshotsEntry_DoNotUse,
+        uint64_t, uint64_t,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> seq_snapshots_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_catalog_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_schema_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr timezone_;
@@ -571,7 +622,7 @@ class RequestHeader final :
                &_RequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(RequestHeader& a, RequestHeader& b) {
     a.Swap(&b);
@@ -818,7 +869,7 @@ class ResponseHeader final :
                &_ResponseHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(ResponseHeader& a, ResponseHeader& b) {
     a.Swap(&b);
@@ -975,7 +1026,7 @@ class Status final :
                &_Status_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(Status& a, Status& b) {
     a.Swap(&b);
@@ -1145,7 +1196,7 @@ class AuthHeader final :
                &_AuthHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(AuthHeader& a, AuthHeader& b) {
     a.Swap(&b);
@@ -1335,7 +1386,7 @@ class Basic final :
                &_Basic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(Basic& a, Basic& b) {
     a.Swap(&b);
@@ -1504,7 +1555,7 @@ class Token final :
                &_Token_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(Token& a, Token& b) {
     a.Swap(&b);
@@ -1657,7 +1708,7 @@ class TableName final :
                &_TableName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(TableName& a, TableName& b) {
     a.Swap(&b);
@@ -1842,7 +1893,7 @@ class AffectedRows final :
                &_AffectedRows_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(AffectedRows& a, AffectedRows& b) {
     a.Swap(&b);
@@ -1990,7 +2041,7 @@ class Metrics final :
                &_Metrics_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(Metrics& a, Metrics& b) {
     a.Swap(&b);
@@ -2143,7 +2194,7 @@ class ExpireAfter final :
                &_ExpireAfter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(ExpireAfter& a, ExpireAfter& b) {
     a.Swap(&b);
@@ -2291,7 +2342,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -2468,7 +2519,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -2638,7 +2689,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -2804,7 +2855,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -3010,7 +3061,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -3169,7 +3220,7 @@ class VectorTypeExtension final :
                &_VectorTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(VectorTypeExtension& a, VectorTypeExtension& b) {
     a.Swap(&b);
@@ -3345,7 +3396,7 @@ class ColumnOptions final :
                &_ColumnOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(ColumnOptions& a, ColumnOptions& b) {
     a.Swap(&b);
@@ -3467,6 +3518,8 @@ class ColumnOptions final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // QueryContext
@@ -3668,6 +3721,35 @@ inline void QueryContext::_internal_set_channel(uint32_t value) {
 inline void QueryContext::set_channel(uint32_t value) {
   _internal_set_channel(value);
   // @@protoc_insertion_point(field_set:greptime.v1.QueryContext.channel)
+}
+
+// map<uint64, uint64> seq_snapshots = 7;
+inline int QueryContext::_internal_seq_snapshots_size() const {
+  return _impl_.seq_snapshots_.size();
+}
+inline int QueryContext::seq_snapshots_size() const {
+  return _internal_seq_snapshots_size();
+}
+inline void QueryContext::clear_seq_snapshots() {
+  _impl_.seq_snapshots_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+QueryContext::_internal_seq_snapshots() const {
+  return _impl_.seq_snapshots_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+QueryContext::seq_snapshots() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.QueryContext.seq_snapshots)
+  return _internal_seq_snapshots();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+QueryContext::_internal_mutable_seq_snapshots() {
+  return _impl_.seq_snapshots_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+QueryContext::mutable_seq_snapshots() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.QueryContext.seq_snapshots)
+  return _internal_mutable_seq_snapshots();
 }
 
 // -------------------------------------------------------------------
@@ -5335,6 +5417,8 @@ ColumnOptions::mutable_options() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
