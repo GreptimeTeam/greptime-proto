@@ -26,14 +26,14 @@ message QueryContext {
   string timezone = 4;
   map<string, string> extensions = 5;
   uint32 channel = 6;
-  SequenceSnapshots seq_snapshots = 7;
+  SequenceSnapshot seq_snapshot = 7;
 }
 
-message SequenceSnapshots{
+message SequenceSnapshot{
   // mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
   // read should only container data that was committed before(and include) the
   // given sequence number
-  map<uint64, uint64> seq_snapshots = 7;
+  map<uint64, uint64> seq_snapshot = 7;
 }
 
 message RequestHeader {
