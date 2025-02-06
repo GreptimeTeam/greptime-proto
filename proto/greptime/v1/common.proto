@@ -26,6 +26,9 @@ message QueryContext {
   string timezone = 4;
   map<string, string> extensions = 5;
   uint32 channel = 6;
+  // mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+  // read should only container data that was committed before(and include) the
+  // given sequence number
   map<uint64, uint64> seq_snapshots = 7;
 }
 
@@ -149,19 +152,16 @@ message DecimalTypeExtension {
   int32 scale = 2;
 }
 
-enum JsonTypeExtension {
-  JSON_BINARY = 0;
-}
+enum JsonTypeExtension { JSON_BINARY = 0; }
 
-message VectorTypeExtension {
-  uint32 dim = 1;
-}
+message VectorTypeExtension { uint32 dim = 1; }
 
 // Additional options for the column.
 message ColumnOptions {
   // Supported keys:
   //   "fulltext":
-  //      A JSON encoded string containing full-text search options for the column.
+  //      A JSON encoded string containing full-text search options for the
+  //      column.
   //
   //      The fulltext options JSON structure:
   //      {
@@ -170,13 +170,17 @@ message ColumnOptions {
   //
   //        "analyzer": string,      // The language-specific text analyzer to
   //                                 // use for indexing and searching text.
-  //                                 // Supported values: ["English" (Default), "Chinese"].
+  //                                 // Supported values: ["English" (Default),
+  //                                 "Chinese"].
   //
-  //        "case-sensitive": bool   // Indicates whether the text should be treated
-  //                                 // as case-sensitive during full-text search.
+  //        "case-sensitive": bool   // Indicates whether the text should be
+  //        treated
+  //                                 // as case-sensitive during full-text
+  //                                 search.
   //      }
   //
   //      Example:
-  //      "fulltext": "{\"enable\": true, \"analyzer\": \"English\", \"case-sensitive\": false}"
+  //      "fulltext": "{\"enable\": true, \"analyzer\": \"English\",
+  //      \"case-sensitive\": false}"
   map<string, string> options = 1;
 }

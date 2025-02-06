@@ -664,10 +664,22 @@ java.lang.String defaultValue);
     int getChannel();
 
     /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
      * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
      */
     int getSeqSnapshotsCount();
     /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
      * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
      */
     boolean containsSeqSnapshots(
@@ -679,11 +691,23 @@ java.lang.String defaultValue);
     java.util.Map<java.lang.Long, java.lang.Long>
     getSeqSnapshots();
     /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
      * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
      */
     java.util.Map<java.lang.Long, java.lang.Long>
     getSeqSnapshotsMap();
     /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
      * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
      */
 
@@ -691,6 +715,12 @@ java.lang.String defaultValue);
         long key,
         long defaultValue);
     /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
      * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
      */
 
@@ -1076,6 +1106,12 @@ java.lang.String defaultValue);
       return internalGetSeqSnapshots().getMap().size();
     }
     /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
      * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
      */
 
@@ -1094,6 +1130,12 @@ java.lang.String defaultValue);
       return getSeqSnapshotsMap();
     }
     /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
      * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
      */
     @java.lang.Override
@@ -1102,6 +1144,12 @@ java.lang.String defaultValue);
       return internalGetSeqSnapshots().getMap();
     }
     /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
      * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
      */
     @java.lang.Override
@@ -1115,6 +1163,12 @@ java.lang.String defaultValue);
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
      * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
      */
     @java.lang.Override
@@ -1982,6 +2036,12 @@ java.lang.String defaultValue);
         return internalGetSeqSnapshots().getMap().size();
       }
       /**
+       * <pre>
+       * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+       * read should only container data that was committed before(and include) the
+       * given sequence number
+       * </pre>
+       *
        * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
        */
 
@@ -2000,6 +2060,12 @@ java.lang.String defaultValue);
         return getSeqSnapshotsMap();
       }
       /**
+       * <pre>
+       * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+       * read should only container data that was committed before(and include) the
+       * given sequence number
+       * </pre>
+       *
        * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
        */
       @java.lang.Override
@@ -2008,6 +2074,12 @@ java.lang.String defaultValue);
         return internalGetSeqSnapshots().getMap();
       }
       /**
+       * <pre>
+       * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+       * read should only container data that was committed before(and include) the
+       * given sequence number
+       * </pre>
+       *
        * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
        */
       @java.lang.Override
@@ -2021,6 +2093,12 @@ java.lang.String defaultValue);
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
+       * <pre>
+       * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+       * read should only container data that was committed before(and include) the
+       * given sequence number
+       * </pre>
+       *
        * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
        */
       @java.lang.Override
@@ -2042,6 +2120,12 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+       * read should only container data that was committed before(and include) the
+       * given sequence number
+       * </pre>
+       *
        * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
        */
 
@@ -2061,6 +2145,12 @@ java.lang.String defaultValue);
         return internalGetMutableSeqSnapshots().getMutableMap();
       }
       /**
+       * <pre>
+       * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+       * read should only container data that was committed before(and include) the
+       * given sequence number
+       * </pre>
+       *
        * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
        */
       public Builder putSeqSnapshots(
@@ -2073,6 +2163,12 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+       * read should only container data that was committed before(and include) the
+       * given sequence number
+       * </pre>
+       *
        * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
        */
 
@@ -14077,19 +14173,24 @@ java.lang.String defaultValue);
      * <pre>
      * Supported keys:
      *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
+     *      A JSON encoded string containing full-text search options for the
+     *      column.
      *      The fulltext options JSON structure:
      *      {
      *        "enable": bool,          // Indicates whether full-text search is
      *                                 // enabled for the column.
      *        "analyzer": string,      // The language-specific text analyzer to
      *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
+     *                                 // Supported values: ["English" (Default),
+     *                                 "Chinese"].
+     *        "case-sensitive": bool   // Indicates whether the text should be
+     *        treated
+     *                                 // as case-sensitive during full-text
+     *                                 search.
      *      }
      *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+     *      &#92;"case-sensitive&#92;": false}"
      * </pre>
      *
      * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14099,19 +14200,24 @@ java.lang.String defaultValue);
      * <pre>
      * Supported keys:
      *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
+     *      A JSON encoded string containing full-text search options for the
+     *      column.
      *      The fulltext options JSON structure:
      *      {
      *        "enable": bool,          // Indicates whether full-text search is
      *                                 // enabled for the column.
      *        "analyzer": string,      // The language-specific text analyzer to
      *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
+     *                                 // Supported values: ["English" (Default),
+     *                                 "Chinese"].
+     *        "case-sensitive": bool   // Indicates whether the text should be
+     *        treated
+     *                                 // as case-sensitive during full-text
+     *                                 search.
      *      }
      *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+     *      &#92;"case-sensitive&#92;": false}"
      * </pre>
      *
      * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14128,19 +14234,24 @@ java.lang.String defaultValue);
      * <pre>
      * Supported keys:
      *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
+     *      A JSON encoded string containing full-text search options for the
+     *      column.
      *      The fulltext options JSON structure:
      *      {
      *        "enable": bool,          // Indicates whether full-text search is
      *                                 // enabled for the column.
      *        "analyzer": string,      // The language-specific text analyzer to
      *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
+     *                                 // Supported values: ["English" (Default),
+     *                                 "Chinese"].
+     *        "case-sensitive": bool   // Indicates whether the text should be
+     *        treated
+     *                                 // as case-sensitive during full-text
+     *                                 search.
      *      }
      *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+     *      &#92;"case-sensitive&#92;": false}"
      * </pre>
      *
      * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14151,19 +14262,24 @@ java.lang.String defaultValue);
      * <pre>
      * Supported keys:
      *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
+     *      A JSON encoded string containing full-text search options for the
+     *      column.
      *      The fulltext options JSON structure:
      *      {
      *        "enable": bool,          // Indicates whether full-text search is
      *                                 // enabled for the column.
      *        "analyzer": string,      // The language-specific text analyzer to
      *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
+     *                                 // Supported values: ["English" (Default),
+     *                                 "Chinese"].
+     *        "case-sensitive": bool   // Indicates whether the text should be
+     *        treated
+     *                                 // as case-sensitive during full-text
+     *                                 search.
      *      }
      *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+     *      &#92;"case-sensitive&#92;": false}"
      * </pre>
      *
      * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14178,19 +14294,24 @@ java.lang.String defaultValue);
      * <pre>
      * Supported keys:
      *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
+     *      A JSON encoded string containing full-text search options for the
+     *      column.
      *      The fulltext options JSON structure:
      *      {
      *        "enable": bool,          // Indicates whether full-text search is
      *                                 // enabled for the column.
      *        "analyzer": string,      // The language-specific text analyzer to
      *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
+     *                                 // Supported values: ["English" (Default),
+     *                                 "Chinese"].
+     *        "case-sensitive": bool   // Indicates whether the text should be
+     *        treated
+     *                                 // as case-sensitive during full-text
+     *                                 search.
      *      }
      *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+     *      &#92;"case-sensitive&#92;": false}"
      * </pre>
      *
      * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14338,19 +14459,24 @@ java.lang.String defaultValue);
      * <pre>
      * Supported keys:
      *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
+     *      A JSON encoded string containing full-text search options for the
+     *      column.
      *      The fulltext options JSON structure:
      *      {
      *        "enable": bool,          // Indicates whether full-text search is
      *                                 // enabled for the column.
      *        "analyzer": string,      // The language-specific text analyzer to
      *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
+     *                                 // Supported values: ["English" (Default),
+     *                                 "Chinese"].
+     *        "case-sensitive": bool   // Indicates whether the text should be
+     *        treated
+     *                                 // as case-sensitive during full-text
+     *                                 search.
      *      }
      *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+     *      &#92;"case-sensitive&#92;": false}"
      * </pre>
      *
      * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14374,19 +14500,24 @@ java.lang.String defaultValue);
      * <pre>
      * Supported keys:
      *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
+     *      A JSON encoded string containing full-text search options for the
+     *      column.
      *      The fulltext options JSON structure:
      *      {
      *        "enable": bool,          // Indicates whether full-text search is
      *                                 // enabled for the column.
      *        "analyzer": string,      // The language-specific text analyzer to
      *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
+     *                                 // Supported values: ["English" (Default),
+     *                                 "Chinese"].
+     *        "case-sensitive": bool   // Indicates whether the text should be
+     *        treated
+     *                                 // as case-sensitive during full-text
+     *                                 search.
      *      }
      *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+     *      &#92;"case-sensitive&#92;": false}"
      * </pre>
      *
      * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14400,19 +14531,24 @@ java.lang.String defaultValue);
      * <pre>
      * Supported keys:
      *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
+     *      A JSON encoded string containing full-text search options for the
+     *      column.
      *      The fulltext options JSON structure:
      *      {
      *        "enable": bool,          // Indicates whether full-text search is
      *                                 // enabled for the column.
      *        "analyzer": string,      // The language-specific text analyzer to
      *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
+     *                                 // Supported values: ["English" (Default),
+     *                                 "Chinese"].
+     *        "case-sensitive": bool   // Indicates whether the text should be
+     *        treated
+     *                                 // as case-sensitive during full-text
+     *                                 search.
      *      }
      *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+     *      &#92;"case-sensitive&#92;": false}"
      * </pre>
      *
      * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14431,19 +14567,24 @@ java.lang.String defaultValue);
      * <pre>
      * Supported keys:
      *   "fulltext":
-     *      A JSON encoded string containing full-text search options for the column.
+     *      A JSON encoded string containing full-text search options for the
+     *      column.
      *      The fulltext options JSON structure:
      *      {
      *        "enable": bool,          // Indicates whether full-text search is
      *                                 // enabled for the column.
      *        "analyzer": string,      // The language-specific text analyzer to
      *                                 // use for indexing and searching text.
-     *                                 // Supported values: ["English" (Default), "Chinese"].
-     *        "case-sensitive": bool   // Indicates whether the text should be treated
-     *                                 // as case-sensitive during full-text search.
+     *                                 // Supported values: ["English" (Default),
+     *                                 "Chinese"].
+     *        "case-sensitive": bool   // Indicates whether the text should be
+     *        treated
+     *                                 // as case-sensitive during full-text
+     *                                 search.
      *      }
      *      Example:
-     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+     *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+     *      &#92;"case-sensitive&#92;": false}"
      * </pre>
      *
      * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14831,19 +14972,24 @@ java.lang.String defaultValue);
        * <pre>
        * Supported keys:
        *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
+       *      A JSON encoded string containing full-text search options for the
+       *      column.
        *      The fulltext options JSON structure:
        *      {
        *        "enable": bool,          // Indicates whether full-text search is
        *                                 // enabled for the column.
        *        "analyzer": string,      // The language-specific text analyzer to
        *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
+       *                                 // Supported values: ["English" (Default),
+       *                                 "Chinese"].
+       *        "case-sensitive": bool   // Indicates whether the text should be
+       *        treated
+       *                                 // as case-sensitive during full-text
+       *                                 search.
        *      }
        *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+       *      &#92;"case-sensitive&#92;": false}"
        * </pre>
        *
        * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14867,19 +15013,24 @@ java.lang.String defaultValue);
        * <pre>
        * Supported keys:
        *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
+       *      A JSON encoded string containing full-text search options for the
+       *      column.
        *      The fulltext options JSON structure:
        *      {
        *        "enable": bool,          // Indicates whether full-text search is
        *                                 // enabled for the column.
        *        "analyzer": string,      // The language-specific text analyzer to
        *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
+       *                                 // Supported values: ["English" (Default),
+       *                                 "Chinese"].
+       *        "case-sensitive": bool   // Indicates whether the text should be
+       *        treated
+       *                                 // as case-sensitive during full-text
+       *                                 search.
        *      }
        *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+       *      &#92;"case-sensitive&#92;": false}"
        * </pre>
        *
        * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14893,19 +15044,24 @@ java.lang.String defaultValue);
        * <pre>
        * Supported keys:
        *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
+       *      A JSON encoded string containing full-text search options for the
+       *      column.
        *      The fulltext options JSON structure:
        *      {
        *        "enable": bool,          // Indicates whether full-text search is
        *                                 // enabled for the column.
        *        "analyzer": string,      // The language-specific text analyzer to
        *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
+       *                                 // Supported values: ["English" (Default),
+       *                                 "Chinese"].
+       *        "case-sensitive": bool   // Indicates whether the text should be
+       *        treated
+       *                                 // as case-sensitive during full-text
+       *                                 search.
        *      }
        *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+       *      &#92;"case-sensitive&#92;": false}"
        * </pre>
        *
        * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14924,19 +15080,24 @@ java.lang.String defaultValue);
        * <pre>
        * Supported keys:
        *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
+       *      A JSON encoded string containing full-text search options for the
+       *      column.
        *      The fulltext options JSON structure:
        *      {
        *        "enable": bool,          // Indicates whether full-text search is
        *                                 // enabled for the column.
        *        "analyzer": string,      // The language-specific text analyzer to
        *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
+       *                                 // Supported values: ["English" (Default),
+       *                                 "Chinese"].
+       *        "case-sensitive": bool   // Indicates whether the text should be
+       *        treated
+       *                                 // as case-sensitive during full-text
+       *                                 search.
        *      }
        *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+       *      &#92;"case-sensitive&#92;": false}"
        * </pre>
        *
        * <code>map&lt;string, string&gt; options = 1;</code>
@@ -14963,19 +15124,24 @@ java.lang.String defaultValue);
        * <pre>
        * Supported keys:
        *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
+       *      A JSON encoded string containing full-text search options for the
+       *      column.
        *      The fulltext options JSON structure:
        *      {
        *        "enable": bool,          // Indicates whether full-text search is
        *                                 // enabled for the column.
        *        "analyzer": string,      // The language-specific text analyzer to
        *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
+       *                                 // Supported values: ["English" (Default),
+       *                                 "Chinese"].
+       *        "case-sensitive": bool   // Indicates whether the text should be
+       *        treated
+       *                                 // as case-sensitive during full-text
+       *                                 search.
        *      }
        *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+       *      &#92;"case-sensitive&#92;": false}"
        * </pre>
        *
        * <code>map&lt;string, string&gt; options = 1;</code>
@@ -15000,19 +15166,24 @@ java.lang.String defaultValue);
        * <pre>
        * Supported keys:
        *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
+       *      A JSON encoded string containing full-text search options for the
+       *      column.
        *      The fulltext options JSON structure:
        *      {
        *        "enable": bool,          // Indicates whether full-text search is
        *                                 // enabled for the column.
        *        "analyzer": string,      // The language-specific text analyzer to
        *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
+       *                                 // Supported values: ["English" (Default),
+       *                                 "Chinese"].
+       *        "case-sensitive": bool   // Indicates whether the text should be
+       *        treated
+       *                                 // as case-sensitive during full-text
+       *                                 search.
        *      }
        *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+       *      &#92;"case-sensitive&#92;": false}"
        * </pre>
        *
        * <code>map&lt;string, string&gt; options = 1;</code>
@@ -15033,19 +15204,24 @@ java.lang.String defaultValue);
        * <pre>
        * Supported keys:
        *   "fulltext":
-       *      A JSON encoded string containing full-text search options for the column.
+       *      A JSON encoded string containing full-text search options for the
+       *      column.
        *      The fulltext options JSON structure:
        *      {
        *        "enable": bool,          // Indicates whether full-text search is
        *                                 // enabled for the column.
        *        "analyzer": string,      // The language-specific text analyzer to
        *                                 // use for indexing and searching text.
-       *                                 // Supported values: ["English" (Default), "Chinese"].
-       *        "case-sensitive": bool   // Indicates whether the text should be treated
-       *                                 // as case-sensitive during full-text search.
+       *                                 // Supported values: ["English" (Default),
+       *                                 "Chinese"].
+       *        "case-sensitive": bool   // Indicates whether the text should be
+       *        treated
+       *                                 // as case-sensitive during full-text
+       *                                 search.
        *      }
        *      Example:
-       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;", &#92;"case-sensitive&#92;": false}"
+       *      "fulltext": "{&#92;"enable&#92;": true, &#92;"analyzer&#92;": &#92;"English&#92;",
+       *      &#92;"case-sensitive&#92;": false}"
        * </pre>
        *
        * <code>map&lt;string, string&gt; options = 1;</code>

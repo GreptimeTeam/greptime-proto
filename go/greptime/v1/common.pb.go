@@ -263,7 +263,10 @@ type QueryContext struct {
 	Timezone       string            `protobuf:"bytes,4,opt,name=timezone,proto3" json:"timezone,omitempty"`
 	Extensions     map[string]string `protobuf:"bytes,5,rep,name=extensions,proto3" json:"extensions,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	Channel        uint32            `protobuf:"varint,6,opt,name=channel,proto3" json:"channel,omitempty"`
-	SeqSnapshots   map[uint64]uint64 `protobuf:"bytes,7,rep,name=seq_snapshots,json=seqSnapshots,proto3" json:"seq_snapshots,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
+	// mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+	// read should only container data that was committed before(and include) the
+	// given sequence number
+	SeqSnapshots map[uint64]uint64 `protobuf:"bytes,7,rep,name=seq_snapshots,json=seqSnapshots,proto3" json:"seq_snapshots,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
 }
 
 func (x *QueryContext) Reset() {
@@ -1306,7 +1309,8 @@ type ColumnOptions struct {
 	// Supported keys:
 	//
 	//	"fulltext":
-	//	   A JSON encoded string containing full-text search options for the column.
+	//	   A JSON encoded string containing full-text search options for the
+	//	   column.
 	//
 	//	   The fulltext options JSON structure:
 	//	   {
@@ -1315,14 +1319,18 @@ type ColumnOptions struct {
 	//
 	//	     "analyzer": string,      // The language-specific text analyzer to
 	//	                              // use for indexing and searching text.
-	//	                              // Supported values: ["English" (Default), "Chinese"].
+	//	                              // Supported values: ["English" (Default),
+	//	                              "Chinese"].
 	//
-	//	     "case-sensitive": bool   // Indicates whether the text should be treated
-	//	                              // as case-sensitive during full-text search.
+	//	     "case-sensitive": bool   // Indicates whether the text should be
+	//	     treated
+	//	                              // as case-sensitive during full-text
+	//	                              search.
 	//	   }
 	//
 	//	   Example:
-	//	   "fulltext": "{\"enable\": true, \"analyzer\": \"English\", \"case-sensitive\": false}"
+	//	   "fulltext": "{\"enable\": true, \"analyzer\": \"English\",
+	//	   \"case-sensitive\": false}"
 	Options map[string]string `protobuf:"bytes,1,rep,name=options,proto3" json:"options,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
