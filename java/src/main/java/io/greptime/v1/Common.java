@@ -664,68 +664,19 @@ java.lang.String defaultValue);
     int getChannel();
 
     /**
-     * <pre>
-     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
-     * given sequence number
-     * </pre>
-     *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+     * @return Whether the seqSnapshots field is set.
      */
-    int getSeqSnapshotsCount();
+    boolean hasSeqSnapshots();
     /**
-     * <pre>
-     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
-     * given sequence number
-     * </pre>
-     *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+     * @return The seqSnapshots.
      */
-    boolean containsSeqSnapshots(
-        long key);
+    io.greptime.v1.Common.SequenceSnapshots getSeqSnapshots();
     /**
-     * Use {@link #getSeqSnapshotsMap()} instead.
+     * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
      */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.Long, java.lang.Long>
-    getSeqSnapshots();
-    /**
-     * <pre>
-     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
-     * given sequence number
-     * </pre>
-     *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
-     */
-    java.util.Map<java.lang.Long, java.lang.Long>
-    getSeqSnapshotsMap();
-    /**
-     * <pre>
-     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
-     * given sequence number
-     * </pre>
-     *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
-     */
-
-    long getSeqSnapshotsOrDefault(
-        long key,
-        long defaultValue);
-    /**
-     * <pre>
-     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
-     * given sequence number
-     * </pre>
-     *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
-     */
-
-    long getSeqSnapshotsOrThrow(
-        long key);
+    io.greptime.v1.Common.SequenceSnapshotsOrBuilder getSeqSnapshotsOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.QueryContext}
@@ -813,16 +764,16 @@ java.lang.String defaultValue);
               break;
             }
             case 58: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                seqSnapshots_ = com.google.protobuf.MapField.newMapField(
-                    SeqSnapshotsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
+              io.greptime.v1.Common.SequenceSnapshots.Builder subBuilder = null;
+              if (seqSnapshots_ != null) {
+                subBuilder = seqSnapshots_.toBuilder();
               }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              seqSnapshots__ = input.readMessage(
-                  SeqSnapshotsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              seqSnapshots_.getMutableMap().put(
-                  seqSnapshots__.getKey(), seqSnapshots__.getValue());
+              seqSnapshots_ = input.readMessage(io.greptime.v1.Common.SequenceSnapshots.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(seqSnapshots_);
+                seqSnapshots_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -858,8 +809,6 @@ java.lang.String defaultValue);
       switch (number) {
         case 5:
           return internalGetExtensions();
-        case 7:
-          return internalGetSeqSnapshots();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -1080,108 +1029,29 @@ java.lang.String defaultValue);
     }
 
     public static final int SEQ_SNAPSHOTS_FIELD_NUMBER = 7;
-    private static final class SeqSnapshotsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.Long, java.lang.Long> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.Long, java.lang.Long>newDefaultInstance(
-                  io.greptime.v1.Common.internal_static_greptime_v1_QueryContext_SeqSnapshotsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.UINT64,
-                  0L,
-                  com.google.protobuf.WireFormat.FieldType.UINT64,
-                  0L);
-    }
-    private com.google.protobuf.MapField<
-        java.lang.Long, java.lang.Long> seqSnapshots_;
-    private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-    internalGetSeqSnapshots() {
-      if (seqSnapshots_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SeqSnapshotsDefaultEntryHolder.defaultEntry);
-      }
-      return seqSnapshots_;
-    }
-
-    public int getSeqSnapshotsCount() {
-      return internalGetSeqSnapshots().getMap().size();
-    }
+    private io.greptime.v1.Common.SequenceSnapshots seqSnapshots_;
     /**
-     * <pre>
-     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
-     * given sequence number
-     * </pre>
-     *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
-     */
-
-    @java.lang.Override
-    public boolean containsSeqSnapshots(
-        long key) {
-      
-      return internalGetSeqSnapshots().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSeqSnapshotsMap()} instead.
+     * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+     * @return Whether the seqSnapshots field is set.
      */
     @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Long, java.lang.Long> getSeqSnapshots() {
-      return getSeqSnapshotsMap();
+    public boolean hasSeqSnapshots() {
+      return seqSnapshots_ != null;
     }
     /**
-     * <pre>
-     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
-     * given sequence number
-     * </pre>
-     *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+     * @return The seqSnapshots.
      */
     @java.lang.Override
-
-    public java.util.Map<java.lang.Long, java.lang.Long> getSeqSnapshotsMap() {
-      return internalGetSeqSnapshots().getMap();
+    public io.greptime.v1.Common.SequenceSnapshots getSeqSnapshots() {
+      return seqSnapshots_ == null ? io.greptime.v1.Common.SequenceSnapshots.getDefaultInstance() : seqSnapshots_;
     }
     /**
-     * <pre>
-     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
-     * given sequence number
-     * </pre>
-     *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
      */
     @java.lang.Override
-
-    public long getSeqSnapshotsOrDefault(
-        long key,
-        long defaultValue) {
-      
-      java.util.Map<java.lang.Long, java.lang.Long> map =
-          internalGetSeqSnapshots().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
-     * read should only container data that was committed before(and include) the
-     * given sequence number
-     * </pre>
-     *
-     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
-     */
-    @java.lang.Override
-
-    public long getSeqSnapshotsOrThrow(
-        long key) {
-      
-      java.util.Map<java.lang.Long, java.lang.Long> map =
-          internalGetSeqSnapshots().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public io.greptime.v1.Common.SequenceSnapshotsOrBuilder getSeqSnapshotsOrBuilder() {
+      return getSeqSnapshots();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1216,12 +1086,9 @@ java.lang.String defaultValue);
       if (channel_ != 0) {
         output.writeUInt32(6, channel_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeLongMapTo(
-          output,
-          internalGetSeqSnapshots(),
-          SeqSnapshotsDefaultEntryHolder.defaultEntry,
-          7);
+      if (seqSnapshots_ != null) {
+        output.writeMessage(7, getSeqSnapshots());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1254,15 +1121,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, channel_);
       }
-      for (java.util.Map.Entry<java.lang.Long, java.lang.Long> entry
-           : internalGetSeqSnapshots().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-        seqSnapshots__ = SeqSnapshotsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      if (seqSnapshots_ != null) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(7, seqSnapshots__);
+          .computeMessageSize(7, getSeqSnapshots());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1289,8 +1150,11 @@ java.lang.String defaultValue);
           other.internalGetExtensions())) return false;
       if (getChannel()
           != other.getChannel()) return false;
-      if (!internalGetSeqSnapshots().equals(
-          other.internalGetSeqSnapshots())) return false;
+      if (hasSeqSnapshots() != other.hasSeqSnapshots()) return false;
+      if (hasSeqSnapshots()) {
+        if (!getSeqSnapshots()
+            .equals(other.getSeqSnapshots())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1314,9 +1178,9 @@ java.lang.String defaultValue);
       }
       hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
       hash = (53 * hash) + getChannel();
-      if (!internalGetSeqSnapshots().getMap().isEmpty()) {
+      if (hasSeqSnapshots()) {
         hash = (37 * hash) + SEQ_SNAPSHOTS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetSeqSnapshots().hashCode();
+        hash = (53 * hash) + getSeqSnapshots().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1431,8 +1295,6 @@ java.lang.String defaultValue);
         switch (number) {
           case 5:
             return internalGetExtensions();
-          case 7:
-            return internalGetSeqSnapshots();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -1444,8 +1306,6 @@ java.lang.String defaultValue);
         switch (number) {
           case 5:
             return internalGetMutableExtensions();
-          case 7:
-            return internalGetMutableSeqSnapshots();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -1486,7 +1346,12 @@ java.lang.String defaultValue);
         internalGetMutableExtensions().clear();
         channel_ = 0;
 
-        internalGetMutableSeqSnapshots().clear();
+        if (seqSnapshotsBuilder_ == null) {
+          seqSnapshots_ = null;
+        } else {
+          seqSnapshots_ = null;
+          seqSnapshotsBuilder_ = null;
+        }
         return this;
       }
 
@@ -1520,8 +1385,11 @@ java.lang.String defaultValue);
         result.extensions_ = internalGetExtensions();
         result.extensions_.makeImmutable();
         result.channel_ = channel_;
-        result.seqSnapshots_ = internalGetSeqSnapshots();
-        result.seqSnapshots_.makeImmutable();
+        if (seqSnapshotsBuilder_ == null) {
+          result.seqSnapshots_ = seqSnapshots_;
+        } else {
+          result.seqSnapshots_ = seqSnapshotsBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -1587,8 +1455,9 @@ java.lang.String defaultValue);
         if (other.getChannel() != 0) {
           setChannel(other.getChannel());
         }
-        internalGetMutableSeqSnapshots().mergeFrom(
-            other.internalGetSeqSnapshots());
+        if (other.hasSeqSnapshots()) {
+          mergeSeqSnapshots(other.getSeqSnapshots());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2009,6 +1878,791 @@ java.lang.String defaultValue);
         return this;
       }
 
+      private io.greptime.v1.Common.SequenceSnapshots seqSnapshots_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.SequenceSnapshots, io.greptime.v1.Common.SequenceSnapshots.Builder, io.greptime.v1.Common.SequenceSnapshotsOrBuilder> seqSnapshotsBuilder_;
+      /**
+       * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+       * @return Whether the seqSnapshots field is set.
+       */
+      public boolean hasSeqSnapshots() {
+        return seqSnapshotsBuilder_ != null || seqSnapshots_ != null;
+      }
+      /**
+       * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+       * @return The seqSnapshots.
+       */
+      public io.greptime.v1.Common.SequenceSnapshots getSeqSnapshots() {
+        if (seqSnapshotsBuilder_ == null) {
+          return seqSnapshots_ == null ? io.greptime.v1.Common.SequenceSnapshots.getDefaultInstance() : seqSnapshots_;
+        } else {
+          return seqSnapshotsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+       */
+      public Builder setSeqSnapshots(io.greptime.v1.Common.SequenceSnapshots value) {
+        if (seqSnapshotsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          seqSnapshots_ = value;
+          onChanged();
+        } else {
+          seqSnapshotsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+       */
+      public Builder setSeqSnapshots(
+          io.greptime.v1.Common.SequenceSnapshots.Builder builderForValue) {
+        if (seqSnapshotsBuilder_ == null) {
+          seqSnapshots_ = builderForValue.build();
+          onChanged();
+        } else {
+          seqSnapshotsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+       */
+      public Builder mergeSeqSnapshots(io.greptime.v1.Common.SequenceSnapshots value) {
+        if (seqSnapshotsBuilder_ == null) {
+          if (seqSnapshots_ != null) {
+            seqSnapshots_ =
+              io.greptime.v1.Common.SequenceSnapshots.newBuilder(seqSnapshots_).mergeFrom(value).buildPartial();
+          } else {
+            seqSnapshots_ = value;
+          }
+          onChanged();
+        } else {
+          seqSnapshotsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+       */
+      public Builder clearSeqSnapshots() {
+        if (seqSnapshotsBuilder_ == null) {
+          seqSnapshots_ = null;
+          onChanged();
+        } else {
+          seqSnapshots_ = null;
+          seqSnapshotsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+       */
+      public io.greptime.v1.Common.SequenceSnapshots.Builder getSeqSnapshotsBuilder() {
+        
+        onChanged();
+        return getSeqSnapshotsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+       */
+      public io.greptime.v1.Common.SequenceSnapshotsOrBuilder getSeqSnapshotsOrBuilder() {
+        if (seqSnapshotsBuilder_ != null) {
+          return seqSnapshotsBuilder_.getMessageOrBuilder();
+        } else {
+          return seqSnapshots_ == null ?
+              io.greptime.v1.Common.SequenceSnapshots.getDefaultInstance() : seqSnapshots_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.SequenceSnapshots seq_snapshots = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.SequenceSnapshots, io.greptime.v1.Common.SequenceSnapshots.Builder, io.greptime.v1.Common.SequenceSnapshotsOrBuilder> 
+          getSeqSnapshotsFieldBuilder() {
+        if (seqSnapshotsBuilder_ == null) {
+          seqSnapshotsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.SequenceSnapshots, io.greptime.v1.Common.SequenceSnapshots.Builder, io.greptime.v1.Common.SequenceSnapshotsOrBuilder>(
+                  getSeqSnapshots(),
+                  getParentForChildren(),
+                  isClean());
+          seqSnapshots_ = null;
+        }
+        return seqSnapshotsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.QueryContext)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.QueryContext)
+    private static final io.greptime.v1.Common.QueryContext DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Common.QueryContext();
+    }
+
+    public static io.greptime.v1.Common.QueryContext getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<QueryContext>
+        PARSER = new com.google.protobuf.AbstractParser<QueryContext>() {
+      @java.lang.Override
+      public QueryContext parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new QueryContext(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<QueryContext> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<QueryContext> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Common.QueryContext getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SequenceSnapshotsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.SequenceSnapshots)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     */
+    int getSeqSnapshotsCount();
+    /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     */
+    boolean containsSeqSnapshots(
+        long key);
+    /**
+     * Use {@link #getSeqSnapshotsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Long, java.lang.Long>
+    getSeqSnapshots();
+    /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     */
+    java.util.Map<java.lang.Long, java.lang.Long>
+    getSeqSnapshotsMap();
+    /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     */
+
+    long getSeqSnapshotsOrDefault(
+        long key,
+        long defaultValue);
+    /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     */
+
+    long getSeqSnapshotsOrThrow(
+        long key);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.SequenceSnapshots}
+   */
+  public static final class SequenceSnapshots extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.SequenceSnapshots)
+      SequenceSnapshotsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SequenceSnapshots.newBuilder() to construct.
+    private SequenceSnapshots(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SequenceSnapshots() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SequenceSnapshots();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SequenceSnapshots(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                seqSnapshots_ = com.google.protobuf.MapField.newMapField(
+                    SeqSnapshotsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              seqSnapshots__ = input.readMessage(
+                  SeqSnapshotsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              seqSnapshots_.getMutableMap().put(
+                  seqSnapshots__.getKey(), seqSnapshots__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshots_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 7:
+          return internalGetSeqSnapshots();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshots_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Common.SequenceSnapshots.class, io.greptime.v1.Common.SequenceSnapshots.Builder.class);
+    }
+
+    public static final int SEQ_SNAPSHOTS_FIELD_NUMBER = 7;
+    private static final class SeqSnapshotsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.Long, java.lang.Long> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.Long, java.lang.Long>newDefaultInstance(
+                  io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshots_SeqSnapshotsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.UINT64,
+                  0L,
+                  com.google.protobuf.WireFormat.FieldType.UINT64,
+                  0L);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.Long, java.lang.Long> seqSnapshots_;
+    private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+    internalGetSeqSnapshots() {
+      if (seqSnapshots_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            SeqSnapshotsDefaultEntryHolder.defaultEntry);
+      }
+      return seqSnapshots_;
+    }
+
+    public int getSeqSnapshotsCount() {
+      return internalGetSeqSnapshots().getMap().size();
+    }
+    /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsSeqSnapshots(
+        long key) {
+      
+      return internalGetSeqSnapshots().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getSeqSnapshotsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Long, java.lang.Long> getSeqSnapshots() {
+      return getSeqSnapshotsMap();
+    }
+    /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Long, java.lang.Long> getSeqSnapshotsMap() {
+      return internalGetSeqSnapshots().getMap();
+    }
+    /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     */
+    @java.lang.Override
+
+    public long getSeqSnapshotsOrDefault(
+        long key,
+        long defaultValue) {
+      
+      java.util.Map<java.lang.Long, java.lang.Long> map =
+          internalGetSeqSnapshots().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
+     * read should only container data that was committed before(and include) the
+     * given sequence number
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; seq_snapshots = 7;</code>
+     */
+    @java.lang.Override
+
+    public long getSeqSnapshotsOrThrow(
+        long key) {
+      
+      java.util.Map<java.lang.Long, java.lang.Long> map =
+          internalGetSeqSnapshots().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      com.google.protobuf.GeneratedMessageV3
+        .serializeLongMapTo(
+          output,
+          internalGetSeqSnapshots(),
+          SeqSnapshotsDefaultEntryHolder.defaultEntry,
+          7);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (java.util.Map.Entry<java.lang.Long, java.lang.Long> entry
+           : internalGetSeqSnapshots().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+        seqSnapshots__ = SeqSnapshotsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(7, seqSnapshots__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Common.SequenceSnapshots)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Common.SequenceSnapshots other = (io.greptime.v1.Common.SequenceSnapshots) obj;
+
+      if (!internalGetSeqSnapshots().equals(
+          other.internalGetSeqSnapshots())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (!internalGetSeqSnapshots().getMap().isEmpty()) {
+        hash = (37 * hash) + SEQ_SNAPSHOTS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetSeqSnapshots().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.SequenceSnapshots parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Common.SequenceSnapshots prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.SequenceSnapshots}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.SequenceSnapshots)
+        io.greptime.v1.Common.SequenceSnapshotsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshots_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 7:
+            return internalGetSeqSnapshots();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 7:
+            return internalGetMutableSeqSnapshots();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshots_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Common.SequenceSnapshots.class, io.greptime.v1.Common.SequenceSnapshots.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Common.SequenceSnapshots.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        internalGetMutableSeqSnapshots().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_SequenceSnapshots_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.SequenceSnapshots getDefaultInstanceForType() {
+        return io.greptime.v1.Common.SequenceSnapshots.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.SequenceSnapshots build() {
+        io.greptime.v1.Common.SequenceSnapshots result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.SequenceSnapshots buildPartial() {
+        io.greptime.v1.Common.SequenceSnapshots result = new io.greptime.v1.Common.SequenceSnapshots(this);
+        int from_bitField0_ = bitField0_;
+        result.seqSnapshots_ = internalGetSeqSnapshots();
+        result.seqSnapshots_.makeImmutable();
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Common.SequenceSnapshots) {
+          return mergeFrom((io.greptime.v1.Common.SequenceSnapshots)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Common.SequenceSnapshots other) {
+        if (other == io.greptime.v1.Common.SequenceSnapshots.getDefaultInstance()) return this;
+        internalGetMutableSeqSnapshots().mergeFrom(
+            other.internalGetSeqSnapshots());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Common.SequenceSnapshots parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Common.SequenceSnapshots) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> seqSnapshots_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -2191,41 +2845,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.QueryContext)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.SequenceSnapshots)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.QueryContext)
-    private static final io.greptime.v1.Common.QueryContext DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.SequenceSnapshots)
+    private static final io.greptime.v1.Common.SequenceSnapshots DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Common.QueryContext();
+      DEFAULT_INSTANCE = new io.greptime.v1.Common.SequenceSnapshots();
     }
 
-    public static io.greptime.v1.Common.QueryContext getDefaultInstance() {
+    public static io.greptime.v1.Common.SequenceSnapshots getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<QueryContext>
-        PARSER = new com.google.protobuf.AbstractParser<QueryContext>() {
+    private static final com.google.protobuf.Parser<SequenceSnapshots>
+        PARSER = new com.google.protobuf.AbstractParser<SequenceSnapshots>() {
       @java.lang.Override
-      public QueryContext parsePartialFrom(
+      public SequenceSnapshots parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryContext(input, extensionRegistry);
+        return new SequenceSnapshots(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<QueryContext> parser() {
+    public static com.google.protobuf.Parser<SequenceSnapshots> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<QueryContext> getParserForType() {
+    public com.google.protobuf.Parser<SequenceSnapshots> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.Common.QueryContext getDefaultInstanceForType() {
+    public io.greptime.v1.Common.SequenceSnapshots getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15297,10 +15951,15 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_QueryContext_ExtensionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_QueryContext_SeqSnapshotsEntry_descriptor;
+    internal_static_greptime_v1_SequenceSnapshots_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_QueryContext_SeqSnapshotsEntry_fieldAccessorTable;
+      internal_static_greptime_v1_SequenceSnapshots_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_SequenceSnapshots_SeqSnapshotsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_SequenceSnapshots_SeqSnapshotsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_RequestHeader_descriptor;
   private static final 
@@ -15406,65 +16065,67 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/common.proto\022\013greptime.v1\"" +
-      "\315\002\n\014QueryContext\022\027\n\017current_catalog\030\001 \001(" +
+      "\213\002\n\014QueryContext\022\027\n\017current_catalog\030\001 \001(" +
       "\t\022\026\n\016current_schema\030\002 \001(\t\022\020\n\010timezone\030\004 " +
       "\001(\t\022=\n\nextensions\030\005 \003(\0132).greptime.v1.Qu" +
       "eryContext.ExtensionsEntry\022\017\n\007channel\030\006 " +
-      "\001(\r\022B\n\rseq_snapshots\030\007 \003(\0132+.greptime.v1" +
-      ".QueryContext.SeqSnapshotsEntry\0321\n\017Exten" +
-      "sionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\0323\n\021SeqSnapshotsEntry\022\013\n\003key\030\001 \001(\004\022\r\n\005" +
-      "value\030\002 \001(\004:\0028\001\"\202\002\n\rRequestHeader\022\017\n\007cat" +
-      "alog\030\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthorizat" +
-      "ion\030\003 \001(\0132\027.greptime.v1.AuthHeader\022\016\n\006db" +
-      "name\030\004 \001(\t\022G\n\017tracing_context\030\005 \003(\0132..gr" +
-      "eptime.v1.RequestHeader.TracingContextEn" +
-      "try\022\020\n\010timezone\030\006 \001(\t\0325\n\023TracingContextE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"5\n\016" +
-      "ResponseHeader\022#\n\006status\030\001 \001(\0132\023.greptim" +
-      "e.v1.Status\".\n\006Status\022\023\n\013status_code\030\001 \001" +
-      "(\r\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005bas" +
-      "ic\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005token\030" +
-      "\002 \001(\0132\022.greptime.v1.TokenH\000B\r\n\013auth_sche" +
-      "me\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010passwor" +
-      "d\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"J\n\tTable" +
-      "Name\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
-      "e\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"\035\n\014AffectedR" +
-      "ows\022\r\n\005value\030\001 \001(\r\"\032\n\007Metrics\022\017\n\007metrics" +
-      "\030\001 \001(\014\"\034\n\013ExpireAfter\022\r\n\005value\030\001 \001(\003\"i\n\016" +
-      "FlightMetadata\0220\n\raffected_rows\030\001 \001(\0132\031." +
-      "greptime.v1.AffectedRows\022%\n\007metrics\030\002 \001(" +
-      "\0132\024.greptime.v1.Metrics\"I\n\024IntervalMonth" +
-      "DayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n" +
-      "\013nanoseconds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi\030\001" +
-      " \001(\003\022\n\n\002lo\030\002 \001(\003\"\316\001\n\027ColumnDataTypeExten" +
-      "sion\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v1" +
-      ".DecimalTypeExtensionH\000\0223\n\tjson_type\030\002 \001" +
-      "(\0162\036.greptime.v1.JsonTypeExtensionH\000\0227\n\013" +
-      "vector_type\030\003 \001(\0132 .greptime.v1.VectorTy" +
-      "peExtensionH\000B\n\n\010type_ext\"8\n\024DecimalType" +
-      "Extension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 " +
-      "\001(\005\"\"\n\023VectorTypeExtension\022\013\n\003dim\030\001 \001(\r\"" +
-      "y\n\rColumnOptions\0228\n\007options\030\001 \003(\0132\'.grep" +
-      "time.v1.ColumnOptions.OptionsEntry\032.\n\014Op" +
-      "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r" +
-      "\n\tTIMESTAMP\020\002*\354\003\n\016ColumnDataType\022\013\n\007BOOL" +
-      "EAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n" +
-      "\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT3" +
-      "2\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020" +
-      "\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010D" +
-      "ATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMES" +
-      "TAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSEC" +
-      "OND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_" +
-      "SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_M" +
-      "ICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INT" +
-      "ERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020" +
-      "\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMA" +
-      "L128\020\036\022\010\n\004JSON\020\037\022\n\n\006VECTOR\020 *$\n\021JsonType" +
-      "Extension\022\017\n\013JSON_BINARY\020\000BO\n\016io.greptim" +
-      "e.v1B\006CommonZ5github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1b\006proto3"
+      "\001(\r\0225\n\rseq_snapshots\030\007 \001(\0132\036.greptime.v1" +
+      ".SequenceSnapshots\0321\n\017ExtensionsEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\221\001\n\021Sequen" +
+      "ceSnapshots\022G\n\rseq_snapshots\030\007 \003(\01320.gre" +
+      "ptime.v1.SequenceSnapshots.SeqSnapshotsE" +
+      "ntry\0323\n\021SeqSnapshotsEntry\022\013\n\003key\030\001 \001(\004\022\r" +
+      "\n\005value\030\002 \001(\004:\0028\001\"\202\002\n\rRequestHeader\022\017\n\007c" +
+      "atalog\030\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthoriz" +
+      "ation\030\003 \001(\0132\027.greptime.v1.AuthHeader\022\016\n\006" +
+      "dbname\030\004 \001(\t\022G\n\017tracing_context\030\005 \003(\0132.." +
+      "greptime.v1.RequestHeader.TracingContext" +
+      "Entry\022\020\n\010timezone\030\006 \001(\t\0325\n\023TracingContex" +
+      "tEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"5" +
+      "\n\016ResponseHeader\022#\n\006status\030\001 \001(\0132\023.grept" +
+      "ime.v1.Status\".\n\006Status\022\023\n\013status_code\030\001" +
+      " \001(\r\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005b" +
+      "asic\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005toke" +
+      "n\030\002 \001(\0132\022.greptime.v1.TokenH\000B\r\n\013auth_sc" +
+      "heme\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010passw" +
+      "ord\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"J\n\tTab" +
+      "leName\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_n" +
+      "ame\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"\035\n\014Affecte" +
+      "dRows\022\r\n\005value\030\001 \001(\r\"\032\n\007Metrics\022\017\n\007metri" +
+      "cs\030\001 \001(\014\"\034\n\013ExpireAfter\022\r\n\005value\030\001 \001(\003\"i" +
+      "\n\016FlightMetadata\0220\n\raffected_rows\030\001 \001(\0132" +
+      "\031.greptime.v1.AffectedRows\022%\n\007metrics\030\002 " +
+      "\001(\0132\024.greptime.v1.Metrics\"I\n\024IntervalMon" +
+      "thDayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022" +
+      "\023\n\013nanoseconds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002hi" +
+      "\030\001 \001(\003\022\n\n\002lo\030\002 \001(\003\"\316\001\n\027ColumnDataTypeExt" +
+      "ension\0229\n\014decimal_type\030\001 \001(\0132!.greptime." +
+      "v1.DecimalTypeExtensionH\000\0223\n\tjson_type\030\002" +
+      " \001(\0162\036.greptime.v1.JsonTypeExtensionH\000\0227" +
+      "\n\013vector_type\030\003 \001(\0132 .greptime.v1.Vector" +
+      "TypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTy" +
+      "peExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030" +
+      "\002 \001(\005\"\"\n\023VectorTypeExtension\022\013\n\003dim\030\001 \001(" +
+      "\r\"y\n\rColumnOptions\0228\n\007options\030\001 \003(\0132\'.gr" +
+      "eptime.v1.ColumnOptions.OptionsEntry\032.\n\014" +
+      "OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
+      ":\0028\001*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001" +
+      "\022\r\n\tTIMESTAMP\020\002*\354\003\n\016ColumnDataType\022\013\n\007BO" +
+      "OLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022" +
+      "\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UIN" +
+      "T32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT6" +
+      "4\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n" +
+      "\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIM" +
+      "ESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROS" +
+      "ECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIM" +
+      "E_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME" +
+      "_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023I" +
+      "NTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIM" +
+      "E\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECI" +
+      "MAL128\020\036\022\010\n\004JSON\020\037\022\n\n\006VECTOR\020 *$\n\021JsonTy" +
+      "peExtension\022\017\n\013JSON_BINARY\020\000BO\n\016io.grept" +
+      "ime.v1B\006CommonZ5github.com/GreptimeTeam/" +
+      "greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15482,14 +16143,20 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_QueryContext_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_QueryContext_SeqSnapshotsEntry_descriptor =
-      internal_static_greptime_v1_QueryContext_descriptor.getNestedTypes().get(1);
-    internal_static_greptime_v1_QueryContext_SeqSnapshotsEntry_fieldAccessorTable = new
+    internal_static_greptime_v1_SequenceSnapshots_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_greptime_v1_SequenceSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_QueryContext_SeqSnapshotsEntry_descriptor,
+        internal_static_greptime_v1_SequenceSnapshots_descriptor,
+        new java.lang.String[] { "SeqSnapshots", });
+    internal_static_greptime_v1_SequenceSnapshots_SeqSnapshotsEntry_descriptor =
+      internal_static_greptime_v1_SequenceSnapshots_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_SequenceSnapshots_SeqSnapshotsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_SequenceSnapshots_SeqSnapshotsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_RequestHeader_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_RequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RequestHeader_descriptor,
@@ -15501,97 +16168,97 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_RequestHeader_TracingContextEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_ResponseHeader_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_ResponseHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ResponseHeader_descriptor,
         new java.lang.String[] { "Status", });
     internal_static_greptime_v1_Status_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_Status_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Status_descriptor,
         new java.lang.String[] { "StatusCode", "ErrMsg", });
     internal_static_greptime_v1_AuthHeader_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_AuthHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AuthHeader_descriptor,
         new java.lang.String[] { "Basic", "Token", "AuthScheme", });
     internal_static_greptime_v1_Basic_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_Basic_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Basic_descriptor,
         new java.lang.String[] { "Username", "Password", });
     internal_static_greptime_v1_Token_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_Token_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Token_descriptor,
         new java.lang.String[] { "Token", });
     internal_static_greptime_v1_TableName_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_TableName_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TableName_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", });
     internal_static_greptime_v1_AffectedRows_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_AffectedRows_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AffectedRows_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_greptime_v1_Metrics_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_Metrics_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Metrics_descriptor,
         new java.lang.String[] { "Metrics", });
     internal_static_greptime_v1_ExpireAfter_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_ExpireAfter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ExpireAfter_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_greptime_v1_FlightMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_FlightMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlightMetadata_descriptor,
         new java.lang.String[] { "AffectedRows", "Metrics", });
     internal_static_greptime_v1_IntervalMonthDayNano_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_IntervalMonthDayNano_descriptor,
         new java.lang.String[] { "Months", "Days", "Nanoseconds", });
     internal_static_greptime_v1_Decimal128_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_Decimal128_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Decimal128_descriptor,
         new java.lang.String[] { "Hi", "Lo", });
     internal_static_greptime_v1_ColumnDataTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_ColumnDataTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDataTypeExtension_descriptor,
         new java.lang.String[] { "DecimalType", "JsonType", "VectorType", "TypeExt", });
     internal_static_greptime_v1_DecimalTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_DecimalTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DecimalTypeExtension_descriptor,
         new java.lang.String[] { "Precision", "Scale", });
     internal_static_greptime_v1_VectorTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_VectorTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_VectorTypeExtension_descriptor,
         new java.lang.String[] { "Dim", });
     internal_static_greptime_v1_ColumnOptions_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_ColumnOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnOptions_descriptor,
