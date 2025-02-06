@@ -53,6 +53,7 @@ message RegionRequest {
     CreateRequests creates = 13;
     DropRequests drops = 14;
     AlterRequests alters = 15;
+    SequencesRequest sequences = 16;
   }
 }
 
@@ -167,6 +168,12 @@ message CompactRequest {
 }
 
 message TruncateRequest { uint64 region_id = 1; }
+
+// Request to get the sequences of a list of regions.
+// The response will be stored in `extensions` field of `RegionResponse`.
+message SequencesRequest {
+  repeated uint64 region_ids = 1;
+}
 
 // The column definition of a region. Unlike the message `ColumnDef` in
 // `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`

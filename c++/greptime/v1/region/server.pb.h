@@ -138,6 +138,9 @@ extern RegionResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal _RegionRespons
 class Regular;
 struct RegularDefaultTypeInternal;
 extern RegularDefaultTypeInternal _Regular_default_instance_;
+class SequencesRequest;
+struct SequencesRequestDefaultTypeInternal;
+extern SequencesRequestDefaultTypeInternal _SequencesRequest_default_instance_;
 class StrictWindow;
 struct StrictWindowDefaultTypeInternal;
 extern StrictWindowDefaultTypeInternal _StrictWindow_default_instance_;
@@ -176,6 +179,7 @@ template<> ::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNot
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::Regular* Arena::CreateMaybeMessage<::greptime::v1::region::Regular>(Arena*);
+template<> ::greptime::v1::region::SequencesRequest* Arena::CreateMaybeMessage<::greptime::v1::region::SequencesRequest>(Arena*);
 template<> ::greptime::v1::region::StrictWindow* Arena::CreateMaybeMessage<::greptime::v1::region::StrictWindow>(Arena*);
 template<> ::greptime::v1::region::TruncateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::TruncateRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -469,6 +473,7 @@ class RegionRequest final :
     kCreates = 13,
     kDrops = 14,
     kAlters = 15,
+    kSequences = 16,
     BODY_NOT_SET = 0,
   };
 
@@ -564,6 +569,7 @@ class RegionRequest final :
     kCreatesFieldNumber = 13,
     kDropsFieldNumber = 14,
     kAltersFieldNumber = 15,
+    kSequencesFieldNumber = 16,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -817,6 +823,24 @@ class RegionRequest final :
       ::greptime::v1::region::AlterRequests* alters);
   ::greptime::v1::region::AlterRequests* unsafe_arena_release_alters();
 
+  // .greptime.v1.region.SequencesRequest sequences = 16;
+  bool has_sequences() const;
+  private:
+  bool _internal_has_sequences() const;
+  public:
+  void clear_sequences();
+  const ::greptime::v1::region::SequencesRequest& sequences() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::SequencesRequest* release_sequences();
+  ::greptime::v1::region::SequencesRequest* mutable_sequences();
+  void set_allocated_sequences(::greptime::v1::region::SequencesRequest* sequences);
+  private:
+  const ::greptime::v1::region::SequencesRequest& _internal_sequences() const;
+  ::greptime::v1::region::SequencesRequest* _internal_mutable_sequences();
+  public:
+  void unsafe_arena_set_allocated_sequences(
+      ::greptime::v1::region::SequencesRequest* sequences);
+  ::greptime::v1::region::SequencesRequest* unsafe_arena_release_sequences();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -835,6 +859,7 @@ class RegionRequest final :
   void set_has_creates();
   void set_has_drops();
   void set_has_alters();
+  void set_has_sequences();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -860,6 +885,7 @@ class RegionRequest final :
       ::greptime::v1::region::CreateRequests* creates_;
       ::greptime::v1::region::DropRequests* drops_;
       ::greptime::v1::region::AlterRequests* alters_;
+      ::greptime::v1::region::SequencesRequest* sequences_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -4945,6 +4971,168 @@ class TruncateRequest final :
 };
 // -------------------------------------------------------------------
 
+class SequencesRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.SequencesRequest) */ {
+ public:
+  inline SequencesRequest() : SequencesRequest(nullptr) {}
+  ~SequencesRequest() override;
+  explicit PROTOBUF_CONSTEXPR SequencesRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SequencesRequest(const SequencesRequest& from);
+  SequencesRequest(SequencesRequest&& from) noexcept
+    : SequencesRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SequencesRequest& operator=(const SequencesRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SequencesRequest& operator=(SequencesRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SequencesRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SequencesRequest* internal_default_instance() {
+    return reinterpret_cast<const SequencesRequest*>(
+               &_SequencesRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    29;
+
+  friend void swap(SequencesRequest& a, SequencesRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SequencesRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SequencesRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SequencesRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SequencesRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SequencesRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SequencesRequest& from) {
+    SequencesRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SequencesRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.SequencesRequest";
+  }
+  protected:
+  explicit SequencesRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdsFieldNumber = 1,
+  };
+  // repeated uint64 region_ids = 1;
+  int region_ids_size() const;
+  private:
+  int _internal_region_ids_size() const;
+  public:
+  void clear_region_ids();
+  private:
+  uint64_t _internal_region_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_region_ids() const;
+  void _internal_add_region_ids(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_region_ids();
+  public:
+  uint64_t region_ids(int index) const;
+  void set_region_ids(int index, uint64_t value);
+  void add_region_ids(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      region_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_region_ids();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.SequencesRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > region_ids_;
+    mutable std::atomic<int> _region_ids_cached_byte_size_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class RegionColumnDef final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionColumnDef) */ {
  public:
@@ -4993,7 +5181,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -6341,6 +6529,80 @@ inline ::greptime::v1::region::AlterRequests* RegionRequest::_internal_mutable_a
 inline ::greptime::v1::region::AlterRequests* RegionRequest::mutable_alters() {
   ::greptime::v1::region::AlterRequests* _msg = _internal_mutable_alters();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.alters)
+  return _msg;
+}
+
+// .greptime.v1.region.SequencesRequest sequences = 16;
+inline bool RegionRequest::_internal_has_sequences() const {
+  return body_case() == kSequences;
+}
+inline bool RegionRequest::has_sequences() const {
+  return _internal_has_sequences();
+}
+inline void RegionRequest::set_has_sequences() {
+  _impl_._oneof_case_[0] = kSequences;
+}
+inline void RegionRequest::clear_sequences() {
+  if (_internal_has_sequences()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.sequences_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::SequencesRequest* RegionRequest::release_sequences() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.sequences)
+  if (_internal_has_sequences()) {
+    clear_has_body();
+    ::greptime::v1::region::SequencesRequest* temp = _impl_.body_.sequences_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.sequences_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::SequencesRequest& RegionRequest::_internal_sequences() const {
+  return _internal_has_sequences()
+      ? *_impl_.body_.sequences_
+      : reinterpret_cast< ::greptime::v1::region::SequencesRequest&>(::greptime::v1::region::_SequencesRequest_default_instance_);
+}
+inline const ::greptime::v1::region::SequencesRequest& RegionRequest::sequences() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.sequences)
+  return _internal_sequences();
+}
+inline ::greptime::v1::region::SequencesRequest* RegionRequest::unsafe_arena_release_sequences() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.sequences)
+  if (_internal_has_sequences()) {
+    clear_has_body();
+    ::greptime::v1::region::SequencesRequest* temp = _impl_.body_.sequences_;
+    _impl_.body_.sequences_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_sequences(::greptime::v1::region::SequencesRequest* sequences) {
+  clear_body();
+  if (sequences) {
+    set_has_sequences();
+    _impl_.body_.sequences_ = sequences;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.sequences)
+}
+inline ::greptime::v1::region::SequencesRequest* RegionRequest::_internal_mutable_sequences() {
+  if (!_internal_has_sequences()) {
+    clear_body();
+    set_has_sequences();
+    _impl_.body_.sequences_ = CreateMaybeMessage< ::greptime::v1::region::SequencesRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.sequences_;
+}
+inline ::greptime::v1::region::SequencesRequest* RegionRequest::mutable_sequences() {
+  ::greptime::v1::region::SequencesRequest* _msg = _internal_mutable_sequences();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.sequences)
   return _msg;
 }
 
@@ -8651,6 +8913,57 @@ inline void TruncateRequest::set_region_id(uint64_t value) {
 
 // -------------------------------------------------------------------
 
+// SequencesRequest
+
+// repeated uint64 region_ids = 1;
+inline int SequencesRequest::_internal_region_ids_size() const {
+  return _impl_.region_ids_.size();
+}
+inline int SequencesRequest::region_ids_size() const {
+  return _internal_region_ids_size();
+}
+inline void SequencesRequest::clear_region_ids() {
+  _impl_.region_ids_.Clear();
+}
+inline uint64_t SequencesRequest::_internal_region_ids(int index) const {
+  return _impl_.region_ids_.Get(index);
+}
+inline uint64_t SequencesRequest::region_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SequencesRequest.region_ids)
+  return _internal_region_ids(index);
+}
+inline void SequencesRequest::set_region_ids(int index, uint64_t value) {
+  _impl_.region_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SequencesRequest.region_ids)
+}
+inline void SequencesRequest::_internal_add_region_ids(uint64_t value) {
+  _impl_.region_ids_.Add(value);
+}
+inline void SequencesRequest::add_region_ids(uint64_t value) {
+  _internal_add_region_ids(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.region.SequencesRequest.region_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+SequencesRequest::_internal_region_ids() const {
+  return _impl_.region_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+SequencesRequest::region_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.SequencesRequest.region_ids)
+  return _internal_region_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+SequencesRequest::_internal_mutable_region_ids() {
+  return &_impl_.region_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+SequencesRequest::mutable_region_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.SequencesRequest.region_ids)
+  return _internal_mutable_region_ids();
+}
+
+// -------------------------------------------------------------------
+
 // RegionColumnDef
 
 // .greptime.v1.ColumnDef column_def = 1;
@@ -8761,6 +9074,8 @@ inline void RegionColumnDef::set_column_id(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
