@@ -1356,8 +1356,7 @@ type ColumnOptions struct {
 	// Supported keys:
 	//
 	//	"fulltext":
-	//	   A JSON encoded string containing full-text search options for the
-	//	   column.
+	//	   A JSON encoded string containing full-text search options for the column.
 	//
 	//	   The fulltext options JSON structure:
 	//	   {
@@ -1366,18 +1365,14 @@ type ColumnOptions struct {
 	//
 	//	     "analyzer": string,      // The language-specific text analyzer to
 	//	                              // use for indexing and searching text.
-	//	                              // Supported values: ["English" (Default),
-	//	                              "Chinese"].
+	//	                              // Supported values: ["English" (Default), "Chinese"].
 	//
-	//	     "case-sensitive": bool   // Indicates whether the text should be
-	//	     treated
-	//	                              // as case-sensitive during full-text
-	//	                              search.
+	//	     "case-sensitive": bool   // Indicates whether the text should be treated
+	//	                              // as case-sensitive during full-text search.
 	//	   }
 	//
 	//	   Example:
-	//	   "fulltext": "{\"enable\": true, \"analyzer\": \"English\",
-	//	   \"case-sensitive\": false}"
+	//	   "fulltext": "{\"enable\": true, \"analyzer\": \"English\", \"case-sensitive\": false}"
 	Options map[string]string `protobuf:"bytes,1,rep,name=options,proto3" json:"options,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
