@@ -772,6 +772,7 @@ class RegionStat final :
     kRcusFieldNumber = 2,
     kWcusFieldNumber = 3,
     kApproximateBytesFieldNumber = 4,
+    kLastEntryIdFieldNumber = 8,
     kRoleFieldNumber = 7,
   };
   // map<string, bytes> extensions = 99;
@@ -841,6 +842,19 @@ class RegionStat final :
   void _internal_set_approximate_bytes(int64_t value);
   public:
 
+  // optional uint64 last_entry_id = 8;
+  bool has_last_entry_id() const;
+  private:
+  bool _internal_has_last_entry_id() const;
+  public:
+  void clear_last_entry_id();
+  uint64_t last_entry_id() const;
+  void set_last_entry_id(uint64_t value);
+  private:
+  uint64_t _internal_last_entry_id() const;
+  void _internal_set_last_entry_id(uint64_t value);
+  public:
+
   // .greptime.v1.meta.RegionRole role = 7;
   void clear_role();
   ::greptime::v1::meta::RegionRole role() const;
@@ -858,6 +872,8 @@ class RegionStat final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
         RegionStat_ExtensionsEntry_DoNotUse,
         std::string, std::string,
@@ -868,8 +884,8 @@ class RegionStat final :
     int64_t rcus_;
     int64_t wcus_;
     int64_t approximate_bytes_;
+    uint64_t last_entry_id_;
     int role_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
@@ -3093,6 +3109,34 @@ inline void RegionStat::_internal_set_role(::greptime::v1::meta::RegionRole valu
 inline void RegionStat::set_role(::greptime::v1::meta::RegionRole value) {
   _internal_set_role(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.role)
+}
+
+// optional uint64 last_entry_id = 8;
+inline bool RegionStat::_internal_has_last_entry_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool RegionStat::has_last_entry_id() const {
+  return _internal_has_last_entry_id();
+}
+inline void RegionStat::clear_last_entry_id() {
+  _impl_.last_entry_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t RegionStat::_internal_last_entry_id() const {
+  return _impl_.last_entry_id_;
+}
+inline uint64_t RegionStat::last_entry_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.RegionStat.last_entry_id)
+  return _internal_last_entry_id();
+}
+inline void RegionStat::_internal_set_last_entry_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.last_entry_id_ = value;
+}
+inline void RegionStat::set_last_entry_id(uint64_t value) {
+  _internal_set_last_entry_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.RegionStat.last_entry_id)
 }
 
 // map<string, bytes> extensions = 99;

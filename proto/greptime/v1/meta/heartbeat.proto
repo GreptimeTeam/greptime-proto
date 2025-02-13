@@ -84,6 +84,8 @@ message RegionStat {
   string engine = 6;
   // Region role
   RegionRole role = 7;
+  // The last entry id of this region if using remote WAL
+  optional uint64 last_entry_id = 8;
   map<string, bytes> extensions = 99;
 }
 
