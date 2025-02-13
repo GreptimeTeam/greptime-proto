@@ -122,6 +122,105 @@ public final class Ddl {
     // @@protoc_insertion_point(enum_scope:greptime.v1.Analyzer)
   }
 
+  /**
+   * Protobuf enum {@code greptime.v1.SkippingIndexType}
+   */
+  public enum SkippingIndexType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>BLOOM_FILTER = 0;</code>
+     */
+    BLOOM_FILTER(0),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>BLOOM_FILTER = 0;</code>
+     */
+    public static final int BLOOM_FILTER_VALUE = 0;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SkippingIndexType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static SkippingIndexType forNumber(int value) {
+      switch (value) {
+        case 0: return BLOOM_FILTER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SkippingIndexType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SkippingIndexType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SkippingIndexType>() {
+            public SkippingIndexType findValueByNumber(int number) {
+              return SkippingIndexType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final SkippingIndexType[] VALUES = values();
+
+    public static SkippingIndexType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SkippingIndexType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.SkippingIndexType)
+  }
+
   public interface DdlRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.DdlRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -14790,6 +14889,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Ddl.SetInvertedOrBuilder getInvertedOrBuilder();
 
+    /**
+     * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+     * @return Whether the skipping field is set.
+     */
+    boolean hasSkipping();
+    /**
+     * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+     * @return The skipping.
+     */
+    io.greptime.v1.Ddl.SetSkipping getSkipping();
+    /**
+     * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+     */
+    io.greptime.v1.Ddl.SetSkippingOrBuilder getSkippingOrBuilder();
+
     public io.greptime.v1.Ddl.SetIndex.OptionsCase getOptionsCase();
   }
   /**
@@ -14865,6 +14979,20 @@ java.lang.String defaultValue);
               optionsCase_ = 2;
               break;
             }
+            case 26: {
+              io.greptime.v1.Ddl.SetSkipping.Builder subBuilder = null;
+              if (optionsCase_ == 3) {
+                subBuilder = ((io.greptime.v1.Ddl.SetSkipping) options_).toBuilder();
+              }
+              options_ =
+                  input.readMessage(io.greptime.v1.Ddl.SetSkipping.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.SetSkipping) options_);
+                options_ = subBuilder.buildPartial();
+              }
+              optionsCase_ = 3;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -14906,6 +15034,7 @@ java.lang.String defaultValue);
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       FULLTEXT(1),
       INVERTED(2),
+      SKIPPING(3),
       OPTIONS_NOT_SET(0);
       private final int value;
       private OptionsCase(int value) {
@@ -14925,6 +15054,7 @@ java.lang.String defaultValue);
         switch (value) {
           case 1: return FULLTEXT;
           case 2: return INVERTED;
+          case 3: return SKIPPING;
           case 0: return OPTIONS_NOT_SET;
           default: return null;
         }
@@ -15002,6 +15132,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.SetInverted.getDefaultInstance();
     }
 
+    public static final int SKIPPING_FIELD_NUMBER = 3;
+    /**
+     * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+     * @return Whether the skipping field is set.
+     */
+    @java.lang.Override
+    public boolean hasSkipping() {
+      return optionsCase_ == 3;
+    }
+    /**
+     * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+     * @return The skipping.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetSkipping getSkipping() {
+      if (optionsCase_ == 3) {
+         return (io.greptime.v1.Ddl.SetSkipping) options_;
+      }
+      return io.greptime.v1.Ddl.SetSkipping.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetSkippingOrBuilder getSkippingOrBuilder() {
+      if (optionsCase_ == 3) {
+         return (io.greptime.v1.Ddl.SetSkipping) options_;
+      }
+      return io.greptime.v1.Ddl.SetSkipping.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -15022,6 +15183,9 @@ java.lang.String defaultValue);
       if (optionsCase_ == 2) {
         output.writeMessage(2, (io.greptime.v1.Ddl.SetInverted) options_);
       }
+      if (optionsCase_ == 3) {
+        output.writeMessage(3, (io.greptime.v1.Ddl.SetSkipping) options_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -15038,6 +15202,10 @@ java.lang.String defaultValue);
       if (optionsCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (io.greptime.v1.Ddl.SetInverted) options_);
+      }
+      if (optionsCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (io.greptime.v1.Ddl.SetSkipping) options_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -15064,6 +15232,10 @@ java.lang.String defaultValue);
           if (!getInverted()
               .equals(other.getInverted())) return false;
           break;
+        case 3:
+          if (!getSkipping()
+              .equals(other.getSkipping())) return false;
+          break;
         case 0:
         default:
       }
@@ -15086,6 +15258,10 @@ java.lang.String defaultValue);
         case 2:
           hash = (37 * hash) + INVERTED_FIELD_NUMBER;
           hash = (53 * hash) + getInverted().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + SKIPPING_FIELD_NUMBER;
+          hash = (53 * hash) + getSkipping().hashCode();
           break;
         case 0:
         default:
@@ -15265,6 +15441,13 @@ java.lang.String defaultValue);
             result.options_ = invertedBuilder_.build();
           }
         }
+        if (optionsCase_ == 3) {
+          if (skippingBuilder_ == null) {
+            result.options_ = options_;
+          } else {
+            result.options_ = skippingBuilder_.build();
+          }
+        }
         result.optionsCase_ = optionsCase_;
         onBuilt();
         return result;
@@ -15321,6 +15504,10 @@ java.lang.String defaultValue);
           }
           case INVERTED: {
             mergeInverted(other.getInverted());
+            break;
+          }
+          case SKIPPING: {
+            mergeSkipping(other.getSkipping());
             break;
           }
           case OPTIONS_NOT_SET: {
@@ -15654,6 +15841,148 @@ java.lang.String defaultValue);
         onChanged();;
         return invertedBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.SetSkipping, io.greptime.v1.Ddl.SetSkipping.Builder, io.greptime.v1.Ddl.SetSkippingOrBuilder> skippingBuilder_;
+      /**
+       * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+       * @return Whether the skipping field is set.
+       */
+      @java.lang.Override
+      public boolean hasSkipping() {
+        return optionsCase_ == 3;
+      }
+      /**
+       * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+       * @return The skipping.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetSkipping getSkipping() {
+        if (skippingBuilder_ == null) {
+          if (optionsCase_ == 3) {
+            return (io.greptime.v1.Ddl.SetSkipping) options_;
+          }
+          return io.greptime.v1.Ddl.SetSkipping.getDefaultInstance();
+        } else {
+          if (optionsCase_ == 3) {
+            return skippingBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.SetSkipping.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+       */
+      public Builder setSkipping(io.greptime.v1.Ddl.SetSkipping value) {
+        if (skippingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          skippingBuilder_.setMessage(value);
+        }
+        optionsCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+       */
+      public Builder setSkipping(
+          io.greptime.v1.Ddl.SetSkipping.Builder builderForValue) {
+        if (skippingBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          skippingBuilder_.setMessage(builderForValue.build());
+        }
+        optionsCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+       */
+      public Builder mergeSkipping(io.greptime.v1.Ddl.SetSkipping value) {
+        if (skippingBuilder_ == null) {
+          if (optionsCase_ == 3 &&
+              options_ != io.greptime.v1.Ddl.SetSkipping.getDefaultInstance()) {
+            options_ = io.greptime.v1.Ddl.SetSkipping.newBuilder((io.greptime.v1.Ddl.SetSkipping) options_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          if (optionsCase_ == 3) {
+            skippingBuilder_.mergeFrom(value);
+          } else {
+            skippingBuilder_.setMessage(value);
+          }
+        }
+        optionsCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+       */
+      public Builder clearSkipping() {
+        if (skippingBuilder_ == null) {
+          if (optionsCase_ == 3) {
+            optionsCase_ = 0;
+            options_ = null;
+            onChanged();
+          }
+        } else {
+          if (optionsCase_ == 3) {
+            optionsCase_ = 0;
+            options_ = null;
+          }
+          skippingBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+       */
+      public io.greptime.v1.Ddl.SetSkipping.Builder getSkippingBuilder() {
+        return getSkippingFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetSkippingOrBuilder getSkippingOrBuilder() {
+        if ((optionsCase_ == 3) && (skippingBuilder_ != null)) {
+          return skippingBuilder_.getMessageOrBuilder();
+        } else {
+          if (optionsCase_ == 3) {
+            return (io.greptime.v1.Ddl.SetSkipping) options_;
+          }
+          return io.greptime.v1.Ddl.SetSkipping.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SetSkipping skipping = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.SetSkipping, io.greptime.v1.Ddl.SetSkipping.Builder, io.greptime.v1.Ddl.SetSkippingOrBuilder> 
+          getSkippingFieldBuilder() {
+        if (skippingBuilder_ == null) {
+          if (!(optionsCase_ == 3)) {
+            options_ = io.greptime.v1.Ddl.SetSkipping.getDefaultInstance();
+          }
+          skippingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.SetSkipping, io.greptime.v1.Ddl.SetSkipping.Builder, io.greptime.v1.Ddl.SetSkippingOrBuilder>(
+                  (io.greptime.v1.Ddl.SetSkipping) options_,
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        optionsCase_ = 3;
+        onChanged();;
+        return skippingBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -15741,6 +16070,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Ddl.UnsetInvertedOrBuilder getInvertedOrBuilder();
 
+    /**
+     * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+     * @return Whether the skipping field is set.
+     */
+    boolean hasSkipping();
+    /**
+     * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+     * @return The skipping.
+     */
+    io.greptime.v1.Ddl.UnsetSkipping getSkipping();
+    /**
+     * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+     */
+    io.greptime.v1.Ddl.UnsetSkippingOrBuilder getSkippingOrBuilder();
+
     public io.greptime.v1.Ddl.UnsetIndex.OptionsCase getOptionsCase();
   }
   /**
@@ -15816,6 +16160,20 @@ java.lang.String defaultValue);
               optionsCase_ = 2;
               break;
             }
+            case 26: {
+              io.greptime.v1.Ddl.UnsetSkipping.Builder subBuilder = null;
+              if (optionsCase_ == 3) {
+                subBuilder = ((io.greptime.v1.Ddl.UnsetSkipping) options_).toBuilder();
+              }
+              options_ =
+                  input.readMessage(io.greptime.v1.Ddl.UnsetSkipping.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.UnsetSkipping) options_);
+                options_ = subBuilder.buildPartial();
+              }
+              optionsCase_ = 3;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -15857,6 +16215,7 @@ java.lang.String defaultValue);
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       FULLTEXT(1),
       INVERTED(2),
+      SKIPPING(3),
       OPTIONS_NOT_SET(0);
       private final int value;
       private OptionsCase(int value) {
@@ -15876,6 +16235,7 @@ java.lang.String defaultValue);
         switch (value) {
           case 1: return FULLTEXT;
           case 2: return INVERTED;
+          case 3: return SKIPPING;
           case 0: return OPTIONS_NOT_SET;
           default: return null;
         }
@@ -15953,6 +16313,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.UnsetInverted.getDefaultInstance();
     }
 
+    public static final int SKIPPING_FIELD_NUMBER = 3;
+    /**
+     * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+     * @return Whether the skipping field is set.
+     */
+    @java.lang.Override
+    public boolean hasSkipping() {
+      return optionsCase_ == 3;
+    }
+    /**
+     * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+     * @return The skipping.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetSkipping getSkipping() {
+      if (optionsCase_ == 3) {
+         return (io.greptime.v1.Ddl.UnsetSkipping) options_;
+      }
+      return io.greptime.v1.Ddl.UnsetSkipping.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetSkippingOrBuilder getSkippingOrBuilder() {
+      if (optionsCase_ == 3) {
+         return (io.greptime.v1.Ddl.UnsetSkipping) options_;
+      }
+      return io.greptime.v1.Ddl.UnsetSkipping.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -15973,6 +16364,9 @@ java.lang.String defaultValue);
       if (optionsCase_ == 2) {
         output.writeMessage(2, (io.greptime.v1.Ddl.UnsetInverted) options_);
       }
+      if (optionsCase_ == 3) {
+        output.writeMessage(3, (io.greptime.v1.Ddl.UnsetSkipping) options_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -15989,6 +16383,10 @@ java.lang.String defaultValue);
       if (optionsCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (io.greptime.v1.Ddl.UnsetInverted) options_);
+      }
+      if (optionsCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (io.greptime.v1.Ddl.UnsetSkipping) options_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -16015,6 +16413,10 @@ java.lang.String defaultValue);
           if (!getInverted()
               .equals(other.getInverted())) return false;
           break;
+        case 3:
+          if (!getSkipping()
+              .equals(other.getSkipping())) return false;
+          break;
         case 0:
         default:
       }
@@ -16037,6 +16439,10 @@ java.lang.String defaultValue);
         case 2:
           hash = (37 * hash) + INVERTED_FIELD_NUMBER;
           hash = (53 * hash) + getInverted().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + SKIPPING_FIELD_NUMBER;
+          hash = (53 * hash) + getSkipping().hashCode();
           break;
         case 0:
         default:
@@ -16216,6 +16622,13 @@ java.lang.String defaultValue);
             result.options_ = invertedBuilder_.build();
           }
         }
+        if (optionsCase_ == 3) {
+          if (skippingBuilder_ == null) {
+            result.options_ = options_;
+          } else {
+            result.options_ = skippingBuilder_.build();
+          }
+        }
         result.optionsCase_ = optionsCase_;
         onBuilt();
         return result;
@@ -16272,6 +16685,10 @@ java.lang.String defaultValue);
           }
           case INVERTED: {
             mergeInverted(other.getInverted());
+            break;
+          }
+          case SKIPPING: {
+            mergeSkipping(other.getSkipping());
             break;
           }
           case OPTIONS_NOT_SET: {
@@ -16604,6 +17021,148 @@ java.lang.String defaultValue);
         optionsCase_ = 2;
         onChanged();;
         return invertedBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.UnsetSkipping, io.greptime.v1.Ddl.UnsetSkipping.Builder, io.greptime.v1.Ddl.UnsetSkippingOrBuilder> skippingBuilder_;
+      /**
+       * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+       * @return Whether the skipping field is set.
+       */
+      @java.lang.Override
+      public boolean hasSkipping() {
+        return optionsCase_ == 3;
+      }
+      /**
+       * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+       * @return The skipping.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetSkipping getSkipping() {
+        if (skippingBuilder_ == null) {
+          if (optionsCase_ == 3) {
+            return (io.greptime.v1.Ddl.UnsetSkipping) options_;
+          }
+          return io.greptime.v1.Ddl.UnsetSkipping.getDefaultInstance();
+        } else {
+          if (optionsCase_ == 3) {
+            return skippingBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.UnsetSkipping.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+       */
+      public Builder setSkipping(io.greptime.v1.Ddl.UnsetSkipping value) {
+        if (skippingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          skippingBuilder_.setMessage(value);
+        }
+        optionsCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+       */
+      public Builder setSkipping(
+          io.greptime.v1.Ddl.UnsetSkipping.Builder builderForValue) {
+        if (skippingBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          skippingBuilder_.setMessage(builderForValue.build());
+        }
+        optionsCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+       */
+      public Builder mergeSkipping(io.greptime.v1.Ddl.UnsetSkipping value) {
+        if (skippingBuilder_ == null) {
+          if (optionsCase_ == 3 &&
+              options_ != io.greptime.v1.Ddl.UnsetSkipping.getDefaultInstance()) {
+            options_ = io.greptime.v1.Ddl.UnsetSkipping.newBuilder((io.greptime.v1.Ddl.UnsetSkipping) options_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          if (optionsCase_ == 3) {
+            skippingBuilder_.mergeFrom(value);
+          } else {
+            skippingBuilder_.setMessage(value);
+          }
+        }
+        optionsCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+       */
+      public Builder clearSkipping() {
+        if (skippingBuilder_ == null) {
+          if (optionsCase_ == 3) {
+            optionsCase_ = 0;
+            options_ = null;
+            onChanged();
+          }
+        } else {
+          if (optionsCase_ == 3) {
+            optionsCase_ = 0;
+            options_ = null;
+          }
+          skippingBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+       */
+      public io.greptime.v1.Ddl.UnsetSkipping.Builder getSkippingBuilder() {
+        return getSkippingFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetSkippingOrBuilder getSkippingOrBuilder() {
+        if ((optionsCase_ == 3) && (skippingBuilder_ != null)) {
+          return skippingBuilder_.getMessageOrBuilder();
+        } else {
+          if (optionsCase_ == 3) {
+            return (io.greptime.v1.Ddl.UnsetSkipping) options_;
+          }
+          return io.greptime.v1.Ddl.UnsetSkipping.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.UnsetSkipping skipping = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.UnsetSkipping, io.greptime.v1.Ddl.UnsetSkipping.Builder, io.greptime.v1.Ddl.UnsetSkippingOrBuilder> 
+          getSkippingFieldBuilder() {
+        if (skippingBuilder_ == null) {
+          if (!(optionsCase_ == 3)) {
+            options_ = io.greptime.v1.Ddl.UnsetSkipping.getDefaultInstance();
+          }
+          skippingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.UnsetSkipping, io.greptime.v1.Ddl.UnsetSkipping.Builder, io.greptime.v1.Ddl.UnsetSkippingOrBuilder>(
+                  (io.greptime.v1.Ddl.UnsetSkipping) options_,
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        optionsCase_ = 3;
+        onChanged();;
+        return skippingBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -34138,6 +34697,1395 @@ java.lang.String defaultValue);
 
   }
 
+  public interface SetSkippingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.SetSkipping)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The columnName.
+     */
+    java.lang.String getColumnName();
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The bytes for columnName.
+     */
+    com.google.protobuf.ByteString
+        getColumnNameBytes();
+
+    /**
+     * <code>bool enable = 2;</code>
+     * @return The enable.
+     */
+    boolean getEnable();
+
+    /**
+     * <code>uint64 granularity = 3;</code>
+     * @return The granularity.
+     */
+    long getGranularity();
+
+    /**
+     * <code>.greptime.v1.SkippingIndexType skipping_index_type = 4;</code>
+     * @return The enum numeric value on the wire for skippingIndexType.
+     */
+    int getSkippingIndexTypeValue();
+    /**
+     * <code>.greptime.v1.SkippingIndexType skipping_index_type = 4;</code>
+     * @return The skippingIndexType.
+     */
+    io.greptime.v1.Ddl.SkippingIndexType getSkippingIndexType();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.SetSkipping}
+   */
+  public static final class SetSkipping extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.SetSkipping)
+      SetSkippingOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SetSkipping.newBuilder() to construct.
+    private SetSkipping(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SetSkipping() {
+      columnName_ = "";
+      skippingIndexType_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SetSkipping();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SetSkipping(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              columnName_ = s;
+              break;
+            }
+            case 16: {
+
+              enable_ = input.readBool();
+              break;
+            }
+            case 24: {
+
+              granularity_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              skippingIndexType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_SetSkipping_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_SetSkipping_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.SetSkipping.class, io.greptime.v1.Ddl.SetSkipping.Builder.class);
+    }
+
+    public static final int COLUMN_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object columnName_;
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The columnName.
+     */
+    @java.lang.Override
+    public java.lang.String getColumnName() {
+      java.lang.Object ref = columnName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        columnName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The bytes for columnName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getColumnNameBytes() {
+      java.lang.Object ref = columnName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        columnName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ENABLE_FIELD_NUMBER = 2;
+    private boolean enable_;
+    /**
+     * <code>bool enable = 2;</code>
+     * @return The enable.
+     */
+    @java.lang.Override
+    public boolean getEnable() {
+      return enable_;
+    }
+
+    public static final int GRANULARITY_FIELD_NUMBER = 3;
+    private long granularity_;
+    /**
+     * <code>uint64 granularity = 3;</code>
+     * @return The granularity.
+     */
+    @java.lang.Override
+    public long getGranularity() {
+      return granularity_;
+    }
+
+    public static final int SKIPPING_INDEX_TYPE_FIELD_NUMBER = 4;
+    private int skippingIndexType_;
+    /**
+     * <code>.greptime.v1.SkippingIndexType skipping_index_type = 4;</code>
+     * @return The enum numeric value on the wire for skippingIndexType.
+     */
+    @java.lang.Override public int getSkippingIndexTypeValue() {
+      return skippingIndexType_;
+    }
+    /**
+     * <code>.greptime.v1.SkippingIndexType skipping_index_type = 4;</code>
+     * @return The skippingIndexType.
+     */
+    @java.lang.Override public io.greptime.v1.Ddl.SkippingIndexType getSkippingIndexType() {
+      @SuppressWarnings("deprecation")
+      io.greptime.v1.Ddl.SkippingIndexType result = io.greptime.v1.Ddl.SkippingIndexType.valueOf(skippingIndexType_);
+      return result == null ? io.greptime.v1.Ddl.SkippingIndexType.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, columnName_);
+      }
+      if (enable_ != false) {
+        output.writeBool(2, enable_);
+      }
+      if (granularity_ != 0L) {
+        output.writeUInt64(3, granularity_);
+      }
+      if (skippingIndexType_ != io.greptime.v1.Ddl.SkippingIndexType.BLOOM_FILTER.getNumber()) {
+        output.writeEnum(4, skippingIndexType_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, columnName_);
+      }
+      if (enable_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, enable_);
+      }
+      if (granularity_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, granularity_);
+      }
+      if (skippingIndexType_ != io.greptime.v1.Ddl.SkippingIndexType.BLOOM_FILTER.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, skippingIndexType_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.SetSkipping)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.SetSkipping other = (io.greptime.v1.Ddl.SetSkipping) obj;
+
+      if (!getColumnName()
+          .equals(other.getColumnName())) return false;
+      if (getEnable()
+          != other.getEnable()) return false;
+      if (getGranularity()
+          != other.getGranularity()) return false;
+      if (skippingIndexType_ != other.skippingIndexType_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + COLUMN_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getColumnName().hashCode();
+      hash = (37 * hash) + ENABLE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getEnable());
+      hash = (37 * hash) + GRANULARITY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getGranularity());
+      hash = (37 * hash) + SKIPPING_INDEX_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + skippingIndexType_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.SetSkipping parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.SetSkipping prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.SetSkipping}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.SetSkipping)
+        io.greptime.v1.Ddl.SetSkippingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_SetSkipping_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_SetSkipping_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.SetSkipping.class, io.greptime.v1.Ddl.SetSkipping.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.SetSkipping.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        columnName_ = "";
+
+        enable_ = false;
+
+        granularity_ = 0L;
+
+        skippingIndexType_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_SetSkipping_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetSkipping getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.SetSkipping.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetSkipping build() {
+        io.greptime.v1.Ddl.SetSkipping result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetSkipping buildPartial() {
+        io.greptime.v1.Ddl.SetSkipping result = new io.greptime.v1.Ddl.SetSkipping(this);
+        result.columnName_ = columnName_;
+        result.enable_ = enable_;
+        result.granularity_ = granularity_;
+        result.skippingIndexType_ = skippingIndexType_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.SetSkipping) {
+          return mergeFrom((io.greptime.v1.Ddl.SetSkipping)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.SetSkipping other) {
+        if (other == io.greptime.v1.Ddl.SetSkipping.getDefaultInstance()) return this;
+        if (!other.getColumnName().isEmpty()) {
+          columnName_ = other.columnName_;
+          onChanged();
+        }
+        if (other.getEnable() != false) {
+          setEnable(other.getEnable());
+        }
+        if (other.getGranularity() != 0L) {
+          setGranularity(other.getGranularity());
+        }
+        if (other.skippingIndexType_ != 0) {
+          setSkippingIndexTypeValue(other.getSkippingIndexTypeValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.SetSkipping parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.SetSkipping) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object columnName_ = "";
+      /**
+       * <code>string column_name = 1;</code>
+       * @return The columnName.
+       */
+      public java.lang.String getColumnName() {
+        java.lang.Object ref = columnName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          columnName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @return The bytes for columnName.
+       */
+      public com.google.protobuf.ByteString
+          getColumnNameBytes() {
+        java.lang.Object ref = columnName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          columnName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @param value The columnName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        columnName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColumnName() {
+        
+        columnName_ = getDefaultInstance().getColumnName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @param value The bytes for columnName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        columnName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean enable_ ;
+      /**
+       * <code>bool enable = 2;</code>
+       * @return The enable.
+       */
+      @java.lang.Override
+      public boolean getEnable() {
+        return enable_;
+      }
+      /**
+       * <code>bool enable = 2;</code>
+       * @param value The enable to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnable(boolean value) {
+        
+        enable_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool enable = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEnable() {
+        
+        enable_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long granularity_ ;
+      /**
+       * <code>uint64 granularity = 3;</code>
+       * @return The granularity.
+       */
+      @java.lang.Override
+      public long getGranularity() {
+        return granularity_;
+      }
+      /**
+       * <code>uint64 granularity = 3;</code>
+       * @param value The granularity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGranularity(long value) {
+        
+        granularity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 granularity = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGranularity() {
+        
+        granularity_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int skippingIndexType_ = 0;
+      /**
+       * <code>.greptime.v1.SkippingIndexType skipping_index_type = 4;</code>
+       * @return The enum numeric value on the wire for skippingIndexType.
+       */
+      @java.lang.Override public int getSkippingIndexTypeValue() {
+        return skippingIndexType_;
+      }
+      /**
+       * <code>.greptime.v1.SkippingIndexType skipping_index_type = 4;</code>
+       * @param value The enum numeric value on the wire for skippingIndexType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSkippingIndexTypeValue(int value) {
+        
+        skippingIndexType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SkippingIndexType skipping_index_type = 4;</code>
+       * @return The skippingIndexType.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SkippingIndexType getSkippingIndexType() {
+        @SuppressWarnings("deprecation")
+        io.greptime.v1.Ddl.SkippingIndexType result = io.greptime.v1.Ddl.SkippingIndexType.valueOf(skippingIndexType_);
+        return result == null ? io.greptime.v1.Ddl.SkippingIndexType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.SkippingIndexType skipping_index_type = 4;</code>
+       * @param value The skippingIndexType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSkippingIndexType(io.greptime.v1.Ddl.SkippingIndexType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        skippingIndexType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SkippingIndexType skipping_index_type = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSkippingIndexType() {
+        
+        skippingIndexType_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.SetSkipping)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.SetSkipping)
+    private static final io.greptime.v1.Ddl.SetSkipping DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.SetSkipping();
+    }
+
+    public static io.greptime.v1.Ddl.SetSkipping getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SetSkipping>
+        PARSER = new com.google.protobuf.AbstractParser<SetSkipping>() {
+      @java.lang.Override
+      public SetSkipping parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SetSkipping(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SetSkipping> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SetSkipping> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetSkipping getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UnsetSkippingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.UnsetSkipping)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The columnName.
+     */
+    java.lang.String getColumnName();
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The bytes for columnName.
+     */
+    com.google.protobuf.ByteString
+        getColumnNameBytes();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.UnsetSkipping}
+   */
+  public static final class UnsetSkipping extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.UnsetSkipping)
+      UnsetSkippingOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UnsetSkipping.newBuilder() to construct.
+    private UnsetSkipping(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UnsetSkipping() {
+      columnName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UnsetSkipping();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UnsetSkipping(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              columnName_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetSkipping_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetSkipping_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.UnsetSkipping.class, io.greptime.v1.Ddl.UnsetSkipping.Builder.class);
+    }
+
+    public static final int COLUMN_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object columnName_;
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The columnName.
+     */
+    @java.lang.Override
+    public java.lang.String getColumnName() {
+      java.lang.Object ref = columnName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        columnName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The bytes for columnName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getColumnNameBytes() {
+      java.lang.Object ref = columnName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        columnName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, columnName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, columnName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.UnsetSkipping)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.UnsetSkipping other = (io.greptime.v1.Ddl.UnsetSkipping) obj;
+
+      if (!getColumnName()
+          .equals(other.getColumnName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + COLUMN_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getColumnName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.UnsetSkipping parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.UnsetSkipping prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.UnsetSkipping}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.UnsetSkipping)
+        io.greptime.v1.Ddl.UnsetSkippingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetSkipping_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetSkipping_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.UnsetSkipping.class, io.greptime.v1.Ddl.UnsetSkipping.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.UnsetSkipping.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        columnName_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_UnsetSkipping_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetSkipping getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.UnsetSkipping.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetSkipping build() {
+        io.greptime.v1.Ddl.UnsetSkipping result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetSkipping buildPartial() {
+        io.greptime.v1.Ddl.UnsetSkipping result = new io.greptime.v1.Ddl.UnsetSkipping(this);
+        result.columnName_ = columnName_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.UnsetSkipping) {
+          return mergeFrom((io.greptime.v1.Ddl.UnsetSkipping)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.UnsetSkipping other) {
+        if (other == io.greptime.v1.Ddl.UnsetSkipping.getDefaultInstance()) return this;
+        if (!other.getColumnName().isEmpty()) {
+          columnName_ = other.columnName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.UnsetSkipping parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.UnsetSkipping) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object columnName_ = "";
+      /**
+       * <code>string column_name = 1;</code>
+       * @return The columnName.
+       */
+      public java.lang.String getColumnName() {
+        java.lang.Object ref = columnName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          columnName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @return The bytes for columnName.
+       */
+      public com.google.protobuf.ByteString
+          getColumnNameBytes() {
+        java.lang.Object ref = columnName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          columnName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @param value The columnName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        columnName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColumnName() {
+        
+        columnName_ = getDefaultInstance().getColumnName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @param value The bytes for columnName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        columnName_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.UnsetSkipping)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.UnsetSkipping)
+    private static final io.greptime.v1.Ddl.UnsetSkipping DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.UnsetSkipping();
+    }
+
+    public static io.greptime.v1.Ddl.UnsetSkipping getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UnsetSkipping>
+        PARSER = new com.google.protobuf.AbstractParser<UnsetSkipping>() {
+      @java.lang.Override
+      public UnsetSkipping parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UnsetSkipping(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UnsetSkipping> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UnsetSkipping> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetSkipping getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface AlterDatabaseExprOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.AlterDatabaseExpr)
       com.google.protobuf.MessageOrBuilder {
@@ -36995,6 +38943,16 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_UnsetInverted_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_SetSkipping_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_SetSkipping_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_UnsetSkipping_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_UnsetSkipping_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_AlterDatabaseExpr_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -37079,74 +39037,81 @@ java.lang.String defaultValue);
       "\036.greptime.v1.UnsetTableOptionsH\000\022*\n\tset" +
       "_index\030\014 \001(\0132\025.greptime.v1.SetIndexH\000\022.\n" +
       "\013unset_index\030\r \001(\0132\027.greptime.v1.UnsetIn" +
-      "dexH\000B\006\n\004kind\"q\n\010SetIndex\022,\n\010fulltext\030\001 " +
-      "\001(\0132\030.greptime.v1.SetFulltextH\000\022,\n\010inver" +
-      "ted\030\002 \001(\0132\030.greptime.v1.SetInvertedH\000B\t\n" +
-      "\007options\"w\n\nUnsetIndex\022.\n\010fulltext\030\001 \001(\013" +
-      "2\032.greptime.v1.UnsetFulltextH\000\022.\n\010invert" +
-      "ed\030\002 \001(\0132\032.greptime.v1.UnsetInvertedH\000B\t" +
-      "\n\007options\"\216\001\n\rDropTableExpr\022\024\n\014catalog_n" +
-      "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_" +
-      "name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime." +
-      "v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022C" +
-      "reateDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
-      "\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_if_not_ex" +
-      "ists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.greptime.v" +
-      "1.CreateDatabaseExpr.OptionsEntry\032.\n\014Opt" +
-      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"z\n\021TruncateTableExpr\022\024\n\014catalog_name\030\001" +
-      " \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030" +
-      "\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.Ta" +
-      "bleId\"U\n\020DropDatabaseExpr\022\024\n\014catalog_nam" +
-      "e\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_if_" +
-      "exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_column" +
-      "s\030\001 \003(\0132\026.greptime.v1.AddColumn\"<\n\013DropC" +
-      "olumns\022-\n\014drop_columns\030\001 \003(\0132\027.greptime." +
-      "v1.DropColumn\"O\n\021ModifyColumnTypes\022:\n\023mo" +
-      "dify_column_types\030\001 \003(\0132\035.greptime.v1.Mo" +
-      "difyColumnType\"%\n\013RenameTable\022\026\n\016new_tab" +
-      "le_name\030\001 \001(\t\"\204\001\n\tAddColumn\022*\n\ncolumn_de" +
-      "f\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010locat" +
-      "ion\030\003 \001(\0132\036.greptime.v1.AddColumnLocatio" +
-      "n\022\031\n\021add_if_not_exists\030\004 \001(\010\"\236\001\n\020ModifyC" +
-      "olumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013target" +
-      "_type\030\002 \001(\0162\033.greptime.v1.ColumnDataType" +
-      "\022C\n\025target_type_extension\030\003 \001(\0132$.grepti" +
-      "me.v1.ColumnDataTypeExtension\"$\n\006Option\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetTableO" +
-      "ptions\022*\n\rtable_options\030\001 \003(\0132\023.greptime" +
-      ".v1.Option\"!\n\021UnsetTableOptions\022\014\n\004keys\030" +
-      "\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007Tab" +
-      "leId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254" +
-      "\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030" +
-      "\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is" +
-      "_nullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 " +
-      "\001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime.v1" +
-      ".SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022dataty" +
-      "pe_extension\030\007 \001(\0132$.greptime.v1.ColumnD" +
-      "ataTypeExtension\022+\n\007options\030\010 \001(\0132\032.grep" +
-      "time.v1.ColumnOptions\"\230\001\n\021AddColumnLocat" +
-      "ion\022B\n\rlocation_type\030\001 \001(\0162+.greptime.v1" +
-      ".AddColumnLocation.LocationType\022\031\n\021after" +
-      "_column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FI" +
-      "RST\020\000\022\t\n\005AFTER\020\001\"s\n\013SetFulltext\022\023\n\013colum" +
-      "n_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010analyzer" +
-      "\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016case_se" +
-      "nsitive\030\004 \001(\010\"$\n\rUnsetFulltext\022\023\n\013column" +
-      "_name\030\001 \001(\t\"\"\n\013SetInverted\022\023\n\013column_nam" +
-      "e\030\001 \001(\t\"$\n\rUnsetInverted\022\023\n\013column_name\030" +
-      "\001 \001(\t\"\314\001\n\021AlterDatabaseExpr\022\024\n\014catalog_n" +
-      "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_da" +
-      "tabase_options\030\003 \001(\0132\037.greptime.v1.SetDa" +
-      "tabaseOptionsH\000\022C\n\026unset_database_option" +
-      "s\030\004 \001(\0132!.greptime.v1.UnsetDatabaseOptio" +
-      "nsH\000B\006\n\004kind\"G\n\022SetDatabaseOptions\0221\n\024se" +
-      "t_database_options\030\001 \003(\0132\023.greptime.v1.O" +
-      "ption\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 " +
-      "\003(\t*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020" +
-      "\001BL\n\016io.greptime.v1B\003DdlZ5github.com/Gre" +
-      "ptimeTeam/greptime-proto/go/greptime/v1b" +
-      "\006proto3"
+      "dexH\000B\006\n\004kind\"\237\001\n\010SetIndex\022,\n\010fulltext\030\001" +
+      " \001(\0132\030.greptime.v1.SetFulltextH\000\022,\n\010inve" +
+      "rted\030\002 \001(\0132\030.greptime.v1.SetInvertedH\000\022," +
+      "\n\010skipping\030\003 \001(\0132\030.greptime.v1.SetSkippi" +
+      "ngH\000B\t\n\007options\"\247\001\n\nUnsetIndex\022.\n\010fullte" +
+      "xt\030\001 \001(\0132\032.greptime.v1.UnsetFulltextH\000\022." +
+      "\n\010inverted\030\002 \001(\0132\032.greptime.v1.UnsetInve" +
+      "rtedH\000\022.\n\010skipping\030\003 \001(\0132\032.greptime.v1.U" +
+      "nsetSkippingH\000B\t\n\007options\"\216\001\n\rDropTableE" +
+      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
+      "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004" +
+      " \001(\0132\024.greptime.v1.TableId\022\026\n\016drop_if_ex" +
+      "ists\030\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014cat" +
+      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024" +
+      "create_if_not_exists\030\003 \001(\010\022=\n\007options\030\004 " +
+      "\003(\0132,.greptime.v1.CreateDatabaseExpr.Opt" +
+      "ionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\"z\n\021TruncateTableExpr\022\024" +
+      "\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(" +
+      "\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132" +
+      "\024.greptime.v1.TableId\"U\n\020DropDatabaseExp" +
+      "r\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002" +
+      " \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddColum" +
+      "ns\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1.Ad" +
+      "dColumn\"<\n\013DropColumns\022-\n\014drop_columns\030\001" +
+      " \003(\0132\027.greptime.v1.DropColumn\"O\n\021ModifyC" +
+      "olumnTypes\022:\n\023modify_column_types\030\001 \003(\0132" +
+      "\035.greptime.v1.ModifyColumnType\"%\n\013Rename" +
+      "Table\022\026\n\016new_table_name\030\001 \001(\t\"\204\001\n\tAddCol" +
+      "umn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Co" +
+      "lumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1." +
+      "AddColumnLocation\022\031\n\021add_if_not_exists\030\004" +
+      " \001(\010\"\236\001\n\020ModifyColumnType\022\023\n\013column_name" +
+      "\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.greptime.v" +
+      "1.ColumnDataType\022C\n\025target_type_extensio" +
+      "n\030\003 \001(\0132$.greptime.v1.ColumnDataTypeExte" +
+      "nsion\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t\"=\n\017SetTableOptions\022*\n\rtable_options\030" +
+      "\001 \003(\0132\023.greptime.v1.Option\"!\n\021UnsetTable" +
+      "Options\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004n" +
+      "ame\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006Flow" +
+      "Id\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001" +
+      "(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1.Colu" +
+      "mnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022defau" +
+      "lt_constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001" +
+      "(\0162\031.greptime.v1.SemanticType\022\017\n\007comment" +
+      "\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.gre" +
+      "ptime.v1.ColumnDataTypeExtension\022+\n\007opti" +
+      "ons\030\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001" +
+      "\n\021AddColumnLocation\022B\n\rlocation_type\030\001 \001" +
+      "(\0162+.greptime.v1.AddColumnLocation.Locat" +
+      "ionType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Lo" +
+      "cationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"s\n\013SetF" +
+      "ulltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002" +
+      " \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Ana" +
+      "lyzer\022\026\n\016case_sensitive\030\004 \001(\010\"$\n\rUnsetFu" +
+      "lltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetInvert" +
+      "ed\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInverted" +
+      "\022\023\n\013column_name\030\001 \001(\t\"\204\001\n\013SetSkipping\022\023\n" +
+      "\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013gr" +
+      "anularity\030\003 \001(\004\022;\n\023skipping_index_type\030\004" +
+      " \001(\0162\036.greptime.v1.SkippingIndexType\"$\n\r" +
+      "UnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021A" +
+      "lterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023" +
+      "\n\013schema_name\030\002 \001(\t\022?\n\024set_database_opti" +
+      "ons\030\003 \001(\0132\037.greptime.v1.SetDatabaseOptio" +
+      "nsH\000\022C\n\026unset_database_options\030\004 \001(\0132!.g" +
+      "reptime.v1.UnsetDatabaseOptionsH\000B\006\n\004kin" +
+      "d\"G\n\022SetDatabaseOptions\0221\n\024set_database_" +
+      "options\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024Un" +
+      "setDatabaseOptions\022\014\n\004keys\030\001 \003(\t*$\n\010Anal" +
+      "yzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*%\n\021Skippi" +
+      "ngIndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.grep" +
+      "time.v1B\003DdlZ5github.com/GreptimeTeam/gr" +
+      "eptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -37212,13 +39177,13 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_SetIndex_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetIndex_descriptor,
-        new java.lang.String[] { "Fulltext", "Inverted", "Options", });
+        new java.lang.String[] { "Fulltext", "Inverted", "Skipping", "Options", });
     internal_static_greptime_v1_UnsetIndex_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_UnsetIndex_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetIndex_descriptor,
-        new java.lang.String[] { "Fulltext", "Inverted", "Options", });
+        new java.lang.String[] { "Fulltext", "Inverted", "Skipping", "Options", });
     internal_static_greptime_v1_DropTableExpr_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_DropTableExpr_fieldAccessorTable = new
@@ -37357,20 +39322,32 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetInverted_descriptor,
         new java.lang.String[] { "ColumnName", });
-    internal_static_greptime_v1_AlterDatabaseExpr_descriptor =
+    internal_static_greptime_v1_SetSkipping_descriptor =
       getDescriptor().getMessageTypes().get(31);
+    internal_static_greptime_v1_SetSkipping_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_SetSkipping_descriptor,
+        new java.lang.String[] { "ColumnName", "Enable", "Granularity", "SkippingIndexType", });
+    internal_static_greptime_v1_UnsetSkipping_descriptor =
+      getDescriptor().getMessageTypes().get(32);
+    internal_static_greptime_v1_UnsetSkipping_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_UnsetSkipping_descriptor,
+        new java.lang.String[] { "ColumnName", });
+    internal_static_greptime_v1_AlterDatabaseExpr_descriptor =
+      getDescriptor().getMessageTypes().get(33);
     internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterDatabaseExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "SetDatabaseOptions", "UnsetDatabaseOptions", "Kind", });
     internal_static_greptime_v1_SetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_greptime_v1_SetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetDatabaseOptions_descriptor,
         new java.lang.String[] { "SetDatabaseOptions", });
     internal_static_greptime_v1_UnsetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetDatabaseOptions_descriptor,

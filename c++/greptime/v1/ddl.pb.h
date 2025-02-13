@@ -138,6 +138,9 @@ extern SetIndexDefaultTypeInternal _SetIndex_default_instance_;
 class SetInverted;
 struct SetInvertedDefaultTypeInternal;
 extern SetInvertedDefaultTypeInternal _SetInverted_default_instance_;
+class SetSkipping;
+struct SetSkippingDefaultTypeInternal;
+extern SetSkippingDefaultTypeInternal _SetSkipping_default_instance_;
 class SetTableOptions;
 struct SetTableOptionsDefaultTypeInternal;
 extern SetTableOptionsDefaultTypeInternal _SetTableOptions_default_instance_;
@@ -159,6 +162,9 @@ extern UnsetIndexDefaultTypeInternal _UnsetIndex_default_instance_;
 class UnsetInverted;
 struct UnsetInvertedDefaultTypeInternal;
 extern UnsetInvertedDefaultTypeInternal _UnsetInverted_default_instance_;
+class UnsetSkipping;
+struct UnsetSkippingDefaultTypeInternal;
+extern UnsetSkippingDefaultTypeInternal _UnsetSkipping_default_instance_;
 class UnsetTableOptions;
 struct UnsetTableOptionsDefaultTypeInternal;
 extern UnsetTableOptionsDefaultTypeInternal _UnsetTableOptions_default_instance_;
@@ -194,6 +200,7 @@ template<> ::greptime::v1::SetDatabaseOptions* Arena::CreateMaybeMessage<::grept
 template<> ::greptime::v1::SetFulltext* Arena::CreateMaybeMessage<::greptime::v1::SetFulltext>(Arena*);
 template<> ::greptime::v1::SetIndex* Arena::CreateMaybeMessage<::greptime::v1::SetIndex>(Arena*);
 template<> ::greptime::v1::SetInverted* Arena::CreateMaybeMessage<::greptime::v1::SetInverted>(Arena*);
+template<> ::greptime::v1::SetSkipping* Arena::CreateMaybeMessage<::greptime::v1::SetSkipping>(Arena*);
 template<> ::greptime::v1::SetTableOptions* Arena::CreateMaybeMessage<::greptime::v1::SetTableOptions>(Arena*);
 template<> ::greptime::v1::TableId* Arena::CreateMaybeMessage<::greptime::v1::TableId>(Arena*);
 template<> ::greptime::v1::TruncateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::TruncateTableExpr>(Arena*);
@@ -201,6 +208,7 @@ template<> ::greptime::v1::UnsetDatabaseOptions* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::UnsetFulltext* Arena::CreateMaybeMessage<::greptime::v1::UnsetFulltext>(Arena*);
 template<> ::greptime::v1::UnsetIndex* Arena::CreateMaybeMessage<::greptime::v1::UnsetIndex>(Arena*);
 template<> ::greptime::v1::UnsetInverted* Arena::CreateMaybeMessage<::greptime::v1::UnsetInverted>(Arena*);
+template<> ::greptime::v1::UnsetSkipping* Arena::CreateMaybeMessage<::greptime::v1::UnsetSkipping>(Arena*);
 template<> ::greptime::v1::UnsetTableOptions* Arena::CreateMaybeMessage<::greptime::v1::UnsetTableOptions>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -255,6 +263,30 @@ inline bool Analyzer_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Analyzer* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Analyzer>(
     Analyzer_descriptor(), name, value);
+}
+enum SkippingIndexType : int {
+  BLOOM_FILTER = 0,
+  SkippingIndexType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SkippingIndexType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SkippingIndexType_IsValid(int value);
+constexpr SkippingIndexType SkippingIndexType_MIN = BLOOM_FILTER;
+constexpr SkippingIndexType SkippingIndexType_MAX = BLOOM_FILTER;
+constexpr int SkippingIndexType_ARRAYSIZE = SkippingIndexType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SkippingIndexType_descriptor();
+template<typename T>
+inline const std::string& SkippingIndexType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SkippingIndexType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SkippingIndexType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SkippingIndexType_descriptor(), enum_t_value);
+}
+inline bool SkippingIndexType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SkippingIndexType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SkippingIndexType>(
+    SkippingIndexType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -2480,6 +2512,7 @@ class SetIndex final :
   enum OptionsCase {
     kFulltext = 1,
     kInverted = 2,
+    kSkipping = 3,
     OPTIONS_NOT_SET = 0,
   };
 
@@ -2563,6 +2596,7 @@ class SetIndex final :
   enum : int {
     kFulltextFieldNumber = 1,
     kInvertedFieldNumber = 2,
+    kSkippingFieldNumber = 3,
   };
   // .greptime.v1.SetFulltext fulltext = 1;
   bool has_fulltext() const;
@@ -2600,6 +2634,24 @@ class SetIndex final :
       ::greptime::v1::SetInverted* inverted);
   ::greptime::v1::SetInverted* unsafe_arena_release_inverted();
 
+  // .greptime.v1.SetSkipping skipping = 3;
+  bool has_skipping() const;
+  private:
+  bool _internal_has_skipping() const;
+  public:
+  void clear_skipping();
+  const ::greptime::v1::SetSkipping& skipping() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SetSkipping* release_skipping();
+  ::greptime::v1::SetSkipping* mutable_skipping();
+  void set_allocated_skipping(::greptime::v1::SetSkipping* skipping);
+  private:
+  const ::greptime::v1::SetSkipping& _internal_skipping() const;
+  ::greptime::v1::SetSkipping* _internal_mutable_skipping();
+  public:
+  void unsafe_arena_set_allocated_skipping(
+      ::greptime::v1::SetSkipping* skipping);
+  ::greptime::v1::SetSkipping* unsafe_arena_release_skipping();
+
   void clear_options();
   OptionsCase options_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.SetIndex)
@@ -2607,6 +2659,7 @@ class SetIndex final :
   class _Internal;
   void set_has_fulltext();
   void set_has_inverted();
+  void set_has_skipping();
 
   inline bool has_options() const;
   inline void clear_has_options();
@@ -2620,6 +2673,7 @@ class SetIndex final :
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::SetFulltext* fulltext_;
       ::greptime::v1::SetInverted* inverted_;
+      ::greptime::v1::SetSkipping* skipping_;
     } options_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -2676,6 +2730,7 @@ class UnsetIndex final :
   enum OptionsCase {
     kFulltext = 1,
     kInverted = 2,
+    kSkipping = 3,
     OPTIONS_NOT_SET = 0,
   };
 
@@ -2759,6 +2814,7 @@ class UnsetIndex final :
   enum : int {
     kFulltextFieldNumber = 1,
     kInvertedFieldNumber = 2,
+    kSkippingFieldNumber = 3,
   };
   // .greptime.v1.UnsetFulltext fulltext = 1;
   bool has_fulltext() const;
@@ -2796,6 +2852,24 @@ class UnsetIndex final :
       ::greptime::v1::UnsetInverted* inverted);
   ::greptime::v1::UnsetInverted* unsafe_arena_release_inverted();
 
+  // .greptime.v1.UnsetSkipping skipping = 3;
+  bool has_skipping() const;
+  private:
+  bool _internal_has_skipping() const;
+  public:
+  void clear_skipping();
+  const ::greptime::v1::UnsetSkipping& skipping() const;
+  PROTOBUF_NODISCARD ::greptime::v1::UnsetSkipping* release_skipping();
+  ::greptime::v1::UnsetSkipping* mutable_skipping();
+  void set_allocated_skipping(::greptime::v1::UnsetSkipping* skipping);
+  private:
+  const ::greptime::v1::UnsetSkipping& _internal_skipping() const;
+  ::greptime::v1::UnsetSkipping* _internal_mutable_skipping();
+  public:
+  void unsafe_arena_set_allocated_skipping(
+      ::greptime::v1::UnsetSkipping* skipping);
+  ::greptime::v1::UnsetSkipping* unsafe_arena_release_skipping();
+
   void clear_options();
   OptionsCase options_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.UnsetIndex)
@@ -2803,6 +2877,7 @@ class UnsetIndex final :
   class _Internal;
   void set_has_fulltext();
   void set_has_inverted();
+  void set_has_skipping();
 
   inline bool has_options() const;
   inline void clear_has_options();
@@ -2816,6 +2891,7 @@ class UnsetIndex final :
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::UnsetFulltext* fulltext_;
       ::greptime::v1::UnsetInverted* inverted_;
+      ::greptime::v1::UnsetSkipping* skipping_;
     } options_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -6692,6 +6768,345 @@ class UnsetInverted final :
 };
 // -------------------------------------------------------------------
 
+class SetSkipping final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SetSkipping) */ {
+ public:
+  inline SetSkipping() : SetSkipping(nullptr) {}
+  ~SetSkipping() override;
+  explicit PROTOBUF_CONSTEXPR SetSkipping(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SetSkipping(const SetSkipping& from);
+  SetSkipping(SetSkipping&& from) noexcept
+    : SetSkipping() {
+    *this = ::std::move(from);
+  }
+
+  inline SetSkipping& operator=(const SetSkipping& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SetSkipping& operator=(SetSkipping&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SetSkipping& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SetSkipping* internal_default_instance() {
+    return reinterpret_cast<const SetSkipping*>(
+               &_SetSkipping_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    34;
+
+  friend void swap(SetSkipping& a, SetSkipping& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SetSkipping* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SetSkipping* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SetSkipping* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SetSkipping>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SetSkipping& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SetSkipping& from) {
+    SetSkipping::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SetSkipping* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.SetSkipping";
+  }
+  protected:
+  explicit SetSkipping(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kColumnNameFieldNumber = 1,
+    kGranularityFieldNumber = 3,
+    kEnableFieldNumber = 2,
+    kSkippingIndexTypeFieldNumber = 4,
+  };
+  // string column_name = 1;
+  void clear_column_name();
+  const std::string& column_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_column_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_column_name();
+  PROTOBUF_NODISCARD std::string* release_column_name();
+  void set_allocated_column_name(std::string* column_name);
+  private:
+  const std::string& _internal_column_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_column_name(const std::string& value);
+  std::string* _internal_mutable_column_name();
+  public:
+
+  // uint64 granularity = 3;
+  void clear_granularity();
+  uint64_t granularity() const;
+  void set_granularity(uint64_t value);
+  private:
+  uint64_t _internal_granularity() const;
+  void _internal_set_granularity(uint64_t value);
+  public:
+
+  // bool enable = 2;
+  void clear_enable();
+  bool enable() const;
+  void set_enable(bool value);
+  private:
+  bool _internal_enable() const;
+  void _internal_set_enable(bool value);
+  public:
+
+  // .greptime.v1.SkippingIndexType skipping_index_type = 4;
+  void clear_skipping_index_type();
+  ::greptime::v1::SkippingIndexType skipping_index_type() const;
+  void set_skipping_index_type(::greptime::v1::SkippingIndexType value);
+  private:
+  ::greptime::v1::SkippingIndexType _internal_skipping_index_type() const;
+  void _internal_set_skipping_index_type(::greptime::v1::SkippingIndexType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.SetSkipping)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
+    uint64_t granularity_;
+    bool enable_;
+    int skipping_index_type_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UnsetSkipping final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.UnsetSkipping) */ {
+ public:
+  inline UnsetSkipping() : UnsetSkipping(nullptr) {}
+  ~UnsetSkipping() override;
+  explicit PROTOBUF_CONSTEXPR UnsetSkipping(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  UnsetSkipping(const UnsetSkipping& from);
+  UnsetSkipping(UnsetSkipping&& from) noexcept
+    : UnsetSkipping() {
+    *this = ::std::move(from);
+  }
+
+  inline UnsetSkipping& operator=(const UnsetSkipping& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UnsetSkipping& operator=(UnsetSkipping&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const UnsetSkipping& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const UnsetSkipping* internal_default_instance() {
+    return reinterpret_cast<const UnsetSkipping*>(
+               &_UnsetSkipping_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    35;
+
+  friend void swap(UnsetSkipping& a, UnsetSkipping& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UnsetSkipping* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UnsetSkipping* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  UnsetSkipping* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<UnsetSkipping>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const UnsetSkipping& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const UnsetSkipping& from) {
+    UnsetSkipping::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UnsetSkipping* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.UnsetSkipping";
+  }
+  protected:
+  explicit UnsetSkipping(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kColumnNameFieldNumber = 1,
+  };
+  // string column_name = 1;
+  void clear_column_name();
+  const std::string& column_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_column_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_column_name();
+  PROTOBUF_NODISCARD std::string* release_column_name();
+  void set_allocated_column_name(std::string* column_name);
+  private:
+  const std::string& _internal_column_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_column_name(const std::string& value);
+  std::string* _internal_mutable_column_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.UnsetSkipping)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class AlterDatabaseExpr final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.AlterDatabaseExpr) */ {
  public:
@@ -6746,7 +7161,7 @@ class AlterDatabaseExpr final :
                &_AlterDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    36;
 
   friend void swap(AlterDatabaseExpr& a, AlterDatabaseExpr& b) {
     a.Swap(&b);
@@ -6968,7 +7383,7 @@ class SetDatabaseOptions final :
                &_SetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(SetDatabaseOptions& a, SetDatabaseOptions& b) {
     a.Swap(&b);
@@ -7125,7 +7540,7 @@ class UnsetDatabaseOptions final :
                &_UnsetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(UnsetDatabaseOptions& a, UnsetDatabaseOptions& b) {
     a.Swap(&b);
@@ -10906,6 +11321,80 @@ inline ::greptime::v1::SetInverted* SetIndex::mutable_inverted() {
   return _msg;
 }
 
+// .greptime.v1.SetSkipping skipping = 3;
+inline bool SetIndex::_internal_has_skipping() const {
+  return options_case() == kSkipping;
+}
+inline bool SetIndex::has_skipping() const {
+  return _internal_has_skipping();
+}
+inline void SetIndex::set_has_skipping() {
+  _impl_._oneof_case_[0] = kSkipping;
+}
+inline void SetIndex::clear_skipping() {
+  if (_internal_has_skipping()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.options_.skipping_;
+    }
+    clear_has_options();
+  }
+}
+inline ::greptime::v1::SetSkipping* SetIndex::release_skipping() {
+  // @@protoc_insertion_point(field_release:greptime.v1.SetIndex.skipping)
+  if (_internal_has_skipping()) {
+    clear_has_options();
+    ::greptime::v1::SetSkipping* temp = _impl_.options_.skipping_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.options_.skipping_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::SetSkipping& SetIndex::_internal_skipping() const {
+  return _internal_has_skipping()
+      ? *_impl_.options_.skipping_
+      : reinterpret_cast< ::greptime::v1::SetSkipping&>(::greptime::v1::_SetSkipping_default_instance_);
+}
+inline const ::greptime::v1::SetSkipping& SetIndex::skipping() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetIndex.skipping)
+  return _internal_skipping();
+}
+inline ::greptime::v1::SetSkipping* SetIndex::unsafe_arena_release_skipping() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.SetIndex.skipping)
+  if (_internal_has_skipping()) {
+    clear_has_options();
+    ::greptime::v1::SetSkipping* temp = _impl_.options_.skipping_;
+    _impl_.options_.skipping_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SetIndex::unsafe_arena_set_allocated_skipping(::greptime::v1::SetSkipping* skipping) {
+  clear_options();
+  if (skipping) {
+    set_has_skipping();
+    _impl_.options_.skipping_ = skipping;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.SetIndex.skipping)
+}
+inline ::greptime::v1::SetSkipping* SetIndex::_internal_mutable_skipping() {
+  if (!_internal_has_skipping()) {
+    clear_options();
+    set_has_skipping();
+    _impl_.options_.skipping_ = CreateMaybeMessage< ::greptime::v1::SetSkipping >(GetArenaForAllocation());
+  }
+  return _impl_.options_.skipping_;
+}
+inline ::greptime::v1::SetSkipping* SetIndex::mutable_skipping() {
+  ::greptime::v1::SetSkipping* _msg = _internal_mutable_skipping();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SetIndex.skipping)
+  return _msg;
+}
+
 inline bool SetIndex::has_options() const {
   return options_case() != OPTIONS_NOT_SET;
 }
@@ -11064,6 +11553,80 @@ inline ::greptime::v1::UnsetInverted* UnsetIndex::_internal_mutable_inverted() {
 inline ::greptime::v1::UnsetInverted* UnsetIndex::mutable_inverted() {
   ::greptime::v1::UnsetInverted* _msg = _internal_mutable_inverted();
   // @@protoc_insertion_point(field_mutable:greptime.v1.UnsetIndex.inverted)
+  return _msg;
+}
+
+// .greptime.v1.UnsetSkipping skipping = 3;
+inline bool UnsetIndex::_internal_has_skipping() const {
+  return options_case() == kSkipping;
+}
+inline bool UnsetIndex::has_skipping() const {
+  return _internal_has_skipping();
+}
+inline void UnsetIndex::set_has_skipping() {
+  _impl_._oneof_case_[0] = kSkipping;
+}
+inline void UnsetIndex::clear_skipping() {
+  if (_internal_has_skipping()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.options_.skipping_;
+    }
+    clear_has_options();
+  }
+}
+inline ::greptime::v1::UnsetSkipping* UnsetIndex::release_skipping() {
+  // @@protoc_insertion_point(field_release:greptime.v1.UnsetIndex.skipping)
+  if (_internal_has_skipping()) {
+    clear_has_options();
+    ::greptime::v1::UnsetSkipping* temp = _impl_.options_.skipping_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.options_.skipping_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::UnsetSkipping& UnsetIndex::_internal_skipping() const {
+  return _internal_has_skipping()
+      ? *_impl_.options_.skipping_
+      : reinterpret_cast< ::greptime::v1::UnsetSkipping&>(::greptime::v1::_UnsetSkipping_default_instance_);
+}
+inline const ::greptime::v1::UnsetSkipping& UnsetIndex::skipping() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.UnsetIndex.skipping)
+  return _internal_skipping();
+}
+inline ::greptime::v1::UnsetSkipping* UnsetIndex::unsafe_arena_release_skipping() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.UnsetIndex.skipping)
+  if (_internal_has_skipping()) {
+    clear_has_options();
+    ::greptime::v1::UnsetSkipping* temp = _impl_.options_.skipping_;
+    _impl_.options_.skipping_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void UnsetIndex::unsafe_arena_set_allocated_skipping(::greptime::v1::UnsetSkipping* skipping) {
+  clear_options();
+  if (skipping) {
+    set_has_skipping();
+    _impl_.options_.skipping_ = skipping;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.UnsetIndex.skipping)
+}
+inline ::greptime::v1::UnsetSkipping* UnsetIndex::_internal_mutable_skipping() {
+  if (!_internal_has_skipping()) {
+    clear_options();
+    set_has_skipping();
+    _impl_.options_.skipping_ = CreateMaybeMessage< ::greptime::v1::UnsetSkipping >(GetArenaForAllocation());
+  }
+  return _impl_.options_.skipping_;
+}
+inline ::greptime::v1::UnsetSkipping* UnsetIndex::mutable_skipping() {
+  ::greptime::v1::UnsetSkipping* _msg = _internal_mutable_skipping();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.UnsetIndex.skipping)
   return _msg;
 }
 
@@ -13477,6 +14040,174 @@ inline void UnsetInverted::set_allocated_column_name(std::string* column_name) {
 
 // -------------------------------------------------------------------
 
+// SetSkipping
+
+// string column_name = 1;
+inline void SetSkipping::clear_column_name() {
+  _impl_.column_name_.ClearToEmpty();
+}
+inline const std::string& SetSkipping::column_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetSkipping.column_name)
+  return _internal_column_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SetSkipping::set_column_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.column_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.SetSkipping.column_name)
+}
+inline std::string* SetSkipping::mutable_column_name() {
+  std::string* _s = _internal_mutable_column_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SetSkipping.column_name)
+  return _s;
+}
+inline const std::string& SetSkipping::_internal_column_name() const {
+  return _impl_.column_name_.Get();
+}
+inline void SetSkipping::_internal_set_column_name(const std::string& value) {
+  
+  _impl_.column_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SetSkipping::_internal_mutable_column_name() {
+  
+  return _impl_.column_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SetSkipping::release_column_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.SetSkipping.column_name)
+  return _impl_.column_name_.Release();
+}
+inline void SetSkipping::set_allocated_column_name(std::string* column_name) {
+  if (column_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.column_name_.SetAllocated(column_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.column_name_.IsDefault()) {
+    _impl_.column_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.SetSkipping.column_name)
+}
+
+// bool enable = 2;
+inline void SetSkipping::clear_enable() {
+  _impl_.enable_ = false;
+}
+inline bool SetSkipping::_internal_enable() const {
+  return _impl_.enable_;
+}
+inline bool SetSkipping::enable() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetSkipping.enable)
+  return _internal_enable();
+}
+inline void SetSkipping::_internal_set_enable(bool value) {
+  
+  _impl_.enable_ = value;
+}
+inline void SetSkipping::set_enable(bool value) {
+  _internal_set_enable(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SetSkipping.enable)
+}
+
+// uint64 granularity = 3;
+inline void SetSkipping::clear_granularity() {
+  _impl_.granularity_ = uint64_t{0u};
+}
+inline uint64_t SetSkipping::_internal_granularity() const {
+  return _impl_.granularity_;
+}
+inline uint64_t SetSkipping::granularity() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetSkipping.granularity)
+  return _internal_granularity();
+}
+inline void SetSkipping::_internal_set_granularity(uint64_t value) {
+  
+  _impl_.granularity_ = value;
+}
+inline void SetSkipping::set_granularity(uint64_t value) {
+  _internal_set_granularity(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SetSkipping.granularity)
+}
+
+// .greptime.v1.SkippingIndexType skipping_index_type = 4;
+inline void SetSkipping::clear_skipping_index_type() {
+  _impl_.skipping_index_type_ = 0;
+}
+inline ::greptime::v1::SkippingIndexType SetSkipping::_internal_skipping_index_type() const {
+  return static_cast< ::greptime::v1::SkippingIndexType >(_impl_.skipping_index_type_);
+}
+inline ::greptime::v1::SkippingIndexType SetSkipping::skipping_index_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetSkipping.skipping_index_type)
+  return _internal_skipping_index_type();
+}
+inline void SetSkipping::_internal_set_skipping_index_type(::greptime::v1::SkippingIndexType value) {
+  
+  _impl_.skipping_index_type_ = value;
+}
+inline void SetSkipping::set_skipping_index_type(::greptime::v1::SkippingIndexType value) {
+  _internal_set_skipping_index_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SetSkipping.skipping_index_type)
+}
+
+// -------------------------------------------------------------------
+
+// UnsetSkipping
+
+// string column_name = 1;
+inline void UnsetSkipping::clear_column_name() {
+  _impl_.column_name_.ClearToEmpty();
+}
+inline const std::string& UnsetSkipping::column_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.UnsetSkipping.column_name)
+  return _internal_column_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void UnsetSkipping::set_column_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.column_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.UnsetSkipping.column_name)
+}
+inline std::string* UnsetSkipping::mutable_column_name() {
+  std::string* _s = _internal_mutable_column_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.UnsetSkipping.column_name)
+  return _s;
+}
+inline const std::string& UnsetSkipping::_internal_column_name() const {
+  return _impl_.column_name_.Get();
+}
+inline void UnsetSkipping::_internal_set_column_name(const std::string& value) {
+  
+  _impl_.column_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* UnsetSkipping::_internal_mutable_column_name() {
+  
+  return _impl_.column_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* UnsetSkipping::release_column_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.UnsetSkipping.column_name)
+  return _impl_.column_name_.Release();
+}
+inline void UnsetSkipping::set_allocated_column_name(std::string* column_name) {
+  if (column_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.column_name_.SetAllocated(column_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.column_name_.IsDefault()) {
+    _impl_.column_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.UnsetSkipping.column_name)
+}
+
+// -------------------------------------------------------------------
+
 // AlterDatabaseExpr
 
 // string catalog_name = 1;
@@ -13934,6 +14665,10 @@ UnsetDatabaseOptions::mutable_keys() {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -13951,6 +14686,11 @@ template <> struct is_proto_enum< ::greptime::v1::Analyzer> : ::std::true_type {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::Analyzer>() {
   return ::greptime::v1::Analyzer_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::SkippingIndexType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::SkippingIndexType>() {
+  return ::greptime::v1::SkippingIndexType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
