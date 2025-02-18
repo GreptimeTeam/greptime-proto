@@ -3611,6 +3611,25 @@ public final class HeartbeatOuterClass {
     greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole();
 
     /**
+     * <pre>
+     * The last entry id of this region if using remote WAL
+     * </pre>
+     *
+     * <code>optional uint64 last_entry_id = 8;</code>
+     * @return Whether the lastEntryId field is set.
+     */
+    boolean hasLastEntryId();
+    /**
+     * <pre>
+     * The last entry id of this region if using remote WAL
+     * </pre>
+     *
+     * <code>optional uint64 last_entry_id = 8;</code>
+     * @return The lastEntryId.
+     */
+    long getLastEntryId();
+
+    /**
      * <code>map&lt;string, bytes&gt; extensions = 99;</code>
      */
     int getExtensionsCount();
@@ -3726,11 +3745,16 @@ com.google.protobuf.ByteString defaultValue);
               role_ = rawValue;
               break;
             }
+            case 64: {
+              bitField0_ |= 0x00000001;
+              lastEntryId_ = input.readUInt64();
+              break;
+            }
             case 794: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 extensions_ = com.google.protobuf.MapField.newMapField(
                     ExtensionsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
               extensions__ = input.readMessage(
@@ -3785,6 +3809,7 @@ com.google.protobuf.ByteString defaultValue);
               greptime.v1.meta.HeartbeatOuterClass.RegionStat.class, greptime.v1.meta.HeartbeatOuterClass.RegionStat.Builder.class);
     }
 
+    private int bitField0_;
     public static final int REGION_ID_FIELD_NUMBER = 1;
     private long regionId_;
     /**
@@ -3914,6 +3939,33 @@ com.google.protobuf.ByteString defaultValue);
       return result == null ? greptime.v1.meta.HeartbeatOuterClass.RegionRole.UNRECOGNIZED : result;
     }
 
+    public static final int LAST_ENTRY_ID_FIELD_NUMBER = 8;
+    private long lastEntryId_;
+    /**
+     * <pre>
+     * The last entry id of this region if using remote WAL
+     * </pre>
+     *
+     * <code>optional uint64 last_entry_id = 8;</code>
+     * @return Whether the lastEntryId field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastEntryId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * The last entry id of this region if using remote WAL
+     * </pre>
+     *
+     * <code>optional uint64 last_entry_id = 8;</code>
+     * @return The lastEntryId.
+     */
+    @java.lang.Override
+    public long getLastEntryId() {
+      return lastEntryId_;
+    }
+
     public static final int EXTENSIONS_FIELD_NUMBER = 99;
     private static final class ExtensionsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -4027,6 +4079,9 @@ com.google.protobuf.ByteString defaultValue);
       if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
         output.writeEnum(7, role_);
       }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeUInt64(8, lastEntryId_);
+      }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
@@ -4065,6 +4120,10 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(7, role_);
       }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(8, lastEntryId_);
+      }
       for (java.util.Map.Entry<java.lang.String, com.google.protobuf.ByteString> entry
            : internalGetExtensions().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
@@ -4101,6 +4160,11 @@ com.google.protobuf.ByteString defaultValue);
       if (!getEngine()
           .equals(other.getEngine())) return false;
       if (role_ != other.role_) return false;
+      if (hasLastEntryId() != other.hasLastEntryId()) return false;
+      if (hasLastEntryId()) {
+        if (getLastEntryId()
+            != other.getLastEntryId()) return false;
+      }
       if (!internalGetExtensions().equals(
           other.internalGetExtensions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -4130,6 +4194,11 @@ com.google.protobuf.ByteString defaultValue);
       hash = (53 * hash) + getEngine().hashCode();
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + role_;
+      if (hasLastEntryId()) {
+        hash = (37 * hash) + LAST_ENTRY_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastEntryId());
+      }
       if (!internalGetExtensions().getMap().isEmpty()) {
         hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtensions().hashCode();
@@ -4301,6 +4370,8 @@ com.google.protobuf.ByteString defaultValue);
 
         role_ = 0;
 
+        lastEntryId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableExtensions().clear();
         return this;
       }
@@ -4329,14 +4400,20 @@ com.google.protobuf.ByteString defaultValue);
       public greptime.v1.meta.HeartbeatOuterClass.RegionStat buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.RegionStat result = new greptime.v1.meta.HeartbeatOuterClass.RegionStat(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.regionId_ = regionId_;
         result.rcus_ = rcus_;
         result.wcus_ = wcus_;
         result.approximateBytes_ = approximateBytes_;
         result.engine_ = engine_;
         result.role_ = role_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.lastEntryId_ = lastEntryId_;
+          to_bitField0_ |= 0x00000001;
+        }
         result.extensions_ = internalGetExtensions();
         result.extensions_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4403,6 +4480,9 @@ com.google.protobuf.ByteString defaultValue);
         }
         if (other.role_ != 0) {
           setRoleValue(other.getRoleValue());
+        }
+        if (other.hasLastEntryId()) {
+          setLastEntryId(other.getLastEntryId());
         }
         internalGetMutableExtensions().mergeFrom(
             other.internalGetExtensions());
@@ -4762,6 +4842,61 @@ com.google.protobuf.ByteString defaultValue);
       public Builder clearRole() {
         
         role_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long lastEntryId_ ;
+      /**
+       * <pre>
+       * The last entry id of this region if using remote WAL
+       * </pre>
+       *
+       * <code>optional uint64 last_entry_id = 8;</code>
+       * @return Whether the lastEntryId field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastEntryId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * The last entry id of this region if using remote WAL
+       * </pre>
+       *
+       * <code>optional uint64 last_entry_id = 8;</code>
+       * @return The lastEntryId.
+       */
+      @java.lang.Override
+      public long getLastEntryId() {
+        return lastEntryId_;
+      }
+      /**
+       * <pre>
+       * The last entry id of this region if using remote WAL
+       * </pre>
+       *
+       * <code>optional uint64 last_entry_id = 8;</code>
+       * @param value The lastEntryId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastEntryId(long value) {
+        bitField0_ |= 0x00000001;
+        lastEntryId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The last entry id of this region if using remote WAL
+       * </pre>
+       *
+       * <code>optional uint64 last_entry_id = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastEntryId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        lastEntryId_ = 0L;
         onChanged();
         return this;
       }
@@ -11440,43 +11575,44 @@ com.google.protobuf.ByteString defaultValue);
       "ta.NodeInfo\022-\n\tflow_stat\030\t \001(\0132\032.greptim" +
       "e.v1.meta.FlowStat\"F\n\010NodeInfo\022\017\n\007versio" +
       "n\030\001 \001(\t\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_tim" +
-      "e_ms\030\003 \001(\004\"\207\002\n\nRegionStat\022\021\n\tregion_id\030\001" +
+      "e_ms\030\003 \001(\004\"\265\002\n\nRegionStat\022\021\n\tregion_id\030\001" +
       " \001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021appr" +
       "oximate_bytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004r" +
       "ole\030\007 \001(\0162\034.greptime.v1.meta.RegionRole\022" +
-      "@\n\nextensions\030c \003(\0132,.greptime.v1.meta.R" +
-      "egionStat.ExtensionsEntry\0321\n\017ExtensionsE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\205\001\n" +
-      "\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132,.grep" +
-      "time.v1.meta.FlowStat.FlowStatSizeEntry\032" +
-      "3\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005val" +
-      "ue\030\002 \001(\004:\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006he" +
-      "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
-      "ader\0229\n\017mailbox_message\030\002 \001(\0132 .greptime" +
-      ".v1.meta.MailboxMessage\0223\n\014region_lease\030" +
-      "\003 \001(\0132\035.greptime.v1.meta.RegionLease\"N\n\r" +
-      "GrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role" +
-      "\030\002 \001(\0162\034.greptime.v1.meta.RegionRole\"\222\001\n" +
-      "\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.greptime" +
-      ".v1.meta.GrantedRegion\022\034\n\024duration_since" +
-      "_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024c" +
-      "loseable_region_ids\030\004 \003(\004\"C\n\020AskLeaderRe" +
-      "quest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta" +
-      ".RequestHeader\"m\n\021AskLeaderResponse\0220\n\006h" +
-      "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH" +
-      "eader\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.meta" +
-      ".Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007s" +
-      "ubject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030" +
-      "\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000" +
-      "B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n" +
-      "\010Follower\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tH" +
-      "eartbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta" +
-      ".HeartbeatRequest\032#.greptime.v1.meta.Hea" +
-      "rtbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".grep" +
-      "time.v1.meta.AskLeaderRequest\032#.greptime" +
-      ".v1.meta.AskLeaderResponse\"\000B<Z:github.c" +
-      "om/GreptimeTeam/greptime-proto/go/grepti" +
-      "me/v1/metab\006proto3"
+      "\032\n\rlast_entry_id\030\010 \001(\004H\000\210\001\001\022@\n\nextension" +
+      "s\030c \003(\0132,.greptime.v1.meta.RegionStat.Ex" +
+      "tensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001B\020\n\016_last_entry_" +
+      "id\"\205\001\n\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132" +
+      ",.greptime.v1.meta.FlowStat.FlowStatSize" +
+      "Entry\0323\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r\022" +
+      "\r\n\005value\030\002 \001(\004:\0028\001\"\265\001\n\021HeartbeatResponse" +
+      "\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Resp" +
+      "onseHeader\0229\n\017mailbox_message\030\002 \001(\0132 .gr" +
+      "eptime.v1.meta.MailboxMessage\0223\n\014region_" +
+      "lease\030\003 \001(\0132\035.greptime.v1.meta.RegionLea" +
+      "se\"N\n\rGrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*" +
+      "\n\004role\030\002 \001(\0162\034.greptime.v1.meta.RegionRo" +
+      "le\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.gr" +
+      "eptime.v1.meta.GrantedRegion\022\034\n\024duration" +
+      "_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(" +
+      "\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n\020AskLe" +
+      "aderRequest\022/\n\006header\030\001 \001(\0132\037.greptime.v" +
+      "1.meta.RequestHeader\"m\n\021AskLeaderRespons" +
+      "e\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Res" +
+      "ponseHeader\022&\n\006leader\030\002 \001(\0132\026.greptime.v" +
+      "1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(" +
+      "\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004" +
+      " \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006" +
+      " \001(\tH\000B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leade" +
+      "r\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLeader\020\002" +
+      "2\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime.v" +
+      "1.meta.HeartbeatRequest\032#.greptime.v1.me" +
+      "ta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022" +
+      "\".greptime.v1.meta.AskLeaderRequest\032#.gr" +
+      "eptime.v1.meta.AskLeaderResponse\"\000B<Z:gi" +
+      "thub.com/GreptimeTeam/greptime-proto/go/" +
+      "greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11500,7 +11636,7 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_descriptor,
-        new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "Engine", "Role", "Extensions", });
+        new java.lang.String[] { "RegionId", "Rcus", "Wcus", "ApproximateBytes", "Engine", "Role", "LastEntryId", "Extensions", "LastEntryId", });
     internal_static_greptime_v1_meta_RegionStat_ExtensionsEntry_descriptor =
       internal_static_greptime_v1_meta_RegionStat_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_meta_RegionStat_ExtensionsEntry_fieldAccessorTable = new
