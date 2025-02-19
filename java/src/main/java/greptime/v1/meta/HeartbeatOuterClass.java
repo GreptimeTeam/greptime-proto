@@ -2701,6 +2701,16 @@ public final class HeartbeatOuterClass {
      * @return The startTimeMs.
      */
     long getStartTimeMs();
+
+    /**
+     * <pre>
+     * The CPU cores number in the node.
+     * </pre>
+     *
+     * <code>uint32 cpus = 4;</code>
+     * @return The cpus.
+     */
+    int getCpus();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.NodeInfo}
@@ -2764,6 +2774,11 @@ public final class HeartbeatOuterClass {
             case 24: {
 
               startTimeMs_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              cpus_ = input.readUInt32();
               break;
             }
             default: {
@@ -2907,6 +2922,21 @@ public final class HeartbeatOuterClass {
       return startTimeMs_;
     }
 
+    public static final int CPUS_FIELD_NUMBER = 4;
+    private int cpus_;
+    /**
+     * <pre>
+     * The CPU cores number in the node.
+     * </pre>
+     *
+     * <code>uint32 cpus = 4;</code>
+     * @return The cpus.
+     */
+    @java.lang.Override
+    public int getCpus() {
+      return cpus_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2930,6 +2960,9 @@ public final class HeartbeatOuterClass {
       if (startTimeMs_ != 0L) {
         output.writeUInt64(3, startTimeMs_);
       }
+      if (cpus_ != 0) {
+        output.writeUInt32(4, cpus_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2948,6 +2981,10 @@ public final class HeartbeatOuterClass {
       if (startTimeMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, startTimeMs_);
+      }
+      if (cpus_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, cpus_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2970,6 +3007,8 @@ public final class HeartbeatOuterClass {
           .equals(other.getGitCommit())) return false;
       if (getStartTimeMs()
           != other.getStartTimeMs()) return false;
+      if (getCpus()
+          != other.getCpus()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2988,6 +3027,8 @@ public final class HeartbeatOuterClass {
       hash = (37 * hash) + START_TIME_MS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getStartTimeMs());
+      hash = (37 * hash) + CPUS_FIELD_NUMBER;
+      hash = (53 * hash) + getCpus();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3127,6 +3168,8 @@ public final class HeartbeatOuterClass {
 
         startTimeMs_ = 0L;
 
+        cpus_ = 0;
+
         return this;
       }
 
@@ -3156,6 +3199,7 @@ public final class HeartbeatOuterClass {
         result.version_ = version_;
         result.gitCommit_ = gitCommit_;
         result.startTimeMs_ = startTimeMs_;
+        result.cpus_ = cpus_;
         onBuilt();
         return result;
       }
@@ -3214,6 +3258,9 @@ public final class HeartbeatOuterClass {
         }
         if (other.getStartTimeMs() != 0L) {
           setStartTimeMs(other.getStartTimeMs());
+        }
+        if (other.getCpus() != 0) {
+          setCpus(other.getCpus());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3475,6 +3522,49 @@ public final class HeartbeatOuterClass {
       public Builder clearStartTimeMs() {
         
         startTimeMs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int cpus_ ;
+      /**
+       * <pre>
+       * The CPU cores number in the node.
+       * </pre>
+       *
+       * <code>uint32 cpus = 4;</code>
+       * @return The cpus.
+       */
+      @java.lang.Override
+      public int getCpus() {
+        return cpus_;
+      }
+      /**
+       * <pre>
+       * The CPU cores number in the node.
+       * </pre>
+       *
+       * <code>uint32 cpus = 4;</code>
+       * @param value The cpus to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCpus(int value) {
+        
+        cpus_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The CPU cores number in the node.
+       * </pre>
+       *
+       * <code>uint32 cpus = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCpus() {
+        
+        cpus_ = 0;
         onChanged();
         return this;
       }
@@ -11438,45 +11528,45 @@ com.google.protobuf.ByteString defaultValue);
       "\034\n\024duration_since_epoch\030\006 \001(\004\022\022\n\nnode_ep" +
       "och\030\007 \001(\004\022(\n\004info\030\010 \001(\0132\032.greptime.v1.me" +
       "ta.NodeInfo\022-\n\tflow_stat\030\t \001(\0132\032.greptim" +
-      "e.v1.meta.FlowStat\"F\n\010NodeInfo\022\017\n\007versio" +
+      "e.v1.meta.FlowStat\"T\n\010NodeInfo\022\017\n\007versio" +
       "n\030\001 \001(\t\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_tim" +
-      "e_ms\030\003 \001(\004\"\207\002\n\nRegionStat\022\021\n\tregion_id\030\001" +
-      " \001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021appr" +
-      "oximate_bytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004r" +
-      "ole\030\007 \001(\0162\034.greptime.v1.meta.RegionRole\022" +
-      "@\n\nextensions\030c \003(\0132,.greptime.v1.meta.R" +
-      "egionStat.ExtensionsEntry\0321\n\017ExtensionsE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\205\001\n" +
-      "\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132,.grep" +
-      "time.v1.meta.FlowStat.FlowStatSizeEntry\032" +
-      "3\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005val" +
-      "ue\030\002 \001(\004:\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006he" +
-      "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
-      "ader\0229\n\017mailbox_message\030\002 \001(\0132 .greptime" +
-      ".v1.meta.MailboxMessage\0223\n\014region_lease\030" +
-      "\003 \001(\0132\035.greptime.v1.meta.RegionLease\"N\n\r" +
-      "GrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role" +
-      "\030\002 \001(\0162\034.greptime.v1.meta.RegionRole\"\222\001\n" +
-      "\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.greptime" +
-      ".v1.meta.GrantedRegion\022\034\n\024duration_since" +
-      "_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024c" +
-      "loseable_region_ids\030\004 \003(\004\"C\n\020AskLeaderRe" +
-      "quest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta" +
-      ".RequestHeader\"m\n\021AskLeaderResponse\0220\n\006h" +
-      "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH" +
-      "eader\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.meta" +
-      ".Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007s" +
-      "ubject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030" +
-      "\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000" +
-      "B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n" +
-      "\010Follower\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tH" +
-      "eartbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta" +
-      ".HeartbeatRequest\032#.greptime.v1.meta.Hea" +
-      "rtbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".grep" +
-      "time.v1.meta.AskLeaderRequest\032#.greptime" +
-      ".v1.meta.AskLeaderResponse\"\000B<Z:github.c" +
-      "om/GreptimeTeam/greptime-proto/go/grepti" +
-      "me/v1/metab\006proto3"
+      "e_ms\030\003 \001(\004\022\014\n\004cpus\030\004 \001(\r\"\207\002\n\nRegionStat\022" +
+      "\021\n\tregion_id\030\001 \001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus" +
+      "\030\003 \001(\003\022\031\n\021approximate_bytes\030\004 \001(\003\022\016\n\006eng" +
+      "ine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.greptime.v1.me" +
+      "ta.RegionRole\022@\n\nextensions\030c \003(\0132,.grep" +
+      "time.v1.meta.RegionStat.ExtensionsEntry\032" +
+      "1\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\014:\0028\001\"\205\001\n\010FlowStat\022D\n\016flow_stat_siz" +
+      "e\030\001 \003(\0132,.greptime.v1.meta.FlowStat.Flow" +
+      "StatSizeEntry\0323\n\021FlowStatSizeEntry\022\013\n\003ke" +
+      "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\"\265\001\n\021Heartbeat" +
+      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
+      "eta.ResponseHeader\0229\n\017mailbox_message\030\002 " +
+      "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n" +
+      "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R" +
+      "egionLease\"N\n\rGrantedRegion\022\021\n\tregion_id" +
+      "\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta." +
+      "RegionRole\"\222\001\n\013RegionLease\0220\n\007regions\030\001 " +
+      "\003(\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024" +
+      "duration_since_epoch\030\002 \001(\004\022\025\n\rlease_seco" +
+      "nds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"" +
+      "C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
+      "eptime.v1.meta.RequestHeader\"m\n\021AskLeade" +
+      "rResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1." +
+      "meta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.gr" +
+      "eptime.v1.meta.Peer\"|\n\016MailboxMessage\022\n\n" +
+      "\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t" +
+      "\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016" +
+      "\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole\022" +
+      "\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgrading" +
+      "Leader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".gr" +
+      "eptime.v1.meta.HeartbeatRequest\032#.grepti" +
+      "me.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAs" +
+      "kLeader\022\".greptime.v1.meta.AskLeaderRequ" +
+      "est\032#.greptime.v1.meta.AskLeaderResponse" +
+      "\"\000B<Z:github.com/GreptimeTeam/greptime-p" +
+      "roto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11494,7 +11584,7 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_NodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_NodeInfo_descriptor,
-        new java.lang.String[] { "Version", "GitCommit", "StartTimeMs", });
+        new java.lang.String[] { "Version", "GitCommit", "StartTimeMs", "Cpus", });
     internal_static_greptime_v1_meta_RegionStat_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
