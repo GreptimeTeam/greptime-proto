@@ -108,7 +108,7 @@ message DropRequests { repeated DropRequest requests = 1; }
 
 message DropRequest { 
   uint64 region_id = 1;
-  bool fast_drop_path = 2;
+  bool force_drop_all_logical_tables = 2;
 }
 
 message OpenRequest {
