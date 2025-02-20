@@ -70,6 +70,8 @@ message NodeInfo {
   string git_commit = 2;
   // The node start timestamp
   uint64 start_time_ms = 3;
+  // The CPU cores number in the node.
+  uint32 cpus = 4;
 }
 
 message RegionStat {

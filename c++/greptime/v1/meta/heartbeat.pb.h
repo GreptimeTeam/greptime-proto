@@ -560,6 +560,7 @@ class NodeInfo final :
     kVersionFieldNumber = 1,
     kGitCommitFieldNumber = 2,
     kStartTimeMsFieldNumber = 3,
+    kCpusFieldNumber = 4,
   };
   // string version = 1;
   void clear_version();
@@ -598,6 +599,15 @@ class NodeInfo final :
   void _internal_set_start_time_ms(uint64_t value);
   public:
 
+  // uint32 cpus = 4;
+  void clear_cpus();
+  uint32_t cpus() const;
+  void set_cpus(uint32_t value);
+  private:
+  uint32_t _internal_cpus() const;
+  void _internal_set_cpus(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.NodeInfo)
  private:
   class _Internal;
@@ -609,6 +619,7 @@ class NodeInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr git_commit_;
     uint64_t start_time_ms_;
+    uint32_t cpus_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2937,6 +2948,26 @@ inline void NodeInfo::_internal_set_start_time_ms(uint64_t value) {
 inline void NodeInfo::set_start_time_ms(uint64_t value) {
   _internal_set_start_time_ms(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeInfo.start_time_ms)
+}
+
+// uint32 cpus = 4;
+inline void NodeInfo::clear_cpus() {
+  _impl_.cpus_ = 0u;
+}
+inline uint32_t NodeInfo::_internal_cpus() const {
+  return _impl_.cpus_;
+}
+inline uint32_t NodeInfo::cpus() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.NodeInfo.cpus)
+  return _internal_cpus();
+}
+inline void NodeInfo::_internal_set_cpus(uint32_t value) {
+  
+  _impl_.cpus_ = value;
+}
+inline void NodeInfo::set_cpus(uint32_t value) {
+  _internal_set_cpus(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeInfo.cpus)
 }
 
 // -------------------------------------------------------------------
