@@ -14,6 +14,118 @@ public final class InvertedIndex {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * <pre>
+   * BitmapType defines the type of bitmap used for indexing.
+   * </pre>
+   *
+   * Protobuf enum {@code greptime.v1.index.BitmapType}
+   */
+  public enum BitmapType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>BitVec = 0;</code>
+     */
+    BitVec(0),
+    /**
+     * <code>Roaring = 1;</code>
+     */
+    Roaring(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>BitVec = 0;</code>
+     */
+    public static final int BitVec_VALUE = 0;
+    /**
+     * <code>Roaring = 1;</code>
+     */
+    public static final int Roaring_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static BitmapType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static BitmapType forNumber(int value) {
+      switch (value) {
+        case 0: return BitVec;
+        case 1: return Roaring;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<BitmapType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        BitmapType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<BitmapType>() {
+            public BitmapType findValueByNumber(int number) {
+              return BitmapType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return greptime.v1.index.InvertedIndex.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final BitmapType[] VALUES = values();
+
+    public static BitmapType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private BitmapType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.index.BitmapType)
+  }
+
   public interface InvertedIndexMetasOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.index.InvertedIndexMetas)
       com.google.protobuf.MessageOrBuilder {
@@ -1159,6 +1271,25 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
      * <code>.greptime.v1.index.InvertedIndexStats stats = 8;</code>
      */
     greptime.v1.index.InvertedIndex.InvertedIndexStatsOrBuilder getStatsOrBuilder();
+
+    /**
+     * <pre>
+     * The type of bitmap used for indexing.
+     * </pre>
+     *
+     * <code>.greptime.v1.index.BitmapType bitmap_type = 9;</code>
+     * @return The enum numeric value on the wire for bitmapType.
+     */
+    int getBitmapTypeValue();
+    /**
+     * <pre>
+     * The type of bitmap used for indexing.
+     * </pre>
+     *
+     * <code>.greptime.v1.index.BitmapType bitmap_type = 9;</code>
+     * @return The bitmapType.
+     */
+    greptime.v1.index.InvertedIndex.BitmapType getBitmapType();
   }
   /**
    * <pre>
@@ -1178,6 +1309,7 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
     }
     private InvertedIndexMeta() {
       name_ = "";
+      bitmapType_ = 0;
     }
 
     @java.lang.Override
@@ -1257,6 +1389,12 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
                 stats_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 72: {
+              int rawValue = input.readEnum();
+
+              bitmapType_ = rawValue;
               break;
             }
             default: {
@@ -1470,6 +1608,33 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
       return getStats();
     }
 
+    public static final int BITMAP_TYPE_FIELD_NUMBER = 9;
+    private int bitmapType_;
+    /**
+     * <pre>
+     * The type of bitmap used for indexing.
+     * </pre>
+     *
+     * <code>.greptime.v1.index.BitmapType bitmap_type = 9;</code>
+     * @return The enum numeric value on the wire for bitmapType.
+     */
+    @java.lang.Override public int getBitmapTypeValue() {
+      return bitmapType_;
+    }
+    /**
+     * <pre>
+     * The type of bitmap used for indexing.
+     * </pre>
+     *
+     * <code>.greptime.v1.index.BitmapType bitmap_type = 9;</code>
+     * @return The bitmapType.
+     */
+    @java.lang.Override public greptime.v1.index.InvertedIndex.BitmapType getBitmapType() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.index.InvertedIndex.BitmapType result = greptime.v1.index.InvertedIndex.BitmapType.valueOf(bitmapType_);
+      return result == null ? greptime.v1.index.InvertedIndex.BitmapType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1507,6 +1672,9 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
       }
       if (stats_ != null) {
         output.writeMessage(8, getStats());
+      }
+      if (bitmapType_ != greptime.v1.index.InvertedIndex.BitmapType.BitVec.getNumber()) {
+        output.writeEnum(9, bitmapType_);
       }
       unknownFields.writeTo(output);
     }
@@ -1548,6 +1716,10 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getStats());
       }
+      if (bitmapType_ != greptime.v1.index.InvertedIndex.BitmapType.BitVec.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(9, bitmapType_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1582,6 +1754,7 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
         if (!getStats()
             .equals(other.getStats())) return false;
       }
+      if (bitmapType_ != other.bitmapType_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1613,6 +1786,8 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
         hash = (37 * hash) + STATS_FIELD_NUMBER;
         hash = (53 * hash) + getStats().hashCode();
       }
+      hash = (37 * hash) + BITMAP_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + bitmapType_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1770,6 +1945,8 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
           stats_ = null;
           statsBuilder_ = null;
         }
+        bitmapType_ = 0;
+
         return this;
       }
 
@@ -1808,6 +1985,7 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
         } else {
           result.stats_ = statsBuilder_.build();
         }
+        result.bitmapType_ = bitmapType_;
         onBuilt();
         return result;
       }
@@ -1880,6 +2058,9 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
         }
         if (other.hasStats()) {
           mergeStats(other.getStats());
+        }
+        if (other.bitmapType_ != 0) {
+          setBitmapTypeValue(other.getBitmapTypeValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2426,6 +2607,80 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
           stats_ = null;
         }
         return statsBuilder_;
+      }
+
+      private int bitmapType_ = 0;
+      /**
+       * <pre>
+       * The type of bitmap used for indexing.
+       * </pre>
+       *
+       * <code>.greptime.v1.index.BitmapType bitmap_type = 9;</code>
+       * @return The enum numeric value on the wire for bitmapType.
+       */
+      @java.lang.Override public int getBitmapTypeValue() {
+        return bitmapType_;
+      }
+      /**
+       * <pre>
+       * The type of bitmap used for indexing.
+       * </pre>
+       *
+       * <code>.greptime.v1.index.BitmapType bitmap_type = 9;</code>
+       * @param value The enum numeric value on the wire for bitmapType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBitmapTypeValue(int value) {
+        
+        bitmapType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The type of bitmap used for indexing.
+       * </pre>
+       *
+       * <code>.greptime.v1.index.BitmapType bitmap_type = 9;</code>
+       * @return The bitmapType.
+       */
+      @java.lang.Override
+      public greptime.v1.index.InvertedIndex.BitmapType getBitmapType() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.index.InvertedIndex.BitmapType result = greptime.v1.index.InvertedIndex.BitmapType.valueOf(bitmapType_);
+        return result == null ? greptime.v1.index.InvertedIndex.BitmapType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * The type of bitmap used for indexing.
+       * </pre>
+       *
+       * <code>.greptime.v1.index.BitmapType bitmap_type = 9;</code>
+       * @param value The bitmapType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBitmapType(greptime.v1.index.InvertedIndex.BitmapType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        bitmapType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The type of bitmap used for indexing.
+       * </pre>
+       *
+       * <code>.greptime.v1.index.BitmapType bitmap_type = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBitmapType() {
+        
+        bitmapType_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3314,17 +3569,19 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
       "_count\030\002 \001(\004\022\031\n\021segment_row_count\030\003 \001(\004\032" +
       "R\n\nMetasEntry\022\013\n\003key\030\001 \001(\t\0223\n\005value\030\002 \001(" +
       "\0132$.greptime.v1.index.InvertedIndexMeta:" +
-      "\0028\001\"\367\001\n\021InvertedIndexMeta\022\014\n\004name\030\001 \001(\t\022" +
+      "\0028\001\"\253\002\n\021InvertedIndexMeta\022\014\n\004name\030\001 \001(\t\022" +
       "\023\n\013base_offset\030\002 \001(\004\022\033\n\023inverted_index_s" +
       "ize\030\003 \001(\004\022\033\n\023relative_fst_offset\030\004 \001(\r\022\020" +
       "\n\010fst_size\030\005 \001(\r\022#\n\033relative_null_bitmap" +
       "_offset\030\006 \001(\r\022\030\n\020null_bitmap_size\030\007 \001(\r\022" +
       "4\n\005stats\030\010 \001(\0132%.greptime.v1.index.Inver" +
-      "tedIndexStats\"f\n\022InvertedIndexStats\022\022\n\nn" +
-      "ull_count\030\001 \001(\004\022\026\n\016distinct_count\030\002 \001(\004\022" +
-      "\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax_value\030\004 \001(\014B=Z" +
-      ";github.com/GreptimeTeam/greptime-proto/" +
-      "go/greptime/v1/indexb\006proto3"
+      "tedIndexStats\0222\n\013bitmap_type\030\t \001(\0162\035.gre" +
+      "ptime.v1.index.BitmapType\"f\n\022InvertedInd" +
+      "exStats\022\022\n\nnull_count\030\001 \001(\004\022\026\n\016distinct_" +
+      "count\030\002 \001(\004\022\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax_va" +
+      "lue\030\004 \001(\014*%\n\nBitmapType\022\n\n\006BitVec\020\000\022\013\n\007R" +
+      "oaring\020\001B=Z;github.com/GreptimeTeam/grep" +
+      "time-proto/go/greptime/v1/indexb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3347,7 +3604,7 @@ greptime.v1.index.InvertedIndex.InvertedIndexMeta defaultValue);
     internal_static_greptime_v1_index_InvertedIndexMeta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_index_InvertedIndexMeta_descriptor,
-        new java.lang.String[] { "Name", "BaseOffset", "InvertedIndexSize", "RelativeFstOffset", "FstSize", "RelativeNullBitmapOffset", "NullBitmapSize", "Stats", });
+        new java.lang.String[] { "Name", "BaseOffset", "InvertedIndexSize", "RelativeFstOffset", "FstSize", "RelativeNullBitmapOffset", "NullBitmapSize", "Stats", "BitmapType", });
     internal_static_greptime_v1_index_InvertedIndexStats_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_index_InvertedIndexStats_fieldAccessorTable = new

@@ -2639,6 +2639,7 @@ class DropRequest final :
 
   enum : int {
     kRegionIdFieldNumber = 1,
+    kFastPathFieldNumber = 2,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -2647,6 +2648,15 @@ class DropRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
+  public:
+
+  // bool fast_path = 2;
+  void clear_fast_path();
+  bool fast_path() const;
+  void set_fast_path(bool value);
+  private:
+  bool _internal_fast_path() const;
+  void _internal_set_fast_path(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.region.DropRequest)
@@ -2658,6 +2668,7 @@ class DropRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     uint64_t region_id_;
+    bool fast_path_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -7315,6 +7326,26 @@ inline void DropRequest::_internal_set_region_id(uint64_t value) {
 inline void DropRequest::set_region_id(uint64_t value) {
   _internal_set_region_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.region.DropRequest.region_id)
+}
+
+// bool fast_path = 2;
+inline void DropRequest::clear_fast_path() {
+  _impl_.fast_path_ = false;
+}
+inline bool DropRequest::_internal_fast_path() const {
+  return _impl_.fast_path_;
+}
+inline bool DropRequest::fast_path() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.DropRequest.fast_path)
+  return _internal_fast_path();
+}
+inline void DropRequest::_internal_set_fast_path(bool value) {
+  
+  _impl_.fast_path_ = value;
+}
+inline void DropRequest::set_fast_path(bool value) {
+  _internal_set_fast_path(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.DropRequest.fast_path)
 }
 
 // -------------------------------------------------------------------

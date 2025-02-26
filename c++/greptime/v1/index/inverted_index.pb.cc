@@ -59,6 +59,7 @@ PROTOBUF_CONSTEXPR InvertedIndexMeta::InvertedIndexMeta(
   , /*decltype(_impl_.fst_size_)*/0u
   , /*decltype(_impl_.relative_null_bitmap_offset_)*/0u
   , /*decltype(_impl_.null_bitmap_size_)*/0u
+  , /*decltype(_impl_.bitmap_type_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct InvertedIndexMetaDefaultTypeInternal {
   PROTOBUF_CONSTEXPR InvertedIndexMetaDefaultTypeInternal()
@@ -89,7 +90,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace v1
 }  // namespace greptime
 static ::_pb::Metadata file_level_metadata_greptime_2fv1_2findex_2finverted_5findex_2eproto[4];
-static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2findex_2finverted_5findex_2eproto = nullptr;
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2findex_2finverted_5findex_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2findex_2finverted_5findex_2eproto = nullptr;
 
 const uint32_t TableStruct_greptime_2fv1_2findex_2finverted_5findex_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -126,6 +127,7 @@ const uint32_t TableStruct_greptime_2fv1_2findex_2finverted_5findex_2eproto::off
   PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.relative_null_bitmap_offset_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.null_bitmap_size_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.stats_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexMeta, _impl_.bitmap_type_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::index::InvertedIndexStats, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -141,7 +143,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 0, 8, -1, sizeof(::greptime::v1::index::InvertedIndexMetas_MetasEntry_DoNotUse)},
   { 10, -1, -1, sizeof(::greptime::v1::index::InvertedIndexMetas)},
   { 19, -1, -1, sizeof(::greptime::v1::index::InvertedIndexMeta)},
-  { 33, -1, -1, sizeof(::greptime::v1::index::InvertedIndexStats)},
+  { 34, -1, -1, sizeof(::greptime::v1::index::InvertedIndexStats)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -159,21 +161,23 @@ const char descriptor_table_protodef_greptime_2fv1_2findex_2finverted_5findex_2e
   "_count\030\002 \001(\004\022\031\n\021segment_row_count\030\003 \001(\004\032"
   "R\n\nMetasEntry\022\013\n\003key\030\001 \001(\t\0223\n\005value\030\002 \001("
   "\0132$.greptime.v1.index.InvertedIndexMeta:"
-  "\0028\001\"\367\001\n\021InvertedIndexMeta\022\014\n\004name\030\001 \001(\t\022"
+  "\0028\001\"\253\002\n\021InvertedIndexMeta\022\014\n\004name\030\001 \001(\t\022"
   "\023\n\013base_offset\030\002 \001(\004\022\033\n\023inverted_index_s"
   "ize\030\003 \001(\004\022\033\n\023relative_fst_offset\030\004 \001(\r\022\020"
   "\n\010fst_size\030\005 \001(\r\022#\n\033relative_null_bitmap"
   "_offset\030\006 \001(\r\022\030\n\020null_bitmap_size\030\007 \001(\r\022"
   "4\n\005stats\030\010 \001(\0132%.greptime.v1.index.Inver"
-  "tedIndexStats\"f\n\022InvertedIndexStats\022\022\n\nn"
-  "ull_count\030\001 \001(\004\022\026\n\016distinct_count\030\002 \001(\004\022"
-  "\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax_value\030\004 \001(\014B=Z"
-  ";github.com/GreptimeTeam/greptime-proto/"
-  "go/greptime/v1/indexb\006proto3"
+  "tedIndexStats\0222\n\013bitmap_type\030\t \001(\0162\035.gre"
+  "ptime.v1.index.BitmapType\"f\n\022InvertedInd"
+  "exStats\022\022\n\nnull_count\030\001 \001(\004\022\026\n\016distinct_"
+  "count\030\002 \001(\004\022\021\n\tmin_value\030\003 \001(\014\022\021\n\tmax_va"
+  "lue\030\004 \001(\014*%\n\nBitmapType\022\n\n\006BitVec\020\000\022\013\n\007R"
+  "oaring\020\001B=Z;github.com/GreptimeTeam/grep"
+  "time-proto/go/greptime/v1/indexb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto = {
-    false, false, 708, descriptor_table_protodef_greptime_2fv1_2findex_2finverted_5findex_2eproto,
+    false, false, 799, descriptor_table_protodef_greptime_2fv1_2findex_2finverted_5findex_2eproto,
     "greptime/v1/index/inverted_index.proto",
     &descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto_once, nullptr, 0, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2findex_2finverted_5findex_2eproto::offsets,
@@ -189,6 +193,20 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_in
 namespace greptime {
 namespace v1 {
 namespace index {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BitmapType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2findex_2finverted_5findex_2eproto);
+  return file_level_enum_descriptors_greptime_2fv1_2findex_2finverted_5findex_2eproto[0];
+}
+bool BitmapType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -508,6 +526,7 @@ InvertedIndexMeta::InvertedIndexMeta(const InvertedIndexMeta& from)
     , decltype(_impl_.fst_size_){}
     , decltype(_impl_.relative_null_bitmap_offset_){}
     , decltype(_impl_.null_bitmap_size_){}
+    , decltype(_impl_.bitmap_type_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -523,8 +542,8 @@ InvertedIndexMeta::InvertedIndexMeta(const InvertedIndexMeta& from)
     _this->_impl_.stats_ = new ::greptime::v1::index::InvertedIndexStats(*from._impl_.stats_);
   }
   ::memcpy(&_impl_.base_offset_, &from._impl_.base_offset_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.null_bitmap_size_) -
-    reinterpret_cast<char*>(&_impl_.base_offset_)) + sizeof(_impl_.null_bitmap_size_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.bitmap_type_) -
+    reinterpret_cast<char*>(&_impl_.base_offset_)) + sizeof(_impl_.bitmap_type_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.index.InvertedIndexMeta)
 }
 
@@ -541,6 +560,7 @@ inline void InvertedIndexMeta::SharedCtor(
     , decltype(_impl_.fst_size_){0u}
     , decltype(_impl_.relative_null_bitmap_offset_){0u}
     , decltype(_impl_.null_bitmap_size_){0u}
+    , decltype(_impl_.bitmap_type_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.name_.InitDefault();
@@ -580,8 +600,8 @@ void InvertedIndexMeta::Clear() {
   }
   _impl_.stats_ = nullptr;
   ::memset(&_impl_.base_offset_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.null_bitmap_size_) -
-      reinterpret_cast<char*>(&_impl_.base_offset_)) + sizeof(_impl_.null_bitmap_size_));
+      reinterpret_cast<char*>(&_impl_.bitmap_type_) -
+      reinterpret_cast<char*>(&_impl_.base_offset_)) + sizeof(_impl_.bitmap_type_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -654,6 +674,15 @@ const char* InvertedIndexMeta::_InternalParse(const char* ptr, ::_pbi::ParseCont
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr = ctx->ParseMessage(_internal_mutable_stats(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.index.BitmapType bitmap_type = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_bitmap_type(static_cast<::greptime::v1::index::BitmapType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -739,6 +768,13 @@ uint8_t* InvertedIndexMeta::_InternalSerialize(
         _Internal::stats(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.index.BitmapType bitmap_type = 9;
+  if (this->_internal_bitmap_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      9, this->_internal_bitmap_type(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -799,6 +835,12 @@ size_t InvertedIndexMeta::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_null_bitmap_size());
   }
 
+  // .greptime.v1.index.BitmapType bitmap_type = 9;
+  if (this->_internal_bitmap_type() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_bitmap_type());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -842,6 +884,9 @@ void InvertedIndexMeta::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   if (from._internal_null_bitmap_size() != 0) {
     _this->_internal_set_null_bitmap_size(from._internal_null_bitmap_size());
   }
+  if (from._internal_bitmap_type() != 0) {
+    _this->_internal_set_bitmap_type(from._internal_bitmap_type());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -866,8 +911,8 @@ void InvertedIndexMeta::InternalSwap(InvertedIndexMeta* other) {
       &other->_impl_.name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(InvertedIndexMeta, _impl_.null_bitmap_size_)
-      + sizeof(InvertedIndexMeta::_impl_.null_bitmap_size_)
+      PROTOBUF_FIELD_OFFSET(InvertedIndexMeta, _impl_.bitmap_type_)
+      + sizeof(InvertedIndexMeta::_impl_.bitmap_type_)
       - PROTOBUF_FIELD_OFFSET(InvertedIndexMeta, _impl_.stats_)>(
           reinterpret_cast<char*>(&_impl_.stats_),
           reinterpret_cast<char*>(&other->_impl_.stats_));
