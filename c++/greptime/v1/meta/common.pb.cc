@@ -38,7 +38,6 @@ PROTOBUF_CONSTEXPR RequestHeader::RequestHeader(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.tracing_context_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.protocol_version_)*/uint64_t{0u}
-  , /*decltype(_impl_.cluster_id_)*/uint64_t{0u}
   , /*decltype(_impl_.member_id_)*/uint64_t{0u}
   , /*decltype(_impl_.role_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -55,7 +54,6 @@ PROTOBUF_CONSTEXPR ResponseHeader::ResponseHeader(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.error_)*/nullptr
   , /*decltype(_impl_.protocol_version_)*/uint64_t{0u}
-  , /*decltype(_impl_.cluster_id_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ResponseHeaderDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ResponseHeaderDefaultTypeInternal()
@@ -160,7 +158,6 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RequestHeader, _impl_.protocol_version_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RequestHeader, _impl_.cluster_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RequestHeader, _impl_.member_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RequestHeader, _impl_.role_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RequestHeader, _impl_.tracing_context_),
@@ -171,7 +168,6 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ResponseHeader, _impl_.protocol_version_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ResponseHeader, _impl_.cluster_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ResponseHeader, _impl_.error_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Error, _internal_metadata_),
@@ -216,12 +212,12 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto::offsets[] PROT
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::greptime::v1::meta::RequestHeader_TracingContextEntry_DoNotUse)},
   { 10, -1, -1, sizeof(::greptime::v1::meta::RequestHeader)},
-  { 21, -1, -1, sizeof(::greptime::v1::meta::ResponseHeader)},
-  { 30, -1, -1, sizeof(::greptime::v1::meta::Error)},
-  { 38, -1, -1, sizeof(::greptime::v1::meta::Peer)},
-  { 46, -1, -1, sizeof(::greptime::v1::meta::TimeInterval)},
-  { 54, -1, -1, sizeof(::greptime::v1::meta::KeyValue)},
-  { 62, -1, -1, sizeof(::greptime::v1::meta::ProcedureId)},
+  { 20, -1, -1, sizeof(::greptime::v1::meta::ResponseHeader)},
+  { 28, -1, -1, sizeof(::greptime::v1::meta::Error)},
+  { 36, -1, -1, sizeof(::greptime::v1::meta::Peer)},
+  { 44, -1, -1, sizeof(::greptime::v1::meta::TimeInterval)},
+  { 52, -1, -1, sizeof(::greptime::v1::meta::KeyValue)},
+  { 60, -1, -1, sizeof(::greptime::v1::meta::ProcedureId)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -237,15 +233,14 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\035greptime/v1/meta/common.proto\022\020greptim"
-  "e.v1.meta\"\373\001\n\rRequestHeader\022\030\n\020protocol_"
-  "version\030\001 \001(\004\022\022\n\ncluster_id\030\002 \001(\004\022\021\n\tmem"
-  "ber_id\030\003 \001(\004\022$\n\004role\030\004 \001(\0162\026.greptime.v1"
-  ".meta.Role\022L\n\017tracing_context\030\005 \003(\01323.gr"
-  "eptime.v1.meta.RequestHeader.TracingCont"
-  "extEntry\0325\n\023TracingContextEntry\022\013\n\003key\030\001"
-  " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"f\n\016ResponseHeade"
-  "r\022\030\n\020protocol_version\030\001 \001(\004\022\022\n\ncluster_i"
-  "d\030\002 \001(\004\022&\n\005error\030\003 \001(\0132\027.greptime.v1.met"
+  "e.v1.meta\"\347\001\n\rRequestHeader\022\030\n\020protocol_"
+  "version\030\001 \001(\004\022\021\n\tmember_id\030\003 \001(\004\022$\n\004role"
+  "\030\004 \001(\0162\026.greptime.v1.meta.Role\022L\n\017tracin"
+  "g_context\030\005 \003(\01323.greptime.v1.meta.Reque"
+  "stHeader.TracingContextEntry\0325\n\023TracingC"
+  "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:"
+  "\0028\001\"R\n\016ResponseHeader\022\030\n\020protocol_versio"
+  "n\030\001 \001(\004\022&\n\005error\030\003 \001(\0132\027.greptime.v1.met"
   "a.Error\"&\n\005Error\022\014\n\004code\030\001 \001(\005\022\017\n\007err_ms"
   "g\030\002 \001(\t\" \n\004Peer\022\n\n\002id\030\001 \001(\004\022\014\n\004addr\030\002 \001("
   "\t\"L\n\014TimeInterval\022\036\n\026start_timestamp_mil"
@@ -258,7 +253,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto[] PRO
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto = {
-    false, false, 747, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto,
+    false, false, 707, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto,
     "greptime/v1/meta/common.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once, nullptr, 0, 8,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto::offsets,
@@ -325,7 +320,6 @@ RequestHeader::RequestHeader(const RequestHeader& from)
   new (&_impl_) Impl_{
       /*decltype(_impl_.tracing_context_)*/{}
     , decltype(_impl_.protocol_version_){}
-    , decltype(_impl_.cluster_id_){}
     , decltype(_impl_.member_id_){}
     , decltype(_impl_.role_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -345,7 +339,6 @@ inline void RequestHeader::SharedCtor(
   new (&_impl_) Impl_{
       /*decltype(_impl_.tracing_context_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.protocol_version_){uint64_t{0u}}
-    , decltype(_impl_.cluster_id_){uint64_t{0u}}
     , decltype(_impl_.member_id_){uint64_t{0u}}
     , decltype(_impl_.role_){0}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -399,14 +392,6 @@ const char* RequestHeader::_InternalParse(const char* ptr, ::_pbi::ParseContext*
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _impl_.protocol_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint64 cluster_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.cluster_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -474,12 +459,6 @@ uint8_t* RequestHeader::_InternalSerialize(
   if (this->_internal_protocol_version() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_protocol_version(), target);
-  }
-
-  // uint64 cluster_id = 2;
-  if (this->_internal_cluster_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_cluster_id(), target);
   }
 
   // uint64 member_id = 3;
@@ -555,11 +534,6 @@ size_t RequestHeader::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_protocol_version());
   }
 
-  // uint64 cluster_id = 2;
-  if (this->_internal_cluster_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_cluster_id());
-  }
-
   // uint64 member_id = 3;
   if (this->_internal_member_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_member_id());
@@ -592,9 +566,6 @@ void RequestHeader::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   _this->_impl_.tracing_context_.MergeFrom(from._impl_.tracing_context_);
   if (from._internal_protocol_version() != 0) {
     _this->_internal_set_protocol_version(from._internal_protocol_version());
-  }
-  if (from._internal_cluster_id() != 0) {
-    _this->_internal_set_cluster_id(from._internal_cluster_id());
   }
   if (from._internal_member_id() != 0) {
     _this->_internal_set_member_id(from._internal_member_id());
@@ -657,16 +628,13 @@ ResponseHeader::ResponseHeader(const ResponseHeader& from)
   new (&_impl_) Impl_{
       decltype(_impl_.error_){nullptr}
     , decltype(_impl_.protocol_version_){}
-    , decltype(_impl_.cluster_id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_error()) {
     _this->_impl_.error_ = new ::greptime::v1::meta::Error(*from._impl_.error_);
   }
-  ::memcpy(&_impl_.protocol_version_, &from._impl_.protocol_version_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.cluster_id_) -
-    reinterpret_cast<char*>(&_impl_.protocol_version_)) + sizeof(_impl_.cluster_id_));
+  _this->_impl_.protocol_version_ = from._impl_.protocol_version_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ResponseHeader)
 }
 
@@ -677,7 +645,6 @@ inline void ResponseHeader::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.error_){nullptr}
     , decltype(_impl_.protocol_version_){uint64_t{0u}}
-    , decltype(_impl_.cluster_id_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -710,9 +677,7 @@ void ResponseHeader::Clear() {
     delete _impl_.error_;
   }
   _impl_.error_ = nullptr;
-  ::memset(&_impl_.protocol_version_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.cluster_id_) -
-      reinterpret_cast<char*>(&_impl_.protocol_version_)) + sizeof(_impl_.cluster_id_));
+  _impl_.protocol_version_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -726,14 +691,6 @@ const char* ResponseHeader::_InternalParse(const char* ptr, ::_pbi::ParseContext
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _impl_.protocol_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint64 cluster_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.cluster_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -781,12 +738,6 @@ uint8_t* ResponseHeader::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_protocol_version(), target);
   }
 
-  // uint64 cluster_id = 2;
-  if (this->_internal_cluster_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_cluster_id(), target);
-  }
-
   // .greptime.v1.meta.Error error = 3;
   if (this->_internal_has_error()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -822,11 +773,6 @@ size_t ResponseHeader::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_protocol_version());
   }
 
-  // uint64 cluster_id = 2;
-  if (this->_internal_cluster_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_cluster_id());
-  }
-
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -852,9 +798,6 @@ void ResponseHeader::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   if (from._internal_protocol_version() != 0) {
     _this->_internal_set_protocol_version(from._internal_protocol_version());
   }
-  if (from._internal_cluster_id() != 0) {
-    _this->_internal_set_cluster_id(from._internal_cluster_id());
-  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -873,8 +816,8 @@ void ResponseHeader::InternalSwap(ResponseHeader* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ResponseHeader, _impl_.cluster_id_)
-      + sizeof(ResponseHeader::_impl_.cluster_id_)
+      PROTOBUF_FIELD_OFFSET(ResponseHeader, _impl_.protocol_version_)
+      + sizeof(ResponseHeader::_impl_.protocol_version_)
       - PROTOBUF_FIELD_OFFSET(ResponseHeader, _impl_.error_)>(
           reinterpret_cast<char*>(&_impl_.error_),
           reinterpret_cast<char*>(&other->_impl_.error_));

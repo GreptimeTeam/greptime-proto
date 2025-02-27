@@ -143,16 +143,6 @@ public final class Common {
 
     /**
      * <pre>
-     * cluster_id is the ID of the cluster which be sent to.
-     * </pre>
-     *
-     * <code>uint64 cluster_id = 2;</code>
-     * @return The clusterId.
-     */
-    long getClusterId();
-
-    /**
-     * <pre>
      * member_id is the ID of the sender server.
      * </pre>
      *
@@ -285,11 +275,6 @@ java.lang.String defaultValue);
               protocolVersion_ = input.readUInt64();
               break;
             }
-            case 16: {
-
-              clusterId_ = input.readUInt64();
-              break;
-            }
             case 24: {
 
               memberId_ = input.readUInt64();
@@ -369,21 +354,6 @@ java.lang.String defaultValue);
     @java.lang.Override
     public long getProtocolVersion() {
       return protocolVersion_;
-    }
-
-    public static final int CLUSTER_ID_FIELD_NUMBER = 2;
-    private long clusterId_;
-    /**
-     * <pre>
-     * cluster_id is the ID of the cluster which be sent to.
-     * </pre>
-     *
-     * <code>uint64 cluster_id = 2;</code>
-     * @return The clusterId.
-     */
-    @java.lang.Override
-    public long getClusterId() {
-      return clusterId_;
     }
 
     public static final int MEMBER_ID_FIELD_NUMBER = 3;
@@ -538,9 +508,6 @@ java.lang.String defaultValue);
       if (protocolVersion_ != 0L) {
         output.writeUInt64(1, protocolVersion_);
       }
-      if (clusterId_ != 0L) {
-        output.writeUInt64(2, clusterId_);
-      }
       if (memberId_ != 0L) {
         output.writeUInt64(3, memberId_);
       }
@@ -565,10 +532,6 @@ java.lang.String defaultValue);
       if (protocolVersion_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, protocolVersion_);
-      }
-      if (clusterId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, clusterId_);
       }
       if (memberId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -605,8 +568,6 @@ java.lang.String defaultValue);
 
       if (getProtocolVersion()
           != other.getProtocolVersion()) return false;
-      if (getClusterId()
-          != other.getClusterId()) return false;
       if (getMemberId()
           != other.getMemberId()) return false;
       if (role_ != other.role_) return false;
@@ -626,9 +587,6 @@ java.lang.String defaultValue);
       hash = (37 * hash) + PROTOCOL_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getProtocolVersion());
-      hash = (37 * hash) + CLUSTER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getClusterId());
       hash = (37 * hash) + MEMBER_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMemberId());
@@ -795,8 +753,6 @@ java.lang.String defaultValue);
         super.clear();
         protocolVersion_ = 0L;
 
-        clusterId_ = 0L;
-
         memberId_ = 0L;
 
         role_ = 0;
@@ -830,7 +786,6 @@ java.lang.String defaultValue);
         greptime.v1.meta.Common.RequestHeader result = new greptime.v1.meta.Common.RequestHeader(this);
         int from_bitField0_ = bitField0_;
         result.protocolVersion_ = protocolVersion_;
-        result.clusterId_ = clusterId_;
         result.memberId_ = memberId_;
         result.role_ = role_;
         result.tracingContext_ = internalGetTracingContext();
@@ -885,9 +840,6 @@ java.lang.String defaultValue);
         if (other == greptime.v1.meta.Common.RequestHeader.getDefaultInstance()) return this;
         if (other.getProtocolVersion() != 0L) {
           setProtocolVersion(other.getProtocolVersion());
-        }
-        if (other.getClusterId() != 0L) {
-          setClusterId(other.getClusterId());
         }
         if (other.getMemberId() != 0L) {
           setMemberId(other.getMemberId());
@@ -954,49 +906,6 @@ java.lang.String defaultValue);
       public Builder clearProtocolVersion() {
         
         protocolVersion_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long clusterId_ ;
-      /**
-       * <pre>
-       * cluster_id is the ID of the cluster which be sent to.
-       * </pre>
-       *
-       * <code>uint64 cluster_id = 2;</code>
-       * @return The clusterId.
-       */
-      @java.lang.Override
-      public long getClusterId() {
-        return clusterId_;
-      }
-      /**
-       * <pre>
-       * cluster_id is the ID of the cluster which be sent to.
-       * </pre>
-       *
-       * <code>uint64 cluster_id = 2;</code>
-       * @param value The clusterId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setClusterId(long value) {
-        
-        clusterId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * cluster_id is the ID of the cluster which be sent to.
-       * </pre>
-       *
-       * <code>uint64 cluster_id = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearClusterId() {
-        
-        clusterId_ = 0L;
         onChanged();
         return this;
       }
@@ -1327,16 +1236,6 @@ java.lang.String defaultValue);
     long getProtocolVersion();
 
     /**
-     * <pre>
-     * cluster_id is the ID of the cluster which sent the response.
-     * </pre>
-     *
-     * <code>uint64 cluster_id = 2;</code>
-     * @return The clusterId.
-     */
-    long getClusterId();
-
-    /**
      * <code>.greptime.v1.meta.Error error = 3;</code>
      * @return Whether the error field is set.
      */
@@ -1401,11 +1300,6 @@ java.lang.String defaultValue);
               protocolVersion_ = input.readUInt64();
               break;
             }
-            case 16: {
-
-              clusterId_ = input.readUInt64();
-              break;
-            }
             case 26: {
               greptime.v1.meta.Common.Error.Builder subBuilder = null;
               if (error_ != null) {
@@ -1464,21 +1358,6 @@ java.lang.String defaultValue);
       return protocolVersion_;
     }
 
-    public static final int CLUSTER_ID_FIELD_NUMBER = 2;
-    private long clusterId_;
-    /**
-     * <pre>
-     * cluster_id is the ID of the cluster which sent the response.
-     * </pre>
-     *
-     * <code>uint64 cluster_id = 2;</code>
-     * @return The clusterId.
-     */
-    @java.lang.Override
-    public long getClusterId() {
-      return clusterId_;
-    }
-
     public static final int ERROR_FIELD_NUMBER = 3;
     private greptime.v1.meta.Common.Error error_;
     /**
@@ -1522,9 +1401,6 @@ java.lang.String defaultValue);
       if (protocolVersion_ != 0L) {
         output.writeUInt64(1, protocolVersion_);
       }
-      if (clusterId_ != 0L) {
-        output.writeUInt64(2, clusterId_);
-      }
       if (error_ != null) {
         output.writeMessage(3, getError());
       }
@@ -1540,10 +1416,6 @@ java.lang.String defaultValue);
       if (protocolVersion_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, protocolVersion_);
-      }
-      if (clusterId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, clusterId_);
       }
       if (error_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -1566,8 +1438,6 @@ java.lang.String defaultValue);
 
       if (getProtocolVersion()
           != other.getProtocolVersion()) return false;
-      if (getClusterId()
-          != other.getClusterId()) return false;
       if (hasError() != other.hasError()) return false;
       if (hasError()) {
         if (!getError()
@@ -1587,9 +1457,6 @@ java.lang.String defaultValue);
       hash = (37 * hash) + PROTOCOL_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getProtocolVersion());
-      hash = (37 * hash) + CLUSTER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getClusterId());
       if (hasError()) {
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
         hash = (53 * hash) + getError().hashCode();
@@ -1729,8 +1596,6 @@ java.lang.String defaultValue);
         super.clear();
         protocolVersion_ = 0L;
 
-        clusterId_ = 0L;
-
         if (errorBuilder_ == null) {
           error_ = null;
         } else {
@@ -1764,7 +1629,6 @@ java.lang.String defaultValue);
       public greptime.v1.meta.Common.ResponseHeader buildPartial() {
         greptime.v1.meta.Common.ResponseHeader result = new greptime.v1.meta.Common.ResponseHeader(this);
         result.protocolVersion_ = protocolVersion_;
-        result.clusterId_ = clusterId_;
         if (errorBuilder_ == null) {
           result.error_ = error_;
         } else {
@@ -1820,9 +1684,6 @@ java.lang.String defaultValue);
         if (other == greptime.v1.meta.Common.ResponseHeader.getDefaultInstance()) return this;
         if (other.getProtocolVersion() != 0L) {
           setProtocolVersion(other.getProtocolVersion());
-        }
-        if (other.getClusterId() != 0L) {
-          setClusterId(other.getClusterId());
         }
         if (other.hasError()) {
           mergeError(other.getError());
@@ -1883,49 +1744,6 @@ java.lang.String defaultValue);
       public Builder clearProtocolVersion() {
         
         protocolVersion_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long clusterId_ ;
-      /**
-       * <pre>
-       * cluster_id is the ID of the cluster which sent the response.
-       * </pre>
-       *
-       * <code>uint64 cluster_id = 2;</code>
-       * @return The clusterId.
-       */
-      @java.lang.Override
-      public long getClusterId() {
-        return clusterId_;
-      }
-      /**
-       * <pre>
-       * cluster_id is the ID of the cluster which sent the response.
-       * </pre>
-       *
-       * <code>uint64 cluster_id = 2;</code>
-       * @param value The clusterId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setClusterId(long value) {
-        
-        clusterId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * cluster_id is the ID of the cluster which sent the response.
-       * </pre>
-       *
-       * <code>uint64 cluster_id = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearClusterId() {
-        
-        clusterId_ = 0L;
         onChanged();
         return this;
       }
@@ -5144,15 +4962,14 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\035greptime/v1/meta/common.proto\022\020greptim" +
-      "e.v1.meta\"\373\001\n\rRequestHeader\022\030\n\020protocol_" +
-      "version\030\001 \001(\004\022\022\n\ncluster_id\030\002 \001(\004\022\021\n\tmem" +
-      "ber_id\030\003 \001(\004\022$\n\004role\030\004 \001(\0162\026.greptime.v1" +
-      ".meta.Role\022L\n\017tracing_context\030\005 \003(\01323.gr" +
-      "eptime.v1.meta.RequestHeader.TracingCont" +
-      "extEntry\0325\n\023TracingContextEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"f\n\016ResponseHeade" +
-      "r\022\030\n\020protocol_version\030\001 \001(\004\022\022\n\ncluster_i" +
-      "d\030\002 \001(\004\022&\n\005error\030\003 \001(\0132\027.greptime.v1.met" +
+      "e.v1.meta\"\347\001\n\rRequestHeader\022\030\n\020protocol_" +
+      "version\030\001 \001(\004\022\021\n\tmember_id\030\003 \001(\004\022$\n\004role" +
+      "\030\004 \001(\0162\026.greptime.v1.meta.Role\022L\n\017tracin" +
+      "g_context\030\005 \003(\01323.greptime.v1.meta.Reque" +
+      "stHeader.TracingContextEntry\0325\n\023TracingC" +
+      "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\"R\n\016ResponseHeader\022\030\n\020protocol_versio" +
+      "n\030\001 \001(\004\022&\n\005error\030\003 \001(\0132\027.greptime.v1.met" +
       "a.Error\"&\n\005Error\022\014\n\004code\030\001 \001(\005\022\017\n\007err_ms" +
       "g\030\002 \001(\t\" \n\004Peer\022\n\n\002id\030\001 \001(\004\022\014\n\004addr\030\002 \001(" +
       "\t\"L\n\014TimeInterval\022\036\n\026start_timestamp_mil" +
@@ -5172,7 +4989,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_RequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RequestHeader_descriptor,
-        new java.lang.String[] { "ProtocolVersion", "ClusterId", "MemberId", "Role", "TracingContext", });
+        new java.lang.String[] { "ProtocolVersion", "MemberId", "Role", "TracingContext", });
     internal_static_greptime_v1_meta_RequestHeader_TracingContextEntry_descriptor =
       internal_static_greptime_v1_meta_RequestHeader_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_meta_RequestHeader_TracingContextEntry_fieldAccessorTable = new
@@ -5184,7 +5001,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_ResponseHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ResponseHeader_descriptor,
-        new java.lang.String[] { "ProtocolVersion", "ClusterId", "Error", });
+        new java.lang.String[] { "ProtocolVersion", "Error", });
     internal_static_greptime_v1_meta_Error_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_meta_Error_fieldAccessorTable = new
