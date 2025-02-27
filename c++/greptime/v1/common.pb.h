@@ -101,6 +101,9 @@ extern RequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _RequestHea
 class ResponseHeader;
 struct ResponseHeaderDefaultTypeInternal;
 extern ResponseHeaderDefaultTypeInternal _ResponseHeader_default_instance_;
+class SequenceRange;
+struct SequenceRangeDefaultTypeInternal;
+extern SequenceRangeDefaultTypeInternal _SequenceRange_default_instance_;
 class SnapshotSequences;
 struct SnapshotSequencesDefaultTypeInternal;
 extern SnapshotSequencesDefaultTypeInternal _SnapshotSequences_default_instance_;
@@ -139,6 +142,7 @@ template<> ::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse* Arena::CreateM
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
 template<> ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::ResponseHeader>(Arena*);
+template<> ::greptime::v1::SequenceRange* Arena::CreateMaybeMessage<::greptime::v1::SequenceRange>(Arena*);
 template<> ::greptime::v1::SnapshotSequences* Arena::CreateMaybeMessage<::greptime::v1::SnapshotSequences>(Arena*);
 template<> ::greptime::v1::SnapshotSequences_SnapshotSeqsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::SnapshotSequences_SnapshotSeqsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::Status* Arena::CreateMaybeMessage<::greptime::v1::Status>(Arena*);
@@ -524,14 +528,14 @@ class QueryContext final :
 // -------------------------------------------------------------------
 
 class SnapshotSequences_SnapshotSeqsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<SnapshotSequences_SnapshotSeqsEntry_DoNotUse, 
-    uint64_t, uint64_t,
+    uint64_t, ::greptime::v1::SequenceRange,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
 public:
   typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<SnapshotSequences_SnapshotSeqsEntry_DoNotUse, 
-    uint64_t, uint64_t,
+    uint64_t, ::greptime::v1::SequenceRange,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> SuperType;
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
   SnapshotSequences_SnapshotSeqsEntry_DoNotUse();
   explicit PROTOBUF_CONSTEXPR SnapshotSequences_SnapshotSeqsEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
@@ -673,21 +677,21 @@ class SnapshotSequences final :
   enum : int {
     kSnapshotSeqsFieldNumber = 7,
   };
-  // map<uint64, uint64> snapshot_seqs = 7;
+  // map<uint64, .greptime.v1.SequenceRange> snapshot_seqs = 7;
   int snapshot_seqs_size() const;
   private:
   int _internal_snapshot_seqs_size() const;
   public:
   void clear_snapshot_seqs();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, ::greptime::v1::SequenceRange >&
       _internal_snapshot_seqs() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+  ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, ::greptime::v1::SequenceRange >*
       _internal_mutable_snapshot_seqs();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, ::greptime::v1::SequenceRange >&
       snapshot_seqs() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+  ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, ::greptime::v1::SequenceRange >*
       mutable_snapshot_seqs();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.SnapshotSequences)
@@ -700,9 +704,168 @@ class SnapshotSequences final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
         SnapshotSequences_SnapshotSeqsEntry_DoNotUse,
-        uint64_t, uint64_t,
+        uint64_t, ::greptime::v1::SequenceRange,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> snapshot_seqs_;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> snapshot_seqs_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SequenceRange final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SequenceRange) */ {
+ public:
+  inline SequenceRange() : SequenceRange(nullptr) {}
+  ~SequenceRange() override;
+  explicit PROTOBUF_CONSTEXPR SequenceRange(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SequenceRange(const SequenceRange& from);
+  SequenceRange(SequenceRange&& from) noexcept
+    : SequenceRange() {
+    *this = ::std::move(from);
+  }
+
+  inline SequenceRange& operator=(const SequenceRange& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SequenceRange& operator=(SequenceRange&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SequenceRange& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SequenceRange* internal_default_instance() {
+    return reinterpret_cast<const SequenceRange*>(
+               &_SequenceRange_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(SequenceRange& a, SequenceRange& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SequenceRange* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SequenceRange* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SequenceRange* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SequenceRange>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SequenceRange& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SequenceRange& from) {
+    SequenceRange::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SequenceRange* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.SequenceRange";
+  }
+  protected:
+  explicit SequenceRange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStartFieldNumber = 1,
+    kEndFieldNumber = 2,
+  };
+  // uint64 start = 1;
+  void clear_start();
+  uint64_t start() const;
+  void set_start(uint64_t value);
+  private:
+  uint64_t _internal_start() const;
+  void _internal_set_start(uint64_t value);
+  public:
+
+  // uint64 end = 2;
+  void clear_end();
+  uint64_t end() const;
+  void set_end(uint64_t value);
+  private:
+  uint64_t _internal_end() const;
+  void _internal_set_end(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.SequenceRange)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t start_;
+    uint64_t end_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -786,7 +949,7 @@ class RequestHeader final :
                &_RequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(RequestHeader& a, RequestHeader& b) {
     a.Swap(&b);
@@ -1033,7 +1196,7 @@ class ResponseHeader final :
                &_ResponseHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(ResponseHeader& a, ResponseHeader& b) {
     a.Swap(&b);
@@ -1190,7 +1353,7 @@ class Status final :
                &_Status_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(Status& a, Status& b) {
     a.Swap(&b);
@@ -1360,7 +1523,7 @@ class AuthHeader final :
                &_AuthHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(AuthHeader& a, AuthHeader& b) {
     a.Swap(&b);
@@ -1550,7 +1713,7 @@ class Basic final :
                &_Basic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(Basic& a, Basic& b) {
     a.Swap(&b);
@@ -1719,7 +1882,7 @@ class Token final :
                &_Token_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(Token& a, Token& b) {
     a.Swap(&b);
@@ -1872,7 +2035,7 @@ class TableName final :
                &_TableName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(TableName& a, TableName& b) {
     a.Swap(&b);
@@ -2057,7 +2220,7 @@ class AffectedRows final :
                &_AffectedRows_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(AffectedRows& a, AffectedRows& b) {
     a.Swap(&b);
@@ -2205,7 +2368,7 @@ class Metrics final :
                &_Metrics_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(Metrics& a, Metrics& b) {
     a.Swap(&b);
@@ -2358,7 +2521,7 @@ class ExpireAfter final :
                &_ExpireAfter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(ExpireAfter& a, ExpireAfter& b) {
     a.Swap(&b);
@@ -2506,7 +2669,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -2683,7 +2846,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -2853,7 +3016,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -3019,7 +3182,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -3225,7 +3388,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -3384,7 +3547,7 @@ class VectorTypeExtension final :
                &_VectorTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(VectorTypeExtension& a, VectorTypeExtension& b) {
     a.Swap(&b);
@@ -3560,7 +3723,7 @@ class ColumnOptions final :
                &_ColumnOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(ColumnOptions& a, ColumnOptions& b) {
     a.Swap(&b);
@@ -3981,7 +4144,7 @@ inline void QueryContext::set_allocated_snapshot_seqs(::greptime::v1::SnapshotSe
 
 // SnapshotSequences
 
-// map<uint64, uint64> snapshot_seqs = 7;
+// map<uint64, .greptime.v1.SequenceRange> snapshot_seqs = 7;
 inline int SnapshotSequences::_internal_snapshot_seqs_size() const {
   return _impl_.snapshot_seqs_.size();
 }
@@ -3991,23 +4154,67 @@ inline int SnapshotSequences::snapshot_seqs_size() const {
 inline void SnapshotSequences::clear_snapshot_seqs() {
   _impl_.snapshot_seqs_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, ::greptime::v1::SequenceRange >&
 SnapshotSequences::_internal_snapshot_seqs() const {
   return _impl_.snapshot_seqs_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, ::greptime::v1::SequenceRange >&
 SnapshotSequences::snapshot_seqs() const {
   // @@protoc_insertion_point(field_map:greptime.v1.SnapshotSequences.snapshot_seqs)
   return _internal_snapshot_seqs();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, ::greptime::v1::SequenceRange >*
 SnapshotSequences::_internal_mutable_snapshot_seqs() {
   return _impl_.snapshot_seqs_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, ::greptime::v1::SequenceRange >*
 SnapshotSequences::mutable_snapshot_seqs() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.SnapshotSequences.snapshot_seqs)
   return _internal_mutable_snapshot_seqs();
+}
+
+// -------------------------------------------------------------------
+
+// SequenceRange
+
+// uint64 start = 1;
+inline void SequenceRange::clear_start() {
+  _impl_.start_ = uint64_t{0u};
+}
+inline uint64_t SequenceRange::_internal_start() const {
+  return _impl_.start_;
+}
+inline uint64_t SequenceRange::start() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SequenceRange.start)
+  return _internal_start();
+}
+inline void SequenceRange::_internal_set_start(uint64_t value) {
+  
+  _impl_.start_ = value;
+}
+inline void SequenceRange::set_start(uint64_t value) {
+  _internal_set_start(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SequenceRange.start)
+}
+
+// uint64 end = 2;
+inline void SequenceRange::clear_end() {
+  _impl_.end_ = uint64_t{0u};
+}
+inline uint64_t SequenceRange::_internal_end() const {
+  return _impl_.end_;
+}
+inline uint64_t SequenceRange::end() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SequenceRange.end)
+  return _internal_end();
+}
+inline void SequenceRange::_internal_set_end(uint64_t value) {
+  
+  _impl_.end_ = value;
+}
+inline void SequenceRange::set_end(uint64_t value) {
+  _internal_set_end(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SequenceRange.end)
 }
 
 // -------------------------------------------------------------------
@@ -5675,6 +5882,8 @@ ColumnOptions::mutable_options() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
