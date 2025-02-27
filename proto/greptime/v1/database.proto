@@ -41,12 +41,14 @@ message GreptimeRequest {
     DeleteRequests deletes = 5;
     RowInsertRequests row_inserts = 6;
     RowDeleteRequests row_deletes = 7;
+    SequencesRequest seqs = 8;
   }
 }
 
 message GreptimeResponse {
   ResponseHeader header = 1;
   oneof response { AffectedRows affected_rows = 2; }
+  map<string, bytes> extensions = 3;
 }
 
 message QueryRequest {

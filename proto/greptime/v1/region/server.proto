@@ -53,6 +53,7 @@ message RegionRequest {
     CreateRequests creates = 13;
     DropRequests drops = 14;
     AlterRequests alters = 15;
+    SequencesRequest seqs = 16;
   }
 }
 
