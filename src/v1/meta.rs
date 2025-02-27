@@ -59,14 +59,9 @@ impl Eq for Peer {}
 
 impl RequestHeader {
     #[inline]
-    pub fn new(
-        (cluster_id, member_id): (u64, u64),
-        role: Role,
-        tracing_context: HashMap<String, String>,
-    ) -> Self {
+    pub fn new(member_id: u64, role: Role, tracing_context: HashMap<String, String>) -> Self {
         Self {
             protocol_version: PROTOCOL_VERSION,
-            cluster_id,
             member_id,
             role: role.into(),
             tracing_context,
@@ -76,19 +71,17 @@ impl RequestHeader {
 
 impl ResponseHeader {
     #[inline]
-    pub fn success(cluster_id: u64) -> Self {
+    pub fn success() -> Self {
         Self {
             protocol_version: PROTOCOL_VERSION,
-            cluster_id,
             ..Default::default()
         }
     }
 
     #[inline]
-    pub fn failed(cluster_id: u64, error: Error) -> Self {
+    pub fn failed(error: Error) -> Self {
         Self {
             protocol_version: PROTOCOL_VERSION,
-            cluster_id,
             error: Some(error),
         }
     }
@@ -145,23 +138,18 @@ macro_rules! gen_set_header {
             #[inline]
             pub fn set_header(
                 &mut self,
-                (cluster_id, member_id): (u64, u64),
+                member_id: u64,
                 role: Role,
                 tracing_context: HashMap<String, String>,
             ) {
                 match self.header.as_mut() {
                     Some(header) => {
-                        header.cluster_id = cluster_id;
                         header.member_id = member_id;
                         header.role = role.into();
                         header.tracing_context = tracing_context;
                     }
                     None => {
-                        self.header = Some(RequestHeader::new(
-                            (cluster_id, member_id),
-                            role,
-                            tracing_context,
-                        ));
+                        self.header = Some(RequestHeader::new(member_id, role, tracing_context));
                     }
                 }
             }
