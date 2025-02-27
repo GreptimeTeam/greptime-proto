@@ -581,6 +581,635 @@ public final class Common {
     // @@protoc_insertion_point(enum_scope:greptime.v1.JsonTypeExtension)
   }
 
+  public interface SequencesRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.SequencesRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return A list containing the regionIds.
+     */
+    java.util.List<java.lang.Long> getRegionIdsList();
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return The count of regionIds.
+     */
+    int getRegionIdsCount();
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @param index The index of the element to return.
+     * @return The regionIds at the given index.
+     */
+    long getRegionIds(int index);
+  }
+  /**
+   * <pre>
+   * Request to get the sequences of a list of regions.
+   * The response will be stored in 
+   * `extensions` field of `RegionResponse/GreptimeResponse` with key `sequences`.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.SequencesRequest}
+   */
+  public static final class SequencesRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.SequencesRequest)
+      SequencesRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SequencesRequest.newBuilder() to construct.
+    private SequencesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SequencesRequest() {
+      regionIds_ = emptyLongList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SequencesRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SequencesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                regionIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              regionIds_.addLong(input.readUInt64());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                regionIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                regionIds_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          regionIds_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_SequencesRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_SequencesRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Common.SequencesRequest.class, io.greptime.v1.Common.SequencesRequest.Builder.class);
+    }
+
+    public static final int REGION_IDS_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.LongList regionIds_;
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return A list containing the regionIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getRegionIdsList() {
+      return regionIds_;
+    }
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return The count of regionIds.
+     */
+    public int getRegionIdsCount() {
+      return regionIds_.size();
+    }
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @param index The index of the element to return.
+     * @return The regionIds at the given index.
+     */
+    public long getRegionIds(int index) {
+      return regionIds_.getLong(index);
+    }
+    private int regionIdsMemoizedSerializedSize = -1;
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getRegionIdsList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(regionIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < regionIds_.size(); i++) {
+        output.writeUInt64NoTag(regionIds_.getLong(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < regionIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(regionIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getRegionIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        regionIdsMemoizedSerializedSize = dataSize;
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Common.SequencesRequest)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Common.SequencesRequest other = (io.greptime.v1.Common.SequencesRequest) obj;
+
+      if (!getRegionIdsList()
+          .equals(other.getRegionIdsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getRegionIdsCount() > 0) {
+        hash = (37 * hash) + REGION_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getRegionIdsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.SequencesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Common.SequencesRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Request to get the sequences of a list of regions.
+     * The response will be stored in 
+     * `extensions` field of `RegionResponse/GreptimeResponse` with key `sequences`.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.SequencesRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.SequencesRequest)
+        io.greptime.v1.Common.SequencesRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_SequencesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_SequencesRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Common.SequencesRequest.class, io.greptime.v1.Common.SequencesRequest.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Common.SequencesRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        regionIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_SequencesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.SequencesRequest getDefaultInstanceForType() {
+        return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.SequencesRequest build() {
+        io.greptime.v1.Common.SequencesRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.SequencesRequest buildPartial() {
+        io.greptime.v1.Common.SequencesRequest result = new io.greptime.v1.Common.SequencesRequest(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          regionIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.regionIds_ = regionIds_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Common.SequencesRequest) {
+          return mergeFrom((io.greptime.v1.Common.SequencesRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Common.SequencesRequest other) {
+        if (other == io.greptime.v1.Common.SequencesRequest.getDefaultInstance()) return this;
+        if (!other.regionIds_.isEmpty()) {
+          if (regionIds_.isEmpty()) {
+            regionIds_ = other.regionIds_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureRegionIdsIsMutable();
+            regionIds_.addAll(other.regionIds_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Common.SequencesRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Common.SequencesRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Internal.LongList regionIds_ = emptyLongList();
+      private void ensureRegionIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          regionIds_ = mutableCopy(regionIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @return A list containing the regionIds.
+       */
+      public java.util.List<java.lang.Long>
+          getRegionIdsList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(regionIds_) : regionIds_;
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @return The count of regionIds.
+       */
+      public int getRegionIdsCount() {
+        return regionIds_.size();
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param index The index of the element to return.
+       * @return The regionIds at the given index.
+       */
+      public long getRegionIds(int index) {
+        return regionIds_.getLong(index);
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The regionIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionIds(
+          int index, long value) {
+        ensureRegionIdsIsMutable();
+        regionIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param value The regionIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addRegionIds(long value) {
+        ensureRegionIdsIsMutable();
+        regionIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param values The regionIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllRegionIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureRegionIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, regionIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionIds() {
+        regionIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.SequencesRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.SequencesRequest)
+    private static final io.greptime.v1.Common.SequencesRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Common.SequencesRequest();
+    }
+
+    public static io.greptime.v1.Common.SequencesRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SequencesRequest>
+        PARSER = new com.google.protobuf.AbstractParser<SequencesRequest>() {
+      @java.lang.Override
+      public SequencesRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SequencesRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SequencesRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SequencesRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Common.SequencesRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface QueryContextOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.QueryContext)
       com.google.protobuf.MessageOrBuilder {
@@ -16428,6 +17057,11 @@ java.lang.String defaultValue);
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_SequencesRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_SequencesRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_QueryContext_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -16557,6 +17191,7 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/common.proto\022\013greptime.v1\"" +
+      "&\n\020SequencesRequest\022\022\n\nregion_ids\030\001 \003(\004\"" +
       "\213\002\n\014QueryContext\022\027\n\017current_catalog\030\001 \001(" +
       "\t\022\026\n\016current_schema\030\002 \001(\t\022\020\n\010timezone\030\004 " +
       "\001(\t\022=\n\nextensions\030\005 \003(\0132).greptime.v1.Qu" +
@@ -16625,8 +17260,14 @@ java.lang.String defaultValue);
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_greptime_v1_QueryContext_descriptor =
+    internal_static_greptime_v1_SequencesRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_greptime_v1_SequencesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_SequencesRequest_descriptor,
+        new java.lang.String[] { "RegionIds", });
+    internal_static_greptime_v1_QueryContext_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_QueryContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_QueryContext_descriptor,
@@ -16638,7 +17279,7 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_QueryContext_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_SnapshotSequences_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_SnapshotSequences_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SnapshotSequences_descriptor,
@@ -16650,13 +17291,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_SnapshotSequences_SnapshotSeqsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_SequenceRange_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_SequenceRange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SequenceRange_descriptor,
         new java.lang.String[] { "Start", "End", });
     internal_static_greptime_v1_RequestHeader_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_RequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RequestHeader_descriptor,
@@ -16668,97 +17309,97 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_RequestHeader_TracingContextEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_ResponseHeader_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_ResponseHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ResponseHeader_descriptor,
         new java.lang.String[] { "Status", });
     internal_static_greptime_v1_Status_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_Status_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Status_descriptor,
         new java.lang.String[] { "StatusCode", "ErrMsg", });
     internal_static_greptime_v1_AuthHeader_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_AuthHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AuthHeader_descriptor,
         new java.lang.String[] { "Basic", "Token", "AuthScheme", });
     internal_static_greptime_v1_Basic_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_Basic_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Basic_descriptor,
         new java.lang.String[] { "Username", "Password", });
     internal_static_greptime_v1_Token_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_Token_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Token_descriptor,
         new java.lang.String[] { "Token", });
     internal_static_greptime_v1_TableName_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_TableName_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TableName_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", });
     internal_static_greptime_v1_AffectedRows_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_AffectedRows_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AffectedRows_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_greptime_v1_Metrics_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_Metrics_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Metrics_descriptor,
         new java.lang.String[] { "Metrics", });
     internal_static_greptime_v1_ExpireAfter_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_ExpireAfter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ExpireAfter_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_greptime_v1_FlightMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_FlightMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlightMetadata_descriptor,
         new java.lang.String[] { "AffectedRows", "Metrics", });
     internal_static_greptime_v1_IntervalMonthDayNano_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_IntervalMonthDayNano_descriptor,
         new java.lang.String[] { "Months", "Days", "Nanoseconds", });
     internal_static_greptime_v1_Decimal128_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_Decimal128_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Decimal128_descriptor,
         new java.lang.String[] { "Hi", "Lo", });
     internal_static_greptime_v1_ColumnDataTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_ColumnDataTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDataTypeExtension_descriptor,
         new java.lang.String[] { "DecimalType", "JsonType", "VectorType", "TypeExt", });
     internal_static_greptime_v1_DecimalTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_DecimalTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DecimalTypeExtension_descriptor,
         new java.lang.String[] { "Precision", "Scale", });
     internal_static_greptime_v1_VectorTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_greptime_v1_VectorTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_VectorTypeExtension_descriptor,
         new java.lang.String[] { "Dim", });
     internal_static_greptime_v1_ColumnOptions_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_greptime_v1_ColumnOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnOptions_descriptor,

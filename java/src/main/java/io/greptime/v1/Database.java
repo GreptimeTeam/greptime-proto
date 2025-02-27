@@ -123,6 +123,21 @@ public final class Database {
      */
     io.greptime.v1.Database.RowDeleteRequestsOrBuilder getRowDeletesOrBuilder();
 
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+     * @return Whether the seqs field is set.
+     */
+    boolean hasSeqs();
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+     * @return The seqs.
+     */
+    io.greptime.v1.Common.SequencesRequest getSeqs();
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+     */
+    io.greptime.v1.Common.SequencesRequestOrBuilder getSeqsOrBuilder();
+
     public io.greptime.v1.Database.GreptimeRequest.RequestCase getRequestCase();
   }
   /**
@@ -267,6 +282,20 @@ public final class Database {
               requestCase_ = 7;
               break;
             }
+            case 66: {
+              io.greptime.v1.Common.SequencesRequest.Builder subBuilder = null;
+              if (requestCase_ == 8) {
+                subBuilder = ((io.greptime.v1.Common.SequencesRequest) request_).toBuilder();
+              }
+              request_ =
+                  input.readMessage(io.greptime.v1.Common.SequencesRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Common.SequencesRequest) request_);
+                request_ = subBuilder.buildPartial();
+              }
+              requestCase_ = 8;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -312,6 +341,7 @@ public final class Database {
       DELETES(5),
       ROW_INSERTS(6),
       ROW_DELETES(7),
+      SEQS(8),
       REQUEST_NOT_SET(0);
       private final int value;
       private RequestCase(int value) {
@@ -335,6 +365,7 @@ public final class Database {
           case 5: return DELETES;
           case 6: return ROW_INSERTS;
           case 7: return ROW_DELETES;
+          case 8: return SEQS;
           case 0: return REQUEST_NOT_SET;
           default: return null;
         }
@@ -562,6 +593,37 @@ public final class Database {
       return io.greptime.v1.Database.RowDeleteRequests.getDefaultInstance();
     }
 
+    public static final int SEQS_FIELD_NUMBER = 8;
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+     * @return Whether the seqs field is set.
+     */
+    @java.lang.Override
+    public boolean hasSeqs() {
+      return requestCase_ == 8;
+    }
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+     * @return The seqs.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.SequencesRequest getSeqs() {
+      if (requestCase_ == 8) {
+         return (io.greptime.v1.Common.SequencesRequest) request_;
+      }
+      return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.SequencesRequestOrBuilder getSeqsOrBuilder() {
+      if (requestCase_ == 8) {
+         return (io.greptime.v1.Common.SequencesRequest) request_;
+      }
+      return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -596,6 +658,9 @@ public final class Database {
       }
       if (requestCase_ == 7) {
         output.writeMessage(7, (io.greptime.v1.Database.RowDeleteRequests) request_);
+      }
+      if (requestCase_ == 8) {
+        output.writeMessage(8, (io.greptime.v1.Common.SequencesRequest) request_);
       }
       unknownFields.writeTo(output);
     }
@@ -633,6 +698,10 @@ public final class Database {
       if (requestCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, (io.greptime.v1.Database.RowDeleteRequests) request_);
+      }
+      if (requestCase_ == 8) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, (io.greptime.v1.Common.SequencesRequest) request_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -680,6 +749,10 @@ public final class Database {
           if (!getRowDeletes()
               .equals(other.getRowDeletes())) return false;
           break;
+        case 8:
+          if (!getSeqs()
+              .equals(other.getSeqs())) return false;
+          break;
         case 0:
         default:
       }
@@ -722,6 +795,10 @@ public final class Database {
         case 7:
           hash = (37 * hash) + ROW_DELETES_FIELD_NUMBER;
           hash = (53 * hash) + getRowDeletes().hashCode();
+          break;
+        case 8:
+          hash = (37 * hash) + SEQS_FIELD_NUMBER;
+          hash = (53 * hash) + getSeqs().hashCode();
           break;
         case 0:
         default:
@@ -940,6 +1017,13 @@ public final class Database {
             result.request_ = rowDeletesBuilder_.build();
           }
         }
+        if (requestCase_ == 8) {
+          if (seqsBuilder_ == null) {
+            result.request_ = request_;
+          } else {
+            result.request_ = seqsBuilder_.build();
+          }
+        }
         result.requestCase_ = requestCase_;
         onBuilt();
         return result;
@@ -1015,6 +1099,10 @@ public final class Database {
           }
           case ROW_DELETES: {
             mergeRowDeletes(other.getRowDeletes());
+            break;
+          }
+          case SEQS: {
+            mergeSeqs(other.getSeqs());
             break;
           }
           case REQUEST_NOT_SET: {
@@ -2035,6 +2123,148 @@ public final class Database {
         onChanged();;
         return rowDeletesBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.SequencesRequest, io.greptime.v1.Common.SequencesRequest.Builder, io.greptime.v1.Common.SequencesRequestOrBuilder> seqsBuilder_;
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+       * @return Whether the seqs field is set.
+       */
+      @java.lang.Override
+      public boolean hasSeqs() {
+        return requestCase_ == 8;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+       * @return The seqs.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.SequencesRequest getSeqs() {
+        if (seqsBuilder_ == null) {
+          if (requestCase_ == 8) {
+            return (io.greptime.v1.Common.SequencesRequest) request_;
+          }
+          return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+        } else {
+          if (requestCase_ == 8) {
+            return seqsBuilder_.getMessage();
+          }
+          return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+       */
+      public Builder setSeqs(io.greptime.v1.Common.SequencesRequest value) {
+        if (seqsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          request_ = value;
+          onChanged();
+        } else {
+          seqsBuilder_.setMessage(value);
+        }
+        requestCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+       */
+      public Builder setSeqs(
+          io.greptime.v1.Common.SequencesRequest.Builder builderForValue) {
+        if (seqsBuilder_ == null) {
+          request_ = builderForValue.build();
+          onChanged();
+        } else {
+          seqsBuilder_.setMessage(builderForValue.build());
+        }
+        requestCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+       */
+      public Builder mergeSeqs(io.greptime.v1.Common.SequencesRequest value) {
+        if (seqsBuilder_ == null) {
+          if (requestCase_ == 8 &&
+              request_ != io.greptime.v1.Common.SequencesRequest.getDefaultInstance()) {
+            request_ = io.greptime.v1.Common.SequencesRequest.newBuilder((io.greptime.v1.Common.SequencesRequest) request_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            request_ = value;
+          }
+          onChanged();
+        } else {
+          if (requestCase_ == 8) {
+            seqsBuilder_.mergeFrom(value);
+          } else {
+            seqsBuilder_.setMessage(value);
+          }
+        }
+        requestCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+       */
+      public Builder clearSeqs() {
+        if (seqsBuilder_ == null) {
+          if (requestCase_ == 8) {
+            requestCase_ = 0;
+            request_ = null;
+            onChanged();
+          }
+        } else {
+          if (requestCase_ == 8) {
+            requestCase_ = 0;
+            request_ = null;
+          }
+          seqsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+       */
+      public io.greptime.v1.Common.SequencesRequest.Builder getSeqsBuilder() {
+        return getSeqsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.SequencesRequestOrBuilder getSeqsOrBuilder() {
+        if ((requestCase_ == 8) && (seqsBuilder_ != null)) {
+          return seqsBuilder_.getMessageOrBuilder();
+        } else {
+          if (requestCase_ == 8) {
+            return (io.greptime.v1.Common.SequencesRequest) request_;
+          }
+          return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.SequencesRequest, io.greptime.v1.Common.SequencesRequest.Builder, io.greptime.v1.Common.SequencesRequestOrBuilder> 
+          getSeqsFieldBuilder() {
+        if (seqsBuilder_ == null) {
+          if (!(requestCase_ == 8)) {
+            request_ = io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+          }
+          seqsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.SequencesRequest, io.greptime.v1.Common.SequencesRequest.Builder, io.greptime.v1.Common.SequencesRequestOrBuilder>(
+                  (io.greptime.v1.Common.SequencesRequest) request_,
+                  getParentForChildren(),
+                  isClean());
+          request_ = null;
+        }
+        requestCase_ = 8;
+        onChanged();;
+        return seqsBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2122,6 +2352,42 @@ public final class Database {
      */
     io.greptime.v1.Common.AffectedRowsOrBuilder getAffectedRowsOrBuilder();
 
+    /**
+     * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+     */
+    int getExtensionsCount();
+    /**
+     * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+     */
+    boolean containsExtensions(
+        java.lang.String key);
+    /**
+     * Use {@link #getExtensionsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, com.google.protobuf.ByteString>
+    getExtensions();
+    /**
+     * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+     */
+    java.util.Map<java.lang.String, com.google.protobuf.ByteString>
+    getExtensionsMap();
+    /**
+     * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+     */
+
+    /* nullable */
+com.google.protobuf.ByteString getExtensionsOrDefault(
+        java.lang.String key,
+        /* nullable */
+com.google.protobuf.ByteString defaultValue);
+    /**
+     * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+     */
+
+    com.google.protobuf.ByteString getExtensionsOrThrow(
+        java.lang.String key);
+
     public io.greptime.v1.Database.GreptimeResponse.ResponseCase getResponseCase();
   }
   /**
@@ -2159,6 +2425,7 @@ public final class Database {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2196,6 +2463,19 @@ public final class Database {
               responseCase_ = 2;
               break;
             }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                extensions_ = com.google.protobuf.MapField.newMapField(
+                    ExtensionsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+              extensions__ = input.readMessage(
+                  ExtensionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extensions_.getMutableMap().put(
+                  extensions__.getKey(), extensions__.getValue());
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2222,6 +2502,18 @@ public final class Database {
       return io.greptime.v1.Database.internal_static_greptime_v1_GreptimeResponse_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 3:
+          return internalGetExtensions();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -2326,6 +2618,87 @@ public final class Database {
       return io.greptime.v1.Common.AffectedRows.getDefaultInstance();
     }
 
+    public static final int EXTENSIONS_FIELD_NUMBER = 3;
+    private static final class ExtensionsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, com.google.protobuf.ByteString> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, com.google.protobuf.ByteString>newDefaultInstance(
+                  io.greptime.v1.Database.internal_static_greptime_v1_GreptimeResponse_ExtensionsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.BYTES,
+                  com.google.protobuf.ByteString.EMPTY);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, com.google.protobuf.ByteString> extensions_;
+    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+    internalGetExtensions() {
+      if (extensions_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ExtensionsDefaultEntryHolder.defaultEntry);
+      }
+      return extensions_;
+    }
+
+    public int getExtensionsCount() {
+      return internalGetExtensions().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsExtensions(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetExtensions().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getExtensionsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensions() {
+      return getExtensionsMap();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensionsMap() {
+      return internalGetExtensions().getMap();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+     */
+    @java.lang.Override
+
+    public com.google.protobuf.ByteString getExtensionsOrDefault(
+        java.lang.String key,
+        com.google.protobuf.ByteString defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
+          internalGetExtensions().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+     */
+    @java.lang.Override
+
+    public com.google.protobuf.ByteString getExtensionsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
+          internalGetExtensions().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2346,6 +2719,12 @@ public final class Database {
       if (responseCase_ == 2) {
         output.writeMessage(2, (io.greptime.v1.Common.AffectedRows) response_);
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetExtensions(),
+          ExtensionsDefaultEntryHolder.defaultEntry,
+          3);
       unknownFields.writeTo(output);
     }
 
@@ -2362,6 +2741,16 @@ public final class Database {
       if (responseCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (io.greptime.v1.Common.AffectedRows) response_);
+      }
+      for (java.util.Map.Entry<java.lang.String, com.google.protobuf.ByteString> entry
+           : internalGetExtensions().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+        extensions__ = ExtensionsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(3, extensions__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2383,6 +2772,8 @@ public final class Database {
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
+      if (!internalGetExtensions().equals(
+          other.internalGetExtensions())) return false;
       if (!getResponseCase().equals(other.getResponseCase())) return false;
       switch (responseCase_) {
         case 2:
@@ -2406,6 +2797,10 @@ public final class Database {
       if (hasHeader()) {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
+      }
+      if (!internalGetExtensions().getMap().isEmpty()) {
+        hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetExtensions().hashCode();
       }
       switch (responseCase_) {
         case 2:
@@ -2522,6 +2917,28 @@ public final class Database {
         return io.greptime.v1.Database.internal_static_greptime_v1_GreptimeResponse_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 3:
+            return internalGetExtensions();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 3:
+            return internalGetMutableExtensions();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -2554,6 +2971,7 @@ public final class Database {
           header_ = null;
           headerBuilder_ = null;
         }
+        internalGetMutableExtensions().clear();
         responseCase_ = 0;
         response_ = null;
         return this;
@@ -2582,6 +3000,7 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.GreptimeResponse buildPartial() {
         io.greptime.v1.Database.GreptimeResponse result = new io.greptime.v1.Database.GreptimeResponse(this);
+        int from_bitField0_ = bitField0_;
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
@@ -2594,6 +3013,8 @@ public final class Database {
             result.response_ = affectedRowsBuilder_.build();
           }
         }
+        result.extensions_ = internalGetExtensions();
+        result.extensions_.makeImmutable();
         result.responseCase_ = responseCase_;
         onBuilt();
         return result;
@@ -2646,6 +3067,8 @@ public final class Database {
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
+        internalGetMutableExtensions().mergeFrom(
+            other.internalGetExtensions());
         switch (other.getResponseCase()) {
           case AFFECTED_ROWS: {
             mergeAffectedRows(other.getAffectedRows());
@@ -2698,6 +3121,7 @@ public final class Database {
         return this;
       }
 
+      private int bitField0_;
 
       private io.greptime.v1.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2958,6 +3382,137 @@ public final class Database {
         responseCase_ = 2;
         onChanged();;
         return affectedRowsBuilder_;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, com.google.protobuf.ByteString> extensions_;
+      private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+      internalGetExtensions() {
+        if (extensions_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ExtensionsDefaultEntryHolder.defaultEntry);
+        }
+        return extensions_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+      internalGetMutableExtensions() {
+        onChanged();;
+        if (extensions_ == null) {
+          extensions_ = com.google.protobuf.MapField.newMapField(
+              ExtensionsDefaultEntryHolder.defaultEntry);
+        }
+        if (!extensions_.isMutable()) {
+          extensions_ = extensions_.copy();
+        }
+        return extensions_;
+      }
+
+      public int getExtensionsCount() {
+        return internalGetExtensions().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsExtensions(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetExtensions().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getExtensionsMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensions() {
+        return getExtensionsMap();
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getExtensionsMap() {
+        return internalGetExtensions().getMap();
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+       */
+      @java.lang.Override
+
+      public com.google.protobuf.ByteString getExtensionsOrDefault(
+          java.lang.String key,
+          com.google.protobuf.ByteString defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
+            internalGetExtensions().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+       */
+      @java.lang.Override
+
+      public com.google.protobuf.ByteString getExtensionsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
+            internalGetExtensions().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearExtensions() {
+        internalGetMutableExtensions().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+       */
+
+      public Builder removeExtensions(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableExtensions().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.google.protobuf.ByteString>
+      getMutableExtensions() {
+        return internalGetMutableExtensions().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+       */
+      public Builder putExtensions(
+          java.lang.String key,
+          com.google.protobuf.ByteString value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableExtensions().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, bytes&gt; extensions = 3;</code>
+       */
+
+      public Builder putAllExtensions(
+          java.util.Map<java.lang.String, com.google.protobuf.ByteString> values) {
+        internalGetMutableExtensions().getMutableMap()
+            .putAll(values);
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -11283,6 +11838,11 @@ public final class Database {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_GreptimeResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_GreptimeResponse_ExtensionsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_GreptimeResponse_ExtensionsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_QueryRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11340,7 +11900,7 @@ public final class Database {
       "1\032\025greptime/v1/ddl.proto\032\030greptime/v1/co" +
       "lumn.proto\032\025greptime/v1/row.proto\032\026grept" +
       "ime/v1/prom.proto\032\030greptime/v1/common.pr" +
-      "oto\"\352\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132" +
+      "oto\"\231\003\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132" +
       "\032.greptime.v1.RequestHeader\022.\n\007inserts\030\002" +
       " \001(\0132\033.greptime.v1.InsertRequestsH\000\022*\n\005q" +
       "uery\030\003 \001(\0132\031.greptime.v1.QueryRequestH\000\022" +
@@ -11348,36 +11908,40 @@ public final class Database {
       ".\n\007deletes\030\005 \001(\0132\033.greptime.v1.DeleteReq" +
       "uestsH\000\0225\n\013row_inserts\030\006 \001(\0132\036.greptime." +
       "v1.RowInsertRequestsH\000\0225\n\013row_deletes\030\007 " +
-      "\001(\0132\036.greptime.v1.RowDeleteRequestsH\000B\t\n" +
-      "\007request\"\177\n\020GreptimeResponse\022+\n\006header\030\001" +
-      " \001(\0132\033.greptime.v1.ResponseHeader\0222\n\raff" +
-      "ected_rows\030\002 \001(\0132\031.greptime.v1.AffectedR" +
-      "owsH\000B\n\n\010response\"w\n\014QueryRequest\022\r\n\003sql" +
-      "\030\001 \001(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020prom" +
-      "_range_query\030\003 \001(\0132\033.greptime.v1.PromRan" +
-      "geQueryH\000B\007\n\005query\"=\n\016InsertRequests\022+\n\007" +
-      "inserts\030\001 \003(\0132\032.greptime.v1.InsertReques" +
-      "t\"\\\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$" +
-      "\n\007columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\t" +
-      "row_count\030\004 \001(\r\"=\n\016DeleteRequests\022+\n\007del" +
-      "etes\030\001 \003(\0132\032.greptime.v1.DeleteRequest\"`" +
-      "\n\rDeleteRequest\022\022\n\ntable_name\030\001 \001(\t\022(\n\013k" +
-      "ey_columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n" +
-      "\trow_count\030\004 \001(\r\"C\n\021RowInsertRequests\022.\n" +
-      "\007inserts\030\001 \003(\0132\035.greptime.v1.RowInsertRe" +
-      "quest\"G\n\020RowInsertRequest\022\022\n\ntable_name\030" +
-      "\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C" +
-      "\n\021RowDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035.g" +
-      "reptime.v1.RowDeleteRequest\"G\n\020RowDelete" +
-      "Request\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(" +
-      "\0132\021.greptime.v1.Rows2\252\001\n\020GreptimeDatabas" +
-      "e\022E\n\006Handle\022\034.greptime.v1.GreptimeReques" +
-      "t\032\035.greptime.v1.GreptimeResponse\022O\n\016Hand" +
-      "leRequests\022\034.greptime.v1.GreptimeRequest" +
-      "\032\035.greptime.v1.GreptimeResponse(\001BQ\n\016io." +
-      "greptime.v1B\010DatabaseZ5github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
-      "oto3"
+      "\001(\0132\036.greptime.v1.RowDeleteRequestsH\000\022-\n" +
+      "\004seqs\030\010 \001(\0132\035.greptime.v1.SequencesReque" +
+      "stH\000B\t\n\007request\"\365\001\n\020GreptimeResponse\022+\n\006" +
+      "header\030\001 \001(\0132\033.greptime.v1.ResponseHeade" +
+      "r\0222\n\raffected_rows\030\002 \001(\0132\031.greptime.v1.A" +
+      "ffectedRowsH\000\022A\n\nextensions\030\003 \003(\0132-.grep" +
+      "time.v1.GreptimeResponse.ExtensionsEntry" +
+      "\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
+      "e\030\002 \001(\014:\0028\001B\n\n\010response\"w\n\014QueryRequest\022" +
+      "\r\n\003sql\030\001 \001(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227" +
+      "\n\020prom_range_query\030\003 \001(\0132\033.greptime.v1.P" +
+      "romRangeQueryH\000B\007\n\005query\"=\n\016InsertReques" +
+      "ts\022+\n\007inserts\030\001 \003(\0132\032.greptime.v1.Insert" +
+      "Request\"\\\n\rInsertRequest\022\022\n\ntable_name\030\001" +
+      " \001(\t\022$\n\007columns\030\003 \003(\0132\023.greptime.v1.Colu" +
+      "mn\022\021\n\trow_count\030\004 \001(\r\"=\n\016DeleteRequests\022" +
+      "+\n\007deletes\030\001 \003(\0132\032.greptime.v1.DeleteReq" +
+      "uest\"`\n\rDeleteRequest\022\022\n\ntable_name\030\001 \001(" +
+      "\t\022(\n\013key_columns\030\003 \003(\0132\023.greptime.v1.Col" +
+      "umn\022\021\n\trow_count\030\004 \001(\r\"C\n\021RowInsertReque" +
+      "sts\022.\n\007inserts\030\001 \003(\0132\035.greptime.v1.RowIn" +
+      "sertRequest\"G\n\020RowInsertRequest\022\022\n\ntable" +
+      "_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1." +
+      "Rows\"C\n\021RowDeleteRequests\022.\n\007deletes\030\001 \003" +
+      "(\0132\035.greptime.v1.RowDeleteRequest\"G\n\020Row" +
+      "DeleteRequest\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004row" +
+      "s\030\002 \001(\0132\021.greptime.v1.Rows2\252\001\n\020GreptimeD" +
+      "atabase\022E\n\006Handle\022\034.greptime.v1.Greptime" +
+      "Request\032\035.greptime.v1.GreptimeResponse\022O" +
+      "\n\016HandleRequests\022\034.greptime.v1.GreptimeR" +
+      "equest\032\035.greptime.v1.GreptimeResponse(\001B" +
+      "Q\n\016io.greptime.v1B\010DatabaseZ5github.com/" +
+      "GreptimeTeam/greptime-proto/go/greptime/" +
+      "v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11393,13 +11957,19 @@ public final class Database {
     internal_static_greptime_v1_GreptimeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_GreptimeRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Query", "Ddl", "Deletes", "RowInserts", "RowDeletes", "Request", });
+        new java.lang.String[] { "Header", "Inserts", "Query", "Ddl", "Deletes", "RowInserts", "RowDeletes", "Seqs", "Request", });
     internal_static_greptime_v1_GreptimeResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_GreptimeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_GreptimeResponse_descriptor,
-        new java.lang.String[] { "Header", "AffectedRows", "Response", });
+        new java.lang.String[] { "Header", "AffectedRows", "Extensions", "Response", });
+    internal_static_greptime_v1_GreptimeResponse_ExtensionsEntry_descriptor =
+      internal_static_greptime_v1_GreptimeResponse_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_GreptimeResponse_ExtensionsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_GreptimeResponse_ExtensionsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_QueryRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_QueryRequest_fieldAccessorTable = new

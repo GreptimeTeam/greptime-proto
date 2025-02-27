@@ -29,6 +29,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/ddl.pb.h"
 #include "greptime/v1/column.pb.h"
@@ -63,6 +66,9 @@ extern GreptimeRequestDefaultTypeInternal _GreptimeRequest_default_instance_;
 class GreptimeResponse;
 struct GreptimeResponseDefaultTypeInternal;
 extern GreptimeResponseDefaultTypeInternal _GreptimeResponse_default_instance_;
+class GreptimeResponse_ExtensionsEntry_DoNotUse;
+struct GreptimeResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal;
+extern GreptimeResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal _GreptimeResponse_ExtensionsEntry_DoNotUse_default_instance_;
 class InsertRequest;
 struct InsertRequestDefaultTypeInternal;
 extern InsertRequestDefaultTypeInternal _InsertRequest_default_instance_;
@@ -91,6 +97,7 @@ template<> ::greptime::v1::DeleteRequest* Arena::CreateMaybeMessage<::greptime::
 template<> ::greptime::v1::DeleteRequests* Arena::CreateMaybeMessage<::greptime::v1::DeleteRequests>(Arena*);
 template<> ::greptime::v1::GreptimeRequest* Arena::CreateMaybeMessage<::greptime::v1::GreptimeRequest>(Arena*);
 template<> ::greptime::v1::GreptimeResponse* Arena::CreateMaybeMessage<::greptime::v1::GreptimeResponse>(Arena*);
+template<> ::greptime::v1::GreptimeResponse_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::GreptimeResponse_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::InsertRequest* Arena::CreateMaybeMessage<::greptime::v1::InsertRequest>(Arena*);
 template<> ::greptime::v1::InsertRequests* Arena::CreateMaybeMessage<::greptime::v1::InsertRequests>(Arena*);
 template<> ::greptime::v1::QueryRequest* Arena::CreateMaybeMessage<::greptime::v1::QueryRequest>(Arena*);
@@ -154,6 +161,7 @@ class GreptimeRequest final :
     kDeletes = 5,
     kRowInserts = 6,
     kRowDeletes = 7,
+    kSeqs = 8,
     REQUEST_NOT_SET = 0,
   };
 
@@ -242,6 +250,7 @@ class GreptimeRequest final :
     kDeletesFieldNumber = 5,
     kRowInsertsFieldNumber = 6,
     kRowDeletesFieldNumber = 7,
+    kSeqsFieldNumber = 8,
   };
   // .greptime.v1.RequestHeader header = 1;
   bool has_header() const;
@@ -369,6 +378,24 @@ class GreptimeRequest final :
       ::greptime::v1::RowDeleteRequests* row_deletes);
   ::greptime::v1::RowDeleteRequests* unsafe_arena_release_row_deletes();
 
+  // .greptime.v1.SequencesRequest seqs = 8;
+  bool has_seqs() const;
+  private:
+  bool _internal_has_seqs() const;
+  public:
+  void clear_seqs();
+  const ::greptime::v1::SequencesRequest& seqs() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SequencesRequest* release_seqs();
+  ::greptime::v1::SequencesRequest* mutable_seqs();
+  void set_allocated_seqs(::greptime::v1::SequencesRequest* seqs);
+  private:
+  const ::greptime::v1::SequencesRequest& _internal_seqs() const;
+  ::greptime::v1::SequencesRequest* _internal_mutable_seqs();
+  public:
+  void unsafe_arena_set_allocated_seqs(
+      ::greptime::v1::SequencesRequest* seqs);
+  ::greptime::v1::SequencesRequest* unsafe_arena_release_seqs();
+
   void clear_request();
   RequestCase request_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.GreptimeRequest)
@@ -380,6 +407,7 @@ class GreptimeRequest final :
   void set_has_deletes();
   void set_has_row_inserts();
   void set_has_row_deletes();
+  void set_has_seqs();
 
   inline bool has_request() const;
   inline void clear_has_request();
@@ -398,6 +426,7 @@ class GreptimeRequest final :
       ::greptime::v1::DeleteRequests* deletes_;
       ::greptime::v1::RowInsertRequests* row_inserts_;
       ::greptime::v1::RowDeleteRequests* row_deletes_;
+      ::greptime::v1::SequencesRequest* seqs_;
     } request_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -406,6 +435,32 @@ class GreptimeRequest final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fdatabase_2eproto;
 };
+// -------------------------------------------------------------------
+
+class GreptimeResponse_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<GreptimeResponse_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<GreptimeResponse_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> SuperType;
+  GreptimeResponse_ExtensionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR GreptimeResponse_ExtensionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit GreptimeResponse_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const GreptimeResponse_ExtensionsEntry_DoNotUse& other);
+  static const GreptimeResponse_ExtensionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const GreptimeResponse_ExtensionsEntry_DoNotUse*>(&_GreptimeResponse_ExtensionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.GreptimeResponse.ExtensionsEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fdatabase_2eproto;
+};
+
 // -------------------------------------------------------------------
 
 class GreptimeResponse final :
@@ -461,7 +516,7 @@ class GreptimeResponse final :
                &_GreptimeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(GreptimeResponse& a, GreptimeResponse& b) {
     a.Swap(&b);
@@ -522,6 +577,8 @@ class GreptimeResponse final :
   protected:
   explicit GreptimeResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -531,12 +588,31 @@ class GreptimeResponse final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kExtensionsFieldNumber = 3,
     kHeaderFieldNumber = 1,
     kAffectedRowsFieldNumber = 2,
   };
+  // map<string, bytes> extensions = 3;
+  int extensions_size() const;
+  private:
+  int _internal_extensions_size() const;
+  public:
+  void clear_extensions();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_extensions();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_extensions();
+
   // .greptime.v1.ResponseHeader header = 1;
   bool has_header() const;
   private:
@@ -587,6 +663,11 @@ class GreptimeResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        GreptimeResponse_ExtensionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extensions_;
     ::greptime::v1::ResponseHeader* header_;
     union ResponseUnion {
       constexpr ResponseUnion() : _constinit_{} {}
@@ -657,7 +738,7 @@ class QueryRequest final :
                &_QueryRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(QueryRequest& a, QueryRequest& b) {
     a.Swap(&b);
@@ -868,7 +949,7 @@ class InsertRequests final :
                &_InsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(InsertRequests& a, InsertRequests& b) {
     a.Swap(&b);
@@ -1025,7 +1106,7 @@ class InsertRequest final :
                &_InsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(InsertRequest& a, InsertRequest& b) {
     a.Swap(&b);
@@ -1209,7 +1290,7 @@ class DeleteRequests final :
                &_DeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(DeleteRequests& a, DeleteRequests& b) {
     a.Swap(&b);
@@ -1366,7 +1447,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
     a.Swap(&b);
@@ -1550,7 +1631,7 @@ class RowInsertRequests final :
                &_RowInsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(RowInsertRequests& a, RowInsertRequests& b) {
     a.Swap(&b);
@@ -1707,7 +1788,7 @@ class RowInsertRequest final :
                &_RowInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(RowInsertRequest& a, RowInsertRequest& b) {
     a.Swap(&b);
@@ -1880,7 +1961,7 @@ class RowDeleteRequests final :
                &_RowDeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(RowDeleteRequests& a, RowDeleteRequests& b) {
     a.Swap(&b);
@@ -2037,7 +2118,7 @@ class RowDeleteRequest final :
                &_RowDeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(RowDeleteRequest& a, RowDeleteRequest& b) {
     a.Swap(&b);
@@ -2692,6 +2773,72 @@ inline ::greptime::v1::RowDeleteRequests* GreptimeRequest::mutable_row_deletes()
   return _msg;
 }
 
+// .greptime.v1.SequencesRequest seqs = 8;
+inline bool GreptimeRequest::_internal_has_seqs() const {
+  return request_case() == kSeqs;
+}
+inline bool GreptimeRequest::has_seqs() const {
+  return _internal_has_seqs();
+}
+inline void GreptimeRequest::set_has_seqs() {
+  _impl_._oneof_case_[0] = kSeqs;
+}
+inline ::greptime::v1::SequencesRequest* GreptimeRequest::release_seqs() {
+  // @@protoc_insertion_point(field_release:greptime.v1.GreptimeRequest.seqs)
+  if (_internal_has_seqs()) {
+    clear_has_request();
+    ::greptime::v1::SequencesRequest* temp = _impl_.request_.seqs_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.request_.seqs_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::SequencesRequest& GreptimeRequest::_internal_seqs() const {
+  return _internal_has_seqs()
+      ? *_impl_.request_.seqs_
+      : reinterpret_cast< ::greptime::v1::SequencesRequest&>(::greptime::v1::_SequencesRequest_default_instance_);
+}
+inline const ::greptime::v1::SequencesRequest& GreptimeRequest::seqs() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.GreptimeRequest.seqs)
+  return _internal_seqs();
+}
+inline ::greptime::v1::SequencesRequest* GreptimeRequest::unsafe_arena_release_seqs() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.GreptimeRequest.seqs)
+  if (_internal_has_seqs()) {
+    clear_has_request();
+    ::greptime::v1::SequencesRequest* temp = _impl_.request_.seqs_;
+    _impl_.request_.seqs_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void GreptimeRequest::unsafe_arena_set_allocated_seqs(::greptime::v1::SequencesRequest* seqs) {
+  clear_request();
+  if (seqs) {
+    set_has_seqs();
+    _impl_.request_.seqs_ = seqs;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.GreptimeRequest.seqs)
+}
+inline ::greptime::v1::SequencesRequest* GreptimeRequest::_internal_mutable_seqs() {
+  if (!_internal_has_seqs()) {
+    clear_request();
+    set_has_seqs();
+    _impl_.request_.seqs_ = CreateMaybeMessage< ::greptime::v1::SequencesRequest >(GetArenaForAllocation());
+  }
+  return _impl_.request_.seqs_;
+}
+inline ::greptime::v1::SequencesRequest* GreptimeRequest::mutable_seqs() {
+  ::greptime::v1::SequencesRequest* _msg = _internal_mutable_seqs();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeRequest.seqs)
+  return _msg;
+}
+
 inline bool GreptimeRequest::has_request() const {
   return request_case() != REQUEST_NOT_SET;
 }
@@ -2701,6 +2848,8 @@ inline void GreptimeRequest::clear_has_request() {
 inline GreptimeRequest::RequestCase GreptimeRequest::request_case() const {
   return GreptimeRequest::RequestCase(_impl_._oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // GreptimeResponse
@@ -2854,6 +3003,35 @@ inline ::greptime::v1::AffectedRows* GreptimeResponse::mutable_affected_rows() {
   ::greptime::v1::AffectedRows* _msg = _internal_mutable_affected_rows();
   // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeResponse.affected_rows)
   return _msg;
+}
+
+// map<string, bytes> extensions = 3;
+inline int GreptimeResponse::_internal_extensions_size() const {
+  return _impl_.extensions_.size();
+}
+inline int GreptimeResponse::extensions_size() const {
+  return _internal_extensions_size();
+}
+inline void GreptimeResponse::clear_extensions() {
+  _impl_.extensions_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+GreptimeResponse::_internal_extensions() const {
+  return _impl_.extensions_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+GreptimeResponse::extensions() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.GreptimeResponse.extensions)
+  return _internal_extensions();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+GreptimeResponse::_internal_mutable_extensions() {
+  return _impl_.extensions_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+GreptimeResponse::mutable_extensions() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.GreptimeResponse.extensions)
+  return _internal_mutable_extensions();
 }
 
 inline bool GreptimeResponse::has_response() const {
@@ -3777,6 +3955,8 @@ inline void RowDeleteRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

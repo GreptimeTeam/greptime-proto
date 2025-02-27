@@ -469,6 +469,7 @@ class RegionRequest final :
     kCreates = 13,
     kDrops = 14,
     kAlters = 15,
+    kSeqs = 16,
     BODY_NOT_SET = 0,
   };
 
@@ -564,6 +565,7 @@ class RegionRequest final :
     kCreatesFieldNumber = 13,
     kDropsFieldNumber = 14,
     kAltersFieldNumber = 15,
+    kSeqsFieldNumber = 16,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -817,6 +819,24 @@ class RegionRequest final :
       ::greptime::v1::region::AlterRequests* alters);
   ::greptime::v1::region::AlterRequests* unsafe_arena_release_alters();
 
+  // .greptime.v1.SequencesRequest seqs = 16;
+  bool has_seqs() const;
+  private:
+  bool _internal_has_seqs() const;
+  public:
+  void clear_seqs();
+  const ::greptime::v1::SequencesRequest& seqs() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SequencesRequest* release_seqs();
+  ::greptime::v1::SequencesRequest* mutable_seqs();
+  void set_allocated_seqs(::greptime::v1::SequencesRequest* seqs);
+  private:
+  const ::greptime::v1::SequencesRequest& _internal_seqs() const;
+  ::greptime::v1::SequencesRequest* _internal_mutable_seqs();
+  public:
+  void unsafe_arena_set_allocated_seqs(
+      ::greptime::v1::SequencesRequest* seqs);
+  ::greptime::v1::SequencesRequest* unsafe_arena_release_seqs();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -835,6 +855,7 @@ class RegionRequest final :
   void set_has_creates();
   void set_has_drops();
   void set_has_alters();
+  void set_has_seqs();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -860,6 +881,7 @@ class RegionRequest final :
       ::greptime::v1::region::CreateRequests* creates_;
       ::greptime::v1::region::DropRequests* drops_;
       ::greptime::v1::region::AlterRequests* alters_;
+      ::greptime::v1::SequencesRequest* seqs_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -6352,6 +6374,72 @@ inline ::greptime::v1::region::AlterRequests* RegionRequest::_internal_mutable_a
 inline ::greptime::v1::region::AlterRequests* RegionRequest::mutable_alters() {
   ::greptime::v1::region::AlterRequests* _msg = _internal_mutable_alters();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.alters)
+  return _msg;
+}
+
+// .greptime.v1.SequencesRequest seqs = 16;
+inline bool RegionRequest::_internal_has_seqs() const {
+  return body_case() == kSeqs;
+}
+inline bool RegionRequest::has_seqs() const {
+  return _internal_has_seqs();
+}
+inline void RegionRequest::set_has_seqs() {
+  _impl_._oneof_case_[0] = kSeqs;
+}
+inline ::greptime::v1::SequencesRequest* RegionRequest::release_seqs() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.seqs)
+  if (_internal_has_seqs()) {
+    clear_has_body();
+    ::greptime::v1::SequencesRequest* temp = _impl_.body_.seqs_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.seqs_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::SequencesRequest& RegionRequest::_internal_seqs() const {
+  return _internal_has_seqs()
+      ? *_impl_.body_.seqs_
+      : reinterpret_cast< ::greptime::v1::SequencesRequest&>(::greptime::v1::_SequencesRequest_default_instance_);
+}
+inline const ::greptime::v1::SequencesRequest& RegionRequest::seqs() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.seqs)
+  return _internal_seqs();
+}
+inline ::greptime::v1::SequencesRequest* RegionRequest::unsafe_arena_release_seqs() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.seqs)
+  if (_internal_has_seqs()) {
+    clear_has_body();
+    ::greptime::v1::SequencesRequest* temp = _impl_.body_.seqs_;
+    _impl_.body_.seqs_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_seqs(::greptime::v1::SequencesRequest* seqs) {
+  clear_body();
+  if (seqs) {
+    set_has_seqs();
+    _impl_.body_.seqs_ = seqs;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.seqs)
+}
+inline ::greptime::v1::SequencesRequest* RegionRequest::_internal_mutable_seqs() {
+  if (!_internal_has_seqs()) {
+    clear_body();
+    set_has_seqs();
+    _impl_.body_.seqs_ = CreateMaybeMessage< ::greptime::v1::SequencesRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.seqs_;
+}
+inline ::greptime::v1::SequencesRequest* RegionRequest::mutable_seqs() {
+  ::greptime::v1::SequencesRequest* _msg = _internal_mutable_seqs();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.seqs)
   return _msg;
 }
 

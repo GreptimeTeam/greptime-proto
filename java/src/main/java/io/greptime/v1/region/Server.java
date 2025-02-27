@@ -1502,6 +1502,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.region.Server.AlterRequestsOrBuilder getAltersOrBuilder();
 
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+     * @return Whether the seqs field is set.
+     */
+    boolean hasSeqs();
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+     * @return The seqs.
+     */
+    io.greptime.v1.Common.SequencesRequest getSeqs();
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+     */
+    io.greptime.v1.Common.SequencesRequestOrBuilder getSeqsOrBuilder();
+
     public io.greptime.v1.region.Server.RegionRequest.BodyCase getBodyCase();
   }
   /**
@@ -1744,6 +1759,20 @@ java.lang.String defaultValue);
               bodyCase_ = 15;
               break;
             }
+            case 130: {
+              io.greptime.v1.Common.SequencesRequest.Builder subBuilder = null;
+              if (bodyCase_ == 16) {
+                subBuilder = ((io.greptime.v1.Common.SequencesRequest) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(io.greptime.v1.Common.SequencesRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Common.SequencesRequest) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 16;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1796,6 +1825,7 @@ java.lang.String defaultValue);
       CREATES(13),
       DROPS(14),
       ALTERS(15),
+      SEQS(16),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -1826,6 +1856,7 @@ java.lang.String defaultValue);
           case 13: return CREATES;
           case 14: return DROPS;
           case 15: return ALTERS;
+          case 16: return SEQS;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -2270,6 +2301,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.AlterRequests.getDefaultInstance();
     }
 
+    public static final int SEQS_FIELD_NUMBER = 16;
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+     * @return Whether the seqs field is set.
+     */
+    @java.lang.Override
+    public boolean hasSeqs() {
+      return bodyCase_ == 16;
+    }
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+     * @return The seqs.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.SequencesRequest getSeqs() {
+      if (bodyCase_ == 16) {
+         return (io.greptime.v1.Common.SequencesRequest) body_;
+      }
+      return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.SequencesRequestOrBuilder getSeqsOrBuilder() {
+      if (bodyCase_ == 16) {
+         return (io.greptime.v1.Common.SequencesRequest) body_;
+      }
+      return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2325,6 +2387,9 @@ java.lang.String defaultValue);
       }
       if (bodyCase_ == 15) {
         output.writeMessage(15, (io.greptime.v1.region.Server.AlterRequests) body_);
+      }
+      if (bodyCase_ == 16) {
+        output.writeMessage(16, (io.greptime.v1.Common.SequencesRequest) body_);
       }
       unknownFields.writeTo(output);
     }
@@ -2390,6 +2455,10 @@ java.lang.String defaultValue);
       if (bodyCase_ == 15) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, (io.greptime.v1.region.Server.AlterRequests) body_);
+      }
+      if (bodyCase_ == 16) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(16, (io.greptime.v1.Common.SequencesRequest) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2465,6 +2534,10 @@ java.lang.String defaultValue);
           if (!getAlters()
               .equals(other.getAlters())) return false;
           break;
+        case 16:
+          if (!getSeqs()
+              .equals(other.getSeqs())) return false;
+          break;
         case 0:
         default:
       }
@@ -2535,6 +2608,10 @@ java.lang.String defaultValue);
         case 15:
           hash = (37 * hash) + ALTERS_FIELD_NUMBER;
           hash = (53 * hash) + getAlters().hashCode();
+          break;
+        case 16:
+          hash = (37 * hash) + SEQS_FIELD_NUMBER;
+          hash = (53 * hash) + getSeqs().hashCode();
           break;
         case 0:
         default:
@@ -2802,6 +2879,13 @@ java.lang.String defaultValue);
             result.body_ = altersBuilder_.build();
           }
         }
+        if (bodyCase_ == 16) {
+          if (seqsBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = seqsBuilder_.build();
+          }
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -2905,6 +2989,10 @@ java.lang.String defaultValue);
           }
           case ALTERS: {
             mergeAlters(other.getAlters());
+            break;
+          }
+          case SEQS: {
+            mergeSeqs(other.getSeqs());
             break;
           }
           case BODY_NOT_SET: {
@@ -4918,6 +5006,148 @@ java.lang.String defaultValue);
         bodyCase_ = 15;
         onChanged();;
         return altersBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.SequencesRequest, io.greptime.v1.Common.SequencesRequest.Builder, io.greptime.v1.Common.SequencesRequestOrBuilder> seqsBuilder_;
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+       * @return Whether the seqs field is set.
+       */
+      @java.lang.Override
+      public boolean hasSeqs() {
+        return bodyCase_ == 16;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+       * @return The seqs.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.SequencesRequest getSeqs() {
+        if (seqsBuilder_ == null) {
+          if (bodyCase_ == 16) {
+            return (io.greptime.v1.Common.SequencesRequest) body_;
+          }
+          return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 16) {
+            return seqsBuilder_.getMessage();
+          }
+          return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+       */
+      public Builder setSeqs(io.greptime.v1.Common.SequencesRequest value) {
+        if (seqsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          seqsBuilder_.setMessage(value);
+        }
+        bodyCase_ = 16;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+       */
+      public Builder setSeqs(
+          io.greptime.v1.Common.SequencesRequest.Builder builderForValue) {
+        if (seqsBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          seqsBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 16;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+       */
+      public Builder mergeSeqs(io.greptime.v1.Common.SequencesRequest value) {
+        if (seqsBuilder_ == null) {
+          if (bodyCase_ == 16 &&
+              body_ != io.greptime.v1.Common.SequencesRequest.getDefaultInstance()) {
+            body_ = io.greptime.v1.Common.SequencesRequest.newBuilder((io.greptime.v1.Common.SequencesRequest) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 16) {
+            seqsBuilder_.mergeFrom(value);
+          } else {
+            seqsBuilder_.setMessage(value);
+          }
+        }
+        bodyCase_ = 16;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+       */
+      public Builder clearSeqs() {
+        if (seqsBuilder_ == null) {
+          if (bodyCase_ == 16) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 16) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          seqsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+       */
+      public io.greptime.v1.Common.SequencesRequest.Builder getSeqsBuilder() {
+        return getSeqsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.SequencesRequestOrBuilder getSeqsOrBuilder() {
+        if ((bodyCase_ == 16) && (seqsBuilder_ != null)) {
+          return seqsBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 16) {
+            return (io.greptime.v1.Common.SequencesRequest) body_;
+          }
+          return io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SequencesRequest seqs = 16;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.SequencesRequest, io.greptime.v1.Common.SequencesRequest.Builder, io.greptime.v1.Common.SequencesRequestOrBuilder> 
+          getSeqsFieldBuilder() {
+        if (seqsBuilder_ == null) {
+          if (!(bodyCase_ == 16)) {
+            body_ = io.greptime.v1.Common.SequencesRequest.getDefaultInstance();
+          }
+          seqsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.SequencesRequest, io.greptime.v1.Common.SequencesRequest.Builder, io.greptime.v1.Common.SequencesRequestOrBuilder>(
+                  (io.greptime.v1.Common.SequencesRequest) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 16;
+        onChanged();;
+        return seqsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -25533,7 +25763,7 @@ java.lang.String defaultValue);
       "onRequestHeader.TracingContextEntry\022\016\n\006d" +
       "bname\030\003 \001(\t\0220\n\rquery_context\030\006 \001(\0132\031.gre" +
       "ptime.v1.QueryContext\0325\n\023TracingContextE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\375\005\n" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\254\006\n" +
       "\rRegionRequest\0227\n\006header\030\001 \001(\0132\'.greptim" +
       "e.v1.region.RegionRequestHeader\0225\n\007inser" +
       "ts\030\003 \001(\0132\".greptime.v1.region.InsertRequ" +
@@ -25552,73 +25782,74 @@ java.lang.String defaultValue);
       "\007creates\030\r \001(\0132\".greptime.v1.region.Crea" +
       "teRequestsH\000\0221\n\005drops\030\016 \001(\0132 .greptime.v" +
       "1.region.DropRequestsH\000\0223\n\006alters\030\017 \001(\0132" +
-      "!.greptime.v1.region.AlterRequestsH\000B\006\n\004" +
-      "body\"\317\001\n\016RegionResponse\022+\n\006header\030\001 \001(\0132" +
-      "\033.greptime.v1.ResponseHeader\022\025\n\raffected" +
-      "_rows\030\002 \001(\004\022F\n\nextensions\030\003 \003(\01322.grepti" +
-      "me.v1.region.RegionResponse.ExtensionsEn" +
-      "try\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\014:\0028\001\"E\n\016InsertRequests\0223\n\010requ" +
-      "ests\030\001 \003(\0132!.greptime.v1.region.InsertRe" +
-      "quest\"E\n\016DeleteRequests\0223\n\010requests\030\001 \003(" +
-      "\0132!.greptime.v1.region.DeleteRequest\"C\n\r" +
-      "InsertRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows" +
-      "\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDeleteReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.gr" +
-      "eptime.v1.Rows\"h\n\014QueryRequest\0227\n\006header" +
-      "\030\001 \001(\0132\'.greptime.v1.region.RegionReques" +
-      "tHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014" +
-      "\"E\n\016CreateRequests\0223\n\010requests\030\001 \003(\0132!.g" +
-      "reptime.v1.region.CreateRequest\"\200\002\n\rCrea" +
-      "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002" +
-      " \001(\t\0228\n\013column_defs\030\003 \003(\0132#.greptime.v1." +
-      "region.RegionColumnDef\022\023\n\013primary_key\030\004 " +
-      "\003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007options\030\006 \003(\0132..gre" +
-      "ptime.v1.region.CreateRequest.OptionsEnt" +
-      "ry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
-      "\030\002 \001(\t:\0028\001\"A\n\014DropRequests\0221\n\010requests\030\001" +
-      " \003(\0132\037.greptime.v1.region.DropRequest\"3\n" +
-      "\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\022\021\n\tfast_" +
-      "path\030\002 \001(\010\"\255\001\n\013OpenRequest\022\021\n\tregion_id\030" +
-      "\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007o" +
-      "ptions\030\004 \003(\0132,.greptime.v1.region.OpenRe" +
-      "quest.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\"C\n\rAlterRequests\0222" +
-      "\n\010requests\030\001 \003(\0132 .greptime.v1.region.Al" +
-      "terRequest\"\306\003\n\014AlterRequest\022\021\n\tregion_id" +
-      "\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036.greptime.v" +
-      "1.region.AddColumnsH\000\0227\n\014drop_columns\030\003 " +
-      "\001(\0132\037.greptime.v1.region.DropColumnsH\000\022=" +
-      "\n\023modify_column_types\030\005 \001(\0132\036.greptime.v" +
-      "1.ModifyColumnTypesH\000\0229\n\021set_table_optio" +
-      "ns\030\006 \001(\0132\034.greptime.v1.SetTableOptionsH\000" +
-      "\022=\n\023unset_table_options\030\t \001(\0132\036.greptime" +
-      ".v1.UnsetTableOptionsH\000\022*\n\tset_index\030\n \001" +
-      "(\0132\025.greptime.v1.SetIndexH\000\022.\n\013unset_ind" +
-      "ex\030\013 \001(\0132\027.greptime.v1.UnsetIndexH\000\022\026\n\016s" +
-      "chema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumn" +
-      "s\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1.reg" +
-      "ion.AddColumn\"C\n\013DropColumns\0224\n\014drop_col" +
-      "umns\030\001 \003(\0132\036.greptime.v1.region.DropColu" +
-      "mn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#.gr" +
-      "eptime.v1.region.RegionColumnDef\0220\n\010loca" +
-      "tion\030\003 \001(\0132\036.greptime.v1.AddColumnLocati" +
-      "on\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushR" +
-      "equest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014" +
-      "StrictWindow\022\026\n\016window_seconds\030\001 \001(\003\"\231\001\n" +
-      "\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007re" +
-      "gular\030\002 \001(\0132\033.greptime.v1.region.Regular" +
-      "H\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime.v1." +
-      "region.StrictWindowH\000B\t\n\007options\"$\n\017Trun" +
-      "cateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Region" +
-      "ColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime" +
-      ".v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006Regi" +
-      "on\022O\n\006Handle\022!.greptime.v1.region.Region" +
-      "Request\032\".greptime.v1.region.RegionRespo" +
-      "nseB]\n\025io.greptime.v1.regionB\006ServerZ<gi" +
-      "thub.com/GreptimeTeam/greptime-proto/go/" +
-      "greptime/v1/regionb\006proto3"
+      "!.greptime.v1.region.AlterRequestsH\000\022-\n\004" +
+      "seqs\030\020 \001(\0132\035.greptime.v1.SequencesReques" +
+      "tH\000B\006\n\004body\"\317\001\n\016RegionResponse\022+\n\006header" +
+      "\030\001 \001(\0132\033.greptime.v1.ResponseHeader\022\025\n\ra" +
+      "ffected_rows\030\002 \001(\004\022F\n\nextensions\030\003 \003(\01322" +
+      ".greptime.v1.region.RegionResponse.Exten" +
+      "sionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"E\n\016InsertRequests\022" +
+      "3\n\010requests\030\001 \003(\0132!.greptime.v1.region.I" +
+      "nsertRequest\"E\n\016DeleteRequests\0223\n\010reques" +
+      "ts\030\001 \003(\0132!.greptime.v1.region.DeleteRequ" +
+      "est\"C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
+      "\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDele" +
+      "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001" +
+      "(\0132\021.greptime.v1.Rows\"h\n\014QueryRequest\0227\n" +
+      "\006header\030\001 \001(\0132\'.greptime.v1.region.Regio" +
+      "nRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004pla" +
+      "n\030\003 \001(\014\"E\n\016CreateRequests\0223\n\010requests\030\001 " +
+      "\003(\0132!.greptime.v1.region.CreateRequest\"\200" +
+      "\002\n\rCreateRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006e" +
+      "ngine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(\0132#.grept" +
+      "ime.v1.region.RegionColumnDef\022\023\n\013primary" +
+      "_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007options\030\006 \003(" +
+      "\0132..greptime.v1.region.CreateRequest.Opt" +
+      "ionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\"A\n\014DropRequests\0221\n\010req" +
+      "uests\030\001 \003(\0132\037.greptime.v1.region.DropReq" +
+      "uest\"3\n\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\022\021" +
+      "\n\tfast_path\030\002 \001(\010\"\255\001\n\013OpenRequest\022\021\n\treg" +
+      "ion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001" +
+      "(\t\022=\n\007options\030\004 \003(\0132,.greptime.v1.region" +
+      ".OpenRequest.OptionsEntry\032.\n\014OptionsEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014Clo" +
+      "seRequest\022\021\n\tregion_id\030\001 \001(\004\"C\n\rAlterReq" +
+      "uests\0222\n\010requests\030\001 \003(\0132 .greptime.v1.re" +
+      "gion.AlterRequest\"\306\003\n\014AlterRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036.gre" +
+      "ptime.v1.region.AddColumnsH\000\0227\n\014drop_col" +
+      "umns\030\003 \001(\0132\037.greptime.v1.region.DropColu" +
+      "mnsH\000\022=\n\023modify_column_types\030\005 \001(\0132\036.gre" +
+      "ptime.v1.ModifyColumnTypesH\000\0229\n\021set_tabl" +
+      "e_options\030\006 \001(\0132\034.greptime.v1.SetTableOp" +
+      "tionsH\000\022=\n\023unset_table_options\030\t \001(\0132\036.g" +
+      "reptime.v1.UnsetTableOptionsH\000\022*\n\tset_in" +
+      "dex\030\n \001(\0132\025.greptime.v1.SetIndexH\000\022.\n\013un" +
+      "set_index\030\013 \001(\0132\027.greptime.v1.UnsetIndex" +
+      "H\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAd" +
+      "dColumns\0222\n\013add_columns\030\001 \003(\0132\035.greptime" +
+      ".v1.region.AddColumn\"C\n\013DropColumns\0224\n\014d" +
+      "rop_columns\030\001 \003(\0132\036.greptime.v1.region.D" +
+      "ropColumn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001" +
+      "(\0132#.greptime.v1.region.RegionColumnDef\022" +
+      "0\n\010location\030\003 \001(\0132\036.greptime.v1.AddColum" +
+      "nLocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n" +
+      "\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regu" +
+      "lar\"&\n\014StrictWindow\022\026\n\016window_seconds\030\001 " +
+      "\001(\003\"\231\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(" +
+      "\004\022.\n\007regular\030\002 \001(\0132\033.greptime.v1.region." +
+      "RegularH\000\0229\n\rstrict_window\030\003 \001(\0132 .grept" +
+      "ime.v1.region.StrictWindowH\000B\t\n\007options\"" +
+      "$\n\017TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n" +
+      "\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.g" +
+      "reptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2" +
+      "Y\n\006Region\022O\n\006Handle\022!.greptime.v1.region" +
+      ".RegionRequest\032\".greptime.v1.region.Regi" +
+      "onResponseB]\n\025io.greptime.v1.regionB\006Ser" +
+      "verZ<github.com/GreptimeTeam/greptime-pr" +
+      "oto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25644,7 +25875,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "Body", });
+        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "Seqs", "Body", });
     internal_static_greptime_v1_region_RegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_region_RegionResponse_fieldAccessorTable = new

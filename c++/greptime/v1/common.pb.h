@@ -104,6 +104,9 @@ extern ResponseHeaderDefaultTypeInternal _ResponseHeader_default_instance_;
 class SequenceRange;
 struct SequenceRangeDefaultTypeInternal;
 extern SequenceRangeDefaultTypeInternal _SequenceRange_default_instance_;
+class SequencesRequest;
+struct SequencesRequestDefaultTypeInternal;
+extern SequencesRequestDefaultTypeInternal _SequencesRequest_default_instance_;
 class SnapshotSequences;
 struct SnapshotSequencesDefaultTypeInternal;
 extern SnapshotSequencesDefaultTypeInternal _SnapshotSequences_default_instance_;
@@ -143,6 +146,7 @@ template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::
 template<> ::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::ResponseHeader* Arena::CreateMaybeMessage<::greptime::v1::ResponseHeader>(Arena*);
 template<> ::greptime::v1::SequenceRange* Arena::CreateMaybeMessage<::greptime::v1::SequenceRange>(Arena*);
+template<> ::greptime::v1::SequencesRequest* Arena::CreateMaybeMessage<::greptime::v1::SequencesRequest>(Arena*);
 template<> ::greptime::v1::SnapshotSequences* Arena::CreateMaybeMessage<::greptime::v1::SnapshotSequences>(Arena*);
 template<> ::greptime::v1::SnapshotSequences_SnapshotSeqsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::SnapshotSequences_SnapshotSeqsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::Status* Arena::CreateMaybeMessage<::greptime::v1::Status>(Arena*);
@@ -257,6 +261,168 @@ inline bool JsonTypeExtension_Parse(
 }
 // ===================================================================
 
+class SequencesRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SequencesRequest) */ {
+ public:
+  inline SequencesRequest() : SequencesRequest(nullptr) {}
+  ~SequencesRequest() override;
+  explicit PROTOBUF_CONSTEXPR SequencesRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SequencesRequest(const SequencesRequest& from);
+  SequencesRequest(SequencesRequest&& from) noexcept
+    : SequencesRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SequencesRequest& operator=(const SequencesRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SequencesRequest& operator=(SequencesRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SequencesRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SequencesRequest* internal_default_instance() {
+    return reinterpret_cast<const SequencesRequest*>(
+               &_SequencesRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(SequencesRequest& a, SequencesRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SequencesRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SequencesRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SequencesRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SequencesRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SequencesRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SequencesRequest& from) {
+    SequencesRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SequencesRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.SequencesRequest";
+  }
+  protected:
+  explicit SequencesRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdsFieldNumber = 1,
+  };
+  // repeated uint64 region_ids = 1;
+  int region_ids_size() const;
+  private:
+  int _internal_region_ids_size() const;
+  public:
+  void clear_region_ids();
+  private:
+  uint64_t _internal_region_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_region_ids() const;
+  void _internal_add_region_ids(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_region_ids();
+  public:
+  uint64_t region_ids(int index) const;
+  void set_region_ids(int index, uint64_t value);
+  void add_region_ids(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      region_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_region_ids();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.SequencesRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > region_ids_;
+    mutable std::atomic<int> _region_ids_cached_byte_size_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class QueryContext_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<QueryContext_ExtensionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
@@ -333,7 +499,7 @@ class QueryContext final :
                &_QueryContext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(QueryContext& a, QueryContext& b) {
     a.Swap(&b);
@@ -599,7 +765,7 @@ class SnapshotSequences final :
                &_SnapshotSequences_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(SnapshotSequences& a, SnapshotSequences& b) {
     a.Swap(&b);
@@ -762,7 +928,7 @@ class SequenceRange final :
                &_SequenceRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(SequenceRange& a, SequenceRange& b) {
     a.Swap(&b);
@@ -949,7 +1115,7 @@ class RequestHeader final :
                &_RequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(RequestHeader& a, RequestHeader& b) {
     a.Swap(&b);
@@ -1196,7 +1362,7 @@ class ResponseHeader final :
                &_ResponseHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(ResponseHeader& a, ResponseHeader& b) {
     a.Swap(&b);
@@ -1353,7 +1519,7 @@ class Status final :
                &_Status_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(Status& a, Status& b) {
     a.Swap(&b);
@@ -1523,7 +1689,7 @@ class AuthHeader final :
                &_AuthHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(AuthHeader& a, AuthHeader& b) {
     a.Swap(&b);
@@ -1713,7 +1879,7 @@ class Basic final :
                &_Basic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(Basic& a, Basic& b) {
     a.Swap(&b);
@@ -1882,7 +2048,7 @@ class Token final :
                &_Token_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(Token& a, Token& b) {
     a.Swap(&b);
@@ -2035,7 +2201,7 @@ class TableName final :
                &_TableName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(TableName& a, TableName& b) {
     a.Swap(&b);
@@ -2220,7 +2386,7 @@ class AffectedRows final :
                &_AffectedRows_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(AffectedRows& a, AffectedRows& b) {
     a.Swap(&b);
@@ -2368,7 +2534,7 @@ class Metrics final :
                &_Metrics_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(Metrics& a, Metrics& b) {
     a.Swap(&b);
@@ -2521,7 +2687,7 @@ class ExpireAfter final :
                &_ExpireAfter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(ExpireAfter& a, ExpireAfter& b) {
     a.Swap(&b);
@@ -2669,7 +2835,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -2846,7 +3012,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -3016,7 +3182,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -3182,7 +3348,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -3388,7 +3554,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -3547,7 +3713,7 @@ class VectorTypeExtension final :
                &_VectorTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(VectorTypeExtension& a, VectorTypeExtension& b) {
     a.Swap(&b);
@@ -3723,7 +3889,7 @@ class ColumnOptions final :
                &_ColumnOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(ColumnOptions& a, ColumnOptions& b) {
     a.Swap(&b);
@@ -3845,6 +4011,57 @@ class ColumnOptions final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// SequencesRequest
+
+// repeated uint64 region_ids = 1;
+inline int SequencesRequest::_internal_region_ids_size() const {
+  return _impl_.region_ids_.size();
+}
+inline int SequencesRequest::region_ids_size() const {
+  return _internal_region_ids_size();
+}
+inline void SequencesRequest::clear_region_ids() {
+  _impl_.region_ids_.Clear();
+}
+inline uint64_t SequencesRequest::_internal_region_ids(int index) const {
+  return _impl_.region_ids_.Get(index);
+}
+inline uint64_t SequencesRequest::region_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SequencesRequest.region_ids)
+  return _internal_region_ids(index);
+}
+inline void SequencesRequest::set_region_ids(int index, uint64_t value) {
+  _impl_.region_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SequencesRequest.region_ids)
+}
+inline void SequencesRequest::_internal_add_region_ids(uint64_t value) {
+  _impl_.region_ids_.Add(value);
+}
+inline void SequencesRequest::add_region_ids(uint64_t value) {
+  _internal_add_region_ids(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.SequencesRequest.region_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+SequencesRequest::_internal_region_ids() const {
+  return _impl_.region_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+SequencesRequest::region_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.SequencesRequest.region_ids)
+  return _internal_region_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+SequencesRequest::_internal_mutable_region_ids() {
+  return &_impl_.region_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+SequencesRequest::mutable_region_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.SequencesRequest.region_ids)
+  return _internal_mutable_region_ids();
+}
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // QueryContext
@@ -5882,6 +6099,8 @@ ColumnOptions::mutable_options() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
