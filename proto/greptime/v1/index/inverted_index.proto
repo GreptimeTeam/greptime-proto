@@ -63,6 +63,9 @@ message InvertedIndexMeta {
 
     // Statistical information about the tag's inverted index.
     InvertedIndexStats stats = 8;
+
+    // The type of bitmap used for indexing.
+    BitmapType bitmap_type = 9;
 }
 
 // InvertedIndexStats provides statistical data on a tag's inverted index.
@@ -78,4 +81,10 @@ message InvertedIndexStats {
 
     // The maximum value found within the tag's column, encoded as bytes.
     bytes max_value = 4;
+}
+
+// BitmapType defines the type of bitmap used for indexing.
+enum BitmapType {
+    BitVec = 0;
+    Roaring = 1;
 }

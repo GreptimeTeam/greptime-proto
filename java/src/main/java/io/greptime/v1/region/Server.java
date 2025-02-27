@@ -13358,6 +13358,18 @@ java.lang.String defaultValue);
      * @return The regionId.
      */
     long getRegionId();
+
+    /**
+     * <pre>
+     * Only used by Metric Engine, for fast path drop.
+     * It only works for Metric Engine, and will be ignored by other engines.
+     * If true, the Metric Engine will delete logical tables in memory, and drop the physical region eventually.
+     * </pre>
+     *
+     * <code>bool fast_path = 2;</code>
+     * @return The fastPath.
+     */
+    boolean getFastPath();
   }
   /**
    * Protobuf type {@code greptime.v1.region.DropRequest}
@@ -13409,6 +13421,11 @@ java.lang.String defaultValue);
               regionId_ = input.readUInt64();
               break;
             }
+            case 16: {
+
+              fastPath_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -13454,6 +13471,23 @@ java.lang.String defaultValue);
       return regionId_;
     }
 
+    public static final int FAST_PATH_FIELD_NUMBER = 2;
+    private boolean fastPath_;
+    /**
+     * <pre>
+     * Only used by Metric Engine, for fast path drop.
+     * It only works for Metric Engine, and will be ignored by other engines.
+     * If true, the Metric Engine will delete logical tables in memory, and drop the physical region eventually.
+     * </pre>
+     *
+     * <code>bool fast_path = 2;</code>
+     * @return The fastPath.
+     */
+    @java.lang.Override
+    public boolean getFastPath() {
+      return fastPath_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13471,6 +13505,9 @@ java.lang.String defaultValue);
       if (regionId_ != 0L) {
         output.writeUInt64(1, regionId_);
       }
+      if (fastPath_ != false) {
+        output.writeBool(2, fastPath_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -13483,6 +13520,10 @@ java.lang.String defaultValue);
       if (regionId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, regionId_);
+      }
+      if (fastPath_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, fastPath_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -13501,6 +13542,8 @@ java.lang.String defaultValue);
 
       if (getRegionId()
           != other.getRegionId()) return false;
+      if (getFastPath()
+          != other.getFastPath()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -13515,6 +13558,9 @@ java.lang.String defaultValue);
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
+      hash = (37 * hash) + FAST_PATH_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFastPath());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13650,6 +13696,8 @@ java.lang.String defaultValue);
         super.clear();
         regionId_ = 0L;
 
+        fastPath_ = false;
+
         return this;
       }
 
@@ -13677,6 +13725,7 @@ java.lang.String defaultValue);
       public io.greptime.v1.region.Server.DropRequest buildPartial() {
         io.greptime.v1.region.Server.DropRequest result = new io.greptime.v1.region.Server.DropRequest(this);
         result.regionId_ = regionId_;
+        result.fastPath_ = fastPath_;
         onBuilt();
         return result;
       }
@@ -13727,6 +13776,9 @@ java.lang.String defaultValue);
         if (other == io.greptime.v1.region.Server.DropRequest.getDefaultInstance()) return this;
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
+        }
+        if (other.getFastPath() != false) {
+          setFastPath(other.getFastPath());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13784,6 +13836,55 @@ java.lang.String defaultValue);
       public Builder clearRegionId() {
         
         regionId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean fastPath_ ;
+      /**
+       * <pre>
+       * Only used by Metric Engine, for fast path drop.
+       * It only works for Metric Engine, and will be ignored by other engines.
+       * If true, the Metric Engine will delete logical tables in memory, and drop the physical region eventually.
+       * </pre>
+       *
+       * <code>bool fast_path = 2;</code>
+       * @return The fastPath.
+       */
+      @java.lang.Override
+      public boolean getFastPath() {
+        return fastPath_;
+      }
+      /**
+       * <pre>
+       * Only used by Metric Engine, for fast path drop.
+       * It only works for Metric Engine, and will be ignored by other engines.
+       * If true, the Metric Engine will delete logical tables in memory, and drop the physical region eventually.
+       * </pre>
+       *
+       * <code>bool fast_path = 2;</code>
+       * @param value The fastPath to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFastPath(boolean value) {
+        
+        fastPath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Only used by Metric Engine, for fast path drop.
+       * It only works for Metric Engine, and will be ignored by other engines.
+       * If true, the Metric Engine will delete logical tables in memory, and drop the physical region eventually.
+       * </pre>
+       *
+       * <code>bool fast_path = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFastPath() {
+        
+        fastPath_ = false;
         onChanged();
         return this;
       }
@@ -25476,48 +25577,48 @@ java.lang.String defaultValue);
       "ptime.v1.region.CreateRequest.OptionsEnt" +
       "ry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
       "\030\002 \001(\t:\0028\001\"A\n\014DropRequests\0221\n\010requests\030\001" +
-      " \003(\0132\037.greptime.v1.region.DropRequest\" \n" +
-      "\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\"\255\001\n\013Open" +
-      "Request\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001" +
-      "(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,.grep" +
-      "time.v1.region.OpenRequest.OptionsEntry\032" +
-      ".\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001" +
-      "(\004\"C\n\rAlterRequests\0222\n\010requests\030\001 \003(\0132 ." +
-      "greptime.v1.region.AlterRequest\"\306\003\n\014Alte" +
-      "rRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_colum" +
-      "ns\030\002 \001(\0132\036.greptime.v1.region.AddColumns" +
-      "H\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime.v1.r" +
-      "egion.DropColumnsH\000\022=\n\023modify_column_typ" +
-      "es\030\005 \001(\0132\036.greptime.v1.ModifyColumnTypes" +
-      "H\000\0229\n\021set_table_options\030\006 \001(\0132\034.greptime" +
-      ".v1.SetTableOptionsH\000\022=\n\023unset_table_opt" +
-      "ions\030\t \001(\0132\036.greptime.v1.UnsetTableOptio" +
-      "nsH\000\022*\n\tset_index\030\n \001(\0132\025.greptime.v1.Se" +
-      "tIndexH\000\022.\n\013unset_index\030\013 \001(\0132\027.greptime" +
-      ".v1.UnsetIndexH\000\022\026\n\016schema_version\030\004 \001(\004" +
-      "B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_columns\030\001 " +
-      "\003(\0132\035.greptime.v1.region.AddColumn\"C\n\013Dr" +
-      "opColumns\0224\n\014drop_columns\030\001 \003(\0132\036.grepti" +
-      "me.v1.region.DropColumn\"v\n\tAddColumn\0227\n\n" +
-      "column_def\030\001 \001(\0132#.greptime.v1.region.Re" +
-      "gionColumnDef\0220\n\010location\030\003 \001(\0132\036.grepti" +
-      "me.v1.AddColumnLocation\"\032\n\nDropColumn\022\014\n" +
-      "\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id" +
-      "\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n\016win" +
-      "dow_seconds\030\001 \001(\003\"\231\001\n\016CompactRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.grept" +
-      "ime.v1.region.RegularH\000\0229\n\rstrict_window" +
-      "\030\003 \001(\0132 .greptime.v1.region.StrictWindow" +
-      "H\000B\t\n\007options\"$\n\017TruncateRequest\022\021\n\tregi" +
-      "on_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn" +
-      "_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tco" +
-      "lumn_id\030\002 \001(\r2Y\n\006Region\022O\n\006Handle\022!.grep" +
-      "time.v1.region.RegionRequest\032\".greptime." +
-      "v1.region.RegionResponseB]\n\025io.greptime." +
-      "v1.regionB\006ServerZ<github.com/GreptimeTe" +
-      "am/greptime-proto/go/greptime/v1/regionb" +
-      "\006proto3"
+      " \003(\0132\037.greptime.v1.region.DropRequest\"3\n" +
+      "\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\022\021\n\tfast_" +
+      "path\030\002 \001(\010\"\255\001\n\013OpenRequest\022\021\n\tregion_id\030" +
+      "\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007o" +
+      "ptions\030\004 \003(\0132,.greptime.v1.region.OpenRe" +
+      "quest.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseReque" +
+      "st\022\021\n\tregion_id\030\001 \001(\004\"C\n\rAlterRequests\0222" +
+      "\n\010requests\030\001 \003(\0132 .greptime.v1.region.Al" +
+      "terRequest\"\306\003\n\014AlterRequest\022\021\n\tregion_id" +
+      "\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036.greptime.v" +
+      "1.region.AddColumnsH\000\0227\n\014drop_columns\030\003 " +
+      "\001(\0132\037.greptime.v1.region.DropColumnsH\000\022=" +
+      "\n\023modify_column_types\030\005 \001(\0132\036.greptime.v" +
+      "1.ModifyColumnTypesH\000\0229\n\021set_table_optio" +
+      "ns\030\006 \001(\0132\034.greptime.v1.SetTableOptionsH\000" +
+      "\022=\n\023unset_table_options\030\t \001(\0132\036.greptime" +
+      ".v1.UnsetTableOptionsH\000\022*\n\tset_index\030\n \001" +
+      "(\0132\025.greptime.v1.SetIndexH\000\022.\n\013unset_ind" +
+      "ex\030\013 \001(\0132\027.greptime.v1.UnsetIndexH\000\022\026\n\016s" +
+      "chema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumn" +
+      "s\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1.reg" +
+      "ion.AddColumn\"C\n\013DropColumns\0224\n\014drop_col" +
+      "umns\030\001 \003(\0132\036.greptime.v1.region.DropColu" +
+      "mn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#.gr" +
+      "eptime.v1.region.RegionColumnDef\0220\n\010loca" +
+      "tion\030\003 \001(\0132\036.greptime.v1.AddColumnLocati" +
+      "on\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushR" +
+      "equest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014" +
+      "StrictWindow\022\026\n\016window_seconds\030\001 \001(\003\"\231\001\n" +
+      "\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007re" +
+      "gular\030\002 \001(\0132\033.greptime.v1.region.Regular" +
+      "H\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime.v1." +
+      "region.StrictWindowH\000B\t\n\007options\"$\n\017Trun" +
+      "cateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Region" +
+      "ColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime" +
+      ".v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r2Y\n\006Regi" +
+      "on\022O\n\006Handle\022!.greptime.v1.region.Region" +
+      "Request\032\".greptime.v1.region.RegionRespo" +
+      "nseB]\n\025io.greptime.v1.regionB\006ServerZ<gi" +
+      "thub.com/GreptimeTeam/greptime-proto/go/" +
+      "greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -25615,7 +25716,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_DropRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_DropRequest_descriptor,
-        new java.lang.String[] { "RegionId", });
+        new java.lang.String[] { "RegionId", "FastPath", });
     internal_static_greptime_v1_region_OpenRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_region_OpenRequest_fieldAccessorTable = new

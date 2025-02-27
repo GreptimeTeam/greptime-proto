@@ -32,6 +32,7 @@
 #include <google/protobuf/map.h>  // IWYU pragma: export
 #include <google/protobuf/map_entry.h>
 #include <google/protobuf/map_field_inl.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -75,6 +76,31 @@ namespace greptime {
 namespace v1 {
 namespace index {
 
+enum BitmapType : int {
+  BitVec = 0,
+  Roaring = 1,
+  BitmapType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  BitmapType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool BitmapType_IsValid(int value);
+constexpr BitmapType BitmapType_MIN = BitVec;
+constexpr BitmapType BitmapType_MAX = Roaring;
+constexpr int BitmapType_ARRAYSIZE = BitmapType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BitmapType_descriptor();
+template<typename T>
+inline const std::string& BitmapType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, BitmapType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function BitmapType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    BitmapType_descriptor(), enum_t_value);
+}
+inline bool BitmapType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, BitmapType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<BitmapType>(
+    BitmapType_descriptor(), name, value);
+}
 // ===================================================================
 
 class InvertedIndexMetas_MetasEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<InvertedIndexMetas_MetasEntry_DoNotUse, 
@@ -417,6 +443,7 @@ class InvertedIndexMeta final :
     kFstSizeFieldNumber = 5,
     kRelativeNullBitmapOffsetFieldNumber = 6,
     kNullBitmapSizeFieldNumber = 7,
+    kBitmapTypeFieldNumber = 9,
   };
   // string name = 1;
   void clear_name();
@@ -504,6 +531,15 @@ class InvertedIndexMeta final :
   void _internal_set_null_bitmap_size(uint32_t value);
   public:
 
+  // .greptime.v1.index.BitmapType bitmap_type = 9;
+  void clear_bitmap_type();
+  ::greptime::v1::index::BitmapType bitmap_type() const;
+  void set_bitmap_type(::greptime::v1::index::BitmapType value);
+  private:
+  ::greptime::v1::index::BitmapType _internal_bitmap_type() const;
+  void _internal_set_bitmap_type(::greptime::v1::index::BitmapType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.index.InvertedIndexMeta)
  private:
   class _Internal;
@@ -520,6 +556,7 @@ class InvertedIndexMeta final :
     uint32_t fst_size_;
     uint32_t relative_null_bitmap_offset_;
     uint32_t null_bitmap_size_;
+    int bitmap_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1062,6 +1099,26 @@ inline void InvertedIndexMeta::set_allocated_stats(::greptime::v1::index::Invert
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.index.InvertedIndexMeta.stats)
 }
 
+// .greptime.v1.index.BitmapType bitmap_type = 9;
+inline void InvertedIndexMeta::clear_bitmap_type() {
+  _impl_.bitmap_type_ = 0;
+}
+inline ::greptime::v1::index::BitmapType InvertedIndexMeta::_internal_bitmap_type() const {
+  return static_cast< ::greptime::v1::index::BitmapType >(_impl_.bitmap_type_);
+}
+inline ::greptime::v1::index::BitmapType InvertedIndexMeta::bitmap_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.index.InvertedIndexMeta.bitmap_type)
+  return _internal_bitmap_type();
+}
+inline void InvertedIndexMeta::_internal_set_bitmap_type(::greptime::v1::index::BitmapType value) {
+  
+  _impl_.bitmap_type_ = value;
+}
+inline void InvertedIndexMeta::set_bitmap_type(::greptime::v1::index::BitmapType value) {
+  _internal_set_bitmap_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.index.InvertedIndexMeta.bitmap_type)
+}
+
 // -------------------------------------------------------------------
 
 // InvertedIndexStats
@@ -1221,6 +1278,16 @@ inline void InvertedIndexStats::set_allocated_max_value(std::string* max_value) 
 }  // namespace index
 }  // namespace v1
 }  // namespace greptime
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::greptime::v1::index::BitmapType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::index::BitmapType>() {
+  return ::greptime::v1::index::BitmapType_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 
