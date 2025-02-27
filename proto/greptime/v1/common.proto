@@ -33,7 +33,12 @@ message SnapshotSequences {
   // mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
   // read should only container data that was committed before (and include) the
   // given sequence number
-  map<uint64, uint64> snapshot_seqs = 7;
+  map<uint64, SequenceRange> snapshot_seqs = 7;
+}
+
+message SequenceRange {
+  uint64 start = 1;
+  uint64 end = 2;
 }
 
 message RequestHeader {
