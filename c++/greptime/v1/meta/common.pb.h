@@ -274,7 +274,6 @@ class RequestHeader final :
   enum : int {
     kTracingContextFieldNumber = 5,
     kProtocolVersionFieldNumber = 1,
-    kClusterIdFieldNumber = 2,
     kMemberIdFieldNumber = 3,
     kRoleFieldNumber = 4,
   };
@@ -302,15 +301,6 @@ class RequestHeader final :
   private:
   uint64_t _internal_protocol_version() const;
   void _internal_set_protocol_version(uint64_t value);
-  public:
-
-  // uint64 cluster_id = 2;
-  void clear_cluster_id();
-  uint64_t cluster_id() const;
-  void set_cluster_id(uint64_t value);
-  private:
-  uint64_t _internal_cluster_id() const;
-  void _internal_set_cluster_id(uint64_t value);
   public:
 
   // uint64 member_id = 3;
@@ -345,7 +335,6 @@ class RequestHeader final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> tracing_context_;
     uint64_t protocol_version_;
-    uint64_t cluster_id_;
     uint64_t member_id_;
     int role_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -478,7 +467,6 @@ class ResponseHeader final :
   enum : int {
     kErrorFieldNumber = 3,
     kProtocolVersionFieldNumber = 1,
-    kClusterIdFieldNumber = 2,
   };
   // .greptime.v1.meta.Error error = 3;
   bool has_error() const;
@@ -507,15 +495,6 @@ class ResponseHeader final :
   void _internal_set_protocol_version(uint64_t value);
   public:
 
-  // uint64 cluster_id = 2;
-  void clear_cluster_id();
-  uint64_t cluster_id() const;
-  void set_cluster_id(uint64_t value);
-  private:
-  uint64_t _internal_cluster_id() const;
-  void _internal_set_cluster_id(uint64_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.ResponseHeader)
  private:
   class _Internal;
@@ -526,7 +505,6 @@ class ResponseHeader final :
   struct Impl_ {
     ::greptime::v1::meta::Error* error_;
     uint64_t protocol_version_;
-    uint64_t cluster_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1374,26 +1352,6 @@ inline void RequestHeader::set_protocol_version(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.RequestHeader.protocol_version)
 }
 
-// uint64 cluster_id = 2;
-inline void RequestHeader::clear_cluster_id() {
-  _impl_.cluster_id_ = uint64_t{0u};
-}
-inline uint64_t RequestHeader::_internal_cluster_id() const {
-  return _impl_.cluster_id_;
-}
-inline uint64_t RequestHeader::cluster_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.RequestHeader.cluster_id)
-  return _internal_cluster_id();
-}
-inline void RequestHeader::_internal_set_cluster_id(uint64_t value) {
-  
-  _impl_.cluster_id_ = value;
-}
-inline void RequestHeader::set_cluster_id(uint64_t value) {
-  _internal_set_cluster_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.RequestHeader.cluster_id)
-}
-
 // uint64 member_id = 3;
 inline void RequestHeader::clear_member_id() {
   _impl_.member_id_ = uint64_t{0u};
@@ -1485,26 +1443,6 @@ inline void ResponseHeader::_internal_set_protocol_version(uint64_t value) {
 inline void ResponseHeader::set_protocol_version(uint64_t value) {
   _internal_set_protocol_version(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.ResponseHeader.protocol_version)
-}
-
-// uint64 cluster_id = 2;
-inline void ResponseHeader::clear_cluster_id() {
-  _impl_.cluster_id_ = uint64_t{0u};
-}
-inline uint64_t ResponseHeader::_internal_cluster_id() const {
-  return _impl_.cluster_id_;
-}
-inline uint64_t ResponseHeader::cluster_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.ResponseHeader.cluster_id)
-  return _internal_cluster_id();
-}
-inline void ResponseHeader::_internal_set_cluster_id(uint64_t value) {
-  
-  _impl_.cluster_id_ = value;
-}
-inline void ResponseHeader::set_cluster_id(uint64_t value) {
-  _internal_set_cluster_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.ResponseHeader.cluster_id)
 }
 
 // .greptime.v1.meta.Error error = 3;
