@@ -94,6 +94,7 @@ message FlowStat {
   // due to protobuf's key can't be a message, so we use uint32 as the key which
   // is [`FlowId`]'s inner field `id`
   map<uint32, uint64> flow_stat_size = 1;
+  map<uint32, int64> flow_last_exec_time_map = 2;
 }
 
 message HeartbeatResponse {
