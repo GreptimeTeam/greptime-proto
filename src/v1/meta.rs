@@ -17,6 +17,7 @@ tonic::include_proto!("greptime.v1.meta");
 mod mailbox;
 
 use std::collections::HashMap;
+use std::fmt::{Display, Formatter};
 use std::hash::{Hash, Hasher};
 
 pub const PROTOCOL_VERSION: u64 = 1;
@@ -56,6 +57,27 @@ impl Hash for Peer {
 }
 
 impl Eq for Peer {}
+
+impl Display for Peer {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "peer-{}({})", self.id, self.addr)
+    }
+}
+
+impl Peer {
+    pub fn new(id: u64, addr: impl Into<String>) -> Self {
+        Self {
+            id,
+            addr: addr.into(),
+        }
+    }
+    pub fn empty(id: u64) -> Self {
+        Self {
+            id,
+            addr: String::new(),
+        }
+    }
+}
 
 impl RequestHeader {
     #[inline]
