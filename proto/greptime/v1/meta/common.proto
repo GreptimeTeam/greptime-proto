@@ -20,8 +20,6 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta"
 
 message RequestHeader {
   uint64 protocol_version = 1;
-  // cluster_id is the ID of the cluster which be sent to.
-  uint64 cluster_id = 2;
   // member_id is the ID of the sender server.
   uint64 member_id = 3;
   Role role = 4;
@@ -38,8 +36,6 @@ enum Role {
 
 message ResponseHeader {
   uint64 protocol_version = 1;
-  // cluster_id is the ID of the cluster which sent the response.
-  uint64 cluster_id = 2;
   Error error = 3;
 }
 
