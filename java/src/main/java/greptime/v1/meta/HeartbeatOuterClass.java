@@ -5106,6 +5106,40 @@ com.google.protobuf.ByteString defaultValue);
 
     long getFlowStatSizeOrThrow(
         int key);
+
+    /**
+     * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+     */
+    int getFlowLastExecTimeMapCount();
+    /**
+     * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+     */
+    boolean containsFlowLastExecTimeMap(
+        int key);
+    /**
+     * Use {@link #getFlowLastExecTimeMapMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Integer, java.lang.Long>
+    getFlowLastExecTimeMap();
+    /**
+     * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+     */
+    java.util.Map<java.lang.Integer, java.lang.Long>
+    getFlowLastExecTimeMapMap();
+    /**
+     * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+     */
+
+    long getFlowLastExecTimeMapOrDefault(
+        int key,
+        long defaultValue);
+    /**
+     * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+     */
+
+    long getFlowLastExecTimeMapOrThrow(
+        int key);
   }
   /**
    * Protobuf type {@code greptime.v1.meta.FlowStat}
@@ -5166,6 +5200,19 @@ com.google.protobuf.ByteString defaultValue);
                   flowStatSize__.getKey(), flowStatSize__.getValue());
               break;
             }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                flowLastExecTimeMap_ = com.google.protobuf.MapField.newMapField(
+                    FlowLastExecTimeMapDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000002;
+              }
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
+              flowLastExecTimeMap__ = input.readMessage(
+                  FlowLastExecTimeMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              flowLastExecTimeMap_.getMutableMap().put(
+                  flowLastExecTimeMap__.getKey(), flowLastExecTimeMap__.getValue());
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -5199,6 +5246,8 @@ com.google.protobuf.ByteString defaultValue);
       switch (number) {
         case 1:
           return internalGetFlowStatSize();
+        case 2:
+          return internalGetFlowLastExecTimeMap();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -5317,6 +5366,87 @@ com.google.protobuf.ByteString defaultValue);
       return map.get(key);
     }
 
+    public static final int FLOW_LAST_EXEC_TIME_MAP_FIELD_NUMBER = 2;
+    private static final class FlowLastExecTimeMapDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.Integer, java.lang.Long> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.Integer, java.lang.Long>newDefaultInstance(
+                  greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlowStat_FlowLastExecTimeMapEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
+                  com.google.protobuf.WireFormat.FieldType.INT64,
+                  0L);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.Integer, java.lang.Long> flowLastExecTimeMap_;
+    private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
+    internalGetFlowLastExecTimeMap() {
+      if (flowLastExecTimeMap_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            FlowLastExecTimeMapDefaultEntryHolder.defaultEntry);
+      }
+      return flowLastExecTimeMap_;
+    }
+
+    public int getFlowLastExecTimeMapCount() {
+      return internalGetFlowLastExecTimeMap().getMap().size();
+    }
+    /**
+     * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsFlowLastExecTimeMap(
+        int key) {
+      
+      return internalGetFlowLastExecTimeMap().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getFlowLastExecTimeMapMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, java.lang.Long> getFlowLastExecTimeMap() {
+      return getFlowLastExecTimeMapMap();
+    }
+    /**
+     * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Integer, java.lang.Long> getFlowLastExecTimeMapMap() {
+      return internalGetFlowLastExecTimeMap().getMap();
+    }
+    /**
+     * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+     */
+    @java.lang.Override
+
+    public long getFlowLastExecTimeMapOrDefault(
+        int key,
+        long defaultValue) {
+      
+      java.util.Map<java.lang.Integer, java.lang.Long> map =
+          internalGetFlowLastExecTimeMap().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+     */
+    @java.lang.Override
+
+    public long getFlowLastExecTimeMapOrThrow(
+        int key) {
+      
+      java.util.Map<java.lang.Integer, java.lang.Long> map =
+          internalGetFlowLastExecTimeMap().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5337,6 +5467,12 @@ com.google.protobuf.ByteString defaultValue);
           internalGetFlowStatSize(),
           FlowStatSizeDefaultEntryHolder.defaultEntry,
           1);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeIntegerMapTo(
+          output,
+          internalGetFlowLastExecTimeMap(),
+          FlowLastExecTimeMapDefaultEntryHolder.defaultEntry,
+          2);
       unknownFields.writeTo(output);
     }
 
@@ -5356,6 +5492,16 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, flowStatSize__);
       }
+      for (java.util.Map.Entry<java.lang.Integer, java.lang.Long> entry
+           : internalGetFlowLastExecTimeMap().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
+        flowLastExecTimeMap__ = FlowLastExecTimeMapDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, flowLastExecTimeMap__);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5373,6 +5519,8 @@ com.google.protobuf.ByteString defaultValue);
 
       if (!internalGetFlowStatSize().equals(
           other.internalGetFlowStatSize())) return false;
+      if (!internalGetFlowLastExecTimeMap().equals(
+          other.internalGetFlowLastExecTimeMap())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5387,6 +5535,10 @@ com.google.protobuf.ByteString defaultValue);
       if (!internalGetFlowStatSize().getMap().isEmpty()) {
         hash = (37 * hash) + FLOW_STAT_SIZE_FIELD_NUMBER;
         hash = (53 * hash) + internalGetFlowStatSize().hashCode();
+      }
+      if (!internalGetFlowLastExecTimeMap().getMap().isEmpty()) {
+        hash = (37 * hash) + FLOW_LAST_EXEC_TIME_MAP_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetFlowLastExecTimeMap().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5501,6 +5653,8 @@ com.google.protobuf.ByteString defaultValue);
         switch (number) {
           case 1:
             return internalGetFlowStatSize();
+          case 2:
+            return internalGetFlowLastExecTimeMap();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -5512,6 +5666,8 @@ com.google.protobuf.ByteString defaultValue);
         switch (number) {
           case 1:
             return internalGetMutableFlowStatSize();
+          case 2:
+            return internalGetMutableFlowLastExecTimeMap();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -5544,6 +5700,7 @@ com.google.protobuf.ByteString defaultValue);
       public Builder clear() {
         super.clear();
         internalGetMutableFlowStatSize().clear();
+        internalGetMutableFlowLastExecTimeMap().clear();
         return this;
       }
 
@@ -5573,6 +5730,8 @@ com.google.protobuf.ByteString defaultValue);
         int from_bitField0_ = bitField0_;
         result.flowStatSize_ = internalGetFlowStatSize();
         result.flowStatSize_.makeImmutable();
+        result.flowLastExecTimeMap_ = internalGetFlowLastExecTimeMap();
+        result.flowLastExecTimeMap_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -5623,6 +5782,8 @@ com.google.protobuf.ByteString defaultValue);
         if (other == greptime.v1.meta.HeartbeatOuterClass.FlowStat.getDefaultInstance()) return this;
         internalGetMutableFlowStatSize().mergeFrom(
             other.internalGetFlowStatSize());
+        internalGetMutableFlowLastExecTimeMap().mergeFrom(
+            other.internalGetFlowLastExecTimeMap());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5819,6 +5980,134 @@ com.google.protobuf.ByteString defaultValue);
       public Builder putAllFlowStatSize(
           java.util.Map<java.lang.Integer, java.lang.Long> values) {
         internalGetMutableFlowStatSize().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.Integer, java.lang.Long> flowLastExecTimeMap_;
+      private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
+      internalGetFlowLastExecTimeMap() {
+        if (flowLastExecTimeMap_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              FlowLastExecTimeMapDefaultEntryHolder.defaultEntry);
+        }
+        return flowLastExecTimeMap_;
+      }
+      private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
+      internalGetMutableFlowLastExecTimeMap() {
+        onChanged();;
+        if (flowLastExecTimeMap_ == null) {
+          flowLastExecTimeMap_ = com.google.protobuf.MapField.newMapField(
+              FlowLastExecTimeMapDefaultEntryHolder.defaultEntry);
+        }
+        if (!flowLastExecTimeMap_.isMutable()) {
+          flowLastExecTimeMap_ = flowLastExecTimeMap_.copy();
+        }
+        return flowLastExecTimeMap_;
+      }
+
+      public int getFlowLastExecTimeMapCount() {
+        return internalGetFlowLastExecTimeMap().getMap().size();
+      }
+      /**
+       * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsFlowLastExecTimeMap(
+          int key) {
+        
+        return internalGetFlowLastExecTimeMap().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getFlowLastExecTimeMapMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, java.lang.Long> getFlowLastExecTimeMap() {
+        return getFlowLastExecTimeMapMap();
+      }
+      /**
+       * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.Integer, java.lang.Long> getFlowLastExecTimeMapMap() {
+        return internalGetFlowLastExecTimeMap().getMap();
+      }
+      /**
+       * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+       */
+      @java.lang.Override
+
+      public long getFlowLastExecTimeMapOrDefault(
+          int key,
+          long defaultValue) {
+        
+        java.util.Map<java.lang.Integer, java.lang.Long> map =
+            internalGetFlowLastExecTimeMap().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+       */
+      @java.lang.Override
+
+      public long getFlowLastExecTimeMapOrThrow(
+          int key) {
+        
+        java.util.Map<java.lang.Integer, java.lang.Long> map =
+            internalGetFlowLastExecTimeMap().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearFlowLastExecTimeMap() {
+        internalGetMutableFlowLastExecTimeMap().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+       */
+
+      public Builder removeFlowLastExecTimeMap(
+          int key) {
+        
+        internalGetMutableFlowLastExecTimeMap().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, java.lang.Long>
+      getMutableFlowLastExecTimeMap() {
+        return internalGetMutableFlowLastExecTimeMap().getMutableMap();
+      }
+      /**
+       * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+       */
+      public Builder putFlowLastExecTimeMap(
+          int key,
+          long value) {
+        
+        
+        internalGetMutableFlowLastExecTimeMap().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, int64&gt; flow_last_exec_time_map = 2;</code>
+       */
+
+      public Builder putAllFlowLastExecTimeMap(
+          java.util.Map<java.lang.Integer, java.lang.Long> values) {
+        internalGetMutableFlowLastExecTimeMap().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -11478,6 +11767,11 @@ com.google.protobuf.ByteString defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_FlowStat_FlowLastExecTimeMapEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_FlowStat_FlowLastExecTimeMapEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11537,36 +11831,40 @@ com.google.protobuf.ByteString defaultValue);
       "ta.RegionRole\022@\n\nextensions\030c \003(\0132,.grep" +
       "time.v1.meta.RegionStat.ExtensionsEntry\032" +
       "1\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
-      "\030\002 \001(\014:\0028\001\"\205\001\n\010FlowStat\022D\n\016flow_stat_siz" +
+      "\030\002 \001(\014:\0028\001\"\227\002\n\010FlowStat\022D\n\016flow_stat_siz" +
       "e\030\001 \003(\0132,.greptime.v1.meta.FlowStat.Flow" +
-      "StatSizeEntry\0323\n\021FlowStatSizeEntry\022\013\n\003ke" +
-      "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\"\265\001\n\021Heartbeat" +
-      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
-      "eta.ResponseHeader\0229\n\017mailbox_message\030\002 " +
-      "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n" +
-      "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R" +
-      "egionLease\"N\n\rGrantedRegion\022\021\n\tregion_id" +
-      "\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta." +
-      "RegionRole\"\222\001\n\013RegionLease\0220\n\007regions\030\001 " +
-      "\003(\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024" +
-      "duration_since_epoch\030\002 \001(\004\022\025\n\rlease_seco" +
-      "nds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"" +
-      "C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
-      "eptime.v1.meta.RequestHeader\"m\n\021AskLeade" +
-      "rResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1." +
-      "meta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.gr" +
-      "eptime.v1.meta.Peer\"|\n\016MailboxMessage\022\n\n" +
-      "\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t" +
-      "\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016" +
-      "\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole\022" +
-      "\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgrading" +
-      "Leader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".gr" +
-      "eptime.v1.meta.HeartbeatRequest\032#.grepti" +
-      "me.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAs" +
-      "kLeader\022\".greptime.v1.meta.AskLeaderRequ" +
-      "est\032#.greptime.v1.meta.AskLeaderResponse" +
-      "\"\000B<Z:github.com/GreptimeTeam/greptime-p" +
-      "roto/go/greptime/v1/metab\006proto3"
+      "StatSizeEntry\022T\n\027flow_last_exec_time_map" +
+      "\030\002 \003(\01323.greptime.v1.meta.FlowStat.FlowL" +
+      "astExecTimeMapEntry\0323\n\021FlowStatSizeEntry" +
+      "\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030Flow" +
+      "LastExecTimeMapEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005val" +
+      "ue\030\002 \001(\003:\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006he" +
+      "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
+      "ader\0229\n\017mailbox_message\030\002 \001(\0132 .greptime" +
+      ".v1.meta.MailboxMessage\0223\n\014region_lease\030" +
+      "\003 \001(\0132\035.greptime.v1.meta.RegionLease\"N\n\r" +
+      "GrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role" +
+      "\030\002 \001(\0162\034.greptime.v1.meta.RegionRole\"\222\001\n" +
+      "\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.greptime" +
+      ".v1.meta.GrantedRegion\022\034\n\024duration_since" +
+      "_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024c" +
+      "loseable_region_ids\030\004 \003(\004\"C\n\020AskLeaderRe" +
+      "quest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta" +
+      ".RequestHeader\"m\n\021AskLeaderResponse\0220\n\006h" +
+      "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH" +
+      "eader\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.meta" +
+      ".Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007s" +
+      "ubject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030" +
+      "\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000" +
+      "B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n" +
+      "\010Follower\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tH" +
+      "eartbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta" +
+      ".HeartbeatRequest\032#.greptime.v1.meta.Hea" +
+      "rtbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".grep" +
+      "time.v1.meta.AskLeaderRequest\032#.greptime" +
+      ".v1.meta.AskLeaderResponse\"\000B<Z:github.c" +
+      "om/GreptimeTeam/greptime-proto/go/grepti" +
+      "me/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11602,12 +11900,18 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_FlowStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_FlowStat_descriptor,
-        new java.lang.String[] { "FlowStatSize", });
+        new java.lang.String[] { "FlowStatSize", "FlowLastExecTimeMap", });
     internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_descriptor =
       internal_static_greptime_v1_meta_FlowStat_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_FlowStat_FlowStatSizeEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_greptime_v1_meta_FlowStat_FlowLastExecTimeMapEntry_descriptor =
+      internal_static_greptime_v1_meta_FlowStat_descriptor.getNestedTypes().get(1);
+    internal_static_greptime_v1_meta_FlowStat_FlowLastExecTimeMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_FlowStat_FlowLastExecTimeMapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
