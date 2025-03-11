@@ -61,6 +61,9 @@ extern AskLeaderResponseDefaultTypeInternal _AskLeaderResponse_default_instance_
 class FlowStat;
 struct FlowStatDefaultTypeInternal;
 extern FlowStatDefaultTypeInternal _FlowStat_default_instance_;
+class FlowStat_FlowLastExecTimeMapEntry_DoNotUse;
+struct FlowStat_FlowLastExecTimeMapEntry_DoNotUseDefaultTypeInternal;
+extern FlowStat_FlowLastExecTimeMapEntry_DoNotUseDefaultTypeInternal _FlowStat_FlowLastExecTimeMapEntry_DoNotUse_default_instance_;
 class FlowStat_FlowStatSizeEntry_DoNotUse;
 struct FlowStat_FlowStatSizeEntry_DoNotUseDefaultTypeInternal;
 extern FlowStat_FlowStatSizeEntry_DoNotUseDefaultTypeInternal _FlowStat_FlowStatSizeEntry_DoNotUse_default_instance_;
@@ -95,6 +98,7 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::meta::AskLeaderRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::AskLeaderRequest>(Arena*);
 template<> ::greptime::v1::meta::AskLeaderResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::AskLeaderResponse>(Arena*);
 template<> ::greptime::v1::meta::FlowStat* Arena::CreateMaybeMessage<::greptime::v1::meta::FlowStat>(Arena*);
+template<> ::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::GrantedRegion* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest>(Arena*);
@@ -911,6 +915,30 @@ public:
 
 // -------------------------------------------------------------------
 
+class FlowStat_FlowLastExecTimeMapEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowStat_FlowLastExecTimeMapEntry_DoNotUse, 
+    uint32_t, int64_t,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT64> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowStat_FlowLastExecTimeMapEntry_DoNotUse, 
+    uint32_t, int64_t,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT64> SuperType;
+  FlowStat_FlowLastExecTimeMapEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR FlowStat_FlowLastExecTimeMapEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit FlowStat_FlowLastExecTimeMapEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const FlowStat_FlowLastExecTimeMapEntry_DoNotUse& other);
+  static const FlowStat_FlowLastExecTimeMapEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const FlowStat_FlowLastExecTimeMapEntry_DoNotUse*>(&_FlowStat_FlowLastExecTimeMapEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(void*) { return true; }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class FlowStat final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.FlowStat) */ {
  public:
@@ -959,7 +987,7 @@ class FlowStat final :
                &_FlowStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(FlowStat& a, FlowStat& b) {
     a.Swap(&b);
@@ -1036,6 +1064,7 @@ class FlowStat final :
 
   enum : int {
     kFlowStatSizeFieldNumber = 1,
+    kFlowLastExecTimeMapFieldNumber = 2,
   };
   // map<uint32, uint64> flow_stat_size = 1;
   int flow_stat_size_size() const;
@@ -1054,6 +1083,23 @@ class FlowStat final :
   ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >*
       mutable_flow_stat_size();
 
+  // map<uint32, int64> flow_last_exec_time_map = 2;
+  int flow_last_exec_time_map_size() const;
+  private:
+  int _internal_flow_last_exec_time_map_size() const;
+  public:
+  void clear_flow_last_exec_time_map();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, int64_t >&
+      _internal_flow_last_exec_time_map() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, int64_t >*
+      _internal_mutable_flow_last_exec_time_map();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, int64_t >&
+      flow_last_exec_time_map() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, int64_t >*
+      mutable_flow_last_exec_time_map();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.FlowStat)
  private:
   class _Internal;
@@ -1067,6 +1113,11 @@ class FlowStat final :
         uint32_t, uint64_t,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64> flow_stat_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        FlowStat_FlowLastExecTimeMapEntry_DoNotUse,
+        uint32_t, int64_t,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT64> flow_last_exec_time_map_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1122,7 +1173,7 @@ class HeartbeatResponse final :
                &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
@@ -1319,7 +1370,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -1478,7 +1529,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -1682,7 +1733,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -1839,7 +1890,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -2021,7 +2072,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -3159,6 +3210,8 @@ RegionStat::mutable_extensions() {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // FlowStat
 
 // map<uint32, uint64> flow_stat_size = 1;
@@ -3188,6 +3241,35 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, uint64_t >*
 FlowStat::mutable_flow_stat_size() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.FlowStat.flow_stat_size)
   return _internal_mutable_flow_stat_size();
+}
+
+// map<uint32, int64> flow_last_exec_time_map = 2;
+inline int FlowStat::_internal_flow_last_exec_time_map_size() const {
+  return _impl_.flow_last_exec_time_map_.size();
+}
+inline int FlowStat::flow_last_exec_time_map_size() const {
+  return _internal_flow_last_exec_time_map_size();
+}
+inline void FlowStat::clear_flow_last_exec_time_map() {
+  _impl_.flow_last_exec_time_map_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, int64_t >&
+FlowStat::_internal_flow_last_exec_time_map() const {
+  return _impl_.flow_last_exec_time_map_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, int64_t >&
+FlowStat::flow_last_exec_time_map() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.meta.FlowStat.flow_last_exec_time_map)
+  return _internal_flow_last_exec_time_map();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, int64_t >*
+FlowStat::_internal_mutable_flow_last_exec_time_map() {
+  return _impl_.flow_last_exec_time_map_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< uint32_t, int64_t >*
+FlowStat::mutable_flow_last_exec_time_map() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.FlowStat.flow_last_exec_time_map)
+  return _internal_mutable_flow_last_exec_time_map();
 }
 
 // -------------------------------------------------------------------
@@ -4180,6 +4262,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
