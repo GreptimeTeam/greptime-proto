@@ -23,6 +23,10 @@ fn main() {
     tonic_build::configure()
         .file_descriptor_set_path(out_dir.join("greptime_grpc_desc.bin"))
         .type_attribute(".", "#[derive(::serde::Serialize, ::serde::Deserialize)]")
+        .type_attribute(
+            ".",
+            "#[derive(::rkyv::Archive, ::rkyv::Serialize, ::rkyv::Deserialize)]",
+        )
         .enum_attribute(
             "region.RegionRequest.body",
             "#[derive(strum_macros::AsRefStr)]",
