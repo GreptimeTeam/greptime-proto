@@ -580,10 +580,35 @@ class SeriesNormalize final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTagColumnsFieldNumber = 4,
     kTimeIndexFieldNumber = 2,
     kOffsetFieldNumber = 1,
     kFilterNanFieldNumber = 3,
   };
+  // repeated string tag_columns = 4;
+  int tag_columns_size() const;
+  private:
+  int _internal_tag_columns_size() const;
+  public:
+  void clear_tag_columns();
+  const std::string& tag_columns(int index) const;
+  std::string* mutable_tag_columns(int index);
+  void set_tag_columns(int index, const std::string& value);
+  void set_tag_columns(int index, std::string&& value);
+  void set_tag_columns(int index, const char* value);
+  void set_tag_columns(int index, const char* value, size_t size);
+  std::string* add_tag_columns();
+  void add_tag_columns(const std::string& value);
+  void add_tag_columns(std::string&& value);
+  void add_tag_columns(const char* value);
+  void add_tag_columns(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
+  private:
+  const std::string& _internal_tag_columns(int index) const;
+  std::string* _internal_add_tag_columns();
+  public:
+
   // string time_index = 2;
   void clear_time_index();
   const std::string& time_index() const;
@@ -624,6 +649,7 @@ class SeriesNormalize final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> tag_columns_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_index_;
     int64_t offset_;
     bool filter_nan_;
@@ -1593,6 +1619,81 @@ inline void SeriesNormalize::_internal_set_filter_nan(bool value) {
 inline void SeriesNormalize::set_filter_nan(bool value) {
   _internal_set_filter_nan(value);
   // @@protoc_insertion_point(field_set:substrait_extension.SeriesNormalize.filter_nan)
+}
+
+// repeated string tag_columns = 4;
+inline int SeriesNormalize::_internal_tag_columns_size() const {
+  return _impl_.tag_columns_.size();
+}
+inline int SeriesNormalize::tag_columns_size() const {
+  return _internal_tag_columns_size();
+}
+inline void SeriesNormalize::clear_tag_columns() {
+  _impl_.tag_columns_.Clear();
+}
+inline std::string* SeriesNormalize::add_tag_columns() {
+  std::string* _s = _internal_add_tag_columns();
+  // @@protoc_insertion_point(field_add_mutable:substrait_extension.SeriesNormalize.tag_columns)
+  return _s;
+}
+inline const std::string& SeriesNormalize::_internal_tag_columns(int index) const {
+  return _impl_.tag_columns_.Get(index);
+}
+inline const std::string& SeriesNormalize::tag_columns(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.SeriesNormalize.tag_columns)
+  return _internal_tag_columns(index);
+}
+inline std::string* SeriesNormalize::mutable_tag_columns(int index) {
+  // @@protoc_insertion_point(field_mutable:substrait_extension.SeriesNormalize.tag_columns)
+  return _impl_.tag_columns_.Mutable(index);
+}
+inline void SeriesNormalize::set_tag_columns(int index, const std::string& value) {
+  _impl_.tag_columns_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.SeriesNormalize.tag_columns)
+}
+inline void SeriesNormalize::set_tag_columns(int index, std::string&& value) {
+  _impl_.tag_columns_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:substrait_extension.SeriesNormalize.tag_columns)
+}
+inline void SeriesNormalize::set_tag_columns(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.tag_columns_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:substrait_extension.SeriesNormalize.tag_columns)
+}
+inline void SeriesNormalize::set_tag_columns(int index, const char* value, size_t size) {
+  _impl_.tag_columns_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:substrait_extension.SeriesNormalize.tag_columns)
+}
+inline std::string* SeriesNormalize::_internal_add_tag_columns() {
+  return _impl_.tag_columns_.Add();
+}
+inline void SeriesNormalize::add_tag_columns(const std::string& value) {
+  _impl_.tag_columns_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.SeriesNormalize.tag_columns)
+}
+inline void SeriesNormalize::add_tag_columns(std::string&& value) {
+  _impl_.tag_columns_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:substrait_extension.SeriesNormalize.tag_columns)
+}
+inline void SeriesNormalize::add_tag_columns(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.tag_columns_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:substrait_extension.SeriesNormalize.tag_columns)
+}
+inline void SeriesNormalize::add_tag_columns(const char* value, size_t size) {
+  _impl_.tag_columns_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:substrait_extension.SeriesNormalize.tag_columns)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+SeriesNormalize::tag_columns() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.SeriesNormalize.tag_columns)
+  return _impl_.tag_columns_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+SeriesNormalize::mutable_tag_columns() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.SeriesNormalize.tag_columns)
+  return &_impl_.tag_columns_;
 }
 
 // -------------------------------------------------------------------
