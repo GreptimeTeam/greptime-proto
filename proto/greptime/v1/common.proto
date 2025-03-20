@@ -27,6 +27,8 @@ message QueryContext {
   map<string, string> extensions = 5;
   uint32 channel = 6;
   SnapshotSequences snapshot_seqs = 7;
+  // Whether to enable verbose explain output.
+  bool explain_verbose = 8;
 }
 
 message SnapshotSequences {
