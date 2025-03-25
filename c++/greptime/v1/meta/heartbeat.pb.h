@@ -1444,6 +1444,7 @@ class GrantedRegion final :
 
   enum : int {
     kRegionIdFieldNumber = 1,
+    kManifestVersionFieldNumber = 3,
     kRoleFieldNumber = 2,
   };
   // uint64 region_id = 1;
@@ -1453,6 +1454,15 @@ class GrantedRegion final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
+  public:
+
+  // uint64 manifest_version = 3;
+  void clear_manifest_version();
+  uint64_t manifest_version() const;
+  void set_manifest_version(uint64_t value);
+  private:
+  uint64_t _internal_manifest_version() const;
+  void _internal_set_manifest_version(uint64_t value);
   public:
 
   // .greptime.v1.meta.RegionRole role = 2;
@@ -1473,6 +1483,7 @@ class GrantedRegion final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     uint64_t region_id_;
+    uint64_t manifest_version_;
     int role_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -3583,6 +3594,26 @@ inline void GrantedRegion::_internal_set_role(::greptime::v1::meta::RegionRole v
 inline void GrantedRegion::set_role(::greptime::v1::meta::RegionRole value) {
   _internal_set_role(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.GrantedRegion.role)
+}
+
+// uint64 manifest_version = 3;
+inline void GrantedRegion::clear_manifest_version() {
+  _impl_.manifest_version_ = uint64_t{0u};
+}
+inline uint64_t GrantedRegion::_internal_manifest_version() const {
+  return _impl_.manifest_version_;
+}
+inline uint64_t GrantedRegion::manifest_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GrantedRegion.manifest_version)
+  return _internal_manifest_version();
+}
+inline void GrantedRegion::_internal_set_manifest_version(uint64_t value) {
+  
+  _impl_.manifest_version_ = value;
+}
+inline void GrantedRegion::set_manifest_version(uint64_t value) {
+  _internal_set_manifest_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.GrantedRegion.manifest_version)
 }
 
 // -------------------------------------------------------------------

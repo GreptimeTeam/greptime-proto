@@ -7213,8 +7213,22 @@ com.google.protobuf.ByteString defaultValue);
      * @return The role.
      */
     greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole();
+
+    /**
+     * <pre>
+     * The manifest version of the region leader.
+     * </pre>
+     *
+     * <code>uint64 manifest_version = 3;</code>
+     * @return The manifestVersion.
+     */
+    long getManifestVersion();
   }
   /**
+   * <pre>
+   * The granted region is the region that the meta server granted leases.
+   * </pre>
+   *
    * Protobuf type {@code greptime.v1.meta.GrantedRegion}
    */
   public static final class GrantedRegion extends
@@ -7269,6 +7283,11 @@ com.google.protobuf.ByteString defaultValue);
               int rawValue = input.readEnum();
 
               role_ = rawValue;
+              break;
+            }
+            case 24: {
+
+              manifestVersion_ = input.readUInt64();
               break;
             }
             default: {
@@ -7335,6 +7354,21 @@ com.google.protobuf.ByteString defaultValue);
       return result == null ? greptime.v1.meta.HeartbeatOuterClass.RegionRole.UNRECOGNIZED : result;
     }
 
+    public static final int MANIFEST_VERSION_FIELD_NUMBER = 3;
+    private long manifestVersion_;
+    /**
+     * <pre>
+     * The manifest version of the region leader.
+     * </pre>
+     *
+     * <code>uint64 manifest_version = 3;</code>
+     * @return The manifestVersion.
+     */
+    @java.lang.Override
+    public long getManifestVersion() {
+      return manifestVersion_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7355,6 +7389,9 @@ com.google.protobuf.ByteString defaultValue);
       if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
         output.writeEnum(2, role_);
       }
+      if (manifestVersion_ != 0L) {
+        output.writeUInt64(3, manifestVersion_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7371,6 +7408,10 @@ com.google.protobuf.ByteString defaultValue);
       if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, role_);
+      }
+      if (manifestVersion_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, manifestVersion_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7390,6 +7431,8 @@ com.google.protobuf.ByteString defaultValue);
       if (getRegionId()
           != other.getRegionId()) return false;
       if (role_ != other.role_) return false;
+      if (getManifestVersion()
+          != other.getManifestVersion()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7406,6 +7449,9 @@ com.google.protobuf.ByteString defaultValue);
           getRegionId());
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + role_;
+      hash = (37 * hash) + MANIFEST_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getManifestVersion());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7502,6 +7548,10 @@ com.google.protobuf.ByteString defaultValue);
       return builder;
     }
     /**
+     * <pre>
+     * The granted region is the region that the meta server granted leases.
+     * </pre>
+     *
      * Protobuf type {@code greptime.v1.meta.GrantedRegion}
      */
     public static final class Builder extends
@@ -7543,6 +7593,8 @@ com.google.protobuf.ByteString defaultValue);
 
         role_ = 0;
 
+        manifestVersion_ = 0L;
+
         return this;
       }
 
@@ -7571,6 +7623,7 @@ com.google.protobuf.ByteString defaultValue);
         greptime.v1.meta.HeartbeatOuterClass.GrantedRegion result = new greptime.v1.meta.HeartbeatOuterClass.GrantedRegion(this);
         result.regionId_ = regionId_;
         result.role_ = role_;
+        result.manifestVersion_ = manifestVersion_;
         onBuilt();
         return result;
       }
@@ -7624,6 +7677,9 @@ com.google.protobuf.ByteString defaultValue);
         }
         if (other.role_ != 0) {
           setRoleValue(other.getRoleValue());
+        }
+        if (other.getManifestVersion() != 0L) {
+          setManifestVersion(other.getManifestVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7735,6 +7791,49 @@ com.google.protobuf.ByteString defaultValue);
       public Builder clearRole() {
         
         role_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long manifestVersion_ ;
+      /**
+       * <pre>
+       * The manifest version of the region leader.
+       * </pre>
+       *
+       * <code>uint64 manifest_version = 3;</code>
+       * @return The manifestVersion.
+       */
+      @java.lang.Override
+      public long getManifestVersion() {
+        return manifestVersion_;
+      }
+      /**
+       * <pre>
+       * The manifest version of the region leader.
+       * </pre>
+       *
+       * <code>uint64 manifest_version = 3;</code>
+       * @param value The manifestVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setManifestVersion(long value) {
+        
+        manifestVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The manifest version of the region leader.
+       * </pre>
+       *
+       * <code>uint64 manifest_version = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearManifestVersion() {
+        
+        manifestVersion_ = 0L;
         onChanged();
         return this;
       }
@@ -11842,29 +11941,30 @@ com.google.protobuf.ByteString defaultValue);
       "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
       "ader\0229\n\017mailbox_message\030\002 \001(\0132 .greptime" +
       ".v1.meta.MailboxMessage\0223\n\014region_lease\030" +
-      "\003 \001(\0132\035.greptime.v1.meta.RegionLease\"N\n\r" +
+      "\003 \001(\0132\035.greptime.v1.meta.RegionLease\"h\n\r" +
       "GrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role" +
-      "\030\002 \001(\0162\034.greptime.v1.meta.RegionRole\"\222\001\n" +
-      "\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.greptime" +
-      ".v1.meta.GrantedRegion\022\034\n\024duration_since" +
-      "_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024c" +
-      "loseable_region_ids\030\004 \003(\004\"C\n\020AskLeaderRe" +
-      "quest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta" +
-      ".RequestHeader\"m\n\021AskLeaderResponse\0220\n\006h" +
-      "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH" +
-      "eader\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.meta" +
-      ".Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007s" +
-      "ubject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030" +
-      "\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000" +
-      "B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n" +
-      "\010Follower\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tH" +
-      "eartbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta" +
-      ".HeartbeatRequest\032#.greptime.v1.meta.Hea" +
-      "rtbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".grep" +
-      "time.v1.meta.AskLeaderRequest\032#.greptime" +
-      ".v1.meta.AskLeaderResponse\"\000B<Z:github.c" +
-      "om/GreptimeTeam/greptime-proto/go/grepti" +
-      "me/v1/metab\006proto3"
+      "\030\002 \001(\0162\034.greptime.v1.meta.RegionRole\022\030\n\020" +
+      "manifest_version\030\003 \001(\004\"\222\001\n\013RegionLease\0220" +
+      "\n\007regions\030\001 \003(\0132\037.greptime.v1.meta.Grant" +
+      "edRegion\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025" +
+      "\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeable_regio" +
+      "n_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006heade" +
+      "r\030\001 \001(\0132\037.greptime.v1.meta.RequestHeader" +
+      "\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(\0132 ." +
+      "greptime.v1.meta.ResponseHeader\022&\n\006leade" +
+      "r\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016Mailb" +
+      "oxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014" +
+      "\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_mi" +
+      "llis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n" +
+      "\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n" +
+      "\021DowngradingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHe" +
+      "artbeat\022\".greptime.v1.meta.HeartbeatRequ" +
+      "est\032#.greptime.v1.meta.HeartbeatResponse" +
+      "\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.meta.A" +
+      "skLeaderRequest\032#.greptime.v1.meta.AskLe" +
+      "aderResponse\"\000B<Z:github.com/GreptimeTea" +
+      "m/greptime-proto/go/greptime/v1/metab\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11924,7 +12024,7 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_GrantedRegion_descriptor,
-        new java.lang.String[] { "RegionId", "Role", });
+        new java.lang.String[] { "RegionId", "Role", "ManifestVersion", });
     internal_static_greptime_v1_meta_RegionLease_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_meta_RegionLease_fieldAccessorTable = new

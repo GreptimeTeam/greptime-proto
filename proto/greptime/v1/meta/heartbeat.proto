@@ -103,9 +103,12 @@ message HeartbeatResponse {
   RegionLease region_lease = 3;
 }
 
+// The granted region is the region that the meta server granted leases.
 message GrantedRegion {
   uint64 region_id = 1;
   RegionRole role = 2;
+  // The manifest version of the region leader.
+  uint64 manifest_version = 3;
 }
 
 message RegionLease {
