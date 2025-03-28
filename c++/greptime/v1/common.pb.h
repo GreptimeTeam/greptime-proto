@@ -77,6 +77,9 @@ extern DecimalTypeExtensionDefaultTypeInternal _DecimalTypeExtension_default_ins
 class ExpireAfter;
 struct ExpireAfterDefaultTypeInternal;
 extern ExpireAfterDefaultTypeInternal _ExpireAfter_default_instance_;
+class ExplainOptions;
+struct ExplainOptionsDefaultTypeInternal;
+extern ExplainOptionsDefaultTypeInternal _ExplainOptions_default_instance_;
 class FlightMetadata;
 struct FlightMetadataDefaultTypeInternal;
 extern FlightMetadataDefaultTypeInternal _FlightMetadata_default_instance_;
@@ -131,6 +134,7 @@ template<> ::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse* Arena::CreateMay
 template<> ::greptime::v1::Decimal128* Arena::CreateMaybeMessage<::greptime::v1::Decimal128>(Arena*);
 template<> ::greptime::v1::DecimalTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::DecimalTypeExtension>(Arena*);
 template<> ::greptime::v1::ExpireAfter* Arena::CreateMaybeMessage<::greptime::v1::ExpireAfter>(Arena*);
+template<> ::greptime::v1::ExplainOptions* Arena::CreateMaybeMessage<::greptime::v1::ExplainOptions>(Arena*);
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
 template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::greptime::v1::IntervalMonthDayNano>(Arena*);
 template<> ::greptime::v1::Metrics* Arena::CreateMaybeMessage<::greptime::v1::Metrics>(Arena*);
@@ -410,6 +414,7 @@ class QueryContext final :
     kCurrentSchemaFieldNumber = 2,
     kTimezoneFieldNumber = 4,
     kSnapshotSeqsFieldNumber = 7,
+    kExplainFieldNumber = 8,
     kChannelFieldNumber = 6,
   };
   // map<string, string> extensions = 5;
@@ -489,6 +494,24 @@ class QueryContext final :
       ::greptime::v1::SnapshotSequences* snapshot_seqs);
   ::greptime::v1::SnapshotSequences* unsafe_arena_release_snapshot_seqs();
 
+  // .greptime.v1.ExplainOptions explain = 8;
+  bool has_explain() const;
+  private:
+  bool _internal_has_explain() const;
+  public:
+  void clear_explain();
+  const ::greptime::v1::ExplainOptions& explain() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ExplainOptions* release_explain();
+  ::greptime::v1::ExplainOptions* mutable_explain();
+  void set_allocated_explain(::greptime::v1::ExplainOptions* explain);
+  private:
+  const ::greptime::v1::ExplainOptions& _internal_explain() const;
+  ::greptime::v1::ExplainOptions* _internal_mutable_explain();
+  public:
+  void unsafe_arena_set_allocated_explain(
+      ::greptime::v1::ExplainOptions* explain);
+  ::greptime::v1::ExplainOptions* unsafe_arena_release_explain();
+
   // uint32 channel = 6;
   void clear_channel();
   uint32_t channel() const;
@@ -515,6 +538,7 @@ class QueryContext final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr current_schema_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr timezone_;
     ::greptime::v1::SnapshotSequences* snapshot_seqs_;
+    ::greptime::v1::ExplainOptions* explain_;
     uint32_t channel_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -710,6 +734,154 @@ class SnapshotSequences final :
 };
 // -------------------------------------------------------------------
 
+class ExplainOptions final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ExplainOptions) */ {
+ public:
+  inline ExplainOptions() : ExplainOptions(nullptr) {}
+  ~ExplainOptions() override;
+  explicit PROTOBUF_CONSTEXPR ExplainOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ExplainOptions(const ExplainOptions& from);
+  ExplainOptions(ExplainOptions&& from) noexcept
+    : ExplainOptions() {
+    *this = ::std::move(from);
+  }
+
+  inline ExplainOptions& operator=(const ExplainOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ExplainOptions& operator=(ExplainOptions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ExplainOptions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ExplainOptions* internal_default_instance() {
+    return reinterpret_cast<const ExplainOptions*>(
+               &_ExplainOptions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(ExplainOptions& a, ExplainOptions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ExplainOptions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ExplainOptions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ExplainOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ExplainOptions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ExplainOptions& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ExplainOptions& from) {
+    ExplainOptions::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ExplainOptions* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.ExplainOptions";
+  }
+  protected:
+  explicit ExplainOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVerboseFieldNumber = 1,
+  };
+  // bool verbose = 1;
+  void clear_verbose();
+  bool verbose() const;
+  void set_verbose(bool value);
+  private:
+  bool _internal_verbose() const;
+  void _internal_set_verbose(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.ExplainOptions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    bool verbose_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class RequestHeader_TracingContextEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RequestHeader_TracingContextEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
@@ -786,7 +958,7 @@ class RequestHeader final :
                &_RequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(RequestHeader& a, RequestHeader& b) {
     a.Swap(&b);
@@ -1033,7 +1205,7 @@ class ResponseHeader final :
                &_ResponseHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(ResponseHeader& a, ResponseHeader& b) {
     a.Swap(&b);
@@ -1190,7 +1362,7 @@ class Status final :
                &_Status_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(Status& a, Status& b) {
     a.Swap(&b);
@@ -1360,7 +1532,7 @@ class AuthHeader final :
                &_AuthHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(AuthHeader& a, AuthHeader& b) {
     a.Swap(&b);
@@ -1550,7 +1722,7 @@ class Basic final :
                &_Basic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(Basic& a, Basic& b) {
     a.Swap(&b);
@@ -1719,7 +1891,7 @@ class Token final :
                &_Token_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(Token& a, Token& b) {
     a.Swap(&b);
@@ -1872,7 +2044,7 @@ class TableName final :
                &_TableName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(TableName& a, TableName& b) {
     a.Swap(&b);
@@ -2057,7 +2229,7 @@ class AffectedRows final :
                &_AffectedRows_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(AffectedRows& a, AffectedRows& b) {
     a.Swap(&b);
@@ -2205,7 +2377,7 @@ class Metrics final :
                &_Metrics_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(Metrics& a, Metrics& b) {
     a.Swap(&b);
@@ -2358,7 +2530,7 @@ class ExpireAfter final :
                &_ExpireAfter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(ExpireAfter& a, ExpireAfter& b) {
     a.Swap(&b);
@@ -2506,7 +2678,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -2683,7 +2855,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -2853,7 +3025,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -3019,7 +3191,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -3225,7 +3397,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -3384,7 +3556,7 @@ class VectorTypeExtension final :
                &_VectorTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(VectorTypeExtension& a, VectorTypeExtension& b) {
     a.Swap(&b);
@@ -3560,7 +3732,7 @@ class ColumnOptions final :
                &_ColumnOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(ColumnOptions& a, ColumnOptions& b) {
     a.Swap(&b);
@@ -3975,6 +4147,96 @@ inline void QueryContext::set_allocated_snapshot_seqs(::greptime::v1::SnapshotSe
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.QueryContext.snapshot_seqs)
 }
 
+// .greptime.v1.ExplainOptions explain = 8;
+inline bool QueryContext::_internal_has_explain() const {
+  return this != internal_default_instance() && _impl_.explain_ != nullptr;
+}
+inline bool QueryContext::has_explain() const {
+  return _internal_has_explain();
+}
+inline void QueryContext::clear_explain() {
+  if (GetArenaForAllocation() == nullptr && _impl_.explain_ != nullptr) {
+    delete _impl_.explain_;
+  }
+  _impl_.explain_ = nullptr;
+}
+inline const ::greptime::v1::ExplainOptions& QueryContext::_internal_explain() const {
+  const ::greptime::v1::ExplainOptions* p = _impl_.explain_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ExplainOptions&>(
+      ::greptime::v1::_ExplainOptions_default_instance_);
+}
+inline const ::greptime::v1::ExplainOptions& QueryContext::explain() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.QueryContext.explain)
+  return _internal_explain();
+}
+inline void QueryContext::unsafe_arena_set_allocated_explain(
+    ::greptime::v1::ExplainOptions* explain) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.explain_);
+  }
+  _impl_.explain_ = explain;
+  if (explain) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.QueryContext.explain)
+}
+inline ::greptime::v1::ExplainOptions* QueryContext::release_explain() {
+  
+  ::greptime::v1::ExplainOptions* temp = _impl_.explain_;
+  _impl_.explain_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ExplainOptions* QueryContext::unsafe_arena_release_explain() {
+  // @@protoc_insertion_point(field_release:greptime.v1.QueryContext.explain)
+  
+  ::greptime::v1::ExplainOptions* temp = _impl_.explain_;
+  _impl_.explain_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ExplainOptions* QueryContext::_internal_mutable_explain() {
+  
+  if (_impl_.explain_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ExplainOptions>(GetArenaForAllocation());
+    _impl_.explain_ = p;
+  }
+  return _impl_.explain_;
+}
+inline ::greptime::v1::ExplainOptions* QueryContext::mutable_explain() {
+  ::greptime::v1::ExplainOptions* _msg = _internal_mutable_explain();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.QueryContext.explain)
+  return _msg;
+}
+inline void QueryContext::set_allocated_explain(::greptime::v1::ExplainOptions* explain) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.explain_;
+  }
+  if (explain) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(explain);
+    if (message_arena != submessage_arena) {
+      explain = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, explain, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.explain_ = explain;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.QueryContext.explain)
+}
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -4008,6 +4270,30 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< uint64_t, uint64_t >*
 SnapshotSequences::mutable_snapshot_seqs() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.SnapshotSequences.snapshot_seqs)
   return _internal_mutable_snapshot_seqs();
+}
+
+// -------------------------------------------------------------------
+
+// ExplainOptions
+
+// bool verbose = 1;
+inline void ExplainOptions::clear_verbose() {
+  _impl_.verbose_ = false;
+}
+inline bool ExplainOptions::_internal_verbose() const {
+  return _impl_.verbose_;
+}
+inline bool ExplainOptions::verbose() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ExplainOptions.verbose)
+  return _internal_verbose();
+}
+inline void ExplainOptions::_internal_set_verbose(bool value) {
+  
+  _impl_.verbose_ = value;
+}
+inline void ExplainOptions::set_verbose(bool value) {
+  _internal_set_verbose(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ExplainOptions.verbose)
 }
 
 // -------------------------------------------------------------------
@@ -5675,6 +5961,8 @@ ColumnOptions::mutable_options() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
