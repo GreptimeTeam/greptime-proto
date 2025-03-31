@@ -144,6 +144,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR GrantedRegion::GrantedRegion(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.region_id_)*/uint64_t{0u}
+  , /*decltype(_impl_.manifest_version_)*/uint64_t{0u}
   , /*decltype(_impl_.role_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct GrantedRegionDefaultTypeInternal {
@@ -319,6 +320,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GrantedRegion, _impl_.region_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GrantedRegion, _impl_.role_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GrantedRegion, _impl_.manifest_version_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionLease, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -368,10 +370,10 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 68, -1, -1, sizeof(::greptime::v1::meta::FlowStat)},
   { 76, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
   { 85, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
-  { 93, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
-  { 103, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
-  { 110, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
-  { 118, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
+  { 94, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
+  { 104, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
+  { 111, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
+  { 119, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -423,36 +425,37 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe"
   "ader\0229\n\017mailbox_message\030\002 \001(\0132 .greptime"
   ".v1.meta.MailboxMessage\0223\n\014region_lease\030"
-  "\003 \001(\0132\035.greptime.v1.meta.RegionLease\"N\n\r"
+  "\003 \001(\0132\035.greptime.v1.meta.RegionLease\"h\n\r"
   "GrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role"
-  "\030\002 \001(\0162\034.greptime.v1.meta.RegionRole\"\222\001\n"
-  "\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.greptime"
-  ".v1.meta.GrantedRegion\022\034\n\024duration_since"
-  "_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024c"
-  "loseable_region_ids\030\004 \003(\004\"C\n\020AskLeaderRe"
-  "quest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta"
-  ".RequestHeader\"m\n\021AskLeaderResponse\0220\n\006h"
-  "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH"
-  "eader\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.meta"
-  ".Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007s"
-  "ubject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030"
-  "\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000"
-  "B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n"
-  "\010Follower\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tH"
-  "eartbeat\022Z\n\tHeartbeat\022\".greptime.v1.meta"
-  ".HeartbeatRequest\032#.greptime.v1.meta.Hea"
-  "rtbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".grep"
-  "time.v1.meta.AskLeaderRequest\032#.greptime"
-  ".v1.meta.AskLeaderResponse\"\000B<Z:github.c"
-  "om/GreptimeTeam/greptime-proto/go/grepti"
-  "me/v1/metab\006proto3"
+  "\030\002 \001(\0162\034.greptime.v1.meta.RegionRole\022\030\n\020"
+  "manifest_version\030\003 \001(\004\"\222\001\n\013RegionLease\0220"
+  "\n\007regions\030\001 \003(\0132\037.greptime.v1.meta.Grant"
+  "edRegion\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025"
+  "\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeable_regio"
+  "n_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006heade"
+  "r\030\001 \001(\0132\037.greptime.v1.meta.RequestHeader"
+  "\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(\0132 ."
+  "greptime.v1.meta.ResponseHeader\022&\n\006leade"
+  "r\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016Mailb"
+  "oxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014"
+  "\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_mi"
+  "llis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n"
+  "\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n"
+  "\021DowngradingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHe"
+  "artbeat\022\".greptime.v1.meta.HeartbeatRequ"
+  "est\032#.greptime.v1.meta.HeartbeatResponse"
+  "\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.meta.A"
+  "skLeaderRequest\032#.greptime.v1.meta.AskLe"
+  "aderResponse\"\000B<Z:github.com/GreptimeTea"
+  "m/greptime-proto/go/greptime/v1/metab\006pr"
+  "oto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 2178, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 2204, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 13,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
@@ -2307,6 +2310,7 @@ GrantedRegion::GrantedRegion(const GrantedRegion& from)
   GrantedRegion* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.region_id_){}
+    , decltype(_impl_.manifest_version_){}
     , decltype(_impl_.role_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -2323,6 +2327,7 @@ inline void GrantedRegion::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.region_id_){uint64_t{0u}}
+    , decltype(_impl_.manifest_version_){uint64_t{0u}}
     , decltype(_impl_.role_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -2380,6 +2385,14 @@ const char* GrantedRegion::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
+      // uint64 manifest_version = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.manifest_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -2422,6 +2435,12 @@ uint8_t* GrantedRegion::_InternalSerialize(
       2, this->_internal_role(), target);
   }
 
+  // uint64 manifest_version = 3;
+  if (this->_internal_manifest_version() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_manifest_version(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2441,6 +2460,11 @@ size_t GrantedRegion::ByteSizeLong() const {
   // uint64 region_id = 1;
   if (this->_internal_region_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_region_id());
+  }
+
+  // uint64 manifest_version = 3;
+  if (this->_internal_manifest_version() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_manifest_version());
   }
 
   // .greptime.v1.meta.RegionRole role = 2;
@@ -2469,6 +2493,9 @@ void GrantedRegion::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
 
   if (from._internal_region_id() != 0) {
     _this->_internal_set_region_id(from._internal_region_id());
+  }
+  if (from._internal_manifest_version() != 0) {
+    _this->_internal_set_manifest_version(from._internal_manifest_version());
   }
   if (from._internal_role() != 0) {
     _this->_internal_set_role(from._internal_role());
