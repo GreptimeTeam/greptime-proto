@@ -27,6 +27,8 @@ message QueryContext {
   map<string, string> extensions = 5;
   uint32 channel = 6;
   SnapshotSequences snapshot_seqs = 7;
+  // Explain options for the query.
+  ExplainOptions explain = 8;
 }
 
 message SnapshotSequences {
@@ -34,6 +36,11 @@ message SnapshotSequences {
   // read should only container data that was committed before (and include) the
   // given sequence number
   map<uint64, uint64> snapshot_seqs = 7;
+}
+
+message ExplainOptions {
+  // Whether to enable verbose explain output.
+  bool verbose = 1;
 }
 
 message RequestHeader {
