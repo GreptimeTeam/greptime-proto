@@ -123,6 +123,114 @@ public final class Ddl {
   }
 
   /**
+   * Protobuf enum {@code greptime.v1.FulltextBackend}
+   */
+  public enum FulltextBackend
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>TANTIVY = 0;</code>
+     */
+    TANTIVY(0),
+    /**
+     * <code>BLOOM = 1;</code>
+     */
+    BLOOM(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>TANTIVY = 0;</code>
+     */
+    public static final int TANTIVY_VALUE = 0;
+    /**
+     * <code>BLOOM = 1;</code>
+     */
+    public static final int BLOOM_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static FulltextBackend valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static FulltextBackend forNumber(int value) {
+      switch (value) {
+        case 0: return TANTIVY;
+        case 1: return BLOOM;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<FulltextBackend>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        FulltextBackend> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<FulltextBackend>() {
+            public FulltextBackend findValueByNumber(int number) {
+              return FulltextBackend.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final FulltextBackend[] VALUES = values();
+
+    public static FulltextBackend valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private FulltextBackend(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.FulltextBackend)
+  }
+
+  /**
    * Protobuf enum {@code greptime.v1.SkippingIndexType}
    */
   public enum SkippingIndexType
@@ -195,7 +303,7 @@ public final class Ddl {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return io.greptime.v1.Ddl.getDescriptor().getEnumTypes().get(1);
+      return io.greptime.v1.Ddl.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final SkippingIndexType[] VALUES = values();
@@ -32206,6 +32314,17 @@ java.lang.String defaultValue);
      * @return The caseSensitive.
      */
     boolean getCaseSensitive();
+
+    /**
+     * <code>.greptime.v1.FulltextBackend backend = 5;</code>
+     * @return The enum numeric value on the wire for backend.
+     */
+    int getBackendValue();
+    /**
+     * <code>.greptime.v1.FulltextBackend backend = 5;</code>
+     * @return The backend.
+     */
+    io.greptime.v1.Ddl.FulltextBackend getBackend();
   }
   /**
    * Protobuf type {@code greptime.v1.SetFulltext}
@@ -32222,6 +32341,7 @@ java.lang.String defaultValue);
     private SetFulltext() {
       columnName_ = "";
       analyzer_ = 0;
+      backend_ = 0;
     }
 
     @java.lang.Override
@@ -32274,6 +32394,12 @@ java.lang.String defaultValue);
             case 32: {
 
               caseSensitive_ = input.readBool();
+              break;
+            }
+            case 40: {
+              int rawValue = input.readEnum();
+
+              backend_ = rawValue;
               break;
             }
             default: {
@@ -32389,6 +32515,25 @@ java.lang.String defaultValue);
       return caseSensitive_;
     }
 
+    public static final int BACKEND_FIELD_NUMBER = 5;
+    private int backend_;
+    /**
+     * <code>.greptime.v1.FulltextBackend backend = 5;</code>
+     * @return The enum numeric value on the wire for backend.
+     */
+    @java.lang.Override public int getBackendValue() {
+      return backend_;
+    }
+    /**
+     * <code>.greptime.v1.FulltextBackend backend = 5;</code>
+     * @return The backend.
+     */
+    @java.lang.Override public io.greptime.v1.Ddl.FulltextBackend getBackend() {
+      @SuppressWarnings("deprecation")
+      io.greptime.v1.Ddl.FulltextBackend result = io.greptime.v1.Ddl.FulltextBackend.valueOf(backend_);
+      return result == null ? io.greptime.v1.Ddl.FulltextBackend.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -32415,6 +32560,9 @@ java.lang.String defaultValue);
       if (caseSensitive_ != false) {
         output.writeBool(4, caseSensitive_);
       }
+      if (backend_ != io.greptime.v1.Ddl.FulltextBackend.TANTIVY.getNumber()) {
+        output.writeEnum(5, backend_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -32439,6 +32587,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, caseSensitive_);
       }
+      if (backend_ != io.greptime.v1.Ddl.FulltextBackend.TANTIVY.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, backend_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -32461,6 +32613,7 @@ java.lang.String defaultValue);
       if (analyzer_ != other.analyzer_) return false;
       if (getCaseSensitive()
           != other.getCaseSensitive()) return false;
+      if (backend_ != other.backend_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -32482,6 +32635,8 @@ java.lang.String defaultValue);
       hash = (37 * hash) + CASE_SENSITIVE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCaseSensitive());
+      hash = (37 * hash) + BACKEND_FIELD_NUMBER;
+      hash = (53 * hash) + backend_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -32623,6 +32778,8 @@ java.lang.String defaultValue);
 
         caseSensitive_ = false;
 
+        backend_ = 0;
+
         return this;
       }
 
@@ -32653,6 +32810,7 @@ java.lang.String defaultValue);
         result.enable_ = enable_;
         result.analyzer_ = analyzer_;
         result.caseSensitive_ = caseSensitive_;
+        result.backend_ = backend_;
         onBuilt();
         return result;
       }
@@ -32713,6 +32871,9 @@ java.lang.String defaultValue);
         }
         if (other.getCaseSensitive() != false) {
           setCaseSensitive(other.getCaseSensitive());
+        }
+        if (other.backend_ != 0) {
+          setBackendValue(other.getBackendValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -32931,6 +33092,60 @@ java.lang.String defaultValue);
       public Builder clearCaseSensitive() {
         
         caseSensitive_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int backend_ = 0;
+      /**
+       * <code>.greptime.v1.FulltextBackend backend = 5;</code>
+       * @return The enum numeric value on the wire for backend.
+       */
+      @java.lang.Override public int getBackendValue() {
+        return backend_;
+      }
+      /**
+       * <code>.greptime.v1.FulltextBackend backend = 5;</code>
+       * @param value The enum numeric value on the wire for backend to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBackendValue(int value) {
+        
+        backend_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FulltextBackend backend = 5;</code>
+       * @return The backend.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.FulltextBackend getBackend() {
+        @SuppressWarnings("deprecation")
+        io.greptime.v1.Ddl.FulltextBackend result = io.greptime.v1.Ddl.FulltextBackend.valueOf(backend_);
+        return result == null ? io.greptime.v1.Ddl.FulltextBackend.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.FulltextBackend backend = 5;</code>
+       * @param value The backend to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBackend(io.greptime.v1.Ddl.FulltextBackend value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        backend_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.FulltextBackend backend = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBackend() {
+        
+        backend_ = 0;
         onChanged();
         return this;
       }
@@ -39089,29 +39304,32 @@ java.lang.String defaultValue);
       "\n\021AddColumnLocation\022B\n\rlocation_type\030\001 \001" +
       "(\0162+.greptime.v1.AddColumnLocation.Locat" +
       "ionType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Lo" +
-      "cationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"s\n\013SetF" +
-      "ulltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002" +
-      " \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Ana" +
-      "lyzer\022\026\n\016case_sensitive\030\004 \001(\010\"$\n\rUnsetFu" +
-      "lltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetInvert" +
-      "ed\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInverted" +
-      "\022\023\n\013column_name\030\001 \001(\t\"\204\001\n\013SetSkipping\022\023\n" +
-      "\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013gr" +
-      "anularity\030\003 \001(\004\022;\n\023skipping_index_type\030\004" +
-      " \001(\0162\036.greptime.v1.SkippingIndexType\"$\n\r" +
-      "UnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021A" +
-      "lterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023" +
-      "\n\013schema_name\030\002 \001(\t\022?\n\024set_database_opti" +
-      "ons\030\003 \001(\0132\037.greptime.v1.SetDatabaseOptio" +
-      "nsH\000\022C\n\026unset_database_options\030\004 \001(\0132!.g" +
-      "reptime.v1.UnsetDatabaseOptionsH\000B\006\n\004kin" +
-      "d\"G\n\022SetDatabaseOptions\0221\n\024set_database_" +
-      "options\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024Un" +
-      "setDatabaseOptions\022\014\n\004keys\030\001 \003(\t*$\n\010Anal" +
-      "yzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*%\n\021Skippi" +
-      "ngIndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.grep" +
-      "time.v1B\003DdlZ5github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1b\006proto3"
+      "cationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\242\001\n\013Set" +
+      "Fulltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030" +
+      "\002 \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.An" +
+      "alyzer\022\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backen" +
+      "d\030\005 \001(\0162\034.greptime.v1.FulltextBackend\"$\n" +
+      "\rUnsetFulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013S" +
+      "etInverted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnset" +
+      "Inverted\022\023\n\013column_name\030\001 \001(\t\"\204\001\n\013SetSki" +
+      "pping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001" +
+      "(\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skipping_inde" +
+      "x_type\030\004 \001(\0162\036.greptime.v1.SkippingIndex" +
+      "Type\"$\n\rUnsetSkipping\022\023\n\013column_name\030\001 \001" +
+      "(\t\"\314\001\n\021AlterDatabaseExpr\022\024\n\014catalog_name" +
+      "\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_datab" +
+      "ase_options\030\003 \001(\0132\037.greptime.v1.SetDatab" +
+      "aseOptionsH\000\022C\n\026unset_database_options\030\004" +
+      " \001(\0132!.greptime.v1.UnsetDatabaseOptionsH" +
+      "\000B\006\n\004kind\"G\n\022SetDatabaseOptions\0221\n\024set_d" +
+      "atabase_options\030\001 \003(\0132\023.greptime.v1.Opti" +
+      "on\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t" +
+      "*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)" +
+      "\n\017FulltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020" +
+      "\001*%\n\021SkippingIndexType\022\020\n\014BLOOM_FILTER\020\000" +
+      "BL\n\016io.greptime.v1B\003DdlZ5github.com/Grep" +
+      "timeTeam/greptime-proto/go/greptime/v1b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -39303,7 +39521,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_SetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetFulltext_descriptor,
-        new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", });
+        new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", "Backend", });
     internal_static_greptime_v1_UnsetFulltext_descriptor =
       getDescriptor().getMessageTypes().get(28);
     internal_static_greptime_v1_UnsetFulltext_fieldAccessorTable = new
