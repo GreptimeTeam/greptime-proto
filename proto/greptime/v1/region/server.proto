@@ -53,6 +53,7 @@ message RegionRequest {
     CreateRequests creates = 13;
     DropRequests drops = 14;
     AlterRequests alters = 15;
+    BulkInsertRequests bulk_inserts = 16;
   }
 }
 
@@ -181,4 +182,17 @@ message TruncateRequest { uint64 region_id = 1; }
 message RegionColumnDef {
   ColumnDef column_def = 1;
   uint32 column_id = 2;
+}
+
+// Request of bulk ingestion API.
+message BulkInsertRequests { repeated BulkInsertRequest requests = 1; }
+
+enum BulkInsertType {
+  BULK_INSERT_TYPE_ARROW_IPC = 0;
+}
+
+message BulkInsertRequest {
+  uint64 region_id = 1;
+  BulkInsertType type = 2;
+  bytes body = 3;
 }
