@@ -264,6 +264,31 @@ inline bool Analyzer_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Analyzer>(
     Analyzer_descriptor(), name, value);
 }
+enum FulltextBackend : int {
+  TANTIVY = 0,
+  BLOOM = 1,
+  FulltextBackend_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  FulltextBackend_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool FulltextBackend_IsValid(int value);
+constexpr FulltextBackend FulltextBackend_MIN = TANTIVY;
+constexpr FulltextBackend FulltextBackend_MAX = BLOOM;
+constexpr int FulltextBackend_ARRAYSIZE = FulltextBackend_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FulltextBackend_descriptor();
+template<typename T>
+inline const std::string& FulltextBackend_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, FulltextBackend>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function FulltextBackend_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    FulltextBackend_descriptor(), enum_t_value);
+}
+inline bool FulltextBackend_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, FulltextBackend* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<FulltextBackend>(
+    FulltextBackend_descriptor(), name, value);
+}
 enum SkippingIndexType : int {
   BLOOM_FILTER = 0,
   SkippingIndexType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
@@ -6248,6 +6273,7 @@ class SetFulltext final :
     kAnalyzerFieldNumber = 3,
     kEnableFieldNumber = 2,
     kCaseSensitiveFieldNumber = 4,
+    kBackendFieldNumber = 5,
   };
   // string column_name = 1;
   void clear_column_name();
@@ -6290,6 +6316,15 @@ class SetFulltext final :
   void _internal_set_case_sensitive(bool value);
   public:
 
+  // .greptime.v1.FulltextBackend backend = 5;
+  void clear_backend();
+  ::greptime::v1::FulltextBackend backend() const;
+  void set_backend(::greptime::v1::FulltextBackend value);
+  private:
+  ::greptime::v1::FulltextBackend _internal_backend() const;
+  void _internal_set_backend(::greptime::v1::FulltextBackend value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.SetFulltext)
  private:
   class _Internal;
@@ -6302,6 +6337,7 @@ class SetFulltext final :
     int analyzer_;
     bool enable_;
     bool case_sensitive_;
+    int backend_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -13876,6 +13912,26 @@ inline void SetFulltext::set_case_sensitive(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.SetFulltext.case_sensitive)
 }
 
+// .greptime.v1.FulltextBackend backend = 5;
+inline void SetFulltext::clear_backend() {
+  _impl_.backend_ = 0;
+}
+inline ::greptime::v1::FulltextBackend SetFulltext::_internal_backend() const {
+  return static_cast< ::greptime::v1::FulltextBackend >(_impl_.backend_);
+}
+inline ::greptime::v1::FulltextBackend SetFulltext::backend() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetFulltext.backend)
+  return _internal_backend();
+}
+inline void SetFulltext::_internal_set_backend(::greptime::v1::FulltextBackend value) {
+  
+  _impl_.backend_ = value;
+}
+inline void SetFulltext::set_backend(::greptime::v1::FulltextBackend value) {
+  _internal_set_backend(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SetFulltext.backend)
+}
+
 // -------------------------------------------------------------------
 
 // UnsetFulltext
@@ -14686,6 +14742,11 @@ template <> struct is_proto_enum< ::greptime::v1::Analyzer> : ::std::true_type {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::Analyzer>() {
   return ::greptime::v1::Analyzer_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::FulltextBackend> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::FulltextBackend>() {
+  return ::greptime::v1::FulltextBackend_descriptor();
 }
 template <> struct is_proto_enum< ::greptime::v1::SkippingIndexType> : ::std::true_type {};
 template <>
