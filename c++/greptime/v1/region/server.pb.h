@@ -33,6 +33,7 @@
 #include <google/protobuf/map.h>  // IWYU pragma: export
 #include <google/protobuf/map_entry.h>
 #include <google/protobuf/map_field_inl.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/common.pb.h"
 #include "greptime/v1/row.pb.h"
@@ -66,6 +67,12 @@ extern AlterRequestDefaultTypeInternal _AlterRequest_default_instance_;
 class AlterRequests;
 struct AlterRequestsDefaultTypeInternal;
 extern AlterRequestsDefaultTypeInternal _AlterRequests_default_instance_;
+class BulkInsertRequest;
+struct BulkInsertRequestDefaultTypeInternal;
+extern BulkInsertRequestDefaultTypeInternal _BulkInsertRequest_default_instance_;
+class BulkInsertRequests;
+struct BulkInsertRequestsDefaultTypeInternal;
+extern BulkInsertRequestsDefaultTypeInternal _BulkInsertRequests_default_instance_;
 class CloseRequest;
 struct CloseRequestDefaultTypeInternal;
 extern CloseRequestDefaultTypeInternal _CloseRequest_default_instance_;
@@ -152,6 +159,8 @@ template<> ::greptime::v1::region::AddColumn* Arena::CreateMaybeMessage<::grepti
 template<> ::greptime::v1::region::AddColumns* Arena::CreateMaybeMessage<::greptime::v1::region::AddColumns>(Arena*);
 template<> ::greptime::v1::region::AlterRequest* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequest>(Arena*);
 template<> ::greptime::v1::region::AlterRequests* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequests>(Arena*);
+template<> ::greptime::v1::region::BulkInsertRequest* Arena::CreateMaybeMessage<::greptime::v1::region::BulkInsertRequest>(Arena*);
+template<> ::greptime::v1::region::BulkInsertRequests* Arena::CreateMaybeMessage<::greptime::v1::region::BulkInsertRequests>(Arena*);
 template<> ::greptime::v1::region::CloseRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CloseRequest>(Arena*);
 template<> ::greptime::v1::region::CompactRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CompactRequest>(Arena*);
 template<> ::greptime::v1::region::CreateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CreateRequest>(Arena*);
@@ -183,6 +192,30 @@ namespace greptime {
 namespace v1 {
 namespace region {
 
+enum BulkInsertType : int {
+  BULK_INSERT_TYPE_ARROW_IPC = 0,
+  BulkInsertType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  BulkInsertType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool BulkInsertType_IsValid(int value);
+constexpr BulkInsertType BulkInsertType_MIN = BULK_INSERT_TYPE_ARROW_IPC;
+constexpr BulkInsertType BulkInsertType_MAX = BULK_INSERT_TYPE_ARROW_IPC;
+constexpr int BulkInsertType_ARRAYSIZE = BulkInsertType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BulkInsertType_descriptor();
+template<typename T>
+inline const std::string& BulkInsertType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, BulkInsertType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function BulkInsertType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    BulkInsertType_descriptor(), enum_t_value);
+}
+inline bool BulkInsertType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, BulkInsertType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<BulkInsertType>(
+    BulkInsertType_descriptor(), name, value);
+}
 // ===================================================================
 
 class RegionRequestHeader_TracingContextEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionRequestHeader_TracingContextEntry_DoNotUse, 
@@ -469,6 +502,7 @@ class RegionRequest final :
     kCreates = 13,
     kDrops = 14,
     kAlters = 15,
+    kBulkInserts = 16,
     BODY_NOT_SET = 0,
   };
 
@@ -564,6 +598,7 @@ class RegionRequest final :
     kCreatesFieldNumber = 13,
     kDropsFieldNumber = 14,
     kAltersFieldNumber = 15,
+    kBulkInsertsFieldNumber = 16,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -817,6 +852,24 @@ class RegionRequest final :
       ::greptime::v1::region::AlterRequests* alters);
   ::greptime::v1::region::AlterRequests* unsafe_arena_release_alters();
 
+  // .greptime.v1.region.BulkInsertRequests bulk_inserts = 16;
+  bool has_bulk_inserts() const;
+  private:
+  bool _internal_has_bulk_inserts() const;
+  public:
+  void clear_bulk_inserts();
+  const ::greptime::v1::region::BulkInsertRequests& bulk_inserts() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::BulkInsertRequests* release_bulk_inserts();
+  ::greptime::v1::region::BulkInsertRequests* mutable_bulk_inserts();
+  void set_allocated_bulk_inserts(::greptime::v1::region::BulkInsertRequests* bulk_inserts);
+  private:
+  const ::greptime::v1::region::BulkInsertRequests& _internal_bulk_inserts() const;
+  ::greptime::v1::region::BulkInsertRequests* _internal_mutable_bulk_inserts();
+  public:
+  void unsafe_arena_set_allocated_bulk_inserts(
+      ::greptime::v1::region::BulkInsertRequests* bulk_inserts);
+  ::greptime::v1::region::BulkInsertRequests* unsafe_arena_release_bulk_inserts();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -835,6 +888,7 @@ class RegionRequest final :
   void set_has_creates();
   void set_has_drops();
   void set_has_alters();
+  void set_has_bulk_inserts();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -860,6 +914,7 @@ class RegionRequest final :
       ::greptime::v1::region::CreateRequests* creates_;
       ::greptime::v1::region::DropRequests* drops_;
       ::greptime::v1::region::AlterRequests* alters_;
+      ::greptime::v1::region::BulkInsertRequests* bulk_inserts_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -5122,6 +5177,338 @@ class RegionColumnDef final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
 };
+// -------------------------------------------------------------------
+
+class BulkInsertRequests final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.BulkInsertRequests) */ {
+ public:
+  inline BulkInsertRequests() : BulkInsertRequests(nullptr) {}
+  ~BulkInsertRequests() override;
+  explicit PROTOBUF_CONSTEXPR BulkInsertRequests(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  BulkInsertRequests(const BulkInsertRequests& from);
+  BulkInsertRequests(BulkInsertRequests&& from) noexcept
+    : BulkInsertRequests() {
+    *this = ::std::move(from);
+  }
+
+  inline BulkInsertRequests& operator=(const BulkInsertRequests& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BulkInsertRequests& operator=(BulkInsertRequests&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BulkInsertRequests& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BulkInsertRequests* internal_default_instance() {
+    return reinterpret_cast<const BulkInsertRequests*>(
+               &_BulkInsertRequests_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(BulkInsertRequests& a, BulkInsertRequests& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BulkInsertRequests* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BulkInsertRequests* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BulkInsertRequests* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BulkInsertRequests>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const BulkInsertRequests& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const BulkInsertRequests& from) {
+    BulkInsertRequests::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BulkInsertRequests* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.BulkInsertRequests";
+  }
+  protected:
+  explicit BulkInsertRequests(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRequestsFieldNumber = 1,
+  };
+  // repeated .greptime.v1.region.BulkInsertRequest requests = 1;
+  int requests_size() const;
+  private:
+  int _internal_requests_size() const;
+  public:
+  void clear_requests();
+  ::greptime::v1::region::BulkInsertRequest* mutable_requests(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::BulkInsertRequest >*
+      mutable_requests();
+  private:
+  const ::greptime::v1::region::BulkInsertRequest& _internal_requests(int index) const;
+  ::greptime::v1::region::BulkInsertRequest* _internal_add_requests();
+  public:
+  const ::greptime::v1::region::BulkInsertRequest& requests(int index) const;
+  ::greptime::v1::region::BulkInsertRequest* add_requests();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::BulkInsertRequest >&
+      requests() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.BulkInsertRequests)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::BulkInsertRequest > requests_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BulkInsertRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.BulkInsertRequest) */ {
+ public:
+  inline BulkInsertRequest() : BulkInsertRequest(nullptr) {}
+  ~BulkInsertRequest() override;
+  explicit PROTOBUF_CONSTEXPR BulkInsertRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  BulkInsertRequest(const BulkInsertRequest& from);
+  BulkInsertRequest(BulkInsertRequest&& from) noexcept
+    : BulkInsertRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline BulkInsertRequest& operator=(const BulkInsertRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BulkInsertRequest& operator=(BulkInsertRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BulkInsertRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BulkInsertRequest* internal_default_instance() {
+    return reinterpret_cast<const BulkInsertRequest*>(
+               &_BulkInsertRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    31;
+
+  friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BulkInsertRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BulkInsertRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BulkInsertRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BulkInsertRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const BulkInsertRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const BulkInsertRequest& from) {
+    BulkInsertRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BulkInsertRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.BulkInsertRequest";
+  }
+  protected:
+  explicit BulkInsertRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBodyFieldNumber = 3,
+    kRegionIdFieldNumber = 1,
+    kTypeFieldNumber = 2,
+  };
+  // bytes body = 3;
+  void clear_body();
+  const std::string& body() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_body(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_body();
+  PROTOBUF_NODISCARD std::string* release_body();
+  void set_allocated_body(std::string* body);
+  private:
+  const std::string& _internal_body() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_body(const std::string& value);
+  std::string* _internal_mutable_body();
+  public:
+
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // .greptime.v1.region.BulkInsertType type = 2;
+  void clear_type();
+  ::greptime::v1::region::BulkInsertType type() const;
+  void set_type(::greptime::v1::region::BulkInsertType value);
+  private:
+  ::greptime::v1::region::BulkInsertType _internal_type() const;
+  void _internal_set_type(::greptime::v1::region::BulkInsertType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.BulkInsertRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr body_;
+    uint64_t region_id_;
+    int type_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
 // ===================================================================
 
 
@@ -6352,6 +6739,80 @@ inline ::greptime::v1::region::AlterRequests* RegionRequest::_internal_mutable_a
 inline ::greptime::v1::region::AlterRequests* RegionRequest::mutable_alters() {
   ::greptime::v1::region::AlterRequests* _msg = _internal_mutable_alters();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.alters)
+  return _msg;
+}
+
+// .greptime.v1.region.BulkInsertRequests bulk_inserts = 16;
+inline bool RegionRequest::_internal_has_bulk_inserts() const {
+  return body_case() == kBulkInserts;
+}
+inline bool RegionRequest::has_bulk_inserts() const {
+  return _internal_has_bulk_inserts();
+}
+inline void RegionRequest::set_has_bulk_inserts() {
+  _impl_._oneof_case_[0] = kBulkInserts;
+}
+inline void RegionRequest::clear_bulk_inserts() {
+  if (_internal_has_bulk_inserts()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.bulk_inserts_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::BulkInsertRequests* RegionRequest::release_bulk_inserts() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.bulk_inserts)
+  if (_internal_has_bulk_inserts()) {
+    clear_has_body();
+    ::greptime::v1::region::BulkInsertRequests* temp = _impl_.body_.bulk_inserts_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.bulk_inserts_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::BulkInsertRequests& RegionRequest::_internal_bulk_inserts() const {
+  return _internal_has_bulk_inserts()
+      ? *_impl_.body_.bulk_inserts_
+      : reinterpret_cast< ::greptime::v1::region::BulkInsertRequests&>(::greptime::v1::region::_BulkInsertRequests_default_instance_);
+}
+inline const ::greptime::v1::region::BulkInsertRequests& RegionRequest::bulk_inserts() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.bulk_inserts)
+  return _internal_bulk_inserts();
+}
+inline ::greptime::v1::region::BulkInsertRequests* RegionRequest::unsafe_arena_release_bulk_inserts() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.bulk_inserts)
+  if (_internal_has_bulk_inserts()) {
+    clear_has_body();
+    ::greptime::v1::region::BulkInsertRequests* temp = _impl_.body_.bulk_inserts_;
+    _impl_.body_.bulk_inserts_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_bulk_inserts(::greptime::v1::region::BulkInsertRequests* bulk_inserts) {
+  clear_body();
+  if (bulk_inserts) {
+    set_has_bulk_inserts();
+    _impl_.body_.bulk_inserts_ = bulk_inserts;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.bulk_inserts)
+}
+inline ::greptime::v1::region::BulkInsertRequests* RegionRequest::_internal_mutable_bulk_inserts() {
+  if (!_internal_has_bulk_inserts()) {
+    clear_body();
+    set_has_bulk_inserts();
+    _impl_.body_.bulk_inserts_ = CreateMaybeMessage< ::greptime::v1::region::BulkInsertRequests >(GetArenaForAllocation());
+  }
+  return _impl_.body_.bulk_inserts_;
+}
+inline ::greptime::v1::region::BulkInsertRequests* RegionRequest::mutable_bulk_inserts() {
+  ::greptime::v1::region::BulkInsertRequests* _msg = _internal_mutable_bulk_inserts();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.bulk_inserts)
   return _msg;
 }
 
@@ -8789,9 +9250,151 @@ inline void RegionColumnDef::set_column_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.RegionColumnDef.column_id)
 }
 
+// -------------------------------------------------------------------
+
+// BulkInsertRequests
+
+// repeated .greptime.v1.region.BulkInsertRequest requests = 1;
+inline int BulkInsertRequests::_internal_requests_size() const {
+  return _impl_.requests_.size();
+}
+inline int BulkInsertRequests::requests_size() const {
+  return _internal_requests_size();
+}
+inline void BulkInsertRequests::clear_requests() {
+  _impl_.requests_.Clear();
+}
+inline ::greptime::v1::region::BulkInsertRequest* BulkInsertRequests::mutable_requests(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequests.requests)
+  return _impl_.requests_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::BulkInsertRequest >*
+BulkInsertRequests::mutable_requests() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.BulkInsertRequests.requests)
+  return &_impl_.requests_;
+}
+inline const ::greptime::v1::region::BulkInsertRequest& BulkInsertRequests::_internal_requests(int index) const {
+  return _impl_.requests_.Get(index);
+}
+inline const ::greptime::v1::region::BulkInsertRequest& BulkInsertRequests::requests(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequests.requests)
+  return _internal_requests(index);
+}
+inline ::greptime::v1::region::BulkInsertRequest* BulkInsertRequests::_internal_add_requests() {
+  return _impl_.requests_.Add();
+}
+inline ::greptime::v1::region::BulkInsertRequest* BulkInsertRequests::add_requests() {
+  ::greptime::v1::region::BulkInsertRequest* _add = _internal_add_requests();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.BulkInsertRequests.requests)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::BulkInsertRequest >&
+BulkInsertRequests::requests() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.BulkInsertRequests.requests)
+  return _impl_.requests_;
+}
+
+// -------------------------------------------------------------------
+
+// BulkInsertRequest
+
+// uint64 region_id = 1;
+inline void BulkInsertRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t BulkInsertRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t BulkInsertRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.region_id)
+  return _internal_region_id();
+}
+inline void BulkInsertRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void BulkInsertRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.region_id)
+}
+
+// .greptime.v1.region.BulkInsertType type = 2;
+inline void BulkInsertRequest::clear_type() {
+  _impl_.type_ = 0;
+}
+inline ::greptime::v1::region::BulkInsertType BulkInsertRequest::_internal_type() const {
+  return static_cast< ::greptime::v1::region::BulkInsertType >(_impl_.type_);
+}
+inline ::greptime::v1::region::BulkInsertType BulkInsertRequest::type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.type)
+  return _internal_type();
+}
+inline void BulkInsertRequest::_internal_set_type(::greptime::v1::region::BulkInsertType value) {
+  
+  _impl_.type_ = value;
+}
+inline void BulkInsertRequest::set_type(::greptime::v1::region::BulkInsertType value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.type)
+}
+
+// bytes body = 3;
+inline void BulkInsertRequest::clear_body() {
+  _impl_.body_.ClearToEmpty();
+}
+inline const std::string& BulkInsertRequest::body() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.body)
+  return _internal_body();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void BulkInsertRequest::set_body(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.body_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.body)
+}
+inline std::string* BulkInsertRequest::mutable_body() {
+  std::string* _s = _internal_mutable_body();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.body)
+  return _s;
+}
+inline const std::string& BulkInsertRequest::_internal_body() const {
+  return _impl_.body_.Get();
+}
+inline void BulkInsertRequest::_internal_set_body(const std::string& value) {
+  
+  _impl_.body_.Set(value, GetArenaForAllocation());
+}
+inline std::string* BulkInsertRequest::_internal_mutable_body() {
+  
+  return _impl_.body_.Mutable(GetArenaForAllocation());
+}
+inline std::string* BulkInsertRequest::release_body() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.BulkInsertRequest.body)
+  return _impl_.body_.Release();
+}
+inline void BulkInsertRequest::set_allocated_body(std::string* body) {
+  if (body != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.body_.SetAllocated(body, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.body_.IsDefault()) {
+    _impl_.body_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.body)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -8856,6 +9459,16 @@ inline void RegionColumnDef::set_column_id(uint32_t value) {
 }  // namespace region
 }  // namespace v1
 }  // namespace greptime
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::greptime::v1::region::BulkInsertType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::region::BulkInsertType>() {
+  return ::greptime::v1::region::BulkInsertType_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 
