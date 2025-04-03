@@ -70,6 +70,9 @@ extern FlowStat_FlowStatSizeEntry_DoNotUseDefaultTypeInternal _FlowStat_FlowStat
 class GrantedRegion;
 struct GrantedRegionDefaultTypeInternal;
 extern GrantedRegionDefaultTypeInternal _GrantedRegion_default_instance_;
+class GrantedRegion_ExtensionsEntry_DoNotUse;
+struct GrantedRegion_ExtensionsEntry_DoNotUseDefaultTypeInternal;
+extern GrantedRegion_ExtensionsEntry_DoNotUseDefaultTypeInternal _GrantedRegion_ExtensionsEntry_DoNotUse_default_instance_;
 class HeartbeatRequest;
 struct HeartbeatRequestDefaultTypeInternal;
 extern HeartbeatRequestDefaultTypeInternal _HeartbeatRequest_default_instance_;
@@ -101,6 +104,7 @@ template<> ::greptime::v1::meta::FlowStat* Arena::CreateMaybeMessage<::greptime:
 template<> ::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::GrantedRegion* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion>(Arena*);
+template<> ::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatResponse>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessage>(Arena*);
@@ -1322,6 +1326,32 @@ class HeartbeatResponse final :
 };
 // -------------------------------------------------------------------
 
+class GrantedRegion_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<GrantedRegion_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<GrantedRegion_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> SuperType;
+  GrantedRegion_ExtensionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR GrantedRegion_ExtensionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit GrantedRegion_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const GrantedRegion_ExtensionsEntry_DoNotUse& other);
+  static const GrantedRegion_ExtensionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const GrantedRegion_ExtensionsEntry_DoNotUse*>(&_GrantedRegion_ExtensionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.GrantedRegion.ExtensionsEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+
+// -------------------------------------------------------------------
+
 class GrantedRegion final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.GrantedRegion) */ {
  public:
@@ -1370,7 +1400,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -1431,6 +1461,8 @@ class GrantedRegion final :
   protected:
   explicit GrantedRegion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -1440,13 +1472,31 @@ class GrantedRegion final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kExtensionsFieldNumber = 99,
     kRegionIdFieldNumber = 1,
-    kManifestVersionFieldNumber = 3,
     kRoleFieldNumber = 2,
   };
+  // map<string, bytes> extensions = 99;
+  int extensions_size() const;
+  private:
+  int _internal_extensions_size() const;
+  public:
+  void clear_extensions();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_extensions();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_extensions();
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -1454,15 +1504,6 @@ class GrantedRegion final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
-  public:
-
-  // uint64 manifest_version = 3;
-  void clear_manifest_version();
-  uint64_t manifest_version() const;
-  void set_manifest_version(uint64_t value);
-  private:
-  uint64_t _internal_manifest_version() const;
-  void _internal_set_manifest_version(uint64_t value);
   public:
 
   // .greptime.v1.meta.RegionRole role = 2;
@@ -1482,8 +1523,12 @@ class GrantedRegion final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        GrantedRegion_ExtensionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extensions_;
     uint64_t region_id_;
-    uint64_t manifest_version_;
     int role_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1540,7 +1585,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -1744,7 +1789,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -1901,7 +1946,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -2083,7 +2128,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -3554,6 +3599,8 @@ inline void HeartbeatResponse::set_allocated_region_lease(::greptime::v1::meta::
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // GrantedRegion
 
 // uint64 region_id = 1;
@@ -3596,24 +3643,33 @@ inline void GrantedRegion::set_role(::greptime::v1::meta::RegionRole value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.GrantedRegion.role)
 }
 
-// uint64 manifest_version = 3;
-inline void GrantedRegion::clear_manifest_version() {
-  _impl_.manifest_version_ = uint64_t{0u};
+// map<string, bytes> extensions = 99;
+inline int GrantedRegion::_internal_extensions_size() const {
+  return _impl_.extensions_.size();
 }
-inline uint64_t GrantedRegion::_internal_manifest_version() const {
-  return _impl_.manifest_version_;
+inline int GrantedRegion::extensions_size() const {
+  return _internal_extensions_size();
 }
-inline uint64_t GrantedRegion::manifest_version() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.GrantedRegion.manifest_version)
-  return _internal_manifest_version();
+inline void GrantedRegion::clear_extensions() {
+  _impl_.extensions_.Clear();
 }
-inline void GrantedRegion::_internal_set_manifest_version(uint64_t value) {
-  
-  _impl_.manifest_version_ = value;
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+GrantedRegion::_internal_extensions() const {
+  return _impl_.extensions_.GetMap();
 }
-inline void GrantedRegion::set_manifest_version(uint64_t value) {
-  _internal_set_manifest_version(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.GrantedRegion.manifest_version)
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+GrantedRegion::extensions() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.meta.GrantedRegion.extensions)
+  return _internal_extensions();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+GrantedRegion::_internal_mutable_extensions() {
+  return _impl_.extensions_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+GrantedRegion::mutable_extensions() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.GrantedRegion.extensions)
+  return _internal_mutable_extensions();
 }
 
 // -------------------------------------------------------------------
@@ -4293,6 +4349,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

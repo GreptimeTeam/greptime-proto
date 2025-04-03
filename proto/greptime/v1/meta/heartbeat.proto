@@ -107,8 +107,7 @@ message HeartbeatResponse {
 message GrantedRegion {
   uint64 region_id = 1;
   RegionRole role = 2;
-  // The manifest version of the region leader.
-  uint64 manifest_version = 3;
+  map<string, bytes> extensions = 99;
 }
 
 message RegionLease {
