@@ -56,7 +56,8 @@ struct InstantManipulateDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InstantManipulateDefaultTypeInternal _InstantManipulate_default_instance_;
 PROTOBUF_CONSTEXPR SeriesNormalize::SeriesNormalize(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.time_index_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.tag_columns_)*/{}
+  , /*decltype(_impl_.time_index_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.offset_)*/int64_t{0}
   , /*decltype(_impl_.filter_nan_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -154,6 +155,7 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _impl_.offset_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _impl_.time_index_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _impl_.filter_nan_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _impl_.tag_columns_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesDivide, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -190,9 +192,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 0, -1, -1, sizeof(::substrait_extension::EmptyMetric)},
   { 9, -1, -1, sizeof(::substrait_extension::InstantManipulate)},
   { 21, -1, -1, sizeof(::substrait_extension::SeriesNormalize)},
-  { 30, -1, -1, sizeof(::substrait_extension::SeriesDivide)},
-  { 37, -1, -1, sizeof(::substrait_extension::RangeManipulate)},
-  { 49, -1, -1, sizeof(::substrait_extension::ScalarCalculate)},
+  { 31, -1, -1, sizeof(::substrait_extension::SeriesDivide)},
+  { 38, -1, -1, sizeof(::substrait_extension::RangeManipulate)},
+  { 50, -1, -1, sizeof(::substrait_extension::ScalarCalculate)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -211,22 +213,22 @@ const char descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2epro
   "\003\"\202\001\n\021InstantManipulate\022\r\n\005start\030\001 \001(\003\022\013"
   "\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\026\n\016lookbac"
   "k_delta\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013fie"
-  "ld_index\030\006 \001(\t\"I\n\017SeriesNormalize\022\016\n\006off"
+  "ld_index\030\006 \001(\t\"^\n\017SeriesNormalize\022\016\n\006off"
   "set\030\001 \001(\003\022\022\n\ntime_index\030\002 \001(\t\022\022\n\nfilter_"
-  "nan\030\003 \001(\010\"#\n\014SeriesDivide\022\023\n\013tag_columns"
-  "\030\001 \003(\t\"w\n\017RangeManipulate\022\r\n\005start\030\001 \001(\003"
-  "\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\r\n\005range"
-  "\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag_column"
-  "s\030\006 \003(\t\"~\n\017ScalarCalculate\022\r\n\005start\030\001 \001("
-  "\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\022\n\ntime"
-  "_index\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(\t\022\024\n\014fie"
-  "ld_column\030\007 \001(\tB\?Z=github.com/GreptimeTe"
-  "am/greptime-proto/go/substrait_extension"
-  "b\006proto3"
+  "nan\030\003 \001(\010\022\023\n\013tag_columns\030\004 \003(\t\"#\n\014Series"
+  "Divide\022\023\n\013tag_columns\030\001 \003(\t\"w\n\017RangeMani"
+  "pulate\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010in"
+  "terval\030\003 \001(\003\022\r\n\005range\030\004 \001(\003\022\022\n\ntime_inde"
+  "x\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(\t\"~\n\017ScalarCa"
+  "lculate\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010i"
+  "nterval\030\003 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag"
+  "_columns\030\006 \003(\t\022\024\n\014field_column\030\007 \001(\tB\?Z="
+  "github.com/GreptimeTeam/greptime-proto/g"
+  "o/substrait_extensionb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto = {
-    false, false, 688, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
+    false, false, 709, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
     "substrait_extension/promql_plan.proto",
     &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once, nullptr, 0, 6,
     schemas, file_default_instances, TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offsets,
@@ -853,7 +855,8 @@ SeriesNormalize::SeriesNormalize(const SeriesNormalize& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   SeriesNormalize* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.time_index_){}
+      decltype(_impl_.tag_columns_){from._impl_.tag_columns_}
+    , decltype(_impl_.time_index_){}
     , decltype(_impl_.offset_){}
     , decltype(_impl_.filter_nan_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -878,7 +881,8 @@ inline void SeriesNormalize::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.time_index_){}
+      decltype(_impl_.tag_columns_){arena}
+    , decltype(_impl_.time_index_){}
     , decltype(_impl_.offset_){int64_t{0}}
     , decltype(_impl_.filter_nan_){false}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -900,6 +904,7 @@ SeriesNormalize::~SeriesNormalize() {
 
 inline void SeriesNormalize::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.tag_columns_.~RepeatedPtrField();
   _impl_.time_index_.Destroy();
 }
 
@@ -913,6 +918,7 @@ void SeriesNormalize::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.tag_columns_.Clear();
   _impl_.time_index_.ClearToEmpty();
   ::memset(&_impl_.offset_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.filter_nan_) -
@@ -949,6 +955,21 @@ const char* SeriesNormalize::_InternalParse(const char* ptr, ::_pbi::ParseContex
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _impl_.filter_nan_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string tag_columns = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_tag_columns();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.SeriesNormalize.tag_columns"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -1003,6 +1024,16 @@ uint8_t* SeriesNormalize::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_filter_nan(), target);
   }
 
+  // repeated string tag_columns = 4;
+  for (int i = 0, n = this->_internal_tag_columns_size(); i < n; i++) {
+    const auto& s = this->_internal_tag_columns(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "substrait_extension.SeriesNormalize.tag_columns");
+    target = stream->WriteString(4, s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1018,6 +1049,14 @@ size_t SeriesNormalize::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated string tag_columns = 4;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.tag_columns_.size());
+  for (int i = 0, n = _impl_.tag_columns_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.tag_columns_.Get(i));
+  }
 
   // string time_index = 2;
   if (!this->_internal_time_index().empty()) {
@@ -1054,6 +1093,7 @@ void SeriesNormalize::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.tag_columns_.MergeFrom(from._impl_.tag_columns_);
   if (!from._internal_time_index().empty()) {
     _this->_internal_set_time_index(from._internal_time_index());
   }
@@ -1082,6 +1122,7 @@ void SeriesNormalize::InternalSwap(SeriesNormalize* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.tag_columns_.InternalSwap(&other->_impl_.tag_columns_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.time_index_, lhs_arena,
       &other->_impl_.time_index_, rhs_arena

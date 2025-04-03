@@ -49,6 +49,8 @@ message SeriesNormalize {
   string time_index = 2;
   // Whether to filter out NaN value
   bool filter_nan = 3;
+  // Names of tag columns
+  repeated string tag_columns = 4;
 }
 
 message SeriesDivide {
