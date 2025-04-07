@@ -43,6 +43,10 @@ public final class Procedure {
      * <code>RollingBack = 5;</code>
      */
     RollingBack(5),
+    /**
+     * <code>Poisoned = 6;</code>
+     */
+    Poisoned(6),
     UNRECOGNIZED(-1),
     ;
 
@@ -70,6 +74,10 @@ public final class Procedure {
      * <code>RollingBack = 5;</code>
      */
     public static final int RollingBack_VALUE = 5;
+    /**
+     * <code>Poisoned = 6;</code>
+     */
+    public static final int Poisoned_VALUE = 6;
 
 
     public final int getNumber() {
@@ -102,6 +110,7 @@ public final class Procedure {
         case 3: return Failed;
         case 4: return PrepareRollback;
         case 5: return RollingBack;
+        case 6: return Poisoned;
         default: return null;
       }
     }
@@ -4931,21 +4940,21 @@ public final class Procedure {
       "tHeader\"\200\001\n\027ProcedureDetailResponse\0220\n\006h" +
       "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH" +
       "eader\0223\n\nprocedures\030\002 \003(\0132\037.greptime.v1." +
-      "meta.ProcedureMeta*h\n\017ProcedureStatus\022\013\n" +
+      "meta.ProcedureMeta*v\n\017ProcedureStatus\022\013\n" +
       "\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n\n\006Fa" +
       "iled\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013RollingBa" +
-      "ck\020\0052\366\002\n\020ProcedureService\022Z\n\005query\022\'.gre" +
-      "ptime.v1.meta.QueryProcedureRequest\032(.gr" +
-      "eptime.v1.meta.ProcedureStateResponse\022J\n" +
-      "\003ddl\022 .greptime.v1.meta.DdlTaskRequest\032!" +
-      ".greptime.v1.meta.DdlTaskResponse\022Z\n\007mig" +
-      "rate\022&.greptime.v1.meta.MigrateRegionReq" +
-      "uest\032\'.greptime.v1.meta.MigrateRegionRes" +
-      "ponse\022^\n\007details\022(.greptime.v1.meta.Proc" +
-      "edureDetailRequest\032).greptime.v1.meta.Pr" +
-      "ocedureDetailResponseB<Z:github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1/m" +
-      "etab\006proto3"
+      "ck\020\005\022\014\n\010Poisoned\020\0062\366\002\n\020ProcedureService\022" +
+      "Z\n\005query\022\'.greptime.v1.meta.QueryProcedu" +
+      "reRequest\032(.greptime.v1.meta.ProcedureSt" +
+      "ateResponse\022J\n\003ddl\022 .greptime.v1.meta.Dd" +
+      "lTaskRequest\032!.greptime.v1.meta.DdlTaskR" +
+      "esponse\022Z\n\007migrate\022&.greptime.v1.meta.Mi" +
+      "grateRegionRequest\032\'.greptime.v1.meta.Mi" +
+      "grateRegionResponse\022^\n\007details\022(.greptim" +
+      "e.v1.meta.ProcedureDetailRequest\032).grept" +
+      "ime.v1.meta.ProcedureDetailResponseB<Z:g" +
+      "ithub.com/GreptimeTeam/greptime-proto/go" +
+      "/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -87,12 +87,13 @@ enum ProcedureStatus : int {
   Failed = 3,
   PrepareRollback = 4,
   RollingBack = 5,
+  Poisoned = 6,
   ProcedureStatus_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ProcedureStatus_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool ProcedureStatus_IsValid(int value);
 constexpr ProcedureStatus ProcedureStatus_MIN = Running;
-constexpr ProcedureStatus ProcedureStatus_MAX = RollingBack;
+constexpr ProcedureStatus ProcedureStatus_MAX = Poisoned;
 constexpr int ProcedureStatus_ARRAYSIZE = ProcedureStatus_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ProcedureStatus_descriptor();
