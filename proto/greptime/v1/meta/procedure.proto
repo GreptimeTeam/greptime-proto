@@ -19,6 +19,7 @@ enum ProcedureStatus {
     Failed = 3;
     PrepareRollback = 4;
     RollingBack = 5;
+    Poisoned = 6;
 }
 
 message ProcedureMeta {
