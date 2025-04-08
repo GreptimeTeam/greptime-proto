@@ -1906,6 +1906,47 @@ public final class PromqlPlan {
      * @return The filterNan.
      */
     boolean getFilterNan();
+
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 4;</code>
+     * @return A list containing the tagColumns.
+     */
+    java.util.List<java.lang.String>
+        getTagColumnsList();
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 4;</code>
+     * @return The count of tagColumns.
+     */
+    int getTagColumnsCount();
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 4;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumns at the given index.
+     */
+    java.lang.String getTagColumns(int index);
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tagColumns at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTagColumnsBytes(int index);
   }
   /**
    * Protobuf type {@code substrait_extension.SeriesNormalize}
@@ -1921,6 +1962,7 @@ public final class PromqlPlan {
     }
     private SeriesNormalize() {
       timeIndex_ = "";
+      tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -1943,6 +1985,7 @@ public final class PromqlPlan {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1969,6 +2012,15 @@ public final class PromqlPlan {
               filterNan_ = input.readBool();
               break;
             }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tagColumns_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tagColumns_.add(s);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1986,6 +2038,9 @@ public final class PromqlPlan {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          tagColumns_ = tagColumns_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2079,6 +2134,57 @@ public final class PromqlPlan {
       return filterNan_;
     }
 
+    public static final int TAG_COLUMNS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList tagColumns_;
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 4;</code>
+     * @return A list containing the tagColumns.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTagColumnsList() {
+      return tagColumns_;
+    }
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 4;</code>
+     * @return The count of tagColumns.
+     */
+    public int getTagColumnsCount() {
+      return tagColumns_.size();
+    }
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 4;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumns at the given index.
+     */
+    public java.lang.String getTagColumns(int index) {
+      return tagColumns_.get(index);
+    }
+    /**
+     * <pre>
+     * Names of tag columns
+     * </pre>
+     *
+     * <code>repeated string tag_columns = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tagColumns at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTagColumnsBytes(int index) {
+      return tagColumns_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2102,6 +2208,9 @@ public final class PromqlPlan {
       if (filterNan_ != false) {
         output.writeBool(3, filterNan_);
       }
+      for (int i = 0; i < tagColumns_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, tagColumns_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2121,6 +2230,14 @@ public final class PromqlPlan {
       if (filterNan_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, filterNan_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tagColumns_.size(); i++) {
+          dataSize += computeStringSizeNoTag(tagColumns_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTagColumnsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2143,6 +2260,8 @@ public final class PromqlPlan {
           .equals(other.getTimeIndex())) return false;
       if (getFilterNan()
           != other.getFilterNan()) return false;
+      if (!getTagColumnsList()
+          .equals(other.getTagColumnsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2162,6 +2281,10 @@ public final class PromqlPlan {
       hash = (37 * hash) + FILTER_NAN_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getFilterNan());
+      if (getTagColumnsCount() > 0) {
+        hash = (37 * hash) + TAG_COLUMNS_FIELD_NUMBER;
+        hash = (53 * hash) + getTagColumnsList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2301,6 +2424,8 @@ public final class PromqlPlan {
 
         filterNan_ = false;
 
+        tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2327,9 +2452,15 @@ public final class PromqlPlan {
       @java.lang.Override
       public substrait_extension.PromqlPlan.SeriesNormalize buildPartial() {
         substrait_extension.PromqlPlan.SeriesNormalize result = new substrait_extension.PromqlPlan.SeriesNormalize(this);
+        int from_bitField0_ = bitField0_;
         result.offset_ = offset_;
         result.timeIndex_ = timeIndex_;
         result.filterNan_ = filterNan_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          tagColumns_ = tagColumns_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.tagColumns_ = tagColumns_;
         onBuilt();
         return result;
       }
@@ -2388,6 +2519,16 @@ public final class PromqlPlan {
         if (other.getFilterNan() != false) {
           setFilterNan(other.getFilterNan());
         }
+        if (!other.tagColumns_.isEmpty()) {
+          if (tagColumns_.isEmpty()) {
+            tagColumns_ = other.tagColumns_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTagColumnsIsMutable();
+            tagColumns_.addAll(other.tagColumns_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2416,6 +2557,7 @@ public final class PromqlPlan {
         }
         return this;
       }
+      private int bitField0_;
 
       private long offset_ ;
       /**
@@ -2595,6 +2737,152 @@ public final class PromqlPlan {
       public Builder clearFilterNan() {
         
         filterNan_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTagColumnsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          tagColumns_ = new com.google.protobuf.LazyStringArrayList(tagColumns_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 4;</code>
+       * @return A list containing the tagColumns.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTagColumnsList() {
+        return tagColumns_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 4;</code>
+       * @return The count of tagColumns.
+       */
+      public int getTagColumnsCount() {
+        return tagColumns_.size();
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 4;</code>
+       * @param index The index of the element to return.
+       * @return The tagColumns at the given index.
+       */
+      public java.lang.String getTagColumns(int index) {
+        return tagColumns_.get(index);
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 4;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the tagColumns at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getTagColumnsBytes(int index) {
+        return tagColumns_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The tagColumns to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTagColumns(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagColumnsIsMutable();
+        tagColumns_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 4;</code>
+       * @param value The tagColumns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagColumns(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagColumnsIsMutable();
+        tagColumns_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 4;</code>
+       * @param values The tagColumns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTagColumns(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTagColumnsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tagColumns_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTagColumns() {
+        tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Names of tag columns
+       * </pre>
+       *
+       * <code>repeated string tag_columns = 4;</code>
+       * @param value The bytes of the tagColumns to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagColumnsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTagColumnsIsMutable();
+        tagColumns_.add(value);
         onChanged();
         return this;
       }
@@ -6015,18 +6303,18 @@ public final class PromqlPlan {
       "\003\"\202\001\n\021InstantManipulate\022\r\n\005start\030\001 \001(\003\022\013" +
       "\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\026\n\016lookbac" +
       "k_delta\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013fie" +
-      "ld_index\030\006 \001(\t\"I\n\017SeriesNormalize\022\016\n\006off" +
+      "ld_index\030\006 \001(\t\"^\n\017SeriesNormalize\022\016\n\006off" +
       "set\030\001 \001(\003\022\022\n\ntime_index\030\002 \001(\t\022\022\n\nfilter_" +
-      "nan\030\003 \001(\010\"#\n\014SeriesDivide\022\023\n\013tag_columns" +
-      "\030\001 \003(\t\"w\n\017RangeManipulate\022\r\n\005start\030\001 \001(\003" +
-      "\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\r\n\005range" +
-      "\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag_column" +
-      "s\030\006 \003(\t\"~\n\017ScalarCalculate\022\r\n\005start\030\001 \001(" +
-      "\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\022\n\ntime" +
-      "_index\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(\t\022\024\n\014fie" +
-      "ld_column\030\007 \001(\tB?Z=github.com/GreptimeTe" +
-      "am/greptime-proto/go/substrait_extension" +
-      "b\006proto3"
+      "nan\030\003 \001(\010\022\023\n\013tag_columns\030\004 \003(\t\"#\n\014Series" +
+      "Divide\022\023\n\013tag_columns\030\001 \003(\t\"w\n\017RangeMani" +
+      "pulate\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010in" +
+      "terval\030\003 \001(\003\022\r\n\005range\030\004 \001(\003\022\022\n\ntime_inde" +
+      "x\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(\t\"~\n\017ScalarCa" +
+      "lculate\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010i" +
+      "nterval\030\003 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag" +
+      "_columns\030\006 \003(\t\022\024\n\014field_column\030\007 \001(\tB?Z=" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/substrait_extensionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6049,7 +6337,7 @@ public final class PromqlPlan {
     internal_static_substrait_extension_SeriesNormalize_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_SeriesNormalize_descriptor,
-        new java.lang.String[] { "Offset", "TimeIndex", "FilterNan", });
+        new java.lang.String[] { "Offset", "TimeIndex", "FilterNan", "TagColumns", });
     internal_static_substrait_extension_SeriesDivide_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_substrait_extension_SeriesDivide_fieldAccessorTable = new
