@@ -108,4 +108,5 @@ message RowDeleteRequest {
 
 message KillRequest {
   uint64 process_id = 1;
+  string server_addr = 2;
 }

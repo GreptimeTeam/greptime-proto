@@ -178,7 +178,8 @@ struct RowDeleteRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RowDeleteRequestDefaultTypeInternal _RowDeleteRequest_default_instance_;
 PROTOBUF_CONSTEXPR KillRequest::KillRequest(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.process_id_)*/uint64_t{0u}
+    /*decltype(_impl_.server_addr_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.process_id_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct KillRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR KillRequestDefaultTypeInternal()
@@ -299,6 +300,7 @@ const uint32_t TableStruct_greptime_2fv1_2fdatabase_2eproto::offsets[] PROTOBUF_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::KillRequest, _impl_.process_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::KillRequest, _impl_.server_addr_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::GreptimeRequest)},
@@ -366,15 +368,15 @@ const char descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto[] PROTOBUF
   "\"C\n\021RowDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035"
   ".greptime.v1.RowDeleteRequest\"G\n\020RowDele"
   "teRequest\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 "
-  "\001(\0132\021.greptime.v1.Rows\"!\n\013KillRequest\022\022\n"
-  "\nprocess_id\030\001 \001(\0042\252\001\n\020GreptimeDatabase\022E"
-  "\n\006Handle\022\034.greptime.v1.GreptimeRequest\032\035"
-  ".greptime.v1.GreptimeResponse\022O\n\016HandleR"
-  "equests\022\034.greptime.v1.GreptimeRequest\032\035."
-  "greptime.v1.GreptimeResponse(\001BQ\n\016io.gre"
-  "ptime.v1B\010DatabaseZ5github.com/GreptimeT"
-  "eam/greptime-proto/go/greptime/v1b\006proto"
-  "3"
+  "\001(\0132\021.greptime.v1.Rows\"6\n\013KillRequest\022\022\n"
+  "\nprocess_id\030\001 \001(\004\022\023\n\013server_addr\030\002 \001(\t2\252"
+  "\001\n\020GreptimeDatabase\022E\n\006Handle\022\034.greptime"
+  ".v1.GreptimeRequest\032\035.greptime.v1.Grepti"
+  "meResponse\022O\n\016HandleRequests\022\034.greptime."
+  "v1.GreptimeRequest\032\035.greptime.v1.Greptim"
+  "eResponse(\001BQ\n\016io.greptime.v1B\010DatabaseZ"
+  "5github.com/GreptimeTeam/greptime-proto/"
+  "go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fdatabase_2eproto_deps[5] = {
   &::descriptor_table_greptime_2fv1_2fcolumn_2eproto,
@@ -385,7 +387,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fdat
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fdatabase_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fdatabase_2eproto = {
-    false, false, 1721, descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto,
+    false, false, 1742, descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto,
     "greptime/v1/database.proto",
     &descriptor_table_greptime_2fv1_2fdatabase_2eproto_once, descriptor_table_greptime_2fv1_2fdatabase_2eproto_deps, 5, 12,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fdatabase_2eproto::offsets,
@@ -3478,10 +3480,19 @@ KillRequest::KillRequest(const KillRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   KillRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.process_id_){}
+      decltype(_impl_.server_addr_){}
+    , decltype(_impl_.process_id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.server_addr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.server_addr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_server_addr().empty()) {
+    _this->_impl_.server_addr_.Set(from._internal_server_addr(), 
+      _this->GetArenaForAllocation());
+  }
   _this->_impl_.process_id_ = from._impl_.process_id_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.KillRequest)
 }
@@ -3491,9 +3502,14 @@ inline void KillRequest::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.process_id_){uint64_t{0u}}
+      decltype(_impl_.server_addr_){}
+    , decltype(_impl_.process_id_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.server_addr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.server_addr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 KillRequest::~KillRequest() {
@@ -3507,6 +3523,7 @@ KillRequest::~KillRequest() {
 
 inline void KillRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.server_addr_.Destroy();
 }
 
 void KillRequest::SetCachedSize(int size) const {
@@ -3519,6 +3536,7 @@ void KillRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.server_addr_.ClearToEmpty();
   _impl_.process_id_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3534,6 +3552,16 @@ const char* KillRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _impl_.process_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string server_addr = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_server_addr();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.KillRequest.server_addr"));
         } else
           goto handle_unusual;
         continue;
@@ -3572,6 +3600,16 @@ uint8_t* KillRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_process_id(), target);
   }
 
+  // string server_addr = 2;
+  if (!this->_internal_server_addr().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_server_addr().data(), static_cast<int>(this->_internal_server_addr().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.KillRequest.server_addr");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_server_addr(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3587,6 +3625,13 @@ size_t KillRequest::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string server_addr = 2;
+  if (!this->_internal_server_addr().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_server_addr());
+  }
 
   // uint64 process_id = 1;
   if (this->_internal_process_id() != 0) {
@@ -3611,6 +3656,9 @@ void KillRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_server_addr().empty()) {
+    _this->_internal_set_server_addr(from._internal_server_addr());
+  }
   if (from._internal_process_id() != 0) {
     _this->_internal_set_process_id(from._internal_process_id());
   }
@@ -3630,7 +3678,13 @@ bool KillRequest::IsInitialized() const {
 
 void KillRequest::InternalSwap(KillRequest* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.server_addr_, lhs_arena,
+      &other->_impl_.server_addr_, rhs_arena
+  );
   swap(_impl_.process_id_, other->_impl_.process_id_);
 }
 

@@ -11511,6 +11511,18 @@ public final class Database {
      * @return The processId.
      */
     long getProcessId();
+
+    /**
+     * <code>string server_addr = 2;</code>
+     * @return The serverAddr.
+     */
+    java.lang.String getServerAddr();
+    /**
+     * <code>string server_addr = 2;</code>
+     * @return The bytes for serverAddr.
+     */
+    com.google.protobuf.ByteString
+        getServerAddrBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.KillRequest}
@@ -11525,6 +11537,7 @@ public final class Database {
       super(builder);
     }
     private KillRequest() {
+      serverAddr_ = "";
     }
 
     @java.lang.Override
@@ -11560,6 +11573,12 @@ public final class Database {
             case 8: {
 
               processId_ = input.readUInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serverAddr_ = s;
               break;
             }
             default: {
@@ -11607,6 +11626,44 @@ public final class Database {
       return processId_;
     }
 
+    public static final int SERVER_ADDR_FIELD_NUMBER = 2;
+    private volatile java.lang.Object serverAddr_;
+    /**
+     * <code>string server_addr = 2;</code>
+     * @return The serverAddr.
+     */
+    @java.lang.Override
+    public java.lang.String getServerAddr() {
+      java.lang.Object ref = serverAddr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serverAddr_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string server_addr = 2;</code>
+     * @return The bytes for serverAddr.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getServerAddrBytes() {
+      java.lang.Object ref = serverAddr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serverAddr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -11624,6 +11681,9 @@ public final class Database {
       if (processId_ != 0L) {
         output.writeUInt64(1, processId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverAddr_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, serverAddr_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -11636,6 +11696,9 @@ public final class Database {
       if (processId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, processId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverAddr_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, serverAddr_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -11654,6 +11717,8 @@ public final class Database {
 
       if (getProcessId()
           != other.getProcessId()) return false;
+      if (!getServerAddr()
+          .equals(other.getServerAddr())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -11668,6 +11733,8 @@ public final class Database {
       hash = (37 * hash) + PROCESS_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getProcessId());
+      hash = (37 * hash) + SERVER_ADDR_FIELD_NUMBER;
+      hash = (53 * hash) + getServerAddr().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -11803,6 +11870,8 @@ public final class Database {
         super.clear();
         processId_ = 0L;
 
+        serverAddr_ = "";
+
         return this;
       }
 
@@ -11830,6 +11899,7 @@ public final class Database {
       public io.greptime.v1.Database.KillRequest buildPartial() {
         io.greptime.v1.Database.KillRequest result = new io.greptime.v1.Database.KillRequest(this);
         result.processId_ = processId_;
+        result.serverAddr_ = serverAddr_;
         onBuilt();
         return result;
       }
@@ -11880,6 +11950,10 @@ public final class Database {
         if (other == io.greptime.v1.Database.KillRequest.getDefaultInstance()) return this;
         if (other.getProcessId() != 0L) {
           setProcessId(other.getProcessId());
+        }
+        if (!other.getServerAddr().isEmpty()) {
+          serverAddr_ = other.serverAddr_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -11937,6 +12011,82 @@ public final class Database {
       public Builder clearProcessId() {
         
         processId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object serverAddr_ = "";
+      /**
+       * <code>string server_addr = 2;</code>
+       * @return The serverAddr.
+       */
+      public java.lang.String getServerAddr() {
+        java.lang.Object ref = serverAddr_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serverAddr_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string server_addr = 2;</code>
+       * @return The bytes for serverAddr.
+       */
+      public com.google.protobuf.ByteString
+          getServerAddrBytes() {
+        java.lang.Object ref = serverAddr_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serverAddr_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string server_addr = 2;</code>
+       * @param value The serverAddr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerAddr(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serverAddr_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string server_addr = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearServerAddr() {
+        
+        serverAddr_ = getDefaultInstance().getServerAddr();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string server_addr = 2;</code>
+       * @param value The bytes for serverAddr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerAddrBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serverAddr_ = value;
         onChanged();
         return this;
       }
@@ -12097,15 +12247,15 @@ public final class Database {
       "\"C\n\021RowDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035" +
       ".greptime.v1.RowDeleteRequest\"G\n\020RowDele" +
       "teRequest\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 " +
-      "\001(\0132\021.greptime.v1.Rows\"!\n\013KillRequest\022\022\n" +
-      "\nprocess_id\030\001 \001(\0042\252\001\n\020GreptimeDatabase\022E" +
-      "\n\006Handle\022\034.greptime.v1.GreptimeRequest\032\035" +
-      ".greptime.v1.GreptimeResponse\022O\n\016HandleR" +
-      "equests\022\034.greptime.v1.GreptimeRequest\032\035." +
-      "greptime.v1.GreptimeResponse(\001BQ\n\016io.gre" +
-      "ptime.v1B\010DatabaseZ5github.com/GreptimeT" +
-      "eam/greptime-proto/go/greptime/v1b\006proto" +
-      "3"
+      "\001(\0132\021.greptime.v1.Rows\"6\n\013KillRequest\022\022\n" +
+      "\nprocess_id\030\001 \001(\004\022\023\n\013server_addr\030\002 \001(\t2\252" +
+      "\001\n\020GreptimeDatabase\022E\n\006Handle\022\034.greptime" +
+      ".v1.GreptimeRequest\032\035.greptime.v1.Grepti" +
+      "meResponse\022O\n\016HandleRequests\022\034.greptime." +
+      "v1.GreptimeRequest\032\035.greptime.v1.Greptim" +
+      "eResponse(\001BQ\n\016io.greptime.v1B\010DatabaseZ" +
+      "5github.com/GreptimeTeam/greptime-proto/" +
+      "go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12187,7 +12337,7 @@ public final class Database {
     internal_static_greptime_v1_KillRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_KillRequest_descriptor,
-        new java.lang.String[] { "ProcessId", });
+        new java.lang.String[] { "ProcessId", "ServerAddr", });
     io.greptime.v1.Ddl.getDescriptor();
     io.greptime.v1.Columns.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();

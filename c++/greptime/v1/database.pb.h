@@ -2309,8 +2309,23 @@ class KillRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kServerAddrFieldNumber = 2,
     kProcessIdFieldNumber = 1,
   };
+  // string server_addr = 2;
+  void clear_server_addr();
+  const std::string& server_addr() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_server_addr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_server_addr();
+  PROTOBUF_NODISCARD std::string* release_server_addr();
+  void set_allocated_server_addr(std::string* server_addr);
+  private:
+  const std::string& _internal_server_addr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_server_addr(const std::string& value);
+  std::string* _internal_mutable_server_addr();
+  public:
+
   // uint64 process_id = 1;
   void clear_process_id();
   uint64_t process_id() const;
@@ -2328,6 +2343,7 @@ class KillRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr server_addr_;
     uint64_t process_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -4044,6 +4060,56 @@ inline void KillRequest::_internal_set_process_id(uint64_t value) {
 inline void KillRequest::set_process_id(uint64_t value) {
   _internal_set_process_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.KillRequest.process_id)
+}
+
+// string server_addr = 2;
+inline void KillRequest::clear_server_addr() {
+  _impl_.server_addr_.ClearToEmpty();
+}
+inline const std::string& KillRequest::server_addr() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.KillRequest.server_addr)
+  return _internal_server_addr();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void KillRequest::set_server_addr(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.server_addr_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.KillRequest.server_addr)
+}
+inline std::string* KillRequest::mutable_server_addr() {
+  std::string* _s = _internal_mutable_server_addr();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.KillRequest.server_addr)
+  return _s;
+}
+inline const std::string& KillRequest::_internal_server_addr() const {
+  return _impl_.server_addr_.Get();
+}
+inline void KillRequest::_internal_set_server_addr(const std::string& value) {
+  
+  _impl_.server_addr_.Set(value, GetArenaForAllocation());
+}
+inline std::string* KillRequest::_internal_mutable_server_addr() {
+  
+  return _impl_.server_addr_.Mutable(GetArenaForAllocation());
+}
+inline std::string* KillRequest::release_server_addr() {
+  // @@protoc_insertion_point(field_release:greptime.v1.KillRequest.server_addr)
+  return _impl_.server_addr_.Release();
+}
+inline void KillRequest::set_allocated_server_addr(std::string* server_addr) {
+  if (server_addr != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.server_addr_.SetAllocated(server_addr, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.server_addr_.IsDefault()) {
+    _impl_.server_addr_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.KillRequest.server_addr)
 }
 
 #ifdef __GNUC__
