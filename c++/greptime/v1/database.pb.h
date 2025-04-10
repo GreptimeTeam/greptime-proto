@@ -69,6 +69,9 @@ extern InsertRequestDefaultTypeInternal _InsertRequest_default_instance_;
 class InsertRequests;
 struct InsertRequestsDefaultTypeInternal;
 extern InsertRequestsDefaultTypeInternal _InsertRequests_default_instance_;
+class KillRequest;
+struct KillRequestDefaultTypeInternal;
+extern KillRequestDefaultTypeInternal _KillRequest_default_instance_;
 class QueryRequest;
 struct QueryRequestDefaultTypeInternal;
 extern QueryRequestDefaultTypeInternal _QueryRequest_default_instance_;
@@ -93,6 +96,7 @@ template<> ::greptime::v1::GreptimeRequest* Arena::CreateMaybeMessage<::greptime
 template<> ::greptime::v1::GreptimeResponse* Arena::CreateMaybeMessage<::greptime::v1::GreptimeResponse>(Arena*);
 template<> ::greptime::v1::InsertRequest* Arena::CreateMaybeMessage<::greptime::v1::InsertRequest>(Arena*);
 template<> ::greptime::v1::InsertRequests* Arena::CreateMaybeMessage<::greptime::v1::InsertRequests>(Arena*);
+template<> ::greptime::v1::KillRequest* Arena::CreateMaybeMessage<::greptime::v1::KillRequest>(Arena*);
 template<> ::greptime::v1::QueryRequest* Arena::CreateMaybeMessage<::greptime::v1::QueryRequest>(Arena*);
 template<> ::greptime::v1::RowDeleteRequest* Arena::CreateMaybeMessage<::greptime::v1::RowDeleteRequest>(Arena*);
 template<> ::greptime::v1::RowDeleteRequests* Arena::CreateMaybeMessage<::greptime::v1::RowDeleteRequests>(Arena*);
@@ -154,6 +158,7 @@ class GreptimeRequest final :
     kDeletes = 5,
     kRowInserts = 6,
     kRowDeletes = 7,
+    kKill = 8,
     REQUEST_NOT_SET = 0,
   };
 
@@ -242,6 +247,7 @@ class GreptimeRequest final :
     kDeletesFieldNumber = 5,
     kRowInsertsFieldNumber = 6,
     kRowDeletesFieldNumber = 7,
+    kKillFieldNumber = 8,
   };
   // .greptime.v1.RequestHeader header = 1;
   bool has_header() const;
@@ -369,6 +375,24 @@ class GreptimeRequest final :
       ::greptime::v1::RowDeleteRequests* row_deletes);
   ::greptime::v1::RowDeleteRequests* unsafe_arena_release_row_deletes();
 
+  // .greptime.v1.KillRequest kill = 8;
+  bool has_kill() const;
+  private:
+  bool _internal_has_kill() const;
+  public:
+  void clear_kill();
+  const ::greptime::v1::KillRequest& kill() const;
+  PROTOBUF_NODISCARD ::greptime::v1::KillRequest* release_kill();
+  ::greptime::v1::KillRequest* mutable_kill();
+  void set_allocated_kill(::greptime::v1::KillRequest* kill);
+  private:
+  const ::greptime::v1::KillRequest& _internal_kill() const;
+  ::greptime::v1::KillRequest* _internal_mutable_kill();
+  public:
+  void unsafe_arena_set_allocated_kill(
+      ::greptime::v1::KillRequest* kill);
+  ::greptime::v1::KillRequest* unsafe_arena_release_kill();
+
   void clear_request();
   RequestCase request_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.GreptimeRequest)
@@ -380,6 +404,7 @@ class GreptimeRequest final :
   void set_has_deletes();
   void set_has_row_inserts();
   void set_has_row_deletes();
+  void set_has_kill();
 
   inline bool has_request() const;
   inline void clear_has_request();
@@ -398,6 +423,7 @@ class GreptimeRequest final :
       ::greptime::v1::DeleteRequests* deletes_;
       ::greptime::v1::RowInsertRequests* row_inserts_;
       ::greptime::v1::RowDeleteRequests* row_deletes_;
+      ::greptime::v1::KillRequest* kill_;
     } request_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -2160,6 +2186,154 @@ class RowDeleteRequest final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fdatabase_2eproto;
 };
+// -------------------------------------------------------------------
+
+class KillRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.KillRequest) */ {
+ public:
+  inline KillRequest() : KillRequest(nullptr) {}
+  ~KillRequest() override;
+  explicit PROTOBUF_CONSTEXPR KillRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  KillRequest(const KillRequest& from);
+  KillRequest(KillRequest&& from) noexcept
+    : KillRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline KillRequest& operator=(const KillRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline KillRequest& operator=(KillRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const KillRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const KillRequest* internal_default_instance() {
+    return reinterpret_cast<const KillRequest*>(
+               &_KillRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(KillRequest& a, KillRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(KillRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(KillRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  KillRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<KillRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const KillRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const KillRequest& from) {
+    KillRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(KillRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.KillRequest";
+  }
+  protected:
+  explicit KillRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kProcessIdFieldNumber = 1,
+  };
+  // uint64 process_id = 1;
+  void clear_process_id();
+  uint64_t process_id() const;
+  void set_process_id(uint64_t value);
+  private:
+  uint64_t _internal_process_id() const;
+  void _internal_set_process_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.KillRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t process_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fdatabase_2eproto;
+};
 // ===================================================================
 
 
@@ -2689,6 +2863,80 @@ inline ::greptime::v1::RowDeleteRequests* GreptimeRequest::_internal_mutable_row
 inline ::greptime::v1::RowDeleteRequests* GreptimeRequest::mutable_row_deletes() {
   ::greptime::v1::RowDeleteRequests* _msg = _internal_mutable_row_deletes();
   // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeRequest.row_deletes)
+  return _msg;
+}
+
+// .greptime.v1.KillRequest kill = 8;
+inline bool GreptimeRequest::_internal_has_kill() const {
+  return request_case() == kKill;
+}
+inline bool GreptimeRequest::has_kill() const {
+  return _internal_has_kill();
+}
+inline void GreptimeRequest::set_has_kill() {
+  _impl_._oneof_case_[0] = kKill;
+}
+inline void GreptimeRequest::clear_kill() {
+  if (_internal_has_kill()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.request_.kill_;
+    }
+    clear_has_request();
+  }
+}
+inline ::greptime::v1::KillRequest* GreptimeRequest::release_kill() {
+  // @@protoc_insertion_point(field_release:greptime.v1.GreptimeRequest.kill)
+  if (_internal_has_kill()) {
+    clear_has_request();
+    ::greptime::v1::KillRequest* temp = _impl_.request_.kill_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.request_.kill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::KillRequest& GreptimeRequest::_internal_kill() const {
+  return _internal_has_kill()
+      ? *_impl_.request_.kill_
+      : reinterpret_cast< ::greptime::v1::KillRequest&>(::greptime::v1::_KillRequest_default_instance_);
+}
+inline const ::greptime::v1::KillRequest& GreptimeRequest::kill() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.GreptimeRequest.kill)
+  return _internal_kill();
+}
+inline ::greptime::v1::KillRequest* GreptimeRequest::unsafe_arena_release_kill() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.GreptimeRequest.kill)
+  if (_internal_has_kill()) {
+    clear_has_request();
+    ::greptime::v1::KillRequest* temp = _impl_.request_.kill_;
+    _impl_.request_.kill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void GreptimeRequest::unsafe_arena_set_allocated_kill(::greptime::v1::KillRequest* kill) {
+  clear_request();
+  if (kill) {
+    set_has_kill();
+    _impl_.request_.kill_ = kill;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.GreptimeRequest.kill)
+}
+inline ::greptime::v1::KillRequest* GreptimeRequest::_internal_mutable_kill() {
+  if (!_internal_has_kill()) {
+    clear_request();
+    set_has_kill();
+    _impl_.request_.kill_ = CreateMaybeMessage< ::greptime::v1::KillRequest >(GetArenaForAllocation());
+  }
+  return _impl_.request_.kill_;
+}
+inline ::greptime::v1::KillRequest* GreptimeRequest::mutable_kill() {
+  ::greptime::v1::KillRequest* _msg = _internal_mutable_kill();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.GreptimeRequest.kill)
   return _msg;
 }
 
@@ -3774,9 +4022,35 @@ inline void RowDeleteRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.RowDeleteRequest.rows)
 }
 
+// -------------------------------------------------------------------
+
+// KillRequest
+
+// uint64 process_id = 1;
+inline void KillRequest::clear_process_id() {
+  _impl_.process_id_ = uint64_t{0u};
+}
+inline uint64_t KillRequest::_internal_process_id() const {
+  return _impl_.process_id_;
+}
+inline uint64_t KillRequest::process_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.KillRequest.process_id)
+  return _internal_process_id();
+}
+inline void KillRequest::_internal_set_process_id(uint64_t value) {
+  
+  _impl_.process_id_ = value;
+}
+inline void KillRequest::set_process_id(uint64_t value) {
+  _internal_set_process_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.KillRequest.process_id)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

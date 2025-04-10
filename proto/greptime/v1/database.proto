@@ -41,6 +41,7 @@ message GreptimeRequest {
     DeleteRequests deletes = 5;
     RowInsertRequests row_inserts = 6;
     RowDeleteRequests row_deletes = 7;
+    KillRequest kill = 8;
   }
 }
 
@@ -103,4 +104,8 @@ message RowDeleteRequest {
 
   // The data to delete.
   Rows rows = 2;
+}
+
+message KillRequest {
+  uint64 process_id = 1;
 }
