@@ -188,11 +188,11 @@ message RegionColumnDef {
 message BulkInsertRequests { repeated BulkInsertRequest requests = 1; }
 
 enum BulkInsertType {
-  BULK_INSERT_TYPE_ARROW_IPC = 0;
+  ARROW_IPC = 0;
 }
 
 message BulkInsertRequest {
   uint64 region_id = 1;
-  BulkInsertType type = 2;
-  bytes body = 3;
+  BulkInsertType payload_type = 2;
+  bytes payload = 3;
 }

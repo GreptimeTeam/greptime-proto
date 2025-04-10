@@ -193,13 +193,13 @@ namespace v1 {
 namespace region {
 
 enum BulkInsertType : int {
-  BULK_INSERT_TYPE_ARROW_IPC = 0,
+  ARROW_IPC = 0,
   BulkInsertType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   BulkInsertType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool BulkInsertType_IsValid(int value);
-constexpr BulkInsertType BulkInsertType_MIN = BULK_INSERT_TYPE_ARROW_IPC;
-constexpr BulkInsertType BulkInsertType_MAX = BULK_INSERT_TYPE_ARROW_IPC;
+constexpr BulkInsertType BulkInsertType_MIN = ARROW_IPC;
+constexpr BulkInsertType BulkInsertType_MAX = ARROW_IPC;
 constexpr int BulkInsertType_ARRAYSIZE = BulkInsertType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BulkInsertType_descriptor();
@@ -5457,22 +5457,22 @@ class BulkInsertRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kBodyFieldNumber = 3,
+    kPayloadFieldNumber = 3,
     kRegionIdFieldNumber = 1,
-    kTypeFieldNumber = 2,
+    kPayloadTypeFieldNumber = 2,
   };
-  // bytes body = 3;
-  void clear_body();
-  const std::string& body() const;
+  // bytes payload = 3;
+  void clear_payload();
+  const std::string& payload() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_body(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_body();
-  PROTOBUF_NODISCARD std::string* release_body();
-  void set_allocated_body(std::string* body);
+  void set_payload(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_payload();
+  PROTOBUF_NODISCARD std::string* release_payload();
+  void set_allocated_payload(std::string* payload);
   private:
-  const std::string& _internal_body() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_body(const std::string& value);
-  std::string* _internal_mutable_body();
+  const std::string& _internal_payload() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_payload(const std::string& value);
+  std::string* _internal_mutable_payload();
   public:
 
   // uint64 region_id = 1;
@@ -5484,13 +5484,13 @@ class BulkInsertRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
-  // .greptime.v1.region.BulkInsertType type = 2;
-  void clear_type();
-  ::greptime::v1::region::BulkInsertType type() const;
-  void set_type(::greptime::v1::region::BulkInsertType value);
+  // .greptime.v1.region.BulkInsertType payload_type = 2;
+  void clear_payload_type();
+  ::greptime::v1::region::BulkInsertType payload_type() const;
+  void set_payload_type(::greptime::v1::region::BulkInsertType value);
   private:
-  ::greptime::v1::region::BulkInsertType _internal_type() const;
-  void _internal_set_type(::greptime::v1::region::BulkInsertType value);
+  ::greptime::v1::region::BulkInsertType _internal_payload_type() const;
+  void _internal_set_payload_type(::greptime::v1::region::BulkInsertType value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.region.BulkInsertRequest)
@@ -5501,9 +5501,9 @@ class BulkInsertRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr body_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
     uint64_t region_id_;
-    int type_;
+    int payload_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -9318,74 +9318,74 @@ inline void BulkInsertRequest::set_region_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.region_id)
 }
 
-// .greptime.v1.region.BulkInsertType type = 2;
-inline void BulkInsertRequest::clear_type() {
-  _impl_.type_ = 0;
+// .greptime.v1.region.BulkInsertType payload_type = 2;
+inline void BulkInsertRequest::clear_payload_type() {
+  _impl_.payload_type_ = 0;
 }
-inline ::greptime::v1::region::BulkInsertType BulkInsertRequest::_internal_type() const {
-  return static_cast< ::greptime::v1::region::BulkInsertType >(_impl_.type_);
+inline ::greptime::v1::region::BulkInsertType BulkInsertRequest::_internal_payload_type() const {
+  return static_cast< ::greptime::v1::region::BulkInsertType >(_impl_.payload_type_);
 }
-inline ::greptime::v1::region::BulkInsertType BulkInsertRequest::type() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.type)
-  return _internal_type();
+inline ::greptime::v1::region::BulkInsertType BulkInsertRequest::payload_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.payload_type)
+  return _internal_payload_type();
 }
-inline void BulkInsertRequest::_internal_set_type(::greptime::v1::region::BulkInsertType value) {
+inline void BulkInsertRequest::_internal_set_payload_type(::greptime::v1::region::BulkInsertType value) {
   
-  _impl_.type_ = value;
+  _impl_.payload_type_ = value;
 }
-inline void BulkInsertRequest::set_type(::greptime::v1::region::BulkInsertType value) {
-  _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.type)
+inline void BulkInsertRequest::set_payload_type(::greptime::v1::region::BulkInsertType value) {
+  _internal_set_payload_type(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.payload_type)
 }
 
-// bytes body = 3;
-inline void BulkInsertRequest::clear_body() {
-  _impl_.body_.ClearToEmpty();
+// bytes payload = 3;
+inline void BulkInsertRequest::clear_payload() {
+  _impl_.payload_.ClearToEmpty();
 }
-inline const std::string& BulkInsertRequest::body() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.body)
-  return _internal_body();
+inline const std::string& BulkInsertRequest::payload() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.payload)
+  return _internal_payload();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void BulkInsertRequest::set_body(ArgT0&& arg0, ArgT... args) {
+void BulkInsertRequest::set_payload(ArgT0&& arg0, ArgT... args) {
  
- _impl_.body_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.body)
+ _impl_.payload_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.payload)
 }
-inline std::string* BulkInsertRequest::mutable_body() {
-  std::string* _s = _internal_mutable_body();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.body)
+inline std::string* BulkInsertRequest::mutable_payload() {
+  std::string* _s = _internal_mutable_payload();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.payload)
   return _s;
 }
-inline const std::string& BulkInsertRequest::_internal_body() const {
-  return _impl_.body_.Get();
+inline const std::string& BulkInsertRequest::_internal_payload() const {
+  return _impl_.payload_.Get();
 }
-inline void BulkInsertRequest::_internal_set_body(const std::string& value) {
+inline void BulkInsertRequest::_internal_set_payload(const std::string& value) {
   
-  _impl_.body_.Set(value, GetArenaForAllocation());
+  _impl_.payload_.Set(value, GetArenaForAllocation());
 }
-inline std::string* BulkInsertRequest::_internal_mutable_body() {
+inline std::string* BulkInsertRequest::_internal_mutable_payload() {
   
-  return _impl_.body_.Mutable(GetArenaForAllocation());
+  return _impl_.payload_.Mutable(GetArenaForAllocation());
 }
-inline std::string* BulkInsertRequest::release_body() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.BulkInsertRequest.body)
-  return _impl_.body_.Release();
+inline std::string* BulkInsertRequest::release_payload() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.BulkInsertRequest.payload)
+  return _impl_.payload_.Release();
 }
-inline void BulkInsertRequest::set_allocated_body(std::string* body) {
-  if (body != nullptr) {
+inline void BulkInsertRequest::set_allocated_payload(std::string* payload) {
+  if (payload != nullptr) {
     
   } else {
     
   }
-  _impl_.body_.SetAllocated(body, GetArenaForAllocation());
+  _impl_.payload_.SetAllocated(payload, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.body_.IsDefault()) {
-    _impl_.body_.Set("", GetArenaForAllocation());
+  if (_impl_.payload_.IsDefault()) {
+    _impl_.payload_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.body)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.payload)
 }
 
 #ifdef __GNUC__

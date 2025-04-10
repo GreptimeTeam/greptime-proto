@@ -20,16 +20,16 @@ public final class Server {
   public enum BulkInsertType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>BULK_INSERT_TYPE_ARROW_IPC = 0;</code>
+     * <code>ARROW_IPC = 0;</code>
      */
-    BULK_INSERT_TYPE_ARROW_IPC(0),
+    ARROW_IPC(0),
     UNRECOGNIZED(-1),
     ;
 
     /**
-     * <code>BULK_INSERT_TYPE_ARROW_IPC = 0;</code>
+     * <code>ARROW_IPC = 0;</code>
      */
-    public static final int BULK_INSERT_TYPE_ARROW_IPC_VALUE = 0;
+    public static final int ARROW_IPC_VALUE = 0;
 
 
     public final int getNumber() {
@@ -56,7 +56,7 @@ public final class Server {
      */
     public static BulkInsertType forNumber(int value) {
       switch (value) {
-        case 0: return BULK_INSERT_TYPE_ARROW_IPC;
+        case 0: return ARROW_IPC;
         default: return null;
       }
     }
@@ -26509,21 +26509,21 @@ java.lang.String defaultValue);
     long getRegionId();
 
     /**
-     * <code>.greptime.v1.region.BulkInsertType type = 2;</code>
-     * @return The enum numeric value on the wire for type.
+     * <code>.greptime.v1.region.BulkInsertType payload_type = 2;</code>
+     * @return The enum numeric value on the wire for payloadType.
      */
-    int getTypeValue();
+    int getPayloadTypeValue();
     /**
-     * <code>.greptime.v1.region.BulkInsertType type = 2;</code>
-     * @return The type.
+     * <code>.greptime.v1.region.BulkInsertType payload_type = 2;</code>
+     * @return The payloadType.
      */
-    io.greptime.v1.region.Server.BulkInsertType getType();
+    io.greptime.v1.region.Server.BulkInsertType getPayloadType();
 
     /**
-     * <code>bytes body = 3;</code>
-     * @return The body.
+     * <code>bytes payload = 3;</code>
+     * @return The payload.
      */
-    com.google.protobuf.ByteString getBody();
+    com.google.protobuf.ByteString getPayload();
   }
   /**
    * Protobuf type {@code greptime.v1.region.BulkInsertRequest}
@@ -26538,8 +26538,8 @@ java.lang.String defaultValue);
       super(builder);
     }
     private BulkInsertRequest() {
-      type_ = 0;
-      body_ = com.google.protobuf.ByteString.EMPTY;
+      payloadType_ = 0;
+      payload_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -26580,12 +26580,12 @@ java.lang.String defaultValue);
             case 16: {
               int rawValue = input.readEnum();
 
-              type_ = rawValue;
+              payloadType_ = rawValue;
               break;
             }
             case 26: {
 
-              body_ = input.readBytes();
+              payload_ = input.readBytes();
               break;
             }
             default: {
@@ -26633,34 +26633,34 @@ java.lang.String defaultValue);
       return regionId_;
     }
 
-    public static final int TYPE_FIELD_NUMBER = 2;
-    private int type_;
+    public static final int PAYLOAD_TYPE_FIELD_NUMBER = 2;
+    private int payloadType_;
     /**
-     * <code>.greptime.v1.region.BulkInsertType type = 2;</code>
-     * @return The enum numeric value on the wire for type.
+     * <code>.greptime.v1.region.BulkInsertType payload_type = 2;</code>
+     * @return The enum numeric value on the wire for payloadType.
      */
-    @java.lang.Override public int getTypeValue() {
-      return type_;
+    @java.lang.Override public int getPayloadTypeValue() {
+      return payloadType_;
     }
     /**
-     * <code>.greptime.v1.region.BulkInsertType type = 2;</code>
-     * @return The type.
+     * <code>.greptime.v1.region.BulkInsertType payload_type = 2;</code>
+     * @return The payloadType.
      */
-    @java.lang.Override public io.greptime.v1.region.Server.BulkInsertType getType() {
+    @java.lang.Override public io.greptime.v1.region.Server.BulkInsertType getPayloadType() {
       @SuppressWarnings("deprecation")
-      io.greptime.v1.region.Server.BulkInsertType result = io.greptime.v1.region.Server.BulkInsertType.valueOf(type_);
+      io.greptime.v1.region.Server.BulkInsertType result = io.greptime.v1.region.Server.BulkInsertType.valueOf(payloadType_);
       return result == null ? io.greptime.v1.region.Server.BulkInsertType.UNRECOGNIZED : result;
     }
 
-    public static final int BODY_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString body_;
+    public static final int PAYLOAD_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString payload_;
     /**
-     * <code>bytes body = 3;</code>
-     * @return The body.
+     * <code>bytes payload = 3;</code>
+     * @return The payload.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getBody() {
-      return body_;
+    public com.google.protobuf.ByteString getPayload() {
+      return payload_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -26680,11 +26680,11 @@ java.lang.String defaultValue);
       if (regionId_ != 0L) {
         output.writeUInt64(1, regionId_);
       }
-      if (type_ != io.greptime.v1.region.Server.BulkInsertType.BULK_INSERT_TYPE_ARROW_IPC.getNumber()) {
-        output.writeEnum(2, type_);
+      if (payloadType_ != io.greptime.v1.region.Server.BulkInsertType.ARROW_IPC.getNumber()) {
+        output.writeEnum(2, payloadType_);
       }
-      if (!body_.isEmpty()) {
-        output.writeBytes(3, body_);
+      if (!payload_.isEmpty()) {
+        output.writeBytes(3, payload_);
       }
       unknownFields.writeTo(output);
     }
@@ -26699,13 +26699,13 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, regionId_);
       }
-      if (type_ != io.greptime.v1.region.Server.BulkInsertType.BULK_INSERT_TYPE_ARROW_IPC.getNumber()) {
+      if (payloadType_ != io.greptime.v1.region.Server.BulkInsertType.ARROW_IPC.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, type_);
+          .computeEnumSize(2, payloadType_);
       }
-      if (!body_.isEmpty()) {
+      if (!payload_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, body_);
+          .computeBytesSize(3, payload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -26724,9 +26724,9 @@ java.lang.String defaultValue);
 
       if (getRegionId()
           != other.getRegionId()) return false;
-      if (type_ != other.type_) return false;
-      if (!getBody()
-          .equals(other.getBody())) return false;
+      if (payloadType_ != other.payloadType_) return false;
+      if (!getPayload()
+          .equals(other.getPayload())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -26741,10 +26741,10 @@ java.lang.String defaultValue);
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + type_;
-      hash = (37 * hash) + BODY_FIELD_NUMBER;
-      hash = (53 * hash) + getBody().hashCode();
+      hash = (37 * hash) + PAYLOAD_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + payloadType_;
+      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getPayload().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -26880,9 +26880,9 @@ java.lang.String defaultValue);
         super.clear();
         regionId_ = 0L;
 
-        type_ = 0;
+        payloadType_ = 0;
 
-        body_ = com.google.protobuf.ByteString.EMPTY;
+        payload_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
       }
@@ -26911,8 +26911,8 @@ java.lang.String defaultValue);
       public io.greptime.v1.region.Server.BulkInsertRequest buildPartial() {
         io.greptime.v1.region.Server.BulkInsertRequest result = new io.greptime.v1.region.Server.BulkInsertRequest(this);
         result.regionId_ = regionId_;
-        result.type_ = type_;
-        result.body_ = body_;
+        result.payloadType_ = payloadType_;
+        result.payload_ = payload_;
         onBuilt();
         return result;
       }
@@ -26964,11 +26964,11 @@ java.lang.String defaultValue);
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
         }
-        if (other.type_ != 0) {
-          setTypeValue(other.getTypeValue());
+        if (other.payloadType_ != 0) {
+          setPayloadTypeValue(other.getPayloadTypeValue());
         }
-        if (other.getBody() != com.google.protobuf.ByteString.EMPTY) {
-          setBody(other.getBody());
+        if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
+          setPayload(other.getPayload());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -27030,90 +27030,90 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private int type_ = 0;
+      private int payloadType_ = 0;
       /**
-       * <code>.greptime.v1.region.BulkInsertType type = 2;</code>
-       * @return The enum numeric value on the wire for type.
+       * <code>.greptime.v1.region.BulkInsertType payload_type = 2;</code>
+       * @return The enum numeric value on the wire for payloadType.
        */
-      @java.lang.Override public int getTypeValue() {
-        return type_;
+      @java.lang.Override public int getPayloadTypeValue() {
+        return payloadType_;
       }
       /**
-       * <code>.greptime.v1.region.BulkInsertType type = 2;</code>
-       * @param value The enum numeric value on the wire for type to set.
+       * <code>.greptime.v1.region.BulkInsertType payload_type = 2;</code>
+       * @param value The enum numeric value on the wire for payloadType to set.
        * @return This builder for chaining.
        */
-      public Builder setTypeValue(int value) {
+      public Builder setPayloadTypeValue(int value) {
         
-        type_ = value;
+        payloadType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.region.BulkInsertType type = 2;</code>
-       * @return The type.
+       * <code>.greptime.v1.region.BulkInsertType payload_type = 2;</code>
+       * @return The payloadType.
        */
       @java.lang.Override
-      public io.greptime.v1.region.Server.BulkInsertType getType() {
+      public io.greptime.v1.region.Server.BulkInsertType getPayloadType() {
         @SuppressWarnings("deprecation")
-        io.greptime.v1.region.Server.BulkInsertType result = io.greptime.v1.region.Server.BulkInsertType.valueOf(type_);
+        io.greptime.v1.region.Server.BulkInsertType result = io.greptime.v1.region.Server.BulkInsertType.valueOf(payloadType_);
         return result == null ? io.greptime.v1.region.Server.BulkInsertType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.greptime.v1.region.BulkInsertType type = 2;</code>
-       * @param value The type to set.
+       * <code>.greptime.v1.region.BulkInsertType payload_type = 2;</code>
+       * @param value The payloadType to set.
        * @return This builder for chaining.
        */
-      public Builder setType(io.greptime.v1.region.Server.BulkInsertType value) {
+      public Builder setPayloadType(io.greptime.v1.region.Server.BulkInsertType value) {
         if (value == null) {
           throw new NullPointerException();
         }
         
-        type_ = value.getNumber();
+        payloadType_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.region.BulkInsertType type = 2;</code>
+       * <code>.greptime.v1.region.BulkInsertType payload_type = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearType() {
+      public Builder clearPayloadType() {
         
-        type_ = 0;
+        payloadType_ = 0;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.ByteString body_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes body = 3;</code>
-       * @return The body.
+       * <code>bytes payload = 3;</code>
+       * @return The payload.
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString getBody() {
-        return body_;
+      public com.google.protobuf.ByteString getPayload() {
+        return payload_;
       }
       /**
-       * <code>bytes body = 3;</code>
-       * @param value The body to set.
+       * <code>bytes payload = 3;</code>
+       * @param value The payload to set.
        * @return This builder for chaining.
        */
-      public Builder setBody(com.google.protobuf.ByteString value) {
+      public Builder setPayload(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        body_ = value;
+        payload_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes body = 3;</code>
+       * <code>bytes payload = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearBody() {
+      public Builder clearPayload() {
         
-        body_ = getDefaultInstance().getBody();
+        payload_ = getDefaultInstance().getPayload();
         onChanged();
         return this;
       }
@@ -27431,16 +27431,15 @@ java.lang.String defaultValue);
       "umn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n" +
       "\tcolumn_id\030\002 \001(\r\"M\n\022BulkInsertRequests\0227" +
       "\n\010requests\030\001 \003(\0132%.greptime.v1.region.Bu" +
-      "lkInsertRequest\"f\n\021BulkInsertRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\0220\n\004type\030\002 \001(\0162\".greptime" +
-      ".v1.region.BulkInsertType\022\014\n\004body\030\003 \001(\014*" +
-      "0\n\016BulkInsertType\022\036\n\032BULK_INSERT_TYPE_AR" +
-      "ROW_IPC\020\0002Y\n\006Region\022O\n\006Handle\022!.greptime" +
-      ".v1.region.RegionRequest\032\".greptime.v1.r" +
-      "egion.RegionResponseB]\n\025io.greptime.v1.r" +
-      "egionB\006ServerZ<github.com/GreptimeTeam/g" +
-      "reptime-proto/go/greptime/v1/regionb\006pro" +
-      "to3"
+      "lkInsertRequest\"q\n\021BulkInsertRequest\022\021\n\t" +
+      "region_id\030\001 \001(\004\0228\n\014payload_type\030\002 \001(\0162\"." +
+      "greptime.v1.region.BulkInsertType\022\017\n\007pay" +
+      "load\030\003 \001(\014*\037\n\016BulkInsertType\022\r\n\tARROW_IP" +
+      "C\020\0002Y\n\006Region\022O\n\006Handle\022!.greptime.v1.re" +
+      "gion.RegionRequest\032\".greptime.v1.region." +
+      "RegionResponseB]\n\025io.greptime.v1.regionB" +
+      "\006ServerZ<github.com/GreptimeTeam/greptim" +
+      "e-proto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27640,7 +27639,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Type", "Body", });
+        new java.lang.String[] { "RegionId", "PayloadType", "Payload", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
