@@ -54,7 +54,15 @@ message QueryRequest {
     string sql = 1;
     bytes logical_plan = 2;
     PromRangeQuery prom_range_query = 3;
+    InsertIntoPlan insert_into_plan = 4;
   }
+}
+
+// A temporary solution for executing insert into table SELECT .. with logical plan
+// since substrait to logical plan doesn't support dml yet.
+message InsertIntoPlan{
+  string table_name = 1;
+  bytes logical_plan = 2;
 }
 
 message InsertRequests { repeated InsertRequest inserts = 1; }
