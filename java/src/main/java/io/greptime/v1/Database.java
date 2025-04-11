@@ -3059,6 +3059,21 @@ public final class Database {
      */
     io.greptime.v1.Prometheus.PromRangeQueryOrBuilder getPromRangeQueryOrBuilder();
 
+    /**
+     * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+     * @return Whether the insertIntoPlan field is set.
+     */
+    boolean hasInsertIntoPlan();
+    /**
+     * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+     * @return The insertIntoPlan.
+     */
+    io.greptime.v1.Database.InsertIntoPlan getInsertIntoPlan();
+    /**
+     * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+     */
+    io.greptime.v1.Database.InsertIntoPlanOrBuilder getInsertIntoPlanOrBuilder();
+
     public io.greptime.v1.Database.QueryRequest.QueryCase getQueryCase();
   }
   /**
@@ -3131,6 +3146,20 @@ public final class Database {
               queryCase_ = 3;
               break;
             }
+            case 34: {
+              io.greptime.v1.Database.InsertIntoPlan.Builder subBuilder = null;
+              if (queryCase_ == 4) {
+                subBuilder = ((io.greptime.v1.Database.InsertIntoPlan) query_).toBuilder();
+              }
+              query_ =
+                  input.readMessage(io.greptime.v1.Database.InsertIntoPlan.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Database.InsertIntoPlan) query_);
+                query_ = subBuilder.buildPartial();
+              }
+              queryCase_ = 4;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3173,6 +3202,7 @@ public final class Database {
       SQL(1),
       LOGICAL_PLAN(2),
       PROM_RANGE_QUERY(3),
+      INSERT_INTO_PLAN(4),
       QUERY_NOT_SET(0);
       private final int value;
       private QueryCase(int value) {
@@ -3193,6 +3223,7 @@ public final class Database {
           case 1: return SQL;
           case 2: return LOGICAL_PLAN;
           case 3: return PROM_RANGE_QUERY;
+          case 4: return INSERT_INTO_PLAN;
           case 0: return QUERY_NOT_SET;
           default: return null;
         }
@@ -3312,6 +3343,37 @@ public final class Database {
       return io.greptime.v1.Prometheus.PromRangeQuery.getDefaultInstance();
     }
 
+    public static final int INSERT_INTO_PLAN_FIELD_NUMBER = 4;
+    /**
+     * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+     * @return Whether the insertIntoPlan field is set.
+     */
+    @java.lang.Override
+    public boolean hasInsertIntoPlan() {
+      return queryCase_ == 4;
+    }
+    /**
+     * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+     * @return The insertIntoPlan.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.InsertIntoPlan getInsertIntoPlan() {
+      if (queryCase_ == 4) {
+         return (io.greptime.v1.Database.InsertIntoPlan) query_;
+      }
+      return io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Database.InsertIntoPlanOrBuilder getInsertIntoPlanOrBuilder() {
+      if (queryCase_ == 4) {
+         return (io.greptime.v1.Database.InsertIntoPlan) query_;
+      }
+      return io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3336,6 +3398,9 @@ public final class Database {
       if (queryCase_ == 3) {
         output.writeMessage(3, (io.greptime.v1.Prometheus.PromRangeQuery) query_);
       }
+      if (queryCase_ == 4) {
+        output.writeMessage(4, (io.greptime.v1.Database.InsertIntoPlan) query_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3356,6 +3421,10 @@ public final class Database {
       if (queryCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (io.greptime.v1.Prometheus.PromRangeQuery) query_);
+      }
+      if (queryCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (io.greptime.v1.Database.InsertIntoPlan) query_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3386,6 +3455,10 @@ public final class Database {
           if (!getPromRangeQuery()
               .equals(other.getPromRangeQuery())) return false;
           break;
+        case 4:
+          if (!getInsertIntoPlan()
+              .equals(other.getInsertIntoPlan())) return false;
+          break;
         case 0:
         default:
       }
@@ -3412,6 +3485,10 @@ public final class Database {
         case 3:
           hash = (37 * hash) + PROM_RANGE_QUERY_FIELD_NUMBER;
           hash = (53 * hash) + getPromRangeQuery().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + INSERT_INTO_PLAN_FIELD_NUMBER;
+          hash = (53 * hash) + getInsertIntoPlan().hashCode();
           break;
         case 0:
         default:
@@ -3590,6 +3667,13 @@ public final class Database {
             result.query_ = promRangeQueryBuilder_.build();
           }
         }
+        if (queryCase_ == 4) {
+          if (insertIntoPlanBuilder_ == null) {
+            result.query_ = query_;
+          } else {
+            result.query_ = insertIntoPlanBuilder_.build();
+          }
+        }
         result.queryCase_ = queryCase_;
         onBuilt();
         return result;
@@ -3652,6 +3736,10 @@ public final class Database {
           }
           case PROM_RANGE_QUERY: {
             mergePromRangeQuery(other.getPromRangeQuery());
+            break;
+          }
+          case INSERT_INTO_PLAN: {
+            mergeInsertIntoPlan(other.getInsertIntoPlan());
             break;
           }
           case QUERY_NOT_SET: {
@@ -3984,6 +4072,148 @@ public final class Database {
         onChanged();;
         return promRangeQueryBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Database.InsertIntoPlan, io.greptime.v1.Database.InsertIntoPlan.Builder, io.greptime.v1.Database.InsertIntoPlanOrBuilder> insertIntoPlanBuilder_;
+      /**
+       * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+       * @return Whether the insertIntoPlan field is set.
+       */
+      @java.lang.Override
+      public boolean hasInsertIntoPlan() {
+        return queryCase_ == 4;
+      }
+      /**
+       * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+       * @return The insertIntoPlan.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Database.InsertIntoPlan getInsertIntoPlan() {
+        if (insertIntoPlanBuilder_ == null) {
+          if (queryCase_ == 4) {
+            return (io.greptime.v1.Database.InsertIntoPlan) query_;
+          }
+          return io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance();
+        } else {
+          if (queryCase_ == 4) {
+            return insertIntoPlanBuilder_.getMessage();
+          }
+          return io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+       */
+      public Builder setInsertIntoPlan(io.greptime.v1.Database.InsertIntoPlan value) {
+        if (insertIntoPlanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          query_ = value;
+          onChanged();
+        } else {
+          insertIntoPlanBuilder_.setMessage(value);
+        }
+        queryCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+       */
+      public Builder setInsertIntoPlan(
+          io.greptime.v1.Database.InsertIntoPlan.Builder builderForValue) {
+        if (insertIntoPlanBuilder_ == null) {
+          query_ = builderForValue.build();
+          onChanged();
+        } else {
+          insertIntoPlanBuilder_.setMessage(builderForValue.build());
+        }
+        queryCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+       */
+      public Builder mergeInsertIntoPlan(io.greptime.v1.Database.InsertIntoPlan value) {
+        if (insertIntoPlanBuilder_ == null) {
+          if (queryCase_ == 4 &&
+              query_ != io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance()) {
+            query_ = io.greptime.v1.Database.InsertIntoPlan.newBuilder((io.greptime.v1.Database.InsertIntoPlan) query_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            query_ = value;
+          }
+          onChanged();
+        } else {
+          if (queryCase_ == 4) {
+            insertIntoPlanBuilder_.mergeFrom(value);
+          } else {
+            insertIntoPlanBuilder_.setMessage(value);
+          }
+        }
+        queryCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+       */
+      public Builder clearInsertIntoPlan() {
+        if (insertIntoPlanBuilder_ == null) {
+          if (queryCase_ == 4) {
+            queryCase_ = 0;
+            query_ = null;
+            onChanged();
+          }
+        } else {
+          if (queryCase_ == 4) {
+            queryCase_ = 0;
+            query_ = null;
+          }
+          insertIntoPlanBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+       */
+      public io.greptime.v1.Database.InsertIntoPlan.Builder getInsertIntoPlanBuilder() {
+        return getInsertIntoPlanFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Database.InsertIntoPlanOrBuilder getInsertIntoPlanOrBuilder() {
+        if ((queryCase_ == 4) && (insertIntoPlanBuilder_ != null)) {
+          return insertIntoPlanBuilder_.getMessageOrBuilder();
+        } else {
+          if (queryCase_ == 4) {
+            return (io.greptime.v1.Database.InsertIntoPlan) query_;
+          }
+          return io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.InsertIntoPlan insert_into_plan = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Database.InsertIntoPlan, io.greptime.v1.Database.InsertIntoPlan.Builder, io.greptime.v1.Database.InsertIntoPlanOrBuilder> 
+          getInsertIntoPlanFieldBuilder() {
+        if (insertIntoPlanBuilder_ == null) {
+          if (!(queryCase_ == 4)) {
+            query_ = io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance();
+          }
+          insertIntoPlanBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Database.InsertIntoPlan, io.greptime.v1.Database.InsertIntoPlan.Builder, io.greptime.v1.Database.InsertIntoPlanOrBuilder>(
+                  (io.greptime.v1.Database.InsertIntoPlan) query_,
+                  getParentForChildren(),
+                  isClean());
+          query_ = null;
+        }
+        queryCase_ = 4;
+        onChanged();;
+        return insertIntoPlanBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4032,6 +4262,660 @@ public final class Database {
 
     @java.lang.Override
     public io.greptime.v1.Database.QueryRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface InsertIntoPlanOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.InsertIntoPlan)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string table_name = 1;</code>
+     * @return The tableName.
+     */
+    java.lang.String getTableName();
+    /**
+     * <code>string table_name = 1;</code>
+     * @return The bytes for tableName.
+     */
+    com.google.protobuf.ByteString
+        getTableNameBytes();
+
+    /**
+     * <code>bytes logical_plan = 2;</code>
+     * @return The logicalPlan.
+     */
+    com.google.protobuf.ByteString getLogicalPlan();
+  }
+  /**
+   * <pre>
+   * A temporary solution for executing insert into table SELECT .. with logical plan
+   * since substrait to logical plan doesn't support dml yet.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.InsertIntoPlan}
+   */
+  public static final class InsertIntoPlan extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.InsertIntoPlan)
+      InsertIntoPlanOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use InsertIntoPlan.newBuilder() to construct.
+    private InsertIntoPlan(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private InsertIntoPlan() {
+      tableName_ = "";
+      logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new InsertIntoPlan();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private InsertIntoPlan(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tableName_ = s;
+              break;
+            }
+            case 18: {
+
+              logicalPlan_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Database.internal_static_greptime_v1_InsertIntoPlan_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Database.internal_static_greptime_v1_InsertIntoPlan_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Database.InsertIntoPlan.class, io.greptime.v1.Database.InsertIntoPlan.Builder.class);
+    }
+
+    public static final int TABLE_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object tableName_;
+    /**
+     * <code>string table_name = 1;</code>
+     * @return The tableName.
+     */
+    @java.lang.Override
+    public java.lang.String getTableName() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tableName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string table_name = 1;</code>
+     * @return The bytes for tableName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTableNameBytes() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tableName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LOGICAL_PLAN_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString logicalPlan_;
+    /**
+     * <code>bytes logical_plan = 2;</code>
+     * @return The logicalPlan.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getLogicalPlan() {
+      return logicalPlan_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tableName_);
+      }
+      if (!logicalPlan_.isEmpty()) {
+        output.writeBytes(2, logicalPlan_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tableName_);
+      }
+      if (!logicalPlan_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, logicalPlan_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Database.InsertIntoPlan)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Database.InsertIntoPlan other = (io.greptime.v1.Database.InsertIntoPlan) obj;
+
+      if (!getTableName()
+          .equals(other.getTableName())) return false;
+      if (!getLogicalPlan()
+          .equals(other.getLogicalPlan())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getTableName().hashCode();
+      hash = (37 * hash) + LOGICAL_PLAN_FIELD_NUMBER;
+      hash = (53 * hash) + getLogicalPlan().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Database.InsertIntoPlan parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Database.InsertIntoPlan prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * A temporary solution for executing insert into table SELECT .. with logical plan
+     * since substrait to logical plan doesn't support dml yet.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.InsertIntoPlan}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.InsertIntoPlan)
+        io.greptime.v1.Database.InsertIntoPlanOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_InsertIntoPlan_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_InsertIntoPlan_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Database.InsertIntoPlan.class, io.greptime.v1.Database.InsertIntoPlan.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Database.InsertIntoPlan.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        tableName_ = "";
+
+        logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Database.internal_static_greptime_v1_InsertIntoPlan_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.InsertIntoPlan getDefaultInstanceForType() {
+        return io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.InsertIntoPlan build() {
+        io.greptime.v1.Database.InsertIntoPlan result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Database.InsertIntoPlan buildPartial() {
+        io.greptime.v1.Database.InsertIntoPlan result = new io.greptime.v1.Database.InsertIntoPlan(this);
+        result.tableName_ = tableName_;
+        result.logicalPlan_ = logicalPlan_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Database.InsertIntoPlan) {
+          return mergeFrom((io.greptime.v1.Database.InsertIntoPlan)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Database.InsertIntoPlan other) {
+        if (other == io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance()) return this;
+        if (!other.getTableName().isEmpty()) {
+          tableName_ = other.tableName_;
+          onChanged();
+        }
+        if (other.getLogicalPlan() != com.google.protobuf.ByteString.EMPTY) {
+          setLogicalPlan(other.getLogicalPlan());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Database.InsertIntoPlan parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Database.InsertIntoPlan) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object tableName_ = "";
+      /**
+       * <code>string table_name = 1;</code>
+       * @return The tableName.
+       */
+      public java.lang.String getTableName() {
+        java.lang.Object ref = tableName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tableName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string table_name = 1;</code>
+       * @return The bytes for tableName.
+       */
+      public com.google.protobuf.ByteString
+          getTableNameBytes() {
+        java.lang.Object ref = tableName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tableName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string table_name = 1;</code>
+       * @param value The tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tableName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string table_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTableName() {
+        
+        tableName_ = getDefaultInstance().getTableName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string table_name = 1;</code>
+       * @param value The bytes for tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tableName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes logical_plan = 2;</code>
+       * @return The logicalPlan.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getLogicalPlan() {
+        return logicalPlan_;
+      }
+      /**
+       * <code>bytes logical_plan = 2;</code>
+       * @param value The logicalPlan to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLogicalPlan(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        logicalPlan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes logical_plan = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLogicalPlan() {
+        
+        logicalPlan_ = getDefaultInstance().getLogicalPlan();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.InsertIntoPlan)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.InsertIntoPlan)
+    private static final io.greptime.v1.Database.InsertIntoPlan DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Database.InsertIntoPlan();
+    }
+
+    public static io.greptime.v1.Database.InsertIntoPlan getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<InsertIntoPlan>
+        PARSER = new com.google.protobuf.AbstractParser<InsertIntoPlan>() {
+      @java.lang.Override
+      public InsertIntoPlan parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new InsertIntoPlan(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<InsertIntoPlan> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<InsertIntoPlan> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Database.InsertIntoPlan getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11288,6 +12172,11 @@ public final class Database {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_QueryRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_InsertIntoPlan_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_InsertIntoPlan_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_InsertRequests_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11352,32 +12241,35 @@ public final class Database {
       "\007request\"\177\n\020GreptimeResponse\022+\n\006header\030\001" +
       " \001(\0132\033.greptime.v1.ResponseHeader\0222\n\raff" +
       "ected_rows\030\002 \001(\0132\031.greptime.v1.AffectedR" +
-      "owsH\000B\n\n\010response\"w\n\014QueryRequest\022\r\n\003sql" +
-      "\030\001 \001(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020prom" +
-      "_range_query\030\003 \001(\0132\033.greptime.v1.PromRan" +
-      "geQueryH\000B\007\n\005query\"=\n\016InsertRequests\022+\n\007" +
-      "inserts\030\001 \003(\0132\032.greptime.v1.InsertReques" +
-      "t\"\\\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$" +
-      "\n\007columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\t" +
-      "row_count\030\004 \001(\r\"=\n\016DeleteRequests\022+\n\007del" +
-      "etes\030\001 \003(\0132\032.greptime.v1.DeleteRequest\"`" +
-      "\n\rDeleteRequest\022\022\n\ntable_name\030\001 \001(\t\022(\n\013k" +
-      "ey_columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n" +
-      "\trow_count\030\004 \001(\r\"C\n\021RowInsertRequests\022.\n" +
-      "\007inserts\030\001 \003(\0132\035.greptime.v1.RowInsertRe" +
-      "quest\"G\n\020RowInsertRequest\022\022\n\ntable_name\030" +
-      "\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C" +
-      "\n\021RowDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035.g" +
-      "reptime.v1.RowDeleteRequest\"G\n\020RowDelete" +
-      "Request\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(" +
-      "\0132\021.greptime.v1.Rows2\252\001\n\020GreptimeDatabas" +
-      "e\022E\n\006Handle\022\034.greptime.v1.GreptimeReques" +
-      "t\032\035.greptime.v1.GreptimeResponse\022O\n\016Hand" +
-      "leRequests\022\034.greptime.v1.GreptimeRequest" +
-      "\032\035.greptime.v1.GreptimeResponse(\001BQ\n\016io." +
-      "greptime.v1B\010DatabaseZ5github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
-      "oto3"
+      "owsH\000B\n\n\010response\"\260\001\n\014QueryRequest\022\r\n\003sq" +
+      "l\030\001 \001(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020pro" +
+      "m_range_query\030\003 \001(\0132\033.greptime.v1.PromRa" +
+      "ngeQueryH\000\0227\n\020insert_into_plan\030\004 \001(\0132\033.g" +
+      "reptime.v1.InsertIntoPlanH\000B\007\n\005query\":\n\016" +
+      "InsertIntoPlan\022\022\n\ntable_name\030\001 \001(\t\022\024\n\014lo" +
+      "gical_plan\030\002 \001(\014\"=\n\016InsertRequests\022+\n\007in" +
+      "serts\030\001 \003(\0132\032.greptime.v1.InsertRequest\"" +
+      "\\\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$\n\007" +
+      "columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\tro" +
+      "w_count\030\004 \001(\r\"=\n\016DeleteRequests\022+\n\007delet" +
+      "es\030\001 \003(\0132\032.greptime.v1.DeleteRequest\"`\n\r" +
+      "DeleteRequest\022\022\n\ntable_name\030\001 \001(\t\022(\n\013key" +
+      "_columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\tr" +
+      "ow_count\030\004 \001(\r\"C\n\021RowInsertRequests\022.\n\007i" +
+      "nserts\030\001 \003(\0132\035.greptime.v1.RowInsertRequ" +
+      "est\"G\n\020RowInsertRequest\022\022\n\ntable_name\030\001 " +
+      "\001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\021" +
+      "RowDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035.gre" +
+      "ptime.v1.RowDeleteRequest\"G\n\020RowDeleteRe" +
+      "quest\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132" +
+      "\021.greptime.v1.Rows2\252\001\n\020GreptimeDatabase\022" +
+      "E\n\006Handle\022\034.greptime.v1.GreptimeRequest\032" +
+      "\035.greptime.v1.GreptimeResponse\022O\n\016Handle" +
+      "Requests\022\034.greptime.v1.GreptimeRequest\032\035" +
+      ".greptime.v1.GreptimeResponse(\001BQ\n\016io.gr" +
+      "eptime.v1B\010DatabaseZ5github.com/Greptime" +
+      "Team/greptime-proto/go/greptime/v1b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11405,51 +12297,57 @@ public final class Database {
     internal_static_greptime_v1_QueryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_QueryRequest_descriptor,
-        new java.lang.String[] { "Sql", "LogicalPlan", "PromRangeQuery", "Query", });
-    internal_static_greptime_v1_InsertRequests_descriptor =
+        new java.lang.String[] { "Sql", "LogicalPlan", "PromRangeQuery", "InsertIntoPlan", "Query", });
+    internal_static_greptime_v1_InsertIntoPlan_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_greptime_v1_InsertIntoPlan_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_InsertIntoPlan_descriptor,
+        new java.lang.String[] { "TableName", "LogicalPlan", });
+    internal_static_greptime_v1_InsertRequests_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_InsertRequests_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_InsertRequests_descriptor,
         new java.lang.String[] { "Inserts", });
     internal_static_greptime_v1_InsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_InsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_InsertRequest_descriptor,
         new java.lang.String[] { "TableName", "Columns", "RowCount", });
     internal_static_greptime_v1_DeleteRequests_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_DeleteRequests_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DeleteRequests_descriptor,
         new java.lang.String[] { "Deletes", });
     internal_static_greptime_v1_DeleteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_DeleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DeleteRequest_descriptor,
         new java.lang.String[] { "TableName", "KeyColumns", "RowCount", });
     internal_static_greptime_v1_RowInsertRequests_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_RowInsertRequests_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowInsertRequests_descriptor,
         new java.lang.String[] { "Inserts", });
     internal_static_greptime_v1_RowInsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_RowInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowInsertRequest_descriptor,
         new java.lang.String[] { "TableName", "Rows", });
     internal_static_greptime_v1_RowDeleteRequests_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_RowDeleteRequests_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowDeleteRequests_descriptor,
         new java.lang.String[] { "Deletes", });
     internal_static_greptime_v1_RowDeleteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_RowDeleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowDeleteRequest_descriptor,
