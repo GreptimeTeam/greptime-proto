@@ -4272,16 +4272,19 @@ public final class Database {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string table_name = 1;</code>
+     * <code>.greptime.v1.TableName table_name = 1;</code>
+     * @return Whether the tableName field is set.
+     */
+    boolean hasTableName();
+    /**
+     * <code>.greptime.v1.TableName table_name = 1;</code>
      * @return The tableName.
      */
-    java.lang.String getTableName();
+    io.greptime.v1.Common.TableName getTableName();
     /**
-     * <code>string table_name = 1;</code>
-     * @return The bytes for tableName.
+     * <code>.greptime.v1.TableName table_name = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getTableNameBytes();
+    io.greptime.v1.Common.TableNameOrBuilder getTableNameOrBuilder();
 
     /**
      * <code>bytes logical_plan = 2;</code>
@@ -4307,7 +4310,6 @@ public final class Database {
       super(builder);
     }
     private InsertIntoPlan() {
-      tableName_ = "";
       logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -4342,9 +4344,16 @@ public final class Database {
               done = true;
               break;
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+              io.greptime.v1.Common.TableName.Builder subBuilder = null;
+              if (tableName_ != null) {
+                subBuilder = tableName_.toBuilder();
+              }
+              tableName_ = input.readMessage(io.greptime.v1.Common.TableName.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tableName_);
+                tableName_ = subBuilder.buildPartial();
+              }
 
-              tableName_ = s;
               break;
             }
             case 18: {
@@ -4387,41 +4396,29 @@ public final class Database {
     }
 
     public static final int TABLE_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object tableName_;
+    private io.greptime.v1.Common.TableName tableName_;
     /**
-     * <code>string table_name = 1;</code>
+     * <code>.greptime.v1.TableName table_name = 1;</code>
+     * @return Whether the tableName field is set.
+     */
+    @java.lang.Override
+    public boolean hasTableName() {
+      return tableName_ != null;
+    }
+    /**
+     * <code>.greptime.v1.TableName table_name = 1;</code>
      * @return The tableName.
      */
     @java.lang.Override
-    public java.lang.String getTableName() {
-      java.lang.Object ref = tableName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        tableName_ = s;
-        return s;
-      }
+    public io.greptime.v1.Common.TableName getTableName() {
+      return tableName_ == null ? io.greptime.v1.Common.TableName.getDefaultInstance() : tableName_;
     }
     /**
-     * <code>string table_name = 1;</code>
-     * @return The bytes for tableName.
+     * <code>.greptime.v1.TableName table_name = 1;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTableNameBytes() {
-      java.lang.Object ref = tableName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        tableName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public io.greptime.v1.Common.TableNameOrBuilder getTableNameOrBuilder() {
+      return getTableName();
     }
 
     public static final int LOGICAL_PLAN_FIELD_NUMBER = 2;
@@ -4449,8 +4446,8 @@ public final class Database {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tableName_);
+      if (tableName_ != null) {
+        output.writeMessage(1, getTableName());
       }
       if (!logicalPlan_.isEmpty()) {
         output.writeBytes(2, logicalPlan_);
@@ -4464,8 +4461,9 @@ public final class Database {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tableName_);
+      if (tableName_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getTableName());
       }
       if (!logicalPlan_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
@@ -4486,8 +4484,11 @@ public final class Database {
       }
       io.greptime.v1.Database.InsertIntoPlan other = (io.greptime.v1.Database.InsertIntoPlan) obj;
 
-      if (!getTableName()
-          .equals(other.getTableName())) return false;
+      if (hasTableName() != other.hasTableName()) return false;
+      if (hasTableName()) {
+        if (!getTableName()
+            .equals(other.getTableName())) return false;
+      }
       if (!getLogicalPlan()
           .equals(other.getLogicalPlan())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -4501,8 +4502,10 @@ public final class Database {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getTableName().hashCode();
+      if (hasTableName()) {
+        hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getTableName().hashCode();
+      }
       hash = (37 * hash) + LOGICAL_PLAN_FIELD_NUMBER;
       hash = (53 * hash) + getLogicalPlan().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -4643,8 +4646,12 @@ public final class Database {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        tableName_ = "";
-
+        if (tableNameBuilder_ == null) {
+          tableName_ = null;
+        } else {
+          tableName_ = null;
+          tableNameBuilder_ = null;
+        }
         logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
@@ -4673,7 +4680,11 @@ public final class Database {
       @java.lang.Override
       public io.greptime.v1.Database.InsertIntoPlan buildPartial() {
         io.greptime.v1.Database.InsertIntoPlan result = new io.greptime.v1.Database.InsertIntoPlan(this);
-        result.tableName_ = tableName_;
+        if (tableNameBuilder_ == null) {
+          result.tableName_ = tableName_;
+        } else {
+          result.tableName_ = tableNameBuilder_.build();
+        }
         result.logicalPlan_ = logicalPlan_;
         onBuilt();
         return result;
@@ -4723,9 +4734,8 @@ public final class Database {
 
       public Builder mergeFrom(io.greptime.v1.Database.InsertIntoPlan other) {
         if (other == io.greptime.v1.Database.InsertIntoPlan.getDefaultInstance()) return this;
-        if (!other.getTableName().isEmpty()) {
-          tableName_ = other.tableName_;
-          onChanged();
+        if (other.hasTableName()) {
+          mergeTableName(other.getTableName());
         }
         if (other.getLogicalPlan() != com.google.protobuf.ByteString.EMPTY) {
           setLogicalPlan(other.getLogicalPlan());
@@ -4759,80 +4769,123 @@ public final class Database {
         return this;
       }
 
-      private java.lang.Object tableName_ = "";
+      private io.greptime.v1.Common.TableName tableName_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> tableNameBuilder_;
       /**
-       * <code>string table_name = 1;</code>
+       * <code>.greptime.v1.TableName table_name = 1;</code>
+       * @return Whether the tableName field is set.
+       */
+      public boolean hasTableName() {
+        return tableNameBuilder_ != null || tableName_ != null;
+      }
+      /**
+       * <code>.greptime.v1.TableName table_name = 1;</code>
        * @return The tableName.
        */
-      public java.lang.String getTableName() {
-        java.lang.Object ref = tableName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          tableName_ = s;
-          return s;
+      public io.greptime.v1.Common.TableName getTableName() {
+        if (tableNameBuilder_ == null) {
+          return tableName_ == null ? io.greptime.v1.Common.TableName.getDefaultInstance() : tableName_;
         } else {
-          return (java.lang.String) ref;
+          return tableNameBuilder_.getMessage();
         }
       }
       /**
-       * <code>string table_name = 1;</code>
-       * @return The bytes for tableName.
+       * <code>.greptime.v1.TableName table_name = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getTableNameBytes() {
-        java.lang.Object ref = tableName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          tableName_ = b;
-          return b;
+      public Builder setTableName(io.greptime.v1.Common.TableName value) {
+        if (tableNameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tableName_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          tableNameBuilder_.setMessage(value);
         }
+
+        return this;
       }
       /**
-       * <code>string table_name = 1;</code>
-       * @param value The tableName to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.TableName table_name = 1;</code>
        */
       public Builder setTableName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        tableName_ = value;
-        onChanged();
+          io.greptime.v1.Common.TableName.Builder builderForValue) {
+        if (tableNameBuilder_ == null) {
+          tableName_ = builderForValue.build();
+          onChanged();
+        } else {
+          tableNameBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
       }
       /**
-       * <code>string table_name = 1;</code>
-       * @return This builder for chaining.
+       * <code>.greptime.v1.TableName table_name = 1;</code>
+       */
+      public Builder mergeTableName(io.greptime.v1.Common.TableName value) {
+        if (tableNameBuilder_ == null) {
+          if (tableName_ != null) {
+            tableName_ =
+              io.greptime.v1.Common.TableName.newBuilder(tableName_).mergeFrom(value).buildPartial();
+          } else {
+            tableName_ = value;
+          }
+          onChanged();
+        } else {
+          tableNameBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableName table_name = 1;</code>
        */
       public Builder clearTableName() {
-        
-        tableName_ = getDefaultInstance().getTableName();
-        onChanged();
+        if (tableNameBuilder_ == null) {
+          tableName_ = null;
+          onChanged();
+        } else {
+          tableName_ = null;
+          tableNameBuilder_ = null;
+        }
+
         return this;
       }
       /**
-       * <code>string table_name = 1;</code>
-       * @param value The bytes for tableName to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.TableName table_name = 1;</code>
        */
-      public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public io.greptime.v1.Common.TableName.Builder getTableNameBuilder() {
         
-        tableName_ = value;
         onChanged();
-        return this;
+        return getTableNameFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.TableName table_name = 1;</code>
+       */
+      public io.greptime.v1.Common.TableNameOrBuilder getTableNameOrBuilder() {
+        if (tableNameBuilder_ != null) {
+          return tableNameBuilder_.getMessageOrBuilder();
+        } else {
+          return tableName_ == null ?
+              io.greptime.v1.Common.TableName.getDefaultInstance() : tableName_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableName table_name = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder> 
+          getTableNameFieldBuilder() {
+        if (tableNameBuilder_ == null) {
+          tableNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.TableName, io.greptime.v1.Common.TableName.Builder, io.greptime.v1.Common.TableNameOrBuilder>(
+                  getTableName(),
+                  getParentForChildren(),
+                  isClean());
+          tableName_ = null;
+        }
+        return tableNameBuilder_;
       }
 
       private com.google.protobuf.ByteString logicalPlan_ = com.google.protobuf.ByteString.EMPTY;
@@ -12245,31 +12298,31 @@ public final class Database {
       "l\030\001 \001(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020pro" +
       "m_range_query\030\003 \001(\0132\033.greptime.v1.PromRa" +
       "ngeQueryH\000\0227\n\020insert_into_plan\030\004 \001(\0132\033.g" +
-      "reptime.v1.InsertIntoPlanH\000B\007\n\005query\":\n\016" +
-      "InsertIntoPlan\022\022\n\ntable_name\030\001 \001(\t\022\024\n\014lo" +
-      "gical_plan\030\002 \001(\014\"=\n\016InsertRequests\022+\n\007in" +
-      "serts\030\001 \003(\0132\032.greptime.v1.InsertRequest\"" +
-      "\\\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$\n\007" +
-      "columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\tro" +
-      "w_count\030\004 \001(\r\"=\n\016DeleteRequests\022+\n\007delet" +
-      "es\030\001 \003(\0132\032.greptime.v1.DeleteRequest\"`\n\r" +
-      "DeleteRequest\022\022\n\ntable_name\030\001 \001(\t\022(\n\013key" +
-      "_columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\tr" +
-      "ow_count\030\004 \001(\r\"C\n\021RowInsertRequests\022.\n\007i" +
-      "nserts\030\001 \003(\0132\035.greptime.v1.RowInsertRequ" +
-      "est\"G\n\020RowInsertRequest\022\022\n\ntable_name\030\001 " +
-      "\001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\021" +
-      "RowDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035.gre" +
-      "ptime.v1.RowDeleteRequest\"G\n\020RowDeleteRe" +
-      "quest\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132" +
-      "\021.greptime.v1.Rows2\252\001\n\020GreptimeDatabase\022" +
-      "E\n\006Handle\022\034.greptime.v1.GreptimeRequest\032" +
-      "\035.greptime.v1.GreptimeResponse\022O\n\016Handle" +
-      "Requests\022\034.greptime.v1.GreptimeRequest\032\035" +
-      ".greptime.v1.GreptimeResponse(\001BQ\n\016io.gr" +
-      "eptime.v1B\010DatabaseZ5github.com/Greptime" +
-      "Team/greptime-proto/go/greptime/v1b\006prot" +
-      "o3"
+      "reptime.v1.InsertIntoPlanH\000B\007\n\005query\"R\n\016" +
+      "InsertIntoPlan\022*\n\ntable_name\030\001 \001(\0132\026.gre" +
+      "ptime.v1.TableName\022\024\n\014logical_plan\030\002 \001(\014" +
+      "\"=\n\016InsertRequests\022+\n\007inserts\030\001 \003(\0132\032.gr" +
+      "eptime.v1.InsertRequest\"\\\n\rInsertRequest" +
+      "\022\022\n\ntable_name\030\001 \001(\t\022$\n\007columns\030\003 \003(\0132\023." +
+      "greptime.v1.Column\022\021\n\trow_count\030\004 \001(\r\"=\n" +
+      "\016DeleteRequests\022+\n\007deletes\030\001 \003(\0132\032.grept" +
+      "ime.v1.DeleteRequest\"`\n\rDeleteRequest\022\022\n" +
+      "\ntable_name\030\001 \001(\t\022(\n\013key_columns\030\003 \003(\0132\023" +
+      ".greptime.v1.Column\022\021\n\trow_count\030\004 \001(\r\"C" +
+      "\n\021RowInsertRequests\022.\n\007inserts\030\001 \003(\0132\035.g" +
+      "reptime.v1.RowInsertRequest\"G\n\020RowInsert" +
+      "Request\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(" +
+      "\0132\021.greptime.v1.Rows\"C\n\021RowDeleteRequest" +
+      "s\022.\n\007deletes\030\001 \003(\0132\035.greptime.v1.RowDele" +
+      "teRequest\"G\n\020RowDeleteRequest\022\022\n\ntable_n" +
+      "ame\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Ro" +
+      "ws2\252\001\n\020GreptimeDatabase\022E\n\006Handle\022\034.grep" +
+      "time.v1.GreptimeRequest\032\035.greptime.v1.Gr" +
+      "eptimeResponse\022O\n\016HandleRequests\022\034.grept" +
+      "ime.v1.GreptimeRequest\032\035.greptime.v1.Gre" +
+      "ptimeResponse(\001BQ\n\016io.greptime.v1B\010Datab" +
+      "aseZ5github.com/GreptimeTeam/greptime-pr" +
+      "oto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

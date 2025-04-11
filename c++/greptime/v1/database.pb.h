@@ -967,23 +967,9 @@ class InsertIntoPlan final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTableNameFieldNumber = 1,
     kLogicalPlanFieldNumber = 2,
+    kTableNameFieldNumber = 1,
   };
-  // string table_name = 1;
-  void clear_table_name();
-  const std::string& table_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_table_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_table_name();
-  PROTOBUF_NODISCARD std::string* release_table_name();
-  void set_allocated_table_name(std::string* table_name);
-  private:
-  const std::string& _internal_table_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_name(const std::string& value);
-  std::string* _internal_mutable_table_name();
-  public:
-
   // bytes logical_plan = 2;
   void clear_logical_plan();
   const std::string& logical_plan() const;
@@ -998,6 +984,24 @@ class InsertIntoPlan final :
   std::string* _internal_mutable_logical_plan();
   public:
 
+  // .greptime.v1.TableName table_name = 1;
+  bool has_table_name() const;
+  private:
+  bool _internal_has_table_name() const;
+  public:
+  void clear_table_name();
+  const ::greptime::v1::TableName& table_name() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TableName* release_table_name();
+  ::greptime::v1::TableName* mutable_table_name();
+  void set_allocated_table_name(::greptime::v1::TableName* table_name);
+  private:
+  const ::greptime::v1::TableName& _internal_table_name() const;
+  ::greptime::v1::TableName* _internal_mutable_table_name();
+  public:
+  void unsafe_arena_set_allocated_table_name(
+      ::greptime::v1::TableName* table_name);
+  ::greptime::v1::TableName* unsafe_arena_release_table_name();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.InsertIntoPlan)
  private:
   class _Internal;
@@ -1006,8 +1010,8 @@ class InsertIntoPlan final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr logical_plan_;
+    ::greptime::v1::TableName* table_name_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3371,53 +3375,88 @@ inline QueryRequest::QueryCase QueryRequest::query_case() const {
 
 // InsertIntoPlan
 
-// string table_name = 1;
-inline void InsertIntoPlan::clear_table_name() {
-  _impl_.table_name_.ClearToEmpty();
+// .greptime.v1.TableName table_name = 1;
+inline bool InsertIntoPlan::_internal_has_table_name() const {
+  return this != internal_default_instance() && _impl_.table_name_ != nullptr;
 }
-inline const std::string& InsertIntoPlan::table_name() const {
+inline bool InsertIntoPlan::has_table_name() const {
+  return _internal_has_table_name();
+}
+inline const ::greptime::v1::TableName& InsertIntoPlan::_internal_table_name() const {
+  const ::greptime::v1::TableName* p = _impl_.table_name_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableName&>(
+      ::greptime::v1::_TableName_default_instance_);
+}
+inline const ::greptime::v1::TableName& InsertIntoPlan::table_name() const {
   // @@protoc_insertion_point(field_get:greptime.v1.InsertIntoPlan.table_name)
   return _internal_table_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void InsertIntoPlan::set_table_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.InsertIntoPlan.table_name)
-}
-inline std::string* InsertIntoPlan::mutable_table_name() {
-  std::string* _s = _internal_mutable_table_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.InsertIntoPlan.table_name)
-  return _s;
-}
-inline const std::string& InsertIntoPlan::_internal_table_name() const {
-  return _impl_.table_name_.Get();
-}
-inline void InsertIntoPlan::_internal_set_table_name(const std::string& value) {
-  
-  _impl_.table_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* InsertIntoPlan::_internal_mutable_table_name() {
-  
-  return _impl_.table_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* InsertIntoPlan::release_table_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.InsertIntoPlan.table_name)
-  return _impl_.table_name_.Release();
-}
-inline void InsertIntoPlan::set_allocated_table_name(std::string* table_name) {
-  if (table_name != nullptr) {
+inline void InsertIntoPlan::unsafe_arena_set_allocated_table_name(
+    ::greptime::v1::TableName* table_name) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_name_);
+  }
+  _impl_.table_name_ = table_name;
+  if (table_name) {
     
   } else {
     
   }
-  _impl_.table_name_.SetAllocated(table_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.table_name_.IsDefault()) {
-    _impl_.table_name_.Set("", GetArenaForAllocation());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.InsertIntoPlan.table_name)
+}
+inline ::greptime::v1::TableName* InsertIntoPlan::release_table_name() {
+  
+  ::greptime::v1::TableName* temp = _impl_.table_name_;
+  _impl_.table_name_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::TableName* InsertIntoPlan::unsafe_arena_release_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.InsertIntoPlan.table_name)
+  
+  ::greptime::v1::TableName* temp = _impl_.table_name_;
+  _impl_.table_name_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::TableName* InsertIntoPlan::_internal_mutable_table_name() {
+  
+  if (_impl_.table_name_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::TableName>(GetArenaForAllocation());
+    _impl_.table_name_ = p;
+  }
+  return _impl_.table_name_;
+}
+inline ::greptime::v1::TableName* InsertIntoPlan::mutable_table_name() {
+  ::greptime::v1::TableName* _msg = _internal_mutable_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.InsertIntoPlan.table_name)
+  return _msg;
+}
+inline void InsertIntoPlan::set_allocated_table_name(::greptime::v1::TableName* table_name) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_name_);
+  }
+  if (table_name) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(table_name));
+    if (message_arena != submessage_arena) {
+      table_name = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, table_name, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.table_name_ = table_name;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.InsertIntoPlan.table_name)
 }
 

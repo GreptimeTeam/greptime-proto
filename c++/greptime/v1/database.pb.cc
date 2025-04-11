@@ -68,8 +68,8 @@ struct QueryRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QueryRequestDefaultTypeInternal _QueryRequest_default_instance_;
 PROTOBUF_CONSTEXPR InsertIntoPlan::InsertIntoPlan(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.logical_plan_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.logical_plan_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.table_name_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct InsertIntoPlanDefaultTypeInternal {
   PROTOBUF_CONSTEXPR InsertIntoPlanDefaultTypeInternal()
@@ -353,31 +353,31 @@ const char descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto[] PROTOBUF
   "l\030\001 \001(\tH\000\022\026\n\014logical_plan\030\002 \001(\014H\000\0227\n\020pro"
   "m_range_query\030\003 \001(\0132\033.greptime.v1.PromRa"
   "ngeQueryH\000\0227\n\020insert_into_plan\030\004 \001(\0132\033.g"
-  "reptime.v1.InsertIntoPlanH\000B\007\n\005query\":\n\016"
-  "InsertIntoPlan\022\022\n\ntable_name\030\001 \001(\t\022\024\n\014lo"
-  "gical_plan\030\002 \001(\014\"=\n\016InsertRequests\022+\n\007in"
-  "serts\030\001 \003(\0132\032.greptime.v1.InsertRequest\""
-  "\\\n\rInsertRequest\022\022\n\ntable_name\030\001 \001(\t\022$\n\007"
-  "columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\tro"
-  "w_count\030\004 \001(\r\"=\n\016DeleteRequests\022+\n\007delet"
-  "es\030\001 \003(\0132\032.greptime.v1.DeleteRequest\"`\n\r"
-  "DeleteRequest\022\022\n\ntable_name\030\001 \001(\t\022(\n\013key"
-  "_columns\030\003 \003(\0132\023.greptime.v1.Column\022\021\n\tr"
-  "ow_count\030\004 \001(\r\"C\n\021RowInsertRequests\022.\n\007i"
-  "nserts\030\001 \003(\0132\035.greptime.v1.RowInsertRequ"
-  "est\"G\n\020RowInsertRequest\022\022\n\ntable_name\030\001 "
-  "\001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\021"
-  "RowDeleteRequests\022.\n\007deletes\030\001 \003(\0132\035.gre"
-  "ptime.v1.RowDeleteRequest\"G\n\020RowDeleteRe"
-  "quest\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132"
-  "\021.greptime.v1.Rows2\252\001\n\020GreptimeDatabase\022"
-  "E\n\006Handle\022\034.greptime.v1.GreptimeRequest\032"
-  "\035.greptime.v1.GreptimeResponse\022O\n\016Handle"
-  "Requests\022\034.greptime.v1.GreptimeRequest\032\035"
-  ".greptime.v1.GreptimeResponse(\001BQ\n\016io.gr"
-  "eptime.v1B\010DatabaseZ5github.com/Greptime"
-  "Team/greptime-proto/go/greptime/v1b\006prot"
-  "o3"
+  "reptime.v1.InsertIntoPlanH\000B\007\n\005query\"R\n\016"
+  "InsertIntoPlan\022*\n\ntable_name\030\001 \001(\0132\026.gre"
+  "ptime.v1.TableName\022\024\n\014logical_plan\030\002 \001(\014"
+  "\"=\n\016InsertRequests\022+\n\007inserts\030\001 \003(\0132\032.gr"
+  "eptime.v1.InsertRequest\"\\\n\rInsertRequest"
+  "\022\022\n\ntable_name\030\001 \001(\t\022$\n\007columns\030\003 \003(\0132\023."
+  "greptime.v1.Column\022\021\n\trow_count\030\004 \001(\r\"=\n"
+  "\016DeleteRequests\022+\n\007deletes\030\001 \003(\0132\032.grept"
+  "ime.v1.DeleteRequest\"`\n\rDeleteRequest\022\022\n"
+  "\ntable_name\030\001 \001(\t\022(\n\013key_columns\030\003 \003(\0132\023"
+  ".greptime.v1.Column\022\021\n\trow_count\030\004 \001(\r\"C"
+  "\n\021RowInsertRequests\022.\n\007inserts\030\001 \003(\0132\035.g"
+  "reptime.v1.RowInsertRequest\"G\n\020RowInsert"
+  "Request\022\022\n\ntable_name\030\001 \001(\t\022\037\n\004rows\030\002 \001("
+  "\0132\021.greptime.v1.Rows\"C\n\021RowDeleteRequest"
+  "s\022.\n\007deletes\030\001 \003(\0132\035.greptime.v1.RowDele"
+  "teRequest\"G\n\020RowDeleteRequest\022\022\n\ntable_n"
+  "ame\030\001 \001(\t\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Ro"
+  "ws2\252\001\n\020GreptimeDatabase\022E\n\006Handle\022\034.grep"
+  "time.v1.GreptimeRequest\032\035.greptime.v1.Gr"
+  "eptimeResponse\022O\n\016HandleRequests\022\034.grept"
+  "ime.v1.GreptimeRequest\032\035.greptime.v1.Gre"
+  "ptimeResponse(\001BQ\n\016io.greptime.v1B\010Datab"
+  "aseZ5github.com/GreptimeTeam/greptime-pr"
+  "oto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fdatabase_2eproto_deps[5] = {
   &::descriptor_table_greptime_2fv1_2fcolumn_2eproto,
@@ -388,7 +388,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fdat
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fdatabase_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fdatabase_2eproto = {
-    false, false, 1762, descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto,
+    false, false, 1786, descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto,
     "greptime/v1/database.proto",
     &descriptor_table_greptime_2fv1_2fdatabase_2eproto_once, descriptor_table_greptime_2fv1_2fdatabase_2eproto_deps, 5, 12,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fdatabase_2eproto::offsets,
@@ -1693,8 +1693,19 @@ void QueryRequest::InternalSwap(QueryRequest* other) {
 
 class InsertIntoPlan::_Internal {
  public:
+  static const ::greptime::v1::TableName& table_name(const InsertIntoPlan* msg);
 };
 
+const ::greptime::v1::TableName&
+InsertIntoPlan::_Internal::table_name(const InsertIntoPlan* msg) {
+  return *msg->_impl_.table_name_;
+}
+void InsertIntoPlan::clear_table_name() {
+  if (GetArenaForAllocation() == nullptr && _impl_.table_name_ != nullptr) {
+    delete _impl_.table_name_;
+  }
+  _impl_.table_name_ = nullptr;
+}
 InsertIntoPlan::InsertIntoPlan(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -1705,19 +1716,11 @@ InsertIntoPlan::InsertIntoPlan(const InsertIntoPlan& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   InsertIntoPlan* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.table_name_){}
-    , decltype(_impl_.logical_plan_){}
+      decltype(_impl_.logical_plan_){}
+    , decltype(_impl_.table_name_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.table_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.table_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_table_name().empty()) {
-    _this->_impl_.table_name_.Set(from._internal_table_name(), 
-      _this->GetArenaForAllocation());
-  }
   _impl_.logical_plan_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.logical_plan_.Set("", GetArenaForAllocation());
@@ -1725,6 +1728,9 @@ InsertIntoPlan::InsertIntoPlan(const InsertIntoPlan& from)
   if (!from._internal_logical_plan().empty()) {
     _this->_impl_.logical_plan_.Set(from._internal_logical_plan(), 
       _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_table_name()) {
+    _this->_impl_.table_name_ = new ::greptime::v1::TableName(*from._impl_.table_name_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.InsertIntoPlan)
 }
@@ -1734,14 +1740,10 @@ inline void InsertIntoPlan::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.table_name_){}
-    , decltype(_impl_.logical_plan_){}
+      decltype(_impl_.logical_plan_){}
+    , decltype(_impl_.table_name_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
-  _impl_.table_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.table_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.logical_plan_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.logical_plan_.Set("", GetArenaForAllocation());
@@ -1759,8 +1761,8 @@ InsertIntoPlan::~InsertIntoPlan() {
 
 inline void InsertIntoPlan::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.table_name_.Destroy();
   _impl_.logical_plan_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.table_name_;
 }
 
 void InsertIntoPlan::SetCachedSize(int size) const {
@@ -1773,8 +1775,11 @@ void InsertIntoPlan::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.table_name_.ClearToEmpty();
   _impl_.logical_plan_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.table_name_ != nullptr) {
+    delete _impl_.table_name_;
+  }
+  _impl_.table_name_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1784,13 +1789,11 @@ const char* InsertIntoPlan::_InternalParse(const char* ptr, ::_pbi::ParseContext
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string table_name = 1;
+      // .greptime.v1.TableName table_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_table_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ctx->ParseMessage(_internal_mutable_table_name(), ptr);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.InsertIntoPlan.table_name"));
         } else
           goto handle_unusual;
         continue;
@@ -1832,14 +1835,11 @@ uint8_t* InsertIntoPlan::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string table_name = 1;
-  if (!this->_internal_table_name().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_table_name().data(), static_cast<int>(this->_internal_table_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "greptime.v1.InsertIntoPlan.table_name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_table_name(), target);
+  // .greptime.v1.TableName table_name = 1;
+  if (this->_internal_has_table_name()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::table_name(this),
+        _Internal::table_name(this).GetCachedSize(), target, stream);
   }
 
   // bytes logical_plan = 2;
@@ -1864,18 +1864,18 @@ size_t InsertIntoPlan::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string table_name = 1;
-  if (!this->_internal_table_name().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_table_name());
-  }
-
   // bytes logical_plan = 2;
   if (!this->_internal_logical_plan().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_logical_plan());
+  }
+
+  // .greptime.v1.TableName table_name = 1;
+  if (this->_internal_has_table_name()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.table_name_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -1896,11 +1896,12 @@ void InsertIntoPlan::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_table_name().empty()) {
-    _this->_internal_set_table_name(from._internal_table_name());
-  }
   if (!from._internal_logical_plan().empty()) {
     _this->_internal_set_logical_plan(from._internal_logical_plan());
+  }
+  if (from._internal_has_table_name()) {
+    _this->_internal_mutable_table_name()->::greptime::v1::TableName::MergeFrom(
+        from._internal_table_name());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1922,13 +1923,10 @@ void InsertIntoPlan::InternalSwap(InsertIntoPlan* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.table_name_, lhs_arena,
-      &other->_impl_.table_name_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.logical_plan_, lhs_arena,
       &other->_impl_.logical_plan_, rhs_arena
   );
+  swap(_impl_.table_name_, other->_impl_.table_name_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata InsertIntoPlan::GetMetadata() const {
