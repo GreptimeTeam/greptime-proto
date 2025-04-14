@@ -54,6 +54,7 @@ message RegionRequest {
     DropRequests drops = 14;
     AlterRequests alters = 15;
     BulkInsertRequests bulk_inserts = 16;
+    SyncRequest sync = 17;
   }
 }
 
@@ -195,4 +196,24 @@ message BulkInsertRequest {
   uint64 region_id = 1;
   BulkInsertType payload_type = 2;
   bytes payload = 3;
+}
+
+// Manifest info for mito engine.
+message MitoManifestInfo {
+  uint64 data_manifest_version = 1;
+}
+
+// Manifest info for metric engine.
+message MetricManifestInfo {
+  uint64 data_manifest_version = 1;
+  uint64 metadata_manifest_version = 2;
+}
+
+// Sync request for region.
+message SyncRequest {
+  uint64 region_id = 1;
+  oneof manifest_info {
+    MitoManifestInfo mito_manifest_info = 2;
+    MetricManifestInfo metric_manifest_info = 3;
+  }
 }
