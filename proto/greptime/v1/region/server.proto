@@ -186,18 +186,21 @@ message RegionColumnDef {
 }
 
 // Request of bulk ingestion API.
-message BulkInsertRequests { repeated BulkInsertRequest requests = 1; }
-
-enum BulkInsertType {
-  ARROW_IPC = 0;
+message BulkInsertRequest {
+  oneof body {
+    ArrowIpc arrow_ipc = 1;
+  }
 }
 
-message BulkInsertRequest {
+message ArrowIpc {
+  bytes schema = 1;
+  bytes payload = 2;
+  repeated RegionSelection region_selection = 3;
+}
+
+message RegionSelection {
   uint64 region_id = 1;
-  BulkInsertType payload_type = 2;
-  bytes schema = 3;
-  bytes payload = 4;
-  bytes selection = 5;
+  bytes selection = 2;
 }
 
 // Manifest info for mito engine.
