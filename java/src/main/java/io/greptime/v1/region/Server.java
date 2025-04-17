@@ -5461,7 +5461,7 @@ java.lang.String defaultValue);
        * <code>.greptime.v1.region.SyncRequest sync = 17;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.SyncRequest, io.greptime.v1.region.Server.SyncRequest.Builder, io.greptime.v1.region.Server.SyncRequestOrBuilder> 
+          io.greptime.v1.region.Server.SyncRequest, io.greptime.v1.region.Server.SyncRequest.Builder, io.greptime.v1.region.Server.SyncRequestOrBuilder>
           getSyncFieldBuilder() {
         if (syncBuilder_ == null) {
           if (!(bodyCase_ == 17)) {
@@ -26754,6 +26754,12 @@ java.lang.String defaultValue);
      * @return The payload.
      */
     com.google.protobuf.ByteString getPayload();
+
+    /**
+     * <code>bytes selection = 4;</code>
+     * @return The selection.
+     */
+    com.google.protobuf.ByteString getSelection();
   }
   /**
    * Protobuf type {@code greptime.v1.region.BulkInsertRequest}
@@ -26770,6 +26776,7 @@ java.lang.String defaultValue);
     private BulkInsertRequest() {
       payloadType_ = 0;
       payload_ = com.google.protobuf.ByteString.EMPTY;
+      selection_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -26816,6 +26823,11 @@ java.lang.String defaultValue);
             case 26: {
 
               payload_ = input.readBytes();
+              break;
+            }
+            case 34: {
+
+              selection_ = input.readBytes();
               break;
             }
             default: {
@@ -26893,6 +26905,17 @@ java.lang.String defaultValue);
       return payload_;
     }
 
+    public static final int SELECTION_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString selection_;
+    /**
+     * <code>bytes selection = 4;</code>
+     * @return The selection.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getSelection() {
+      return selection_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -26916,6 +26939,9 @@ java.lang.String defaultValue);
       if (!payload_.isEmpty()) {
         output.writeBytes(3, payload_);
       }
+      if (!selection_.isEmpty()) {
+        output.writeBytes(4, selection_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -26937,6 +26963,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, payload_);
       }
+      if (!selection_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, selection_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -26957,6 +26987,8 @@ java.lang.String defaultValue);
       if (payloadType_ != other.payloadType_) return false;
       if (!getPayload()
           .equals(other.getPayload())) return false;
+      if (!getSelection()
+          .equals(other.getSelection())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -26975,6 +27007,8 @@ java.lang.String defaultValue);
       hash = (53 * hash) + payloadType_;
       hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
       hash = (53 * hash) + getPayload().hashCode();
+      hash = (37 * hash) + SELECTION_FIELD_NUMBER;
+      hash = (53 * hash) + getSelection().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -27114,6 +27148,8 @@ java.lang.String defaultValue);
 
         payload_ = com.google.protobuf.ByteString.EMPTY;
 
+        selection_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -27143,6 +27179,7 @@ java.lang.String defaultValue);
         result.regionId_ = regionId_;
         result.payloadType_ = payloadType_;
         result.payload_ = payload_;
+        result.selection_ = selection_;
         onBuilt();
         return result;
       }
@@ -27199,6 +27236,9 @@ java.lang.String defaultValue);
         }
         if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
           setPayload(other.getPayload());
+        }
+        if (other.getSelection() != com.google.protobuf.ByteString.EMPTY) {
+          setSelection(other.getSelection());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -27344,6 +27384,40 @@ java.lang.String defaultValue);
       public Builder clearPayload() {
         
         payload_ = getDefaultInstance().getPayload();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString selection_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes selection = 4;</code>
+       * @return The selection.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getSelection() {
+        return selection_;
+      }
+      /**
+       * <code>bytes selection = 4;</code>
+       * @param value The selection to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSelection(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+
+        selection_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes selection = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSelection() {
+
+        selection_ = getDefaultInstance().getSelection();
         onChanged();
         return this;
       }
@@ -27831,7 +27905,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setDataManifestVersion(long value) {
-        
+
         dataManifestVersion_ = value;
         onChanged();
         return this;
@@ -27841,7 +27915,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDataManifestVersion() {
-        
+
         dataManifestVersion_ = 0L;
         onChanged();
         return this;
@@ -28370,7 +28444,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setDataManifestVersion(long value) {
-        
+
         dataManifestVersion_ = value;
         onChanged();
         return this;
@@ -28380,7 +28454,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDataManifestVersion() {
-        
+
         dataManifestVersion_ = 0L;
         onChanged();
         return this;
@@ -28401,7 +28475,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setMetadataManifestVersion(long value) {
-        
+
         metadataManifestVersion_ = value;
         onChanged();
         return this;
@@ -28411,7 +28485,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearMetadataManifestVersion() {
-        
+
         metadataManifestVersion_ = 0L;
         onChanged();
         return this;
@@ -29147,7 +29221,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setRegionId(long value) {
-        
+
         regionId_ = value;
         onChanged();
         return this;
@@ -29157,7 +29231,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearRegionId() {
-        
+
         regionId_ = 0L;
         onChanged();
         return this;
@@ -29287,7 +29361,7 @@ java.lang.String defaultValue);
        * <code>.greptime.v1.region.MitoManifestInfo mito_manifest_info = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.MitoManifestInfo, io.greptime.v1.region.Server.MitoManifestInfo.Builder, io.greptime.v1.region.Server.MitoManifestInfoOrBuilder> 
+          io.greptime.v1.region.Server.MitoManifestInfo, io.greptime.v1.region.Server.MitoManifestInfo.Builder, io.greptime.v1.region.Server.MitoManifestInfoOrBuilder>
           getMitoManifestInfoFieldBuilder() {
         if (mitoManifestInfoBuilder_ == null) {
           if (!(manifestInfoCase_ == 2)) {
@@ -29429,7 +29503,7 @@ java.lang.String defaultValue);
        * <code>.greptime.v1.region.MetricManifestInfo metric_manifest_info = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.MetricManifestInfo, io.greptime.v1.region.Server.MetricManifestInfo.Builder, io.greptime.v1.region.Server.MetricManifestInfoOrBuilder> 
+          io.greptime.v1.region.Server.MetricManifestInfo, io.greptime.v1.region.Server.MetricManifestInfo.Builder, io.greptime.v1.region.Server.MetricManifestInfoOrBuilder>
           getMetricManifestInfoFieldBuilder() {
         if (metricManifestInfoBuilder_ == null) {
           if (!(manifestInfoCase_ == 3)) {
@@ -29661,17 +29735,17 @@ java.lang.String defaultValue);
       internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_MetricManifestInfo_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_MetricManifestInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_SyncRequest_descriptor;
-  private static final 
+  private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_SyncRequest_fieldAccessorTable;
 
@@ -29993,7 +30067,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "PayloadType", "Payload", });
+        new java.lang.String[] { "RegionId", "PayloadType", "Payload", "Selection", });
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
       getDescriptor().getMessageTypes().get(28);
     internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable = new

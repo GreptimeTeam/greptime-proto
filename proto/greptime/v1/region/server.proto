@@ -108,7 +108,7 @@ message CreateRequest {
 // Same as CreateRequests, but for dropping regions.
 message DropRequests { repeated DropRequest requests = 1; }
 
-message DropRequest { 
+message DropRequest {
   uint64 region_id = 1;
   // Only used by Metric Engine, for fast path drop.
   // It only works for Metric Engine, and will be ignored by other engines.
@@ -196,6 +196,7 @@ message BulkInsertRequest {
   uint64 region_id = 1;
   BulkInsertType payload_type = 2;
   bytes payload = 3;
+  bytes selection = 4;
 }
 
 // Manifest info for mito engine.
