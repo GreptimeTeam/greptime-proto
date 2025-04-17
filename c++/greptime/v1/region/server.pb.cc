@@ -445,7 +445,8 @@ struct BulkInsertRequestsDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BulkInsertRequestsDefaultTypeInternal _BulkInsertRequests_default_instance_;
 PROTOBUF_CONSTEXPR BulkInsertRequest::BulkInsertRequest(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.payload_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.schema_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.payload_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.selection_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.region_id_)*/uint64_t{0u}
   , /*decltype(_impl_.payload_type_)*/0
@@ -749,6 +750,7 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets[] PR
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::BulkInsertRequest, _impl_.region_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::BulkInsertRequest, _impl_.payload_type_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::BulkInsertRequest, _impl_.schema_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::BulkInsertRequest, _impl_.payload_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::BulkInsertRequest, _impl_.selection_),
 };
@@ -915,16 +917,16 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "umn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n"
   "\tcolumn_id\030\002 \001(\r\"M\n\022BulkInsertRequests\0227"
   "\n\010requests\030\001 \003(\0132%.greptime.v1.region.Bu"
-  "lkInsertRequest\"\204\001\n\021BulkInsertRequest\022\021\n"
+  "lkInsertRequest\"\224\001\n\021BulkInsertRequest\022\021\n"
   "\tregion_id\030\001 \001(\004\0228\n\014payload_type\030\002 \001(\0162\""
-  ".greptime.v1.region.BulkInsertType\022\017\n\007pa"
-  "yload\030\003 \001(\014\022\021\n\tselection\030\004 \001(\014*\037\n\016BulkIn"
-  "sertType\022\r\n\tARROW_IPC\020\0002Y\n\006Region\022O\n\006Han"
-  "dle\022!.greptime.v1.region.RegionRequest\032\""
-  ".greptime.v1.region.RegionResponseB]\n\025io"
-  ".greptime.v1.regionB\006ServerZ<github.com/"
-  "GreptimeTeam/greptime-proto/go/greptime/"
-  "v1/regionb\006proto3"
+  ".greptime.v1.region.BulkInsertType\022\016\n\006sc"
+  "hema\030\003 \001(\014\022\017\n\007payload\030\004 \001(\014\022\021\n\tselection"
+  "\030\005 \001(\014*\037\n\016BulkInsertType\022\r\n\tARROW_IPC\020\0002"
+  "Y\n\006Region\022O\n\006Handle\022!.greptime.v1.region"
+  ".RegionRequest\032\".greptime.v1.region.Regi"
+  "onResponseB]\n\025io.greptime.v1.regionB\006Ser"
+  "verZ<github.com/GreptimeTeam/greptime-pr"
+  "oto/go/greptime/v1/regionb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -933,7 +935,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 4057, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 4073, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 3, 32,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
@@ -8347,13 +8349,22 @@ BulkInsertRequest::BulkInsertRequest(const BulkInsertRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   BulkInsertRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.payload_){}
+      decltype(_impl_.schema_){}
+    , decltype(_impl_.payload_){}
     , decltype(_impl_.selection_){}
     , decltype(_impl_.region_id_){}
     , decltype(_impl_.payload_type_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.schema_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.schema_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_schema().empty()) {
+    _this->_impl_.schema_.Set(from._internal_schema(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.payload_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.payload_.Set("", GetArenaForAllocation());
@@ -8381,12 +8392,17 @@ inline void BulkInsertRequest::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.payload_){}
+      decltype(_impl_.schema_){}
+    , decltype(_impl_.payload_){}
     , decltype(_impl_.selection_){}
     , decltype(_impl_.region_id_){uint64_t{0u}}
     , decltype(_impl_.payload_type_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.schema_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.schema_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.payload_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.payload_.Set("", GetArenaForAllocation());
@@ -8408,6 +8424,7 @@ BulkInsertRequest::~BulkInsertRequest() {
 
 inline void BulkInsertRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.schema_.Destroy();
   _impl_.payload_.Destroy();
   _impl_.selection_.Destroy();
 }
@@ -8422,6 +8439,7 @@ void BulkInsertRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.schema_.ClearToEmpty();
   _impl_.payload_.ClearToEmpty();
   _impl_.selection_.ClearToEmpty();
   ::memset(&_impl_.region_id_, 0, static_cast<size_t>(
@@ -8453,18 +8471,27 @@ const char* BulkInsertRequest::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // bytes payload = 3;
+      // bytes schema = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_schema();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes payload = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_payload();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes selection = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // bytes selection = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_selection();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -8513,16 +8540,22 @@ uint8_t* BulkInsertRequest::_InternalSerialize(
       2, this->_internal_payload_type(), target);
   }
 
-  // bytes payload = 3;
-  if (!this->_internal_payload().empty()) {
+  // bytes schema = 3;
+  if (!this->_internal_schema().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_payload(), target);
+        3, this->_internal_schema(), target);
   }
 
-  // bytes selection = 4;
+  // bytes payload = 4;
+  if (!this->_internal_payload().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        4, this->_internal_payload(), target);
+  }
+
+  // bytes selection = 5;
   if (!this->_internal_selection().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        4, this->_internal_selection(), target);
+        5, this->_internal_selection(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -8541,14 +8574,21 @@ size_t BulkInsertRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes payload = 3;
+  // bytes schema = 3;
+  if (!this->_internal_schema().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_schema());
+  }
+
+  // bytes payload = 4;
   if (!this->_internal_payload().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_payload());
   }
 
-  // bytes selection = 4;
+  // bytes selection = 5;
   if (!this->_internal_selection().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
@@ -8584,6 +8624,9 @@ void BulkInsertRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_schema().empty()) {
+    _this->_internal_set_schema(from._internal_schema());
+  }
   if (!from._internal_payload().empty()) {
     _this->_internal_set_payload(from._internal_payload());
   }
@@ -8615,6 +8658,10 @@ void BulkInsertRequest::InternalSwap(BulkInsertRequest* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.schema_, lhs_arena,
+      &other->_impl_.schema_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.payload_, lhs_arena,
       &other->_impl_.payload_, rhs_arena

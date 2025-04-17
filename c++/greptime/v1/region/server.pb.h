@@ -5457,12 +5457,27 @@ class BulkInsertRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPayloadFieldNumber = 3,
-    kSelectionFieldNumber = 4,
+    kSchemaFieldNumber = 3,
+    kPayloadFieldNumber = 4,
+    kSelectionFieldNumber = 5,
     kRegionIdFieldNumber = 1,
     kPayloadTypeFieldNumber = 2,
   };
-  // bytes payload = 3;
+  // bytes schema = 3;
+  void clear_schema();
+  const std::string& schema() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_schema(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_schema();
+  PROTOBUF_NODISCARD std::string* release_schema();
+  void set_allocated_schema(std::string* schema);
+  private:
+  const std::string& _internal_schema() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema(const std::string& value);
+  std::string* _internal_mutable_schema();
+  public:
+
+  // bytes payload = 4;
   void clear_payload();
   const std::string& payload() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -5476,7 +5491,7 @@ class BulkInsertRequest final :
   std::string* _internal_mutable_payload();
   public:
 
-  // bytes selection = 4;
+  // bytes selection = 5;
   void clear_selection();
   const std::string& selection() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -5516,6 +5531,7 @@ class BulkInsertRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr selection_;
     uint64_t region_id_;
@@ -9354,7 +9370,57 @@ inline void BulkInsertRequest::set_payload_type(::greptime::v1::region::BulkInse
   // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.payload_type)
 }
 
-// bytes payload = 3;
+// bytes schema = 3;
+inline void BulkInsertRequest::clear_schema() {
+  _impl_.schema_.ClearToEmpty();
+}
+inline const std::string& BulkInsertRequest::schema() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.schema)
+  return _internal_schema();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void BulkInsertRequest::set_schema(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.schema_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.schema)
+}
+inline std::string* BulkInsertRequest::mutable_schema() {
+  std::string* _s = _internal_mutable_schema();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.schema)
+  return _s;
+}
+inline const std::string& BulkInsertRequest::_internal_schema() const {
+  return _impl_.schema_.Get();
+}
+inline void BulkInsertRequest::_internal_set_schema(const std::string& value) {
+  
+  _impl_.schema_.Set(value, GetArenaForAllocation());
+}
+inline std::string* BulkInsertRequest::_internal_mutable_schema() {
+  
+  return _impl_.schema_.Mutable(GetArenaForAllocation());
+}
+inline std::string* BulkInsertRequest::release_schema() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.BulkInsertRequest.schema)
+  return _impl_.schema_.Release();
+}
+inline void BulkInsertRequest::set_allocated_schema(std::string* schema) {
+  if (schema != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.schema_.SetAllocated(schema, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.schema_.IsDefault()) {
+    _impl_.schema_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.schema)
+}
+
+// bytes payload = 4;
 inline void BulkInsertRequest::clear_payload() {
   _impl_.payload_.ClearToEmpty();
 }
@@ -9404,7 +9470,7 @@ inline void BulkInsertRequest::set_allocated_payload(std::string* payload) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.payload)
 }
 
-// bytes selection = 4;
+// bytes selection = 5;
 inline void BulkInsertRequest::clear_selection() {
   _impl_.selection_.ClearToEmpty();
 }

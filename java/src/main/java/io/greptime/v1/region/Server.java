@@ -26520,13 +26520,19 @@ java.lang.String defaultValue);
     io.greptime.v1.region.Server.BulkInsertType getPayloadType();
 
     /**
-     * <code>bytes payload = 3;</code>
+     * <code>bytes schema = 3;</code>
+     * @return The schema.
+     */
+    com.google.protobuf.ByteString getSchema();
+
+    /**
+     * <code>bytes payload = 4;</code>
      * @return The payload.
      */
     com.google.protobuf.ByteString getPayload();
 
     /**
-     * <code>bytes selection = 4;</code>
+     * <code>bytes selection = 5;</code>
      * @return The selection.
      */
     com.google.protobuf.ByteString getSelection();
@@ -26545,6 +26551,7 @@ java.lang.String defaultValue);
     }
     private BulkInsertRequest() {
       payloadType_ = 0;
+      schema_ = com.google.protobuf.ByteString.EMPTY;
       payload_ = com.google.protobuf.ByteString.EMPTY;
       selection_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -26592,10 +26599,15 @@ java.lang.String defaultValue);
             }
             case 26: {
 
-              payload_ = input.readBytes();
+              schema_ = input.readBytes();
               break;
             }
             case 34: {
+
+              payload_ = input.readBytes();
+              break;
+            }
+            case 42: {
 
               selection_ = input.readBytes();
               break;
@@ -26664,10 +26676,21 @@ java.lang.String defaultValue);
       return result == null ? io.greptime.v1.region.Server.BulkInsertType.UNRECOGNIZED : result;
     }
 
-    public static final int PAYLOAD_FIELD_NUMBER = 3;
+    public static final int SCHEMA_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString schema_;
+    /**
+     * <code>bytes schema = 3;</code>
+     * @return The schema.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getSchema() {
+      return schema_;
+    }
+
+    public static final int PAYLOAD_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString payload_;
     /**
-     * <code>bytes payload = 3;</code>
+     * <code>bytes payload = 4;</code>
      * @return The payload.
      */
     @java.lang.Override
@@ -26675,10 +26698,10 @@ java.lang.String defaultValue);
       return payload_;
     }
 
-    public static final int SELECTION_FIELD_NUMBER = 4;
+    public static final int SELECTION_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString selection_;
     /**
-     * <code>bytes selection = 4;</code>
+     * <code>bytes selection = 5;</code>
      * @return The selection.
      */
     @java.lang.Override
@@ -26706,11 +26729,14 @@ java.lang.String defaultValue);
       if (payloadType_ != io.greptime.v1.region.Server.BulkInsertType.ARROW_IPC.getNumber()) {
         output.writeEnum(2, payloadType_);
       }
+      if (!schema_.isEmpty()) {
+        output.writeBytes(3, schema_);
+      }
       if (!payload_.isEmpty()) {
-        output.writeBytes(3, payload_);
+        output.writeBytes(4, payload_);
       }
       if (!selection_.isEmpty()) {
-        output.writeBytes(4, selection_);
+        output.writeBytes(5, selection_);
       }
       unknownFields.writeTo(output);
     }
@@ -26729,13 +26755,17 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, payloadType_);
       }
+      if (!schema_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, schema_);
+      }
       if (!payload_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, payload_);
+          .computeBytesSize(4, payload_);
       }
       if (!selection_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, selection_);
+          .computeBytesSize(5, selection_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -26755,6 +26785,8 @@ java.lang.String defaultValue);
       if (getRegionId()
           != other.getRegionId()) return false;
       if (payloadType_ != other.payloadType_) return false;
+      if (!getSchema()
+          .equals(other.getSchema())) return false;
       if (!getPayload()
           .equals(other.getPayload())) return false;
       if (!getSelection()
@@ -26775,6 +26807,8 @@ java.lang.String defaultValue);
           getRegionId());
       hash = (37 * hash) + PAYLOAD_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + payloadType_;
+      hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
+      hash = (53 * hash) + getSchema().hashCode();
       hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
       hash = (53 * hash) + getPayload().hashCode();
       hash = (37 * hash) + SELECTION_FIELD_NUMBER;
@@ -26916,6 +26950,8 @@ java.lang.String defaultValue);
 
         payloadType_ = 0;
 
+        schema_ = com.google.protobuf.ByteString.EMPTY;
+
         payload_ = com.google.protobuf.ByteString.EMPTY;
 
         selection_ = com.google.protobuf.ByteString.EMPTY;
@@ -26948,6 +26984,7 @@ java.lang.String defaultValue);
         io.greptime.v1.region.Server.BulkInsertRequest result = new io.greptime.v1.region.Server.BulkInsertRequest(this);
         result.regionId_ = regionId_;
         result.payloadType_ = payloadType_;
+        result.schema_ = schema_;
         result.payload_ = payload_;
         result.selection_ = selection_;
         onBuilt();
@@ -27003,6 +27040,9 @@ java.lang.String defaultValue);
         }
         if (other.payloadType_ != 0) {
           setPayloadTypeValue(other.getPayloadTypeValue());
+        }
+        if (other.getSchema() != com.google.protobuf.ByteString.EMPTY) {
+          setSchema(other.getSchema());
         }
         if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
           setPayload(other.getPayload());
@@ -27124,9 +27164,43 @@ java.lang.String defaultValue);
         return this;
       }
 
+      private com.google.protobuf.ByteString schema_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes schema = 3;</code>
+       * @return The schema.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getSchema() {
+        return schema_;
+      }
+      /**
+       * <code>bytes schema = 3;</code>
+       * @param value The schema to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchema(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        schema_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes schema = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSchema() {
+        
+        schema_ = getDefaultInstance().getSchema();
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes payload = 3;</code>
+       * <code>bytes payload = 4;</code>
        * @return The payload.
        */
       @java.lang.Override
@@ -27134,7 +27208,7 @@ java.lang.String defaultValue);
         return payload_;
       }
       /**
-       * <code>bytes payload = 3;</code>
+       * <code>bytes payload = 4;</code>
        * @param value The payload to set.
        * @return This builder for chaining.
        */
@@ -27148,7 +27222,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>bytes payload = 3;</code>
+       * <code>bytes payload = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPayload() {
@@ -27160,7 +27234,7 @@ java.lang.String defaultValue);
 
       private com.google.protobuf.ByteString selection_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes selection = 4;</code>
+       * <code>bytes selection = 5;</code>
        * @return The selection.
        */
       @java.lang.Override
@@ -27168,7 +27242,7 @@ java.lang.String defaultValue);
         return selection_;
       }
       /**
-       * <code>bytes selection = 4;</code>
+       * <code>bytes selection = 5;</code>
        * @param value The selection to set.
        * @return This builder for chaining.
        */
@@ -27182,7 +27256,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>bytes selection = 4;</code>
+       * <code>bytes selection = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearSelection() {
@@ -27505,16 +27579,16 @@ java.lang.String defaultValue);
       "umn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n" +
       "\tcolumn_id\030\002 \001(\r\"M\n\022BulkInsertRequests\0227" +
       "\n\010requests\030\001 \003(\0132%.greptime.v1.region.Bu" +
-      "lkInsertRequest\"\204\001\n\021BulkInsertRequest\022\021\n" +
+      "lkInsertRequest\"\224\001\n\021BulkInsertRequest\022\021\n" +
       "\tregion_id\030\001 \001(\004\0228\n\014payload_type\030\002 \001(\0162\"" +
-      ".greptime.v1.region.BulkInsertType\022\017\n\007pa" +
-      "yload\030\003 \001(\014\022\021\n\tselection\030\004 \001(\014*\037\n\016BulkIn" +
-      "sertType\022\r\n\tARROW_IPC\020\0002Y\n\006Region\022O\n\006Han" +
-      "dle\022!.greptime.v1.region.RegionRequest\032\"" +
-      ".greptime.v1.region.RegionResponseB]\n\025io" +
-      ".greptime.v1.regionB\006ServerZ<github.com/" +
-      "GreptimeTeam/greptime-proto/go/greptime/" +
-      "v1/regionb\006proto3"
+      ".greptime.v1.region.BulkInsertType\022\016\n\006sc" +
+      "hema\030\003 \001(\014\022\017\n\007payload\030\004 \001(\014\022\021\n\tselection" +
+      "\030\005 \001(\014*\037\n\016BulkInsertType\022\r\n\tARROW_IPC\020\0002" +
+      "Y\n\006Region\022O\n\006Handle\022!.greptime.v1.region" +
+      ".RegionRequest\032\".greptime.v1.region.Regi" +
+      "onResponseB]\n\025io.greptime.v1.regionB\006Ser" +
+      "verZ<github.com/GreptimeTeam/greptime-pr" +
+      "oto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27714,7 +27788,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "PayloadType", "Payload", "Selection", });
+        new java.lang.String[] { "RegionId", "PayloadType", "Schema", "Payload", "Selection", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
