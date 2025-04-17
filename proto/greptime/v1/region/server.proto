@@ -195,8 +195,9 @@ enum BulkInsertType {
 message BulkInsertRequest {
   uint64 region_id = 1;
   BulkInsertType payload_type = 2;
-  bytes payload = 3;
-  bytes selection = 4;
+  bytes schema = 3;
+  bytes payload = 4;
+  bytes selection = 5;
 }
 
 // Manifest info for mito engine.
