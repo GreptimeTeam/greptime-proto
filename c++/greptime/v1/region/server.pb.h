@@ -5458,6 +5458,7 @@ class BulkInsertRequest final :
 
   enum : int {
     kPayloadFieldNumber = 3,
+    kSelectionFieldNumber = 4,
     kRegionIdFieldNumber = 1,
     kPayloadTypeFieldNumber = 2,
   };
@@ -5473,6 +5474,20 @@ class BulkInsertRequest final :
   const std::string& _internal_payload() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_payload(const std::string& value);
   std::string* _internal_mutable_payload();
+  public:
+
+  // bytes selection = 4;
+  void clear_selection();
+  const std::string& selection() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_selection(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_selection();
+  PROTOBUF_NODISCARD std::string* release_selection();
+  void set_allocated_selection(std::string* selection);
+  private:
+  const std::string& _internal_selection() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_selection(const std::string& value);
+  std::string* _internal_mutable_selection();
   public:
 
   // uint64 region_id = 1;
@@ -5502,6 +5517,7 @@ class BulkInsertRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr selection_;
     uint64_t region_id_;
     int payload_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -9386,6 +9402,56 @@ inline void BulkInsertRequest::set_allocated_payload(std::string* payload) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.payload)
+}
+
+// bytes selection = 4;
+inline void BulkInsertRequest::clear_selection() {
+  _impl_.selection_.ClearToEmpty();
+}
+inline const std::string& BulkInsertRequest::selection() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.selection)
+  return _internal_selection();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void BulkInsertRequest::set_selection(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.selection_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.selection)
+}
+inline std::string* BulkInsertRequest::mutable_selection() {
+  std::string* _s = _internal_mutable_selection();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.selection)
+  return _s;
+}
+inline const std::string& BulkInsertRequest::_internal_selection() const {
+  return _impl_.selection_.Get();
+}
+inline void BulkInsertRequest::_internal_set_selection(const std::string& value) {
+  
+  _impl_.selection_.Set(value, GetArenaForAllocation());
+}
+inline std::string* BulkInsertRequest::_internal_mutable_selection() {
+  
+  return _impl_.selection_.Mutable(GetArenaForAllocation());
+}
+inline std::string* BulkInsertRequest::release_selection() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.BulkInsertRequest.selection)
+  return _impl_.selection_.Release();
+}
+inline void BulkInsertRequest::set_allocated_selection(std::string* selection) {
+  if (selection != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.selection_.SetAllocated(selection, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.selection_.IsDefault()) {
+    _impl_.selection_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.selection)
 }
 
 #ifdef __GNUC__
