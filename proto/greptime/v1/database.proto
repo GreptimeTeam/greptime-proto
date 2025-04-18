@@ -60,7 +60,7 @@ message QueryRequest {
 
 // A temporary solution for executing insert into table SELECT .. with logical plan
 // since substrait to logical plan doesn't support dml yet.
-message InsertIntoPlan{
+message InsertIntoPlan {
   TableName table_name = 1;
   bytes logical_plan = 2;
 }
