@@ -63,6 +63,9 @@ extern GreptimeRequestDefaultTypeInternal _GreptimeRequest_default_instance_;
 class GreptimeResponse;
 struct GreptimeResponseDefaultTypeInternal;
 extern GreptimeResponseDefaultTypeInternal _GreptimeResponse_default_instance_;
+class InsertIntoPlan;
+struct InsertIntoPlanDefaultTypeInternal;
+extern InsertIntoPlanDefaultTypeInternal _InsertIntoPlan_default_instance_;
 class InsertRequest;
 struct InsertRequestDefaultTypeInternal;
 extern InsertRequestDefaultTypeInternal _InsertRequest_default_instance_;
@@ -91,6 +94,7 @@ template<> ::greptime::v1::DeleteRequest* Arena::CreateMaybeMessage<::greptime::
 template<> ::greptime::v1::DeleteRequests* Arena::CreateMaybeMessage<::greptime::v1::DeleteRequests>(Arena*);
 template<> ::greptime::v1::GreptimeRequest* Arena::CreateMaybeMessage<::greptime::v1::GreptimeRequest>(Arena*);
 template<> ::greptime::v1::GreptimeResponse* Arena::CreateMaybeMessage<::greptime::v1::GreptimeResponse>(Arena*);
+template<> ::greptime::v1::InsertIntoPlan* Arena::CreateMaybeMessage<::greptime::v1::InsertIntoPlan>(Arena*);
 template<> ::greptime::v1::InsertRequest* Arena::CreateMaybeMessage<::greptime::v1::InsertRequest>(Arena*);
 template<> ::greptime::v1::InsertRequests* Arena::CreateMaybeMessage<::greptime::v1::InsertRequests>(Arena*);
 template<> ::greptime::v1::QueryRequest* Arena::CreateMaybeMessage<::greptime::v1::QueryRequest>(Arena*);
@@ -649,6 +653,7 @@ class QueryRequest final :
     kSql = 1,
     kLogicalPlan = 2,
     kPromRangeQuery = 3,
+    kInsertIntoPlan = 4,
     QUERY_NOT_SET = 0,
   };
 
@@ -733,6 +738,7 @@ class QueryRequest final :
     kSqlFieldNumber = 1,
     kLogicalPlanFieldNumber = 2,
     kPromRangeQueryFieldNumber = 3,
+    kInsertIntoPlanFieldNumber = 4,
   };
   // string sql = 1;
   bool has_sql() const;
@@ -788,6 +794,24 @@ class QueryRequest final :
       ::greptime::v1::PromRangeQuery* prom_range_query);
   ::greptime::v1::PromRangeQuery* unsafe_arena_release_prom_range_query();
 
+  // .greptime.v1.InsertIntoPlan insert_into_plan = 4;
+  bool has_insert_into_plan() const;
+  private:
+  bool _internal_has_insert_into_plan() const;
+  public:
+  void clear_insert_into_plan();
+  const ::greptime::v1::InsertIntoPlan& insert_into_plan() const;
+  PROTOBUF_NODISCARD ::greptime::v1::InsertIntoPlan* release_insert_into_plan();
+  ::greptime::v1::InsertIntoPlan* mutable_insert_into_plan();
+  void set_allocated_insert_into_plan(::greptime::v1::InsertIntoPlan* insert_into_plan);
+  private:
+  const ::greptime::v1::InsertIntoPlan& _internal_insert_into_plan() const;
+  ::greptime::v1::InsertIntoPlan* _internal_mutable_insert_into_plan();
+  public:
+  void unsafe_arena_set_allocated_insert_into_plan(
+      ::greptime::v1::InsertIntoPlan* insert_into_plan);
+  ::greptime::v1::InsertIntoPlan* unsafe_arena_release_insert_into_plan();
+
   void clear_query();
   QueryCase query_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.QueryRequest)
@@ -796,6 +820,7 @@ class QueryRequest final :
   void set_has_sql();
   void set_has_logical_plan();
   void set_has_prom_range_query();
+  void set_has_insert_into_plan();
 
   inline bool has_query() const;
   inline void clear_has_query();
@@ -810,10 +835,184 @@ class QueryRequest final :
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr logical_plan_;
       ::greptime::v1::PromRangeQuery* prom_range_query_;
+      ::greptime::v1::InsertIntoPlan* insert_into_plan_;
     } query_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
 
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fdatabase_2eproto;
+};
+// -------------------------------------------------------------------
+
+class InsertIntoPlan final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.InsertIntoPlan) */ {
+ public:
+  inline InsertIntoPlan() : InsertIntoPlan(nullptr) {}
+  ~InsertIntoPlan() override;
+  explicit PROTOBUF_CONSTEXPR InsertIntoPlan(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  InsertIntoPlan(const InsertIntoPlan& from);
+  InsertIntoPlan(InsertIntoPlan&& from) noexcept
+    : InsertIntoPlan() {
+    *this = ::std::move(from);
+  }
+
+  inline InsertIntoPlan& operator=(const InsertIntoPlan& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline InsertIntoPlan& operator=(InsertIntoPlan&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const InsertIntoPlan& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const InsertIntoPlan* internal_default_instance() {
+    return reinterpret_cast<const InsertIntoPlan*>(
+               &_InsertIntoPlan_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(InsertIntoPlan& a, InsertIntoPlan& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(InsertIntoPlan* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(InsertIntoPlan* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  InsertIntoPlan* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<InsertIntoPlan>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const InsertIntoPlan& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const InsertIntoPlan& from) {
+    InsertIntoPlan::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(InsertIntoPlan* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.InsertIntoPlan";
+  }
+  protected:
+  explicit InsertIntoPlan(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLogicalPlanFieldNumber = 2,
+    kTableNameFieldNumber = 1,
+  };
+  // bytes logical_plan = 2;
+  void clear_logical_plan();
+  const std::string& logical_plan() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_logical_plan(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_logical_plan();
+  PROTOBUF_NODISCARD std::string* release_logical_plan();
+  void set_allocated_logical_plan(std::string* logical_plan);
+  private:
+  const std::string& _internal_logical_plan() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_logical_plan(const std::string& value);
+  std::string* _internal_mutable_logical_plan();
+  public:
+
+  // .greptime.v1.TableName table_name = 1;
+  bool has_table_name() const;
+  private:
+  bool _internal_has_table_name() const;
+  public:
+  void clear_table_name();
+  const ::greptime::v1::TableName& table_name() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TableName* release_table_name();
+  ::greptime::v1::TableName* mutable_table_name();
+  void set_allocated_table_name(::greptime::v1::TableName* table_name);
+  private:
+  const ::greptime::v1::TableName& _internal_table_name() const;
+  ::greptime::v1::TableName* _internal_mutable_table_name();
+  public:
+  void unsafe_arena_set_allocated_table_name(
+      ::greptime::v1::TableName* table_name);
+  ::greptime::v1::TableName* unsafe_arena_release_table_name();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.InsertIntoPlan)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr logical_plan_;
+    ::greptime::v1::TableName* table_name_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fdatabase_2eproto;
@@ -868,7 +1067,7 @@ class InsertRequests final :
                &_InsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(InsertRequests& a, InsertRequests& b) {
     a.Swap(&b);
@@ -1025,7 +1224,7 @@ class InsertRequest final :
                &_InsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(InsertRequest& a, InsertRequest& b) {
     a.Swap(&b);
@@ -1209,7 +1408,7 @@ class DeleteRequests final :
                &_DeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(DeleteRequests& a, DeleteRequests& b) {
     a.Swap(&b);
@@ -1366,7 +1565,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
     a.Swap(&b);
@@ -1550,7 +1749,7 @@ class RowInsertRequests final :
                &_RowInsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(RowInsertRequests& a, RowInsertRequests& b) {
     a.Swap(&b);
@@ -1707,7 +1906,7 @@ class RowInsertRequest final :
                &_RowInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(RowInsertRequest& a, RowInsertRequest& b) {
     a.Swap(&b);
@@ -1880,7 +2079,7 @@ class RowDeleteRequests final :
                &_RowDeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(RowDeleteRequests& a, RowDeleteRequests& b) {
     a.Swap(&b);
@@ -2037,7 +2236,7 @@ class RowDeleteRequest final :
                &_RowDeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(RowDeleteRequest& a, RowDeleteRequest& b) {
     a.Swap(&b);
@@ -3089,6 +3288,80 @@ inline ::greptime::v1::PromRangeQuery* QueryRequest::mutable_prom_range_query() 
   return _msg;
 }
 
+// .greptime.v1.InsertIntoPlan insert_into_plan = 4;
+inline bool QueryRequest::_internal_has_insert_into_plan() const {
+  return query_case() == kInsertIntoPlan;
+}
+inline bool QueryRequest::has_insert_into_plan() const {
+  return _internal_has_insert_into_plan();
+}
+inline void QueryRequest::set_has_insert_into_plan() {
+  _impl_._oneof_case_[0] = kInsertIntoPlan;
+}
+inline void QueryRequest::clear_insert_into_plan() {
+  if (_internal_has_insert_into_plan()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.query_.insert_into_plan_;
+    }
+    clear_has_query();
+  }
+}
+inline ::greptime::v1::InsertIntoPlan* QueryRequest::release_insert_into_plan() {
+  // @@protoc_insertion_point(field_release:greptime.v1.QueryRequest.insert_into_plan)
+  if (_internal_has_insert_into_plan()) {
+    clear_has_query();
+    ::greptime::v1::InsertIntoPlan* temp = _impl_.query_.insert_into_plan_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.query_.insert_into_plan_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::InsertIntoPlan& QueryRequest::_internal_insert_into_plan() const {
+  return _internal_has_insert_into_plan()
+      ? *_impl_.query_.insert_into_plan_
+      : reinterpret_cast< ::greptime::v1::InsertIntoPlan&>(::greptime::v1::_InsertIntoPlan_default_instance_);
+}
+inline const ::greptime::v1::InsertIntoPlan& QueryRequest::insert_into_plan() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.QueryRequest.insert_into_plan)
+  return _internal_insert_into_plan();
+}
+inline ::greptime::v1::InsertIntoPlan* QueryRequest::unsafe_arena_release_insert_into_plan() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.QueryRequest.insert_into_plan)
+  if (_internal_has_insert_into_plan()) {
+    clear_has_query();
+    ::greptime::v1::InsertIntoPlan* temp = _impl_.query_.insert_into_plan_;
+    _impl_.query_.insert_into_plan_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void QueryRequest::unsafe_arena_set_allocated_insert_into_plan(::greptime::v1::InsertIntoPlan* insert_into_plan) {
+  clear_query();
+  if (insert_into_plan) {
+    set_has_insert_into_plan();
+    _impl_.query_.insert_into_plan_ = insert_into_plan;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.QueryRequest.insert_into_plan)
+}
+inline ::greptime::v1::InsertIntoPlan* QueryRequest::_internal_mutable_insert_into_plan() {
+  if (!_internal_has_insert_into_plan()) {
+    clear_query();
+    set_has_insert_into_plan();
+    _impl_.query_.insert_into_plan_ = CreateMaybeMessage< ::greptime::v1::InsertIntoPlan >(GetArenaForAllocation());
+  }
+  return _impl_.query_.insert_into_plan_;
+}
+inline ::greptime::v1::InsertIntoPlan* QueryRequest::mutable_insert_into_plan() {
+  ::greptime::v1::InsertIntoPlan* _msg = _internal_mutable_insert_into_plan();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.QueryRequest.insert_into_plan)
+  return _msg;
+}
+
 inline bool QueryRequest::has_query() const {
   return query_case() != QUERY_NOT_SET;
 }
@@ -3098,6 +3371,145 @@ inline void QueryRequest::clear_has_query() {
 inline QueryRequest::QueryCase QueryRequest::query_case() const {
   return QueryRequest::QueryCase(_impl_._oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// InsertIntoPlan
+
+// .greptime.v1.TableName table_name = 1;
+inline bool InsertIntoPlan::_internal_has_table_name() const {
+  return this != internal_default_instance() && _impl_.table_name_ != nullptr;
+}
+inline bool InsertIntoPlan::has_table_name() const {
+  return _internal_has_table_name();
+}
+inline const ::greptime::v1::TableName& InsertIntoPlan::_internal_table_name() const {
+  const ::greptime::v1::TableName* p = _impl_.table_name_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TableName&>(
+      ::greptime::v1::_TableName_default_instance_);
+}
+inline const ::greptime::v1::TableName& InsertIntoPlan::table_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.InsertIntoPlan.table_name)
+  return _internal_table_name();
+}
+inline void InsertIntoPlan::unsafe_arena_set_allocated_table_name(
+    ::greptime::v1::TableName* table_name) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_name_);
+  }
+  _impl_.table_name_ = table_name;
+  if (table_name) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.InsertIntoPlan.table_name)
+}
+inline ::greptime::v1::TableName* InsertIntoPlan::release_table_name() {
+  
+  ::greptime::v1::TableName* temp = _impl_.table_name_;
+  _impl_.table_name_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::TableName* InsertIntoPlan::unsafe_arena_release_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.InsertIntoPlan.table_name)
+  
+  ::greptime::v1::TableName* temp = _impl_.table_name_;
+  _impl_.table_name_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::TableName* InsertIntoPlan::_internal_mutable_table_name() {
+  
+  if (_impl_.table_name_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::TableName>(GetArenaForAllocation());
+    _impl_.table_name_ = p;
+  }
+  return _impl_.table_name_;
+}
+inline ::greptime::v1::TableName* InsertIntoPlan::mutable_table_name() {
+  ::greptime::v1::TableName* _msg = _internal_mutable_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.InsertIntoPlan.table_name)
+  return _msg;
+}
+inline void InsertIntoPlan::set_allocated_table_name(::greptime::v1::TableName* table_name) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.table_name_);
+  }
+  if (table_name) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(table_name));
+    if (message_arena != submessage_arena) {
+      table_name = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, table_name, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.table_name_ = table_name;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.InsertIntoPlan.table_name)
+}
+
+// bytes logical_plan = 2;
+inline void InsertIntoPlan::clear_logical_plan() {
+  _impl_.logical_plan_.ClearToEmpty();
+}
+inline const std::string& InsertIntoPlan::logical_plan() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.InsertIntoPlan.logical_plan)
+  return _internal_logical_plan();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void InsertIntoPlan::set_logical_plan(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.logical_plan_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.InsertIntoPlan.logical_plan)
+}
+inline std::string* InsertIntoPlan::mutable_logical_plan() {
+  std::string* _s = _internal_mutable_logical_plan();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.InsertIntoPlan.logical_plan)
+  return _s;
+}
+inline const std::string& InsertIntoPlan::_internal_logical_plan() const {
+  return _impl_.logical_plan_.Get();
+}
+inline void InsertIntoPlan::_internal_set_logical_plan(const std::string& value) {
+  
+  _impl_.logical_plan_.Set(value, GetArenaForAllocation());
+}
+inline std::string* InsertIntoPlan::_internal_mutable_logical_plan() {
+  
+  return _impl_.logical_plan_.Mutable(GetArenaForAllocation());
+}
+inline std::string* InsertIntoPlan::release_logical_plan() {
+  // @@protoc_insertion_point(field_release:greptime.v1.InsertIntoPlan.logical_plan)
+  return _impl_.logical_plan_.Release();
+}
+inline void InsertIntoPlan::set_allocated_logical_plan(std::string* logical_plan) {
+  if (logical_plan != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.logical_plan_.SetAllocated(logical_plan, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.logical_plan_.IsDefault()) {
+    _impl_.logical_plan_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.InsertIntoPlan.logical_plan)
+}
+
 // -------------------------------------------------------------------
 
 // InsertRequests
@@ -3777,6 +4189,8 @@ inline void RowDeleteRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
