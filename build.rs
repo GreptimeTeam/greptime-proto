@@ -23,6 +23,7 @@ fn main() {
     tonic_build::configure()
         .file_descriptor_set_path(out_dir.join("greptime_grpc_desc.bin"))
         .type_attribute(".greptime.v1.SemanticType", "#[derive(::serde::Serialize, ::serde::Deserialize)]")
+        .type_attribute(".greptime.v1.meta.Peer", "#[derive(::serde::Serialize, ::serde::Deserialize)]")
         .enum_attribute(
             "region.RegionRequest.body",
             "#[derive(strum_macros::AsRefStr)]",
