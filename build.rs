@@ -34,7 +34,7 @@ fn main() {
             "region.RegionRequest.body",
             "#[derive(strum_macros::AsRefStr)]",
         )
-        .bytes(&[".greptime.v1.region.ArrowIpc"])
+        .bytes([".greptime.v1.region.ArrowIpc"])
         .compile_protos(
             &[
                 "proto/greptime/v1/database.proto",
