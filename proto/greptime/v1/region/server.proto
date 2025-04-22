@@ -53,7 +53,7 @@ message RegionRequest {
     CreateRequests creates = 13;
     DropRequests drops = 14;
     AlterRequests alters = 15;
-    BulkInsertRequests bulk_inserts = 16;
+    BulkInsertRequest bulk_insert = 16;
     SyncRequest sync = 17;
   }
 }
