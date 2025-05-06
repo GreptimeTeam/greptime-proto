@@ -2318,6 +2318,60 @@ java.lang.String defaultValue);
 
     /**
      * <pre>
+     * Mappings of the RegionId to the minimal sequence of SST file to scan.
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+     */
+    int getSstMinSequencesCount();
+    /**
+     * <pre>
+     * Mappings of the RegionId to the minimal sequence of SST file to scan.
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+     */
+    boolean containsSstMinSequences(
+        long key);
+    /**
+     * Use {@link #getSstMinSequencesMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Long, java.lang.Long>
+    getSstMinSequences();
+    /**
+     * <pre>
+     * Mappings of the RegionId to the minimal sequence of SST file to scan.
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+     */
+    java.util.Map<java.lang.Long, java.lang.Long>
+    getSstMinSequencesMap();
+    /**
+     * <pre>
+     * Mappings of the RegionId to the minimal sequence of SST file to scan.
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+     */
+
+    long getSstMinSequencesOrDefault(
+        long key,
+        long defaultValue);
+    /**
+     * <pre>
+     * Mappings of the RegionId to the minimal sequence of SST file to scan.
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+     */
+
+    long getSstMinSequencesOrThrow(
+        long key);
+
+    /**
+     * <pre>
      * mapping of RegionId to SequenceNumber, for snapshot read, meaning that the
      * read should only container data that was committed before (and include) the
      * given sequence number
@@ -2426,11 +2480,24 @@ java.lang.String defaultValue);
             case 0:
               done = true;
               break;
-            case 58: {
+            case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                sstMinSequences_ = com.google.protobuf.MapField.newMapField(
+                    SstMinSequencesDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              sstMinSequences__ = input.readMessage(
+                  SstMinSequencesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              sstMinSequences_.getMutableMap().put(
+                  sstMinSequences__.getKey(), sstMinSequences__.getValue());
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 snapshotSeqs_ = com.google.protobuf.MapField.newMapField(
                     SnapshotSeqsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
               snapshotSeqs__ = input.readMessage(
@@ -2470,6 +2537,8 @@ java.lang.String defaultValue);
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
+        case 1:
+          return internalGetSstMinSequences();
         case 7:
           return internalGetSnapshotSeqs();
         default:
@@ -2483,6 +2552,103 @@ java.lang.String defaultValue);
       return io.greptime.v1.Common.internal_static_greptime_v1_SnapshotSequences_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.greptime.v1.Common.SnapshotSequences.class, io.greptime.v1.Common.SnapshotSequences.Builder.class);
+    }
+
+    public static final int SST_MIN_SEQUENCES_FIELD_NUMBER = 1;
+    private static final class SstMinSequencesDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.Long, java.lang.Long> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.Long, java.lang.Long>newDefaultInstance(
+                  io.greptime.v1.Common.internal_static_greptime_v1_SnapshotSequences_SstMinSequencesEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.UINT64,
+                  0L,
+                  com.google.protobuf.WireFormat.FieldType.UINT64,
+                  0L);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.Long, java.lang.Long> sstMinSequences_;
+    private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+    internalGetSstMinSequences() {
+      if (sstMinSequences_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            SstMinSequencesDefaultEntryHolder.defaultEntry);
+      }
+      return sstMinSequences_;
+    }
+
+    public int getSstMinSequencesCount() {
+      return internalGetSstMinSequences().getMap().size();
+    }
+    /**
+     * <pre>
+     * Mappings of the RegionId to the minimal sequence of SST file to scan.
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsSstMinSequences(
+        long key) {
+      
+      return internalGetSstMinSequences().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getSstMinSequencesMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Long, java.lang.Long> getSstMinSequences() {
+      return getSstMinSequencesMap();
+    }
+    /**
+     * <pre>
+     * Mappings of the RegionId to the minimal sequence of SST file to scan.
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Long, java.lang.Long> getSstMinSequencesMap() {
+      return internalGetSstMinSequences().getMap();
+    }
+    /**
+     * <pre>
+     * Mappings of the RegionId to the minimal sequence of SST file to scan.
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+     */
+    @java.lang.Override
+
+    public long getSstMinSequencesOrDefault(
+        long key,
+        long defaultValue) {
+      
+      java.util.Map<java.lang.Long, java.lang.Long> map =
+          internalGetSstMinSequences().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Mappings of the RegionId to the minimal sequence of SST file to scan.
+     * </pre>
+     *
+     * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+     */
+    @java.lang.Override
+
+    public long getSstMinSequencesOrThrow(
+        long key) {
+      
+      java.util.Map<java.lang.Long, java.lang.Long> map =
+          internalGetSstMinSequences().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
     public static final int SNAPSHOT_SEQS_FIELD_NUMBER = 7;
@@ -2607,6 +2773,12 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3
         .serializeLongMapTo(
           output,
+          internalGetSstMinSequences(),
+          SstMinSequencesDefaultEntryHolder.defaultEntry,
+          1);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeLongMapTo(
+          output,
           internalGetSnapshotSeqs(),
           SnapshotSeqsDefaultEntryHolder.defaultEntry,
           7);
@@ -2619,6 +2791,16 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
+      for (java.util.Map.Entry<java.lang.Long, java.lang.Long> entry
+           : internalGetSstMinSequences().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+        sstMinSequences__ = SstMinSequencesDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, sstMinSequences__);
+      }
       for (java.util.Map.Entry<java.lang.Long, java.lang.Long> entry
            : internalGetSnapshotSeqs().getMap().entrySet()) {
         com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
@@ -2644,6 +2826,8 @@ java.lang.String defaultValue);
       }
       io.greptime.v1.Common.SnapshotSequences other = (io.greptime.v1.Common.SnapshotSequences) obj;
 
+      if (!internalGetSstMinSequences().equals(
+          other.internalGetSstMinSequences())) return false;
       if (!internalGetSnapshotSeqs().equals(
           other.internalGetSnapshotSeqs())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -2657,6 +2841,10 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (!internalGetSstMinSequences().getMap().isEmpty()) {
+        hash = (37 * hash) + SST_MIN_SEQUENCES_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetSstMinSequences().hashCode();
+      }
       if (!internalGetSnapshotSeqs().getMap().isEmpty()) {
         hash = (37 * hash) + SNAPSHOT_SEQS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetSnapshotSeqs().hashCode();
@@ -2772,6 +2960,8 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
+          case 1:
+            return internalGetSstMinSequences();
           case 7:
             return internalGetSnapshotSeqs();
           default:
@@ -2783,6 +2973,8 @@ java.lang.String defaultValue);
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
+          case 1:
+            return internalGetMutableSstMinSequences();
           case 7:
             return internalGetMutableSnapshotSeqs();
           default:
@@ -2816,6 +3008,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        internalGetMutableSstMinSequences().clear();
         internalGetMutableSnapshotSeqs().clear();
         return this;
       }
@@ -2844,6 +3037,8 @@ java.lang.String defaultValue);
       public io.greptime.v1.Common.SnapshotSequences buildPartial() {
         io.greptime.v1.Common.SnapshotSequences result = new io.greptime.v1.Common.SnapshotSequences(this);
         int from_bitField0_ = bitField0_;
+        result.sstMinSequences_ = internalGetSstMinSequences();
+        result.sstMinSequences_.makeImmutable();
         result.snapshotSeqs_ = internalGetSnapshotSeqs();
         result.snapshotSeqs_.makeImmutable();
         onBuilt();
@@ -2894,6 +3089,8 @@ java.lang.String defaultValue);
 
       public Builder mergeFrom(io.greptime.v1.Common.SnapshotSequences other) {
         if (other == io.greptime.v1.Common.SnapshotSequences.getDefaultInstance()) return this;
+        internalGetMutableSstMinSequences().mergeFrom(
+            other.internalGetSstMinSequences());
         internalGetMutableSnapshotSeqs().mergeFrom(
             other.internalGetSnapshotSeqs());
         this.mergeUnknownFields(other.unknownFields);
@@ -2925,6 +3122,162 @@ java.lang.String defaultValue);
         return this;
       }
       private int bitField0_;
+
+      private com.google.protobuf.MapField<
+          java.lang.Long, java.lang.Long> sstMinSequences_;
+      private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      internalGetSstMinSequences() {
+        if (sstMinSequences_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              SstMinSequencesDefaultEntryHolder.defaultEntry);
+        }
+        return sstMinSequences_;
+      }
+      private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      internalGetMutableSstMinSequences() {
+        onChanged();;
+        if (sstMinSequences_ == null) {
+          sstMinSequences_ = com.google.protobuf.MapField.newMapField(
+              SstMinSequencesDefaultEntryHolder.defaultEntry);
+        }
+        if (!sstMinSequences_.isMutable()) {
+          sstMinSequences_ = sstMinSequences_.copy();
+        }
+        return sstMinSequences_;
+      }
+
+      public int getSstMinSequencesCount() {
+        return internalGetSstMinSequences().getMap().size();
+      }
+      /**
+       * <pre>
+       * Mappings of the RegionId to the minimal sequence of SST file to scan.
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsSstMinSequences(
+          long key) {
+        
+        return internalGetSstMinSequences().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getSstMinSequencesMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Long, java.lang.Long> getSstMinSequences() {
+        return getSstMinSequencesMap();
+      }
+      /**
+       * <pre>
+       * Mappings of the RegionId to the minimal sequence of SST file to scan.
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.Long, java.lang.Long> getSstMinSequencesMap() {
+        return internalGetSstMinSequences().getMap();
+      }
+      /**
+       * <pre>
+       * Mappings of the RegionId to the minimal sequence of SST file to scan.
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+       */
+      @java.lang.Override
+
+      public long getSstMinSequencesOrDefault(
+          long key,
+          long defaultValue) {
+        
+        java.util.Map<java.lang.Long, java.lang.Long> map =
+            internalGetSstMinSequences().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * Mappings of the RegionId to the minimal sequence of SST file to scan.
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+       */
+      @java.lang.Override
+
+      public long getSstMinSequencesOrThrow(
+          long key) {
+        
+        java.util.Map<java.lang.Long, java.lang.Long> map =
+            internalGetSstMinSequences().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearSstMinSequences() {
+        internalGetMutableSstMinSequences().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * Mappings of the RegionId to the minimal sequence of SST file to scan.
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+       */
+
+      public Builder removeSstMinSequences(
+          long key) {
+        
+        internalGetMutableSstMinSequences().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Long, java.lang.Long>
+      getMutableSstMinSequences() {
+        return internalGetMutableSstMinSequences().getMutableMap();
+      }
+      /**
+       * <pre>
+       * Mappings of the RegionId to the minimal sequence of SST file to scan.
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+       */
+      public Builder putSstMinSequences(
+          long key,
+          long value) {
+        
+        
+        internalGetMutableSstMinSequences().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Mappings of the RegionId to the minimal sequence of SST file to scan.
+       * </pre>
+       *
+       * <code>map&lt;uint64, uint64&gt; sst_min_sequences = 1;</code>
+       */
+
+      public Builder putAllSstMinSequences(
+          java.util.Map<java.lang.Long, java.lang.Long> values) {
+        internalGetMutableSstMinSequences().getMutableMap()
+            .putAll(values);
+        return this;
+      }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> snapshotSeqs_;
@@ -16650,6 +17003,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_SnapshotSequences_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_SnapshotSequences_SstMinSequencesEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_SnapshotSequences_SstMinSequencesEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_SnapshotSequences_SnapshotSeqsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -16771,62 +17129,66 @@ java.lang.String defaultValue);
       "\001(\r\0225\n\rsnapshot_seqs\030\007 \001(\0132\036.greptime.v1" +
       ".SnapshotSequences\022,\n\007explain\030\010 \001(\0132\033.gr" +
       "eptime.v1.ExplainOptions\0321\n\017ExtensionsEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\221\001\n\021" +
-      "SnapshotSequences\022G\n\rsnapshot_seqs\030\007 \003(\013" +
+      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\231\002\n\021" +
+      "SnapshotSequences\022N\n\021sst_min_sequences\030\001" +
+      " \003(\01323.greptime.v1.SnapshotSequences.Sst" +
+      "MinSequencesEntry\022G\n\rsnapshot_seqs\030\007 \003(\013" +
       "20.greptime.v1.SnapshotSequences.Snapsho" +
-      "tSeqsEntry\0323\n\021SnapshotSeqsEntry\022\013\n\003key\030\001" +
-      " \001(\004\022\r\n\005value\030\002 \001(\004:\0028\001\"!\n\016ExplainOption" +
-      "s\022\017\n\007verbose\030\001 \001(\010\"\202\002\n\rRequestHeader\022\017\n\007" +
-      "catalog\030\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022.\n\rauthori" +
-      "zation\030\003 \001(\0132\027.greptime.v1.AuthHeader\022\016\n" +
-      "\006dbname\030\004 \001(\t\022G\n\017tracing_context\030\005 \003(\0132." +
-      ".greptime.v1.RequestHeader.TracingContex" +
-      "tEntry\022\020\n\010timezone\030\006 \001(\t\0325\n\023TracingConte" +
-      "xtEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
-      "5\n\016ResponseHeader\022#\n\006status\030\001 \001(\0132\023.grep" +
-      "time.v1.Status\".\n\006Status\022\023\n\013status_code\030" +
-      "\001 \001(\r\022\017\n\007err_msg\030\002 \001(\t\"e\n\nAuthHeader\022#\n\005" +
-      "basic\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005tok" +
-      "en\030\002 \001(\0132\022.greptime.v1.TokenH\000B\r\n\013auth_s" +
-      "cheme\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010pass" +
-      "word\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"J\n\tTa" +
-      "bleName\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_" +
-      "name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"\035\n\014Affect" +
-      "edRows\022\r\n\005value\030\001 \001(\r\"\032\n\007Metrics\022\017\n\007metr" +
-      "ics\030\001 \001(\014\"\034\n\013ExpireAfter\022\r\n\005value\030\001 \001(\003\"" +
-      "i\n\016FlightMetadata\0220\n\raffected_rows\030\001 \001(\013" +
-      "2\031.greptime.v1.AffectedRows\022%\n\007metrics\030\002" +
-      " \001(\0132\024.greptime.v1.Metrics\"I\n\024IntervalMo" +
-      "nthDayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005" +
-      "\022\023\n\013nanoseconds\030\003 \001(\003\"$\n\nDecimal128\022\n\n\002h" +
-      "i\030\001 \001(\003\022\n\n\002lo\030\002 \001(\003\"\316\001\n\027ColumnDataTypeEx" +
-      "tension\0229\n\014decimal_type\030\001 \001(\0132!.greptime" +
-      ".v1.DecimalTypeExtensionH\000\0223\n\tjson_type\030" +
-      "\002 \001(\0162\036.greptime.v1.JsonTypeExtensionH\000\022" +
-      "7\n\013vector_type\030\003 \001(\0132 .greptime.v1.Vecto" +
-      "rTypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalT" +
-      "ypeExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale" +
-      "\030\002 \001(\005\"\"\n\023VectorTypeExtension\022\013\n\003dim\030\001 \001" +
-      "(\r\"y\n\rColumnOptions\0228\n\007options\030\001 \003(\0132\'.g" +
-      "reptime.v1.ColumnOptions.OptionsEntry\032.\n" +
-      "\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020" +
-      "\001\022\r\n\tTIMESTAMP\020\002*\354\003\n\016ColumnDataType\022\013\n\007B" +
-      "OOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003" +
-      "\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UI" +
-      "NT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT" +
-      "64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014" +
-      "\n\010DATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TI" +
-      "MESTAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICRO" +
-      "SECOND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TI" +
-      "ME_SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIM" +
-      "E_MICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023" +
-      "INTERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TI" +
-      "ME\020\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDEC" +
-      "IMAL128\020\036\022\010\n\004JSON\020\037\022\n\n\006VECTOR\020 *$\n\021JsonT" +
-      "ypeExtension\022\017\n\013JSON_BINARY\020\000BO\n\016io.grep" +
-      "time.v1B\006CommonZ5github.com/GreptimeTeam" +
-      "/greptime-proto/go/greptime/v1b\006proto3"
+      "tSeqsEntry\0326\n\024SstMinSequencesEntry\022\013\n\003ke" +
+      "y\030\001 \001(\004\022\r\n\005value\030\002 \001(\004:\0028\001\0323\n\021SnapshotSe" +
+      "qsEntry\022\013\n\003key\030\001 \001(\004\022\r\n\005value\030\002 \001(\004:\0028\001\"" +
+      "!\n\016ExplainOptions\022\017\n\007verbose\030\001 \001(\010\"\202\002\n\rR" +
+      "equestHeader\022\017\n\007catalog\030\001 \001(\t\022\016\n\006schema\030" +
+      "\002 \001(\t\022.\n\rauthorization\030\003 \001(\0132\027.greptime." +
+      "v1.AuthHeader\022\016\n\006dbname\030\004 \001(\t\022G\n\017tracing" +
+      "_context\030\005 \003(\0132..greptime.v1.RequestHead" +
+      "er.TracingContextEntry\022\020\n\010timezone\030\006 \001(\t" +
+      "\0325\n\023TracingContextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\t:\0028\001\"5\n\016ResponseHeader\022#\n\006sta" +
+      "tus\030\001 \001(\0132\023.greptime.v1.Status\".\n\006Status" +
+      "\022\023\n\013status_code\030\001 \001(\r\022\017\n\007err_msg\030\002 \001(\t\"e" +
+      "\n\nAuthHeader\022#\n\005basic\030\001 \001(\0132\022.greptime.v" +
+      "1.BasicH\000\022#\n\005token\030\002 \001(\0132\022.greptime.v1.T" +
+      "okenH\000B\r\n\013auth_scheme\"+\n\005Basic\022\020\n\010userna" +
+      "me\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\026\n\005Token\022\r\n\005t" +
+      "oken\030\001 \001(\t\"J\n\tTableName\022\024\n\014catalog_name\030" +
+      "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name" +
+      "\030\003 \001(\t\"\035\n\014AffectedRows\022\r\n\005value\030\001 \001(\r\"\032\n" +
+      "\007Metrics\022\017\n\007metrics\030\001 \001(\014\"\034\n\013ExpireAfter" +
+      "\022\r\n\005value\030\001 \001(\003\"i\n\016FlightMetadata\0220\n\raff" +
+      "ected_rows\030\001 \001(\0132\031.greptime.v1.AffectedR" +
+      "ows\022%\n\007metrics\030\002 \001(\0132\024.greptime.v1.Metri" +
+      "cs\"I\n\024IntervalMonthDayNano\022\016\n\006months\030\001 \001" +
+      "(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003\"$\n" +
+      "\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n\n\002lo\030\002 \001(\003\"\316\001\n\027" +
+      "ColumnDataTypeExtension\0229\n\014decimal_type\030" +
+      "\001 \001(\0132!.greptime.v1.DecimalTypeExtension" +
+      "H\000\0223\n\tjson_type\030\002 \001(\0162\036.greptime.v1.Json" +
+      "TypeExtensionH\000\0227\n\013vector_type\030\003 \001(\0132 .g" +
+      "reptime.v1.VectorTypeExtensionH\000B\n\n\010type" +
+      "_ext\"8\n\024DecimalTypeExtension\022\021\n\tprecisio" +
+      "n\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005\"\"\n\023VectorTypeExte" +
+      "nsion\022\013\n\003dim\030\001 \001(\r\"y\n\rColumnOptions\0228\n\007o" +
+      "ptions\030\001 \003(\0132\'.greptime.v1.ColumnOptions" +
+      ".OptionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001*1\n\014SemanticType\022\007\n" +
+      "\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\354\003\n\016Col" +
+      "umnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005IN" +
+      "T16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n" +
+      "\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FL" +
+      "OAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRI" +
+      "NG\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTAM" +
+      "P_SECOND\020\017\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022\031\n" +
+      "\025TIMESTAMP_MICROSECOND\020\021\022\030\n\024TIMESTAMP_NA" +
+      "NOSECOND\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MILL" +
+      "ISECOND\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIME_" +
+      "NANOSECOND\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022\025\n" +
+      "\021INTERVAL_DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH_D" +
+      "AY_NANO\020\031\022\016\n\nDECIMAL128\020\036\022\010\n\004JSON\020\037\022\n\n\006V" +
+      "ECTOR\020 *$\n\021JsonTypeExtension\022\017\n\013JSON_BIN" +
+      "ARY\020\000BO\n\016io.greptime.v1B\006CommonZ5github." +
+      "com/GreptimeTeam/greptime-proto/go/grept" +
+      "ime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -16849,9 +17211,15 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_SnapshotSequences_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SnapshotSequences_descriptor,
-        new java.lang.String[] { "SnapshotSeqs", });
-    internal_static_greptime_v1_SnapshotSequences_SnapshotSeqsEntry_descriptor =
+        new java.lang.String[] { "SstMinSequences", "SnapshotSeqs", });
+    internal_static_greptime_v1_SnapshotSequences_SstMinSequencesEntry_descriptor =
       internal_static_greptime_v1_SnapshotSequences_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_SnapshotSequences_SstMinSequencesEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_SnapshotSequences_SstMinSequencesEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_greptime_v1_SnapshotSequences_SnapshotSeqsEntry_descriptor =
+      internal_static_greptime_v1_SnapshotSequences_descriptor.getNestedTypes().get(1);
     internal_static_greptime_v1_SnapshotSequences_SnapshotSeqsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SnapshotSequences_SnapshotSeqsEntry_descriptor,
