@@ -15,6 +15,373 @@ public final class HeartbeatOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * <pre>
+   *&#47; The workload type of the datanode.
+   * </pre>
+   *
+   * Protobuf enum {@code greptime.v1.meta.DatanodeWorkloadType}
+   */
+  public enum DatanodeWorkloadType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     *&#47; The datanode can handle all workloads (both ingest and query).
+     * </pre>
+     *
+     * <code>HYBRID = 0;</code>
+     */
+    HYBRID(0),
+    /**
+     * <pre>
+     *&#47; The datanode can only handle ingest workloads.
+     * </pre>
+     *
+     * <code>INGEST = 1;</code>
+     */
+    INGEST(1),
+    /**
+     * <pre>
+     *&#47; The datanode can only handle query workloads.
+     * </pre>
+     *
+     * <code>QUERY = 2;</code>
+     */
+    QUERY(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     *&#47; The datanode can handle all workloads (both ingest and query).
+     * </pre>
+     *
+     * <code>HYBRID = 0;</code>
+     */
+    public static final int HYBRID_VALUE = 0;
+    /**
+     * <pre>
+     *&#47; The datanode can only handle ingest workloads.
+     * </pre>
+     *
+     * <code>INGEST = 1;</code>
+     */
+    public static final int INGEST_VALUE = 1;
+    /**
+     * <pre>
+     *&#47; The datanode can only handle query workloads.
+     * </pre>
+     *
+     * <code>QUERY = 2;</code>
+     */
+    public static final int QUERY_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DatanodeWorkloadType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static DatanodeWorkloadType forNumber(int value) {
+      switch (value) {
+        case 0: return HYBRID;
+        case 1: return INGEST;
+        case 2: return QUERY;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DatanodeWorkloadType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DatanodeWorkloadType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DatanodeWorkloadType>() {
+            public DatanodeWorkloadType findValueByNumber(int number) {
+              return DatanodeWorkloadType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final DatanodeWorkloadType[] VALUES = values();
+
+    public static DatanodeWorkloadType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DatanodeWorkloadType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.DatanodeWorkloadType)
+  }
+
+  /**
+   * <pre>
+   *&#47; The workload type of the frontend.
+   * </pre>
+   *
+   * Protobuf enum {@code greptime.v1.meta.FrontendWorkloadType}
+   */
+  public enum FrontendWorkloadType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     *&#47; The frontend can handle all workloads.
+     * </pre>
+     *
+     * <code>FRONTEND_DEFAULT = 0;</code>
+     */
+    FRONTEND_DEFAULT(0),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     *&#47; The frontend can handle all workloads.
+     * </pre>
+     *
+     * <code>FRONTEND_DEFAULT = 0;</code>
+     */
+    public static final int FRONTEND_DEFAULT_VALUE = 0;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static FrontendWorkloadType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static FrontendWorkloadType forNumber(int value) {
+      switch (value) {
+        case 0: return FRONTEND_DEFAULT;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<FrontendWorkloadType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        FrontendWorkloadType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<FrontendWorkloadType>() {
+            public FrontendWorkloadType findValueByNumber(int number) {
+              return FrontendWorkloadType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final FrontendWorkloadType[] VALUES = values();
+
+    public static FrontendWorkloadType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private FrontendWorkloadType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.FrontendWorkloadType)
+  }
+
+  /**
+   * <pre>
+   *&#47; The workload type of the flownode.
+   * </pre>
+   *
+   * Protobuf enum {@code greptime.v1.meta.FlownodeWorkloadType}
+   */
+  public enum FlownodeWorkloadType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     *&#47; The flownode can handle all workloads.
+     * </pre>
+     *
+     * <code>FLOWNODE_DEFAULT = 0;</code>
+     */
+    FLOWNODE_DEFAULT(0),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     *&#47; The flownode can handle all workloads.
+     * </pre>
+     *
+     * <code>FLOWNODE_DEFAULT = 0;</code>
+     */
+    public static final int FLOWNODE_DEFAULT_VALUE = 0;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static FlownodeWorkloadType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static FlownodeWorkloadType forNumber(int value) {
+      switch (value) {
+        case 0: return FLOWNODE_DEFAULT;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<FlownodeWorkloadType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        FlownodeWorkloadType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<FlownodeWorkloadType>() {
+            public FlownodeWorkloadType findValueByNumber(int number) {
+              return FlownodeWorkloadType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final FlownodeWorkloadType[] VALUES = values();
+
+    public static FlownodeWorkloadType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private FlownodeWorkloadType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.FlownodeWorkloadType)
+  }
+
+  /**
    * Protobuf enum {@code greptime.v1.meta.RegionRole}
    */
   public enum RegionRole
@@ -135,7 +502,7 @@ public final class HeartbeatOuterClass {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(0);
+      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(3);
     }
 
     private static final RegionRole[] VALUES = values();
@@ -354,6 +721,53 @@ public final class HeartbeatOuterClass {
      * <code>.greptime.v1.meta.FlowStat flow_stat = 9;</code>
      */
     greptime.v1.meta.HeartbeatOuterClass.FlowStatOrBuilder getFlowStatOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+     * @return Whether the datanode field is set.
+     */
+    boolean hasDatanode();
+    /**
+     * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+     * @return The datanode.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads getDatanode();
+    /**
+     * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+     */
+    greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadsOrBuilder getDatanodeOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+     * @return Whether the frontend field is set.
+     */
+    boolean hasFrontend();
+    /**
+     * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+     * @return The frontend.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads getFrontend();
+    /**
+     * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+     */
+    greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadsOrBuilder getFrontendOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+     * @return Whether the flownode field is set.
+     */
+    boolean hasFlownode();
+    /**
+     * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+     * @return The flownode.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads getFlownode();
+    /**
+     * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+     */
+    greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadsOrBuilder getFlownodeOrBuilder();
+
+    public greptime.v1.meta.HeartbeatOuterClass.HeartbeatRequest.NodeWorkloadsCase getNodeWorkloadsCase();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.HeartbeatRequest}
@@ -499,6 +913,48 @@ public final class HeartbeatOuterClass {
 
               break;
             }
+            case 82: {
+              greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.Builder subBuilder = null;
+              if (nodeWorkloadsCase_ == 10) {
+                subBuilder = ((greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_).toBuilder();
+              }
+              nodeWorkloads_ =
+                  input.readMessage(greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_);
+                nodeWorkloads_ = subBuilder.buildPartial();
+              }
+              nodeWorkloadsCase_ = 10;
+              break;
+            }
+            case 90: {
+              greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.Builder subBuilder = null;
+              if (nodeWorkloadsCase_ == 11) {
+                subBuilder = ((greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_).toBuilder();
+              }
+              nodeWorkloads_ =
+                  input.readMessage(greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_);
+                nodeWorkloads_ = subBuilder.buildPartial();
+              }
+              nodeWorkloadsCase_ = 11;
+              break;
+            }
+            case 98: {
+              greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.Builder subBuilder = null;
+              if (nodeWorkloadsCase_ == 12) {
+                subBuilder = ((greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_).toBuilder();
+              }
+              nodeWorkloads_ =
+                  input.readMessage(greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_);
+                nodeWorkloads_ = subBuilder.buildPartial();
+              }
+              nodeWorkloadsCase_ = 12;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -534,6 +990,49 @@ public final class HeartbeatOuterClass {
       return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_HeartbeatRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               greptime.v1.meta.HeartbeatOuterClass.HeartbeatRequest.class, greptime.v1.meta.HeartbeatOuterClass.HeartbeatRequest.Builder.class);
+    }
+
+    private int nodeWorkloadsCase_ = 0;
+    private java.lang.Object nodeWorkloads_;
+    public enum NodeWorkloadsCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      DATANODE(10),
+      FRONTEND(11),
+      FLOWNODE(12),
+      NODEWORKLOADS_NOT_SET(0);
+      private final int value;
+      private NodeWorkloadsCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static NodeWorkloadsCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static NodeWorkloadsCase forNumber(int value) {
+        switch (value) {
+          case 10: return DATANODE;
+          case 11: return FRONTEND;
+          case 12: return FLOWNODE;
+          case 0: return NODEWORKLOADS_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public NodeWorkloadsCase
+    getNodeWorkloadsCase() {
+      return NodeWorkloadsCase.forNumber(
+          nodeWorkloadsCase_);
     }
 
     public static final int HEADER_FIELD_NUMBER = 1;
@@ -818,6 +1317,99 @@ public final class HeartbeatOuterClass {
       return getFlowStat();
     }
 
+    public static final int DATANODE_FIELD_NUMBER = 10;
+    /**
+     * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+     * @return Whether the datanode field is set.
+     */
+    @java.lang.Override
+    public boolean hasDatanode() {
+      return nodeWorkloadsCase_ == 10;
+    }
+    /**
+     * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+     * @return The datanode.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads getDatanode() {
+      if (nodeWorkloadsCase_ == 10) {
+         return (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_;
+      }
+      return greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadsOrBuilder getDatanodeOrBuilder() {
+      if (nodeWorkloadsCase_ == 10) {
+         return (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_;
+      }
+      return greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.getDefaultInstance();
+    }
+
+    public static final int FRONTEND_FIELD_NUMBER = 11;
+    /**
+     * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+     * @return Whether the frontend field is set.
+     */
+    @java.lang.Override
+    public boolean hasFrontend() {
+      return nodeWorkloadsCase_ == 11;
+    }
+    /**
+     * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+     * @return The frontend.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads getFrontend() {
+      if (nodeWorkloadsCase_ == 11) {
+         return (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_;
+      }
+      return greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadsOrBuilder getFrontendOrBuilder() {
+      if (nodeWorkloadsCase_ == 11) {
+         return (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_;
+      }
+      return greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.getDefaultInstance();
+    }
+
+    public static final int FLOWNODE_FIELD_NUMBER = 12;
+    /**
+     * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+     * @return Whether the flownode field is set.
+     */
+    @java.lang.Override
+    public boolean hasFlownode() {
+      return nodeWorkloadsCase_ == 12;
+    }
+    /**
+     * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+     * @return The flownode.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads getFlownode() {
+      if (nodeWorkloadsCase_ == 12) {
+         return (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_;
+      }
+      return greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadsOrBuilder getFlownodeOrBuilder() {
+      if (nodeWorkloadsCase_ == 12) {
+         return (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_;
+      }
+      return greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -858,6 +1450,15 @@ public final class HeartbeatOuterClass {
       }
       if (flowStat_ != null) {
         output.writeMessage(9, getFlowStat());
+      }
+      if (nodeWorkloadsCase_ == 10) {
+        output.writeMessage(10, (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_);
+      }
+      if (nodeWorkloadsCase_ == 11) {
+        output.writeMessage(11, (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_);
+      }
+      if (nodeWorkloadsCase_ == 12) {
+        output.writeMessage(12, (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_);
       }
       unknownFields.writeTo(output);
     }
@@ -903,6 +1504,18 @@ public final class HeartbeatOuterClass {
       if (flowStat_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(9, getFlowStat());
+      }
+      if (nodeWorkloadsCase_ == 10) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_);
+      }
+      if (nodeWorkloadsCase_ == 11) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_);
+      }
+      if (nodeWorkloadsCase_ == 12) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -955,6 +1568,23 @@ public final class HeartbeatOuterClass {
         if (!getFlowStat()
             .equals(other.getFlowStat())) return false;
       }
+      if (!getNodeWorkloadsCase().equals(other.getNodeWorkloadsCase())) return false;
+      switch (nodeWorkloadsCase_) {
+        case 10:
+          if (!getDatanode()
+              .equals(other.getDatanode())) return false;
+          break;
+        case 11:
+          if (!getFrontend()
+              .equals(other.getFrontend())) return false;
+          break;
+        case 12:
+          if (!getFlownode()
+              .equals(other.getFlownode())) return false;
+          break;
+        case 0:
+        default:
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -999,6 +1629,22 @@ public final class HeartbeatOuterClass {
       if (hasFlowStat()) {
         hash = (37 * hash) + FLOW_STAT_FIELD_NUMBER;
         hash = (53 * hash) + getFlowStat().hashCode();
+      }
+      switch (nodeWorkloadsCase_) {
+        case 10:
+          hash = (37 * hash) + DATANODE_FIELD_NUMBER;
+          hash = (53 * hash) + getDatanode().hashCode();
+          break;
+        case 11:
+          hash = (37 * hash) + FRONTEND_FIELD_NUMBER;
+          hash = (53 * hash) + getFrontend().hashCode();
+          break;
+        case 12:
+          hash = (37 * hash) + FLOWNODE_FIELD_NUMBER;
+          hash = (53 * hash) + getFlownode().hashCode();
+          break;
+        case 0:
+        default:
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1180,6 +1826,8 @@ public final class HeartbeatOuterClass {
           flowStat_ = null;
           flowStatBuilder_ = null;
         }
+        nodeWorkloadsCase_ = 0;
+        nodeWorkloads_ = null;
         return this;
       }
 
@@ -1248,6 +1896,28 @@ public final class HeartbeatOuterClass {
         } else {
           result.flowStat_ = flowStatBuilder_.build();
         }
+        if (nodeWorkloadsCase_ == 10) {
+          if (datanodeBuilder_ == null) {
+            result.nodeWorkloads_ = nodeWorkloads_;
+          } else {
+            result.nodeWorkloads_ = datanodeBuilder_.build();
+          }
+        }
+        if (nodeWorkloadsCase_ == 11) {
+          if (frontendBuilder_ == null) {
+            result.nodeWorkloads_ = nodeWorkloads_;
+          } else {
+            result.nodeWorkloads_ = frontendBuilder_.build();
+          }
+        }
+        if (nodeWorkloadsCase_ == 12) {
+          if (flownodeBuilder_ == null) {
+            result.nodeWorkloads_ = nodeWorkloads_;
+          } else {
+            result.nodeWorkloads_ = flownodeBuilder_.build();
+          }
+        }
+        result.nodeWorkloadsCase_ = nodeWorkloadsCase_;
         onBuilt();
         return result;
       }
@@ -1346,6 +2016,23 @@ public final class HeartbeatOuterClass {
         if (other.hasFlowStat()) {
           mergeFlowStat(other.getFlowStat());
         }
+        switch (other.getNodeWorkloadsCase()) {
+          case DATANODE: {
+            mergeDatanode(other.getDatanode());
+            break;
+          }
+          case FRONTEND: {
+            mergeFrontend(other.getFrontend());
+            break;
+          }
+          case FLOWNODE: {
+            mergeFlownode(other.getFlownode());
+            break;
+          }
+          case NODEWORKLOADS_NOT_SET: {
+            break;
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1374,6 +2061,21 @@ public final class HeartbeatOuterClass {
         }
         return this;
       }
+      private int nodeWorkloadsCase_ = 0;
+      private java.lang.Object nodeWorkloads_;
+      public NodeWorkloadsCase
+          getNodeWorkloadsCase() {
+        return NodeWorkloadsCase.forNumber(
+            nodeWorkloadsCase_);
+      }
+
+      public Builder clearNodeWorkloads() {
+        nodeWorkloadsCase_ = 0;
+        nodeWorkloads_ = null;
+        onChanged();
+        return this;
+      }
+
       private int bitField0_;
 
       private greptime.v1.meta.Common.RequestHeader header_;
@@ -2595,6 +3297,432 @@ public final class HeartbeatOuterClass {
         }
         return flowStatBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.Builder, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadsOrBuilder> datanodeBuilder_;
+      /**
+       * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+       * @return Whether the datanode field is set.
+       */
+      @java.lang.Override
+      public boolean hasDatanode() {
+        return nodeWorkloadsCase_ == 10;
+      }
+      /**
+       * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+       * @return The datanode.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads getDatanode() {
+        if (datanodeBuilder_ == null) {
+          if (nodeWorkloadsCase_ == 10) {
+            return (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_;
+          }
+          return greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.getDefaultInstance();
+        } else {
+          if (nodeWorkloadsCase_ == 10) {
+            return datanodeBuilder_.getMessage();
+          }
+          return greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+       */
+      public Builder setDatanode(greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads value) {
+        if (datanodeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          nodeWorkloads_ = value;
+          onChanged();
+        } else {
+          datanodeBuilder_.setMessage(value);
+        }
+        nodeWorkloadsCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+       */
+      public Builder setDatanode(
+          greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.Builder builderForValue) {
+        if (datanodeBuilder_ == null) {
+          nodeWorkloads_ = builderForValue.build();
+          onChanged();
+        } else {
+          datanodeBuilder_.setMessage(builderForValue.build());
+        }
+        nodeWorkloadsCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+       */
+      public Builder mergeDatanode(greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads value) {
+        if (datanodeBuilder_ == null) {
+          if (nodeWorkloadsCase_ == 10 &&
+              nodeWorkloads_ != greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.getDefaultInstance()) {
+            nodeWorkloads_ = greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.newBuilder((greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            nodeWorkloads_ = value;
+          }
+          onChanged();
+        } else {
+          if (nodeWorkloadsCase_ == 10) {
+            datanodeBuilder_.mergeFrom(value);
+          } else {
+            datanodeBuilder_.setMessage(value);
+          }
+        }
+        nodeWorkloadsCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+       */
+      public Builder clearDatanode() {
+        if (datanodeBuilder_ == null) {
+          if (nodeWorkloadsCase_ == 10) {
+            nodeWorkloadsCase_ = 0;
+            nodeWorkloads_ = null;
+            onChanged();
+          }
+        } else {
+          if (nodeWorkloadsCase_ == 10) {
+            nodeWorkloadsCase_ = 0;
+            nodeWorkloads_ = null;
+          }
+          datanodeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.Builder getDatanodeBuilder() {
+        return getDatanodeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadsOrBuilder getDatanodeOrBuilder() {
+        if ((nodeWorkloadsCase_ == 10) && (datanodeBuilder_ != null)) {
+          return datanodeBuilder_.getMessageOrBuilder();
+        } else {
+          if (nodeWorkloadsCase_ == 10) {
+            return (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_;
+          }
+          return greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.DatanodeWorkloads datanode = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.Builder, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadsOrBuilder> 
+          getDatanodeFieldBuilder() {
+        if (datanodeBuilder_ == null) {
+          if (!(nodeWorkloadsCase_ == 10)) {
+            nodeWorkloads_ = greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.getDefaultInstance();
+          }
+          datanodeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.Builder, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadsOrBuilder>(
+                  (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) nodeWorkloads_,
+                  getParentForChildren(),
+                  isClean());
+          nodeWorkloads_ = null;
+        }
+        nodeWorkloadsCase_ = 10;
+        onChanged();;
+        return datanodeBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.Builder, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadsOrBuilder> frontendBuilder_;
+      /**
+       * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+       * @return Whether the frontend field is set.
+       */
+      @java.lang.Override
+      public boolean hasFrontend() {
+        return nodeWorkloadsCase_ == 11;
+      }
+      /**
+       * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+       * @return The frontend.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads getFrontend() {
+        if (frontendBuilder_ == null) {
+          if (nodeWorkloadsCase_ == 11) {
+            return (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_;
+          }
+          return greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.getDefaultInstance();
+        } else {
+          if (nodeWorkloadsCase_ == 11) {
+            return frontendBuilder_.getMessage();
+          }
+          return greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+       */
+      public Builder setFrontend(greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads value) {
+        if (frontendBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          nodeWorkloads_ = value;
+          onChanged();
+        } else {
+          frontendBuilder_.setMessage(value);
+        }
+        nodeWorkloadsCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+       */
+      public Builder setFrontend(
+          greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.Builder builderForValue) {
+        if (frontendBuilder_ == null) {
+          nodeWorkloads_ = builderForValue.build();
+          onChanged();
+        } else {
+          frontendBuilder_.setMessage(builderForValue.build());
+        }
+        nodeWorkloadsCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+       */
+      public Builder mergeFrontend(greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads value) {
+        if (frontendBuilder_ == null) {
+          if (nodeWorkloadsCase_ == 11 &&
+              nodeWorkloads_ != greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.getDefaultInstance()) {
+            nodeWorkloads_ = greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.newBuilder((greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            nodeWorkloads_ = value;
+          }
+          onChanged();
+        } else {
+          if (nodeWorkloadsCase_ == 11) {
+            frontendBuilder_.mergeFrom(value);
+          } else {
+            frontendBuilder_.setMessage(value);
+          }
+        }
+        nodeWorkloadsCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+       */
+      public Builder clearFrontend() {
+        if (frontendBuilder_ == null) {
+          if (nodeWorkloadsCase_ == 11) {
+            nodeWorkloadsCase_ = 0;
+            nodeWorkloads_ = null;
+            onChanged();
+          }
+        } else {
+          if (nodeWorkloadsCase_ == 11) {
+            nodeWorkloadsCase_ = 0;
+            nodeWorkloads_ = null;
+          }
+          frontendBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.Builder getFrontendBuilder() {
+        return getFrontendFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadsOrBuilder getFrontendOrBuilder() {
+        if ((nodeWorkloadsCase_ == 11) && (frontendBuilder_ != null)) {
+          return frontendBuilder_.getMessageOrBuilder();
+        } else {
+          if (nodeWorkloadsCase_ == 11) {
+            return (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_;
+          }
+          return greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.FrontendWorkloads frontend = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.Builder, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadsOrBuilder> 
+          getFrontendFieldBuilder() {
+        if (frontendBuilder_ == null) {
+          if (!(nodeWorkloadsCase_ == 11)) {
+            nodeWorkloads_ = greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.getDefaultInstance();
+          }
+          frontendBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.Builder, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadsOrBuilder>(
+                  (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) nodeWorkloads_,
+                  getParentForChildren(),
+                  isClean());
+          nodeWorkloads_ = null;
+        }
+        nodeWorkloadsCase_ = 11;
+        onChanged();;
+        return frontendBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.Builder, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadsOrBuilder> flownodeBuilder_;
+      /**
+       * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+       * @return Whether the flownode field is set.
+       */
+      @java.lang.Override
+      public boolean hasFlownode() {
+        return nodeWorkloadsCase_ == 12;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+       * @return The flownode.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads getFlownode() {
+        if (flownodeBuilder_ == null) {
+          if (nodeWorkloadsCase_ == 12) {
+            return (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_;
+          }
+          return greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.getDefaultInstance();
+        } else {
+          if (nodeWorkloadsCase_ == 12) {
+            return flownodeBuilder_.getMessage();
+          }
+          return greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+       */
+      public Builder setFlownode(greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads value) {
+        if (flownodeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          nodeWorkloads_ = value;
+          onChanged();
+        } else {
+          flownodeBuilder_.setMessage(value);
+        }
+        nodeWorkloadsCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+       */
+      public Builder setFlownode(
+          greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.Builder builderForValue) {
+        if (flownodeBuilder_ == null) {
+          nodeWorkloads_ = builderForValue.build();
+          onChanged();
+        } else {
+          flownodeBuilder_.setMessage(builderForValue.build());
+        }
+        nodeWorkloadsCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+       */
+      public Builder mergeFlownode(greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads value) {
+        if (flownodeBuilder_ == null) {
+          if (nodeWorkloadsCase_ == 12 &&
+              nodeWorkloads_ != greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.getDefaultInstance()) {
+            nodeWorkloads_ = greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.newBuilder((greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            nodeWorkloads_ = value;
+          }
+          onChanged();
+        } else {
+          if (nodeWorkloadsCase_ == 12) {
+            flownodeBuilder_.mergeFrom(value);
+          } else {
+            flownodeBuilder_.setMessage(value);
+          }
+        }
+        nodeWorkloadsCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+       */
+      public Builder clearFlownode() {
+        if (flownodeBuilder_ == null) {
+          if (nodeWorkloadsCase_ == 12) {
+            nodeWorkloadsCase_ = 0;
+            nodeWorkloads_ = null;
+            onChanged();
+          }
+        } else {
+          if (nodeWorkloadsCase_ == 12) {
+            nodeWorkloadsCase_ = 0;
+            nodeWorkloads_ = null;
+          }
+          flownodeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.Builder getFlownodeBuilder() {
+        return getFlownodeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadsOrBuilder getFlownodeOrBuilder() {
+        if ((nodeWorkloadsCase_ == 12) && (flownodeBuilder_ != null)) {
+          return flownodeBuilder_.getMessageOrBuilder();
+        } else {
+          if (nodeWorkloadsCase_ == 12) {
+            return (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_;
+          }
+          return greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.FlownodeWorkloads flownode = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.Builder, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadsOrBuilder> 
+          getFlownodeFieldBuilder() {
+        if (flownodeBuilder_ == null) {
+          if (!(nodeWorkloadsCase_ == 12)) {
+            nodeWorkloads_ = greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.getDefaultInstance();
+          }
+          flownodeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.Builder, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadsOrBuilder>(
+                  (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) nodeWorkloads_,
+                  getParentForChildren(),
+                  isClean());
+          nodeWorkloads_ = null;
+        }
+        nodeWorkloadsCase_ = 12;
+        onChanged();;
+        return flownodeBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2643,6 +3771,2187 @@ public final class HeartbeatOuterClass {
 
     @java.lang.Override
     public greptime.v1.meta.HeartbeatOuterClass.HeartbeatRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DatanodeWorkloadsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.DatanodeWorkloads)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @return A list containing the types.
+     */
+    java.util.List<greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> getTypesList();
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @return The count of types.
+     */
+    int getTypesCount();
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @param index The index of the element to return.
+     * @return The types at the given index.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType getTypes(int index);
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @return A list containing the enum numeric values on the wire for types.
+     */
+    java.util.List<java.lang.Integer>
+    getTypesValueList();
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of types at the given index.
+     */
+    int getTypesValue(int index);
+  }
+  /**
+   * <pre>
+   *&#47; The workload types of the datanode.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.meta.DatanodeWorkloads}
+   */
+  public static final class DatanodeWorkloads extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.DatanodeWorkloads)
+      DatanodeWorkloadsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DatanodeWorkloads.newBuilder() to construct.
+    private DatanodeWorkloads(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DatanodeWorkloads() {
+      types_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DatanodeWorkloads();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DatanodeWorkloads(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                types_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              types_.add(rawValue);
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  types_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                types_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          types_ = java.util.Collections.unmodifiableList(types_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_DatanodeWorkloads_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_DatanodeWorkloads_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.class, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.Builder.class);
+    }
+
+    public static final int TYPES_FIELD_NUMBER = 1;
+    private java.util.List<java.lang.Integer> types_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> types_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType>() {
+              public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType convert(java.lang.Integer from) {
+                @SuppressWarnings("deprecation")
+                greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType result = greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType.valueOf(from);
+                return result == null ? greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @return A list containing the types.
+     */
+    @java.lang.Override
+    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> getTypesList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType>(types_, types_converter_);
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @return The count of types.
+     */
+    @java.lang.Override
+    public int getTypesCount() {
+      return types_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @param index The index of the element to return.
+     * @return The types at the given index.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType getTypes(int index) {
+      return types_converter_.convert(types_.get(index));
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @return A list containing the enum numeric values on the wire for types.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
+    getTypesValueList() {
+      return types_;
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of types at the given index.
+     */
+    @java.lang.Override
+    public int getTypesValue(int index) {
+      return types_.get(index);
+    }
+    private int typesMemoizedSerializedSize;
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getTypesList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(typesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < types_.size(); i++) {
+        output.writeEnumNoTag(types_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < types_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(types_.get(i));
+        }
+        size += dataSize;
+        if (!getTypesList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }typesMemoizedSerializedSize = dataSize;
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads other = (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) obj;
+
+      if (!types_.equals(other.types_)) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getTypesCount() > 0) {
+        hash = (37 * hash) + TYPES_FIELD_NUMBER;
+        hash = (53 * hash) + types_.hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; The workload types of the datanode.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.meta.DatanodeWorkloads}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.DatanodeWorkloads)
+        greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_DatanodeWorkloads_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_DatanodeWorkloads_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.class, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        types_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_DatanodeWorkloads_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads build() {
+        greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads result = new greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          types_ = java.util.Collections.unmodifiableList(types_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.types_ = types_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads.getDefaultInstance()) return this;
+        if (!other.types_.isEmpty()) {
+          if (types_.isEmpty()) {
+            types_ = other.types_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTypesIsMutable();
+            types_.addAll(other.types_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<java.lang.Integer> types_ =
+        java.util.Collections.emptyList();
+      private void ensureTypesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          types_ = new java.util.ArrayList<java.lang.Integer>(types_);
+          bitField0_ |= 0x00000001;
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @return A list containing the types.
+       */
+      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> getTypesList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType>(types_, types_converter_);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @return The count of types.
+       */
+      public int getTypesCount() {
+        return types_.size();
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @param index The index of the element to return.
+       * @return The types at the given index.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType getTypes(int index) {
+        return types_converter_.convert(types_.get(index));
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The types to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypes(
+          int index, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTypesIsMutable();
+        types_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @param value The types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTypes(greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTypesIsMutable();
+        types_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @param values The types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTypes(
+          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> values) {
+        ensureTypesIsMutable();
+        for (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType value : values) {
+          types_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTypes() {
+        types_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @return A list containing the enum numeric values on the wire for types.
+       */
+      public java.util.List<java.lang.Integer>
+      getTypesValueList() {
+        return java.util.Collections.unmodifiableList(types_);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of types at the given index.
+       */
+      public int getTypesValue(int index) {
+        return types_.get(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The enum numeric value on the wire for types to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypesValue(
+          int index, int value) {
+        ensureTypesIsMutable();
+        types_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @param value The enum numeric value on the wire for types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTypesValue(int value) {
+        ensureTypesIsMutable();
+        types_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * @param values The enum numeric values on the wire for types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTypesValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureTypesIsMutable();
+        for (int value : values) {
+          types_.add(value);
+        }
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.DatanodeWorkloads)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.DatanodeWorkloads)
+    private static final greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads();
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DatanodeWorkloads>
+        PARSER = new com.google.protobuf.AbstractParser<DatanodeWorkloads>() {
+      @java.lang.Override
+      public DatanodeWorkloads parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DatanodeWorkloads(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DatanodeWorkloads> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DatanodeWorkloads> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FrontendWorkloadsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.FrontendWorkloads)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @return A list containing the types.
+     */
+    java.util.List<greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> getTypesList();
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @return The count of types.
+     */
+    int getTypesCount();
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @param index The index of the element to return.
+     * @return The types at the given index.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType getTypes(int index);
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @return A list containing the enum numeric values on the wire for types.
+     */
+    java.util.List<java.lang.Integer>
+    getTypesValueList();
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of types at the given index.
+     */
+    int getTypesValue(int index);
+  }
+  /**
+   * <pre>
+   *&#47; The workload types of the frontend.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.meta.FrontendWorkloads}
+   */
+  public static final class FrontendWorkloads extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.FrontendWorkloads)
+      FrontendWorkloadsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FrontendWorkloads.newBuilder() to construct.
+    private FrontendWorkloads(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FrontendWorkloads() {
+      types_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FrontendWorkloads();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FrontendWorkloads(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                types_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              types_.add(rawValue);
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  types_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                types_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          types_ = java.util.Collections.unmodifiableList(types_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FrontendWorkloads_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FrontendWorkloads_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.class, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.Builder.class);
+    }
+
+    public static final int TYPES_FIELD_NUMBER = 1;
+    private java.util.List<java.lang.Integer> types_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> types_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType>() {
+              public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType convert(java.lang.Integer from) {
+                @SuppressWarnings("deprecation")
+                greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType result = greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType.valueOf(from);
+                return result == null ? greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @return A list containing the types.
+     */
+    @java.lang.Override
+    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> getTypesList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType>(types_, types_converter_);
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @return The count of types.
+     */
+    @java.lang.Override
+    public int getTypesCount() {
+      return types_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @param index The index of the element to return.
+     * @return The types at the given index.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType getTypes(int index) {
+      return types_converter_.convert(types_.get(index));
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @return A list containing the enum numeric values on the wire for types.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
+    getTypesValueList() {
+      return types_;
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of types at the given index.
+     */
+    @java.lang.Override
+    public int getTypesValue(int index) {
+      return types_.get(index);
+    }
+    private int typesMemoizedSerializedSize;
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getTypesList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(typesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < types_.size(); i++) {
+        output.writeEnumNoTag(types_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < types_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(types_.get(i));
+        }
+        size += dataSize;
+        if (!getTypesList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }typesMemoizedSerializedSize = dataSize;
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads other = (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) obj;
+
+      if (!types_.equals(other.types_)) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getTypesCount() > 0) {
+        hash = (37 * hash) + TYPES_FIELD_NUMBER;
+        hash = (53 * hash) + types_.hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; The workload types of the frontend.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.meta.FrontendWorkloads}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.FrontendWorkloads)
+        greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FrontendWorkloads_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FrontendWorkloads_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.class, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        types_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FrontendWorkloads_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads build() {
+        greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads result = new greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          types_ = java.util.Collections.unmodifiableList(types_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.types_ = types_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads.getDefaultInstance()) return this;
+        if (!other.types_.isEmpty()) {
+          if (types_.isEmpty()) {
+            types_ = other.types_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTypesIsMutable();
+            types_.addAll(other.types_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<java.lang.Integer> types_ =
+        java.util.Collections.emptyList();
+      private void ensureTypesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          types_ = new java.util.ArrayList<java.lang.Integer>(types_);
+          bitField0_ |= 0x00000001;
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @return A list containing the types.
+       */
+      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> getTypesList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType>(types_, types_converter_);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @return The count of types.
+       */
+      public int getTypesCount() {
+        return types_.size();
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @param index The index of the element to return.
+       * @return The types at the given index.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType getTypes(int index) {
+        return types_converter_.convert(types_.get(index));
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The types to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypes(
+          int index, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTypesIsMutable();
+        types_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @param value The types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTypes(greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTypesIsMutable();
+        types_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @param values The types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTypes(
+          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> values) {
+        ensureTypesIsMutable();
+        for (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType value : values) {
+          types_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTypes() {
+        types_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @return A list containing the enum numeric values on the wire for types.
+       */
+      public java.util.List<java.lang.Integer>
+      getTypesValueList() {
+        return java.util.Collections.unmodifiableList(types_);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of types at the given index.
+       */
+      public int getTypesValue(int index) {
+        return types_.get(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The enum numeric value on the wire for types to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypesValue(
+          int index, int value) {
+        ensureTypesIsMutable();
+        types_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @param value The enum numeric value on the wire for types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTypesValue(int value) {
+        ensureTypesIsMutable();
+        types_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * @param values The enum numeric values on the wire for types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTypesValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureTypesIsMutable();
+        for (int value : values) {
+          types_.add(value);
+        }
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.FrontendWorkloads)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.FrontendWorkloads)
+    private static final greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads();
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FrontendWorkloads>
+        PARSER = new com.google.protobuf.AbstractParser<FrontendWorkloads>() {
+      @java.lang.Override
+      public FrontendWorkloads parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FrontendWorkloads(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FrontendWorkloads> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FrontendWorkloads> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FlownodeWorkloadsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.FlownodeWorkloads)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @return A list containing the types.
+     */
+    java.util.List<greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> getTypesList();
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @return The count of types.
+     */
+    int getTypesCount();
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @param index The index of the element to return.
+     * @return The types at the given index.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType getTypes(int index);
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @return A list containing the enum numeric values on the wire for types.
+     */
+    java.util.List<java.lang.Integer>
+    getTypesValueList();
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of types at the given index.
+     */
+    int getTypesValue(int index);
+  }
+  /**
+   * <pre>
+   *&#47; The workload types of the flownode.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.meta.FlownodeWorkloads}
+   */
+  public static final class FlownodeWorkloads extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.FlownodeWorkloads)
+      FlownodeWorkloadsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FlownodeWorkloads.newBuilder() to construct.
+    private FlownodeWorkloads(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FlownodeWorkloads() {
+      types_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FlownodeWorkloads();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FlownodeWorkloads(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                types_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              types_.add(rawValue);
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  types_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                types_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          types_ = java.util.Collections.unmodifiableList(types_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlownodeWorkloads_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlownodeWorkloads_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.class, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.Builder.class);
+    }
+
+    public static final int TYPES_FIELD_NUMBER = 1;
+    private java.util.List<java.lang.Integer> types_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> types_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType>() {
+              public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType convert(java.lang.Integer from) {
+                @SuppressWarnings("deprecation")
+                greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType result = greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType.valueOf(from);
+                return result == null ? greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @return A list containing the types.
+     */
+    @java.lang.Override
+    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> getTypesList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType>(types_, types_converter_);
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @return The count of types.
+     */
+    @java.lang.Override
+    public int getTypesCount() {
+      return types_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @param index The index of the element to return.
+     * @return The types at the given index.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType getTypes(int index) {
+      return types_converter_.convert(types_.get(index));
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @return A list containing the enum numeric values on the wire for types.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
+    getTypesValueList() {
+      return types_;
+    }
+    /**
+     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of types at the given index.
+     */
+    @java.lang.Override
+    public int getTypesValue(int index) {
+      return types_.get(index);
+    }
+    private int typesMemoizedSerializedSize;
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getTypesList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(typesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < types_.size(); i++) {
+        output.writeEnumNoTag(types_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < types_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(types_.get(i));
+        }
+        size += dataSize;
+        if (!getTypesList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }typesMemoizedSerializedSize = dataSize;
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads other = (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) obj;
+
+      if (!types_.equals(other.types_)) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getTypesCount() > 0) {
+        hash = (37 * hash) + TYPES_FIELD_NUMBER;
+        hash = (53 * hash) + types_.hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; The workload types of the flownode.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.meta.FlownodeWorkloads}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.FlownodeWorkloads)
+        greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlownodeWorkloads_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlownodeWorkloads_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.class, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        types_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_FlownodeWorkloads_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads build() {
+        greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads result = new greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          types_ = java.util.Collections.unmodifiableList(types_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.types_ = types_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads.getDefaultInstance()) return this;
+        if (!other.types_.isEmpty()) {
+          if (types_.isEmpty()) {
+            types_ = other.types_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTypesIsMutable();
+            types_.addAll(other.types_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<java.lang.Integer> types_ =
+        java.util.Collections.emptyList();
+      private void ensureTypesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          types_ = new java.util.ArrayList<java.lang.Integer>(types_);
+          bitField0_ |= 0x00000001;
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @return A list containing the types.
+       */
+      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> getTypesList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType>(types_, types_converter_);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @return The count of types.
+       */
+      public int getTypesCount() {
+        return types_.size();
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @param index The index of the element to return.
+       * @return The types at the given index.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType getTypes(int index) {
+        return types_converter_.convert(types_.get(index));
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The types to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypes(
+          int index, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTypesIsMutable();
+        types_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @param value The types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTypes(greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTypesIsMutable();
+        types_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @param values The types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTypes(
+          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> values) {
+        ensureTypesIsMutable();
+        for (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType value : values) {
+          types_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTypes() {
+        types_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @return A list containing the enum numeric values on the wire for types.
+       */
+      public java.util.List<java.lang.Integer>
+      getTypesValueList() {
+        return java.util.Collections.unmodifiableList(types_);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of types at the given index.
+       */
+      public int getTypesValue(int index) {
+        return types_.get(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The enum numeric value on the wire for types to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypesValue(
+          int index, int value) {
+        ensureTypesIsMutable();
+        types_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @param value The enum numeric value on the wire for types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTypesValue(int value) {
+        ensureTypesIsMutable();
+        types_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * @param values The enum numeric values on the wire for types to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTypesValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureTypesIsMutable();
+        for (int value : values) {
+          types_.add(value);
+        }
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.FlownodeWorkloads)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.FlownodeWorkloads)
+    private static final greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads();
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FlownodeWorkloads>
+        PARSER = new com.google.protobuf.AbstractParser<FlownodeWorkloads>() {
+      @java.lang.Override
+      public FlownodeWorkloads parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FlownodeWorkloads(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FlownodeWorkloads> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FlownodeWorkloads> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12075,6 +15384,21 @@ com.google.protobuf.ByteString defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_HeartbeatRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_DatanodeWorkloads_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_DatanodeWorkloads_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_FrontendWorkloads_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_FrontendWorkloads_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_FlownodeWorkloads_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_FlownodeWorkloads_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_NodeInfo_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -12150,7 +15474,7 @@ com.google.protobuf.ByteString defaultValue);
     java.lang.String[] descriptorData = {
       "\n greptime/v1/meta/heartbeat.proto\022\020grep" +
       "time.v1.meta\032\035greptime/v1/meta/common.pr" +
-      "oto\"\234\003\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
+      "oto\"\331\004\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
       "2\037.greptime.v1.meta.RequestHeader\022$\n\004pee" +
       "r\030\002 \001(\0132\026.greptime.v1.meta.Peer\0227\n\017repor" +
       "t_interval\030\003 \001(\0132\036.greptime.v1.meta.Time" +
@@ -12160,52 +15484,66 @@ com.google.protobuf.ByteString defaultValue);
       "\034\n\024duration_since_epoch\030\006 \001(\004\022\022\n\nnode_ep" +
       "och\030\007 \001(\004\022(\n\004info\030\010 \001(\0132\032.greptime.v1.me" +
       "ta.NodeInfo\022-\n\tflow_stat\030\t \001(\0132\032.greptim" +
-      "e.v1.meta.FlowStat\"T\n\010NodeInfo\022\017\n\007versio" +
-      "n\030\001 \001(\t\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_tim" +
-      "e_ms\030\003 \001(\004\022\014\n\004cpus\030\004 \001(\r\"\207\002\n\nRegionStat\022" +
-      "\021\n\tregion_id\030\001 \001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus" +
-      "\030\003 \001(\003\022\031\n\021approximate_bytes\030\004 \001(\003\022\016\n\006eng" +
-      "ine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.greptime.v1.me" +
-      "ta.RegionRole\022@\n\nextensions\030c \003(\0132,.grep" +
-      "time.v1.meta.RegionStat.ExtensionsEntry\032" +
-      "1\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
-      "\030\002 \001(\014:\0028\001\"\227\002\n\010FlowStat\022D\n\016flow_stat_siz" +
-      "e\030\001 \003(\0132,.greptime.v1.meta.FlowStat.Flow" +
-      "StatSizeEntry\022T\n\027flow_last_exec_time_map" +
-      "\030\002 \003(\01323.greptime.v1.meta.FlowStat.FlowL" +
-      "astExecTimeMapEntry\0323\n\021FlowStatSizeEntry" +
-      "\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030Flow" +
-      "LastExecTimeMapEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005val" +
-      "ue\030\002 \001(\003:\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006he" +
-      "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
-      "ader\0229\n\017mailbox_message\030\002 \001(\0132 .greptime" +
-      ".v1.meta.MailboxMessage\0223\n\014region_lease\030" +
-      "\003 \001(\0132\035.greptime.v1.meta.RegionLease\"\306\001\n" +
-      "\rGrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004rol" +
-      "e\030\002 \001(\0162\034.greptime.v1.meta.RegionRole\022C\n" +
-      "\nextensions\030c \003(\0132/.greptime.v1.meta.Gra" +
-      "ntedRegion.ExtensionsEntry\0321\n\017Extensions" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001" +
-      "\n\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.greptim" +
-      "e.v1.meta.GrantedRegion\022\034\n\024duration_sinc" +
-      "e_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024" +
-      "closeable_region_ids\030\004 \003(\004\"C\n\020AskLeaderR" +
-      "equest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.met" +
-      "a.RequestHeader\"m\n\021AskLeaderResponse\0220\n\006" +
-      "header\030\001 \001(\0132 .greptime.v1.meta.Response" +
-      "Header\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.met" +
-      "a.Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007" +
-      "subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022" +
-      "\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH" +
-      "\000B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014" +
-      "\n\010Follower\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\t" +
-      "Heartbeat\022Z\n\tHeartbeat\022\".greptime.v1.met" +
-      "a.HeartbeatRequest\032#.greptime.v1.meta.He" +
-      "artbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".gre" +
-      "ptime.v1.meta.AskLeaderRequest\032#.greptim" +
-      "e.v1.meta.AskLeaderResponse\"\000B<Z:github." +
-      "com/GreptimeTeam/greptime-proto/go/grept" +
-      "ime/v1/metab\006proto3"
+      "e.v1.meta.FlowStat\0227\n\010datanode\030\n \001(\0132#.g" +
+      "reptime.v1.meta.DatanodeWorkloadsH\000\0227\n\010f" +
+      "rontend\030\013 \001(\0132#.greptime.v1.meta.Fronten" +
+      "dWorkloadsH\000\0227\n\010flownode\030\014 \001(\0132#.greptim" +
+      "e.v1.meta.FlownodeWorkloadsH\000B\020\n\016node_wo" +
+      "rkloads\"J\n\021DatanodeWorkloads\0225\n\005types\030\001 " +
+      "\003(\0162&.greptime.v1.meta.DatanodeWorkloadT" +
+      "ype\"J\n\021FrontendWorkloads\0225\n\005types\030\001 \003(\0162" +
+      "&.greptime.v1.meta.FrontendWorkloadType\"" +
+      "J\n\021FlownodeWorkloads\0225\n\005types\030\001 \003(\0162&.gr" +
+      "eptime.v1.meta.FlownodeWorkloadType\"T\n\010N" +
+      "odeInfo\022\017\n\007version\030\001 \001(\t\022\022\n\ngit_commit\030\002" +
+      " \001(\t\022\025\n\rstart_time_ms\030\003 \001(\004\022\014\n\004cpus\030\004 \001(" +
+      "\r\"\207\002\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004r" +
+      "cus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate_b" +
+      "ytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\016" +
+      "2\034.greptime.v1.meta.RegionRole\022@\n\nextens" +
+      "ions\030c \003(\0132,.greptime.v1.meta.RegionStat" +
+      ".ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\227\002\n\010FlowStat" +
+      "\022D\n\016flow_stat_size\030\001 \003(\0132,.greptime.v1.m" +
+      "eta.FlowStat.FlowStatSizeEntry\022T\n\027flow_l" +
+      "ast_exec_time_map\030\002 \003(\01323.greptime.v1.me" +
+      "ta.FlowStat.FlowLastExecTimeMapEntry\0323\n\021" +
+      "FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030" +
+      "\002 \001(\004:\0028\001\032:\n\030FlowLastExecTimeMapEntry\022\013\n" +
+      "\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\265\001\n\021Heartb" +
+      "eatResponse\0220\n\006header\030\001 \001(\0132 .greptime.v" +
+      "1.meta.ResponseHeader\0229\n\017mailbox_message" +
+      "\030\002 \001(\0132 .greptime.v1.meta.MailboxMessage" +
+      "\0223\n\014region_lease\030\003 \001(\0132\035.greptime.v1.met" +
+      "a.RegionLease\"\306\001\n\rGrantedRegion\022\021\n\tregio" +
+      "n_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.m" +
+      "eta.RegionRole\022C\n\nextensions\030c \003(\0132/.gre" +
+      "ptime.v1.meta.GrantedRegion.ExtensionsEn" +
+      "try\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007region" +
+      "s\030\001 \003(\0132\037.greptime.v1.meta.GrantedRegion" +
+      "\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_" +
+      "seconds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 " +
+      "\003(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132" +
+      "\037.greptime.v1.meta.RequestHeader\"m\n\021AskL" +
+      "eaderResponse\0220\n\006header\030\001 \001(\0132 .greptime" +
+      ".v1.meta.ResponseHeader\022&\n\006leader\030\002 \001(\0132" +
+      "\026.greptime.v1.meta.Peer\"|\n\016MailboxMessag" +
+      "e\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003" +
+      " \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001" +
+      "(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*9\n\024Datanod" +
+      "eWorkloadType\022\n\n\006HYBRID\020\000\022\n\n\006INGEST\020\001\022\t\n" +
+      "\005QUERY\020\002*,\n\024FrontendWorkloadType\022\024\n\020FRON" +
+      "TEND_DEFAULT\020\000*,\n\024FlownodeWorkloadType\022\024" +
+      "\n\020FLOWNODE_DEFAULT\020\000*=\n\nRegionRole\022\n\n\006Le" +
+      "ader\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLeade" +
+      "r\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptim" +
+      "e.v1.meta.HeartbeatRequest\032#.greptime.v1" +
+      ".meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLead" +
+      "er\022\".greptime.v1.meta.AskLeaderRequest\032#" +
+      ".greptime.v1.meta.AskLeaderResponse\"\000B<Z" +
+      ":github.com/GreptimeTeam/greptime-proto/" +
+      "go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12217,15 +15555,33 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_HeartbeatRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatRequest_descriptor,
-        new java.lang.String[] { "Header", "Peer", "ReportInterval", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", "Info", "FlowStat", });
-    internal_static_greptime_v1_meta_NodeInfo_descriptor =
+        new java.lang.String[] { "Header", "Peer", "ReportInterval", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", "Info", "FlowStat", "Datanode", "Frontend", "Flownode", "NodeWorkloads", });
+    internal_static_greptime_v1_meta_DatanodeWorkloads_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_greptime_v1_meta_DatanodeWorkloads_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_DatanodeWorkloads_descriptor,
+        new java.lang.String[] { "Types", });
+    internal_static_greptime_v1_meta_FrontendWorkloads_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_greptime_v1_meta_FrontendWorkloads_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_FrontendWorkloads_descriptor,
+        new java.lang.String[] { "Types", });
+    internal_static_greptime_v1_meta_FlownodeWorkloads_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_greptime_v1_meta_FlownodeWorkloads_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_FlownodeWorkloads_descriptor,
+        new java.lang.String[] { "Types", });
+    internal_static_greptime_v1_meta_NodeInfo_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_meta_NodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_NodeInfo_descriptor,
         new java.lang.String[] { "Version", "GitCommit", "StartTimeMs", "Cpus", });
     internal_static_greptime_v1_meta_RegionStat_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_descriptor,
@@ -12237,7 +15593,7 @@ com.google.protobuf.ByteString defaultValue);
         internal_static_greptime_v1_meta_RegionStat_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_meta_FlowStat_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_meta_FlowStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_FlowStat_descriptor,
@@ -12255,13 +15611,13 @@ com.google.protobuf.ByteString defaultValue);
         internal_static_greptime_v1_meta_FlowStat_FlowLastExecTimeMapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatResponse_descriptor,
         new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", });
     internal_static_greptime_v1_meta_GrantedRegion_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_GrantedRegion_descriptor,
@@ -12273,25 +15629,25 @@ com.google.protobuf.ByteString defaultValue);
         internal_static_greptime_v1_meta_GrantedRegion_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_meta_RegionLease_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_meta_RegionLease_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionLease_descriptor,
         new java.lang.String[] { "Regions", "DurationSinceEpoch", "LeaseSeconds", "CloseableRegionIds", });
     internal_static_greptime_v1_meta_AskLeaderRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_meta_AskLeaderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderRequest_descriptor,
         new java.lang.String[] { "Header", });
     internal_static_greptime_v1_meta_AskLeaderResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_meta_AskLeaderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderResponse_descriptor,
         new java.lang.String[] { "Header", "Leader", });
     internal_static_greptime_v1_meta_MailboxMessage_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_meta_MailboxMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MailboxMessage_descriptor,

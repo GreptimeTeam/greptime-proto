@@ -48,6 +48,49 @@ message HeartbeatRequest {
   uint64 node_epoch = 7;
   NodeInfo info = 8;
   FlowStat flow_stat = 9;
+  /// The workloads of the node.
+  oneof node_workloads {
+    DatanodeWorkloads datanode = 10;
+    FrontendWorkloads frontend = 11;
+    FlownodeWorkloads flownode = 12;
+  }
+}
+
+/// The workload types of the datanode.
+message DatanodeWorkloads {
+  repeated DatanodeWorkloadType types = 1;
+}
+
+/// The workload types of the frontend.
+message FrontendWorkloads {
+  repeated FrontendWorkloadType types = 1;
+}
+
+/// The workload types of the flownode.
+message FlownodeWorkloads {
+  repeated FlownodeWorkloadType types = 1;
+}
+
+/// The workload type of the datanode.
+enum DatanodeWorkloadType {
+  /// The datanode can handle all workloads (both ingest and query).
+  HYBRID = 0;
+  /// The datanode can only handle ingest workloads.
+  INGEST = 1;
+  /// The datanode can only handle query workloads.
+  QUERY = 2;
+}
+
+/// The workload type of the frontend.
+enum FrontendWorkloadType {
+  /// The frontend can handle all workloads.
+  FRONTEND_DEFAULT = 0;
+}
+
+/// The workload type of the flownode.
+enum FlownodeWorkloadType {
+  /// The flownode can handle all workloads.
+  FLOWNODE_DEFAULT = 0;
 }
 
 enum RegionRole {
