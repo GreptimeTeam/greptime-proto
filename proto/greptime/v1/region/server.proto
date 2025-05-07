@@ -193,9 +193,14 @@ message BulkInsertRequest {
 }
 
 message ArrowIpc {
+  bytes schema = 1;
+  bytes payload = 2;
+  repeated RegionSelection region_selection = 3;
+}
+
+message RegionSelection {
   uint64 region_id = 1;
-  bytes schema = 2;
-  bytes payload = 3;
+  bytes selection = 2;
 }
 
 // Manifest info for mito engine.

@@ -147,6 +147,9 @@ extern RegionResponseDefaultTypeInternal _RegionResponse_default_instance_;
 class RegionResponse_ExtensionsEntry_DoNotUse;
 struct RegionResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal;
 extern RegionResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal _RegionResponse_ExtensionsEntry_DoNotUse_default_instance_;
+class RegionSelection;
+struct RegionSelectionDefaultTypeInternal;
+extern RegionSelectionDefaultTypeInternal _RegionSelection_default_instance_;
 class Regular;
 struct RegularDefaultTypeInternal;
 extern RegularDefaultTypeInternal _Regular_default_instance_;
@@ -194,6 +197,7 @@ template<> ::greptime::v1::region::RegionRequestHeader* Arena::CreateMaybeMessag
 template<> ::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::region::RegionSelection* Arena::CreateMaybeMessage<::greptime::v1::region::RegionSelection>(Arena*);
 template<> ::greptime::v1::region::Regular* Arena::CreateMaybeMessage<::greptime::v1::region::Regular>(Arena*);
 template<> ::greptime::v1::region::StrictWindow* Arena::CreateMaybeMessage<::greptime::v1::region::StrictWindow>(Arena*);
 template<> ::greptime::v1::region::SyncRequest* Arena::CreateMaybeMessage<::greptime::v1::region::SyncRequest>(Arena*);
@@ -5483,11 +5487,29 @@ class ArrowIpc final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSchemaFieldNumber = 2,
-    kPayloadFieldNumber = 3,
-    kRegionIdFieldNumber = 1,
+    kRegionSelectionFieldNumber = 3,
+    kSchemaFieldNumber = 1,
+    kPayloadFieldNumber = 2,
   };
-  // bytes schema = 2;
+  // repeated .greptime.v1.region.RegionSelection region_selection = 3;
+  int region_selection_size() const;
+  private:
+  int _internal_region_selection_size() const;
+  public:
+  void clear_region_selection();
+  ::greptime::v1::region::RegionSelection* mutable_region_selection(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionSelection >*
+      mutable_region_selection();
+  private:
+  const ::greptime::v1::region::RegionSelection& _internal_region_selection(int index) const;
+  ::greptime::v1::region::RegionSelection* _internal_add_region_selection();
+  public:
+  const ::greptime::v1::region::RegionSelection& region_selection(int index) const;
+  ::greptime::v1::region::RegionSelection* add_region_selection();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionSelection >&
+      region_selection() const;
+
+  // bytes schema = 1;
   void clear_schema();
   const std::string& schema() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -5501,7 +5523,7 @@ class ArrowIpc final :
   std::string* _internal_mutable_schema();
   public:
 
-  // bytes payload = 3;
+  // bytes payload = 2;
   void clear_payload();
   const std::string& payload() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -5515,6 +5537,162 @@ class ArrowIpc final :
   std::string* _internal_mutable_payload();
   public:
 
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.ArrowIpc)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionSelection > region_selection_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RegionSelection final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionSelection) */ {
+ public:
+  inline RegionSelection() : RegionSelection(nullptr) {}
+  ~RegionSelection() override;
+  explicit PROTOBUF_CONSTEXPR RegionSelection(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RegionSelection(const RegionSelection& from);
+  RegionSelection(RegionSelection&& from) noexcept
+    : RegionSelection() {
+    *this = ::std::move(from);
+  }
+
+  inline RegionSelection& operator=(const RegionSelection& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RegionSelection& operator=(RegionSelection&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RegionSelection& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RegionSelection* internal_default_instance() {
+    return reinterpret_cast<const RegionSelection*>(
+               &_RegionSelection_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    32;
+
+  friend void swap(RegionSelection& a, RegionSelection& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RegionSelection* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RegionSelection* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RegionSelection* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RegionSelection>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RegionSelection& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RegionSelection& from) {
+    RegionSelection::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RegionSelection* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RegionSelection";
+  }
+  protected:
+  explicit RegionSelection(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSelectionFieldNumber = 2,
+    kRegionIdFieldNumber = 1,
+  };
+  // bytes selection = 2;
+  void clear_selection();
+  const std::string& selection() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_selection(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_selection();
+  PROTOBUF_NODISCARD std::string* release_selection();
+  void set_allocated_selection(std::string* selection);
+  private:
+  const std::string& _internal_selection() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_selection(const std::string& value);
+  std::string* _internal_mutable_selection();
+  public:
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -5524,7 +5702,7 @@ class ArrowIpc final :
   void _internal_set_region_id(uint64_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.region.ArrowIpc)
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionSelection)
  private:
   class _Internal;
 
@@ -5532,8 +5710,7 @@ class ArrowIpc final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr selection_;
     uint64_t region_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -5590,7 +5767,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -5738,7 +5915,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -5903,7 +6080,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -9960,27 +10137,7 @@ inline BulkInsertRequest::BodyCase BulkInsertRequest::body_case() const {
 
 // ArrowIpc
 
-// uint64 region_id = 1;
-inline void ArrowIpc::clear_region_id() {
-  _impl_.region_id_ = uint64_t{0u};
-}
-inline uint64_t ArrowIpc::_internal_region_id() const {
-  return _impl_.region_id_;
-}
-inline uint64_t ArrowIpc::region_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.ArrowIpc.region_id)
-  return _internal_region_id();
-}
-inline void ArrowIpc::_internal_set_region_id(uint64_t value) {
-  
-  _impl_.region_id_ = value;
-}
-inline void ArrowIpc::set_region_id(uint64_t value) {
-  _internal_set_region_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.region.ArrowIpc.region_id)
-}
-
-// bytes schema = 2;
+// bytes schema = 1;
 inline void ArrowIpc::clear_schema() {
   _impl_.schema_.ClearToEmpty();
 }
@@ -10030,7 +10187,7 @@ inline void ArrowIpc::set_allocated_schema(std::string* schema) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ArrowIpc.schema)
 }
 
-// bytes payload = 3;
+// bytes payload = 2;
 inline void ArrowIpc::clear_payload() {
   _impl_.payload_.ClearToEmpty();
 }
@@ -10078,6 +10235,120 @@ inline void ArrowIpc::set_allocated_payload(std::string* payload) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ArrowIpc.payload)
+}
+
+// repeated .greptime.v1.region.RegionSelection region_selection = 3;
+inline int ArrowIpc::_internal_region_selection_size() const {
+  return _impl_.region_selection_.size();
+}
+inline int ArrowIpc::region_selection_size() const {
+  return _internal_region_selection_size();
+}
+inline void ArrowIpc::clear_region_selection() {
+  _impl_.region_selection_.Clear();
+}
+inline ::greptime::v1::region::RegionSelection* ArrowIpc::mutable_region_selection(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.ArrowIpc.region_selection)
+  return _impl_.region_selection_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionSelection >*
+ArrowIpc::mutable_region_selection() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.ArrowIpc.region_selection)
+  return &_impl_.region_selection_;
+}
+inline const ::greptime::v1::region::RegionSelection& ArrowIpc::_internal_region_selection(int index) const {
+  return _impl_.region_selection_.Get(index);
+}
+inline const ::greptime::v1::region::RegionSelection& ArrowIpc::region_selection(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ArrowIpc.region_selection)
+  return _internal_region_selection(index);
+}
+inline ::greptime::v1::region::RegionSelection* ArrowIpc::_internal_add_region_selection() {
+  return _impl_.region_selection_.Add();
+}
+inline ::greptime::v1::region::RegionSelection* ArrowIpc::add_region_selection() {
+  ::greptime::v1::region::RegionSelection* _add = _internal_add_region_selection();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.ArrowIpc.region_selection)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionSelection >&
+ArrowIpc::region_selection() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.ArrowIpc.region_selection)
+  return _impl_.region_selection_;
+}
+
+// -------------------------------------------------------------------
+
+// RegionSelection
+
+// uint64 region_id = 1;
+inline void RegionSelection::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t RegionSelection::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t RegionSelection::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionSelection.region_id)
+  return _internal_region_id();
+}
+inline void RegionSelection::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void RegionSelection::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionSelection.region_id)
+}
+
+// bytes selection = 2;
+inline void RegionSelection::clear_selection() {
+  _impl_.selection_.ClearToEmpty();
+}
+inline const std::string& RegionSelection::selection() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionSelection.selection)
+  return _internal_selection();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RegionSelection::set_selection(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.selection_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionSelection.selection)
+}
+inline std::string* RegionSelection::mutable_selection() {
+  std::string* _s = _internal_mutable_selection();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionSelection.selection)
+  return _s;
+}
+inline const std::string& RegionSelection::_internal_selection() const {
+  return _impl_.selection_.Get();
+}
+inline void RegionSelection::_internal_set_selection(const std::string& value) {
+  
+  _impl_.selection_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RegionSelection::_internal_mutable_selection() {
+  
+  return _impl_.selection_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RegionSelection::release_selection() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionSelection.selection)
+  return _impl_.selection_.Release();
+}
+inline void RegionSelection::set_allocated_selection(std::string* selection) {
+  if (selection != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.selection_.SetAllocated(selection, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.selection_.IsDefault()) {
+    _impl_.selection_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionSelection.selection)
 }
 
 // -------------------------------------------------------------------
@@ -10332,6 +10603,8 @@ inline SyncRequest::ManifestInfoCase SyncRequest::manifest_info_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
