@@ -48,6 +48,27 @@ message HeartbeatRequest {
   uint64 node_epoch = 7;
   NodeInfo info = 8;
   FlowStat flow_stat = 9;
+  /// The workloads of the node.
+  oneof node_workloads {
+    DatanodeWorkloads datanode = 10;
+    FrontendWorkloads frontend = 11;
+    FlownodeWorkloads flownode = 12;
+  }
+}
+
+/// The workload types of the datanode.
+message DatanodeWorkloads {
+  repeated int32 types = 1;
+}
+
+/// The workload types of the frontend.
+message FrontendWorkloads {
+  repeated int32 types = 1;
+}
+
+/// The workload types of the flownode.
+message FlownodeWorkloads {
+  repeated int32 types = 1;
 }
 
 enum RegionRole {

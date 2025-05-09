@@ -58,6 +58,9 @@ extern AskLeaderRequestDefaultTypeInternal _AskLeaderRequest_default_instance_;
 class AskLeaderResponse;
 struct AskLeaderResponseDefaultTypeInternal;
 extern AskLeaderResponseDefaultTypeInternal _AskLeaderResponse_default_instance_;
+class DatanodeWorkloads;
+struct DatanodeWorkloadsDefaultTypeInternal;
+extern DatanodeWorkloadsDefaultTypeInternal _DatanodeWorkloads_default_instance_;
 class FlowStat;
 struct FlowStatDefaultTypeInternal;
 extern FlowStatDefaultTypeInternal _FlowStat_default_instance_;
@@ -67,6 +70,12 @@ extern FlowStat_FlowLastExecTimeMapEntry_DoNotUseDefaultTypeInternal _FlowStat_F
 class FlowStat_FlowStatSizeEntry_DoNotUse;
 struct FlowStat_FlowStatSizeEntry_DoNotUseDefaultTypeInternal;
 extern FlowStat_FlowStatSizeEntry_DoNotUseDefaultTypeInternal _FlowStat_FlowStatSizeEntry_DoNotUse_default_instance_;
+class FlownodeWorkloads;
+struct FlownodeWorkloadsDefaultTypeInternal;
+extern FlownodeWorkloadsDefaultTypeInternal _FlownodeWorkloads_default_instance_;
+class FrontendWorkloads;
+struct FrontendWorkloadsDefaultTypeInternal;
+extern FrontendWorkloadsDefaultTypeInternal _FrontendWorkloads_default_instance_;
 class GrantedRegion;
 struct GrantedRegionDefaultTypeInternal;
 extern GrantedRegionDefaultTypeInternal _GrantedRegion_default_instance_;
@@ -100,9 +109,12 @@ extern RegionStat_ExtensionsEntry_DoNotUseDefaultTypeInternal _RegionStat_Extens
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::meta::AskLeaderRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::AskLeaderRequest>(Arena*);
 template<> ::greptime::v1::meta::AskLeaderResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::AskLeaderResponse>(Arena*);
+template<> ::greptime::v1::meta::DatanodeWorkloads* Arena::CreateMaybeMessage<::greptime::v1::meta::DatanodeWorkloads>(Arena*);
 template<> ::greptime::v1::meta::FlowStat* Arena::CreateMaybeMessage<::greptime::v1::meta::FlowStat>(Arena*);
 template<> ::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::meta::FlownodeWorkloads* Arena::CreateMaybeMessage<::greptime::v1::meta::FlownodeWorkloads>(Arena*);
+template<> ::greptime::v1::meta::FrontendWorkloads* Arena::CreateMaybeMessage<::greptime::v1::meta::FrontendWorkloads>(Arena*);
 template<> ::greptime::v1::meta::GrantedRegion* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion>(Arena*);
 template<> ::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest>(Arena*);
@@ -188,6 +200,13 @@ class HeartbeatRequest final :
   static const HeartbeatRequest& default_instance() {
     return *internal_default_instance();
   }
+  enum NodeWorkloadsCase {
+    kDatanode = 10,
+    kFrontend = 11,
+    kFlownode = 12,
+    NODE_WORKLOADS_NOT_SET = 0,
+  };
+
   static inline const HeartbeatRequest* internal_default_instance() {
     return reinterpret_cast<const HeartbeatRequest*>(
                &_HeartbeatRequest_default_instance_);
@@ -275,6 +294,9 @@ class HeartbeatRequest final :
     kFlowStatFieldNumber = 9,
     kDurationSinceEpochFieldNumber = 6,
     kNodeEpochFieldNumber = 7,
+    kDatanodeFieldNumber = 10,
+    kFrontendFieldNumber = 11,
+    kFlownodeFieldNumber = 12,
   };
   // repeated .greptime.v1.meta.RegionStat region_stats = 4;
   int region_stats_size() const;
@@ -420,9 +442,71 @@ class HeartbeatRequest final :
   void _internal_set_node_epoch(uint64_t value);
   public:
 
+  // .greptime.v1.meta.DatanodeWorkloads datanode = 10;
+  bool has_datanode() const;
+  private:
+  bool _internal_has_datanode() const;
+  public:
+  void clear_datanode();
+  const ::greptime::v1::meta::DatanodeWorkloads& datanode() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::DatanodeWorkloads* release_datanode();
+  ::greptime::v1::meta::DatanodeWorkloads* mutable_datanode();
+  void set_allocated_datanode(::greptime::v1::meta::DatanodeWorkloads* datanode);
+  private:
+  const ::greptime::v1::meta::DatanodeWorkloads& _internal_datanode() const;
+  ::greptime::v1::meta::DatanodeWorkloads* _internal_mutable_datanode();
+  public:
+  void unsafe_arena_set_allocated_datanode(
+      ::greptime::v1::meta::DatanodeWorkloads* datanode);
+  ::greptime::v1::meta::DatanodeWorkloads* unsafe_arena_release_datanode();
+
+  // .greptime.v1.meta.FrontendWorkloads frontend = 11;
+  bool has_frontend() const;
+  private:
+  bool _internal_has_frontend() const;
+  public:
+  void clear_frontend();
+  const ::greptime::v1::meta::FrontendWorkloads& frontend() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::FrontendWorkloads* release_frontend();
+  ::greptime::v1::meta::FrontendWorkloads* mutable_frontend();
+  void set_allocated_frontend(::greptime::v1::meta::FrontendWorkloads* frontend);
+  private:
+  const ::greptime::v1::meta::FrontendWorkloads& _internal_frontend() const;
+  ::greptime::v1::meta::FrontendWorkloads* _internal_mutable_frontend();
+  public:
+  void unsafe_arena_set_allocated_frontend(
+      ::greptime::v1::meta::FrontendWorkloads* frontend);
+  ::greptime::v1::meta::FrontendWorkloads* unsafe_arena_release_frontend();
+
+  // .greptime.v1.meta.FlownodeWorkloads flownode = 12;
+  bool has_flownode() const;
+  private:
+  bool _internal_has_flownode() const;
+  public:
+  void clear_flownode();
+  const ::greptime::v1::meta::FlownodeWorkloads& flownode() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::FlownodeWorkloads* release_flownode();
+  ::greptime::v1::meta::FlownodeWorkloads* mutable_flownode();
+  void set_allocated_flownode(::greptime::v1::meta::FlownodeWorkloads* flownode);
+  private:
+  const ::greptime::v1::meta::FlownodeWorkloads& _internal_flownode() const;
+  ::greptime::v1::meta::FlownodeWorkloads* _internal_mutable_flownode();
+  public:
+  void unsafe_arena_set_allocated_flownode(
+      ::greptime::v1::meta::FlownodeWorkloads* flownode);
+  ::greptime::v1::meta::FlownodeWorkloads* unsafe_arena_release_flownode();
+
+  void clear_node_workloads();
+  NodeWorkloadsCase node_workloads_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.HeartbeatRequest)
  private:
   class _Internal;
+  void set_has_datanode();
+  void set_has_frontend();
+  void set_has_flownode();
+
+  inline bool has_node_workloads() const;
+  inline void clear_has_node_workloads();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
@@ -437,6 +521,501 @@ class HeartbeatRequest final :
     ::greptime::v1::meta::FlowStat* flow_stat_;
     uint64_t duration_since_epoch_;
     uint64_t node_epoch_;
+    union NodeWorkloadsUnion {
+      constexpr NodeWorkloadsUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::greptime::v1::meta::DatanodeWorkloads* datanode_;
+      ::greptime::v1::meta::FrontendWorkloads* frontend_;
+      ::greptime::v1::meta::FlownodeWorkloads* flownode_;
+    } node_workloads_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DatanodeWorkloads final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.DatanodeWorkloads) */ {
+ public:
+  inline DatanodeWorkloads() : DatanodeWorkloads(nullptr) {}
+  ~DatanodeWorkloads() override;
+  explicit PROTOBUF_CONSTEXPR DatanodeWorkloads(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DatanodeWorkloads(const DatanodeWorkloads& from);
+  DatanodeWorkloads(DatanodeWorkloads&& from) noexcept
+    : DatanodeWorkloads() {
+    *this = ::std::move(from);
+  }
+
+  inline DatanodeWorkloads& operator=(const DatanodeWorkloads& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DatanodeWorkloads& operator=(DatanodeWorkloads&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DatanodeWorkloads& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DatanodeWorkloads* internal_default_instance() {
+    return reinterpret_cast<const DatanodeWorkloads*>(
+               &_DatanodeWorkloads_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(DatanodeWorkloads& a, DatanodeWorkloads& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DatanodeWorkloads* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DatanodeWorkloads* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DatanodeWorkloads* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DatanodeWorkloads>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DatanodeWorkloads& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const DatanodeWorkloads& from) {
+    DatanodeWorkloads::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DatanodeWorkloads* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.DatanodeWorkloads";
+  }
+  protected:
+  explicit DatanodeWorkloads(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTypesFieldNumber = 1,
+  };
+  // repeated int32 types = 1;
+  int types_size() const;
+  private:
+  int _internal_types_size() const;
+  public:
+  void clear_types();
+  private:
+  int32_t _internal_types(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_types() const;
+  void _internal_add_types(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_types();
+  public:
+  int32_t types(int index) const;
+  void set_types(int index, int32_t value);
+  void add_types(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      types() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_types();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.DatanodeWorkloads)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > types_;
+    mutable std::atomic<int> _types_cached_byte_size_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
+class FrontendWorkloads final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.FrontendWorkloads) */ {
+ public:
+  inline FrontendWorkloads() : FrontendWorkloads(nullptr) {}
+  ~FrontendWorkloads() override;
+  explicit PROTOBUF_CONSTEXPR FrontendWorkloads(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  FrontendWorkloads(const FrontendWorkloads& from);
+  FrontendWorkloads(FrontendWorkloads&& from) noexcept
+    : FrontendWorkloads() {
+    *this = ::std::move(from);
+  }
+
+  inline FrontendWorkloads& operator=(const FrontendWorkloads& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline FrontendWorkloads& operator=(FrontendWorkloads&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const FrontendWorkloads& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const FrontendWorkloads* internal_default_instance() {
+    return reinterpret_cast<const FrontendWorkloads*>(
+               &_FrontendWorkloads_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(FrontendWorkloads& a, FrontendWorkloads& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(FrontendWorkloads* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(FrontendWorkloads* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  FrontendWorkloads* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<FrontendWorkloads>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const FrontendWorkloads& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const FrontendWorkloads& from) {
+    FrontendWorkloads::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(FrontendWorkloads* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.FrontendWorkloads";
+  }
+  protected:
+  explicit FrontendWorkloads(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTypesFieldNumber = 1,
+  };
+  // repeated int32 types = 1;
+  int types_size() const;
+  private:
+  int _internal_types_size() const;
+  public:
+  void clear_types();
+  private:
+  int32_t _internal_types(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_types() const;
+  void _internal_add_types(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_types();
+  public:
+  int32_t types(int index) const;
+  void set_types(int index, int32_t value);
+  void add_types(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      types() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_types();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.FrontendWorkloads)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > types_;
+    mutable std::atomic<int> _types_cached_byte_size_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
+class FlownodeWorkloads final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.FlownodeWorkloads) */ {
+ public:
+  inline FlownodeWorkloads() : FlownodeWorkloads(nullptr) {}
+  ~FlownodeWorkloads() override;
+  explicit PROTOBUF_CONSTEXPR FlownodeWorkloads(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  FlownodeWorkloads(const FlownodeWorkloads& from);
+  FlownodeWorkloads(FlownodeWorkloads&& from) noexcept
+    : FlownodeWorkloads() {
+    *this = ::std::move(from);
+  }
+
+  inline FlownodeWorkloads& operator=(const FlownodeWorkloads& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline FlownodeWorkloads& operator=(FlownodeWorkloads&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const FlownodeWorkloads& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const FlownodeWorkloads* internal_default_instance() {
+    return reinterpret_cast<const FlownodeWorkloads*>(
+               &_FlownodeWorkloads_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(FlownodeWorkloads& a, FlownodeWorkloads& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(FlownodeWorkloads* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(FlownodeWorkloads* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  FlownodeWorkloads* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<FlownodeWorkloads>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const FlownodeWorkloads& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const FlownodeWorkloads& from) {
+    FlownodeWorkloads::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(FlownodeWorkloads* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.FlownodeWorkloads";
+  }
+  protected:
+  explicit FlownodeWorkloads(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTypesFieldNumber = 1,
+  };
+  // repeated int32 types = 1;
+  int types_size() const;
+  private:
+  int _internal_types_size() const;
+  public:
+  void clear_types();
+  private:
+  int32_t _internal_types(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_types() const;
+  void _internal_add_types(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_types();
+  public:
+  int32_t types(int index) const;
+  void set_types(int index, int32_t value);
+  void add_types(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      types() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_types();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.FlownodeWorkloads)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > types_;
+    mutable std::atomic<int> _types_cached_byte_size_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -492,7 +1071,7 @@ class NodeInfo final :
                &_NodeInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    4;
 
   friend void swap(NodeInfo& a, NodeInfo& b) {
     a.Swap(&b);
@@ -709,7 +1288,7 @@ class RegionStat final :
                &_RegionStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    6;
 
   friend void swap(RegionStat& a, RegionStat& b) {
     a.Swap(&b);
@@ -991,7 +1570,7 @@ class FlowStat final :
                &_FlowStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    9;
 
   friend void swap(FlowStat& a, FlowStat& b) {
     a.Swap(&b);
@@ -1177,7 +1756,7 @@ class HeartbeatResponse final :
                &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    10;
 
   friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
@@ -1400,7 +1979,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    12;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -1585,7 +2164,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    13;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -1789,7 +2368,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    14;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -1946,7 +2525,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    15;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -2128,7 +2707,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    16;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -2931,6 +3510,390 @@ inline void HeartbeatRequest::set_allocated_flow_stat(::greptime::v1::meta::Flow
   }
   _impl_.flow_stat_ = flow_stat;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatRequest.flow_stat)
+}
+
+// .greptime.v1.meta.DatanodeWorkloads datanode = 10;
+inline bool HeartbeatRequest::_internal_has_datanode() const {
+  return node_workloads_case() == kDatanode;
+}
+inline bool HeartbeatRequest::has_datanode() const {
+  return _internal_has_datanode();
+}
+inline void HeartbeatRequest::set_has_datanode() {
+  _impl_._oneof_case_[0] = kDatanode;
+}
+inline void HeartbeatRequest::clear_datanode() {
+  if (_internal_has_datanode()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.node_workloads_.datanode_;
+    }
+    clear_has_node_workloads();
+  }
+}
+inline ::greptime::v1::meta::DatanodeWorkloads* HeartbeatRequest::release_datanode() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.HeartbeatRequest.datanode)
+  if (_internal_has_datanode()) {
+    clear_has_node_workloads();
+    ::greptime::v1::meta::DatanodeWorkloads* temp = _impl_.node_workloads_.datanode_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.node_workloads_.datanode_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::meta::DatanodeWorkloads& HeartbeatRequest::_internal_datanode() const {
+  return _internal_has_datanode()
+      ? *_impl_.node_workloads_.datanode_
+      : reinterpret_cast< ::greptime::v1::meta::DatanodeWorkloads&>(::greptime::v1::meta::_DatanodeWorkloads_default_instance_);
+}
+inline const ::greptime::v1::meta::DatanodeWorkloads& HeartbeatRequest::datanode() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatRequest.datanode)
+  return _internal_datanode();
+}
+inline ::greptime::v1::meta::DatanodeWorkloads* HeartbeatRequest::unsafe_arena_release_datanode() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.HeartbeatRequest.datanode)
+  if (_internal_has_datanode()) {
+    clear_has_node_workloads();
+    ::greptime::v1::meta::DatanodeWorkloads* temp = _impl_.node_workloads_.datanode_;
+    _impl_.node_workloads_.datanode_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void HeartbeatRequest::unsafe_arena_set_allocated_datanode(::greptime::v1::meta::DatanodeWorkloads* datanode) {
+  clear_node_workloads();
+  if (datanode) {
+    set_has_datanode();
+    _impl_.node_workloads_.datanode_ = datanode;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.HeartbeatRequest.datanode)
+}
+inline ::greptime::v1::meta::DatanodeWorkloads* HeartbeatRequest::_internal_mutable_datanode() {
+  if (!_internal_has_datanode()) {
+    clear_node_workloads();
+    set_has_datanode();
+    _impl_.node_workloads_.datanode_ = CreateMaybeMessage< ::greptime::v1::meta::DatanodeWorkloads >(GetArenaForAllocation());
+  }
+  return _impl_.node_workloads_.datanode_;
+}
+inline ::greptime::v1::meta::DatanodeWorkloads* HeartbeatRequest::mutable_datanode() {
+  ::greptime::v1::meta::DatanodeWorkloads* _msg = _internal_mutable_datanode();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatRequest.datanode)
+  return _msg;
+}
+
+// .greptime.v1.meta.FrontendWorkloads frontend = 11;
+inline bool HeartbeatRequest::_internal_has_frontend() const {
+  return node_workloads_case() == kFrontend;
+}
+inline bool HeartbeatRequest::has_frontend() const {
+  return _internal_has_frontend();
+}
+inline void HeartbeatRequest::set_has_frontend() {
+  _impl_._oneof_case_[0] = kFrontend;
+}
+inline void HeartbeatRequest::clear_frontend() {
+  if (_internal_has_frontend()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.node_workloads_.frontend_;
+    }
+    clear_has_node_workloads();
+  }
+}
+inline ::greptime::v1::meta::FrontendWorkloads* HeartbeatRequest::release_frontend() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.HeartbeatRequest.frontend)
+  if (_internal_has_frontend()) {
+    clear_has_node_workloads();
+    ::greptime::v1::meta::FrontendWorkloads* temp = _impl_.node_workloads_.frontend_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.node_workloads_.frontend_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::meta::FrontendWorkloads& HeartbeatRequest::_internal_frontend() const {
+  return _internal_has_frontend()
+      ? *_impl_.node_workloads_.frontend_
+      : reinterpret_cast< ::greptime::v1::meta::FrontendWorkloads&>(::greptime::v1::meta::_FrontendWorkloads_default_instance_);
+}
+inline const ::greptime::v1::meta::FrontendWorkloads& HeartbeatRequest::frontend() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatRequest.frontend)
+  return _internal_frontend();
+}
+inline ::greptime::v1::meta::FrontendWorkloads* HeartbeatRequest::unsafe_arena_release_frontend() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.HeartbeatRequest.frontend)
+  if (_internal_has_frontend()) {
+    clear_has_node_workloads();
+    ::greptime::v1::meta::FrontendWorkloads* temp = _impl_.node_workloads_.frontend_;
+    _impl_.node_workloads_.frontend_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void HeartbeatRequest::unsafe_arena_set_allocated_frontend(::greptime::v1::meta::FrontendWorkloads* frontend) {
+  clear_node_workloads();
+  if (frontend) {
+    set_has_frontend();
+    _impl_.node_workloads_.frontend_ = frontend;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.HeartbeatRequest.frontend)
+}
+inline ::greptime::v1::meta::FrontendWorkloads* HeartbeatRequest::_internal_mutable_frontend() {
+  if (!_internal_has_frontend()) {
+    clear_node_workloads();
+    set_has_frontend();
+    _impl_.node_workloads_.frontend_ = CreateMaybeMessage< ::greptime::v1::meta::FrontendWorkloads >(GetArenaForAllocation());
+  }
+  return _impl_.node_workloads_.frontend_;
+}
+inline ::greptime::v1::meta::FrontendWorkloads* HeartbeatRequest::mutable_frontend() {
+  ::greptime::v1::meta::FrontendWorkloads* _msg = _internal_mutable_frontend();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatRequest.frontend)
+  return _msg;
+}
+
+// .greptime.v1.meta.FlownodeWorkloads flownode = 12;
+inline bool HeartbeatRequest::_internal_has_flownode() const {
+  return node_workloads_case() == kFlownode;
+}
+inline bool HeartbeatRequest::has_flownode() const {
+  return _internal_has_flownode();
+}
+inline void HeartbeatRequest::set_has_flownode() {
+  _impl_._oneof_case_[0] = kFlownode;
+}
+inline void HeartbeatRequest::clear_flownode() {
+  if (_internal_has_flownode()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.node_workloads_.flownode_;
+    }
+    clear_has_node_workloads();
+  }
+}
+inline ::greptime::v1::meta::FlownodeWorkloads* HeartbeatRequest::release_flownode() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.HeartbeatRequest.flownode)
+  if (_internal_has_flownode()) {
+    clear_has_node_workloads();
+    ::greptime::v1::meta::FlownodeWorkloads* temp = _impl_.node_workloads_.flownode_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.node_workloads_.flownode_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::meta::FlownodeWorkloads& HeartbeatRequest::_internal_flownode() const {
+  return _internal_has_flownode()
+      ? *_impl_.node_workloads_.flownode_
+      : reinterpret_cast< ::greptime::v1::meta::FlownodeWorkloads&>(::greptime::v1::meta::_FlownodeWorkloads_default_instance_);
+}
+inline const ::greptime::v1::meta::FlownodeWorkloads& HeartbeatRequest::flownode() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatRequest.flownode)
+  return _internal_flownode();
+}
+inline ::greptime::v1::meta::FlownodeWorkloads* HeartbeatRequest::unsafe_arena_release_flownode() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.HeartbeatRequest.flownode)
+  if (_internal_has_flownode()) {
+    clear_has_node_workloads();
+    ::greptime::v1::meta::FlownodeWorkloads* temp = _impl_.node_workloads_.flownode_;
+    _impl_.node_workloads_.flownode_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void HeartbeatRequest::unsafe_arena_set_allocated_flownode(::greptime::v1::meta::FlownodeWorkloads* flownode) {
+  clear_node_workloads();
+  if (flownode) {
+    set_has_flownode();
+    _impl_.node_workloads_.flownode_ = flownode;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.HeartbeatRequest.flownode)
+}
+inline ::greptime::v1::meta::FlownodeWorkloads* HeartbeatRequest::_internal_mutable_flownode() {
+  if (!_internal_has_flownode()) {
+    clear_node_workloads();
+    set_has_flownode();
+    _impl_.node_workloads_.flownode_ = CreateMaybeMessage< ::greptime::v1::meta::FlownodeWorkloads >(GetArenaForAllocation());
+  }
+  return _impl_.node_workloads_.flownode_;
+}
+inline ::greptime::v1::meta::FlownodeWorkloads* HeartbeatRequest::mutable_flownode() {
+  ::greptime::v1::meta::FlownodeWorkloads* _msg = _internal_mutable_flownode();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatRequest.flownode)
+  return _msg;
+}
+
+inline bool HeartbeatRequest::has_node_workloads() const {
+  return node_workloads_case() != NODE_WORKLOADS_NOT_SET;
+}
+inline void HeartbeatRequest::clear_has_node_workloads() {
+  _impl_._oneof_case_[0] = NODE_WORKLOADS_NOT_SET;
+}
+inline HeartbeatRequest::NodeWorkloadsCase HeartbeatRequest::node_workloads_case() const {
+  return HeartbeatRequest::NodeWorkloadsCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// DatanodeWorkloads
+
+// repeated int32 types = 1;
+inline int DatanodeWorkloads::_internal_types_size() const {
+  return _impl_.types_.size();
+}
+inline int DatanodeWorkloads::types_size() const {
+  return _internal_types_size();
+}
+inline void DatanodeWorkloads::clear_types() {
+  _impl_.types_.Clear();
+}
+inline int32_t DatanodeWorkloads::_internal_types(int index) const {
+  return _impl_.types_.Get(index);
+}
+inline int32_t DatanodeWorkloads::types(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DatanodeWorkloads.types)
+  return _internal_types(index);
+}
+inline void DatanodeWorkloads::set_types(int index, int32_t value) {
+  _impl_.types_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.DatanodeWorkloads.types)
+}
+inline void DatanodeWorkloads::_internal_add_types(int32_t value) {
+  _impl_.types_.Add(value);
+}
+inline void DatanodeWorkloads::add_types(int32_t value) {
+  _internal_add_types(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.DatanodeWorkloads.types)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+DatanodeWorkloads::_internal_types() const {
+  return _impl_.types_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+DatanodeWorkloads::types() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.DatanodeWorkloads.types)
+  return _internal_types();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+DatanodeWorkloads::_internal_mutable_types() {
+  return &_impl_.types_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+DatanodeWorkloads::mutable_types() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.DatanodeWorkloads.types)
+  return _internal_mutable_types();
+}
+
+// -------------------------------------------------------------------
+
+// FrontendWorkloads
+
+// repeated int32 types = 1;
+inline int FrontendWorkloads::_internal_types_size() const {
+  return _impl_.types_.size();
+}
+inline int FrontendWorkloads::types_size() const {
+  return _internal_types_size();
+}
+inline void FrontendWorkloads::clear_types() {
+  _impl_.types_.Clear();
+}
+inline int32_t FrontendWorkloads::_internal_types(int index) const {
+  return _impl_.types_.Get(index);
+}
+inline int32_t FrontendWorkloads::types(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.FrontendWorkloads.types)
+  return _internal_types(index);
+}
+inline void FrontendWorkloads::set_types(int index, int32_t value) {
+  _impl_.types_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.FrontendWorkloads.types)
+}
+inline void FrontendWorkloads::_internal_add_types(int32_t value) {
+  _impl_.types_.Add(value);
+}
+inline void FrontendWorkloads::add_types(int32_t value) {
+  _internal_add_types(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.FrontendWorkloads.types)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+FrontendWorkloads::_internal_types() const {
+  return _impl_.types_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+FrontendWorkloads::types() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.FrontendWorkloads.types)
+  return _internal_types();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+FrontendWorkloads::_internal_mutable_types() {
+  return &_impl_.types_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+FrontendWorkloads::mutable_types() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.FrontendWorkloads.types)
+  return _internal_mutable_types();
+}
+
+// -------------------------------------------------------------------
+
+// FlownodeWorkloads
+
+// repeated int32 types = 1;
+inline int FlownodeWorkloads::_internal_types_size() const {
+  return _impl_.types_.size();
+}
+inline int FlownodeWorkloads::types_size() const {
+  return _internal_types_size();
+}
+inline void FlownodeWorkloads::clear_types() {
+  _impl_.types_.Clear();
+}
+inline int32_t FlownodeWorkloads::_internal_types(int index) const {
+  return _impl_.types_.Get(index);
+}
+inline int32_t FlownodeWorkloads::types(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.FlownodeWorkloads.types)
+  return _internal_types(index);
+}
+inline void FlownodeWorkloads::set_types(int index, int32_t value) {
+  _impl_.types_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.FlownodeWorkloads.types)
+}
+inline void FlownodeWorkloads::_internal_add_types(int32_t value) {
+  _impl_.types_.Add(value);
+}
+inline void FlownodeWorkloads::add_types(int32_t value) {
+  _internal_add_types(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.FlownodeWorkloads.types)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+FlownodeWorkloads::_internal_types() const {
+  return _impl_.types_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+FlownodeWorkloads::types() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.FlownodeWorkloads.types)
+  return _internal_types();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+FlownodeWorkloads::_internal_mutable_types() {
+  return &_impl_.types_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+FlownodeWorkloads::mutable_types() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.FlownodeWorkloads.types)
+  return _internal_mutable_types();
 }
 
 // -------------------------------------------------------------------
@@ -4349,6 +5312,12 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

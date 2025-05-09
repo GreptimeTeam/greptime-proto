@@ -22,6 +22,7 @@ message RequestHeader {
   uint64 protocol_version = 1;
   // member_id is the ID of the sender server.
   uint64 member_id = 3;
+  // The role of the sender server.
   Role role = 4;
   // Encoded trace_id & span_id, follow the w3c Trace Context
   // https://www.w3.org/TR/trace-context/#header-name

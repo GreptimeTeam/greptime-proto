@@ -30,6 +30,22 @@ fn main() {
             ".greptime.v1.meta.Peer",
             "#[derive(::serde::Serialize, ::serde::Deserialize)]",
         )
+        .type_attribute(
+            ".greptime.v1.meta.HeartbeatRequest.node_workloads",
+            "#[derive(::serde::Serialize, ::serde::Deserialize)]",
+        )
+        .type_attribute(
+            ".greptime.v1.meta.DatanodeWorkloads",
+            "#[derive(::serde::Serialize, ::serde::Deserialize)]",
+        )
+        .type_attribute(
+            ".greptime.v1.meta.FrontendWorkloads",
+            "#[derive(::serde::Serialize, ::serde::Deserialize)]",
+        )
+        .type_attribute(
+            ".greptime.v1.meta.FlownodeWorkloads",
+            "#[derive(::serde::Serialize, ::serde::Deserialize)]",
+        )
         .enum_attribute(
             "region.RegionRequest.body",
             "#[derive(strum_macros::AsRefStr)]",

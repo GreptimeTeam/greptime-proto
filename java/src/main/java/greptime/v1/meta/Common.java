@@ -152,11 +152,19 @@ public final class Common {
     long getMemberId();
 
     /**
+     * <pre>
+     * The role of the sender server.
+     * </pre>
+     *
      * <code>.greptime.v1.meta.Role role = 4;</code>
      * @return The enum numeric value on the wire for role.
      */
     int getRoleValue();
     /**
+     * <pre>
+     * The role of the sender server.
+     * </pre>
+     *
      * <code>.greptime.v1.meta.Role role = 4;</code>
      * @return The role.
      */
@@ -374,6 +382,10 @@ java.lang.String defaultValue);
     public static final int ROLE_FIELD_NUMBER = 4;
     private int role_;
     /**
+     * <pre>
+     * The role of the sender server.
+     * </pre>
+     *
      * <code>.greptime.v1.meta.Role role = 4;</code>
      * @return The enum numeric value on the wire for role.
      */
@@ -381,6 +393,10 @@ java.lang.String defaultValue);
       return role_;
     }
     /**
+     * <pre>
+     * The role of the sender server.
+     * </pre>
+     *
      * <code>.greptime.v1.meta.Role role = 4;</code>
      * @return The role.
      */
@@ -955,6 +971,10 @@ java.lang.String defaultValue);
 
       private int role_ = 0;
       /**
+       * <pre>
+       * The role of the sender server.
+       * </pre>
+       *
        * <code>.greptime.v1.meta.Role role = 4;</code>
        * @return The enum numeric value on the wire for role.
        */
@@ -962,6 +982,10 @@ java.lang.String defaultValue);
         return role_;
       }
       /**
+       * <pre>
+       * The role of the sender server.
+       * </pre>
+       *
        * <code>.greptime.v1.meta.Role role = 4;</code>
        * @param value The enum numeric value on the wire for role to set.
        * @return This builder for chaining.
@@ -973,6 +997,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * The role of the sender server.
+       * </pre>
+       *
        * <code>.greptime.v1.meta.Role role = 4;</code>
        * @return The role.
        */
@@ -983,6 +1011,10 @@ java.lang.String defaultValue);
         return result == null ? greptime.v1.meta.Common.Role.UNRECOGNIZED : result;
       }
       /**
+       * <pre>
+       * The role of the sender server.
+       * </pre>
+       *
        * <code>.greptime.v1.meta.Role role = 4;</code>
        * @param value The role to set.
        * @return This builder for chaining.
@@ -997,6 +1029,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * The role of the sender server.
+       * </pre>
+       *
        * <code>.greptime.v1.meta.Role role = 4;</code>
        * @return This builder for chaining.
        */

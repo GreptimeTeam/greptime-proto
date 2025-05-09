@@ -91,7 +91,8 @@ type RequestHeader struct {
 	ProtocolVersion uint64 `protobuf:"varint,1,opt,name=protocol_version,json=protocolVersion,proto3" json:"protocol_version,omitempty"`
 	// member_id is the ID of the sender server.
 	MemberId uint64 `protobuf:"varint,3,opt,name=member_id,json=memberId,proto3" json:"member_id,omitempty"`
-	Role     Role   `protobuf:"varint,4,opt,name=role,proto3,enum=greptime.v1.meta.Role" json:"role,omitempty"`
+	// The role of the sender server.
+	Role Role `protobuf:"varint,4,opt,name=role,proto3,enum=greptime.v1.meta.Role" json:"role,omitempty"`
 	// Encoded trace_id & span_id, follow the w3c Trace Context
 	// https://www.w3.org/TR/trace-context/#header-name
 	TracingContext map[string]string `protobuf:"bytes,5,rep,name=tracing_context,json=tracingContext,proto3" json:"tracing_context,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
