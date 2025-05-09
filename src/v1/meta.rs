@@ -179,6 +179,24 @@ macro_rules! gen_set_header {
     };
 }
 
+impl DatanodeWorkloadType {
+    /// Whether the datanode workload type accepts ingest.
+    pub fn accept_ingest(&self) -> bool {
+        #[cfg(feature = "enterprise")]
+        {
+            matches!(
+                self,
+                DatanodeWorkloadType::Ingest | DatanodeWorkloadType::Hybrid
+            )
+        }
+
+        #[cfg(not(feature = "enterprise"))]
+        {
+            matches!(self, DatanodeWorkloadType::Hybrid)
+        }
+    }
+}
+
 gen_set_header!(HeartbeatRequest);
 gen_set_header!(RangeRequest);
 gen_set_header!(PutRequest);
