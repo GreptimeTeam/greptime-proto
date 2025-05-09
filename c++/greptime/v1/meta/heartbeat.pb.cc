@@ -278,7 +278,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace v1
 }  // namespace greptime
 static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[17];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[4];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto = nullptr;
 
 const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -508,12 +508,9 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "rontend\030\013 \001(\0132#.greptime.v1.meta.Fronten"
   "dWorkloadsH\000\0227\n\010flownode\030\014 \001(\0132#.greptim"
   "e.v1.meta.FlownodeWorkloadsH\000B\020\n\016node_wo"
-  "rkloads\"J\n\021DatanodeWorkloads\0225\n\005types\030\001 "
-  "\003(\0162&.greptime.v1.meta.DatanodeWorkloadT"
-  "ype\"J\n\021FrontendWorkloads\0225\n\005types\030\001 \003(\0162"
-  "&.greptime.v1.meta.FrontendWorkloadType\""
-  "J\n\021FlownodeWorkloads\0225\n\005types\030\001 \003(\0162&.gr"
-  "eptime.v1.meta.FlownodeWorkloadType\"T\n\010N"
+  "rkloads\"\"\n\021DatanodeWorkloads\022\r\n\005types\030\001 "
+  "\003(\005\"\"\n\021FrontendWorkloads\022\r\n\005types\030\001 \003(\005\""
+  "\"\n\021FlownodeWorkloads\022\r\n\005types\030\001 \003(\005\"T\n\010N"
   "odeInfo\022\017\n\007version\030\001 \001(\t\022\022\n\ngit_commit\030\002"
   " \001(\t\022\025\n\rstart_time_ms\030\003 \001(\004\022\014\n\004cpus\030\004 \001("
   "\r\"\207\002\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004r"
@@ -550,26 +547,22 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "\026.greptime.v1.meta.Peer\"|\n\016MailboxMessag"
   "e\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003"
   " \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001"
-  "(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*9\n\024Datanod"
-  "eWorkloadType\022\n\n\006HYBRID\020\000\022\n\n\006INGEST\020\001\022\t\n"
-  "\005QUERY\020\002*,\n\024FrontendWorkloadType\022\024\n\020FRON"
-  "TEND_DEFAULT\020\000*,\n\024FlownodeWorkloadType\022\024"
-  "\n\020FLOWNODE_DEFAULT\020\000*=\n\nRegionRole\022\n\n\006Le"
-  "ader\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLeade"
-  "r\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptim"
-  "e.v1.meta.HeartbeatRequest\032#.greptime.v1"
-  ".meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLead"
-  "er\022\".greptime.v1.meta.AskLeaderRequest\032#"
-  ".greptime.v1.meta.AskLeaderResponse\"\000B<Z"
-  ":github.com/GreptimeTeam/greptime-proto/"
-  "go/greptime/v1/metab\006proto3"
+  "(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionR"
+  "ole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgra"
+  "dingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022"
+  "\".greptime.v1.meta.HeartbeatRequest\032#.gr"
+  "eptime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V"
+  "\n\tAskLeader\022\".greptime.v1.meta.AskLeader"
+  "Request\032#.greptime.v1.meta.AskLeaderResp"
+  "onse\"\000B<Z:github.com/GreptimeTeam/grepti"
+  "me-proto/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 2867, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 2596, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 17,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
@@ -585,50 +578,9 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_in
 namespace greptime {
 namespace v1 {
 namespace meta {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DatanodeWorkloadType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto);
-  return file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[0];
-}
-bool DatanodeWorkloadType_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FrontendWorkloadType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto);
-  return file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[1];
-}
-bool FrontendWorkloadType_IsValid(int value) {
-  switch (value) {
-    case 0:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FlownodeWorkloadType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto);
-  return file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[2];
-}
-bool FlownodeWorkloadType_IsValid(int value) {
-  switch (value) {
-    case 0:
-      return true;
-    default:
-      return false;
-  }
-}
-
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* RegionRole_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto);
-  return file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[3];
+  return file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[0];
 }
 bool RegionRole_IsValid(int value) {
   switch (value) {
@@ -1432,15 +1384,14 @@ const char* DatanodeWorkloads::_InternalParse(const char* ptr, ::_pbi::ParseCont
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;
+      // repeated int32 types = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_types(), ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_types(), ptr, ctx);
           CHK_(ptr);
         } else if (static_cast<uint8_t>(tag) == 8) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _internal_add_types(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-          _internal_add_types(static_cast<::greptime::v1::meta::DatanodeWorkloadType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -1473,12 +1424,12 @@ uint8_t* DatanodeWorkloads::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;
+  // repeated int32 types = 1;
   {
     int byte_size = _impl_._types_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
-      target = stream->WriteEnumPacked(
-          1, _impl_.types_, byte_size, target);
+      target = stream->WriteInt32Packed(
+          1, _internal_types(), byte_size, target);
     }
   }
 
@@ -1498,13 +1449,10 @@ size_t DatanodeWorkloads::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;
+  // repeated int32 types = 1;
   {
-    size_t data_size = 0;
-    unsigned int count = static_cast<unsigned int>(this->_internal_types_size());for (unsigned int i = 0; i < count; i++) {
-      data_size += ::_pbi::WireFormatLite::EnumSize(
-        this->_internal_types(static_cast<int>(i)));
-    }
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int32Size(this->_impl_.types_);
     if (data_size > 0) {
       total_size += 1 +
         ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
@@ -1629,15 +1577,14 @@ const char* FrontendWorkloads::_InternalParse(const char* ptr, ::_pbi::ParseCont
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .greptime.v1.meta.FrontendWorkloadType types = 1;
+      // repeated int32 types = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_types(), ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_types(), ptr, ctx);
           CHK_(ptr);
         } else if (static_cast<uint8_t>(tag) == 8) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _internal_add_types(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-          _internal_add_types(static_cast<::greptime::v1::meta::FrontendWorkloadType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -1670,12 +1617,12 @@ uint8_t* FrontendWorkloads::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.meta.FrontendWorkloadType types = 1;
+  // repeated int32 types = 1;
   {
     int byte_size = _impl_._types_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
-      target = stream->WriteEnumPacked(
-          1, _impl_.types_, byte_size, target);
+      target = stream->WriteInt32Packed(
+          1, _internal_types(), byte_size, target);
     }
   }
 
@@ -1695,13 +1642,10 @@ size_t FrontendWorkloads::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.meta.FrontendWorkloadType types = 1;
+  // repeated int32 types = 1;
   {
-    size_t data_size = 0;
-    unsigned int count = static_cast<unsigned int>(this->_internal_types_size());for (unsigned int i = 0; i < count; i++) {
-      data_size += ::_pbi::WireFormatLite::EnumSize(
-        this->_internal_types(static_cast<int>(i)));
-    }
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int32Size(this->_impl_.types_);
     if (data_size > 0) {
       total_size += 1 +
         ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
@@ -1826,15 +1770,14 @@ const char* FlownodeWorkloads::_InternalParse(const char* ptr, ::_pbi::ParseCont
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;
+      // repeated int32 types = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_types(), ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_types(), ptr, ctx);
           CHK_(ptr);
         } else if (static_cast<uint8_t>(tag) == 8) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _internal_add_types(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-          _internal_add_types(static_cast<::greptime::v1::meta::FlownodeWorkloadType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -1867,12 +1810,12 @@ uint8_t* FlownodeWorkloads::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;
+  // repeated int32 types = 1;
   {
     int byte_size = _impl_._types_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
-      target = stream->WriteEnumPacked(
-          1, _impl_.types_, byte_size, target);
+      target = stream->WriteInt32Packed(
+          1, _internal_types(), byte_size, target);
     }
   }
 
@@ -1892,13 +1835,10 @@ size_t FlownodeWorkloads::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;
+  // repeated int32 types = 1;
   {
-    size_t data_size = 0;
-    unsigned int count = static_cast<unsigned int>(this->_internal_types_size());for (unsigned int i = 0; i < count; i++) {
-      data_size += ::_pbi::WireFormatLite::EnumSize(
-        this->_internal_types(static_cast<int>(i)));
-    }
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int32Size(this->_impl_.types_);
     if (data_size > 0) {
       total_size += 1 +
         ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));

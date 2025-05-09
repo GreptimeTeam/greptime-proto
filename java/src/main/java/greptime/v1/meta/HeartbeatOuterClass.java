@@ -15,373 +15,6 @@ public final class HeartbeatOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
-   * <pre>
-   *&#47; The workload type of the datanode.
-   * </pre>
-   *
-   * Protobuf enum {@code greptime.v1.meta.DatanodeWorkloadType}
-   */
-  public enum DatanodeWorkloadType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <pre>
-     *&#47; The datanode can handle all workloads (both ingest and query).
-     * </pre>
-     *
-     * <code>HYBRID = 0;</code>
-     */
-    HYBRID(0),
-    /**
-     * <pre>
-     *&#47; The datanode can only handle ingest workloads.
-     * </pre>
-     *
-     * <code>INGEST = 1;</code>
-     */
-    INGEST(1),
-    /**
-     * <pre>
-     *&#47; The datanode can only handle query workloads.
-     * </pre>
-     *
-     * <code>QUERY = 2;</code>
-     */
-    QUERY(2),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <pre>
-     *&#47; The datanode can handle all workloads (both ingest and query).
-     * </pre>
-     *
-     * <code>HYBRID = 0;</code>
-     */
-    public static final int HYBRID_VALUE = 0;
-    /**
-     * <pre>
-     *&#47; The datanode can only handle ingest workloads.
-     * </pre>
-     *
-     * <code>INGEST = 1;</code>
-     */
-    public static final int INGEST_VALUE = 1;
-    /**
-     * <pre>
-     *&#47; The datanode can only handle query workloads.
-     * </pre>
-     *
-     * <code>QUERY = 2;</code>
-     */
-    public static final int QUERY_VALUE = 2;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static DatanodeWorkloadType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static DatanodeWorkloadType forNumber(int value) {
-      switch (value) {
-        case 0: return HYBRID;
-        case 1: return INGEST;
-        case 2: return QUERY;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<DatanodeWorkloadType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        DatanodeWorkloadType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<DatanodeWorkloadType>() {
-            public DatanodeWorkloadType findValueByNumber(int number) {
-              return DatanodeWorkloadType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final DatanodeWorkloadType[] VALUES = values();
-
-    public static DatanodeWorkloadType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private DatanodeWorkloadType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.DatanodeWorkloadType)
-  }
-
-  /**
-   * <pre>
-   *&#47; The workload type of the frontend.
-   * </pre>
-   *
-   * Protobuf enum {@code greptime.v1.meta.FrontendWorkloadType}
-   */
-  public enum FrontendWorkloadType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <pre>
-     *&#47; The frontend can handle all workloads.
-     * </pre>
-     *
-     * <code>FRONTEND_DEFAULT = 0;</code>
-     */
-    FRONTEND_DEFAULT(0),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <pre>
-     *&#47; The frontend can handle all workloads.
-     * </pre>
-     *
-     * <code>FRONTEND_DEFAULT = 0;</code>
-     */
-    public static final int FRONTEND_DEFAULT_VALUE = 0;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static FrontendWorkloadType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static FrontendWorkloadType forNumber(int value) {
-      switch (value) {
-        case 0: return FRONTEND_DEFAULT;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<FrontendWorkloadType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        FrontendWorkloadType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<FrontendWorkloadType>() {
-            public FrontendWorkloadType findValueByNumber(int number) {
-              return FrontendWorkloadType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(1);
-    }
-
-    private static final FrontendWorkloadType[] VALUES = values();
-
-    public static FrontendWorkloadType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private FrontendWorkloadType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.FrontendWorkloadType)
-  }
-
-  /**
-   * <pre>
-   *&#47; The workload type of the flownode.
-   * </pre>
-   *
-   * Protobuf enum {@code greptime.v1.meta.FlownodeWorkloadType}
-   */
-  public enum FlownodeWorkloadType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <pre>
-     *&#47; The flownode can handle all workloads.
-     * </pre>
-     *
-     * <code>FLOWNODE_DEFAULT = 0;</code>
-     */
-    FLOWNODE_DEFAULT(0),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <pre>
-     *&#47; The flownode can handle all workloads.
-     * </pre>
-     *
-     * <code>FLOWNODE_DEFAULT = 0;</code>
-     */
-    public static final int FLOWNODE_DEFAULT_VALUE = 0;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static FlownodeWorkloadType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static FlownodeWorkloadType forNumber(int value) {
-      switch (value) {
-        case 0: return FLOWNODE_DEFAULT;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<FlownodeWorkloadType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        FlownodeWorkloadType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<FlownodeWorkloadType>() {
-            public FlownodeWorkloadType findValueByNumber(int number) {
-              return FlownodeWorkloadType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(2);
-    }
-
-    private static final FlownodeWorkloadType[] VALUES = values();
-
-    public static FlownodeWorkloadType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private FlownodeWorkloadType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.FlownodeWorkloadType)
-  }
-
-  /**
    * Protobuf enum {@code greptime.v1.meta.RegionRole}
    */
   public enum RegionRole
@@ -502,7 +135,7 @@ public final class HeartbeatOuterClass {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(3);
+      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final RegionRole[] VALUES = values();
@@ -3781,33 +3414,21 @@ public final class HeartbeatOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return A list containing the types.
      */
-    java.util.List<greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> getTypesList();
+    java.util.List<java.lang.Integer> getTypesList();
     /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return The count of types.
      */
     int getTypesCount();
     /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @param index The index of the element to return.
      * @return The types at the given index.
      */
-    greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType getTypes(int index);
-    /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
-     * @return A list containing the enum numeric values on the wire for types.
-     */
-    java.util.List<java.lang.Integer>
-    getTypesValueList();
-    /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of types at the given index.
-     */
-    int getTypesValue(int index);
+    int getTypes(int index);
   }
   /**
    * <pre>
@@ -3826,7 +3447,7 @@ public final class HeartbeatOuterClass {
       super(builder);
     }
     private DatanodeWorkloads() {
-      types_ = java.util.Collections.emptyList();
+      types_ = emptyIntList();
     }
 
     @java.lang.Override
@@ -3861,26 +3482,24 @@ public final class HeartbeatOuterClass {
               done = true;
               break;
             case 8: {
-              int rawValue = input.readEnum();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                types_ = new java.util.ArrayList<java.lang.Integer>();
+                types_ = newIntList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              types_.add(rawValue);
+              types_.addInt(input.readInt32());
               break;
             }
             case 10: {
               int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  types_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                types_.add(rawValue);
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                types_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
               }
-              input.popLimit(oldLimit);
+              while (input.getBytesUntilLimit() > 0) {
+                types_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
             default: {
@@ -3901,7 +3520,7 @@ public final class HeartbeatOuterClass {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          types_ = java.util.Collections.unmodifiableList(types_);
+          types_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3921,62 +3540,32 @@ public final class HeartbeatOuterClass {
     }
 
     public static final int TYPES_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Integer> types_;
-    private static final com.google.protobuf.Internal.ListAdapter.Converter<
-        java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> types_converter_ =
-            new com.google.protobuf.Internal.ListAdapter.Converter<
-                java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType>() {
-              public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType result = greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType.valueOf(from);
-                return result == null ? greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType.UNRECOGNIZED : result;
-              }
-            };
+    private com.google.protobuf.Internal.IntList types_;
     /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return A list containing the types.
      */
     @java.lang.Override
-    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> getTypesList() {
-      return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType>(types_, types_converter_);
+    public java.util.List<java.lang.Integer>
+        getTypesList() {
+      return types_;
     }
     /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return The count of types.
      */
-    @java.lang.Override
     public int getTypesCount() {
       return types_.size();
     }
     /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @param index The index of the element to return.
      * @return The types at the given index.
      */
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType getTypes(int index) {
-      return types_converter_.convert(types_.get(index));
+    public int getTypes(int index) {
+      return types_.getInt(index);
     }
-    /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
-     * @return A list containing the enum numeric values on the wire for types.
-     */
-    @java.lang.Override
-    public java.util.List<java.lang.Integer>
-    getTypesValueList() {
-      return types_;
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of types at the given index.
-     */
-    @java.lang.Override
-    public int getTypesValue(int index) {
-      return types_.get(index);
-    }
-    private int typesMemoizedSerializedSize;
+    private int typesMemoizedSerializedSize = -1;
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -3998,7 +3587,7 @@ public final class HeartbeatOuterClass {
         output.writeUInt32NoTag(typesMemoizedSerializedSize);
       }
       for (int i = 0; i < types_.size(); i++) {
-        output.writeEnumNoTag(types_.get(i));
+        output.writeInt32NoTag(types_.getInt(i));
       }
       unknownFields.writeTo(output);
     }
@@ -4013,13 +3602,15 @@ public final class HeartbeatOuterClass {
         int dataSize = 0;
         for (int i = 0; i < types_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeEnumSizeNoTag(types_.get(i));
+            .computeInt32SizeNoTag(types_.getInt(i));
         }
         size += dataSize;
-        if (!getTypesList().isEmpty()) {  size += 1;
+        if (!getTypesList().isEmpty()) {
+          size += 1;
           size += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(dataSize);
-        }typesMemoizedSerializedSize = dataSize;
+              .computeInt32SizeNoTag(dataSize);
+        }
+        typesMemoizedSerializedSize = dataSize;
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4036,7 +3627,8 @@ public final class HeartbeatOuterClass {
       }
       greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads other = (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads) obj;
 
-      if (!types_.equals(other.types_)) return false;
+      if (!getTypesList()
+          .equals(other.getTypesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4050,7 +3642,7 @@ public final class HeartbeatOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (getTypesCount() > 0) {
         hash = (37 * hash) + TYPES_FIELD_NUMBER;
-        hash = (53 * hash) + types_.hashCode();
+        hash = (53 * hash) + getTypesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4189,7 +3781,7 @@ public final class HeartbeatOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        types_ = java.util.Collections.emptyList();
+        types_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -4219,7 +3811,7 @@ public final class HeartbeatOuterClass {
         greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads result = new greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloads(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
-          types_ = java.util.Collections.unmodifiableList(types_);
+          types_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.types_ = types_;
@@ -4311,142 +3903,81 @@ public final class HeartbeatOuterClass {
       }
       private int bitField0_;
 
-      private java.util.List<java.lang.Integer> types_ =
-        java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.IntList types_ = emptyIntList();
       private void ensureTypesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          types_ = new java.util.ArrayList<java.lang.Integer>(types_);
+          types_ = mutableCopy(types_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @return A list containing the types.
        */
-      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> getTypesList() {
-        return new com.google.protobuf.Internal.ListAdapter<
-            java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType>(types_, types_converter_);
+      public java.util.List<java.lang.Integer>
+          getTypesList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(types_) : types_;
       }
       /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @return The count of types.
        */
       public int getTypesCount() {
         return types_.size();
       }
       /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param index The index of the element to return.
        * @return The types at the given index.
        */
-      public greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType getTypes(int index) {
-        return types_converter_.convert(types_.get(index));
+      public int getTypes(int index) {
+        return types_.getInt(index);
       }
       /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param index The index to set the value at.
        * @param value The types to set.
        * @return This builder for chaining.
        */
       public Builder setTypes(
-          int index, greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+          int index, int value) {
         ensureTypesIsMutable();
-        types_.set(index, value.getNumber());
+        types_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param value The types to add.
        * @return This builder for chaining.
        */
-      public Builder addTypes(greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder addTypes(int value) {
         ensureTypesIsMutable();
-        types_.add(value.getNumber());
+        types_.addInt(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param values The types to add.
        * @return This builder for chaining.
        */
       public Builder addAllTypes(
-          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType> values) {
+          java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureTypesIsMutable();
-        for (greptime.v1.meta.HeartbeatOuterClass.DatanodeWorkloadType value : values) {
-          types_.add(value.getNumber());
-        }
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, types_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTypes() {
-        types_ = java.util.Collections.emptyList();
+        types_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
-       * @return A list containing the enum numeric values on the wire for types.
-       */
-      public java.util.List<java.lang.Integer>
-      getTypesValueList() {
-        return java.util.Collections.unmodifiableList(types_);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
-       * @param index The index of the value to return.
-       * @return The enum numeric value on the wire of types at the given index.
-       */
-      public int getTypesValue(int index) {
-        return types_.get(index);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
-       * @param index The index to set the value at.
-       * @param value The enum numeric value on the wire for types to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypesValue(
-          int index, int value) {
-        ensureTypesIsMutable();
-        types_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
-       * @param value The enum numeric value on the wire for types to add.
-       * @return This builder for chaining.
-       */
-      public Builder addTypesValue(int value) {
-        ensureTypesIsMutable();
-        types_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;</code>
-       * @param values The enum numeric values on the wire for types to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllTypesValue(
-          java.lang.Iterable<java.lang.Integer> values) {
-        ensureTypesIsMutable();
-        for (int value : values) {
-          types_.add(value);
-        }
         onChanged();
         return this;
       }
@@ -4508,33 +4039,21 @@ public final class HeartbeatOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return A list containing the types.
      */
-    java.util.List<greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> getTypesList();
+    java.util.List<java.lang.Integer> getTypesList();
     /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return The count of types.
      */
     int getTypesCount();
     /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @param index The index of the element to return.
      * @return The types at the given index.
      */
-    greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType getTypes(int index);
-    /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
-     * @return A list containing the enum numeric values on the wire for types.
-     */
-    java.util.List<java.lang.Integer>
-    getTypesValueList();
-    /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of types at the given index.
-     */
-    int getTypesValue(int index);
+    int getTypes(int index);
   }
   /**
    * <pre>
@@ -4553,7 +4072,7 @@ public final class HeartbeatOuterClass {
       super(builder);
     }
     private FrontendWorkloads() {
-      types_ = java.util.Collections.emptyList();
+      types_ = emptyIntList();
     }
 
     @java.lang.Override
@@ -4588,26 +4107,24 @@ public final class HeartbeatOuterClass {
               done = true;
               break;
             case 8: {
-              int rawValue = input.readEnum();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                types_ = new java.util.ArrayList<java.lang.Integer>();
+                types_ = newIntList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              types_.add(rawValue);
+              types_.addInt(input.readInt32());
               break;
             }
             case 10: {
               int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  types_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                types_.add(rawValue);
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                types_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
               }
-              input.popLimit(oldLimit);
+              while (input.getBytesUntilLimit() > 0) {
+                types_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
             default: {
@@ -4628,7 +4145,7 @@ public final class HeartbeatOuterClass {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          types_ = java.util.Collections.unmodifiableList(types_);
+          types_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -4648,62 +4165,32 @@ public final class HeartbeatOuterClass {
     }
 
     public static final int TYPES_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Integer> types_;
-    private static final com.google.protobuf.Internal.ListAdapter.Converter<
-        java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> types_converter_ =
-            new com.google.protobuf.Internal.ListAdapter.Converter<
-                java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType>() {
-              public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType result = greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType.valueOf(from);
-                return result == null ? greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType.UNRECOGNIZED : result;
-              }
-            };
+    private com.google.protobuf.Internal.IntList types_;
     /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return A list containing the types.
      */
     @java.lang.Override
-    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> getTypesList() {
-      return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType>(types_, types_converter_);
+    public java.util.List<java.lang.Integer>
+        getTypesList() {
+      return types_;
     }
     /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return The count of types.
      */
-    @java.lang.Override
     public int getTypesCount() {
       return types_.size();
     }
     /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @param index The index of the element to return.
      * @return The types at the given index.
      */
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType getTypes(int index) {
-      return types_converter_.convert(types_.get(index));
+    public int getTypes(int index) {
+      return types_.getInt(index);
     }
-    /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
-     * @return A list containing the enum numeric values on the wire for types.
-     */
-    @java.lang.Override
-    public java.util.List<java.lang.Integer>
-    getTypesValueList() {
-      return types_;
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of types at the given index.
-     */
-    @java.lang.Override
-    public int getTypesValue(int index) {
-      return types_.get(index);
-    }
-    private int typesMemoizedSerializedSize;
+    private int typesMemoizedSerializedSize = -1;
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -4725,7 +4212,7 @@ public final class HeartbeatOuterClass {
         output.writeUInt32NoTag(typesMemoizedSerializedSize);
       }
       for (int i = 0; i < types_.size(); i++) {
-        output.writeEnumNoTag(types_.get(i));
+        output.writeInt32NoTag(types_.getInt(i));
       }
       unknownFields.writeTo(output);
     }
@@ -4740,13 +4227,15 @@ public final class HeartbeatOuterClass {
         int dataSize = 0;
         for (int i = 0; i < types_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeEnumSizeNoTag(types_.get(i));
+            .computeInt32SizeNoTag(types_.getInt(i));
         }
         size += dataSize;
-        if (!getTypesList().isEmpty()) {  size += 1;
+        if (!getTypesList().isEmpty()) {
+          size += 1;
           size += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(dataSize);
-        }typesMemoizedSerializedSize = dataSize;
+              .computeInt32SizeNoTag(dataSize);
+        }
+        typesMemoizedSerializedSize = dataSize;
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4763,7 +4252,8 @@ public final class HeartbeatOuterClass {
       }
       greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads other = (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads) obj;
 
-      if (!types_.equals(other.types_)) return false;
+      if (!getTypesList()
+          .equals(other.getTypesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4777,7 +4267,7 @@ public final class HeartbeatOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (getTypesCount() > 0) {
         hash = (37 * hash) + TYPES_FIELD_NUMBER;
-        hash = (53 * hash) + types_.hashCode();
+        hash = (53 * hash) + getTypesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4916,7 +4406,7 @@ public final class HeartbeatOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        types_ = java.util.Collections.emptyList();
+        types_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -4946,7 +4436,7 @@ public final class HeartbeatOuterClass {
         greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads result = new greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloads(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
-          types_ = java.util.Collections.unmodifiableList(types_);
+          types_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.types_ = types_;
@@ -5038,142 +4528,81 @@ public final class HeartbeatOuterClass {
       }
       private int bitField0_;
 
-      private java.util.List<java.lang.Integer> types_ =
-        java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.IntList types_ = emptyIntList();
       private void ensureTypesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          types_ = new java.util.ArrayList<java.lang.Integer>(types_);
+          types_ = mutableCopy(types_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @return A list containing the types.
        */
-      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> getTypesList() {
-        return new com.google.protobuf.Internal.ListAdapter<
-            java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType>(types_, types_converter_);
+      public java.util.List<java.lang.Integer>
+          getTypesList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(types_) : types_;
       }
       /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @return The count of types.
        */
       public int getTypesCount() {
         return types_.size();
       }
       /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param index The index of the element to return.
        * @return The types at the given index.
        */
-      public greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType getTypes(int index) {
-        return types_converter_.convert(types_.get(index));
+      public int getTypes(int index) {
+        return types_.getInt(index);
       }
       /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param index The index to set the value at.
        * @param value The types to set.
        * @return This builder for chaining.
        */
       public Builder setTypes(
-          int index, greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+          int index, int value) {
         ensureTypesIsMutable();
-        types_.set(index, value.getNumber());
+        types_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param value The types to add.
        * @return This builder for chaining.
        */
-      public Builder addTypes(greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder addTypes(int value) {
         ensureTypesIsMutable();
-        types_.add(value.getNumber());
+        types_.addInt(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param values The types to add.
        * @return This builder for chaining.
        */
       public Builder addAllTypes(
-          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType> values) {
+          java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureTypesIsMutable();
-        for (greptime.v1.meta.HeartbeatOuterClass.FrontendWorkloadType value : values) {
-          types_.add(value.getNumber());
-        }
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, types_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTypes() {
-        types_ = java.util.Collections.emptyList();
+        types_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
-       * @return A list containing the enum numeric values on the wire for types.
-       */
-      public java.util.List<java.lang.Integer>
-      getTypesValueList() {
-        return java.util.Collections.unmodifiableList(types_);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
-       * @param index The index of the value to return.
-       * @return The enum numeric value on the wire of types at the given index.
-       */
-      public int getTypesValue(int index) {
-        return types_.get(index);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
-       * @param index The index to set the value at.
-       * @param value The enum numeric value on the wire for types to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypesValue(
-          int index, int value) {
-        ensureTypesIsMutable();
-        types_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
-       * @param value The enum numeric value on the wire for types to add.
-       * @return This builder for chaining.
-       */
-      public Builder addTypesValue(int value) {
-        ensureTypesIsMutable();
-        types_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FrontendWorkloadType types = 1;</code>
-       * @param values The enum numeric values on the wire for types to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllTypesValue(
-          java.lang.Iterable<java.lang.Integer> values) {
-        ensureTypesIsMutable();
-        for (int value : values) {
-          types_.add(value);
-        }
         onChanged();
         return this;
       }
@@ -5235,33 +4664,21 @@ public final class HeartbeatOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return A list containing the types.
      */
-    java.util.List<greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> getTypesList();
+    java.util.List<java.lang.Integer> getTypesList();
     /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return The count of types.
      */
     int getTypesCount();
     /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @param index The index of the element to return.
      * @return The types at the given index.
      */
-    greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType getTypes(int index);
-    /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
-     * @return A list containing the enum numeric values on the wire for types.
-     */
-    java.util.List<java.lang.Integer>
-    getTypesValueList();
-    /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of types at the given index.
-     */
-    int getTypesValue(int index);
+    int getTypes(int index);
   }
   /**
    * <pre>
@@ -5280,7 +4697,7 @@ public final class HeartbeatOuterClass {
       super(builder);
     }
     private FlownodeWorkloads() {
-      types_ = java.util.Collections.emptyList();
+      types_ = emptyIntList();
     }
 
     @java.lang.Override
@@ -5315,26 +4732,24 @@ public final class HeartbeatOuterClass {
               done = true;
               break;
             case 8: {
-              int rawValue = input.readEnum();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                types_ = new java.util.ArrayList<java.lang.Integer>();
+                types_ = newIntList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              types_.add(rawValue);
+              types_.addInt(input.readInt32());
               break;
             }
             case 10: {
               int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  types_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                types_.add(rawValue);
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                types_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
               }
-              input.popLimit(oldLimit);
+              while (input.getBytesUntilLimit() > 0) {
+                types_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
             default: {
@@ -5355,7 +4770,7 @@ public final class HeartbeatOuterClass {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          types_ = java.util.Collections.unmodifiableList(types_);
+          types_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -5375,62 +4790,32 @@ public final class HeartbeatOuterClass {
     }
 
     public static final int TYPES_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Integer> types_;
-    private static final com.google.protobuf.Internal.ListAdapter.Converter<
-        java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> types_converter_ =
-            new com.google.protobuf.Internal.ListAdapter.Converter<
-                java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType>() {
-              public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType result = greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType.valueOf(from);
-                return result == null ? greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType.UNRECOGNIZED : result;
-              }
-            };
+    private com.google.protobuf.Internal.IntList types_;
     /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return A list containing the types.
      */
     @java.lang.Override
-    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> getTypesList() {
-      return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType>(types_, types_converter_);
+    public java.util.List<java.lang.Integer>
+        getTypesList() {
+      return types_;
     }
     /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @return The count of types.
      */
-    @java.lang.Override
     public int getTypesCount() {
       return types_.size();
     }
     /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+     * <code>repeated int32 types = 1;</code>
      * @param index The index of the element to return.
      * @return The types at the given index.
      */
-    @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType getTypes(int index) {
-      return types_converter_.convert(types_.get(index));
+    public int getTypes(int index) {
+      return types_.getInt(index);
     }
-    /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
-     * @return A list containing the enum numeric values on the wire for types.
-     */
-    @java.lang.Override
-    public java.util.List<java.lang.Integer>
-    getTypesValueList() {
-      return types_;
-    }
-    /**
-     * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of types at the given index.
-     */
-    @java.lang.Override
-    public int getTypesValue(int index) {
-      return types_.get(index);
-    }
-    private int typesMemoizedSerializedSize;
+    private int typesMemoizedSerializedSize = -1;
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -5452,7 +4837,7 @@ public final class HeartbeatOuterClass {
         output.writeUInt32NoTag(typesMemoizedSerializedSize);
       }
       for (int i = 0; i < types_.size(); i++) {
-        output.writeEnumNoTag(types_.get(i));
+        output.writeInt32NoTag(types_.getInt(i));
       }
       unknownFields.writeTo(output);
     }
@@ -5467,13 +4852,15 @@ public final class HeartbeatOuterClass {
         int dataSize = 0;
         for (int i = 0; i < types_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeEnumSizeNoTag(types_.get(i));
+            .computeInt32SizeNoTag(types_.getInt(i));
         }
         size += dataSize;
-        if (!getTypesList().isEmpty()) {  size += 1;
+        if (!getTypesList().isEmpty()) {
+          size += 1;
           size += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(dataSize);
-        }typesMemoizedSerializedSize = dataSize;
+              .computeInt32SizeNoTag(dataSize);
+        }
+        typesMemoizedSerializedSize = dataSize;
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5490,7 +4877,8 @@ public final class HeartbeatOuterClass {
       }
       greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads other = (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads) obj;
 
-      if (!types_.equals(other.types_)) return false;
+      if (!getTypesList()
+          .equals(other.getTypesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5504,7 +4892,7 @@ public final class HeartbeatOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (getTypesCount() > 0) {
         hash = (37 * hash) + TYPES_FIELD_NUMBER;
-        hash = (53 * hash) + types_.hashCode();
+        hash = (53 * hash) + getTypesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5643,7 +5031,7 @@ public final class HeartbeatOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        types_ = java.util.Collections.emptyList();
+        types_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -5673,7 +5061,7 @@ public final class HeartbeatOuterClass {
         greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads result = new greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloads(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
-          types_ = java.util.Collections.unmodifiableList(types_);
+          types_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.types_ = types_;
@@ -5765,142 +5153,81 @@ public final class HeartbeatOuterClass {
       }
       private int bitField0_;
 
-      private java.util.List<java.lang.Integer> types_ =
-        java.util.Collections.emptyList();
+      private com.google.protobuf.Internal.IntList types_ = emptyIntList();
       private void ensureTypesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          types_ = new java.util.ArrayList<java.lang.Integer>(types_);
+          types_ = mutableCopy(types_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @return A list containing the types.
        */
-      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> getTypesList() {
-        return new com.google.protobuf.Internal.ListAdapter<
-            java.lang.Integer, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType>(types_, types_converter_);
+      public java.util.List<java.lang.Integer>
+          getTypesList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(types_) : types_;
       }
       /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @return The count of types.
        */
       public int getTypesCount() {
         return types_.size();
       }
       /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param index The index of the element to return.
        * @return The types at the given index.
        */
-      public greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType getTypes(int index) {
-        return types_converter_.convert(types_.get(index));
+      public int getTypes(int index) {
+        return types_.getInt(index);
       }
       /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param index The index to set the value at.
        * @param value The types to set.
        * @return This builder for chaining.
        */
       public Builder setTypes(
-          int index, greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+          int index, int value) {
         ensureTypesIsMutable();
-        types_.set(index, value.getNumber());
+        types_.setInt(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param value The types to add.
        * @return This builder for chaining.
        */
-      public Builder addTypes(greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder addTypes(int value) {
         ensureTypesIsMutable();
-        types_.add(value.getNumber());
+        types_.addInt(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @param values The types to add.
        * @return This builder for chaining.
        */
       public Builder addAllTypes(
-          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType> values) {
+          java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureTypesIsMutable();
-        for (greptime.v1.meta.HeartbeatOuterClass.FlownodeWorkloadType value : values) {
-          types_.add(value.getNumber());
-        }
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, types_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
+       * <code>repeated int32 types = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTypes() {
-        types_ = java.util.Collections.emptyList();
+        types_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
-       * @return A list containing the enum numeric values on the wire for types.
-       */
-      public java.util.List<java.lang.Integer>
-      getTypesValueList() {
-        return java.util.Collections.unmodifiableList(types_);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
-       * @param index The index of the value to return.
-       * @return The enum numeric value on the wire of types at the given index.
-       */
-      public int getTypesValue(int index) {
-        return types_.get(index);
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
-       * @param index The index to set the value at.
-       * @param value The enum numeric value on the wire for types to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypesValue(
-          int index, int value) {
-        ensureTypesIsMutable();
-        types_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
-       * @param value The enum numeric value on the wire for types to add.
-       * @return This builder for chaining.
-       */
-      public Builder addTypesValue(int value) {
-        ensureTypesIsMutable();
-        types_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;</code>
-       * @param values The enum numeric values on the wire for types to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllTypesValue(
-          java.lang.Iterable<java.lang.Integer> values) {
-        ensureTypesIsMutable();
-        for (int value : values) {
-          types_.add(value);
-        }
         onChanged();
         return this;
       }
@@ -15489,12 +14816,9 @@ com.google.protobuf.ByteString defaultValue);
       "rontend\030\013 \001(\0132#.greptime.v1.meta.Fronten" +
       "dWorkloadsH\000\0227\n\010flownode\030\014 \001(\0132#.greptim" +
       "e.v1.meta.FlownodeWorkloadsH\000B\020\n\016node_wo" +
-      "rkloads\"J\n\021DatanodeWorkloads\0225\n\005types\030\001 " +
-      "\003(\0162&.greptime.v1.meta.DatanodeWorkloadT" +
-      "ype\"J\n\021FrontendWorkloads\0225\n\005types\030\001 \003(\0162" +
-      "&.greptime.v1.meta.FrontendWorkloadType\"" +
-      "J\n\021FlownodeWorkloads\0225\n\005types\030\001 \003(\0162&.gr" +
-      "eptime.v1.meta.FlownodeWorkloadType\"T\n\010N" +
+      "rkloads\"\"\n\021DatanodeWorkloads\022\r\n\005types\030\001 " +
+      "\003(\005\"\"\n\021FrontendWorkloads\022\r\n\005types\030\001 \003(\005\"" +
+      "\"\n\021FlownodeWorkloads\022\r\n\005types\030\001 \003(\005\"T\n\010N" +
       "odeInfo\022\017\n\007version\030\001 \001(\t\022\022\n\ngit_commit\030\002" +
       " \001(\t\022\025\n\rstart_time_ms\030\003 \001(\004\022\014\n\004cpus\030\004 \001(" +
       "\r\"\207\002\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004r" +
@@ -15531,19 +14855,15 @@ com.google.protobuf.ByteString defaultValue);
       "\026.greptime.v1.meta.Peer\"|\n\016MailboxMessag" +
       "e\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003" +
       " \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001" +
-      "(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*9\n\024Datanod" +
-      "eWorkloadType\022\n\n\006HYBRID\020\000\022\n\n\006INGEST\020\001\022\t\n" +
-      "\005QUERY\020\002*,\n\024FrontendWorkloadType\022\024\n\020FRON" +
-      "TEND_DEFAULT\020\000*,\n\024FlownodeWorkloadType\022\024" +
-      "\n\020FLOWNODE_DEFAULT\020\000*=\n\nRegionRole\022\n\n\006Le" +
-      "ader\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLeade" +
-      "r\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptim" +
-      "e.v1.meta.HeartbeatRequest\032#.greptime.v1" +
-      ".meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLead" +
-      "er\022\".greptime.v1.meta.AskLeaderRequest\032#" +
-      ".greptime.v1.meta.AskLeaderResponse\"\000B<Z" +
-      ":github.com/GreptimeTeam/greptime-proto/" +
-      "go/greptime/v1/metab\006proto3"
+      "(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionR" +
+      "ole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgra" +
+      "dingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022" +
+      "\".greptime.v1.meta.HeartbeatRequest\032#.gr" +
+      "eptime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V" +
+      "\n\tAskLeader\022\".greptime.v1.meta.AskLeader" +
+      "Request\032#.greptime.v1.meta.AskLeaderResp" +
+      "onse\"\000B<Z:github.com/GreptimeTeam/grepti" +
+      "me-proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -129,80 +129,6 @@ namespace greptime {
 namespace v1 {
 namespace meta {
 
-enum DatanodeWorkloadType : int {
-  HYBRID = 0,
-  INGEST = 1,
-  QUERY = 2,
-  DatanodeWorkloadType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  DatanodeWorkloadType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool DatanodeWorkloadType_IsValid(int value);
-constexpr DatanodeWorkloadType DatanodeWorkloadType_MIN = HYBRID;
-constexpr DatanodeWorkloadType DatanodeWorkloadType_MAX = QUERY;
-constexpr int DatanodeWorkloadType_ARRAYSIZE = DatanodeWorkloadType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DatanodeWorkloadType_descriptor();
-template<typename T>
-inline const std::string& DatanodeWorkloadType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, DatanodeWorkloadType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function DatanodeWorkloadType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    DatanodeWorkloadType_descriptor(), enum_t_value);
-}
-inline bool DatanodeWorkloadType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DatanodeWorkloadType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<DatanodeWorkloadType>(
-    DatanodeWorkloadType_descriptor(), name, value);
-}
-enum FrontendWorkloadType : int {
-  FRONTEND_DEFAULT = 0,
-  FrontendWorkloadType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  FrontendWorkloadType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool FrontendWorkloadType_IsValid(int value);
-constexpr FrontendWorkloadType FrontendWorkloadType_MIN = FRONTEND_DEFAULT;
-constexpr FrontendWorkloadType FrontendWorkloadType_MAX = FRONTEND_DEFAULT;
-constexpr int FrontendWorkloadType_ARRAYSIZE = FrontendWorkloadType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FrontendWorkloadType_descriptor();
-template<typename T>
-inline const std::string& FrontendWorkloadType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, FrontendWorkloadType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function FrontendWorkloadType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    FrontendWorkloadType_descriptor(), enum_t_value);
-}
-inline bool FrontendWorkloadType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, FrontendWorkloadType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<FrontendWorkloadType>(
-    FrontendWorkloadType_descriptor(), name, value);
-}
-enum FlownodeWorkloadType : int {
-  FLOWNODE_DEFAULT = 0,
-  FlownodeWorkloadType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  FlownodeWorkloadType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool FlownodeWorkloadType_IsValid(int value);
-constexpr FlownodeWorkloadType FlownodeWorkloadType_MIN = FLOWNODE_DEFAULT;
-constexpr FlownodeWorkloadType FlownodeWorkloadType_MAX = FLOWNODE_DEFAULT;
-constexpr int FlownodeWorkloadType_ARRAYSIZE = FlownodeWorkloadType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FlownodeWorkloadType_descriptor();
-template<typename T>
-inline const std::string& FlownodeWorkloadType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, FlownodeWorkloadType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function FlownodeWorkloadType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    FlownodeWorkloadType_descriptor(), enum_t_value);
-}
-inline bool FlownodeWorkloadType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, FlownodeWorkloadType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<FlownodeWorkloadType>(
-    FlownodeWorkloadType_descriptor(), name, value);
-}
 enum RegionRole : int {
   Leader = 0,
   Follower = 1,
@@ -734,22 +660,27 @@ class DatanodeWorkloads final :
   enum : int {
     kTypesFieldNumber = 1,
   };
-  // repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;
+  // repeated int32 types = 1;
   int types_size() const;
   private:
   int _internal_types_size() const;
   public:
   void clear_types();
   private:
-  ::greptime::v1::meta::DatanodeWorkloadType _internal_types(int index) const;
-  void _internal_add_types(::greptime::v1::meta::DatanodeWorkloadType value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_types();
+  int32_t _internal_types(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_types() const;
+  void _internal_add_types(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_types();
   public:
-  ::greptime::v1::meta::DatanodeWorkloadType types(int index) const;
-  void set_types(int index, ::greptime::v1::meta::DatanodeWorkloadType value);
-  void add_types(::greptime::v1::meta::DatanodeWorkloadType value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& types() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_types();
+  int32_t types(int index) const;
+  void set_types(int index, int32_t value);
+  void add_types(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      types() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_types();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.DatanodeWorkloads)
  private:
@@ -759,7 +690,7 @@ class DatanodeWorkloads final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> types_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > types_;
     mutable std::atomic<int> _types_cached_byte_size_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -891,22 +822,27 @@ class FrontendWorkloads final :
   enum : int {
     kTypesFieldNumber = 1,
   };
-  // repeated .greptime.v1.meta.FrontendWorkloadType types = 1;
+  // repeated int32 types = 1;
   int types_size() const;
   private:
   int _internal_types_size() const;
   public:
   void clear_types();
   private:
-  ::greptime::v1::meta::FrontendWorkloadType _internal_types(int index) const;
-  void _internal_add_types(::greptime::v1::meta::FrontendWorkloadType value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_types();
+  int32_t _internal_types(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_types() const;
+  void _internal_add_types(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_types();
   public:
-  ::greptime::v1::meta::FrontendWorkloadType types(int index) const;
-  void set_types(int index, ::greptime::v1::meta::FrontendWorkloadType value);
-  void add_types(::greptime::v1::meta::FrontendWorkloadType value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& types() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_types();
+  int32_t types(int index) const;
+  void set_types(int index, int32_t value);
+  void add_types(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      types() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_types();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.FrontendWorkloads)
  private:
@@ -916,7 +852,7 @@ class FrontendWorkloads final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> types_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > types_;
     mutable std::atomic<int> _types_cached_byte_size_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1048,22 +984,27 @@ class FlownodeWorkloads final :
   enum : int {
     kTypesFieldNumber = 1,
   };
-  // repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;
+  // repeated int32 types = 1;
   int types_size() const;
   private:
   int _internal_types_size() const;
   public:
   void clear_types();
   private:
-  ::greptime::v1::meta::FlownodeWorkloadType _internal_types(int index) const;
-  void _internal_add_types(::greptime::v1::meta::FlownodeWorkloadType value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_types();
+  int32_t _internal_types(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_types() const;
+  void _internal_add_types(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_types();
   public:
-  ::greptime::v1::meta::FlownodeWorkloadType types(int index) const;
-  void set_types(int index, ::greptime::v1::meta::FlownodeWorkloadType value);
-  void add_types(::greptime::v1::meta::FlownodeWorkloadType value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& types() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_types();
+  int32_t types(int index) const;
+  void set_types(int index, int32_t value);
+  void add_types(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      types() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_types();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.FlownodeWorkloads)
  private:
@@ -1073,7 +1014,7 @@ class FlownodeWorkloads final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> types_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > types_;
     mutable std::atomic<int> _types_cached_byte_size_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -3806,7 +3747,7 @@ inline HeartbeatRequest::NodeWorkloadsCase HeartbeatRequest::node_workloads_case
 
 // DatanodeWorkloads
 
-// repeated .greptime.v1.meta.DatanodeWorkloadType types = 1;
+// repeated int32 types = 1;
 inline int DatanodeWorkloads::_internal_types_size() const {
   return _impl_.types_.size();
 }
@@ -3816,34 +3757,38 @@ inline int DatanodeWorkloads::types_size() const {
 inline void DatanodeWorkloads::clear_types() {
   _impl_.types_.Clear();
 }
-inline ::greptime::v1::meta::DatanodeWorkloadType DatanodeWorkloads::_internal_types(int index) const {
-  return static_cast< ::greptime::v1::meta::DatanodeWorkloadType >(_impl_.types_.Get(index));
+inline int32_t DatanodeWorkloads::_internal_types(int index) const {
+  return _impl_.types_.Get(index);
 }
-inline ::greptime::v1::meta::DatanodeWorkloadType DatanodeWorkloads::types(int index) const {
+inline int32_t DatanodeWorkloads::types(int index) const {
   // @@protoc_insertion_point(field_get:greptime.v1.meta.DatanodeWorkloads.types)
   return _internal_types(index);
 }
-inline void DatanodeWorkloads::set_types(int index, ::greptime::v1::meta::DatanodeWorkloadType value) {
+inline void DatanodeWorkloads::set_types(int index, int32_t value) {
   _impl_.types_.Set(index, value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.DatanodeWorkloads.types)
 }
-inline void DatanodeWorkloads::_internal_add_types(::greptime::v1::meta::DatanodeWorkloadType value) {
+inline void DatanodeWorkloads::_internal_add_types(int32_t value) {
   _impl_.types_.Add(value);
 }
-inline void DatanodeWorkloads::add_types(::greptime::v1::meta::DatanodeWorkloadType value) {
+inline void DatanodeWorkloads::add_types(int32_t value) {
   _internal_add_types(value);
   // @@protoc_insertion_point(field_add:greptime.v1.meta.DatanodeWorkloads.types)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
-DatanodeWorkloads::types() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.DatanodeWorkloads.types)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+DatanodeWorkloads::_internal_types() const {
   return _impl_.types_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+DatanodeWorkloads::types() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.DatanodeWorkloads.types)
+  return _internal_types();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 DatanodeWorkloads::_internal_mutable_types() {
   return &_impl_.types_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 DatanodeWorkloads::mutable_types() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.DatanodeWorkloads.types)
   return _internal_mutable_types();
@@ -3853,7 +3798,7 @@ DatanodeWorkloads::mutable_types() {
 
 // FrontendWorkloads
 
-// repeated .greptime.v1.meta.FrontendWorkloadType types = 1;
+// repeated int32 types = 1;
 inline int FrontendWorkloads::_internal_types_size() const {
   return _impl_.types_.size();
 }
@@ -3863,34 +3808,38 @@ inline int FrontendWorkloads::types_size() const {
 inline void FrontendWorkloads::clear_types() {
   _impl_.types_.Clear();
 }
-inline ::greptime::v1::meta::FrontendWorkloadType FrontendWorkloads::_internal_types(int index) const {
-  return static_cast< ::greptime::v1::meta::FrontendWorkloadType >(_impl_.types_.Get(index));
+inline int32_t FrontendWorkloads::_internal_types(int index) const {
+  return _impl_.types_.Get(index);
 }
-inline ::greptime::v1::meta::FrontendWorkloadType FrontendWorkloads::types(int index) const {
+inline int32_t FrontendWorkloads::types(int index) const {
   // @@protoc_insertion_point(field_get:greptime.v1.meta.FrontendWorkloads.types)
   return _internal_types(index);
 }
-inline void FrontendWorkloads::set_types(int index, ::greptime::v1::meta::FrontendWorkloadType value) {
+inline void FrontendWorkloads::set_types(int index, int32_t value) {
   _impl_.types_.Set(index, value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.FrontendWorkloads.types)
 }
-inline void FrontendWorkloads::_internal_add_types(::greptime::v1::meta::FrontendWorkloadType value) {
+inline void FrontendWorkloads::_internal_add_types(int32_t value) {
   _impl_.types_.Add(value);
 }
-inline void FrontendWorkloads::add_types(::greptime::v1::meta::FrontendWorkloadType value) {
+inline void FrontendWorkloads::add_types(int32_t value) {
   _internal_add_types(value);
   // @@protoc_insertion_point(field_add:greptime.v1.meta.FrontendWorkloads.types)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
-FrontendWorkloads::types() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.FrontendWorkloads.types)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+FrontendWorkloads::_internal_types() const {
   return _impl_.types_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+FrontendWorkloads::types() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.FrontendWorkloads.types)
+  return _internal_types();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 FrontendWorkloads::_internal_mutable_types() {
   return &_impl_.types_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 FrontendWorkloads::mutable_types() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.FrontendWorkloads.types)
   return _internal_mutable_types();
@@ -3900,7 +3849,7 @@ FrontendWorkloads::mutable_types() {
 
 // FlownodeWorkloads
 
-// repeated .greptime.v1.meta.FlownodeWorkloadType types = 1;
+// repeated int32 types = 1;
 inline int FlownodeWorkloads::_internal_types_size() const {
   return _impl_.types_.size();
 }
@@ -3910,34 +3859,38 @@ inline int FlownodeWorkloads::types_size() const {
 inline void FlownodeWorkloads::clear_types() {
   _impl_.types_.Clear();
 }
-inline ::greptime::v1::meta::FlownodeWorkloadType FlownodeWorkloads::_internal_types(int index) const {
-  return static_cast< ::greptime::v1::meta::FlownodeWorkloadType >(_impl_.types_.Get(index));
+inline int32_t FlownodeWorkloads::_internal_types(int index) const {
+  return _impl_.types_.Get(index);
 }
-inline ::greptime::v1::meta::FlownodeWorkloadType FlownodeWorkloads::types(int index) const {
+inline int32_t FlownodeWorkloads::types(int index) const {
   // @@protoc_insertion_point(field_get:greptime.v1.meta.FlownodeWorkloads.types)
   return _internal_types(index);
 }
-inline void FlownodeWorkloads::set_types(int index, ::greptime::v1::meta::FlownodeWorkloadType value) {
+inline void FlownodeWorkloads::set_types(int index, int32_t value) {
   _impl_.types_.Set(index, value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.FlownodeWorkloads.types)
 }
-inline void FlownodeWorkloads::_internal_add_types(::greptime::v1::meta::FlownodeWorkloadType value) {
+inline void FlownodeWorkloads::_internal_add_types(int32_t value) {
   _impl_.types_.Add(value);
 }
-inline void FlownodeWorkloads::add_types(::greptime::v1::meta::FlownodeWorkloadType value) {
+inline void FlownodeWorkloads::add_types(int32_t value) {
   _internal_add_types(value);
   // @@protoc_insertion_point(field_add:greptime.v1.meta.FlownodeWorkloads.types)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
-FlownodeWorkloads::types() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.FlownodeWorkloads.types)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+FlownodeWorkloads::_internal_types() const {
   return _impl_.types_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+FlownodeWorkloads::types() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.FlownodeWorkloads.types)
+  return _internal_types();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 FlownodeWorkloads::_internal_mutable_types() {
   return &_impl_.types_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 FlownodeWorkloads::mutable_types() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.FlownodeWorkloads.types)
   return _internal_mutable_types();
@@ -5400,21 +5353,6 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::greptime::v1::meta::DatanodeWorkloadType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::DatanodeWorkloadType>() {
-  return ::greptime::v1::meta::DatanodeWorkloadType_descriptor();
-}
-template <> struct is_proto_enum< ::greptime::v1::meta::FrontendWorkloadType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::FrontendWorkloadType>() {
-  return ::greptime::v1::meta::FrontendWorkloadType_descriptor();
-}
-template <> struct is_proto_enum< ::greptime::v1::meta::FlownodeWorkloadType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::FlownodeWorkloadType>() {
-  return ::greptime::v1::meta::FlownodeWorkloadType_descriptor();
-}
 template <> struct is_proto_enum< ::greptime::v1::meta::RegionRole> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::RegionRole>() {
