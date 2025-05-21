@@ -782,6 +782,7 @@ class SeriesDivide final :
 
   enum : int {
     kTagColumnsFieldNumber = 1,
+    kTimeIndexColumnFieldNumber = 2,
   };
   // repeated string tag_columns = 1;
   int tag_columns_size() const;
@@ -807,6 +808,20 @@ class SeriesDivide final :
   std::string* _internal_add_tag_columns();
   public:
 
+  // string time_index_column = 2;
+  void clear_time_index_column();
+  const std::string& time_index_column() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_time_index_column(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_time_index_column();
+  PROTOBUF_NODISCARD std::string* release_time_index_column();
+  void set_allocated_time_index_column(std::string* time_index_column);
+  private:
+  const std::string& _internal_time_index_column() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_index_column(const std::string& value);
+  std::string* _internal_mutable_time_index_column();
+  public:
+
   // @@protoc_insertion_point(class_scope:substrait_extension.SeriesDivide)
  private:
   class _Internal;
@@ -816,6 +831,7 @@ class SeriesDivide final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> tag_columns_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_index_column_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1773,6 +1789,56 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 SeriesDivide::mutable_tag_columns() {
   // @@protoc_insertion_point(field_mutable_list:substrait_extension.SeriesDivide.tag_columns)
   return &_impl_.tag_columns_;
+}
+
+// string time_index_column = 2;
+inline void SeriesDivide::clear_time_index_column() {
+  _impl_.time_index_column_.ClearToEmpty();
+}
+inline const std::string& SeriesDivide::time_index_column() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.SeriesDivide.time_index_column)
+  return _internal_time_index_column();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SeriesDivide::set_time_index_column(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.time_index_column_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.SeriesDivide.time_index_column)
+}
+inline std::string* SeriesDivide::mutable_time_index_column() {
+  std::string* _s = _internal_mutable_time_index_column();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.SeriesDivide.time_index_column)
+  return _s;
+}
+inline const std::string& SeriesDivide::_internal_time_index_column() const {
+  return _impl_.time_index_column_.Get();
+}
+inline void SeriesDivide::_internal_set_time_index_column(const std::string& value) {
+  
+  _impl_.time_index_column_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SeriesDivide::_internal_mutable_time_index_column() {
+  
+  return _impl_.time_index_column_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SeriesDivide::release_time_index_column() {
+  // @@protoc_insertion_point(field_release:substrait_extension.SeriesDivide.time_index_column)
+  return _impl_.time_index_column_.Release();
+}
+inline void SeriesDivide::set_allocated_time_index_column(std::string* time_index_column) {
+  if (time_index_column != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.time_index_column_.SetAllocated(time_index_column, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.time_index_column_.IsDefault()) {
+    _impl_.time_index_column_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.SeriesDivide.time_index_column)
 }
 
 // -------------------------------------------------------------------

@@ -2983,6 +2983,26 @@ public final class PromqlPlan {
      */
     com.google.protobuf.ByteString
         getTagColumnsBytes(int index);
+
+    /**
+     * <pre>
+     * Name of time index column
+     * </pre>
+     *
+     * <code>string time_index_column = 2;</code>
+     * @return The timeIndexColumn.
+     */
+    java.lang.String getTimeIndexColumn();
+    /**
+     * <pre>
+     * Name of time index column
+     * </pre>
+     *
+     * <code>string time_index_column = 2;</code>
+     * @return The bytes for timeIndexColumn.
+     */
+    com.google.protobuf.ByteString
+        getTimeIndexColumnBytes();
   }
   /**
    * Protobuf type {@code substrait_extension.SeriesDivide}
@@ -2998,6 +3018,7 @@ public final class PromqlPlan {
     }
     private SeriesDivide() {
       tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      timeIndexColumn_ = "";
     }
 
     @java.lang.Override
@@ -3038,6 +3059,12 @@ public final class PromqlPlan {
                 mutable_bitField0_ |= 0x00000001;
               }
               tagColumns_.add(s);
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timeIndexColumn_ = s;
               break;
             }
             default: {
@@ -3128,6 +3155,52 @@ public final class PromqlPlan {
       return tagColumns_.getByteString(index);
     }
 
+    public static final int TIME_INDEX_COLUMN_FIELD_NUMBER = 2;
+    private volatile java.lang.Object timeIndexColumn_;
+    /**
+     * <pre>
+     * Name of time index column
+     * </pre>
+     *
+     * <code>string time_index_column = 2;</code>
+     * @return The timeIndexColumn.
+     */
+    @java.lang.Override
+    public java.lang.String getTimeIndexColumn() {
+      java.lang.Object ref = timeIndexColumn_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timeIndexColumn_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Name of time index column
+     * </pre>
+     *
+     * <code>string time_index_column = 2;</code>
+     * @return The bytes for timeIndexColumn.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTimeIndexColumnBytes() {
+      java.lang.Object ref = timeIndexColumn_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timeIndexColumn_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3144,6 +3217,9 @@ public final class PromqlPlan {
                         throws java.io.IOException {
       for (int i = 0; i < tagColumns_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tagColumns_.getRaw(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndexColumn_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, timeIndexColumn_);
       }
       unknownFields.writeTo(output);
     }
@@ -3162,6 +3238,9 @@ public final class PromqlPlan {
         size += dataSize;
         size += 1 * getTagColumnsList().size();
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndexColumn_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, timeIndexColumn_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3179,6 +3258,8 @@ public final class PromqlPlan {
 
       if (!getTagColumnsList()
           .equals(other.getTagColumnsList())) return false;
+      if (!getTimeIndexColumn()
+          .equals(other.getTimeIndexColumn())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3194,6 +3275,8 @@ public final class PromqlPlan {
         hash = (37 * hash) + TAG_COLUMNS_FIELD_NUMBER;
         hash = (53 * hash) + getTagColumnsList().hashCode();
       }
+      hash = (37 * hash) + TIME_INDEX_COLUMN_FIELD_NUMBER;
+      hash = (53 * hash) + getTimeIndexColumn().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3329,6 +3412,8 @@ public final class PromqlPlan {
         super.clear();
         tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
+        timeIndexColumn_ = "";
+
         return this;
       }
 
@@ -3361,6 +3446,7 @@ public final class PromqlPlan {
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.tagColumns_ = tagColumns_;
+        result.timeIndexColumn_ = timeIndexColumn_;
         onBuilt();
         return result;
       }
@@ -3417,6 +3503,10 @@ public final class PromqlPlan {
             ensureTagColumnsIsMutable();
             tagColumns_.addAll(other.tagColumns_);
           }
+          onChanged();
+        }
+        if (!other.getTimeIndexColumn().isEmpty()) {
+          timeIndexColumn_ = other.timeIndexColumn_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -3591,6 +3681,102 @@ public final class PromqlPlan {
   checkByteStringIsUtf8(value);
         ensureTagColumnsIsMutable();
         tagColumns_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timeIndexColumn_ = "";
+      /**
+       * <pre>
+       * Name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 2;</code>
+       * @return The timeIndexColumn.
+       */
+      public java.lang.String getTimeIndexColumn() {
+        java.lang.Object ref = timeIndexColumn_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timeIndexColumn_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 2;</code>
+       * @return The bytes for timeIndexColumn.
+       */
+      public com.google.protobuf.ByteString
+          getTimeIndexColumnBytes() {
+        java.lang.Object ref = timeIndexColumn_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timeIndexColumn_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 2;</code>
+       * @param value The timeIndexColumn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexColumn(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timeIndexColumn_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeIndexColumn() {
+        
+        timeIndexColumn_ = getDefaultInstance().getTimeIndexColumn();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 2;</code>
+       * @param value The bytes for timeIndexColumn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexColumnBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timeIndexColumn_ = value;
         onChanged();
         return this;
       }
@@ -6305,16 +6491,17 @@ public final class PromqlPlan {
       "k_delta\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013fie" +
       "ld_index\030\006 \001(\t\"^\n\017SeriesNormalize\022\016\n\006off" +
       "set\030\001 \001(\003\022\022\n\ntime_index\030\002 \001(\t\022\022\n\nfilter_" +
-      "nan\030\003 \001(\010\022\023\n\013tag_columns\030\004 \003(\t\"#\n\014Series" +
-      "Divide\022\023\n\013tag_columns\030\001 \003(\t\"w\n\017RangeMani" +
-      "pulate\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010in" +
-      "terval\030\003 \001(\003\022\r\n\005range\030\004 \001(\003\022\022\n\ntime_inde" +
-      "x\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(\t\"~\n\017ScalarCa" +
-      "lculate\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010i" +
-      "nterval\030\003 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag" +
-      "_columns\030\006 \003(\t\022\024\n\014field_column\030\007 \001(\tB?Z=" +
-      "github.com/GreptimeTeam/greptime-proto/g" +
-      "o/substrait_extensionb\006proto3"
+      "nan\030\003 \001(\010\022\023\n\013tag_columns\030\004 \003(\t\">\n\014Series" +
+      "Divide\022\023\n\013tag_columns\030\001 \003(\t\022\031\n\021time_inde" +
+      "x_column\030\002 \001(\t\"w\n\017RangeManipulate\022\r\n\005sta" +
+      "rt\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022" +
+      "\r\n\005range\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013ta" +
+      "g_columns\030\006 \003(\t\"~\n\017ScalarCalculate\022\r\n\005st" +
+      "art\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003" +
+      "\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(" +
+      "\t\022\024\n\014field_column\030\007 \001(\tB?Z=github.com/Gr" +
+      "eptimeTeam/greptime-proto/go/substrait_e" +
+      "xtensionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6343,7 +6530,7 @@ public final class PromqlPlan {
     internal_static_substrait_extension_SeriesDivide_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_SeriesDivide_descriptor,
-        new java.lang.String[] { "TagColumns", });
+        new java.lang.String[] { "TagColumns", "TimeIndexColumn", });
     internal_static_substrait_extension_RangeManipulate_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_substrait_extension_RangeManipulate_fieldAccessorTable = new
