@@ -55,4 +55,17 @@ message Mutation {
 message WalEntry {
   // List of mutations for a region.
   repeated Mutation mutations = 1;
+  // List of bulk insert requests.
+  repeated Bulk bulk_entries = 2;
+}
+
+message Bulk {
+  // Format of bulk entry.
+  Format format = 1;
+  // Encoded binary payload.
+  bytes payload = 2;
+}
+
+enum Format {
+  ARROW_IPC = 0;
 }

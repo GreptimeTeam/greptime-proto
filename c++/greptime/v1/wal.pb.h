@@ -48,6 +48,9 @@ struct TableStruct_greptime_2fv1_2fwal_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_greptime_2fv1_2fwal_2eproto;
 namespace greptime {
 namespace v1 {
+class Bulk;
+struct BulkDefaultTypeInternal;
+extern BulkDefaultTypeInternal _Bulk_default_instance_;
 class Mutation;
 struct MutationDefaultTypeInternal;
 extern MutationDefaultTypeInternal _Mutation_default_instance_;
@@ -60,6 +63,7 @@ extern WriteHintDefaultTypeInternal _WriteHint_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
+template<> ::greptime::v1::Bulk* Arena::CreateMaybeMessage<::greptime::v1::Bulk>(Arena*);
 template<> ::greptime::v1::Mutation* Arena::CreateMaybeMessage<::greptime::v1::Mutation>(Arena*);
 template<> ::greptime::v1::WalEntry* Arena::CreateMaybeMessage<::greptime::v1::WalEntry>(Arena*);
 template<> ::greptime::v1::WriteHint* Arena::CreateMaybeMessage<::greptime::v1::WriteHint>(Arena*);
@@ -116,6 +120,30 @@ inline bool PrimaryKeyEncoding_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PrimaryKeyEncoding* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<PrimaryKeyEncoding>(
     PrimaryKeyEncoding_descriptor(), name, value);
+}
+enum Format : int {
+  ARROW_IPC = 0,
+  Format_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Format_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Format_IsValid(int value);
+constexpr Format Format_MIN = ARROW_IPC;
+constexpr Format Format_MAX = ARROW_IPC;
+constexpr int Format_ARRAYSIZE = Format_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Format_descriptor();
+template<typename T>
+inline const std::string& Format_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Format>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Format_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Format_descriptor(), enum_t_value);
+}
+inline bool Format_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Format* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Format>(
+    Format_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -588,6 +616,7 @@ class WalEntry final :
 
   enum : int {
     kMutationsFieldNumber = 1,
+    kBulkEntriesFieldNumber = 2,
   };
   // repeated .greptime.v1.Mutation mutations = 1;
   int mutations_size() const;
@@ -607,6 +636,24 @@ class WalEntry final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Mutation >&
       mutations() const;
 
+  // repeated .greptime.v1.Bulk bulk_entries = 2;
+  int bulk_entries_size() const;
+  private:
+  int _internal_bulk_entries_size() const;
+  public:
+  void clear_bulk_entries();
+  ::greptime::v1::Bulk* mutable_bulk_entries(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Bulk >*
+      mutable_bulk_entries();
+  private:
+  const ::greptime::v1::Bulk& _internal_bulk_entries(int index) const;
+  ::greptime::v1::Bulk* _internal_add_bulk_entries();
+  public:
+  const ::greptime::v1::Bulk& bulk_entries(int index) const;
+  ::greptime::v1::Bulk* add_bulk_entries();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Bulk >&
+      bulk_entries() const;
+
   // @@protoc_insertion_point(class_scope:greptime.v1.WalEntry)
  private:
   class _Internal;
@@ -616,6 +663,171 @@ class WalEntry final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Mutation > mutations_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Bulk > bulk_entries_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fwal_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Bulk final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Bulk) */ {
+ public:
+  inline Bulk() : Bulk(nullptr) {}
+  ~Bulk() override;
+  explicit PROTOBUF_CONSTEXPR Bulk(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Bulk(const Bulk& from);
+  Bulk(Bulk&& from) noexcept
+    : Bulk() {
+    *this = ::std::move(from);
+  }
+
+  inline Bulk& operator=(const Bulk& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Bulk& operator=(Bulk&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Bulk& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Bulk* internal_default_instance() {
+    return reinterpret_cast<const Bulk*>(
+               &_Bulk_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(Bulk& a, Bulk& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Bulk* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Bulk* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Bulk* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Bulk>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Bulk& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Bulk& from) {
+    Bulk::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Bulk* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.Bulk";
+  }
+  protected:
+  explicit Bulk(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPayloadFieldNumber = 2,
+    kFormatFieldNumber = 1,
+  };
+  // bytes payload = 2;
+  void clear_payload();
+  const std::string& payload() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_payload(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_payload();
+  PROTOBUF_NODISCARD std::string* release_payload();
+  void set_allocated_payload(std::string* payload);
+  private:
+  const std::string& _internal_payload() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_payload(const std::string& value);
+  std::string* _internal_mutable_payload();
+  public:
+
+  // .greptime.v1.Format format = 1;
+  void clear_format();
+  ::greptime::v1::Format format() const;
+  void set_format(::greptime::v1::Format value);
+  private:
+  ::greptime::v1::Format _internal_format() const;
+  void _internal_set_format(::greptime::v1::Format value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.Bulk)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
+    int format_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -915,9 +1127,125 @@ WalEntry::mutations() const {
   return _impl_.mutations_;
 }
 
+// repeated .greptime.v1.Bulk bulk_entries = 2;
+inline int WalEntry::_internal_bulk_entries_size() const {
+  return _impl_.bulk_entries_.size();
+}
+inline int WalEntry::bulk_entries_size() const {
+  return _internal_bulk_entries_size();
+}
+inline void WalEntry::clear_bulk_entries() {
+  _impl_.bulk_entries_.Clear();
+}
+inline ::greptime::v1::Bulk* WalEntry::mutable_bulk_entries(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.WalEntry.bulk_entries)
+  return _impl_.bulk_entries_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Bulk >*
+WalEntry::mutable_bulk_entries() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.WalEntry.bulk_entries)
+  return &_impl_.bulk_entries_;
+}
+inline const ::greptime::v1::Bulk& WalEntry::_internal_bulk_entries(int index) const {
+  return _impl_.bulk_entries_.Get(index);
+}
+inline const ::greptime::v1::Bulk& WalEntry::bulk_entries(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.WalEntry.bulk_entries)
+  return _internal_bulk_entries(index);
+}
+inline ::greptime::v1::Bulk* WalEntry::_internal_add_bulk_entries() {
+  return _impl_.bulk_entries_.Add();
+}
+inline ::greptime::v1::Bulk* WalEntry::add_bulk_entries() {
+  ::greptime::v1::Bulk* _add = _internal_add_bulk_entries();
+  // @@protoc_insertion_point(field_add:greptime.v1.WalEntry.bulk_entries)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Bulk >&
+WalEntry::bulk_entries() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.WalEntry.bulk_entries)
+  return _impl_.bulk_entries_;
+}
+
+// -------------------------------------------------------------------
+
+// Bulk
+
+// .greptime.v1.Format format = 1;
+inline void Bulk::clear_format() {
+  _impl_.format_ = 0;
+}
+inline ::greptime::v1::Format Bulk::_internal_format() const {
+  return static_cast< ::greptime::v1::Format >(_impl_.format_);
+}
+inline ::greptime::v1::Format Bulk::format() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Bulk.format)
+  return _internal_format();
+}
+inline void Bulk::_internal_set_format(::greptime::v1::Format value) {
+  
+  _impl_.format_ = value;
+}
+inline void Bulk::set_format(::greptime::v1::Format value) {
+  _internal_set_format(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Bulk.format)
+}
+
+// bytes payload = 2;
+inline void Bulk::clear_payload() {
+  _impl_.payload_.ClearToEmpty();
+}
+inline const std::string& Bulk::payload() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Bulk.payload)
+  return _internal_payload();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Bulk::set_payload(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.payload_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.Bulk.payload)
+}
+inline std::string* Bulk::mutable_payload() {
+  std::string* _s = _internal_mutable_payload();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Bulk.payload)
+  return _s;
+}
+inline const std::string& Bulk::_internal_payload() const {
+  return _impl_.payload_.Get();
+}
+inline void Bulk::_internal_set_payload(const std::string& value) {
+  
+  _impl_.payload_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Bulk::_internal_mutable_payload() {
+  
+  return _impl_.payload_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Bulk::release_payload() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Bulk.payload)
+  return _impl_.payload_.Release();
+}
+inline void Bulk::set_allocated_payload(std::string* payload) {
+  if (payload != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.payload_.SetAllocated(payload, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.payload_.IsDefault()) {
+    _impl_.payload_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Bulk.payload)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -939,6 +1267,11 @@ template <> struct is_proto_enum< ::greptime::v1::PrimaryKeyEncoding> : ::std::t
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::PrimaryKeyEncoding>() {
   return ::greptime::v1::PrimaryKeyEncoding_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::Format> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::Format>() {
+  return ::greptime::v1::Format_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
