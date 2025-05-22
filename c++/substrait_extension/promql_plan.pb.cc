@@ -73,6 +73,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR SeriesDivide::SeriesDivide(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.tag_columns_)*/{}
+  , /*decltype(_impl_.time_index_column_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct SeriesDivideDefaultTypeInternal {
   PROTOBUF_CONSTEXPR SeriesDivideDefaultTypeInternal()
@@ -163,6 +164,7 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesDivide, _impl_.tag_columns_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesDivide, _impl_.time_index_column_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -193,8 +195,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 9, -1, -1, sizeof(::substrait_extension::InstantManipulate)},
   { 21, -1, -1, sizeof(::substrait_extension::SeriesNormalize)},
   { 31, -1, -1, sizeof(::substrait_extension::SeriesDivide)},
-  { 38, -1, -1, sizeof(::substrait_extension::RangeManipulate)},
-  { 50, -1, -1, sizeof(::substrait_extension::ScalarCalculate)},
+  { 39, -1, -1, sizeof(::substrait_extension::RangeManipulate)},
+  { 51, -1, -1, sizeof(::substrait_extension::ScalarCalculate)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -215,20 +217,21 @@ const char descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2epro
   "k_delta\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013fie"
   "ld_index\030\006 \001(\t\"^\n\017SeriesNormalize\022\016\n\006off"
   "set\030\001 \001(\003\022\022\n\ntime_index\030\002 \001(\t\022\022\n\nfilter_"
-  "nan\030\003 \001(\010\022\023\n\013tag_columns\030\004 \003(\t\"#\n\014Series"
-  "Divide\022\023\n\013tag_columns\030\001 \003(\t\"w\n\017RangeMani"
-  "pulate\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010in"
-  "terval\030\003 \001(\003\022\r\n\005range\030\004 \001(\003\022\022\n\ntime_inde"
-  "x\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(\t\"~\n\017ScalarCa"
-  "lculate\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010i"
-  "nterval\030\003 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag"
-  "_columns\030\006 \003(\t\022\024\n\014field_column\030\007 \001(\tB\?Z="
-  "github.com/GreptimeTeam/greptime-proto/g"
-  "o/substrait_extensionb\006proto3"
+  "nan\030\003 \001(\010\022\023\n\013tag_columns\030\004 \003(\t\">\n\014Series"
+  "Divide\022\023\n\013tag_columns\030\001 \003(\t\022\031\n\021time_inde"
+  "x_column\030\002 \001(\t\"w\n\017RangeManipulate\022\r\n\005sta"
+  "rt\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022"
+  "\r\n\005range\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013ta"
+  "g_columns\030\006 \003(\t\"~\n\017ScalarCalculate\022\r\n\005st"
+  "art\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003"
+  "\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003("
+  "\t\022\024\n\014field_column\030\007 \001(\tB\?Z=github.com/Gr"
+  "eptimeTeam/greptime-proto/go/substrait_e"
+  "xtensionb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto = {
-    false, false, 709, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
+    false, false, 736, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
     "substrait_extension/promql_plan.proto",
     &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once, nullptr, 0, 6,
     schemas, file_default_instances, TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offsets,
@@ -1158,9 +1161,18 @@ SeriesDivide::SeriesDivide(const SeriesDivide& from)
   SeriesDivide* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){from._impl_.tag_columns_}
+    , decltype(_impl_.time_index_column_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.time_index_column_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.time_index_column_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_time_index_column().empty()) {
+    _this->_impl_.time_index_column_.Set(from._internal_time_index_column(), 
+      _this->GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:substrait_extension.SeriesDivide)
 }
 
@@ -1170,8 +1182,13 @@ inline void SeriesDivide::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){arena}
+    , decltype(_impl_.time_index_column_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.time_index_column_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.time_index_column_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 SeriesDivide::~SeriesDivide() {
@@ -1186,6 +1203,7 @@ SeriesDivide::~SeriesDivide() {
 inline void SeriesDivide::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.tag_columns_.~RepeatedPtrField();
+  _impl_.time_index_column_.Destroy();
 }
 
 void SeriesDivide::SetCachedSize(int size) const {
@@ -1199,6 +1217,7 @@ void SeriesDivide::Clear() {
   (void) cached_has_bits;
 
   _impl_.tag_columns_.Clear();
+  _impl_.time_index_column_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1220,6 +1239,16 @@ const char* SeriesDivide::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
             CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.SeriesDivide.tag_columns"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string time_index_column = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_time_index_column();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.SeriesDivide.time_index_column"));
         } else
           goto handle_unusual;
         continue;
@@ -1262,6 +1291,16 @@ uint8_t* SeriesDivide::_InternalSerialize(
     target = stream->WriteString(1, s, target);
   }
 
+  // string time_index_column = 2;
+  if (!this->_internal_time_index_column().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_time_index_column().data(), static_cast<int>(this->_internal_time_index_column().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "substrait_extension.SeriesDivide.time_index_column");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_time_index_column(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1286,6 +1325,13 @@ size_t SeriesDivide::ByteSizeLong() const {
       _impl_.tag_columns_.Get(i));
   }
 
+  // string time_index_column = 2;
+  if (!this->_internal_time_index_column().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_time_index_column());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1305,6 +1351,9 @@ void SeriesDivide::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   (void) cached_has_bits;
 
   _this->_impl_.tag_columns_.MergeFrom(from._impl_.tag_columns_);
+  if (!from._internal_time_index_column().empty()) {
+    _this->_internal_set_time_index_column(from._internal_time_index_column());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1321,8 +1370,14 @@ bool SeriesDivide::IsInitialized() const {
 
 void SeriesDivide::InternalSwap(SeriesDivide* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.tag_columns_.InternalSwap(&other->_impl_.tag_columns_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.time_index_column_, lhs_arena,
+      &other->_impl_.time_index_column_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SeriesDivide::GetMetadata() const {

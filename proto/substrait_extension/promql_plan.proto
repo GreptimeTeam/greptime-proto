@@ -56,6 +56,8 @@ message SeriesNormalize {
 message SeriesDivide {
   // Names of tag columns
   repeated string tag_columns = 1;
+  // Name of time index column
+  string time_index_column = 2;
 }
 
 message RangeManipulate {
