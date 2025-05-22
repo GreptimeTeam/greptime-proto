@@ -5484,7 +5484,8 @@ class ArrowIpc final :
 
   enum : int {
     kSchemaFieldNumber = 2,
-    kPayloadFieldNumber = 3,
+    kDataHeaderFieldNumber = 3,
+    kPayloadFieldNumber = 4,
     kRegionIdFieldNumber = 1,
   };
   // bytes schema = 2;
@@ -5501,7 +5502,21 @@ class ArrowIpc final :
   std::string* _internal_mutable_schema();
   public:
 
-  // bytes payload = 3;
+  // bytes data_header = 3;
+  void clear_data_header();
+  const std::string& data_header() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_data_header(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_data_header();
+  PROTOBUF_NODISCARD std::string* release_data_header();
+  void set_allocated_data_header(std::string* data_header);
+  private:
+  const std::string& _internal_data_header() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_data_header(const std::string& value);
+  std::string* _internal_mutable_data_header();
+  public:
+
+  // bytes payload = 4;
   void clear_payload();
   const std::string& payload() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -5533,6 +5548,7 @@ class ArrowIpc final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_header_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
     uint64_t region_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -10030,7 +10046,57 @@ inline void ArrowIpc::set_allocated_schema(std::string* schema) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ArrowIpc.schema)
 }
 
-// bytes payload = 3;
+// bytes data_header = 3;
+inline void ArrowIpc::clear_data_header() {
+  _impl_.data_header_.ClearToEmpty();
+}
+inline const std::string& ArrowIpc::data_header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ArrowIpc.data_header)
+  return _internal_data_header();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ArrowIpc::set_data_header(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.data_header_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ArrowIpc.data_header)
+}
+inline std::string* ArrowIpc::mutable_data_header() {
+  std::string* _s = _internal_mutable_data_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.ArrowIpc.data_header)
+  return _s;
+}
+inline const std::string& ArrowIpc::_internal_data_header() const {
+  return _impl_.data_header_.Get();
+}
+inline void ArrowIpc::_internal_set_data_header(const std::string& value) {
+  
+  _impl_.data_header_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ArrowIpc::_internal_mutable_data_header() {
+  
+  return _impl_.data_header_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ArrowIpc::release_data_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.ArrowIpc.data_header)
+  return _impl_.data_header_.Release();
+}
+inline void ArrowIpc::set_allocated_data_header(std::string* data_header) {
+  if (data_header != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.data_header_.SetAllocated(data_header, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.data_header_.IsDefault()) {
+    _impl_.data_header_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ArrowIpc.data_header)
+}
+
+// bytes payload = 4;
 inline void ArrowIpc::clear_payload() {
   _impl_.payload_.ClearToEmpty();
 }

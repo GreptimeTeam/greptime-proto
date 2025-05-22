@@ -447,6 +447,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR ArrowIpc::ArrowIpc(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.schema_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.data_header_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.payload_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.region_id_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -793,6 +794,7 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets[] PR
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::ArrowIpc, _impl_.region_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::ArrowIpc, _impl_.schema_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::ArrowIpc, _impl_.data_header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::ArrowIpc, _impl_.payload_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::MitoManifestInfo, _internal_metadata_),
@@ -853,9 +855,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 260, -1, -1, sizeof(::greptime::v1::region::RegionColumnDef)},
   { 268, -1, -1, sizeof(::greptime::v1::region::BulkInsertRequest)},
   { 276, -1, -1, sizeof(::greptime::v1::region::ArrowIpc)},
-  { 285, -1, -1, sizeof(::greptime::v1::region::MitoManifestInfo)},
-  { 292, -1, -1, sizeof(::greptime::v1::region::MetricManifestInfo)},
-  { 300, -1, -1, sizeof(::greptime::v1::region::SyncRequest)},
+  { 286, -1, -1, sizeof(::greptime::v1::region::MitoManifestInfo)},
+  { 293, -1, -1, sizeof(::greptime::v1::region::MetricManifestInfo)},
+  { 301, -1, -1, sizeof(::greptime::v1::region::SyncRequest)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -990,22 +992,22 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum"
   "nDef\022\021\n\tcolumn_id\030\002 \001(\r\"N\n\021BulkInsertReq"
   "uest\0221\n\tarrow_ipc\030\001 \001(\0132\034.greptime.v1.re"
-  "gion.ArrowIpcH\000B\006\n\004body\">\n\010ArrowIpc\022\021\n\tr"
-  "egion_id\030\001 \001(\004\022\016\n\006schema\030\002 \001(\014\022\017\n\007payloa"
-  "d\030\003 \001(\014\"1\n\020MitoManifestInfo\022\035\n\025data_mani"
-  "fest_version\030\001 \001(\004\"V\n\022MetricManifestInfo"
-  "\022\035\n\025data_manifest_version\030\001 \001(\004\022!\n\031metad"
-  "ata_manifest_version\030\002 \001(\004\"\275\001\n\013SyncReque"
-  "st\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manifest_i"
-  "nfo\030\002 \001(\0132$.greptime.v1.region.MitoManif"
-  "estInfoH\000\022F\n\024metric_manifest_info\030\003 \001(\0132"
-  "&.greptime.v1.region.MetricManifestInfoH"
-  "\000B\017\n\rmanifest_info2Y\n\006Region\022O\n\006Handle\022!"
-  ".greptime.v1.region.RegionRequest\032\".grep"
-  "time.v1.region.RegionResponseB]\n\025io.grep"
-  "time.v1.regionB\006ServerZ<github.com/Grept"
-  "imeTeam/greptime-proto/go/greptime/v1/re"
-  "gionb\006proto3"
+  "gion.ArrowIpcH\000B\006\n\004body\"S\n\010ArrowIpc\022\021\n\tr"
+  "egion_id\030\001 \001(\004\022\016\n\006schema\030\002 \001(\014\022\023\n\013data_h"
+  "eader\030\003 \001(\014\022\017\n\007payload\030\004 \001(\014\"1\n\020MitoMani"
+  "festInfo\022\035\n\025data_manifest_version\030\001 \001(\004\""
+  "V\n\022MetricManifestInfo\022\035\n\025data_manifest_v"
+  "ersion\030\001 \001(\004\022!\n\031metadata_manifest_versio"
+  "n\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001"
+  "(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.greptim"
+  "e.v1.region.MitoManifestInfoH\000\022F\n\024metric"
+  "_manifest_info\030\003 \001(\0132&.greptime.v1.regio"
+  "n.MetricManifestInfoH\000B\017\n\rmanifest_info2"
+  "Y\n\006Region\022O\n\006Handle\022!.greptime.v1.region"
+  ".RegionRequest\032\".greptime.v1.region.Regi"
+  "onResponseB]\n\025io.greptime.v1.regionB\006Ser"
+  "verZ<github.com/GreptimeTeam/greptime-pr"
+  "oto/go/greptime/v1/regionb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -1014,7 +1016,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 4332, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 4353, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 3, 35,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
@@ -8536,6 +8538,7 @@ ArrowIpc::ArrowIpc(const ArrowIpc& from)
   ArrowIpc* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.schema_){}
+    , decltype(_impl_.data_header_){}
     , decltype(_impl_.payload_){}
     , decltype(_impl_.region_id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -8547,6 +8550,14 @@ ArrowIpc::ArrowIpc(const ArrowIpc& from)
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_schema().empty()) {
     _this->_impl_.schema_.Set(from._internal_schema(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.data_header_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.data_header_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_data_header().empty()) {
+    _this->_impl_.data_header_.Set(from._internal_data_header(), 
       _this->GetArenaForAllocation());
   }
   _impl_.payload_.InitDefault();
@@ -8567,6 +8578,7 @@ inline void ArrowIpc::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.schema_){}
+    , decltype(_impl_.data_header_){}
     , decltype(_impl_.payload_){}
     , decltype(_impl_.region_id_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -8574,6 +8586,10 @@ inline void ArrowIpc::SharedCtor(
   _impl_.schema_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.schema_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.data_header_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.data_header_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.payload_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -8593,6 +8609,7 @@ ArrowIpc::~ArrowIpc() {
 inline void ArrowIpc::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.schema_.Destroy();
+  _impl_.data_header_.Destroy();
   _impl_.payload_.Destroy();
 }
 
@@ -8607,6 +8624,7 @@ void ArrowIpc::Clear() {
   (void) cached_has_bits;
 
   _impl_.schema_.ClearToEmpty();
+  _impl_.data_header_.ClearToEmpty();
   _impl_.payload_.ClearToEmpty();
   _impl_.region_id_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -8635,9 +8653,18 @@ const char* ArrowIpc::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
         } else
           goto handle_unusual;
         continue;
-      // bytes payload = 3;
+      // bytes data_header = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_data_header();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes payload = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_payload();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -8685,10 +8712,16 @@ uint8_t* ArrowIpc::_InternalSerialize(
         2, this->_internal_schema(), target);
   }
 
-  // bytes payload = 3;
+  // bytes data_header = 3;
+  if (!this->_internal_data_header().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        3, this->_internal_data_header(), target);
+  }
+
+  // bytes payload = 4;
   if (!this->_internal_payload().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_payload(), target);
+        4, this->_internal_payload(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -8714,7 +8747,14 @@ size_t ArrowIpc::ByteSizeLong() const {
         this->_internal_schema());
   }
 
-  // bytes payload = 3;
+  // bytes data_header = 3;
+  if (!this->_internal_data_header().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_data_header());
+  }
+
+  // bytes payload = 4;
   if (!this->_internal_payload().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
@@ -8747,6 +8787,9 @@ void ArrowIpc::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTO
   if (!from._internal_schema().empty()) {
     _this->_internal_set_schema(from._internal_schema());
   }
+  if (!from._internal_data_header().empty()) {
+    _this->_internal_set_data_header(from._internal_data_header());
+  }
   if (!from._internal_payload().empty()) {
     _this->_internal_set_payload(from._internal_payload());
   }
@@ -8775,6 +8818,10 @@ void ArrowIpc::InternalSwap(ArrowIpc* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.schema_, lhs_arena,
       &other->_impl_.schema_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.data_header_, lhs_arena,
+      &other->_impl_.data_header_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.payload_, lhs_arena,
