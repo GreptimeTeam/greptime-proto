@@ -26572,7 +26572,13 @@ java.lang.String defaultValue);
     com.google.protobuf.ByteString getSchema();
 
     /**
-     * <code>bytes payload = 3;</code>
+     * <code>bytes data_header = 3;</code>
+     * @return The dataHeader.
+     */
+    com.google.protobuf.ByteString getDataHeader();
+
+    /**
+     * <code>bytes payload = 4;</code>
      * @return The payload.
      */
     com.google.protobuf.ByteString getPayload();
@@ -26591,6 +26597,7 @@ java.lang.String defaultValue);
     }
     private ArrowIpc() {
       schema_ = com.google.protobuf.ByteString.EMPTY;
+      dataHeader_ = com.google.protobuf.ByteString.EMPTY;
       payload_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -26635,6 +26642,11 @@ java.lang.String defaultValue);
               break;
             }
             case 26: {
+
+              dataHeader_ = input.readBytes();
+              break;
+            }
+            case 34: {
 
               payload_ = input.readBytes();
               break;
@@ -26695,10 +26707,21 @@ java.lang.String defaultValue);
       return schema_;
     }
 
-    public static final int PAYLOAD_FIELD_NUMBER = 3;
+    public static final int DATA_HEADER_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString dataHeader_;
+    /**
+     * <code>bytes data_header = 3;</code>
+     * @return The dataHeader.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getDataHeader() {
+      return dataHeader_;
+    }
+
+    public static final int PAYLOAD_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString payload_;
     /**
-     * <code>bytes payload = 3;</code>
+     * <code>bytes payload = 4;</code>
      * @return The payload.
      */
     @java.lang.Override
@@ -26726,8 +26749,11 @@ java.lang.String defaultValue);
       if (!schema_.isEmpty()) {
         output.writeBytes(2, schema_);
       }
+      if (!dataHeader_.isEmpty()) {
+        output.writeBytes(3, dataHeader_);
+      }
       if (!payload_.isEmpty()) {
-        output.writeBytes(3, payload_);
+        output.writeBytes(4, payload_);
       }
       unknownFields.writeTo(output);
     }
@@ -26746,9 +26772,13 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, schema_);
       }
+      if (!dataHeader_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, dataHeader_);
+      }
       if (!payload_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, payload_);
+          .computeBytesSize(4, payload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -26769,6 +26799,8 @@ java.lang.String defaultValue);
           != other.getRegionId()) return false;
       if (!getSchema()
           .equals(other.getSchema())) return false;
+      if (!getDataHeader()
+          .equals(other.getDataHeader())) return false;
       if (!getPayload()
           .equals(other.getPayload())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -26787,6 +26819,8 @@ java.lang.String defaultValue);
           getRegionId());
       hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
       hash = (53 * hash) + getSchema().hashCode();
+      hash = (37 * hash) + DATA_HEADER_FIELD_NUMBER;
+      hash = (53 * hash) + getDataHeader().hashCode();
       hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
       hash = (53 * hash) + getPayload().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -26926,6 +26960,8 @@ java.lang.String defaultValue);
 
         schema_ = com.google.protobuf.ByteString.EMPTY;
 
+        dataHeader_ = com.google.protobuf.ByteString.EMPTY;
+
         payload_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
@@ -26956,6 +26992,7 @@ java.lang.String defaultValue);
         io.greptime.v1.region.Server.ArrowIpc result = new io.greptime.v1.region.Server.ArrowIpc(this);
         result.regionId_ = regionId_;
         result.schema_ = schema_;
+        result.dataHeader_ = dataHeader_;
         result.payload_ = payload_;
         onBuilt();
         return result;
@@ -27010,6 +27047,9 @@ java.lang.String defaultValue);
         }
         if (other.getSchema() != com.google.protobuf.ByteString.EMPTY) {
           setSchema(other.getSchema());
+        }
+        if (other.getDataHeader() != com.google.protobuf.ByteString.EMPTY) {
+          setDataHeader(other.getDataHeader());
         }
         if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
           setPayload(other.getPayload());
@@ -27108,9 +27148,43 @@ java.lang.String defaultValue);
         return this;
       }
 
+      private com.google.protobuf.ByteString dataHeader_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes data_header = 3;</code>
+       * @return The dataHeader.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getDataHeader() {
+        return dataHeader_;
+      }
+      /**
+       * <code>bytes data_header = 3;</code>
+       * @param value The dataHeader to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDataHeader(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dataHeader_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes data_header = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDataHeader() {
+        
+        dataHeader_ = getDefaultInstance().getDataHeader();
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes payload = 3;</code>
+       * <code>bytes payload = 4;</code>
        * @return The payload.
        */
       @java.lang.Override
@@ -27118,7 +27192,7 @@ java.lang.String defaultValue);
         return payload_;
       }
       /**
-       * <code>bytes payload = 3;</code>
+       * <code>bytes payload = 4;</code>
        * @param value The payload to set.
        * @return This builder for chaining.
        */
@@ -27132,7 +27206,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>bytes payload = 3;</code>
+       * <code>bytes payload = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPayload() {
@@ -29570,22 +29644,22 @@ java.lang.String defaultValue);
       "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum" +
       "nDef\022\021\n\tcolumn_id\030\002 \001(\r\"N\n\021BulkInsertReq" +
       "uest\0221\n\tarrow_ipc\030\001 \001(\0132\034.greptime.v1.re" +
-      "gion.ArrowIpcH\000B\006\n\004body\">\n\010ArrowIpc\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\022\016\n\006schema\030\002 \001(\014\022\017\n\007payloa" +
-      "d\030\003 \001(\014\"1\n\020MitoManifestInfo\022\035\n\025data_mani" +
-      "fest_version\030\001 \001(\004\"V\n\022MetricManifestInfo" +
-      "\022\035\n\025data_manifest_version\030\001 \001(\004\022!\n\031metad" +
-      "ata_manifest_version\030\002 \001(\004\"\275\001\n\013SyncReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manifest_i" +
-      "nfo\030\002 \001(\0132$.greptime.v1.region.MitoManif" +
-      "estInfoH\000\022F\n\024metric_manifest_info\030\003 \001(\0132" +
-      "&.greptime.v1.region.MetricManifestInfoH" +
-      "\000B\017\n\rmanifest_info2Y\n\006Region\022O\n\006Handle\022!" +
-      ".greptime.v1.region.RegionRequest\032\".grep" +
-      "time.v1.region.RegionResponseB]\n\025io.grep" +
-      "time.v1.regionB\006ServerZ<github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1/re" +
-      "gionb\006proto3"
+      "gion.ArrowIpcH\000B\006\n\004body\"S\n\010ArrowIpc\022\021\n\tr" +
+      "egion_id\030\001 \001(\004\022\016\n\006schema\030\002 \001(\014\022\023\n\013data_h" +
+      "eader\030\003 \001(\014\022\017\n\007payload\030\004 \001(\014\"1\n\020MitoMani" +
+      "festInfo\022\035\n\025data_manifest_version\030\001 \001(\004\"" +
+      "V\n\022MetricManifestInfo\022\035\n\025data_manifest_v" +
+      "ersion\030\001 \001(\004\022!\n\031metadata_manifest_versio" +
+      "n\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001" +
+      "(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.greptim" +
+      "e.v1.region.MitoManifestInfoH\000\022F\n\024metric" +
+      "_manifest_info\030\003 \001(\0132&.greptime.v1.regio" +
+      "n.MetricManifestInfoH\000B\017\n\rmanifest_info2" +
+      "Y\n\006Region\022O\n\006Handle\022!.greptime.v1.region" +
+      ".RegionRequest\032\".greptime.v1.region.Regi" +
+      "onResponseB]\n\025io.greptime.v1.regionB\006Ser" +
+      "verZ<github.com/GreptimeTeam/greptime-pr" +
+      "oto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -29785,7 +29859,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_ArrowIpc_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ArrowIpc_descriptor,
-        new java.lang.String[] { "RegionId", "Schema", "Payload", });
+        new java.lang.String[] { "RegionId", "Schema", "DataHeader", "Payload", });
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
       getDescriptor().getMessageTypes().get(28);
     internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable = new
