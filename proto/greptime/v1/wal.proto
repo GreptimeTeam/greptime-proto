@@ -19,6 +19,7 @@ package greptime.v1;
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
 import "greptime/v1/row.proto";
+import "greptime/v1/common.proto";
 
 // Type of operation to rows.
 enum OpType {
@@ -56,18 +57,19 @@ message WalEntry {
   // List of mutations for a region.
   repeated Mutation mutations = 1;
   // List of bulk insert requests.
-  repeated Bulk bulk_entries = 2;
+  repeated BulkWalEntry bulk_entries = 2;
 }
 
-message Bulk {
-  // Format of bulk entry.
-  Format format = 1;
-  // Start WAL sequence of this mutation.
-  uint64 sequence = 2;
-  // Encoded binary payload.
-  bytes payload = 3;
-}
-
-enum Format {
-  ARROW_IPC = 0;
+message BulkWalEntry {
+  // Start WAL sequence of this entry.
+  uint64 sequence = 1;
+  // Max timestamp value.
+  int64 max_ts = 2;
+  // Min timestamp value.
+  int64 min_ts = 3;
+  // Timestamp column index.
+  uint32 timestamp_index = 4;
+  oneof body {
+    ArrowIpc arrow_ipc = 5;
+  }
 }

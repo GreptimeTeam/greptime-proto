@@ -254,105 +254,6 @@ public final class Wal {
     // @@protoc_insertion_point(enum_scope:greptime.v1.PrimaryKeyEncoding)
   }
 
-  /**
-   * Protobuf enum {@code greptime.v1.Format}
-   */
-  public enum Format
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>ARROW_IPC = 0;</code>
-     */
-    ARROW_IPC(0),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>ARROW_IPC = 0;</code>
-     */
-    public static final int ARROW_IPC_VALUE = 0;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static Format valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static Format forNumber(int value) {
-      switch (value) {
-        case 0: return ARROW_IPC;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<Format>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        Format> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Format>() {
-            public Format findValueByNumber(int number) {
-              return Format.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return greptime.v1.Wal.getDescriptor().getEnumTypes().get(2);
-    }
-
-    private static final Format[] VALUES = values();
-
-    public static Format valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private Format(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:greptime.v1.Format)
-  }
-
   public interface WriteHintOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.WriteHint)
       com.google.protobuf.MessageOrBuilder {
@@ -2129,24 +2030,24 @@ public final class Wal {
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
-    java.util.List<greptime.v1.Wal.Bulk> 
+    java.util.List<greptime.v1.Wal.BulkWalEntry> 
         getBulkEntriesList();
     /**
      * <pre>
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
-    greptime.v1.Wal.Bulk getBulkEntries(int index);
+    greptime.v1.Wal.BulkWalEntry getBulkEntries(int index);
     /**
      * <pre>
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
     int getBulkEntriesCount();
     /**
@@ -2154,18 +2055,18 @@ public final class Wal {
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
-    java.util.List<? extends greptime.v1.Wal.BulkOrBuilder> 
+    java.util.List<? extends greptime.v1.Wal.BulkWalEntryOrBuilder> 
         getBulkEntriesOrBuilderList();
     /**
      * <pre>
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
-    greptime.v1.Wal.BulkOrBuilder getBulkEntriesOrBuilder(
+    greptime.v1.Wal.BulkWalEntryOrBuilder getBulkEntriesOrBuilder(
         int index);
   }
   /**
@@ -2231,11 +2132,11 @@ public final class Wal {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                bulkEntries_ = new java.util.ArrayList<greptime.v1.Wal.Bulk>();
+                bulkEntries_ = new java.util.ArrayList<greptime.v1.Wal.BulkWalEntry>();
                 mutable_bitField0_ |= 0x00000002;
               }
               bulkEntries_.add(
-                  input.readMessage(greptime.v1.Wal.Bulk.parser(), extensionRegistry));
+                  input.readMessage(greptime.v1.Wal.BulkWalEntry.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -2339,16 +2240,16 @@ public final class Wal {
     }
 
     public static final int BULK_ENTRIES_FIELD_NUMBER = 2;
-    private java.util.List<greptime.v1.Wal.Bulk> bulkEntries_;
+    private java.util.List<greptime.v1.Wal.BulkWalEntry> bulkEntries_;
     /**
      * <pre>
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
     @java.lang.Override
-    public java.util.List<greptime.v1.Wal.Bulk> getBulkEntriesList() {
+    public java.util.List<greptime.v1.Wal.BulkWalEntry> getBulkEntriesList() {
       return bulkEntries_;
     }
     /**
@@ -2356,10 +2257,10 @@ public final class Wal {
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends greptime.v1.Wal.BulkOrBuilder> 
+    public java.util.List<? extends greptime.v1.Wal.BulkWalEntryOrBuilder> 
         getBulkEntriesOrBuilderList() {
       return bulkEntries_;
     }
@@ -2368,7 +2269,7 @@ public final class Wal {
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
     @java.lang.Override
     public int getBulkEntriesCount() {
@@ -2379,10 +2280,10 @@ public final class Wal {
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
     @java.lang.Override
-    public greptime.v1.Wal.Bulk getBulkEntries(int index) {
+    public greptime.v1.Wal.BulkWalEntry getBulkEntries(int index) {
       return bulkEntries_.get(index);
     }
     /**
@@ -2390,10 +2291,10 @@ public final class Wal {
      * List of bulk insert requests.
      * </pre>
      *
-     * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+     * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
      */
     @java.lang.Override
-    public greptime.v1.Wal.BulkOrBuilder getBulkEntriesOrBuilder(
+    public greptime.v1.Wal.BulkWalEntryOrBuilder getBulkEntriesOrBuilder(
         int index) {
       return bulkEntries_.get(index);
     }
@@ -3111,26 +3012,26 @@ public final class Wal {
         return mutationsBuilder_;
       }
 
-      private java.util.List<greptime.v1.Wal.Bulk> bulkEntries_ =
+      private java.util.List<greptime.v1.Wal.BulkWalEntry> bulkEntries_ =
         java.util.Collections.emptyList();
       private void ensureBulkEntriesIsMutable() {
         if (!((bitField0_ & 0x00000002) != 0)) {
-          bulkEntries_ = new java.util.ArrayList<greptime.v1.Wal.Bulk>(bulkEntries_);
+          bulkEntries_ = new java.util.ArrayList<greptime.v1.Wal.BulkWalEntry>(bulkEntries_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.Wal.Bulk, greptime.v1.Wal.Bulk.Builder, greptime.v1.Wal.BulkOrBuilder> bulkEntriesBuilder_;
+          greptime.v1.Wal.BulkWalEntry, greptime.v1.Wal.BulkWalEntry.Builder, greptime.v1.Wal.BulkWalEntryOrBuilder> bulkEntriesBuilder_;
 
       /**
        * <pre>
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
-      public java.util.List<greptime.v1.Wal.Bulk> getBulkEntriesList() {
+      public java.util.List<greptime.v1.Wal.BulkWalEntry> getBulkEntriesList() {
         if (bulkEntriesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(bulkEntries_);
         } else {
@@ -3142,7 +3043,7 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
       public int getBulkEntriesCount() {
         if (bulkEntriesBuilder_ == null) {
@@ -3156,9 +3057,9 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
-      public greptime.v1.Wal.Bulk getBulkEntries(int index) {
+      public greptime.v1.Wal.BulkWalEntry getBulkEntries(int index) {
         if (bulkEntriesBuilder_ == null) {
           return bulkEntries_.get(index);
         } else {
@@ -3170,10 +3071,10 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
       public Builder setBulkEntries(
-          int index, greptime.v1.Wal.Bulk value) {
+          int index, greptime.v1.Wal.BulkWalEntry value) {
         if (bulkEntriesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3191,10 +3092,10 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
       public Builder setBulkEntries(
-          int index, greptime.v1.Wal.Bulk.Builder builderForValue) {
+          int index, greptime.v1.Wal.BulkWalEntry.Builder builderForValue) {
         if (bulkEntriesBuilder_ == null) {
           ensureBulkEntriesIsMutable();
           bulkEntries_.set(index, builderForValue.build());
@@ -3209,9 +3110,9 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
-      public Builder addBulkEntries(greptime.v1.Wal.Bulk value) {
+      public Builder addBulkEntries(greptime.v1.Wal.BulkWalEntry value) {
         if (bulkEntriesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3229,10 +3130,10 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
       public Builder addBulkEntries(
-          int index, greptime.v1.Wal.Bulk value) {
+          int index, greptime.v1.Wal.BulkWalEntry value) {
         if (bulkEntriesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3250,10 +3151,10 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
       public Builder addBulkEntries(
-          greptime.v1.Wal.Bulk.Builder builderForValue) {
+          greptime.v1.Wal.BulkWalEntry.Builder builderForValue) {
         if (bulkEntriesBuilder_ == null) {
           ensureBulkEntriesIsMutable();
           bulkEntries_.add(builderForValue.build());
@@ -3268,10 +3169,10 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
       public Builder addBulkEntries(
-          int index, greptime.v1.Wal.Bulk.Builder builderForValue) {
+          int index, greptime.v1.Wal.BulkWalEntry.Builder builderForValue) {
         if (bulkEntriesBuilder_ == null) {
           ensureBulkEntriesIsMutable();
           bulkEntries_.add(index, builderForValue.build());
@@ -3286,10 +3187,10 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
       public Builder addAllBulkEntries(
-          java.lang.Iterable<? extends greptime.v1.Wal.Bulk> values) {
+          java.lang.Iterable<? extends greptime.v1.Wal.BulkWalEntry> values) {
         if (bulkEntriesBuilder_ == null) {
           ensureBulkEntriesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3305,7 +3206,7 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
       public Builder clearBulkEntries() {
         if (bulkEntriesBuilder_ == null) {
@@ -3322,7 +3223,7 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
       public Builder removeBulkEntries(int index) {
         if (bulkEntriesBuilder_ == null) {
@@ -3339,9 +3240,9 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
-      public greptime.v1.Wal.Bulk.Builder getBulkEntriesBuilder(
+      public greptime.v1.Wal.BulkWalEntry.Builder getBulkEntriesBuilder(
           int index) {
         return getBulkEntriesFieldBuilder().getBuilder(index);
       }
@@ -3350,9 +3251,9 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
-      public greptime.v1.Wal.BulkOrBuilder getBulkEntriesOrBuilder(
+      public greptime.v1.Wal.BulkWalEntryOrBuilder getBulkEntriesOrBuilder(
           int index) {
         if (bulkEntriesBuilder_ == null) {
           return bulkEntries_.get(index);  } else {
@@ -3364,9 +3265,9 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
-      public java.util.List<? extends greptime.v1.Wal.BulkOrBuilder> 
+      public java.util.List<? extends greptime.v1.Wal.BulkWalEntryOrBuilder> 
            getBulkEntriesOrBuilderList() {
         if (bulkEntriesBuilder_ != null) {
           return bulkEntriesBuilder_.getMessageOrBuilderList();
@@ -3379,41 +3280,41 @@ public final class Wal {
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
-      public greptime.v1.Wal.Bulk.Builder addBulkEntriesBuilder() {
+      public greptime.v1.Wal.BulkWalEntry.Builder addBulkEntriesBuilder() {
         return getBulkEntriesFieldBuilder().addBuilder(
-            greptime.v1.Wal.Bulk.getDefaultInstance());
+            greptime.v1.Wal.BulkWalEntry.getDefaultInstance());
       }
       /**
        * <pre>
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
-      public greptime.v1.Wal.Bulk.Builder addBulkEntriesBuilder(
+      public greptime.v1.Wal.BulkWalEntry.Builder addBulkEntriesBuilder(
           int index) {
         return getBulkEntriesFieldBuilder().addBuilder(
-            index, greptime.v1.Wal.Bulk.getDefaultInstance());
+            index, greptime.v1.Wal.BulkWalEntry.getDefaultInstance());
       }
       /**
        * <pre>
        * List of bulk insert requests.
        * </pre>
        *
-       * <code>repeated .greptime.v1.Bulk bulk_entries = 2;</code>
+       * <code>repeated .greptime.v1.BulkWalEntry bulk_entries = 2;</code>
        */
-      public java.util.List<greptime.v1.Wal.Bulk.Builder> 
+      public java.util.List<greptime.v1.Wal.BulkWalEntry.Builder> 
            getBulkEntriesBuilderList() {
         return getBulkEntriesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.Wal.Bulk, greptime.v1.Wal.Bulk.Builder, greptime.v1.Wal.BulkOrBuilder> 
+          greptime.v1.Wal.BulkWalEntry, greptime.v1.Wal.BulkWalEntry.Builder, greptime.v1.Wal.BulkWalEntryOrBuilder> 
           getBulkEntriesFieldBuilder() {
         if (bulkEntriesBuilder_ == null) {
           bulkEntriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              greptime.v1.Wal.Bulk, greptime.v1.Wal.Bulk.Builder, greptime.v1.Wal.BulkOrBuilder>(
+              greptime.v1.Wal.BulkWalEntry, greptime.v1.Wal.BulkWalEntry.Builder, greptime.v1.Wal.BulkWalEntryOrBuilder>(
                   bulkEntries_,
                   ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
@@ -3475,71 +3376,87 @@ public final class Wal {
 
   }
 
-  public interface BulkOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.Bulk)
+  public interface BulkWalEntryOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.BulkWalEntry)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
-     * Format of bulk entry.
+     * Start WAL sequence of this entry.
      * </pre>
      *
-     * <code>.greptime.v1.Format format = 1;</code>
-     * @return The enum numeric value on the wire for format.
-     */
-    int getFormatValue();
-    /**
-     * <pre>
-     * Format of bulk entry.
-     * </pre>
-     *
-     * <code>.greptime.v1.Format format = 1;</code>
-     * @return The format.
-     */
-    greptime.v1.Wal.Format getFormat();
-
-    /**
-     * <pre>
-     * Start WAL sequence of this mutation.
-     * </pre>
-     *
-     * <code>uint64 sequence = 2;</code>
+     * <code>uint64 sequence = 1;</code>
      * @return The sequence.
      */
     long getSequence();
 
     /**
      * <pre>
-     * Encoded binary payload.
+     * Max timestamp value.
      * </pre>
      *
-     * <code>bytes payload = 3;</code>
-     * @return The payload.
+     * <code>int64 max_ts = 2;</code>
+     * @return The maxTs.
      */
-    com.google.protobuf.ByteString getPayload();
+    long getMaxTs();
+
+    /**
+     * <pre>
+     * Min timestamp value.
+     * </pre>
+     *
+     * <code>int64 min_ts = 3;</code>
+     * @return The minTs.
+     */
+    long getMinTs();
+
+    /**
+     * <pre>
+     * Timestamp column index.
+     * </pre>
+     *
+     * <code>uint32 timestamp_index = 4;</code>
+     * @return The timestampIndex.
+     */
+    int getTimestampIndex();
+
+    /**
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+     * @return Whether the arrowIpc field is set.
+     */
+    boolean hasArrowIpc();
+    /**
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+     * @return The arrowIpc.
+     */
+    io.greptime.v1.Common.ArrowIpc getArrowIpc();
+    /**
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+     */
+    io.greptime.v1.Common.ArrowIpcOrBuilder getArrowIpcOrBuilder();
+
+    public greptime.v1.Wal.BulkWalEntry.BodyCase getBodyCase();
   }
   /**
-   * Protobuf type {@code greptime.v1.Bulk}
+   * Protobuf type {@code greptime.v1.BulkWalEntry}
    */
-  public static final class Bulk extends
+  public static final class BulkWalEntry extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.Bulk)
-      BulkOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.BulkWalEntry)
+      BulkWalEntryOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Bulk.newBuilder() to construct.
-    private Bulk(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use BulkWalEntry.newBuilder() to construct.
+    private BulkWalEntry(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Bulk() {
-      format_ = 0;
-      payload_ = com.google.protobuf.ByteString.EMPTY;
+    private BulkWalEntry() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new Bulk();
+      return new BulkWalEntry();
     }
 
     @java.lang.Override
@@ -3547,7 +3464,7 @@ public final class Wal {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Bulk(
+    private BulkWalEntry(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3566,19 +3483,37 @@ public final class Wal {
               done = true;
               break;
             case 8: {
-              int rawValue = input.readEnum();
-
-              format_ = rawValue;
-              break;
-            }
-            case 16: {
 
               sequence_ = input.readUInt64();
               break;
             }
-            case 26: {
+            case 16: {
 
-              payload_ = input.readBytes();
+              maxTs_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              minTs_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              timestampIndex_ = input.readUInt32();
+              break;
+            }
+            case 42: {
+              io.greptime.v1.Common.ArrowIpc.Builder subBuilder = null;
+              if (bodyCase_ == 5) {
+                subBuilder = ((io.greptime.v1.Common.ArrowIpc) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(io.greptime.v1.Common.ArrowIpc.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Common.ArrowIpc) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 5;
               break;
             }
             default: {
@@ -3604,52 +3539,64 @@ public final class Wal {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return greptime.v1.Wal.internal_static_greptime_v1_Bulk_descriptor;
+      return greptime.v1.Wal.internal_static_greptime_v1_BulkWalEntry_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return greptime.v1.Wal.internal_static_greptime_v1_Bulk_fieldAccessorTable
+      return greptime.v1.Wal.internal_static_greptime_v1_BulkWalEntry_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              greptime.v1.Wal.Bulk.class, greptime.v1.Wal.Bulk.Builder.class);
+              greptime.v1.Wal.BulkWalEntry.class, greptime.v1.Wal.BulkWalEntry.Builder.class);
     }
 
-    public static final int FORMAT_FIELD_NUMBER = 1;
-    private int format_;
-    /**
-     * <pre>
-     * Format of bulk entry.
-     * </pre>
-     *
-     * <code>.greptime.v1.Format format = 1;</code>
-     * @return The enum numeric value on the wire for format.
-     */
-    @java.lang.Override public int getFormatValue() {
-      return format_;
-    }
-    /**
-     * <pre>
-     * Format of bulk entry.
-     * </pre>
-     *
-     * <code>.greptime.v1.Format format = 1;</code>
-     * @return The format.
-     */
-    @java.lang.Override public greptime.v1.Wal.Format getFormat() {
-      @SuppressWarnings("deprecation")
-      greptime.v1.Wal.Format result = greptime.v1.Wal.Format.valueOf(format_);
-      return result == null ? greptime.v1.Wal.Format.UNRECOGNIZED : result;
+    private int bodyCase_ = 0;
+    private java.lang.Object body_;
+    public enum BodyCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      ARROW_IPC(5),
+      BODY_NOT_SET(0);
+      private final int value;
+      private BodyCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static BodyCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static BodyCase forNumber(int value) {
+        switch (value) {
+          case 5: return ARROW_IPC;
+          case 0: return BODY_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public BodyCase
+    getBodyCase() {
+      return BodyCase.forNumber(
+          bodyCase_);
     }
 
-    public static final int SEQUENCE_FIELD_NUMBER = 2;
+    public static final int SEQUENCE_FIELD_NUMBER = 1;
     private long sequence_;
     /**
      * <pre>
-     * Start WAL sequence of this mutation.
+     * Start WAL sequence of this entry.
      * </pre>
      *
-     * <code>uint64 sequence = 2;</code>
+     * <code>uint64 sequence = 1;</code>
      * @return The sequence.
      */
     @java.lang.Override
@@ -3657,19 +3604,80 @@ public final class Wal {
       return sequence_;
     }
 
-    public static final int PAYLOAD_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString payload_;
+    public static final int MAX_TS_FIELD_NUMBER = 2;
+    private long maxTs_;
     /**
      * <pre>
-     * Encoded binary payload.
+     * Max timestamp value.
      * </pre>
      *
-     * <code>bytes payload = 3;</code>
-     * @return The payload.
+     * <code>int64 max_ts = 2;</code>
+     * @return The maxTs.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getPayload() {
-      return payload_;
+    public long getMaxTs() {
+      return maxTs_;
+    }
+
+    public static final int MIN_TS_FIELD_NUMBER = 3;
+    private long minTs_;
+    /**
+     * <pre>
+     * Min timestamp value.
+     * </pre>
+     *
+     * <code>int64 min_ts = 3;</code>
+     * @return The minTs.
+     */
+    @java.lang.Override
+    public long getMinTs() {
+      return minTs_;
+    }
+
+    public static final int TIMESTAMP_INDEX_FIELD_NUMBER = 4;
+    private int timestampIndex_;
+    /**
+     * <pre>
+     * Timestamp column index.
+     * </pre>
+     *
+     * <code>uint32 timestamp_index = 4;</code>
+     * @return The timestampIndex.
+     */
+    @java.lang.Override
+    public int getTimestampIndex() {
+      return timestampIndex_;
+    }
+
+    public static final int ARROW_IPC_FIELD_NUMBER = 5;
+    /**
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+     * @return Whether the arrowIpc field is set.
+     */
+    @java.lang.Override
+    public boolean hasArrowIpc() {
+      return bodyCase_ == 5;
+    }
+    /**
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+     * @return The arrowIpc.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ArrowIpc getArrowIpc() {
+      if (bodyCase_ == 5) {
+         return (io.greptime.v1.Common.ArrowIpc) body_;
+      }
+      return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ArrowIpcOrBuilder getArrowIpcOrBuilder() {
+      if (bodyCase_ == 5) {
+         return (io.greptime.v1.Common.ArrowIpc) body_;
+      }
+      return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3686,14 +3694,20 @@ public final class Wal {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (format_ != greptime.v1.Wal.Format.ARROW_IPC.getNumber()) {
-        output.writeEnum(1, format_);
-      }
       if (sequence_ != 0L) {
-        output.writeUInt64(2, sequence_);
+        output.writeUInt64(1, sequence_);
       }
-      if (!payload_.isEmpty()) {
-        output.writeBytes(3, payload_);
+      if (maxTs_ != 0L) {
+        output.writeInt64(2, maxTs_);
+      }
+      if (minTs_ != 0L) {
+        output.writeInt64(3, minTs_);
+      }
+      if (timestampIndex_ != 0) {
+        output.writeUInt32(4, timestampIndex_);
+      }
+      if (bodyCase_ == 5) {
+        output.writeMessage(5, (io.greptime.v1.Common.ArrowIpc) body_);
       }
       unknownFields.writeTo(output);
     }
@@ -3704,17 +3718,25 @@ public final class Wal {
       if (size != -1) return size;
 
       size = 0;
-      if (format_ != greptime.v1.Wal.Format.ARROW_IPC.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, format_);
-      }
       if (sequence_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, sequence_);
+          .computeUInt64Size(1, sequence_);
       }
-      if (!payload_.isEmpty()) {
+      if (maxTs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, payload_);
+          .computeInt64Size(2, maxTs_);
+      }
+      if (minTs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, minTs_);
+      }
+      if (timestampIndex_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, timestampIndex_);
+      }
+      if (bodyCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (io.greptime.v1.Common.ArrowIpc) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3726,16 +3748,28 @@ public final class Wal {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof greptime.v1.Wal.Bulk)) {
+      if (!(obj instanceof greptime.v1.Wal.BulkWalEntry)) {
         return super.equals(obj);
       }
-      greptime.v1.Wal.Bulk other = (greptime.v1.Wal.Bulk) obj;
+      greptime.v1.Wal.BulkWalEntry other = (greptime.v1.Wal.BulkWalEntry) obj;
 
-      if (format_ != other.format_) return false;
       if (getSequence()
           != other.getSequence()) return false;
-      if (!getPayload()
-          .equals(other.getPayload())) return false;
+      if (getMaxTs()
+          != other.getMaxTs()) return false;
+      if (getMinTs()
+          != other.getMinTs()) return false;
+      if (getTimestampIndex()
+          != other.getTimestampIndex()) return false;
+      if (!getBodyCase().equals(other.getBodyCase())) return false;
+      switch (bodyCase_) {
+        case 5:
+          if (!getArrowIpc()
+              .equals(other.getArrowIpc())) return false;
+          break;
+        case 0:
+        default:
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3747,81 +3781,93 @@ public final class Wal {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + FORMAT_FIELD_NUMBER;
-      hash = (53 * hash) + format_;
       hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSequence());
-      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
-      hash = (53 * hash) + getPayload().hashCode();
+      hash = (37 * hash) + MAX_TS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMaxTs());
+      hash = (37 * hash) + MIN_TS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMinTs());
+      hash = (37 * hash) + TIMESTAMP_INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getTimestampIndex();
+      switch (bodyCase_) {
+        case 5:
+          hash = (37 * hash) + ARROW_IPC_FIELD_NUMBER;
+          hash = (53 * hash) + getArrowIpc().hashCode();
+          break;
+        case 0:
+        default:
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static greptime.v1.Wal.Bulk parseFrom(
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.Wal.Bulk parseFrom(
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.Wal.Bulk parseFrom(
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.Wal.Bulk parseFrom(
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.Wal.Bulk parseFrom(byte[] data)
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.Wal.Bulk parseFrom(
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.Wal.Bulk parseFrom(java.io.InputStream input)
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.Wal.Bulk parseFrom(
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.Wal.Bulk parseDelimitedFrom(java.io.InputStream input)
+    public static greptime.v1.Wal.BulkWalEntry parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static greptime.v1.Wal.Bulk parseDelimitedFrom(
+    public static greptime.v1.Wal.BulkWalEntry parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.Wal.Bulk parseFrom(
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.Wal.Bulk parseFrom(
+    public static greptime.v1.Wal.BulkWalEntry parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3834,7 +3880,7 @@ public final class Wal {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(greptime.v1.Wal.Bulk prototype) {
+    public static Builder newBuilder(greptime.v1.Wal.BulkWalEntry prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -3850,26 +3896,26 @@ public final class Wal {
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.Bulk}
+     * Protobuf type {@code greptime.v1.BulkWalEntry}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.Bulk)
-        greptime.v1.Wal.BulkOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.BulkWalEntry)
+        greptime.v1.Wal.BulkWalEntryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return greptime.v1.Wal.internal_static_greptime_v1_Bulk_descriptor;
+        return greptime.v1.Wal.internal_static_greptime_v1_BulkWalEntry_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return greptime.v1.Wal.internal_static_greptime_v1_Bulk_fieldAccessorTable
+        return greptime.v1.Wal.internal_static_greptime_v1_BulkWalEntry_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                greptime.v1.Wal.Bulk.class, greptime.v1.Wal.Bulk.Builder.class);
+                greptime.v1.Wal.BulkWalEntry.class, greptime.v1.Wal.BulkWalEntry.Builder.class);
       }
 
-      // Construct using greptime.v1.Wal.Bulk.newBuilder()
+      // Construct using greptime.v1.Wal.BulkWalEntry.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3887,29 +3933,33 @@ public final class Wal {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        format_ = 0;
-
         sequence_ = 0L;
 
-        payload_ = com.google.protobuf.ByteString.EMPTY;
+        maxTs_ = 0L;
 
+        minTs_ = 0L;
+
+        timestampIndex_ = 0;
+
+        bodyCase_ = 0;
+        body_ = null;
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return greptime.v1.Wal.internal_static_greptime_v1_Bulk_descriptor;
+        return greptime.v1.Wal.internal_static_greptime_v1_BulkWalEntry_descriptor;
       }
 
       @java.lang.Override
-      public greptime.v1.Wal.Bulk getDefaultInstanceForType() {
-        return greptime.v1.Wal.Bulk.getDefaultInstance();
+      public greptime.v1.Wal.BulkWalEntry getDefaultInstanceForType() {
+        return greptime.v1.Wal.BulkWalEntry.getDefaultInstance();
       }
 
       @java.lang.Override
-      public greptime.v1.Wal.Bulk build() {
-        greptime.v1.Wal.Bulk result = buildPartial();
+      public greptime.v1.Wal.BulkWalEntry build() {
+        greptime.v1.Wal.BulkWalEntry result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -3917,11 +3967,20 @@ public final class Wal {
       }
 
       @java.lang.Override
-      public greptime.v1.Wal.Bulk buildPartial() {
-        greptime.v1.Wal.Bulk result = new greptime.v1.Wal.Bulk(this);
-        result.format_ = format_;
+      public greptime.v1.Wal.BulkWalEntry buildPartial() {
+        greptime.v1.Wal.BulkWalEntry result = new greptime.v1.Wal.BulkWalEntry(this);
         result.sequence_ = sequence_;
-        result.payload_ = payload_;
+        result.maxTs_ = maxTs_;
+        result.minTs_ = minTs_;
+        result.timestampIndex_ = timestampIndex_;
+        if (bodyCase_ == 5) {
+          if (arrowIpcBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = arrowIpcBuilder_.build();
+          }
+        }
+        result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
       }
@@ -3960,24 +4019,36 @@ public final class Wal {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.Wal.Bulk) {
-          return mergeFrom((greptime.v1.Wal.Bulk)other);
+        if (other instanceof greptime.v1.Wal.BulkWalEntry) {
+          return mergeFrom((greptime.v1.Wal.BulkWalEntry)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(greptime.v1.Wal.Bulk other) {
-        if (other == greptime.v1.Wal.Bulk.getDefaultInstance()) return this;
-        if (other.format_ != 0) {
-          setFormatValue(other.getFormatValue());
-        }
+      public Builder mergeFrom(greptime.v1.Wal.BulkWalEntry other) {
+        if (other == greptime.v1.Wal.BulkWalEntry.getDefaultInstance()) return this;
         if (other.getSequence() != 0L) {
           setSequence(other.getSequence());
         }
-        if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
-          setPayload(other.getPayload());
+        if (other.getMaxTs() != 0L) {
+          setMaxTs(other.getMaxTs());
+        }
+        if (other.getMinTs() != 0L) {
+          setMinTs(other.getMinTs());
+        }
+        if (other.getTimestampIndex() != 0) {
+          setTimestampIndex(other.getTimestampIndex());
+        }
+        switch (other.getBodyCase()) {
+          case ARROW_IPC: {
+            mergeArrowIpc(other.getArrowIpc());
+            break;
+          }
+          case BODY_NOT_SET: {
+            break;
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3994,11 +4065,11 @@ public final class Wal {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        greptime.v1.Wal.Bulk parsedMessage = null;
+        greptime.v1.Wal.BulkWalEntry parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.Wal.Bulk) e.getUnfinishedMessage();
+          parsedMessage = (greptime.v1.Wal.BulkWalEntry) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4007,88 +4078,29 @@ public final class Wal {
         }
         return this;
       }
+      private int bodyCase_ = 0;
+      private java.lang.Object body_;
+      public BodyCase
+          getBodyCase() {
+        return BodyCase.forNumber(
+            bodyCase_);
+      }
 
-      private int format_ = 0;
-      /**
-       * <pre>
-       * Format of bulk entry.
-       * </pre>
-       *
-       * <code>.greptime.v1.Format format = 1;</code>
-       * @return The enum numeric value on the wire for format.
-       */
-      @java.lang.Override public int getFormatValue() {
-        return format_;
-      }
-      /**
-       * <pre>
-       * Format of bulk entry.
-       * </pre>
-       *
-       * <code>.greptime.v1.Format format = 1;</code>
-       * @param value The enum numeric value on the wire for format to set.
-       * @return This builder for chaining.
-       */
-      public Builder setFormatValue(int value) {
-        
-        format_ = value;
+      public Builder clearBody() {
+        bodyCase_ = 0;
+        body_ = null;
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       * Format of bulk entry.
-       * </pre>
-       *
-       * <code>.greptime.v1.Format format = 1;</code>
-       * @return The format.
-       */
-      @java.lang.Override
-      public greptime.v1.Wal.Format getFormat() {
-        @SuppressWarnings("deprecation")
-        greptime.v1.Wal.Format result = greptime.v1.Wal.Format.valueOf(format_);
-        return result == null ? greptime.v1.Wal.Format.UNRECOGNIZED : result;
-      }
-      /**
-       * <pre>
-       * Format of bulk entry.
-       * </pre>
-       *
-       * <code>.greptime.v1.Format format = 1;</code>
-       * @param value The format to set.
-       * @return This builder for chaining.
-       */
-      public Builder setFormat(greptime.v1.Wal.Format value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        format_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Format of bulk entry.
-       * </pre>
-       *
-       * <code>.greptime.v1.Format format = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearFormat() {
-        
-        format_ = 0;
-        onChanged();
-        return this;
-      }
+
 
       private long sequence_ ;
       /**
        * <pre>
-       * Start WAL sequence of this mutation.
+       * Start WAL sequence of this entry.
        * </pre>
        *
-       * <code>uint64 sequence = 2;</code>
+       * <code>uint64 sequence = 1;</code>
        * @return The sequence.
        */
       @java.lang.Override
@@ -4097,10 +4109,10 @@ public final class Wal {
       }
       /**
        * <pre>
-       * Start WAL sequence of this mutation.
+       * Start WAL sequence of this entry.
        * </pre>
        *
-       * <code>uint64 sequence = 2;</code>
+       * <code>uint64 sequence = 1;</code>
        * @param value The sequence to set.
        * @return This builder for chaining.
        */
@@ -4112,10 +4124,10 @@ public final class Wal {
       }
       /**
        * <pre>
-       * Start WAL sequence of this mutation.
+       * Start WAL sequence of this entry.
        * </pre>
        *
-       * <code>uint64 sequence = 2;</code>
+       * <code>uint64 sequence = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
@@ -4125,50 +4137,275 @@ public final class Wal {
         return this;
       }
 
-      private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
+      private long maxTs_ ;
       /**
        * <pre>
-       * Encoded binary payload.
+       * Max timestamp value.
        * </pre>
        *
-       * <code>bytes payload = 3;</code>
-       * @return The payload.
+       * <code>int64 max_ts = 2;</code>
+       * @return The maxTs.
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString getPayload() {
-        return payload_;
+      public long getMaxTs() {
+        return maxTs_;
       }
       /**
        * <pre>
-       * Encoded binary payload.
+       * Max timestamp value.
        * </pre>
        *
-       * <code>bytes payload = 3;</code>
-       * @param value The payload to set.
+       * <code>int64 max_ts = 2;</code>
+       * @param value The maxTs to set.
        * @return This builder for chaining.
        */
-      public Builder setPayload(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        payload_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Encoded binary payload.
-       * </pre>
-       *
-       * <code>bytes payload = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPayload() {
+      public Builder setMaxTs(long value) {
         
-        payload_ = getDefaultInstance().getPayload();
+        maxTs_ = value;
         onChanged();
         return this;
+      }
+      /**
+       * <pre>
+       * Max timestamp value.
+       * </pre>
+       *
+       * <code>int64 max_ts = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaxTs() {
+        
+        maxTs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long minTs_ ;
+      /**
+       * <pre>
+       * Min timestamp value.
+       * </pre>
+       *
+       * <code>int64 min_ts = 3;</code>
+       * @return The minTs.
+       */
+      @java.lang.Override
+      public long getMinTs() {
+        return minTs_;
+      }
+      /**
+       * <pre>
+       * Min timestamp value.
+       * </pre>
+       *
+       * <code>int64 min_ts = 3;</code>
+       * @param value The minTs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMinTs(long value) {
+        
+        minTs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Min timestamp value.
+       * </pre>
+       *
+       * <code>int64 min_ts = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMinTs() {
+        
+        minTs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int timestampIndex_ ;
+      /**
+       * <pre>
+       * Timestamp column index.
+       * </pre>
+       *
+       * <code>uint32 timestamp_index = 4;</code>
+       * @return The timestampIndex.
+       */
+      @java.lang.Override
+      public int getTimestampIndex() {
+        return timestampIndex_;
+      }
+      /**
+       * <pre>
+       * Timestamp column index.
+       * </pre>
+       *
+       * <code>uint32 timestamp_index = 4;</code>
+       * @param value The timestampIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestampIndex(int value) {
+        
+        timestampIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Timestamp column index.
+       * </pre>
+       *
+       * <code>uint32 timestamp_index = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestampIndex() {
+        
+        timestampIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ArrowIpc, io.greptime.v1.Common.ArrowIpc.Builder, io.greptime.v1.Common.ArrowIpcOrBuilder> arrowIpcBuilder_;
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+       * @return Whether the arrowIpc field is set.
+       */
+      @java.lang.Override
+      public boolean hasArrowIpc() {
+        return bodyCase_ == 5;
+      }
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+       * @return The arrowIpc.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.ArrowIpc getArrowIpc() {
+        if (arrowIpcBuilder_ == null) {
+          if (bodyCase_ == 5) {
+            return (io.greptime.v1.Common.ArrowIpc) body_;
+          }
+          return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 5) {
+            return arrowIpcBuilder_.getMessage();
+          }
+          return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+       */
+      public Builder setArrowIpc(io.greptime.v1.Common.ArrowIpc value) {
+        if (arrowIpcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          arrowIpcBuilder_.setMessage(value);
+        }
+        bodyCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+       */
+      public Builder setArrowIpc(
+          io.greptime.v1.Common.ArrowIpc.Builder builderForValue) {
+        if (arrowIpcBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          arrowIpcBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+       */
+      public Builder mergeArrowIpc(io.greptime.v1.Common.ArrowIpc value) {
+        if (arrowIpcBuilder_ == null) {
+          if (bodyCase_ == 5 &&
+              body_ != io.greptime.v1.Common.ArrowIpc.getDefaultInstance()) {
+            body_ = io.greptime.v1.Common.ArrowIpc.newBuilder((io.greptime.v1.Common.ArrowIpc) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 5) {
+            arrowIpcBuilder_.mergeFrom(value);
+          } else {
+            arrowIpcBuilder_.setMessage(value);
+          }
+        }
+        bodyCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+       */
+      public Builder clearArrowIpc() {
+        if (arrowIpcBuilder_ == null) {
+          if (bodyCase_ == 5) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 5) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          arrowIpcBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+       */
+      public io.greptime.v1.Common.ArrowIpc.Builder getArrowIpcBuilder() {
+        return getArrowIpcFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.ArrowIpcOrBuilder getArrowIpcOrBuilder() {
+        if ((bodyCase_ == 5) && (arrowIpcBuilder_ != null)) {
+          return arrowIpcBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 5) {
+            return (io.greptime.v1.Common.ArrowIpc) body_;
+          }
+          return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ArrowIpc, io.greptime.v1.Common.ArrowIpc.Builder, io.greptime.v1.Common.ArrowIpcOrBuilder> 
+          getArrowIpcFieldBuilder() {
+        if (arrowIpcBuilder_ == null) {
+          if (!(bodyCase_ == 5)) {
+            body_ = io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
+          }
+          arrowIpcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.ArrowIpc, io.greptime.v1.Common.ArrowIpc.Builder, io.greptime.v1.Common.ArrowIpcOrBuilder>(
+                  (io.greptime.v1.Common.ArrowIpc) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 5;
+        onChanged();;
+        return arrowIpcBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4183,41 +4420,41 @@ public final class Wal {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.Bulk)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.BulkWalEntry)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.Bulk)
-    private static final greptime.v1.Wal.Bulk DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.BulkWalEntry)
+    private static final greptime.v1.Wal.BulkWalEntry DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new greptime.v1.Wal.Bulk();
+      DEFAULT_INSTANCE = new greptime.v1.Wal.BulkWalEntry();
     }
 
-    public static greptime.v1.Wal.Bulk getDefaultInstance() {
+    public static greptime.v1.Wal.BulkWalEntry getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Bulk>
-        PARSER = new com.google.protobuf.AbstractParser<Bulk>() {
+    private static final com.google.protobuf.Parser<BulkWalEntry>
+        PARSER = new com.google.protobuf.AbstractParser<BulkWalEntry>() {
       @java.lang.Override
-      public Bulk parsePartialFrom(
+      public BulkWalEntry parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Bulk(input, extensionRegistry);
+        return new BulkWalEntry(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Bulk> parser() {
+    public static com.google.protobuf.Parser<BulkWalEntry> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Bulk> getParserForType() {
+    public com.google.protobuf.Parser<BulkWalEntry> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public greptime.v1.Wal.Bulk getDefaultInstanceForType() {
+    public greptime.v1.Wal.BulkWalEntry getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4239,10 +4476,10 @@ public final class Wal {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_WalEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_Bulk_descriptor;
+    internal_static_greptime_v1_BulkWalEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_Bulk_fieldAccessorTable;
+      internal_static_greptime_v1_BulkWalEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4253,26 +4490,29 @@ public final class Wal {
   static {
     java.lang.String[] descriptorData = {
       "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\025gr" +
-      "eptime/v1/row.proto\"J\n\tWriteHint\022=\n\024prim" +
-      "ary_key_encoding\030\001 \001(\0162\037.greptime.v1.Pri" +
-      "maryKeyEncoding\"\217\001\n\010Mutation\022$\n\007op_type\030" +
-      "\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010sequence\030\002" +
-      " \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Rows\022*\n" +
-      "\nwrite_hint\030\004 \001(\0132\026.greptime.v1.WriteHin" +
-      "t\"]\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grept" +
-      "ime.v1.Mutation\022\'\n\014bulk_entries\030\002 \003(\0132\021." +
-      "greptime.v1.Bulk\"N\n\004Bulk\022#\n\006format\030\001 \001(\016" +
-      "2\023.greptime.v1.Format\022\020\n\010sequence\030\002 \001(\004\022" +
-      "\017\n\007payload\030\003 \001(\014*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007" +
-      "\n\003PUT\020\001*+\n\022PrimaryKeyEncoding\022\t\n\005DENSE\020\000" +
-      "\022\n\n\006SPARSE\020\001*\027\n\006Format\022\r\n\tARROW_IPC\020\000B7Z" +
-      "5github.com/GreptimeTeam/greptime-proto/" +
-      "go/greptime/v1b\006proto3"
+      "eptime/v1/row.proto\032\030greptime/v1/common." +
+      "proto\"J\n\tWriteHint\022=\n\024primary_key_encodi" +
+      "ng\030\001 \001(\0162\037.greptime.v1.PrimaryKeyEncodin" +
+      "g\"\217\001\n\010Mutation\022$\n\007op_type\030\001 \001(\0162\023.grepti" +
+      "me.v1.OpType\022\020\n\010sequence\030\002 \001(\004\022\037\n\004rows\030\003" +
+      " \001(\0132\021.greptime.v1.Rows\022*\n\nwrite_hint\030\004 " +
+      "\001(\0132\026.greptime.v1.WriteHint\"e\n\010WalEntry\022" +
+      "(\n\tmutations\030\001 \003(\0132\025.greptime.v1.Mutatio" +
+      "n\022/\n\014bulk_entries\030\002 \003(\0132\031.greptime.v1.Bu" +
+      "lkWalEntry\"\215\001\n\014BulkWalEntry\022\020\n\010sequence\030" +
+      "\001 \001(\004\022\016\n\006max_ts\030\002 \001(\003\022\016\n\006min_ts\030\003 \001(\003\022\027\n" +
+      "\017timestamp_index\030\004 \001(\r\022*\n\tarrow_ipc\030\005 \001(" +
+      "\0132\025.greptime.v1.ArrowIpcH\000B\006\n\004body*\035\n\006Op" +
+      "Type\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001*+\n\022PrimaryKeyE" +
+      "ncoding\022\t\n\005DENSE\020\000\022\n\n\006SPARSE\020\001B7Z5github" +
+      ".com/GreptimeTeam/greptime-proto/go/grep" +
+      "time/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.greptime.v1.RowData.getDescriptor(),
+          io.greptime.v1.Common.getDescriptor(),
         });
     internal_static_greptime_v1_WriteHint_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -4292,13 +4532,14 @@ public final class Wal {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_WalEntry_descriptor,
         new java.lang.String[] { "Mutations", "BulkEntries", });
-    internal_static_greptime_v1_Bulk_descriptor =
+    internal_static_greptime_v1_BulkWalEntry_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_greptime_v1_Bulk_fieldAccessorTable = new
+    internal_static_greptime_v1_BulkWalEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_Bulk_descriptor,
-        new java.lang.String[] { "Format", "Sequence", "Payload", });
+        internal_static_greptime_v1_BulkWalEntry_descriptor,
+        new java.lang.String[] { "Sequence", "MaxTs", "MinTs", "TimestampIndex", "ArrowIpc", "Body", });
     io.greptime.v1.RowData.getDescriptor();
+    io.greptime.v1.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

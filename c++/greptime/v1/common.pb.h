@@ -53,6 +53,9 @@ namespace v1 {
 class AffectedRows;
 struct AffectedRowsDefaultTypeInternal;
 extern AffectedRowsDefaultTypeInternal _AffectedRows_default_instance_;
+class ArrowIpc;
+struct ArrowIpcDefaultTypeInternal;
+extern ArrowIpcDefaultTypeInternal _ArrowIpc_default_instance_;
 class AuthHeader;
 struct AuthHeaderDefaultTypeInternal;
 extern AuthHeaderDefaultTypeInternal _AuthHeader_default_instance_;
@@ -129,6 +132,7 @@ extern VectorTypeExtensionDefaultTypeInternal _VectorTypeExtension_default_insta
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::AffectedRows* Arena::CreateMaybeMessage<::greptime::v1::AffectedRows>(Arena*);
+template<> ::greptime::v1::ArrowIpc* Arena::CreateMaybeMessage<::greptime::v1::ArrowIpc>(Arena*);
 template<> ::greptime::v1::AuthHeader* Arena::CreateMaybeMessage<::greptime::v1::AuthHeader>(Arena*);
 template<> ::greptime::v1::Basic* Arena::CreateMaybeMessage<::greptime::v1::Basic>(Arena*);
 template<> ::greptime::v1::ColumnDataTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::ColumnDataTypeExtension>(Arena*);
@@ -3896,6 +3900,191 @@ class ColumnOptions final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ArrowIpc final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ArrowIpc) */ {
+ public:
+  inline ArrowIpc() : ArrowIpc(nullptr) {}
+  ~ArrowIpc() override;
+  explicit PROTOBUF_CONSTEXPR ArrowIpc(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ArrowIpc(const ArrowIpc& from);
+  ArrowIpc(ArrowIpc&& from) noexcept
+    : ArrowIpc() {
+    *this = ::std::move(from);
+  }
+
+  inline ArrowIpc& operator=(const ArrowIpc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ArrowIpc& operator=(ArrowIpc&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ArrowIpc& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ArrowIpc* internal_default_instance() {
+    return reinterpret_cast<const ArrowIpc*>(
+               &_ArrowIpc_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  friend void swap(ArrowIpc& a, ArrowIpc& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ArrowIpc* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ArrowIpc* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ArrowIpc* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ArrowIpc>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ArrowIpc& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ArrowIpc& from) {
+    ArrowIpc::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ArrowIpc* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.ArrowIpc";
+  }
+  protected:
+  explicit ArrowIpc(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSchemaFieldNumber = 1,
+    kDataHeaderFieldNumber = 2,
+    kPayloadFieldNumber = 3,
+  };
+  // bytes schema = 1;
+  void clear_schema();
+  const std::string& schema() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_schema(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_schema();
+  PROTOBUF_NODISCARD std::string* release_schema();
+  void set_allocated_schema(std::string* schema);
+  private:
+  const std::string& _internal_schema() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema(const std::string& value);
+  std::string* _internal_mutable_schema();
+  public:
+
+  // bytes data_header = 2;
+  void clear_data_header();
+  const std::string& data_header() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_data_header(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_data_header();
+  PROTOBUF_NODISCARD std::string* release_data_header();
+  void set_allocated_data_header(std::string* data_header);
+  private:
+  const std::string& _internal_data_header() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_data_header(const std::string& value);
+  std::string* _internal_mutable_data_header();
+  public:
+
+  // bytes payload = 3;
+  void clear_payload();
+  const std::string& payload() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_payload(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_payload();
+  PROTOBUF_NODISCARD std::string* release_payload();
+  void set_allocated_payload(std::string* payload);
+  private:
+  const std::string& _internal_payload() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_payload(const std::string& value);
+  std::string* _internal_mutable_payload();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.ArrowIpc)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_header_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
 // ===================================================================
 
 
@@ -6040,9 +6229,165 @@ ColumnOptions::mutable_options() {
   return _internal_mutable_options();
 }
 
+// -------------------------------------------------------------------
+
+// ArrowIpc
+
+// bytes schema = 1;
+inline void ArrowIpc::clear_schema() {
+  _impl_.schema_.ClearToEmpty();
+}
+inline const std::string& ArrowIpc::schema() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ArrowIpc.schema)
+  return _internal_schema();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ArrowIpc::set_schema(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.schema_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.ArrowIpc.schema)
+}
+inline std::string* ArrowIpc::mutable_schema() {
+  std::string* _s = _internal_mutable_schema();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ArrowIpc.schema)
+  return _s;
+}
+inline const std::string& ArrowIpc::_internal_schema() const {
+  return _impl_.schema_.Get();
+}
+inline void ArrowIpc::_internal_set_schema(const std::string& value) {
+  
+  _impl_.schema_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ArrowIpc::_internal_mutable_schema() {
+  
+  return _impl_.schema_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ArrowIpc::release_schema() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ArrowIpc.schema)
+  return _impl_.schema_.Release();
+}
+inline void ArrowIpc::set_allocated_schema(std::string* schema) {
+  if (schema != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.schema_.SetAllocated(schema, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.schema_.IsDefault()) {
+    _impl_.schema_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ArrowIpc.schema)
+}
+
+// bytes data_header = 2;
+inline void ArrowIpc::clear_data_header() {
+  _impl_.data_header_.ClearToEmpty();
+}
+inline const std::string& ArrowIpc::data_header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ArrowIpc.data_header)
+  return _internal_data_header();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ArrowIpc::set_data_header(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.data_header_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.ArrowIpc.data_header)
+}
+inline std::string* ArrowIpc::mutable_data_header() {
+  std::string* _s = _internal_mutable_data_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ArrowIpc.data_header)
+  return _s;
+}
+inline const std::string& ArrowIpc::_internal_data_header() const {
+  return _impl_.data_header_.Get();
+}
+inline void ArrowIpc::_internal_set_data_header(const std::string& value) {
+  
+  _impl_.data_header_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ArrowIpc::_internal_mutable_data_header() {
+  
+  return _impl_.data_header_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ArrowIpc::release_data_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ArrowIpc.data_header)
+  return _impl_.data_header_.Release();
+}
+inline void ArrowIpc::set_allocated_data_header(std::string* data_header) {
+  if (data_header != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.data_header_.SetAllocated(data_header, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.data_header_.IsDefault()) {
+    _impl_.data_header_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ArrowIpc.data_header)
+}
+
+// bytes payload = 3;
+inline void ArrowIpc::clear_payload() {
+  _impl_.payload_.ClearToEmpty();
+}
+inline const std::string& ArrowIpc::payload() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ArrowIpc.payload)
+  return _internal_payload();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ArrowIpc::set_payload(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.payload_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.ArrowIpc.payload)
+}
+inline std::string* ArrowIpc::mutable_payload() {
+  std::string* _s = _internal_mutable_payload();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ArrowIpc.payload)
+  return _s;
+}
+inline const std::string& ArrowIpc::_internal_payload() const {
+  return _impl_.payload_.Get();
+}
+inline void ArrowIpc::_internal_set_payload(const std::string& value) {
+  
+  _impl_.payload_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ArrowIpc::_internal_mutable_payload() {
+  
+  return _impl_.payload_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ArrowIpc::release_payload() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ArrowIpc.payload)
+  return _impl_.payload_.Release();
+}
+inline void ArrowIpc::set_allocated_payload(std::string* payload) {
+  if (payload != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.payload_.SetAllocated(payload, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.payload_.IsDefault()) {
+    _impl_.payload_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ArrowIpc.payload)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

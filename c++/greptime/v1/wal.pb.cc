@@ -65,25 +65,28 @@ struct WalEntryDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WalEntryDefaultTypeInternal _WalEntry_default_instance_;
-PROTOBUF_CONSTEXPR Bulk::Bulk(
+PROTOBUF_CONSTEXPR BulkWalEntry::BulkWalEntry(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.payload_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.sequence_)*/uint64_t{0u}
-  , /*decltype(_impl_.format_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct BulkDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR BulkDefaultTypeInternal()
+    /*decltype(_impl_.sequence_)*/uint64_t{0u}
+  , /*decltype(_impl_.max_ts_)*/int64_t{0}
+  , /*decltype(_impl_.min_ts_)*/int64_t{0}
+  , /*decltype(_impl_.timestamp_index_)*/0u
+  , /*decltype(_impl_.body_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
+struct BulkWalEntryDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BulkWalEntryDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~BulkDefaultTypeInternal() {}
+  ~BulkWalEntryDefaultTypeInternal() {}
   union {
-    Bulk _instance;
+    BulkWalEntry _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BulkDefaultTypeInternal _Bulk_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BulkWalEntryDefaultTypeInternal _BulkWalEntry_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fwal_2eproto[4];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fwal_2eproto[3];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fwal_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fwal_2eproto = nullptr;
 
 const uint32_t TableStruct_greptime_2fv1_2fwal_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -113,55 +116,61 @@ const uint32_t TableStruct_greptime_2fv1_2fwal_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::WalEntry, _impl_.mutations_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::WalEntry, _impl_.bulk_entries_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Bulk, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::BulkWalEntry, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::BulkWalEntry, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Bulk, _impl_.format_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Bulk, _impl_.sequence_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Bulk, _impl_.payload_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::BulkWalEntry, _impl_.sequence_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::BulkWalEntry, _impl_.max_ts_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::BulkWalEntry, _impl_.min_ts_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::BulkWalEntry, _impl_.timestamp_index_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::BulkWalEntry, _impl_.body_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::WriteHint)},
   { 7, -1, -1, sizeof(::greptime::v1::Mutation)},
   { 17, -1, -1, sizeof(::greptime::v1::WalEntry)},
-  { 25, -1, -1, sizeof(::greptime::v1::Bulk)},
+  { 25, -1, -1, sizeof(::greptime::v1::BulkWalEntry)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_WriteHint_default_instance_._instance,
   &::greptime::v1::_Mutation_default_instance_._instance,
   &::greptime::v1::_WalEntry_default_instance_._instance,
-  &::greptime::v1::_Bulk_default_instance_._instance,
+  &::greptime::v1::_BulkWalEntry_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fwal_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\025gr"
-  "eptime/v1/row.proto\"J\n\tWriteHint\022=\n\024prim"
-  "ary_key_encoding\030\001 \001(\0162\037.greptime.v1.Pri"
-  "maryKeyEncoding\"\217\001\n\010Mutation\022$\n\007op_type\030"
-  "\001 \001(\0162\023.greptime.v1.OpType\022\020\n\010sequence\030\002"
-  " \001(\004\022\037\n\004rows\030\003 \001(\0132\021.greptime.v1.Rows\022*\n"
-  "\nwrite_hint\030\004 \001(\0132\026.greptime.v1.WriteHin"
-  "t\"]\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grept"
-  "ime.v1.Mutation\022\'\n\014bulk_entries\030\002 \003(\0132\021."
-  "greptime.v1.Bulk\"N\n\004Bulk\022#\n\006format\030\001 \001(\016"
-  "2\023.greptime.v1.Format\022\020\n\010sequence\030\002 \001(\004\022"
-  "\017\n\007payload\030\003 \001(\014*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007"
-  "\n\003PUT\020\001*+\n\022PrimaryKeyEncoding\022\t\n\005DENSE\020\000"
-  "\022\n\n\006SPARSE\020\001*\027\n\006Format\022\r\n\tARROW_IPC\020\000B7Z"
-  "5github.com/GreptimeTeam/greptime-proto/"
-  "go/greptime/v1b\006proto3"
+  "eptime/v1/row.proto\032\030greptime/v1/common."
+  "proto\"J\n\tWriteHint\022=\n\024primary_key_encodi"
+  "ng\030\001 \001(\0162\037.greptime.v1.PrimaryKeyEncodin"
+  "g\"\217\001\n\010Mutation\022$\n\007op_type\030\001 \001(\0162\023.grepti"
+  "me.v1.OpType\022\020\n\010sequence\030\002 \001(\004\022\037\n\004rows\030\003"
+  " \001(\0132\021.greptime.v1.Rows\022*\n\nwrite_hint\030\004 "
+  "\001(\0132\026.greptime.v1.WriteHint\"e\n\010WalEntry\022"
+  "(\n\tmutations\030\001 \003(\0132\025.greptime.v1.Mutatio"
+  "n\022/\n\014bulk_entries\030\002 \003(\0132\031.greptime.v1.Bu"
+  "lkWalEntry\"\215\001\n\014BulkWalEntry\022\020\n\010sequence\030"
+  "\001 \001(\004\022\016\n\006max_ts\030\002 \001(\003\022\016\n\006min_ts\030\003 \001(\003\022\027\n"
+  "\017timestamp_index\030\004 \001(\r\022*\n\tarrow_ipc\030\005 \001("
+  "\0132\025.greptime.v1.ArrowIpcH\000B\006\n\004body*\035\n\006Op"
+  "Type\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001*+\n\022PrimaryKeyE"
+  "ncoding\022\t\n\005DENSE\020\000\022\n\n\006SPARSE\020\001B7Z5github"
+  ".com/GreptimeTeam/greptime-proto/go/grep"
+  "time/v1b\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fwal_2eproto_deps[1] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fwal_2eproto_deps[2] = {
+  &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
   &::descriptor_table_greptime_2fv1_2frow_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fwal_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fwal_2eproto = {
-    false, false, 622, descriptor_table_protodef_greptime_2fv1_2fwal_2eproto,
+    false, false, 695, descriptor_table_protodef_greptime_2fv1_2fwal_2eproto,
     "greptime/v1/wal.proto",
-    &descriptor_table_greptime_2fv1_2fwal_2eproto_once, descriptor_table_greptime_2fv1_2fwal_2eproto_deps, 1, 4,
+    &descriptor_table_greptime_2fv1_2fwal_2eproto_once, descriptor_table_greptime_2fv1_2fwal_2eproto_deps, 2, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fwal_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fwal_2eproto, file_level_enum_descriptors_greptime_2fv1_2fwal_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fwal_2eproto,
@@ -196,19 +205,6 @@ bool PrimaryKeyEncoding_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Format_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fwal_2eproto);
-  return file_level_enum_descriptors_greptime_2fv1_2fwal_2eproto[2];
-}
-bool Format_IsValid(int value) {
-  switch (value) {
-    case 0:
       return true;
     default:
       return false;
@@ -783,7 +779,7 @@ const char* WalEntry::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
         } else
           goto handle_unusual;
         continue;
-      // repeated .greptime.v1.Bulk bulk_entries = 2;
+      // repeated .greptime.v1.BulkWalEntry bulk_entries = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
@@ -833,7 +829,7 @@ uint8_t* WalEntry::_InternalSerialize(
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .greptime.v1.Bulk bulk_entries = 2;
+  // repeated .greptime.v1.BulkWalEntry bulk_entries = 2;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_bulk_entries_size()); i < n; i++) {
     const auto& repfield = this->_internal_bulk_entries(i);
@@ -864,7 +860,7 @@ size_t WalEntry::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .greptime.v1.Bulk bulk_entries = 2;
+  // repeated .greptime.v1.BulkWalEntry bulk_entries = 2;
   total_size += 1UL * this->_internal_bulk_entries_size();
   for (const auto& msg : this->_impl_.bulk_entries_) {
     total_size +=
@@ -920,58 +916,93 @@ void WalEntry::InternalSwap(WalEntry* other) {
 
 // ===================================================================
 
-class Bulk::_Internal {
+class BulkWalEntry::_Internal {
  public:
+  static const ::greptime::v1::ArrowIpc& arrow_ipc(const BulkWalEntry* msg);
 };
 
-Bulk::Bulk(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+const ::greptime::v1::ArrowIpc&
+BulkWalEntry::_Internal::arrow_ipc(const BulkWalEntry* msg) {
+  return *msg->_impl_.body_.arrow_ipc_;
+}
+void BulkWalEntry::set_allocated_arrow_ipc(::greptime::v1::ArrowIpc* arrow_ipc) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_body();
+  if (arrow_ipc) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(arrow_ipc));
+    if (message_arena != submessage_arena) {
+      arrow_ipc = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, arrow_ipc, submessage_arena);
+    }
+    set_has_arrow_ipc();
+    _impl_.body_.arrow_ipc_ = arrow_ipc;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.BulkWalEntry.arrow_ipc)
+}
+void BulkWalEntry::clear_arrow_ipc() {
+  if (_internal_has_arrow_ipc()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.arrow_ipc_;
+    }
+    clear_has_body();
+  }
+}
+BulkWalEntry::BulkWalEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:greptime.v1.Bulk)
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.BulkWalEntry)
 }
-Bulk::Bulk(const Bulk& from)
+BulkWalEntry::BulkWalEntry(const BulkWalEntry& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Bulk* const _this = this; (void)_this;
+  BulkWalEntry* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.payload_){}
-    , decltype(_impl_.sequence_){}
-    , decltype(_impl_.format_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
+      decltype(_impl_.sequence_){}
+    , decltype(_impl_.max_ts_){}
+    , decltype(_impl_.min_ts_){}
+    , decltype(_impl_.timestamp_index_){}
+    , decltype(_impl_.body_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.payload_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.payload_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_payload().empty()) {
-    _this->_impl_.payload_.Set(from._internal_payload(), 
-      _this->GetArenaForAllocation());
-  }
   ::memcpy(&_impl_.sequence_, &from._impl_.sequence_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.format_) -
-    reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.format_));
-  // @@protoc_insertion_point(copy_constructor:greptime.v1.Bulk)
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.timestamp_index_) -
+    reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.timestamp_index_));
+  clear_has_body();
+  switch (from.body_case()) {
+    case kArrowIpc: {
+      _this->_internal_mutable_arrow_ipc()->::greptime::v1::ArrowIpc::MergeFrom(
+          from._internal_arrow_ipc());
+      break;
+    }
+    case BODY_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.BulkWalEntry)
 }
 
-inline void Bulk::SharedCtor(
+inline void BulkWalEntry::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.payload_){}
-    , decltype(_impl_.sequence_){uint64_t{0u}}
-    , decltype(_impl_.format_){0}
+      decltype(_impl_.sequence_){uint64_t{0u}}
+    , decltype(_impl_.max_ts_){int64_t{0}}
+    , decltype(_impl_.min_ts_){int64_t{0}}
+    , decltype(_impl_.timestamp_index_){0u}
+    , decltype(_impl_.body_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
   };
-  _impl_.payload_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.payload_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  clear_has_body();
 }
 
-Bulk::~Bulk() {
-  // @@protoc_insertion_point(destructor:greptime.v1.Bulk)
+BulkWalEntry::~BulkWalEntry() {
+  // @@protoc_insertion_point(destructor:greptime.v1.BulkWalEntry)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -979,56 +1010,89 @@ Bulk::~Bulk() {
   SharedDtor();
 }
 
-inline void Bulk::SharedDtor() {
+inline void BulkWalEntry::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.payload_.Destroy();
+  if (has_body()) {
+    clear_body();
+  }
 }
 
-void Bulk::SetCachedSize(int size) const {
+void BulkWalEntry::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void Bulk::Clear() {
-// @@protoc_insertion_point(message_clear_start:greptime.v1.Bulk)
+void BulkWalEntry::clear_body() {
+// @@protoc_insertion_point(one_of_clear_start:greptime.v1.BulkWalEntry)
+  switch (body_case()) {
+    case kArrowIpc: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.body_.arrow_ipc_;
+      }
+      break;
+    }
+    case BODY_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = BODY_NOT_SET;
+}
+
+
+void BulkWalEntry::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.BulkWalEntry)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.payload_.ClearToEmpty();
   ::memset(&_impl_.sequence_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.format_) -
-      reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.format_));
+      reinterpret_cast<char*>(&_impl_.timestamp_index_) -
+      reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.timestamp_index_));
+  clear_body();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Bulk::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* BulkWalEntry::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .greptime.v1.Format format = 1;
+      // uint64 sequence = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          _internal_set_format(static_cast<::greptime::v1::Format>(val));
-        } else
-          goto handle_unusual;
-        continue;
-      // uint64 sequence = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _impl_.sequence_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes payload = 3;
+      // int64 max_ts = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.max_ts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 min_ts = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_payload();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.min_ts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 timestamp_index = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.timestamp_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.ArrowIpc arrow_ipc = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_arrow_ipc(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1056,124 +1120,159 @@ failure:
 #undef CHK_
 }
 
-uint8_t* Bulk::_InternalSerialize(
+uint8_t* BulkWalEntry::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.Bulk)
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.BulkWalEntry)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .greptime.v1.Format format = 1;
-  if (this->_internal_format() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_format(), target);
-  }
-
-  // uint64 sequence = 2;
+  // uint64 sequence = 1;
   if (this->_internal_sequence() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_sequence(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_sequence(), target);
   }
 
-  // bytes payload = 3;
-  if (!this->_internal_payload().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_payload(), target);
+  // int64 max_ts = 2;
+  if (this->_internal_max_ts() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_max_ts(), target);
+  }
+
+  // int64 min_ts = 3;
+  if (this->_internal_min_ts() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_min_ts(), target);
+  }
+
+  // uint32 timestamp_index = 4;
+  if (this->_internal_timestamp_index() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_timestamp_index(), target);
+  }
+
+  // .greptime.v1.ArrowIpc arrow_ipc = 5;
+  if (_internal_has_arrow_ipc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, _Internal::arrow_ipc(this),
+        _Internal::arrow_ipc(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.Bulk)
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.BulkWalEntry)
   return target;
 }
 
-size_t Bulk::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:greptime.v1.Bulk)
+size_t BulkWalEntry::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.BulkWalEntry)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes payload = 3;
-  if (!this->_internal_payload().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_payload());
-  }
-
-  // uint64 sequence = 2;
+  // uint64 sequence = 1;
   if (this->_internal_sequence() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_sequence());
   }
 
-  // .greptime.v1.Format format = 1;
-  if (this->_internal_format() != 0) {
-    total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_format());
+  // int64 max_ts = 2;
+  if (this->_internal_max_ts() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_max_ts());
   }
 
+  // int64 min_ts = 3;
+  if (this->_internal_min_ts() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_min_ts());
+  }
+
+  // uint32 timestamp_index = 4;
+  if (this->_internal_timestamp_index() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_timestamp_index());
+  }
+
+  switch (body_case()) {
+    // .greptime.v1.ArrowIpc arrow_ipc = 5;
+    case kArrowIpc: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.body_.arrow_ipc_);
+      break;
+    }
+    case BODY_NOT_SET: {
+      break;
+    }
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Bulk::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData BulkWalEntry::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Bulk::MergeImpl
+    BulkWalEntry::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Bulk::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*BulkWalEntry::GetClassData() const { return &_class_data_; }
 
 
-void Bulk::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Bulk*>(&to_msg);
-  auto& from = static_cast<const Bulk&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.Bulk)
+void BulkWalEntry::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<BulkWalEntry*>(&to_msg);
+  auto& from = static_cast<const BulkWalEntry&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.BulkWalEntry)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_payload().empty()) {
-    _this->_internal_set_payload(from._internal_payload());
-  }
   if (from._internal_sequence() != 0) {
     _this->_internal_set_sequence(from._internal_sequence());
   }
-  if (from._internal_format() != 0) {
-    _this->_internal_set_format(from._internal_format());
+  if (from._internal_max_ts() != 0) {
+    _this->_internal_set_max_ts(from._internal_max_ts());
+  }
+  if (from._internal_min_ts() != 0) {
+    _this->_internal_set_min_ts(from._internal_min_ts());
+  }
+  if (from._internal_timestamp_index() != 0) {
+    _this->_internal_set_timestamp_index(from._internal_timestamp_index());
+  }
+  switch (from.body_case()) {
+    case kArrowIpc: {
+      _this->_internal_mutable_arrow_ipc()->::greptime::v1::ArrowIpc::MergeFrom(
+          from._internal_arrow_ipc());
+      break;
+    }
+    case BODY_NOT_SET: {
+      break;
+    }
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void Bulk::CopyFrom(const Bulk& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.Bulk)
+void BulkWalEntry::CopyFrom(const BulkWalEntry& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.BulkWalEntry)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Bulk::IsInitialized() const {
+bool BulkWalEntry::IsInitialized() const {
   return true;
 }
 
-void Bulk::InternalSwap(Bulk* other) {
+void BulkWalEntry::InternalSwap(BulkWalEntry* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.payload_, lhs_arena,
-      &other->_impl_.payload_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Bulk, _impl_.format_)
-      + sizeof(Bulk::_impl_.format_)
-      - PROTOBUF_FIELD_OFFSET(Bulk, _impl_.sequence_)>(
+      PROTOBUF_FIELD_OFFSET(BulkWalEntry, _impl_.timestamp_index_)
+      + sizeof(BulkWalEntry::_impl_.timestamp_index_)
+      - PROTOBUF_FIELD_OFFSET(BulkWalEntry, _impl_.sequence_)>(
           reinterpret_cast<char*>(&_impl_.sequence_),
           reinterpret_cast<char*>(&other->_impl_.sequence_));
+  swap(_impl_.body_, other->_impl_.body_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Bulk::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata BulkWalEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fwal_2eproto_getter, &descriptor_table_greptime_2fv1_2fwal_2eproto_once,
       file_level_metadata_greptime_2fv1_2fwal_2eproto[3]);
@@ -1195,9 +1294,9 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::WalEntry*
 Arena::CreateMaybeMessage< ::greptime::v1::WalEntry >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::WalEntry >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::Bulk*
-Arena::CreateMaybeMessage< ::greptime::v1::Bulk >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::Bulk >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::BulkWalEntry*
+Arena::CreateMaybeMessage< ::greptime::v1::BulkWalEntry >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::BulkWalEntry >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
