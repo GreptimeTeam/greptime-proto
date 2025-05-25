@@ -792,10 +792,11 @@ class Bulk final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPayloadFieldNumber = 2,
+    kPayloadFieldNumber = 3,
+    kSequenceFieldNumber = 2,
     kFormatFieldNumber = 1,
   };
-  // bytes payload = 2;
+  // bytes payload = 3;
   void clear_payload();
   const std::string& payload() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -807,6 +808,15 @@ class Bulk final :
   const std::string& _internal_payload() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_payload(const std::string& value);
   std::string* _internal_mutable_payload();
+  public:
+
+  // uint64 sequence = 2;
+  void clear_sequence();
+  uint64_t sequence() const;
+  void set_sequence(uint64_t value);
+  private:
+  uint64_t _internal_sequence() const;
+  void _internal_set_sequence(uint64_t value);
   public:
 
   // .greptime.v1.Format format = 1;
@@ -827,6 +837,7 @@ class Bulk final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
+    uint64_t sequence_;
     int format_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1191,7 +1202,27 @@ inline void Bulk::set_format(::greptime::v1::Format value) {
   // @@protoc_insertion_point(field_set:greptime.v1.Bulk.format)
 }
 
-// bytes payload = 2;
+// uint64 sequence = 2;
+inline void Bulk::clear_sequence() {
+  _impl_.sequence_ = uint64_t{0u};
+}
+inline uint64_t Bulk::_internal_sequence() const {
+  return _impl_.sequence_;
+}
+inline uint64_t Bulk::sequence() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Bulk.sequence)
+  return _internal_sequence();
+}
+inline void Bulk::_internal_set_sequence(uint64_t value) {
+  
+  _impl_.sequence_ = value;
+}
+inline void Bulk::set_sequence(uint64_t value) {
+  _internal_set_sequence(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Bulk.sequence)
+}
+
+// bytes payload = 3;
 inline void Bulk::clear_payload() {
   _impl_.payload_.ClearToEmpty();
 }

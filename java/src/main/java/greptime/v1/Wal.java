@@ -3500,10 +3500,20 @@ public final class Wal {
 
     /**
      * <pre>
+     * Start WAL sequence of this mutation.
+     * </pre>
+     *
+     * <code>uint64 sequence = 2;</code>
+     * @return The sequence.
+     */
+    long getSequence();
+
+    /**
+     * <pre>
      * Encoded binary payload.
      * </pre>
      *
-     * <code>bytes payload = 2;</code>
+     * <code>bytes payload = 3;</code>
      * @return The payload.
      */
     com.google.protobuf.ByteString getPayload();
@@ -3561,7 +3571,12 @@ public final class Wal {
               format_ = rawValue;
               break;
             }
-            case 18: {
+            case 16: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            case 26: {
 
               payload_ = input.readBytes();
               break;
@@ -3627,14 +3642,29 @@ public final class Wal {
       return result == null ? greptime.v1.Wal.Format.UNRECOGNIZED : result;
     }
 
-    public static final int PAYLOAD_FIELD_NUMBER = 2;
+    public static final int SEQUENCE_FIELD_NUMBER = 2;
+    private long sequence_;
+    /**
+     * <pre>
+     * Start WAL sequence of this mutation.
+     * </pre>
+     *
+     * <code>uint64 sequence = 2;</code>
+     * @return The sequence.
+     */
+    @java.lang.Override
+    public long getSequence() {
+      return sequence_;
+    }
+
+    public static final int PAYLOAD_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString payload_;
     /**
      * <pre>
      * Encoded binary payload.
      * </pre>
      *
-     * <code>bytes payload = 2;</code>
+     * <code>bytes payload = 3;</code>
      * @return The payload.
      */
     @java.lang.Override
@@ -3659,8 +3689,11 @@ public final class Wal {
       if (format_ != greptime.v1.Wal.Format.ARROW_IPC.getNumber()) {
         output.writeEnum(1, format_);
       }
+      if (sequence_ != 0L) {
+        output.writeUInt64(2, sequence_);
+      }
       if (!payload_.isEmpty()) {
-        output.writeBytes(2, payload_);
+        output.writeBytes(3, payload_);
       }
       unknownFields.writeTo(output);
     }
@@ -3675,9 +3708,13 @@ public final class Wal {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, format_);
       }
+      if (sequence_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, sequence_);
+      }
       if (!payload_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, payload_);
+          .computeBytesSize(3, payload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3695,6 +3732,8 @@ public final class Wal {
       greptime.v1.Wal.Bulk other = (greptime.v1.Wal.Bulk) obj;
 
       if (format_ != other.format_) return false;
+      if (getSequence()
+          != other.getSequence()) return false;
       if (!getPayload()
           .equals(other.getPayload())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -3710,6 +3749,9 @@ public final class Wal {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FORMAT_FIELD_NUMBER;
       hash = (53 * hash) + format_;
+      hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSequence());
       hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
       hash = (53 * hash) + getPayload().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -3847,6 +3889,8 @@ public final class Wal {
         super.clear();
         format_ = 0;
 
+        sequence_ = 0L;
+
         payload_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
@@ -3876,6 +3920,7 @@ public final class Wal {
       public greptime.v1.Wal.Bulk buildPartial() {
         greptime.v1.Wal.Bulk result = new greptime.v1.Wal.Bulk(this);
         result.format_ = format_;
+        result.sequence_ = sequence_;
         result.payload_ = payload_;
         onBuilt();
         return result;
@@ -3927,6 +3972,9 @@ public final class Wal {
         if (other == greptime.v1.Wal.Bulk.getDefaultInstance()) return this;
         if (other.format_ != 0) {
           setFormatValue(other.getFormatValue());
+        }
+        if (other.getSequence() != 0L) {
+          setSequence(other.getSequence());
         }
         if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
           setPayload(other.getPayload());
@@ -4034,13 +4082,56 @@ public final class Wal {
         return this;
       }
 
+      private long sequence_ ;
+      /**
+       * <pre>
+       * Start WAL sequence of this mutation.
+       * </pre>
+       *
+       * <code>uint64 sequence = 2;</code>
+       * @return The sequence.
+       */
+      @java.lang.Override
+      public long getSequence() {
+        return sequence_;
+      }
+      /**
+       * <pre>
+       * Start WAL sequence of this mutation.
+       * </pre>
+       *
+       * <code>uint64 sequence = 2;</code>
+       * @param value The sequence to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSequence(long value) {
+        
+        sequence_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Start WAL sequence of this mutation.
+       * </pre>
+       *
+       * <code>uint64 sequence = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSequence() {
+        
+        sequence_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        * Encoded binary payload.
        * </pre>
        *
-       * <code>bytes payload = 2;</code>
+       * <code>bytes payload = 3;</code>
        * @return The payload.
        */
       @java.lang.Override
@@ -4052,7 +4143,7 @@ public final class Wal {
        * Encoded binary payload.
        * </pre>
        *
-       * <code>bytes payload = 2;</code>
+       * <code>bytes payload = 3;</code>
        * @param value The payload to set.
        * @return This builder for chaining.
        */
@@ -4070,7 +4161,7 @@ public final class Wal {
        * Encoded binary payload.
        * </pre>
        *
-       * <code>bytes payload = 2;</code>
+       * <code>bytes payload = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPayload() {
@@ -4170,13 +4261,13 @@ public final class Wal {
       "\nwrite_hint\030\004 \001(\0132\026.greptime.v1.WriteHin" +
       "t\"]\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grept" +
       "ime.v1.Mutation\022\'\n\014bulk_entries\030\002 \003(\0132\021." +
-      "greptime.v1.Bulk\"<\n\004Bulk\022#\n\006format\030\001 \001(\016" +
-      "2\023.greptime.v1.Format\022\017\n\007payload\030\002 \001(\014*\035" +
-      "\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001*+\n\022Primary" +
-      "KeyEncoding\022\t\n\005DENSE\020\000\022\n\n\006SPARSE\020\001*\027\n\006Fo" +
-      "rmat\022\r\n\tARROW_IPC\020\000B7Z5github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
-      "oto3"
+      "greptime.v1.Bulk\"N\n\004Bulk\022#\n\006format\030\001 \001(\016" +
+      "2\023.greptime.v1.Format\022\020\n\010sequence\030\002 \001(\004\022" +
+      "\017\n\007payload\030\003 \001(\014*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007" +
+      "\n\003PUT\020\001*+\n\022PrimaryKeyEncoding\022\t\n\005DENSE\020\000" +
+      "\022\n\n\006SPARSE\020\001*\027\n\006Format\022\r\n\tARROW_IPC\020\000B7Z" +
+      "5github.com/GreptimeTeam/greptime-proto/" +
+      "go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4206,7 +4297,7 @@ public final class Wal {
     internal_static_greptime_v1_Bulk_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Bulk_descriptor,
-        new java.lang.String[] { "Format", "Payload", });
+        new java.lang.String[] { "Format", "Sequence", "Payload", });
     io.greptime.v1.RowData.getDescriptor();
   }
 

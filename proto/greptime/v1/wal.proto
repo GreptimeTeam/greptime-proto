@@ -62,8 +62,10 @@ message WalEntry {
 message Bulk {
   // Format of bulk entry.
   Format format = 1;
+  // Start WAL sequence of this mutation.
+  uint64 sequence = 2;
   // Encoded binary payload.
-  bytes payload = 2;
+  bytes payload = 3;
 }
 
 enum Format {

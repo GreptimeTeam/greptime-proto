@@ -68,6 +68,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR Bulk::Bulk(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.payload_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.sequence_)*/uint64_t{0u}
   , /*decltype(_impl_.format_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct BulkDefaultTypeInternal {
@@ -118,6 +119,7 @@ const uint32_t TableStruct_greptime_2fv1_2fwal_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Bulk, _impl_.format_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Bulk, _impl_.sequence_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Bulk, _impl_.payload_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -144,20 +146,20 @@ const char descriptor_table_protodef_greptime_2fv1_2fwal_2eproto[] PROTOBUF_SECT
   "\nwrite_hint\030\004 \001(\0132\026.greptime.v1.WriteHin"
   "t\"]\n\010WalEntry\022(\n\tmutations\030\001 \003(\0132\025.grept"
   "ime.v1.Mutation\022\'\n\014bulk_entries\030\002 \003(\0132\021."
-  "greptime.v1.Bulk\"<\n\004Bulk\022#\n\006format\030\001 \001(\016"
-  "2\023.greptime.v1.Format\022\017\n\007payload\030\002 \001(\014*\035"
-  "\n\006OpType\022\n\n\006DELETE\020\000\022\007\n\003PUT\020\001*+\n\022Primary"
-  "KeyEncoding\022\t\n\005DENSE\020\000\022\n\n\006SPARSE\020\001*\027\n\006Fo"
-  "rmat\022\r\n\tARROW_IPC\020\000B7Z5github.com/Grepti"
-  "meTeam/greptime-proto/go/greptime/v1b\006pr"
-  "oto3"
+  "greptime.v1.Bulk\"N\n\004Bulk\022#\n\006format\030\001 \001(\016"
+  "2\023.greptime.v1.Format\022\020\n\010sequence\030\002 \001(\004\022"
+  "\017\n\007payload\030\003 \001(\014*\035\n\006OpType\022\n\n\006DELETE\020\000\022\007"
+  "\n\003PUT\020\001*+\n\022PrimaryKeyEncoding\022\t\n\005DENSE\020\000"
+  "\022\n\n\006SPARSE\020\001*\027\n\006Format\022\r\n\tARROW_IPC\020\000B7Z"
+  "5github.com/GreptimeTeam/greptime-proto/"
+  "go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fwal_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2frow_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fwal_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fwal_2eproto = {
-    false, false, 604, descriptor_table_protodef_greptime_2fv1_2fwal_2eproto,
+    false, false, 622, descriptor_table_protodef_greptime_2fv1_2fwal_2eproto,
     "greptime/v1/wal.proto",
     &descriptor_table_greptime_2fv1_2fwal_2eproto_once, descriptor_table_greptime_2fv1_2fwal_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fwal_2eproto::offsets,
@@ -933,6 +935,7 @@ Bulk::Bulk(const Bulk& from)
   Bulk* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.payload_){}
+    , decltype(_impl_.sequence_){}
     , decltype(_impl_.format_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -945,7 +948,9 @@ Bulk::Bulk(const Bulk& from)
     _this->_impl_.payload_.Set(from._internal_payload(), 
       _this->GetArenaForAllocation());
   }
-  _this->_impl_.format_ = from._impl_.format_;
+  ::memcpy(&_impl_.sequence_, &from._impl_.sequence_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.format_) -
+    reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.format_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.Bulk)
 }
 
@@ -955,6 +960,7 @@ inline void Bulk::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.payload_){}
+    , decltype(_impl_.sequence_){uint64_t{0u}}
     , decltype(_impl_.format_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -989,7 +995,9 @@ void Bulk::Clear() {
   (void) cached_has_bits;
 
   _impl_.payload_.ClearToEmpty();
-  _impl_.format_ = 0;
+  ::memset(&_impl_.sequence_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.format_) -
+      reinterpret_cast<char*>(&_impl_.sequence_)) + sizeof(_impl_.format_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1008,9 +1016,17 @@ const char* Bulk::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // bytes payload = 2;
+      // uint64 sequence = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.sequence_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes payload = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_payload();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -1053,10 +1069,16 @@ uint8_t* Bulk::_InternalSerialize(
       1, this->_internal_format(), target);
   }
 
-  // bytes payload = 2;
+  // uint64 sequence = 2;
+  if (this->_internal_sequence() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_sequence(), target);
+  }
+
+  // bytes payload = 3;
   if (!this->_internal_payload().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_payload(), target);
+        3, this->_internal_payload(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1075,11 +1097,16 @@ size_t Bulk::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes payload = 2;
+  // bytes payload = 3;
   if (!this->_internal_payload().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_payload());
+  }
+
+  // uint64 sequence = 2;
+  if (this->_internal_sequence() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_sequence());
   }
 
   // .greptime.v1.Format format = 1;
@@ -1109,6 +1136,9 @@ void Bulk::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_
   if (!from._internal_payload().empty()) {
     _this->_internal_set_payload(from._internal_payload());
   }
+  if (from._internal_sequence() != 0) {
+    _this->_internal_set_sequence(from._internal_sequence());
+  }
   if (from._internal_format() != 0) {
     _this->_internal_set_format(from._internal_format());
   }
@@ -1135,7 +1165,12 @@ void Bulk::InternalSwap(Bulk* other) {
       &_impl_.payload_, lhs_arena,
       &other->_impl_.payload_, rhs_arena
   );
-  swap(_impl_.format_, other->_impl_.format_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Bulk, _impl_.format_)
+      + sizeof(Bulk::_impl_.format_)
+      - PROTOBUF_FIELD_OFFSET(Bulk, _impl_.sequence_)>(
+          reinterpret_cast<char*>(&_impl_.sequence_),
+          reinterpret_cast<char*>(&other->_impl_.sequence_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Bulk::GetMetadata() const {
