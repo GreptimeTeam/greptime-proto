@@ -196,3 +196,9 @@ message ColumnOptions {
   //      "fulltext": "{\"enable\": true, \"analyzer\": \"English\", \"case-sensitive\": false}"
   map<string, string> options = 1;
 }
+
+message ArrowIpc {
+  bytes schema = 1;
+  bytes data_header = 2;
+  bytes payload = 3;
+}

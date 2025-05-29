@@ -25831,19 +25831,25 @@ java.lang.String defaultValue);
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    long getRegionId();
+
+    /**
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
      * @return Whether the arrowIpc field is set.
      */
     boolean hasArrowIpc();
     /**
-     * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
      * @return The arrowIpc.
      */
-    io.greptime.v1.region.Server.ArrowIpc getArrowIpc();
+    io.greptime.v1.Common.ArrowIpc getArrowIpc();
     /**
-     * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
      */
-    io.greptime.v1.region.Server.ArrowIpcOrBuilder getArrowIpcOrBuilder();
+    io.greptime.v1.Common.ArrowIpcOrBuilder getArrowIpcOrBuilder();
 
     public io.greptime.v1.region.Server.BulkInsertRequest.BodyCase getBodyCase();
   }
@@ -25896,18 +25902,23 @@ java.lang.String defaultValue);
             case 0:
               done = true;
               break;
-            case 10: {
-              io.greptime.v1.region.Server.ArrowIpc.Builder subBuilder = null;
-              if (bodyCase_ == 1) {
-                subBuilder = ((io.greptime.v1.region.Server.ArrowIpc) body_).toBuilder();
+            case 8: {
+
+              regionId_ = input.readUInt64();
+              break;
+            }
+            case 18: {
+              io.greptime.v1.Common.ArrowIpc.Builder subBuilder = null;
+              if (bodyCase_ == 2) {
+                subBuilder = ((io.greptime.v1.Common.ArrowIpc) body_).toBuilder();
               }
               body_ =
-                  input.readMessage(io.greptime.v1.region.Server.ArrowIpc.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.Common.ArrowIpc.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.ArrowIpc) body_);
+                subBuilder.mergeFrom((io.greptime.v1.Common.ArrowIpc) body_);
                 body_ = subBuilder.buildPartial();
               }
-              bodyCase_ = 1;
+              bodyCase_ = 2;
               break;
             }
             default: {
@@ -25949,7 +25960,7 @@ java.lang.String defaultValue);
     public enum BodyCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      ARROW_IPC(1),
+      ARROW_IPC(2),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -25967,7 +25978,7 @@ java.lang.String defaultValue);
 
       public static BodyCase forNumber(int value) {
         switch (value) {
-          case 1: return ARROW_IPC;
+          case 2: return ARROW_IPC;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -25983,35 +25994,46 @@ java.lang.String defaultValue);
           bodyCase_);
     }
 
-    public static final int ARROW_IPC_FIELD_NUMBER = 1;
+    public static final int REGION_ID_FIELD_NUMBER = 1;
+    private long regionId_;
     /**
-     * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    @java.lang.Override
+    public long getRegionId() {
+      return regionId_;
+    }
+
+    public static final int ARROW_IPC_FIELD_NUMBER = 2;
+    /**
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
      * @return Whether the arrowIpc field is set.
      */
     @java.lang.Override
     public boolean hasArrowIpc() {
-      return bodyCase_ == 1;
+      return bodyCase_ == 2;
     }
     /**
-     * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
      * @return The arrowIpc.
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.ArrowIpc getArrowIpc() {
-      if (bodyCase_ == 1) {
-         return (io.greptime.v1.region.Server.ArrowIpc) body_;
+    public io.greptime.v1.Common.ArrowIpc getArrowIpc() {
+      if (bodyCase_ == 2) {
+         return (io.greptime.v1.Common.ArrowIpc) body_;
       }
-      return io.greptime.v1.region.Server.ArrowIpc.getDefaultInstance();
+      return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+     * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.ArrowIpcOrBuilder getArrowIpcOrBuilder() {
-      if (bodyCase_ == 1) {
-         return (io.greptime.v1.region.Server.ArrowIpc) body_;
+    public io.greptime.v1.Common.ArrowIpcOrBuilder getArrowIpcOrBuilder() {
+      if (bodyCase_ == 2) {
+         return (io.greptime.v1.Common.ArrowIpc) body_;
       }
-      return io.greptime.v1.region.Server.ArrowIpc.getDefaultInstance();
+      return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -26028,8 +26050,11 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (bodyCase_ == 1) {
-        output.writeMessage(1, (io.greptime.v1.region.Server.ArrowIpc) body_);
+      if (regionId_ != 0L) {
+        output.writeUInt64(1, regionId_);
+      }
+      if (bodyCase_ == 2) {
+        output.writeMessage(2, (io.greptime.v1.Common.ArrowIpc) body_);
       }
       unknownFields.writeTo(output);
     }
@@ -26040,9 +26065,13 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (bodyCase_ == 1) {
+      if (regionId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, (io.greptime.v1.region.Server.ArrowIpc) body_);
+          .computeUInt64Size(1, regionId_);
+      }
+      if (bodyCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (io.greptime.v1.Common.ArrowIpc) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -26059,9 +26088,11 @@ java.lang.String defaultValue);
       }
       io.greptime.v1.region.Server.BulkInsertRequest other = (io.greptime.v1.region.Server.BulkInsertRequest) obj;
 
+      if (getRegionId()
+          != other.getRegionId()) return false;
       if (!getBodyCase().equals(other.getBodyCase())) return false;
       switch (bodyCase_) {
-        case 1:
+        case 2:
           if (!getArrowIpc()
               .equals(other.getArrowIpc())) return false;
           break;
@@ -26079,8 +26110,11 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegionId());
       switch (bodyCase_) {
-        case 1:
+        case 2:
           hash = (37 * hash) + ARROW_IPC_FIELD_NUMBER;
           hash = (53 * hash) + getArrowIpc().hashCode();
           break;
@@ -26224,6 +26258,8 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        regionId_ = 0L;
+
         bodyCase_ = 0;
         body_ = null;
         return this;
@@ -26252,7 +26288,8 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.region.Server.BulkInsertRequest buildPartial() {
         io.greptime.v1.region.Server.BulkInsertRequest result = new io.greptime.v1.region.Server.BulkInsertRequest(this);
-        if (bodyCase_ == 1) {
+        result.regionId_ = regionId_;
+        if (bodyCase_ == 2) {
           if (arrowIpcBuilder_ == null) {
             result.body_ = body_;
           } else {
@@ -26308,6 +26345,9 @@ java.lang.String defaultValue);
 
       public Builder mergeFrom(io.greptime.v1.region.Server.BulkInsertRequest other) {
         if (other == io.greptime.v1.region.Server.BulkInsertRequest.getDefaultInstance()) return this;
+        if (other.getRegionId() != 0L) {
+          setRegionId(other.getRegionId());
+        }
         switch (other.getBodyCase()) {
           case ARROW_IPC: {
             mergeArrowIpc(other.getArrowIpc());
@@ -26361,38 +26401,69 @@ java.lang.String defaultValue);
       }
 
 
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.ArrowIpc, io.greptime.v1.region.Server.ArrowIpc.Builder, io.greptime.v1.region.Server.ArrowIpcOrBuilder> arrowIpcBuilder_;
+      private long regionId_ ;
       /**
-       * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+       * <code>uint64 region_id = 1;</code>
+       * @return The regionId.
+       */
+      @java.lang.Override
+      public long getRegionId() {
+        return regionId_;
+      }
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @param value The regionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionId(long value) {
+        
+        regionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionId() {
+        
+        regionId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ArrowIpc, io.greptime.v1.Common.ArrowIpc.Builder, io.greptime.v1.Common.ArrowIpcOrBuilder> arrowIpcBuilder_;
+      /**
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
        * @return Whether the arrowIpc field is set.
        */
       @java.lang.Override
       public boolean hasArrowIpc() {
-        return bodyCase_ == 1;
+        return bodyCase_ == 2;
       }
       /**
-       * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
        * @return The arrowIpc.
        */
       @java.lang.Override
-      public io.greptime.v1.region.Server.ArrowIpc getArrowIpc() {
+      public io.greptime.v1.Common.ArrowIpc getArrowIpc() {
         if (arrowIpcBuilder_ == null) {
-          if (bodyCase_ == 1) {
-            return (io.greptime.v1.region.Server.ArrowIpc) body_;
+          if (bodyCase_ == 2) {
+            return (io.greptime.v1.Common.ArrowIpc) body_;
           }
-          return io.greptime.v1.region.Server.ArrowIpc.getDefaultInstance();
+          return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
         } else {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             return arrowIpcBuilder_.getMessage();
           }
-          return io.greptime.v1.region.Server.ArrowIpc.getDefaultInstance();
+          return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
        */
-      public Builder setArrowIpc(io.greptime.v1.region.Server.ArrowIpc value) {
+      public Builder setArrowIpc(io.greptime.v1.Common.ArrowIpc value) {
         if (arrowIpcBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -26402,58 +26473,58 @@ java.lang.String defaultValue);
         } else {
           arrowIpcBuilder_.setMessage(value);
         }
-        bodyCase_ = 1;
+        bodyCase_ = 2;
         return this;
       }
       /**
-       * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
        */
       public Builder setArrowIpc(
-          io.greptime.v1.region.Server.ArrowIpc.Builder builderForValue) {
+          io.greptime.v1.Common.ArrowIpc.Builder builderForValue) {
         if (arrowIpcBuilder_ == null) {
           body_ = builderForValue.build();
           onChanged();
         } else {
           arrowIpcBuilder_.setMessage(builderForValue.build());
         }
-        bodyCase_ = 1;
+        bodyCase_ = 2;
         return this;
       }
       /**
-       * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
        */
-      public Builder mergeArrowIpc(io.greptime.v1.region.Server.ArrowIpc value) {
+      public Builder mergeArrowIpc(io.greptime.v1.Common.ArrowIpc value) {
         if (arrowIpcBuilder_ == null) {
-          if (bodyCase_ == 1 &&
-              body_ != io.greptime.v1.region.Server.ArrowIpc.getDefaultInstance()) {
-            body_ = io.greptime.v1.region.Server.ArrowIpc.newBuilder((io.greptime.v1.region.Server.ArrowIpc) body_)
+          if (bodyCase_ == 2 &&
+              body_ != io.greptime.v1.Common.ArrowIpc.getDefaultInstance()) {
+            body_ = io.greptime.v1.Common.ArrowIpc.newBuilder((io.greptime.v1.Common.ArrowIpc) body_)
                 .mergeFrom(value).buildPartial();
           } else {
             body_ = value;
           }
           onChanged();
         } else {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             arrowIpcBuilder_.mergeFrom(value);
           } else {
             arrowIpcBuilder_.setMessage(value);
           }
         }
-        bodyCase_ = 1;
+        bodyCase_ = 2;
         return this;
       }
       /**
-       * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
        */
       public Builder clearArrowIpc() {
         if (arrowIpcBuilder_ == null) {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             bodyCase_ = 0;
             body_ = null;
             onChanged();
           }
         } else {
-          if (bodyCase_ == 1) {
+          if (bodyCase_ == 2) {
             bodyCase_ = 0;
             body_ = null;
           }
@@ -26462,43 +26533,43 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
        */
-      public io.greptime.v1.region.Server.ArrowIpc.Builder getArrowIpcBuilder() {
+      public io.greptime.v1.Common.ArrowIpc.Builder getArrowIpcBuilder() {
         return getArrowIpcFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.region.Server.ArrowIpcOrBuilder getArrowIpcOrBuilder() {
-        if ((bodyCase_ == 1) && (arrowIpcBuilder_ != null)) {
+      public io.greptime.v1.Common.ArrowIpcOrBuilder getArrowIpcOrBuilder() {
+        if ((bodyCase_ == 2) && (arrowIpcBuilder_ != null)) {
           return arrowIpcBuilder_.getMessageOrBuilder();
         } else {
-          if (bodyCase_ == 1) {
-            return (io.greptime.v1.region.Server.ArrowIpc) body_;
+          if (bodyCase_ == 2) {
+            return (io.greptime.v1.Common.ArrowIpc) body_;
           }
-          return io.greptime.v1.region.Server.ArrowIpc.getDefaultInstance();
+          return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.region.ArrowIpc arrow_ipc = 1;</code>
+       * <code>.greptime.v1.ArrowIpc arrow_ipc = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.ArrowIpc, io.greptime.v1.region.Server.ArrowIpc.Builder, io.greptime.v1.region.Server.ArrowIpcOrBuilder> 
+          io.greptime.v1.Common.ArrowIpc, io.greptime.v1.Common.ArrowIpc.Builder, io.greptime.v1.Common.ArrowIpcOrBuilder> 
           getArrowIpcFieldBuilder() {
         if (arrowIpcBuilder_ == null) {
-          if (!(bodyCase_ == 1)) {
-            body_ = io.greptime.v1.region.Server.ArrowIpc.getDefaultInstance();
+          if (!(bodyCase_ == 2)) {
+            body_ = io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
           }
           arrowIpcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.region.Server.ArrowIpc, io.greptime.v1.region.Server.ArrowIpc.Builder, io.greptime.v1.region.Server.ArrowIpcOrBuilder>(
-                  (io.greptime.v1.region.Server.ArrowIpc) body_,
+              io.greptime.v1.Common.ArrowIpc, io.greptime.v1.Common.ArrowIpc.Builder, io.greptime.v1.Common.ArrowIpcOrBuilder>(
+                  (io.greptime.v1.Common.ArrowIpc) body_,
                   getParentForChildren(),
                   isClean());
           body_ = null;
         }
-        bodyCase_ = 1;
+        bodyCase_ = 2;
         onChanged();;
         return arrowIpcBuilder_;
       }
@@ -26550,719 +26621,6 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.region.Server.BulkInsertRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface ArrowIpcOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.region.ArrowIpc)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>uint64 region_id = 1;</code>
-     * @return The regionId.
-     */
-    long getRegionId();
-
-    /**
-     * <code>bytes schema = 2;</code>
-     * @return The schema.
-     */
-    com.google.protobuf.ByteString getSchema();
-
-    /**
-     * <code>bytes data_header = 3;</code>
-     * @return The dataHeader.
-     */
-    com.google.protobuf.ByteString getDataHeader();
-
-    /**
-     * <code>bytes payload = 4;</code>
-     * @return The payload.
-     */
-    com.google.protobuf.ByteString getPayload();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.region.ArrowIpc}
-   */
-  public static final class ArrowIpc extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.region.ArrowIpc)
-      ArrowIpcOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use ArrowIpc.newBuilder() to construct.
-    private ArrowIpc(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ArrowIpc() {
-      schema_ = com.google.protobuf.ByteString.EMPTY;
-      dataHeader_ = com.google.protobuf.ByteString.EMPTY;
-      payload_ = com.google.protobuf.ByteString.EMPTY;
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ArrowIpc();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ArrowIpc(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              regionId_ = input.readUInt64();
-              break;
-            }
-            case 18: {
-
-              schema_ = input.readBytes();
-              break;
-            }
-            case 26: {
-
-              dataHeader_ = input.readBytes();
-              break;
-            }
-            case 34: {
-
-              payload_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ArrowIpc_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ArrowIpc_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.region.Server.ArrowIpc.class, io.greptime.v1.region.Server.ArrowIpc.Builder.class);
-    }
-
-    public static final int REGION_ID_FIELD_NUMBER = 1;
-    private long regionId_;
-    /**
-     * <code>uint64 region_id = 1;</code>
-     * @return The regionId.
-     */
-    @java.lang.Override
-    public long getRegionId() {
-      return regionId_;
-    }
-
-    public static final int SCHEMA_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString schema_;
-    /**
-     * <code>bytes schema = 2;</code>
-     * @return The schema.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getSchema() {
-      return schema_;
-    }
-
-    public static final int DATA_HEADER_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString dataHeader_;
-    /**
-     * <code>bytes data_header = 3;</code>
-     * @return The dataHeader.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getDataHeader() {
-      return dataHeader_;
-    }
-
-    public static final int PAYLOAD_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString payload_;
-    /**
-     * <code>bytes payload = 4;</code>
-     * @return The payload.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getPayload() {
-      return payload_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (regionId_ != 0L) {
-        output.writeUInt64(1, regionId_);
-      }
-      if (!schema_.isEmpty()) {
-        output.writeBytes(2, schema_);
-      }
-      if (!dataHeader_.isEmpty()) {
-        output.writeBytes(3, dataHeader_);
-      }
-      if (!payload_.isEmpty()) {
-        output.writeBytes(4, payload_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (regionId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, regionId_);
-      }
-      if (!schema_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, schema_);
-      }
-      if (!dataHeader_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, dataHeader_);
-      }
-      if (!payload_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, payload_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.region.Server.ArrowIpc)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.region.Server.ArrowIpc other = (io.greptime.v1.region.Server.ArrowIpc) obj;
-
-      if (getRegionId()
-          != other.getRegionId()) return false;
-      if (!getSchema()
-          .equals(other.getSchema())) return false;
-      if (!getDataHeader()
-          .equals(other.getDataHeader())) return false;
-      if (!getPayload()
-          .equals(other.getPayload())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getRegionId());
-      hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
-      hash = (53 * hash) + getSchema().hashCode();
-      hash = (37 * hash) + DATA_HEADER_FIELD_NUMBER;
-      hash = (53 * hash) + getDataHeader().hashCode();
-      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
-      hash = (53 * hash) + getPayload().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.region.Server.ArrowIpc parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.region.Server.ArrowIpc prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.region.ArrowIpc}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.region.ArrowIpc)
-        io.greptime.v1.region.Server.ArrowIpcOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ArrowIpc_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ArrowIpc_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.region.Server.ArrowIpc.class, io.greptime.v1.region.Server.ArrowIpc.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.region.Server.ArrowIpc.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        regionId_ = 0L;
-
-        schema_ = com.google.protobuf.ByteString.EMPTY;
-
-        dataHeader_ = com.google.protobuf.ByteString.EMPTY;
-
-        payload_ = com.google.protobuf.ByteString.EMPTY;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ArrowIpc_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.region.Server.ArrowIpc getDefaultInstanceForType() {
-        return io.greptime.v1.region.Server.ArrowIpc.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.region.Server.ArrowIpc build() {
-        io.greptime.v1.region.Server.ArrowIpc result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.region.Server.ArrowIpc buildPartial() {
-        io.greptime.v1.region.Server.ArrowIpc result = new io.greptime.v1.region.Server.ArrowIpc(this);
-        result.regionId_ = regionId_;
-        result.schema_ = schema_;
-        result.dataHeader_ = dataHeader_;
-        result.payload_ = payload_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.region.Server.ArrowIpc) {
-          return mergeFrom((io.greptime.v1.region.Server.ArrowIpc)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.region.Server.ArrowIpc other) {
-        if (other == io.greptime.v1.region.Server.ArrowIpc.getDefaultInstance()) return this;
-        if (other.getRegionId() != 0L) {
-          setRegionId(other.getRegionId());
-        }
-        if (other.getSchema() != com.google.protobuf.ByteString.EMPTY) {
-          setSchema(other.getSchema());
-        }
-        if (other.getDataHeader() != com.google.protobuf.ByteString.EMPTY) {
-          setDataHeader(other.getDataHeader());
-        }
-        if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
-          setPayload(other.getPayload());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.region.Server.ArrowIpc parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.region.Server.ArrowIpc) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private long regionId_ ;
-      /**
-       * <code>uint64 region_id = 1;</code>
-       * @return The regionId.
-       */
-      @java.lang.Override
-      public long getRegionId() {
-        return regionId_;
-      }
-      /**
-       * <code>uint64 region_id = 1;</code>
-       * @param value The regionId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegionId(long value) {
-        
-        regionId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint64 region_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRegionId() {
-        
-        regionId_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString schema_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes schema = 2;</code>
-       * @return The schema.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getSchema() {
-        return schema_;
-      }
-      /**
-       * <code>bytes schema = 2;</code>
-       * @param value The schema to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchema(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        schema_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes schema = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSchema() {
-        
-        schema_ = getDefaultInstance().getSchema();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString dataHeader_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes data_header = 3;</code>
-       * @return The dataHeader.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getDataHeader() {
-        return dataHeader_;
-      }
-      /**
-       * <code>bytes data_header = 3;</code>
-       * @param value The dataHeader to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDataHeader(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        dataHeader_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes data_header = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDataHeader() {
-        
-        dataHeader_ = getDefaultInstance().getDataHeader();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes payload = 4;</code>
-       * @return The payload.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getPayload() {
-        return payload_;
-      }
-      /**
-       * <code>bytes payload = 4;</code>
-       * @param value The payload to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPayload(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        payload_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes payload = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPayload() {
-        
-        payload_ = getDefaultInstance().getPayload();
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.region.ArrowIpc)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.region.ArrowIpc)
-    private static final io.greptime.v1.region.Server.ArrowIpc DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.ArrowIpc();
-    }
-
-    public static io.greptime.v1.region.Server.ArrowIpc getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ArrowIpc>
-        PARSER = new com.google.protobuf.AbstractParser<ArrowIpc>() {
-      @java.lang.Override
-      public ArrowIpc parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ArrowIpc(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<ArrowIpc> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ArrowIpc> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.region.Server.ArrowIpc getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -29523,11 +28881,6 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_region_ArrowIpc_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_region_ArrowIpc_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -29642,24 +28995,22 @@ java.lang.String defaultValue);
       "rictWindowH\000B\t\n\007options\"$\n\017TruncateReque" +
       "st\022\021\n\tregion_id\030\001 \001(\004\"P\n\017RegionColumnDef" +
       "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum" +
-      "nDef\022\021\n\tcolumn_id\030\002 \001(\r\"N\n\021BulkInsertReq" +
-      "uest\0221\n\tarrow_ipc\030\001 \001(\0132\034.greptime.v1.re" +
-      "gion.ArrowIpcH\000B\006\n\004body\"S\n\010ArrowIpc\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\022\016\n\006schema\030\002 \001(\014\022\023\n\013data_h" +
-      "eader\030\003 \001(\014\022\017\n\007payload\030\004 \001(\014\"1\n\020MitoMani" +
-      "festInfo\022\035\n\025data_manifest_version\030\001 \001(\004\"" +
-      "V\n\022MetricManifestInfo\022\035\n\025data_manifest_v" +
-      "ersion\030\001 \001(\004\022!\n\031metadata_manifest_versio" +
-      "n\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001" +
-      "(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.greptim" +
-      "e.v1.region.MitoManifestInfoH\000\022F\n\024metric" +
-      "_manifest_info\030\003 \001(\0132&.greptime.v1.regio" +
-      "n.MetricManifestInfoH\000B\017\n\rmanifest_info2" +
-      "Y\n\006Region\022O\n\006Handle\022!.greptime.v1.region" +
-      ".RegionRequest\032\".greptime.v1.region.Regi" +
-      "onResponseB]\n\025io.greptime.v1.regionB\006Ser" +
-      "verZ<github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1/regionb\006proto3"
+      "nDef\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021BulkInsertReq" +
+      "uest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001" +
+      "(\0132\025.greptime.v1.ArrowIpcH\000B\006\n\004body\"1\n\020M" +
+      "itoManifestInfo\022\035\n\025data_manifest_version" +
+      "\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025data_man" +
+      "ifest_version\030\001 \001(\004\022!\n\031metadata_manifest" +
+      "_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion" +
+      "_id\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$." +
+      "greptime.v1.region.MitoManifestInfoH\000\022F\n" +
+      "\024metric_manifest_info\030\003 \001(\0132&.greptime.v" +
+      "1.region.MetricManifestInfoH\000B\017\n\rmanifes" +
+      "t_info2Y\n\006Region\022O\n\006Handle\022!.greptime.v1" +
+      ".region.RegionRequest\032\".greptime.v1.regi" +
+      "on.RegionResponseB]\n\025io.greptime.v1.regi" +
+      "onB\006ServerZ<github.com/GreptimeTeam/grep" +
+      "time-proto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -29853,27 +29204,21 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
-        new java.lang.String[] { "ArrowIpc", "Body", });
-    internal_static_greptime_v1_region_ArrowIpc_descriptor =
-      getDescriptor().getMessageTypes().get(27);
-    internal_static_greptime_v1_region_ArrowIpc_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_region_ArrowIpc_descriptor,
-        new java.lang.String[] { "RegionId", "Schema", "DataHeader", "Payload", });
+        new java.lang.String[] { "RegionId", "ArrowIpc", "Body", });
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MitoManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", });
     internal_static_greptime_v1_region_MetricManifestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_greptime_v1_region_MetricManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MetricManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", "MetadataManifestVersion", });
     internal_static_greptime_v1_region_SyncRequest_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_greptime_v1_region_SyncRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SyncRequest_descriptor,
