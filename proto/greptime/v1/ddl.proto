@@ -286,3 +286,34 @@ message SetDatabaseOptions {
 message UnsetDatabaseOptions {
     repeated string keys = 1;
 }
+
+// The create trigger expression.
+message CreateTriggerExpr {
+    string catalog_name = 1;
+    string trigger_name = 2;
+    bool if_not_exists = 3;
+    // The SQL statement to be executed periodically.
+    string sql = 4;
+    // The channels for sending notifications.
+    repeated NotifyChannel channels = 5;
+    // The user-defined labels.
+    map<string, string> labels = 6;
+    // The user-defined annotations.
+    map<string, string> annotations = 7;
+    // The execution interval for sql query in seconds.
+    uint64 interval = 8;
+}
+
+// The notification channel for trigger.
+message NotifyChannel {
+    string name = 1;
+    oneof channel_type {
+        AlertManagerOptions webhook = 2;
+    }
+}
+
+// The options for AlertManager webhook.
+message AlertManagerOptions {
+    string url = 1;
+    map<string, string> opts = 2;
+}
