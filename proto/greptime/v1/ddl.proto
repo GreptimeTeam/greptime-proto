@@ -308,12 +308,12 @@ message CreateTriggerExpr {
 message NotifyChannel {
     string name = 1;
     oneof channel_type {
-        AlertManagerOptions webhook = 2;
+        WebhookOptions webhook = 2;
     }
 }
 
-// The options for AlertManager webhook.
-message AlertManagerOptions {
+// The options for webhook.
+message WebhookOptions {
     string url = 1;
     map<string, string> opts = 2;
 }
