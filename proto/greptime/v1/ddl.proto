@@ -291,7 +291,7 @@ message UnsetDatabaseOptions {
 message CreateTriggerExpr {
     string catalog_name = 1;
     string trigger_name = 2;
-    bool if_not_exists = 3;
+    bool create_if_not_exists = 3;
     // The SQL statement to be executed periodically.
     string sql = 4;
     // The channels for sending notifications.
